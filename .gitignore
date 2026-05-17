@@ -1,0 +1,9 @@
+node_modules/
+pipeline/downloads/
+pipeline/pages-cache/
+*.log
+.DS_Store
+.vscode/
+.idea/
+_smoke.mjs
+_*.mjs
