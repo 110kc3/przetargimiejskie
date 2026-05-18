@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ZGM auction history</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>Currently active</h1>
+    <button id="refresh" type="button">Refresh data</button>
+  </header>
+  <p id="status" class="muted">Loading…</p>
+  <table id="active-table" hidden>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Kind</th>
+        <th>Auction</th>
+        <th>Ask</th>
+        <th>Prior</th>
+        <th>Last unsold</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <footer>
+    <span id="meta" class="muted"></span>
+    <a target="_blank" rel="noopener" href="https://github.com/110kc3/zgm-gliwice">repo</a>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

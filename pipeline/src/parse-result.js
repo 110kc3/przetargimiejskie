@@ -81,7 +81,12 @@ const PRICE_LINE_FINAL =
 const ROUND_RE = /\b(I{1,3}|IV|V|VI|VII|VIII|IX|X)\s+ustny\s+przetarg/i;
 
 const ADDR_FROM_SOLD =
-  /przy\s+ul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\- ]+?\s+\d+[A-Za-z]?(?:\s*[\/\\]\s*\d+[A-Za-z]?)?)/;
+  /przy\s+(?:u[lł]|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\-,;:j ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*[\/\\]\s*[\dA-Za-z]+)?)/;
+// Sold-section garage variant: "garażu nr N ... w rejonie ul. STREET wraz ..."
+// These "rejon" garages have no building number — we synthesize bldg = "rejon"
+// and apt = "garaz-N" so the join key is stable.
+const ADDR_FROM_SOLD_GARAGE =
+  /gara[żz]u\s+nr\s+(\d+)[^.]*?w\s+rejonie\s+(?:ul|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\- ]+?)(?=\s+wraz|\s+oraz|,)/i;
 
 const PARA_SPLIT_SOLD =
   /\n(?=\s*(?:w\s+dniu|o\s+godz\.?|w\s+dniu\.?)\s+)/i;
@@ -103,8 +108,23 @@ function parseSoldSection(sold, auctionDate, sourcePdf) {
     if (!/odby[łl]\s+si[ęe]/.test(para)) continue;
     const kind = classifyKind(para);
     const addrM = ADDR_FROM_SOLD.exec(para);
-    const addressRaw = addrM ? addrM[1].trim().replace(/\s+/g, ' ') : '';
-    const address = addressRaw ? parseAddress(addressRaw) : null;
+    let addressRaw = addrM ? addrM[1].trim().replace(/\s+/g, ' ') : '';
+    let address = addressRaw ? parseAddress(addressRaw) : null;
+    if (!address) {
+      const gm = ADDR_FROM_SOLD_GARAGE.exec(para);
+      if (gm) {
+        addressRaw = `${gm[2].trim()} rejon garaż nr ${gm[1]}`;
+        address = parseAddress(`${gm[2].trim()} 0 garaż nr ${gm[1]}`);
+      }
+    }
+    if (!address) {
+      // "garażu nr N ... zlokalizowanej w Gliwicach przy al./ul. STREET BLDG" form
+      const gm2 = /gara[żz]u\s+nr\s+(\d+)[\s\S]+?zlokalizowan\w+\s+w\s+Gliwicach\s+przy\s+(?:ul|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\- ]+?\s+\d+[A-Za-z]?)/i.exec(para);
+      if (gm2) {
+        addressRaw = `${gm2[2].trim()} garaż nr ${gm2[1]}`;
+        address = parseAddress(`${gm2[2].trim()} garaż nr ${gm2[1]}`);
+      }
+    }
     const startM = PRICE_LINE_START.exec(para);
     const finalM = PRICE_LINE_FINAL.exec(para);
     const startingPrice = startM ? parsePLN(startM[1].trim()) : null;

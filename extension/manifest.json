@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ZGM Gliwice — auction history",
+  "short_name": "ZGM history",
+  "version": "0.1.0",
+  "description": "Surfaces prior auction listings, prices, and outcomes for properties on zgm-gliwice.pl. Data pulled from github.com/110kc3/zgm-gliwice.",
+  "author": "110kc3",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://zgm-gliwice.pl/*",
+    "https://raw.githubusercontent.com/110kc3/zgm-gliwice/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "ZGM auction history",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://zgm-gliwice.pl/*"],
+      "js": ["normalize.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": []
+}

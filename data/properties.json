@@ -431,6 +431,25 @@
       ]
     },
     {
+      "key": "kozielska|13|garaz-1",
+      "street": "Kozielska",
+      "street_norm": "kozielska",
+      "building": "13",
+      "apt": "garaz-1",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-06-29",
+          "round": null,
+          "kind": "garaz",
+          "starting_price_pln": 44820,
+          "outcome": "active",
+          "area_m2": 16.92,
+          "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/"
+        }
+      ]
+    },
+    {
       "key": "zygmunta starego|29|4",
       "street": "Zygmunta Starego",
       "street_norm": "zygmunta starego",
@@ -1232,6 +1251,27 @@
       ]
     },
     {
+      "key": "jagiellonskiej j|1|24",
+      "street": "Jagiellońskiej;j",
+      "street_norm": "jagiellonskiej j",
+      "building": "1",
+      "apt": "24",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 203900,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 212060,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/02/16.02.2026-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "tarnogorskiej|109|3",
       "street": "Tarnogórskiej",
       "street_norm": "tarnogorskiej",
@@ -1615,10 +1655,10 @@
       ]
     },
     {
-      "key": "rybnickiej|52|",
+      "key": "rybnickiej|52-54|",
       "street": "Rybnickiej",
       "street_norm": "rybnickiej",
-      "building": "52",
+      "building": "52-54",
       "apt": null,
       "kind": "garaz",
       "listings": [
@@ -1699,13 +1739,24 @@
       ]
     },
     {
-      "key": "domanskiego|6A|",
+      "key": "domanskiego|6A|I",
       "street": "Domańskiego",
       "street_norm": "domanskiego",
       "building": "6A",
-      "apt": null,
+      "apt": "I",
       "kind": "uzytkowy",
       "listings": [
+        {
+          "date": "2025-05-12",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 103200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/05/12.05.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
         {
           "date": "2025-09-29",
           "round": 4,
@@ -1955,11 +2006,11 @@
       ]
     },
     {
-      "key": "raciborskiej|1|",
+      "key": "raciborskiej|1|XIV",
       "street": "Raciborskiej",
       "street_norm": "raciborskiej",
       "building": "1",
-      "apt": null,
+      "apt": "XIV",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -1970,6 +2021,27 @@
           "outcome": "sold",
           "unsold_reason": null,
           "final_price_pln": 128320,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/08.09.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mastalerza na dzialce nr|233|1",
+      "street": "Mastalerza na działce nr",
+      "street_norm": "mastalerza na dzialce nr",
+      "building": "233",
+      "apt": "1",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2025-09-08",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 102400,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 111030,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/08.09.2025-r.-wyniki-przetargow.pdf",
           "notes": []
         }
@@ -2050,11 +2122,11 @@
       ]
     },
     {
-      "key": "jaskolczej|2|",
+      "key": "jaskolczej|2|II",
       "street": "Jaskółczej",
       "street_norm": "jaskolczej",
       "building": "2",
-      "apt": null,
+      "apt": "II",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -2181,6 +2253,38 @@
           "round": null,
           "kind": "uzytkowy",
           "starting_price_pln": 92900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/07/23.06.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kozielska|62|III",
+      "street": "Kozielska",
+      "street_norm": "kozielska",
+      "building": "62",
+      "apt": "III",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-01-27",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 143600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/01/27.01.2025-r.-wyniki.pdf",
+          "notes": []
+        },
+        {
+          "date": "2025-06-23",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100600,
           "outcome": "unsold",
           "unsold_reason": "no_deposits",
           "final_price_pln": null,
@@ -2423,6 +2527,27 @@
       ]
     },
     {
+      "key": "chopina|0|garaz-2",
+      "street": "Chopina",
+      "street_norm": "chopina",
+      "building": "0",
+      "apt": "garaz-2",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2025-03-03",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 34400,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 91700,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/03/03.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "popieluszki|8|4",
       "street": "Popiełuszki",
       "street_norm": "popieluszki",
@@ -2491,6 +2616,69 @@
           "outcome": "sold",
           "unsold_reason": null,
           "final_price_pln": 222450,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/02/17.02.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "korfantego|10|2A",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "10",
+      "apt": "2A",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-02-17",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 190000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 192000,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/02/17.02.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "korfantego|0|garaz-14",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "0",
+      "apt": "garaz-14",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2025-02-17",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 36200,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 80000,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/02/17.02.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "nadrzecznej|0|garaz-7",
+      "street": "Nadrzecznej",
+      "street_norm": "nadrzecznej",
+      "building": "0",
+      "apt": "garaz-7",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2025-02-17",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 9700,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 45000,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/02/17.02.2025-r.-wyniki-przetargow.pdf",
           "notes": []
         }
@@ -2623,6 +2811,27 @@
       ]
     },
     {
+      "key": "korfantego|23A|",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "23A",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2024-12-09",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 52400,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 75000,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/12/09.12.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "zajaczka|11|5",
       "street": "Zajączka",
       "street_norm": "zajaczka",
@@ -2638,6 +2847,38 @@
           "outcome": "sold",
           "unsold_reason": null,
           "final_price_pln": 192110,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/12/09.12.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "na piasku|3|II",
+      "street": "Na Piasku",
+      "street_norm": "na piasku",
+      "building": "3",
+      "apt": "II",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-09-30",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 616000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/30.09.2024-r.-wyniki-przetargu.pdf",
+          "notes": []
+        },
+        {
+          "date": "2024-12-09",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 554400,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/12/09.12.2024-r.-wyniki-przetargow.pdf",
           "notes": []
         }
@@ -2760,6 +3001,27 @@
       ]
     },
     {
+      "key": "rybnickie j|9|7",
+      "street": "Rybnickie;j",
+      "street_norm": "rybnickie j",
+      "building": "9",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 77500,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 78280,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/11/28.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "kopernika|75|2",
       "street": "Kopernika",
       "street_norm": "kopernika",
@@ -2792,13 +3054,24 @@
       ]
     },
     {
-      "key": "strzelcow bytomskich|42|",
+      "key": "strzelcow bytomskich|42|I",
       "street": "Strzelców Bytomskich",
       "street_norm": "strzelcow bytomskich",
       "building": "42",
-      "apt": null,
+      "apt": "I",
       "kind": "uzytkowy",
       "listings": [
+        {
+          "date": "2024-05-13",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 471100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/05/13.05.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
         {
           "date": "2024-10-14",
           "round": 3,
@@ -2879,6 +3152,38 @@
           "round": null,
           "kind": "uzytkowy",
           "starting_price_pln": 298100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/14.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "barlickiego|12|I",
+      "street": "Barlickiego",
+      "street_norm": "barlickiego",
+      "building": "12",
+      "apt": "I",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-09-02",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 102800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
+          "date": "2024-10-14",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 92600,
           "outcome": "unsold",
           "unsold_reason": "no_deposits",
           "final_price_pln": null,
@@ -3046,11 +3351,11 @@
       ]
     },
     {
-      "key": "piastowskiej|5|",
+      "key": "piastowskiej|5|II",
       "street": "Piastowskiej",
       "street_norm": "piastowskiej",
       "building": "5",
-      "apt": null,
+      "apt": "II",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -3130,11 +3435,11 @@
       ]
     },
     {
-      "key": "klodnickiej|12|",
+      "key": "klodnickiej|12|IV",
       "street": "Kłodnickiej",
       "street_norm": "klodnickiej",
       "building": "12",
-      "apt": null,
+      "apt": "IV",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -3151,13 +3456,24 @@
       ]
     },
     {
-      "key": "zwyciestwa|41|",
+      "key": "zwyciestwa|41|VI",
       "street": "Zwycięstwa",
       "street_norm": "zwyciestwa",
       "building": "41",
-      "apt": null,
+      "apt": "VI",
       "kind": "uzytkowy",
       "listings": [
+        {
+          "date": "2024-04-15",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 262900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/15.04.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
         {
           "date": "2024-08-26",
           "round": 3,
@@ -3225,11 +3541,11 @@
       ]
     },
     {
-      "key": "toszeckiej|33|",
+      "key": "toszeckiej|33|II",
       "street": "Toszeckiej",
       "street_norm": "toszeckiej",
       "building": "33",
-      "apt": null,
+      "apt": "II",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -3240,6 +3556,27 @@
           "outcome": "sold",
           "unsold_reason": null,
           "final_price_pln": 154940,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/26.08.24-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kozielska|13|garaz-3",
+      "street": "Kozielska",
+      "street_norm": "kozielska",
+      "building": "13",
+      "apt": "garaz-3",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2024-08-26",
+          "round": null,
+          "kind": "garaz",
+          "starting_price_pln": 33200,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/26.08.24-wyniki-przetargow.pdf",
           "notes": []
         }
@@ -3288,10 +3625,31 @@
       ]
     },
     {
-      "key": "sieminskiego|18|",
+      "key": "franciszkanskiej|19|6",
+      "street": "Franciszkańskiej",
+      "street_norm": "franciszkanskiej",
+      "building": "19",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 147700,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 149180,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/05/13.05.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "sieminskiego|18-20A|",
       "street": "Siemińskiego",
       "street_norm": "sieminskiego",
-      "building": "18",
+      "building": "18-20A",
       "apt": null,
       "kind": "garaz",
       "listings": [
@@ -3446,6 +3804,27 @@
       ]
     },
     {
+      "key": "korfantego|23|3",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "23",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 583000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 594660,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/08.04.24-wyniki.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "malinowskiego|2|6",
       "street": "Malinowskiego",
       "street_norm": "malinowskiego",
@@ -3593,6 +3972,29 @@
       ]
     },
     {
+      "key": "chorzowska|40|III",
+      "street": "Chorzowska",
+      "street_norm": "chorzowska",
+      "building": "40",
+      "apt": "III",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-04-08",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 668700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/08.04.24-wyniki.pdf",
+          "notes": [
+            "OCR-quirk: apt 'TII' interpreted as 'III'"
+          ]
+        }
+      ]
+    },
+    {
       "key": "wita stwosza|18|3",
       "street": "Wita Stwosza",
       "street_norm": "wita stwosza",
@@ -3730,11 +4132,11 @@
       ]
     },
     {
-      "key": "opawskiej|1|",
+      "key": "opawskiej|1|I",
       "street": "Opawskiej",
       "street_norm": "opawskiej",
       "building": "1",
-      "apt": null,
+      "apt": "I",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -3814,11 +4216,11 @@
       ]
     },
     {
-      "key": "grottgera|40|",
+      "key": "grottgera|40|I",
       "street": "Grottgera",
       "street_norm": "grottgera",
       "building": "40",
-      "apt": null,
+      "apt": "I",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -3856,11 +4258,11 @@
       ]
     },
     {
-      "key": "modelarzy|14|",
+      "key": "modelarzy|14|II",
       "street": "Modelarzy",
       "street_norm": "modelarzy",
       "building": "14",
-      "apt": null,
+      "apt": "II",
       "kind": "uzytkowy",
       "listings": [
         {
@@ -3872,7 +4274,9 @@
           "unsold_reason": null,
           "final_price_pln": 324820,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
-          "notes": []
+          "notes": [
+            "OCR-quirk: apt 'TI' interpreted as 'II'"
+          ]
         }
       ]
     },
@@ -3934,6 +4338,27 @@
           "outcome": "sold",
           "unsold_reason": null,
           "final_price_pln": 110380,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "berbeckiego|7|I",
+      "street": "Berbeckiego",
+      "street_norm": "berbeckiego",
+      "building": "7",
+      "apt": "I",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-02-19",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 180100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
           "notes": []
         }
@@ -4086,6 +4511,23 @@
           "kind": "unknown",
           "outcome": "announced",
           "wykaz_no": "ZGM/DS/92/2026"
+        }
+      ]
+    },
+    {
+      "key": "korfantego|17|I",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "17",
+      "apt": "I",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": null,
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "ZGM/DS/52/2026"
         }
       ]
     },

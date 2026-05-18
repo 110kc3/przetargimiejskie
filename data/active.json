@@ -196,7 +196,14 @@
     {
       "kind": "garaz",
       "address_raw": "Kozielska 13 garaż nr 1",
-      "address": null,
+      "address": {
+        "street": "Kozielska",
+        "street_norm": "kozielska",
+        "building": "13",
+        "apt": "garaz-1",
+        "key": "kozielska|13|garaz-1",
+        "warning": null
+      },
       "auction_date": "2026-06-29",
       "area_m2": 16.92,
       "starting_price_pln": 44820,
@@ -304,7 +311,14 @@
     {
       "wykaz_no": "ZGM/DS/52/2026",
       "address_raw": "Korfantego 17/I",
-      "address": null,
+      "address": {
+        "street": "Korfantego",
+        "street_norm": "korfantego",
+        "building": "17",
+        "apt": "I",
+        "key": "korfantego|17|I",
+        "warning": null
+      },
       "published_date": null
     },
     {

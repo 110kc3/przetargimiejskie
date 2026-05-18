@@ -1,13 +1,16 @@
 // Address normalization. Turns whatever string the OCR or the HTML produced
 // into a stable {street, building, apt} key we can join on.
 //
-// Examples it must handle:
-//   "ul. Zygmunta Starego 29/4"             -> street: Zygmunta Starego, building: 29, apt: 4
-//   "Zygmunta Starego 29/4"                 -> same
-//   "ul. Pszczyńskiej 7A/14"                -> street: Pszczyńskiej, building: 7A, apt: 14
-//   "ul. Skowrońskiego 18/1I" (OCR slip)    -> street: Skowrońskiego, building: 18, apt: 1 (warn)
-//   "ul. Kurpiowska 16"      (garage)       -> street: Kurpiowska, building: 16, apt: null
-//   "ul. Białej Bramy 5/15"                 -> street: Białej Bramy, building: 5, apt: 15
+// Variants seen in real ZGM data:
+//   "ul. Zygmunta Starego 29/4"              -> street=Zygmunta Starego, bldg=29,  apt=4
+//   "Pszczyńskiej 7A/14"                     -> street=Pszczyńskiej,    bldg=7A,  apt=14
+//   "Skowrońskiego 18/1I"  (OCR /1 -> 1I)    -> bldg=18, apt=1            (warn)
+//   "Kurpiowska 16"        (garage)          -> bldg=16, apt=null
+//   "Barlickiego 12/I"     (Roman apt)       -> bldg=12, apt=I            (commercial)
+//   "Na Piasku 3/II"                         -> bldg=3,  apt=II
+//   "Chorzowska 40/TII"    (OCR T -> I)      -> bldg=40, apt=III          (warn)
+//   "Kozielska 13 garaż nr 3"                -> bldg=13, apt=garaz-3
+//   "Zwycięstwa 34/9a"                       -> bldg=34, apt=9A
 
 const POLISH_LOWER = (s) =>
   s
@@ -16,54 +19,70 @@ const POLISH_LOWER = (s) =>
     .replace(/[ł]/g, 'l').replace(/[ńñ]/g, 'n').replace(/[óòô]/g, 'o')
     .replace(/[śš]/g, 's').replace(/[żź]/g, 'z');
 
+const STRIP_LEAD = /^\s*(?:ul\.?|al\.?|pl\.?|os\.?)\s+/i;
+// We *don't* strip trailing "garaż nr N" anymore — we want to keep it as apt info.
+const TRAIL_NOISE = /\s*(?:wraz\b.*|m\.\s*\d+\s*$)/i;
+
+const ROMAN_OK = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/i;
+
 /**
  * @typedef {object} ParsedAddress
- * @property {string} street          original-case street, with diacritics
- * @property {string} street_norm     lowercased, no diacritics, single-spaced
- * @property {string} building        e.g. "29", "7A", "5"
- * @property {string|null} apt        e.g. "4", "14", or null for buildings without unit numbers
- * @property {string} key             stable join key: `${street_norm}|${building}|${apt||''}`
- * @property {string|null} warning    set when we made a tolerant guess (e.g. OCR 'I' for '1')
+ * @property {string} street
+ * @property {string} street_norm
+ * @property {string} building
+ * @property {string|null} apt
+ * @property {string} key
+ * @property {string|null} warning
  */
 
-const STRIP_LEAD =
-  /^\s*(?:ul\.?|al\.?|pl\.?|os\.?)\s+/i;
-const TRAIL_NOISE =
-  /\s*(?:wraz\b.*|nr\s*\d+.*|m\.\s*\d+.*)$/i;
-
-/**
- * @param {string} raw
- * @returns {ParsedAddress|null}
- */
+/** @param {string} raw @returns {ParsedAddress|null} */
 export function parseAddress(raw) {
   if (!raw) return null;
   let s = raw.trim().replace(/\s+/g, ' ');
-  // Strip leading "ul. / al. / pl."
   s = s.replace(STRIP_LEAD, '');
-  // Strip trailing noise that sometimes ends up included
   s = s.replace(TRAIL_NOISE, '').trim();
 
-  // Try "<street...> <bldg>/<apt>" or "<street...> <bldg>" (no apt — garages)
-  // Building can be e.g. 7, 7A, 12B
-  // Apt can be e.g. 4, 14, plus the OCR slip "1I" / "1l" → 1
-  const re = /^(.+?)\s+(\d+[A-Za-z]?)(?:\s*[\/\\]\s*([\d]+[A-Za-z]?|[1-9][Il]|[1-9][il]))?$/;
+  // Try the "garaż nr N" suffix first: "<street> <bldg> garaż nr <N>"
+  const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+  if (garageMatch) {
+    const [, street, building, garageNo] = garageMatch;
+    return buildAddress(street, building.toUpperCase(), `garaz-${garageNo}`, null);
+  }
+
+  // Standard "<street...> <bldg>/<apt>" or "<street...> <bldg>" (no apt — bare garages).
+  // apt: arabic-with-optional-letter, OR roman numeral (I,II,III,IV,V,VI,VII,VIII,IX,X),
+  // OR OCR slip "1I"/"1l" (slash eaten by OCR), OR "TII"/"TI"-style (T from "I"),
+  // OR "9a" style with lowercase letter.
+  const re =
+    /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)(?:\s*[\/\\]\s*([0-9]+[A-Za-z]?|[IVX]+|T[IVX]+|[1-9][Il]))?$/i;
   const m = re.exec(s);
   if (!m) return null;
   const street = m[1].trim();
   const building = m[2].toUpperCase();
-  let aptRaw = m[3] || null;
+  const aptRaw = m[3] || null;
   let warning = null;
   let apt = null;
   if (aptRaw) {
-    // OCR slash-eaten "1I" / "1l" -> "1" (with warning)
-    const ocrSlip = /^([1-9])[Iil]$/.exec(aptRaw);
+    // OCR slash-eaten "1I"/"1l" -> "1" (with warning).
+    // Only triggers for single-digit-then-I; "II" alone is a real Roman 2.
+    const ocrSlip = /^([1-9])[Il]$/.exec(aptRaw);
+    const ocrTPrefix = /^T(I+|V|X)$/i.exec(aptRaw); // "TII" -> "III"
     if (ocrSlip) {
       apt = ocrSlip[1];
       warning = `OCR-quirk: apt '${aptRaw}' interpreted as '${apt}'`;
+    } else if (ocrTPrefix) {
+      apt = ('I' + ocrTPrefix[1]).toUpperCase();
+      warning = `OCR-quirk: apt '${aptRaw}' interpreted as '${apt}'`;
+    } else if (ROMAN_OK.test(aptRaw)) {
+      apt = aptRaw.toUpperCase();
     } else {
       apt = aptRaw.toUpperCase();
     }
   }
+  return buildAddress(street, building, apt, warning);
+}
+
+function buildAddress(street, building, apt, warning) {
   const streetNorm = POLISH_LOWER(street).replace(/[^\w]+/g, ' ').trim().replace(/\s+/g, ' ');
   return {
     street,
