@@ -16,6 +16,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | Weekly GitHub Actions cron that re-runs the pipeline and commits any deltas. |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
+| [`PRIVACY.md`](./PRIVACY.md) | Privacy policy for the Chrome extension (required for Web Store). |
 | [`SPIKE.md`](./SPIKE.md) | OCR-feasibility spike notes. |
 
 ## How it runs
@@ -82,10 +83,16 @@ What it does:
   - On listing index pages (mieszkalne / garaże / użytkowe / wykaz): adds a small color-coded badge to each Elementor card — green for first-time listings, gray for "previously sold" repeats, amber for one prior unsold attempt, red for ≥2 unsold attempts. Hover for a tooltip with the full prior-attempt table.
   - On property-detail pages (the slug-style `/zygmunta-starego-29-4-23-03-2026-r/` URLs): injects a sidebar near the top of the page with a chronological history table (date · round · kind · start price · outcome · final · reason · source PDF) and a price-delta summary versus the first historical attempt.
 - **Popup** (`popup.html` + `popup.js`) lists all currently-active properties sorted by most-relisted first. Click a row → opens that property's detail page on `zgm-gliwice.pl`. The footer shows when the cached data was last refreshed.
+- **Language: PL / EN.** The popup has a small `PL` / `EN` button in the header. Default is PL (since the source data is Polish municipal records). Toggle is persisted in `chrome.storage.local` and broadcast across tabs — flipping it in the popup retranslates open zgm-gliwice.pl tabs in place, no reload required. All user-facing strings live in [`extension/i18n.js`](./extension/i18n.js).
 
 **Address-key parity** — the extension's `normalize.js` and the pipeline's `normalize.js` produce identical `street_norm|building|apt` join keys. This is verified end-to-end against live data: every active listing in `active.json` round-trips from page-title → parsed address → matching property key in `properties.json`.
 
 **Detail-page address detection** — the page `<title>` is preferred over the URL slug because slug encoding is ambiguous on digit collisions (e.g. `/krolewskiej-tamy-5-2-...` could be either `5/2` or `53/2`); the title carries the canonical address.
+
+
+### Privacy policy
+
+See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer. The extension fetches three public JSON files from GitHub and reads pages you're already viewing on `zgm-gliwice.pl` — that's the entire network footprint. No analytics, no tracking, no third-party services. For Chrome Web Store submission, link to the GitHub-hosted raw URL: `https://github.com/110kc3/zgm-gliwice/blob/main/PRIVACY.md`.
 
 ### Roadmap
 

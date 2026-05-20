@@ -48,6 +48,14 @@ export function parseAddress(raw) {
     const [, street, building, garageNo] = garageMatch;
     return buildAddress(street, building.toUpperCase(), `garaz-${garageNo}`, null);
   }
+  // Bare "<street> garaż nr <N>" (no building number — "rejon" garages in
+  // older auction listings). Synthesize building="0" to match the
+  // convention used by parse-result.js for the same input.
+  const rejonMatch = /^(.+?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+  if (rejonMatch) {
+    const [, street, garageNo] = rejonMatch;
+    return buildAddress(street, '0', `garaz-${garageNo}`, null);
+  }
 
   // Standard "<street...> <bldg>/<apt>" or "<street...> <bldg>" (no apt — bare garages).
   // apt: arabic-with-optional-letter, OR roman numeral (I,II,III,IV,V,VI,VII,VIII,IX,X),

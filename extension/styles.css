@@ -93,3 +93,51 @@
   color: #6b7280;
 }
 .zgm-ext-footer a { color: #4a6fa5; }
+
+/* Watch button on the detail-page panel */
+.zgm-ext-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.zgm-ext-panel-head h3 { margin: 0; }
+.zgm-ext-watch {
+  font: inherit;
+  font-size: 13px;
+  padding: 4px 10px;
+  background: #fff;
+  color: #4a6fa5;
+  border: 1px solid #c8ced8;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.zgm-ext-watch:hover { background: #f4f6fa; }
+.zgm-ext-watch-on {
+  background: #fff7d8;
+  border-color: #e9c95a;
+  color: #7a5500;
+}
+
+/* Info chip on index-page cards: zł/m² + wadium/viewing dates */
+.zgm-ext-infochip {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #455265;
+  background: #eef2f7;
+  border: 1px solid #d4dbe5;
+  border-radius: 4px;
+  padding: 3px 8px;
+  line-height: 1.4;
+}
+
+/* Inline zł/m² shown right after the price in a listing card */
+.zgm-ext-perm2 {
+  color: #4a6fa5;
+  font-weight: 600;
+  white-space: nowrap;
+}

@@ -67,3 +67,59 @@ footer {
   color: var(--muted);
 }
 footer a { color: var(--accent); }
+
+
+/* header actions (lang toggle + refresh) */
+.header-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+#lang-toggle {
+  font-weight: 600;
+  min-width: 36px;
+  letter-spacing: 0.04em;
+}
+
+/* Watching section + star toggle */
+h2 {
+  margin: 12px 0 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.zgm-star-cell { width: 24px; text-align: center; padding: 4px 0; }
+.zgm-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  color: #c8ced8;
+  padding: 0;
+}
+.zgm-star.on { color: #e9c95a; }
+.zgm-star:hover { color: #f1c232; }
+#watching-section .zgm-active { color: var(--green-fg); font-weight: 600; }
+#watching-section .zgm-historical { color: var(--muted); }
+#watching-section td a { color: var(--accent); text-decoration: none; }
+
+.footer-links { display: flex; gap: 10px; }
+.footer-links a { color: var(--accent); }
+
+/* Wadium-deadline highlight */
+.zgm-urgent { color: var(--amber-fg); font-weight: 600; }
+.zgm-past   { color: var(--muted); text-decoration: line-through; }
+
+/* Stacked dates cell */
+.zgm-dates-cell { line-height: 1.4; white-space: nowrap; font-size: 12px; }
+.zgm-date-label {
+  display: inline-block;
+  width: 50px;
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
