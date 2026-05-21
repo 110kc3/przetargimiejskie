@@ -287,9 +287,3 @@
 
   window.ZGM_I18N = { t, getLang, setLang, onChange, ready };
 })();
-
-    });
-  } catch {}
-
-  window.ZGM_I18N = { t, getLang, setLang, onChange, ready };
-})();
