@@ -11,12 +11,12 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { getText } from './lib/fetch.js';
-import { urlCacheKey } from './lib/hash.js';
-import { parseAddress } from './normalize.js';
+import { getText } from '../../core/fetch.js';
+import { urlCacheKey } from '../../core/hash.js';
+import { parseAddress } from '../../core/normalize.js';
 
 const SITEMAP_URL = 'https://zgm-gliwice.pl/wp-sitemap-posts-post-1.xml';
-const CACHE_DIR = new URL('../detail-cache/', import.meta.url).pathname;
+const CACHE_DIR = new URL('../../../detail-cache/', import.meta.url).pathname;
 const DETAIL_URL_RE = /-\d{2}-\d{2}-\d{4}-r\/?$/;
 
 const TITLE_RE = /<title>([^<]+)<\/title>/i;

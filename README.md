@@ -1,4 +1,4 @@
-# zgm-gliwice
+# przetargimiejskie
 
 A pipeline that scrapes auction results from [zgm-gliwice.pl](https://zgm-gliwice.pl/), OCRs the PDFs, parses them into structured JSON, and surfaces price history for municipal properties — so that when browsing an active auction listing you can see whether the property has been unsold before, how many times, at what prices, and how the city has been adjusting the asking price.
 
@@ -10,9 +10,9 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 |---|---|
 | [`pipeline/`](./pipeline) | Node.js scraper + OCR + parser. Builds `data/*.json`. |
 | [`pipeline/ocr-cache/`](./pipeline/ocr-cache) | Committed OCR text per source PDF. Means each PDF is OCR'd exactly once over its lifetime. |
-| [`data/properties.json`](./data/properties.json) | One record per unique `(street, building, apt)` with the full chronological listings history. **The file the Chrome extension consumes.** |
-| [`data/active.json`](./data/active.json) | Currently-active auctions and "wykaz" pre-announcements. |
-| [`data/meta.json`](./data/meta.json) | Provenance: when the data was generated, schema/parser versions, counts. |
+| [`data/gliwice/properties.json`](./data/properties.json) | One record per unique `(street, building, apt)` with the full chronological listings history. **The file the Chrome extension consumes.** |
+| [`data/gliwice/active.json`](./data/active.json) | Currently-active auctions and "wykaz" pre-announcements. |
+| [`data/gliwice/meta.json`](./data/meta.json) | Provenance: when the data was generated, schema/parser versions, counts. |
 | [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | Weekly GitHub Actions cron that re-runs the pipeline and commits any deltas. |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
@@ -34,7 +34,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 3. **`parse-result.js`** splits each PDF's text into the "sold" and "unsold" sections, pulls fields out with regex (round numeral, address, prices, outcome, unsold reason).
 4. **`normalize.js`** turns address strings into a stable `{street, building, apt}` join key tolerant of Polish-language conventions (`ul./al./pl.`), Roman-numeral commercial-unit apt numbers, OCR slash-as-`I` slips, garage-unit suffixes, building ranges, and so on.
 5. **`crawl-active.js`** scrapes the four "currently active" pages on the site.
-6. **`refresh.js`** is the orchestrator: it ties the above together and writes `data/properties.json`, `data/active.json`, `data/meta.json`.
+6. **`refresh.js`** is the orchestrator: it ties the above together and writes `data/gliwice/properties.json`, `data/gliwice/active.json`, `data/gliwice/meta.json`.
 
 ## Running locally
 
@@ -78,7 +78,7 @@ Lives in [`extension/`](./extension). MV3, no build step, no dependencies. Load 
 
 What it does:
 
-- **Background service worker** (`background.js`) fetches `data/properties.json`, `data/active.json`, `data/meta.json` from `raw.githubusercontent.com/110kc3/zgm-gliwice/main/data/` and caches them in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL.
+- **Background service worker** (`background.js`) fetches `data/gliwice/properties.json`, `data/gliwice/active.json`, `data/gliwice/meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/gliwice/` and caches them in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL.
 - **Content script** (`content.js`) runs on `zgm-gliwice.pl`:
   - On listing index pages (mieszkalne / garaże / użytkowe / wykaz): adds a small color-coded badge to each Elementor card — green for first-time listings, gray for "previously sold" repeats, amber for one prior unsold attempt, red for ≥2 unsold attempts. Hover for a tooltip with the full prior-attempt table.
   - On property-detail pages (the slug-style `/zygmunta-starego-29-4-23-03-2026-r/` URLs): injects a sidebar near the top of the page with a chronological history table (date · round · kind · start price · outcome · final · reason · source PDF) and a price-delta summary versus the first historical attempt.
@@ -92,7 +92,7 @@ What it does:
 
 ### Privacy policy
 
-See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer. The extension fetches three public JSON files from GitHub and reads pages you're already viewing on `zgm-gliwice.pl` — that's the entire network footprint. No analytics, no tracking, no third-party services. For Chrome Web Store submission, link to the GitHub-hosted raw URL: `https://github.com/110kc3/zgm-gliwice/blob/main/PRIVACY.md`.
+See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer. The extension fetches three public JSON files from GitHub and reads pages you're already viewing on `zgm-gliwice.pl` — that's the entire network footprint. No analytics, no tracking, no third-party services. For Chrome Web Store submission, link to the GitHub-hosted raw URL: `https://github.com/110kc3/przetargimiejskie/blob/main/PRIVACY.md`.
 
 ### Roadmap
 

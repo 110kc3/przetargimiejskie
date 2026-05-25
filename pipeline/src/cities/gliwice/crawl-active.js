@@ -8,8 +8,8 @@
 //   "<address> - <DD.MM.YYYY> r. <area> m2 - <price> zł"
 // The wykaz page uses a different template — short entries with "wykaz nr X address".
 
-import { getText } from './lib/fetch.js';
-import { parseAddress } from './normalize.js';
+import { getText } from '../../core/fetch.js';
+import { parseAddress } from '../../core/normalize.js';
 
 const PAGES = {
   mieszkalny: 'https://zgm-gliwice.pl/przetargi-lokale-mieszkalne/',

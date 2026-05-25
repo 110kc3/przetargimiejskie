@@ -312,7 +312,7 @@ function injectPanel({ title, body, watchKey, watchMeta }) {
     ${body}
     <p class="zgm-ext-footer">
       ${t('panel.footer_data')}
-      <a target="_blank" rel="noopener" href="https://github.com/110kc3/zgm-gliwice">110kc3/zgm-gliwice</a>
+      <a target="_blank" rel="noopener" href="https://github.com/110kc3/przetargimiejskie">110kc3/przetargimiejskie</a>
     </p>`;
   const target =
     document.querySelector('.page-content-container') ||

@@ -5,7 +5,7 @@
 // date. The *auction* date sits inside the PDF filename — we extract it here so
 // downstream code never has to parse Polish month names.
 
-import { getText } from './lib/fetch.js';
+import { getText } from '../../core/fetch.js';
 
 const BASE = 'https://zgm-gliwice.pl/wyniki-przetargow';
 

@@ -3,7 +3,7 @@
 **Extension:** ZGM Gliwice — auction history
 **Publisher:** 110kc3 (https://github.com/110kc3)
 **Effective date:** 2026-05-19
-**Source code:** https://github.com/110kc3/zgm-gliwice (MIT-style attribution, fully open source)
+**Source code:** https://github.com/110kc3/przetargimiejskie (MIT-style attribution, fully open source)
 
 This extension is a personal, free, open-source tool. It does not collect, transmit, sell, share, or monetize your personal data in any way.
 
@@ -29,9 +29,9 @@ This data never leaves your computer. It is not synchronized to any cloud, it is
 The extension makes exactly two kinds of network requests:
 
 1. **GitHub static asset download.** The service worker fetches three small JSON files from this public, read-only URL prefix:
-   - `https://raw.githubusercontent.com/110kc3/zgm-gliwice/main/data/properties.json`
-   - `https://raw.githubusercontent.com/110kc3/zgm-gliwice/main/data/active.json`
-   - `https://raw.githubusercontent.com/110kc3/zgm-gliwice/main/data/meta.json`
+   - `https://raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/gliwice/properties.json`
+   - `https://raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/gliwice/active.json`
+   - `https://raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/gliwice/meta.json`
 
    These files contain only public auction data scraped from the ZGM Gliwice website. The fetch sends only the standard headers a browser sends to download a public file — no cookies, no tokens, no user identifiers. GitHub's own privacy policy applies to these requests; see https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement.
 
@@ -47,7 +47,7 @@ The extension does **not** contact any other server. There is no analytics, no e
 | `alarms`                                                      | To wake up every ~4 hours and check whether any watched property is now listed    |
 | `notifications`                                               | To show a desktop notification when a watched property is listed                  |
 | `host_permissions: https://zgm-gliwice.pl/*`                  | So the content script can annotate pages on the auction website                   |
-| `host_permissions: https://raw.githubusercontent.com/110kc3/zgm-gliwice/*` | So the service worker can fetch the public dataset JSON         |
+| `host_permissions: https://raw.githubusercontent.com/110kc3/przetargimiejskie/*` | So the service worker can fetch the public dataset JSON         |
 
 ## Data sharing, sale, or transfer
 
@@ -65,7 +65,7 @@ If material aspects of the extension change — for example, if a new feature re
 
 For questions, complaints, or removal requests, open an issue at the public repository:
 
-https://github.com/110kc3/zgm-gliwice/issues
+https://github.com/110kc3/przetargimiejskie/issues
 
 The extension's source code, the dataset it fetches, and this policy itself all live there.
 

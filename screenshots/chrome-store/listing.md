@@ -86,7 +86,7 @@ Nic nie jest wysyłane do autora ani do żadnej usługi zewnętrznej. Kod jest w
 pełni otwarty.
 
 Kod źródłowy i polityka prywatności:
-https://github.com/110kc3/zgm-gliwice
+https://github.com/110kc3/przetargimiejskie
 ```
 
 ---
@@ -142,7 +142,7 @@ are stored only on your own computer. Nothing is sent to the author or any
 third-party service. The code is fully open source.
 
 Source code and privacy policy:
-https://github.com/110kc3/zgm-gliwice
+https://github.com/110kc3/przetargimiejskie
 ```
 
 ---
@@ -186,7 +186,7 @@ The content script runs on the auction website to read the listing currently
 shown to the user and annotate it with prior-auction information.
 ```
 
-**host permission — https://raw.githubusercontent.com/110kc3/zgm-gliwice/***
+**host permission — https://raw.githubusercontent.com/110kc3/przetargimiejskie/***
 ```
 Downloads the prepared public auction dataset (three small JSON files) that
 the extension displays. No user data is sent with these requests.
@@ -210,7 +210,7 @@ Three 1280×800 PNGs in this folder, ready to upload:
 
 - Suggested category: **Productivity** (or **Shopping**).
 - Primary language: **Polish**.
-- Privacy policy URL: `https://github.com/110kc3/zgm-gliwice/blob/main/PRIVACY.md`
+- Privacy policy URL: `https://github.com/110kc3/przetargimiejskie/blob/main/PRIVACY.md`
 
 ---
 
@@ -233,7 +233,7 @@ Uprawnienie notifications służy do wyświetlenia powiadomienia systemowego, gd
 
 ### Uprawnienia dotyczące hosta — uzasadnienie
 ```
-Rozszerzenie używa dwóch uprawnień hosta. (1) https://zgm-gliwice.pl/* — skrypt treści działa na stronie przetargów ZGM, aby odczytać aktualnie wyświetlane ogłoszenie i wzbogacić je o informacje o wcześniejszych przetargach: dawne ceny, cenę za m², historię prób sprzedaży, terminy wadium i oględzin. (2) https://raw.githubusercontent.com/110kc3/zgm-gliwice/* — service worker pobiera stąd przygotowany, publiczny zbiór danych o przetargach (trzy małe pliki JSON), który rozszerzenie wyświetla. Z żądaniami do GitHuba nie są wysyłane żadne dane użytkownika.
+Rozszerzenie używa dwóch uprawnień hosta. (1) https://zgm-gliwice.pl/* — skrypt treści działa na stronie przetargów ZGM, aby odczytać aktualnie wyświetlane ogłoszenie i wzbogacić je o informacje o wcześniejszych przetargach: dawne ceny, cenę za m², historię prób sprzedaży, terminy wadium i oględzin. (2) https://raw.githubusercontent.com/110kc3/przetargimiejskie/* — service worker pobiera stąd przygotowany, publiczny zbiór danych o przetargach (trzy małe pliki JSON), który rozszerzenie wyświetla. Z żądaniami do GitHuba nie są wysyłane żadne dane użytkownika.
 ```
 
 ### Kod zdalny
@@ -254,5 +254,5 @@ Confirm all three statements (all true):
 
 ### URL polityki prywatności
 ```
-https://github.com/110kc3/zgm-gliwice/blob/main/PRIVACY.md
+https://github.com/110kc3/przetargimiejskie/blob/main/PRIVACY.md
 ```

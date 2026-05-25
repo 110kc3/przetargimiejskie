@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { parseResultPdf } from '../src/parse-result.js';
+import { parseResultPdf } from '../src/cities/gliwice/parse-result.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SAMPLES = join(__dirname, '..', '..', 'spike', 'ocr_samples');

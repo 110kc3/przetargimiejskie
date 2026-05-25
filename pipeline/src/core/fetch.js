@@ -6,7 +6,7 @@
 import { setTimeout as sleep } from 'node:timers/promises';
 
 const USER_AGENT =
-  'zgm-gliwice-archive-bot/0.1 (+https://github.com/110kc3/zgm-gliwice)';
+  'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
 
 const MIN_INTERVAL_MS = 1000; // 1 req/sec, easily under any reasonable threshold
 let lastFetchAt = 0;

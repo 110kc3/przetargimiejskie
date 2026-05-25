@@ -8,10 +8,10 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
-import { getBytes } from './lib/fetch.js';
-import { urlCacheKey } from './lib/hash.js';
+import { getBytes } from './fetch.js';
+import { urlCacheKey } from './hash.js';
 
-const CACHE_DIR = new URL('../ocr-cache/', import.meta.url).pathname;
+const CACHE_DIR = new URL('../../ocr-cache/', import.meta.url).pathname;
 
 /** Custom TESSDATA_PREFIX support for environments without system tessdata. */
 const TESS_ENV = process.env.TESSDATA_PREFIX

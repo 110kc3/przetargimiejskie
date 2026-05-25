@@ -8,9 +8,12 @@
 // The watchlist module exposes globalThis.ZGM_WATCH when imported below.
 importScripts('watchlist.js');
 
-const REPO = '110kc3/zgm-gliwice';
+const REPO = '110kc3/przetargimiejskie';
 const BRANCH = 'main';
-const RAW = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data`;
+// Wave 0: the pipeline now publishes per-city under data/<city>/. Gliwice is
+// the only city for now; Wave 1 will select this by the tab's hostname.
+const CITY = 'gliwice';
+const RAW = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/${CITY}`;
 const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
 const ALARM_NAME = 'zgm-watchlist-check';
 const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan

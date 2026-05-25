@@ -4,7 +4,7 @@
 // and "INFORMACJA O WYNIKACH POSTĘPOWAŃ..." (auctions that didn't because no
 // bidder, bidder withdrew, or bidder didn't show). See SPIKE.md for samples.
 
-import { parseAddress } from './normalize.js';
+import { parseAddress } from '../../core/normalize.js';
 
 /**
  * @typedef {'sold'|'unsold'|'no_winner'} ResultOutcome
