@@ -49,6 +49,9 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       final_price_pln: r.final_price_pln,
       source_pdf: r.source_pdf,
       notes: r.notes,
+      // Some sources (e.g. Katowice result PDFs) carry the unit area on the
+      // sold record itself; Gliwice does not, so add the key only when present.
+      ...(r.area_m2 != null ? { area_m2: r.area_m2 } : {}),
     });
   }
   for (const a of active) {
@@ -57,7 +60,7 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
     if (!p) continue;
     p.listings.push({
       date: a.auction_date,
-      round: null,
+      round: a.round ?? null,
       kind: a.kind,
       starting_price_pln: a.starting_price_pln,
       outcome: 'active',

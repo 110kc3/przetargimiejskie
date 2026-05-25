@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "city": "katowice",
+  "properties": [
+    {
+      "key": "dzialkowej|17|",
+      "street": "Działkowej",
+      "street_norm": "dzialkowej",
+      "building": "17",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 450000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151978&menu=679",
+          "wadium_deadline": "2026-09-07",
+          "viewing_date": "2026-09-07"
+        }
+      ]
+    },
+    {
+      "key": "jordana|16C|15",
+      "street": "Jordana",
+      "street_norm": "jordana",
+      "building": "16C",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 26.03,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152121&menu=679",
+          "wadium_deadline": "2026-07-06",
+          "viewing_date": "2026-07-06"
+        }
+      ],
+      "area_m2": 26.03
+    },
+    {
+      "key": "sienkiewicza|8|9",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "8",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "active",
+          "area_m2": 19.83,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151814&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 19.83
+    },
+    {
+      "key": "koszalinskiej|36A|5",
+      "street": "Koszalińskiej",
+      "street_norm": "koszalinskiej",
+      "building": "36A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 38.4,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151815&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 38.4
+    },
+    {
+      "key": "sokolskiej|54|5",
+      "street": "Sokolskiej",
+      "street_norm": "sokolskiej",
+      "building": "54",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 37.5,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151816&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 37.5
+    },
+    {
+      "key": "wiertniczej|6|26",
+      "street": "Wiertniczej",
+      "street_norm": "wiertniczej",
+      "building": "6",
+      "apt": "26",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "active",
+          "area_m2": 35.22,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151817&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 35.22
+    },
+    {
+      "key": "staromiejskiej|15|8",
+      "street": "Staromiejskiej",
+      "street_norm": "staromiejskiej",
+      "building": "15",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 27.28,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151509&menu=679",
+          "wadium_deadline": "2026-05-11",
+          "viewing_date": "2026-05-11"
+        }
+      ],
+      "area_m2": 27.28
+    },
+    {
+      "key": "sklodowskiej curie|21|1",
+      "street": "Skłodowskiej - Curie",
+      "street_norm": "sklodowskiej curie",
+      "building": "21",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 850000,
+          "outcome": "active",
+          "area_m2": 64.21,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150872&menu=679",
+          "wadium_deadline": "2026-05-11",
+          "viewing_date": "2026-05-11"
+        }
+      ],
+      "area_m2": 64.21
+    },
+    {
+      "key": "francuska|6|II",
+      "street": "Francuska",
+      "street_norm": "francuska",
+      "building": "6",
+      "apt": "II",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 53000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 85860,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
+          "notes": [],
+          "area_m2": 24.18
+        }
+      ],
+      "area_m2": 24.18
+    },
+    {
+      "key": "francuska|6|III",
+      "street": "Francuska",
+      "street_norm": "francuska",
+      "building": "6",
+      "apt": "III",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 28000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 49000,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
+          "notes": [],
+          "area_m2": 11.86
+        }
+      ],
+      "area_m2": 11.86
+    },
+    {
+      "key": "mariacka|26|V",
+      "street": "Mariacka",
+      "street_norm": "mariacka",
+      "building": "26",
+      "apt": "V",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 440000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 444400,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
+          "notes": [],
+          "area_m2": 61.19
+        }
+      ],
+      "area_m2": 61.19
+    },
+    {
+      "key": "sienkiewicza|3|9",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "3",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 176800,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
+          "notes": [],
+          "area_m2": 36.92
+        }
+      ],
+      "area_m2": 36.92
+    },
+    {
+      "key": "gorna|4|",
+      "street": "Górna",
+      "street_norm": "gorna",
+      "building": "4",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": null,
+          "kind": "unknown",
+          "starting_price_pln": 1400000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 3010000,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
+          "notes": [],
+          "area_m2": 1049.48
+        }
+      ],
+      "area_m2": 1049.48
+    }
+  ]
+}

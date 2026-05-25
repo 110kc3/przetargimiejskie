@@ -3,8 +3,9 @@
 // here. refresh.js, the CI matrix, and data/index.json all read from this list.
 
 import gliwice from './gliwice/index.js';
+import katowice from './katowice/index.js';
 
-export const cities = [gliwice];
+export const cities = [gliwice, katowice];
 
 /** @param {string} id @returns {object|null} */
 export function getCity(id) {

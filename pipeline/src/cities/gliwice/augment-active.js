@@ -8,11 +8,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { getText } from '../../core/fetch.js';
 import { urlCacheKey } from '../../core/hash.js';
 
-const DETAIL_CACHE_DIR = new URL('../../../detail-cache/', import.meta.url).pathname;
+const DETAIL_CACHE_DIR = fileURLToPath(new URL('../../../detail-cache/', import.meta.url));
 
 const WADIUM_RE =
   /wniesienie\s+do\s+(\d{1,2})\.(\d{1,2})\.(\d{4})\s*r?\.?\s*wadium/i;

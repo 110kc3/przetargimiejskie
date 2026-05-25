@@ -11,14 +11,16 @@
 
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
+import { pdfText } from './core/pdf-text.js';
 import { buildCityData } from './core/build-properties.js';
 
 const SCHEMA_VERSION = 1;
 const PARSER_VERSION = '0.2.0';
-const DATA_DIR = new URL('../../data/', import.meta.url).pathname;
+const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
 // Crawl, OCR/parse, enrich and write one city's three JSON files.
 async function refreshCity(city) {
@@ -36,7 +38,7 @@ async function refreshCity(city) {
     try {
       // 'pdf' sources are scanned images and need OCR; other sources (html,
       // docx) supply text directly on the ref.
-      text = city.source === 'pdf' ? await ocrPdf(ref.pdf_url) : ref.text;
+      text = city.source === 'pdf' ? await ocrPdf(ref.pdf_url) : city.source === 'pdf-text' ? await pdfText(ref.pdf_url) : ref.text;
     } catch (err) {
       console.error(`  ERROR OCR ${ref.pdf_url}: ${err.message}`);
       continue;

@@ -146,25 +146,37 @@ export default {
 
 # Part 2 — Per-city feasibility
 
-Cities a Gliwice-based flipper or agent would plausibly care about, ordered roughly easiest-first. "Effort" assumes the Part 1 refactor is already done.
+> **Correction (spike, May 2026).** The first draft of this table assumed every city's housing authority — the "ZGM-equivalent": KZGM, MZZL, ZK PGM, … — publishes municipal-property **sale**-auction results the way Gliwice's ZGM does. A spike disproved that. Gliwice's ZGM is the *exception*: it runs property sales itself. In the other cities checked, the housing authority runs **rentals**, and **sales are run by the city hall and published on the city BIP**. The table below is corrected; any entry not yet spiked is marked *unverified* and must be spiked before an adapter is written.
 
-| City | Authority | How they publish | Parser family | OCR? | Effort | Notes |
-|---|---|---|---|---|---|---|
-| **Gliwice** | ZGM | Scanned PDFs | OCR-paragraph | Yes | — | Already done. Becomes the reference adapter. |
-| **Sosnowiec** | MZZL | HTML on BIP / `mzzl.pl` | HTML-table | **No** | **Low** | Best first new city: HTML means no OCR, no slash-misread bugs, fast pipeline. Proves the multi-city *data plane* cleanly. |
-| **Chorzów** | ZK PGM | HTML tables + some PDFs | HTML-table (+OCR fallback) | Partly | Low–Med | Mostly HTML; a few PDFs may need the OCR path. |
-| **Katowice** | KZGM | Scanned PDFs (`Wyniki przetargów …pdf`) | OCR-paragraph | Yes | Medium | The obvious geographic twin. Reuses the Tesseract pipeline ~entirely — only a new regex vocabulary. Proves the *parser adapter*. |
-| **Bytom** | Bytomskie Mieszkania | DOCX **and** PDF auction lists | DOCX + OCR-paragraph | Partly | Medium | Clearly labels "first/second auction" → price-drop tracking is easy. Adds the DOCX path. |
-| **Kraków** | ZBK | Structured HTML on `zbk.krakow.pl` | HTML-table | No | Medium | First "national-tier" city. High listing volume, structured text ("Najwyższa wylicytowana stawka wyniosła …"). Strong monetization candidate. |
-| **Warszawa** | ZGN (per district) | ~18 separate district sites | HTML-table ×18 | Mostly no | **High** | Decentralized — each district (Mokotów, Śródmieście, …) is its own site/adapter. Huge `lokal użytkowy` volume. Do last, and only if revenue justifies it; treat each district as its own registry entry. |
+## 2.1 What the spike found
 
-**Takeaway:** the Silesian metro (Sosnowiec, Chorzów, Katowice, Bytom) is four cities, three of them low/medium effort, and together with Gliwice covers the contiguous market a Silesian investor actually shops in. Kraków is the first city worth adding purely for scale. Warszawa is a project in itself — 18 mini-adapters — so it should be demand-gated.
+- **Sosnowiec — MZZL.** Fetched `mzzl.pl` directly. MZZL does **not sell** flats. Its "wyniki przetargów" page is auctions to **rent** (`wynajem`) commercial units and garages; its residential page offers flats for **rent** to means-tested tenants (a `stawka czynszowa` per m² — a rent rate, not a sale price). No sale-auction stream exists on `mzzl.pl`. Sosnowiec's municipal-property sales, if published, would be on the **city BIP** (`bip.um.sosnowiec.pl`) — unspiked.
+- **Katowice — KZGM.** KZGM likewise runs **rental** auctions (najem of flats and commercial units). Municipal-property **sales** are handled by **Katowice City Hall** (Wydział Budownictwa i Dróg), not KZGM — published on the city portal, unspiked.
+- **Gliwice — ZGM.** Confirmed: ZGM runs the sale auctions itself and publishes result PDFs. The whole tool was built on this — and it now looks like the *atypical* arrangement, not the norm.
+
+The load-bearing question for every remaining city is therefore **not** "what is the ZGM-equivalent called" but: **does this city sell municipal property at auction at all, and which BIP publishes the results?** Some cities keep their entire residential stock as rental housing and have no sale-auction stream to track.
+
+## 2.2 Corrected feasibility table
+
+Format/effort columns are removed — they cannot be estimated until each source is spiked. "Status" is the honest state of knowledge.
+
+| City | Housing authority (rentals) | Likely sales source | Status |
+|---|---|---|---|
+| **Gliwice** | ZGM — *also runs sales (atypical)* | ZGM result PDFs | ✅ Verified, built (Wave 0) |
+| **Sosnowiec** | MZZL — *confirmed: rentals only, not a sales source* | City BIP `bip.um.sosnowiec.pl` | ⚠️ Spiked — JS-SPA BIP, no sales confirmed (SPIKE-WAVE1.md) |
+| **Katowice** | KZGM — *confirmed: rentals, not a sales source* | Katowice City Hall / city portal | ✅ Spiked — city BIP viable, **Wave 2 pick** (SPIKE-WAVE1.md) |
+| **Chorzów** | ZK PGM | City BIP — unknown | ❓ Entirely unspiked |
+| **Bytom** | Bytomskie Mieszkania | City BIP — unknown | ❓ Entirely unspiked |
+| **Kraków** | ZBK | City BIP / ZBK — unknown | ❓ Entirely unspiked |
+| **Warszawa** | ZGN (per district) | City / district BIPs — unknown | ❓ Entirely unspiked, decentralised |
+
+**Takeaway:** the comfortable "four easy Silesian cities" picture from the first draft is not reliable. Until each city's BIP is spiked we do not know (a) whether it sells municipal property at all, (b) where it publishes results, or (c) in what format (HTML vs PDF). The Part 1 adapter architecture is unaffected — it still cleanly absorbs whatever each city turns out to be — but the *order and effort* of the build now depend entirely on spike outcomes. A real possibility worth naming: some target cities may have **no sale-auction data at all**, in which case their only municipal-auction dataset is **commercial rentals** — a different vertical the product could choose to cover or skip.
 
 ---
 
 # Part 3 — Recommended build order
 
-"Plan everything, build incrementally." Each wave is independently shippable and independently valuable.
+"Plan everything, build incrementally." Wave 0 is done. Every wave after it is now **spike-gated**: no city adapter is written until that city's real sales source has been located and its format inspected — the discipline that caught the Sosnowiec problem for the cost of four page fetches instead of a wasted adapter.
 
 ### Wave 0 — Refactor Gliwice into the adapter pattern, *adding no city* — ✅ DONE
 
@@ -174,27 +186,19 @@ Done. The pipeline was restructured into `pipeline/src/core/` (shared: `ocr-pdf`
 
 Two items from the original Wave 0 sketch were **deliberately deferred to Wave 1**, where they are genuinely needed and testable: (a) **city-namespaced property keys** — pointless while there is one city and one single-city data file per directory, and they thread through four extension files that can only be verified in a real browser; (b) the **extension site-adapter registry** — pure restructuring that only becomes load-bearing once a second city's DOM exists. Deferring them kept Wave 0 a clean, parity-provable, zero-behaviour-change refactor. `schema_version` stays `1` (the `city` field is additive).
 
-### Wave 1 — Sosnowiec (MZZL)
+### Wave 1 — Spike the city-BIP sales sources
 
-First real new city, chosen *because* it is HTML, not because it is the nearest. HTML exercises the entire new multi-city machinery — registry, per-city data files, `index.json`, the extension site adapter, namespaced keys — **without** also fighting a brand-new OCR parser. One axis of risk at a time. Ship the `parse-html-table.js` engine here.
+Before any second city is built: spike `bip.um.sosnowiec.pl`, Katowice's city property portal, and the Kraków BIP. For each, answer the three load-bearing questions — does the city sell municipal property at auction, where are results published, in what format (HTML / PDF / attachment). Produce a short findings note per city, the way [SPIKE.md](./SPIKE.md) did for Gliwice. The deliverable of Wave 1 is **knowledge, not code**: an evidence-backed shortlist of which city to build first.
 
-### Wave 2 — Katowice (KZGM)
+### Wave 2 — Build the first verified city
 
-Now add the OCR-paragraph twin. By now the data plane is proven, so this wave only stresses the *parser adapter*: a new Polish-boilerplate vocabulary on top of the existing Tesseract pipeline. Katowice is also the highest-overlap city for the existing Gliwice user base, so it is the first wave that meaningfully grows the audience.
+Take whichever city Wave 1 proves has the cleanest, richest sale-auction data and build its adapter. This wave also lands the two items deferred from Wave 0 — **city-namespaced keys** and the **extension site-adapter registry** — plus whichever shared parser engine the source needs (`parse-html-table.js` for an HTML BIP, or the OCR-paragraph engine for PDF attachments). One real second city, end to end.
 
-### Wave 3 — Chorzów + Bytom
+### Wave 3+ — Remaining cities, each spike-gated
 
-Fill out the Silesian metro. Chorzów is mostly HTML (reuses Wave 1). Bytom adds the DOCX path — small, isolated work. After this wave the product covers the whole contiguous Silesian housing market.
+Add cities one at a time, each preceded by its own BIP spike. Drop any city whose spike shows no usable sale-auction data. Harden the pipeline (per-city CI matrix, monitoring) once three cities are live. Warszawa stays last and demand-gated — it is ~18 district BIPs and only worth it if revenue justifies it.
 
-### Wave 4 — Kraków (ZBK)
-
-The first deliberate scale move beyond Silesia. Structured HTML, high volume, and the point at which "nationwide tool" stops being aspirational. Good moment to harden the pipeline (per-city CI matrix, monitoring) for cities you cannot eyeball every week.
-
-### Wave 5 — Warszawa (ZGN ×districts) — demand-gated
-
-Only build this if Wave 1–4 monetization shows real demand. Model each district as its own registry entry so they can be added a few at a time (start with the high-`lokal użytkowy` central districts). Eighteen adapters is weeks of work; do not pay that cost on spec.
-
-A reasonable internal milestone: **Waves 0–2 are the MVP of "multi-city."** If those three land cleanly, every later city is mechanical.
+The honest milestone: **the MVP of "multi-city" is now Wave 1 (the spikes) + Wave 2 (one verified city).** Until the spikes are done, any commitment to a specific city, order, or effort estimate is a guess.
 
 ---
 
@@ -282,11 +286,11 @@ Not legal advice — confirm with an accountant/lawyer (*księgowy* / *radca pra
 
 # Part 5 — Concrete next steps
 
-1. **Wave 0 — refactor Gliwice into the registry/adapter pattern**, no new city, parity-gated against today's `data/`. (Part 1.)
-2. **Wave 1 — add Sosnowiec (MZZL)**, building the shared `parse-html-table.js` engine. First proof the multi-city machinery works end to end.
-3. **Stand up `przetargimiejskie.pl`** as a landing page + email capture as soon as Wave 1 data exists — start measuring interest before writing more parsers.
-4. **Wave 2 — add Katowice (KZGM)**, proving the OCR parser adapter; this is the MVP of "multi-city."
-5. **Build the alerts + saved-search + Stripe slice** (Part 4.6) over Gliwice + Sosnowiec + Katowice. Find out if people pay.
-6. **Let revenue decide Waves 3–5.** Chorzów/Bytom finish Silesia cheaply; Kraków is the scale bet; Warszawa is demand-gated and built district-by-district.
+1. ✅ **Wave 0 — Gliwice refactored** into the registry/adapter pattern, parity-verified. Done.
+2. **Wave 1 — spike the city-BIP sales sources** (`bip.um.sosnowiec.pl`, Katowice's city property portal, Kraków's BIP). Find where municipal-property *sales* are actually published, and in what format. Output: a per-city findings note.
+3. **Wave 2 — build the first city the spikes verify** has clean sale-auction data; land city-namespaced keys + the extension site-adapter registry alongside it.
+4. **Stand up `przetargimiejskie.pl`** as a landing page + email capture once a second city's data exists — start measuring interest.
+5. **Build the alerts + saved-search + Stripe slice** (Part 4.6) over the cities that are live. Find out if people pay.
+6. **Add remaining cities one spike at a time**, dropping any with no usable sale data; let revenue decide how far to go.
 
-The throughline: **refactor before you expand, expand before you scale, and charge for the service layer — never the public data.**
+The throughline: **spike before you build, refactor before you expand, expand before you scale, and charge for the service layer — never the public data.**

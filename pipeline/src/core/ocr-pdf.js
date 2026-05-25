@@ -6,12 +6,13 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 
 import { getBytes } from './fetch.js';
 import { urlCacheKey } from './hash.js';
 
-const CACHE_DIR = new URL('../../ocr-cache/', import.meta.url).pathname;
+const CACHE_DIR = fileURLToPath(new URL('../../ocr-cache/', import.meta.url));
 
 /** Custom TESSDATA_PREFIX support for environments without system tessdata. */
 const TESS_ENV = process.env.TESSDATA_PREFIX

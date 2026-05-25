@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T07:01:18.923Z",
+  "generated_at": "2026-05-25T21:17:53.087Z",
   "cities": [
     {
       "id": "gliwice",
@@ -10,6 +10,15 @@
       "unique_properties": 183,
       "active_listings": 15,
       "wykaz_entries": 11
+    },
+    {
+      "id": "katowice",
+      "label": "Katowice",
+      "authority": "Urząd Miasta Katowice",
+      "host": "bip.katowice.eu",
+      "unique_properties": 13,
+      "active_listings": 8,
+      "wykaz_entries": 0
     }
   ]
 }

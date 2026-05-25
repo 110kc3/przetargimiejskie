@@ -1,7 +1,7 @@
 {
   "name": "przetargimiejskie-pipeline",
   "version": "0.1.0",
-  "description": "Scrapes ZGM Gliwice auction results, OCRs PDFs, builds data/*.json for the Chrome extension",
+  "description": "Scrapes municipal property auction results and builds data/<city>/*.json for the Chrome extension",
   "private": true,
   "type": "module",
   "engines": {
@@ -9,8 +9,8 @@
   },
   "scripts": {
     "refresh": "node src/refresh.js",
-    "crawl:results": "node src/crawl-results.js",
-    "crawl:active": "node src/crawl-active.js",
-    "test": "node --test --test-reporter=tap tests/ 2>&1 | grep -E '^not ok|^  ---|^  ...$|# fail|# pass' || true"
+    "crawl:results": "node src/cities/gliwice/crawl-results.js",
+    "crawl:active": "node src/cities/gliwice/crawl-active.js",
+    "test": "node --test --test-reporter=dot tests/"
   }
 }
