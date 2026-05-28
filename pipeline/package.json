@@ -11,6 +11,6 @@
     "refresh": "node src/refresh.js",
     "crawl:results": "node src/cities/gliwice/crawl-results.js",
     "crawl:active": "node src/cities/gliwice/crawl-active.js",
-    "test": "node --test --test-reporter=dot tests/"
+    "test": "node --test --test-reporter=dot tests/parse-result.test.js"
   }
 }

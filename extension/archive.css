@@ -7,6 +7,59 @@
   --green-fg: #1e6b34;
   --amber-fg: #7a5500;
   --red-fg: #8b1c1c;
+  --bg: #ffffff;
+  --bg-elev: #f4f6fa;
+  --row-hover: #f3f4f6;
+  --chip-gliwice-bg: #e8efff;
+  --chip-gliwice-fg: #2a4d8f;
+  --chip-gliwice-border: #c8d6f0;
+  --chip-katowice-bg: #fdecec;
+  --chip-katowice-fg: #8a2a2a;
+  --chip-katowice-border: #f0caca;
+}
+
+/* System-pref dark, unless explicitly forced light via the theme toggle. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fg: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #374151;
+    --accent: #93b4e0;
+    --tile-bg: #1c2533;
+    --green-fg: #6fd292;
+    --amber-fg: #f0c168;
+    --red-fg: #f08989;
+    --bg: #111827;
+    --bg-elev: #1f2937;
+    --row-hover: #243244;
+    --chip-gliwice-bg: #1e2c4d;
+    --chip-gliwice-fg: #aac4ee;
+    --chip-gliwice-border: #2e3f6b;
+    --chip-katowice-bg: #4a1d1d;
+    --chip-katowice-fg: #f0a8a8;
+    --chip-katowice-border: #6b2929;
+  }
+}
+
+/* Explicit dark via the theme toggle — wins even on a light-pref system. */
+:root[data-theme="dark"] {
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #374151;
+  --accent: #93b4e0;
+  --tile-bg: #1c2533;
+  --green-fg: #6fd292;
+  --amber-fg: #f0c168;
+  --red-fg: #f08989;
+  --bg: #111827;
+  --bg-elev: #1f2937;
+  --row-hover: #243244;
+  --chip-gliwice-bg: #1e2c4d;
+  --chip-gliwice-fg: #aac4ee;
+  --chip-gliwice-border: #2e3f6b;
+  --chip-katowice-bg: #4a1d1d;
+  --chip-katowice-fg: #f0a8a8;
+  --chip-katowice-border: #6b2929;
 }
 
 * { box-sizing: border-box; }
@@ -19,6 +72,7 @@ body {
   margin-right: auto;
   font: 13px/1.45 system-ui, -apple-system, sans-serif;
   color: var(--fg);
+  background: var(--bg);
 }
 
 header {
@@ -36,7 +90,7 @@ header h1 {
 .header-actions a {
   font: inherit;
   padding: 5px 12px;
-  background: #fff;
+  background: var(--bg);
   color: var(--accent);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -44,7 +98,15 @@ header h1 {
   text-decoration: none;
 }
 .header-actions button:hover,
-.header-actions a:hover { background: #f4f6fa; }
+.header-actions a:hover { background: var(--bg-elev); }
+
+/* Compact icon button (theme toggle uses ☀ / ☾) */
+.header-actions .icon-btn {
+  padding: 5px 10px;
+  font-size: 15px;
+  line-height: 1;
+  min-width: 32px;
+}
 
 .muted { color: var(--muted); }
 
@@ -113,7 +175,7 @@ section h2 {
   font: inherit;
   margin-top: 2px;
   padding: 4px 8px;
-  background: #fff;
+  background: var(--bg);
   color: var(--fg);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -142,7 +204,7 @@ section h2 {
   letter-spacing: 0.04em;
   position: sticky;
   top: 0;
-  background: #fff;
+  background: var(--bg);
   cursor: pointer;
   user-select: none;
 }
@@ -152,7 +214,76 @@ section h2 {
 
 #archive-table tr.zgm-ext-row-sold td   { color: var(--green-fg); }
 #archive-table tr.zgm-ext-row-unsold td { color: var(--red-fg); }
-#archive-table tr:hover td { background: #f9fafb; }
+#archive-table tr:hover td { background: var(--row-hover); }
+
+/* City chip prepended to property cells (archive mixes multiple cities) */
+.zgm-city-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: 1px;
+  background: var(--bg-elev);
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+.zgm-city-tag[data-city="gliwice"]  { background: var(--chip-gliwice-bg);  color: var(--chip-gliwice-fg);  border-color: var(--chip-gliwice-border); }
+.zgm-city-tag[data-city="katowice"] { background: var(--chip-katowice-bg); color: var(--chip-katowice-fg); border-color: var(--chip-katowice-border); }
+/* Override the row-color cascade so the chip stays legible on sold/unsold rows */
+#archive-table tr.zgm-ext-row-sold td .zgm-city-tag,
+#archive-table tr.zgm-ext-row-unsold td .zgm-city-tag {
+  color: inherit;
+}
+#archive-table tr.zgm-ext-row-sold td .zgm-city-tag[data-city="gliwice"],
+#archive-table tr.zgm-ext-row-unsold td .zgm-city-tag[data-city="gliwice"]   { color: var(--chip-gliwice-fg); }
+#archive-table tr.zgm-ext-row-sold td .zgm-city-tag[data-city="katowice"],
+#archive-table tr.zgm-ext-row-unsold td .zgm-city-tag[data-city="katowice"]  { color: var(--chip-katowice-fg); }
+
+/* Currently-active section: bigger version of the popup's active table */
+#active-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+#active-table th,
+#active-table td {
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+#active-table th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  user-select: none;
+}
+#active-table tbody tr { cursor: pointer; }
+#active-table tbody tr:hover td { background: var(--row-hover); }
+#active-table a { color: var(--accent); }
+#active-table .zgm-fresh { color: var(--green-fg); }
+#active-table .zgm-prior { color: var(--amber-fg); font-weight: 600; }
+#active-table .zgm-urgent { color: var(--amber-fg); font-weight: 600; }
+#active-table .zgm-past   { color: var(--muted); text-decoration: line-through; }
+#active-table .zgm-dates-cell { line-height: 1.4; white-space: nowrap; font-size: 12px; }
+#active-table .zgm-date-label {
+  display: inline-block;
+  width: 56px;
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+#active-empty { color: var(--muted); padding: 10px 4px; font-style: italic; }
 
 #archive-table a { color: var(--accent); }
 

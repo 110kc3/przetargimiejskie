@@ -1,7 +1,9 @@
 // Crawls the Katowice city BIP "Tablica ogłoszeń" board. Two document streams:
 //   - sale-auction announcements -> active listings (parseAnnouncement)
 //   - "wyniki przetargów" result PDFs -> sold records (parseResultPdf)
-// The board list page and the document pages are plain HTML — see SPIKE-WAVE1.md.
+// The board list page and the document pages are both plain HTML — see
+// SPIKE-WAVE1.md. The board is paginated; we walk pages adaptively until two
+// consecutive pages yield no new auction-relevant docs.
 
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncement } from './parse.js';
@@ -11,7 +13,8 @@ const BOARD =
 const ORIGIN = 'https://bip.katowice.eu';
 const DOC = (idr) =>
   `${ORIGIN}/ogloszenia/tablicaogloszen/dokument.aspx?idr=${idr}&menu=679`;
-const MAX_PAGES = 8;
+const MAX_PAGES = 25;             // hard cap (the board is ~13–15 pages today)
+const STOP_AFTER_EMPTY_PAGES = 5; // stop after this many consecutive auction-empty pages
 
 const LINK_RE =
   /<a\b[^>]*\bhref="[^"]*dokument\.aspx\?idr=(\d+)[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -31,6 +34,8 @@ async function crawlBoard() {
   if (_board) return _board;
   const docs = [];
   const seen = new Set();
+  let consecutiveEmpty = 0;
+  let lastPage = 0;
   for (let page = 1; page <= MAX_PAGES; page++) {
     const url = page === 1 ? BOARD : `${BOARD}&page=${page}`;
     let html;
@@ -40,6 +45,8 @@ async function crawlBoard() {
       console.error(`  katowice board page ${page}: ${err.message}`);
       break;
     }
+    lastPage = page;
+    let foundOnPage = 0;
     LINK_RE.lastIndex = 0;
     let m;
     while ((m = LINK_RE.exec(html)) !== null) {
@@ -52,9 +59,19 @@ async function crawlBoard() {
       if (!kind) continue;
       seen.add(idr);
       docs.push({ idr, title, kind, doc_url: DOC(idr) });
+      foundOnPage++;
+    }
+    if (foundOnPage === 0) {
+      consecutiveEmpty++;
+      if (consecutiveEmpty >= STOP_AFTER_EMPTY_PAGES) break;
+    } else {
+      consecutiveEmpty = 0;
     }
   }
   _board = docs;
+  console.error(
+    `  katowice board: walked ${lastPage} page(s), collected ${docs.length} auction doc(s)`,
+  );
   return docs;
 }
 

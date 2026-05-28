@@ -2,13 +2,14 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
-  <title>ZGM — archive</title>
+  <title>przetargimiejskie — archive</title>
   <link rel="stylesheet" href="archive.css" />
 </head>
 <body>
   <header>
     <h1 data-i18n="archive.title"></h1>
     <div class="header-actions">
+      <button id="theme-toggle" type="button" class="icon-btn" title="">☀</button>
       <button id="lang-toggle" type="button"></button>
       <a href="popup.html" target="_blank" data-i18n="archive.back"></a>
     </div>
@@ -43,6 +44,13 @@
 
   <section id="filters" hidden>
     <div class="filter-row">
+      <label><span data-i18n="archive.filter.city"></span>
+        <select id="filter-city">
+          <option value="all" data-i18n="archive.filter.all"></option>
+          <option value="gliwice" data-i18n="city.gliwice"></option>
+          <option value="katowice" data-i18n="city.katowice"></option>
+        </select>
+      </label>
       <label><span data-i18n="archive.filter.kind"></span>
         <select id="filter-kind">
           <option value="all" data-i18n="archive.filter.all"></option>
@@ -63,6 +71,29 @@
       </label>
       <span id="rowcount" class="muted"></span>
     </div>
+  </section>
+
+  <section id="active-section" hidden>
+    <h2 data-i18n="popup.active_section"></h2>
+    <table id="active-table">
+      <thead>
+        <tr>
+          <th data-i18n="popup.col.property"></th>
+          <th data-i18n="popup.col.kind"></th>
+          <th data-i18n="popup.col.dates"></th>
+          <th data-i18n="popup.col.ask"></th>
+          <th data-i18n="popup.col.ask_per_m2"></th>
+          <th data-i18n="popup.col.prior"></th>
+          <th data-i18n="popup.col.last_unsold"></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p id="active-empty" hidden data-i18n="archive.active_empty"></p>
+  </section>
+
+  <section id="historical-section" hidden>
+    <h2 data-i18n="archive.historical_section"></h2>
   </section>
 
   <table id="archive-table" hidden>
@@ -86,6 +117,7 @@
     <a class="zgm-support" target="_blank" rel="noopener" href="https://buycoffee.to/kc-it" data-i18n="popup.support"></a>
   </footer>
 
+  <script src="theme.js"></script>
   <script src="i18n.js"></script>
   <script src="archive.js"></script>
 </body>

@@ -7,6 +7,7 @@ const $tbody = $table.querySelector('tbody');
 const $meta = document.getElementById('meta');
 const $refresh = document.getElementById('refresh');
 const $langToggle = document.getElementById('lang-toggle');
+const $themeToggle = document.getElementById('theme-toggle');
 const $activeHeading = document.getElementById('active-heading');
 const $watchingSection = document.getElementById('watching-section');
 const $watchingTbody = $watchingSection.querySelector('tbody');
@@ -14,6 +15,26 @@ const $watchingTbody = $watchingSection.querySelector('tbody');
 const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
   n == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
+
+// Background.js namespaces property keys as `<city>|...`, so we can recover
+// the city for legacy/orphan watch entries that don't carry one.
+function cityFromKey(key) {
+  if (!key || typeof key !== 'string') return null;
+  const i = key.indexOf('|');
+  return i > 0 ? key.slice(0, i) : null;
+}
+
+// Compact city chip prepended to the Property cell on each row. Style lives
+// in popup.css; color variants come from the city id as a data attribute.
+function cityTagHtml(city) {
+  if (!city) return '';
+  const label = t('city.' + city);
+  // Fall back to a capitalized id when no translation is registered.
+  const display = label === 'city.' + city
+    ? city.charAt(0).toUpperCase() + city.slice(1)
+    : label;
+  return `<span class="zgm-city-tag" data-city="${city}">${display}</span> `;
+}
 
 function datesCellHtml(a) {
   const rows = [];
@@ -73,7 +94,17 @@ function renderActive() {
   const properties = payload.properties?.properties || [];
   const byKey = new Map(properties.map((p) => [p.key, p]));
 
-  const items = (payload.active?.listings || []).map((a) => {
+  // Defensive filter: the Katowice crawler currently dumps every BIP-board
+  // announcement into active.json regardless of date, and the city portal
+  // takes its time archiving past-auction documents (see TODO.md). Drop
+  // anything whose auction date has already passed so "currently active"
+  // means what it says. Proper fix lives in cities/katowice/crawl.js.
+  const today = new Date().toISOString().slice(0, 10);
+  const liveActive = (payload.active?.listings || []).filter(
+    (a) => !a.auction_date || a.auction_date >= today,
+  );
+
+  const items = liveActive.map((a) => {
     const prop = a.address ? byKey.get(a.address.key) : null;
     const prior = prop
       ? prop.listings.filter(
@@ -93,7 +124,8 @@ function renderActive() {
 
   $tbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold, key }) => {
-      const addr = (a.address_raw || '') + (a.area_m2 ? ` · ${a.area_m2} m²` : '');
+      const cityTag = cityTagHtml(a.city || cityFromKey(key));
+      const addr = cityTag + (a.address_raw || '') + (a.area_m2 ? ` · ${a.area_m2} m²` : '');
       const priorCell =
         prior.length === 0
           ? `<span class="zgm-fresh">${t('popup.fresh')}</span>`
@@ -135,7 +167,12 @@ function renderActive() {
       const cur = await window.ZGM_WATCH.isWatched(key);
       const item = items.find((i) => i.key === key);
       const meta = item && item.a
-        ? { addr: item.a.address_raw, kind: item.a.kind, detail_url: item.a.detail_url }
+        ? {
+            addr: item.a.address_raw,
+            kind: item.a.kind,
+            detail_url: item.a.detail_url,
+            city: item.a.city || cityFromKey(key),
+          }
         : {};
       if (cur) await window.ZGM_WATCH.unwatch(key);
       else await window.ZGM_WATCH.watch(key, meta);
@@ -180,10 +217,12 @@ function renderWatching() {
         statusHtml = '<span class="muted">—</span>';
       }
       const url = active?.detail_url || entry.detail_url || '';
+      const city = prop?.city || entry.city || cityFromKey(key);
+      const addrCell = cityTagHtml(city) + entry.addr;
       return `
         <tr data-url="${url}">
           <td class="zgm-star-cell"><button type="button" class="zgm-star on" data-key="${key}" title="${t('watch.button.remove')}">★</button></td>
-          <td>${entry.addr}</td>
+          <td>${addrCell}</td>
           <td>${statusHtml}</td>
           <td>${url ? `<a target="_blank" rel="noopener" href="${url}">→</a>` : ''}</td>
         </tr>`;
@@ -216,7 +255,12 @@ function render() {
   renderActive();
   const fetched = new Date(lastPayload.fetched_at);
   const meta = lastPayload.meta || {};
-  const activeCount = lastPayload.active?.listings?.length || 0;
+  // Match the same past-date filter renderActive uses so the count in the
+  // footer is consistent with the number of rows the user sees.
+  const today = new Date().toISOString().slice(0, 10);
+  const activeCount = (lastPayload.active?.listings || []).filter(
+    (a) => !a.auction_date || a.auction_date >= today,
+  ).length;
   $meta.textContent = t('popup.meta', {
     active: activeCount,
     tracked: meta.unique_properties || '?',
@@ -224,13 +268,25 @@ function render() {
   });
 }
 
+// Theme button: show ☀ in light mode (click → dark) and ☾ in dark mode
+// (click → light). Title is i18n'd so it follows the lang toggle.
+function syncThemeButton() {
+  if (!$themeToggle || !window.ZGM_THEME) return;
+  const eff = window.ZGM_THEME.getEffective();
+  $themeToggle.textContent = eff === 'dark' ? '☾' : '☀';
+  $themeToggle.title = t(eff === 'dark' ? 'theme.toggle.to_light' : 'theme.toggle.to_dark');
+}
+
 (async () => {
-  await window.ZGM_I18N.ready;
+  await Promise.all([window.ZGM_I18N.ready, window.ZGM_THEME?.ready]);
   applyStaticI18n();
+  syncThemeButton();
   window.ZGM_I18N.onChange(() => {
     applyStaticI18n();
+    syncThemeButton();
     render();
   });
+  window.ZGM_THEME?.onChange(syncThemeButton);
   window.ZGM_WATCH.onChange(async () => {
     lastWatchlist = await window.ZGM_WATCH.getAll();
     render();
@@ -240,5 +296,6 @@ function render() {
     const next = window.ZGM_I18N.getLang() === 'pl' ? 'en' : 'pl';
     window.ZGM_I18N.setLang(next);
   });
+  $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
   load(false);
 })();

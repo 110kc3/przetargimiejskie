@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "ZGM Gliwice — historia przetargów",
-  "short_name": "ZGM history",
-  "version": "1.0.0",
-  "description": "Historia przetargów nieruchomości ZGM Gliwice: dawne ceny, zł/m², terminy wadium i oględzin, powiadomienia o aukcjach.",
+  "name": "przetargimiejskie — historia aukcji nieruchomości",
+  "short_name": "przetargimiejskie",
+  "version": "1.1.0",
+  "description": "Historia miejskich przetargów na nieruchomości (Gliwice, Katowice): dawne ceny, zł/m², terminy wadium i oględzin, powiadomienia o aukcjach.",
   "author": "110kc3",
   "icons": {
     "16": "icons/icon-16.png",
@@ -18,13 +18,14 @@
   ],
   "host_permissions": [
     "https://zgm-gliwice.pl/*",
+    "https://bip.katowice.eu/*",
     "https://raw.githubusercontent.com/110kc3/przetargimiejskie/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "ZGM auction history",
+    "default_title": "przetargimiejskie — historia aukcji",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon-16.png",
@@ -36,12 +37,16 @@
   "content_scripts": [
     {
       "matches": [
-        "https://zgm-gliwice.pl/*"
+        "https://zgm-gliwice.pl/*",
+        "https://bip.katowice.eu/*"
       ],
       "js": [
         "i18n.js",
         "normalize.js",
         "watchlist.js",
+        "sites/registry.js",
+        "sites/gliwice.js",
+        "sites/katowice.js",
         "content.js"
       ],
       "css": [
