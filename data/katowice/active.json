@@ -117,44 +117,6 @@
       "viewing_date": "2026-06-08"
     },
     {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Staromiejskiej 15/8",
-      "address": {
-        "street": "Staromiejskiej",
-        "street_norm": "staromiejskiej",
-        "building": "15",
-        "apt": "8",
-        "key": "staromiejskiej|15|8",
-        "warning": null
-      },
-      "auction_date": "2026-05-19",
-      "area_m2": 27.28,
-      "starting_price_pln": 160000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151509&menu=679",
-      "wadium_deadline": "2026-05-11",
-      "viewing_date": "2026-05-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Skłodowskiej - Curie 21/1",
-      "address": {
-        "street": "Skłodowskiej - Curie",
-        "street_norm": "sklodowskiej curie",
-        "building": "21",
-        "apt": "1",
-        "key": "sklodowskiej curie|21|1",
-        "warning": null
-      },
-      "auction_date": "2026-05-19",
-      "area_m2": 64.21,
-      "starting_price_pln": 850000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150872&menu=679",
-      "wadium_deadline": "2026-05-11",
-      "viewing_date": "2026-05-11"
-    },
-    {
       "kind": "unknown",
       "round": 1,
       "address_raw": "Św. Jacka 13",
@@ -590,6 +552,44 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=554",
       "wadium_deadline": "2026-03-23",
       "viewing_date": "2026-03-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Skłodowskiej - Curie 21/1",
+      "address": {
+        "street": "Skłodowskiej - Curie",
+        "street_norm": "sklodowskiej curie",
+        "building": "21",
+        "apt": "1",
+        "key": "sklodowskiej curie|21|1",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "area_m2": 64.21,
+      "starting_price_pln": 850000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=556",
+      "wadium_deadline": "2026-05-11",
+      "viewing_date": "2026-05-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Staromiejskiej 15/8",
+      "address": {
+        "street": "Staromiejskiej",
+        "street_norm": "staromiejskiej",
+        "building": "15",
+        "apt": "8",
+        "key": "staromiejskiej|15|8",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "area_m2": 27.28,
+      "starting_price_pln": 160000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=559",
+      "wadium_deadline": "2026-05-11",
+      "viewing_date": "2026-05-11"
     }
   ],
   "wykaz": []

@@ -28,7 +28,7 @@ import {
   crawlSharePointAnnouncements,
   crawlSharePointResultDocs,
 } from './crawl-sharepoint.js';
-import { parseResultPdf } from './parse.js';
+import { parseResultDoc } from './parse.js';
 
 // Final segment of a URL, ignoring query string. Used as the dedup key for
 // result PDFs that the same auction can publish at two different paths.
@@ -95,6 +95,9 @@ async function crawlResultDocs() {
 export default {
   ...config,
   crawlResultDocs,
-  parseResultDoc: parseResultPdf,
+  // parseResultDoc routes per-auction "Wyniki" PDFs to parseResultPdf and
+  // annual "Wykaz nieruchomości sprzedanych" PDFs to parseYearlySummaryPdf —
+  // see parse.js. Both call paths produce the same sold-record shape.
+  parseResultDoc,
   crawlActive,
 };
