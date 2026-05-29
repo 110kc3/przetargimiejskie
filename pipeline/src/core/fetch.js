@@ -26,28 +26,45 @@ async function throttle() {
  */
 export async function politeGet(url, opts = {}) {
   const { retries = 3, accept = '*/*', userAgent } = opts;
+  // When a city overrides the UA (browser mode), send the rest of a browser's
+  // baseline headers too — some municipal WAFs (e.g. bip.miastozabrze.pl) reject
+  // requests that present a browser UA but lack Accept-Language / Sec-Fetch-*.
+  const browserMode = Boolean(userAgent);
+  const headers = {
+    'User-Agent': userAgent || USER_AGENT,
+    Accept: browserMode
+      ? 'text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf,*/*;q=0.8'
+      : accept,
+    ...(browserMode
+      ? {
+          'Accept-Language': 'pl-PL,pl;q=0.9,en;q=0.8',
+          'Sec-Fetch-Dest': 'document',
+          'Sec-Fetch-Mode': 'navigate',
+          'Sec-Fetch-Site': 'none',
+          'Upgrade-Insecure-Requests': '1',
+        }
+      : {}),
+  };
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       await throttle();
-      const res = await fetch(url, {
-        headers: {
-          // Some municipal servers (e.g. bytom.pl) serve an empty body to the
-          // default bot UA; a per-call override lets a city send a browser-like
-          // UA. Defaults to the polite project UA when not overridden.
-          'User-Agent': userAgent || USER_AGENT,
-          Accept: accept,
-        },
-        redirect: 'follow',
-      });
+      const res = await fetch(url, { headers, redirect: 'follow' });
       if (res.status >= 500 || res.status === 429) {
         throw new Error(`http ${res.status} on ${url}`);
       }
       return res;
     } catch (err) {
       lastErr = err;
+      // `fetch failed` hides the real reason on its `.cause` — surface it so
+      // connection failures (DNS / TLS / refused / timeout / IP-block) are
+      // diagnosable from the CI log instead of an opaque "fetch failed".
+      const cause = err?.cause;
+      const detail = cause
+        ? ` [cause: ${cause.code || cause.name || ''} ${cause.message || ''}`.trimEnd() + ']'
+        : '';
       const backoff = 1000 * Math.pow(2, attempt);
-      console.error(`  fetch failed (${err.message}); retry in ${backoff}ms`);
+      console.error(`  fetch failed (${err.message})${detail}; retry in ${backoff}ms`);
       await sleep(backoff);
     }
   }
