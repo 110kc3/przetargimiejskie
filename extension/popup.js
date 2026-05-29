@@ -68,6 +68,49 @@ function applyStaticI18n() {
 let lastPayload = null;
 let lastWatchlist = {};
 
+// Active-table sort state. Null sortKey = use the default heuristic
+// (most-relisted first, then prior count, then area) — preserves the
+// behaviour the popup had before sortable headers existed.
+let activeSortKey = null;
+let activeSortDir = 'asc';
+
+// Per-column value extractor. Returns null for "missing" so the sorter
+// can park empty cells at the bottom regardless of direction.
+function activeSortValue(item, key) {
+  const a = item.a;
+  switch (key) {
+    case 'date': return a.auction_date || null;
+    case 'ask':  return a.starting_price_pln ?? null;
+    case 'm2':
+      return a.area_m2 && a.starting_price_pln
+        ? a.starting_price_pln / a.area_m2
+        : null;
+    case 'prior': return item.prior.length;
+    default: return null;
+  }
+}
+
+function sortActiveItems(items) {
+  if (!activeSortKey) {
+    return items.sort((x, y) => {
+      if (y.unsold.length !== x.unsold.length) return y.unsold.length - x.unsold.length;
+      if (y.prior.length !== x.prior.length) return y.prior.length - x.prior.length;
+      return (y.a.area_m2 || 0) - (x.a.area_m2 || 0);
+    });
+  }
+  return items.sort((x, y) => {
+    const av = activeSortValue(x, activeSortKey);
+    const bv = activeSortValue(y, activeSortKey);
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    let cmp;
+    if (typeof av === 'number' && typeof bv === 'number') cmp = av - bv;
+    else cmp = String(av).localeCompare(String(bv));
+    return activeSortDir === 'asc' ? cmp : -cmp;
+  });
+}
+
 async function load(force) {
   $status.hidden = false;
   $status.textContent = force ? t('popup.refreshing') : t('popup.loading');
@@ -116,11 +159,7 @@ function renderActive() {
     const key = a.address?.key;
     return { a, prop, prior, unsold, lastUnsold, key };
   });
-  items.sort((x, y) => {
-    if (y.unsold.length !== x.unsold.length) return y.unsold.length - x.unsold.length;
-    if (y.prior.length !== x.prior.length) return y.prior.length - x.prior.length;
-    return (y.a.area_m2 || 0) - (x.a.area_m2 || 0);
-  });
+  sortActiveItems(items);
 
   $tbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold, key }) => {
@@ -297,5 +336,27 @@ function syncThemeButton() {
     window.ZGM_I18N.setLang(next);
   });
   $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
+
+  // Sortable column headers on the active table. Date defaults to asc
+  // (soonest first — what the user typically wants); other columns default
+  // to desc (most expensive / most-relisted first). Re-clicking the same
+  // column toggles direction.
+  for (const th of $table.querySelectorAll('th[data-sort]')) {
+    th.addEventListener('click', () => {
+      const k = th.dataset.sort;
+      if (activeSortKey === k) {
+        activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        activeSortKey = k;
+        activeSortDir = k === 'date' ? 'asc' : 'desc';
+      }
+      for (const t2 of $table.querySelectorAll('th[data-sort]')) {
+        t2.classList.remove('sorted-asc', 'sorted-desc');
+      }
+      th.classList.add(activeSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+      if (lastPayload) renderActive();
+    });
+  }
+
   load(false);
 })();

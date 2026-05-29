@@ -169,7 +169,10 @@ h2 {
   color: var(--muted);
   letter-spacing: 0.04em;
 }
-.zgm-star-cell { width: 24px; text-align: center; padding: 4px 0; }
+/* Both the `<td>` and the `<th>` in column 1 use this class so the header
+ * width tracks the star button (otherwise the unstyled <th> takes its own
+ * default share of the table width and shifts every column header right). */
+.zgm-star-cell, th.zgm-star-cell { width: 24px; text-align: center; padding: 4px 0; }
 .zgm-star {
   background: none;
   border: none;
@@ -189,6 +192,14 @@ h2 {
 .footer-links a { color: var(--accent); }
 .footer-links .zgm-support { color: var(--amber-fg); font-weight: 600; }
 .footer-links .version { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+/* Active-table column-header sort affordances. The historical archive uses
+ * the same pattern (see archive.css) — duplicated here because popup.css
+ * stands alone. */
+#active-table th[data-sort] { cursor: pointer; user-select: none; }
+#active-table th[data-sort]::after { content: ' ↕'; opacity: 0.3; }
+#active-table th.sorted-asc::after  { content: ' ↑'; opacity: 1; }
+#active-table th.sorted-desc::after { content: ' ↓'; opacity: 1; }
 
 /* Wadium-deadline highlight */
 .zgm-urgent { color: var(--amber-fg); font-weight: 600; }
@@ -212,11 +223,15 @@ h2 {
 .zgm-city-tag[data-city="gliwice"]  { background: var(--chip-gliwice-bg);  color: var(--chip-gliwice-fg);  border-color: var(--chip-gliwice-border); }
 .zgm-city-tag[data-city="katowice"] { background: var(--chip-katowice-bg); color: var(--chip-katowice-fg); border-color: var(--chip-katowice-border); }
 
-/* Stacked dates cell */
+/* Stacked dates cell. The label column has to fit the longest Polish label —
+ * "OGLĘDZINY" (viewing) at 9 characters — so 72px with box-sizing keeps it
+ * from overlapping the date next to it when the table is narrow. */
 .zgm-dates-cell { line-height: 1.4; white-space: nowrap; font-size: 12px; }
 .zgm-date-label {
   display: inline-block;
-  width: 50px;
+  box-sizing: border-box;
+  width: 72px;
+  padding-right: 6px;
   color: var(--muted);
   font-size: 10px;
   text-transform: uppercase;

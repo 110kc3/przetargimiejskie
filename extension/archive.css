@@ -208,9 +208,17 @@ section h2 {
   cursor: pointer;
   user-select: none;
 }
-#archive-table th[data-sort]::after { content: ' ↕'; opacity: 0.3; }
-#archive-table th.sorted-asc::after  { content: ' ↑'; opacity: 1; }
-#archive-table th.sorted-desc::after { content: ' ↓'; opacity: 1; }
+#archive-table th[data-sort],
+#active-table th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+}
+#archive-table th[data-sort]::after,
+#active-table th[data-sort]::after { content: ' ↕'; opacity: 0.3; }
+#archive-table th.sorted-asc::after,
+#active-table th.sorted-asc::after  { content: ' ↑'; opacity: 1; }
+#archive-table th.sorted-desc::after,
+#active-table th.sorted-desc::after { content: ' ↓'; opacity: 1; }
 
 #archive-table tr.zgm-ext-row-sold td   { color: var(--green-fg); }
 #archive-table tr.zgm-ext-row-unsold td { color: var(--red-fg); }
@@ -277,7 +285,9 @@ section h2 {
 #active-table .zgm-dates-cell { line-height: 1.4; white-space: nowrap; font-size: 12px; }
 #active-table .zgm-date-label {
   display: inline-block;
-  width: 56px;
+  box-sizing: border-box;
+  width: 72px;            /* must fit "OGLĘDZINY" — the longest Polish label */
+  padding-right: 6px;
   color: var(--muted);
   font-size: 10px;
   text-transform: uppercase;

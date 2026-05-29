@@ -22,6 +22,15 @@ const SCHEMA_VERSION = 1;
 const PARSER_VERSION = '0.2.0';
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
+// Pipeline floor: drop historical records whose auction year is older than
+// this. Active listings and wykaz pre-announcements are never dropped (those
+// are current/upcoming). The extension layers a soft per-user UI window on
+// top of this floor (default = current_year - 3, see extension/settings.js)
+// — so this floor should stay broader than that UI default to leave room.
+// Override with `MIN_HISTORY_YEAR=YYYY npm run refresh`.
+const PIPELINE_MIN_HISTORY_YEAR =
+  Number(process.env.MIN_HISTORY_YEAR) || 2020;
+
 // Crawl, OCR/parse, enrich and write one city's three JSON files.
 async function refreshCity(city) {
   console.error(`\n=== ${city.label} (${city.id}) ===`);
@@ -50,7 +59,18 @@ async function refreshCity(city) {
     for (const r of recs) parsedNoteCount += r.notes.length;
     allRecords.push(...recs);
   }
-  console.error(`Parsed ${allRecords.length} auction records (${parsedNoteCount} parser notes).\n`);
+  const beforeFloor = allRecords.length;
+  // Apply the pipeline floor. Records with no auction_date pass through —
+  // they're rare (parser noise) and harmless; the extension's soft window
+  // will hide them too if they fall outside.
+  const floored = allRecords.filter(
+    (r) => !r.auction_date || Number(r.auction_date.slice(0, 4)) >= PIPELINE_MIN_HISTORY_YEAR,
+  );
+  allRecords.length = 0;
+  allRecords.push(...floored);
+  console.error(
+    `Parsed ${beforeFloor} auction records, kept ${allRecords.length} after pipeline floor (>= ${PIPELINE_MIN_HISTORY_YEAR}) — ${parsedNoteCount} parser notes.\n`,
+  );
 
   console.error('Crawling active listings + wykaz ...');
   const { listings: active, wykaz } = await city.crawlActive();

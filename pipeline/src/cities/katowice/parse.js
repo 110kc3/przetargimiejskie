@@ -41,7 +41,10 @@ function isoDate(dd, mm, yyyy) {
 }
 
 function kindFromText(t) {
-  if (/lokal\w*\s+mieszkaln/i.test(t)) return 'mieszkalny';
+  // Whole-building sale: "budynkiem mieszkalnym" / "budynek mieszkalny" /
+  // "nieruchomość zabudowana budynkiem mieszkalnym" — these are residential
+  // even though they don't contain "lokal".
+  if (/(?:lokal|budyn\w+|domem|zabudow\w+\s+budynk)\w*\s+mieszkaln/i.test(t)) return 'mieszkalny';
   if (/lokal\w*\s+(?:niemieszkaln|u[żz]ytkow)/i.test(t)) return 'uzytkowy';
   if (/gara[żz]/i.test(t)) return 'garaz';
   return 'unknown';
@@ -70,7 +73,11 @@ export function parseAnnouncement(html, title, docUrl) {
   const titleKind = kindFromText(title);
   const kind = titleKind !== 'unknown' ? titleKind : kindFromText(text);
 
-  const areaM = /o\s+pow\.\s*(?:u[żz]ytkowej\s*)?(\d+(?:[,.]\d+)?)\s*m/i.exec(text);
+  // Area: accept both "o pow." (abbreviated, common on the BIP) and the
+  // full word "o powierzchni" / "o powierzchni użytkowej" (common on the
+  // city-portal SharePoint announcements). Also accept "m 2" with a space
+  // — pdftotext-ish artefact that occurs in some bodies.
+  const areaM = /o\s+pow(?:\.|ierzchni)\s*(?:u[żz]ytkowej\s*)?(\d+(?:[,.]\d+)?)\s*m\s*[²2]/i.exec(text);
   const areaNum = areaM ? Number(areaM[1].replace(',', '.')) : null;
 
   const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
@@ -189,16 +196,9 @@ function isYearlySummaryText(text) {
   );
 }
 
-// Reject candidates that the regex would otherwise pull from the buyer-
-// designation column ("osoba fizyczna" → "os. fiz. <next number>", "osoba
-// prawna" → "os. prawn. <num>"). These appear in 2018+ tables where the
-// buyer column happens to neighbour a parcel/lot number — without a guard,
-// pickAddress greedily reads them as if they were `os. <street> <bldg>`.
 const BUYER_DESIGNATION_RE = /^(?:fiz|fizyczn\w*|prawn\w*)\b/i;
 
 function pickAddress(blob) {
-  // Iterate prefixed candidates and skip any whose street part looks like a
-  // buyer designation.
   for (const m of blob.matchAll(/\b(?:ul|al|pl|os)\.\s*([A-ZŻŹĆĄŚĘÓŁŃa-ząćęłńóśźż][\wąćęłńóśźż.\- ]+?\s+\d+[A-Za-z]?(?:\s*\/\s*[\dIVX]+[A-Za-z]?)?)\b/gi)) {
     const cand = m[1].replace(ADDR_TAIL_RE, '').trim();
     if (!BUYER_DESIGNATION_RE.test(cand)) return cand;
@@ -233,10 +233,6 @@ function parseYearlySummaryRow(lines, lo, _anchorI, hi, prices, sourceUrl) {
   if (/lokal\w*\s+mieszkaln/i.test(blob)) kind = 'mieszkalny';
   else if (/lokal\w*\s+(?:niemieszkaln|u[żz]ytkow)/i.test(blob)) kind = 'uzytkowy';
   else if (/gara[żz]/i.test(blob)) kind = 'garaz';
-  // 2012-13 PDFs split the "rodzaj nieruchomości" cell across two physical
-  // lines; the word "lokal" sometimes falls outside the row's midpoint window.
-  // An apartment-bearing address ("Wojewódzka 20/6") is almost always
-  // residential — defensible fallback when explicit kind detection misses.
   if (kind === 'unknown' && address.apt && /^\d+[a-z]?$/i.test(address.apt)) {
     kind = 'mieszkalny';
   }

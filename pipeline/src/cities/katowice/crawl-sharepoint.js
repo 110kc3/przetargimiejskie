@@ -35,31 +35,20 @@ const ORIGIN = 'https://katowice.eu';
 const ANNOUNCEMENTS_GUID = '45A01FD4-EF73-4E52-8294-C31CE3CEB738';
 const RESULTS_GUID = '272ABCA8-EAFD-4D6A-AFFA-D418AB3630B2';
 
-// SharePoint Polish-encoded field names — stable across the API regardless
-// of what the URL slug looks like. (Treść → Tre_x015b__x0107_).
 const F_TITLE = 'Title';
 const F_BODY = 'Tre_x015b__x0107_';
 const F_PUBLIKACJA = 'Data_x0020_publikacji';
 
-// One request per list. Our two lists are 60 and 295 items today; growth is
-// slow (~tens/year). $top=2000 gives ~6 years of safety margin. If a list
-// ever truly grows past that, swap to the OData __next paging the API
-// surfaces — every response carries d.__next when the result set is paged.
 const PAGE_SIZE = 2000;
 
 const CACHE_DIR = fileURLToPath(
   new URL('../../../pdf-text-cache/', import.meta.url),
 );
 
-// HEAD-probe knobs — used only to filter out broken hrefs inside Treść
-// bodies before refresh.js hands them to pdfText(). Polite but parallel:
-// at 5 concurrent we get through ~300 URLs in ~5 seconds without poking the
-// server harder than a normal user clicking through the list.
 const PROBE_CONCURRENCY = 5;
 const UA =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
 
-/** GET the items of one SharePoint list as plain JSON. Throws on any non-2xx. */
 async function fetchListItems(guid) {
   const fields = [F_TITLE, F_BODY, F_PUBLIKACJA, 'Id', 'Attachments'].join(',');
   const url =
@@ -82,18 +71,12 @@ async function fetchListItems(guid) {
   return items;
 }
 
-// "DD.MM.YYYY[r.]" → "YYYY-MM-DD" (returns null when not present).
 function extractAuctionDate(title) {
   const m = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(title || '');
   if (!m) return null;
   return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
 }
 
-// First PDF link in the result-wykaz body. Returns an absolute URL on
-// katowice.eu (the body links are typically server-relative). The hrefs
-// often contain literal Polish characters (ó, ą, ł, …) that need
-// percent-encoding before fetch() will accept them; we route through the
-// WHATWG URL parser to do that uniformly.
 function extractResultPdfUrl(body) {
   if (!body) return null;
   const m = /href="([^"]*\.pdf[^"]*)"/i.exec(body);
@@ -106,9 +89,6 @@ function extractResultPdfUrl(body) {
   }
 }
 
-// Lightweight HEAD probe — only used to filter out the SharePoint dead
-// links described in the file header. Throttles itself across PROBE_CONCURRENCY
-// workers so the city portal sees at most that many concurrent HEADs.
 async function probeIsReachable(url) {
   try {
     const res = await fetch(url, {
@@ -118,9 +98,6 @@ async function probeIsReachable(url) {
     });
     if (!res.ok) return false;
     const ct = (res.headers.get('content-type') || '').toLowerCase();
-    // A surviving SharePoint PDF answers with application/pdf; an evicted
-    // one answers 200/text-html (a SharePoint "this page can't be found"
-    // template) or 404. Treat anything non-pdf as a dead link.
     return ct.includes('pdf');
   } catch {
     return false;
@@ -128,8 +105,6 @@ async function probeIsReachable(url) {
 }
 
 async function filterReachable(refs) {
-  // Anything already in pdf-text-cache was OK on a previous run — skip the
-  // HEAD probe for those, so cost amortises to ~0 once the cache is warm.
   const probeNeeded = [];
   const knownGood = [];
   for (const r of refs) {
@@ -165,10 +140,23 @@ async function filterReachable(refs) {
   return out;
 }
 
-/**
- * Walk the SharePoint announcements list and parse each item's Treść body
- * into the same `active listing` shape `crawl.js#crawlActive` produces.
- */
+// Not every item on the announcements list is actually an auction-to-bid-on.
+// SharePoint also carries procedural notices (qualified-participants lists,
+// cancellation announcements, sale-price recalculations) — those have titles
+// like "Lista osób zakwalifikowanych" or "Ogłoszenie o odwołaniu przetargów".
+// Without a filter, parseAnnouncement returns a listing object whose body
+// regexes all fall through to null, and the user sees a row with empty
+// Date / Ask / Ask/m² cells. Reject them by title shape.
+const NON_AUCTION_TITLE_RE =
+  /^\s*(?:Lista\s+os[óo]b|Og[lł]oszenie\s+o\s+odwo[lł]a|Informacja\s+o\s+wynik|Wykaz\s+nieruchomo|Zmiana\s+ceny)/i;
+
+// Conversely, valid auction-announcement titles always carry some form of
+// "[Drugi/Trzeci/…] [P]przetarg ustny … na sprzedaż" or open with "Przetarg
+// ustny". Matching this positively as well makes the filter robust against
+// the long tail of one-off SharePoint notices nobody anticipated.
+const AUCTION_TITLE_RE =
+  /(?:^|\s)(?:Drugi|Trzeci|Czwarty|Pi[ąa]ty)?\s*[Pp]rzetarg\w*\s+ustn\w+\s+(?:nie)?ograniczon\w+\s+na\s+sprzeda[żz]/i;
+
 export async function crawlSharePointAnnouncements() {
   let items;
   try {
@@ -178,28 +166,26 @@ export async function crawlSharePointAnnouncements() {
     return [];
   }
   const listings = [];
+  let droppedNonAuction = 0;
   for (const it of items) {
     const title = (it[F_TITLE] || '').trim();
     const body = it[F_BODY] || '';
     if (!title || !body) continue;
+    if (NON_AUCTION_TITLE_RE.test(title) || !AUCTION_TITLE_RE.test(title)) {
+      droppedNonAuction++;
+      continue;
+    }
     const docUrl =
       `${ORIGIN}/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=${it.Id}`;
     const listing = parseAnnouncement(body, title, docUrl);
     if (listing) listings.push(listing);
   }
   console.error(
-    `  katowice SP: ${listings.length} announcement(s) parsed from ${items.length} list item(s)`,
+    `  katowice SP: ${listings.length} announcement(s) parsed from ${items.length} list item(s) (dropped ${droppedNonAuction} non-auction notice(s))`,
   );
   return listings;
 }
 
-/**
- * Walk the SharePoint results list and return one ref per linked PDF that
- * is actually reachable. Each ref is `{ pdf_url, auction_date }` — the
- * same shape `crawl.js#crawlResultDocs` returns and refresh.js feeds to
- * pdfText() + parseResultPdf(). Dead links inside the Treść bodies are
- * dropped here so downstream code never sees them.
- */
 export async function crawlSharePointResultDocs() {
   let items;
   try {

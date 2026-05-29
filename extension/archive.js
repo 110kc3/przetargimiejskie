@@ -12,6 +12,7 @@ const $themeToggle = document.getElementById('theme-toggle');
 const $filterCity = document.getElementById('filter-city');
 const $filterKind = document.getElementById('filter-kind');
 const $filterOutcome = document.getElementById('filter-outcome');
+const $filterMinYear = document.getElementById('filter-min-year');
 const $filterSearch = document.getElementById('filter-search');
 const $rowcount = document.getElementById('rowcount');
 const $provenance = document.getElementById('provenance');
@@ -37,7 +38,6 @@ function median(nums) {
 }
 
 // Compact city chip prepended to property cells (the archive mixes cities).
-// Style lives in archive.css; per-city color comes from the data attribute.
 function cityTagHtml(city) {
   if (!city) return '';
   const label = t('city.' + city);
@@ -47,14 +47,52 @@ function cityTagHtml(city) {
   return `<span class="zgm-city-tag" data-city="${city}">${display}</span> `;
 }
 
-let records = []; // flattened historical records ready to render
-let activeListings = []; // payload.active.listings, city-namespaced by background.js
-let propByKey = new Map(); // for enriching active rows with prior-attempts info
+let records = [];
+let activeListings = [];
+let propByKey = new Map();
 let lastMeta = null;
 let lastFetchedAt = null;
 
-// Dates / wadium helpers — same shape the popup uses, kept inline to avoid a
-// new shared file just for these two functions.
+// Active-table sort state (separate from the historical table's sortKey).
+// Null = the default "most-relisted first" heuristic in renderActiveTable.
+let activeSortKey = null;
+let activeSortDir = 'asc';
+
+function activeSortValue(item, key) {
+  const a = item.a;
+  switch (key) {
+    case 'date': return a.auction_date || null;
+    case 'ask':  return a.starting_price_pln ?? null;
+    case 'm2':
+      return a.area_m2 && a.starting_price_pln
+        ? a.starting_price_pln / a.area_m2
+        : null;
+    case 'prior': return item.prior.length;
+    default: return null;
+  }
+}
+
+function sortActiveItems(items) {
+  if (!activeSortKey) {
+    return items.sort((x, y) => {
+      if (y.unsold.length !== x.unsold.length) return y.unsold.length - x.unsold.length;
+      if (y.prior.length !== x.prior.length) return y.prior.length - x.prior.length;
+      return (y.a.area_m2 || 0) - (x.a.area_m2 || 0);
+    });
+  }
+  return items.sort((x, y) => {
+    const av = activeSortValue(x, activeSortKey);
+    const bv = activeSortValue(y, activeSortKey);
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    let cmp;
+    if (typeof av === 'number' && typeof bv === 'number') cmp = av - bv;
+    else cmp = String(av).localeCompare(String(bv));
+    return activeSortDir === 'asc' ? cmp : -cmp;
+  });
+}
+
 function wadiumCellHtml(date) {
   if (!date) return '—';
   const today = new Date();
@@ -115,7 +153,6 @@ function flatten(payload) {
       if (l.outcome === 'sold' || l.outcome === 'unsold') {
         records.push({
           date: l.date,
-          // background.js stamps `city` onto every property at merge time.
           city: p.city || null,
           street: p.street,
           building: p.building,
@@ -136,14 +173,20 @@ function flatten(payload) {
       }
     }
   }
-  // newest first by default
   records.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 }
 
 function renderSummary() {
+  const city = $filterCity.value;
+  const minYear = Number($filterMinYear.value) || 0;
+  const scope = records.filter(
+    (r) =>
+      (city === 'all' || r.city === city) &&
+      (!minYear || !r.date || Number(r.date.slice(0, 4)) >= minYear),
+  );
   for (const tile of document.querySelectorAll('#summary .tile')) {
     const kind = tile.dataset.kind;
-    const sold = records.filter(
+    const sold = scope.filter(
       (r) => r.kind === kind && r.outcome === 'sold' && r.final_price_pln != null,
     );
     tile.querySelector('.n').textContent = sold.length;
@@ -177,12 +220,18 @@ function renderTable() {
   const city = $filterCity.value;
   const kind = $filterKind.value;
   const outcome = $filterOutcome.value;
+  const minYear = Number($filterMinYear.value) || 0;
   const q = $filterSearch.value.trim().toLowerCase();
 
   let rows = records.slice();
   if (city !== 'all') rows = rows.filter((r) => r.city === city);
   if (kind !== 'all') rows = rows.filter((r) => r.kind === kind);
   if (outcome !== 'all') rows = rows.filter((r) => r.outcome === outcome);
+  if (minYear) {
+    rows = rows.filter(
+      (r) => !r.date || Number(r.date.slice(0, 4)) >= minYear,
+    );
+  }
   if (q) rows = rows.filter((r) => r.street_search.includes(q));
 
   rows.sort((a, b) => {
@@ -235,18 +284,11 @@ function renderProvenance() {
   $provenance.hidden = false;
 }
 
-// "Currently active" section — bigger version of the popup's active table.
-// Same column shape; city + kind + search filters apply, outcome filter is
-// inherently a no-op here (every row is `active`).
 function renderActiveTable() {
   const city = $filterCity.value;
   const kind = $filterKind.value;
   const q = $filterSearch.value.trim().toLowerCase();
 
-  // Defensive filter mirroring popup.js renderActive(): drop listings whose
-  // auction date has already passed. Proper home for this is the Katowice
-  // pipeline crawler (TODO.md), but the BIP keeps stale announcement docs
-  // up so the data file alone isn't trustworthy.
   const today = new Date().toISOString().slice(0, 10);
   const items = activeListings
     .filter((a) => !a.auction_date || a.auction_date >= today)
@@ -254,8 +296,6 @@ function renderActiveTable() {
     .filter((a) => kind === 'all' || a.kind === kind)
     .filter((a) => {
       if (!q) return true;
-      // Search the same shape the historical table searches against: a
-      // lowercased "street building/apt" string.
       const s = (a.address_raw || '').toLowerCase();
       return s.includes(q);
     })
@@ -270,12 +310,9 @@ function renderActiveTable() {
       const lastUnsold = unsold[unsold.length - 1];
       return { a, prop, prior, unsold, lastUnsold };
     });
-  // Same sort as the popup: most-relisted first, then prior count, then area.
-  items.sort((x, y) => {
-    if (y.unsold.length !== x.unsold.length) return y.unsold.length - x.unsold.length;
-    if (y.prior.length !== x.prior.length) return y.prior.length - x.prior.length;
-    return (y.a.area_m2 || 0) - (x.a.area_m2 || 0);
-  });
+  // Heuristic by default, user-clickable headers can override (see the
+  // click handlers at the bottom of this file).
+  sortActiveItems(items);
 
   $activeTbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold }) => {
@@ -304,7 +341,6 @@ function renderActiveTable() {
     })
     .join('');
 
-  // Row click → open the detail page in a new tab, like the popup does.
   for (const tr of $activeTbody.querySelectorAll('tr[data-url]')) {
     tr.addEventListener('click', () => {
       const url = tr.dataset.url;
@@ -332,7 +368,18 @@ function syncThemeButton() {
 }
 
 (async () => {
-  await Promise.all([window.ZGM_I18N.ready, window.ZGM_THEME?.ready]);
+  await Promise.all([
+    window.ZGM_I18N.ready,
+    window.ZGM_THEME?.ready,
+    window.ZGM_SETTINGS?.ready,
+  ]);
+  const currentMin = window.ZGM_SETTINGS?.getMinHistoryYear?.();
+  if ($filterMinYear && window.ZGM_SETTINGS) {
+    $filterMinYear.innerHTML = window.ZGM_SETTINGS
+      .minYearOptions()
+      .map((y) => `<option value="${y}"${y === currentMin ? ' selected' : ''}>${y}+</option>`)
+      .join('');
+  }
   applyStaticI18n();
   syncThemeButton();
   window.ZGM_I18N.onChange(() => {
@@ -346,12 +393,22 @@ function syncThemeButton() {
     window.ZGM_I18N.setLang(next);
   });
   $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
-  const onFilterChange = () => { renderActiveTable(); renderTable(); };
+  const onFilterChange = () => { renderSummary(); renderActiveTable(); renderTable(); };
   $filterCity.addEventListener('change', onFilterChange);
   $filterKind.addEventListener('change', onFilterChange);
-  // Outcome filter is meaningful only for the historical table — active rows
-  // have no outcome — so it doesn't need to re-render the active section.
   $filterOutcome.addEventListener('change', renderTable);
+  $filterMinYear?.addEventListener('change', () => {
+    window.ZGM_SETTINGS?.setMinHistoryYear(Number($filterMinYear.value));
+    renderSummary();
+    renderTable();
+  });
+  window.ZGM_SETTINGS?.onChange((y) => {
+    if ($filterMinYear && Number($filterMinYear.value) !== y) {
+      $filterMinYear.value = String(y);
+      renderSummary();
+      renderTable();
+    }
+  });
   $filterSearch.addEventListener('input', onFilterChange);
   for (const th of $table.querySelectorAll('th[data-sort]')) {
     th.addEventListener('click', () => {
@@ -363,6 +420,24 @@ function syncThemeButton() {
       }
       th.classList.add(sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
       renderTable();
+    });
+  }
+  // Sortable headers for the "Currently active" table. Mirrors the popup —
+  // date defaults asc (soonest first), other columns default desc.
+  for (const th of $activeTable.querySelectorAll('th[data-sort]')) {
+    th.addEventListener('click', () => {
+      const k = th.dataset.sort;
+      if (activeSortKey === k) {
+        activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        activeSortKey = k;
+        activeSortDir = k === 'date' ? 'asc' : 'desc';
+      }
+      for (const t2 of $activeTable.querySelectorAll('th[data-sort]')) {
+        t2.classList.remove('sorted-asc', 'sorted-desc');
+      }
+      th.classList.add(activeSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+      renderActiveTable();
     });
   }
   load();

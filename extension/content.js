@@ -20,8 +20,20 @@
   const isDetail = site.isDetail(location.pathname);
   if (!isListingIndex && !isDetail) return;
 
-  // Wait for i18n to load the user's saved language before first render.
-  await window.ZGM_I18N.ready;
+  // Wait for i18n + the user's saved minHistoryYear preference before first
+  // render. settings.js is optional (defensive ?.) — if it ever fails to
+  // load, we just show everything (no year filter).
+  await Promise.all([window.ZGM_I18N.ready, window.ZGM_SETTINGS?.ready]);
+  // Helper: drop pre-cutoff historical listings. Active / announced rows
+  // are never dropped — they're current. Listings without a date pass
+  // through (parser noise).
+  const minYear = () => window.ZGM_SETTINGS?.getMinHistoryYear?.() ?? 0;
+  const withinYearWindow = (l) => {
+    if (l.outcome === 'active' || l.outcome === 'announced') return true;
+    const y = minYear();
+    if (!y || !l.date) return true;
+    return Number(l.date.slice(0, 4)) >= y;
+  };
 
   let payload;
   try {
@@ -54,6 +66,9 @@
 
   render();
   window.ZGM_I18N.onChange(render);
+  // The min-year preference can change in another tab (popup or archive);
+  // re-render so the prior-history tooltips + detail panel update in place.
+  window.ZGM_SETTINGS?.onChange(render);
 
   // -------------------------------------------------------------- index page
 
@@ -66,7 +81,10 @@
       const prop = lookup(address);
       const prior = prop
         ? prop.listings.filter(
-            (l) => l.outcome !== 'active' && l.outcome !== 'announced',
+            (l) =>
+              l.outcome !== 'active' &&
+              l.outcome !== 'announced' &&
+              withinYearWindow(l),
           )
         : [];
 
@@ -143,7 +161,10 @@
     }
 
     const prior = prop.listings.filter(
-      (l) => l.outcome !== 'active' && l.outcome !== 'announced',
+      (l) =>
+        l.outcome !== 'active' &&
+        l.outcome !== 'announced' &&
+        withinYearWindow(l),
     );
     const active = prop.listings.find((l) => l.outcome === 'active');
     const rows = prior
@@ -311,7 +332,12 @@
       </thead>
       <tbody>
       ${prop.listings
-        .filter((l) => l.outcome !== 'active' && l.outcome !== 'announced')
+        .filter(
+          (l) =>
+            l.outcome !== 'active' &&
+            l.outcome !== 'announced' &&
+            withinYearWindow(l),
+        )
         .map(
           (l) => `
           <tr class="zgm-ext-row-${l.outcome}">

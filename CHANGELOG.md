@@ -4,6 +4,81 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.3.3 — 2026-05-29
+
+- Data: Katowice active listings no longer ship with empty Date / Ask /
+  Ask/m² cells.
+  - **`crawl-sharepoint.js`** — title-shape filter on the SP announcements
+    list. Procedural notices ("Lista osób zakwalifikowanych", "Ogłoszenie
+    o odwołaniu przetargów", "Informacja o wynikach", "Wykaz nieruchomości",
+    "Zmiana ceny") are dropped before parsing, and only titles matching the
+    auction pattern (`[Drugi/Trzeci/…] przetarg ustny (nie)ograniczony na
+    sprzedaż`) pass through. The cancellation- and qualified-participants
+    rows that showed empty cells in the popup are now skipped at source.
+  - **`parse.js#kindFromText`** — recognises whole-building sales
+    ("budynkiem mieszkalnym", "nieruchomość zabudowana budynkiem
+    mieszkalnym") as `mieszkalny`, not just unit-only "lokal mieszkalny".
+  - **`parse.js` area regex** — accepts both the abbreviated `o pow.` (BIP)
+    and the full word `o powierzchni / o powierzchni użytkowej` (city-portal
+    SharePoint) plus `m 2` with a space.
+  - Counts: `no-date` 2 → 0, `no-price` 2 → 0, `no-area` 12 → 4,
+    `kind=unknown` 11 → 4 on the 29 active listings (down from 31 — the
+    two skipped rows were the procedural notices).
+
+## v1.3.2 — 2026-05-28
+
+- Fix: popup tables had mismatched `<th>` / `<td>` counts which shifted every
+  column header one slot to the right of its data.
+  - **Active table** (8 columns per row) had 7 `<th>` — was missing a header
+    cell for the star column, so `Property` appeared above the star, `Kind`
+    above Property, etc.
+  - **Watching table** (4 columns per row) had 5 `<th>` — one too many empty
+    cells at the start, so `Property` and `Status` were over Status and the
+    link.
+  Both heads now match their rows. The new star-column `<th>` is styled
+  with the same `.zgm-star-cell` class as the body cell (24px wide,
+  centered), so it doesn't bloat into a regular column's worth of space.
+
+## v1.3.1 — 2026-05-28
+
+- Fix: the "OGLĘDZINY" label in the popup/archive dates cell overflowed
+  its 50/56px box and visually overlapped the date next to it. Widened
+  the label column to 72 px (with `box-sizing: border-box` and 6 px
+  right-padding) so all three Polish labels — AUKCJA, WADIUM, OGLĘDZINY —
+  align cleanly without colliding with their dates.
+
+## v1.3.0 — 2026-05-28
+
+- Sortable column headers on the "Currently active" tables in both the popup
+  and the archive. Click `Dates` / `Ask` / `Ask/m²` / `Prior` to sort; click
+  the same column again to reverse direction. Date defaults to ascending
+  (soonest auction first); the other columns default to descending. Until
+  the user clicks anything, the default ordering remains "most-relisted
+  first, then prior count, then area" — same as before.
+- Indicators (↕ idle, ↑ asc, ↓ desc) match the affordance the historical
+  archive table already used. Missing values always go to the bottom of the
+  sort regardless of direction.
+
+## v1.2.0 — 2026-05-28
+
+- Historical-data year filter. Two layers:
+  - Pipeline floor: `refresh.js` drops sold/unsold records whose auction year
+    is older than 2020 before writing `data/<city>/properties.json`. Active
+    listings and wykaz pre-announcements are never dropped. Override per-run
+    with `MIN_HISTORY_YEAR=YYYY npm run refresh`.
+  - Extension UI window: a new `From year` dropdown in the archive lets the
+    user narrow the visible history further. Default = current year − 3
+    (= 2023 today), persisted to `chrome.storage.local`. The same setting
+    also filters the content-script's prior-history tooltips on listing-card
+    badges and the timeline table in the detail-page sidebar — so the badge
+    "prev 3× — 1 unsold" counts always match what the archive shows.
+- New module `extension/settings.js` exposes `window.ZGM_SETTINGS` with
+  `getMinHistoryYear()`, `setMinHistoryYear(year)`, `minYearOptions()`,
+  `onChange(fn)` and a `ready` promise — mirrors the i18n module's pattern.
+  Cross-tab change events are honoured (popup/archive/content all re-render).
+- Archive summary tiles (median PLN, median PLN/m²) now respect the city +
+  min-year filters too — previously they always mixed cities and years.
+
 ## v1.1.0 — 2026-05-27
 
 - Katowice support in the in-context overlay. The content script now decorates
