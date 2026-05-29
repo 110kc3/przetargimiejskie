@@ -129,6 +129,11 @@ sales board, answer (a) does this city sell municipal property at auction,
   param `?page=N` (falls back to page 1). Watch the `zabrze list page N:` and
   `zabrze WARN: 0 flats parsed` log lines; tune `parse.js` regexes against the
   first real attachment. See SPIKE-WAVE2.md.
+  - **TLS resolved:** `bip.miastozabrze.pl` ships an incomplete cert chain
+    (`UNABLE_TO_VERIFY_LEAF_SIGNATURE`); the adapter now fetches it via a
+    node:https path with relaxed chain verification (`insecureTLS`), scoped to
+    this host (public, read-only). Secure alternative documented in
+    `core/fetch.js` (supply the intermediate via `NODE_EXTRA_CA_CERTS`).
 - **Kraków, Warszawa — still unspiked.** Plus the rest of the Silesian field
   (Ruda Śląska, Tychy, Dąbrowa Górnicza, Zagłębie + Rybnik subregion).
   Warszawa stays last (≈18 district BIPs, demand-gated).

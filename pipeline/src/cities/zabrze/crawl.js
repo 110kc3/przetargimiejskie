@@ -34,6 +34,11 @@ const LIST_URL = `${ORIGIN}/zabrze/nieruch/um_pnn/zabrze_pn_sprzedaz/zabrze_pns_
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const MAX_PAGES = 8;
+// bip.miastozabrze.pl ships an incomplete TLS chain (missing intermediate) —
+// Node's fetch fails UNABLE_TO_VERIFY_LEAF_SIGNATURE where browsers succeed. We
+// relax chain verification for this host only (public, read-only data). See the
+// long note + secure alternative in core/fetch.js.
+const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
 function stripTags(s) {
   return s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ').trim();
@@ -85,7 +90,7 @@ async function crawlAnnouncements() {
     const url = page === 1 ? LIST_URL : `${LIST_URL}?page=${page}`;
     let html;
     try {
-      html = await getText(url, { userAgent: BROWSER_UA });
+      html = await getText(url, FETCH_OPTS);
     } catch (err) {
       console.error(`  zabrze list page ${page} fetch failed: ${err.message}`);
       break;
@@ -119,7 +124,7 @@ export async function crawlActive() {
   for (const ann of announcements) {
     let docHtml;
     try {
-      docHtml = await getText(ann.doc_url, { userAgent: BROWSER_UA });
+      docHtml = await getText(ann.doc_url, FETCH_OPTS);
     } catch (err) {
       console.error(`  zabrze doc fetch failed ${ann.doc_url}: ${err.message}`);
       continue;
@@ -133,7 +138,7 @@ export async function crawlActive() {
     try {
       // Assumed text PDF — see config.js. pdftotext throws on non-PDF; we log
       // and skip so one odd attachment can't break the whole crawl.
-      text = await pdfText(attUrl, { userAgent: BROWSER_UA });
+      text = await pdfText(attUrl, FETCH_OPTS);
     } catch (err) {
       console.error(`  zabrze attachment extract failed ${attUrl}: ${err.message}`);
       continue;
