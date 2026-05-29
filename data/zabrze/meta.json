@@ -2,12 +2,11 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "zabrze",
-  "generated_at": "2026-05-29T00:00:00.000Z",
+  "generated_at": "2026-05-29T12:48:48.818Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 0,
   "active_listings": 0,
-  "wykaz_entries": 0,
-  "note": "Initial placeholder — overwritten on the first `npm run refresh` / CI run that crawls the Zabrze BIP. Attachment format + pagination param validate on that run; see SPIKE-WAVE2.md."
+  "wykaz_entries": 0
 }
