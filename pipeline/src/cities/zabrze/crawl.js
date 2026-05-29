@@ -74,11 +74,12 @@ export function parseDocumentList(json) {
 /**
  * Extract the first attachment URL from an announcement /doc page. The /doc
  * HTML is server-rendered and links the attachment as an ABSOLUTE url
- * (href="https://bip.miastozabrze.pl/attachment/<id>"), so we accept both
- * absolute and relative forms and normalise to absolute.
+ * (href="https://bip.miastozabrze.pl/attachment/<id>"). We match ANY
+ * /attachment/<id> reference (with or without an href=, absolute or relative,
+ * any quote style) and normalise to absolute — maximally lenient.
  */
 export function attachmentUrlFromDoc(html) {
-  const m = /href="((?:https?:\/\/[^"]*?)?\/attachment\/\d+)"/i.exec(html);
+  const m = /((?:https?:\/\/[^"'\s]*?)?\/attachment\/\d+)/i.exec(html);
   if (!m) return null;
   return m[1].startsWith('http') ? m[1] : ORIGIN + m[1];
 }
@@ -111,7 +112,13 @@ export async function crawlActive() {
     }
     const attUrl = attachmentUrlFromDoc(docHtml);
     if (!attUrl) {
-      console.error(`  zabrze: no attachment on ${ann.doc_url}`);
+      // Diagnostic (v2): print response size + whether the word "attachment"
+      // appears at all. Large + has-attachment ⇒ regex issue; small + none ⇒
+      // node received a shell (server serves SSR only to real browsers).
+      const hasWord = /attachment/i.test(docHtml);
+      console.error(
+        `  zabrze: no attachment on ${ann.doc_url} [docLen=${docHtml.length} hasAttachmentWord=${hasWord}]`,
+      );
       continue;
     }
     let text = '';
