@@ -4,8 +4,9 @@
 
 import gliwice from './gliwice/index.js';
 import katowice from './katowice/index.js';
+import bytom from './bytom/index.js';
 
-export const cities = [gliwice, katowice];
+export const cities = [gliwice, katowice, bytom];
 
 /** @param {string} id @returns {object|null} */
 export function getCity(id) {

@@ -109,9 +109,36 @@ watchlist entries always carry `detail_url`.
 (Bytomskie Mieszkania), Kraków (ZBK), Warszawa (ZGN per district) as
 unspiked. Same discipline as the Katowice spike — find the city BIP's
 sales board, answer (a) does this city sell municipal property at auction,
-(b) where are results published, (c) in what format. Output is a findings
-note, not code. Pick whichever has the cleanest sales stream as the next
-adapter.
+(b) where are results published, (c) in what format.
+
+- **Bytom — spiked + built (Wave 3, v1.4.0).** Clean HTML catalog on i-BIIP;
+  active-listings adapter shipped. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
+  Follow-up: sold-price *results* (JS-rendered `bytom.pl/bip`) and/or `.doc`
+  announcement parsing — Bytom currently ships active-only.
+- **Chorzów — spiked, deferred.** Prominent flat board is rentals; sale
+  documents sit behind JS-expandable BIP menus. Needs a headless-browser spike
+  to confirm a residential-sale stream exists before an adapter. See
+  SPIKE-WAVE2.md.
+- **Kraków, Warszawa — still unspiked.** Kraków next; Warszawa stays last
+  (≈18 district BIPs, demand-gated).
+
+### Bytom sold-price results (active-only today)
+
+The Bytom adapter (`cities/bytom/`) builds properties from the i-BIIP active
+catalog alone — every listing is `outcome: 'active'`. Bytom's auction
+*results* ("Informacja o wyniku przetargu") live on JS-rendered
+`bytom.pl/bip` pages that plain `fetch()` can't read. To populate sold-price
+history: either parse the per-listing `.doc` announcements
+(`core/parse-docx.js`, anticipated in EXPANSION.md §1.4) or reach the results
+pages via a non-JS endpoint / headless browser. Until then Bytom contributes
+no historical zł/m² medians, only live listings with their relisting round.
+
+### City-namespaced keys now that a third city (Bytom) has landed
+
+The note below predicted this becomes relevant "once a third city lands."
+Bytom is that third city — but the extension-side namespacing in
+`background.js` `mergeCityPayloads()` still handles all three cleanly, so this
+remains optional tidying, not a correctness fix. Revisit when convenient.
 
 ### Monetization: alert + saved-search MVP
 

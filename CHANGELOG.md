@@ -4,6 +4,28 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.4.0 — 2026-05-29
+
+- **New city: Bytom** (Wave 3). The extension now badges and tracks Bytom
+  municipal sale auctions alongside Gliwice and Katowice.
+  - Source: the city's i-BIIP "Katalog nieruchomości do zbycia"
+    (`i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html`) — one
+    server-rendered HTML page listing every active auction with address, type,
+    round (I/II/III Przetarg), date, starting price and area inline. No OCR, no
+    PDF: the new `source: 'html'` adapter type skips the OCR/parse phase.
+  - Pipeline: `cities/bytom/{config,crawl,parse,index}.js`, registered in
+    `cities/index.js`. Flats + commercial units only; land parcels (`grunt…`,
+    sold by plot number) are skipped — they don't fit the street|building|apt
+    model. Active-listings only for now: Bytom's sold-price *results* are on
+    JS-rendered `bytom.pl/bip` pages and remain a follow-up.
+  - Extension: new `sites/bytom.js` DOM adapter for the catalog page; manifest
+    gains the `i-biip.um.bytom.pl` host permission + content-script match and
+    loads the new adapter; `background.js` adds `bytom` to the fetched city
+    list. Spike findings in [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
+  - Chorzów was spiked alongside Bytom but **deferred** — its prominent
+    municipal-flat stream is rentals (wynajem), and its sale categories are
+    empty/behind JS menus. No clean residential-sale source found yet.
+
 ## v1.3.3 — 2026-05-29
 
 - Data: Katowice active listings no longer ship with empty Date / Ask /

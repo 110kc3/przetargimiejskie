@@ -19,7 +19,7 @@ const REPO = '110kc3/przetargimiejskie';
 const BRANCH = 'main';
 // Wave 1 popup scope: hardcode the city list. A future Wave 2 will lazily
 // fetch only the city matching the active tab's hostname.
-const CITIES = ['gliwice', 'katowice'];
+const CITIES = ['gliwice', 'katowice', 'bytom'];
 const RAW = (city) =>
   `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/${city}`;
 const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
