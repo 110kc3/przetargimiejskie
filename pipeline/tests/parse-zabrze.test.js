@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseList, attachmentUrlFromDoc } from '../src/cities/zabrze/crawl.js';
+import { parseDocumentList, attachmentUrlFromDoc } from '../src/cities/zabrze/crawl.js';
 import {
   roundFromTitle,
   auctionDateFromTitle,
@@ -26,19 +26,27 @@ test('auctionDateFromTitle → ISO', () => {
   assert.equal(auctionDateFromTitle('… bez daty'), null);
 });
 
-const LIST_HTML = `
-<article class="border-t mt-4 pt-4">
-  <div class="flex"><div class="flex"><h2><a href="/doc/25227" class="link text-xl">Ogłoszenie o II ustnych nieograniczonych przetargach na sprzedaż lokali mieszkalnych zaplanowane na dzień 18.06.2026 r.</a></h2></div></div>
-  <div><p class="text-sm">965 Opublikował Orłowski Kamil dnia 2026-04-17 9:02</p></div>
-</article>
-<article class="border-t mt-4 pt-4">
-  <div><h2><a href="/doc/25001" class="link text-xl">Ogłoszenie o I ustnym nieograniczonym przetargu na sprzedaż lokalu mieszkalnego na dzień 26.03.2026 r.</a></h2></div>
-  <div><p class="text-sm">88 Opublikował Orłowski Kamil dnia 2026-02-13 9:17</p></div>
-</article>`;
+// Shape returned by /api/v1/document-list/549 (observed in a browser).
+const LIST_JSON = {
+  data: [
+    {
+      doc_id: 25227,
+      dscrpt: 'Ogłoszenie o II ustnych nieograniczonych przetargach na sprzedaż lokali mieszkalnych zaplanowane na dzień 18.06.2026 r.',
+      pubdat: '2026-04-17 09:02:49+02',
+    },
+    {
+      doc_id: 25001,
+      dscrpt: 'Ogłoszenie o I ustnym nieograniczonym przetargu na sprzedaż lokalu mieszkalnego na dzień 26.03.2026 r.',
+      pubdat: '2026-02-13 09:17:00+01',
+    },
+    // a non-auction notice that should be filtered out
+    { doc_id: 99999, dscrpt: 'Informacja porządkowa', pubdat: '2026-01-01 00:00:00+01' },
+  ],
+};
 
-test('parseList extracts doc URL, title, round, auction + publication dates', () => {
-  const items = parseList(LIST_HTML);
-  assert.equal(items.length, 2);
+test('parseDocumentList maps API items → doc URL, title, round, dates; filters non-auctions', () => {
+  const items = parseDocumentList(LIST_JSON);
+  assert.equal(items.length, 2, 'the non-auction notice is dropped');
   const a = items[0];
   assert.equal(a.doc_url, 'https://bip.miastozabrze.pl/doc/25227');
   assert.equal(a.round, 2);
@@ -46,6 +54,11 @@ test('parseList extracts doc URL, title, round, auction + publication dates', ()
   assert.equal(a.published_date, '2026-04-17');
   assert.equal(items[1].round, 1);
   assert.equal(items[1].auction_date, '2026-03-26');
+});
+
+test('parseDocumentList: missing/empty data → []', () => {
+  assert.deepEqual(parseDocumentList({}), []);
+  assert.deepEqual(parseDocumentList({ data: [] }), []);
 });
 
 test('attachmentUrlFromDoc finds the /attachment/ link', () => {

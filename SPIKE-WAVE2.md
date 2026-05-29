@@ -221,11 +221,17 @@ than folded into the v1.4.x patch.
 ## Zabrze — `bip.miastozabrze.pl` ✅ viable + BUILT (Wave 4, v1.6.0)
 
 > **Verdict (browser spike, May 2026): build-worthy → built.** Zabrze genuinely
-> auctions residential flats — a dedicated, deep, server-rendered category —
-> unlike Chorzów. Adapter shipped (`cities/zabrze/`). Two pieces validate on the
-> first CI run: the announcement attachment is assumed a text PDF (pdftotext),
-> and the list pagination param (`?page=N`); both fall back safely and are
-> logged. The list/title/per-flat parsers are unit-tested against fixtures.
+> auctions residential flats — a dedicated, deep category — unlike Chorzów.
+> Adapter shipped (`cities/zabrze/`).
+>
+> **Corrections after the first runs:** (1) the board is a **Vue SPA**, not
+> server-rendered — announcements come from the JSON API
+> `/api/v1/document-list/549` (all items, one call); the `/doc/<id>` pages *are*
+> server-rendered and carry the `/attachment/<id>` link. (2) The host ships an
+> **incomplete TLS chain** (`UNABLE_TO_VERIFY_LEAF_SIGNATURE`) — fetched via a
+> relaxed-TLS path (see core/fetch.js). The remaining unknown is the
+> **attachment format** (assumed text PDF / pdftotext); validated on the next
+> run via the `zabrze WARN: 0 flats parsed` log line.
 
 - **Sales confirmed, residential flats included.** The city BIP has
   *Przetargi na nieruchomości → Sprzedaż → **Lokale mieszkalne***

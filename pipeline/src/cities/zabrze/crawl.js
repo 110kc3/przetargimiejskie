@@ -1,25 +1,27 @@
 // Zabrze crawler — the city BIP's "Lokale mieszkalne" sale board.
 //
-//   LIST:  https://bip.miastozabrze.pl/zabrze/nieruch/um_pnn/zabrze_pn_sprzedaz/zabrze_pns_mieszkalne
-//   DOC:   https://bip.miastozabrze.pl/doc/<id>          (one per announcement)
-//   FILE:  https://bip.miastozabrze.pl/attachment/<id>   (the per-flat table)
+//   LIST (JSON API):  https://bip.miastozabrze.pl/api/v1/document-list/549?q=
+//   DOC (HTML):       https://bip.miastozabrze.pl/doc/<id>        (one per announcement)
+//   FILE:             https://bip.miastozabrze.pl/attachment/<id> (the per-flat table)
 //
-// The list is server-rendered: each announcement is an <article class="border-t…">
-// with <h2><a href="/doc/<id>">TITLE</a></h2> and a publication date. The TITLE
-// carries the round ("I/II ustnych …") and the auction date ("na dzień
-// DD.MM.YYYY r."). The per-flat rows (address / area / starting price) live in
-// the announcement's single attachment, which we extract per /doc page.
+// The board page (`…/zabrze_pns_mieszkalne`) is a Vue SPA — its served HTML is a
+// shell with no announcements; the Vue app loads them from the JSON API
+// `/api/v1/document-list/<categoryId>` (categoryId 549 = "Lokale mieszkalne").
+// The API returns ALL items in one call (no pagination): { data: [ { doc_id,
+// dscrpt (title), pubdat, … }, … ] }. The title carries the round ("I/II
+// ustnych …") and the auction date ("na dzień DD.MM.YYYY r.").
 //
-// Zabrze is modelled as an ACTIVE-listings adapter (like Bytom): each flat in
-// an announcement becomes an active listing carrying the announcement's round +
-// auction date + the /doc page as detail_url. crawlResultDocs() is []. The
-// popup's past-date filter naturally hides already-held auctions; the archive
-// keeps them.
+// Each announcement's /doc/<id> page IS server-rendered (real HTML, carries the
+// title + the /attachment/<id> link). The per-flat rows (address / area /
+// starting price) live in that single attachment, which we extract per /doc.
 //
-// ⚠️ Two pieces are unverified pending the first CI run (the host was
-// unreachable from the dev sandbox): (a) the attachment is assumed to be a text
-// PDF (pdfText/pdftotext) — see config.js; (b) the list pagination param
-// (`?page=N`) — if wrong, we still get page 1 (the 30 newest). Both are logged.
+// Zabrze is an ACTIVE-listings adapter (like Bytom): each flat becomes an active
+// listing carrying the announcement's round + auction date + the /doc page as
+// detail_url. crawlResultDocs() is []. The popup's past-date filter hides
+// already-held auctions; the archive keeps them.
+//
+// ⚠️ Unverified pending the first CI run: the attachment is assumed a text PDF
+// (pdfText/pdftotext) — see config.js. If it's scanned/DOC, swap the extractor.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -30,46 +32,40 @@ import {
 } from './parse.js';
 
 const ORIGIN = 'https://bip.miastozabrze.pl';
-const LIST_URL = `${ORIGIN}/zabrze/nieruch/um_pnn/zabrze_pn_sprzedaz/zabrze_pns_mieszkalne`;
+// "Lokale mieszkalne" category id, taken from the SPA's API call. Stable per
+// category. (The human-facing board is /zabrze/nieruch/um_pnn/zabrze_pn_sprzedaz/zabrze_pns_mieszkalne.)
+const LIST_CATEGORY_ID = 549;
+const LIST_API = `${ORIGIN}/api/v1/document-list/${LIST_CATEGORY_ID}?q=`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-const MAX_PAGES = 8;
 // bip.miastozabrze.pl ships an incomplete TLS chain (missing intermediate) —
 // Node's fetch fails UNABLE_TO_VERIFY_LEAF_SIGNATURE where browsers succeed. We
 // relax chain verification for this host only (public, read-only data). See the
 // long note + secure alternative in core/fetch.js.
 const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
-function stripTags(s) {
-  return s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ').trim();
-}
-
 /**
- * Parse one list page into announcement refs.
- * @param {string} html
+ * Map the document-list API payload to announcement refs.
+ * @param {object} json  parsed { data: [ { doc_id, dscrpt, pubdat } ] }
  * @returns {Array<{doc_url:string, title:string, round:number|null, auction_date:string|null, published_date:string|null}>}
  */
-export function parseList(html) {
+export function parseDocumentList(json) {
+  const items = json?.data;
+  if (!Array.isArray(items)) return [];
   const out = [];
   const seen = new Set();
-  const artRe = /<article[^>]*class="[^"]*border-t[^"]*"[^>]*>([\s\S]*?)<\/article>/gi;
-  let a;
-  while ((a = artRe.exec(html)) !== null) {
-    const item = a[1];
-    const linkM = /<a[^>]*href="(\/doc\/\d+)"[^>]*>([\s\S]*?)<\/a>/i.exec(item);
-    if (!linkM) continue;
-    const docUrl = ORIGIN + linkM[1];
-    if (seen.has(docUrl)) continue;
-    seen.add(docUrl);
-    const title = stripTags(linkM[2]);
+  for (const it of items) {
+    const id = it?.doc_id;
+    const title = it?.dscrpt || '';
+    if (!id || seen.has(id)) continue;
     if (!/przetarg|sprzeda|ogłoszenie/i.test(title)) continue;
-    const published = /dnia\s+(\d{4}-\d{2}-\d{2})/i.exec(stripTags(item))?.[1] ?? null;
+    seen.add(id);
     out.push({
-      doc_url: docUrl,
+      doc_url: `${ORIGIN}/doc/${id}`,
       title,
       round: roundFromTitle(title),
       auction_date: auctionDateFromTitle(title),
-      published_date: published,
+      published_date: (it?.pubdat || '').slice(0, 10) || null,
     });
   }
   return out;
@@ -81,40 +77,18 @@ export function attachmentUrlFromDoc(html) {
   return m ? ORIGIN + m[1] : null;
 }
 
-/** Crawl all list pages (paginated). */
+/** Fetch + parse the document-list JSON API (all announcements, one call). */
 async function crawlAnnouncements() {
-  const all = [];
-  const seenDocs = new Set();
-  let firstPageFirstDoc = null;
-  for (let page = 1; page <= MAX_PAGES; page++) {
-    const url = page === 1 ? LIST_URL : `${LIST_URL}?page=${page}`;
-    let html;
-    try {
-      html = await getText(url, FETCH_OPTS);
-    } catch (err) {
-      console.error(`  zabrze list page ${page} fetch failed: ${err.message}`);
-      break;
-    }
-    const items = parseList(html);
-    if (items.length === 0) break;
-    // Pagination guard: if page>1 returns the same first doc as page 1, the
-    // `?page=` param isn't honoured — stop (we already have page 1).
-    if (page === 1) firstPageFirstDoc = items[0]?.doc_url;
-    else if (items[0]?.doc_url === firstPageFirstDoc) {
-      console.error('  zabrze: pagination param not honoured — stopping at page 1');
-      break;
-    }
-    let added = 0;
-    for (const it of items) {
-      if (seenDocs.has(it.doc_url)) continue;
-      seenDocs.add(it.doc_url);
-      all.push(it);
-      added++;
-    }
-    console.error(`  zabrze list page ${page}: ${items.length} announcements (${added} new)`);
-    if (added === 0) break;
+  let json;
+  try {
+    json = JSON.parse(await getText(LIST_API, FETCH_OPTS));
+  } catch (err) {
+    console.error(`  zabrze document-list API failed: ${err.message}`);
+    return [];
   }
-  return all;
+  const anns = parseDocumentList(json);
+  console.error(`  zabrze document-list: ${anns.length} announcements`);
+  return anns;
 }
 
 /** @returns {Promise<{ listings: object[], wykaz: object[] }>} */

@@ -2,12 +2,13 @@
 // the city BIP (bip.miastozabrze.pl) under a dedicated, deep "Lokale
 // mieszkalne" sale board. See SPIKE-WAVE2.md "Zabrze".
 //
-// Shape: a paginated, server-rendered list of auction *announcements*
-// ("Ogłoszenie o I/II ustnych nieograniczonych przetargach … na dzień
-// DD.MM.YYYY r."). Each announcement is a thin /doc/<id> page wrapping ONE
-// attachment that holds the per-flat table (address / area / starting price).
-// So the adapter crawls the list (round + auction date from each title) and
-// extracts every announcement's attachment to get the flats.
+// Shape: the board page is a Vue SPA; the list of auction *announcements* comes
+// from a JSON API (/api/v1/document-list/549 — all items in one call). Each
+// item's title carries the round + auction date ("Ogłoszenie o I/II ustnych …
+// na dzień DD.MM.YYYY r."). The /doc/<id> page IS server-rendered and wraps ONE
+// attachment holding the per-flat table (address / area / starting price). So
+// the adapter reads the API for announcements, then fetches each /doc and
+// extracts its attachment to get the flats. See crawl.js.
 //
 // `source: 'html'` — the adapter does its own attachment fetch + text
 // extraction inside crawlActive (it knows the per-announcement URL), so the

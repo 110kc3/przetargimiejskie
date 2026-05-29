@@ -129,6 +129,10 @@ sales board, answer (a) does this city sell municipal property at auction,
   param `?page=N` (falls back to page 1). Watch the `zabrze list page N:` and
   `zabrze WARN: 0 flats parsed` log lines; tune `parse.js` regexes against the
   first real attachment. See SPIKE-WAVE2.md.
+  - **List source corrected:** the board is a Vue SPA — announcements come from
+    the JSON API `/api/v1/document-list/549` (all items, one call), not HTML
+    scraping. The `/doc/<id>` pages are server-rendered (carry the attachment
+    link). Pagination is moot (single API call).
   - **TLS resolved:** `bip.miastozabrze.pl` ships an incomplete cert chain
     (`UNABLE_TO_VERIFY_LEAF_SIGNATURE`); the adapter now fetches it via a
     node:https path with relaxed chain verification (`insecureTLS`), scoped to
