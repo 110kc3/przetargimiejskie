@@ -3,6 +3,28 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "dworcowa|5|18",
+      "street": "Dworcowa",
+      "street_norm": "dworcowa",
+      "building": "5",
+      "apt": "18",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-06-29",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 82500,
+          "outcome": "active",
+          "area_m2": 79.5,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Dworcowa-518/idn:13422",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 79.5
+    },
+    {
       "key": "michala wolskiego|6|9",
       "street": "Michała Wolskiego",
       "street_norm": "michala wolskiego",
