@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "przetargimiejskie — historia aukcji nieruchomości",
   "short_name": "przetargimiejskie",
-  "version": "1.4.0",
-  "description": "Historia miejskich przetargów na nieruchomości (Gliwice, Katowice, Bytom): dawne ceny, zł/m², terminy wadium i oględzin, powiadomienia o aukcjach.",
+  "version": "1.6.0",
+  "description": "Historia miejskich przetargów na nieruchomości (Gliwice, Katowice, Bytom, Zabrze): dawne ceny, zł/m², terminy wadium i oględzin, powiadomienia o aukcjach.",
   "author": "110kc3",
   "icons": {
     "16": "icons/icon-16.png",
@@ -20,6 +20,7 @@
     "https://zgm-gliwice.pl/*",
     "https://bip.katowice.eu/*",
     "https://i-biip.um.bytom.pl/*",
+    "https://www.bytom.pl/*",
     "https://raw.githubusercontent.com/110kc3/przetargimiejskie/*"
   ],
   "background": {
@@ -40,7 +41,8 @@
       "matches": [
         "https://zgm-gliwice.pl/*",
         "https://bip.katowice.eu/*",
-        "https://i-biip.um.bytom.pl/*"
+        "https://i-biip.um.bytom.pl/*",
+        "https://www.bytom.pl/*"
       ],
       "js": [
         "i18n.js",

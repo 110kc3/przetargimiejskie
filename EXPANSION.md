@@ -165,8 +165,9 @@ Format/effort columns are removed — they cannot be estimated until each source
 | **Gliwice** | ZGM — *also runs sales (atypical)* | ZGM result PDFs | ✅ Verified, built (Wave 0) |
 | **Sosnowiec** | MZZL — *confirmed: rentals only, not a sales source* | City BIP `bip.um.sosnowiec.pl` | ⚠️ Spiked — JS-SPA BIP, no sales confirmed (SPIKE-WAVE1.md) |
 | **Katowice** | KZGM — *confirmed: rentals, not a sales source* | Katowice City Hall / city portal | ✅ Spiked — city BIP viable, **Wave 2 pick** (SPIKE-WAVE1.md) |
-| **Chorzów** | ZK PGM — *confirmed: the prominent flat board is rentals* | City BIP `bip.chorzow.eu` (sales behind JS menus) | ⚠️ Spiked — rentals trap, no clean flat-sale source (SPIKE-WAVE2.md) |
+| **Chorzów** | ZK PGM — *flats are rental-only* | City BIP `bip.chorzow.eu` — land/commercial only, free-text HTML | ❌ Spiked + **dropped** — no residential flat-sale auctions exist (SPIKE-WAVE2.md) |
 | **Bytom** | Bytomskie Mieszkania — *rentals* | i-BIIP catalog `i-biip.um.bytom.pl` (HTML) | ✅ Spiked + **built (Wave 3, v1.4.0)** — clean HTML catalog (SPIKE-WAVE2.md) |
+| **Zabrze** | ZGM — *rentals* | City BIP `bip.miastozabrze.pl` — dedicated *Lokale mieszkalne* sale board, per-announcement PDF/DOC attachments | ✅ Spiked + **built (Wave 4, v1.6.0)**; flats auctioned, 113 entries, server-rendered (SPIKE-WAVE2.md) |
 | **Kraków** | ZBK | City BIP / ZBK — unknown | ❓ Entirely unspiked |
 | **Warszawa** | ZGN (per district) | City / district BIPs — unknown | ❓ Entirely unspiked, decentralised |
 

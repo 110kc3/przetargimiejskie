@@ -1,73 +1,85 @@
-// Bytom catalog parser tests. The i-BIIP catalog page can't be reached from CI
-// sandboxes (DNS-restricted), so we exercise parseCatalog() against a fixture
-// that reproduces the catalog's labelled-field markup with real observed values
-// (addresses, rounds, prices, areas) from the May-2026 spike.
+// Bytom v2 parser tests. The live BIP list and i-BIIP catalog can't be reached
+// from CI sandboxes (DNS-restricted), so we exercise the two parsers against
+// fixtures that reproduce the real markup observed in a browser (May-2026).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseCatalog } from '../src/cities/bytom/crawl.js';
+import { parseBipList, parseCatalog } from '../src/cities/bytom/crawl.js';
 
-// Reproduces one catalog record as the d17 CMS renders it: bold labels, text
-// values, <br> separators, a .doc announcement link, then the geoportal link.
-function rec({ adres, typ, etap, termin, cena, pow, link }) {
-  return `
-  <div class="nieruchomosc">
-    <p><strong>ADRES:</strong> ${adres}</p>
-    <p><strong>TYP:</strong> ${typ}</p>
-    <p><strong>ETAP SPRZEDAŻY:</strong> ${etap}</p>
-    <p><strong>TERMIN PRZETARGU:</strong> ${termin}</p>
-    <p><strong>CENA WYWOŁAWCZA:</strong> ${cena}</p>
-    <p><strong>POWIERZCHNIA:</strong> ${pow}</p>
-    <p><strong>LINK:</strong> <a href="${link}">${link}</a></p>
-    <p><a href="https://sitplan.um.bytom.pl/?profile=4939">Przejdź do geoportalu</a></p>
-  </div>`;
+// ---- BIP list (primary source) -------------------------------------------
+
+// One <li> exactly as bytom.pl/bip renders it.
+function li({ date, href, addr, desc }) {
+  return `<li class="aktualnosc__item">
+    <span class="aktualnosci__data">${date}</span>
+    <h3 class="aktualnosci__tytul">
+      <a class="aktualnosci__link aktualnosc__link--more" href="${href}" title="Przejdź do: ${addr}">${addr}</a>
+    </h3>
+    <p class="aktualnosci__tresc">${desc}</p>
+  </li>`;
 }
 
-const FIXTURE = `<html><body><nav>menu</nav><main>
-${rec({ adres: 'pl. Akademicki 11/12', typ: 'lokal mieszkalny', etap: 'III Przetarg', termin: '2026-06-15', cena: '97000', pow: '76.14', link: 'https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Akademicki-11-12,23604.doc' })}
-${rec({ adres: 'pl. Michała Wolskiego 6/9', typ: 'lokal użytkowy', etap: 'I Przetarg', termin: '2026-06-22', cena: '170000', pow: '88.43', link: 'https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_9,23775.doc' })}
-${rec({ adres: 'Marszałka Józefa Piłsudskiego 65/10', typ: 'lokal użytkowy', etap: 'II Przetarg', termin: '2026-06-11', cena: '75000', pow: '59.28', link: 'https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-65_10,23532.doc' })}
-${rec({ adres: 'al. Jana Nowaka-Jeziorańskiego; Hutnicza', typ: 'grunty niezabudowane', etap: 'I Przetarg', termin: '2026-04-21', cena: '1500000', pow: '9719', link: 'https://www.bytom.pl/download/Ogloszenie-przetargu-al.-Jezioranskiego-Hutnicza-ustny-I,7522.doc' })}
-${rec({ adres: 'Matki Ewy dz. 5742/32', typ: 'grunty niezabudowane', etap: 'II Przetarg', termin: '2026-06-08', cena: '15375', pow: '25', link: 'https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5742_32,23505.doc' })}
-</main><footer>Urząd Miasta Bytom, ul. Parkowa 2</footer></body></html>`;
+const BIP_HTML = `<ul class="aktualnosci">
+${li({ date: '2026-05-13', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokali-mieszkalnych/ul.-Katowicka-448/idn:13500', addr: 'ul. Katowicka 44/8', desc: 'Prezydent Bytomia ogłasza trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego z ułamkową niewydzieloną częścią działki gruntu, położonego w Bytomiu przy ul. Katowickiej 44/8.' })}
+${li({ date: '2026-05-22', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokali-niemieszkalnych/pl.-Wolskiego-69/idn:13490', addr: 'pl. Michała Wolskiego 6/9', desc: 'Prezydent Bytomia ogłasza przetarg ustny nieograniczony na sprzedaż lokalu niemieszkalnego z ułamkową niewydzieloną częścią działki gruntu, położonego w Bytomiu przy pl. Michała Wolskiego 6/9.' })}
+${li({ date: '2026-03-09', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokali-mieszkalnych/ul.-Wyspianskiego-59/idn:13450', addr: 'ul. Wyspiańskiego 5/9', desc: 'Prezydent Bytomia ogłasza drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego położonego w Bytomiu przy ul. Wyspiańskiego 5/9.' })}
+${li({ date: '2026-05-29', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-nieruchomosci-niezabudowane/ul.-Zgrzebnioka-dzialka-1923182/idn:13424', addr: 'ul. Zgrzebnioka (działka 1923/182)', desc: 'Prezydent Bytomia ogłasza drugi przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej niezabudowanej położonej w Bytomiu przy ul. Zgrzebnioka' })}
+</ul>`;
 
-test('keeps only flats + commercial units, skips land parcels', () => {
-  const out = parseCatalog(FIXTURE);
-  assert.equal(out.length, 3, 'two grunt parcels should be dropped');
-  assert.deepEqual(
-    out.map((l) => l.kind).sort(),
-    ['mieszkalny', 'uzytkowy', 'uzytkowy'],
-  );
+test('parseBipList keeps flats + commercial, skips land', () => {
+  const items = parseBipList(BIP_HTML);
+  assert.equal(items.length, 3, 'the grunt parcel should be dropped');
+  assert.deepEqual(items.map((i) => i.kind).sort(), ['mieszkalny', 'mieszkalny', 'uzytkowy']);
 });
 
-test('extracts every field for a residential flat', () => {
-  const flat = parseCatalog(FIXTURE).find((l) => l.kind === 'mieszkalny');
-  assert.ok(flat);
-  assert.equal(flat.address_raw, 'pl. Akademicki 11/12');
-  assert.equal(flat.address.key, 'akademicki|11|12');
-  assert.equal(flat.auction_date, '2026-06-15');
-  assert.equal(flat.round, 3);
-  assert.equal(flat.starting_price_pln, 97000);
-  assert.equal(flat.area_m2, 76.14);
-  assert.match(flat.detail_url, /Akademicki-11-12,23604\.doc$/);
+test('parseBipList extracts idn page URL, round, date and address', () => {
+  const items = parseBipList(BIP_HTML);
+  const kat = items.find((i) => i.address.key === 'katowicka|44|8');
+  assert.ok(kat);
+  assert.equal(kat.kind, 'mieszkalny');
+  assert.equal(kat.round, 3); // "trzeci przetarg"
+  assert.equal(kat.published_date, '2026-05-13');
+  assert.match(kat.detail_url, /\/idn:13500$/);
+  assert.equal(kat.detail_url.startsWith('https://www.bytom.pl/bip/'), true);
 });
 
-test('parses round from I/II/III Przetarg', () => {
-  const out = parseCatalog(FIXTURE);
-  const byKey = Object.fromEntries(out.map((l) => [l.address.key, l.round]));
-  assert.equal(byKey['akademicki|11|12'], 3);
-  assert.equal(byKey['michala wolskiego|6|9'], 1);
-  assert.equal(byKey['marszalka jozefa pilsudskiego|65|10'], 2);
+test('parseBipList round: bare "przetarg" = 1, "drugi" = 2', () => {
+  const items = parseBipList(BIP_HTML);
+  assert.equal(items.find((i) => i.address.key === 'michala wolskiego|6|9').round, 1);
+  assert.equal(items.find((i) => i.address.key === 'wyspianskiego|5|9').round, 2);
 });
 
-test('handles Polish comma decimals and spaced thousands in prices/areas', () => {
-  const html = `<main>${rec({ adres: 'Testowa 1/2', typ: 'lokal mieszkalny', etap: 'I Przetarg', termin: '2026-01-01', cena: '1 500 000', pow: '52,40', link: 'https://www.bytom.pl/bip/download/x,1.doc' })}</main>`;
-  const [l] = parseCatalog(html);
-  assert.equal(l.starting_price_pln, 1500000);
-  assert.equal(l.area_m2, 52.4);
+test('parseBipList: empty / non-list HTML yields no items', () => {
+  assert.deepEqual(parseBipList('<html><body>nic</body></html>'), []);
 });
 
-test('empty / non-catalog HTML yields no records', () => {
-  assert.deepEqual(parseCatalog('<html><body>nothing here</body></html>'), []);
+// ---- i-BIIP catalog (price/area enrichment, now a Map) --------------------
+
+const CATALOG_HTML = `<main>
+  <div><p><strong>ADRES:</strong> ul. Katowicka 44/8</p>
+  <p><strong>TYP:</strong> lokal mieszkalny</p>
+  <p><strong>ETAP SPRZEDAŻY:</strong> III Przetarg</p>
+  <p><strong>TERMIN PRZETARGU:</strong> 2026-06-16</p>
+  <p><strong>CENA WYWOŁAWCZA:</strong> 85000</p>
+  <p><strong>POWIERZCHNIA:</strong> 53.77</p>
+  <p><strong>LINK:</strong> <a href="https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Katowicka-44-8,23643.doc">doc</a></p></div>
+  <div><p><strong>ADRES:</strong> Matki Ewy dz. 5742/32</p>
+  <p><strong>TYP:</strong> grunty niezabudowane</p>
+  <p><strong>ETAP SPRZEDAŻY:</strong> II Przetarg</p>
+  <p><strong>TERMIN PRZETARGU:</strong> 2026-06-08</p>
+  <p><strong>CENA WYWOŁAWCZA:</strong> 15375</p>
+  <p><strong>POWIERZCHNIA:</strong> 25</p>
+  <p><strong>LINK:</strong> <a href="https://www.bytom.pl/bip/download/x,1.doc">doc</a></p></div>
+</main>`;
+
+test('parseCatalog returns an enrichment Map keyed by address, land skipped', () => {
+  const map = parseCatalog(CATALOG_HTML);
+  assert.equal(map.size, 1); // grunt dropped (dz. suffix)
+  const kat = map.get('katowicka|44|8');
+  assert.ok(kat);
+  assert.equal(kat.auction_date, '2026-06-16');
+  assert.equal(kat.starting_price_pln, 85000);
+  assert.equal(kat.area_m2, 53.77);
+  assert.match(kat.doc_url, /Katowicka-44-8,23643\.doc$/);
 });

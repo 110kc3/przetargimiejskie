@@ -59,15 +59,16 @@
   Gliwice/Katowice make for vacant-lot sales).
 
 **The one real gap — sold-price results.** The catalog is active/upcoming
-auctions only. Bytom does publish results ("Informacja o wyniku przetargu") on
-`www.bytom.pl/bip/zbycie-nieruchomosci-bytom/…`, but those pages are
-**JavaScript-rendered** — plain `fetch()` returns an empty shell (the same wall
-the Sosnowiec BIP and the katowice.eu SharePoint `AllItems.aspx` pages hit in
-Wave 1). So the v1 Bytom adapter is **active-only**: properties are built from
-the catalog alone, all `outcome: 'active'`. This mirrors how Katowice shipped
-its announcement adapter before the result-PDF parser. The round (`II/III
-Przetarg`) already encodes "this has failed to sell before," so the active feed
-carries real relisting signal even without a results history.
+auctions only. So the v1 Bytom adapter is **active-only**: properties are built
+from the catalog alone, all `outcome: 'active'`. This mirrors how Katowice
+shipped its announcement adapter before the result-PDF parser. The round
+(`II/III Przetarg`) already encodes "this has failed to sell before," so the
+active feed carries real relisting signal even without a results history.
+
+> **Correction (browser network spike, May 2026).** An earlier draft here
+> claimed `www.bytom.pl/bip` is *JavaScript-rendered*. That was wrong — see the
+> "Update — bytom.pl/bip is server-rendered" section below. It IS crawlable;
+> the empty `web_fetch` result was a bot-UA / readability artifact, not JS.
 
 ### Two ways forward for Bytom sold-price history (not done in this spike)
 
@@ -83,7 +84,42 @@ carries real relisting signal even without a results history.
    (REST/RSS) before committing to Playwright, the way katowice.eu's SharePoint
    REST endpoint turned out to be reachable in Wave 1.
 
-## Chorzów — `bip.chorzow.eu` ⚠️ deferred
+## Chorzów — `bip.chorzow.eu` ❌ dropped (no flat-sale stream)
+
+> **Verdict (browser spike, May 2026): drop Chorzów.** It does not auction
+> residential flats — they are rental-only — and its actual sale auctions are
+> sparse land/plot sales published as free-text HTML. Not a fit for the
+> flat-flipper product. Details below; the earlier "deferred" notes follow.
+
+**What the browser spike found (expanding the BIP menus directly):**
+
+- **No `lokale mieszkalne na sprzedaż` category exists at all.** The only sale
+  categories on the "Ogłoszenia urzędowe" board are *Nieruchomości niezabudowane
+  na sprzedaż* (land), *Nieruchomości zabudowane na sprzedaż* (buildings) and
+  *Lokale użytkowe* (commercial) — there is simply no residential-flat sale
+  bucket. Flats are handled by Wydział Mieszkalnictwa as **rentals** (confirmed
+  in the first spike: stawka zł/m², umowa najmu).
+- **Those three sale categories are empty, stale placeholders** — each renders
+  no listings and carries a "modyfikowany: 10-09-2014" stamp. Current sale
+  activity is not posted there.
+- **The live sale content is a thin "Informacja o wyniku przetargu" results
+  stream**, and what it contains is **land**. The one current item
+  (`id=175377876015289622`, "ul. Wysockiego") is a concluded **plot** auction
+  described in free-text HTML prose — geodetic parcel numbers, m², księga
+  wieczysta — *"przeprowadzony II przetarg ustny nieograniczony na sprzedaż
+  nieruchomości … ul. Wysockiego … 4995/242 o powierzchni 335 m² …"*. No
+  structured fields, no PDF, no flats.
+
+**Why drop:** the product keys on `street|building|apt` residential flats with a
+price-per-m² history. Chorzów offers none of that at auction — its flats are
+rentals, and its sale auctions are occasional land/commercial parcels posted as
+unstructured prose. Same call as Sosnowiec. Revisit only if the product ever
+expands to municipal *land* sales (a different vertical), in which case the
+"Informacja o wyniku przetargu" notices are a free-text HTML source to parse.
+
+---
+
+### Earlier notes (first spike) — Chorzów `bip.chorzow.eu` ⚠️ (superseded by the verdict above)
 
 - **Housing authority:** ZK PGM (rentals). As in Wave 1, the authority is not
   the sales source.
@@ -109,16 +145,127 @@ carries real relisting signal even without a results history.
   an adapter now would be guessing at URLs and formats — exactly what the spike
   discipline (and `CLAUDE.md`'s "no guessing" rule) exists to prevent.
 
-### Remaining before a Chorzów adapter can be built
+### Remaining before a Chorzów adapter can be built — RESOLVED
 
-- A headless-browser pass that expands the "Ogłoszenia urzędowe" sale/result
-  submenus and enumerates the actual document URLs + formats (HTML node vs.
-  PDF attachment vs. `.doc`).
-- Confirm whether Chorzów sells *residential flats* at auction at all, or only
-  land/commercial (many Silesian cities sell flats only to sitting tenants
-  *bezprzetargowo*, leaving nothing for a flat-flipper product to track).
+Both questions are now answered by the browser spike (see the verdict at the top
+of this section): the menus were expanded, and Chorzów does **not** sell
+residential flats at auction — only occasional land/commercial parcels, as
+free-text HTML result notices. No adapter to build. Dropped.
+
+## Update — bytom.pl/bip is server-rendered (browser network spike, May 2026)
+
+Triggered by two user reports against the shipped v1.4.0 Bytom adapter: (1) the
+per-listing link *downloads a .doc* instead of opening a page, and (2) there are
+*no historical auctions*. Both pointed at `www.bytom.pl/bip`, which earlier
+`web_fetch` calls returned empty for. I drove a real Chrome tab to inspect it.
+
+**Key finding: `www.bytom.pl/bip` is NOT a JS SPA.** The network trace for
+`/bip/zbycie-nieruchomosci-bytom/nieruchomosci-wszystkie` shows a single
+document GET (200) plus CSS/JS/fonts/images — **zero XHR/fetch/API calls**. The
+listing content is in the initial HTML. The earlier empty `web_fetch` was
+therefore bot-UA gating or readability extraction returning nothing, **not**
+client-side rendering. Implication: a plain-`fetch` crawl can read it — *but the
+crawler must send a browser-like User-Agent / Accept headers*, since something
+served `web_fetch` an empty body. (Couldn't verify the UA gate from the CI
+sandbox — its DNS can't reach bytom.pl — so treat "bot UA works" as unconfirmed
+until a real run.)
+
+**What the BIP listing offers (richer than the i-BIIP catalog):**
+
+- **`/bip/zbycie-nieruchomosci-bytom/nieruchomosci-wszystkie`** — a paginated
+  index: **36 items across 3 pages**, covering flats, commercial units,
+  buildings and land — including items the catalog omits (e.g. *ul. Sienna 5*,
+  *ul. Głęboka 20 w Parzymiechach*).
+- **Filters in the page (server-side query params):** category
+  (`Lokale mieszkalne`, `Lokale niemieszkalne`, …), a **date-from / date-to
+  range**, and a free-text search. The date range is the lever for *history*.
+- **Per-property pages**: `/bip/zbycie-nieruchomosci-bytom/<category-slug>/<address-slug>/idn:<id>`
+  — a real webpage (fixes the "downloads a file" complaint: link here, not the
+  .doc). The round is in the title text ("drugi/trzeci przetarg ustny…").
+
+**Two limitations found:**
+
+1. **Detail pages are thin.** A property page (`idn:13423`) contains only the
+   title, publication date, a one-line description, and the attached **.doc** —
+   the cena wywoławcza / area / terms live *only inside the .doc*. So the BIP
+   route gives proper page URLs + round + date, but **not** inline price or
+   area; those still come from the i-BIIP catalog (current) or from parsing the
+   .doc.
+2. **No achieved/sold-price stream.** The category list has no "wyniki
+   przetargu" / results category — every entry is an *announcement*. Bytom
+   appears **not to publish achieved sale prices** (unlike Gliwice/Katowice). So
+   "historical auctions" for Bytom realistically means **announcement history**
+   — the same property offered across I/II/III rounds at descending *starting*
+   prices — not sold prices. Worth confirming by filtering the BIP list to old
+   date ranges to see how far back concluded announcements persist.
+
+**Recommended Bytom v2 (the real fix for both user reports):** make
+`bytom.pl/bip/zbycie-nieruchomosci-bytom` the primary crawl source instead of
+the i-BIIP catalog:
+
+- Crawl the paginated list (browser-like UA) → per-property `idn:` page URL +
+  address + round + publication date. Use the `idn:` page as `detail_url`.
+- Enrich price/area by parsing each `.doc` (`core/parse-docx.js`, per
+  EXPANSION.md §1.4) — or keep pulling those two fields from the i-BIIP catalog
+  and join by address.
+- Walk the date-range filter backwards to collect prior-round announcements →
+  per-property *announcement* history (rounds at starting prices).
+- Accept that achieved sold prices likely don't exist for Bytom; the product
+  shows starting-price-per-round history, which still flags repeatedly-relisted
+  (discounted) stock — the core signal.
+
+This is a meaningfully bigger build than the v1 catalog adapter (pagination +
+.doc parsing + browser-like UA + history backfill), scoped as a follow-up rather
+than folded into the v1.4.x patch.
+
+## Zabrze — `bip.miastozabrze.pl` ✅ viable + BUILT (Wave 4, v1.6.0)
+
+> **Verdict (browser spike, May 2026): build-worthy → built.** Zabrze genuinely
+> auctions residential flats — a dedicated, deep, server-rendered category —
+> unlike Chorzów. Adapter shipped (`cities/zabrze/`). Two pieces validate on the
+> first CI run: the announcement attachment is assumed a text PDF (pdftotext),
+> and the list pagination param (`?page=N`); both fall back safely and are
+> logged. The list/title/per-flat parsers are unit-tested against fixtures.
+
+- **Sales confirmed, residential flats included.** The city BIP has
+  *Przetargi na nieruchomości → Sprzedaż → **Lokale mieszkalne***
+  (`/zabrze/nieruch/um_pnn/zabrze_pn_sprzedaz/zabrze_pns_mieszkalne`) — a
+  dedicated flat-sale board, **113 entries**, paginated (30/page, 4 pages),
+  back to at least mid-2025. (Siblings: *Grunty*, *Wykazy nieruchomości*, *Najem*.)
+- **Round + auction date in every title.** Entries read *"Ogłoszenie o **I/II**
+  ustnych nieograniczonych przetargach na sprzedaż lokali mieszkalnych … na
+  dzień **DD.MM.YYYY** r."* with a publication date — the relisting round and
+  auction date are parseable straight from the list, like Gliwice's rounds.
+- **Server-rendered.** The browser reads it with no API/XHR; `/doc/<id>`
+  announcement pages and `/attachment/<id>` files have stable clean URLs. (A
+  plain `web_fetch` timed out once — a slow response, not JS.) Plain-`fetch`
+  crawl should work.
+- **Format — the one real cost.** Each announcement (`/doc/<id>`) is a thin
+  wrapper around a **single attachment** ("Ogłoszenie", ~226 KB) holding the
+  per-flat table (addresses, starting prices, areas); the list/detail HTML does
+  *not* carry those fields inline. So an adapter must download + parse each
+  attachment. I could not pin the attachment MIME in-spike (the same-origin
+  fetch was privacy-blocked; the file downloads rather than renders) — it's a
+  PDF or a DOC. **Confirm on build**, then route to the matching parser family:
+  `core/ocr-pdf` (scanned PDF), `pdftotext` (text PDF), or the `core/parse-docx`
+  family (EXPANSION.md §1.4).
+
+**Effort:** comparable to Gliwice/Katowice — a paginated list crawl (round +
+auction date + `/doc/` link per title) plus a per-attachment table parser.
+Richer than Bytom: real round history and ~1yr+ of announcements. Also has a
+*Wykazy nieruchomości* registry (e.g. `/doc/16440`) and — to confirm — possibly
+a "wyniki przetargu" results stream that could add sold prices.
+
+**Open items before building:** (a) confirm the attachment MIME + whether the
+table is clean text or scanned; (b) check for a results/"wyniki" stream (sold
+prices); (c) confirm the bot UA isn't gated (untestable from the CI sandbox,
+which can't reach the host).
 
 ## Recommendation
 
-Build **Bytom** as the third city (done, v1.4.0, active-only). Keep **Chorzów**
-deferred pending a deeper spike — do not build it blind.
+Build **Zabrze** next (Wave 4) — the best untouched Silesian candidate: a deep,
+dedicated, server-rendered flat-sale board with rounds and dates. Build
+**Bytom** as the third city (done, v1.4.0, active-only). For its v2, switch the
+crawl to the server-rendered `bytom.pl/bip` list per the update above — it fixes
+the file-download link and adds round/announcement history. Keep
+**Chorzów** deferred pending a deeper spike — do not build it blind.

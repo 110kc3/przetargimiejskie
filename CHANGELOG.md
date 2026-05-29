@@ -4,6 +4,64 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.6.0 — 2026-05-29
+
+- **New city: Zabrze** (Wave 4). The popup and archive now include Zabrze
+  municipal flat auctions alongside Gliwice, Katowice and Bytom.
+  - Source: the city BIP's dedicated *Lokale mieszkalne* sale board
+    (`bip.miastozabrze.pl/.../zabrze_pns_mieszkalne`) — a deep, server-rendered,
+    paginated list (113+ announcements) where each title carries the round
+    (I/II) and the auction date. Per-flat rows (address/area/price) come from
+    each announcement's attachment.
+  - Pipeline: `cities/zabrze/{config,crawl,parse,index}.js`, registered in the
+    city registry; shared `fetch`/`pdf-text` gained an optional browser-UA
+    parameter (the BIP gates the default bot UA). Active-listings adapter (no
+    sold-price stream); `crawlResultDocs()` is `[]`.
+  - Extension: `background.js` fetches Zabrze data; `city.zabrze` label, an
+    orange city chip, and a Zabrze archive filter option added. No
+    content-script overlay — the Zabrze board lists announcements without
+    per-flat addresses, so there's nothing to badge in-context.
+  - ⚠️ Two pieces validate on the first GitHub Actions run (the host was
+    unreachable from the dev environment): the announcement attachment is
+    assumed to be a text PDF (pdftotext), and the list pagination param
+    (`?page=N`). If CI shows otherwise, the extractor/pager adjust. The list +
+    title + per-flat parsers are unit-tested against fixtures. See SPIKE-WAVE2.md.
+
+## v1.5.0 — 2026-05-29
+
+- Bytom v2: switched the crawl from the i-BIIP catalog to the **city BIP sales
+  list** (`www.bytom.pl/bip/zbycie-nieruchomosci-bytom`), which a browser
+  network spike confirmed is server-rendered (not a JS SPA — the earlier
+  assumption was wrong). This fixes the two reported issues:
+  - **Listings now link to a real per-property page** (`…/idn:N`) instead of
+    triggering a `.doc` download.
+  - **Broader coverage + reliable round.** The BIP list is paginated
+    (`?strona=N`) and carries more flats than the catalog, with the relisting
+    round ("drugi/trzeci przetarg") in each entry. Price, area and auction date
+    are still filled from the i-BIIP catalog, joined by address.
+  - The pipeline fetches Bytom with a browser-like User-Agent (the default bot
+    UA is served an empty body). A catalog-only fallback keeps the city from
+    going empty if the BIP list is ever unreachable.
+  - Extension: `sites/bytom.js` now badges the BIP list/detail pages as well as
+    the catalog; manifest gains the `www.bytom.pl` host + content-script match.
+  - Honest limit: Bytom publishes **no achieved sale prices** and the list only
+    spans recent months, so there is still no sold-price/zł-m² history — every
+    listing is a current auction with its round. See SPIKE-WAVE2.md.
+
+## v1.4.1 — 2026-05-29
+
+- Bytom UI polish (the v1.4.0 city add was missing its presentation bits):
+  - `i18n.js` — registered the `city.bytom` label (PL + EN) so the city chip
+    reads "Bytom" instead of falling back to a raw id.
+  - `popup.css` / `archive.css` — added the Bytom chip colour (green, vs.
+    Gliwice-blue / Katowice-red) across all three theme scopes, plus the
+    sold/unsold row-cascade override in the archive.
+  - `archive.html` — added Bytom to the city filter dropdown (it was only
+    reachable under "all" before).
+- No data or pipeline change. If Bytom listings aren't showing after updating:
+  reload the unpacked extension (so the city list includes `bytom`) and hit
+  Refresh in the popup to bypass the 6h data cache.
+
 ## v1.4.0 — 2026-05-29
 
 - **New city: Bytom** (Wave 3). The extension now badges and tracks Bytom

@@ -16,6 +16,12 @@
   --chip-katowice-bg: #fdecec;
   --chip-katowice-fg: #8a2a2a;
   --chip-katowice-border: #f0caca;
+  --chip-bytom-bg: #e7f6ec;
+  --chip-bytom-fg: #1f6b3a;
+  --chip-bytom-border: #c5e6d1;
+  --chip-zabrze-bg: #fdecd9;
+  --chip-zabrze-fg: #8a531f;
+  --chip-zabrze-border: #f0d6b0;
 }
 
 /* System-pref dark, *unless* the user has explicitly forced light via the
@@ -39,6 +45,12 @@
     --chip-katowice-bg: #4a1d1d;
     --chip-katowice-fg: #f0a8a8;
     --chip-katowice-border: #6b2929;
+    --chip-bytom-bg: #163a24;
+    --chip-bytom-fg: #9fd9b3;
+    --chip-bytom-border: #224a30;
+    --chip-zabrze-bg: #3a2a16;
+    --chip-zabrze-fg: #e0b07a;
+    --chip-zabrze-border: #5a3f22;
   }
 }
 
@@ -61,6 +73,12 @@
   --chip-katowice-bg: #4a1d1d;
   --chip-katowice-fg: #f0a8a8;
   --chip-katowice-border: #6b2929;
+  --chip-bytom-bg: #163a24;
+  --chip-bytom-fg: #9fd9b3;
+  --chip-bytom-border: #224a30;
+  --chip-zabrze-bg: #3a2a16;
+  --chip-zabrze-fg: #e0b07a;
+  --chip-zabrze-border: #5a3f22;
 }
 
 * { box-sizing: border-box; }
@@ -222,6 +240,8 @@ h2 {
 }
 .zgm-city-tag[data-city="gliwice"]  { background: var(--chip-gliwice-bg);  color: var(--chip-gliwice-fg);  border-color: var(--chip-gliwice-border); }
 .zgm-city-tag[data-city="katowice"] { background: var(--chip-katowice-bg); color: var(--chip-katowice-fg); border-color: var(--chip-katowice-border); }
+.zgm-city-tag[data-city="bytom"]    { background: var(--chip-bytom-bg);    color: var(--chip-bytom-fg);    border-color: var(--chip-bytom-border); }
+.zgm-city-tag[data-city="zabrze"]   { background: var(--chip-zabrze-bg);   color: var(--chip-zabrze-fg);   border-color: var(--chip-zabrze-border); }
 
 /* Stacked dates cell. The label column has to fit the longest Polish label —
  * "OGLĘDZINY" (viewing) at 9 characters — so 72px with box-sizing keeps it

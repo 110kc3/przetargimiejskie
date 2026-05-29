@@ -25,14 +25,17 @@ async function throttle() {
  * @returns {Promise<Response>}
  */
 export async function politeGet(url, opts = {}) {
-  const { retries = 3, accept = '*/*' } = opts;
+  const { retries = 3, accept = '*/*', userAgent } = opts;
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       await throttle();
       const res = await fetch(url, {
         headers: {
-          'User-Agent': USER_AGENT,
+          // Some municipal servers (e.g. bytom.pl) serve an empty body to the
+          // default bot UA; a per-call override lets a city send a browser-like
+          // UA. Defaults to the polite project UA when not overridden.
+          'User-Agent': userAgent || USER_AGENT,
           Accept: accept,
         },
         redirect: 'follow',
@@ -51,16 +54,22 @@ export async function politeGet(url, opts = {}) {
   throw lastErr;
 }
 
-/** @param {string} url */
-export async function getText(url) {
-  const res = await politeGet(url, { accept: 'text/html,application/xhtml+xml' });
+/** @param {string} url @param {{ userAgent?: string }} [opts] */
+export async function getText(url, opts = {}) {
+  const res = await politeGet(url, {
+    accept: 'text/html,application/xhtml+xml',
+    userAgent: opts.userAgent,
+  });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
   return res.text();
 }
 
-/** @param {string} url */
-export async function getBytes(url) {
-  const res = await politeGet(url, { accept: 'application/pdf,*/*' });
+/** @param {string} url @param {{ userAgent?: string }} [opts] */
+export async function getBytes(url, opts = {}) {
+  const res = await politeGet(url, {
+    accept: 'application/pdf,*/*',
+    userAgent: opts.userAgent,
+  });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
   const ab = await res.arrayBuffer();
   return Buffer.from(ab);

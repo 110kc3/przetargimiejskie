@@ -114,6 +114,8 @@
       // city labels (popup chip)
       'city.gliwice': 'Gliwice',
       'city.katowice': 'Katowice',
+      'city.bytom': 'Bytom',
+      'city.zabrze': 'Zabrze',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -227,6 +229,8 @@
       // city labels (popup chip)
       'city.gliwice': 'Gliwice',
       'city.katowice': 'Katowice',
+      'city.bytom': 'Bytom',
+      'city.zabrze': 'Zabrze',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',
