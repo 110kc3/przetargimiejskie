@@ -67,54 +67,65 @@ function classifyKind(s) {
   return 'mieszkalny'; // this board is the "Lokale mieszkalne" category
 }
 
-// Address inside the announcement body: "… przy ul. <street> <bldg>[/<apt>]"
-// (also al./pl./os.). Street may contain Polish letters, spaces, dots, hyphens
-// and may *start with a digit* (Polish streets like "3 Maja", "11 Listopada").
-const ADDR_RE =
-  /(?:przy\s+)?(?:ul|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ0-9][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?)/g;
+// The real Zabrze announcement (a text PDF) is a numbered table — one block per
+// flat — e.g.:
+//
+//   1. adres: ul. Ks. Bolesława Domańskiego 4/6
+//   działka: nr 4129/50 pow.: 1.377 m2 księga wieczysta nr GL1Z/00019567/1
+//   opis lokalu: położenie: I piętro pow.: 26,74 m2 pomieszczenia: …
+//   Cena wywoławcza: 37.000,00 zł
+//   Wysokość wadium: 1.900,00 zł
+//
+// So we split on the per-flat "adres:" label (which appears only in the flat
+// blocks, never in the boilerplate — this also avoids the office addresses
+// "ul. Powstańców Śląskich 5-7" etc. that a generic address scan would wrongly
+// pick up). The block has TWO `pow.:` values: the *plot* (działka) first and the
+// *flat* (opis lokalu) second — we take the flat one.
 
-const AREA_RE = /(?:o\s+)?(?:powierzchni(?:\s+u[żz]ytkowej)?|pow\.?)\s*(?:wynosz\w+\s*)?[:\s]*([\d]+(?:[.,]\d+)?)\s*m\s?(?:2|²|kw)/i;
-const PRICE_RE = /cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d .,]+?)\s*z[łl]/i;
+// The address token within the "adres:" line. The capture group excludes the
+// ul./al./pl. prefix; the full match (am[0]) keeps it for parseAddress.
+const ADDR_IN_LINE =
+  /(?:ul|al|pl|os)\.?\s*[A-ZŻŹĆŁŚĄĘÓŃ0-9][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?/;
+// Flat area: the "pow.: <n> m2" that follows the "opis lokalu" cell.
+const FLAT_AREA_RE = /opis\s+lokalu[\s\S]*?pow\.?\s*:?\s*([\d.,]+)\s*m\s?(?:2|²|kw)?/i;
+// Fallback: any "pow.: <n> m2" — take the LAST in the block (flat area comes
+// after the działka area).
+const ANY_AREA_RE = /pow\.?\s*:?\s*([\d.,]+)\s*m\s?(?:2|²|kw)?/gi;
+const PRICE_RE = /cena\s+wywo[łl]awcza\s*:?\s*([\d .,]+?)\s*z[łl]/i;
 
 /**
  * Extract per-flat rows from one announcement's attachment text.
- * Strategy: each flat is anchored by its street address; area + starting price
- * are taken from a window of text following the address (covers both a
- * linearised table row and a prose sentence).
- * @param {string} text  extracted attachment text
+ * @param {string} text  extracted attachment text (pdftotext)
  * @returns {Array<{address_raw:string, address:object|null, kind:string, area_m2:number|null, starting_price_pln:number|null}>}
  */
 export function parseAnnouncementText(text) {
   if (!text) return [];
-  const flat = text.replace(/\r/g, '').replace(/[ \t]+/g, ' ');
+  const t = text.replace(/\r/g, '');
+  const starts = [...t.matchAll(/adres\s*:/gi)].map((m) => m.index);
+  if (starts.length === 0) return [];
   const out = [];
   const seen = new Set();
-  ADDR_RE.lastIndex = 0;
-  let m;
-  while ((m = ADDR_RE.exec(flat)) !== null) {
-    const addressRaw = m[1].trim().replace(/\s+/g, ' ');
+  for (let i = 0; i < starts.length; i++) {
+    const block = t.slice(starts[i], starts[i + 1] ?? t.length);
+    const addrLine = (/adres\s*:?\s*([^\n]+)/i.exec(block)?.[1] || '').trim();
+    const am = ADDR_IN_LINE.exec(addrLine);
+    if (!am) continue;
+    const addressRaw = am[0].replace(/\s+/g, ' ').trim();
     const address = parseAddress(addressRaw);
-    if (!address) continue;
-    if (seen.has(address.key)) continue;
+    if (!address || seen.has(address.key)) continue;
     seen.add(address.key);
-    // Forward window (area + price come *after* the address): from this address
-    // up to the next address (or 400 chars).
-    const start = m.index + m[0].length;
-    ADDR_RE.lastIndex = start;
-    const n = ADDR_RE.exec(flat);
-    const next = n ? n.index : Math.min(flat.length, m.index + 400);
-    ADDR_RE.lastIndex = start; // restore for the outer loop
-    const windowText = flat.slice(m.index, Math.max(next, m.index + 60));
-    // Kind word ("lokal mieszkalny" / "niemieszkalny") sits *before* the
-    // address in each row — read a short preceding window; default to
-    // mieszkalny (this is the "Lokale mieszkalne" board).
-    const preceding = flat.slice(Math.max(0, m.index - 60), m.index);
+
+    let area = parseArea(FLAT_AREA_RE.exec(block)?.[1]);
+    if (area == null) {
+      const all = [...block.matchAll(ANY_AREA_RE)];
+      area = all.length ? parseArea(all[all.length - 1][1]) : null;
+    }
     out.push({
       address_raw: addressRaw,
       address,
-      kind: classifyKind(preceding),
-      area_m2: parseArea(AREA_RE.exec(windowText)?.[1]),
-      starting_price_pln: parsePLN(PRICE_RE.exec(windowText)?.[1]),
+      kind: classifyKind(block),
+      area_m2: area,
+      starting_price_pln: parsePLN(PRICE_RE.exec(block)?.[1]),
     });
   }
   return out;

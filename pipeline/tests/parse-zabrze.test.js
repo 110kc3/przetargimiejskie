@@ -61,31 +61,56 @@ test('parseDocumentList: missing/empty data → []', () => {
   assert.deepEqual(parseDocumentList({ data: [] }), []);
 });
 
-test('attachmentUrlFromDoc finds the /attachment/ link', () => {
-  const html = '<a href="/attachment/96404" title="Pobierz załącznik"></a>';
-  assert.equal(attachmentUrlFromDoc(html), 'https://bip.miastozabrze.pl/attachment/96404');
+test('attachmentUrlFromDoc finds the attachment link (absolute or relative)', () => {
+  // Real /doc HTML uses an ABSOLUTE url:
+  const abs = '<a href="https://bip.miastozabrze.pl/attachment/43642" title="Pobierz załącznik"></a>';
+  assert.equal(attachmentUrlFromDoc(abs), 'https://bip.miastozabrze.pl/attachment/43642');
+  // tolerate a relative form too:
+  assert.equal(
+    attachmentUrlFromDoc('<a href="/attachment/96404"></a>'),
+    'https://bip.miastozabrze.pl/attachment/96404',
+  );
   assert.equal(attachmentUrlFromDoc('<p>nothing</p>'), null);
 });
 
-// Synthetic attachment text in the standard ogłoszenie vocabulary (table rows
-// linearised by `pdftotext -layout`, plus a prose variant).
-const ANN_TEXT = `
-Prezydent Miasta Zabrze ogłasza II ustny nieograniczony przetarg na sprzedaż lokali mieszkalnych.
-Lp. 1  lokal mieszkalny przy ul. Wolności 285/3  o powierzchni użytkowej 47,80 m2  cena wywoławcza 95.000,00 zł  wadium 9.500 zł
-Lp. 2  lokal mieszkalny położony przy ul. 3 Maja 12/4 o powierzchni 33,15 m2 cena wywoławcza 72 000,00 zł
-Lp. 3  lokal niemieszkalny przy ul. Wolności 285/5 o pow. 18,20 m2 cena wywoławcza 25.000 zł
-`;
+// Real attachment text (from a downloaded Zabrze ogłoszenie, doc/5969 era):
+// numbered per-flat blocks; each block has a *plot* `pow.:` (działka) before the
+// *flat* `pow.:` (opis lokalu); boilerplate carries office addresses to exclude.
+const ANN_TEXT = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieograniczone na sprzedaż niżej wymienionych lokali mieszkalnych
+1. adres: ul. Ks. Bolesława Domańskiego 4/6
+działka: nr 4129/50 pow.: 1.377 m2 księga wieczysta nr
+GL1Z/00019567/1
+opis lokalu: położenie:
+I piętro
+pow.: 26,74 m2 pomieszczenia: pokój, kuchnia, wc
+Cena
+wywoławcza:
+37.000,00 zł
+Wysokość wadium: 1.900,00 zł
+2. adres: ul. Krakowska 82/4
+działka: nr 958/1 pow.: 407 m2 księga wieczysta nr
+opis lokalu: położenie:
+I piętro
+pow.: 42,34 m2 pomieszczenia: 2 pokoje, kuchnia, przedpokój
+Cena
+wywoławcza:
+53.000,00 zł
+Przetargi odbędą się w dniu 1.03.2022 roku w sali 207 Urzędu Miejskiego w Zabrzu przy ul. Powstańców Śląskich 5-7
+Wadium należy wnosić w kasie Urzędu Miejskiego w Zabrzu przy ul. Wolności 286`;
 
-test('parseAnnouncementText pulls address / area / price per flat', () => {
+test('parseAnnouncementText: per-flat address, FLAT area (not plot), price; office addresses excluded', () => {
   const flats = parseAnnouncementText(ANN_TEXT);
-  const byKey = Object.fromEntries(flats.map((f) => [f.address.key, f]));
-  assert.ok(byKey['wolnosci|285|3'], 'first flat keyed');
-  assert.equal(byKey['wolnosci|285|3'].area_m2, 47.8);
-  assert.equal(byKey['wolnosci|285|3'].starting_price_pln, 95000);
-  assert.equal(byKey['wolnosci|285|3'].kind, 'mieszkalny');
-  assert.equal(byKey['3 maja|12|4'].area_m2, 33.15);
-  assert.equal(byKey['3 maja|12|4'].starting_price_pln, 72000);
-  assert.equal(byKey['wolnosci|285|5'].kind, 'uzytkowy');
+  assert.equal(flats.length, 2, 'two flats; office addresses in boilerplate excluded');
+  const d = flats.find((f) => f.address.key === 'ks boleslawa domanskiego|4|6');
+  assert.ok(d, 'Domańskiego flat keyed');
+  assert.equal(d.area_m2, 26.74, 'flat area, not the 1377 m² plot');
+  assert.equal(d.starting_price_pln, 37000);
+  assert.equal(d.kind, 'mieszkalny');
+  const k = flats.find((f) => f.address.key === 'krakowska|82|4');
+  assert.equal(k.area_m2, 42.34);
+  assert.equal(k.starting_price_pln, 53000);
+  // no office address leaked through
+  assert.ok(!flats.some((f) => /powsta|wolnosci/.test(f.address.street_norm)));
 });
 
 test('parseAnnouncementText: empty text → no flats', () => {

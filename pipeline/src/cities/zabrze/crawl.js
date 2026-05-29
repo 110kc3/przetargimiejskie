@@ -71,10 +71,16 @@ export function parseDocumentList(json) {
   return out;
 }
 
-/** Extract the first /attachment/<id> URL from an announcement /doc page. */
+/**
+ * Extract the first attachment URL from an announcement /doc page. The /doc
+ * HTML is server-rendered and links the attachment as an ABSOLUTE url
+ * (href="https://bip.miastozabrze.pl/attachment/<id>"), so we accept both
+ * absolute and relative forms and normalise to absolute.
+ */
 export function attachmentUrlFromDoc(html) {
-  const m = /href="(\/attachment\/\d+)"/i.exec(html);
-  return m ? ORIGIN + m[1] : null;
+  const m = /href="((?:https?:\/\/[^"]*?)?\/attachment\/\d+)"/i.exec(html);
+  if (!m) return null;
+  return m[1].startsWith('http') ? m[1] : ORIGIN + m[1];
 }
 
 /** Fetch + parse the document-list JSON API (all announcements, one call). */
