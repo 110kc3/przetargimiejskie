@@ -1,6 +1,143 @@
 {
   "schema_version": 1,
   "city": "bytom",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "pl. Akademicki 11/12",
+      "address": {
+        "street": "Akademicki",
+        "street_norm": "akademicki",
+        "building": "11",
+        "apt": "12",
+        "key": "akademicki|11|12",
+        "warning": null
+      },
+      "auction_date": "2026-06-15",
+      "round": 3,
+      "area_m2": 76.14,
+      "starting_price_pln": 97000,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Akademicki-11-12,23604.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "pl. Michała Wolskiego 6/9",
+      "address": {
+        "street": "Michała Wolskiego",
+        "street_norm": "michala wolskiego",
+        "building": "6",
+        "apt": "9",
+        "key": "michala wolskiego|6|9",
+        "warning": null
+      },
+      "auction_date": "2026-06-22",
+      "round": 1,
+      "area_m2": 88.43,
+      "starting_price_pln": 170000,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_9,23775.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Marszałka Józefa Piłsudskiego 7/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "7",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|7|11",
+        "warning": null
+      },
+      "auction_date": "2026-06-12",
+      "round": 2,
+      "area_m2": 41.05,
+      "starting_price_pln": 42750,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-7_11,23529.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Marszałka Józefa Piłsudskiego 65/10",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "65",
+        "apt": "10",
+        "key": "marszalka jozefa pilsudskiego|65|10",
+        "warning": null
+      },
+      "auction_date": "2026-06-11",
+      "round": 2,
+      "area_m2": 59.28,
+      "starting_price_pln": 75000,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-65_10,23532.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Dworcowa 5/18",
+      "address": {
+        "street": "Dworcowa",
+        "street_norm": "dworcowa",
+        "building": "5",
+        "apt": "18",
+        "key": "dworcowa|5|18",
+        "warning": null
+      },
+      "auction_date": "2026-06-29",
+      "round": 3,
+      "area_m2": 79.5,
+      "starting_price_pln": 82500,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Dworcowa-5-18,23840.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piekarska 9/9",
+      "address": {
+        "street": "Piekarska",
+        "street_norm": "piekarska",
+        "building": "9",
+        "apt": "9",
+        "key": "piekarska|9|9",
+        "warning": null
+      },
+      "auction_date": "2026-06-12",
+      "round": 2,
+      "area_m2": 30.33,
+      "starting_price_pln": 46500,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-9_9,23580.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Katowicka 44/8",
+      "address": {
+        "street": "Katowicka",
+        "street_norm": "katowicka",
+        "building": "44",
+        "apt": "8",
+        "key": "katowicka|44|8",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "round": 3,
+      "area_m2": 53.77,
+      "starting_price_pln": 85000,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Katowicka-44-8,23643.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Chorzowska 20/13",
+      "address": {
+        "street": "Chorzowska",
+        "street_norm": "chorzowska",
+        "building": "20",
+        "apt": "13",
+        "key": "chorzowska|20|13",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "round": 1,
+      "area_m2": 52.4,
+      "starting_price_pln": 200000,
+      "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Chorzowska-20_13,23641.doc"
+    }
+  ],
   "wykaz": []
 }
