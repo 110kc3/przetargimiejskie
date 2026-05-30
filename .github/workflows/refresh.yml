@@ -1,6 +1,23 @@
 name: Refresh auction data
 
 on:
+  push:
+    branches: [main]
+    # Run on pushes that change pipeline code/config — i.e. when a parser or
+    # crawler fix should regenerate data. We IGNORE pushes that only touch the
+    # generated data, the caches, docs, or the extension, so:
+    #   - the bot's own "data: refresh" commit never re-triggers a run
+    #     (belt-and-suspenders: GITHUB_TOKEN pushes don't trigger workflows
+    #      anyway, so there's no loop), and
+    #   - trivial doc / extension-only pushes don't kick off a full crawl.
+    # To run on EVERY push instead, delete this whole `paths-ignore` block.
+    paths-ignore:
+      - 'data/**'
+      - 'pipeline/ocr-cache/**'
+      - 'pipeline/pdf-text-cache/**'
+      - 'pipeline/detail-cache/**'
+      - 'extension/**'
+      - '**/*.md'
   schedule:
     - cron: '0 6 * * 1'      # Mondays 06:00 UTC. Daily also fine — runs are short.
   workflow_dispatch: {}      # adds a "Run workflow" button in the Actions UI
@@ -15,7 +32,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30   # Zabrze adds ~113 throttled doc+attachment fetches
     steps:
       - uses: actions/checkout@v4
 
@@ -44,7 +61,7 @@ jobs:
         run: |
           git config user.name  "zgm-data-bot"
           git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/ pipeline/ocr-cache/
+          git add data/ pipeline/ocr-cache/ pipeline/pdf-text-cache/ pipeline/detail-cache/
           if git diff --cached --quiet; then
             echo "No changes."
           else
