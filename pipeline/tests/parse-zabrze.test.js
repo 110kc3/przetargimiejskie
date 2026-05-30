@@ -111,6 +111,43 @@ test('parseAnnouncementText: per-flat address, FLAT area (not plot), price; offi
   assert.ok(!flats.some((f) => /powsta|wolnosci/.test(f.address.street_norm)));
 });
 
+// The other real Zabrze layout (doc 96404): the `pdftotext -layout` table wraps
+// so the FLAT area is detached from its "pow." label, the plot renders as
+// "953 m     2", the cellar header "pomieszczenia przynależne" lands just before
+// the flat's area, the flat area itself can be wide-spaced ("49,11 m  2"), and
+// the price label is followed by an inline "w tym: …%" cell.
+const ANN_WRAPPED = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieograniczone na sprzedaż lokali mieszkalnych
+1.                                   adres: ul. Gen. Władysława Andersa 35/4
+działka:   nr 740/1, 739/1,       pow.:      arkusz mapy: 2           prawo:        udział:
+           737/1, 741/1, 744/1 953 m     2   obręb: 0007, Rokitnica   własność      41/1000
+opis     położenie:     pow.:       pomieszczenia: 2 pokoje,          pomieszczenia przynależne
+lokalu: II piętro       52,00 m2 kuchnia, łazienka z wc,              do lokalu:
+                                                                      piwnica o pow. 6,12 m2
+Cena             w       95,32% stanowi cena         4,68% stanowi cena udziału
+wywoławcza:      tym: lokalu
+120.000,00 zł
+Wysokość wadium: 12.000,00 zł
+2.                                     adres: ul. Ireny Kosmowskiej 40/9
+działka:   nr 3816/65         pow.:           arkusz mapy: 3             prawo:        udział:
+                              504 m 2         obręb: 0007, Rokitnica     własność      84/1000
+opis     położenie:     pow.:       pomieszczenia: 2 pokoje,             pomieszczenia przynależne
+lokalu: III piętro      49,11 m  2  kuchnia, łazienka z wc,              do lokalu:
+                                    przedpokój                           piwnica o pow. 10,60 m2
+Cena wywoławcza: w tym:             94,74% stanowi cena       5,26% stanowi cena udziału
+110.000,00 zł
+Wysokość wadium: 11.000,00 zł`;
+
+test('parseAnnouncementText: wrapped layout — flat area (not plot/cellar) + inline "w tym" price', () => {
+  const flats = parseAnnouncementText(ANN_WRAPPED);
+  const a = flats.find((f) => f.address.key === 'gen wladyslawa andersa|35|4');
+  assert.ok(a, 'Andersa keyed');
+  assert.equal(a.area_m2, 52, 'flat 52 m², not plot 953 or cellar 6.12');
+  assert.equal(a.starting_price_pln, 120000);
+  const k = flats.find((f) => f.address.key === 'ireny kosmowskiej|40|9');
+  assert.equal(k.area_m2, 49.11, 'wide-spaced "49,11 m  2", not cellar 10.60');
+  assert.equal(k.starting_price_pln, 110000, 'price after the inline "w tym:" cell');
+});
+
 test('parseAnnouncementText: empty text → no flats', () => {
   assert.deepEqual(parseAnnouncementText(''), []);
 });

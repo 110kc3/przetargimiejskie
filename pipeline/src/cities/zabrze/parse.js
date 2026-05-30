@@ -89,33 +89,60 @@ const ADDR_IN_LINE =
 // In the real pdftotext -layout output the "w tym: …%" cell lands BETWEEN
 // "Cena" and "wywoławcza:", so we anchor on the second word "wywoławcza" — the
 // starting price ("37.000,00 zł") follows it directly.
-const PRICE_RE = /wywo[łl]awcza\s*:?\s*([\d][\d .,]*?)\s*z[łl]/i;
-const POW_RE = /pow\.?\s*:?\s*([\d.,]+)\s*m\s?(?:2|²|kw)?/gi;
+// Bare "<num> m2" / "<num> m²" token (NOT requiring a "pow." prefix). The
+// `pdftotext -layout` output wraps the table so the flat's area often sits on a
+// different line from its "pow.:" label — e.g. "lokalu: II piętro  52,00 m2".
+// Spacing between "m" and the "2" is inconsistent ("m2", "m  2", "m     2"), so
+// we allow any amount.
+const M2_RE = /([\d][\d.,]*)\s*m\s*[²2](?!\d)/gi;
 
-// Flat area for one block. Each block has several "pow.: X m²" values — the
-// PLOT (działka), the FLAT (opis lokalu), and sometimes a cellar/komórka
-// (pomieszczenie przynależne). We:
-//   - look only at the flat's own section (before "Cena"/"Wysokość wadium"),
-//     so boilerplate plot areas further down don't leak in;
-//   - drop the value inside the "działka … opis lokalu" span (the plot);
-//   - take the LARGEST of the rest (the flat is bigger than its cellar).
-// This is more robust to layout drift than "first pow after opis lokalu".
+// Flat area for one block. Several "<num> m²" appear — the PLOT (działka), the
+// FLAT (opis lokalu / położenie), and a cellar (piwnica / pomieszczenie
+// przynależne). We collect m² tokens in the flat's own section (before
+// "Cena"/"Wysokość wadium") and drop:
+//   - the PLOT — value inside the "działka … opis/położenie" span, or directly
+//     preceded by "działka";
+//   - the CELLAR — value preceded (within ~35 chars) by piwnica / przynależne /
+//     komórka / garaż.
+// Then take the LARGEST of what's left (the flat). Validated against both
+// Zabrze layouts (the "Domańskiego" sample and the wrapped "Andersa"/
+// "Kosmowskiej" doc 96404, incl. the "49,11 m  2" wide-spacing case).
 function flatAreaFromBlock(block) {
   const cut = block.search(/Wysoko[śs][ćc]\s+wadium|Cena\b/i);
   const region = cut > 0 ? block.slice(0, cut) : block;
   const dz = region.search(/dzia[łl]k/i);
-  const opis = region.search(/opis\s+lokalu/i);
+  const opis = region.search(/opis\s+lokalu|po[łl]o[żz]enie/i);
   const cands = [];
-  POW_RE.lastIndex = 0;
+  M2_RE.lastIndex = 0;
   let m;
-  while ((m = POW_RE.exec(region)) !== null) {
+  while ((m = M2_RE.exec(region)) !== null) {
     const v = parseArea(m[1]);
-    if (v == null) continue;
-    const inPlot = dz >= 0 && opis > dz && m.index > dz && m.index < opis;
-    if (inPlot) continue;
+    if (v == null || v <= 0) continue;
+    const idx = m.index;
+    const inPlotSpan = dz >= 0 && opis > dz && idx > dz && idx < opis;
+    const isPlot = inPlotSpan || /dzia[łl]k/i.test(region.slice(Math.max(0, idx - 35), idx));
+    // Cellar: the actual cellar VALUE is labelled "piwnica o pow. X" / "komórka
+    // … X" right before the number. Use a TIGHT window so the wrapped column
+    // header "pomieszczenia przynależne" (which lands before the FLAT's area in
+    // some layouts) doesn't get mistaken for a cellar.
+    const isCellar = /piwnic|kom[óo]rk|gara[żz]/i.test(region.slice(Math.max(0, idx - 18), idx));
+    if (isPlot || isCellar) continue;
     cands.push(v);
   }
   return cands.length ? Math.max(...cands) : null;
+}
+
+// Starting price for one block. The label "Cena wywoławcza" is followed —
+// possibly after an interleaved "w tym: …%" cell — by the amount "… zł". We
+// scan from "wywoławcza" up to "Wysokość wadium" and take the first "<num> zł"
+// (the percentages use "%", not "zł", so they're skipped).
+function priceFromBlock(block) {
+  const start = block.search(/wywo[łl]awcza/i);
+  if (start < 0) return null;
+  const end = block.search(/Wysoko[śs][ćc]\s+wadium/i);
+  const region = block.slice(start, end > start ? end : start + 500);
+  const m = /([\d][\d .,]*)\s*z[łl]/i.exec(region);
+  return m ? parsePLN(m[1]) : null;
 }
 
 /**
@@ -145,7 +172,7 @@ export function parseAnnouncementText(text) {
       address,
       kind: classifyKind(block),
       area_m2: flatAreaFromBlock(block),
-      starting_price_pln: parsePLN(PRICE_RE.exec(block)?.[1]),
+      starting_price_pln: priceFromBlock(block),
     });
   }
   return out;
