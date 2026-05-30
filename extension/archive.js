@@ -12,7 +12,7 @@ const $themeToggle = document.getElementById('theme-toggle');
 const $filterCity = document.getElementById('filter-city');
 const $filterKind = document.getElementById('filter-kind');
 const $filterOutcome = document.getElementById('filter-outcome');
-const $filterMinYear = document.getElementById('filter-min-year');
+const $filterYear = document.getElementById('filter-year');
 const $filterSearch = document.getElementById('filter-search');
 const $rowcount = document.getElementById('rowcount');
 const $provenance = document.getElementById('provenance');
@@ -133,6 +133,7 @@ async function load() {
     );
     lastMeta = res.payload.meta || null;
     lastFetchedAt = res.payload.fetched_at || null;
+    populateYears();
     renderAll();
     $status.hidden = true;
     $summary.hidden = false;
@@ -176,13 +177,37 @@ function flatten(payload) {
   records.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 }
 
+// "" = all years; otherwise an exact 4-digit year string.
+function selectedYear() {
+  return $filterYear && $filterYear.value ? $filterYear.value : '';
+}
+function matchesYear(r, year) {
+  if (!year) return true;
+  return !!r.date && r.date.slice(0, 4) === year;
+}
+
+// Fill the year dropdown from the distinct auction years present in the data
+// (newest first), with an "All years" option on top. Preserves the current
+// selection across re-populations.
+function populateYears() {
+  if (!$filterYear) return;
+  const years = [...new Set(
+    records.map((r) => (r.date ? r.date.slice(0, 4) : null)).filter(Boolean),
+  )].sort((a, b) => b.localeCompare(a));
+  const prev = $filterYear.value;
+  const allLabel = t('archive.filter.all_years');
+  $filterYear.innerHTML =
+    `<option value="">${allLabel}</option>` +
+    years.map((y) => `<option value="${y}">${y}</option>`).join('');
+  // restore previous selection if still valid, else default to all years
+  $filterYear.value = years.includes(prev) ? prev : '';
+}
+
 function renderSummary() {
   const city = $filterCity.value;
-  const minYear = Number($filterMinYear.value) || 0;
+  const year = selectedYear();
   const scope = records.filter(
-    (r) =>
-      (city === 'all' || r.city === city) &&
-      (!minYear || !r.date || Number(r.date.slice(0, 4)) >= minYear),
+    (r) => (city === 'all' || r.city === city) && matchesYear(r, year),
   );
   for (const tile of document.querySelectorAll('#summary .tile')) {
     const kind = tile.dataset.kind;
@@ -220,18 +245,14 @@ function renderTable() {
   const city = $filterCity.value;
   const kind = $filterKind.value;
   const outcome = $filterOutcome.value;
-  const minYear = Number($filterMinYear.value) || 0;
+  const year = selectedYear();
   const q = $filterSearch.value.trim().toLowerCase();
 
   let rows = records.slice();
   if (city !== 'all') rows = rows.filter((r) => r.city === city);
   if (kind !== 'all') rows = rows.filter((r) => r.kind === kind);
   if (outcome !== 'all') rows = rows.filter((r) => r.outcome === outcome);
-  if (minYear) {
-    rows = rows.filter(
-      (r) => !r.date || Number(r.date.slice(0, 4)) >= minYear,
-    );
-  }
+  if (year) rows = rows.filter((r) => matchesYear(r, year));
   if (q) rows = rows.filter((r) => r.street_search.includes(q));
 
   rows.sort((a, b) => {
@@ -373,13 +394,6 @@ function syncThemeButton() {
     window.ZGM_THEME?.ready,
     window.ZGM_SETTINGS?.ready,
   ]);
-  const currentMin = window.ZGM_SETTINGS?.getMinHistoryYear?.();
-  if ($filterMinYear && window.ZGM_SETTINGS) {
-    $filterMinYear.innerHTML = window.ZGM_SETTINGS
-      .minYearOptions()
-      .map((y) => `<option value="${y}"${y === currentMin ? ' selected' : ''}>${y}+</option>`)
-      .join('');
-  }
   applyStaticI18n();
   syncThemeButton();
   window.ZGM_I18N.onChange(() => {
@@ -397,17 +411,10 @@ function syncThemeButton() {
   $filterCity.addEventListener('change', onFilterChange);
   $filterKind.addEventListener('change', onFilterChange);
   $filterOutcome.addEventListener('change', renderTable);
-  $filterMinYear?.addEventListener('change', () => {
-    window.ZGM_SETTINGS?.setMinHistoryYear(Number($filterMinYear.value));
+  $filterYear?.addEventListener('change', () => {
     renderSummary();
+    renderActiveTable();
     renderTable();
-  });
-  window.ZGM_SETTINGS?.onChange((y) => {
-    if ($filterMinYear && Number($filterMinYear.value) !== y) {
-      $filterMinYear.value = String(y);
-      renderSummary();
-      renderTable();
-    }
   });
   $filterSearch.addEventListener('input', onFilterChange);
   for (const th of $table.querySelectorAll('th[data-sort]')) {

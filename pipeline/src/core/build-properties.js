@@ -90,16 +90,39 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
     if (p.area_m2 == null) p.area_m2 = area;
     for (const l of p.listings) if (l.area_m2 == null) l.area_m2 = area;
   }
-  // Fuzzy Polish-case retry on the street suffix.
+  // Fuzzy retry to bridge street-name spelling differences between the source
+  // that produced the property key (e.g. Gliwice result PDFs, which use the
+  // FULL street name "Karola Libelta", "Ignacego Daszyńskiego") and the
+  // detail-page source of area (which uses the SHORT form "Libelta",
+  // "Daszyńskiego"). Two families:
+  //   (a) Polish-case suffix swaps (genitive ↔ nominative);
+  //   (b) dropping a leading given-name token (full → short street name).
   const variants = (street) => {
     const out = new Set([street]);
     const subs = [
       ['ej$', 'a'], ['iej$', 'a'], ['ego$', 'y'], ['ego$', ''],
       ['skiej$', 'ska'], ['skiego$', 'ski'], ['ckiej$', 'cka'], ['ckiego$', 'cki'],
     ];
-    for (const [re, repl] of subs) {
-      const v = street.replace(new RegExp(re), repl);
-      if (v !== street) out.add(v);
+    const apply = (s) => {
+      for (const [re, repl] of subs) {
+        const v = s.replace(new RegExp(re), repl);
+        if (v !== s) out.add(v);
+      }
+    };
+    apply(street);
+    // (b) Patronymic/given-name prefix: "karola libelta" → "libelta",
+    // "ignacego daszynskiego" → "daszynskiego". Add the last word and last two
+    // words as candidates (and their suffix variants).
+    const words = street.split(' ').filter(Boolean);
+    if (words.length > 1) {
+      const last1 = words[words.length - 1];
+      out.add(last1);
+      apply(last1);
+      if (words.length > 2) {
+        const last2 = words.slice(-2).join(' ');
+        out.add(last2);
+        apply(last2);
+      }
     }
     return [...out];
   };

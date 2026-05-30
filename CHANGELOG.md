@@ -4,6 +4,20 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.6.1 — 2026-05-29
+
+- Archive year filter changed from a "From year" (minimum) dropdown to a **pick
+  a specific year** dropdown listing every year present in the data, with an
+  "All years" default. Filtering is now exact-year, and the dropdown is built
+  from the loaded records (no longer tied to the global min-history setting).
+- Pipeline (Gliwice area backfill): the detail-page area now also matches when
+  the result PDF uses the **full street name** ("Karola Libelta", "Ignacego
+  Daszyńskiego") while the detail page uses the **short** form ("Libelta",
+  "Daszyńskiego") — a leading given-name token is dropped when matching. Fills
+  area on the affected historical Gliwice rows (e.g. Libelta 10/1 → 47.67 m²).
+  Re-run the pipeline to apply. (Remaining size-less rows are garages / whole
+  buildings / OCR-garbled addresses with no detail page carrying a flat area.)
+
 ## v1.6.0 — 2026-05-29
 
 - **New city: Zabrze** (Wave 4). The popup and archive now include Zabrze

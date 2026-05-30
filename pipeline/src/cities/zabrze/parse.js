@@ -86,12 +86,37 @@ function classifyKind(s) {
 // ul./al./pl. prefix; the full match (am[0]) keeps it for parseAddress.
 const ADDR_IN_LINE =
   /(?:ul|al|pl|os)\.?\s*[A-ZŻŹĆŁŚĄĘÓŃ0-9][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?/;
-// Flat area: the "pow.: <n> m2" that follows the "opis lokalu" cell.
-const FLAT_AREA_RE = /opis\s+lokalu[\s\S]*?pow\.?\s*:?\s*([\d.,]+)\s*m\s?(?:2|²|kw)?/i;
-// Fallback: any "pow.: <n> m2" — take the LAST in the block (flat area comes
-// after the działka area).
-const ANY_AREA_RE = /pow\.?\s*:?\s*([\d.,]+)\s*m\s?(?:2|²|kw)?/gi;
-const PRICE_RE = /cena\s+wywo[łl]awcza\s*:?\s*([\d .,]+?)\s*z[łl]/i;
+// In the real pdftotext -layout output the "w tym: …%" cell lands BETWEEN
+// "Cena" and "wywoławcza:", so we anchor on the second word "wywoławcza" — the
+// starting price ("37.000,00 zł") follows it directly.
+const PRICE_RE = /wywo[łl]awcza\s*:?\s*([\d][\d .,]*?)\s*z[łl]/i;
+const POW_RE = /pow\.?\s*:?\s*([\d.,]+)\s*m\s?(?:2|²|kw)?/gi;
+
+// Flat area for one block. Each block has several "pow.: X m²" values — the
+// PLOT (działka), the FLAT (opis lokalu), and sometimes a cellar/komórka
+// (pomieszczenie przynależne). We:
+//   - look only at the flat's own section (before "Cena"/"Wysokość wadium"),
+//     so boilerplate plot areas further down don't leak in;
+//   - drop the value inside the "działka … opis lokalu" span (the plot);
+//   - take the LARGEST of the rest (the flat is bigger than its cellar).
+// This is more robust to layout drift than "first pow after opis lokalu".
+function flatAreaFromBlock(block) {
+  const cut = block.search(/Wysoko[śs][ćc]\s+wadium|Cena\b/i);
+  const region = cut > 0 ? block.slice(0, cut) : block;
+  const dz = region.search(/dzia[łl]k/i);
+  const opis = region.search(/opis\s+lokalu/i);
+  const cands = [];
+  POW_RE.lastIndex = 0;
+  let m;
+  while ((m = POW_RE.exec(region)) !== null) {
+    const v = parseArea(m[1]);
+    if (v == null) continue;
+    const inPlot = dz >= 0 && opis > dz && m.index > dz && m.index < opis;
+    if (inPlot) continue;
+    cands.push(v);
+  }
+  return cands.length ? Math.max(...cands) : null;
+}
 
 /**
  * Extract per-flat rows from one announcement's attachment text.
@@ -115,16 +140,11 @@ export function parseAnnouncementText(text) {
     if (!address || seen.has(address.key)) continue;
     seen.add(address.key);
 
-    let area = parseArea(FLAT_AREA_RE.exec(block)?.[1]);
-    if (area == null) {
-      const all = [...block.matchAll(ANY_AREA_RE)];
-      area = all.length ? parseArea(all[all.length - 1][1]) : null;
-    }
     out.push({
       address_raw: addressRaw,
       address,
       kind: classifyKind(block),
-      area_m2: area,
+      area_m2: flatAreaFromBlock(block),
       starting_price_pln: parsePLN(PRICE_RE.exec(block)?.[1]),
     });
   }

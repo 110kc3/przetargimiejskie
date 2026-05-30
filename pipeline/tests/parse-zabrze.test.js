@@ -80,19 +80,17 @@ const ANN_TEXT = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieogranic
 1. adres: ul. Ks. Bolesława Domańskiego 4/6
 działka: nr 4129/50 pow.: 1.377 m2 księga wieczysta nr
 GL1Z/00019567/1
-opis lokalu: położenie:
+opis lokalu: położenie:    pow.: 26,74 m2 pomieszczenia: pokój, kuchnia, wc
 I piętro
-pow.: 26,74 m2 pomieszczenia: pokój, kuchnia, wc
-Cena
+Cena                  w tym:   92,99% stanowi cena lokalu     7,01% stanowi cena udziału w prawie własności gruntu
 wywoławcza:
 37.000,00 zł
 Wysokość wadium: 1.900,00 zł
 2. adres: ul. Krakowska 82/4
 działka: nr 958/1 pow.: 407 m2 księga wieczysta nr
-opis lokalu: położenie:
+opis lokalu: położenie:    pow.: 42,34 m2 pomieszczenia: 2 pokoje, kuchnia, przedpokój
 I piętro
-pow.: 42,34 m2 pomieszczenia: 2 pokoje, kuchnia, przedpokój
-Cena
+Cena                  w tym:   93,42% stanowi cena lokalu     6,58% stanowi cena udziału w prawie własności gruntu
 wywoławcza:
 53.000,00 zł
 Przetargi odbędą się w dniu 1.03.2022 roku w sali 207 Urzędu Miejskiego w Zabrzu przy ul. Powstańców Śląskich 5-7
