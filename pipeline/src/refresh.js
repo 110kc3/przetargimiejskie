@@ -9,7 +9,8 @@
 //
 // Run with:  npm run refresh   (from pipeline/)
 
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -17,6 +18,13 @@ import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
 import { buildCityData } from './core/build-properties.js';
+import { mergeProperties } from './core/merge-history.js';
+
+// History accumulation: merge each run with the previously-committed
+// properties.json so a record the source later removes is retained (not lost).
+// Set MERGE_HISTORY=0 to disable (fresh rebuild); also achieved per-city by
+// deleting that city's data/<city>/properties.json before a run.
+const MERGE_HISTORY = process.env.MERGE_HISTORY !== '0';
 
 const SCHEMA_VERSION = 1;
 const PARSER_VERSION = '0.2.0';
@@ -89,7 +97,26 @@ async function refreshCity(city) {
     }
   }
 
-  const { properties } = buildCityData({ allRecords, active, wykaz, detailAreas });
+  const built = buildCityData({ allRecords, active, wykaz, detailAreas });
+  let properties = built.properties;
+
+  // Accumulate against the previously-committed file so upstream deletions
+  // don't erase history. active.json stays a live snapshot (current crawl only).
+  const propPath = join(DATA_DIR, city.id, 'properties.json');
+  let retained = { kept_properties: 0, kept_listings: 0 };
+  if (MERGE_HISTORY && existsSync(propPath)) {
+    try {
+      const prev = JSON.parse(await readFile(propPath, 'utf8'))?.properties || [];
+      const merged = mergeProperties(prev, properties);
+      properties = merged.properties;
+      retained = merged.stats;
+      console.error(
+        `History merge: ${properties.length} total (retained ${retained.kept_properties} properties + ${retained.kept_listings} listings absent from this crawl).`,
+      );
+    } catch (err) {
+      console.error(`  WARN: history merge skipped (${err.message}); writing fresh build.`);
+    }
+  }
 
   const meta = {
     schema_version: SCHEMA_VERSION,
@@ -102,6 +129,7 @@ async function refreshCity(city) {
     unique_properties: properties.length,
     active_listings: active.length,
     wykaz_entries: wykaz.length,
+    retained_properties: retained.kept_properties,
   };
 
   const cityDir = join(DATA_DIR, city.id);
