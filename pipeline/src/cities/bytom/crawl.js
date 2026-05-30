@@ -218,8 +218,9 @@ export async function crawlActive() {
 
   const bip = await crawlBipList();
 
-  // Primary spine = BIP list; enrich each with catalog price/area/date.
-  const listings = bip.map((it) => {
+  // BIP list is the spine (gives the real per-property page URL + round);
+  // the i-BIIP catalog enriches with price/area/auction_date.
+  const allBip = bip.map((it) => {
     const c = catByKey.get(it.address.key);
     return {
       kind: it.kind,
@@ -234,6 +235,16 @@ export async function crawlActive() {
       doc_url: c?.doc_url ?? '',
     };
   });
+  // Drop listings the catalog can't enrich (no price, area, OR date): these are
+  // concluded auctions that have rolled off the i-BIIP catalog but still linger
+  // on the BIP list. Their price/area/date live only inside the per-property
+  // .doc, which we don't parse — so without enrichment they're data-less rows.
+  // (To surface them with data later, parse the .doc announcement.)
+  const listings = allBip.filter(
+    (l) => l.starting_price_pln != null || l.area_m2 != null || l.auction_date != null,
+  );
+  const dropped = allBip.length - listings.length;
+  if (dropped) console.error(`  bytom: dropped ${dropped} data-less BIP-only listing(s) (no catalog match)`);
 
   // Fallback: if the BIP crawl returned nothing (e.g. UA gate / outage) but the
   // catalog worked, emit catalog-only listings so we never regress to empty.
