@@ -98,6 +98,7 @@
       // outcomes
       'outcome.sold': 'sold',
       'outcome.unsold': 'unsold',
+      'outcome.archived': 'past (result not published)',
       'outcome.no_winner': 'no winner',
       'outcome.sold_for': 'sold ${price}',
 
@@ -215,6 +216,7 @@
       // outcomes
       'outcome.sold': 'sprzedane',
       'outcome.unsold': 'bez sprzedaży',
+      'outcome.archived': 'zakończone (brak wyniku)',
       'outcome.no_winner': 'brak nabywcy',
       'outcome.sold_for': 'sprzedane za ${price}',
 

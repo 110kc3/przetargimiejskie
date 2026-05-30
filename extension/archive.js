@@ -151,7 +151,10 @@ function flatten(payload) {
   const props = payload.properties?.properties || [];
   for (const p of props) {
     for (const l of p.listings) {
-      if (l.outcome === 'sold' || l.outcome === 'unsold') {
+      // 'archived' = a past auction from an announcement-only city (Bytom/
+      // Zabrze) — concluded, achieved price not published. Shown in the
+      // historical table with its starting price.
+      if (l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'archived') {
         records.push({
           date: l.date,
           city: p.city || null,
@@ -289,6 +292,7 @@ function outcomeLabel(r) {
     const reason = r.unsold_reason ? ` (${t('reason.' + r.unsold_reason)})` : '';
     return t('outcome.unsold') + reason;
   }
+  if (r.outcome === 'archived') return t('outcome.archived');
   return r.outcome;
 }
 

@@ -4,6 +4,21 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.7.0 — 2026-05-30
+
+- Past auctions now leave the "active" view and appear in the **archive as
+  history**. Announcement-only cities (Bytom, Zabrze) surface years of past
+  auctions; a listing whose auction date has passed is marked `archived`
+  (concluded — the city doesn't publish the achieved price) instead of
+  `active`. The archive's historical table + outcome filter gain an
+  **"past (result not published)"** category (`outcome.archived`); the popup and
+  archive active sections show only current/upcoming auctions.
+- Zabrze: auction dates are now filled from the announcement body
+  ("Przetargi odbędą się w dniu …") when the title omits them — most Zabrze rows
+  were showing no date. (Pipeline; re-run to apply.)
+- Zabrze parser handles the second (column-wrapped) PDF layout from v1.6.x —
+  correct flat area (not the plot/cellar) and price across both layouts.
+
 ## v1.6.1 — 2026-05-29
 
 - Archive year filter changed from a "From year" (minimum) dropdown to a **pick

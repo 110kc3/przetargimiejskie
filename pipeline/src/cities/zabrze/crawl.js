@@ -29,6 +29,7 @@ import {
   parseAnnouncementText,
   roundFromTitle,
   auctionDateFromTitle,
+  auctionDateFromText,
 } from './parse.js';
 
 const ORIGIN = 'https://bip.miastozabrze.pl';
@@ -134,12 +135,15 @@ export async function crawlActive() {
     if (flats.length === 0) {
       console.error(`  zabrze WARN: 0 flats parsed from ${attUrl} (${ann.title})`);
     }
+    // The title often omits the auction date; the body ("Przetargi odbędą się
+    // w dniu …") almost always has it. Title first, body as fallback.
+    const auctionDate = ann.auction_date || auctionDateFromText(text);
     for (const f of flats) {
       listings.push({
         kind: f.kind,
         address_raw: f.address_raw,
         address: f.address,
-        auction_date: ann.auction_date,
+        auction_date: auctionDate,
         round: ann.round,
         area_m2: f.area_m2,
         starting_price_pln: f.starting_price_pln,

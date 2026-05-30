@@ -41,6 +41,19 @@ export function auctionDateFromTitle(title) {
   return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
 }
 
+/**
+ * Auction date from the announcement body — many titles omit it, but the body
+ * always says "Przetargi odbędą się w dniu DD.MM.YYYY roku". Anchored on the
+ * FUTURE-tense "odbęd…" (vs. the past-round "odbyły się w dniu …") so we get
+ * THIS auction's date, not a prior round's. → ISO, or null.
+ */
+export function auctionDateFromText(text) {
+  const m = /odb[ęe]d[ąa]?\w*\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text || '');
+  if (!m) return null;
+  const [, d, mo, y] = m;
+  return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
+}
+
 // "253.620,00" / "97 000 zł" / "46500,00" → integer PLN.
 function parsePLN(numStr) {
   if (!numStr) return null;

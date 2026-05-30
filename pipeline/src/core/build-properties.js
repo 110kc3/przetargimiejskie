@@ -54,16 +54,24 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       ...(r.area_m2 != null ? { area_m2: r.area_m2 } : {}),
     });
   }
+  // A listing crawled from a "currently active" source is only really active
+  // if its auction date hasn't passed. Announcement-only cities (Bytom, Zabrze)
+  // surface years of past auctions whose date is in the past — those concluded
+  // (with an outcome the city doesn't publish), so we mark them 'archived'
+  // rather than 'active'. This keeps the popup's active view current and lets
+  // past auctions populate the archive. A dateless listing stays 'active'.
+  const TODAY = new Date().toISOString().slice(0, 10);
   for (const a of active) {
     if (!a.address) continue;
     const p = ensureProperty(a.address, a.kind);
     if (!p) continue;
+    const isPast = a.auction_date && a.auction_date < TODAY;
     p.listings.push({
       date: a.auction_date,
       round: a.round ?? null,
       kind: a.kind,
       starting_price_pln: a.starting_price_pln,
-      outcome: 'active',
+      outcome: isPast ? 'archived' : 'active',
       area_m2: a.area_m2,
       detail_url: a.detail_url,
       wadium_deadline: a.wadium_deadline || null,
