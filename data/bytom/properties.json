@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "city": "bytom",
+  "properties": [
+    {
+      "key": "dworcowa|5|18",
+      "street": "Dworcowa",
+      "street_norm": "dworcowa",
+      "building": "5",
+      "apt": "18",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-06-29",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 82500,
+          "outcome": "active",
+          "area_m2": 79.5,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Dworcowa-518/idn:13422",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 79.5
+    },
+    {
+      "key": "michala wolskiego|6|9",
+      "street": "Michała Wolskiego",
+      "street_norm": "michala wolskiego",
+      "building": "6",
+      "apt": "9",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-06-22",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 88.43,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/pl.-Michala-Wolskiego-69/idn:13379",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 88.43
+    },
+    {
+      "key": "katowicka|44|8",
+      "street": "Katowicka",
+      "street_norm": "katowicka",
+      "building": "44",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "active",
+          "area_m2": 53.77,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Katowicka-448/idn:13327",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 53.77
+    },
+    {
+      "key": "chorzowska|20|13",
+      "street": "Chorzowska",
+      "street_norm": "chorzowska",
+      "building": "20",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 52.4,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Chorzowska-2013/idn:13326",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.4
+    },
+    {
+      "key": "akademicki|11|12",
+      "street": "Akademicki",
+      "street_norm": "akademicki",
+      "building": "11",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97000,
+          "outcome": "active",
+          "area_m2": 76.14,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/pl.-Akademicki-1112/idn:13287",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 76.14
+    },
+    {
+      "key": "piekarska|9|9",
+      "street": "Piekarska",
+      "street_norm": "piekarska",
+      "building": "9",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 46500,
+          "outcome": "active",
+          "area_m2": 30.33,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Piekarska-99/idn:13277",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.33
+    }
+  ]
+}
