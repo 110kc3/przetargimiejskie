@@ -8,6 +8,9 @@ MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
 - The auction archive now shows a **round column** (I / II / III przetarg) for
   every past listing, sortable like the other columns.
+- Popup no longer labels re-listings as "nowa" (new). A 2nd/3rd-round auction
+  now shows its round (II / III przetarg) instead; "nowa" is reserved for genuine
+  first-round listings with no recorded history.
 
 ## v1.8.1 — 2026-05-31
 

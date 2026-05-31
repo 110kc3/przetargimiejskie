@@ -16,6 +16,9 @@ const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
   n == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
 
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+const roundLabel = (n) => (n ? t('chip.round', { r: ROMAN[n] || String(n) }) : null);
+
 // Background.js namespaces property keys as `<city>|...`, so we can recover
 // the city for legacy/orphan watch entries that don't carry one.
 function cityFromKey(key) {
@@ -165,10 +168,14 @@ function renderActive() {
     .map(({ a, prior, unsold, lastUnsold, key }) => {
       const cityTag = cityTagHtml(a.city || cityFromKey(key));
       const addr = cityTag + (a.address_raw || '') + (a.area_m2 ? ` · ${a.area_m2} m²` : '');
+      // "nowa" (new) only when this really is a first auction with no recorded
+      // history. A 2nd/3rd przetarg is a re-listing, not new — show its round.
       const priorCell =
-        prior.length === 0
-          ? `<span class="zgm-fresh">${t('popup.fresh')}</span>`
-          : `<span class="zgm-prior">${t('popup.prior_summary', { n: prior.length, unsold: unsold.length })}</span>`;
+        prior.length > 0
+          ? `<span class="zgm-prior">${t('popup.prior_summary', { n: prior.length, unsold: unsold.length })}</span>`
+          : a.round > 1
+            ? `<span class="zgm-prior">${roundLabel(a.round)}</span>`
+            : `<span class="zgm-fresh">${t('popup.fresh')}</span>`;
       const lastUnsoldCell = lastUnsold
         ? `${lastUnsold.date} @ ${fmtPLN(lastUnsold.starting_price_pln)}`
         : '—';
