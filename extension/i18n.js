@@ -76,11 +76,12 @@
       'theme.toggle.to_light': 'Switch to light mode',
 
       // badges on listing index pages
-      'badge.first': 'first listing',
+      'badge.first': 'no prior auctions',
       'badge.prev_unsold':
         'prev ${n}× — ${unsold} unsold${sold_clause}',
       'badge.prev_unsold.sold_clause': ', ${sold} sold',
       'badge.prev_sold': 'prev ${n}× sold',
+      'chip.round': 'auction ${r}',
 
       // tooltip/table headers
       'col.date': 'date',
@@ -194,11 +195,12 @@
       'theme.toggle.to_light': 'Przełącz na jasny motyw',
 
       // badges
-      'badge.first': 'pierwsza aukcja',
+      'badge.first': 'brak wcześniejszych aukcji',
       'badge.prev_unsold':
         'poprzednio ${n}× — ${unsold} bez sprzedaży${sold_clause}',
       'badge.prev_unsold.sold_clause': ', ${sold} sprzedane',
       'badge.prev_sold': 'poprzednio ${n}× sprzedane',
+      'chip.round': '${r} przetarg',
 
       // tooltip/table headers
       'col.date': 'data',

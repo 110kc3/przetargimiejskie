@@ -99,8 +99,16 @@
         }
       }
 
+      // (a.5) stats chip from the joined dataset: auction round · start price ·
+      //       area · zł/m² · auction date. This is the only place the user sees
+      //       those numbers for sources whose listing page has no inline figures
+      //       (e.g. Bytom's BIP list), and it shows the round correctly (the
+      //       page states "drugi/trzeci przetarg" but only the dataset is read).
+      const statsChip = buildStatsChip(prop);
+      if (statsChip) element.appendChild(statsChip);
+
       // (b) a small chip with the wadium / viewing dates, if known.
-      const activeListing = prop?.listings.find((l) => l.outcome === 'active');
+      const activeListing = currentListing(prop);
       const datesChip = buildDatesChip(activeListing);
       if (datesChip) element.appendChild(datesChip);
 
@@ -291,6 +299,57 @@
   }
 
   // -------------------------------------------------------------- shared bits
+
+  // The listing to summarise on an index card: prefer the live one, else the
+  // most recent (past auctions are 'archived'; sold/unsold for cities with
+  // history). Sorted by date desc so we surface the newest round.
+  function currentListing(prop) {
+    if (!prop || !prop.listings.length) return null;
+    return (
+      prop.listings.find((l) => l.outcome === 'active') ||
+      prop.listings
+        .slice()
+        .sort((a, b) => (b.date || '').localeCompare(a.date || ''))[0] ||
+      null
+    );
+  }
+
+  const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+  function roundLabel(n) {
+    if (!n) return null;
+    return window.ZGM_I18N.t('chip.round', { r: ROMAN[n] || String(n) });
+  }
+
+  function fmtArea(a) {
+    if (a == null) return null;
+    return (
+      new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 }).format(a) +
+      ' m²'
+    );
+  }
+
+  // Compact chip next to the listing name: round · price · area · zł/m² · date.
+  // Built from the joined dataset (not the page), so it works where the source
+  // page carries no inline numbers.
+  function buildStatsChip(prop) {
+    const t = window.ZGM_I18N.t;
+    const l = currentListing(prop);
+    if (!l) return null;
+    const area = l.area_m2 ?? prop.area_m2 ?? null;
+    const parts = [];
+    const rl = roundLabel(l.round);
+    if (rl) parts.push(rl);
+    if (l.starting_price_pln != null) parts.push(fmtPLN(l.starting_price_pln));
+    if (area != null) parts.push(fmtArea(area));
+    if (l.starting_price_pln != null && area)
+      parts.push(fmtPerM2(l.starting_price_pln, area));
+    if (l.date) parts.push(`${t('popup.label.auction')} ${l.date}`);
+    if (!parts.length) return null;
+    const chip = document.createElement('div');
+    chip.className = 'zgm-ext-infochip zgm-ext-stats';
+    chip.textContent = parts.join('  ·  ');
+    return chip;
+  }
 
   function buildDatesChip(activeListing) {
     const t = window.ZGM_I18N.t;

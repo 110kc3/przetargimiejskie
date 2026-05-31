@@ -7,6 +7,33 @@
 
 ## Pipeline
 
+### Verify Bytom `.doc` history retention over time
+
+The Bytom `.doc` enrichment (Wave 5) commits converted text to
+`pipeline/doc-text-cache/`, and `refresh.js` history-merge is meant to retain
+listings the source later drops. Not yet verified across runs: confirm that
+when an auction rolls off both the i-BIIP catalog AND the BIP list, its
+`properties.json` entry (with the figures recovered from the cached `.doc`)
+still survives the merge. First clean run showed `retained 0` (nothing to
+retain yet). Re-check after a few refresh cycles once older auctions age out.
+
+### Zabrze active-list edge cases (remaining 0-flat warnings)
+
+After the Wave-5 fixes (route non-PDF attachments → catdoc; skip published
+"INFORMACJA O WYNIKU" result notices quietly), a few announcements still warn
+`0 flats parsed`:
+- **`de Gaulle'a`-type addresses** — the typographic apostrophe in
+  "ul. Gen. de Gaulle'a 89/3" isn't in `ADDR_IN_LINE`'s char class, so the
+  address (and thus the flat) is dropped. Widen the class to include `'`/`’`.
+- **Old concluded announcements** lingering in the JSON document-list (e.g. a
+  2022 single cooperative-ownership-right lokal). These pre-date the useful
+  window and shouldn't count as *active*; consider dropping announcements whose
+  auction date is well in the past.
+- **Wire the result notices as a sold-price stream** — the skipped
+  "INFORMACJA O WYNIKU PRZETARGÓW" PDFs are exactly the achieved-price data
+  Zabrze otherwise lacks. Parsing them into `crawlResultDocs()` would give
+  Zabrze real sold-price history (currently active-only).
+
 ### City-namespaced keys in the data files
 
 [EXPANSION.md §1.5](./EXPANSION.md) wants the property key namespaced at the

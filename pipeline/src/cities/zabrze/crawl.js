@@ -25,6 +25,7 @@
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
+import { docText } from '../../core/doc-text.js';
 import {
   parseAnnouncementText,
   roundFromTitle,
@@ -124,13 +125,24 @@ export async function crawlActive() {
     }
     let text = '';
     try {
-      // Assumed text PDF — see config.js. pdftotext throws on non-PDF; we log
-      // and skip so one odd attachment can't break the whole crawl.
+      // Most attachments are text PDFs (pdftotext). A few older ones are legacy
+      // Word .doc — pdfText rejects those cleanly (magic-byte check), so we fall
+      // back to catdoc. Either failing just skips this one announcement.
       text = await pdfText(attUrl, FETCH_OPTS);
     } catch (err) {
-      console.error(`  zabrze attachment extract failed ${attUrl}: ${err.message}`);
-      continue;
+      try {
+        text = await docText(attUrl, FETCH_OPTS);
+      } catch (err2) {
+        console.error(`  zabrze attachment extract failed ${attUrl}: ${err.message}`);
+        continue;
+      }
     }
+    // Some /doc pages now link the published RESULT notice ("INFORMACJA O WYNIKU
+    // PRZETARGÓW") as their first attachment — the auction already happened, so
+    // this is not an active sale announcement and carries no per-flat sale rows.
+    // Skip quietly. (Achieved sold prices are a separate, not-yet-wired stream.)
+    if (/INFORMACJA\s+O\s+WYNIKU/i.test(text)) continue;
+
     const flats = parseAnnouncementText(text);
     if (flats.length === 0) {
       console.error(`  zabrze WARN: 0 flats parsed from ${attUrl} (${ann.title})`);

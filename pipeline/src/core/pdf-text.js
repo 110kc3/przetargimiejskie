@@ -27,6 +27,14 @@ export async function pdfText(pdfUrl, opts = {}) {
   if (existsSync(cachePath)) return readFile(cachePath, 'utf8');
   console.error(`  pdf-text: ${pdfUrl}`);
   const bytes = await getBytes(pdfUrl, { userAgent: opts.userAgent, insecureTLS: opts.insecureTLS });
+  // Reject non-PDFs up front. Some hosts (e.g. Zabrze) attach a legacy Word
+  // .doc at an /attachment/<id> URL; feeding that to pdftotext spews "Couldn't
+  // find trailer dictionary / xref" errors and then fails. A clean magic-byte
+  // check throws a short, catchable error so the caller can route to catdoc.
+  if (bytes.subarray(0, 5).toString('latin1') !== '%PDF-') {
+    const magic = bytes.subarray(0, 4).toString('latin1').replace(/[^\x20-\x7e]/g, '.');
+    throw new Error(`not a PDF (magic "${magic}")`);
+  }
   const tmpPdf = join(tmpdir(), `pdftext-${urlCacheKey(pdfUrl)}.pdf`);
   await writeFile(tmpPdf, bytes);
   let text;

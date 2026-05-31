@@ -89,6 +89,25 @@ function extractResultPdfUrl(body) {
   }
 }
 
+// The SharePoint "Wykazy … wyników przetargów i inne ogłoszenia" list mixes
+// auction-result PDFs with unrelated documents that have no auction records:
+// rent-rate tables ("stawki czynszu …"), a literal test file ("plik testowy"),
+// and a pre-2020 multi-year summary ("… za rok 2005-2011"). The parser returns
+// 0 records from these (→ "WARN null" noise). Skip them up front. Matched on the
+// decoded URL + title so URL-encoding (%20 etc.) doesn't hide the keywords.
+const NON_AUCTION_DOC =
+  /stawki\s+czynszu|plik\s+testowy|2005-2011|cennik|regulamin/i;
+
+function isNonAuctionDoc(pdfUrl, title) {
+  let name = pdfUrl;
+  try {
+    name = decodeURIComponent(pdfUrl);
+  } catch {
+    /* keep raw */
+  }
+  return NON_AUCTION_DOC.test(name) || NON_AUCTION_DOC.test(title || '');
+}
+
 async function probeIsReachable(url) {
   try {
     const res = await fetch(url, {
@@ -195,13 +214,21 @@ export async function crawlSharePointResultDocs() {
     return [];
   }
   const candidates = [];
+  let skippedNoise = 0;
   for (const it of items) {
     const title = (it[F_TITLE] || '').trim();
     const body = it[F_BODY] || '';
     if (!title || !body) continue;
     const pdf_url = extractResultPdfUrl(body);
     if (!pdf_url) continue;
+    if (isNonAuctionDoc(pdf_url, title)) {
+      skippedNoise++;
+      continue;
+    }
     candidates.push({ pdf_url, auction_date: extractAuctionDate(title) });
+  }
+  if (skippedNoise) {
+    console.error(`  katowice SP: skipped ${skippedNoise} non-auction doc(s) (rent tables / test files / pre-2020 summaries)`);
   }
   console.error(
     `  katowice SP: ${candidates.length} PDF href(s) in body of ${items.length} list item(s)`,

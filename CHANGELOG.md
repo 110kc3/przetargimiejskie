@@ -4,6 +4,18 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.8.0 — 2026-05-31
+
+- Listing cards now show a **stats chip next to the auction name**: the auction
+  round (I / II / III przetarg), starting price, area, zł/m², and auction date —
+  read from the dataset, so it appears even on source pages that carry no inline
+  numbers (e.g. Bytom's BIP list).
+- Fixed the misleading green badge: the "no prior history" marker previously read
+  "pierwsza aukcja", which looked like an auction-round label even when the
+  listing was clearly a second or third przetarg. It now reads "brak
+  wcześniejszych aukcji" / "no prior auctions", and the actual round is shown in
+  the new stats chip.
+
 ## v1.7.0 — 2026-05-30
 
 - Past auctions now leave the "active" view and appear in the **archive as
