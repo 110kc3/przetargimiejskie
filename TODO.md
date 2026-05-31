@@ -111,10 +111,14 @@ unspiked. Same discipline as the Katowice spike — find the city BIP's
 sales board, answer (a) does this city sell municipal property at auction,
 (b) where are results published, (c) in what format.
 
-- **Bytom — spiked + built (Wave 3, v1.4.0).** Clean HTML catalog on i-BIIP;
-  active-listings adapter shipped. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
-  Follow-up: sold-price *results* (JS-rendered `bytom.pl/bip`) and/or `.doc`
-  announcement parsing — Bytom currently ships active-only.
+- **Bytom — spiked + built (Wave 3, v1.4.0); `.doc` enrichment added (Wave 5).**
+  Clean HTML catalog on i-BIIP; active-listings adapter shipped. See
+  [SPIKE-WAVE2.md](./SPIKE-WAVE2.md). `.doc` announcement parsing now recovers
+  price/area/auction-date for listings the i-BIIP catalog has dropped (past
+  auctions still on the BIP list) — past-dated ones classify `archived` and
+  populate the archive. See [SCOPE-BYTOM-DOC.md](./SCOPE-BYTOM-DOC.md).
+  Remaining follow-up: sold-price *results* (JS-rendered `bytom.pl/bip`) — Bytom
+  still has no achieved-price stream.
 - **Chorzów — spiked + DROPPED.** Browser spike (May 2026) expanded the BIP
   menus: there is no `lokale mieszkalne na sprzedaż` category, the sale
   categories are empty 2014-era placeholders, flats are rental-only, and the

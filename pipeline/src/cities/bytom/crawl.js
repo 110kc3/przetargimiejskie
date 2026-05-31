@@ -31,6 +31,9 @@
 
 import { getText } from '../../core/fetch.js';
 import { parseAddress } from '../../core/normalize.js';
+import { docText } from '../../core/doc-text.js';
+import { pdfText } from '../../core/pdf-text.js';
+import { parseAnnouncement } from './parse.js';
 
 const BIP_BASE =
   'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/nieruchomosci-wszystkie';
@@ -235,16 +238,12 @@ export async function crawlActive() {
       doc_url: c?.doc_url ?? '',
     };
   });
-  // Drop listings the catalog can't enrich (no price, area, OR date): these are
-  // concluded auctions that have rolled off the i-BIIP catalog but still linger
-  // on the BIP list. Their price/area/date live only inside the per-property
-  // .doc, which we don't parse — so without enrichment they're data-less rows.
-  // (To surface them with data later, parse the .doc announcement.)
-  const listings = allBip.filter(
-    (l) => l.starting_price_pln != null || l.area_m2 != null || l.auction_date != null,
-  );
-  const dropped = allBip.length - listings.length;
-  if (dropped) console.error(`  bytom: dropped ${dropped} data-less BIP-only listing(s) (no catalog match)`);
+  // Listings the catalog can't enrich (null price/area/date) are concluded
+  // auctions that have rolled off the i-BIIP catalog but still linger on the BIP
+  // list; their figures live only inside the per-property .doc. We DON'T drop
+  // them here — enrichActive() (below) fetches each one's .doc, parses it, and
+  // fills the fields; only the rows still empty after that are dropped.
+  const listings = allBip;
 
   // Fallback: if the BIP crawl returned nothing (e.g. UA gate / outage) but the
   // catalog worked, emit catalog-only listings so we never regress to empty.
@@ -269,6 +268,86 @@ export async function crawlActive() {
 
   console.error(`  bytom active: ${listings.length} listings (BIP ${bip.length}, catalog ${catByKey.size})`);
   return { listings, wykaz: [] };
+}
+
+// Find the announcement attachment URL on a per-property (/idn:N) page. Bytom
+// links a .doc (and occasionally a .pdf); prefer .doc. Hrefs may be relative or
+// absolute — resolve against www.bytom.pl.
+export function attachmentUrlFromDetail(html) {
+  const doc = /href="([^"]+\.docx?(?:\?[^"]*)?)"/i.exec(html || '');
+  const pdf = /href="([^"]+\.pdf(?:\?[^"]*)?)"/i.exec(html || '');
+  const href = (doc && doc[1]) || (pdf && pdf[1]);
+  if (!href) return null;
+  const clean = href.replace(/&amp;/gi, '&');
+  if (/^https?:\/\//i.test(clean)) return clean;
+  try {
+    return new URL(clean, 'https://www.bytom.pl/').href;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Recover price / area / auction-date / round for listings the i-BIIP catalog
+ * couldn't enrich (concluded auctions that rolled off the catalog but still hang
+ * on the BIP list). For each such listing we open its /idn page, find the .doc
+ * announcement, convert it (catdoc, via core/doc-text.js) and parse the figures
+ * out. Rows still empty afterwards (no .doc, or unparseable) are dropped in place
+ * so the build never sees data-less listings.
+ *
+ * Mutates `active` in place (the refresh loop passes the same array on to the
+ * build — see refresh.js). A past `auction_date` recovered here is what lets
+ * build-properties classify the listing `archived`, populating the archive.
+ * @param {ActiveListing[]} active
+ */
+export async function enrichActive(active) {
+  let recovered = 0;
+  for (const l of active) {
+    const hasData =
+      l.starting_price_pln != null || l.area_m2 != null || l.auction_date != null;
+    if (hasData) continue; // catalog already filled it
+
+    // Need the announcement URL. Catalog-enriched rows carry doc_url; these
+    // don't, so read it off the per-property page.
+    let docUrl = l.doc_url;
+    if (!docUrl && l.detail_url) {
+      try {
+        const html = await getText(l.detail_url, { userAgent: BROWSER_UA });
+        docUrl = attachmentUrlFromDetail(html);
+        if (docUrl) l.doc_url = docUrl;
+      } catch (err) {
+        console.error(`  bytom enrich: detail fetch failed (${l.address_raw}): ${err.message}`);
+      }
+    }
+    if (!docUrl) continue;
+
+    try {
+      const text = /\.pdf(\?|$)/i.test(docUrl)
+        ? await pdfText(docUrl, { userAgent: BROWSER_UA })
+        : await docText(docUrl, { userAgent: BROWSER_UA });
+      const f = parseAnnouncement(text);
+      if (l.auction_date == null) l.auction_date = f.auction_date;
+      if (l.area_m2 == null) l.area_m2 = f.area_m2;
+      if (l.starting_price_pln == null) l.starting_price_pln = f.starting_price_pln;
+      if (l.round == null) l.round = f.round;
+      if (f.auction_date || f.area_m2 != null || f.starting_price_pln != null) recovered++;
+    } catch (err) {
+      console.error(`  bytom enrich: .doc parse failed (${l.address_raw}): ${err.message}`);
+    }
+  }
+
+  // Drop rows still without any data (no recoverable .doc / unparseable).
+  const before = active.length;
+  for (let i = active.length - 1; i >= 0; i--) {
+    const l = active[i];
+    if (l.starting_price_pln == null && l.area_m2 == null && l.auction_date == null) {
+      active.splice(i, 1);
+    }
+  }
+  const dropped = before - active.length;
+  console.error(
+    `  bytom enrich: recovered ${recovered} from .doc, dropped ${dropped} still-empty listing(s)`,
+  );
 }
 
 /**

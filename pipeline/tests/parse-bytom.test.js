@@ -5,7 +5,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseBipList, parseCatalog } from '../src/cities/bytom/crawl.js';
+import { parseBipList, parseCatalog, attachmentUrlFromDetail } from '../src/cities/bytom/crawl.js';
+import {
+  parseAnnouncement,
+  roundFromText,
+  auctionDateFromText,
+  priceFromText,
+  areaFromText,
+} from '../src/cities/bytom/parse.js';
 
 // ---- BIP list (primary source) -------------------------------------------
 
@@ -82,4 +89,74 @@ test('parseCatalog returns an enrichment Map keyed by address, land skipped', ()
   assert.equal(kat.starting_price_pln, 85000);
   assert.equal(kat.area_m2, 53.77);
   assert.match(kat.doc_url, /Katowicka-44-8,23643\.doc$/);
+});
+
+//
+// ---- .doc announcement parser (enrichActive recovery path) ---------------
+// These fixtures reproduce the standard Polish ogłoszenie boilerplate the
+// catdoc-converted .doc carries. No real .doc is reachable from CI (DNS), so
+// the live fetch + catdoc conversion are validated on the first real refresh;
+// here we pin the text-parsing logic.
+
+// Spelled-out month, labelled area, cellar + plot present (must be ignored).
+const DOC_WOLSKI = `PREZYDENT MIASTA BYTOMIA
+ogłasza drugi przetarg ustny nieograniczony na sprzedaż lokalu niemieszkalnego
+(użytkowego) położonego w Bytomiu przy pl. Michała Wolskiego 6/9 o powierzchni
+użytkowej 84,30 m2 wraz z piwnicą o powierzchni 12,50 m2 oraz udziałem w
+nieruchomości gruntowej (działka nr 1234/56 o powierzchni 350 m2).
+Cena wywoławcza nieruchomości wynosi 120 000,00 zł.
+Wadium wynosi 12 000,00 zł.
+Przetarg odbędzie się w dniu 7 maja 2026 r. o godzinie 10:00 w siedzibie Urzędu.`;
+
+// Numeric date, bare "przetarg" (round 1), unlabelled area (fallback path).
+const DOC_TESTOWA = `Prezydent Miasta Bytomia ogłasza przetarg ustny nieograniczony
+na sprzedaż lokalu mieszkalnego położonego przy ul. Testowa 1/2.
+Powierzchnia lokalu 45,60 m2, piwnica 8,00 m2, działka 200 m2.
+Cena wywoławcza: 88 000 zł. Wadium: 8 800 zł.
+Przetarg odbędzie się w dniu 15.06.2026 r.`;
+
+test('parseAnnouncement: spelled-out date, labelled area, ignores cellar + plot', () => {
+  const f = parseAnnouncement(DOC_WOLSKI);
+  assert.equal(f.round, 2); // "drugi przetarg"
+  assert.equal(f.auction_date, '2026-05-07'); // "7 maja 2026"
+  assert.equal(f.area_m2, 84.3); // powierzchni użytkowej, NOT piwnica/działka
+  assert.equal(f.starting_price_pln, 120000);
+});
+
+test('parseAnnouncement: numeric date, bare przetarg=1, fallback area picks the flat', () => {
+  const f = parseAnnouncement(DOC_TESTOWA);
+  assert.equal(f.round, 1);
+  assert.equal(f.auction_date, '2026-06-15');
+  assert.equal(f.area_m2, 45.6); // 8,00 (piwnica) + 200 (działka) excluded
+  assert.equal(f.starting_price_pln, 88000);
+});
+
+test('parser helpers: empty/garbled text yields nulls, never throws', () => {
+  assert.equal(roundFromText(''), null);
+  assert.equal(auctionDateFromText(''), null);
+  assert.equal(priceFromText('brak ceny'), null);
+  assert.equal(areaFromText('bez metrażu'), null);
+});
+
+test('priceFromText handles dotted thousands "85.000,00 zł"', () => {
+  assert.equal(priceFromText('Cena wywoławcza: 85.000,00 zł'), 85000);
+});
+
+// ---- attachment URL extraction from a /idn page --------------------------
+
+test('attachmentUrlFromDetail prefers .doc and resolves a relative href', () => {
+  const html = `<a href="/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_9,23775.doc">pobierz</a>
+                <a href="/bip/download/mapa,1.pdf">mapa</a>`;
+  assert.equal(
+    attachmentUrlFromDetail(html),
+    'https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_9,23775.doc',
+  );
+});
+
+test('attachmentUrlFromDetail keeps an absolute href and falls back to .pdf', () => {
+  assert.equal(
+    attachmentUrlFromDetail('<a href="https://www.bytom.pl/x,2.pdf">x</a>'),
+    'https://www.bytom.pl/x,2.pdf',
+  );
+  assert.equal(attachmentUrlFromDetail('<a href="/foo">no attachment</a>'), null);
 });

@@ -11,7 +11,7 @@
 //   crawlActive()     → { listings, wykaz:[] }   from the i-BIIP catalog
 
 import { config } from './config.js';
-import { crawlActive, crawlResultDocs } from './crawl.js';
+import { crawlActive, crawlResultDocs, enrichActive } from './crawl.js';
 import { parseResultDoc } from './parse.js';
 
 export default {
@@ -19,4 +19,5 @@ export default {
   crawlResultDocs,
   parseResultDoc,
   crawlActive,
+  enrichActive,
 };
