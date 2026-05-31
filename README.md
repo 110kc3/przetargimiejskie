@@ -1,6 +1,8 @@
 # przetargimiejskie
 
-A pipeline that scrapes auction results from [zgm-gliwice.pl](https://zgm-gliwice.pl/), OCRs the PDFs, parses them into structured JSON, and surfaces price history for municipal properties — so that when browsing an active auction listing you can see whether the property has been unsold before, how many times, at what prices, and how the city has been adjusting the asking price.
+A pipeline that scrapes municipal property auctions from several Silesian cities, parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
+
+**Cities covered:** Gliwice (ZGM — full sold-price history via OCR'd result PDFs), Katowice (BIP + SharePoint — yearly result summaries + announcements), Bytom (`www.bytom.pl/bip` sales list + i-BIIP catalog + `.doc` announcements), Zabrze (`bip.miastozabrze.pl` document board + attachment PDFs). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
 
 The architecture is deliberately simple: **local pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No server, no paid service, no hosted database. See [PLAN.md](./PLAN.md) for the why.
 
@@ -8,12 +10,16 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 
 | Path | What it is |
 |---|---|
-| [`pipeline/`](./pipeline) | Node.js scraper + OCR + parser. Builds `data/*.json`. |
-| [`pipeline/ocr-cache/`](./pipeline/ocr-cache) | Committed OCR text per source PDF. Means each PDF is OCR'd exactly once over its lifetime. |
-| [`data/gliwice/properties.json`](./data/properties.json) | One record per unique `(street, building, apt)` with the full chronological listings history. **The file the Chrome extension consumes.** |
-| [`data/gliwice/active.json`](./data/active.json) | Currently-active auctions and "wykaz" pre-announcements. |
-| [`data/gliwice/meta.json`](./data/meta.json) | Provenance: when the data was generated, schema/parser versions, counts. |
-| [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | Weekly GitHub Actions cron that re-runs the pipeline and commits any deltas. |
+| [`pipeline/`](./pipeline) | Node.js scraper + OCR/text/`.doc` extractors + per-city parsers. Builds `data/<city>/*.json`. |
+| [`pipeline/src/cities/<city>/`](./pipeline/src/cities) | One adapter per city (crawl + parse), registered in `cities/index.js`. |
+| [`pipeline/ocr-cache/`](./pipeline/ocr-cache) | Committed OCR text per scanned PDF (each OCR'd once). |
+| [`pipeline/pdf-text-cache/`](./pipeline/pdf-text-cache) | Committed `pdftotext` output for text PDFs (Katowice, Zabrze). |
+| [`pipeline/doc-text-cache/`](./pipeline/doc-text-cache) | Committed `catdoc` output for legacy `.doc` announcements (Bytom). Doubles as a retention store if a source later removes the file. |
+| `data/<city>/properties.json` | One record per unique `(street, building, apt)` with the full chronological listings history. **The file the Chrome extension consumes.** |
+| `data/<city>/active.json` | Currently-active auctions and "wykaz" pre-announcements. |
+| `data/<city>/meta.json` | Provenance: when generated, schema/parser versions, counts. |
+| [`data/index.json`](./data/index.json) | Per-city summary (label, authority, host, counts). |
+| [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | GitHub Actions: re-runs the pipeline weekly **and on push to `main`**, commits any deltas. |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
 | [`PRIVACY.md`](./PRIVACY.md) | Privacy policy for the Chrome extension (required for Web Store). |
@@ -34,7 +40,9 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 3. **`parse-result.js`** splits each PDF's text into the "sold" and "unsold" sections, pulls fields out with regex (round numeral, address, prices, outcome, unsold reason).
 4. **`normalize.js`** turns address strings into a stable `{street, building, apt}` join key tolerant of Polish-language conventions (`ul./al./pl.`), Roman-numeral commercial-unit apt numbers, OCR slash-as-`I` slips, garage-unit suffixes, building ranges, and so on.
 5. **`crawl-active.js`** scrapes the four "currently active" pages on the site.
-6. **`refresh.js`** is the orchestrator: it ties the above together and writes `data/gliwice/properties.json`, `data/gliwice/active.json`, `data/gliwice/meta.json`.
+6. **`refresh.js`** is the orchestrator: it walks every registered city adapter and writes `data/<city>/properties.json`, `active.json`, `meta.json`, plus the top-level `data/index.json`.
+
+The diagram above is the **Gliwice** flow (OCR'd result PDFs). Other cities plug into the same orchestrator via their adapter but use different source types: Katowice mixes text-PDF yearly summaries (`pdftotext`) with BIP/SharePoint announcements; Bytom crawls the server-rendered BIP sales list and enriches from the i-BIIP catalog + `.doc` announcements (`catdoc`); Zabrze pulls a JSON document board and parses attachment PDFs. Each adapter implements the same contract (`crawlResultDocs` / `parseResultDoc` / `crawlActive`, optional `enrichActive`).
 
 ## Running locally
 
@@ -57,12 +65,12 @@ The pipeline is incremental: deleting `pipeline/ocr-cache/` forces re-OCR; delet
 
 ## Running on GitHub Actions
 
-The included workflow `.github/workflows/refresh.yml` runs every Monday at 06:00 UTC, plus on demand via the "Run workflow" button. It:
+The included workflow `.github/workflows/refresh.yml` runs every Monday at 06:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). It:
 
-1. Installs `poppler-utils` + `tesseract-ocr-pol` (~5 s).
+1. Installs `poppler-utils`, `tesseract-ocr-pol`, and `catdoc` (legacy `.doc` → text, for Bytom) (~5 s).
 2. Runs the parser test suite (must pass — fail-fast against parser regressions).
 3. Runs `npm run refresh`.
-4. Commits and pushes `data/` + `pipeline/ocr-cache/` if any of them changed.
+4. Commits and pushes `data/` + the caches (`ocr-cache/`, `pdf-text-cache/`, `doc-text-cache/`, `detail-cache/`) if any changed.
 
 The auto-provided `GITHUB_TOKEN` with `permissions: contents: write` is enough; no secrets needed.
 
@@ -74,15 +82,16 @@ Lives in [`extension/`](./extension). MV3, no build step, no dependencies. Load 
 
 1. Open `chrome://extensions`, toggle **Developer mode** on (top right).
 2. Click **Load unpacked**, point it at this repo's `extension/` directory.
-3. Visit any page under `zgm-gliwice.pl/`.
+3. Visit any covered site: `zgm-gliwice.pl`, `bip.katowice.eu`, `www.bytom.pl`, `i-biip.um.bytom.pl`.
 
 What it does:
 
-- **Background service worker** (`background.js`) fetches `data/gliwice/properties.json`, `data/gliwice/active.json`, `data/gliwice/meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/gliwice/` and caches them in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL.
-- **Content script** (`content.js`) runs on `zgm-gliwice.pl`:
-  - On listing index pages (mieszkalne / garaże / użytkowe / wykaz): adds a small color-coded badge to each Elementor card — green for first-time listings, gray for "previously sold" repeats, amber for one prior unsold attempt, red for ≥2 unsold attempts. Hover for a tooltip with the full prior-attempt table.
-  - On property-detail pages (the slug-style `/zygmunta-starego-29-4-23-03-2026-r/` URLs): injects a sidebar near the top of the page with a chronological history table (date · round · kind · start price · outcome · final · reason · source PDF) and a price-delta summary versus the first historical attempt.
-- **Popup** (`popup.html` + `popup.js`) lists all currently-active properties sorted by most-relisted first. Click a row → opens that property's detail page on `zgm-gliwice.pl`. The footer shows when the cached data was last refreshed.
+- **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL.
+- **Content script** (`content.js` + per-site adapters in `sites/`) runs on each covered host:
+  - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
+  - On property-detail pages: injects a sidebar with a chronological history table and a price-delta summary versus the first historical attempt.
+- **Popup** (`popup.html` + `popup.js`) lists all currently-active properties across cities (city-tagged), sorted by most-relisted first; re-listings show their round (`2./3. przetarg`) rather than "nowa". Click a row → opens that property's detail page.
+- **Archive** (`archive.html` + `archive.js`) — a full sortable/filterable table of all past listings (city, kind, round, area, prices, zł/m², outcome), with city/kind/outcome/year filters and free-text search.
 - **Language: PL / EN.** The popup has a small `PL` / `EN` button in the header. Default is PL (since the source data is Polish municipal records). Toggle is persisted in `chrome.storage.local` and broadcast across tabs — flipping it in the popup retranslates open zgm-gliwice.pl tabs in place, no reload required. All user-facing strings live in [`extension/i18n.js`](./extension/i18n.js).
 
 **Address-key parity** — the extension's `normalize.js` and the pipeline's `normalize.js` produce identical `street_norm|building|apt` join keys. This is verified end-to-end against live data: every active listing in `active.json` round-trips from page-title → parsed address → matching property key in `properties.json`.
@@ -96,12 +105,15 @@ See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer.
 
 ### Roadmap
 
-- Icons (manifest currently has no `icons` entry — Chrome will fall back to a default).
-- Optional CI step: validate the extension's address parser against current `data/` as part of `.github/workflows/refresh.yml`.
+See [TODO.md](./TODO.md) for the live backlog (sold-price streams for Bytom/Zabrze, per-city CI matrix, Katowice land-parcel coverage, monetization MVP, and remaining edge cases).
 
 ## Current coverage (data quality notes)
 
-- **162+ unique properties** tracked from 43 historical result PDFs going back to **2024-02-12**.
+Counts per city live in `data/<city>/meta.json` and `data/index.json`. Gliwice is the only city with achieved sold-price history; Katowice has yearly result summaries plus active announcements; Bytom and Zabrze are active-listing adapters (no published achieved-price stream yet — see TODO.md).
+
+### Gliwice
+
+- **160+ unique properties** tracked from historical result PDFs going back to **2024-02-12**.
 - **~95–97% of records** in each PDF parse cleanly. The remaining ~3% are real edge cases the parser intentionally drops:
   - Properties identified only by internal building ID (`Kłodnicka (ID budynku nr 2155)`).
   - Garage units with no building number (`Ziębia`, `garażu nr 12 na płd. wsch. od ul. Daszyńskiego 95-97`).
@@ -113,4 +125,4 @@ See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer.
 
 ## Attribution
 
-All scraped data originates from [zgm-gliwice.pl](https://zgm-gliwice.pl/), the public site of Zakład Gospodarki Mieszkaniowej Gliwice. This repository is a read-only mirror with a derived view; canonical sources for any data point are linked from each `listings[].source_pdf` field.
+All scraped data originates from the public municipal sources of each covered city: [zgm-gliwice.pl](https://zgm-gliwice.pl/) (ZGM Gliwice), [bip.katowice.eu](https://bip.katowice.eu/) (UM Katowice), [www.bytom.pl/bip](https://www.bytom.pl/bip) + [i-biip.um.bytom.pl](https://i-biip.um.bytom.pl/) (UM Bytom), and [bip.miastozabrze.pl](https://bip.miastozabrze.pl/) (UM Zabrze). This repository is a read-only mirror with a derived view; canonical sources for any data point are linked from each listing's `source_pdf` / `detail_url` field.

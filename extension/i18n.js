@@ -77,6 +77,7 @@
 
       // badges on listing index pages
       'badge.first': 'no prior auctions',
+      'badge.no_archive': 'no archive data',
       'badge.prev_unsold':
         'prev ${n}× — ${unsold} unsold${sold_clause}',
       'badge.prev_unsold.sold_clause': ', ${sold} sold',
@@ -196,11 +197,12 @@
 
       // badges
       'badge.first': 'brak wcześniejszych aukcji',
+      'badge.no_archive': 'brak danych archiwalnych',
       'badge.prev_unsold':
         'poprzednio ${n}× — ${unsold} bez sprzedaży${sold_clause}',
       'badge.prev_unsold.sold_clause': ', ${sold} sprzedane',
       'badge.prev_sold': 'poprzednio ${n}× sprzedane',
-      'chip.round': '${r} przetarg',
+      'chip.round': '${r}. przetarg',
 
       // tooltip/table headers
       'col.date': 'data',

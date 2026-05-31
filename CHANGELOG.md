@@ -6,11 +6,16 @@ MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
 ## v1.9.0 — 2026-05-31
 
-- The auction archive now shows a **round column** (I / II / III przetarg) for
+- The auction archive now shows a **round column** ("1. / 2. / 3. przetarg") for
   every past listing, sortable like the other columns.
 - Popup no longer labels re-listings as "nowa" (new). A 2nd/3rd-round auction
-  now shows its round (II / III przetarg) instead; "nowa" is reserved for genuine
+  now shows its round ("2. / 3. przetarg") instead; "nowa" is reserved for genuine
   first-round listings with no recorded history.
+- Round labels use plain numbers ("2. przetarg") rather than Roman numerals, for
+  consistency with how rounds are stored across all cities.
+- On listing pages, a re-listing (2./3. przetarg) whose earlier rounds aren't in
+  our dataset now shows "brak danych archiwalnych" (no archive data) instead of
+  the contradictory "brak wcześniejszych aukcji".
 
 ## v1.8.1 — 2026-05-31
 

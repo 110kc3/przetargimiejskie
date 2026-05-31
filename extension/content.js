@@ -123,9 +123,16 @@
       const datesChip = buildDatesChip(activeListing);
       if (datesChip) element.appendChild(datesChip);
 
-      // (c) prior-history badge.
+      // (c) prior-history badge. With no prior records, distinguish a genuine
+      //     first auction from a re-listing (round > 1) whose earlier rounds we
+      //     simply don't have archived — saying "no prior auctions" there would
+      //     contradict the "2./3. przetarg" the chip shows.
       if (prior.length === 0) {
-        element.appendChild(makeBadge({ kind: 'fresh', text: t('badge.first') }));
+        const text =
+          activeListing && activeListing.round > 1
+            ? t('badge.no_archive')
+            : t('badge.first');
+        element.appendChild(makeBadge({ kind: 'fresh', text }));
       } else {
         const unsoldCount = prior.filter((l) => l.outcome === 'unsold').length;
         const soldCount = prior.filter((l) => l.outcome === 'sold').length;
@@ -324,10 +331,9 @@
     );
   }
 
-  const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
   function roundLabel(n) {
     if (!n) return null;
-    return window.ZGM_I18N.t('chip.round', { r: ROMAN[n] || String(n) });
+    return window.ZGM_I18N.t('chip.round', { r: String(n) });
   }
 
   function fmtArea(a) {

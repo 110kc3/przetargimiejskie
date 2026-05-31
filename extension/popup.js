@@ -16,8 +16,7 @@ const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
   n == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
 
-const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
-const roundLabel = (n) => (n ? t('chip.round', { r: ROMAN[n] || String(n) }) : null);
+const roundLabel = (n) => (n ? t('chip.round', { r: String(n) }) : null);
 
 // Background.js namespaces property keys as `<city>|...`, so we can recover
 // the city for legacy/orphan watch entries that don't carry one.

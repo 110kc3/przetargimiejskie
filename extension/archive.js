@@ -288,10 +288,9 @@ function renderTable() {
     .join('');
 }
 
-const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
 function roundCell(n) {
   if (!n) return '—';
-  return t('chip.round', { r: ROMAN[n] || String(n) });
+  return t('chip.round', { r: String(n) });
 }
 
 function outcomeLabel(r) {
