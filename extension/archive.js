@@ -234,6 +234,7 @@ let sortDir = 'desc';
 function getSortValue(r, key) {
   switch (key) {
     case 'date': return r.date || '';
+    case 'round': return r.round ?? -1;
     case 'area': return r.area_m2 ?? -1;
     case 'price': return r.starting_price_pln ?? -1;
     case 'final': return r.final_price_pln ?? -1;
@@ -275,6 +276,7 @@ function renderTable() {
         <td>${r.date || '—'}</td>
         <td>${cityTagHtml(r.city)}${r.addr_display}</td>
         <td>${t('kind.' + r.kind)}</td>
+        <td>${roundCell(r.round)}</td>
         <td>${r.area_m2 ? r.area_m2 + ' m²' : '—'}</td>
         <td>${fmtPLN(r.starting_price_pln)}</td>
         <td>${fmtPLN(r.final_price_pln)}</td>
@@ -284,6 +286,12 @@ function renderTable() {
       </tr>`,
     )
     .join('');
+}
+
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+function roundCell(n) {
+  if (!n) return '—';
+  return t('chip.round', { r: ROMAN[n] || String(n) });
 }
 
 function outcomeLabel(r) {

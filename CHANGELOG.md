@@ -4,6 +4,20 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.9.0 — 2026-05-31
+
+- The auction archive now shows a **round column** (I / II / III przetarg) for
+  every past listing, sortable like the other columns.
+
+## v1.8.1 — 2026-05-31
+
+- Fixed listing badges/chips vanishing entirely on pages with past-dated
+  ("archived") auctions. An `archived` listing was wrongly treated as its own
+  "prior history" and threw while rendering the history tooltip, which aborted
+  decoration for the whole page. `archived` is now treated as a current posting
+  (like `active`), and per-card decoration is wrapped so one bad card can no
+  longer blank the rest.
+
 ## v1.8.0 — 2026-05-31
 
 - Listing cards now show a **stats chip next to the auction name**: the auction

@@ -29,11 +29,28 @@
   // through (parser noise).
   const minYear = () => window.ZGM_SETTINGS?.getMinHistoryYear?.() ?? 0;
   const withinYearWindow = (l) => {
-    if (l.outcome === 'active' || l.outcome === 'announced') return true;
+    if (
+      l.outcome === 'active' ||
+      l.outcome === 'announced' ||
+      l.outcome === 'archived'
+    )
+      return true;
     const y = minYear();
     if (!y || !l.date) return true;
     return Number(l.date.slice(0, 4)) >= y;
   };
+
+  // A listing counts as *prior history* only if it's a concluded result we can
+  // show (sold / unsold). 'active' is the current posting; 'archived' is a
+  // past-dated current posting with no published result (Bytom/Zabrze) — it is
+  // the listing itself, NOT its own history, so it must be excluded here.
+  // Otherwise it lands in the history branch and renders as a (mislabelled)
+  // prior round, and an archived row used to throw in buildTooltip.
+  const isPriorHistory = (l) =>
+    l.outcome !== 'active' &&
+    l.outcome !== 'announced' &&
+    l.outcome !== 'archived' &&
+    withinYearWindow(l);
 
   let payload;
   try {
@@ -77,16 +94,10 @@
     const cards = site.collectCards();
     let decorated = 0;
     for (const card of cards) {
+     try {
       const { element, address, area_m2, price_pln, descTarget } = card;
       const prop = lookup(address);
-      const prior = prop
-        ? prop.listings.filter(
-            (l) =>
-              l.outcome !== 'active' &&
-              l.outcome !== 'announced' &&
-              withinYearWindow(l),
-          )
-        : [];
+      const prior = prop ? prop.listings.filter(isPriorHistory) : [];
 
       // (a) zł/m² inline, right after the price in the description line.
       //     Only when the adapter exposed both numbers from the card text.
@@ -140,6 +151,10 @@
         element.appendChild(badge);
       }
       decorated++;
+     } catch (err) {
+      // One malformed card must never blank the whole page — log and continue.
+      console.warn('[ZGM ext] card decoration skipped:', err);
+     }
     }
     console.log(`[ZGM ext] decorated ${decorated} listing card(s) on ${site.city}`);
   }
@@ -168,13 +183,8 @@
       return;
     }
 
-    const prior = prop.listings.filter(
-      (l) =>
-        l.outcome !== 'active' &&
-        l.outcome !== 'announced' &&
-        withinYearWindow(l),
-    );
-    const active = prop.listings.find((l) => l.outcome === 'active');
+    const prior = prop.listings.filter(isPriorHistory);
+    const active = currentListing(prop);
     const rows = prior
       .map(
         (l) => `
@@ -391,12 +401,7 @@
       </thead>
       <tbody>
       ${prop.listings
-        .filter(
-          (l) =>
-            l.outcome !== 'active' &&
-            l.outcome !== 'announced' &&
-            withinYearWindow(l),
-        )
+        .filter(isPriorHistory)
         .map(
           (l) => `
           <tr class="zgm-ext-row-${l.outcome}">
