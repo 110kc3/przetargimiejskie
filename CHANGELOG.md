@@ -4,6 +4,14 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.10.1 — 2026-06-02
+
+- Fixed: a city whose data isn't published yet (e.g. just added) no longer blanks
+  the whole extension — `background.js` now skips an unavailable city instead of
+  failing the entire data load.
+- Fixed: the archive **city filter** now includes Sosnowiec (the dropdown was
+  hardcoded and missed it).
+
 ## v1.10.0 — 2026-06-02
 
 - Added a fifth city: **Sosnowiec**. Open `przetarg ustny` sales of municipal

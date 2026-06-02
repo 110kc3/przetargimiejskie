@@ -145,12 +145,19 @@ function mergeCityPayloads(cityPayloads) {
 
 async function fetchCity(city) {
   const base = RAW(city);
-  const [properties, active, meta] = await Promise.all([
-    fetchJson(`${base}/properties.json`),
-    fetchJson(`${base}/active.json`),
-    fetchJson(`${base}/meta.json`),
-  ]);
-  return { city, properties, active, meta };
+  try {
+    const [properties, active, meta] = await Promise.all([
+      fetchJson(`${base}/properties.json`),
+      fetchJson(`${base}/active.json`),
+      fetchJson(`${base}/meta.json`),
+    ]);
+    return { city, properties, active, meta };
+  } catch (err) {
+    // A city whose data isn't published yet (e.g. just added to CITIES, not yet
+    // pushed) must NOT blank the whole extension. Skip it; the others still load.
+    console.warn(`[ZGM ext] skipping city "${city}": ${err.message}`);
+    return null;
+  }
 }
 
 async function getOrFetch(force = false) {
@@ -164,7 +171,7 @@ async function getOrFetch(force = false) {
       fetched_at: cached.fetched_at,
     };
   }
-  const cityPayloads = await Promise.all(CITIES.map((c) => fetchCity(c)));
+  const cityPayloads = (await Promise.all(CITIES.map((c) => fetchCity(c)))).filter(Boolean);
   const merged = mergeCityPayloads(cityPayloads);
   const fetched_at = Date.now();
   await saveToCache(KEYS.merged, { data: merged, fetched_at });
