@@ -4,6 +4,19 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.10.0 — 2026-06-02
+
+- Added a fifth city: **Sosnowiec**. Open `przetarg ustny` sales of municipal
+  flats from the city BIP (bip.um.sosnowiec.pl JSON API) now appear in the popup
+  and archive, with a Sosnowiec city tag. (Sosnowiec also auctions land and sells
+  flats bezprzetargowo to tenants — both excluded; only open flat auctions are
+  tracked.)
+
+## v1.9.1 — 2026-06-01
+
+- Renamed the extension to **przetargimiejskie - śląsk** (manifest name + toolbar
+  tooltip) to reflect its Silesian-cities scope.
+
 ## v1.9.0 — 2026-05-31
 
 - The auction archive now shows a **round column** ("1. / 2. / 3. przetarg") for

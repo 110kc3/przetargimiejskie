@@ -2,7 +2,7 @@
 
 A pipeline that scrapes municipal property auctions from several Silesian cities, parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
 
-**Cities covered:** Gliwice (ZGM — full sold-price history via OCR'd result PDFs), Katowice (BIP + SharePoint — yearly result summaries + announcements), Bytom (`www.bytom.pl/bip` sales list + i-BIIP catalog + `.doc` announcements), Zabrze (`bip.miastozabrze.pl` document board + attachment PDFs). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
+**Cities covered:** Gliwice (ZGM — full sold-price history via OCR'd result PDFs), Katowice (BIP + SharePoint — yearly result summaries + announcements), Bytom (`www.bytom.pl/bip` sales list + i-BIIP catalog + `.doc` announcements), Zabrze (`bip.miastozabrze.pl` document board + attachment PDFs), Sosnowiec (`bip.um.sosnowiec.pl` JSON API — open flat auctions, filtered out of the city's land/commercial + tenant bezprzetargowe sales). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
 
 The architecture is deliberately simple: **local pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No server, no paid service, no hosted database. See [PLAN.md](./PLAN.md) for the why.
 

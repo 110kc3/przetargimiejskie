@@ -121,6 +121,7 @@
       'city.katowice': 'Katowice',
       'city.bytom': 'Bytom',
       'city.zabrze': 'Zabrze',
+      'city.sosnowiec': 'Sosnowiec',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -241,6 +242,7 @@
       'city.katowice': 'Katowice',
       'city.bytom': 'Bytom',
       'city.zabrze': 'Zabrze',
+      'city.sosnowiec': 'Sosnowiec',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',

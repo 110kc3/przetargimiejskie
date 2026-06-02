@@ -170,9 +170,47 @@ sales board, answer (a) does this city sell municipal property at auction,
     node:https path with relaxed chain verification (`insecureTLS`), scoped to
     this host (public, read-only). Secure alternative documented in
     `core/fetch.js` (supply the intermediate via `NODE_EXTRA_CA_CERTS`).
-- **Kraków, Warszawa — still unspiked.** Plus the rest of the Silesian field
-  (Ruda Śląska, Tychy, Dąbrowa Górnicza, Zagłębie + Rybnik subregion).
-  Warszawa stays last (≈18 district BIPs, demand-gated).
+- **Ruda Śląska — spiked (June 2026); BUILDABLE but DEFERRED.** Sales on the
+  city BIP `rudaslaska.bip.info.pl` (server-rendered `bip.info.pl`), per-year
+  *Zbycie lokali, mieszkań, garaży* category; data lives in per-document PDF
+  attachments (mixed scanned→OCR / text→pdftotext), and a sold-price *results*
+  stream exists. Downsides: concluded docs are pulled upstream (no back-fill),
+  and current open-flat-auction volume is low (the 2026 category is mostly garage
+  tenant-sales + land). Reuses the Gliwice OCR + Bytom/Zabrze attachment patterns.
+  Revisit when we want a reusable `bip.info.pl`+OCR-attachment adapter template
+  (would also unlock other `*.bip.info.pl` cities) or when flat volume rises. See
+  [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
+- **Tychy — spiked + DROPPED for the flat product (June 2026).** Mechanics are
+  ideal (server-rendered `bip.umtychy.pl`, sales under *Obwieszczenia → Gospodarka
+  nieruchomościami* at clean URLs `/obwieszczenia/gospodarka-nieruchomosciami/
+  <year>/<month>` → detail → text-PDF `PobierzPlik`). **But the content doesn't
+  fit:** across 2024–2026 (36 months, 145 items) there were 12 auctions — all
+  land/commercial/lease — and **zero residential-flat auctions**; every flat sale
+  is *bezprzetargowe* (tenant, bonifikata). Not built. Revisit if the product
+  expands to land/commercial auctions or if Tychy starts auctioning flats.
+  Mechanics documented in [SPIKE-WAVE2.md](./SPIKE-WAVE2.md) so no re-spike needed.
+- **Dąbrowa Górnicza — spiked + DROPPED for flats (June 2026).** Excellent
+  mechanics: dedicated server-rendered *Zbycie nieruchomości* section
+  (`bip.dabrowa-gornicza.pl/15665`, paginated; detail `/dokument/<id>` with an
+  accessibility **text PDF** attachment) **and a results/sold-price stream**. But
+  content is land-only: 48 open auctions scanned = all land/plots, **0 flat
+  auctions**; flats go *bezprzetargowo* to tenants. Strong build *if* scope
+  expands to land/commercial auctions. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
+- **Pattern (Ruda Śląska, Tychy, Dąbrowa Górnicza):** smaller Silesian cities
+  sell flats bezprzetargowo to tenants and only auction land/commercial. Built
+  cities with real flat-auction streams (Gliwice, Katowice, Bytom, Zabrze) have a
+  dedicated housing manager (ZGM/ZBM). **Next-spike heuristic:** target cities
+  with such an entity, not generic city-BIP gospodarka-nieruchomościami sections.
+- **Sosnowiec — spiked + BUILT (June 2026, v1.10.0).** `cities/sosnowiec/` crawls
+  the city BIP JSON API (`/api/menu/6339/articles` current + archived →
+  `/api/articles/<id>` content), keeps only open `przetarg ustny … na sprzedaż
+  lokalu mieszkalnego` auctions (37 in the archive; land/działki + tenant
+  bezprzetargowe sales skipped), and parses address/area/price/date from the
+  inline `content` HTML (no PDF/OCR). Active-listings adapter; results stream
+  ("informacja o wyniku przetargu") not yet wired. Verified live: price + date +
+  address ~10/10, area best-effort. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
+- **Kraków, Warszawa — still unspiked.** Plus the Rybnik subregion. Warszawa
+  stays last (≈18 district BIPs, demand-gated).
 
 ### Monetization: alert + saved-search MVP
 

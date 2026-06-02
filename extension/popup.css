@@ -22,6 +22,9 @@
   --chip-zabrze-bg: #fdecd9;
   --chip-zabrze-fg: #8a531f;
   --chip-zabrze-border: #f0d6b0;
+  --chip-sosnowiec-bg: #e2f4f2;
+  --chip-sosnowiec-fg: #1d6b62;
+  --chip-sosnowiec-border: #bfe6e0;
 }
 
 /* System-pref dark, *unless* the user has explicitly forced light via the
@@ -51,6 +54,9 @@
     --chip-zabrze-bg: #3a2a16;
     --chip-zabrze-fg: #e0b07a;
     --chip-zabrze-border: #5a3f22;
+    --chip-sosnowiec-bg: #163331;
+    --chip-sosnowiec-fg: #8fd4cc;
+    --chip-sosnowiec-border: #224a45;
   }
 }
 
@@ -79,6 +85,9 @@
   --chip-zabrze-bg: #3a2a16;
   --chip-zabrze-fg: #e0b07a;
   --chip-zabrze-border: #5a3f22;
+  --chip-sosnowiec-bg: #163331;
+  --chip-sosnowiec-fg: #8fd4cc;
+  --chip-sosnowiec-border: #224a45;
 }
 
 * { box-sizing: border-box; }
@@ -242,6 +251,7 @@ h2 {
 .zgm-city-tag[data-city="katowice"] { background: var(--chip-katowice-bg); color: var(--chip-katowice-fg); border-color: var(--chip-katowice-border); }
 .zgm-city-tag[data-city="bytom"]    { background: var(--chip-bytom-bg);    color: var(--chip-bytom-fg);    border-color: var(--chip-bytom-border); }
 .zgm-city-tag[data-city="zabrze"]   { background: var(--chip-zabrze-bg);   color: var(--chip-zabrze-fg);   border-color: var(--chip-zabrze-border); }
+.zgm-city-tag[data-city="sosnowiec"] { background: var(--chip-sosnowiec-bg); color: var(--chip-sosnowiec-fg); border-color: var(--chip-sosnowiec-border); }
 
 /* Stacked dates cell. The label column has to fit the longest Polish label —
  * "OGLĘDZINY" (viewing) at 9 characters — so 72px with box-sizing keeps it

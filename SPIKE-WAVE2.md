@@ -275,3 +275,206 @@ dedicated, server-rendered flat-sale board with rounds and dates. Build
 crawl to the server-rendered `bytom.pl/bip` list per the update above — it fixes
 the file-download link and adds round/announcement history. Keep
 **Chorzów** deferred pending a deeper spike — do not build it blind.
+
+## Ruda Śląska — `rudaslaska.bip.info.pl` ⚠️ buildable but low-priority (spike, June 2026)
+
+**Does the city sell municipal flats at auction?** Yes. The **Wydział Gospodarki
+Nieruchomościami (AG)** publishes "ogłoszenia o przetargach na … zbycie lokali
+mieszkalnych i użytkowych oraz garaży" — open oral auctions (`ustny przetarg
+nieograniczony`) for flats, commercial units and garages — plus *wykazy*
+(intent-to-sell lists), *bezprzetargowe* tenant sales, and **result notices**
+("Informacja o wyniku … przetargu", i.e. achieved prices). (`Wydział Spraw
+Lokalowych — AL` is mostly *najem*/rental, not our target.)
+
+**Where.** City BIP `rudaslaska.bip.info.pl` — the classic server-rendered
+`bip.info.pl` platform (no JS SPA). Under *Menu przedmiotowe → Nieruchomości*,
+organised by year: `Rok <YYYY> - Zbycie lokali, mieszkań, garaży` (current:
+2026 = `idmp=4478`; 2024 = 4183, 2023 = 4023; land sales are a separate
+`Zbycie gruntów` category). Active proceedings render in **bold**; the
+deadline/validity date sits in the link's `title` (hover) attribute, e.g.
+"Data ważności dokumentu upływa w dniu 08.07.2026".
+
+**Format (the catch).** Each document page is minimal HTML — title + a reference
+number (`ALM.7125…`, `KGN.6871…`) + a contact name. **All substantive data
+(price, area, address terms) lives in a PDF attachment**, and the MIME is mixed:
+a garage *wykaz* was **3.17 MB → scanned/image PDF (needs OCR)**; a result notice
+was **126 KB → text PDF (pdftotext)**. Filenames are `…_anonymised.pdf` (personal
+data redacted; the property data remains). So an adapter would reuse the existing
+stack: `core/ocr-pdf` for scanned attachments, `pdf-text` for text ones, routed
+by sniffing.
+
+**Two real downsides:**
+1. **Poor upstream retention.** Once a proceeding concludes, the BIP sets the
+   document to "Dokument jest niedostępny" and empties the old year indexes
+   ("Treść jest niedostępna") — the title persists in menus but the content +
+   attachment are pulled. Past auctions are therefore **not** back-fillable; only
+   forward-captured data survives (our `ocr-cache` + history-merge would preserve
+   it going forward, like Bytom).
+2. **Low signal right now.** The entire 2026 flat/garage-sale category currently
+   holds **3 documents**: two garage *bezprzetargowe* tenant sales (no auction)
+   and one land/commercial auction *result*. **Zero open flat auctions are live.**
+   Historic "Zbycie 6-ciu lokali mieszkalnych" announcements existed (2023–24) but
+   are now `niedostępne`. Volume of genuine open flat auctions looks thin.
+
+**UA note:** `web_fetch` got an empty body — bot-UA gated like Bytom; needs a
+browser-like User-Agent (untestable from the CI sandbox).
+
+**Verdict: BUILDABLE, LOW PRIORITY (defer).** Technically tractable — a
+server-rendered `bip.info.pl` crawl (per-year category → per-doc page → attachment
+PDF → OCR/pdftotext → parse) that reuses the Gliwice OCR stack and the Bytom/Zabrze
+per-doc-attachment pattern, and even has a sold-price *results* stream. But the
+value/effort ratio is worse than the built cities: data is OCR-gated, mixed
+text/scanned, anonymised, poorly retained upstream, and current open-flat-auction
+volume is low. Not a DROP like Chorzów — revisit when (a) we want a reusable
+"bip.info.pl + OCR-attachment" adapter template (Ruda Śląska, and likely other
+`*.bip.info.pl` cities, would then be cheap), or (b) flat-auction volume picks up.
+
+## Tychy — `bip.umtychy.pl` ✅ viable, recommended next build (spike, June 2026)
+
+**Does the city sell municipal flats at auction?** Yes. The Prezydent Miasta
+Tychy runs `przetarg ustny nieograniczony na sprzedaż` of municipal property
+(flats, commercial, land) and publishes *wykazy* (registers of properties for
+sale — e.g. lokal nr 14 at ul. Edukacji 52). Run by the city's
+property-management dział, not a separate housing company (MZBM Tychy is the
+building manager — procurement/rentals only).
+
+**Where.** City BIP `bip.umtychy.pl` — its own server-rendered CMS (no JS SPA).
+A single consolidated section **"NIERUCHOMOŚCI (NAJEM, DZIERŻAWA, SPRZEDAŻ)"**
+(`/inne-przetargi/jednostki-organizacyjne-urzedu`, plus a "Jednostki
+Organizacyjne Miasta" group) lists current **Aktualne** items and a deep
+**month-by-month archive going back to 2014** (concluded items are *retained*,
+not pulled — unlike Ruda Śląska). There's also a built-in search box. Sales are
+interleaved with najem/dzierżawa and are identified by title
+(`… na sprzedaż …` / `zbycie`; exclude `najem`/`dzierżawa`).
+
+**Format (the good part).** Each list item is a detail page that links the
+announcement as a **text PDF** via `index.php?action=PobierzPlik&id=<N>`.
+Confirmed on a real announcement: `application/pdf`, ~630 KB, embedded fonts +
+text operators, PDF title "Microsoft Word - PRZETARG I OGŁOSZENIE" — i.e. a
+**Word→PDF export with selectable text → `pdftotext`, no OCR needed**. Same
+extractor family as Katowice text PDFs / Zabrze attachments.
+
+**Open items before building (none blocking):**
+1. **List/item mechanics** — the Aktualne items + archive-month links render
+   (seen via the text reader) but use JS-augmented / query-string anchors; pin
+   the exact item-URL + pagination pattern at build time (browser network trace,
+   like the Bytom spike).
+2. **Results/sold-price stream** — confirm whether "informacja o wyniku
+   przetargu" notices are published (would add achieved prices). Even without
+   them, the retained archive yields real *announcement* history (rounds at
+   descending starting prices), better than Bytom.
+3. **Sale volume** — current Aktualne are all *najem*; gauge how many genuine
+   flat **sales** the archive carries per year.
+
+**UA note:** the BIP served real content to the browser; `web_fetch` from the
+sandbox should be retried with a browser-like UA at build time.
+
+**Verdict (initial): BUILD.** ~~Best remaining Silesian candidate.~~
+
+**Verdict (revised after build-time verification, June 2026): DROP for the flat
+product — no open flat-auction stream.** When I went to build it I quantified the
+actual content, and the optimistic read did not survive contact with the data:
+
+- The flat-rental list (`/inne-przetargi/jednostki-organizacyjne-urzedu`) is
+  **najem only** — no sales.
+- The real sales section is **Obwieszczenia → Gospodarka nieruchomościami**
+  (`/obwieszczenia/gospodarka-nieruchomosciami/<year>/<month>` — clean,
+  server-rendered, crawlable; detail pages `/…/<id>` link a text PDF via
+  `?action=PobierzPlik&id=<N>`). So the *mechanics* are exactly as hoped.
+- **But the content is the wrong kind.** Across **2024–2026 (36 months, 145
+  items): 12 were auctions — every one of them land / commercial / lease
+  (działki: Katowicka, Oświęcimska, Jaśkowicka, dzierżawa) — and ZERO were
+  residential-flat auctions.** Every municipal *flat* sale is **bezprzetargowe**
+  (direct sale to the sitting tenant, with a bonifikata) — not an open auction,
+  no rounds, no public price competition.
+
+So Tychy sells almost no flats at open auction; the flat stream is tenant
+bezprzetargowe (off-target for a flat-flipper/investor view), and the auctions
+that exist are land/commercial. Same shape as Ruda Śląska, confirmed harder.
+**Not built.** Revisit only if (a) the product expands to municipal land/
+commercial auctions, or (b) Tychy starts auctioning flats. Mechanics are
+documented above so a future build needn't re-spike.
+
+## Dąbrowa Górnicza — `bip.dabrowa-gornicza.pl` ❌ dropped for flats (spike, June 2026)
+
+**Mechanics: excellent.** A dedicated, server-rendered **"Zbycie nieruchomości"**
+section (`/15665`, paginated `/15665/strona/<N>`, `/15665/wszystkie`; detail
+pages `/15665/dokument/<id>`). Detail pages carry the announcement title +
+metadata (incl. `Data ważności` = auction date) inline, with PDF attachments —
+crucially **both** a scanned `Ogloszenie_….pdf` (~3.8 MB) **and** a
+`…_w_wersji_dostepnej_cyfrowo.pdf` (~210 KB) = **accessibility text PDF
+→ `pdftotext`, no OCR**. There is also a **results stream** ("informuje o
+wynikach przetargów ustnych nieograniczonych" → achieved prices). Run by the
+WGN (Wydział Gospodarki Nieruchomościami).
+
+**Content: wrong kind (same as Tychy / Ruda Śląska).** Scanned the disposal list
+(5 pages, 75 items): **48 open `przetarg ustny` sale auctions — all land/plots**
+(street-only addresses — ul. Łuszczaka, DW 790, Polcera, Al. Kościuszki — with
+cadastral maps attached), **0 residential-flat auctions**. The only *flat*
+entries are **wykazy of `lokale mieszkalne … do sprzedaży bezprzetargowej na
+rzecz najemców`** (tenant sales with bonifikata — Spisaka 15/111, Cieszkowskiego
+16/12, …), not auctions.
+
+**Verdict: DROP for the flat product.** No open flat-auction stream; flats go
+bezprzetargowo to tenants, open auctions are land. Mechanics are ideal and a
+results stream exists, so Dąbrowa Górnicza would be a **strong build if the
+product ever expands to land/commercial auctions** — not before. Documented so a
+future build needn't re-spike.
+
+## Pattern across the smaller Silesian cities (Ruda Śląska, Tychy, Dąbrowa Górnicza)
+
+Three consecutive spikes show the same shape: the city sells municipal **flats
+bezprzetargowo to sitting tenants** (fixed price + bonifikata, no rounds), and
+runs **open `przetarg ustny` auctions only for land/commercial**. The built
+cities with real open *flat*-auction streams (Gliwice, Katowice, Bytom, Zabrze)
+all have a **dedicated municipal housing manager** (ZGM/ZBM-type) that auctions
+*vacated* flats. **Selection heuristic for future spikes:** target cities with
+such a housing entity (e.g. MZBM/ZBM/ZGM that publishes "przetarg na sprzedaż
+lokali mieszkalnych"), not generic city-BIP `gospodarka nieruchomościami`
+sections (which skew to land + tenant bezprzetargowe).
+
+## Sosnowiec — `bip.um.sosnowiec.pl` ✅ BUILT (v1.10.0, June 2026)
+
+> **Built.** Adapter `cities/sosnowiec/` crawls the JSON API
+> (`/api/menu/6339/articles` current+archived → `/api/articles/<id>`), keeps only
+> open `przetarg ustny … na sprzedaż lokalu mieszkalnego` auctions (**37** in the
+> archive), and parses address/area/price/date/round from the inline `content`
+> HTML — no PDF/OCR. Verified live: price/date/address ≈10/10, area best-effort.
+> The land/działka auctions and bezprzetargowe tenant flat sales are excluded.
+> Results stream ("informacja o wyniku przetargu") not yet wired. Original spike
+> notes below.
+
+Applied the heuristic (look for a housing manager auctioning flats). Sosnowiec
+has **MZZL** (Miejski Zakład Zasobów Lokalowych), but its `bip.mzzl.pl/
+ogloszenia-o-przetargach` is **rentals only** (wynajem flats "do remontu", latest
+2018 — stale). The property **sales** are city-run.
+
+**Sales source: city BIP `bip.um.sosnowiec.pl`** (server-rendered).
+- `m,6339,przetargi.html` — current auctions; "Pokaż archiwalne" →
+  `o,6339,przetargi.html` is a **deep retained archive (~53 pages)** with sort +
+  advanced search. Includes a **results/"lista osób / wynik"** thread.
+- `m,6344,nieruchomosci-do-przetargow.html` — a consolidated **"Wykaz
+  nieruchomości planowanych do przetargu w 2026"** as a **text PDF** (~180 KB).
+- Individual announcements are detail articles with **text-PDF** attachments.
+
+**Content: mostly land, but — unlike Tychy/Ruda/Dąbrowa — flats DO appear.**
+The recent archive page is dominated by `sprzedaż nieruchomości niezabudowanej`
+(land), `działki`, and `dzierżawa` (lease), plus developed properties
+(`zabudowana, ul. Piłsudskiego 34`). **But Sosnowiec genuinely auctions flats
+too**: confirmed `przetarg ustny … na sprzedaż spółdzielczego własnościowego
+prawa do lokalu mieszkalnego` (e.g. ul. Kaliska 14a, 48,25 m²). So the
+flat-auction stream is **non-zero but a minority** amid land/lease auctions.
+
+**Couldn't auto-quantify** flat frequency in-spike: the archive list is
+AJAX-paginated, so same-origin fetch returns only the shell (pin the list
+endpoint via a network trace at build time, like the Bytom/Zabrze spikes).
+
+**Verdict: VIABLE — the best of the four mid-size cities, but borderline on
+flat volume.** Mechanics are good (server-rendered, deep *retained* archive,
+text PDFs, results stream) and it's the only one of the four with any real
+flat-auction stream. Risk: flats are a minority of auctions, so a flat-filtered
+adapter would add a **modest** set (plus history), not a deep one. Recommend
+**build only if maximising coverage** (flat-filtered, `lokal mieszkalny` /
+`spółdzielcze prawo do lokalu`), or as a **strong build if scope expands to land/
+commercial**. Confirm flat volume with a quick archive scan once the list
+endpoint is pinned, before committing.

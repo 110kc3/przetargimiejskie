@@ -6,8 +6,9 @@ import gliwice from './gliwice/index.js';
 import katowice from './katowice/index.js';
 import bytom from './bytom/index.js';
 import zabrze from './zabrze/index.js';
+import sosnowiec from './sosnowiec/index.js';
 
-export const cities = [gliwice, katowice, bytom, zabrze];
+export const cities = [gliwice, katowice, bytom, zabrze, sosnowiec];
 
 /** @param {string} id @returns {object|null} */
 export function getCity(id) {
