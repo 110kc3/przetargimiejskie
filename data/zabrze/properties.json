@@ -168,6 +168,171 @@
       "area_m2": 39.73
     },
     {
+      "key": "tadeusza boya zelenskiego|22|2",
+      "street": "Tadeusza Boya-Żeleńskiego",
+      "street_norm": "tadeusza boya zelenskiego",
+      "building": "22",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 42.27,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 42.27,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25000",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.27
+    },
+    {
+      "key": "nadrzeczna|31A|6",
+      "street": "Nadrzeczna",
+      "street_norm": "nadrzeczna",
+      "building": "31A",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "archived",
+          "area_m2": 50.31,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 50.31,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25000",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.31
+    },
+    {
+      "key": "szyb wschodni|2|3",
+      "street": "Szyb Wschodni",
+      "street_norm": "szyb wschodni",
+      "building": "2",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "area_m2": 60.95,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 60.95,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25000",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 60.95
+    },
+    {
+      "key": "gabrieli zapolskiej|7|7",
+      "street": "Gabrieli Zapolskiej",
+      "street_norm": "gabrieli zapolskiej",
+      "building": "7",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 31.15,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "archived",
+          "area_m2": 31.15,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25000",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.15
+    },
+    {
+      "key": "joanny znienskiej|28|1",
+      "street": "Joanny Żnieńskiej",
+      "street_norm": "joanny znienskiej",
+      "building": "28",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 26.83,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "archived",
+          "area_m2": 26.83,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25000",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.83
+    },
+    {
       "key": "marszalka jozefa pilsudskiego|77|3",
       "street": "Marszałka Józefa Piłsudskiego",
       "street_norm": "marszalka jozefa pilsudskiego",
@@ -812,116 +977,6 @@
           "viewing_date": null
         }
       ]
-    },
-    {
-      "key": "tadeusza boya zelenskiego|22|2",
-      "street": "Tadeusza Boya-Żeleńskiego",
-      "street_norm": "tadeusza boya zelenskiego",
-      "building": "22",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 140000,
-          "outcome": "archived",
-          "area_m2": 42.27,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 42.27
-    },
-    {
-      "key": "nadrzeczna|31A|6",
-      "street": "Nadrzeczna",
-      "street_norm": "nadrzeczna",
-      "building": "31A",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "archived",
-          "area_m2": 50.31,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 50.31
-    },
-    {
-      "key": "szyb wschodni|2|3",
-      "street": "Szyb Wschodni",
-      "street_norm": "szyb wschodni",
-      "building": "2",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 220000,
-          "outcome": "archived",
-          "area_m2": 60.95,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 60.95
-    },
-    {
-      "key": "gabrieli zapolskiej|7|7",
-      "street": "Gabrieli Zapolskiej",
-      "street_norm": "gabrieli zapolskiej",
-      "building": "7",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 31.15,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 31.15
-    },
-    {
-      "key": "joanny znienskiej|28|1",
-      "street": "Joanny Żnieńskiej",
-      "street_norm": "joanny znienskiej",
-      "building": "28",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 26.83,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24205",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 26.83
     },
     {
       "key": "ks konstantego damrota|19|10",

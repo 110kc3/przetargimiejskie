@@ -89,6 +89,91 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Boya-Żeleńskiego 22/2",
+      "address": {
+        "street": "Tadeusza Boya-Żeleńskiego",
+        "street_norm": "tadeusza boya zelenskiego",
+        "building": "22",
+        "apt": "2",
+        "key": "tadeusza boya zelenskiego|22|2",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "round": 2,
+      "area_m2": 42.27,
+      "starting_price_pln": 70000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25000"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nadrzeczna 31a/6",
+      "address": {
+        "street": "Nadrzeczna",
+        "street_norm": "nadrzeczna",
+        "building": "31A",
+        "apt": "6",
+        "key": "nadrzeczna|31A|6",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "round": 2,
+      "area_m2": 50.31,
+      "starting_price_pln": 90000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25000"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Szyb Wschodni 2/3",
+      "address": {
+        "street": "Szyb Wschodni",
+        "street_norm": "szyb wschodni",
+        "building": "2",
+        "apt": "3",
+        "key": "szyb wschodni|2|3",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "round": 2,
+      "area_m2": 60.95,
+      "starting_price_pln": 110000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25000"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gabrieli Zapolskiej 7/7",
+      "address": {
+        "street": "Gabrieli Zapolskiej",
+        "street_norm": "gabrieli zapolskiej",
+        "building": "7",
+        "apt": "7",
+        "key": "gabrieli zapolskiej|7|7",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "round": 2,
+      "area_m2": 31.15,
+      "starting_price_pln": 60000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25000"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Joanny Żnieńskiej 28/1",
+      "address": {
+        "street": "Joanny Żnieńskiej",
+        "street_norm": "joanny znienskiej",
+        "building": "28",
+        "apt": "1",
+        "key": "joanny znienskiej|28|1",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "round": 2,
+      "area_m2": 26.83,
+      "starting_price_pln": 60000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25000"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Marszałka Józefa Piłsudskiego 77/3",
       "address": {
         "street": "Marszałka Józefa Piłsudskiego",
