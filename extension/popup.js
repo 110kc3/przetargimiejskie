@@ -180,7 +180,7 @@ function renderActive() {
         : '—';
       const watched = key ? watchlist[key] : null;
       const star = `<button type="button" class="zgm-star ${watched ? 'on' : ''}" data-key="${key || ''}" title="${t(watched ? 'watch.button.remove' : 'watch.button.add')}">${watched ? '★' : '☆'}</button>`;
-      const askM2 = a.area_m2 ? new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²' : '—';
+      const askM2 = (a.area_m2 && a.starting_price_pln != null) ? new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²' : '—';
       const datesCell = datesCellHtml(a);
       return `
         <tr data-url="${a.detail_url || ''}">

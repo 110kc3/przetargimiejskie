@@ -4,6 +4,15 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.10.2 — 2026-06-02
+
+- Fixed Sosnowiec not appearing after the update: the merged-data cache key was
+  bumped (v2 → v3) so a new build with a new city ignores the stale 6h-cached
+  payload and refetches immediately, instead of waiting out the TTL. (You can
+  also force this any time with the popup's **Refresh data** button.)
+- Fixed "0 zł/m²" showing in the popup when a listing has an area but no parsed
+  price — it now shows "—".
+
 ## v1.10.1 — 2026-06-02
 
 - Fixed: a city whose data isn't published yet (e.g. just added) no longer blanks

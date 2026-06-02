@@ -26,10 +26,11 @@ const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
 const ALARM_NAME = 'zgm-watchlist-check';
 const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan
 
-// Cache keys are v2-prefixed so old single-city blobs from the pre-merge
-// extension don't get read back into the new merging code.
+// Cache keys are version-prefixed so an old cached merge from a previous build
+// (e.g. before a city was added) is never read back — bump the prefix whenever
+// the set of cities or the payload shape changes. v3: added Sosnowiec.
 const KEYS = {
-  merged: 'cache:v2:merged',
+  merged: 'cache:v3:merged',
 };
 const MIGRATION_FLAG = 'watchlist:migrated_v2';
 

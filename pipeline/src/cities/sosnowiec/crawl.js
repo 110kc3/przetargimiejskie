@@ -57,7 +57,8 @@ export function parseList(json) {
   return { refs, total: json.total ?? refs.length };
 }
 
-/** Fetch every article ref for one archived flag (paginated). */
+/** Fetch every article ref for one archived flag (paginated). Tags each ref
+ *  with `archived` (0 = current proceeding, 1 = concluded/historical). */
 async function fetchAllRefs(archived) {
   const all = [];
   for (let offset = 0; offset < 5000; offset += PAGE) {
@@ -69,6 +70,7 @@ async function fetchAllRefs(archived) {
       break;
     }
     const { refs, total } = parseList(json);
+    for (const r of refs) r.archived = archived;
     all.push(...refs);
     if (all.length >= total || refs.length === 0) break;
   }
@@ -106,11 +108,17 @@ export async function crawlActive() {
       console.error(`  sosnowiec WARN: unkeyable flat auction ${r.id} (${r.title.slice(0, 60)})`);
       continue;
     }
+    // A concluded (archived) auction whose date didn't parse must still count as
+    // PAST — otherwise build-properties classifies it 'active' (null date isn't
+    // < today) and it pollutes the live popup. Fall back to its publish date
+    // (always past). Current proceedings keep their (possibly null) parsed date.
+    const auction_date =
+      parsed.auction_date || (r.archived ? r.published_date : null);
     listings.push({
       kind: parsed.kind,
       address_raw: parsed.address_raw,
       address: parsed.address,
-      auction_date: parsed.auction_date,
+      auction_date,
       published_date: r.published_date,
       round: parsed.round,
       area_m2: parsed.area_m2,
