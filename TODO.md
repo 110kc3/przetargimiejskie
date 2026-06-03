@@ -209,8 +209,17 @@ sales board, answer (a) does this city sell municipal property at auction,
   inline `content` HTML (no PDF/OCR). Active-listings adapter; results stream
   ("informacja o wyniku przetargu") not yet wired. Verified live: price + date +
   address ~10/10, area best-effort. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
-- **Kraków, Warszawa — still unspiked.** Plus the Rybnik subregion. Warszawa
-  stays last (≈18 district BIPs, demand-gated).
+- **Rybnik — spiked + BUILT (June 2026, v1.11.0).** `cities/rybnik/` crawls ZGM's
+  *Ogłoszenie o przetargach* page + `&Archive=` batches, downloads each RTF
+  announcement and decodes it with a new **pure-JS RTF reader**
+  (`core/rtf-text.js`, no external tool), then parses price/area/date/round
+  (address from the link label). Verified live: 6/6 current flats fully parsed.
+  Active-listings adapter; no results stream wired. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
+- **Remaining unspiked Silesian field:** Bielsko-Biała, Częstochowa, Jaworzno,
+  Mysłowice, Siemianowice/Świętochłowice/Piekary, Żory/Wodzisław. **Kraków,
+  Warszawa** out-of-region/demand-gated (Warszawa ≈18 district BIPs — last).
+  Apply the housing-manager heuristic (ZGM/ZBM/MZBM auctioning flats) when
+  choosing the next spike.
 
 ### Monetization: alert + saved-search MVP
 

@@ -478,3 +478,42 @@ adapter would add a **modest** set (plus history), not a deep one. Recommend
 `spółdzielcze prawo do lokalu`), or as a **strong build if scope expands to land/
 commercial**. Confirm flat volume with a quick archive scan once the list
 endpoint is pinned, before committing.
+
+## Rybnik — `bip.zgm.rybnik.pl` ✅ BUILT (v1.11.0, June 2026)
+
+> **Built.** `cities/rybnik/` crawls ZGM's *Ogłoszenie o przetargach* page +
+> `&Archive=<id>` batches → each `OGŁOSZENIE <addr>` RTF (Download.ashx?id=N) →
+> decoded by `core/rtf-text.js` (pure-JS RTF reader: cp1250 `\'xx`, `\uN`,
+> strips raw CR/LF so CRLF-split prices like "180\r\n 000,00" rejoin) → parse
+> price / area / date / round (address from the link label). Verified live: 6/6
+> current flats fully parsed. No external RTF tool / CI change. Spike notes below.
+
+The heuristic pays off cleanly: Rybnik has **ZGM (Zakład Gospodarki
+Mieszkaniowej)** — a dedicated municipal housing manager, exactly like Gliwice —
+that **auctions vacated municipal flats** and publishes them on its own
+server-rendered BIP.
+
+- **Dedicated flat-sale auction page:** *Sprzedaż lokali mieszkalnych →
+  Ogłoszenie o przetargach* (`bip.zgm.rybnik.pl/Default.aspx?Page=214`; an
+  `&Archive=<id>` param holds older batches). Full server-rendered HTML.
+- **Real, regular flat volume:** 6 current open flat auctions (Zgrzebnioka 7b/6,
+  Janke Waltera 5b/2, Kilińskiego 28/17, Rymera 40/35, Cierpioła 6a/3, św. Józefa
+  18/47) + 8 in a July 2025 batch — all proper flats *with apartment numbers*
+  (keyable), incl. `spółdzielcze własnościowe prawo do lokalu`. Run by
+  "Prezydent Miasta Rybnika", `przetarg ustny nieograniczony`.
+- **Format catch — RTF:** each announcement is an **RTF attachment** (~200 KB,
+  "OGŁOSZENIE <address> [rtf]"). RTF is text (no OCR), but the pipeline has no
+  RTF extractor yet — add one (`unrtf --text`, tiny apt package; or `pandoc`,
+  already in the sandbox), mirroring `doc-text.js`/`pdf-text.js`, then parse the
+  standard ogłoszenie vocabulary (cena wywoławcza / powierzchnia / round / date).
+- Bezprzetargowe tenant sales + the procurement "Przetargi" (Zamówienia
+  Publiczne, DZP.212.* construction tenders) are separate — skip both.
+- Results/sold-price stream: not obvious; treat as active + announcement history
+  (like Bytom/Zabrze) unless a "wyniki" page turns up at build time.
+
+**Verdict: BUILD — the best remaining Silesian candidate, Gliwice-class.**
+Dedicated ZGM, dedicated flat-auction page, genuine recurring flat volume,
+server-rendered + retained archive. One new component (RTF→text extractor),
+otherwise mirrors the existing text-extraction adapters. Open items to pin at
+build: the `&Archive=` pagination for history, RTF parses cleanly (confirm on a
+real file), and whether achieved prices are published anywhere.

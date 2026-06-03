@@ -4,6 +4,21 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.11.0 — 2026-06-02
+
+- Added a sixth city: **Rybnik**. Open `przetarg ustny` sales of municipal flats
+  from ZGM Rybnik (the housing manager) now appear in the popup and archive, with
+  a Rybnik city tag. Announcements are RTF, decoded by a new pure-JS RTF reader
+  (no external tool). Address comes from the announcement label; price/area/date/
+  round from the RTF body.
+
+## v1.10.3 — 2026-06-02
+
+- Simplified the popup's history label: a first-time listing shows "nowa" (new),
+  and a re-listing shows plainly "wystawiona N× wcześniej" — dropped the
+  "(0 bez sprzedaży)" parenthetical, which was noise for cities without a
+  sold/unsold result stream.
+
 ## v1.10.2 — 2026-06-02
 
 - Fixed Sosnowiec not appearing after the update: the merged-data cache key was

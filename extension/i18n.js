@@ -35,8 +35,8 @@
       'popup.col.ask': 'Ask',
       'popup.col.prior': 'Prior',
       'popup.col.last_unsold': 'Last unsold',
-      'popup.fresh': 'first',
-      'popup.prior_summary': '${n}× (${unsold} unsold)',
+      'popup.fresh': 'new',
+      'popup.prior_summary': 'listed ${n}× before',
       'popup.col.status': 'Status',
       'popup.active_section': 'Currently active',
       'popup.watching_section': 'Watching',
@@ -122,6 +122,7 @@
       'city.bytom': 'Bytom',
       'city.zabrze': 'Zabrze',
       'city.sosnowiec': 'Sosnowiec',
+      'city.rybnik': 'Rybnik',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -157,7 +158,7 @@
       'popup.col.prior': 'Historia',
       'popup.col.last_unsold': 'Ostatnia bez sprzedaży',
       'popup.fresh': 'nowa',
-      'popup.prior_summary': '${n}× (${unsold} bez sprzedaży)',
+      'popup.prior_summary': 'wystawiona ${n}× wcześniej',
       'popup.col.status': 'Status',
       'popup.active_section': 'Aktualne aukcje',
       'popup.watching_section': 'Obserwowane',
@@ -243,6 +244,7 @@
       'city.bytom': 'Bytom',
       'city.zabrze': 'Zabrze',
       'city.sosnowiec': 'Sosnowiec',
+      'city.rybnik': 'Rybnik',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',
