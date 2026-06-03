@@ -1,6 +1,115 @@
 {
   "schema_version": 1,
   "city": "rybnik",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "A. Zgrzebnioka 7b/6",
+      "address": {
+        "street": "A. Zgrzebnioka",
+        "street_norm": "a zgrzebnioka",
+        "building": "7B",
+        "apt": "6",
+        "key": "a zgrzebnioka|7B|6",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 35,
+      "starting_price_pln": 180000,
+      "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Gen. Janke Waltera 5b/2",
+      "address": {
+        "street": "Gen. Janke Waltera",
+        "street_norm": "gen janke waltera",
+        "building": "5B",
+        "apt": "2",
+        "key": "gen janke waltera|5B|2",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 48.9,
+      "starting_price_pln": 230000,
+      "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "J. Kilińskiego 28/17",
+      "address": {
+        "street": "J. Kilińskiego",
+        "street_norm": "j kilinskiego",
+        "building": "28",
+        "apt": "17",
+        "key": "j kilinskiego|28|17",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 35.6,
+      "starting_price_pln": 165000,
+      "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rymera 40/35",
+      "address": {
+        "street": "Rymera",
+        "street_norm": "rymera",
+        "building": "40",
+        "apt": "35",
+        "key": "rymera|40|35",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 80.73,
+      "starting_price_pln": 325000,
+      "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "P. Cierpioła 6a/3",
+      "address": {
+        "street": "P. Cierpioła",
+        "street_norm": "p cierpiola",
+        "building": "6A",
+        "apt": "3",
+        "key": "p cierpiola|6A|3",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 46.8,
+      "starting_price_pln": 240000,
+      "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "św. Józefa 18/47",
+      "address": {
+        "street": "św. Józefa",
+        "street_norm": "sw jozefa",
+        "building": "18",
+        "apt": "47",
+        "key": "sw jozefa|18|47",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 45.9,
+      "starting_price_pln": 230000,
+      "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214"
+    }
+  ],
   "wykaz": []
 }

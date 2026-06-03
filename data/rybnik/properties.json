@@ -1,5 +1,138 @@
 {
   "schema_version": 1,
   "city": "rybnik",
-  "properties": []
+  "properties": [
+    {
+      "key": "a zgrzebnioka|7B|6",
+      "street": "A. Zgrzebnioka",
+      "street_norm": "a zgrzebnioka",
+      "building": "7B",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 35,
+          "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35
+    },
+    {
+      "key": "gen janke waltera|5B|2",
+      "street": "Gen. Janke Waltera",
+      "street_norm": "gen janke waltera",
+      "building": "5B",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 48.9,
+          "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.9
+    },
+    {
+      "key": "j kilinskiego|28|17",
+      "street": "J. Kilińskiego",
+      "street_norm": "j kilinskiego",
+      "building": "28",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "active",
+          "area_m2": 35.6,
+          "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.6
+    },
+    {
+      "key": "rymera|40|35",
+      "street": "Rymera",
+      "street_norm": "rymera",
+      "building": "40",
+      "apt": "35",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "active",
+          "area_m2": 80.73,
+          "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 80.73
+    },
+    {
+      "key": "p cierpiola|6A|3",
+      "street": "P. Cierpioła",
+      "street_norm": "p cierpiola",
+      "building": "6A",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 46.8,
+          "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.8
+    },
+    {
+      "key": "sw jozefa|18|47",
+      "street": "św. Józefa",
+      "street_norm": "sw jozefa",
+      "building": "18",
+      "apt": "47",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 45.9,
+          "detail_url": "https://bip.zgm.rybnik.pl/Default.aspx?Page=214",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.9
+    }
+  ]
 }
