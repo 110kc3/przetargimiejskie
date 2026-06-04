@@ -517,3 +517,173 @@ server-rendered + retained archive. One new component (RTF→text extractor),
 otherwise mirrors the existing text-extraction adapters. Open items to pin at
 build: the `&Archive=` pagination for history, RTF parses cleanly (confirm on a
 real file), and whether achieved prices are published anywhere.
+
+## Bielsko-Biała — `bielsko-biala.pl/gielda-nieruchomosci` ✅ viable, cleanest source yet
+
+The housing-manager heuristic *misfires* here in a good way. ZGM Bielsko-Biała
+(`zgm.eu` / `bip.zgm.eu`) exists but only does **rentals + procurement**
+(remonty pustostanów, zamówienia publiczne) — no flat sales. The flat *sales*
+are run by the **city** (Urząd Miejski, Wydział Mienia Gminnego) and published
+on a purpose-built, server-rendered **Giełda Nieruchomości**.
+
+- **Source:** `https://bielsko-biala.pl/gielda-nieruchomosci` — a Drupal
+  marketplace listing every current municipal sale offer (Domy / Działki /
+  **Mieszkania** / Lokale użytkowe / Garaże / …) with filters for category,
+  price, area and status. Each item is a node at
+  `/nieruchomosc/<slug>`. Per-category **RSS feeds** exist too
+  (`/taxonomy/term/15/feed` = Mieszkania).
+- **Format — the easiest in the project.** Fully **server-rendered HTML**
+  (plain `fetch`, no JS, no PDF/DOC/RTF/OCR). Each detail page carries a clean
+  labelled key-value block — *"Najważniejsze informacje"* — with everything the
+  model needs:
+  - `Adres:` ul. Stanisława Wyspiańskiego 32/9 → street/building/apt key
+  - `Cena:` 92 450,00 zł → cena wywoławcza
+  - `Rodzaj nieruchomości:` lokal mieszkalny → kind tag (filter to flats)
+  - `Data przetargu / rokowań:` 12.06.2026 r. → auction date
+  - `Forma przetargu:` **Pierwszy** przetarg pisemny nieograniczony → **round
+    handed to us explicitly** (Pierwszy/Drugi/Trzeci → 1/2/3)
+  - `Status oferty:` Przetarg ogłoszony / oczekujący na ogłoszenie → active flag
+  - `Wysokość wadium`, `Obręb`, `Numer działki` — bonus fields
+  - flat **area** ("Powierzchnia użytkowa lokalu wynosi 17,75 m2") is in the
+    description prose, regex-able (the structured `Powierzchnia` field is the
+    *plot* area — don't use it for flats).
+- **Volume — modest but real.** ~24 live offers across all types; currently ~4
+  flats (Modrzewskiego 2/5 768 080 zł, 11 Listopada 23/2 399 000 zł & 23/3
+  599 000 zł, Wyspiańskiego 32/9 92 450 zł) + lokale użytkowe (Grota-Roweckiego
+  4/11B, 11 Listopada 23/12). Largest uncovered Silesian city; steady turnover.
+- **Two caveats (both match existing patterns):**
+  1. These are **written tenders** (`przetarg pisemny`/oferty), not the oral
+     `przetarg ustny` of the ZGM cities — model still fits (cena wywoławcza,
+     round, date, wadium).
+  2. **No concluded-auction archive** — the giełda only shows current/pending
+     offers; sold items drop off. So it's an **active + archived-mode** adapter
+     like Sosnowiec/Rybnik (no achieved-price stream). The upside: round is
+     explicit in `Forma przetargu`, so re-listings self-report 2./3. przetarg
+     without us reconstructing history. Taxonomy tagging is inconsistent
+     (Wyspiańskiego wasn't tagged Mieszkania), so **crawl the whole giełda and
+     classify by `Rodzaj nieruchomości`**, don't trust the category chips.
+
+**Verdict: BUILD — and it's the lowest-effort adapter in the project.** A new
+`cities/bielsko/` that crawls the giełda index, follows each `/nieruchomosc/`
+node, and parses the labelled HTML block. No new extractor needed (reuses the
+plain-HTML pattern; closest sibling is Bytom's i-BIIP catalog). Open items to
+pin at build: confirm there's no pagination beyond one page (≈24 items now),
+decide whether to also ingest Lokale użytkowe/Garaże or flats-only, and check
+for a Drupal JSON:API (`/jsonapi/node/...`) as an even cleaner feed than HTML.
+
+---
+
+# Wave 3 — rest of the Silesian field (June 2026)
+
+Scoped the remaining backlog in one pass: Częstochowa, Jaworzno, Mysłowice,
+Świętochłowice, Siemianowice Śląskie, Piekary Śląskie, Żory, Wodzisław Śląski.
+Method as before — find the real flat-*sale* auction source, confirm open
+flat-auction volume EARLY, identify the format. Direct page fetches, no headless
+browser.
+
+## TL;DR ranking
+
+| City | Source | Format | Open flat auctions? | Call |
+|---|---|---|---|---|
+| **Bielsko-Biała** | `bielsko-biala.pl/gielda-nieruchomosci` (city Giełda) | structured HTML key-value + RSS | yes (~4 now) | **BUILD #1** (done above) |
+| **Mysłowice** | `bip.myslowice.pl` + MZGK | FINN-BIP article HTML | **yes — ~7 now** | **BUILD #2** |
+| **Świętochłowice** | `bip.swietochlowice.pl` + MPGL | FINN-BIP article HTML | yes, recurring, w/ rounds | **BUILD #3** |
+| **Jaworzno** | `bip.mznk.jaworzno.pl` (MZNK) | FINN-BIP article HTML | yes (batches of ~8) | **BUILD #4** |
+| **Częstochowa** | `bip.czestochowa.pl` "Sprzedaż nieruchomości i lokali" | FINN-BIP article HTML | mixed land+lokale; confirm flat share | viable, MED |
+| **Żory** | `zbm.zory.pl/przetargi/` + `zbmzory.bip.net.pl` (ZBM) | WordPress + bip.net.pl | "Sprzedaż mieszkań" category exists; low volume | viable, LOW |
+| **Siemianowice Śl.** | `bip.msiemianowicesl.finn.pl/bipkod/025` | FINN-BIP | mostly land + spółdzielnia sales | **DROP/defer** |
+| **Piekary Śl.** | `bip.piekary.pl` | FINN-BIP | **bezprzetargowe na rzecz najemcy** | **DROP** |
+| **Wodzisław Śl.** | `wodzislaw-slaski.pl` / Biuro Gospodarki Lokalowej | — | **bezprzetargowe** (250 flats to tenants) | **DROP** |
+
+**Architectural insight — a FINN-BIP template unlocks several at once.** Most
+Silesian municipal BIPs run on the **FINN eUrząd** platform with a common URL
+shape (`/bipkod/<code>` category indexes, `/artykul/<id>` or `/Article/get/id,<n>`
+article pages) and a consistent announcement vocabulary (`przetarg ustny
+nieograniczony`, `cena wywoławcza`, `powierzchnia użytkowa`, `lokal mieszkalny`,
+`pierwszy/drugi/trzeci przetarg`). Katowice already taps a FINN BIP. A reusable
+`finn-bip` crawl+parse helper would cover Mysłowice, Świętochłowice, Jaworzno,
+Częstochowa (and re-home Katowice) with per-city config (base URL + category
+code) rather than four bespoke adapters. Build it once at Mysłowice, reuse.
+
+## Mysłowice — `bip.myslowice.pl` + MZGK ✅ BUILD
+
+- **Housing manager:** **MZGK** (Miejski Zarząd Gospodarki Komunalnej,
+  `mzgk.myslowice.pl`). Sales run by Prezydent Miasta, announced on the city
+  FINN-BIP (`bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-...`).
+- **Volume — strong:** **~7 current `przetarg ustny nieograniczony` on lokale
+  mieszkalne** (Armii Krajowej 6B/47, 16C/24, 4/11; Zielona 8/1; …), dated
+  Apr 2026, held in sala 204 UM. Real flats with apartment numbers (keyable).
+- **Format:** FINN-BIP article HTML — server-rendered, plain fetch, no PDF/OCR.
+  Round is in the title (`I przetarg`), price/area/date in the article body.
+- **Verdict: BUILD** — best of the wave after Bielsko; first user of the
+  `finn-bip` template.
+
+## Świętochłowice — `bip.swietochlowice.pl` + MPGL ✅ BUILD
+
+- **Housing manager:** **MPGL Świętochłowice Sp. z o.o.** (`mpglswietochlowice.pl`);
+  sales by Prezydent Miasta on the city FINN-BIP (`bip.swietochlowice.pl/bipkod/003/010/003`).
+- **Volume:** recurring `publiczny przetarg ustny nieograniczony na sprzedaż
+  wolnego lokalu mieszkalnego` — multiple live/recent (Średnia 15b/3 →
+  drugi przetarg 110 000 zł; Wyzwolenia 51/4 → **drugi & trzeci przetarg**;
+  Powstańców Śląskich 17/9 → pierwszy). Explicit rounds = the relisting signal
+  the product is built around.
+- **Format:** FINN-BIP article HTML. Same template as Mysłowice.
+- **Verdict: BUILD** — smaller city but a clean, round-bearing flat stream.
+
+## Jaworzno — `bip.mznk.jaworzno.pl` (MZNK) ✅ BUILD (medium)
+
+- **Housing manager:** **MZNK** (Miejski Zarząd Nieruchomości Komunalnych).
+  Public site `mznk.jaworzno.pl` is WordPress/Elementor (news only); the actual
+  auction announcements live on its FINN-BIP **`bip.mznk.jaworzno.pl`**
+  ("Przetargi i ogłoszenia", `Article/id,103.html`). Sales via Wydział Obrotu
+  Nieruchomościami UM, `przetarg ustny nieograniczony na sprzedaż gminnego
+  mieszkania`.
+- **Volume:** sold in **batches (~8 flats at a time)**; active in 2026
+  ("Ostatni dzwonek na zgłoszenie do przetargu", Feb 2026). Lumpy but real.
+- **Format:** FINN-BIP article HTML (template-compatible). Crawl the BIP list,
+  not the WordPress news.
+- **Verdict: BUILD** — fits the template; pin the exact BIP category at build.
+
+## Częstochowa — `bip.czestochowa.pl` ⚠️ viable, confirm flat share
+
+- **Source:** city FINN-BIP **"Sprzedaż nieruchomości i lokali"**
+  (`bip.czestochowa.pl/artykuly/71547`) + "Tablica ogłoszeń"; sales by Prezydent
+  Miasta. (There is a **ZGM TBS**, `zgmtbs.bip.czestochowa.pl`, but it's
+  rentals + renovation tenders — not sales.)
+- **Caveat:** the live announcements skew toward **land/działki and whole
+  buildings** (Szczytowa 40/42, Piłsudskiego 3) — flat (`lokal mieszkalny`)
+  volume is unconfirmed and may be thin despite the city's size. Confirm the
+  flat share before committing.
+- **Format:** FINN-BIP article HTML (template-compatible).
+- **Verdict: VIABLE (medium)** — build via the template only if a flat-volume
+  check at build time clears the Tychy bar.
+
+## Żory — `zbm.zory.pl` (ZBM) ⚠️ viable, low volume + domain caveat
+
+- **Housing manager:** **ZBM** (Zarząd Budynków Miejskich). Site has a
+  **"Sprzedaż mieszkań"** category and a `/przetargi/` page; formal BIP at
+  **`zbmzory.bip.net.pl`** (a *bip.net.pl* platform, not FINN).
+- **⚠️ Domain hijack:** the old **`zbmzory.pl` is no longer the ZBM** — it now
+  redirects to a casino-spam site (`foro-go.com`). Use **`zbm.zory.pl`** /
+  `zbmzory.bip.net.pl` only. Do not crawl `zbmzory.pl`.
+- **Volume:** flat sales exist but appear infrequent (most ZBM activity is
+  rentals/management). Low priority.
+- **Verdict: VIABLE (low)** — revisit after the FINN-BIP cities; different BIP
+  platform (bip.net.pl) means a small separate crawler.
+
+## Drops
+
+- **Siemianowice Śląskie** (`bip.msiemianowicesl.finn.pl/bipkod/025`) — municipal
+  activity is mostly **land** (tereny pod zabudowę jednorodzinną); the flat
+  tenders that surface are largely **spółdzielnia** (cooperative) sales, not
+  gmina. Thin municipal flat volume → **drop/defer**.
+- **Piekary Śląskie** (`bip.piekary.pl`) — lokale sold **bezprzetargowo na rzecz
+  najemcy** (tenant first-refusal); open auctions negligible → **drop**.
+- **Wodzisław Śląski** — adopted a program to sell ~250 flats over 4 years but
+  **bezprzetargowo to sitting tenants** (uchwała o zasadach bezprzetargowej
+  sprzedaży). No open-auction stream → **drop** (same trap as Tychy/Dąbrowa).
+
+## Out of region (unchanged)
+
+Kraków and Warszawa remain demand-gated and out-of-Śląsk; Warszawa is ~18
+district BIPs. Only if the product expands beyond Silesia.

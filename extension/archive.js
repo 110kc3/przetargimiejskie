@@ -214,17 +214,38 @@ function renderSummary() {
   );
   for (const tile of document.querySelectorAll('#summary .tile')) {
     const kind = tile.dataset.kind;
-    const sold = scope.filter(
-      (r) => r.kind === kind && r.outcome === 'sold' && r.final_price_pln != null,
+    const ofKind = scope.filter((r) => r.kind === kind);
+    const sold = ofKind.filter(
+      (r) => r.outcome === 'sold' && r.final_price_pln != null,
     );
-    tile.querySelector('.n').textContent = sold.length;
-    tile.querySelector('.med-total').textContent =
-      fmtPLN(median(sold.map((r) => r.final_price_pln)));
-    const m2 = sold
-      .filter((r) => r.area_m2)
-      .map((r) => r.final_price_pln / r.area_m2);
+
+    // Cities with an achieved-price stream (Gliwice) summarise SOLD prices.
+    // Announcement-only cities have no sold records — every row is 'archived' —
+    // so fall back to counting all archived auctions and showing the median
+    // STARTING (wywoławcza) price instead, which is the data that exists.
+    let count, prices, m2vals, suffixKey, labelKey;
+    if (sold.length) {
+      count = sold.length;
+      prices = sold.map((r) => r.final_price_pln);
+      m2vals = sold.filter((r) => r.area_m2).map((r) => r.final_price_pln / r.area_m2);
+      suffixKey = 'archive.sold_suffix';
+      labelKey = 'archive.median';
+    } else {
+      count = ofKind.length; // records[] holds only historical rows (no active)
+      prices = ofKind.filter((r) => r.starting_price_pln != null).map((r) => r.starting_price_pln);
+      m2vals = ofKind
+        .filter((r) => r.area_m2 && r.starting_price_pln != null)
+        .map((r) => r.starting_price_pln / r.area_m2);
+      suffixKey = 'archive.archived_suffix';
+      labelKey = 'archive.median_start';
+    }
+
+    tile.querySelector('.n').textContent = count;
+    tile.querySelector('.suffix').textContent = t(suffixKey);
+    tile.querySelector('.med-label').textContent = t(labelKey);
+    tile.querySelector('.med-total').textContent = prices.length ? fmtPLN(median(prices)) : '—';
     tile.querySelector('.med-m2').textContent =
-      m2.length ? nf.format(Math.round(median(m2))) + ' zł/m²' : '—';
+      m2vals.length ? nf.format(Math.round(median(m2vals))) + ' zł/m²' : '—';
   }
 }
 

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>przetargimiejskie – śląsk · historia miejskich przetargów na mieszkania</title>
+<meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik." />
+<meta property="og:title" content="przetargimiejskie – śląsk" />
+<meta property="og:description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#0f1623; --bg2:#141d2e; --panel:#1a2335; --border:#2a3650;
+    --fg:#e7ecf5; --muted:#9fb0c9; --accent:#7aa2e3; --accent2:#9bd1c9;
+    --chip-g:#2a4d8f; --chip-k:#8a2a2a; --chip-b:#1f6b3a; --chip-z:#8a531f; --chip-s:#1d6b62; --chip-r:#5b3a8a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:
+    radial-gradient(1200px 600px at 70% -10%, #1b2740 0%, transparent 60%), var(--bg);
+    color:var(--fg);line-height:1.55}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{font-weight:800;font-size:18px;letter-spacing:.2px}
+  .logo span{color:var(--accent)}
+  nav a{color:var(--muted);margin-left:18px;font-size:14px}
+  .hero{padding:54px 0 30px}
+  .hero h1{font-size:42px;line-height:1.1;margin:0 0 14px;font-weight:800}
+  .hero p.lead{font-size:19px;color:var(--muted);max-width:680px;margin:0 0 26px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;border:1px solid var(--border)}
+  .btn.primary{background:var(--accent);color:#0b1220;border-color:var(--accent)}
+  .btn.ghost{background:var(--panel);color:var(--fg)}
+  .stats{display:flex;gap:26px;flex-wrap:wrap;margin:34px 0 0;color:var(--muted);font-size:14px}
+  .stats b{color:var(--fg);font-size:22px;display:block;font-weight:800}
+  section{padding:34px 0;border-top:1px solid var(--border)}
+  h2{font-size:24px;margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+  .cities{display:flex;flex-wrap:wrap;gap:10px}
+  .city{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--border);
+    border-radius:999px;padding:8px 14px;font-size:14px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .city .cnt{color:var(--muted);font-size:12px}
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+  ol.steps li{position:relative;padding-left:42px;color:var(--muted)}
+  ol.steps li b{color:var(--fg)}
+  ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-2px;
+    width:28px;height:28px;border-radius:50%;background:var(--accent);color:#0b1220;
+    display:grid;place-items:center;font-weight:800}
+  footer{padding:30px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+  .muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">przetargi<span>miejskie</span> · śląsk</div>
+    <nav>
+      <a href="/archiwum">Archiwum</a>
+      <a href="#jak">Jak działa</a>
+      <a href="/privacy">Prywatność</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Historia miejskich przetargów na mieszkania — Górny Śląsk</h1>
+    <p class="lead">Sprawdź, czy gminne mieszkanie było już wystawiane, w której rundzie,
+      za ile i ile to wychodzi na zł/m². Dane prosto z miejskich BIP-ów, w przeglądarce
+      i w przeszukiwalnym archiwum.</p>
+    <div class="cta">
+      <a class="btn primary" href="/archiwum">Przeglądaj archiwum →</a>
+      <a class="btn ghost" id="cws" href="#">Dodaj do Chrome</a>
+      <a class="btn ghost" href="/extension.zip">Pobierz rozszerzenie (.zip)</a>
+    </div>
+    <div class="stats" id="stats">
+      <div><b id="stat-cities">6</b> miast</div>
+      <div><b id="stat-props">—</b> nieruchomości</div>
+      <div><b id="stat-active">—</b> aktualnych aukcji</div>
+    </div>
+  </div>
+
+  <section id="miasta">
+    <h2>Obsługiwane miasta</h2>
+    <div class="cities" id="cities"></div>
+    <p class="muted" style="margin-top:14px">Kolejne miasta dodajemy — Bielsko-Biała, Częstochowa i inne w planach.</p>
+  </section>
+
+  <section id="jak">
+    <h2>Jak to działa</h2>
+    <div class="grid">
+      <div class="card"><h3>Na stronie BIP</h3><p>Otwierasz ogłoszenie o przetargu na miejskim BIP — rozszerzenie dokleja obok rundę, cenę wywoławczą, powierzchnię, zł/m² i datę.</p></div>
+      <div class="card"><h3>Runda, nie „nowość”</h3><p>Od razu widać, czy to 2. lub 3. przetarg — czyli ile razy mieszkanie nie znalazło nabywcy i jak spada cena.</p></div>
+      <div class="card"><h3>Archiwum</h3><p>Przeszukiwalna tabela wszystkich dotychczasowych przetargów: filtr miasta, typu, rocznika, wyszukiwarka po ulicy, mediany zł/m².</p></div>
+      <div class="card"><h3>Prywatnie</h3><p>Nic nie wychodzi z Twojego komputera. Dane to publiczne pliki JSON; rozszerzenie czyta tylko strony, które i tak otwierasz.</p></div>
+    </div>
+  </section>
+
+  <section id="start">
+    <h2>Zacznij</h2>
+    <ol class="steps">
+      <li><b>Przeglądaj archiwum</b> — nie wymaga instalacji: <a href="/archiwum">otwórz archiwum</a>.</li>
+      <li><b>Albo zainstaluj rozszerzenie</b> do Chrome, żeby widzieć historię bezpośrednio na stronach BIP.</li>
+      <li><b>Obserwuj</b> wybrane nieruchomości i sprawdzaj, jak zmieniają się ceny w kolejnych rundach.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>Dane pochodzą z publicznych Biuletynów Informacji Publicznej urzędów miast i miejskich
+       zakładów gospodarki mieszkaniowej. Narzędzie nieoficjalne, niezwiązane z żadnym urzędem.</p>
+    <p><a href="/privacy">Prywatność</a> · <a href="https://github.com/110kc3/przetargimiejskie">Kod źródłowy</a></p>
+  </footer>
+</div>
+
+<script>
+  const CHIP = { gliwice:'var(--chip-g)', katowice:'var(--chip-k)', bytom:'var(--chip-b)', zabrze:'var(--chip-z)', sosnowiec:'var(--chip-s)', rybnik:'var(--chip-r)' };
+  fetch('/data/index.json').then(r=>r.json()).then(idx=>{
+    const cities = idx.cities || [];
+    document.getElementById('stat-cities').textContent = cities.length;
+    const props = cities.reduce((s,c)=>s+(c.unique_properties||0),0);
+    const active = cities.reduce((s,c)=>s+(c.active_listings||0),0);
+    document.getElementById('stat-props').textContent = props.toLocaleString('pl-PL');
+    document.getElementById('stat-active').textContent = active.toLocaleString('pl-PL');
+    const box = document.getElementById('cities');
+    box.innerHTML = cities.map(c=>`<span class="city"><span class="dot" style="background:${CHIP[c.id]||'#888'}"></span>${c.label}<span class="cnt">· ${c.unique_properties||0}</span></span>`).join('');
+  }).catch(()=>{});
+</script>
+</body>
+</html>

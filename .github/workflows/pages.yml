@@ -1,0 +1,58 @@
+# Deploys przetargimiejskie.pl (GitHub Pages).
+#
+# The published site = site/ (landing + web archive) + the data/ JSON the
+# archive reads + a downloadable copy of the extension. The Chrome extension
+# itself keeps living in its own top-level extension/ directory (it is NOT the
+# site root); here we just expose it for download.
+#
+# Runs on push to main when the site, data, or extension change, and on demand.
+name: Deploy site (przetargimiejskie.pl)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'data/**'
+      - 'extension/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r site/. _site/            # landing + /archiwum + /privacy + CNAME
+          cp -r data _site/data          # JSON the web archive fetches (/data/...)
+          # Expose the extension source for download at /extension.zip
+          ( cd extension && zip -qr ../_site/extension.zip . )
+          ls -R _site | head -50
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

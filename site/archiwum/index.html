@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archiwum przetargów — przetargimiejskie</title>
+<meta name="description" content="Przeszukiwalne archiwum miejskich przetargów na mieszkania: Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik. Ceny, rundy, zł/m²." />
+<style>
+  :root{
+    --bg:#0f1623; --panel:#1a2335; --tile:#172033; --border:#2a3650;
+    --fg:#e7ecf5; --muted:#9fb0c9; --accent:#7aa2e3;
+    --chip-gliwice:#2a4d8f; --chip-katowice:#8a2a2a; --chip-bytom:#1f6b3a;
+    --chip-zabrze:#8a531f; --chip-sosnowiec:#1d6b62; --chip-rybnik:#5b3a8a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.5}
+  .wrap{max-width:1200px;margin:0 auto;padding:18px}
+  a{color:var(--accent)}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--muted);margin:0 0 18px;font-size:13px}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:18px}
+  .tile{background:var(--tile);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .tile h3{margin:0 0 8px;font-size:15px}
+  .tile .big{font-size:26px;font-weight:800;margin:0}
+  .tile .big .suffix{font-size:13px;font-weight:500;color:var(--muted)}
+  .tile .row{color:var(--muted);font-size:13px;margin-top:4px}
+  .filters{display:flex;flex-wrap:wrap;gap:12px;align-items:end;background:var(--panel);
+    border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px}
+  .filters label{display:flex;flex-direction:column;font-size:12px;color:var(--muted);gap:4px}
+  select,input{background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:14px}
+  .count{margin-left:auto;color:var(--muted);align-self:center}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap}
+  th{color:var(--muted);font-weight:600;cursor:pointer;user-select:none}
+  td.addr{white-space:normal}
+  tbody tr:hover{background:#16203250}
+  .chip{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:6px;border:1px solid transparent;vertical-align:1px}
+  .chip[data-city=gliwice]{background:var(--chip-gliwice)}.chip[data-city=katowice]{background:var(--chip-katowice)}
+  .chip[data-city=bytom]{background:var(--chip-bytom)}.chip[data-city=zabrze]{background:var(--chip-zabrze)}
+  .chip[data-city=sosnowiec]{background:var(--chip-sosnowiec)}.chip[data-city=rybnik]{background:var(--chip-rybnik)}
+  .topbar{display:flex;justify-content:space-between;align-items:center}
+  .err{color:#f0a8a8}
+  h2.sec{font-size:15px;color:var(--muted);margin:22px 0 8px;text-transform:uppercase;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div><h1>Archiwum przetargów</h1><p class="sub" id="sub">Ładowanie…</p></div>
+    <a href="/">← strona główna</a>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="filters">
+    <label>Miasto<select id="f-city"><option value="all">Wszystkie</option></select></label>
+    <label>Typ<select id="f-kind">
+      <option value="all">Wszystkie</option><option value="mieszkalny">mieszkalny</option>
+      <option value="uzytkowy">użytkowy</option><option value="garaz">garaż</option></select></label>
+    <label>Wynik<select id="f-outcome">
+      <option value="all">Wszystkie</option><option value="sold">sprzedane</option>
+      <option value="unsold">bez sprzedaży</option><option value="archived">zakończone</option></select></label>
+    <label>Rok<select id="f-year"><option value="all">Wszystkie lata</option></select></label>
+    <label>Szukaj ulicy<input id="f-q" type="search" placeholder="np. Zwycięstwa" /></label>
+    <span class="count" id="count"></span>
+  </div>
+
+  <h2 class="sec">Aktualne aukcje</h2>
+  <table><thead><tr>
+    <th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th><th>Powierzchnia</th><th>Cena</th><th>zł/m²</th><th>Data</th>
+  </tr></thead><tbody id="active-body"></tbody></table>
+
+  <h2 class="sec">Historyczne</h2>
+  <table><thead><tr>
+    <th data-sort="date">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th data-sort="round">Runda</th>
+    <th data-sort="area">Powierzchnia</th><th data-sort="start">Cena wyw.</th><th data-sort="final">Cena końcowa</th>
+    <th data-sort="m2">zł/m²</th><th>Wynik</th>
+  </tr></thead><tbody id="hist-body"></tbody></table>
+</div>
+
+<script>
+const TODAY = new Date().toISOString().slice(0,10);
+const nf = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:0});
+const fmtPLN = n => n==null?'—':nf.format(n)+' zł';
+const fmtM2 = (p,a)=>(p==null||!a)?'—':nf.format(Math.round(p/a))+' zł/m²';
+const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x-y); const m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
+const KIND = {mieszkalny:'mieszkalny',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
+const ROMAN=['','1.','2.','3.','4.','5.','6.'];
+const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)'};
+
+let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
+let sortKey='date', sortDir='desc';
+
+function chip(city,label){ return `<span class="chip" data-city="${city}">${label||city}</span>`; }
+function addrText(r){ return `${r.street||''} ${r.building||''}${r.apt?'/'+r.apt:''}`.trim(); }
+
+async function load(){
+  let idx;
+  try { idx = await fetch('/data/index.json').then(r=>r.json()); }
+  catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
+  CITIES = idx.cities||[];
+  lastRefresh = (idx.generated_at||'').slice(0,10);
+  const cityLabel = Object.fromEntries(CITIES.map(c=>[c.id,c.label]));
+  const fc=document.getElementById('f-city');
+  CITIES.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.label;fc.appendChild(o);});
+
+  await Promise.all(CITIES.map(async c=>{
+    try{
+      const [props, act] = await Promise.all([
+        fetch(`/data/${c.id}/properties.json`).then(r=>r.json()).catch(()=>({properties:[]})),
+        fetch(`/data/${c.id}/active.json`).then(r=>r.json()).catch(()=>({listings:[]})),
+      ]);
+      for(const p of (props.properties||[]))
+        for(const l of (p.listings||[]))
+          if(['sold','unsold','archived'].includes(l.outcome))
+            records.push({city:c.id,cityLabel:c.label,kind:l.kind||p.kind,street:p.street,building:p.building,apt:p.apt,
+              date:l.date,round:l.round,area:l.area_m2??p.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
+              outcome:l.outcome,reason:l.unsold_reason,src:l.source_pdf||l.detail_url});
+      for(const l of (act.listings||[]))
+        if(!l.auction_date || l.auction_date>=TODAY)
+          active.push({city:c.id,cityLabel:c.label,kind:l.kind,addr:l.address_raw,round:l.round,
+            area:l.area_m2,start:l.starting_price_pln,date:l.auction_date,url:l.detail_url});
+    }catch(e){}
+  }));
+
+  const dates = records.map(r=>r.date).filter(Boolean).sort();
+  minDate=dates[0]; maxDate=dates[dates.length-1];
+  const years=[...new Set(records.map(r=>(r.date||'').slice(0,4)).filter(Boolean))].sort().reverse();
+  const fy=document.getElementById('f-year');
+  years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;fy.appendChild(o);});
+
+  document.getElementById('sub').textContent =
+    `Dane od ${minDate||'—'} do ${maxDate||'—'} · ${records.length} rekordów · odświeżono ${lastRefresh||'—'}`;
+
+  ['f-city','f-kind','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  document.querySelectorAll('th[data-sort]').forEach(th=>th.addEventListener('click',()=>{
+    const k=th.dataset.sort; if(sortKey===k) sortDir=sortDir==='asc'?'desc':'asc'; else {sortKey=k;sortDir='desc';} render();
+  }));
+  render();
+}
+
+function renderSummary(scopeAll){
+  const tiles=document.getElementById('tiles');
+  const kinds=[['mieszkalny','Mieszkalny'],['uzytkowy','Użytkowy'],['garaz','Garaż']];
+  tiles.innerHTML = kinds.map(([k,label])=>{
+    const ofKind = scopeAll.filter(r=>r.kind===k);
+    const sold = ofKind.filter(r=>r.outcome==='sold'&&r.final!=null);
+    let count,prices,m2,suffix,medLabel;
+    if(sold.length){count=sold.length;prices=sold.map(r=>r.final);m2=sold.filter(r=>r.area).map(r=>r.final/r.area);suffix='sprzedanych';medLabel='mediana';}
+    else{count=ofKind.length;prices=ofKind.filter(r=>r.start!=null).map(r=>r.start);m2=ofKind.filter(r=>r.area&&r.start!=null).map(r=>r.start/r.area);suffix='w archiwum';medLabel='mediana wyw.';}
+    const mt=prices.length?fmtPLN(Math.round(median(prices))):'—';
+    const mm=m2.length?nf.format(Math.round(median(m2)))+' zł/m²':'—';
+    return `<div class="tile"><h3>${label}</h3>
+      <p class="big">${count} <span class="suffix">${suffix}</span></p>
+      <p class="row">${medLabel}: ${mt}</p><p class="row">mediana zł/m²: ${mm}</p></div>`;
+  }).join('');
+}
+
+function getSort(r){ switch(sortKey){case 'date':return r.date||'';case 'round':return r.round??-1;
+  case 'area':return r.area??-1;case 'start':return r.start??-1;case 'final':return r.final??-1;
+  case 'm2':return (r.area&&(r.final??r.start))?(r.final??r.start)/r.area:-1;default:return '';}}
+
+function render(){
+  const city=document.getElementById('f-city').value, kind=document.getElementById('f-kind').value,
+        outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
+        q=document.getElementById('f-q').value.trim().toLowerCase();
+  const cityYear = r => (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
+  renderSummary(records.filter(cityYear));
+
+  const match = r => cityYear(r) && (kind==='all'||r.kind===kind) && (outcome==='all'||r.outcome===outcome)
+    && (!q || addrText(r).toLowerCase().includes(q));
+  let rows = records.filter(match);
+  rows.sort((a,b)=>{const av=getSort(a),bv=getSort(b);const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));return sortDir==='asc'?c:-c;});
+  document.getElementById('count').textContent = rows.length+' rekordów';
+  document.getElementById('hist-body').innerHTML = rows.map(r=>`<tr>
+    <td>${r.date||'—'}</td>
+    <td class="addr">${chip(r.city,r.cityLabel)}${addrText(r)}</td>
+    <td>${KIND[r.kind]||r.kind}</td>
+    <td>${r.round?ROMAN[r.round]+' przetarg':'—'}</td>
+    <td>${r.area?r.area+' m²':'—'}</td>
+    <td>${fmtPLN(r.start)}</td>
+    <td>${fmtPLN(r.final)}</td>
+    <td>${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
+    <td>${OUTCOME[r.outcome]||r.outcome}${r.outcome==='unsold'&&r.reason?' ('+r.reason+')':''}</td>
+  </tr>`).join('') || '<tr><td colspan="9" class="sub">Brak rekordów dla wybranych filtrów.</td></tr>';
+
+  const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(!q||(a.addr||'').toLowerCase().includes(q)));
+  document.getElementById('active-body').innerHTML = acts.map(a=>`<tr>
+    <td class="addr">${chip(a.city,a.cityLabel)}${a.url?`<a href="${a.url}" target="_blank" rel="noopener">${a.addr||''}</a>`:(a.addr||'')}</td>
+    <td>${KIND[a.kind]||a.kind}</td>
+    <td>${a.round?ROMAN[a.round]+' przetarg':'—'}</td>
+    <td>${a.area?a.area+' m²':'—'}</td>
+    <td>${fmtPLN(a.start)}</td>
+    <td>${fmtM2(a.start,a.area)}</td>
+    <td>${a.date||'—'}</td>
+  </tr>`).join('') || '<tr><td colspan="7" class="sub">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
+}
+
+load();
+</script>
+</body>
+</html>

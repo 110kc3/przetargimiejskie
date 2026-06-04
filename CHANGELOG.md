@@ -4,6 +4,27 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.12.0 — 2026-06-04
+
+- Added a seventh city: **Bielsko-Biała** — the largest Silesian city the
+  extension hadn't covered. Municipal flat sales here are run by the City Hall
+  (not the ZGM, which only handles rentals) and published on the city's
+  server-rendered *Giełda Nieruchomości*. Open flat auctions now appear in the
+  popup and archive with a Bielsko-Biała city tag. Address, starting
+  (wywoławcza) price, auction date and round (from "Forma przetargu":
+  Pierwszy/Drugi/Trzeci) come straight from each offer's labelled detail page;
+  usable area from the listing description. No PDF/OCR — the lowest-effort
+  source in the project. Active + archive only (the giełda publishes no achieved
+  sale prices).
+
+## v1.11.1 — 2026-06-03
+
+- Archive summary now counts correctly for cities without an achieved-price
+  stream (Bytom, Zabrze, Sosnowiec, Rybnik): instead of "0 sprzedanych / —", each
+  tile shows the number of archived auctions ("N w archiwum") and the median
+  **starting** (wywoławcza) price + zł/m². Gliwice still shows sold counts +
+  median sale price where that data exists.
+
 ## v1.11.0 — 2026-06-02
 
 - Added a sixth city: **Rybnik**. Open `przetarg ustny` sales of municipal flats
@@ -11,6 +32,9 @@ MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
   a Rybnik city tag. Announcements are RTF, decoded by a new pure-JS RTF reader
   (no external tool). Address comes from the announcement label; price/area/date/
   round from the RTF body.
+- The data cache key now embeds the city set, so adding a city automatically
+  refetches instead of serving a stale cached payload that omits it (this is why
+  a newly-added city could look "empty" until the 6h TTL expired).
 
 ## v1.10.3 — 2026-06-02
 

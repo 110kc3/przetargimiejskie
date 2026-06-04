@@ -107,6 +107,20 @@ See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer.
 
 See [TODO.md](./TODO.md) for the live backlog (sold-price streams for Bytom/Zabrze, per-city CI matrix, Katowice land-parcel coverage, monetization MVP, and remaining edge cases).
 
+## Website (przetargimiejskie.pl)
+
+The same repo also publishes a public website via **GitHub Pages**, so the data is usable without installing anything.
+
+Lives in [`site/`](./site) — fully static, no build step. The Pages workflow ([`.github/workflows/pages.yml`](./.github/workflows/pages.yml)) assembles the published site on every push to `main` that touches `site/`, `data/`, or `extension/`:
+
+- `site/index.html` → landing page (live city counts pulled from `/data/index.json`).
+- `site/archiwum/` → a standalone web version of the archive — same filters/summary as the extension's archive, but it fetches `/data/<city>/*.json` directly (no Chrome APIs), so it works in any browser.
+- `site/privacy/` → privacy page (`/privacy`).
+- `data/` is copied to `/data/…` so the archive can read it.
+- `extension/` is zipped to `/extension.zip` for download. **The extension still lives in its own top-level `extension/` directory** — Pages only exposes a downloadable copy; the site root is `site/`, not the extension.
+
+One-time GitHub setup (the workflow can't do this itself): repo **Settings → Pages → Source: GitHub Actions**, then add the custom domain `przetargimiejskie.pl` (the `site/CNAME` file already declares it) and point the domain's DNS at GitHub Pages (A/AAAA records or a `CNAME` to `<user>.github.io`). After DNS resolves, enable **Enforce HTTPS**.
+
 ## Current coverage (data quality notes)
 
 Counts per city live in `data/<city>/meta.json` and `data/index.json`. Gliwice is the only city with achieved sold-price history; Katowice has yearly result summaries plus active announcements; Bytom and Zabrze are active-listing adapters (no published achieved-price stream yet — see TODO.md).

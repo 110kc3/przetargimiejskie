@@ -19,18 +19,20 @@ const REPO = '110kc3/przetargimiejskie';
 const BRANCH = 'main';
 // Wave 1 popup scope: hardcode the city list. A future Wave 2 will lazily
 // fetch only the city matching the active tab's hostname.
-const CITIES = ['gliwice', 'katowice', 'bytom', 'zabrze', 'sosnowiec', 'rybnik'];
+const CITIES = ['gliwice', 'katowice', 'bytom', 'zabrze', 'sosnowiec', 'rybnik', 'bielsko'];
 const RAW = (city) =>
   `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/${city}`;
 const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
 const ALARM_NAME = 'zgm-watchlist-check';
 const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan
 
-// Cache keys are version-prefixed so an old cached merge from a previous build
-// (e.g. before a city was added) is never read back — bump the prefix whenever
-// the set of cities or the payload shape changes. v3: added Sosnowiec.
+// The merged-cache key embeds the schema version + the city set, so an old
+// cached merge from a previous build (e.g. before a city was added) is never
+// read back — adding/removing a city automatically invalidates the cache. Bump
+// `cacheSchema` only when the payload SHAPE changes.
+const CACHE_SCHEMA = 2;
 const KEYS = {
-  merged: 'cache:v3:merged',
+  merged: `cache:v${CACHE_SCHEMA}:${[...CITIES].sort().join('+')}:merged`,
 };
 const MIGRATION_FLAG = 'watchlist:migrated_v2';
 

@@ -51,7 +51,9 @@
       'archive.back': 'Back to popup',
       'archive.summary': 'Summary',
       'archive.sold_suffix': 'sold',
+      'archive.archived_suffix': 'in archive',
       'archive.median': 'median',
+      'archive.median_start': 'median start',
       'archive.median_m2': 'median PLN/m²',
       'archive.filter.city': 'City',
       'archive.filter.kind': 'Kind',
@@ -123,6 +125,7 @@
       'city.zabrze': 'Zabrze',
       'city.sosnowiec': 'Sosnowiec',
       'city.rybnik': 'Rybnik',
+      'city.bielsko': 'Bielsko-Biała',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -173,7 +176,9 @@
       'archive.back': 'Wróć do popupa',
       'archive.summary': 'Podsumowanie',
       'archive.sold_suffix': 'sprzedanych',
+      'archive.archived_suffix': 'w archiwum',
       'archive.median': 'mediana',
+      'archive.median_start': 'mediana wyw.',
       'archive.median_m2': 'mediana zł/m²',
       'archive.filter.city': 'Miasto',
       'archive.filter.kind': 'Typ',
@@ -245,6 +250,7 @@
       'city.zabrze': 'Zabrze',
       'city.sosnowiec': 'Sosnowiec',
       'city.rybnik': 'Rybnik',
+      'city.bielsko': 'Bielsko-Biała',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',

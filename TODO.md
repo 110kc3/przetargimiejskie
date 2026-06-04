@@ -221,6 +221,55 @@ sales board, answer (a) does this city sell municipal property at auction,
   Apply the housing-manager heuristic (ZGM/ZBM/MZBM auctioning flats) when
   choosing the next spike.
 
+### Cities to build next (backlog, prioritised)
+
+Apply the proven heuristic first: a city is a good candidate when a **dedicated
+municipal housing manager** (ZGM / ZBM / MZBM / ZGL) publishes
+"przetarg ustny … na sprzedaż lokali mieszkalnych" — that's what gives a real
+open flat-auction stream (Gliwice, Bytom, Zabrze, Rybnik). Generic city-BIP
+"gospodarka nieruchomościami" sections skew to land + tenant bezprzetargowe and
+tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
+
+1. **Bielsko-Biała** — ✅ **SPIKED (June 2026) → BUILD.** ZGM Bielsko-Biała is
+   rentals/procurement only; flat *sales* run by the city on a server-rendered
+   **Giełda Nieruchomości** (`bielsko-biala.pl/gielda-nieruchomosci`, nodes at
+   `/nieruchomosc/<slug>`). Cleanest source in the project: labelled HTML
+   key-value block gives address, cena, rodzaj (lokal mieszkalny), data
+   przetargu, **round explicit in `Forma przetargu`** (Pierwszy/Drugi…), status,
+   wadium; area in description prose. No PDF/DOC/RTF/OCR. ~4 live flats now,
+   active + archived-mode (no sold-price stream). New `cities/bielsko/`, no new
+   extractor. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md). **Next to build.**
+2. **Mysłowice** — ✅ **SPIKED → BUILD.** MZGK; ~7 live `przetarg ustny
+   nieograniczony` on lokale mieszkalne on the city FINN-BIP
+   (`bip.myslowice.pl/artykul/...`). First user of the `finn-bip` template.
+3. **Świętochłowice** — ✅ **SPIKED → BUILD.** MPGL; recurring flat auctions with
+   explicit rounds (drugi/trzeci przetarg) on `bip.swietochlowice.pl/bipkod/003/010/003`.
+4. **Jaworzno** — ✅ **SPIKED → BUILD (med).** MZNK; flat-sale auctions in
+   batches (~8) on `bip.mznk.jaworzno.pl` (news on the WordPress `mznk.jaworzno.pl`).
+5. **Częstochowa** — ✅ **SPIKED → VIABLE (med).** City FINN-BIP "Sprzedaż
+   nieruchomości i lokali" (`bip.czestochowa.pl/artykuly/71547`); skews land —
+   **confirm flat share at build** before committing. (ZGM TBS = rentals, skip.)
+6. **Żory** — ✅ **SPIKED → VIABLE (low).** ZBM has a "Sprzedaż mieszkań"
+   category + `/przetargi/`; BIP `zbmzory.bip.net.pl`. ⚠️ **`zbmzory.pl` is
+   hijacked (casino spam) — use `zbm.zory.pl` only.** Low volume; bip.net.pl
+   platform (separate small crawler).
+7. **Siemianowice Śląskie, Piekary Śląskie, Wodzisław Śląski** — ✅ **SPIKED →
+   DROP.** Siemianowice: mostly land + spółdzielnia. Piekary & Wodzisław:
+   **bezprzetargowe** sales to sitting tenants (no open-auction stream — Tychy trap).
+8. **Kraków, Warszawa** — out-of-region, demand-gated; Warszawa last (≈18 district
+   BIPs). Only if the product expands beyond Śląsk.
+
+Full write-up of the whole field in [SPIKE-WAVE2.md](./SPIKE-WAVE2.md) (Wave 3).
+**Architectural note — build a reusable `finn-bip` crawl+parse helper** (FINN
+eUrząd: `/bipkod/<code>` indexes, `/artykul/<id>` pages, standard ogłoszenie
+vocabulary). It covers Mysłowice + Świętochłowice + Jaworzno + Częstochowa (and
+could re-home Katowice) with per-city config instead of four bespoke adapters —
+build it once at Mysłowice.
+
+Each: spike → confirm open flat-auction volume EARLY (the lesson from Tychy) →
+build only if non-trivial. Reuse the existing extractors (OCR PDF / text PDF /
+`.doc` catdoc / RTF pure-JS / JSON API / structured HTML) — most new cities fit one.
+
 ### Monetization: alert + saved-search MVP
 
 [EXPANSION.md §4.6](./EXPANSION.md) — the smallest paid-product slice over

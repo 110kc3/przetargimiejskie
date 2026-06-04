@@ -196,13 +196,24 @@ the extension displays. No user data is sent with these requests.
 
 ## Screenshots
 
-Three 1280×800 PNGs in this folder, ready to upload:
+> The full, current store copy (6 cities, PL + EN) now lives in
+> `WEB_STORE_LISTING.md` at the repo root. The text above this line is the
+> original Gliwice-only draft, kept for reference.
 
-1. `01-properties-list.png` — auction index page with per-listing badges,
-   price-per-m² and dates.
-2. `02-archive.png` — the archive page: summary tiles + filterable history table.
-3. `03-property-detail.png` — a single property page with the injected
-   history panel.
+Current 1280×800 PNGs for the 6-city build, ready to upload (regenerate with
+`node make.js` then convert the SVGs):
+
+1. `01-on-page-chip.png` — a municipal BIP announcement with the extension's
+   info-chip docked beside the title: auction round, asking price, m², zł/m²,
+   and date. This is the headline feature.
+2. `02-popup-all-cities.png` — the popup listing active auctions across all six
+   cities (Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik) with city
+   colour pills and round labels.
+3. `03-web-archive.png` — the searchable archive: summary tiles (sold vs. in
+   archive, median zł/m²), filter bar, and the sortable history table.
+
+Older Gliwice-era captures kept for reference: `01-properties-list.png`,
+`02-archive.png`, `03-property-detail.png`.
 
 ---
 
