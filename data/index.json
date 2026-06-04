@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-04T08:45:34.419Z",
+  "generated_at": "2026-06-04T16:10:06.362Z",
   "cities": [
     {
       "id": "gliwice",
@@ -63,6 +63,15 @@
       "host": "bielsko-biala.pl",
       "unique_properties": 2,
       "active_listings": 2,
+      "wykaz_entries": 0
+    },
+    {
+      "id": "myslowice",
+      "label": "Mysłowice",
+      "authority": "Urząd Miasta Mysłowice",
+      "host": "bip.myslowice.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
       "wykaz_entries": 0
     }
   ]
