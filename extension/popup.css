@@ -28,6 +28,12 @@
   --chip-rybnik-bg: #efe7fb;
   --chip-rybnik-fg: #5b3a8a;
   --chip-rybnik-border: #ddccf0;
+  --chip-bielsko-bg: #fce8f3;
+  --chip-bielsko-fg: #9c2a6b;
+  --chip-bielsko-border: #f3c8de;
+  --chip-myslowice-bg: #e3f1fb;
+  --chip-myslowice-fg: #1f5b86;
+  --chip-myslowice-border: #c3def0;
 }
 
 /* System-pref dark, *unless* the user has explicitly forced light via the
@@ -63,6 +69,12 @@
     --chip-rybnik-bg: #2a1f3d;
     --chip-rybnik-fg: #c3a8e8;
     --chip-rybnik-border: #3f2f5a;
+    --chip-bielsko-bg: #3d1628;
+    --chip-bielsko-fg: #e8a8c8;
+    --chip-bielsko-border: #5a2240;
+    --chip-myslowice-bg: #152d3d;
+    --chip-myslowice-fg: #8fc0e8;
+    --chip-myslowice-border: #22425a;
   }
 }
 
@@ -97,6 +109,12 @@
   --chip-rybnik-bg: #2a1f3d;
   --chip-rybnik-fg: #c3a8e8;
   --chip-rybnik-border: #3f2f5a;
+  --chip-bielsko-bg: #3d1628;
+  --chip-bielsko-fg: #e8a8c8;
+  --chip-bielsko-border: #5a2240;
+  --chip-myslowice-bg: #152d3d;
+  --chip-myslowice-fg: #8fc0e8;
+  --chip-myslowice-border: #22425a;
 }
 
 * { box-sizing: border-box; }
@@ -262,6 +280,8 @@ h2 {
 .zgm-city-tag[data-city="zabrze"]   { background: var(--chip-zabrze-bg);   color: var(--chip-zabrze-fg);   border-color: var(--chip-zabrze-border); }
 .zgm-city-tag[data-city="sosnowiec"] { background: var(--chip-sosnowiec-bg); color: var(--chip-sosnowiec-fg); border-color: var(--chip-sosnowiec-border); }
 .zgm-city-tag[data-city="rybnik"]   { background: var(--chip-rybnik-bg);    color: var(--chip-rybnik-fg);    border-color: var(--chip-rybnik-border); }
+.zgm-city-tag[data-city="bielsko"]  { background: var(--chip-bielsko-bg);   color: var(--chip-bielsko-fg);   border-color: var(--chip-bielsko-border); }
+.zgm-city-tag[data-city="myslowice"] { background: var(--chip-myslowice-bg); color: var(--chip-myslowice-fg); border-color: var(--chip-myslowice-border); }
 
 /* Stacked dates cell. The label column has to fit the longest Polish label —
  * "OGLĘDZINY" (viewing) at 9 characters — so 72px with box-sizing keeps it

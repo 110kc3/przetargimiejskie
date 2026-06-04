@@ -126,6 +126,7 @@
       'city.sosnowiec': 'Sosnowiec',
       'city.rybnik': 'Rybnik',
       'city.bielsko': 'Bielsko-Biała',
+      'city.myslowice': 'Mysłowice',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -251,6 +252,7 @@
       'city.sosnowiec': 'Sosnowiec',
       'city.rybnik': 'Rybnik',
       'city.bielsko': 'Bielsko-Biała',
+      'city.myslowice': 'Mysłowice',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',

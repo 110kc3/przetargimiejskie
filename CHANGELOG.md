@@ -4,6 +4,24 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.13.0 — 2026-06-04
+
+- Added an eighth city: **Mysłowice**. Open `przetarg ustny nieograniczony` sales
+  of municipal flats now appear in the popup and archive with a Mysłowice city
+  tag. Sales are run by the City Hall (the housing manager MZGK only handles
+  rentals) and published on the city BIP (bip.myslowice.pl), which runs on the
+  **FINN eUrząd** platform — server-rendered `/artykul/…` announcement pages, no
+  PDF/OCR. The auction round comes from the title (I / II / III przetarg);
+  address, starting (wywoławcza) price, usable area and auction date from the
+  body. Active + archive only (the BIP publishes no achieved sale prices).
+- New shared **`finn-bip` crawl+parse helper** (`pipeline/src/core/finn-bip.js`):
+  a reusable extractor for the many Silesian BIPs on the FINN platform, so each
+  is a thin per-city config rather than a bespoke adapter. Mysłowice is its first
+  user; Świętochłowice / Jaworzno / Częstochowa are next.
+- Fixed the Bielsko-Biała wiring that shipped incomplete in v1.12.0: the city
+  now has its chip colour (popup + archive + public archive site) and a city
+  option in the archive filter dropdown (previously only reachable under "all").
+
 ## v1.12.0 — 2026-06-04
 
 - Added a seventh city: **Bielsko-Biała** — the largest Silesian city the
