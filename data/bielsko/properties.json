@@ -1,5 +1,50 @@
 {
   "schema_version": 1,
   "city": "bielsko",
-  "properties": []
+  "properties": [
+    {
+      "key": "11 listopada|23|2",
+      "street": "11 Listopada",
+      "street_norm": "11 listopada",
+      "building": "23",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 399000,
+          "outcome": "active",
+          "area_m2": 79.01,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-232",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 79.01
+    },
+    {
+      "key": "11 listopada|23|3",
+      "street": "11 Listopada",
+      "street_norm": "11 listopada",
+      "building": "23",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 599000,
+          "outcome": "active",
+          "area_m2": 117.62,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-233",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 117.62
+    }
+  ]
 }
