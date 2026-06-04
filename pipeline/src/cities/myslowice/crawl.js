@@ -1,15 +1,16 @@
 // Mysłowice crawler — built from the reusable FINN-BIP crawler factory.
 //
-//   INDEX:    bip.myslowice.pl FINN category/search pages (config.finn.indexUrls)
-//   ARTICLE:  bip.myslowice.pl/artykul/<slug>            (server-rendered)
+//   INDEX:    /artykul/aktualne-przetargi   (current, ~23 items, single page)
+//             /artykul/archiwum-przetargow  (concluded, ~128 items, single page)
+//   ARTICLE:  /artykul/ogloszenie-o-…-przetargu-…-lokalu-mieszkalnego-… (server-rendered)
 //
-// makeCrawlActive walks each index page, harvests `/artykul/` links, keeps the
-// `przetarg ustny … na sprzedaż lokalu mieszkalnego` articles, fetches each and
-// parses address/area/price/date/round from the body (round preferentially from
-// the title). One flat per announcement → one active listing. No PDF/OCR; no
-// sold-price stream, so crawlResultDocs() is []. See core/finn-bip.js + parse.js.
-//
-// ⚠️ Live host unreachable from the CI sandbox — VALIDATE on first refresh.
+// makeCrawlActive walks both index pages, harvests the /artykul/ogloszenie-…
+// announcement links (keeping only the "lokal" slugs via linkFilter), fetches
+// each and parses address/area/price/date/round from the body (round from the
+// title). One flat per announcement → one active listing; build-properties marks
+// past-dated ones `archived`. No PDF/OCR; no sold-price stream, so
+// crawlResultDocs() is []. See core/finn-bip.js + parse.js. Verified live
+// (June 2026, rendered-DOM spike).
 
 import { config } from './config.js';
 import { makeCrawlActive, crawlResultDocs } from '../../core/finn-bip.js';
@@ -18,6 +19,7 @@ export const crawlActive = makeCrawlActive({
   id: config.id,
   origin: config.finn.origin,
   indexUrls: config.finn.indexUrls,
+  linkFilter: config.finn.linkFilter,
 });
 
 export { crawlResultDocs };

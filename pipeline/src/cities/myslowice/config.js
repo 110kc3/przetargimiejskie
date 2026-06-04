@@ -6,14 +6,16 @@
 // First user of the reusable `core/finn-bip.js` helper (FINN eUrząd platform):
 // server-rendered `/artykul/<slug>` announcement pages, round in the title
 // ("Ogłoszenie o I przetargu …"), price/area/date in the body. No PDF/OCR.
-// Active-listings adapter (the FINN board lists current/upcoming auctions, no
-// achieved-price stream) — build-properties classifies past-dated ones
-// `archived`, like Sosnowiec/Rybnik/Bielsko.
+// Active-listings adapter (the FINN board lists current/upcoming auctions plus a
+// retained archive, but no achieved-price stream) — build-properties classifies
+// past-dated ones `archived`, like Sosnowiec/Rybnik/Bielsko.
 //
-// ⚠️ The live BIP is unreachable from the CI sandbox (serves only a shell to a
-// plain fetch). `indexUrls` + the article-link/parse shapes are written to the
-// documented FINN structure; VALIDATE + pin the exact category code on the first
-// real refresh (GitHub Actions reaches the host).
+// VERIFIED LIVE (June 2026, rendered-DOM spike). The two category pages below
+// each server-render ALL their child announcement links on a single page (no
+// pagination): "Aktualne przetargi" (~23 current items) and "Archiwum
+// przetargów" (~128 concluded). Both are themselves /artykul/ pages. The
+// announcement links are /artykul/ogloszenie-…; `linkFilter` keeps only the
+// flat ("lokal") slugs so we don't fetch every land/garage auction.
 
 const ORIGIN = 'https://bip.myslowice.pl';
 
@@ -26,13 +28,13 @@ export const config = {
   // FINN-BIP crawl config (consumed by core/finn-bip.js via crawl.js).
   finn: {
     origin: ORIGIN,
-    // "Ogłoszenia o przetargach" / "Sprzedaż nieruchomości" category indexes.
-    // FINN exposes a category list at /bipkod/<code> and an article search; we
-    // harvest article links from these landing pages. Adjust the code(s) once
-    // the live category is confirmed (the search page is a robust fallback).
     indexUrls: [
-      `${ORIGIN}/bipkod/22550536`,
-      `${ORIGIN}/szukaj?szukaj=przetarg+lokalu+mieszkalnego`,
+      `${ORIGIN}/artykul/aktualne-przetargi`,
+      `${ORIGIN}/artykul/archiwum-przetargow`,
     ],
+    // Flat announcements' slugs all contain "lokal" (e.g.
+    // …-na-sprzedaz-lokalu-mieszkalnego-nr-6-…); land/garage ones don't. This
+    // prunes the per-article fetch list to flats only.
+    linkFilter: /lokal/i,
   },
 };
