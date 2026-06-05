@@ -153,18 +153,20 @@ export async function politeGet(url, opts = {}) {
   throw lastErr;
 }
 
-/** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean }} [opts] */
+/** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean, retries?: number }} [opts] */
 export async function getText(url, opts = {}) {
   if (opts.insecureTLS) {
     const buf = await getBufferInsecure(url, {
       userAgent: opts.userAgent,
       accept: 'text/html,application/xhtml+xml',
+      retries: opts.retries,
     });
     return buf.toString('utf8');
   }
   const res = await politeGet(url, {
     accept: 'text/html,application/xhtml+xml',
     userAgent: opts.userAgent,
+    retries: opts.retries,
   });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
   return res.text();

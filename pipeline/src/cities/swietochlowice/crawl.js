@@ -30,41 +30,60 @@ const ORIGIN = config.bip.origin;
 const LIST = `${ORIGIN}${config.bip.listPath}`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-const FETCH_OPTS = { userAgent: BROWSER_UA };
+// Low retry budget for index pages: when this host is unreachable from a given
+// network (it has timed out from the GitHub Actions runner while loading fine
+// from a browser), we must NOT burn the whole job retrying every page 4×.
+const FETCH_OPTS = { userAgent: BROWSER_UA, retries: 1 };
 
-/** Collect unique flat-auction announcement links across current + archive pages. */
+/** Did a fetch fail because the host is unreachable (vs. a normal 404/empty)? */
+function isConnError(err) {
+  const s = `${err?.message || ''} ${err?.cause?.code || ''} ${err?.cause?.message || ''}`;
+  return /fetch failed|ECONNREFUSED|ETIMEDOUT|CONNECT_TIMEOUT|ENOTFOUND|EAI_AGAIN|socket hang up|network/i.test(s);
+}
+
+/** Collect unique flat-auction announcement links across current + archive pages.
+ *  Fails fast: if the host is unreachable on the current page, skip the city
+ *  entirely (return []) rather than attempting every archive page. refresh.js
+ *  tolerates an empty city, so one unreachable BIP never breaks the pipeline. */
 async function collectAnnouncements() {
-  const pages = [LIST];
-  for (let i = 0; i < config.bip.maxArchivePages; i++) {
-    pages.push(`${LIST}?showArchive=true&start=${i}`);
-  }
-
   const entries = [];
   const seen = new Set();
-  let emptyStreak = 0;
-  for (const url of pages) {
-    let html;
-    try {
-      html = await getText(url, FETCH_OPTS);
-    } catch (err) {
-      console.error(`  swietochlowice index fetch failed (${url}): ${err.message}`);
-      continue;
-    }
-    const flats = parseDocLinks(html, ORIGIN).filter((d) => isFlatAnnouncement(d.title));
+  const take = (html) => {
     let added = 0;
-    for (const d of flats) {
+    for (const d of parseDocLinks(html, ORIGIN).filter((x) => isFlatAnnouncement(x.title))) {
       if (seen.has(d.url)) continue;
       seen.add(d.url);
       entries.push(d);
       added++;
     }
-    // Stop walking the archive once pages stop yielding new flat announcements.
-    if (url.includes('showArchive')) {
-      if (added === 0) {
-        if (++emptyStreak >= 3) break;
-      } else {
-        emptyStreak = 0;
-      }
+    return added;
+  };
+
+  // 1) Current board — if this fails to connect, abort the whole crawl fast.
+  try {
+    take(await getText(LIST, FETCH_OPTS));
+  } catch (err) {
+    console.error(`  swietochlowice: current board fetch failed (${err.message}) — skipping city this run.`);
+    return [];
+  }
+
+  // 2) Archive pages — stop on the first connection failure, or after 3 empty pages.
+  let emptyStreak = 0;
+  for (let i = 0; i < config.bip.maxArchivePages; i++) {
+    const url = `${LIST}?showArchive=true&start=${i}`;
+    let html;
+    try {
+      html = await getText(url, FETCH_OPTS);
+    } catch (err) {
+      console.error(`  swietochlowice: archive page ${i} fetch failed (${err.message}) — stopping archive walk.`);
+      if (isConnError(err)) break; // host went away; don't grind through the rest
+      continue;
+    }
+    const added = take(html);
+    if (added === 0) {
+      if (++emptyStreak >= 3) break;
+    } else {
+      emptyStreak = 0;
     }
   }
   return entries;
