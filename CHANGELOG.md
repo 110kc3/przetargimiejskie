@@ -4,6 +4,20 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.14.0 — 2026-06-05
+
+- Added a ninth city: **Świętochłowice**. Open `przetarg ustny nieograniczony`
+  sales of municipal flats now appear in the popup and archive with a
+  Świętochłowice city tag. Sales are run by the City Hall and published on the
+  city BIP's flats-only board ("Przetargi na lokale mieszkalne",
+  bip.swietochlowice.pl). Each announcement's address and round come from its
+  title; the starting (wywoławcza) price, usable area and auction date are read
+  from the announcement's Word `.doc` attachment (the same catdoc path Bytom and
+  Zabrze use). Active + archive only (the board's "Informacja o wyniku" result
+  notices aren't wired as a sold-price stream yet). Verified live: the
+  announcement/notice filter kept 21 real auctions and dropped 30 notices across
+  the recent archive, all keyed cleanly.
+
 ## v1.13.0 — 2026-06-04
 
 - Added an eighth city: **Mysłowice**. Open `przetarg ustny nieograniczony` sales

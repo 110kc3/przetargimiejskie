@@ -127,6 +127,7 @@
       'city.rybnik': 'Rybnik',
       'city.bielsko': 'Bielsko-Biała',
       'city.myslowice': 'Mysłowice',
+      'city.swietochlowice': 'Świętochłowice',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -253,6 +254,7 @@
       'city.rybnik': 'Rybnik',
       'city.bielsko': 'Bielsko-Biała',
       'city.myslowice': 'Mysłowice',
+      'city.swietochlowice': 'Świętochłowice',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',

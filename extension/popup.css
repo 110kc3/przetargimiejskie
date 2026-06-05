@@ -34,6 +34,9 @@
   --chip-myslowice-bg: #e3f1fb;
   --chip-myslowice-fg: #1f5b86;
   --chip-myslowice-border: #c3def0;
+  --chip-swietochlowice-bg: #eef3da;
+  --chip-swietochlowice-fg: #5c6b1f;
+  --chip-swietochlowice-border: #dde6b8;
 }
 
 /* System-pref dark, *unless* the user has explicitly forced light via the
@@ -75,6 +78,9 @@
     --chip-myslowice-bg: #152d3d;
     --chip-myslowice-fg: #8fc0e8;
     --chip-myslowice-border: #22425a;
+    --chip-swietochlowice-bg: #2b3312;
+    --chip-swietochlowice-fg: #c4d488;
+    --chip-swietochlowice-border: #414a1f;
   }
 }
 
@@ -115,6 +121,9 @@
   --chip-myslowice-bg: #152d3d;
   --chip-myslowice-fg: #8fc0e8;
   --chip-myslowice-border: #22425a;
+  --chip-swietochlowice-bg: #2b3312;
+  --chip-swietochlowice-fg: #c4d488;
+  --chip-swietochlowice-border: #414a1f;
 }
 
 * { box-sizing: border-box; }
@@ -282,6 +291,7 @@ h2 {
 .zgm-city-tag[data-city="rybnik"]   { background: var(--chip-rybnik-bg);    color: var(--chip-rybnik-fg);    border-color: var(--chip-rybnik-border); }
 .zgm-city-tag[data-city="bielsko"]  { background: var(--chip-bielsko-bg);   color: var(--chip-bielsko-fg);   border-color: var(--chip-bielsko-border); }
 .zgm-city-tag[data-city="myslowice"] { background: var(--chip-myslowice-bg); color: var(--chip-myslowice-fg); border-color: var(--chip-myslowice-border); }
+.zgm-city-tag[data-city="swietochlowice"] { background: var(--chip-swietochlowice-bg); color: var(--chip-swietochlowice-fg); border-color: var(--chip-swietochlowice-border); }
 
 /* Stacked dates cell. The label column has to fit the longest Polish label —
  * "OGLĘDZINY" (viewing) at 9 characters — so 72px with box-sizing keeps it

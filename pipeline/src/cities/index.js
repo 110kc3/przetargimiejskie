@@ -10,8 +10,9 @@ import sosnowiec from './sosnowiec/index.js';
 import rybnik from './rybnik/index.js';
 import bielsko from './bielsko/index.js';
 import myslowice from './myslowice/index.js';
+import swietochlowice from './swietochlowice/index.js';
 
-export const cities = [gliwice, katowice, bytom, zabrze, sosnowiec, rybnik, bielsko, myslowice];
+export const cities = [gliwice, katowice, bytom, zabrze, sosnowiec, rybnik, bielsko, myslowice, swietochlowice];
 
 /** @param {string} id @returns {object|null} */
 export function getCity(id) {
