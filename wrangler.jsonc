@@ -1,0 +1,15 @@
+{
+  // Cloudflare Workers "static assets" config for przetargimiejskie.pl.
+  //
+  // The Workers Builds flow runs:  bash build-site.sh   (assembles ./_site)
+  // then:                          npx wrangler deploy   (uploads ./_site)
+  //
+  // This is a static-only project: there is NO "main" Worker script and NO
+  // "binding" — Cloudflare just serves the files in ./_site directly. The build
+  // (build-site.sh) produces _site = site/ + data/ + extension.zip.
+  "name": "przetargimiejskie",
+  "compatibility_date": "2026-06-05",
+  "assets": {
+    "directory": "./_site"
+  }
+}

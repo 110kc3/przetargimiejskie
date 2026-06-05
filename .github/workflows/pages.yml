@@ -1,21 +1,24 @@
-# Deploys przetargimiejskie.pl (GitHub Pages).
+# Deploys przetargimiejskie.pl (GitHub Pages) — DISABLED / FALLBACK ONLY.
+#
+# przetargimiejskie.pl is now served by Cloudflare Pages/Workers (see
+# build-site.sh + wrangler.jsonc). This workflow is kept as a manual fallback in
+# case Cloudflare is unavailable, so the push trigger is removed — it now runs
+# ONLY when started by hand from the Actions tab (workflow_dispatch). To re-enable
+# automatic GitHub Pages deploys, restore the `push:` block below.
+#
+# NOTE: GitHub Pages and Cloudflare cannot both own the przetargimiejskie.pl
+# custom domain at once. If you run this fallback, the domain still points at
+# Cloudflare; this only refreshes the *.github.io copy unless you reattach the
+# domain under repo Settings → Pages.
 #
 # The published site = site/ (landing + web archive) + the data/ JSON the
 # archive reads + a downloadable copy of the extension. The Chrome extension
 # itself keeps living in its own top-level extension/ directory (it is NOT the
 # site root); here we just expose it for download.
-#
-# Runs on push to main when the site, data, or extension change, and on demand.
-name: Deploy site (przetargimiejskie.pl)
+name: Deploy site (przetargimiejskie.pl) [manual fallback]
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'site/**'
-      - 'data/**'
-      - 'extension/**'
-      - '.github/workflows/pages.yml'
+  # Auto-deploy disabled — Cloudflare is the live host now. Run by hand only.
   workflow_dispatch:
 
 permissions:
