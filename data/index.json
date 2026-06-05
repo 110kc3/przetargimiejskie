@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-04T16:10:06.362Z",
+  "generated_at": "2026-06-05T08:10:41.440Z",
   "cities": [
     {
       "id": "gliwice",
@@ -70,6 +70,15 @@
       "label": "Mysłowice",
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
+      "unique_properties": 18,
+      "active_listings": 30,
+      "wykaz_entries": 0
+    },
+    {
+      "id": "swietochlowice",
+      "label": "Świętochłowice",
+      "authority": "Urząd Miejski w Świętochłowicach",
+      "host": "bip.swietochlowice.pl",
       "unique_properties": 0,
       "active_listings": 0,
       "wykaz_entries": 0
