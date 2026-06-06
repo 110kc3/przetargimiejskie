@@ -25,6 +25,14 @@ on:
       - 'extension/**'
       - 'build-site.sh'
       - '.github/workflows/ovh-deploy.yml'
+  # Also deploy after the data-refresh workflow finishes. The refresh job commits
+  # data/ using the default GITHUB_TOKEN, and GitHub deliberately does NOT let a
+  # GITHUB_TOKEN push trigger other workflows (loop-prevention) — so without this
+  # the site would never update after a scheduled crawl. workflow_run fires
+  # regardless of who pushed and checks out the (freshly committed) default branch.
+  workflow_run:
+    workflows: ["Refresh auction data"]
+    types: [completed]
   workflow_dispatch:
 
 concurrency:
