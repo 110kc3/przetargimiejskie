@@ -161,6 +161,21 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
 
   for (const p of props.values()) {
     p.listings.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
+
+    // Derive the auction round from history when the source didn't state it
+    // (e.g. Gliwice publishes "II ustny przetarg" on the page but the data has
+    // no explicit round). Walking the property's attempts oldest-first, each
+    // successive auction is the next round — so a flat with one prior attempt is
+    // round 2 (II przetarg), matching the city's own wording and the extension's
+    // "1 poprzednia próba". Explicit rounds (cities that parse them) are kept and
+    // keep the counter aligned; wykaz pre-announcements aren't attempts.
+    let attempt = 0;
+    for (const l of p.listings) {
+      if (l.outcome === 'announced') continue;
+      attempt++;
+      if (l.round == null) l.round = attempt;
+      else attempt = l.round;
+    }
   }
   const properties = [...props.values()].sort((a, b) => {
     const la = a.listings[a.listings.length - 1]?.date || '0';

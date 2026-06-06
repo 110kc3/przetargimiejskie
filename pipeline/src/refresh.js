@@ -155,6 +155,23 @@ async function refreshCity(city) {
     }
   }
 
+  // Back-fill the history-derived round onto the live `active` listings (which
+  // are written to active.json and power the site's "AKTUALNE AUKCJE" table).
+  // build-properties derived the round from each property's attempt history, but
+  // active.json carries the raw crawl listings — so copy the round across by
+  // property key. This is what makes Gliwice's current listing show "II przetarg"
+  // when it had one prior attempt, instead of a blank round.
+  const activeRoundByKey = new Map();
+  for (const p of properties) {
+    const a = p.listings.find((l) => l.outcome === 'active' && l.round != null);
+    if (a) activeRoundByKey.set(p.key, a.round);
+  }
+  for (const a of active) {
+    if (a.round == null && a.address && activeRoundByKey.has(a.address.key)) {
+      a.round = activeRoundByKey.get(a.address.key);
+    }
+  }
+
   // Count auctions by real status (from each listing's outcome), so the site can
   // show RUNNING auctions separately from concluded/archived ones. `active.length`
   // above is just the raw crawl size and over-counts "current" (it includes
