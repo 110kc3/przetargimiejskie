@@ -10,12 +10,12 @@ Bytom, Zabrze, Sosnowiec, Rybnik.
 ## Store name (≤ 45 characters)
 
 ```
-przetargimiejskie – śląsk
+Przetargi miejskie
 ```
 
 English locale:
 ```
-przetargimiejskie – Silesia property auctions
+Przetargi miejskie – Silesia property auctions
 ```
 
 ---
@@ -45,7 +45,7 @@ Municipal flat-auction history for Silesian cities: past rounds, starting prices
 ### Polish
 
 ```
-przetargimiejskie – śląsk pokazuje historię miejskich przetargów na sprzedaż
+Przetargi miejskie pokazuje historię miejskich przetargów na sprzedaż
 lokali mieszkalnych w miastach Górnego Śląska, bezpośrednio na stronach BIP,
 z których korzystasz.
 
@@ -79,7 +79,7 @@ niezwiązane z żadnym urzędem.
 ### English
 
 ```
-przetargimiejskie – śląsk surfaces the history of municipal flat-sale auctions
+Przetargi miejskie surfaces the history of municipal flat-sale auctions
 across Upper Silesian cities, right on the public BIP pages you already browse.
 
 When you view an auction announcement, the extension adds a compact info chip
