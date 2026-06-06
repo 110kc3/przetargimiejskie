@@ -1,26 +1,19 @@
-# Publishes przetargimiejskie.pl to OVH shared web hosting via FTPS.
+# Publishes przetargimiejskie.pl to OVH shared web hosting via SFTP.
 #
-# The site is fully static, so this just assembles _site (build-site.sh) and
-# uploads it to the hosting's document root. Runs on push to main when the site,
-# data, or extension change — so each pipeline data refresh (refresh.yml commits
-# data/<city>/*.json) automatically republishes the site.
+# The site is fully static (HTML + JSON in /data + extension.zip). This assembles
+# _site (build-site.sh) and mirrors it to the hosting's document root over SFTP
+# (SSH, port 22) — OVH offers both FTP/FTPS (21) and SFTP (22), and SFTP is the
+# reliable one from CI (FTPS times out from GitHub runners due to passive-port
+# firewalling). Runs on push to main when the site/data/extension change, so each
+# pipeline data refresh (refresh.yml commits data/<city>/*.json) republishes.
 #
-# ONE-TIME SETUP — add these repository secrets (Settings → Secrets and variables
-# → Actions → New repository secret):
-#   OVH_FTP_SERVER    e.g. ftp.cluster129.hosting.ovh.net  (or przetaa.cluster129.hosting.ovh.net)
-#   OVH_FTP_USERNAME  the FTP/SSH user from the OVH "FTP - SSH" tab
+# REQUIRED repository secrets (Settings → Secrets and variables → Actions):
+#   OVH_FTP_SERVER    the SFTP host from OVH "FTP - SSH" tab → ftp.cluster129.hosting.ovh.net
+#   OVH_FTP_USERNAME  the SFTP user → przetaa
 #   OVH_FTP_PASSWORD  that user's password
 #
-# AND set the right target folder in `server-dir` below. Check the OVH "Multi-site"
-# tab for the exact directory przetargimiejskie.pl maps to (the "Root" column),
-# and put EXACTLY that folder here, ending with a trailing slash.
-#
-# ⚠️ DESTRUCTIVE-SYNC WARNING: this action mirrors _site/ into server-dir and
-# DELETES remote files there that aren't in the build. You host 3 sites on this
-# plan, so server-dir MUST be przetargimiejskie.pl's OWN folder — NEVER the shared
-# `./www/` root, or it would wipe your other two sites. If the Multi-site tab shows
-# this domain rooted at `www` itself (not a subfolder), set up a dedicated subfolder
-# for it first (Multi-site → modify root to e.g. www/przetargimiejskie.pl).
+# Target: the OVH "Multi-site" tab roots przetargimiejskie.pl (and www.) at the
+# `www` folder under the home dir (/home/przetaa), so we mirror into `www/`.
 name: Deploy site to OVH (przetargimiejskie.pl)
 
 on:
@@ -47,15 +40,22 @@ jobs:
       - name: Assemble site into _site/
         run: bash build-site.sh _site
 
-      - name: Upload to OVH via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.OVH_FTP_SERVER }}
-          username: ${{ secrets.OVH_FTP_USERNAME }}
-          password: ${{ secrets.OVH_FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./_site/
-          # ← MUST be this domain's own folder (see Multi-site tab + warning above).
-          # NEVER ./www/ — that holds your other 2 sites and would be wiped.
-          server-dir: ./www/przetargimiejskie.pl/
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Mirror _site/ to OVH over SFTP
+        env:
+          SFTP_SERVER: ${{ secrets.OVH_FTP_SERVER }}
+          SFTP_USER: ${{ secrets.OVH_FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.OVH_FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          lftp -u "$SFTP_USER" --env-password "sftp://$SFTP_SERVER" <<'LFTP'
+          set sftp:auto-confirm yes
+          set net:timeout 20
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          set mirror:parallel-transfer-count 4
+          mirror --reverse --delete --verbose _site/ www/
+          bye
+          LFTP
