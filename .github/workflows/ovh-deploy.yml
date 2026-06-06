@@ -1,0 +1,61 @@
+# Publishes przetargimiejskie.pl to OVH shared web hosting via FTPS.
+#
+# The site is fully static, so this just assembles _site (build-site.sh) and
+# uploads it to the hosting's document root. Runs on push to main when the site,
+# data, or extension change — so each pipeline data refresh (refresh.yml commits
+# data/<city>/*.json) automatically republishes the site.
+#
+# ONE-TIME SETUP — add these repository secrets (Settings → Secrets and variables
+# → Actions → New repository secret):
+#   OVH_FTP_SERVER    e.g. ftp.cluster129.hosting.ovh.net  (or przetaa.cluster129.hosting.ovh.net)
+#   OVH_FTP_USERNAME  the FTP/SSH user from the OVH "FTP - SSH" tab
+#   OVH_FTP_PASSWORD  that user's password
+#
+# AND set the right target folder in `server-dir` below. Check the OVH "Multi-site"
+# tab for the exact directory przetargimiejskie.pl maps to (the "Root" column),
+# and put EXACTLY that folder here, ending with a trailing slash.
+#
+# ⚠️ DESTRUCTIVE-SYNC WARNING: this action mirrors _site/ into server-dir and
+# DELETES remote files there that aren't in the build. You host 3 sites on this
+# plan, so server-dir MUST be przetargimiejskie.pl's OWN folder — NEVER the shared
+# `./www/` root, or it would wipe your other two sites. If the Multi-site tab shows
+# this domain rooted at `www` itself (not a subfolder), set up a dedicated subfolder
+# for it first (Multi-site → modify root to e.g. www/przetargimiejskie.pl).
+name: Deploy site to OVH (przetargimiejskie.pl)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'data/**'
+      - 'extension/**'
+      - 'build-site.sh'
+      - '.github/workflows/ovh-deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ovh-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble site into _site/
+        run: bash build-site.sh _site
+
+      - name: Upload to OVH via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.OVH_FTP_SERVER }}
+          username: ${{ secrets.OVH_FTP_USERNAME }}
+          password: ${{ secrets.OVH_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./_site/
+          # ← MUST be this domain's own folder (see Multi-site tab + warning above).
+          # NEVER ./www/ — that holds your other 2 sites and would be wiped.
+          server-dir: ./www/przetargimiejskie.pl/
