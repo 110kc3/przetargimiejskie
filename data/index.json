@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-06T11:52:31.560Z",
+  "generated_at": "2026-06-06T12:52:47.704Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,9 +9,9 @@
       "host": "zgm-gliwice.pl",
       "unique_properties": 183,
       "active_listings": 15,
-      "wykaz_entries": 11,
       "active_auctions": 15,
-      "archived_auctions": 232
+      "archived_auctions": 232,
+      "wykaz_entries": 11
     },
     {
       "id": "katowice",
@@ -20,9 +20,9 @@
       "host": "bip.katowice.eu",
       "unique_properties": 129,
       "active_listings": 29,
-      "wykaz_entries": 0,
       "active_auctions": 6,
-      "archived_auctions": 137
+      "archived_auctions": 137,
+      "wykaz_entries": 0
     },
     {
       "id": "bytom",
@@ -31,9 +31,9 @@
       "host": "www.bytom.pl",
       "unique_properties": 16,
       "active_listings": 16,
-      "wykaz_entries": 0,
       "active_auctions": 8,
-      "archived_auctions": 8
+      "archived_auctions": 8,
+      "wykaz_entries": 0
     },
     {
       "id": "zabrze",
@@ -42,9 +42,9 @@
       "host": "bip.miastozabrze.pl",
       "unique_properties": 259,
       "active_listings": 407,
-      "wykaz_entries": 0,
       "active_auctions": 5,
-      "archived_auctions": 402
+      "archived_auctions": 402,
+      "wykaz_entries": 0
     },
     {
       "id": "sosnowiec",
@@ -53,9 +53,9 @@
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 21,
       "active_listings": 35,
-      "wykaz_entries": 0,
       "active_auctions": 4,
-      "archived_auctions": 34
+      "archived_auctions": 34,
+      "wykaz_entries": 0
     },
     {
       "id": "rybnik",
@@ -64,9 +64,9 @@
       "host": "bip.zgm.rybnik.pl",
       "unique_properties": 6,
       "active_listings": 6,
-      "wykaz_entries": 0,
       "active_auctions": 6,
-      "archived_auctions": 0
+      "archived_auctions": 0,
+      "wykaz_entries": 0
     },
     {
       "id": "bielsko",
@@ -75,9 +75,9 @@
       "host": "bielsko-biala.pl",
       "unique_properties": 2,
       "active_listings": 2,
-      "wykaz_entries": 0,
       "active_auctions": 2,
-      "archived_auctions": 0
+      "archived_auctions": 0,
+      "wykaz_entries": 0
     },
     {
       "id": "myslowice",
@@ -86,9 +86,9 @@
       "host": "bip.myslowice.pl",
       "unique_properties": 18,
       "active_listings": 30,
-      "wykaz_entries": 0,
       "active_auctions": 7,
-      "archived_auctions": 23
+      "archived_auctions": 23,
+      "wykaz_entries": 0
     },
     {
       "id": "swietochlowice",
@@ -97,9 +97,9 @@
       "host": "bip.swietochlowice.pl",
       "unique_properties": 0,
       "active_listings": 0,
-      "wykaz_entries": 0,
       "active_auctions": 0,
-      "archived_auctions": 0
+      "archived_auctions": 0,
+      "wykaz_entries": 0
     }
   ]
 }
