@@ -80,6 +80,7 @@
       <div><b id="stat-cities">6</b> miast</div>
       <div><b id="stat-props">—</b> nieruchomości</div>
       <div><b id="stat-active">—</b> aktualnych aukcji</div>
+      <div><b id="stat-archived">—</b> w archiwum</div>
     </div>
   </div>
 
@@ -116,16 +117,31 @@
 </div>
 
 <script>
-  const CHIP = { gliwice:'var(--chip-g)', katowice:'var(--chip-k)', bytom:'var(--chip-b)', zabrze:'var(--chip-z)', sosnowiec:'var(--chip-s)', rybnik:'var(--chip-r)' };
+  const CHIP = {
+    gliwice:'var(--chip-g)', katowice:'var(--chip-k)', bytom:'var(--chip-b)',
+    zabrze:'var(--chip-z)', sosnowiec:'var(--chip-s)', rybnik:'var(--chip-r)',
+    bielsko:'var(--chip-bielsko)', myslowice:'var(--chip-myslowice)',
+    swietochlowice:'var(--chip-swietochlowice)'
+  };
+  // "active" = genuinely running auctions (outcome 'active'); "archived" = concluded.
+  // Older index.json without the split falls back to active_listings / 0.
+  const activeOf = c => (c.active_auctions ?? c.active_listings ?? 0);
+  const archivedOf = c => (c.archived_auctions ?? 0);
   fetch('/data/index.json').then(r=>r.json()).then(idx=>{
     const cities = idx.cities || [];
     document.getElementById('stat-cities').textContent = cities.length;
     const props = cities.reduce((s,c)=>s+(c.unique_properties||0),0);
-    const active = cities.reduce((s,c)=>s+(c.active_listings||0),0);
+    const active = cities.reduce((s,c)=>s+activeOf(c),0);
+    const archived = cities.reduce((s,c)=>s+archivedOf(c),0);
     document.getElementById('stat-props').textContent = props.toLocaleString('pl-PL');
     document.getElementById('stat-active').textContent = active.toLocaleString('pl-PL');
+    document.getElementById('stat-archived').textContent = archived.toLocaleString('pl-PL');
     const box = document.getElementById('cities');
-    box.innerHTML = cities.map(c=>`<span class="city"><span class="dot" style="background:${CHIP[c.id]||'#888'}"></span>${c.label}<span class="cnt">· ${c.unique_properties||0}</span></span>`).join('');
+    box.innerHTML = cities.map(c=>{
+      const a = activeOf(c), arch = archivedOf(c);
+      const cnt = `· ${a} ${a===1?'aukcja':'aktualnych'}` + (arch?` · ${arch} w archiwum`:'');
+      return `<span class="city"><span class="dot" style="background:${CHIP[c.id]||'#888'}"></span>${c.label}<span class="cnt">${cnt}</span></span>`;
+    }).join('');
   }).catch(()=>{});
 </script>
 </body>

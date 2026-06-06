@@ -30,10 +30,14 @@ const ORIGIN = config.bip.origin;
 const LIST = `${ORIGIN}${config.bip.listPath}`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-// Low retry budget for index pages: when this host is unreachable from a given
-// network (it has timed out from the GitHub Actions runner while loading fine
-// from a browser), we must NOT burn the whole job retrying every page 4×.
-const FETCH_OPTS = { userAgent: BROWSER_UA, retries: 1 };
+// This host is flaky — it intermittently returns 502/503 (proxy errors) and can
+// time out, even from a browser. politeGet retries on 5xx + connection errors
+// with exponential backoff, so we give the FIRST (current-board) fetch a healthy
+// retry budget to ride out a transient outage and seed data; archive pages get a
+// smaller budget so a sustained outage still can't drag the job out for long.
+const FETCH_OPTS = { userAgent: BROWSER_UA };
+const RETRIES_BOARD = 4;   // ~1+2+4+8s backoff across attempts
+const RETRIES_ARCHIVE = 2;
 
 /** Did a fetch fail because the host is unreachable (vs. a normal 404/empty)? */
 function isConnError(err) {
@@ -59,9 +63,11 @@ async function collectAnnouncements() {
     return added;
   };
 
-  // 1) Current board — if this fails to connect, abort the whole crawl fast.
+  // 1) Current board — retry hard to ride out a transient 502/503; if it still
+  //    fails, abort the whole crawl fast (skip the city this run; merge keeps
+  //    any previously-seeded archive).
   try {
-    take(await getText(LIST, FETCH_OPTS));
+    take(await getText(LIST, { ...FETCH_OPTS, retries: RETRIES_BOARD }));
   } catch (err) {
     console.error(`  swietochlowice: current board fetch failed (${err.message}) — skipping city this run.`);
     return [];
@@ -73,7 +79,7 @@ async function collectAnnouncements() {
     const url = `${LIST}?showArchive=true&start=${i}`;
     let html;
     try {
-      html = await getText(url, FETCH_OPTS);
+      html = await getText(url, { ...FETCH_OPTS, retries: RETRIES_ARCHIVE });
     } catch (err) {
       console.error(`  swietochlowice: archive page ${i} fetch failed (${err.message}) — stopping archive walk.`);
       if (isConnError(err)) break; // host went away; don't grind through the rest

@@ -108,14 +108,43 @@ async function refreshCity(city) {
   const built = buildCityData({ allRecords, active, wykaz, detailAreas });
   let properties = built.properties;
 
+  // Read the previously-committed data (used by both the history merge and the
+  // preserve-on-empty safety net below).
+  const propPath = join(DATA_DIR, city.id, 'properties.json');
+  const metaPath = join(DATA_DIR, city.id, 'meta.json');
+  let prevProperties = [];
+  if (existsSync(propPath)) {
+    try { prevProperties = JSON.parse(await readFile(propPath, 'utf8'))?.properties || []; }
+    catch { prevProperties = []; }
+  }
+
+  // SAFETY NET — preserve on empty. A crawl that produced absolutely nothing
+  // (no active listings, no result records, no wykaz) almost always means the
+  // source BIP was down (5xx / timeout / proxy error), NOT that every auction
+  // genuinely disappeared. If we have already published data for this city, keep
+  // it: skip the write entirely so the last-good listings (current + archive)
+  // stay live, and reuse the previous meta for the index. The source recovering
+  // on a later run writes correct data again (including dropping ended auctions).
+  // A genuinely-empty city with no prior data still writes normally.
+  const crawlEmpty = active.length === 0 && allRecords.length === 0 && wykaz.length === 0;
+  if (crawlEmpty && prevProperties.length > 0) {
+    console.error(
+      `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data; skipping write.`,
+    );
+    let prevMeta = null;
+    try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
+    return prevMeta
+      ? { ...prevMeta, city: city.id, stale: true }
+      : { schema_version: SCHEMA_VERSION, city: city.id, unique_properties: prevProperties.length,
+          active_listings: 0, active_auctions: 0, archived_auctions: 0, wykaz_entries: 0, stale: true };
+  }
+
   // Accumulate against the previously-committed file so upstream deletions
   // don't erase history. active.json stays a live snapshot (current crawl only).
-  const propPath = join(DATA_DIR, city.id, 'properties.json');
   let retained = { kept_properties: 0, kept_listings: 0 };
-  if (MERGE_HISTORY && existsSync(propPath)) {
+  if (MERGE_HISTORY && prevProperties.length > 0) {
     try {
-      const prev = JSON.parse(await readFile(propPath, 'utf8'))?.properties || [];
-      const merged = mergeProperties(prev, properties);
+      const merged = mergeProperties(prevProperties, properties);
       properties = merged.properties;
       retained = merged.stats;
       console.error(
@@ -123,6 +152,20 @@ async function refreshCity(city) {
       );
     } catch (err) {
       console.error(`  WARN: history merge skipped (${err.message}); writing fresh build.`);
+    }
+  }
+
+  // Count auctions by real status (from each listing's outcome), so the site can
+  // show RUNNING auctions separately from concluded/archived ones. `active.length`
+  // above is just the raw crawl size and over-counts "current" (it includes
+  // past-dated announcements that build-properties reclassifies as `archived`).
+  let activeAuctions = 0;
+  let archivedAuctions = 0;
+  for (const p of properties) {
+    for (const l of p.listings) {
+      if (l.outcome === 'active') activeAuctions++;
+      else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold') archivedAuctions++;
+      // 'announced' (wykaz pre-announcements) counts as neither — it's an intent.
     }
   }
 
@@ -135,7 +178,9 @@ async function refreshCity(city) {
     parsed_records: allRecords.length,
     parser_note_count: parsedNoteCount,
     unique_properties: properties.length,
-    active_listings: active.length,
+    active_listings: active.length,        // raw crawl size (kept for back-compat)
+    active_auctions: activeAuctions,       // genuinely running (outcome 'active')
+    archived_auctions: archivedAuctions,   // concluded (archived/sold/unsold)
     wykaz_entries: wykaz.length,
     retained_properties: retained.kept_properties,
   };
@@ -171,7 +216,22 @@ async function main() {
 
   const metas = [];
   for (const city of cities) {
-    metas.push(await refreshCity(city));
+    // Per-city isolation: one city's crawl crashing (uncaught network/5xx error,
+    // parser throw, …) must never fail the whole pipeline or drop the city from
+    // the site. On failure we log it and reuse the city's last-published meta so
+    // it keeps showing its previously-committed listings; its data files on disk
+    // are left untouched.
+    try {
+      metas.push(await refreshCity(city));
+    } catch (err) {
+      console.error(`\n!!! ${city.id}: refresh FAILED (${err?.message || err}) — keeping last-published data, continuing with other cities.`);
+      try {
+        const prevMeta = JSON.parse(await readFile(join(DATA_DIR, city.id, 'meta.json'), 'utf8'));
+        metas.push({ ...prevMeta, city: city.id, stale: true });
+      } catch {
+        console.error(`    (no previously-published data for ${city.id}; it will be absent this run)`);
+      }
+    }
   }
 
   // Top-level discovery file: which cities exist + their headline counts.
@@ -187,6 +247,8 @@ async function main() {
         host: c.host,
         unique_properties: m?.unique_properties ?? 0,
         active_listings: m?.active_listings ?? 0,
+        active_auctions: m?.active_auctions ?? 0,
+        archived_auctions: m?.archived_auctions ?? 0,
         wykaz_entries: m?.wykaz_entries ?? 0,
       };
     }),
@@ -201,6 +263,9 @@ async function main() {
 }
 
 main().catch((err) => {
+  // Only truly catastrophic, non-city errors reach here (e.g. cannot write
+  // DATA_DIR). Per-city crawl failures are isolated inside main()'s loop and
+  // never bubble up to fail the whole pipeline.
   console.error('FATAL:', err);
   process.exit(1);
 });
