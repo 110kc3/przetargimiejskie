@@ -57,11 +57,30 @@ test('empty previous → fresh passes through', () => {
   assert.equal(stats.kept_properties, 0);
 });
 
-test('fingerprint = date|round|kind: matches across outcome/price changes, splits on round', () => {
-  // same date+round+kind but different outcome/price → SAME fingerprint
+test('fingerprint = date|kind: stable across outcome/price/round changes', () => {
+  // same date+kind but different outcome/price → SAME fingerprint
   assert.equal(listingFingerprint(L('2026-01-01', 'active', { round: 1, price: null })),
                listingFingerprint(L('2026-01-01', 'sold', { round: 1, price: 95000 })));
-  // different round → different fingerprint
-  assert.notEqual(listingFingerprint(L('2026-01-01', 'active', { round: 1 })),
-                  listingFingerprint(L('2026-01-01', 'active', { round: 2 })));
+  // round is NOT part of identity (it's derived) → SAME fingerprint
+  assert.equal(listingFingerprint(L('2026-01-01', 'active', { round: 1 })),
+               listingFingerprint(L('2026-01-01', 'active', { round: 2 })));
+});
+
+test('round derivation does not duplicate: null-round old + derived-round fresh → one row', () => {
+  // Regression: Gliwice historical rows were stored with round=null; once the
+  // pipeline began deriving round, the fresh copy had round=N. With round in the
+  // fingerprint, old (null) and new (N) both survived — doubling every row.
+  const prev = [prop('zwyciestwa|45|7', [
+    L('2025-12-08', 'unsold', { round: null }),
+    L('2026-01-26', 'unsold', { round: null }),
+  ])];
+  const fresh = [prop('zwyciestwa|45|7', [
+    L('2025-12-08', 'unsold', { round: 1 }),
+    L('2026-01-26', 'unsold', { round: 2 }),
+  ])];
+  const { properties } = mergeProperties(prev, fresh);
+  assert.equal(properties[0].listings.length, 2, 'no duplication: 2 distinct dates, not 4');
+  const byDate = Object.fromEntries(properties[0].listings.map((l) => [l.date, l.round]));
+  assert.equal(byDate['2025-12-08'], 1, 'fresh derived round wins');
+  assert.equal(byDate['2026-01-26'], 2);
 });

@@ -15,17 +15,12 @@ set -euo pipefail
 OUT="${1:-_site}"
 rm -rf "$OUT"
 mkdir -p "$OUT"
-OUT_ABS="$(cd "$OUT" && pwd)"   # absolute, so the zip step works for relative or absolute OUT
 
 cp -r site/. "$OUT"/            # landing + /archiwum + /privacy (CNAME copied too; harmless on CF)
 cp -r data "$OUT"/data         # JSON the web archive fetches at /data/<city>/...
 
-# Expose the extension source for download at /extension.zip
-if command -v zip >/dev/null 2>&1; then
-  ( cd extension && zip -qr "$OUT_ABS/extension.zip" . )
-else
-  echo "warn: 'zip' not found — skipping extension.zip (the rest of the site is fine)" >&2
-fi
+# Note: we no longer publish /extension.zip — the site links to the Chrome Web
+# Store listing instead. (The extension/ source still lives in the repo.)
 
 echo "Assembled '$OUT':"
 ls -1 "$OUT"

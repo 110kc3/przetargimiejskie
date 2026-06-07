@@ -12,14 +12,15 @@
 // Merge rules:
 //   - Properties are unioned by `key`. A property present only in the OLD data
 //     (gone upstream) is kept as-is.
-//   - Listings within a property are unioned by a fingerprint
-//     (date | round | kind) — one auction event per property/date/round. When
-//     the SAME event is seen in both, the FRESH copy fully REPLACES the old one
-//     — so corrections propagate (a fixed area/price, an 'active' that became
-//     'sold' on the same date+round) without creating a duplicate. Events only
-//     in the OLD data (gone upstream) are frozen at last-seen. (Price/outcome
-//     are deliberately NOT in the fingerprint, so they can be corrected on
-//     re-crawl rather than spawning a second row.)
+//   - Listings within a property are unioned by a fingerprint (date | kind) —
+//     one auction event per property/date. When the SAME event is seen in both,
+//     the FRESH copy fully REPLACES the old one — so corrections propagate (a
+//     fixed area/price, an 'active' that became 'sold', a now-derived round)
+//     without creating a duplicate. Events only in the OLD data (gone upstream)
+//     are frozen at last-seen. (Price, outcome AND round are deliberately NOT in
+//     the fingerprint: price/outcome get corrected on re-crawl, and `round` is a
+//     value DERIVED from history — including it once caused old null-round rows
+//     and new derived-round rows to both survive, doubling every historical row.)
 //   - Property-level fields prefer the fresh non-null value; a known area is
 //     propagated to any listing missing it.
 //
@@ -27,11 +28,13 @@
 // MERGE_HISTORY=0) to rebuild that city from scratch — useful after a parser
 // fix, so a past bad run doesn't stay frozen in the archive forever.
 
-/** Stable identity for one auction event within a property: date + round +
- * kind. Price/outcome are intentionally excluded so a re-crawl can correct
- * them in place instead of producing a duplicate row. */
+/** Stable identity for one auction event within a property: date + kind.
+ * Price, outcome AND round are intentionally excluded so a re-crawl corrects
+ * them in place instead of producing a duplicate row. `round` in particular is
+ * a DERIVED value (attempt number from history) — including it doubled every
+ * historical row once derivation started filling previously-null rounds. */
 export function listingFingerprint(l) {
-  return [l.date || '', l.round ?? '', l.kind || ''].join('|');
+  return [l.date || '', l.kind || ''].join('|');
 }
 
 /**
@@ -89,3 +92,4 @@ export function mergeProperties(previous, fresh) {
 
   return { properties, stats: { kept_properties: keptProperties, kept_listings: keptListings } };
 }
+// (listing identity = date|kind; round excluded — it's derived, see header.)
