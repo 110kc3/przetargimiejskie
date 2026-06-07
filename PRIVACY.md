@@ -63,7 +63,11 @@ If material aspects of the extension change — for example, if a new feature re
 
 ## Contact
 
-For questions, complaints, or removal requests, open an issue at the public repository:
+For questions, complaints, removal requests, or partnership/business enquiries, email:
+
+kontakt@przetargimiejskie.pl
+
+Or open an issue at the public repository:
 
 https://github.com/110kc3/przetargimiejskie/issues
 

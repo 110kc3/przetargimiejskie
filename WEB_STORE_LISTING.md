@@ -135,6 +135,12 @@ https://przetargimiejskie.pl/privacy
 https://przetargimiejskie.pl
 ```
 
+## Support / contact email
+
+```
+kontakt@przetargimiejskie.pl
+```
+
 ## Screenshots
 
 See `screenshots/chrome-store/` — 1280×800 PNGs:
