@@ -23,8 +23,32 @@
           "area_m2": 68.14
         },
         {
+          "date": "2025-12-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/01.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 68.14
+        },
+        {
           "date": "2026-03-16",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280560,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/16.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 68.14
+        },
+        {
+          "date": "2026-03-16",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 280560,
           "outcome": "unsold",
@@ -47,8 +71,31 @@
           "area_m2": 68.14
         },
         {
+          "date": "2026-05-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245490,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 68.14
+        },
+        {
           "date": "2026-07-06",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245490,
+          "outcome": "active",
+          "area_m2": 68.14,
+          "detail_url": "https://zgm-gliwice.pl/rybnicka-25-19-01-12-2025-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-26"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 245490,
           "outcome": "active",
@@ -81,8 +128,31 @@
           "area_m2": 47.5
         },
         {
+          "date": "2026-05-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 264000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 47.5
+        },
+        {
           "date": "2026-07-06",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 264000,
+          "outcome": "active",
+          "area_m2": 47.5,
+          "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-25"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 264000,
           "outcome": "active",
@@ -115,8 +185,31 @@
           "area_m2": 49
         },
         {
+          "date": "2026-05-04",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 146500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 49
+        },
+        {
           "date": "2026-07-06",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 131850,
+          "outcome": "active",
+          "area_m2": 49,
+          "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-24"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 131850,
           "outcome": "active",
@@ -149,8 +242,31 @@
           "area_m2": 71.07
         },
         {
+          "date": "2026-03-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 452000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 71.07
+        },
+        {
           "date": "2026-07-06",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 361600,
+          "outcome": "active",
+          "area_m2": 71.07,
+          "detail_url": "https://zgm-gliwice.pl/zwyciestwa-11-6c-30-03-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-23"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 361600,
           "outcome": "active",
@@ -183,6 +299,18 @@
           "area_m2": 45.29
         },
         {
+          "date": "2025-12-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 314300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/01.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 45.29
+        },
+        {
           "date": "2026-03-16",
           "round": null,
           "kind": "mieszkalny",
@@ -195,8 +323,31 @@
           "area_m2": 45.29
         },
         {
+          "date": "2026-03-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 251440,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/16.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 45.29
+        },
+        {
           "date": "2026-07-06",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 251440,
+          "outcome": "active",
+          "area_m2": 45.29,
+          "detail_url": "https://zgm-gliwice.pl/rybitwy-13-17-01-12-2025-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-26"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 251440,
           "outcome": "active",
@@ -219,6 +370,17 @@
         {
           "date": "2026-07-06",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 214080,
+          "outcome": "active",
+          "area_m2": 51.59,
+          "detail_url": "https://zgm-gliwice.pl/daszynskiego-65-10-30-03-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-23"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 214080,
           "outcome": "active",
@@ -251,6 +413,18 @@
           "area_m2": 25.27
         },
         {
+          "date": "2026-03-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99200,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/09.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 25.27
+        },
+        {
           "date": "2026-04-27",
           "round": null,
           "kind": "mieszkalny",
@@ -263,8 +437,31 @@
           "area_m2": 25.27
         },
         {
+          "date": "2026-04-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99200,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_withdrew",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/27.04.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 25.27
+        },
+        {
           "date": "2026-06-29",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99200,
+          "outcome": "active",
+          "area_m2": 25.27,
+          "detail_url": "https://zgm-gliwice.pl/krolewskiej-tamy-55-2-09-03-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-17"
+        },
+        {
+          "date": "2026-06-29",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 99200,
           "outcome": "active",
@@ -297,6 +494,18 @@
           "area_m2": 26.89
         },
         {
+          "date": "2026-03-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105400,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/09.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 26.89
+        },
+        {
           "date": "2026-04-27",
           "round": null,
           "kind": "mieszkalny",
@@ -309,8 +518,31 @@
           "area_m2": 26.89
         },
         {
+          "date": "2026-04-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105400,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/27.04.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 26.89
+        },
+        {
           "date": "2026-06-29",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105400,
+          "outcome": "active",
+          "area_m2": 26.89,
+          "detail_url": "https://zgm-gliwice.pl/krolewskiej-tamy-5-2-09-03-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-17"
+        },
+        {
+          "date": "2026-06-29",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 105400,
           "outcome": "active",
@@ -343,8 +575,32 @@
           "area_m2": 64.78
         },
         {
+          "date": "2025-12-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 296100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/08.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.78
+        },
+        {
           "date": "2026-01-26",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 266490,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/02/26.01.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.78
+        },
+        {
+          "date": "2026-01-26",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 266490,
           "outcome": "unsold",
@@ -367,6 +623,18 @@
           "area_m2": 64.78
         },
         {
+          "date": "2026-03-09",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 236880,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/09.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.78
+        },
+        {
           "date": "2026-04-27",
           "round": null,
           "kind": "uzytkowy",
@@ -379,8 +647,31 @@
           "area_m2": 64.78
         },
         {
+          "date": "2026-04-27",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 207270,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/27.04.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.78
+        },
+        {
           "date": "2026-06-29",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 177660,
+          "outcome": "active",
+          "area_m2": 64.78,
+          "detail_url": "https://zgm-gliwice.pl/zwyciestwa-45-7-08-12-2025-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-15"
+        },
+        {
+          "date": "2026-06-29",
+          "round": 5,
           "kind": "uzytkowy",
           "starting_price_pln": 177660,
           "outcome": "active",
@@ -413,6 +704,18 @@
           "area_m2": 38.09
         },
         {
+          "date": "2026-03-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 176850,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/16.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 38.09
+        },
+        {
           "date": "2026-04-27",
           "round": null,
           "kind": "mieszkalny",
@@ -425,8 +728,31 @@
           "area_m2": 38.09
         },
         {
+          "date": "2026-04-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 157200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/27.04.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 38.09
+        },
+        {
           "date": "2026-06-29",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 137550,
+          "outcome": "active",
+          "area_m2": 38.09,
+          "detail_url": "https://zgm-gliwice.pl/poniatowskiego-1-13-19-01-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-18"
+        },
+        {
+          "date": "2026-06-29",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 137550,
           "outcome": "active",
@@ -459,6 +785,18 @@
           "area_m2": 52.45
         },
         {
+          "date": "2026-03-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 255600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/16.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 52.45
+        },
+        {
           "date": "2026-04-27",
           "round": null,
           "kind": "mieszkalny",
@@ -471,8 +809,31 @@
           "area_m2": 52.45
         },
         {
+          "date": "2026-04-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 227200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/27.04.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 52.45
+        },
+        {
           "date": "2026-06-29",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198800,
+          "outcome": "active",
+          "area_m2": 52.45,
+          "detail_url": "https://zgm-gliwice.pl/plebiscytowa-4-9-19-01-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-16"
+        },
+        {
+          "date": "2026-06-29",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 198800,
           "outcome": "active",
@@ -495,6 +856,17 @@
         {
           "date": "2026-06-29",
           "round": null,
+          "kind": "garaz",
+          "starting_price_pln": 44820,
+          "outcome": "active",
+          "area_m2": 16.92,
+          "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-16"
+        },
+        {
+          "date": "2026-06-29",
+          "round": 1,
           "kind": "garaz",
           "starting_price_pln": 44820,
           "outcome": "active",
@@ -527,8 +899,31 @@
           "area_m2": 86.79
         },
         {
+          "date": "2026-03-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 512700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 86.79
+        },
+        {
           "date": "2026-06-22",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 461430,
+          "outcome": "active",
+          "area_m2": 86.79,
+          "detail_url": "https://zgm-gliwice.pl/zygmunta-starego-29-4-23-03-2026-r/",
+          "wadium_deadline": "2026-06-16",
+          "viewing_date": "2026-05-06"
+        },
+        {
+          "date": "2026-06-22",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 461430,
           "outcome": "active",
@@ -561,8 +956,31 @@
           "area_m2": 81.81
         },
         {
+          "date": "2026-03-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 484200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 81.81
+        },
+        {
           "date": "2026-06-22",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 435780,
+          "outcome": "active",
+          "area_m2": 81.81,
+          "detail_url": "https://zgm-gliwice.pl/czarnieckiego-25-1-23-03-2026-r/",
+          "wadium_deadline": "2026-06-16",
+          "viewing_date": "2026-05-07"
+        },
+        {
+          "date": "2026-06-22",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 435780,
           "outcome": "active",
@@ -585,6 +1003,17 @@
         {
           "date": "2026-06-22",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 796320,
+          "outcome": "active",
+          "area_m2": 134.17,
+          "detail_url": "https://zgm-gliwice.pl/przyjazni-9-5-30-03-2026-r/",
+          "wadium_deadline": "2026-06-16",
+          "viewing_date": "2026-05-08"
+        },
+        {
+          "date": "2026-06-22",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 796320,
           "outcome": "active",
@@ -617,6 +1046,18 @@
           "area_m2": 43.44
         },
         {
+          "date": "2025-12-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245400,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/08.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 43.44
+        },
+        {
           "date": "2026-01-26",
           "round": null,
           "kind": "mieszkalny",
@@ -629,8 +1070,32 @@
           "area_m2": 43.44
         },
         {
+          "date": "2026-01-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220860,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/02/26.01.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 43.44
+        },
+        {
           "date": "2026-03-09",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 196320,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/09.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 43.44
+        },
+        {
+          "date": "2026-03-09",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 196320,
           "outcome": "unsold",
@@ -722,6 +1187,18 @@
           "area_m2": 16.48
         },
         {
+          "date": "2026-03-16",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 78480,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/16.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 16.48
+        },
+        {
           "date": "2026-04-27",
           "round": 3,
           "kind": "uzytkowy",
@@ -780,6 +1257,18 @@
           "area_m2": 36.88
         },
         {
+          "date": "2026-02-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175040,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/23.02.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 36.88
+        },
+        {
           "date": "2026-04-20",
           "round": 4,
           "kind": "mieszkalny",
@@ -815,8 +1304,32 @@
           "area_m2": 36.1
         },
         {
+          "date": "2026-01-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/01/12.01.2026-wyniki.pdf",
+          "notes": [],
+          "area_m2": 36.1
+        },
+        {
           "date": "2026-02-23",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 216810,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/23.02.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 36.1
+        },
+        {
+          "date": "2026-02-23",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 216810,
           "outcome": "unsold",
@@ -907,6 +1420,17 @@
           "notes": []
         },
         {
+          "date": "2024-04-15",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 41400,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/15.04.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
           "date": "2024-10-14",
           "round": null,
           "kind": "garaz",
@@ -918,8 +1442,30 @@
           "notes": []
         },
         {
+          "date": "2024-10-14",
+          "round": 2,
+          "kind": "garaz",
+          "starting_price_pln": 29000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/14.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
           "date": "2026-04-20",
           "round": null,
+          "kind": "garaz",
+          "starting_price_pln": 49800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/20.04.2026-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
+          "date": "2026-04-20",
+          "round": 3,
           "kind": "garaz",
           "starting_price_pln": 49800,
           "outcome": "unsold",
@@ -972,6 +1518,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 82.71
+        },
+        {
+          "date": "2026-03-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 426780,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 82.71
         }
       ],
       "area_m2": 82.71
@@ -987,6 +1545,18 @@
         {
           "date": "2026-03-30",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 334100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 47.67
+        },
+        {
+          "date": "2026-03-30",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 334100,
           "outcome": "unsold",
@@ -1018,6 +1588,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 51.59
+        },
+        {
+          "date": "2026-03-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 267600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 51.59
         }
       ],
       "area_m2": 51.59
@@ -1033,6 +1615,18 @@
         {
           "date": "2026-03-23",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 969800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 155.07
+        },
+        {
+          "date": "2026-03-23",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 969800,
           "outcome": "unsold",
@@ -1079,6 +1673,18 @@
         {
           "date": "2026-03-16",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 315200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/16.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 73.95
+        },
+        {
+          "date": "2026-03-16",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 315200,
           "outcome": "unsold",
@@ -1135,6 +1741,18 @@
           "area_m2": 64.12
         },
         {
+          "date": "2025-12-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 412400,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/08.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.12
+        },
+        {
           "date": "2026-01-26",
           "round": null,
           "kind": "mieszkalny",
@@ -1147,8 +1765,32 @@
           "area_m2": 64.12
         },
         {
+          "date": "2026-01-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 371160,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/02/26.01.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.12
+        },
+        {
           "date": "2026-03-09",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 329920,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/09.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.12
+        },
+        {
+          "date": "2026-03-09",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 329920,
           "outcome": "unsold",
@@ -1182,8 +1824,32 @@
           "area_m2": 47.55
         },
         {
+          "date": "2026-01-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 281800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/02/26.01.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 47.55
+        },
+        {
           "date": "2026-03-09",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 253620,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/09.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 47.55
+        },
+        {
+          "date": "2026-03-09",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 253620,
           "outcome": "unsold",
@@ -1238,8 +1904,32 @@
           "area_m2": 42.37
         },
         {
+          "date": "2026-01-12",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 133200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/01/12.01.2026-wyniki.pdf",
+          "notes": [],
+          "area_m2": 42.37
+        },
+        {
           "date": "2026-02-23",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 119880,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/03/23.02.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 42.37
+        },
+        {
+          "date": "2026-02-23",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 119880,
           "outcome": "unsold",
@@ -1273,8 +1963,32 @@
           "area_m2": 50.96
         },
         {
+          "date": "2025-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 263100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/22.092025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 50.96
+        },
+        {
           "date": "2025-12-15",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210480,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/15.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 50.96
+        },
+        {
+          "date": "2025-12-15",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 210480,
           "outcome": "unsold",
@@ -1333,6 +2047,18 @@
         {
           "date": "2025-12-15",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 258660,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/15.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 46.78
+        },
+        {
+          "date": "2025-12-15",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 258660,
           "outcome": "unsold",
@@ -1466,6 +2192,18 @@
           "area_m2": 50.02
         },
         {
+          "date": "2025-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 297800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/11/17.11.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 50.02
+        },
+        {
           "date": "2026-01-12",
           "round": 2,
           "kind": "mieszkalny",
@@ -1546,8 +2284,30 @@
           "notes": []
         },
         {
+          "date": "2025-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 177500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/11/17.11.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
           "date": "2026-01-12",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 159750,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/01/12.01.2026-wyniki.pdf",
+          "notes": []
+        },
+        {
+          "date": "2026-01-12",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 159750,
           "outcome": "unsold",
@@ -1569,6 +2329,18 @@
         {
           "date": "2025-09-22",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 309500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/22.092025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 45.21
+        },
+        {
+          "date": "2025-09-22",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 309500,
           "outcome": "unsold",
@@ -1635,8 +2407,32 @@
           "area_m2": 65.21
         },
         {
+          "date": "2025-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 377000,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/22.092025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 65.21
+        },
+        {
           "date": "2025-12-15",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 339300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/15.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 65.21
+        },
+        {
+          "date": "2025-12-15",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 339300,
           "outcome": "unsold",
@@ -1739,8 +2535,32 @@
           "area_m2": 37.6
         },
         {
+          "date": "2025-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/10/13.10.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 37.6
+        },
+        {
           "date": "2025-12-01",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 225810,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/01.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 37.6
+        },
+        {
+          "date": "2025-12-01",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 225810,
           "outcome": "unsold",
@@ -1774,8 +2594,32 @@
           "area_m2": 46.91
         },
         {
+          "date": "2025-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 276210,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_withdrew",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/10/13.10.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 46.91
+        },
+        {
           "date": "2025-12-01",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 276210,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/12/01.12.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 46.91
+        },
+        {
+          "date": "2025-12-01",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 276210,
           "outcome": "unsold",
@@ -1918,6 +2762,18 @@
           "area_m2": 112.21
         },
         {
+          "date": "2025-05-12",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 103200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/05/12.05.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 112.21
+        },
+        {
           "date": "2025-09-29",
           "round": 4,
           "kind": "uzytkowy",
@@ -1976,6 +2832,18 @@
           "area_m2": 64.56
         },
         {
+          "date": "2025-03-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 294100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/04/31.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.56
+        },
+        {
           "date": "2025-05-12",
           "round": null,
           "kind": "mieszkalny",
@@ -1988,8 +2856,32 @@
           "area_m2": 64.56
         },
         {
+          "date": "2025-05-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 261400,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/05/12.05.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.56
+        },
+        {
           "date": "2025-09-29",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 228700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/10/29.09.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.56
+        },
+        {
+          "date": "2025-09-29",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 228700,
           "outcome": "unsold",
@@ -2023,8 +2915,32 @@
           "area_m2": 36.71
         },
         {
+          "date": "2025-02-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 194600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/02/17.02.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 36.71
+        },
+        {
           "date": "2025-03-31",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175200,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/04/31.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 36.71
+        },
+        {
+          "date": "2025-03-31",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 175200,
           "outcome": "unsold",
@@ -2047,8 +2963,32 @@
           "area_m2": 36.71
         },
         {
+          "date": "2025-05-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/05/12.05.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 36.71
+        },
+        {
           "date": "2025-09-29",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/10/29.09.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 36.71
+        },
+        {
+          "date": "2025-09-29",
+          "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 155700,
           "outcome": "unsold",
@@ -2128,8 +3068,32 @@
           "area_m2": 80.29
         },
         {
+          "date": "2025-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 358100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/06/16.06.2025-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 80.29
+        },
+        {
           "date": "2025-08-04",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 318300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/08/04.08.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 80.29
+        },
+        {
+          "date": "2025-08-04",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 318300,
           "outcome": "unsold",
@@ -2175,8 +3139,32 @@
           "area_m2": 40.51
         },
         {
+          "date": "2025-08-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/08/04.08.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 40.51
+        },
+        {
           "date": "2025-09-22",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 207000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/22.092025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 40.51
+        },
+        {
+          "date": "2025-09-22",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 207000,
           "outcome": "unsold",
@@ -2275,6 +3263,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/08.09.2025-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 38.25
+        },
+        {
+          "date": "2025-09-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 217100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/09/08.09.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 38.25
         }
       ],
       "area_m2": 38.25
@@ -2290,6 +3290,18 @@
         {
           "date": "2025-06-16",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 301600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/06/16.06.2025-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 72.11
+        },
+        {
+          "date": "2025-06-16",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 301600,
           "outcome": "unsold",
@@ -2357,8 +3369,30 @@
           "notes": []
         },
         {
+          "date": "2025-06-16",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 42800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/06/16.06.2025-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
           "date": "2025-08-04",
           "round": null,
+          "kind": "garaz",
+          "starting_price_pln": 38000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/08/04.08.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
+          "date": "2025-08-04",
+          "round": 2,
           "kind": "garaz",
           "starting_price_pln": 38000,
           "outcome": "unsold",
@@ -2380,6 +3414,19 @@
         {
           "date": "2025-08-04",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 82600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/08/04.08.2025-r.-wyniki-przetargow.pdf",
+          "notes": [
+            "OCR-quirk: apt '1I' interpreted as '1'"
+          ]
+        },
+        {
+          "date": "2025-08-04",
+          "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 82600,
           "outcome": "unsold",
@@ -2413,8 +3460,32 @@
           "area_m2": 43.21
         },
         {
+          "date": "2025-03-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 202600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/04/31.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 43.21
+        },
+        {
           "date": "2025-05-12",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 202600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/05/12.05.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 43.21
+        },
+        {
+          "date": "2025-05-12",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 202600,
           "outcome": "unsold",
@@ -2457,6 +3528,17 @@
           "final_price_pln": null,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/07/23.06.2025-r.-wyniki-przetargow.pdf",
           "notes": []
+        },
+        {
+          "date": "2025-06-23",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 92900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/07/23.06.2025-r.-wyniki-przetargow.pdf",
+          "notes": []
         }
       ]
     },
@@ -2481,8 +3563,32 @@
           "area_m2": 41.61
         },
         {
+          "date": "2025-01-27",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 143600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/01/27.01.2025-r.-wyniki.pdf",
+          "notes": [],
+          "area_m2": 41.61
+        },
+        {
           "date": "2025-06-23",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/07/23.06.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 41.61
+        },
+        {
+          "date": "2025-06-23",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 100600,
           "outcome": "unsold",
@@ -2608,6 +3714,18 @@
           "area_m2": 41.33
         },
         {
+          "date": "2025-02-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 221700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/02/17.02.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 41.33
+        },
+        {
           "date": "2025-03-31",
           "round": null,
           "kind": "mieszkalny",
@@ -2620,8 +3738,32 @@
           "area_m2": 41.33
         },
         {
+          "date": "2025-03-31",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 199600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/04/31.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 41.33
+        },
+        {
           "date": "2025-05-12",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 199600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/05/12.05.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 41.33
+        },
+        {
+          "date": "2025-05-12",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 199600,
           "outcome": "unsold",
@@ -2677,6 +3819,17 @@
           "notes": []
         },
         {
+          "date": "2025-01-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 225500,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_withdrew",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/01/20.01.2025-r.-wyniki.pdf",
+          "notes": []
+        },
+        {
           "date": "2025-03-03",
           "round": 2,
           "kind": "mieszkalny",
@@ -2723,6 +3876,18 @@
         {
           "date": "2025-01-20",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145100,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_withdrew",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/01/20.01.2025-r.-wyniki.pdf",
+          "notes": [],
+          "area_m2": 34.91
+        },
+        {
+          "date": "2025-01-20",
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 145100,
           "outcome": "unsold",
@@ -2789,6 +3954,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/03/03.03.2025-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 64.19
+        },
+        {
+          "date": "2025-03-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 341100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/03/03.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 64.19
         }
       ],
       "area_m2": 64.19
@@ -2814,8 +3991,32 @@
           "area_m2": 42.78
         },
         {
+          "date": "2025-01-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/01/20.01.2025-r.-wyniki.pdf",
+          "notes": [],
+          "area_m2": 42.78
+        },
+        {
           "date": "2025-03-03",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2025/03/03.03.2025-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 42.78
+        },
+        {
+          "date": "2025-03-03",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 180000,
           "outcome": "unsold",
@@ -3119,8 +4320,32 @@
           "area_m2": 237.46
         },
         {
+          "date": "2024-09-30",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 616000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/30.09.2024-r.-wyniki-przetargu.pdf",
+          "notes": [],
+          "area_m2": 237.46
+        },
+        {
           "date": "2024-12-09",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 554400,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/12/09.12.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 237.46
+        },
+        {
+          "date": "2024-12-09",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 554400,
           "outcome": "unsold",
@@ -3154,8 +4379,32 @@
           "area_m2": 63.79
         },
         {
+          "date": "2024-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 337700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/11/28.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 63.79
+        },
+        {
           "date": "2024-12-09",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 304000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/12/09.12.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 63.79
+        },
+        {
+          "date": "2024-12-09",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 304000,
           "outcome": "unsold",
@@ -3302,6 +4551,18 @@
           "area_m2": 79.09
         },
         {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 404300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 79.09
+        },
+        {
           "date": "2024-10-14",
           "round": 2,
           "kind": "mieszkalny",
@@ -3327,6 +4588,18 @@
         {
           "date": "2024-05-13",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 471100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/05/13.05.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 177.53
+        },
+        {
+          "date": "2024-05-13",
+          "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 471100,
           "outcome": "unsold",
@@ -3372,6 +4645,18 @@
           "area_m2": 52.2
         },
         {
+          "date": "2024-04-15",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 140300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/15.04.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 52.2
+        },
+        {
           "date": "2024-08-26",
           "round": null,
           "kind": "uzytkowy",
@@ -3384,8 +4669,32 @@
           "area_m2": 52.2
         },
         {
+          "date": "2024-08-26",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 112300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/26.08.24-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 52.2
+        },
+        {
           "date": "2024-10-14",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 98300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/14.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 52.2
+        },
+        {
+          "date": "2024-10-14",
+          "round": 3,
           "kind": "uzytkowy",
           "starting_price_pln": 98300,
           "outcome": "unsold",
@@ -3419,8 +4728,32 @@
           "area_m2": 81.03
         },
         {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 331200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 81.03
+        },
+        {
           "date": "2024-10-14",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 298100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/14.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 81.03
+        },
+        {
+          "date": "2024-10-14",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 298100,
           "outcome": "unsold",
@@ -3454,8 +4787,32 @@
           "area_m2": 42.79
         },
         {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 102800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 42.79
+        },
+        {
           "date": "2024-10-14",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 92600,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/14.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 42.79
+        },
+        {
+          "date": "2024-10-14",
+          "round": 2,
           "kind": "uzytkowy",
           "starting_price_pln": 92600,
           "outcome": "unsold",
@@ -3488,8 +4845,30 @@
           "notes": []
         },
         {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 177200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
           "date": "2024-10-14",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 159500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/10/14.10.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
+          "date": "2024-10-14",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 159500,
           "outcome": "unsold",
@@ -3680,6 +5059,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/16.09.2024-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 58.08
+        },
+        {
+          "date": "2024-09-16",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 163000,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/16.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 58.08
         }
       ],
       "area_m2": 58.08
@@ -3726,6 +5117,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 39.63
+        },
+        {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200900,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/02.09.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 39.63
         }
       ],
       "area_m2": 39.63
@@ -3764,6 +5167,18 @@
         {
           "date": "2024-04-15",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 262900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/15.04.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 59.64
+        },
+        {
+          "date": "2024-04-15",
+          "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 262900,
           "outcome": "unsold",
@@ -3830,6 +5245,18 @@
           "area_m2": 59.45
         },
         {
+          "date": "2024-05-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 275800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/05/13.05.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 59.45
+        },
+        {
           "date": "2024-08-26",
           "round": 3,
           "kind": "mieszkalny",
@@ -3878,6 +5305,18 @@
         {
           "date": "2024-08-26",
           "round": null,
+          "kind": "garaz",
+          "starting_price_pln": 33200,
+          "outcome": "unsold",
+          "unsold_reason": "bidder_noshow",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/09/26.08.24-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 29.19
+        },
+        {
+          "date": "2024-08-26",
+          "round": 1,
           "kind": "garaz",
           "starting_price_pln": 33200,
           "outcome": "unsold",
@@ -3999,6 +5438,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/05/13.05.2024-r.-wyniki-przetargow.pdf",
           "notes": [],
           "area_m2": 46.59
+        },
+        {
+          "date": "2024-05-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 201800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/05/13.05.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 46.59
         }
       ],
       "area_m2": 46.59
@@ -4070,6 +5521,18 @@
           "area_m2": 34.14
         },
         {
+          "date": "2024-02-26",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 123300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/26.02.24-r.-wyniki.pdf",
+          "notes": [],
+          "area_m2": 34.14
+        },
+        {
           "date": "2024-04-15",
           "round": 2,
           "kind": "uzytkowy",
@@ -4118,6 +5581,18 @@
         {
           "date": "2024-04-15",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 125500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/15.04.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 58.52
+        },
+        {
+          "date": "2024-04-15",
+          "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 125500,
           "outcome": "unsold",
@@ -4335,6 +5810,20 @@
             "OCR-quirk: apt 'TII' interpreted as 'III'"
           ],
           "area_m2": 348.03
+        },
+        {
+          "date": "2024-04-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 668700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/08.04.24-wyniki.pdf",
+          "notes": [
+            "OCR-quirk: apt 'TII' interpreted as 'III'"
+          ],
+          "area_m2": 348.03
         }
       ],
       "area_m2": 348.03
@@ -4350,6 +5839,18 @@
         {
           "date": "2024-04-08",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 107500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/04/08.04.24-wyniki.pdf",
+          "notes": [],
+          "area_m2": 27.97
+        },
+        {
+          "date": "2024-04-08",
+          "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 107500,
           "outcome": "unsold",
@@ -4449,6 +5950,17 @@
           "final_price_pln": null,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/11.03.2024-r.-wyniki-przetargow.pdf",
           "notes": []
+        },
+        {
+          "date": "2024-03-11",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 175200,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/11.03.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
         }
       ]
     },
@@ -4463,6 +5975,28 @@
         {
           "date": "2024-03-11",
           "round": null,
+          "kind": "mieszkalny",
+          "starting_price_pln": 112600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/11.03.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
+          "date": "2024-03-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 109700,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/11.03.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
+        },
+        {
+          "date": "2024-03-11",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 112600,
           "outcome": "unsold",
@@ -4607,6 +6141,18 @@
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/26.02.24-r.-wyniki.pdf",
           "notes": [],
           "area_m2": 74.52
+        },
+        {
+          "date": "2024-02-26",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 319800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/03/26.02.24-r.-wyniki.pdf",
+          "notes": [],
+          "area_m2": 74.52
         }
       ],
       "area_m2": 74.52
@@ -4721,6 +6267,17 @@
           "final_price_pln": null,
           "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
           "notes": []
+        },
+        {
+          "date": "2024-02-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 180100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
+          "notes": []
         }
       ]
     },
@@ -4781,6 +6338,19 @@
         {
           "date": "2024-02-12",
           "round": null,
+          "kind": "uzytkowy",
+          "starting_price_pln": 224900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/12.02.2024-r.-wyniki-przetargow.pdf",
+          "notes": [
+            "OCR-quirk: apt '1I' interpreted as '1'"
+          ]
+        },
+        {
+          "date": "2024-02-12",
+          "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 224900,
           "outcome": "unsold",
