@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "city": "bytom",
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Dworcowa 5/18",
+      "address": {
+        "street": "Dworcowa",
+        "street_norm": "dworcowa",
+        "building": "5",
+        "apt": "18",
+        "key": "dworcowa|5|18",
+        "warning": null
+      },
+      "auction_date": "2026-06-29",
+      "published_date": "2026-05-29",
+      "round": 3,
+      "area_m2": 79.5,
+      "starting_price_pln": 82500,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Dworcowa-518/idn:13422",
+      "doc_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Dworcowa-5-18-niemieszk.-ustny-III,7869.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "pl. Michała Wolskiego 6/9",
+      "address": {
+        "street": "Michała Wolskiego",
+        "street_norm": "michala wolskiego",
+        "building": "6",
+        "apt": "9",
+        "key": "michala wolskiego|6|9",
+        "warning": null
+      },
+      "auction_date": "2026-06-22",
+      "published_date": "2026-05-22",
+      "round": 1,
+      "area_m2": 88.43,
+      "starting_price_pln": 170000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/pl.-Michala-Wolskiego-69/idn:13379",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_9,23775.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Katowicka 44/8",
+      "address": {
+        "street": "Katowicka",
+        "street_norm": "katowicka",
+        "building": "44",
+        "apt": "8",
+        "key": "katowicka|44|8",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "published_date": "2026-05-13",
+      "round": 3,
+      "area_m2": 53.77,
+      "starting_price_pln": 85000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Katowicka-448/idn:13327",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Katowicka-44-8,23643.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Chorzowska 20/13",
+      "address": {
+        "street": "Chorzowska",
+        "street_norm": "chorzowska",
+        "building": "20",
+        "apt": "13",
+        "key": "chorzowska|20|13",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "published_date": "2026-05-13",
+      "round": 1,
+      "area_m2": 52.4,
+      "starting_price_pln": 200000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Chorzowska-2013/idn:13326",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Chorzowska-20_13,23641.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "pl. Akademicki 11/12",
+      "address": {
+        "street": "Akademicki",
+        "street_norm": "akademicki",
+        "building": "11",
+        "apt": "12",
+        "key": "akademicki|11|12",
+        "warning": null
+      },
+      "auction_date": "2026-06-15",
+      "published_date": "2026-05-12",
+      "round": 3,
+      "area_m2": 76.14,
+      "starting_price_pln": 97000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/pl.-Akademicki-1112/idn:13287",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Akademicki-11-12,23604.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piekarska 9/9",
+      "address": {
+        "street": "Piekarska",
+        "street_norm": "piekarska",
+        "building": "9",
+        "apt": "9",
+        "key": "piekarska|9|9",
+        "warning": null
+      },
+      "auction_date": "2026-06-12",
+      "published_date": "2026-05-11",
+      "round": 2,
+      "area_m2": 30.33,
+      "starting_price_pln": 46500,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Piekarska-99/idn:13277",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-9_9,23580.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Piłsudskiego 65/10",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "65",
+        "apt": "10",
+        "key": "pilsudskiego|65|10",
+        "warning": null
+      },
+      "auction_date": "2026-06-11",
+      "published_date": "2026-05-07",
+      "round": 2,
+      "area_m2": 59.28,
+      "starting_price_pln": 75000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Pilsudskiego-6510/idn:13247",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-65_10,23532.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Piłsudskiego 7/11",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "7",
+        "apt": "11",
+        "key": "pilsudskiego|7|11",
+        "warning": null
+      },
+      "auction_date": "2026-06-12",
+      "published_date": "2026-05-07",
+      "round": 2,
+      "area_m2": 41.05,
+      "starting_price_pln": 42750,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Pilsudskiego-711/idn:13246",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-7_11,23529.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Aleja Legionów 20/4",
+      "address": {
+        "street": "Aleja Legionów",
+        "street_norm": "aleja legionow",
+        "building": "20",
+        "apt": "4",
+        "key": "aleja legionow|20|4",
+        "warning": null
+      },
+      "auction_date": "2026-05-21",
+      "published_date": "2026-04-22",
+      "round": 1,
+      "area_m2": 50,
+      "starting_price_pln": 180000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/Aleja-Legionow-204/idn:13135",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Aleja-Legionow-20_4,23347.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Olejniczaka 3/3",
+      "address": {
+        "street": "Olejniczaka",
+        "street_norm": "olejniczaka",
+        "building": "3",
+        "apt": "3",
+        "key": "olejniczaka|3|3",
+        "warning": null
+      },
+      "auction_date": "2026-05-20",
+      "published_date": "2026-04-21",
+      "round": 1,
+      "area_m2": 45.66,
+      "starting_price_pln": 130000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Olejniczaka-33/idn:13126",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Olejniczaka-3_3,23334.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rodziewiczówny 8/5",
+      "address": {
+        "street": "Rodziewiczówny",
+        "street_norm": "rodziewiczowny",
+        "building": "8",
+        "apt": "5",
+        "key": "rodziewiczowny|8|5",
+        "warning": null
+      },
+      "auction_date": "2026-05-20",
+      "published_date": "2026-04-21",
+      "round": 2,
+      "area_m2": 52.08,
+      "starting_price_pln": 85000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Rodziewiczowny-85/idn:13125",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Rodziewiczowny-8_5,23331.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Dworcowa 31/20",
+      "address": {
+        "street": "Dworcowa",
+        "street_norm": "dworcowa",
+        "building": "31",
+        "apt": "20",
+        "key": "dworcowa|31|20",
+        "warning": null
+      },
+      "auction_date": "2026-04-20",
+      "published_date": "2026-03-17",
+      "round": 2,
+      "area_m2": 67.01,
+      "starting_price_pln": 70000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Dworcowa-3120/idn:12918",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Dworcowa-31-20,22941.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grottgera 8a/12",
+      "address": {
+        "street": "Grottgera",
+        "street_norm": "grottgera",
+        "building": "8A",
+        "apt": "12",
+        "key": "grottgera|8A|12",
+        "warning": null
+      },
+      "auction_date": "2026-04-10",
+      "published_date": "2026-03-09",
+      "round": 2,
+      "area_m2": 59.73,
+      "starting_price_pln": 92500,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Grottgera-8a12/idn:12836",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-8a-12,22797.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wyspiańskiego 5/9",
+      "address": {
+        "street": "Wyspiańskiego",
+        "street_norm": "wyspianskiego",
+        "building": "5",
+        "apt": "9",
+        "key": "wyspianskiego|5|9",
+        "warning": null
+      },
+      "auction_date": "2026-04-10",
+      "published_date": "2026-03-09",
+      "round": 2,
+      "area_m2": 53.92,
+      "starting_price_pln": 100000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Wyspianskiego-59/idn:12835",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Wyspianskiego-5_9,22795.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kopalniana 5/4",
+      "address": {
+        "street": "Kopalniana",
+        "street_norm": "kopalniana",
+        "building": "5",
+        "apt": "4",
+        "key": "kopalniana|5|4",
+        "warning": null
+      },
+      "auction_date": "2026-04-09",
+      "published_date": "2026-03-09",
+      "round": 2,
+      "area_m2": 40.1,
+      "starting_price_pln": 55000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Kopalniana-54/idn:12834",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Kopalniana-5-4,22794.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Strażacka 3 i ul. Podgórna 6/1",
+      "address": {
+        "street": "Strażacka 3 i ul. Podgórna",
+        "street_norm": "strazacka 3 i ul podgorna",
+        "building": "6",
+        "apt": "1",
+        "key": "strazacka 3 i ul podgorna|6|1",
+        "warning": null
+      },
+      "auction_date": "2026-04-13",
+      "published_date": "2026-02-12",
+      "round": 3,
+      "area_m2": 1749,
+      "starting_price_pln": 500000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Strazacka-3-i-ul.-Podgorna-61/idn:12717",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Strazacka-3-i-ul.-Podgorna-6_1,22551.doc"
+    }
+  ],
+  "wykaz": []
+}

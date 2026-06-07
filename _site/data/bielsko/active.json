@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "city": "bielsko",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 11 Listopada 23/2",
+      "address": {
+        "street": "11 Listopada",
+        "street_norm": "11 listopada",
+        "building": "23",
+        "apt": "2",
+        "key": "11 listopada|23|2",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 79.01,
+      "starting_price_pln": 399000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-232"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 11 Listopada 23/3",
+      "address": {
+        "street": "11 Listopada",
+        "street_norm": "11 listopada",
+        "building": "23",
+        "apt": "3",
+        "key": "11 listopada|23|3",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 117.62,
+      "starting_price_pln": 599000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-233"
+    }
+  ],
+  "wykaz": []
+}

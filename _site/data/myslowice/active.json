@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "city": "myslowice",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Powstańców 1/11",
+      "address": {
+        "street": "Powstańców",
+        "street_norm": "powstancow",
+        "building": "1",
+        "apt": "11",
+        "key": "powstancow|1|11",
+        "warning": null
+      },
+      "auction_date": "2026-07-07",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 59,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-m"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Brzezińskiej 55A/6",
+      "address": {
+        "street": "Brzezińskiej",
+        "street_norm": "brzezinskiej",
+        "building": "55A",
+        "apt": "6",
+        "key": "brzezinskiej|55A|6",
+        "warning": null
+      },
+      "auction_date": "2026-06-30",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 46.42,
+      "starting_price_pln": 175000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
+        "warning": null
+      },
+      "auction_date": "2026-06-23",
+      "published_date": null,
+      "round": 6,
+      "area_m2": 41.51,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
+        "warning": null
+      },
+      "auction_date": "2026-06-23",
+      "published_date": null,
+      "round": 5,
+      "area_m2": 37.49,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 16C/24",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "16C",
+        "apt": "24",
+        "key": "armii krajowej|16C|24",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 46.02,
+      "starting_price_pln": 205000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 21/20",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "21",
+        "apt": "20",
+        "key": "armii krajowej|21|20",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 36.54,
+      "starting_price_pln": 180000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 41/2",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "41",
+        "apt": "2",
+        "key": "armii krajowej|41|2",
+        "warning": null
+      },
+      "auction_date": "2026-06-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 30.55,
+      "starting_price_pln": 145000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-41-pr"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Fryderyka Chopina 15/3",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "15",
+        "apt": "3",
+        "key": "fryderyka chopina|15|3",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 44.07,
+      "starting_price_pln": 198000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-pr"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Powstańców 1/11",
+      "address": {
+        "street": "Powstańców",
+        "street_norm": "powstancow",
+        "building": "1",
+        "apt": "11",
+        "key": "powstancow|1|11",
+        "warning": null
+      },
+      "auction_date": "2026-05-12",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 59,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-mi"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Brzezińskiej 55A/6",
+      "address": {
+        "street": "Brzezińskiej",
+        "street_norm": "brzezinskiej",
+        "building": "55A",
+        "apt": "6",
+        "key": "brzezinskiej|55A|6",
+        "warning": null
+      },
+      "auction_date": "2026-05-05",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 46.42,
+      "starting_price_pln": 175000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zielonej 8/1",
+      "address": {
+        "street": "Zielonej",
+        "street_norm": "zielonej",
+        "building": "8",
+        "apt": "1",
+        "key": "zielonej|8|1",
+        "warning": null
+      },
+      "auction_date": "2026-04-21",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 63.16,
+      "starting_price_pln": 280000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-1-znajdujacy-sie-w-budynku-nr-8-prz"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
+        "warning": null
+      },
+      "auction_date": "2026-04-28",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 37.49,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
+        "warning": null
+      },
+      "auction_date": "2026-04-28",
+      "published_date": null,
+      "round": 5,
+      "area_m2": 41.51,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 16C/24",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "16C",
+        "apt": "24",
+        "key": "armii krajowej|16C|24",
+        "warning": null
+      },
+      "auction_date": "2026-04-14",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 46.02,
+      "starting_price_pln": 205000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
+        "warning": null
+      },
+      "auction_date": "2026-01-20",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 37.49,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 10B/16",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "10B",
+        "apt": "16",
+        "key": "armii krajowej|10B|16",
+        "warning": null
+      },
+      "auction_date": "2025-12-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 30.37,
+      "starting_price_pln": 154000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-16-znajdujacy-sie-w-budynku-nr-10b"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 16C/24",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "16C",
+        "apt": "24",
+        "key": "armii krajowej|16C|24",
+        "warning": null
+      },
+      "auction_date": "2025-12-02",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 46.02,
+      "starting_price_pln": 205000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
+        "warning": null
+      },
+      "auction_date": "2025-10-21",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 41.51,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
+        "warning": null
+      },
+      "auction_date": "2025-10-07",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 37.49,
+      "starting_price_pln": 157000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
+        "warning": null
+      },
+      "auction_date": "2025-08-05",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 41.51,
+      "starting_price_pln": 179000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
+        "warning": null
+      },
+      "auction_date": "2025-07-15",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 37.49,
+      "starting_price_pln": 157000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
+        "warning": null
+      },
+      "auction_date": "2025-05-20",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 41.51,
+      "starting_price_pln": 179000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 6A/21",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "6A",
+        "apt": "21",
+        "key": "armii krajowej|6A|21",
+        "warning": null
+      },
+      "auction_date": "2025-04-15",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 30.41,
+      "starting_price_pln": 133000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-znajdujacy-sie-w-budynku-nr-6a-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 6B/47",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "6B",
+        "apt": "47",
+        "key": "armii krajowej|6B|47",
+        "warning": null
+      },
+      "auction_date": "2025-02-18",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 32.54,
+      "starting_price_pln": 135000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-47-znajdujacy-sie-w-budynku-nr-6b-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Brzezińskiej 51A/8",
+      "address": {
+        "street": "Brzezińskiej",
+        "street_norm": "brzezinskiej",
+        "building": "51A",
+        "apt": "8",
+        "key": "brzezinskiej|51A|8",
+        "warning": null
+      },
+      "auction_date": "2025-02-11",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 23.78,
+      "starting_price_pln": 95000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-8-znajdujacy-sie-w-budynku-nr-51a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wojciecha Korfantego 17/2",
+      "address": {
+        "street": "Wojciecha Korfantego",
+        "street_norm": "wojciecha korfantego",
+        "building": "17",
+        "apt": "2",
+        "key": "wojciecha korfantego|17|2",
+        "warning": null
+      },
+      "auction_date": "2025-02-04",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 47.87,
+      "starting_price_pln": 205000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-17-pr"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Gustawa Morcinka 7A/14",
+      "address": {
+        "street": "Gustawa Morcinka",
+        "street_norm": "gustawa morcinka",
+        "building": "7A",
+        "apt": "14",
+        "key": "gustawa morcinka|7A|14",
+        "warning": null
+      },
+      "auction_date": "2025-01-28",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 61.12,
+      "starting_price_pln": 250000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-14-znajdujacy-sie-w-budynku-nr-7a-p"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pawła Stalmacha 9C/54",
+      "address": {
+        "street": "Pawła Stalmacha",
+        "street_norm": "pawla stalmacha",
+        "building": "9C",
+        "apt": "54",
+        "key": "pawla stalmacha|9C|54",
+        "warning": null
+      },
+      "auction_date": "2025-01-14",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 36.49,
+      "starting_price_pln": 162000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-54-znajdujacy-sie-w"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Katowickiej 29A/17",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "29A",
+        "apt": "17",
+        "key": "katowickiej|29A|17",
+        "warning": null
+      },
+      "auction_date": "2024-04-09",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 34.93,
+      "starting_price_pln": 129000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-29a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Janowskiej 128/6",
+      "address": {
+        "street": "Janowskiej",
+        "street_norm": "janowskiej",
+        "building": "128",
+        "apt": "6",
+        "key": "janowskiej|128|6",
+        "warning": null
+      },
+      "auction_date": "2023-11-21",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 38.91,
+      "starting_price_pln": 66000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-przy-ulicy-janowskiej-128-w-mysl"
+    }
+  ],
+  "wykaz": []
+}
