@@ -244,15 +244,33 @@ tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
    (`bip.myslowice.pl/artykul/...`). First user of the `finn-bip` template.
 3. **Świętochłowice** — ✅ **SPIKED → BUILD.** MPGL; recurring flat auctions with
    explicit rounds (drugi/trzeci przetarg) on `bip.swietochlowice.pl/bipkod/003/010/003`.
-4. **Jaworzno** — ✅ **SPIKED → BUILD (med).** MZNK; flat-sale auctions in
-   batches (~8) on `bip.mznk.jaworzno.pl` (news on the WordPress `mznk.jaworzno.pl`).
-5. **Częstochowa** — ✅ **SPIKED → VIABLE (med).** City FINN-BIP "Sprzedaż
-   nieruchomości i lokali" (`bip.czestochowa.pl/artykuly/71547`); skews land —
-   **confirm flat share at build** before committing. (ZGM TBS = rentals, skip.)
-6. **Żory** — ✅ **SPIKED → VIABLE (low).** ZBM has a "Sprzedaż mieszkań"
-   category + `/przetargi/`; BIP `zbmzory.bip.net.pl`. ⚠️ **`zbmzory.pl` is
-   hijacked (casino spam) — use `zbm.zory.pl` only.** Low volume; bip.net.pl
-   platform (separate small crawler).
+4. **Jaworzno** — ❌ **RE-SPIKED (June 2026) → DROP/DEFER.** The earlier note was
+   wrong. MZNK (`bip.mznk.jaworzno.pl`) handles **rentals/commercial** (najem,
+   dzierżawa, lokale użytkowe), not flat sales, and its list is **JavaScript-
+   rendered** (raw HTML is a ~4 KB shell — the static pipeline can't scrape it).
+   Flat *sales* are run by the city on `bip.jaworzno.pl` — the **same JS-rendered
+   platform**, and its sales skew to **land/działki** (Tychy/Dąbrowa pattern). The
+   only node-scrapeable source, the WordPress `mznk.jaworzno.pl`, has ~1 historical
+   flat-sale post (2022) — no recurring stream. Thin volume + un-scrapeable
+   authoritative source ⇒ not worth building. Revisit only if the pipeline gains a
+   headless-browser fetch or Jaworzno starts a real flat-auction stream.
+5. **Częstochowa** — ❌ **RE-SPIKED (June 2026) → DROP (for flats).** Source is
+   server-rendered and scrapeable (`bip.czestochowa.pl/artykuly/71547/sprzedaz-
+   nieruchomosci-i-lokali`, FINN, `/artykul/71547/<id>/<slug>` articles), so the
+   mechanics are fine — but the flat-share check failed hard: across 6 pages / 60
+   announcements, **0 lokale mieszkalne, 60 land/działki/garaże**. Częstochowa
+   auctions land; flats go bezprzetargowo (Tychy/Dąbrowa/Ruda pattern). Build only
+   if it ever starts auctioning flats, or if the product expands to land sales.
+   (ZGM TBS = rentals, skip.)
+6. **Żory** — ❌ **RE-SPIKED (June 2026) → DROP.** No usable source. The official
+   BIP `zbmzory.bip.net.pl` (bip.net.pl platform) is server-rendered at the top
+   level but its category/article *listings* load via JavaScript (raw HTML =
+   "Wczytywanie…") — the static pipeline can't scrape them; the "Zbywanie
+   nieruchomości" branch only holds year-foldered *wykazy* (no clear przetarg
+   stream), and 2025 was empty. The WordPress `zbmzory.pl` is **still hijacked** —
+   it 301s to `foro-go.com` ("Bison Casino"). So: JS-rendered official source +
+   hijacked alt + low volume. Revisit only with a headless-browser fetch in the
+   pipeline.
 7. **Siemianowice Śląskie, Piekary Śląskie, Wodzisław Śląski** — ✅ **SPIKED →
    DROP.** Siemianowice: mostly land + spółdzielnia. Piekary & Wodzisław:
    **bezprzetargowe** sales to sitting tenants (no open-auction stream — Tychy trap).
@@ -269,6 +287,18 @@ build it once at Mysłowice.
 Each: spike → confirm open flat-auction volume EARLY (the lesson from Tychy) →
 build only if non-trivial. Reuse the existing extractors (OCR PDF / text PDF /
 `.doc` catdoc / RTF pure-JS / JSON API / structured HTML) — most new cities fit one.
+
+**Headless-fetch capability (June 2026).** `core/render.js` now exists — an
+opt-in Playwright/Chromium renderer for genuinely JS-rendered BIPs (lazy-loaded,
+so the 9 server-rendered cities never touch it; CI installs Chromium). This is
+the unblock mechanism the Jaworzno/Żory entries above asked for. Two caveats
+before reaching for it: (1) prefer the **JSON API** — the `bip.net.pl` platform
+(Żory) and the Jaworzno platform fetch their lists from `/api/page-content/…`
+and `/api/menus/<id>`; hitting that with plain `getText` needs no browser and
+fits the lean design, so render.js is the last resort. (2) The render/API unlock
+is *mechanical* — Jaworzno (rentals + land), Częstochowa (land-only) and Żory
+(a few wykazy/year) still have **thin flat content** behind the JS, so the
+capability mainly pays off when a *richer* JS-rendered source appears.
 
 ### Monetization: alert + saved-search MVP
 

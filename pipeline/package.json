@@ -12,5 +12,9 @@
     "crawl:results": "node src/cities/gliwice/crawl-results.js",
     "crawl:active": "node src/cities/gliwice/crawl-active.js",
     "test": "node --test --test-reporter=dot tests/parse-result.test.js"
+  },
+  "comment:dependencies": "playwright powers the OPTIONAL headless renderer (core/render.js) for the few JS-rendered BIPs. It is loaded lazily — the 9 server-rendered cities never touch it. CI runs `npx playwright install --with-deps chromium`.",
+  "dependencies": {
+    "playwright": "^1.49.0"
   }
 }

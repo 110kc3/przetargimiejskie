@@ -53,6 +53,13 @@ jobs:
         working-directory: pipeline
         run: npm ci || npm install
 
+      # Headless Chromium for the OPTIONAL renderer (core/render.js), used only by
+      # JS-rendered BIPs. It's lazy-loaded, so the 9 server-rendered cities never
+      # touch it — installing here just keeps a future JS-rendered city working.
+      - name: Install Playwright Chromium
+        working-directory: pipeline
+        run: npx playwright install --with-deps chromium
+
       - name: Run parser tests
         working-directory: pipeline
         run: npm test

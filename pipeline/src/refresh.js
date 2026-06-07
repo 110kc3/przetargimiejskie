@@ -27,6 +27,7 @@ import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
 import { buildCityData } from './core/build-properties.js';
 import { mergeProperties } from './core/merge-history.js';
+import { closeBrowser } from './core/render.js';
 
 // History accumulation: merge each run with the previously-committed
 // properties.json so a record the source later removes is retained (not lost).
@@ -277,12 +278,17 @@ async function main() {
 
   console.error('\n=== all cities done ===');
   console.error(JSON.stringify(index, null, 2));
+
+  // Shut the headless browser if any city used it, so the process can exit.
+  // No-op when render.js was never invoked (the common case).
+  await closeBrowser();
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
   // Only truly catastrophic, non-city errors reach here (e.g. cannot write
   // DATA_DIR). Per-city crawl failures are isolated inside main()'s loop and
   // never bubble up to fail the whole pipeline.
   console.error('FATAL:', err);
+  await closeBrowser().catch(() => {});
   process.exit(1);
 });
