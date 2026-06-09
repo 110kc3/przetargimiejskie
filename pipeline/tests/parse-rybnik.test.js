@@ -53,6 +53,25 @@ test('parseAnnouncement extracts the full record', () => {
 test('field parsers: round words, spelled price, plot/area guard', () => {
   assert.equal(roundFromText('Drugi publiczny ustny przetarg'), 2);
   assert.equal(roundFromText('ogłasza przetarg na sprzedaż'), 1);
+  // Regression (June 2026 review): the mandatory history clause in re-listed
+  // announcements ("Pierwszy przetarg odbył się … wynikiem negatywnym") used
+  // to win the whole-text scan and mark every re-listed auction as round 1.
+  assert.equal(
+    roundFromText(
+      'Drugi publiczny ustny nieograniczony przetarg na sprzedaż lokalu. ' +
+        'Pierwszy przetarg odbył się w dniu 11.03.2026 r. i zakończył się wynikiem negatywnym.',
+    ),
+    2,
+  );
+  assert.equal(
+    roundFromText(
+      'Pierwszy przetarg odbył się w dniu 11.03.2026 r. i zakończył się wynikiem negatywnym. ' +
+        'Drugi publiczny ustny nieograniczony przetarg odbędzie się w dniu 09.06.2026 r.',
+    ),
+    2,
+  );
+  // "pierwszeństwo" (right of first refusal) is not an ordinal
+  assert.equal(roundFromText('z zachowaniem pierwszeństwa najemcy ogłasza przetarg'), 1);
   assert.equal(priceFromText('Cena wywoławcza lokalu mieszkalnego: 325 000,00 zł'), 325000);
   assert.equal(auctionDateFromText('Przetarg odbędzie się w dniu 23.07.2025 r.'), '2025-07-23');
   // plot in ha must not be taken as the flat area

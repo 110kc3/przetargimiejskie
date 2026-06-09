@@ -57,7 +57,7 @@ test('empty previous → fresh passes through', () => {
   assert.equal(stats.kept_properties, 0);
 });
 
-test('fingerprint = date|kind: stable across outcome/price/round changes', () => {
+test('fingerprint = date: stable across outcome/price/round changes', () => {
   // same date+kind but different outcome/price → SAME fingerprint
   assert.equal(listingFingerprint(L('2026-01-01', 'active', { round: 1, price: null })),
                listingFingerprint(L('2026-01-01', 'sold', { round: 1, price: 95000 })));

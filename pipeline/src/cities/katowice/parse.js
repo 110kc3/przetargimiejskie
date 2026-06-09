@@ -110,8 +110,14 @@ export function parseAnnouncement(html, title, docUrl) {
 
 const ANCHOR = /^\s*(\d{1,3})\s+(\d{2})\.(\d{2})\.(\d{4})\b/;
 
+// Negative result: the row's last column reads "Przetarg zakończony wynikiem
+// negatywnym" (achieved-price column is "------"). Some wykazy mix positive
+// and negative rows, so this is detected PER ROW, not per document.
+const NEGATIVE_ROW_RE = /wynikiem\s+negatywnym|nie\s+wy[łl]oniono\s+nabywc/i;
+
 function parseResultRow(blob, anchorDate, sourceUrl) {
   const notes = [];
+  const negative = NEGATIVE_ROW_RE.test(blob);
 
   let kind = 'unknown';
   if (/lokal\w*\s+mieszkaln/i.test(blob)) kind = 'mieszkalny';
@@ -136,7 +142,9 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
     .map((m) => parsePLN(m[1]))
     .filter((n) => n != null);
   const starting_price_pln = prices[0] ?? null;
-  const final_price_pln = prices[1] ?? null;
+  // In a negative row the achieved-price column is "------" — any second
+  // amount the window catches belongs to a neighbouring row, so force null.
+  const final_price_pln = negative ? null : prices[1] ?? null;
   if (starting_price_pln == null) notes.push('parse: missing starting price');
   if (address && address.warning) notes.push(address.warning);
 
@@ -149,8 +157,8 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
     round: null,
     starting_price_pln,
     final_price_pln,
-    outcome: 'sold',
-    unsold_reason: null,
+    outcome: negative ? 'unsold' : 'sold',
+    unsold_reason: negative ? 'unknown' : null,
     area_m2: Number.isFinite(areaNum) ? areaNum : null,
     notes,
   };

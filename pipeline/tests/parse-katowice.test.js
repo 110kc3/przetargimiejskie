@@ -1,0 +1,74 @@
+// Katowice result-PDF parser tests. The neg-wykaz fixture reproduces the
+// pdftotext -layout output of a real committed cache file
+// (pdf-text-cache/Wyniki_2019.05.2026_…neg.pdf.*.txt): negative rows carry
+// "Przetarg zakończony wynikiem negatywnym" in the buyer column and "------"
+// in the achieved-price column. Regression: these rows were published as
+// outcome:'sold' with final_price_pln:null.
+
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+
+import { parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
+
+const NEG_PDF = `                                     WYKAZ Z DNIA 27.05.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
+
+                                                                                                                      Cena       Ilość osób (ofert) dopuszczonych/
+                          Miejsce                                                                        Cena       osiągnięta    niedopuszczonych do przetargu      Imię i Nazwisko (nazwa firmy)
+Lp.   Data przetargu                   Rodzaj przetargu              Oznaczenie nieruchomości
+                         Przetargu                                                                     wywoławcza   w wyniku                          Niedop.                nowonabywcy
+                                                                                                                    przetargu         Dop.
+                                                          ul. Skłodowskiej-Curie 21/1
+                                                          lokal mieszkalny o pow. użytkowej 64,21 m2
+                       Urząd Miasta
+                         Katowice          ustny                                                                                                                         Przetarg zakończony
+1      19.05.2026                                         dz. nr 127/13 o pow. 673 m2,                 850 000 zł     ------            1                 0
+                       ul. Młyńska 4   nieograniczony     km. 28,
+                                                                                                                                                                        wynikiem negatywnym
+                           s. 4-5                         obręb: Śródmieście – Załęże
+                                                          wł. Miasto Katowice i inne osoby
+                                                          ul. Staromiejska 15/8
+                                                          lokal mieszkalny o pow. użytkowej 27,28 m2
+                       Urząd Miasta
+                         Katowice          ustny                                                                                                                         Przetarg zakończony
+2      19.05.2026                                         dz. nr 139/2 o pow. 347 m2,                  160 000 zł     ------            2                 0
+                                                                                                                                                                        wynikiem negatywnym
+                       ul. Młyńska 4   nieograniczony     k.m. 40,
+                           s. 4-5                         obręb: Bogucice - Zawodzie
+                                                          wł. Miasto Katowice i inne osoby
+`;
+
+const POS_PDF = `                                     WYKAZ Z DNIA 20.02.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
+
+                                                          ul. Grzyśki 1/7
+                                                          lokal mieszkalny o pow. użytkowej 48,30 m2
+                       Urząd Miasta
+                         Katowice          ustny
+1      17.02.2026                                         dz. nr 12/3 o pow. 410 m2,                   280 000 zł    286 000 zł         3                 0              Jan Kowalski
+                       ul. Młyńska 4   nieograniczony     km. 11, obręb Ligota
+`;
+
+test('negative wykaz rows → outcome unsold, final price null', () => {
+  const recs = parseResultDoc(NEG_PDF, null, 'https://example/neg.pdf');
+  assert.equal(recs.length, 2);
+  for (const r of recs) {
+    assert.equal(r.outcome, 'unsold');
+    assert.equal(r.unsold_reason, 'unknown');
+    assert.equal(r.final_price_pln, null);
+    assert.equal(r.auction_date, '2026-05-19');
+    assert.equal(r.kind, 'mieszkalny');
+  }
+  assert.equal(recs[0].address.key, 'sklodowskiej curie|21|1');
+  assert.equal(recs[0].starting_price_pln, 850000);
+  assert.equal(recs[1].address.key, 'staromiejska|15|8');
+  assert.equal(recs[1].starting_price_pln, 160000);
+});
+
+test('positive wykaz row still parses as sold with both prices', () => {
+  const recs = parseResultPdf(POS_PDF, null, 'https://example/pos.pdf');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].outcome, 'sold');
+  assert.equal(recs[0].unsold_reason, null);
+  assert.equal(recs[0].address.key, 'grzyski|1|7');
+  assert.equal(recs[0].starting_price_pln, 280000);
+  assert.equal(recs[0].final_price_pln, 286000);
+});

@@ -142,6 +142,27 @@ test('priceFromText handles dotted thousands "85.000,00 zł"', () => {
   assert.equal(priceFromText('Cena wywoławcza: 85.000,00 zł'), 85000);
 });
 
+// Regression (June 2026 review): re-listed announcements carry the mandatory
+// history clause "Pierwszy przetarg odbył się … wynikiem negatywnym", which
+// used to win the whole-text ordinal scan and mark every re-listed auction
+// as round 1.
+test('roundFromText: history clause does not override the operative round', () => {
+  const second = `PREZYDENT MIASTA BYTOMIA
+ogłasza drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego.
+Pierwszy przetarg odbył się w dniu 11 marca 2026 r. i zakończył się wynikiem
+negatywnym. Przetarg odbędzie się w dniu 16 czerwca 2026 r.`;
+  assert.equal(roundFromText(second), 2);
+  // history clause BEFORE the operative sentence
+  const historyFirst = `Pierwszy przetarg odbył się w dniu 11.03.2026 r. i zakończył się
+wynikiem negatywnym. Drugi przetarg ustny nieograniczony odbędzie się w dniu 16.06.2026 r.`;
+  assert.equal(roundFromText(historyFirst), 2);
+  // "pierwszeństwo" (right of first refusal) is not an ordinal
+  assert.equal(
+    roundFromText('osobom, którym przysługuje pierwszeństwo w nabyciu, ogłasza przetarg ustny'),
+    1,
+  );
+});
+
 // ---- attachment URL extraction from a /idn page --------------------------
 
 test('attachmentUrlFromDetail prefers .doc and resolves a relative href', () => {

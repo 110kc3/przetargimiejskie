@@ -15,13 +15,16 @@
 // … m²", "przetarg odbędzie się w dniu …", ordinal → round) and is tolerant of
 // catdoc's flat text output. VALIDATE + TUNE against the first real CI run.
 
-const ROUND_WORDS = [
-  [/\bpierwsz/i, 1],
-  [/\bdrug/i, 2],
-  [/\btrzeci/i, 3],
-  [/\bczwart/i, 4],
-  [/\bpi[ąa]t/i, 5],
-];
+// Ordinal must QUALIFY a "przetarg" (within a few words before it); matches
+// followed by a past-tense verb are skipped — re-listed announcements carry
+// the mandatory history clause "Pierwszy przetarg odbył się … zakończył się
+// wynikiem negatywnym", which used to win over the operative "Drugi …
+// przetarg" and mark every re-listed auction as round 1. `pierwsz(?!e[ńn])`
+// keeps "pierwszeństwo" out; bounded suffix also avoids "piątek" → the
+// {0,4}-word window before "przetarg" rarely fits a weekday.
+const ORDINAL_PRZETARG_RE =
+  /\b(pierwsz(?!e[ńn])|drug|trzeci|czwart|pi[ąa]t)[\wąćęłńóśźż]*\s+(?:[\wąćęłńóśźż]+\s+){0,4}?przetarg[\wąćęłńóśźż]*(?=([\s\S]{0,40}))/g;
+const ORDINALS = { pierwsz: 1, drug: 2, trzeci: 3, czwart: 4, 'piąt': 5, piat: 5 };
 
 // Polish month names (nominative + genitive forms as they appear in dates).
 const PL_MONTHS = {
@@ -63,8 +66,13 @@ function parseArea(numStr) {
 
 /** Ordinal in the announcement → round number. Bare "przetarg" = first. */
 export function roundFromText(text) {
-  const t = text || '';
-  for (const [re, n] of ROUND_WORDS) if (re.test(t)) return n;
+  const t = (text || '').toLowerCase();
+  ORDINAL_PRZETARG_RE.lastIndex = 0;
+  let m;
+  while ((m = ORDINAL_PRZETARG_RE.exec(t)) !== null) {
+    if (/\b(?:odby[łl]|zako[ńn]czy[łl])/.test(m[2])) continue; // history clause
+    return ORDINALS[m[1]] ?? null;
+  }
   if (/\bprzetarg/i.test(t)) return 1;
   return null;
 }

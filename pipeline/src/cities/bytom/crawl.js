@@ -81,11 +81,14 @@ function parseArea(numStr) {
   return Number.isFinite(n) ? n : null;
 }
 
-// Polish ordinal in the announcement text → round number. Bare "przetarg"
-// (no ordinal) is the first auction.
+// Polish ordinal in the LIST-ITEM TITLE → round number. Bare "przetarg"
+// (no ordinal) is the first auction. Titles are one short line, so the
+// whole-text scan is safe here (full .doc bodies go through parse.js's
+// clause-scoped roundFromText instead); `(?!e[ńn])` keeps "pierwszeństwo"
+// (right of first refusal) from reading as round 1.
 function roundFromText(txt) {
   const t = (txt || '').toLowerCase();
-  if (/\bpierwsz/.test(t)) return 1;
+  if (/\bpierwsz(?!e[ńn])/.test(t)) return 1;
   if (/\bdrug/.test(t)) return 2;
   if (/\btrzeci/.test(t)) return 3;
   if (/\bczwart/.test(t)) return 4;

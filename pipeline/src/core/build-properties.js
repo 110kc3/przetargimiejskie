@@ -6,6 +6,90 @@
 // the `properties` array. Extracted verbatim from refresh.js — the per-city
 // refactor changes file layout only, not behaviour.
 
+// Polish-case street-suffix swaps (genitive ↔ nominative): "Staromiejskiej" ↔
+// "Staromiejska", "Daszyńskiego" ↔ "Daszyński". Used both to bridge property
+// IDENTITY (the results PDF and the announcement spell the same street in
+// different cases — without this, one flat becomes two properties and the
+// history/round linkage is lost) and to fuzzy-match detail-page area keys.
+const SUFFIX_SUBS = [
+  ['ej$', 'a'], ['iej$', 'a'], ['ego$', 'y'], ['ego$', ''],
+  ['skiej$', 'ska'], ['skiego$', 'ski'], ['ckiej$', 'cka'], ['ckiego$', 'cki'],
+];
+
+/** Case-suffix variants of a normalized street name (family a only). */
+function streetSuffixVariants(street) {
+  const out = new Set();
+  for (const [re, repl] of SUFFIX_SUBS) {
+    const v = street.replace(new RegExp(re), repl);
+    if (v !== street) out.add(v);
+  }
+  return [...out];
+}
+
+/**
+ * Merge properties whose keys differ ONLY by a street case-suffix variant
+ * (same building + apt). The genitive-keyed property is folded into the
+ * nominative-keyed one (the suffix subs map genitive → nominative), so no
+ * standalone key is ever renamed — only same-run splits are healed.
+ */
+function coalesceStreetVariants(props) {
+  for (const p of [...props.values()]) {
+    for (const alt of streetSuffixVariants(p.street_norm)) {
+      const altKey = `${alt}|${p.building}|${p.apt ?? ''}`;
+      const target = props.get(altKey);
+      if (!target || target === p) continue;
+      target.listings.push(...p.listings);
+      if (target.kind === 'unknown' && p.kind && p.kind !== 'unknown') target.kind = p.kind;
+      if (target.apt == null) target.apt = p.apt;
+      if (target.area_m2 == null && p.area_m2 != null) target.area_m2 = p.area_m2;
+      props.delete(p.key);
+      console.error(`  coalesced street variant: ${p.key} → ${altKey}`);
+      break;
+    }
+  }
+}
+
+/**
+ * One auction event per property per date — a single unit cannot be auctioned
+ * twice on the same day. Cities with TWO streams (Katowice: results PDF +
+ * announcement archive) surface the same auction in both; without this the
+ * announcement row either replaced the result record in merge-history (same
+ * fingerprint) or survived next to it and inflated the derived round.
+ * The result-backed row (has source_pdf, i.e. a concluded outcome) wins;
+ * missing fields are back-filled from the other row.
+ */
+function dedupeListingsByDate(p) {
+  const byDate = new Map();
+  const out = [];
+  for (const l of p.listings) {
+    if (!l.date || l.outcome === 'announced') {
+      out.push(l);
+      continue;
+    }
+    const prev = byDate.get(l.date);
+    if (!prev) {
+      byDate.set(l.date, l);
+      out.push(l);
+      continue;
+    }
+    const [primary, secondary] = prev.source_pdf || !l.source_pdf ? [prev, l] : [l, prev];
+    for (const k of [
+      'round', 'starting_price_pln', 'area_m2', 'detail_url',
+      'wadium_deadline', 'viewing_date',
+    ]) {
+      if (primary[k] == null && secondary[k] != null) primary[k] = secondary[k];
+    }
+    if ((primary.kind == null || primary.kind === 'unknown') && secondary.kind && secondary.kind !== 'unknown') {
+      primary.kind = secondary.kind;
+    }
+    if (primary !== prev) {
+      out[out.indexOf(prev)] = primary;
+      byDate.set(l.date, primary);
+    }
+  }
+  p.listings = out;
+}
+
 /**
  * @param {object} input
  * @param {Array} input.allRecords  parsed auction records (from parseResultDoc)
@@ -91,6 +175,12 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
     });
   }
 
+  // Heal same-run splits/duplicates BEFORE enrichment and round derivation:
+  // first fold street case-variant properties together, then collapse the
+  // same auction seen from two streams into one listing.
+  coalesceStreetVariants(props);
+  for (const p of props.values()) dedupeListingsByDate(p);
+
   // ---- enrich with area from detail pages
   for (const [key, area] of detailAreas) {
     const p = props.get(key);
@@ -107,15 +197,8 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
   //   (b) dropping a leading given-name token (full → short street name).
   const variants = (street) => {
     const out = new Set([street]);
-    const subs = [
-      ['ej$', 'a'], ['iej$', 'a'], ['ego$', 'y'], ['ego$', ''],
-      ['skiej$', 'ska'], ['skiego$', 'ski'], ['ckiej$', 'cka'], ['ckiego$', 'cki'],
-    ];
     const apply = (s) => {
-      for (const [re, repl] of subs) {
-        const v = s.replace(new RegExp(re), repl);
-        if (v !== s) out.add(v);
-      }
+      for (const v of streetSuffixVariants(s)) out.add(v);
     };
     apply(street);
     // (b) Patronymic/given-name prefix: "karola libelta" → "libelta",

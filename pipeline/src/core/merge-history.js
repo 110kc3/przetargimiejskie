@@ -12,8 +12,9 @@
 // Merge rules:
 //   - Properties are unioned by `key`. A property present only in the OLD data
 //     (gone upstream) is kept as-is.
-//   - Listings within a property are unioned by a fingerprint (date | kind) —
-//     one auction event per property/date. When the SAME event is seen in both,
+//   - Listings within a property are unioned by a fingerprint (date; kind only
+//     for dateless rows) — one auction event per property/date. When the SAME
+//     event is seen in both,
 //     the FRESH copy fully REPLACES the old one — so corrections propagate (a
 //     fixed area/price, an 'active' that became 'sold', a now-derived round)
 //     without creating a duplicate. Events only in the OLD data (gone upstream)
@@ -28,13 +29,20 @@
 // MERGE_HISTORY=0) to rebuild that city from scratch — useful after a parser
 // fix, so a past bad run doesn't stay frozen in the archive forever.
 
-/** Stable identity for one auction event within a property: date + kind.
- * Price, outcome AND round are intentionally excluded so a re-crawl corrects
- * them in place instead of producing a duplicate row. `round` in particular is
- * a DERIVED value (attempt number from history) — including it doubled every
- * historical row once derivation started filling previously-null rounds. */
+/** Stable identity for one auction event within a property: the DATE.
+ * A single unit cannot be auctioned twice on the same day, and `kind` is
+ * parsed differently by different streams of the same city (Katowice result
+ * PDF: 'unknown' vs announcement: 'mieszkalny') — including kind made the two
+ * spellings of one event coexist as duplicates. Price, outcome AND round are
+ * likewise excluded so a re-crawl corrects them in place instead of producing
+ * a duplicate row (`round` is DERIVED from history — including it once doubled
+ * every historical row when derivation started filling null rounds). Dateless
+ * rows fall back to kind so distinct dateless listings don't collapse. */
 export function listingFingerprint(l) {
-  return [l.date || '', l.kind || ''].join('|');
+  // Wykaz pre-announcements are dated by PUBLICATION, not auction — keep them
+  // from colliding with a same-day auction row.
+  const prefix = l.outcome === 'announced' ? 'w|' : '';
+  return prefix + (l.date ? l.date : '|' + (l.kind || ''));
 }
 
 /**
@@ -92,4 +100,4 @@ export function mergeProperties(previous, fresh) {
 
   return { properties, stats: { kept_properties: keptProperties, kept_listings: keptListings } };
 }
-// (listing identity = date|kind; round excluded — it's derived, see header.)
+// (listing identity = date, kind only as dateless fallback; round excluded — derived, see header.)

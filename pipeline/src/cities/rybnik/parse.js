@@ -29,13 +29,26 @@ export function addressFromLabel(label) {
   return address ? { address_raw: s, address } : null;
 }
 
-/** "Pierwszy/Drugi/Trzeci … przetarg" → round; bare → 1. */
+/** "Pierwszy/Drugi/Trzeci … przetarg" → round; bare → 1.
+ *
+ * The ordinal must QUALIFY a "przetarg" (within a few words before it), and
+ * matches followed by a past-tense verb are skipped — re-listed announcements
+ * always carry the mandatory history clause "Pierwszy przetarg odbył się …
+ * zakończył się wynikiem negatywnym", which used to win over the operative
+ * "Drugi … przetarg" and mark every re-listed auction as round 1.
+ * `pierwsz(?!e[ńn])` keeps "pierwszeństwo" (right of first refusal) out. */
+const ORDINAL_PRZETARG_RE =
+  /\b(pierwsz(?!e[ńn])|drug|trzeci|czwart|pi[ąa]t)[\wąćęłńóśźż]*\s+(?:[\wąćęłńóśźż]+\s+){0,4}?przetarg[\wąćęłńóśźż]*(?=([\s\S]{0,40}))/g;
+const ORDINALS = { pierwsz: 1, drug: 2, trzeci: 3, czwart: 4, 'piąt': 5, piat: 5 };
+
 export function roundFromText(text) {
   const t = (text || '').toLowerCase();
-  if (/\bpierwsz/.test(t)) return 1;
-  if (/\bdrug/.test(t)) return 2;
-  if (/\btrzeci/.test(t)) return 3;
-  if (/\bczwart/.test(t)) return 4;
+  ORDINAL_PRZETARG_RE.lastIndex = 0;
+  let m;
+  while ((m = ORDINAL_PRZETARG_RE.exec(t)) !== null) {
+    if (/\b(?:odby[łl]|zako[ńn]czy[łl])/.test(m[2])) continue; // history clause
+    return ORDINALS[m[1]] ?? null;
+  }
   if (/\bprzetarg/.test(t)) return 1;
   return null;
 }

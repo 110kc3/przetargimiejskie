@@ -7,6 +7,87 @@
 
 ## Pipeline
 
+### Bug-review findings (June 2026 full-pipeline review)
+
+Full read of `pipeline/src/**` + committed `data/`. Items 1–4 fixed in the
+same pass (pipeline-only — no extension version bump needed); the rest are
+open. `data/katowice/properties.json` was deleted per the merge escape hatch
+so the corrupted rows rebuild on the next refresh.
+
+**Fixed:**
+
+- [x] **1. Katowice neg-PDF rows published as `sold`** — `parseResultRow`
+  hardcoded `outcome:'sold'`; negative wykazy ("Przetarg zakończony wynikiem
+  negatywnym", e.g. `Wyniki_…neg.pdf`) now yield `outcome:'unsold'`.
+  Observed: `staromiejska|15|8` was `sold` with `final_price_pln:null`.
+- [x] **2. Dual-stream duplicate listings corrupt outcomes + rounds** —
+  Katowice feeds the same auction from the results PDF and the SharePoint
+  announcement archive. Same `date|kind` fingerprint → announcement row
+  silently replaced the result record (`sklodowskiej curie|21|1` survived
+  only as `archived`); different kinds → both rows survived and round
+  derivation counted one auction as two attempts (`grzyski|1|7` got a
+  fabricated round 2). Fixed with within-run dedupe by date in
+  `build-properties.js` (result-backed row wins, missing fields back-filled)
+  + date-based listing fingerprint in `merge-history.js`.
+- [x] **3. Property key splits on Polish case endings** — results PDF says
+  "Staromiejska", announcement "Staromiejskiej" → two properties for one
+  flat, history/round linkage lost. Fixed by coalescing street-suffix
+  variants (genitive↔nominative) into one property in `build-properties.js`.
+- [x] **4. Rybnik + Bytom round detection: `pierwsz` wins over the whole
+  document** — second-round announcements always carry the mandatory history
+  clause ("Pierwszy przetarg odbył się … wynikiem negatywnym"), so every
+  re-listed auction parsed as round 1. Fixed: ordinal must qualify
+  "przetarg" and past-tense history clauses are skipped.
+
+**Open (medium):**
+
+- [ ] **5. Katowice result-PDF price regex rejects grosze** —
+  `parse.js:135` lacks `(?:,\d{2})?` / dotted thousands; a row priced
+  "150 000,00 zł" parses both prices to null. The yearly-summary regex
+  (line 187) handles it — port that pattern.
+- [ ] **6. merge-history freezes removed listings as `active` forever** —
+  date-reclassification (`archived` when `date < TODAY`) only runs on fresh
+  rows in `buildCityData`; a listing the source removes stays `active` and
+  permanently inflates `meta.active_auctions` (refresh.js + recount). Fix:
+  reclassify by date after the merge or in the counting loop.
+- [ ] **7. finn-bip `auctionDateFromText` fallbacks match any date** —
+  `(?:w\s+dniu\s+)?` is optional, so the first date anywhere (publication
+  header, dateline) wins when the "odbędzie się" anchor misses. Affects
+  Mysłowice/Świętochłowice. Require the anchor or scope to the operative
+  sentence.
+- [ ] **8. `normalize.js TRAIL_NOISE` strips trailing `m. N`** —
+  "Zwycięstwa 34 m. 9" loses the flat number → cross-flat key collision.
+  Latent (no current source emits the form) but should capture as apt.
+
+**Open (low):**
+
+- [ ] refresh.js:185 doesn't count Gliwice's `no_winner` in
+  `archived_auctions`.
+- [ ] Gliwice unsold-section regex only matches `ul.` (sold section accepts
+  `al|pl|os`) — unsold items at those prefixes dropped.
+- [ ] finn-bip `/\b(VI|IV|V|I{1,3})\b/i` matches the conjunction "i" →
+  round 1; Roman map also stops at VI.
+- [ ] finn-bip pattern B: `/i` flag defeats the uppercase street-name anchor
+  (`[A-ZŻ…]` matches lowercase).
+- [ ] fetch.js sleeps the full backoff after the FINAL failed attempt
+  (dead 8–16 s per permanently failing URL).
+- [ ] rtf-text.js fonttbl strip can't handle nested groups — font names leak
+  into extracted text; `\'xx` decoded before `\uN` doubles fallback pairs.
+- [ ] refresh.js `crawlEmpty` computed after the year-floor filter — a city
+  with only pre-floor history + momentarily empty active is misread as a
+  source outage.
+- [ ] Gliwice `crawl-detail-areas.js:46` title split excludes ASCII `-` —
+  hyphenated streets (Skłodowskiej-Curie, 9-11) get no area key.
+- [ ] Katowice `addressFromTitle` captures to end-of-title — trailing words
+  after the building number make `parseAddress` fail and the announcement is
+  silently dropped.
+- [ ] Katowice SharePoint crawl drops items beyond `$top=2000` (logged, not
+  followed).
+- [ ] Świętochłowice `isFlatAnnouncement` over-rejects titles citing a KW
+  number.
+- [ ] build-properties `TODAY` is UTC, not Europe/Warsaw (00:00–02:00 local
+  keeps yesterday's auctions active one cycle).
+
 ### Verify Bytom `.doc` history retention over time
 
 The Bytom `.doc` enrichment (Wave 5) commits converted text to
