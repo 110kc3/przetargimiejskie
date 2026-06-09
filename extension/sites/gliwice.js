@@ -28,6 +28,9 @@
   window.ZGM_SITES.register({
     city: 'gliwice',
     hostMatches: ['zgm-gliwice.pl'],
+    // The Elementor card title already contains the auction date
+    // ("… - DD.MM.YYYY r."), so the stats chip omits it to avoid duplication.
+    cardShowsDate: true,
 
     isListingIndex: (path) => LISTING_RE.test(path),
     isDetail: (path) => DETAIL_RE.test(path),

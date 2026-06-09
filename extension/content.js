@@ -359,7 +359,8 @@
     if (area != null) parts.push(fmtArea(area));
     if (l.starting_price_pln != null && area)
       parts.push(fmtPerM2(l.starting_price_pln, area));
-    if (l.date) parts.push(`${t('popup.label.auction')} ${l.date}`);
+    if (l.date && !site.cardShowsDate)
+      parts.push(`${t('popup.label.auction')} ${l.date}`);
     if (!parts.length) return null;
     const chip = document.createElement('div');
     chip.className = 'zgm-ext-infochip zgm-ext-stats';

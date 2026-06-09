@@ -4,6 +4,14 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.14.1 — 2026-06-09
+
+- Removed the redundant auction date from the listing-page stats chip on
+  Gliwice (`zgm-gliwice.pl`). The Elementor card title there already shows the
+  date ("… - DD.MM.YYYY r."), so the chip was repeating it. Suppression is
+  driven by a new `cardShowsDate` flag on the site adapter, so cities whose
+  cards have no inline date (e.g. Bytom's BIP list) still show it in the chip.
+
 ## v1.14.0 — 2026-06-05
 
 - Added a ninth city: **Świętochłowice**. Open `przetarg ustny nieograniczony`
