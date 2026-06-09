@@ -3,6 +3,28 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "brzezinskiej|47|2",
+      "street": "Brzezińskiej",
+      "street_norm": "brzezinskiej",
+      "building": "47",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "active",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.86
+    },
+    {
       "key": "powstancow|1|11",
       "street": "Powstańców",
       "street_norm": "powstancow",
