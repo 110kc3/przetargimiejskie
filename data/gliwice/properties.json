@@ -4843,6 +4843,54 @@
       ]
     },
     {
+      "key": "korfantego|32A|III",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "32A",
+      "apt": "III",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-02-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 63300,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 29.45
+        }
+      ],
+      "area_m2": 29.45
+    },
+    {
+      "key": "korfantego|32A|IV",
+      "street": "Korfantego",
+      "street_norm": "korfantego",
+      "building": "32A",
+      "apt": "IV",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-02-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 35700,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2024/02/19.02.2024-r.-wyniki-przetargow.pdf",
+          "notes": [
+            "OCR-quirk: apt 'TV' interpreted as 'IV'"
+          ],
+          "area_m2": 18.55
+        }
+      ],
+      "area_m2": 18.55
+    },
+    {
       "key": "dolnych walow|27|11",
       "street": "Dolnych Wałów",
       "street_norm": "dolnych walow",

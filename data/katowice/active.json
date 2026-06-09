@@ -117,6 +117,44 @@
       "viewing_date": "2026-06-08"
     },
     {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Górnej 4",
+      "address": {
+        "street": "Górnej",
+        "street_norm": "gornej",
+        "building": "4",
+        "apt": null,
+        "key": "gornej|4|",
+        "warning": null
+      },
+      "auction_date": "2026-04-28",
+      "area_m2": 1049.48,
+      "starting_price_pln": 1400000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
+      "wadium_deadline": "2026-04-20",
+      "viewing_date": null
+    },
+    {
+      "kind": "uzytkowy",
+      "round": 1,
+      "address_raw": "Mariackiej 26",
+      "address": {
+        "street": "Mariackiej",
+        "street_norm": "mariackiej",
+        "building": "26",
+        "apt": null,
+        "key": "mariackiej|26|",
+        "warning": null
+      },
+      "auction_date": "2026-04-28",
+      "area_m2": 61.19,
+      "starting_price_pln": 440000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150675&menu=679",
+      "wadium_deadline": "2026-04-20",
+      "viewing_date": "2026-04-20"
+    },
+    {
       "kind": "unknown",
       "round": 1,
       "address_raw": "Św. Jacka 13",
@@ -233,6 +271,44 @@
     {
       "kind": "mieszkalny",
       "round": 1,
+      "address_raw": "Wojciecha 45c/11",
+      "address": {
+        "street": "Wojciecha",
+        "street_norm": "wojciecha",
+        "building": "45C",
+        "apt": "11",
+        "key": "wojciecha|45C|11",
+        "warning": null
+      },
+      "auction_date": "2025-09-30",
+      "area_m2": 31.72,
+      "starting_price_pln": 200000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=512",
+      "wadium_deadline": "2025-09-22",
+      "viewing_date": "2025-09-22"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Raciborskiej 13/6",
+      "address": {
+        "street": "Raciborskiej",
+        "street_norm": "raciborskiej",
+        "building": "13",
+        "apt": "6",
+        "key": "raciborskiej|13|6",
+        "warning": null
+      },
+      "auction_date": "2025-09-30",
+      "area_m2": 75.05,
+      "starting_price_pln": 360000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=513",
+      "wadium_deadline": null,
+      "viewing_date": "2025-09-22"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
       "address_raw": "Wesołowskiej 1a",
       "address": {
         "street": "Wesołowskiej",
@@ -252,6 +328,44 @@
     {
       "kind": "mieszkalny",
       "round": 1,
+      "address_raw": "Kotlarza 9d/8",
+      "address": {
+        "street": "Kotlarza",
+        "street_norm": "kotlarza",
+        "building": "9D",
+        "apt": "8",
+        "key": "kotlarza|9D|8",
+        "warning": null
+      },
+      "auction_date": "2025-09-30",
+      "area_m2": 33.1,
+      "starting_price_pln": 210000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=515",
+      "wadium_deadline": "2025-09-22",
+      "viewing_date": "2025-09-22"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Morawa 24",
+      "address": {
+        "street": "Morawa",
+        "street_norm": "morawa",
+        "building": "24",
+        "apt": null,
+        "key": "morawa|24|",
+        "warning": null
+      },
+      "auction_date": "2025-11-24",
+      "area_m2": null,
+      "starting_price_pln": 2000000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=518",
+      "wadium_deadline": "2025-11-17",
+      "viewing_date": "2025-11-17"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
       "address_raw": "Ossowskiego 34/11",
       "address": {
         "street": "Ossowskiego",
@@ -267,6 +381,82 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=519",
       "wadium_deadline": "2025-10-20",
       "viewing_date": "2025-10-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Granicznej 57/7",
+      "address": {
+        "street": "Granicznej",
+        "street_norm": "granicznej",
+        "building": "57",
+        "apt": "7",
+        "key": "granicznej|57|7",
+        "warning": null
+      },
+      "auction_date": "2025-11-24",
+      "area_m2": 30.39,
+      "starting_price_pln": 230000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=520",
+      "wadium_deadline": "2025-11-17",
+      "viewing_date": "2025-11-17"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Grzyśki 1/7",
+      "address": {
+        "street": "Grzyśki",
+        "street_norm": "grzyski",
+        "building": "1",
+        "apt": "7",
+        "key": "grzyski|1|7",
+        "warning": null
+      },
+      "auction_date": "2025-11-24",
+      "area_m2": 45.45,
+      "starting_price_pln": 310000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=521",
+      "wadium_deadline": "2025-11-17",
+      "viewing_date": "2025-11-17"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Ligockiej 5a/16",
+      "address": {
+        "street": "Ligockiej",
+        "street_norm": "ligockiej",
+        "building": "5A",
+        "apt": "16",
+        "key": "ligockiej|5A|16",
+        "warning": null
+      },
+      "auction_date": "2025-11-24",
+      "area_m2": 30.43,
+      "starting_price_pln": 220000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=522",
+      "wadium_deadline": "2025-11-17",
+      "viewing_date": "2025-11-17"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Francuskiej 6",
+      "address": {
+        "street": "Francuskiej",
+        "street_norm": "francuskiej",
+        "building": "6",
+        "apt": null,
+        "key": "francuskiej|6|",
+        "warning": null
+      },
+      "auction_date": null,
+      "area_m2": 24.18,
+      "starting_price_pln": 75000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=523",
+      "wadium_deadline": "2025-12-01",
+      "viewing_date": "2025-12-01"
     },
     {
       "kind": "unknown",
@@ -385,13 +575,13 @@
     {
       "kind": "mieszkalny",
       "round": 1,
-      "address_raw": "Górnej 4, 6 i 8",
+      "address_raw": "Górnej 4",
       "address": {
-        "street": "Górnej 4, 6 i",
-        "street_norm": "gornej 4 6 i",
-        "building": "8",
+        "street": "Górnej",
+        "street_norm": "gornej",
+        "building": "4",
         "apt": null,
-        "key": "gornej 4 6 i|8|",
+        "key": "gornej|4|",
         "warning": null
       },
       "auction_date": "2026-02-03",
@@ -400,6 +590,63 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=534",
       "wadium_deadline": "2026-01-26",
       "viewing_date": null
+    },
+    {
+      "kind": "uzytkowy",
+      "round": 1,
+      "address_raw": "Marackiej 26",
+      "address": {
+        "street": "Marackiej",
+        "street_norm": "marackiej",
+        "building": "26",
+        "apt": null,
+        "key": "marackiej|26|",
+        "warning": null
+      },
+      "auction_date": "2026-02-03",
+      "area_m2": 61.19,
+      "starting_price_pln": 440000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=535",
+      "wadium_deadline": "2026-01-26",
+      "viewing_date": "2026-01-26"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Sienkiewicza 3",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "3",
+        "apt": null,
+        "key": "sienkiewicza|3|",
+        "warning": null
+      },
+      "auction_date": "2026-02-03",
+      "area_m2": 36.92,
+      "starting_price_pln": 190000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=536",
+      "wadium_deadline": "2026-01-26",
+      "viewing_date": "2026-01-26"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Widok 37",
+      "address": {
+        "street": "Widok",
+        "street_norm": "widok",
+        "building": "37",
+        "apt": null,
+        "key": "widok|37|",
+        "warning": null
+      },
+      "auction_date": "2026-02-03",
+      "area_m2": 26.26,
+      "starting_price_pln": 180000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=537",
+      "wadium_deadline": "2026-01-26",
+      "viewing_date": "2026-01-26"
     },
     {
       "kind": "mieszkalny",
@@ -436,6 +683,25 @@
       "area_m2": 45.45,
       "starting_price_pln": 220000,
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=541",
+      "wadium_deadline": "2026-02-09",
+      "viewing_date": "2026-02-09"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Morawa 24",
+      "address": {
+        "street": "Morawa",
+        "street_norm": "morawa",
+        "building": "24",
+        "apt": null,
+        "key": "morawa|24|",
+        "warning": null
+      },
+      "auction_date": "2026-02-17",
+      "area_m2": null,
+      "starting_price_pln": 1400000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=542",
       "wadium_deadline": "2026-02-09",
       "viewing_date": "2026-02-09"
     },
@@ -514,6 +780,25 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=554",
       "wadium_deadline": "2026-03-23",
       "viewing_date": "2026-03-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 3,
+      "address_raw": "Morawa 24",
+      "address": {
+        "street": "Morawa",
+        "street_norm": "morawa",
+        "building": "24",
+        "apt": null,
+        "key": "morawa|24|",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "area_m2": null,
+      "starting_price_pln": 1000000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=555",
+      "wadium_deadline": "2026-05-11",
+      "viewing_date": "2026-05-11"
     },
     {
       "kind": "mieszkalny",

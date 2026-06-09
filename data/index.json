@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T19:46:46.270Z",
+  "generated_at": "2026-06-09T20:26:25.718Z",
   "cities": [
     {
       "id": "gliwice",
       "label": "Gliwice",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 183,
+      "unique_properties": 185,
       "active_listings": 15,
       "active_auctions": 15,
-      "archived_auctions": 242,
+      "archived_auctions": 244,
       "wykaz_entries": 11
     },
     {
@@ -18,10 +18,10 @@
       "label": "Katowice",
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
-      "unique_properties": 125,
-      "active_listings": 29,
-      "active_auctions": 6,
-      "archived_auctions": 128,
+      "unique_properties": 131,
+      "active_listings": 44,
+      "active_auctions": 7,
+      "archived_auctions": 138,
       "wykaz_entries": 0
     },
     {
