@@ -92,6 +92,7 @@ async function getBufferInsecure(url, opts = {}) {
       });
     } catch (err) {
       lastErr = err;
+      if (attempt === retries) break; // out of retries — don't sleep for nothing
       const backoff = 1000 * Math.pow(2, attempt);
       console.error(`  fetch failed (${err.message}) [insecure-tls]; retry in ${backoff}ms`);
       await sleep(backoff);
@@ -145,6 +146,7 @@ export async function politeGet(url, opts = {}) {
       const detail = cause
         ? ` [cause: ${cause.code || cause.name || ''} ${cause.message || ''}`.trimEnd() + ']'
         : '';
+      if (attempt === retries) break; // out of retries — don't sleep for nothing
       const backoff = 1000 * Math.pow(2, attempt);
       console.error(`  fetch failed (${err.message})${detail}; retry in ${backoff}ms`);
       await sleep(backoff);

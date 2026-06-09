@@ -23,7 +23,7 @@ function countCity(cityId) {
   for (const prop of props) {
     for (const l of prop.listings) {
       if (l.outcome === 'active') active++;
-      else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold') archived++;
+      else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archived++;
     }
   }
   return { active, archived };

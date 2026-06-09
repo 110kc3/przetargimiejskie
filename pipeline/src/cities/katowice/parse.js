@@ -59,7 +59,12 @@ function roundFromTitle(title) {
 }
 
 function addressFromTitle(title) {
-  const m = /przy\s+(?:ul|al|pl|os)\.?\s*([^()]+?)\s*(?:\(|$)/i.exec(title);
+  // Capture street + building[/apt] and STOP — capturing to end-of-title made
+  // trailing words ("… przy ul. Gliwickiej 50 w Katowicach", "… – II przetarg")
+  // part of the street, parseAddress failed, and the announcement was silently
+  // dropped.
+  const m =
+    /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?)/i.exec(title);
   return m ? m[1].trim() : null;
 }
 
@@ -138,7 +143,10 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   const arM = /o\s+pow\.\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob);
   const areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
 
-  const prices = [...blob.matchAll(/(?<![\d.])(\d{1,3}(?: \d{3})*)\s*z[łl]/gi)]
+  // Same amount shape as PLN_ALL_RE below: spaced or dotted thousands and
+  // optional grosze — "850 000 zł", "150 000,00 zł", "150.000,00 zł". The
+  // lookbehind also excludes ',' so the ",00 zł" tail can't match alone.
+  const prices = [...blob.matchAll(/(?<![\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/gi)]
     .map((m) => parsePLN(m[1]))
     .filter((n) => n != null);
   const starting_price_pln = prices[0] ?? null;

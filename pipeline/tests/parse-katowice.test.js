@@ -63,6 +63,25 @@ test('negative wykaz rows → outcome unsold, final price null', () => {
   assert.equal(recs[1].starting_price_pln, 160000);
 });
 
+test('prices with grosze and dotted thousands parse (June 2026 fix)', () => {
+  // The row regex used to accept only "850 000 zł" — a row priced
+  // "150 000,00 zł" parsed BOTH prices to null.
+  const pdf = `                                     WYKAZ Z DNIA 10.03.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
+
+                                                          ul. Polna 5/3
+                                                          lokal mieszkalny o pow. użytkowej 41,20 m2
+                       Urząd Miasta
+                         Katowice          ustny
+1      03.03.2026                                         dz. nr 7/1 o pow. 300 m2,                150 000,00 zł    152.000,00 zł       2                 0              Anna Nowak
+                       ul. Młyńska 4   nieograniczony     km. 9, obręb Śródmieście
+`;
+  const recs = parseResultPdf(pdf, null, 'https://example/grosze.pdf');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].starting_price_pln, 150000);
+  assert.equal(recs[0].final_price_pln, 152000);
+  assert.equal(recs[0].outcome, 'sold');
+});
+
 test('positive wykaz row still parses as sold with both prices', () => {
   const recs = parseResultPdf(POS_PDF, null, 'https://example/pos.pdf');
   assert.equal(recs.length, 1);

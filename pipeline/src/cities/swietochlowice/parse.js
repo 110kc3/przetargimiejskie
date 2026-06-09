@@ -35,10 +35,14 @@ export function isFlatAnnouncement(title) {
   const t = (title || '').toLowerCase();
   // Drop notices that aren't a live auction announcement: any "informacja o …"
   // (result / cancellation), explicit result/cancellation/annulment wording,
-  // intents ("zamiar sprzedaży"), listings (wykaz) and the .docx "KW" annex.
-  if (/informacj\w*\s+o\b|wynik\w*\s+(?:z\s+)?\w*\s*przetarg|odwo[łl]ani|uniewa[żz]ni|zamiar\s+sprzeda|^\s*wykaz|za[łl][ąa]cznik|\bkw\b|ksi[eę]g/.test(t)) {
+  // intents ("zamiar sprzedaży") and listings (wykaz).
+  if (/informacj\w*\s+o\b|wynik\w*\s+(?:z\s+)?\w*\s*przetarg|odwo[łl]ani|uniewa[żz]ni|zamiar\s+sprzeda|^\s*wykaz|za[łl][ąa]cznik/.test(t)) {
     return false;
   }
+  // The .docx land-registry annex is dropped only when "KW"/"księga" LEADS the
+  // title — a genuine announcement merely CITING the KW number used to be
+  // over-rejected by a bare `\bkw\b` match anywhere.
+  if (/^\s*(?:kw\b|ksi[eę]g)/.test(t)) return false;
   if (!/przetarg/.test(t)) return false;
   if (!/sprzeda/.test(t)) return false;
   return /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln/.test(t);

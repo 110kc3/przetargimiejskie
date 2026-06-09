@@ -39,54 +39,51 @@ so the corrupted rows rebuild on the next refresh.
   re-listed auction parsed as round 1. Fixed: ordinal must qualify
   "przetarg" and past-tense history clauses are skipped.
 
-**Open (medium):**
+**Fixed (second pass):**
 
-- [ ] **5. Katowice result-PDF price regex rejects grosze** —
-  `parse.js:135` lacks `(?:,\d{2})?` / dotted thousands; a row priced
-  "150 000,00 zł" parses both prices to null. The yearly-summary regex
-  (line 187) handles it — port that pattern.
-- [ ] **6. merge-history freezes removed listings as `active` forever** —
-  date-reclassification (`archived` when `date < TODAY`) only runs on fresh
-  rows in `buildCityData`; a listing the source removes stays `active` and
-  permanently inflates `meta.active_auctions` (refresh.js + recount). Fix:
-  reclassify by date after the merge or in the counting loop.
-- [ ] **7. finn-bip `auctionDateFromText` fallbacks match any date** —
-  `(?:w\s+dniu\s+)?` is optional, so the first date anywhere (publication
-  header, dateline) wins when the "odbędzie się" anchor misses. Affects
-  Mysłowice/Świętochłowice. Require the anchor or scope to the operative
-  sentence.
-- [ ] **8. `normalize.js TRAIL_NOISE` strips trailing `m. N`** —
-  "Zwycięstwa 34 m. 9" loses the flat number → cross-flat key collision.
-  Latent (no current source emits the form) but should capture as apt.
+- [x] **5. Katowice result-PDF price regex rejects grosze** — the row regex
+  now accepts grosze + dotted thousands ("150 000,00 zł", "150.000,00 zł"),
+  same amount shape as the yearly-summary regex; the `,`-aware lookbehind
+  keeps the ",00 zł" tail from matching alone.
+- [x] **6. merge-history freezes removed listings as `active` forever** —
+  new `archivePastActive()` runs on the post-merge properties in refresh.js,
+  so retained past-dated rows age out to `archived` instead of inflating
+  `meta.active_auctions`.
+- [x] **7. finn-bip `auctionDateFromText` fallbacks match any date** —
+  added a numeric "odbędzie się" anchor; fallbacks now REQUIRE the
+  "w dniu" prefix, so page chrome ("Data publikacji: …", town datelines)
+  can't leak in as the auction date. No date → null (listing stays
+  dateless) rather than a wrong archived-classification.
+- [x] **8. `normalize.js TRAIL_NOISE` strips trailing `m. N`** — "m. N" is
+  now converted to the standard "/N" apartment form ("Zwycięstwa 34 m. 9" →
+  key `zwyciestwa|34|9`); only the "wraz z …" tail is stripped as noise.
 
-**Open (low):**
+**Fixed (third pass — all low items):**
 
-- [ ] refresh.js:185 doesn't count Gliwice's `no_winner` in
+- [x] refresh.js + recount-auctions.js now count Gliwice's `no_winner` in
   `archived_auctions`.
-- [ ] Gliwice unsold-section regex only matches `ul.` (sold section accepts
-  `al|pl|os`) — unsold items at those prefixes dropped.
-- [ ] finn-bip `/\b(VI|IV|V|I{1,3})\b/i` matches the conjunction "i" →
-  round 1; Roman map also stops at VI.
-- [ ] finn-bip pattern B: `/i` flag defeats the uppercase street-name anchor
-  (`[A-ZŻ…]` matches lowercase).
-- [ ] fetch.js sleeps the full backoff after the FINAL failed attempt
-  (dead 8–16 s per permanently failing URL).
-- [ ] rtf-text.js fonttbl strip can't handle nested groups — font names leak
-  into extracted text; `\'xx` decoded before `\uN` doubles fallback pairs.
-- [ ] refresh.js `crawlEmpty` computed after the year-floor filter — a city
-  with only pre-floor history + momentarily empty active is misread as a
-  source outage.
-- [ ] Gliwice `crawl-detail-areas.js:46` title split excludes ASCII `-` —
-  hyphenated streets (Skłodowskiej-Curie, 9-11) get no area key.
-- [ ] Katowice `addressFromTitle` captures to end-of-title — trailing words
-  after the building number make `parseAddress` fail and the announcement is
-  silently dropped.
-- [ ] Katowice SharePoint crawl drops items beyond `$top=2000` (logged, not
-  followed).
-- [ ] Świętochłowice `isFlatAnnouncement` over-rejects titles citing a KW
-  number.
-- [ ] build-properties `TODAY` is UTC, not Europe/Warsaw (00:00–02:00 local
-  keeps yesterday's auctions active one cycle).
+- [x] Gliwice unsold-section regexes accept `ul|al|pl|os` like the sold
+  section.
+- [x] finn-bip Roman matching is case-sensitive (the conjunction "i" no
+  longer reads as round 1; in the body scope the LAST Roman wins, so an
+  ALL-CAPS "I ZAPRASZA" can't either), map extended to X, "piątek" excluded.
+- [x] finn-bip pattern B: uppercase first-letter street guard re-checked
+  after the /i match ("przy czym nabywca…" can't become a street).
+- [x] fetch.js no longer sleeps the backoff after the final failed attempt.
+- [x] rtf-text.js strips `{\fonttbl …}` groups brace-aware (nested groups,
+  no font-name leakage) and decodes `\uN` BEFORE `\'xx`, consuming the
+  fallback byte (no doubled characters).
+- [x] refresh.js `crawlEmpty` uses the PRE-floor record count.
+- [x] Gliwice detail-areas title split keeps hyphenated streets
+  (Skłodowskiej-Curie, 9-11) — splits on spaced dashes only.
+- [x] Katowice `addressFromTitle` captures street + number and stops —
+  trailing title words no longer drop the announcement.
+- [x] Katowice SharePoint crawl follows `__next` paging (capped at 10
+  pages × 2000 defensively).
+- [x] Świętochłowice `isFlatAnnouncement` rejects only LEADING "KW/księg…"
+  (the annex), not announcements citing a KW number.
+- [x] `todayWarsaw()` (Europe/Warsaw civil date) replaces UTC `TODAY` in
+  build-properties and the refresh aging pass.
 
 ### Verify Bytom `.doc` history retention over time
 

@@ -49,26 +49,43 @@ const PROBE_CONCURRENCY = 5;
 const UA =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
 
+// Hard ceiling on paging, purely defensive — a buggy/looping __next chain
+// must not turn the cron run into an infinite crawl. 10 pages × 2000 rows is
+// far beyond either list's realistic growth.
+const MAX_PAGES = 10;
+
 async function fetchListItems(guid) {
   const fields = [F_TITLE, F_BODY, F_PUBLIKACJA, 'Id', 'Attachments'].join(',');
-  const url =
+  let url =
     `${ORIGIN}/_api/web/lists(guid'${guid}')/items` +
     `?$select=${fields}` +
     `&$orderby=${F_PUBLIKACJA}%20asc` +
     `&$top=${PAGE_SIZE}`;
-  const res = await politeGet(url, { accept: 'application/json;odata=verbose' });
-  if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
-  const json = await res.json();
-  const items = json?.d?.results;
-  if (!Array.isArray(items)) {
-    throw new Error(`unexpected SharePoint payload for list ${guid}`);
+  const all = [];
+  for (let page = 0; url && page < MAX_PAGES; page++) {
+    const res = await politeGet(url, { accept: 'application/json;odata=verbose' });
+    if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
+    const json = await res.json();
+    const items = json?.d?.results;
+    if (!Array.isArray(items)) {
+      throw new Error(`unexpected SharePoint payload for list ${guid}`);
+    }
+    all.push(...items);
+    // Follow server-driven paging once the list outgrows $top — items past the
+    // first page used to be silently dropped (logged but never fetched).
+    url = json?.d?.__next || null;
+    if (url) {
+      console.error(
+        `  katowice SP list ${guid}: ${all.length} item(s) so far, following __next…`,
+      );
+    }
   }
-  if (json?.d?.__next) {
+  if (url) {
     console.error(
-      `  katowice SP list ${guid}: ${items.length} returned, __next present (list larger than $top=${PAGE_SIZE})`,
+      `  katowice SP list ${guid}: stopped after ${MAX_PAGES} pages with __next still present (${all.length} items)`,
     );
   }
-  return items;
+  return all;
 }
 
 function extractAuctionDate(title) {

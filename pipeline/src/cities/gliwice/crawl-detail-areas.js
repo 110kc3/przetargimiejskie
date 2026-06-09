@@ -43,7 +43,10 @@ const AUCTION_DATE_RE = /(\d{1,2})\.(\d{1,2})\.(\d{4})/;
 function addressFromTitle(title) {
   const decoded = title.replace(/&#8211;/g, '–').replace(/&amp;/g, '&');
   // "Zwycięstwa 45/7 – 29.06.2026 r. – Zakład Gospodarki Mieszkaniowej"
-  const m = /^([^–—\-]+?)\s+[–—-]/.exec(decoded);
+  // Split on a SPACED dash so hyphenated streets ("Skłodowskiej-Curie 4/2")
+  // and range buildings ("Plebańska 9-11/3") survive: prefer the typographic
+  // en/em dash separator, fall back to a space-delimited ASCII hyphen.
+  const m = /^(.+?)\s+[–—]\s/.exec(decoded) || /^(.+?)\s+-\s/.exec(decoded);
   return m ? m[1].trim() : null;
 }
 

@@ -31,25 +31,54 @@ const CP1250 = {
   0x9c: 'ś', 0x9f: 'ź', 0xa0: ' ', // nbsp (thousands separator)
 };
 
+// Brace-aware removal of `{\fonttbl …}`-style groups. Word-generated tables
+// NEST groups (`{\fonttbl{\f0 …Calibri;}{\f1 …;}}`) — a lazy `[\s\S]*?\}`
+// stopped at the first inner `}` and leaked font names into the text.
+function stripGroups(s) {
+  const re = /\{\\(?:fonttbl|colortbl|stylesheet|info|\*)/g;
+  let out = '';
+  let last = 0;
+  let m;
+  while ((m = re.exec(s)) !== null) {
+    if (m.index < last) continue; // opener inside a group we already removed
+    out += s.slice(last, m.index);
+    let depth = 0;
+    let i = m.index;
+    for (; i < s.length; i++) {
+      const ch = s[i];
+      if (ch === '\\') { i++; continue; } // skip escaped char (incl. \{ \})
+      if (ch === '{') depth++;
+      else if (ch === '}') {
+        depth--;
+        if (depth === 0) { i++; break; }
+      }
+    }
+    out += ' ';
+    last = i;
+    re.lastIndex = i;
+  }
+  return out + s.slice(last);
+}
+
 /** Decode an RTF string (read as latin1) to plain text. */
 export function rtfToText(raw) {
   if (!raw) return '';
-  let s = raw
+  let s = stripGroups(
     // raw CR/LF in an RTF file are insignificant formatting (a value like
     // "180\r\n 000,00" must read as "180 000,00"); real breaks come from \par.
-    .replace(/[\r\n]+/g, ' ')
-    // drop font table / stylesheet / colour table / info + any \* destination
-    .replace(/\{\\(?:fonttbl|colortbl|stylesheet|info|\*)[\s\S]*?\}/g, ' ')
+    raw.replace(/[\r\n]+/g, ' '),
+  )
+    // \uN first, CONSUMING its fallback — either "?" or a \'xx byte. Decoding
+    // \'xx before \uN turned a "\uN\'xx" pair into a doubled character.
+    .replace(/\\u(-?\d+)\s?(?:\\'[0-9a-fA-F]{2}|\?)?/g, (_, d) => {
+      let n = Number(d);
+      if (n < 0) n += 65536;
+      return String.fromCharCode(n);
+    })
     // \'xx → cp1250 char
     .replace(/\\'([0-9a-fA-F]{2})/g, (_, h) => {
       const b = parseInt(h, 16);
       return CP1250[b] || (b < 0x80 ? String.fromCharCode(b) : '');
-    })
-    // \uN[?] → Unicode (skip the fallback char that follows)
-    .replace(/\\u(-?\d+)\s?\??/g, (_, d) => {
-      let n = Number(d);
-      if (n < 0) n += 65536;
-      return String.fromCharCode(n);
     })
     // paragraph / line breaks
     .replace(/\\par[d]?\b/g, '\n')

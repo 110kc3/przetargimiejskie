@@ -91,6 +91,19 @@ function dedupeListingsByDate(p) {
 }
 
 /**
+ * Today's date in Europe/Warsaw as "YYYY-MM-DD". The UTC-based
+ * `toISOString().slice(0,10)` lags the Polish civil date by 1-2 hours around
+ * midnight, keeping yesterday's auctions 'active' one extra cycle.
+ * (en-CA locale formats as YYYY-MM-DD.)
+ */
+export function todayWarsaw() {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Warsaw',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+}
+
+/**
  * @param {object} input
  * @param {Array} input.allRecords  parsed auction records (from parseResultDoc)
  * @param {Array} input.active      active listings (from crawlActive)
@@ -144,7 +157,7 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
   // (with an outcome the city doesn't publish), so we mark them 'archived'
   // rather than 'active'. This keeps the popup's active view current and lets
   // past auctions populate the archive. A dateless listing stays 'active'.
-  const TODAY = new Date().toISOString().slice(0, 10);
+  const TODAY = todayWarsaw();
   for (const a of active) {
     if (!a.address) continue;
     const p = ensureProperty(a.address, a.kind);

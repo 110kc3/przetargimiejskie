@@ -160,8 +160,10 @@ function parseSoldSection(sold, auctionDate, sourcePdf) {
   return out;
 }
 
+// Accept the same street prefixes as the sold-section regex (ul/al/pl/os) —
+// matching only "ul." silently dropped unsold items at other prefixes.
 const UNSOLD_ITEM_RE =
-  /\bul\.\s+([^\n]+?)\s+-\s+sprzeda[żz]\s+([^\n]+?)(?=\n|$)/g;
+  /\b(?:ul|al|pl|os)\.\s+([^\n]+?)\s+-\s+sprzeda[żz]\s+([^\n]+?)(?=\n|$)/g;
 
 /**
  * Parse the "unsold" section. Each item is "ul. <addr> - sprzedaż <kind>..."
@@ -180,7 +182,7 @@ function parseUnsoldSection(unsold, auctionDate, sourcePdf) {
   // Walk the text top-down, tracking the last reason seen and the items it covers.
   // Simpler approach: split into blocks separated by the Komisja-stwierdziła paragraphs.
   const reasonRe =
-    /Komisja\s+przetargowa\s+stwierdzi[łl]a[\s\S]+?(?=\n\s*ul\.|\n\s*$|$)/gi;
+    /Komisja\s+przetargowa\s+stwierdzi[łl]a[\s\S]+?(?=\n\s*(?:ul|al|pl|os)\.|\n\s*$|$)/gi;
   let cursor = 0;
   let bucket = [];
   let m;

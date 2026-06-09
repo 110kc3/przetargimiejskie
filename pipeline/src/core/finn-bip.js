@@ -37,7 +37,11 @@ const PL_MONTHS = {
   pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
-const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6 };
+const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
+// Roman ordinal as written in titles/bodies. NO /i flag downstream: a
+// case-insensitive `\bI\b` matched the Polish conjunction "i" → round 1.
+// Longest alternatives first so "VII" isn't read as "VI".
+const ROMAN_RE_SRC = '(VIII|VII|VI|IX|IV|V|X|I{1,3})';
 
 /**
  * Flatten FINN article HTML to plain text. Block-level closers become spaces so
@@ -92,9 +96,13 @@ export function roundFromTitle(title) {
   if (/drug/i.test(t)) return 2;
   if (/trzeci/i.test(t)) return 3;
   if (/czwart/i.test(t)) return 4;
-  if (/pi[ąa]t/i.test(t)) return 5;
-  const r = /\bo\s+(VI|IV|V|I{1,3})\s+(?:ustnym\s+)?przetarg/i.exec(t) || /\b(VI|IV|V|I{1,3})\s+przetarg/i.exec(t);
-  if (r) return ROMAN[r[1].toUpperCase()] ?? null;
+  if (/pi[ąa]t(?!ek\b|k)/i.test(t)) return 5; // "piąty", not "piątek/piątku"
+  // Roman group stays case-SENSITIVE (lowercase "i" is the conjunction);
+  // surrounding literals tolerate Title-/ALL-CAPS spellings explicitly.
+  const r =
+    new RegExp(`\\b[oO]\\s+${ROMAN_RE_SRC}\\s+(?:[Uu]stnym\\s+|USTNYM\\s+)?(?:[Pp]rzetarg|PRZETARG)`).exec(t) ||
+    new RegExp(`\\b${ROMAN_RE_SRC}\\s+(?:[Pp]rzetarg|PRZETARG)`).exec(t);
+  if (r) return ROMAN[r[1]] ?? null;
   if (/przetarg/i.test(t)) return 1;
   return null;
 }
@@ -112,8 +120,12 @@ export function roundFromText(text) {
   if (/drug/i.test(scope)) return 2;
   if (/trzeci/i.test(scope)) return 3;
   if (/czwart/i.test(scope)) return 4;
-  const r = /\b(VI|IV|V|I{1,3})\b/i.exec(scope);
-  if (r) return ROMAN[r[1].toUpperCase()] ?? null;
+  // Case-SENSITIVE on purpose: /i matched the conjunction "i" in
+  // "ogłasza … i … przetarg" as Roman I (round 1). Take the LAST Roman in the
+  // scope — it abuts "przetarg" (the scope's end), so an ALL-CAPS conjunction
+  // "I" earlier in "OGŁASZA I ZAPRASZA NA II PRZETARG" can't win either.
+  const ms = [...scope.matchAll(new RegExp(`\\b${ROMAN_RE_SRC}\\b`, 'g'))];
+  if (ms.length) return ROMAN[ms[ms.length - 1][1]] ?? null;
   return /og[łl]asza/i.test(text || '') ? 1 : null;
 }
 
@@ -195,17 +207,29 @@ export function areaFromText(text) {
  */
 export function auctionDateFromText(text) {
   if (!text) return null;
+  // Primary anchor: the operative future-tense sentence.
   const spelled = /odb[ęe]dzie\s+si[ęe][^0-9]{0,40}?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
   if (spelled) {
     const mon = PL_MONTHS[spelled[2].toLowerCase()];
     if (mon) return `${spelled[3]}-${String(mon).padStart(2, '0')}-${spelled[1].padStart(2, '0')}`;
   }
-  const anySpelled = /(\d{1,2})\s+(stycznia|lutego|marca|kwietnia|maja|czerwca|lipca|sierpnia|wrze[śs]nia|pa[źz]dziernika|listopada|grudnia)\s+(\d{4})/i.exec(text);
+  const numAnchored = /odb[ęe]dzie\s+si[ęe][^0-9]{0,40}?(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  if (numAnchored) {
+    return `${numAnchored[3]}-${numAnchored[2].padStart(2, '0')}-${numAnchored[1].padStart(2, '0')}`;
+  }
+  // Fallbacks REQUIRE the "w dniu" prefix. The body passed in is the whole
+  // FINN document including page chrome — an unanchored scan used to return
+  // the leftmost date anywhere ("Data publikacji: …", the town dateline,
+  // a wadium deadline) whenever the operative sentence deviated. A "w dniu"
+  // date can still be a non-auction date, but it can't be page chrome; better
+  // to return null (caller keeps the listing dateless) than a wrong date that
+  // misclassifies the auction as archived.
+  const anySpelled = /w\s+dniu\s+(\d{1,2})\s+(stycznia|lutego|marca|kwietnia|maja|czerwca|lipca|sierpnia|wrze[śs]nia|pa[źz]dziernika|listopada|grudnia)\s+(\d{4})/i.exec(text);
   if (anySpelled) {
     const mon = PL_MONTHS[anySpelled[2].toLowerCase()];
     if (mon) return `${anySpelled[3]}-${String(mon).padStart(2, '0')}-${anySpelled[1].padStart(2, '0')}`;
   }
-  const num = /(?:w\s+dniu\s+)?(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(text);
+  const num = /w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
   if (num) return `${num[3]}-${num[2].padStart(2, '0')}-${num[1].padStart(2, '0')}`;
   return null;
 }
@@ -228,7 +252,11 @@ export function addressFrom(title, text) {
   // Pattern B: "… budynku nr <bldg> przy ul(icy) <Street> [w <City> | , | wraz | o pow]"
   const b =
     /budynku\s+(?:nr\.?\s*)?(\d+[A-Za-z]?)\s+przy\s+(?:ul\.|ulicy|al\.|alei|placu|pl\.|os\.|osiedlu)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?=\s+w\s+[A-ZŻŹĆŁŚ]|\s+w\s+dzielnic|\s+wraz|\s+o\s+pow|[,.;]|$)/i.exec(src);
-  if (b) {
+  // The /i flag (needed for "Budynku"/"PRZY" case variance) also lowers the
+  // street's deliberate uppercase first-letter guard — re-check it here so
+  // "…nr 5 przy czym nabywca…" can't capture "czym nabywca" as a street.
+  if (b && !/^[A-ZŻŹĆŁŚĄĘÓŃ]/.test(b[2])) b[2] = null;
+  if (b && b[2]) {
     const building = b[1].toUpperCase();
     const street = b[2].replace(/\s+/g, ' ').trim();
     const raw = `${street} ${building}${apt ? '/' + apt : ''}`;

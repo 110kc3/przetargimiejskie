@@ -46,6 +46,29 @@ export function listingFingerprint(l) {
 }
 
 /**
+ * Reclassify past-dated 'active' listings as 'archived'. buildCityData does
+ * this for FRESHLY-crawled listings only — a listing the source removed before
+ * its auction concluded is retained by the merge frozen at 'active' forever,
+ * permanently inflating meta.active_auctions. Run this on the post-merge
+ * properties so retained rows age out too. Dateless listings stay 'active'.
+ * @param {Array} properties
+ * @param {string} todayIso  "YYYY-MM-DD"
+ * @returns {number} count of reclassified listings
+ */
+export function archivePastActive(properties, todayIso) {
+  let n = 0;
+  for (const p of properties || []) {
+    for (const l of p.listings || []) {
+      if (l.outcome === 'active' && l.date && l.date < todayIso) {
+        l.outcome = 'archived';
+        n++;
+      }
+    }
+  }
+  return n;
+}
+
+/**
  * @param {Array} previous  properties[] from the last committed file ([] if none)
  * @param {Array} fresh      properties[] just built from the current crawl
  * @returns {{ properties: Array, stats: { kept_properties:number, kept_listings:number } }}

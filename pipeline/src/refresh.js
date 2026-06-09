@@ -25,8 +25,8 @@ try { setDefaultResultOrder('ipv4first'); } catch { /* older node */ }
 import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
-import { buildCityData } from './core/build-properties.js';
-import { mergeProperties } from './core/merge-history.js';
+import { buildCityData, todayWarsaw } from './core/build-properties.js';
+import { mergeProperties, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
 
 // History accumulation: merge each run with the previously-committed
@@ -127,7 +127,10 @@ async function refreshCity(city) {
   // stay live, and reuse the previous meta for the index. The source recovering
   // on a later run writes correct data again (including dropping ended auctions).
   // A genuinely-empty city with no prior data still writes normally.
-  const crawlEmpty = active.length === 0 && allRecords.length === 0 && wykaz.length === 0;
+  // Use the PRE-floor record count: a city whose entire history is older than
+  // MIN_HISTORY_YEAR still had a perfectly healthy crawl — only a crawl that
+  // saw literally nothing indicates a source outage.
+  const crawlEmpty = active.length === 0 && beforeFloor === 0 && wykaz.length === 0;
   if (crawlEmpty && prevProperties.length > 0) {
     console.error(
       `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data; skipping write.`,
@@ -156,6 +159,12 @@ async function refreshCity(city) {
     }
   }
 
+  // Age out retained listings: a listing the source removed while still
+  // 'active' is frozen by the merge and would inflate active_auctions forever.
+  // (buildCityData reclassifies only the freshly-crawled listings.)
+  const agedOut = archivePastActive(properties, todayWarsaw());
+  if (agedOut) console.error(`  aged out ${agedOut} past-dated retained listings (active → archived).`);
+
   // Back-fill the history-derived round onto the live `active` listings (which
   // are written to active.json and power the site's "AKTUALNE AUKCJE" table).
   // build-properties derived the round from each property's attempt history, but
@@ -182,7 +191,7 @@ async function refreshCity(city) {
   for (const p of properties) {
     for (const l of p.listings) {
       if (l.outcome === 'active') activeAuctions++;
-      else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold') archivedAuctions++;
+      else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archivedAuctions++;
       // 'announced' (wykaz pre-announcements) counts as neither — it's an intent.
     }
   }

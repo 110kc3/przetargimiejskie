@@ -20,8 +20,11 @@ const POLISH_LOWER = (s) =>
     .replace(/[śš]/g, 's').replace(/[żź]/g, 'z');
 
 const STRIP_LEAD = /^\s*(?:ul\.?|al\.?|pl\.?|os\.?)\s+/i;
-// We *don't* strip trailing "garaż nr N" anymore — we want to keep it as apt info.
-const TRAIL_NOISE = /\s*(?:wraz\b.*|m\.\s*\d+\s*$)/i;
+// We *don't* strip trailing "garaż nr N" — kept as apt info. Nor "m. N"
+// (mieszkanie N): that IS the apartment number — stripping it collapsed
+// distinct flats ("Zwycięstwa 34 m. 9" and "… m. 7") into one bare-building
+// key. It's converted to the "/N" form below instead.
+const TRAIL_NOISE = /\s*wraz\b.*/i;
 
 const ROMAN_OK = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/i;
 
@@ -41,6 +44,9 @@ export function parseAddress(raw) {
   let s = raw.trim().replace(/\s+/g, ' ');
   s = s.replace(STRIP_LEAD, '');
   s = s.replace(TRAIL_NOISE, '').trim();
+  // Trailing "m. N" / "m N" (mieszkanie) → the standard "/N" apartment form:
+  // "Zwycięstwa 34 m. 9" → "Zwycięstwa 34/9".
+  s = s.replace(/\s+m\.?\s*(\d+[A-Za-z]?)\s*$/i, '/$1');
 
   // Try the "garaż nr N" suffix first: "<street> <bldg> garaż nr <N>"
   const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);

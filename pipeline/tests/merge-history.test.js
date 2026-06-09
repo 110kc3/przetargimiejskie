@@ -5,7 +5,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { mergeProperties, listingFingerprint } from '../src/core/merge-history.js';
+import { mergeProperties, listingFingerprint, archivePastActive } from '../src/core/merge-history.js';
 
 const prop = (key, listings, extra = {}) => ({
   key, street: key.split('|')[0], street_norm: key.split('|')[0],
@@ -64,6 +64,22 @@ test('fingerprint = date: stable across outcome/price/round changes', () => {
   // round is NOT part of identity (it's derived) → SAME fingerprint
   assert.equal(listingFingerprint(L('2026-01-01', 'active', { round: 1 })),
                listingFingerprint(L('2026-01-01', 'active', { round: 2 })));
+});
+
+test('archivePastActive ages out retained past-dated actives, keeps future + dateless', () => {
+  // A listing the source removed while still 'active' is retained by the merge
+  // frozen at 'active' — it must age out by date instead of inflating
+  // active_auctions forever (June 2026 fix).
+  const prev = [prop('a|1|2', [L('2026-01-15', 'active')])]; // gone upstream
+  const fresh = [prop('b|3|4', [L('2026-12-01', 'active'), L(null, 'active')])];
+  const { properties } = mergeProperties(prev, fresh);
+  const n = archivePastActive(properties, '2026-06-09');
+  assert.equal(n, 1);
+  const a = properties.find((p) => p.key === 'a|1|2');
+  assert.equal(a.listings[0].outcome, 'archived', 'past-dated retained row aged out');
+  const b = properties.find((p) => p.key === 'b|3|4');
+  assert.deepEqual(b.listings.map((l) => l.outcome), ['active', 'active'],
+    'future-dated and dateless rows stay active');
 });
 
 test('round derivation does not duplicate: null-round old + derived-round fresh → one row', () => {
