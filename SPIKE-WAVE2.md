@@ -687,3 +687,98 @@ code) rather than four bespoke adapters. Build it once at Mysłowice, reuse.
 
 Kraków and Warszawa remain demand-gated and out-of-Śląsk; Warszawa is ~18
 district BIPs. Only if the product expands beyond Silesia.
+
+---
+
+# Re-verification — all not-built cities (10 June 2026)
+
+Live re-check of every spiked-but-not-built city, prompted by `core/render.js`
+landing (the headless fetch the Jaworzno/Żory drops were waiting on). Method:
+plain fetches first, real Chrome (network trace) where plain fetch hit a shell
+or a bot gate. **Net result: no verdict flips to BUILD, but two cities' *drop
+rationale* is obsolete and recorded mechanics needed corrections.**
+
+## Jaworzno — mechanics UNBLOCKED, content still thin → DEFER stands
+
+The "JavaScript-rendered ⇒ unscrapeable" rationale is **wrong as of today**:
+`bip.jaworzno.pl` is the **same platform as the built Sosnowiec adapter** —
+the SPA loads everything from a JSON API that plain `fetch` can read, no
+render.js needed:
+
+- `GET /api/menu/<id>/articles?limit=&offset=&archived=0|1` — same list shape
+  as Sosnowiec (`articles[].aliasFields` title, `columnFields` dates, `total`)
+- `GET /api/articles/<id>` — article JSON
+- `GET /api/menu/<id>` — siblings of a menu node (its level, not children)
+- `bip.mznk.jaworzno.pl` is the same platform (same `Home | Calculators` shell)
+
+**Content (the reason DEFER stands):** "Komunikaty i obwieszczenia"
+(menu 18057; 61 current + 285 archived) carries the przetargi — **all
+land/działki, 0 flat auctions**. The full-text search (`/e,search.html?s=…`)
+surfaces flat *sales* only as Rada Miejska **consent uchwały**: mostly
+bezprzetargowe to tenants, with occasional single flats cleared for auction
+(e.g. Poniatowskiego 30/1, Sep 2025). No auction-announcement stream for
+flats. Revisit trigger is now *volume only* — the scraping blocker is gone,
+and a future adapter is a Sosnowiec clone with a different menu id.
+
+## Żory — mechanics CORRECTED (plain-fetch works), content still thin → DEFER stands
+
+Two of the three drop reasons no longer hold:
+
+1. **The lists are no longer JS-only.** `zbmzory.bip.net.pl` (Nefeni bip.net.pl,
+   Next.js) now **server-renders** category listings and article pages — plain
+   `fetch` reads them (the residual "Wczytywanie…" is breadcrumb chrome). The
+   JSON API behind it is `zbmzory-api.bip.net.pl` (`/api/menus/<n>?lang=PL&
+   parentIds[0]=<uuid>`, `/api/attachments/<id>`), but it isn't needed.
+2. **2025 is no longer empty.** *Zbywanie nieruchomości → Wykaz nieruchomości →
+   ROK 2025* has **5 wykazy**, all flat-keyed addresses (os. Sikorskiego 9M/30,
+   9M/12, Strażacka 24B/22, AWP 21/5, Boczna 11C/2); each article is a thin
+   wrapper + one small (~47 KB, likely text) PDF at
+   `zbmzory-api.bip.net.pl/api/attachments/<id>`.
+
+What still kills it: these are **wykazy** (intent-to-sell), with **no przetarg
+ogłoszenia/round/results stream** anywhere in the tree, no ROK 2026 folder yet,
+and ~5 items/year. `zbmzory.pl` (linked from the BIP header!) still 301s to the
+casino site — keep it blacklisted. Revisit if a przetarg category appears;
+an adapter would be trivial (plain HTML list + one PDF per flat).
+
+## Ruda Śląska — unchanged → DEFER stands
+
+2026 category (`idmp=4478`) still holds exactly **3 documents**: two garage
+bezprzetargowe tenant sales + one land/commercial result (Wilka 9). Zero open
+flat auctions. Still bot-UA-gated for plain `web_fetch`.
+
+## Content-drops — all re-checked, all stand
+
+- **Częstochowa** (`/artykuly/71547`, now 95 pages): page 1 = land wykazy/
+  przetargi (Korkowa, Łakowa, Krótka, Piastowska…) + lokale **na rzecz
+  najemców**. 0 flat auctions. DROP stands.
+- **Tychy** (browser; plain fetch still bot-gated): May 2026 obwieszczenia =
+  najem/dzierżawa/odszkodowania only. DROP stands.
+- **Dąbrowa Górnicza** (`/15665`, 9 pages): all land (Targowa, Łuszczaka,
+  DW 790, Polcera, Kościuszki, Rudna…), KSSE strefa tender included. 0 flat
+  auctions. DROP stands.
+- **Chorzów**: BIP menu structure unchanged — still no flat-sale category.
+  DROP stands.
+- **Siemianowice Śląskie**: auctions moved to a FINN eUrząd register
+  (`eurzad.finn.pl/msiemianowice/#!/rejestry/P-NIER/…`, JS app, linked from
+  `bipkod/025/001`). 2026 content: **one** genuine flat auction (Szeflera 12/8,
+  I przetarg Feb → II przetarg Mar 2026) among najem/dzierżawa/land. Non-zero
+  but ~1 flat/year → DROP/DEFER stands.
+- **Piekary Śląskie**: Feb 2026 zarządzenia again designate lokale mieszkalne
+  for sale **to tenants**; the live przetarg stream (now on
+  `piekaryslaskie.bip.net.pl`, same Nefeni platform as Żory) is land. DROP
+  stands.
+- **Wodzisław Śląski**: only cooperative (SM "ROW") / JSW KOKS / komornik flat
+  auctions; city sales remain wykazy + tenant program. DROP stands (cursory).
+
+## Takeaways
+
+1. **The render.js justification for Jaworzno/Żory is obsolete** — both are now
+   readable without a browser (Jaworzno via the Sosnowiec-style JSON API, Żory
+   via SSR HTML). Their deferral is purely a *flat-volume* call now.
+2. The bezprzetargowe pattern (flats to tenants, auctions for land) held in
+   every re-checked city — six months changed nothing. Next capacity should go
+   to maintaining the 9 built cities, not to this backlog.
+3. If one cheap adapter is ever wanted from this pool: **Jaworzno** is the
+   cheapest (Sosnowiec clone), **Żory** the second (plain HTML + 1 PDF/flat) —
+   both gated on content that isn't there yet, not on engineering.

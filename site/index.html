@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>przetargimiejskie – śląsk · historia miejskich przetargów na mieszkania</title>
-<meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik." />
+<meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice." />
 <meta property="og:title" content="przetargimiejskie – śląsk" />
 <meta property="og:description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku." />
 <meta property="og:type" content="website" />
@@ -105,7 +105,7 @@ a:hover{color:var(--accent);text-decoration:underline}
     </div>
     <p class="hero-note">Rozszerzenie na razie tylko dla przeglądarki Google Chrome.</p>
     <div class="stat-row">
-      <div class="stat"><div class="stat-value" id="stat-cities">6</div><div class="stat-label">miast</div></div>
+      <div class="stat"><div class="stat-value" id="stat-cities">9</div><div class="stat-label">miast</div></div>
       <div class="stat"><div class="stat-value" id="stat-props">—</div><div class="stat-label">nieruchomości</div></div>
       <div class="stat"><div class="stat-value" id="stat-active">—</div><div class="stat-label">aktualnych aukcji</div></div>
       <div class="stat"><div class="stat-value" id="stat-archived">—</div><div class="stat-label">w archiwum</div></div>
@@ -115,7 +115,7 @@ a:hover{color:var(--accent);text-decoration:underline}
   <section class="section" id="miasta">
     <h2 class="section-title">Obsługiwane miasta</h2>
     <div class="city-list" id="cities"></div>
-    <p class="section-note">Kolejne miasta dodajemy — Bielsko-Biała, Częstochowa i inne w planach.</p>
+    <p class="section-note">Kolejne miasta dodajemy w miarę dostępności otwartych przetargów na mieszkania.</p>
   </section>
 
   <section class="section" id="jak">
@@ -168,7 +168,8 @@ a:hover{color:var(--accent);text-decoration:underline}
     const box = document.getElementById('cities');
     box.innerHTML = cities.map(c=>{
       const a = activeOf(c), arch = archivedOf(c);
-      const meta = `${a} ${a===1?'aukcja':'aktualnych'}` + (arch?` · ${arch} w archiwum`:'');
+      const plural = n => n===1 ? 'aukcja' : (n%10>=2 && n%10<=4 && (n%100<12 || n%100>14)) ? 'aukcje' : 'aukcji';
+      const meta = `${a} ${plural(a)}` + (arch?` · ${arch} w archiwum`:'');
       return `<span class="city-chip"><span class="city-dot dot-${c.id}"></span><span class="city-name">${c.label}</span><span class="city-meta">${meta}</span></span>`;
     }).join('');
   }).catch(()=>{});

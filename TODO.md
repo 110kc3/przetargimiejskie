@@ -355,16 +355,15 @@ tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
    (`bip.myslowice.pl/artykul/...`). First user of the `finn-bip` template.
 3. **Świętochłowice** — ✅ **SPIKED → BUILD.** MPGL; recurring flat auctions with
    explicit rounds (drugi/trzeci przetarg) on `bip.swietochlowice.pl/bipkod/003/010/003`.
-4. **Jaworzno** — ❌ **RE-SPIKED (June 2026) → DROP/DEFER.** The earlier note was
-   wrong. MZNK (`bip.mznk.jaworzno.pl`) handles **rentals/commercial** (najem,
-   dzierżawa, lokale użytkowe), not flat sales, and its list is **JavaScript-
-   rendered** (raw HTML is a ~4 KB shell — the static pipeline can't scrape it).
-   Flat *sales* are run by the city on `bip.jaworzno.pl` — the **same JS-rendered
-   platform**, and its sales skew to **land/działki** (Tychy/Dąbrowa pattern). The
-   only node-scrapeable source, the WordPress `mznk.jaworzno.pl`, has ~1 historical
-   flat-sale post (2022) — no recurring stream. Thin volume + un-scrapeable
-   authoritative source ⇒ not worth building. Revisit only if the pipeline gains a
-   headless-browser fetch or Jaworzno starts a real flat-auction stream.
+4. **Jaworzno** — ❌ **DEFER (re-verified 10 June 2026 — scraping blocker GONE,
+   volume still thin).** Correction: `bip.jaworzno.pl` (and `bip.mznk.jaworzno.pl`)
+   is the **same JSON-API platform as the built Sosnowiec adapter** —
+   `/api/menu/<id>/articles?archived=0|1` + `/api/articles/<id>` work with plain
+   fetch; no headless browser needed. A future adapter is a Sosnowiec clone.
+   But content stands: "Komunikaty i obwieszczenia" (menu 18057, 61+285 items)
+   auctions **land only, 0 flats**; flat sales surface only as council consent
+   uchwały (mostly tenant bezprzetargowe, occasional single flat cleared for
+   auction). Revisit on volume only. See SPIKE-WAVE2.md re-verification.
 5. **Częstochowa** — ❌ **RE-SPIKED (June 2026) → DROP (for flats).** Source is
    server-rendered and scrapeable (`bip.czestochowa.pl/artykuly/71547/sprzedaz-
    nieruchomosci-i-lokali`, FINN, `/artykul/71547/<id>/<slug>` articles), so the
@@ -373,18 +372,23 @@ tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
    auctions land; flats go bezprzetargowo (Tychy/Dąbrowa/Ruda pattern). Build only
    if it ever starts auctioning flats, or if the product expands to land sales.
    (ZGM TBS = rentals, skip.)
-6. **Żory** — ❌ **RE-SPIKED (June 2026) → DROP.** No usable source. The official
-   BIP `zbmzory.bip.net.pl` (bip.net.pl platform) is server-rendered at the top
-   level but its category/article *listings* load via JavaScript (raw HTML =
-   "Wczytywanie…") — the static pipeline can't scrape them; the "Zbywanie
-   nieruchomości" branch only holds year-foldered *wykazy* (no clear przetarg
-   stream), and 2025 was empty. The WordPress `zbmzory.pl` is **still hijacked** —
-   it 301s to `foro-go.com` ("Bison Casino"). So: JS-rendered official source +
-   hijacked alt + low volume. Revisit only with a headless-browser fetch in the
-   pipeline.
+6. **Żory** — ❌ **DEFER (re-verified 10 June 2026 — now plain-fetch scrapeable,
+   content still thin).** Correction: `zbmzory.bip.net.pl` now **server-renders**
+   its category listings and article pages — plain fetch reads them (the
+   "Wczytywanie…" is breadcrumb chrome; JSON API `zbmzory-api.bip.net.pl` exists
+   but isn't needed). ROK 2025 is no longer empty: **5 wykazy**, all flat-keyed
+   addresses (Sikorskiego 9M/30 & 9M/12, Strażacka 24B/22, AWP 21/5, Boczna
+   11C/2), each a thin page + one ~47 KB PDF (`/api/attachments/<id>`). Still no
+   przetarg/round/results stream, no ROK 2026, ~5 items/yr ⇒ defer on volume.
+   `zbmzory.pl` **still 301s to the casino site** — keep blacklisted. See
+   SPIKE-WAVE2.md re-verification.
 7. **Siemianowice Śląskie, Piekary Śląskie, Wodzisław Śląski** — ✅ **SPIKED →
-   DROP.** Siemianowice: mostly land + spółdzielnia. Piekary & Wodzisław:
-   **bezprzetargowe** sales to sitting tenants (no open-auction stream — Tychy trap).
+   DROP (re-verified 10 June 2026, all stand).** Siemianowice: auctions moved to
+   a FINN eUrząd JS register (`eurzad.finn.pl/msiemianowicesl…/P-NIER`); 2026 has
+   exactly **one** flat auction (Szeflera 12/8, I→II przetarg) among rentals/land.
+   Piekary (BIP now on the Nefeni bip.net.pl platform): Feb 2026 zarządzenia still
+   designate flats for **tenant** sale; live przetargi are land. Wodzisław:
+   **bezprzetargowe** tenant program unchanged.
 8. **Kraków, Warszawa** — out-of-region, demand-gated; Warszawa last (≈18 district
    BIPs). Only if the product expands beyond Śląsk.
 
@@ -410,6 +414,15 @@ fits the lean design, so render.js is the last resort. (2) The render/API unlock
 is *mechanical* — Jaworzno (rentals + land), Częstochowa (land-only) and Żory
 (a few wykazy/year) still have **thin flat content** behind the JS, so the
 capability mainly pays off when a *richer* JS-rendered source appears.
+
+**Re-verification (10 June 2026).** All not-built cities re-checked live — no
+verdict flips to BUILD, but two drop rationales were obsolete: Jaworzno is the
+same JSON-API platform as Sosnowiec (plain-fetch scrapeable, no render.js
+needed) and Żory's bip.net.pl now server-renders its listings (ROK 2025 has 5
+flat wykazy). Both remain deferred on flat volume alone. Ruda Śląska, Tychy,
+Częstochowa, Dąbrowa, Chorzów, Siemianowice (1 flat auction/yr, eUrząd JS
+register), Piekary, Wodzisław: unchanged. Full notes in SPIKE-WAVE2.md
+"Re-verification" section.
 
 ### Monetization: alert + saved-search MVP
 

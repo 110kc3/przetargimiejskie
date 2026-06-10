@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Archiwum przetargów — przetargimiejskie</title>
-<meta name="description" content="Przeszukiwalne archiwum miejskich przetargów na mieszkania: Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik. Ceny, rundy, zł/m²." />
+<meta name="description" content="Przeszukiwalne archiwum miejskich przetargów na mieszkania: Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice. Ceny, rundy, zł/m²." />
 <style>
 /* ===== przetargimiejskie — Slate Ledger (dark) ===== */
 :root{
@@ -69,7 +69,7 @@ a:hover{color:var(--accent);text-decoration:underline}
 .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600;line-height:1.5}
 .pill-sold{color:var(--ok);background:var(--ok-bg)}
 .pill-unsold{color:var(--bad);background:var(--bad-bg)}
-.pill-archived{color:var(--muted);background:var(--surface-2)}
+.pill-archived,.pill-no_winner{color:var(--muted);background:var(--surface-2)}
 .pill-reason{color:var(--faint);font-weight:500;font-size:12px;margin-left:2px}
 .dot-gliwice{background:var(--c-gliwice)}.dot-katowice{background:var(--c-katowice)}
 .dot-zabrze{background:var(--c-zabrze)}.dot-bytom{background:var(--c-bytom)}
@@ -98,7 +98,8 @@ a:hover{color:var(--accent);text-decoration:underline}
     <label class="field"><span class="field-label">Wynik</span>
       <select class="control" id="f-outcome">
         <option value="all">Wszystkie</option><option value="sold">sprzedane</option>
-        <option value="unsold">bez sprzedaży</option><option value="archived">zakończone</option></select></label>
+        <option value="unsold">bez sprzedaży</option><option value="no_winner">bez rozstrzygnięcia</option>
+        <option value="archived">zakończone</option></select></label>
     <label class="field"><span class="field-label">Rok</span>
       <select class="control" id="f-year"><option value="all">Wszystkie lata</option></select></label>
     <label class="field"><span class="field-label">Szukaj ulicy</span>
@@ -130,19 +131,29 @@ a:hover{color:var(--accent);text-decoration:underline}
 </div>
 
 <script>
-const TODAY = new Date().toISOString().slice(0,10);
+// Europe/Warsaw civil date — UTC "today" flips 1-2 h before local midnight,
+// keeping an auction "active" too long (mirrors the extension's todayWarsaw()).
+const TODAY = new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const nf = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:0});
 const fmtPLN = n => n==null?'—':nf.format(n)+' zł';
 const fmtM2 = (p,a)=>(p==null||!a)?'—':nf.format(Math.round(p/a))+' zł/m²';
 const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x-y); const m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
+// Escape crawled strings before they go into innerHTML, and only let http(s)
+// URLs through to hrefs (mirrors the extension's esc()/safeHref(), v1.14.3).
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href); return (x.protocol==='http:'||x.protocol==='https:')?x.href:''; }catch{ return ''; } };
+// Polish-fold both sides of the street search so "zwyciestwa" matches "Zwycięstwa".
+const fold = s => String(s||'').toLowerCase()
+  .replace(/[ąàá]/g,'a').replace(/[ćč]/g,'c').replace(/[ęè]/g,'e').replace(/[ł]/g,'l')
+  .replace(/[ńñ]/g,'n').replace(/[óòô]/g,'o').replace(/[śš]/g,'s').replace(/[żź]/g,'z');
 const KIND = {mieszkalny:'mieszkalny',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
-const ROUND=['','1.','2.','3.','4.','5.','6.'];
-const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)'};
+const roundLabel = r => r ? `${r}. przet.` : '—';
+const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia'};
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
 let sortKey='date', sortDir='desc';
 
-function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${city}"></span>${label||city}</span>`; }
+function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${esc(city)}"></span>${esc(label||city)}</span>`; }
 function addrText(r){ return `${r.street||''} ${r.building||''}${r.apt?'/'+r.apt:''}`.trim(); }
 function arrow(k){ return sortKey===k?`<span class="arrow">${sortDir==='asc'?'▲':'▼'}</span>`:''; }
 
@@ -163,7 +174,7 @@ async function load(){
       ]);
       for(const p of (props.properties||[]))
         for(const l of (p.listings||[]))
-          if(['sold','unsold','archived'].includes(l.outcome))
+          if(['sold','unsold','archived','no_winner'].includes(l.outcome))
             records.push({city:c.id,cityLabel:c.label,kind:l.kind||p.kind,street:p.street,building:p.building,apt:p.apt,
               date:l.date,round:l.round,area:l.area_m2??p.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
               outcome:l.outcome,reason:l.unsold_reason,src:l.source_pdf||l.detail_url});
@@ -222,37 +233,39 @@ function refreshHeaders(){
 function render(){
   const city=document.getElementById('f-city').value, kind=document.getElementById('f-kind').value,
         outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
-        q=document.getElementById('f-q').value.trim().toLowerCase();
+        q=fold(document.getElementById('f-q').value.trim());
   const cityYear = r => (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
   renderSummary(records.filter(cityYear));
 
   const match = r => cityYear(r) && (kind==='all'||r.kind===kind) && (outcome==='all'||r.outcome===outcome)
-    && (!q || addrText(r).toLowerCase().includes(q));
+    && (!q || fold(addrText(r)).includes(q));
   let rows = records.filter(match);
   rows.sort((a,b)=>{const av=getSort(a),bv=getSort(b);const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));return sortDir==='asc'?c:-c;});
   document.getElementById('count').textContent = rows.length+' rekordów';
   document.getElementById('hist-body').innerHTML = rows.map(r=>`<tr>
-    <td class="num muted-cell">${r.date||'—'}</td>
-    <td class="addr">${chip(r.city,r.cityLabel)}${addrText(r)}</td>
-    <td>${KIND[r.kind]||r.kind}</td>
-    <td>${r.round?ROUND[r.round]+' przet.':'—'}</td>
-    <td class="num">${r.area?r.area+' m²':'—'}</td>
+    <td class="num muted-cell">${esc(r.date)||'—'}</td>
+    <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}</td>
+    <td>${esc(KIND[r.kind]||r.kind)}</td>
+    <td>${roundLabel(r.round)}</td>
+    <td class="num">${r.area?esc(r.area)+' m²':'—'}</td>
     <td class="num">${fmtPLN(r.start)}</td>
     <td class="num">${fmtPLN(r.final)}</td>
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
-    <td><span class="pill pill-${r.outcome}">${(OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,'')}</span>${r.outcome==='unsold'&&r.reason?`<span class="pill-reason">${r.reason}</span>`:''}</td>
+    <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&r.reason?`<span class="pill-reason">${esc(r.reason)}</span>`:''}</td>
   </tr>`).join('') || '<tr class="empty-row"><td colspan="9">Brak rekordów dla wybranych filtrów.</td></tr>';
 
-  const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(!q||(a.addr||'').toLowerCase().includes(q)));
-  document.getElementById('active-body').innerHTML = acts.map(a=>`<tr>
-    <td class="addr">${chip(a.city,a.cityLabel)}${a.url?`<a href="${a.url}" target="_blank" rel="noopener">${a.addr||''}</a>`:(a.addr||'')}</td>
-    <td>${KIND[a.kind]||a.kind}</td>
-    <td>${a.round?ROUND[a.round]+' przet.':'—'}</td>
-    <td class="num">${a.area?a.area+' m²':'—'}</td>
+  const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(!q||fold(a.addr).includes(q)));
+  document.getElementById('active-body').innerHTML = acts.map(a=>{
+    const href = safeHref(a.url);
+    return `<tr>
+    <td class="addr">${chip(a.city,a.cityLabel)}${href?`<a href="${esc(href)}" target="_blank" rel="noopener">${esc(a.addr)||''}</a>`:(esc(a.addr)||'')}</td>
+    <td>${esc(KIND[a.kind]||a.kind)}</td>
+    <td>${roundLabel(a.round)}</td>
+    <td class="num">${a.area?esc(a.area)+' m²':'—'}</td>
     <td class="num">${fmtPLN(a.start)}</td>
     <td class="num">${fmtM2(a.start,a.area)}</td>
-    <td class="num muted-cell">${a.date||'—'}</td>
-  </tr>`).join('') || '<tr class="empty-row"><td colspan="7">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
+    <td class="num muted-cell">${esc(a.date)||'—'}</td>
+  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="7">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
 
   refreshHeaders();
 }
