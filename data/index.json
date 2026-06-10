@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-10T16:18:43.660Z",
+  "generated_at": "2026-06-10T17:07:23.586Z",
   "cities": [
     {
       "id": "gliwice",
@@ -40,10 +40,10 @@
       "label": "Zabrze",
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
-      "unique_properties": 259,
+      "unique_properties": 260,
       "active_listings": 407,
       "active_auctions": 5,
-      "archived_auctions": 402,
+      "archived_auctions": 407,
       "wykaz_entries": 0
     },
     {
@@ -97,7 +97,7 @@
       "host": "bip.swietochlowice.pl",
       "unique_properties": 72,
       "active_listings": 164,
-      "active_auctions": 60,
+      "active_auctions": 29,
       "archived_auctions": 104,
       "wykaz_entries": 0
     }
