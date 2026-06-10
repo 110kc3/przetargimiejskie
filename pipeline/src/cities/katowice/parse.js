@@ -124,6 +124,19 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   const notes = [];
   const negative = NEGATIVE_ROW_RE.test(blob);
 
+  // LAND rows ("nieruchomość gruntowa", bare "grunt", parcel-only "dz. nr …"
+  // designations) don't fit the street|building|apt model — their cell has no
+  // building number, so the address scan used to swallow neighbouring columns
+  // into the street ("Grodowa nieruchomość gruntowa Urząd Miasta Katowice
+  // ustny …" with the Lp. as the building). Skip them entirely; see the TODO
+  // entry about surfacing land sales for the principled future fix.
+  if (
+    !/lokal/i.test(blob) &&
+    /nieruchomo[śs][ćc]\s+gruntow|(?:^|\s)gruntu?(?:\s|$)|dz\.\s*nr/i.test(blob)
+  ) {
+    return null;
+  }
+
   let kind = 'unknown';
   if (/lokal\w*\s+mieszkaln/i.test(blob)) kind = 'mieszkalny';
   else if (/lokal\w*\s+niemieszkaln/i.test(blob)) kind = 'uzytkowy';
@@ -135,10 +148,22 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
     ),
   ]
     .map((m) => m[1].trim().replace(/\s+/g, ' '))
-    .filter((a) => !/^M[lł]y[nń]sk/i.test(a));
+    .filter((a) => !/^M[lł]y[nń]sk/i.test(a))
+    // Column-bleed sanity: a street that absorbed neighbouring table cells
+    // ("… Urząd Miasta … ustny …") is junk, not an address.
+    .filter((a) => !/\b(urz[ąa]d|miasta|ustny|nieograniczon|przetarg|zako[ńn]czon|gruntow)\b/i.test(a));
   const addrRaw = addrCands[0] || '';
   const address = addrRaw ? parseAddress(addrRaw) : null;
   if (!address) notes.push('parse: address unresolved: ' + (addrRaw || '(none)'));
+
+  // Kind fallback from the address shape when the row's label fell outside
+  // the blob window: an apartment number means a lokal, and Katowice's own
+  // convention is Roman numerals for commercial units ("Mariackiej 26/V") vs
+  // digits for flats ("Ligocka 5a/16"). No apt (building/whole property) stays
+  // 'unknown' honestly.
+  if (kind === 'unknown' && address?.apt) {
+    kind = /^[IVXL]+$/i.test(address.apt) ? 'uzytkowy' : 'mieszkalny';
+  }
 
   const arM = /o\s+pow\.\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob);
   const areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
@@ -192,7 +217,8 @@ export function parseResultPdf(text, fallbackDate, sourceUrl) {
         ? Math.min(lines.length, anchors[k].i + 7)
         : Math.floor((anchors[k].i + anchors[k + 1].i) / 2) + 1;
     const blob = lines.slice(start, end).join(' ').replace(/\s+/g, ' ').trim();
-    out.push(parseResultRow(blob, anchors[k].date || fallbackDate, sourceUrl));
+    const row = parseResultRow(blob, anchors[k].date || fallbackDate, sourceUrl);
+    if (row) out.push(row); // null = land/parcel row, skipped by design
   }
   return out;
 }

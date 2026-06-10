@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Declare the page as natively dark so auto-dark/dark-mode browser
+     extensions don't re-tint the already-dark palette (washed accents,
+     magenta visited links). -->
+<meta name="color-scheme" content="dark" />
 <title>przetargimiejskie – śląsk · historia miejskich przetargów na mieszkania</title>
 <meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice." />
 <meta property="og:title" content="przetargimiejskie – śląsk" />
@@ -11,6 +15,7 @@
 <style>
 /* ===== przetargimiejskie — Slate Ledger (dark) ===== */
 :root{
+  color-scheme: dark;
   --bg:#0d1117; --bg-grad:#131a26; --surface:#161b22; --surface-2:#1b2230;
   --border:#272e3a; --border-2:#313a48;
   --fg:#e6edf3; --fg-strong:#f4f8fc; --muted:#8b97a8; --faint:#646f80;

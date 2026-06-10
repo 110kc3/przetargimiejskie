@@ -2,8 +2,8 @@
 
 Paste-ready copy for the Chrome Web Store developer dashboard. **Polish is the
 primary listing** (the audience is Silesian residents/investors); English is a
-secondary locale. Covers all six cities currently shipped: Gliwice, Katowice,
-Bytom, Zabrze, Sosnowiec, Rybnik.
+secondary locale. Covers all nine cities currently shipped: Gliwice, Katowice,
+Bytom, Zabrze, Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice.
 
 ---
 
@@ -22,9 +22,9 @@ Przetargi miejskie – Silesia property auctions
 
 ## Summary (≤ 132 characters — shown in search results)
 
-**Polish (122):**
+**Polish (113):**
 ```
-Historia miejskich przetargów na mieszkania (Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik): ceny, zł/m², terminy.
+Historia miejskich przetargów na mieszkania w 9 miastach Śląska: rundy, ceny wywoławcze, zł/m², terminy, wadium.
 ```
 
 **English (118):**
@@ -57,7 +57,8 @@ informacji:
 • informacja, czy dana nieruchomość była już wcześniej wystawiana.
 
 OBSŁUGIWANE MIASTA
-Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM).
+Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM),
+Bielsko-Biała, Mysłowice, Świętochłowice.
 Kolejne miasta są dodawane.
 
 ARCHIWUM
@@ -90,7 +91,8 @@ next to it:
 • whether the property has been offered before.
 
 CITIES
-Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM). More are added.
+Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM),
+Bielsko-Biała, Mysłowice, Świętochłowice. More are added.
 
 ARCHIVE
 A built-in, searchable, sortable archive of every past auction — with city,

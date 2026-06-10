@@ -200,3 +200,23 @@ test('parseResultDoc: announcement text is not a result notice', () => {
   assert.equal(isResultNotice('Ogłoszenie o II ustnych przetargach …'), false);
   assert.deepEqual(parseResultDoc('Ogłoszenie o II ustnych przetargach …', null, 'u'), []);
 });
+
+// Condensed from the real 2022 cooperative-right announcement (doc 43654) —
+// the typographic apostrophe in "de Gaulle’a" used to break ADDR_IN_LINE
+// (0-flat warn), and the boilerplate "prawa użytkowania wieczystego" used to
+// flip the kind to uzytkowy.
+const ANN_APOSTROPHE = `1. adres : ul. Gen. de Gaulle’a 89/3
+działka: nr 2796/123, pow.: 1.050 m2 księga wieczysta nr GL1Z/00004904/8 prawo: spółdzielcze własnościowe
+lokal: położenie: parter pow.: 48,14 m2 pomieszczenia: 2 pokoje, przedpokój, kuchnia, łazienka z wc
+Cena wywoławcza: 144.000,00 zł
+Wysokość wadium: 7.200,00 zł
+Roszczenie na podstawie Ustawy o przekształceniu prawa użytkowania wieczystego gruntów`;
+
+test('parseAnnouncementText: typographic apostrophe address + kind not fooled by "użytkowania wieczystego"', () => {
+  const flats = parseAnnouncementText(ANN_APOSTROPHE);
+  assert.equal(flats.length, 1);
+  assert.equal(flats[0].address.key, 'gen de gaulle a|89|3');
+  assert.equal(flats[0].kind, 'mieszkalny');
+  assert.equal(flats[0].area_m2, 48.14);
+  assert.equal(flats[0].starting_price_pln, 144000);
+});

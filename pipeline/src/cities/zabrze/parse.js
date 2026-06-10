@@ -76,7 +76,9 @@ function classifyKind(s) {
   const t = (s || '').toLowerCase();
   if (/niemieszkaln/.test(t)) return 'uzytkowy';
   if (/mieszkaln/.test(t)) return 'mieszkalny';
-  if (/u[żz]ytkow/.test(t)) return 'uzytkowy';
+  // Tight: bare /użytkow/ false-positived on boilerplate ("prawa użytkowania
+  // wieczystego", "pow. użytkowa") — require the actual "lokal użytkowy" label.
+  if (/lokal\w*\s+u[żz]ytkow/.test(t)) return 'uzytkowy';
   return 'mieszkalny'; // this board is the "Lokale mieszkalne" category
 }
 
@@ -97,8 +99,10 @@ function classifyKind(s) {
 
 // The address token within the "adres:" line. The capture group excludes the
 // ul./al./pl. prefix; the full match (am[0]) keeps it for parseAddress.
+// Includes both apostrophes ('/’) — "ul. Gen. de Gaulle’a 89/3" used to be
+// dropped (0-flat warn) because the typographic apostrophe broke the class.
 const ADDR_IN_LINE =
-  /(?:ul|al|pl|os)\.?\s*[A-ZŻŹĆŁŚĄĘÓŃ0-9][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?/;
+  /(?:ul|al|pl|os)\.?\s*[A-ZŻŹĆŁŚĄĘÓŃ0-9][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?/;
 // In the real pdftotext -layout output the "w tym: …%" cell lands BETWEEN
 // "Cena" and "wywoławcza:", so we anchor on the second word "wywoławcza" — the
 // starting price ("37.000,00 zł") follows it directly.
