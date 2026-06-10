@@ -76,3 +76,30 @@ test('doc-body extractors: price / area / date', () => {
   assert.equal(areaFromText(DOC_TEXT), 38.6); // flat area, not the 512 m² plot
   assert.equal(auctionDateFromText(DOC_TEXT), '2026-06-18');
 });
+
+// The REAL Świętochłowice operative sentence uses the ACCUSATIVE label
+// ("Cenę wywoławczą … ustala się na kwotę …") — across all 106 cached .docs
+// the nominative-only regex matched 0 of them (June 2026 fix). Sample below
+// condensed from the live "Powstańców Śląskich 8/20" announcement.
+test('priceFromText: declined "Cenę wywoławczą … na kwotę" (Świętochłowice .docs)', () => {
+  assert.equal(
+    priceFromText('Cenę wywoławczą do pierwszego przetargu ustala się na kwotę 195 000,00 zł.'),
+    195000,
+  );
+  assert.equal(
+    priceFromText('Cenę wywoławczą sprzedaży nieruchomości lokalowej ustala się na kwotę 141 000,00 zł.'),
+    141000,
+  );
+  // Boilerplate "1% ceny wywoławczej, z zaokrągleniem …" must not produce a price.
+  assert.equal(
+    priceFromText('postąpienie nie może wynosić mniej niż 1% ceny wywoławczej, z zaokrągleniem w górę do pełnych dziesiątek złotych'),
+    null,
+  );
+});
+
+test('auctionDateFromText: nominative month typo "17 styczeń 2024"', () => {
+  assert.equal(
+    auctionDateFromText('Przetarg odbędzie się w dniu 17 styczeń 2024 roku o godzinie 0900 w Urzędzie Miejskim'),
+    '2024-01-17',
+  );
+});

@@ -35,11 +35,6 @@ const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
   lipca: 7, sierpnia: 8, września: 9, wrzesnia: 9, października: 10,
   pazdziernika: 10, listopada: 11, grudnia: 12,
-  // Nominative forms — announcements occasionally typo "w dniu 17 styczeń
-  // 2024" (Świętochłowice) instead of the correct genitive.
-  styczeń: 1, styczen: 1, luty: 2, marzec: 3, kwiecień: 4, kwiecien: 4, maj: 5,
-  czerwiec: 6, lipiec: 7, sierpień: 8, sierpien: 8, wrzesień: 9, wrzesien: 9,
-  październik: 10, pazdziernik: 10, listopad: 11, grudzień: 12, grudzien: 12,
 };
 
 const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
@@ -165,12 +160,7 @@ function parseArea(s) {
  * @returns {number|null}
  */
 export function priceFromText(text) {
-  // Label accepts DECLINED forms too — Świętochłowice writes the operative
-  // sentence in the accusative ("Cenę wywoławczą … ustala się na kwotę
-  // 195 000,00 zł"); JS \w doesn't match ę/ą, so the endings are explicit.
-  // The 0,80 non-digit window keeps boilerplate ("1% ceny wywoławczej …")
-  // from reaching an unrelated number.
-  const m = /cen[aąęy]\s+wywo[łl]awcz[aąeyj]*[^0-9]{0,80}?([\d][\d.,\s -]*?)\s*z[łl]/i.exec(text || '');
+  const m = /cena\s+wywo[łl]awcza[^0-9]{0,80}?([\d][\d.,\s -]*?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 

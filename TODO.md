@@ -10,14 +10,21 @@
 > The June 2026 full-pipeline bug review (3 passes, ~25 findings) is fully
 > fixed — see git history / CHANGELOG. Open items below.
 
-### Świętochłowice adapter publishes zeros — investigate (NEW, 10 June 2026)
+### ~~Świętochłowice zeros / missing price+date+area~~ — FIXED (10 June 2026), republish pending
 
-The live `data/index.json` shows Świętochłowice with **0 properties, 0 active,
-0 archived** after the 2026-06-09 run, while the spike found a recurring
-flat-auction stream with rounds on `bip.swietochlowice.pl/bipkod/003/010/003`.
-Either the crawl returned nothing (URL/category change? bot gate?) or the
-parser filtered everything out. Check the refresh logs for the
-`swietochlowice` WARN line and re-run locally.
+Two stacked causes. (1) The published zeros were a **source-outage run** (the
+flaky host 502'd; no prior data existed, so preserve-on-empty had nothing to
+keep). A later crawl seeded 164 listings + 106 cached `.doc` texts. (2) Those
+listings still had **price=null on every single doc (0/106)** because
+`finn-bip.js priceFromText` required the nominative "cena wywoławcza" while
+Świętochłowice writes the operative sentence in the **accusative** ("Cenę
+wywoławczą … ustala się na kwotę 195 000,00 zł") — and JS `\w` doesn't match
+ę/ą. Fixed: the label now accepts declined forms, and `PL_MONTHS` gained
+nominative month names ("w dniu 17 styczeń 2024" typo). Verified against all
+106 cached docs: **price 106/106 (0 mismatches vs the operative amount), area
+106/106, date 106/106**; regression tests added to
+`tests/parse-swietochlowice.test.js`. **Run a refresh (CI or local) to
+republish data/swietochlowice with the recovered fields.**
 
 ### Verify Bytom `.doc` history retention over time
 
