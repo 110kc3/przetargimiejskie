@@ -25,6 +25,28 @@
       "area_m2": 100.37
     },
     {
+      "key": "kosmicznej|10|",
+      "street": "Kosmicznej",
+      "street_norm": "kosmicznej",
+      "building": "10",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": 83.64,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152358&menu=679",
+          "wadium_deadline": "2026-09-07",
+          "viewing_date": "2026-09-07"
+        }
+      ],
+      "area_m2": 83.64
+    },
+    {
       "key": "jordana|16C|15",
       "street": "Jordana",
       "street_norm": "jordana",

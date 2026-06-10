@@ -5,6 +5,25 @@
     {
       "kind": "mieszkalny",
       "round": 1,
+      "address_raw": "Kosmicznej 10",
+      "address": {
+        "street": "Kosmicznej",
+        "street_norm": "kosmicznej",
+        "building": "10",
+        "apt": null,
+        "key": "kosmicznej|10|",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "area_m2": 83.64,
+      "starting_price_pln": 260000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152358&menu=679",
+      "wadium_deadline": "2026-09-07",
+      "viewing_date": "2026-09-07"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
       "address_raw": "Jordana 16c/15",
       "address": {
         "street": "Jordana",

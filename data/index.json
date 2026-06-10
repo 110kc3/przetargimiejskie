@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T20:26:25.718Z",
+  "generated_at": "2026-06-10T16:18:43.660Z",
   "cities": [
     {
       "id": "gliwice",
@@ -18,9 +18,9 @@
       "label": "Katowice",
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
-      "unique_properties": 131,
-      "active_listings": 44,
-      "active_auctions": 7,
+      "unique_properties": 132,
+      "active_listings": 45,
+      "active_auctions": 8,
       "archived_auctions": 138,
       "wykaz_entries": 0
     },
@@ -29,9 +29,9 @@
       "label": "Bytom",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 17,
-      "active_listings": 17,
-      "active_auctions": 9,
+      "unique_properties": 19,
+      "active_listings": 19,
+      "active_auctions": 11,
       "archived_auctions": 8,
       "wykaz_entries": 0
     },
@@ -85,9 +85,9 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 19,
-      "active_listings": 31,
-      "active_auctions": 8,
-      "archived_auctions": 23,
+      "active_listings": 29,
+      "active_auctions": 6,
+      "archived_auctions": 25,
       "wykaz_entries": 0
     },
     {
@@ -95,10 +95,10 @@
       "label": "Świętochłowice",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "unique_properties": 72,
+      "active_listings": 164,
+      "active_auctions": 60,
+      "archived_auctions": 104,
       "wykaz_entries": 0
     }
   ]
