@@ -12,6 +12,8 @@ import {
   roundFromTitle,
   auctionDateFromTitle,
   parseAnnouncementText,
+  parseResultDoc,
+  isResultNotice,
 } from '../src/cities/zabrze/parse.js';
 
 test('roundFromTitle: Roman after "o", and bare = 1', () => {
@@ -150,4 +152,51 @@ test('parseAnnouncementText: wrapped layout — flat area (not plot/cellar) + in
 
 test('parseAnnouncementText: empty text → no flats', () => {
   assert.deepEqual(parseAnnouncementText(''), []);
+});
+
+// ---------------- result notices (achieved-price stream) ----------------
+// Condensed from the real attachment 97916 ("INFORMACJA O WYNIKU PRZETARGÓW",
+// 28.04.2026 — drugie przetargi): two sold bullets, incl. the "na działce"
+// locative (k→c declension) and the de Gaulle’a typographic apostrophe.
+
+const RESULT_NOTICE = `                           INFORMACJA O WYNIKU PRZETARGÓW
+     Zgodnie z § 12 Rozporządzenia … Prezydent Miasta Zabrze podaje do publicznej
+wiadomości informację o wyniku przetargów. W dniu 28 kwietnia 2026 roku w siedzibie
+Urzędu Miejskiego w Zabrzu przy ul. Powstańców Śląskich 5-7 zostały przeprowadzone
+drugie ustne nieograniczone przetargi w sprawie sprzedaży 2 lokali mieszkalnych.
+  •   Nieruchomość lokalowa stanowiąca lokal mieszkalny nr 12 o pow. użytk. 46,56 m2
+      znajdująca się w budynku położonym w Zabrzu przy ul. Armii Krajowej 6a na działce
+      nr 2584/129 o pow. 1263 m2, arkusz mapy 4 obręb: 0012 Zabrze. Cena wywoławcza
+      została ustalona na kwotę 100.000,00 zł. Najwyższa zaproponowana cena w przetargu
+      wyniosła 101.000,00 zł. Jako nabywcę przedmiotowej nieruchomości ustalono X.
+  •   Nieruchomość lokalowa stanowiąca lokal mieszkalny nr 7 o pow. użytk. 18,58 m2
+      znajdująca się w budynku położonym w Zabrzu przy ul. gen. Charlesa de Gaulle’a 94
+      na działce nr 5284/123 o pow. 324 m2. Cena wywoławcza została ustalona
+      na kwotę 50.000,00 zł. Przetarg zakończył się wynikiem negatywnym.`;
+
+test('parseResultDoc: sold + negative bullets, date + round from preamble', () => {
+  assert.equal(isResultNotice(RESULT_NOTICE), true);
+  const recs = parseResultDoc(RESULT_NOTICE, null, 'https://x/att/97916');
+  assert.equal(recs.length, 2);
+
+  const sold = recs[0];
+  assert.equal(sold.address.key, 'armii krajowej|6A|12');
+  assert.equal(sold.auction_date, '2026-04-28');
+  assert.equal(sold.round, 2);
+  assert.equal(sold.kind, 'mieszkalny');
+  assert.equal(sold.area_m2, 46.56);
+  assert.equal(sold.starting_price_pln, 100000);
+  assert.equal(sold.final_price_pln, 101000);
+  assert.equal(sold.outcome, 'sold');
+
+  const neg = recs[1];
+  assert.equal(neg.address.key, 'gen charlesa de gaulle a|94|7');
+  assert.equal(neg.outcome, 'unsold');
+  assert.equal(neg.final_price_pln, null);
+  assert.equal(neg.starting_price_pln, 50000);
+});
+
+test('parseResultDoc: announcement text is not a result notice', () => {
+  assert.equal(isResultNotice('Ogłoszenie o II ustnych przetargach …'), false);
+  assert.deepEqual(parseResultDoc('Ogłoszenie o II ustnych przetargach …', null, 'u'), []);
 });

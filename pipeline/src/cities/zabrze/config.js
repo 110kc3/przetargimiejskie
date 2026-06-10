@@ -11,8 +11,11 @@
 // extracts its attachment to get the flats. See crawl.js.
 //
 // `source: 'html'` — the adapter does its own attachment fetch + text
-// extraction inside crawlActive (it knows the per-announcement URL), so the
-// refresh loop's OCR/pdf-text dispatch is bypassed and crawlResultDocs() is [].
+// extraction (it knows the per-announcement URL), so the refresh loop's
+// OCR/pdf-text dispatch is bypassed; crawlResultDocs() returns refs that
+// already carry `.text`. Attachments that turn out to be published result
+// notices ("INFORMACJA O WYNIKU PRZETARGÓW") are routed to parseResultDoc —
+// Zabrze's achieved-price stream (sold/unsold + final price per flat).
 //
 // NOTE (validate on first CI run): the attachment MIME could not be confirmed
 // during the spike (host unreachable from the dev sandbox; file force-downloads

@@ -65,6 +65,24 @@ function cityTagHtml(city) {
   return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
 }
 
+// Drop pre-cutoff historical listings from the prior counts (mirrors
+// content.js withinYearWindow/isPriorHistory). Active / announced / archived
+// rows always pass — they're current postings, not history; sold/unsold
+// respect the saved minHistoryYear. settings.js is optional (defensive ?.).
+const withinYearWindow = (l) => {
+  if (
+    l.outcome === 'active' ||
+    l.outcome === 'announced' ||
+    l.outcome === 'archived'
+  )
+    return true;
+  const y = window.ZGM_SETTINGS?.getMinHistoryYear?.() ?? 0;
+  if (!y || !l.date) return true;
+  return Number(l.date.slice(0, 4)) >= y;
+};
+const isPrior = (l) =>
+  l.outcome !== 'active' && l.outcome !== 'announced' && withinYearWindow(l);
+
 function datesCellHtml(a) {
   const rows = [];
   if (a.auction_date) rows.push(`<span class="zgm-date-label">${t('popup.label.auction')}</span> ${a.auction_date}`);
@@ -178,11 +196,7 @@ function renderActive() {
 
   const items = liveActive.map((a) => {
     const prop = a.address ? byKey.get(a.address.key) : null;
-    const prior = prop
-      ? prop.listings.filter(
-          (l) => l.outcome !== 'active' && l.outcome !== 'announced',
-        )
-      : [];
+    const prior = prop ? prop.listings.filter(isPrior) : [];
     const unsold = prior.filter((l) => l.outcome === 'unsold');
     const lastUnsold = unsold[unsold.length - 1];
     const key = a.address?.key;
@@ -272,11 +286,7 @@ function renderWatching() {
     .map(([key, entry]) => {
       const prop = byKey.get(key);
       const active = prop?.listings.find((l) => l.outcome === 'active');
-      const prior = prop
-        ? prop.listings.filter(
-            (l) => l.outcome !== 'active' && l.outcome !== 'announced',
-          )
-        : [];
+      const prior = prop ? prop.listings.filter(isPrior) : [];
       const unsold = prior.filter((l) => l.outcome === 'unsold').length;
       let statusHtml;
       if (active) {
@@ -350,7 +360,11 @@ function syncThemeButton() {
 }
 
 (async () => {
-  await Promise.all([window.ZGM_I18N.ready, window.ZGM_THEME?.ready]);
+  await Promise.all([
+    window.ZGM_I18N.ready,
+    window.ZGM_THEME?.ready,
+    window.ZGM_SETTINGS?.ready,
+  ]);
   applyStaticI18n();
   syncThemeButton();
   window.ZGM_I18N.onChange(() => {

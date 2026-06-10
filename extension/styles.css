@@ -149,3 +149,22 @@
   font-weight: 600;
   white-space: nowrap;
 }
+
+/* City chip in the panel header — neutral variant of the popup's
+   .zgm-city-tag (content pages carry arbitrary host styling, so the chip is
+   self-contained and host-agnostic rather than per-city coloured). */
+.zgm-ext-panel .zgm-city-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  margin-right: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: #4a6fa5;
+  background: #eef2f8;
+  border: 1px solid #c8ced8;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+}

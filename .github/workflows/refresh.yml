@@ -27,14 +27,51 @@ on:
 permissions:
   contents: write
 
+# One refresh at a time — the per-city jobs inside a run push commits with a
+# rebase-retry, but two overlapping RUNS would interleave unpredictably.
 concurrency:
   group: refresh
   cancel-in-progress: false
 
 jobs:
-  refresh:
+  # Emit the city registry as the matrix input + gate everything on the parser
+  # tests (run once here instead of 9× in the matrix).
+  setup:
     runs-on: ubuntu-latest
-    timeout-minutes: 30   # Zabrze adds ~113 throttled doc+attachment fetches
+    timeout-minutes: 10
+    outputs:
+      cities: ${{ steps.registry.outputs.cities }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pipeline deps
+        working-directory: pipeline
+        run: npm ci || npm install
+      - name: Run parser tests
+        working-directory: pipeline
+        run: npm test
+      - name: Read city registry
+        id: registry
+        working-directory: pipeline
+        run: |
+          echo "cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+
+  # One job per city, so a broken parser/source in one city can't block the
+  # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
+  # skips data/index.json — see src/refresh.js) and commits only its own
+  # data/<city>/ + caches. Commits race on push, so push uses a rebase-retry;
+  # the per-job paths are disjoint, so the rebases are always clean.
+  refresh:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 25   # Zabrze alone needs ~113 throttled doc+attachment fetches
+    strategy:
+      fail-fast: false
+      max-parallel: 4     # be gentle: 9 jobs hammering GH + the BIPs at once is overkill
+      matrix:
+        city: ${{ fromJSON(needs.setup.outputs.cities) }}
     steps:
       - uses: actions/checkout@v4
 
@@ -54,28 +91,72 @@ jobs:
         run: npm ci || npm install
 
       # Headless Chromium for the OPTIONAL renderer (core/render.js), used only by
-      # JS-rendered BIPs. It's lazy-loaded, so the 9 server-rendered cities never
+      # JS-rendered BIPs. It's lazy-loaded, so the server-rendered cities never
       # touch it — installing here just keeps a future JS-rendered city working.
       - name: Install Playwright Chromium
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
 
-      - name: Run parser tests
+      - name: Run pipeline for ${{ matrix.city }}
         working-directory: pipeline
-        run: npm test
-
-      - name: Run pipeline (fetch new PDFs, OCR, parse, build data/)
-        working-directory: pipeline
-        run: npm run refresh
+        run: CITY=${{ matrix.city }} npm run refresh
 
       - name: Commit and push if data changed
         run: |
           git config user.name  "zgm-data-bot"
           git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/ pipeline/ocr-cache/ pipeline/pdf-text-cache/ pipeline/doc-text-cache/ pipeline/rtf-text-cache/ pipeline/detail-cache/
+          git add data/${{ matrix.city }}/ pipeline/ocr-cache/ pipeline/pdf-text-cache/ pipeline/doc-text-cache/ pipeline/rtf-text-cache/ pipeline/detail-cache/
           if git diff --cached --quiet; then
             echo "No changes."
           else
-            git commit -m "data: refresh $(date -u +%Y-%m-%d)"
-            git push
+            git commit -m "data: refresh ${{ matrix.city }} $(date -u +%Y-%m-%d)"
+            # Sibling matrix jobs push concurrently; rebase-retry until ours
+            # lands. Paths are disjoint per city, so the rebase never conflicts.
+            for i in 1 2 3 4 5 6; do
+              git pull --rebase origin main && git push && exit 0
+              echo "push attempt $i failed; retrying ..."
+              sleep $(( (RANDOM % 8) + 2 ))
+            done
+            echo "could not push after 6 attempts" >&2
+            exit 1
+          fi
+
+  # Rebuild data/index.json once, after every city job has finished (also when
+  # some failed — their last-published meta.json keeps them in the index).
+  index:
+    needs: [setup, refresh]
+    if: ${{ always() && needs.setup.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main   # not the triggering SHA — we need the matrix jobs' commits
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pipeline deps
+        working-directory: pipeline
+        run: npm ci || npm install
+      - name: Build data/index.json
+        working-directory: pipeline
+        run: |
+          git pull origin main   # pick up any commit that landed since checkout
+          npm run build-index
+      - name: Commit and push if index changed
+        run: |
+          git config user.name  "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add data/index.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "data: rebuild index $(date -u +%Y-%m-%d)"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && exit 0
+              echo "push attempt $i failed; retrying ..."
+              sleep 3
+            done
+            echo "could not push index after 3 attempts" >&2
+            exit 1
           fi

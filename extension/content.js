@@ -37,6 +37,16 @@
       return '';
     }
   };
+  // Compact city chip for the panel header (same markup as popup/archive;
+  // chip style for content pages lives in styles.css).
+  const cityTagHtml = (city) => {
+    if (!city) return '';
+    const label = window.ZGM_I18N.t('city.' + city);
+    const display = label === 'city.' + city
+      ? city.charAt(0).toUpperCase() + city.slice(1)
+      : label;
+    return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
+  };
 
   // Wait for i18n + the user's saved minHistoryYear preference before first
   // render. settings.js is optional (defensive ?.) — if it ever fails to
@@ -228,7 +238,7 @@
 
     if (!prop) {
       injectPanel({
-        title: t('panel.title', { addr: esc(addressRaw) }),
+        title: cityTagHtml(site.city) + t('panel.title', { addr: esc(addressRaw) }),
         body: `<p>${t('panel.none')}</p>`,
         watchKey: nsKey(address.key),
         watchMeta: {
@@ -267,7 +277,7 @@
         detail_url: location.href,
         city: prop.city || site.city,
       },
-      title: t('panel.title', {
+      title: cityTagHtml(prop.city || site.city) + t('panel.title', {
         addr: esc(`${prop.street} ${prop.building}${prop.apt ? '/' + prop.apt : ''}`),
       }),
       body: `

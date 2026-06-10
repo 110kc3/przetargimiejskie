@@ -238,11 +238,35 @@ async function refreshCity(city) {
   return meta;
 }
 
+// City filter for the CI matrix: `CITY=bytom npm run refresh` runs only that
+// city (comma-separated ids allowed) and SKIPS writing data/index.json —
+// parallel matrix jobs would otherwise race on that one shared file. The
+// aggregate CI job rebuilds the index afterwards via `node src/build-index.js`
+// (see .github/workflows/refresh.yml). No CITY → full run, index written,
+// exactly as before.
+const CITY_FILTER = (process.env.CITY || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
 
+  let selected = cities;
+  if (CITY_FILTER.length) {
+    const unknown = CITY_FILTER.filter((id) => !cities.some((c) => c.id === id));
+    if (unknown.length) {
+      throw new Error(
+        `unknown city id(s) in CITY env: ${unknown.join(', ')} ` +
+        `(registry: ${cities.map((c) => c.id).join(', ')})`,
+      );
+    }
+    selected = cities.filter((c) => CITY_FILTER.includes(c.id));
+    console.error(`CITY filter: running only [${CITY_FILTER.join(', ')}]; index.json skipped.`);
+  }
+
   const metas = [];
-  for (const city of cities) {
+  for (const city of selected) {
     // Per-city isolation: one city's crawl crashing (uncaught network/5xx error,
     // parser throw, …) must never fail the whole pipeline or drop the city from
     // the site. On failure we log it and reuse the city's last-published meta so
@@ -261,32 +285,36 @@ async function main() {
     }
   }
 
-  // Top-level discovery file: which cities exist + their headline counts.
-  const index = {
-    schema_version: SCHEMA_VERSION,
-    generated_at: new Date().toISOString(),
-    cities: cities.map((c) => {
-      const m = metas.find((x) => x.city === c.id);
-      return {
-        id: c.id,
-        label: c.label,
-        authority: c.authority,
-        host: c.host,
-        unique_properties: m?.unique_properties ?? 0,
-        active_listings: m?.active_listings ?? 0,
-        active_auctions: m?.active_auctions ?? 0,
-        archived_auctions: m?.archived_auctions ?? 0,
-        wykaz_entries: m?.wykaz_entries ?? 0,
-      };
-    }),
-  };
-  await writeFile(
-    join(DATA_DIR, 'index.json'),
-    JSON.stringify(index, null, 2) + '\n',
-  );
+  if (CITY_FILTER.length) {
+    console.error('\n=== selected cities done (index.json left to build-index.js) ===');
+  } else {
+    // Top-level discovery file: which cities exist + their headline counts.
+    const index = {
+      schema_version: SCHEMA_VERSION,
+      generated_at: new Date().toISOString(),
+      cities: cities.map((c) => {
+        const m = metas.find((x) => x.city === c.id);
+        return {
+          id: c.id,
+          label: c.label,
+          authority: c.authority,
+          host: c.host,
+          unique_properties: m?.unique_properties ?? 0,
+          active_listings: m?.active_listings ?? 0,
+          active_auctions: m?.active_auctions ?? 0,
+          archived_auctions: m?.archived_auctions ?? 0,
+          wykaz_entries: m?.wykaz_entries ?? 0,
+        };
+      }),
+    };
+    await writeFile(
+      join(DATA_DIR, 'index.json'),
+      JSON.stringify(index, null, 2) + '\n',
+    );
 
-  console.error('\n=== all cities done ===');
-  console.error(JSON.stringify(index, null, 2));
+    console.error('\n=== all cities done ===');
+    console.error(JSON.stringify(index, null, 2));
+  }
 
   // Shut the headless browser if any city used it, so the process can exit.
   // No-op when render.js was never invoked (the common case).

@@ -1,11 +1,11 @@
 // Zabrze city adapter — implements the registry contract (see ../index.js).
 //
-// Active-listings adapter: the city BIP "Lokale mieszkalne" board is crawled
-// (round + auction date per announcement), each announcement's attachment is
-// extracted and parsed into per-flat active listings. No separate results
-// stream, so crawlResultDocs() is [] and parseResultDoc() is a stub. See
-// crawl.js / config.js for the CI-validation caveats (attachment format +
-// pagination param).
+// The city BIP "Lokale mieszkalne" board is crawled ONCE per run (memoised in
+// crawl.js); each announcement's attachment is extracted and parsed into
+// per-flat active listings, while attachments that are published RESULT
+// notices ("INFORMACJA O WYNIKU PRZETARGÓW") feed crawlResultDocs() →
+// parseResultDoc() — Zabrze's achieved-price stream (sold/unsold + final
+// price per flat).
 
 import { config } from './config.js';
 import { crawlActive, crawlResultDocs } from './crawl.js';

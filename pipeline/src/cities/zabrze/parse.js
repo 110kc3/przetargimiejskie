@@ -191,8 +191,121 @@ export function parseAnnouncementText(text) {
   return out;
 }
 
-// Contract stub — Zabrze has no separate results stream; crawlResultDocs()
-// returns [], so this is never invoked. Present only to satisfy the registry.
-export function parseResultDoc(_text, _date, _url) {
-  return [];
+// ------------------- result notices ("INFORMACJA O WYNIKU PRZETARGÓW") ------
+//
+// Some /doc pages on the same board carry the published RESULT notice as
+// their attachment — prose, one bullet per flat:
+//
+//   • Nieruchomość lokalowa stanowiąca lokal mieszkalny nr 12 o pow. użytk.
+//     46,56 m2 znajdująca się w budynku położonym w Zabrzu przy
+//     ul. Armii Krajowej 6a na działce … Cena wywoławcza została ustalona
+//     na kwotę 100.000,00 zł. Najwyższa zaproponowana cena w przetargu
+//     wyniosła 101.000,00 zł. Jako nabywcę … ustalono …
+//
+// The preamble carries the auction date ("W dniu 28 kwietnia 2026 roku …")
+// and the round ("zostały przeprowadzone drugie ustne … przetargi"). This is
+// Zabrze's achieved-price stream — crawl.js routes these texts to
+// parseResultDoc via crawlResultDocs(); build-properties' within-run dedupe
+// folds each sold row onto the same flat's announcement listing
+// (result-backed row wins).
+
+const PL_MONTH = {
+  stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
+  lipca: 7, sierpnia: 8, 'września': 9, wrzesnia: 9,
+  'października': 10, pazdziernika: 10, listopada: 11, grudnia: 12,
+};
+
+/** Is this attachment a published result notice (vs. a sale announcement)? */
+export function isResultNotice(text) {
+  return /INFORMACJA\s+O\s+WYNIKU/i.test(text || '');
+}
+
+// "W dniu 28 kwietnia 2026 roku" → "2026-04-28" (Polish month-name genitive).
+function resultDateFromText(text) {
+  const m = /W\s+dniu\s+(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(text || '');
+  if (!m) return null;
+  const mo = PL_MONTH[m[2].toLowerCase()];
+  if (!mo) return null;
+  return `${m[3]}-${String(mo).padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+}
+
+// "zostały przeprowadzone drugie ustne … przetargi" → 2. Anchored on the
+// "przeprowadzon…" clause so flat descriptions can't leak a wrong ordinal.
+function resultRoundFromText(text) {
+  const m = /przeprowadzon\w*\s+(pierwsz\w*|drug\w*|trzeci\w*|czwart\w*|pi[ąa]t\w*)/i.exec(text || '');
+  if (!m) return null;
+  const w = m[1].toLowerCase();
+  if (w.startsWith('pierwsz')) return 1;
+  if (w.startsWith('drug')) return 2;
+  if (w.startsWith('trzeci')) return 3;
+  if (w.startsWith('czwart')) return 4;
+  return 5;
+}
+
+/**
+ * Parse one result notice into concluded auction records (framework shape —
+ * same fields Katowice's parseResultPdf emits).
+ * @param {string} text  extracted attachment text (pdftotext)
+ * @param {string|null} fallbackDate  ISO date from the crawl ref (rarely set)
+ * @param {string} sourceUrl  the /attachment/<id> URL (provenance)
+ */
+export function parseResultDoc(text, fallbackDate, sourceUrl) {
+  if (!isResultNotice(text)) return [];
+  const t = text.replace(/\r/g, '');
+  const auctionDate = resultDateFromText(t) || fallbackDate || null;
+  const round = resultRoundFromText(t);
+
+  // One block per flat, anchored on the bullet's fixed opening phrase.
+  const starts = [...t.matchAll(/Nieruchomo[śs][ćc]\s+lokalow/gi)].map((m) => m.index);
+  const out = [];
+  for (let i = 0; i < starts.length; i++) {
+    // Collapse the PDF's hard wraps so phrase regexes work across lines.
+    const block = t.slice(starts[i], starts[i + 1] ?? t.length).replace(/\s+/g, ' ');
+    const notes = [];
+
+    const aptM = /lokal\s+(?:nie)?mieszkaln\w+\s+nr\s+(\d+[a-z]?)/i.exec(block)
+      || /lokal\s+u[żz]ytkow\w+\s+nr\s+(\d+[a-z]?)/i.exec(block);
+    // "na działce / na działkach" — note the k→c declension in the locative
+    // ("działce"), so anchor on the stem "dział" only.
+    const streetM = /przy\s+(?:ul|al|pl|os)\.?\s+(.+?)\s+na\s+dzia[łl]/i.exec(block);
+    if (!aptM || !streetM) {
+      // Not a per-flat bullet we understand (e.g. a grunt/parcel row) — skip.
+      continue;
+    }
+    const address_raw = `${streetM[1].replace(/\s+/g, ' ').trim()}/${aptM[1]}`;
+    const address = parseAddress(address_raw);
+    if (!address) continue;
+    if (address.warning) notes.push(address.warning);
+
+    const areaM = /pow\.\s*u[żz]ytk\.?\s*([\d.,]+)\s*m/i.exec(block);
+    const startM = /wywo[łl]awcza\s+zosta[łl]a\s+ustalona\s+na\s+kwot[ęe]\s+([\d .,]+)\s*z[łl]/i.exec(block)
+      || /na\s+kwot[ęe]\s+([\d .,]+)\s*z[łl]/i.exec(block);
+    const finalM = /Najwy[żz]sza\s+zaproponowana\s+cena.*?wynios[łl]a\s+([\d .,]+)\s*z[łl]/i.exec(block);
+
+    // Negative outcome: explicit wording, or no achieved price + no buyer.
+    const negative =
+      /negatywn|nie\s+wy[łl]oniono|nie\s+dosz[łl]o\s+do/i.test(block) ||
+      (!finalM && !/nabywc/i.test(block));
+
+    const starting_price_pln = startM ? parsePLN(startM[1]) : null;
+    if (starting_price_pln == null) notes.push('parse: missing starting price');
+    const final_price_pln = negative ? null : finalM ? parsePLN(finalM[1]) : null;
+    if (!negative && final_price_pln == null) notes.push('parse: missing achieved price');
+
+    out.push({
+      auction_date: auctionDate,
+      source_pdf: sourceUrl,
+      kind: classifyKind(block),
+      address_raw,
+      address,
+      round,
+      starting_price_pln,
+      final_price_pln,
+      outcome: negative ? 'unsold' : 'sold',
+      unsold_reason: negative ? 'unknown' : null,
+      area_m2: areaM ? parseArea(areaM[1]) : null,
+      notes,
+    });
+  }
+  return out;
 }

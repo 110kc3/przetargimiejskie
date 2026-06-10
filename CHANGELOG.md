@@ -4,6 +4,21 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.16.0 — 2026-06-10
+
+- **City chip in the detail-page panel header** (MINOR): the injected
+  "Auction history — …" sidebar now opens with the same city tag the popup
+  and archive use, so multi-city users see at a glance which city's data the
+  panel shows (neutral chip styling, self-contained on host pages).
+- **Popup prior counts respect the saved min-history-year**: the active table
+  and watching section now filter sold/unsold history through
+  `minHistoryYear` exactly like the detail-page panel does (archived rows
+  always count — they're the listing itself, not its history).
+- **Per-city notification fallback**: clicking a notification for a legacy
+  watchlist entry with no detail URL now opens that city's source site (or
+  przetargimiejskie.pl) instead of always zgm-gliwice.pl.
+- Store-listing description updated to reflect the current city set.
+
 ## v1.15.0 — 2026-06-10
 
 - Cleared the low-priority extension bug-review backlog (L1–L8):

@@ -22,6 +22,20 @@ const BRANCH = 'main';
 const CITIES = ['gliwice', 'katowice', 'bytom', 'zabrze', 'sosnowiec', 'rybnik', 'bielsko', 'myslowice', 'swietochlowice'];
 const RAW = (city) =>
   `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/${city}`;
+// Notification-click fallback targets when a watchlist entry has no
+// detail_url (legacy entries) — per-city source home, then the project site.
+const PROJECT_HOME = 'https://przetargimiejskie.pl/';
+const CITY_HOME = {
+  gliwice: 'https://zgm-gliwice.pl/',
+  katowice: 'https://bip.katowice.eu/',
+  bytom: 'https://www.bytom.pl/bip',
+  zabrze: 'https://bip.miastozabrze.pl/',
+  sosnowiec: 'https://www.bip.um.sosnowiec.pl/',
+  rybnik: 'https://bip.zgm.rybnik.pl/',
+  bielsko: 'https://bielsko-biala.pl/gielda-nieruchomosci',
+  myslowice: 'https://bip.myslowice.pl/',
+  swietochlowice: 'https://bip.swietochlowice.pl/',
+};
 const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
 const ALARM_NAME = 'zgm-watchlist-check';
 const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan
@@ -256,7 +270,7 @@ function fmtPLN(n) {
 async function notifyNewListing(key, entry, listing) {
   const id = `zgm-watch-${key}-${listing.auction_date || 'now'}`;
   const reg = (await chrome.storage.local.get('notif:registry'))['notif:registry'] || {};
-  reg[id] = entry.detail_url || `https://zgm-gliwice.pl/`;
+  reg[id] = entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
   await chrome.storage.local.set({ 'notif:registry': reg });
 
   // PL strings (the app's default). City prefix helps disambiguate now that

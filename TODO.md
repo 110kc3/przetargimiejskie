@@ -7,83 +7,17 @@
 
 ## Pipeline
 
-### Bug-review findings (June 2026 full-pipeline review)
+> The June 2026 full-pipeline bug review (3 passes, ~25 findings) is fully
+> fixed — see git history / CHANGELOG. Open items below.
 
-Full read of `pipeline/src/**` + committed `data/`. Items 1–4 fixed in the
-same pass (pipeline-only — no extension version bump needed); the rest are
-open. `data/katowice/properties.json` was deleted per the merge escape hatch
-so the corrupted rows rebuild on the next refresh.
+### Świętochłowice adapter publishes zeros — investigate (NEW, 10 June 2026)
 
-**Fixed:**
-
-- [x] **1. Katowice neg-PDF rows published as `sold`** — `parseResultRow`
-  hardcoded `outcome:'sold'`; negative wykazy ("Przetarg zakończony wynikiem
-  negatywnym", e.g. `Wyniki_…neg.pdf`) now yield `outcome:'unsold'`.
-  Observed: `staromiejska|15|8` was `sold` with `final_price_pln:null`.
-- [x] **2. Dual-stream duplicate listings corrupt outcomes + rounds** —
-  Katowice feeds the same auction from the results PDF and the SharePoint
-  announcement archive. Same `date|kind` fingerprint → announcement row
-  silently replaced the result record (`sklodowskiej curie|21|1` survived
-  only as `archived`); different kinds → both rows survived and round
-  derivation counted one auction as two attempts (`grzyski|1|7` got a
-  fabricated round 2). Fixed with within-run dedupe by date in
-  `build-properties.js` (result-backed row wins, missing fields back-filled)
-  + date-based listing fingerprint in `merge-history.js`.
-- [x] **3. Property key splits on Polish case endings** — results PDF says
-  "Staromiejska", announcement "Staromiejskiej" → two properties for one
-  flat, history/round linkage lost. Fixed by coalescing street-suffix
-  variants (genitive↔nominative) into one property in `build-properties.js`.
-- [x] **4. Rybnik + Bytom round detection: `pierwsz` wins over the whole
-  document** — second-round announcements always carry the mandatory history
-  clause ("Pierwszy przetarg odbył się … wynikiem negatywnym"), so every
-  re-listed auction parsed as round 1. Fixed: ordinal must qualify
-  "przetarg" and past-tense history clauses are skipped.
-
-**Fixed (second pass):**
-
-- [x] **5. Katowice result-PDF price regex rejects grosze** — the row regex
-  now accepts grosze + dotted thousands ("150 000,00 zł", "150.000,00 zł"),
-  same amount shape as the yearly-summary regex; the `,`-aware lookbehind
-  keeps the ",00 zł" tail from matching alone.
-- [x] **6. merge-history freezes removed listings as `active` forever** —
-  new `archivePastActive()` runs on the post-merge properties in refresh.js,
-  so retained past-dated rows age out to `archived` instead of inflating
-  `meta.active_auctions`.
-- [x] **7. finn-bip `auctionDateFromText` fallbacks match any date** —
-  added a numeric "odbędzie się" anchor; fallbacks now REQUIRE the
-  "w dniu" prefix, so page chrome ("Data publikacji: …", town datelines)
-  can't leak in as the auction date. No date → null (listing stays
-  dateless) rather than a wrong archived-classification.
-- [x] **8. `normalize.js TRAIL_NOISE` strips trailing `m. N`** — "m. N" is
-  now converted to the standard "/N" apartment form ("Zwycięstwa 34 m. 9" →
-  key `zwyciestwa|34|9`); only the "wraz z …" tail is stripped as noise.
-
-**Fixed (third pass — all low items):**
-
-- [x] refresh.js + recount-auctions.js now count Gliwice's `no_winner` in
-  `archived_auctions`.
-- [x] Gliwice unsold-section regexes accept `ul|al|pl|os` like the sold
-  section.
-- [x] finn-bip Roman matching is case-sensitive (the conjunction "i" no
-  longer reads as round 1; in the body scope the LAST Roman wins, so an
-  ALL-CAPS "I ZAPRASZA" can't either), map extended to X, "piątek" excluded.
-- [x] finn-bip pattern B: uppercase first-letter street guard re-checked
-  after the /i match ("przy czym nabywca…" can't become a street).
-- [x] fetch.js no longer sleeps the backoff after the final failed attempt.
-- [x] rtf-text.js strips `{\fonttbl …}` groups brace-aware (nested groups,
-  no font-name leakage) and decodes `\uN` BEFORE `\'xx`, consuming the
-  fallback byte (no doubled characters).
-- [x] refresh.js `crawlEmpty` uses the PRE-floor record count.
-- [x] Gliwice detail-areas title split keeps hyphenated streets
-  (Skłodowskiej-Curie, 9-11) — splits on spaced dashes only.
-- [x] Katowice `addressFromTitle` captures street + number and stops —
-  trailing title words no longer drop the announcement.
-- [x] Katowice SharePoint crawl follows `__next` paging (capped at 10
-  pages × 2000 defensively).
-- [x] Świętochłowice `isFlatAnnouncement` rejects only LEADING "KW/księg…"
-  (the annex), not announcements citing a KW number.
-- [x] `todayWarsaw()` (Europe/Warsaw civil date) replaces UTC `TODAY` in
-  build-properties and the refresh aging pass.
+The live `data/index.json` shows Świętochłowice with **0 properties, 0 active,
+0 archived** after the 2026-06-09 run, while the spike found a recurring
+flat-auction stream with rounds on `bip.swietochlowice.pl/bipkod/003/010/003`.
+Either the crawl returned nothing (URL/category change? bot gate?) or the
+parser filtered everything out. Check the refresh logs for the
+`swietochlowice` WARN line and re-run locally.
 
 ### Verify Bytom `.doc` history retention over time
 
@@ -107,10 +41,14 @@ After the Wave-5 fixes (route non-PDF attachments → catdoc; skip published
   2022 single cooperative-ownership-right lokal). These pre-date the useful
   window and shouldn't count as *active*; consider dropping announcements whose
   auction date is well in the past.
-- **Wire the result notices as a sold-price stream** — the skipped
-  "INFORMACJA O WYNIKU PRZETARGÓW" PDFs are exactly the achieved-price data
-  Zabrze otherwise lacks. Parsing them into `crawlResultDocs()` would give
-  Zabrze real sold-price history (currently active-only).
+- ~~Wire the result notices as a sold-price stream~~ — **DONE (10 June 2026).**
+  The board crawl is now a single memoised pass; "INFORMACJA O WYNIKU" texts
+  feed `crawlResultDocs()` → new `parseResultDoc()` (date + round from the
+  preamble, per-bullet address/area/start/achieved/buyer; negative wording →
+  `unsold`). Validated 18/18 records against the three cached real notices +
+  unit tests in `tests/parse-zabrze.test.js`. Watch the first CI run: the
+  within-run dedupe should fold each sold row onto the same flat's archived
+  announcement listing.
 
 ### City-namespaced keys in the data files
 
@@ -123,26 +61,25 @@ optional, not a correctness fix. Touches `core/build-properties.js`,
 `refresh.js`, and the extension's `background.js` migration code (which can
 then be deleted once everyone's on the new schema).
 
-### Per-city CI matrix in `refresh.yml`
+### ~~Per-city CI matrix in `refresh.yml`~~ — DONE (10 June 2026)
 
-`.github/workflows/refresh.yml` runs a single job that walks all cities
-sequentially. Switch to a `strategy.matrix` over the city registry so a
-Bytom parser break doesn't block the Gliwice / Katowice refresh. Each job
-commits its own `data/<city>/`. Bonus: the per-city run time becomes
-visible in the Actions UI.
+`refresh.yml` is now: `setup` (tests once + emits the registry as the matrix)
+→ `refresh` (one job per city, `CITY=<id> npm run refresh`, commits only its
+own `data/<city>/` + caches with a rebase-retry push) → `index` (rebuilds
+`data/index.json` via the new `src/build-index.js` after all city jobs).
+`refresh.js` gained the `CITY` env filter (skips index.json when set).
+Verify on the next Actions run.
 
-### Katowice yearly-summary parser — recover 2024 + tighten "unknown" kinds
+### Katowice yearly-summary — remaining gaps
 
-`parseYearlySummaryPdf` now recovers 477 records across 2011-2026, but two
-small gaps remain:
-
-- **2024 is a single record**, because the 2024 yearly-summary PDF is one
-  of the 266 dead-link 404s inside `katowice.eu` (the body href points at a
-  file that no longer exists). Worth one probe-cycle of likely alternative
-  paths (`/SiteAssets/dla-mieszkańca/…/Wykaz nieruchomości sprzedanych w
-  roku 2024.pdf`, plus the same in the BIP attachments index) before giving
-  up. If the file genuinely isn't published anywhere, only a content-team
-  ticket at UM Katowice can fix it.
+- **2024 (and 2022) yearly PDFs are confirmed UNPUBLISHED (10 June 2026).**
+  Both SharePoint folders were enumerated exhaustively via the Files REST API
+  (`/SiteAssets/dla-mieszkańca/…/przetargi-na-nieruchomości-miasta` and
+  `/SiteAssets/Lists/Wykazy dotyczce wynikw przetargw…/AllItems`): yearly
+  wykazy exist for 2005-2021 and 2023 — no 2024, no 2022, anywhere; the
+  site-search API returns 500. Only a content ticket at UM Katowice can fix
+  this (kontakt via bip.katowice.eu). 2024/2022 coverage otherwise comes from
+  the per-auction result wykazy that do resolve.
 - **A few 2012-13 rows still produce `kind: "unknown"`** when the "lokal
   mieszkalny" cell falls outside the midpoint window AND the address has no
   apartment number (a building sold whole, no apt). Low priority — the row
@@ -166,78 +103,27 @@ aimed at — these are vacant lots / multi-parcel land sales.
 
 ## Extension
 
-### Bug-review findings (June 2026 extension review)
+> The June 2026 extension bug review is fully fixed (E1–E4 → v1.14.2,
+> E5–E9 → v1.14.3, L1–L8 → v1.15.0); see CHANGELOG. Known wontfix: the
+> Gliwice slug fallback can't distinguish a building range (`10-12`) from
+> building/apt (`10/12`) — the slug is genuinely ambiguous, the title parse
+> covers the real case.
 
-Full read of `extension/**`, cross-checked against the pipeline data
-contract. Fixing any of these touches `extension/` → PATCH bump
-(manifest + popup.html + CHANGELOG) per the version rules.
+### Publish the current build to the Chrome Web Store (NEW, 10 June 2026)
 
-**High (E1–E4) — DONE, shipped v1.14.2.** normalize.js re-synced (m. N → /N
-+ rejonMatch); content.js retries the lookup with street-suffix variants;
-background.js treats "0 cities fetched" as failure (keeps the old cache);
-katowice.js uses the bounded street+number title capture.
+The live store build is **v1.3.3** (29 May) — 12 minor versions behind. Store
+users see only Gliwice + Katowice, the old "Od roku" filter, and none of the
+v1.14.2–v1.15.0 bug/security fixes (incl. the innerHTML escaping). Package
+`extension/` at v1.15.0 and submit; update the store description to list all
+9 cities (it still says "Gliwice, Katowice, Bytom").
 
-**Medium (E5–E9) — DONE, shipped v1.14.3.** archive.js surfaces `no_winner`
-(table + outcome filter); archive search Polish-folds the query (both tables);
-crawled data is HTML-escaped + URLs http(s)-only in popup/archive/content.js;
-watchlist mutations are serialized; the Bytom ancestor walk requires a real
-ADRES/TYP match (skips otherwise).
+### ~~Detail-page city tag · popup min-year · notification fallback~~ — DONE, shipped v1.16.0 (10 June 2026)
 
-**Low (L1–L8) — DONE, shipped v1.15.0.** popup.js/archive.js use a
-`todayWarsaw()` civil date; the popup watching-row "unsold" is i18n'd
-(`popup.watching.active_prior`); the archive year dropdown retranslates on
-language toggle; the dead historical-sort ternary is removed (new column starts
-desc); the Gliwice detail-title split breaks on the space-padded date dash so
-hyphenated building ranges survive; manifest now covers `katowice.eu` (Katowice
-adapter recognises the SharePoint DispForm detail path) and non-www `bytom.pl`;
-content.js registers the watchlist `onChange` once at page level (no listener
-leak); Bytom detail-title detection falls through announcement-title → `<h1>` →
-`document.title` and uses the first that parses.
-
-Note: the Gliwice **slug** fallback (`addressFromSlug`) still can't tell a
-building range (`10-12`) from a building/apt (`10/12`) — the slug is genuinely
-ambiguous. It's a last resort only; the authoritative title parse (fixed above)
-covers the real case, so this is left as-is.
-
-### Popup: city column in the watchlist
-
-`popup.js` renders the watching section, but the address cell mixes
-properties from Gliwice and Katowice without a visual city marker. The
-archive table already does this via `cityTagHtml(city)` from `archive.js` —
-lift that helper into a shared file (or duplicate the markup inline) and
-prepend the city chip in `popup.js`'s watching row. Same CSS classes
-(`.zgm-city-tag`) already live in `popup.css`.
-
-### Detail-page sidebar: city tag in the panel header
-
-`content.js` `injectPanel` shows `Auction history — Sienkiewicza 3/9` but
-doesn't disambiguate which city the address belongs to. Once the
-content-script runs on more than one host (Wave 2 shipped it for Katowice),
-prefix the panel title with the same `<span class="zgm-city-tag">` the
-archive uses. The site adapter already knows its `city`.
-
-### Popup: mirror the min-year filter
-
-`v1.2.0` added the `From year` dropdown to the archive only. The popup
-shows `prior` counts in its watching section (`popup.watching.historical_only`
-"Not currently active — Nx prior") that don't respect `minHistoryYear`. The
-fix is one line in `popup.js`'s prior-count filter to call the same
-`window.ZGM_SETTINGS.getMinHistoryYear()` the archive uses, mirrors what
-`content.js` already does.
-
-### Background: per-city notification fallback URL
-
-`extension/background.js` line 231:
-
-```js
-reg[id] = entry.detail_url || `https://zgm-gliwice.pl/`;
-```
-
-The fallback URL when a watchlist entry has no `detail_url` is hardcoded to
-the Gliwice site. Switch to a per-city map (`gliwice` → `zgm-gliwice.pl`,
-`katowice` → `bip.katowice.eu`) keyed off `entry.city`, with a generic
-fallback to the project home page when neither is set. Cosmetic — modern
-watchlist entries always carry `detail_url`.
+The injected panel header now opens with a city chip (neutral `.zgm-city-tag`
+variant in styles.css); popup prior counts filter sold/unsold history through
+`minHistoryYear` (mirrors content.js — archived rows always count); the
+notification fallback URL is a per-city map (`CITY_HOME`) with
+przetargimiejskie.pl as the final fallback. See CHANGELOG v1.16.0.
 
 ## City coverage status
 
@@ -326,36 +212,29 @@ sales board, answer (a) does this city sell municipal property at auction,
   (`core/rtf-text.js`, no external tool), then parses price/area/date/round
   (address from the link label). Verified live: 6/6 current flats fully parsed.
   Active-listings adapter; no results stream wired. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md).
-- **Remaining unspiked Silesian field:** Bielsko-Biała, Częstochowa, Jaworzno,
-  Mysłowice, Siemianowice/Świętochłowice/Piekary, Żory/Wodzisław. **Kraków,
-  Warszawa** out-of-region/demand-gated (Warszawa ≈18 district BIPs — last).
-  Apply the housing-manager heuristic (ZGM/ZBM/MZBM auctioning flats) when
-  choosing the next spike.
+- **Bielsko-Biała — spiked + BUILT (June 2026).** `cities/bielsko/` crawls the
+  city Giełda Nieruchomości (structured HTML key-value, round explicit in
+  `Forma przetargu`). Active-listings adapter; no sold-price stream.
+- **Mysłowice — spiked + BUILT (June 2026).** `cities/myslowice/` — first user
+  of the reusable `core/finn-bip.js` helper (FINN eUrząd platform).
+- **Świętochłowice — spiked + BUILT (June 2026).** `cities/swietochlowice/` on
+  the finn-bip helper — **but the last run published all zeros; see the
+  Pipeline section.**
+- **The Silesian field is now fully spiked** (see SPIKE-WAVE2.md incl. the
+  10 June 2026 re-verification). **Kraków, Warszawa** out-of-region /
+  demand-gated (Warszawa ≈18 district BIPs — last). Apply the housing-manager
+  heuristic (ZGM/ZBM/MZBM auctioning flats) for any future out-of-region spike.
 
-### Cities to build next (backlog, prioritised)
+### Cities — deferred / dropped (none left to build)
 
-Apply the proven heuristic first: a city is a good candidate when a **dedicated
-municipal housing manager** (ZGM / ZBM / MZBM / ZGL) publishes
-"przetarg ustny … na sprzedaż lokali mieszkalnych" — that's what gives a real
-open flat-auction stream (Gliwice, Bytom, Zabrze, Rybnik). Generic city-BIP
-"gospodarka nieruchomościami" sections skew to land + tenant bezprzetargowe and
-tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
+All Silesian candidates are spiked; the buildable ones (Bielsko-Biała,
+Mysłowice, Świętochłowice) shipped in June 2026. What remains is deferred on
+**content volume**, not mechanics — heuristic for revisits: a city is worth
+building when a dedicated municipal housing manager (ZGM/ZBM/MZBM/ZGL)
+publishes "przetarg ustny … na sprzedaż lokali mieszkalnych"; generic city-BIP
+sections skew to land + tenant bezprzetargowe.
 
-1. **Bielsko-Biała** — ✅ **SPIKED (June 2026) → BUILD.** ZGM Bielsko-Biała is
-   rentals/procurement only; flat *sales* run by the city on a server-rendered
-   **Giełda Nieruchomości** (`bielsko-biala.pl/gielda-nieruchomosci`, nodes at
-   `/nieruchomosc/<slug>`). Cleanest source in the project: labelled HTML
-   key-value block gives address, cena, rodzaj (lokal mieszkalny), data
-   przetargu, **round explicit in `Forma przetargu`** (Pierwszy/Drugi…), status,
-   wadium; area in description prose. No PDF/DOC/RTF/OCR. ~4 live flats now,
-   active + archived-mode (no sold-price stream). New `cities/bielsko/`, no new
-   extractor. See [SPIKE-WAVE2.md](./SPIKE-WAVE2.md). **Next to build.**
-2. **Mysłowice** — ✅ **SPIKED → BUILD.** MZGK; ~7 live `przetarg ustny
-   nieograniczony` on lokale mieszkalne on the city FINN-BIP
-   (`bip.myslowice.pl/artykul/...`). First user of the `finn-bip` template.
-3. **Świętochłowice** — ✅ **SPIKED → BUILD.** MPGL; recurring flat auctions with
-   explicit rounds (drugi/trzeci przetarg) on `bip.swietochlowice.pl/bipkod/003/010/003`.
-4. **Jaworzno** — ❌ **DEFER (re-verified 10 June 2026 — scraping blocker GONE,
+1. **Jaworzno** — ❌ **DEFER (re-verified 10 June 2026 — scraping blocker GONE,
    volume still thin).** Correction: `bip.jaworzno.pl` (and `bip.mznk.jaworzno.pl`)
    is the **same JSON-API platform as the built Sosnowiec adapter** —
    `/api/menu/<id>/articles?archived=0|1` + `/api/articles/<id>` work with plain
@@ -364,7 +243,7 @@ tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
    auctions **land only, 0 flats**; flat sales surface only as council consent
    uchwały (mostly tenant bezprzetargowe, occasional single flat cleared for
    auction). Revisit on volume only. See SPIKE-WAVE2.md re-verification.
-5. **Częstochowa** — ❌ **RE-SPIKED (June 2026) → DROP (for flats).** Source is
+2. **Częstochowa** — ❌ **RE-SPIKED (June 2026) → DROP (for flats).** Source is
    server-rendered and scrapeable (`bip.czestochowa.pl/artykuly/71547/sprzedaz-
    nieruchomosci-i-lokali`, FINN, `/artykul/71547/<id>/<slug>` articles), so the
    mechanics are fine — but the flat-share check failed hard: across 6 pages / 60
@@ -372,7 +251,7 @@ tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
    auctions land; flats go bezprzetargowo (Tychy/Dąbrowa/Ruda pattern). Build only
    if it ever starts auctioning flats, or if the product expands to land sales.
    (ZGM TBS = rentals, skip.)
-6. **Żory** — ❌ **DEFER (re-verified 10 June 2026 — now plain-fetch scrapeable,
+3. **Żory** — ❌ **DEFER (re-verified 10 June 2026 — now plain-fetch scrapeable,
    content still thin).** Correction: `zbmzory.bip.net.pl` now **server-renders**
    its category listings and article pages — plain fetch reads them (the
    "Wczytywanie…" is breadcrumb chrome; JSON API `zbmzory-api.bip.net.pl` exists
@@ -382,26 +261,22 @@ tend to be drops (Tychy, Dąbrowa, Ruda Śląska).
    przetarg/round/results stream, no ROK 2026, ~5 items/yr ⇒ defer on volume.
    `zbmzory.pl` **still 301s to the casino site** — keep blacklisted. See
    SPIKE-WAVE2.md re-verification.
-7. **Siemianowice Śląskie, Piekary Śląskie, Wodzisław Śląski** — ✅ **SPIKED →
+4. **Siemianowice Śląskie, Piekary Śląskie, Wodzisław Śląski** — ✅ **SPIKED →
    DROP (re-verified 10 June 2026, all stand).** Siemianowice: auctions moved to
    a FINN eUrząd JS register (`eurzad.finn.pl/msiemianowicesl…/P-NIER`); 2026 has
    exactly **one** flat auction (Szeflera 12/8, I→II przetarg) among rentals/land.
    Piekary (BIP now on the Nefeni bip.net.pl platform): Feb 2026 zarządzenia still
    designate flats for **tenant** sale; live przetargi are land. Wodzisław:
    **bezprzetargowe** tenant program unchanged.
-8. **Kraków, Warszawa** — out-of-region, demand-gated; Warszawa last (≈18 district
+5. **Kraków, Warszawa** — out-of-region, demand-gated; Warszawa last (≈18 district
    BIPs). Only if the product expands beyond Śląsk.
 
-Full write-up of the whole field in [SPIKE-WAVE2.md](./SPIKE-WAVE2.md) (Wave 3).
-**Architectural note — build a reusable `finn-bip` crawl+parse helper** (FINN
-eUrząd: `/bipkod/<code>` indexes, `/artykul/<id>` pages, standard ogłoszenie
-vocabulary). It covers Mysłowice + Świętochłowice + Jaworzno + Częstochowa (and
-could re-home Katowice) with per-city config instead of four bespoke adapters —
-build it once at Mysłowice.
-
-Each: spike → confirm open flat-auction volume EARLY (the lesson from Tychy) →
-build only if non-trivial. Reuse the existing extractors (OCR PDF / text PDF /
-`.doc` catdoc / RTF pure-JS / JSON API / structured HTML) — most new cities fit one.
+Full write-up of the whole field in [SPIKE-WAVE2.md](./SPIKE-WAVE2.md) (Wave 3
++ the 10 June 2026 re-verification). The reusable `core/finn-bip.js` helper is
+built (Mysłowice + Świętochłowice use it; a possible follow-up is re-homing
+Katowice onto it). For any future city: spike → confirm open flat-auction
+volume EARLY → reuse the existing extractors (OCR PDF / text PDF / `.doc`
+catdoc / RTF pure-JS / JSON API / structured HTML).
 
 **Headless-fetch capability (June 2026).** `core/render.js` now exists — an
 opt-in Playwright/Chromium renderer for genuinely JS-rendered BIPs (lazy-loaded,

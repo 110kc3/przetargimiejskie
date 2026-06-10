@@ -100,10 +100,18 @@ async function crawlAnnouncements() {
   return anns;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[] }>} */
-export async function crawlActive() {
+// ONE pass over the board serves both streams: each /doc's attachment is
+// either a sale ANNOUNCEMENT (per-flat active rows) or a published RESULT
+// notice ("INFORMACJA O WYNIKU PRZETARGÓW" — Zabrze's achieved-price data,
+// parsed by parse.js parseResultDoc). refresh.js calls crawlResultDocs()
+// first, then crawlActive() — both await the same memoised crawl, so the
+// ~100 throttled doc+attachment fetches happen exactly once per run.
+let crawlPromise = null;
+
+async function crawlAll() {
   const announcements = await crawlAnnouncements();
   const listings = [];
+  const resultRefs = [];
   for (const ann of announcements) {
     let docHtml;
     try {
@@ -137,11 +145,12 @@ export async function crawlActive() {
         continue;
       }
     }
-    // Some /doc pages now link the published RESULT notice ("INFORMACJA O WYNIKU
-    // PRZETARGÓW") as their first attachment — the auction already happened, so
-    // this is not an active sale announcement and carries no per-flat sale rows.
-    // Skip quietly. (Achieved sold prices are a separate, not-yet-wired stream.)
-    if (/INFORMACJA\s+O\s+WYNIKU/i.test(text)) continue;
+    // Published RESULT notice → the achieved-price stream. The refresh loop
+    // hands ref.text to parseResultDoc (source 'html' skips OCR dispatch).
+    if (/INFORMACJA\s+O\s+WYNIKU/i.test(text)) {
+      resultRefs.push({ text, pdf_url: attUrl, auction_date: null });
+      continue;
+    }
 
     const flats = parseAnnouncementText(text);
     if (flats.length === 0) {
@@ -163,13 +172,23 @@ export async function crawlActive() {
       });
     }
   }
-  console.error(`  zabrze active: ${listings.length} flats from ${announcements.length} announcements`);
-  return { listings, wykaz: [] };
+  console.error(
+    `  zabrze: ${listings.length} flats from ${announcements.length} announcements, ${resultRefs.length} result notices`,
+  );
+  return { listings, wykaz: [], resultRefs };
 }
 
-/** No separate results stream — properties are built from active announcements. */
+/** Result notices (achieved prices) found on the board — see crawlAll(). */
 export async function crawlResultDocs() {
-  return [];
+  crawlPromise ??= crawlAll();
+  return (await crawlPromise).resultRefs;
+}
+
+/** @returns {Promise<{ listings: object[], wykaz: object[] }>} */
+export async function crawlActive() {
+  crawlPromise ??= crawlAll();
+  const { listings, wykaz } = await crawlPromise;
+  return { listings, wykaz };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
