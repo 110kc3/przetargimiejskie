@@ -59,9 +59,12 @@
     },
 
     detailAddress() {
-      // Title is authoritative; slug fallback only.
+      // Title is authoritative; slug fallback only. Split the address from the
+      // trailing " – DD.MM.YYYY r." on a SPACE-padded dash anchored to the
+      // date — the old `[^-]` class stopped at the first hyphen, truncating a
+      // hyphenated building range ("Kozielska 10-12" → "Kozielska 10").
       let guess = null;
-      const titleM = /^([^–—\-]+?)\s+[–—-]/.exec(
+      const titleM = /^(.+?)\s+[–—-]\s+\d{1,2}\.\d{1,2}\.\d{4}/.exec(
         document.title.replace(/&#8211;/g, '–'),
       );
       if (titleM) guess = titleM[1].trim();

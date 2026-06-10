@@ -30,6 +30,41 @@ const fmtPerM2 = (price, area) =>
     ? '—'
     : nf.format(Math.round(price / area)) + ' zł/m²';
 
+// Escape crawled strings before they go into innerHTML. CSP blocks inline
+// <script>, but unescaped values still allow attribute breakout and
+// javascript:-style hrefs on these privileged pages.
+const esc = (s) =>
+  String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
+  );
+// Only allow http(s) URLs through to hrefs; anything else (javascript:, data:)
+// collapses to '' so it can't execute or phish.
+const safeHref = (u) => {
+  if (!u) return '';
+  try {
+    const url = new URL(u, location.href);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '';
+  } catch {
+    return '';
+  }
+};
+// Polish-fold a search query so it matches the already-folded street_search /
+// folded address text (e.g. typing "Zwycięstwa" matches "zwyciestwa").
+const POLISH_LOWER = (s) =>
+  String(s || '')
+    .toLowerCase()
+    .replace(/[ąàá]/g, 'a').replace(/[ćč]/g, 'c').replace(/[ęè]/g, 'e')
+    .replace(/[ł]/g, 'l').replace(/[ńñ]/g, 'n').replace(/[óòô]/g, 'o')
+    .replace(/[śš]/g, 's').replace(/[żź]/g, 'z');
+// Europe/Warsaw civil date (YYYY-MM-DD) — UTC "today" flips an hour or two
+// before local midnight, keeping an auction "active" too long. Mirrors the
+// pipeline's todayWarsaw().
+const todayWarsaw = () =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Warsaw',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+
 function median(nums) {
   if (!nums.length) return null;
   const s = [...nums].sort((a, b) => a - b);
@@ -44,7 +79,7 @@ function cityTagHtml(city) {
   const display = label === 'city.' + city
     ? city.charAt(0).toUpperCase() + city.slice(1)
     : label;
-  return `<span class="zgm-city-tag" data-city="${city}">${display}</span> `;
+  return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
 }
 
 let records = [];
@@ -154,7 +189,12 @@ function flatten(payload) {
       // 'archived' = a past auction from an announcement-only city (Bytom/
       // Zabrze) — concluded, achieved price not published. Shown in the
       // historical table with its starting price.
-      if (l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'archived') {
+      if (
+        l.outcome === 'sold' ||
+        l.outcome === 'unsold' ||
+        l.outcome === 'archived' ||
+        l.outcome === 'no_winner'
+      ) {
         records.push({
           date: l.date,
           city: p.city || null,
@@ -271,7 +311,9 @@ function renderTable() {
   const kind = $filterKind.value;
   const outcome = $filterOutcome.value;
   const year = selectedYear();
-  const q = $filterSearch.value.trim().toLowerCase();
+  // Polish-fold the query so it matches the folded street_search (typing
+  // "Zwycięstwa" must find "zwyciestwa").
+  const q = POLISH_LOWER($filterSearch.value.trim());
 
   let rows = records.slice();
   if (city !== 'all') rows = rows.filter((r) => r.city === city);
@@ -295,15 +337,15 @@ function renderTable() {
       (r) => `
       <tr class="zgm-ext-row-${r.outcome}">
         <td>${r.date || '—'}</td>
-        <td>${cityTagHtml(r.city)}${r.addr_display}</td>
-        <td>${t('kind.' + r.kind)}</td>
+        <td>${cityTagHtml(r.city)}${esc(r.addr_display)}</td>
+        <td>${esc(t('kind.' + r.kind))}</td>
         <td>${roundCell(r.round)}</td>
-        <td>${r.area_m2 ? r.area_m2 + ' m²' : '—'}</td>
+        <td>${r.area_m2 ? esc(r.area_m2) + ' m²' : '—'}</td>
         <td>${fmtPLN(r.starting_price_pln)}</td>
         <td>${fmtPLN(r.final_price_pln)}</td>
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
-        <td>${outcomeLabel(r)}</td>
-        <td>${r.source_pdf ? `<a target="_blank" rel="noopener" href="${r.source_pdf}">PDF</a>` : ''}</td>
+        <td>${esc(outcomeLabel(r))}</td>
+        <td>${safeHref(r.source_pdf) ? `<a target="_blank" rel="noopener" href="${esc(safeHref(r.source_pdf))}">PDF</a>` : ''}</td>
       </tr>`,
     )
     .join('');
@@ -321,6 +363,7 @@ function outcomeLabel(r) {
     return t('outcome.unsold') + reason;
   }
   if (r.outcome === 'archived') return t('outcome.archived');
+  if (r.outcome === 'no_winner') return t('outcome.no_winner');
   return r.outcome;
 }
 
@@ -340,16 +383,19 @@ function renderProvenance() {
 function renderActiveTable() {
   const city = $filterCity.value;
   const kind = $filterKind.value;
-  const q = $filterSearch.value.trim().toLowerCase();
+  // Fold the query AND the address so diacritics match either way (the
+  // active-table search previously compared a folded-or-not query against the
+  // raw, diacritic-bearing address_raw).
+  const q = POLISH_LOWER($filterSearch.value.trim());
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayWarsaw();
   const items = activeListings
     .filter((a) => !a.auction_date || a.auction_date >= today)
     .filter((a) => city === 'all' || a.city === city)
     .filter((a) => kind === 'all' || a.kind === kind)
     .filter((a) => {
       if (!q) return true;
-      const s = (a.address_raw || '').toLowerCase();
+      const s = POLISH_LOWER(a.address_raw || '');
       return s.includes(q);
     })
     .map((a) => {
@@ -369,7 +415,7 @@ function renderActiveTable() {
 
   $activeTbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold }) => {
-      const addr = cityTagHtml(a.city) + (a.address_raw || '') + (a.area_m2 ? ` · ${a.area_m2} m²` : '');
+      const addr = cityTagHtml(a.city) + esc(a.address_raw || '') + (a.area_m2 ? ` · ${esc(a.area_m2)} m²` : '');
       const priorCell =
         prior.length === 0
           ? `<span class="zgm-fresh">${t('popup.fresh')}</span>`
@@ -382,9 +428,9 @@ function renderActiveTable() {
         : '—';
       const datesCell = datesCellHtml(a);
       return `
-        <tr data-url="${a.detail_url || ''}">
+        <tr data-url="${esc(safeHref(a.detail_url))}">
           <td>${addr}</td>
-          <td>${t('kind.' + (a.kind || 'unknown'))}</td>
+          <td>${esc(t('kind.' + (a.kind || 'unknown')))}</td>
           <td class="zgm-dates-cell">${datesCell}</td>
           <td>${fmtPLN(a.starting_price_pln)}</td>
           <td>${askM2}</td>
@@ -431,6 +477,9 @@ function syncThemeButton() {
   window.ZGM_I18N.onChange(() => {
     applyStaticI18n();
     syncThemeButton();
+    // Re-fill the year dropdown so its "All years" option retranslates
+    // (populateYears preserves the current selection).
+    populateYears();
     renderAll();
   });
   window.ZGM_THEME?.onChange(syncThemeButton);
@@ -452,8 +501,11 @@ function syncThemeButton() {
   for (const th of $table.querySelectorAll('th[data-sort]')) {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;
+      // Historical table: a freshly-picked column starts descending — newest
+      // dates and largest prices/areas first. (Intentionally the opposite of
+      // the active table's date-ascending "soonest auction first" default.)
       if (sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
-      else { sortKey = k; sortDir = k === 'date' ? 'desc' : 'desc'; }
+      else { sortKey = k; sortDir = 'desc'; }
       for (const t2 of $table.querySelectorAll('th[data-sort]')) {
         t2.classList.remove('sorted-asc', 'sorted-desc');
       }

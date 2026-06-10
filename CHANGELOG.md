@@ -4,6 +4,83 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.15.0 — 2026-06-10
+
+- Cleared the low-priority extension bug-review backlog (L1–L8):
+  - **Auctions expire on Warsaw time, not UTC.** popup.js and archive.js use a
+    `todayWarsaw()` civil date, so a listing whose auction is today no longer
+    lingers as "active" for the hour or two between UTC and local midnight.
+  - **Watching-row "unsold" is translated.** The popup's active-with-history
+    status text now goes through i18n (new `popup.watching.active_prior` key,
+    PL + EN) instead of a hardcoded English word.
+  - **Archive year dropdown retranslates.** The "All years" option is rebuilt
+    on language toggle (selection preserved) instead of keeping its old label.
+  - **Removed the dead historical-sort ternary** (`'desc' : 'desc'`) — a new
+    column now explicitly starts descending (newest/largest first), documented
+    as the deliberate opposite of the active table's soonest-first default.
+  - **Gliwice hyphenated building ranges parse.** The detail-title split now
+    breaks on the space-padded dash before the date, so "Kozielska 10-12" is no
+    longer truncated to "Kozielska 10" at its own hyphen.
+  - **New host coverage** (MINOR): the content script now also runs on
+    `katowice.eu` (city-portal SharePoint DispForm detail pages that archive
+    links point to) and non-www `bytom.pl`, so the adapter host checks are no
+    longer dead. The Katowice adapter recognises the DispForm detail path.
+  - **No more content-script listener leak.** The detail panel's watchlist
+    `onChange` listener is registered once at page level instead of on every
+    render, so listeners (and the detached DOM they retained) no longer pile up
+    in long-lived tabs.
+  - **Bytom detail title is more robust.** Address detection tries the
+    announcement-title containers, then the page `<h1>`, then `document.title`
+    (split on `|`/dash and whole), using the first that parses — a banner `<h1>`
+    no longer shadows a usable title.
+
+## v1.14.3 — 2026-06-10
+
+- Fixed five more extension bug-review findings (E5–E9):
+  - **`no_winner` auctions now appear in the archive.** They were dropped
+    entirely from the historical table; they're now flattened in, labelled,
+    and selectable in the outcome filter (new dropdown option).
+  - **Archive street search now matches diacritics.** The query is
+    Polish-folded (like the indexed `street_search`), so typing "Zwycięstwa"
+    finds `zwyciestwa`; the active-table search folds both the query and the
+    address so it matches either way.
+  - **Crawled data is escaped before going into innerHTML** in popup.js,
+    archive.js and content.js (addresses, detail/source URLs, watch labels,
+    city tags). Values are HTML-escaped and URLs are restricted to http(s),
+    closing off attribute-breakout and `javascript:`/`data:` href injection on
+    the privileged pages.
+  - **Watchlist writes are serialized.** `watch`/`unwatch`/`markSeenActive`
+    chain their read-modify-write on a single promise, so rapid toggles (or the
+    popup racing the background scan) can't clobber each other — no dropped
+    watches or lost fingerprints that re-notify.
+  - **Bytom catalog badge no longer attaches to the wrong container.** The
+    ancestor walk now requires an actual ADRES/TYP match; with no match within
+    six levels the listing is skipped instead of badging a wrapper that may hold
+    every listing with the first one's address.
+
+## v1.14.2 — 2026-06-10
+
+- Fixed four extension/pipeline join-key bugs that hid auction history (E1–E4):
+  - **Address normalizer drifted behind the pipeline.** `normalize.js` now
+    converts a trailing "m. N" into the `/N` apartment form (instead of
+    stripping it) and adds the bare "street garaż nr N" → building `0` branch,
+    so the extension produces the same join keys as the pipeline. Affected live
+    Gliwice garage listings.
+  - **Genitive titles stopped matching after street-coalescing.** The pipeline
+    folds genitive street keys ("Staromiejskiej") into the nominative
+    ("Staromiejska"), but `content.js` did an exact lookup — so Katowice's
+    genitive page titles missed exactly the multi-round properties. It now
+    retries the lookup with street-suffix variants.
+  - **A network outage no longer poisons the cache.** `background.js` treats
+    "0 cities fetched" as a failure: it serves the stale cache instead of
+    saving an empty merge with a fresh timestamp, so the popup no longer shows
+    zeros during an outage and watched properties aren't re-notified once the
+    network recovers.
+  - **Katowice card titles with trailing words now parse.** The adapter's
+    title regex captures street + number and stops, so
+    "…przy ul. Gliwickiej 50 w Katowicach" is recognised instead of silently
+    skipped.
+
 ## v1.14.1 — 2026-06-09
 
 - Removed the redundant auction date from the listing-page stats chip on

@@ -16,7 +16,34 @@ const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
   n == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
 
+// Escape crawled strings before they land in innerHTML — CSP blocks inline
+// <script>, but attribute breakout and javascript:-style hrefs are still
+// possible on this privileged page.
+const esc = (s) =>
+  String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
+  );
+// Allow only http(s) URLs through to hrefs / data-url; else collapse to ''.
+const safeHref = (u) => {
+  if (!u) return '';
+  try {
+    const url = new URL(u, location.href);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '';
+  } catch {
+    return '';
+  }
+};
+
 const roundLabel = (n) => (n ? t('chip.round', { r: String(n) }) : null);
+
+// Europe/Warsaw civil date (YYYY-MM-DD). UTC "today" flips at 01:00/02:00
+// local, so around midnight an auction whose date is "today" would still be
+// counted active for an extra hour or two. Mirrors pipeline todayWarsaw().
+const todayWarsaw = () =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Warsaw',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
 
 // Background.js namespaces property keys as `<city>|...`, so we can recover
 // the city for legacy/orphan watch entries that don't carry one.
@@ -35,7 +62,7 @@ function cityTagHtml(city) {
   const display = label === 'city.' + city
     ? city.charAt(0).toUpperCase() + city.slice(1)
     : label;
-  return `<span class="zgm-city-tag" data-city="${city}">${display}</span> `;
+  return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
 }
 
 function datesCellHtml(a) {
@@ -144,7 +171,7 @@ function renderActive() {
   // takes its time archiving past-auction documents (see TODO.md). Drop
   // anything whose auction date has already passed so "currently active"
   // means what it says. Proper fix lives in cities/katowice/crawl.js.
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayWarsaw();
   const liveActive = (payload.active?.listings || []).filter(
     (a) => !a.auction_date || a.auction_date >= today,
   );
@@ -166,7 +193,7 @@ function renderActive() {
   $tbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold, key }) => {
       const cityTag = cityTagHtml(a.city || cityFromKey(key));
-      const addr = cityTag + (a.address_raw || '') + (a.area_m2 ? ` · ${a.area_m2} m²` : '');
+      const addr = cityTag + esc(a.address_raw || '') + (a.area_m2 ? ` · ${esc(a.area_m2)} m²` : '');
       // "nowa" (new) only when this really is a first auction with no recorded
       // history. A 2nd/3rd przetarg is a re-listing, not new — show its round.
       const priorCell =
@@ -179,14 +206,14 @@ function renderActive() {
         ? `${lastUnsold.date} @ ${fmtPLN(lastUnsold.starting_price_pln)}`
         : '—';
       const watched = key ? watchlist[key] : null;
-      const star = `<button type="button" class="zgm-star ${watched ? 'on' : ''}" data-key="${key || ''}" title="${t(watched ? 'watch.button.remove' : 'watch.button.add')}">${watched ? '★' : '☆'}</button>`;
+      const star = `<button type="button" class="zgm-star ${watched ? 'on' : ''}" data-key="${esc(key || '')}" title="${esc(t(watched ? 'watch.button.remove' : 'watch.button.add'))}">${watched ? '★' : '☆'}</button>`;
       const askM2 = (a.area_m2 && a.starting_price_pln != null) ? new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²' : '—';
       const datesCell = datesCellHtml(a);
       return `
-        <tr data-url="${a.detail_url || ''}">
+        <tr data-url="${esc(safeHref(a.detail_url))}">
           <td class="zgm-star-cell">${star}</td>
           <td>${addr}</td>
-          <td>${t('kind.' + (a.kind || 'unknown'))}</td>
+          <td>${esc(t('kind.' + (a.kind || 'unknown')))}</td>
           <td class="zgm-dates-cell">${datesCell}</td>
           <td>${fmtPLN(a.starting_price_pln)}</td>
           <td>${askM2}</td>
@@ -255,21 +282,21 @@ function renderWatching() {
       if (active) {
         const wad = active.wadium_deadline ? `, ${t('popup.col.wadium_by').toLowerCase()} ${wadiumCellHtml(active.wadium_deadline)}` : '';
         statusHtml = `<span class="zgm-active">${active.date} · ${fmtPLN(active.starting_price_pln)}${wad}</span>` +
-          (prior.length ? ` <span class="zgm-prior">(${prior.length}×, ${unsold} unsold)</span>` : '');
+          (prior.length ? ` <span class="zgm-prior">${esc(t('popup.watching.active_prior', { n: prior.length, unsold }))}</span>` : '');
       } else if (prior.length) {
         statusHtml = `<span class="zgm-historical">${t('popup.watching.historical_only', { n: prior.length, unsold })}</span>`;
       } else {
         statusHtml = '<span class="muted">—</span>';
       }
-      const url = active?.detail_url || entry.detail_url || '';
+      const url = safeHref(active?.detail_url || entry.detail_url || '');
       const city = prop?.city || entry.city || cityFromKey(key);
-      const addrCell = cityTagHtml(city) + entry.addr;
+      const addrCell = cityTagHtml(city) + esc(entry.addr);
       return `
-        <tr data-url="${url}">
-          <td class="zgm-star-cell"><button type="button" class="zgm-star on" data-key="${key}" title="${t('watch.button.remove')}">★</button></td>
+        <tr data-url="${esc(url)}">
+          <td class="zgm-star-cell"><button type="button" class="zgm-star on" data-key="${esc(key)}" title="${esc(t('watch.button.remove'))}">★</button></td>
           <td>${addrCell}</td>
           <td>${statusHtml}</td>
-          <td>${url ? `<a target="_blank" rel="noopener" href="${url}">→</a>` : ''}</td>
+          <td>${url ? `<a target="_blank" rel="noopener" href="${esc(url)}">→</a>` : ''}</td>
         </tr>`;
     })
     .join('');
@@ -302,7 +329,7 @@ function render() {
   const meta = lastPayload.meta || {};
   // Match the same past-date filter renderActive uses so the count in the
   // footer is consistent with the number of rows the user sees.
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayWarsaw();
   const activeCount = (lastPayload.active?.listings || []).filter(
     (a) => !a.auction_date || a.auction_date >= today,
   ).length;

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Przetargi miejskie",
   "short_name": "Przetargi miejskie",
-  "version": "1.14.1",
+  "version": "1.15.0",
   "description": "Przetargi miejskie na Śląsku: Gliwice, Katowice, Bytom. Historia cen, zł/m², terminy wadium i oględzin, powiadomienia o aukcjach.",
   "author": "110kc3",
   "icons": {
@@ -41,8 +41,10 @@
       "matches": [
         "https://zgm-gliwice.pl/*",
         "https://bip.katowice.eu/*",
+        "https://katowice.eu/*",
         "https://i-biip.um.bytom.pl/*",
-        "https://www.bytom.pl/*"
+        "https://www.bytom.pl/*",
+        "https://bytom.pl/*"
       ],
       "js": [
         "i18n.js",

@@ -175,6 +175,24 @@ async function getOrFetch(force = false) {
     };
   }
   const cityPayloads = (await Promise.all(CITIES.map((c) => fetchCity(c)))).filter(Boolean);
+  // Total outage: every city fetch failed (network down / GitHub unreachable).
+  // fetchCity swallows per-city errors, so without this guard we'd cache an
+  // EMPTY merge with a fresh `fetched_at` — the popup would show zeros for up
+  // to the TTL, the 4-hourly forced check would clobber a good cache, and the
+  // watchlist diff would see no active listings and wipe every fingerprint.
+  // Never cache an empty merge: serve the stale cache if we have one, else
+  // throw so callers (getData / runWatchlistCheck) bail cleanly.
+  if (cityPayloads.length === 0) {
+    if (cached) {
+      return {
+        properties: cached.data.properties,
+        active: cached.data.active,
+        meta: cached.data.meta,
+        fetched_at: cached.fetched_at,
+      };
+    }
+    throw new Error('all city fetches failed (no cached data to fall back on)');
+  }
   const merged = mergeCityPayloads(cityPayloads);
   const fetched_at = Date.now();
   await saveToCache(KEYS.merged, { data: merged, fetched_at });

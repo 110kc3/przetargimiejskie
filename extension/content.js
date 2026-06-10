@@ -20,6 +20,24 @@
   const isDetail = site.isDetail(location.pathname);
   if (!isListingIndex && !isDetail) return;
 
+  // Escape crawled strings before they reach innerHTML. window.ZGM_I18N.t()
+  // does raw ${} substitution (no escaping), so any value we pass to it that
+  // originates from the page — addresses, etc. — must be escaped first too.
+  const esc = (s) =>
+    String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
+    );
+  // Allow only http(s) URLs through to hrefs; else collapse to ''.
+  const safeHref = (u) => {
+    if (!u) return '';
+    try {
+      const url = new URL(u, location.href);
+      return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '';
+    } catch {
+      return '';
+    }
+  };
+
   // Wait for i18n + the user's saved minHistoryYear preference before first
   // render. settings.js is optional (defensive ?.) — if it ever fails to
   // load, we just show everything (no year filter).
@@ -68,7 +86,36 @@
   const properties = payload.properties?.properties || [];
   const byKey = new Map(properties.map((p) => [p.key, p]));
   const nsKey = (addrKey) => `${site.city}|${addrKey}`;
-  const lookup = (address) => byKey.get(nsKey(address.key));
+
+  // Polish-case street-suffix swaps (genitive ↔ nominative), mirrored from
+  // pipeline/src/core/build-properties.js. The pipeline coalesces genitive
+  // street keys ("staromiejskiej|…") into the nominative ("staromiejska|…"),
+  // so an exact lookup on a genitive page title (Katowice's are genitive)
+  // misses exactly the multi-round properties. On a miss we retry with each
+  // street-suffix variant.
+  const SUFFIX_SUBS = [
+    ['ej$', 'a'], ['iej$', 'a'], ['ego$', 'y'], ['ego$', ''],
+    ['skiej$', 'ska'], ['skiego$', 'ski'], ['ckiej$', 'cka'], ['ckiego$', 'cki'],
+  ];
+  function streetSuffixVariants(street) {
+    const out = new Set();
+    for (const [re, repl] of SUFFIX_SUBS) {
+      const v = street.replace(new RegExp(re), repl);
+      if (v !== street) out.add(v);
+    }
+    return [...out];
+  }
+  const lookup = (address) => {
+    const hit = byKey.get(nsKey(address.key));
+    if (hit) return hit;
+    if (!address.street_norm) return undefined;
+    for (const alt of streetSuffixVariants(address.street_norm)) {
+      const altKey = `${alt}|${address.building}|${address.apt ?? ''}`;
+      const altHit = byKey.get(nsKey(altKey));
+      if (altHit) return altHit;
+    }
+    return undefined;
+  };
 
   function render() {
     // Clear anything we previously injected so re-renders don't duplicate DOM.
@@ -86,6 +133,10 @@
   // The min-year preference can change in another tab (popup or archive);
   // re-render so the prior-history tooltips + detail panel update in place.
   window.ZGM_SETTINGS?.onChange(render);
+  // Single page-level watchlist listener (rebuilds the panel with the correct
+  // star state). Registered once here — never inside injectPanel — so it
+  // doesn't accumulate across re-renders.
+  window.ZGM_WATCH.onChange(render);
 
   // -------------------------------------------------------------- index page
 
@@ -177,7 +228,7 @@
 
     if (!prop) {
       injectPanel({
-        title: t('panel.title', { addr: addressRaw }),
+        title: t('panel.title', { addr: esc(addressRaw) }),
         body: `<p>${t('panel.none')}</p>`,
         watchKey: nsKey(address.key),
         watchMeta: {
@@ -203,7 +254,7 @@
           <td>${outcomeLabel(l)}</td>
           <td>${l.outcome === 'sold' ? fmtPLN(l.final_price_pln) : ''}</td>
           <td>${l.outcome === 'sold' ? '' : reasonLabel(l.unsold_reason)}</td>
-          <td>${l.source_pdf ? `<a target="_blank" rel="noopener" href="${l.source_pdf}">PDF</a>` : ''}</td>
+          <td>${safeHref(l.source_pdf) ? `<a target="_blank" rel="noopener" href="${esc(safeHref(l.source_pdf))}">PDF</a>` : ''}</td>
         </tr>`,
       )
       .join('');
@@ -217,7 +268,7 @@
         city: prop.city || site.city,
       },
       title: t('panel.title', {
-        addr: `${prop.street} ${prop.building}${prop.apt ? '/' + prop.apt : ''}`,
+        addr: esc(`${prop.street} ${prop.building}${prop.apt ? '/' + prop.apt : ''}`),
       }),
       body: `
         ${summary}
@@ -283,7 +334,7 @@
     wrap.innerHTML = `
       <div class="zgm-ext-panel-head">
         <h3>${title}</h3>
-        ${watchKey ? `<button type="button" class="zgm-ext-watch" data-key="${watchKey}">…</button>` : ''}
+        ${watchKey ? `<button type="button" class="zgm-ext-watch" data-key="${esc(watchKey)}">…</button>` : ''}
       </div>
       ${body}
       <p class="zgm-ext-footer">
@@ -309,9 +360,11 @@
         else await window.ZGM_WATCH.watch(watchKey, watchMeta || {});
         refresh();
       });
-      // Re-render on lang change (already handled at the page level) and on
-      // cross-tab watchlist edits.
-      window.ZGM_WATCH.onChange(refresh);
+      // Cross-tab watchlist edits are handled by a single page-level
+      // ZGM_WATCH.onChange(render) listener (registered once below) — we must
+      // NOT subscribe here, because injectPanel runs on every render and the
+      // listeners (each retaining a detached button via `refresh`) would
+      // accumulate for the life of the tab.
     }
   }
 

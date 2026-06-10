@@ -166,6 +166,39 @@ aimed at — these are vacant lots / multi-parcel land sales.
 
 ## Extension
 
+### Bug-review findings (June 2026 extension review)
+
+Full read of `extension/**`, cross-checked against the pipeline data
+contract. Fixing any of these touches `extension/` → PATCH bump
+(manifest + popup.html + CHANGELOG) per the version rules.
+
+**High (E1–E4) — DONE, shipped v1.14.2.** normalize.js re-synced (m. N → /N
++ rejonMatch); content.js retries the lookup with street-suffix variants;
+background.js treats "0 cities fetched" as failure (keeps the old cache);
+katowice.js uses the bounded street+number title capture.
+
+**Medium (E5–E9) — DONE, shipped v1.14.3.** archive.js surfaces `no_winner`
+(table + outcome filter); archive search Polish-folds the query (both tables);
+crawled data is HTML-escaped + URLs http(s)-only in popup/archive/content.js;
+watchlist mutations are serialized; the Bytom ancestor walk requires a real
+ADRES/TYP match (skips otherwise).
+
+**Low (L1–L8) — DONE, shipped v1.15.0.** popup.js/archive.js use a
+`todayWarsaw()` civil date; the popup watching-row "unsold" is i18n'd
+(`popup.watching.active_prior`); the archive year dropdown retranslates on
+language toggle; the dead historical-sort ternary is removed (new column starts
+desc); the Gliwice detail-title split breaks on the space-padded date dash so
+hyphenated building ranges survive; manifest now covers `katowice.eu` (Katowice
+adapter recognises the SharePoint DispForm detail path) and non-www `bytom.pl`;
+content.js registers the watchlist `onChange` once at page level (no listener
+leak); Bytom detail-title detection falls through announcement-title → `<h1>` →
+`document.title` and uses the first that parses.
+
+Note: the Gliwice **slug** fallback (`addressFromSlug`) still can't tell a
+building range (`10-12`) from a building/apt (`10/12`) — the slug is genuinely
+ambiguous. It's a last resort only; the authoritative title parse (fixed above)
+covers the real case, so this is left as-is.
+
 ### Popup: city column in the watchlist
 
 `popup.js` renders the watching section, but the address cell mixes

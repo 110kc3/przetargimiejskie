@@ -69,11 +69,16 @@
     const seen = new Set();
     for (const a of document.querySelectorAll('a[href*="sitplan.um.bytom.pl"]')) {
       let el = a;
+      let found = false;
       for (let i = 0; i < 6 && el.parentElement; i++) {
         el = el.parentElement;
         const t = el.textContent || '';
-        if (/ADRES\s*:?/i.test(t) && /TYP\s*:?/i.test(t)) break;
+        if (/ADRES\s*:?/i.test(t) && /TYP\s*:?/i.test(t)) { found = true; break; }
       }
+      // No labelled ADRES/TYP block within 6 levels: `el` is now some generic
+      // wrapper (possibly containing EVERY listing). Badging it would attach
+      // the first listing's address to the whole container — skip instead.
+      if (!found) continue;
       const text = (el.textContent || '').replace(/\s+/g, ' ').trim();
       if (!kindFromText(fieldAfter(text, 'TYP', 'ETAP'))) continue;
       const addrRaw = fieldAfter(text, 'ADRES', 'TYP');
@@ -106,15 +111,29 @@
       return [];
     },
 
-    // BIP per-property page: address is the page <h1>/title text.
+    // BIP per-property page: address is the announcement title. Try the
+    // announcement-specific containers first, then the page <h1> (which may be
+    // a site banner, not the title), then document.title — split on common
+    // separators AND taken whole (not every title uses "|"). Use the FIRST
+    // candidate that parses to a real flat address, so a banner h1 no longer
+    // shadows a usable document.title.
     detailAddress() {
-      const raw =
-        (document.querySelector('h1, .aktualnosc__tytul, .tytul')?.textContent ||
-          document.title.split('|')[0] ||
-          '').replace(/\s+/g, ' ').trim();
-      if (!raw || /\bdz\.?\s*\d|działk/i.test(raw)) return null;
-      const address = window.ZGM_NORMALIZE.parseAddress(raw);
-      return address ? { address, addressRaw: raw } : null;
+      const cands = [];
+      for (const sel of ['.aktualnosc__tytul', '.tytul', 'h1']) {
+        const txt = document.querySelector(sel)?.textContent;
+        if (txt) cands.push(txt);
+      }
+      if (document.title) {
+        cands.push(document.title.split(/[|–—]/)[0]);
+        cands.push(document.title);
+      }
+      for (const cand of cands) {
+        const raw = cand.replace(/\s+/g, ' ').trim();
+        if (!raw || /\bdz\.?\s*\d|działk/i.test(raw)) continue;
+        const address = window.ZGM_NORMALIZE.parseAddress(raw);
+        if (address) return { address, addressRaw: raw };
+      }
+      return null;
     },
 
     injectTarget() {

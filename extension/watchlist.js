@@ -24,6 +24,20 @@
   const STORAGE_KEY = 'watchlist';
   const listeners = new Set();
 
+  // Serialize read-modify-write mutations. watch/unwatch/markSeenActive each do
+  // get → mutate → set; rapid toggles in the popup (and the popup racing the
+  // background SW's alarm scan) could interleave so the second set() reverts
+  // the first's change — a dropped watch, or a lost fingerprint that triggers a
+  // spurious re-notification. Chaining every mutation on one promise makes them
+  // atomic with respect to each other within this JS context.
+  let writeChain = Promise.resolve();
+  function serialize(task) {
+    const run = writeChain.then(task, task);
+    // Keep the chain alive even if a task rejects; callers still see the error.
+    writeChain = run.then(() => {}, () => {});
+    return run;
+  }
+
   async function getAll() {
     try {
       const v = await chrome.storage.local.get(STORAGE_KEY);
@@ -38,34 +52,40 @@
     return Object.prototype.hasOwnProperty.call(all, key);
   }
 
-  async function watch(key, meta) {
-    const all = await getAll();
-    if (all[key]) return; // already watching
-    all[key] = {
-      addr: meta?.addr || key,
-      kind: meta?.kind || 'unknown',
-      detail_url: meta?.detail_url || null,
-      // Persisted so the popup can render a city chip and the background SW
-      // can prefix notifications even when the city isn't otherwise derivable.
-      city: meta?.city || null,
-      added_at: Date.now(),
-      last_seen_active: null,
-    };
-    await chrome.storage.local.set({ [STORAGE_KEY]: all });
+  function watch(key, meta) {
+    return serialize(async () => {
+      const all = await getAll();
+      if (all[key]) return; // already watching
+      all[key] = {
+        addr: meta?.addr || key,
+        kind: meta?.kind || 'unknown',
+        detail_url: meta?.detail_url || null,
+        // Persisted so the popup can render a city chip and the background SW
+        // can prefix notifications even when the city isn't otherwise derivable.
+        city: meta?.city || null,
+        added_at: Date.now(),
+        last_seen_active: null,
+      };
+      await chrome.storage.local.set({ [STORAGE_KEY]: all });
+    });
   }
 
-  async function unwatch(key) {
-    const all = await getAll();
-    if (!all[key]) return;
-    delete all[key];
-    await chrome.storage.local.set({ [STORAGE_KEY]: all });
+  function unwatch(key) {
+    return serialize(async () => {
+      const all = await getAll();
+      if (!all[key]) return;
+      delete all[key];
+      await chrome.storage.local.set({ [STORAGE_KEY]: all });
+    });
   }
 
-  async function markSeenActive(key, fingerprint) {
-    const all = await getAll();
-    if (!all[key]) return;
-    all[key].last_seen_active = fingerprint;
-    await chrome.storage.local.set({ [STORAGE_KEY]: all });
+  function markSeenActive(key, fingerprint) {
+    return serialize(async () => {
+      const all = await getAll();
+      if (!all[key]) return;
+      all[key].last_seen_active = fingerprint;
+      await chrome.storage.local.set({ [STORAGE_KEY]: all });
+    });
   }
 
   function onChange(fn) {

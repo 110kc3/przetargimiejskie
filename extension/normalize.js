@@ -17,7 +17,10 @@
       .replace(/[śš]/g, 's').replace(/[żź]/g, 'z');
 
   const STRIP_LEAD = /^\s*(?:ul\.?|al\.?|pl\.?|os\.?)\s+/i;
-  const TRAIL_NOISE = /\s*(?:wraz\b.*|m\.\s*\d+\s*$)/i;
+  // We *don't* strip trailing "garaż nr N" (kept as apt info) nor "m. N"
+  // (mieszkanie N): that IS the apartment number — stripping it collapsed
+  // distinct flats into one bare-building key. It's converted to "/N" below.
+  const TRAIL_NOISE = /\s*wraz\b.*/i;
   const ROMAN_OK = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/i;
 
   function buildAddress(street, building, apt, warning) {
@@ -27,7 +30,7 @@
       street_norm: streetNorm,
       building,
       apt,
-      key: `${streetNorm}|${building}|${apt || ''}`,
+      key: `${streetNorm}|${building}|${apt ?? ''}`,
       warning,
     };
   }
@@ -37,11 +40,21 @@
     let s = raw.trim().replace(/\s+/g, ' ');
     s = s.replace(STRIP_LEAD, '');
     s = s.replace(TRAIL_NOISE, '').trim();
+    // Trailing "m. N" / "m N" (mieszkanie) → the standard "/N" apartment form:
+    // "Zwycięstwa 34 m. 9" → "Zwycięstwa 34/9".
+    s = s.replace(/\s+m\.?\s*(\d+[A-Za-z]?)\s*$/i, '/$1');
 
     const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
     if (garageMatch) {
       const [, street, building, garageNo] = garageMatch;
       return buildAddress(street, building.toUpperCase(), `garaz-${garageNo}`, null);
+    }
+    // Bare "<street> garaż nr <N>" (no building number — "rejon" garages).
+    // Synthesize building="0" to match parse-result.js for the same input.
+    const rejonMatch = /^(.+?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+    if (rejonMatch) {
+      const [, street, garageNo] = rejonMatch;
+      return buildAddress(street, '0', `garaz-${garageNo}`, null);
     }
 
     const re =

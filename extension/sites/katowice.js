@@ -20,13 +20,24 @@
 
   const BOARD_PATH = /\/ogloszenia\/tablicaogloszen\/default(?:_arch)?\.aspx/i;
   const DOC_PATH = /\/ogloszenia\/tablicaogloszen\/dokument\.aspx/i;
+  // The city portal (katowice.eu) surfaces the same announcements via
+  // SharePoint list-item pages — archive `detail_url`s point here. The body is
+  // JS-rendered like bip.katowice.eu, but document.title carries the auction
+  // title, so the title-based detailAddress works for these too.
+  const PORTAL_DOC_PATH = /\/Lists\/.*\/DispForm\.aspx/i;
 
   // "Przetarg … przy ul. <street> <bldg>[/<apt>] [(suffix)]" → "<street> <bldg>[/<apt>]".
   // Mirrors addressFromTitle() in pipeline/src/cities/katowice/parse.js so the
   // join key matches the pipeline-emitted property keys.
   function addressFromAuctionTitle(title) {
     if (!title) return null;
-    const m = /przy\s+(?:ul|al|pl|os)\.?\s*([^()]+?)\s*(?:\(|$)/i.exec(title);
+    // Capture street + building[/apt] and STOP. Capturing to end-of-title
+    // pulled trailing words ("… przy ul. Gliwickiej 50 w Katowicach",
+    // "… – II przetarg") into the street, parseAddress failed, and the card
+    // was silently skipped. Mirrors addressFromTitle() in
+    // pipeline/src/cities/katowice/parse.js.
+    const m =
+      /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?)/i.exec(title);
     return m ? m[1].trim() : null;
   }
 
@@ -38,10 +49,11 @@
 
   window.ZGM_SITES.register({
     city: 'katowice',
-    hostMatches: ['bip.katowice.eu'],
+    hostMatches: ['bip.katowice.eu', 'katowice.eu'],
 
     isListingIndex: () => BOARD_PATH.test(location.pathname),
-    isDetail: () => DOC_PATH.test(location.pathname),
+    isDetail: () =>
+      DOC_PATH.test(location.pathname) || PORTAL_DOC_PATH.test(location.pathname),
 
     collectCards() {
       const out = [];
