@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-10T21:18:02.927Z",
+  "generated_at": "2026-06-11T07:24:31.155Z",
   "cities": [
     {
       "id": "gliwice",
@@ -51,10 +51,10 @@
       "label": "Sosnowiec",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 21,
+      "unique_properties": 26,
       "active_listings": 35,
       "active_auctions": 4,
-      "archived_auctions": 34,
+      "archived_auctions": 40,
       "wykaz_entries": 0
     },
     {
@@ -95,10 +95,10 @@
       "label": "Świętochłowice",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 72,
+      "unique_properties": 73,
       "active_listings": 164,
-      "active_auctions": 29,
-      "archived_auctions": 105,
+      "active_auctions": 28,
+      "archived_auctions": 131,
       "wykaz_entries": 0
     }
   ]
