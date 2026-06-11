@@ -74,6 +74,8 @@ a:hover{color:var(--accent);text-decoration:underline}
 .pill-unsold{color:var(--bad);background:var(--bad-bg)}
 .pill-archived,.pill-no_winner{color:var(--muted);background:var(--surface-2)}
 .pill-reason{color:var(--faint);font-weight:500;font-size:12px;margin-left:2px}
+.badge-share{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600;
+  color:var(--accent-hi);background:var(--accent-weak);border:1px solid var(--border-2);vertical-align:1px;white-space:nowrap}
 .dot-gliwice{background:var(--c-gliwice)}.dot-katowice{background:var(--c-katowice)}
 .dot-zabrze{background:var(--c-zabrze)}.dot-bytom{background:var(--c-bytom)}
 .dot-sosnowiec{background:var(--c-sosnowiec)}.dot-rybnik{background:var(--c-rybnik)}
@@ -114,8 +116,8 @@ a:hover{color:var(--accent);text-decoration:underline}
     <h2 class="table-title">Aktualne aukcje</h2>
     <div class="table-scroll">
       <table class="data-table"><thead><tr>
-        <th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th>
-        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th class="num">Data</th>
+        <th class="num">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th>
+        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th>
       </tr></thead><tbody id="active-body"></tbody></table>
     </div>
   </div>
@@ -152,6 +154,14 @@ const fold = s => String(s||'').toLowerCase()
 const KIND = {mieszkalny:'mieszkalny',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
 const roundLabel = r => r ? `${r}. przet.` : '—';
 const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia'};
+// Why the auction didn't sell, in Polish. 'unknown' carries no info → suppressed
+// (the "bez sprzedaży" pill already says it didn't sell). Unmapped codes fall
+// through to their raw value so a new reason still surfaces rather than vanishes.
+const REASON = {no_deposits:'brak wpłat wadium',bidder_noshow:'oferent się nie stawił',bidder_withdrew:'oferent odstąpił',unknown:''};
+const reasonLabel = code => code==null?'':(REASON[code]??code);
+// Fractional-share sale ("sprzedaż udziału 4/6 części") — flagged so a price
+// that looks low against the others is read as a share, not the whole flat.
+const shareBadge = s => s?`<span class="badge-share" title="Sprzedaż udziału ${esc(s)} części nieruchomości">udział ${esc(s)}</span>`:'';
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
 let sortKey='date', sortDir='desc';
@@ -180,11 +190,11 @@ async function load(){
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))
             records.push({city:c.id,cityLabel:c.label,kind:l.kind||p.kind,street:p.street,building:p.building,apt:p.apt,
               date:l.date,round:l.round,area:l.area_m2??p.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
-              outcome:l.outcome,reason:l.unsold_reason,src:l.source_pdf||l.detail_url});
+              outcome:l.outcome,reason:l.unsold_reason,share:l.share??p.share,src:l.source_pdf||l.detail_url});
       for(const l of (act.listings||[]))
         if(!l.auction_date || l.auction_date>=TODAY)
           active.push({city:c.id,cityLabel:c.label,kind:l.kind,addr:l.address_raw,round:l.round,
-            area:l.area_m2,start:l.starting_price_pln,date:l.auction_date,url:l.detail_url});
+            area:l.area_m2,start:l.starting_price_pln,date:l.auction_date,share:l.share,url:l.detail_url});
     }catch(e){}
   }));
 
@@ -247,27 +257,27 @@ function render(){
   document.getElementById('count').textContent = rows.length+' rekordów';
   document.getElementById('hist-body').innerHTML = rows.map(r=>`<tr>
     <td class="num muted-cell">${esc(r.date)||'—'}</td>
-    <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}</td>
+    <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}${shareBadge(r.share)}</td>
     <td>${esc(KIND[r.kind]||r.kind)}</td>
     <td>${roundLabel(r.round)}</td>
     <td class="num">${r.area?esc(r.area)+' m²':'—'}</td>
     <td class="num">${fmtPLN(r.start)}</td>
     <td class="num">${fmtPLN(r.final)}</td>
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
-    <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&r.reason?`<span class="pill-reason">${esc(r.reason)}</span>`:''}</td>
+    <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&reasonLabel(r.reason)?`<span class="pill-reason">${esc(reasonLabel(r.reason))}</span>`:''}</td>
   </tr>`).join('') || '<tr class="empty-row"><td colspan="9">Brak rekordów dla wybranych filtrów.</td></tr>';
 
   const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(!q||fold(a.addr).includes(q)));
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
-    <td class="addr">${chip(a.city,a.cityLabel)}${href?`<a href="${esc(href)}" target="_blank" rel="noopener">${esc(a.addr)||''}</a>`:(esc(a.addr)||'')}</td>
+    <td class="num muted-cell">${esc(a.date)||'—'}</td>
+    <td class="addr">${chip(a.city,a.cityLabel)}${href?`<a href="${esc(href)}" target="_blank" rel="noopener">${esc(a.addr)||''}</a>`:(esc(a.addr)||'')}${shareBadge(a.share)}</td>
     <td>${esc(KIND[a.kind]||a.kind)}</td>
     <td>${roundLabel(a.round)}</td>
     <td class="num">${a.area?esc(a.area)+' m²':'—'}</td>
     <td class="num">${fmtPLN(a.start)}</td>
     <td class="num">${fmtM2(a.start,a.area)}</td>
-    <td class="num muted-cell">${esc(a.date)||'—'}</td>
   </tr>`;}).join('') || '<tr class="empty-row"><td colspan="7">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
 
   refreshHeaders();

@@ -27,6 +27,7 @@ export {
   addressFrom,
   roundFromTitle,
   roundFromText,
+  shareFromTitle,
   parseAnnouncement,
 } from '../../core/finn-bip.js';
 

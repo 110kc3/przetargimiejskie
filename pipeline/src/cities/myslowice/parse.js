@@ -22,6 +22,7 @@ export {
   areaFromText,
   auctionDateFromText,
   addressFrom,
+  shareFromTitle,
   parseAnnouncement,
   parseIndexLinks,
   extractArticle,

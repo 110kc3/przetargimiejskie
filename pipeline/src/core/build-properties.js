@@ -149,6 +149,9 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       // Some sources (e.g. Katowice result PDFs) carry the unit area on the
       // sold record itself; Gliwice does not, so add the key only when present.
       ...(r.area_m2 != null ? { area_m2: r.area_m2 } : {}),
+      // Fractional-share sale ("udziału 4/6 części") — present only on share
+      // listings; carried so the archive can flag the share price as such.
+      ...(r.share ? { share: r.share } : {}),
     });
   }
   // A listing crawled from a "currently active" source is only really active
@@ -173,6 +176,7 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       detail_url: a.detail_url,
       wadium_deadline: a.wadium_deadline || null,
       viewing_date: a.viewing_date || null,
+      ...(a.share ? { share: a.share } : {}),
     });
   }
   for (const w of wykaz) {

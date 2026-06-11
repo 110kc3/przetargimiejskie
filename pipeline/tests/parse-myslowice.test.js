@@ -21,6 +21,7 @@ import {
   areaFromText,
   priceFromText,
   addressFrom,
+  shareFromTitle,
   parseIndexLinks,
 } from '../src/cities/myslowice/parse.js';
 
@@ -100,6 +101,51 @@ test('priceFromText handles the "154.000,-zł" and "215 000,00 zł" formats', ()
   assert.equal(priceFromText('Cena wywoławcza nieruchomości lokalowej wynosi 154.000,-zł'), 154000);
   assert.equal(priceFromText('Cena wywoławcza wynosi 215 000,00 zł'), 215000);
   assert.equal(priceFromText('cena wywoławcza: 89 500 zł'), 89500);
+});
+
+test('priceFromText reaches the price past an intervening number (fractional share)', () => {
+  // The share fraction "4/6", the "części" count and the apartment "nr 11" all
+  // sit between the label and the amount — the old non-digit window stopped at
+  // the "4" and returned null, leaving Mysłowice share listings priceless.
+  assert.equal(
+    priceFromText(
+      'Cena wywoławcza udziału 4/6 części prawa własności samodzielnego lokalu ' +
+      'mieszkalnego nr 11 wynosi 169 000,00 zł',
+    ),
+    169000,
+  );
+  // Still locks onto the FIRST "<amount> zł" after the label, not a later one.
+  assert.equal(
+    priceFromText('Cena wywoławcza udziału 1/2 części wynosi 95 000 zł. Wadium 9 500 zł.'),
+    95000,
+  );
+});
+
+test('shareFromTitle reads the co-ownership fraction, null for whole-flat sales', () => {
+  assert.equal(
+    shareFromTitle('Ogłoszenie o II przetargu na sprzedaż udziału 4/6 części prawa własności samodzielnego lokalu mieszkalnego nr 11'),
+    '4/6',
+  );
+  assert.equal(
+    shareFromTitle('Ogłoszenie o I przetargu na sprzedaż udziału wynoszącego 1/2 części lokalu mieszkalnego'),
+    '1/2',
+  );
+  assert.equal(shareFromTitle(FLAT_TITLE), null); // ordinary whole-flat sale
+});
+
+test('parseAnnouncement carries the share flag and the share price together', () => {
+  const title =
+    'Ogłoszenie o II przetargu na sprzedaż udziału 4/6 części prawa własności samodzielnego lokalu mieszkalnego nr 11 znajdujący się w budynku nr 1 przy ulicy Powstańców w Mysłowicach.';
+  const body =
+    '<p>Prezydent Miasta Mysłowice ogłasza przetarg na sprzedaż udziału 4/6 części ' +
+    'samodzielnego lokalu mieszkalnego nr 11, o pow. użytkowej 59,00 m2, w budynku nr 1 ' +
+    'przy ul. Powstańców. Cena wywoławcza udziału 4/6 części wynosi 169 000,00 zł. ' +
+    'Przetarg odbędzie się w dniu 07.07.2026 r.</p>';
+  const r = parseAnnouncement(title, body);
+  assert.ok(r);
+  assert.equal(r.share, '4/6');
+  assert.equal(r.starting_price_pln, 169000);
+  assert.equal(r.area_m2, 59);
 });
 
 test('auctionDateFromText: spelled month and numeric', () => {

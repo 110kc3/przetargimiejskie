@@ -168,10 +168,34 @@ export function priceFromText(text) {
   // Label accepts DECLINED forms too — Świętochłowice writes the operative
   // sentence in the accusative ("Cenę wywoławczą … ustala się na kwotę
   // 195 000,00 zł"); JS \w doesn't match ę/ą, so the endings are explicit.
-  // The 0,80 non-digit window keeps boilerplate ("1% ceny wywoławczej …")
-  // from reaching an unrelated number.
-  const m = /cen[aąęy]\s+wywo[łl]awcz[aąeyj]*[^0-9]{0,80}?([\d][\d.,\s -]*?)\s*z[łl]/i.exec(text || '');
+  //
+  // The gap is `[\s\S]` (was a `[^0-9]` non-digit window): a non-digit window
+  // broke on a number sitting BETWEEN the label and the amount — most often a
+  // fractional-share sale ("Cena wywoławcza udziału 4/6 części … nr 3 … wynosi
+  // 169 000 zł"), which left Mysłowice share listings priceless. The `\s*zł`
+  // anchor plus the non-greedy gap still lock onto the FIRST "<amount> zł" after
+  // the label — the operative price — so the share fraction and the apartment
+  // number are skipped, not captured. Boilerplate like "1% ceny wywoławczej …"
+  // can't be reached first because the real "Cena wywoławcza … zł" sentence
+  // precedes it (exec returns the leftmost match). Bounded to 140 chars so a
+  // deviant doc can't scan halfway across the body to an unrelated amount.
+  const m = /cen[aąęy]\s+wywo[łl]awcz[aąeyj]*[\s\S]{0,140}?([\d][\d.,\s -]*?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
+}
+
+/**
+ * Fractional-share sale flag. Many municipal flat auctions sell only a co-owned
+ * SHARE of the flat ("sprzedaż udziału 4/6 części prawa własności …"), so the
+ * cena wywoławcza is the price of the share — not the whole flat — which left
+ * unflagged reads as an impossibly cheap zł/m². Returns the share as "num/den"
+ * (e.g. "4/6"), or null for an ordinary whole-flat sale.
+ * @param {string} title  the announcement title (carries the share reliably)
+ * @param {string} [text]  optional body, scanned only as a fallback
+ * @returns {string|null}
+ */
+export function shareFromTitle(title, text = '') {
+  const m = /udzia[łl]\w*(?:\s+\S+){0,3}?\s+(\d{1,3}\/\d{1,3})\s+cz[ęe][śs]/i.exec(`${title} ${text}`);
+  return m ? m[1] : null;
 }
 
 /**
@@ -294,7 +318,7 @@ export function addressFrom(title, text) {
  * residential-flat sale.
  * @param {string} title
  * @param {string} contentHtml  article body HTML
- * @returns {null | {kind, address_raw, address, area_m2, starting_price_pln, round, auction_date}}
+ * @returns {null | {kind, address_raw, address, area_m2, starting_price_pln, round, auction_date, share}}
  */
 export function parseAnnouncement(title, contentHtml) {
   const text = htmlToText(contentHtml);
@@ -308,6 +332,7 @@ export function parseAnnouncement(title, contentHtml) {
     starting_price_pln: priceFromText(text),
     round: roundFromTitle(title) ?? roundFromText(text),
     auction_date: auctionDateFromText(text),
+    share: shareFromTitle(title, text),
   };
 }
 
@@ -425,6 +450,7 @@ export function makeCrawlActive(cfg) {
         area_m2: parsed.area_m2,
         starting_price_pln: parsed.starting_price_pln,
         detail_url: url,
+        share: parsed.share,
       });
     }
     console.error(`  ${id} active: ${listings.length} flat listing(s) from ${flats} flat article(s)`);

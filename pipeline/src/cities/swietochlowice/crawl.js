@@ -24,7 +24,7 @@ import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { pdfText } from '../../core/pdf-text.js';
 import {
-  htmlToText, addressFrom, roundFromTitle,
+  htmlToText, addressFrom, roundFromTitle, shareFromTitle,
   priceFromText, areaFromText, auctionDateFromText,
   parseDocLinks, isFlatAnnouncement, isFlatResultNotice,
 } from './parse.js';
@@ -142,6 +142,7 @@ export async function crawlActive() {
       area_m2: area,
       starting_price_pln: price,
       detail_url: LIST, // the flats category page (the .doc link only downloads)
+      share: shareFromTitle(e.title),
     });
   }
 
