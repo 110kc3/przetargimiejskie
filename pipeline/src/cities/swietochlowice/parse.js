@@ -11,7 +11,13 @@
 // dropping the result notices ("Informacja o wyniku …"), intents ("Zamiar
 // sprzedaży …"), wykazy, and the .docx "KW" land-registry annex.
 
-import { htmlToText } from '../../core/finn-bip.js';
+import {
+  htmlToText,
+  priceFromText,
+  addressFrom,
+  roundFromTitle,
+  parsePLN,
+} from '../../core/finn-bip.js';
 
 export {
   htmlToText,
@@ -22,7 +28,6 @@ export {
   roundFromTitle,
   roundFromText,
   parseAnnouncement,
-  parseResultDoc,
 } from '../../core/finn-bip.js';
 
 /**
@@ -67,4 +72,96 @@ export function parseDocLinks(html, origin) {
     out.push({ url, title: htmlToText(m[2]) });
   }
   return out;
+}
+
+// ----------------- result notices ("Informacja o wyniku …") -----------------
+//
+// The same board carries published results as small PDFs (~45 KB), titled
+// e.g. "Informacja o wyniku z III przetargu na sprzedaż spółdzielczego
+// własnościowego prawa do lokalu mieszkalnego przy ul. Polaka 7/6 w
+// Świętochłowicach." — the TITLE alone gives the address key + round; the PDF
+// body carries the auction date, cena wywoławcza and the achieved price.
+// crawl.js extracts each PDF (pdftotext, catdoc fallback) and hands
+// parseResultDoc `"<title>\n<body text>"`.
+//
+// ⚠️ The body parsing is BEST-EFFORT (no result-PDF sample was extractable at
+// build time — Zabrze precedent): a record is emitted only when the outcome
+// is determinable (explicit negative wording, or an achieved price). A body
+// that matches neither parses to [] and surfaces as the refresh loop's
+// "parser returned 0 records" WARN — validate + tune on the first CI run.
+
+/** Is this link a published flat-sale RESULT notice (not a cancellation)? */
+export function isFlatResultNotice(title) {
+  const t = (title || '').toLowerCase();
+  if (!/informacj\w*\s+o\s+wynik/.test(t)) return false;
+  if (/odwo[łl]ani|uniewa[żz]ni/.test(t)) return false;
+  return /lokalu\s+mieszkaln|prawa\s+do\s+lokalu\s+mieszkaln/.test(t);
+}
+
+const PL_MONTH = {
+  stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
+  lipca: 7, sierpnia: 8, 'września': 9, wrzesnia: 9,
+  'października': 10, pazdziernika: 10, listopada: 11, grudnia: 12,
+};
+
+/**
+ * Parse one result notice into a concluded record (framework shape).
+ * @param {string} text  `"<title>\n<extracted PDF text>"` from crawlResultDocs
+ * @param {string|null} fallbackDate  board publish date (body date preferred)
+ * @param {string} sourceUrl  the PDF's /res/serwisy/pliki/<id> URL
+ */
+export function parseResultDoc(text, fallbackDate, sourceUrl) {
+  const s = String(text || '');
+  const nlAt = s.indexOf('\n');
+  const title = nlAt >= 0 ? s.slice(0, nlAt) : s;
+  const body = nlAt >= 0 ? s.slice(nlAt + 1).replace(/\s+/g, ' ') : '';
+  if (!isFlatResultNotice(title)) return [];
+
+  const notes = [];
+  const addr = addressFrom(title, body);
+  if (!addr) return [];
+  const round = roundFromTitle(title);
+
+  // Past-tense operative date: "w dniu D.M.YYYY" or "w dniu D <miesiąca> YYYY".
+  let auction_date = null;
+  const dn = /w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(body);
+  if (dn) {
+    auction_date = `${dn[3]}-${dn[2].padStart(2, '0')}-${dn[1].padStart(2, '0')}`;
+  } else {
+    const ds = /w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(body);
+    const mon = ds ? PL_MONTH[ds[2].toLowerCase()] : null;
+    if (mon) auction_date = `${ds[3]}-${String(mon).padStart(2, '0')}-${ds[1].padStart(2, '0')}`;
+  }
+  if (!auction_date && fallbackDate) {
+    auction_date = fallbackDate;
+    notes.push('date: board publish-date fallback');
+  }
+
+  // Achieved price — the standard wordings ("najwyższa cena", "cena osiągnięta
+  // / osiągnięto cenę", "cena nabycia/sprzedaży").
+  const achievedM =
+    /(?:najwy[żz]sz\w+\s+cen|cen[aąęy]\s+osi[ąa]gni[ęe]t|osi[ąa]gni[ęe]t[ao][^0-9]{0,20}cen|cen[aąęy]\s+nabycia|cen[aąęy]\s+sprzeda[żz]y)[^0-9]{0,80}?([\d][\d  .]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
+  const negative =
+    /negatywn|nie\s+wy[łl]oniono|nikt\s+nie\s+przyst[ąa]pi|brak\s+ofert|nie\s+dosz[łl]o\s+do/i.test(body);
+
+  // Outcome not determinable → no record (refresh logs the 0-records WARN).
+  if (!negative && !achievedM) return [];
+
+  const starting_price_pln = priceFromText(body);
+  if (starting_price_pln == null) notes.push('parse: missing starting price');
+
+  return [{
+    auction_date,
+    source_pdf: sourceUrl,
+    kind: 'mieszkalny',
+    address_raw: addr.address_raw,
+    address: addr.address,
+    round,
+    starting_price_pln,
+    final_price_pln: negative ? null : parsePLN(achievedM[1]),
+    outcome: negative ? 'unsold' : 'sold',
+    unsold_reason: negative ? 'unknown' : null,
+    area_m2: null, // result notices rarely repeat the area; merge keeps the announcement's
+    notes,
+  }];
 }

@@ -116,7 +116,9 @@ export function areaFromText(text) {
   // Plausible flat-area window: excludes the plot ("o pow. 488 m²") and
   // cellar/share fragments ("4,5 m²") that otherwise leak through.
   const plausible = (v) => v != null && v >= 8 && v <= 300;
-  const lab = /powierzchni\w*\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*[²2]/i.exec(text);
+  // Accepts the full word and the abbreviation — result notices write
+  // "o pow. użytkowej 17,85 m2" where announcements spell it out.
+  const lab = /pow(?:ierzchni\w*)?\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*[²2]/i.exec(text);
   if (lab) {
     const v = parseArea(lab[1]);
     if (plausible(v)) return v;
@@ -173,9 +175,87 @@ export function parseAnnouncement(title, content) {
   };
 }
 
-// Contract stub — Sosnowiec results ("informacja o wyniku przetargu") are a
-// separate, not-yet-wired stream; crawlResultDocs() returns [], so this is never
-// invoked. Present only to satisfy the registry.
-export function parseResultDoc(_text, _date, _url) {
-  return [];
+// ---------------- results ("Wyniki przetargów", menu 7043) -----------------
+//
+// Sosnowiec publishes per-auction result notices on a dedicated board, same
+// JSON API shape as the announcements. A flat result looks like:
+//
+//   title:  "Wyniki ustnego przetargu nieograniczonego na sprzedaż lokalu
+//            mieszkalnego położonego w Sosnowcu przy Alei Zwycięstwa 25/15"
+//   body:   "że w dniu 23.01.2026 r. … odbył się ustny przetarg … lokalu
+//            mieszkalnego o numerze 15 … przy Alei Zwycięstwa 25 … o pow.
+//            użytkowej 17,85 m2 … Cena wywoławcza do przetargu wynosiła:
+//            77 000,00 zł … osiągnięto najwyższą cenę w wysokości:
+//            92 000,00 zł … nabywca został …"
+//
+// crawl.js hands parseResultDoc `"<title>\n<flattened body>"`. Most of the
+// board is land/dzierżawa — isFlatResult keeps only flat SALES.
+
+/** Is this "Wyniki przetargów" article a flat-sale result? */
+export function isFlatResult(title) {
+  const t = (title || '').toLowerCase();
+  if (!/^\s*wynik/.test(t)) return false; // titles open with "Wynik/Wyniki …"
+  if (!/sprzeda/.test(t)) return false;   // excludes dzierżawa/najem results
+  return /lokalu?\s+mieszkaln/.test(t);
+}
+
+/**
+ * Parse one flat result notice into a concluded record (framework shape).
+ * @param {string} text  `"<title>\n<body text>"` from crawlResultDocs
+ * @param {string|null} fallbackDate  publish date (used when no body date)
+ * @param {string} sourceUrl  the article's detail URL (provenance)
+ */
+export function parseResultDoc(text, fallbackDate, sourceUrl) {
+  const s = String(text || '');
+  const nl = s.indexOf('\n');
+  const title = nl >= 0 ? s.slice(0, nl) : s;
+  const body = nl >= 0 ? s.slice(nl + 1) : '';
+  if (!isFlatResult(title)) return [];
+
+  const notes = [];
+  const addr = addressFrom(title, body);
+  if (!addr) return [];
+
+  // Past-tense operative date: "że w dniu 23.01.2026 r. … odbył się" — the
+  // date PRECEDES the verb here (unlike announcements), so anchor on the
+  // first "w dniu <date>" in the body; numeric and month-name forms.
+  let auction_date = null;
+  const dn = /w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(body);
+  if (dn) {
+    auction_date = `${dn[3]}-${dn[2].padStart(2, '0')}-${dn[1].padStart(2, '0')}`;
+  } else {
+    const ds = /w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(body);
+    const mon = ds ? PL_MONTHS[ds[2].toLowerCase()] : null;
+    if (mon) auction_date = `${ds[3]}-${String(mon).padStart(2, '0')}-${ds[1].padStart(2, '0')}`;
+  }
+  if (!auction_date) auction_date = fallbackDate || null;
+
+  // "W toku przetargu osiągnięto najwyższą cenę w wysokości: 92 000,00 zł"
+  const finalM =
+    /najwy[żz]sz[ąa]\s+cen[ęe][^0-9]{0,60}?([\d][\d  .]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
+  // Defensive: no negative flat result observed yet on this board, but handle
+  // the standard wording + "no achieved price and no buyer" shape anyway.
+  const negative =
+    /negatywn|nie\s+wy[łl]oniono|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem/i.test(body) ||
+    (!finalM && !/nabywc/i.test(body));
+
+  const starting_price_pln = priceFromText(body);
+  if (starting_price_pln == null) notes.push('parse: missing starting price');
+  const final_price_pln = negative ? null : finalM ? parsePLN(finalM[1]) : null;
+  if (!negative && final_price_pln == null) notes.push('parse: missing achieved price');
+
+  return [{
+    auction_date,
+    source_pdf: sourceUrl,
+    kind: 'mieszkalny',
+    address_raw: addr.address_raw,
+    address: addr.address,
+    round: null,
+    starting_price_pln,
+    final_price_pln,
+    outcome: negative ? 'unsold' : 'sold',
+    unsold_reason: negative ? 'unknown' : null,
+    area_m2: areaFromText(body),
+    notes,
+  }];
 }

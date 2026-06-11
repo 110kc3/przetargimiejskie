@@ -9,9 +9,11 @@
 // `przetarg ustny … na sprzedaż lokalu mieszkalnego` auctions; the city's land/
 // działka auctions and bezprzetargowe tenant flat sales are skipped.
 //
-// `source: 'html'` — the adapter does its own JSON fetch + text extraction inside
-// crawlActive, so the refresh loop's OCR/pdf-text dispatch is bypassed and
-// crawlResultDocs() is []. Active-listings adapter (no sold-price stream wired).
+// `source: 'html'` — the adapter does its own JSON fetch + text extraction, so
+// the refresh loop's OCR/pdf-text dispatch is bypassed; crawlResultDocs()
+// returns refs that already carry `.text`. The achieved-price stream comes
+// from the sibling "Wyniki przetargów" board (menu 7043) — flat-sale result
+// notices parsed by parse.js parseResultDoc (sold/unsold + final price).
 
 export const config = {
   id: 'sosnowiec',

@@ -13,6 +13,8 @@ import {
   areaFromText,
   priceFromText,
   htmlToText,
+  isFlatResult,
+  parseResultDoc,
 } from '../src/cities/sosnowiec/parse.js';
 
 // A real flat-auction article body, entity-encoded like the API returns it
@@ -84,4 +86,53 @@ test('roundFromText reads the "ogłasza … przetarg" span, not history', () => 
     roundFromText('ogłasza ustny przetarg na sprzedaż. Wcześniej pierwszy i drugi i trzeci przetarg zakończyły się wynikiem negatywnym.'),
     1,
   );
+});
+
+// ---------------- results ("Wyniki przetargów", menu 7043) -----------------
+// Condensed from the REAL article 562340 (Aleja Zwycięstwa 25/15, Feb 2026):
+// past-tense date BEFORE the verb, "pow. użytkowej" abbreviated, plot 438 m²
+// present as a decoy, achieved price + buyer at the end.
+
+const RESULT_TITLE =
+  'Wyniki ustnego przetargu nieograniczonego na sprzedaż lokalu mieszkalnego położonego w Sosnowcu przy Alei Zwycięstwa 25/15';
+const RESULT_BODY =
+  'OGŁOSZENIE PREZYDENTA MIASTA SOSNOWCA informuje, że w dniu 23.01.2026 r. ' +
+  'w siedzibie Urzędu Miejskiego w Sosnowcu przy al. Zwycięstwa 20, odbył się ustny przetarg ' +
+  'nieograniczony na sprzedaż przysługującego Gminie Sosnowiec prawa własności do lokalu ' +
+  'mieszkalnego o numerze 15, znajdującego się w budynku wielolokalowym zlokalizowanym przy ' +
+  'Alei Zwycięstwa 25 w Sosnowcu, o pow. użytkowej 17,85 m2. Budynek położony jest na działce ' +
+  'o numerze 2128, obręb 0011 Sosnowiec, o pow. 438 m². ' +
+  'Cena wywoławcza do przetargu wynosiła: 77 000,00 zł ' +
+  'W toku przetargu osiągnięto najwyższą cenę w wysokości: 92 000,00 zł ' +
+  'Osobą ustaloną jako nabywca został Pan X';
+
+test('isFlatResult keeps flat-sale results, drops land/dzierżawa/announcements', () => {
+  assert.equal(isFlatResult(RESULT_TITLE), true);
+  assert.equal(isFlatResult('Wyniki przetargu pisemnego nieograniczonego na przekazanie w dzierżawę nieruchomości zabudowanej'), false);
+  assert.equal(isFlatResult('Wyniki ustnego przetargu nieograniczonego na sprzedaż nieruchomości położonej przy ul. J. Watta'), false);
+  assert.equal(isFlatResult('Ogłoszenie o przetargu na sprzedaż lokalu mieszkalnego'), false);
+});
+
+test('parseResultDoc: full sold record from a real-shaped notice', () => {
+  const recs = parseResultDoc(`${RESULT_TITLE}\n${RESULT_BODY}`, '2026-02-02', 'u/a,562340');
+  assert.equal(recs.length, 1);
+  const r = recs[0];
+  assert.equal(r.auction_date, '2026-01-23'); // body date, not the publish date
+  assert.equal(r.address.building, '25');
+  assert.equal(r.address.apt, '15');
+  assert.equal(r.starting_price_pln, 77000);
+  assert.equal(r.final_price_pln, 92000);
+  assert.equal(r.outcome, 'sold');
+  assert.equal(r.area_m2, 17.85); // flat area, not the 438 m² plot
+  assert.deepEqual(r.notes, []);
+});
+
+test('parseResultDoc: negative wording → unsold, no achieved price', () => {
+  const r = parseResultDoc(
+    `${RESULT_TITLE}\nw dniu 23.01.2026 r. odbył się ustny przetarg na sprzedaż lokalu mieszkalnego o numerze 15 przy Alei Zwycięstwa 25. Cena wywoławcza do przetargu wynosiła: 77 000,00 zł. Przetarg zakończył się wynikiem negatywnym.`,
+    null, 'u',
+  )[0];
+  assert.equal(r.outcome, 'unsold');
+  assert.equal(r.final_price_pln, null);
+  assert.equal(r.starting_price_pln, 77000);
 });

@@ -11,7 +11,9 @@
 // core/doc-text.js). If the .doc can't be fetched/parsed, the listing is still
 // emitted from the title (price/area/date null). One flat per announcement →
 // one active listing; build-properties marks past-dated ones `archived`.
-// crawlResultDocs() is [] (no sold-price stream wired). See parse.js + config.js.
+// crawlResultDocs() reuses the SAME memoised page walk and routes the board's
+// "Informacja o wyniku …" PDFs to parse.js parseResultDoc — the achieved-price
+// stream. See parse.js + config.js.
 //
 // VERIFIED LIVE (June 2026, rendered-DOM spike). The host is reachable with a
 // browser-like UA; the .doc announcement is OLE/legacy Word (catdoc), the .docx
@@ -20,10 +22,11 @@
 import { config } from './config.js';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
+import { pdfText } from '../../core/pdf-text.js';
 import {
   htmlToText, addressFrom, roundFromTitle,
   priceFromText, areaFromText, auctionDateFromText,
-  parseDocLinks, isFlatAnnouncement,
+  parseDocLinks, isFlatAnnouncement, isFlatResultNotice,
 } from './parse.js';
 
 const ORIGIN = config.bip.origin;
@@ -45,16 +48,23 @@ function isConnError(err) {
   return /fetch failed|ECONNREFUSED|ETIMEDOUT|CONNECT_TIMEOUT|ENOTFOUND|EAI_AGAIN|socket hang up|network/i.test(s);
 }
 
-/** Collect unique flat-auction announcement links across current + archive pages.
+/** Collect unique doc links (ALL kinds) across current + archive pages —
+ *  crawlActive filters for announcements, crawlResultDocs for result notices,
+ *  both from this single memoised walk (one set of page fetches per run).
  *  Fails fast: if the host is unreachable on the current page, skip the city
  *  entirely (return []) rather than attempting every archive page. refresh.js
  *  tolerates an empty city, so one unreachable BIP never breaks the pipeline. */
-async function collectAnnouncements() {
+let collectPromise = null;
+function collectLinks() {
+  collectPromise ??= collectLinksOnce();
+  return collectPromise;
+}
+async function collectLinksOnce() {
   const entries = [];
   const seen = new Set();
   const take = (html) => {
     let added = 0;
-    for (const d of parseDocLinks(html, ORIGIN).filter((x) => isFlatAnnouncement(x.title))) {
+    for (const d of parseDocLinks(html, ORIGIN)) {
       if (seen.has(d.url)) continue;
       seen.add(d.url);
       entries.push(d);
@@ -97,8 +107,9 @@ async function collectAnnouncements() {
 
 /** @returns {Promise<{ listings: object[], wykaz: object[] }>} */
 export async function crawlActive() {
-  const entries = await collectAnnouncements();
-  console.error(`  swietochlowice: ${entries.length} flat announcement(s) to inspect`);
+  const all = await collectLinks();
+  const entries = all.filter((x) => isFlatAnnouncement(x.title));
+  console.error(`  swietochlowice: ${entries.length} flat announcement(s) to inspect (of ${all.length} links)`);
 
   const listings = [];
   for (const e of entries) {
@@ -138,9 +149,38 @@ export async function crawlActive() {
   return { listings, wykaz: [] };
 }
 
-/** No separate sold-price results stream wired yet. */
+/**
+ * The achieved-price stream: the board's "Informacja o wyniku …" PDFs
+ * (~45 KB; assumed text PDFs — pdftotext first, catdoc fallback for any
+ * legacy .doc). Each ref carries `"<title>\n<extracted text>"` for parse.js
+ * parseResultDoc (title = address key + round; body = date + prices).
+ * @returns {Promise<Array<{text:string, auction_date:null, pdf_url:string}>>}
+ */
 export async function crawlResultDocs() {
-  return [];
+  const all = await collectLinks();
+  const notices = all.filter((x) => isFlatResultNotice(x.title));
+  console.error(`  swietochlowice results: ${notices.length} flat result notice(s)`);
+
+  const out = [];
+  for (const n of notices) {
+    let text = '';
+    try {
+      text = await pdfText(n.url, FETCH_OPTS);
+    } catch (err) {
+      try {
+        text = await docText(n.url, FETCH_OPTS);
+      } catch (err2) {
+        console.error(`  swietochlowice result extract failed (${n.url}): ${err.message}`);
+        continue;
+      }
+    }
+    out.push({
+      text: `${n.title}\n${htmlToText(text)}`,
+      auction_date: null, // parseResultDoc reads the date from the body
+      pdf_url: n.url,
+    });
+  }
+  return out;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

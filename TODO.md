@@ -26,21 +26,36 @@ Add `.github/workflows/security.yml`:
 Scope expectations: no containers, one dependency — this is a ~3-4 min/run
 safety net, not a deep audit.
 
-### Wire the remaining sold-price results streams
+### ~~Wire the remaining sold-price results streams~~ — DONE where streams exist (10 June 2026)
 
-Zabrze's "INFORMACJA O WYNIKU" stream shipped (10 June 2026) — the same
-pattern is still missing elsewhere; each adds achieved prices to a city that
-currently shows starting prices only:
+- **Sosnowiec — WIRED.** Dedicated "Wyniki przetargów" board found (menu
+  **7043**, sibling of Przetargi; 182 archived notices, mostly land —
+  `isFlatResult` keeps the flat sales). `crawlResultDocs` walks it via the
+  same JSON API; `parseResultDoc` reads the past-tense body ("że w dniu
+  23.01.2026 r. … odbył się"), cena wywoławcza, "osiągnięto najwyższą cenę"
+  and the buyer. Validated against the real Zwycięstwa 25/15 article
+  (77 000 → 92 000 zł, 17,85 m²); `areaFromText` also gained the abbreviated
+  "pow. użytkowej" label. Tests in `tests/parse-sosnowiec.test.js`.
+- **Świętochłowice — WIRED (validate on first CI run).** The board's
+  "Informacja o wyniku z III przetargu … przy ul. Polaka 7/6" PDFs (~45 KB)
+  now feed `crawlResultDocs` from the SAME memoised page walk as the
+  announcements; the title alone yields the address key + round, the body
+  (pdftotext, catdoc fallback) the date + prices. Body parsing is
+  best-effort (no extractable sample at build time — Zabrze precedent): a
+  record is emitted only when the outcome is determinable, otherwise the
+  refresh WARN flags it for tuning. Tests in
+  `tests/parse-swietochlowice.test.js`.
+- **Rybnik — confirmed NONE.** The ZGM BIP menu has no results category
+  ("Wyniki postępowań" = procurement only); the flat-sale section carries
+  zasady/wykazy/ogłoszenia only. Announcement-history model stands.
+- **Bytom — confirmed NONE (re-spiked).** No results category under "Zbycie
+  nieruchomości" (six announcement categories only) and zero "wynik"
+  content on the Tablica ogłoszeń. Bytom does not publish achieved prices;
+  announcement-round history remains the signal.
 
-- **Sosnowiec** — the BIP has an "informacja o wyniku przetargu" thread in
-  the same JSON API the adapter already crawls. Closest to free.
-- **Świętochłowice** — result notices exist on the same Liferay board
-  (`isFlatAnnouncement` currently drops them); parse instead of skip.
-- **Rybnik** — no obvious "wyniki" page found at build time; re-check ZGM's
-  BIP before assuming none.
-- **Bytom** — the hard one: no results category found on `bytom.pl/bip`
-  (announcement history only). Spike a REST/RSS endpoint before concluding
-  Bytom never publishes achieved prices.
+Remaining without an achieved-price stream by SOURCE limitation: Bytom,
+Rybnik, Bielsko-Biała (giełda drops sold items), Mysłowice (none observed —
+worth a look if one appears on the FINN board).
 
 ### Verify Bytom `.doc` history retention over time
 
@@ -88,8 +103,9 @@ incident). Add it to `.gitignore` and remove from the index.
 ### Publish v1.16.0 to the Chrome Web Store — PACKAGE READY
 
 The live store build is **v1.3.3** (29 May): 2 cities, the old "Od roku"
-filter, none of the v1.14.2–v1.16.0 bug/security fixes. Ready to upload:
-**`przetargimiejskie-extension-v1.16.0.zip`** (repo root, syntax-verified) +
+filter, none of the v1.14.2–v1.17.0 fixes/features (incl. innerHTML escaping
+and the new wadium/auction deadline reminders). Ready to upload:
+**`przetargimiejskie-extension-v1.17.0.zip`** (repo root, syntax-verified) +
 refreshed copy in [WEB_STORE_LISTING.md](./WEB_STORE_LISTING.md) (9 cities).
 Remaining: the developer-dashboard submission itself (account action).
 

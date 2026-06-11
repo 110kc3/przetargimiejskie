@@ -4,6 +4,17 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.17.0 — 2026-06-10
+
+- **Deadline reminders for watched properties** (MINOR): the background
+  watchlist check now also notifies the day before (and, as a catch-up, on
+  the day of) the **wadium payment deadline** and the **auction date** of
+  every starred listing — previously it only notified when a new listing
+  appeared. One notification per deadline (deduped across the 4-hourly
+  checks, pruned after 14 days), Europe/Warsaw dates, click opens the
+  listing's detail page. Wadium reminders fire where the source publishes a
+  wadium date (e.g. Gliwice); auction-day reminders work for every city.
+
 ## v1.16.0 — 2026-06-10
 
 - **City chip in the detail-page panel header** (MINOR): the injected

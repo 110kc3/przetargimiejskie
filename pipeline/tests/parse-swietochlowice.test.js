@@ -18,6 +18,8 @@ import {
   priceFromText,
   areaFromText,
   auctionDateFromText,
+  isFlatResultNotice,
+  parseResultDoc,
 } from '../src/cities/swietochlowice/parse.js';
 
 const ORIGIN = 'https://www.bip.swietochlowice.pl';
@@ -102,4 +104,44 @@ test('auctionDateFromText: nominative month typo "17 styczeń 2024"', () => {
     auctionDateFromText('Przetarg odbędzie się w dniu 17 styczeń 2024 roku o godzinie 0900 w Urzędzie Miejskim'),
     '2024-01-17',
   );
+});
+
+// -------------- result notices ("Informacja o wyniku …" PDFs) --------------
+// Real archive titles (June 2026). The body fixture is synthetic in the
+// standard vocabulary — validate against real PDFs on the first CI run.
+
+test('isFlatResultNotice keeps flat results, drops cancellations/announcements', () => {
+  assert.equal(isFlatResultNotice('Informacja o wyniku z III przetargu na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego przy ul. Polaka 7/6 w Świętochłowicach.'), true);
+  assert.equal(isFlatResultNotice('Informacja o wyniku z III przetargu ws sprzedaży lokalu mieszkalnego przy ul. Wiśniowej 15a/5 w Świętochłowicach.'), true);
+  assert.equal(isFlatResultNotice('Informacja o odwołaniu III przetargu ws sprzedaży lokalu mieszkalnego przy ul. Wyzwolenia 51/5 w Świętochłowicach'), false);
+  assert.equal(isFlatResultNotice('Ogłoszenie ws III przetargu na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego przy ul. Polaka 7/6 w Świętochłowicach.'), false);
+  assert.equal(isFlatResultNotice('Zamiar sprzedaży w drodze przetargu lokalu mieszkalnego przy ul. Katowickiej 20/6 w Świętochłowicach.'), false);
+});
+
+const RES_TITLE = 'Informacja o wyniku z III przetargu ws sprzedaży lokalu mieszkalnego przy ul. Wiśniowej 15a/5 w Świętochłowicach.';
+
+test('parseResultDoc: sold record (title key + round, body date + prices)', () => {
+  const recs = parseResultDoc(
+    `${RES_TITLE}\nPrezydent Miasta Świętochłowice informuje, że w dniu 16.04.2026 r. odbył się trzeci przetarg ustny nieograniczony. Cenę wywoławczą ustalono na kwotę 95 000,00 zł. W przetargu osiągnięto najwyższą cenę w wysokości 101 000,00 zł. Nabywcą została osoba fizyczna.`,
+    null, 'u/43281345',
+  );
+  assert.equal(recs.length, 1);
+  const r = recs[0];
+  assert.equal(r.address.key, 'wisniowej|15A|5');
+  assert.equal(r.round, 3);
+  assert.equal(r.auction_date, '2026-04-16');
+  assert.equal(r.starting_price_pln, 95000);
+  assert.equal(r.final_price_pln, 101000);
+  assert.equal(r.outcome, 'sold');
+});
+
+test('parseResultDoc: negative result / undeterminable body', () => {
+  const neg = parseResultDoc(
+    `${RES_TITLE}\nw dniu 16.04.2026 r. przetarg zakończył się wynikiem negatywnym — nikt nie przystąpił do przetargu. Cena wywoławcza wynosiła 95 000,00 zł.`,
+    null, 'u',
+  )[0];
+  assert.equal(neg.outcome, 'unsold');
+  assert.equal(neg.final_price_pln, null);
+  // outcome not determinable → no record (refresh surfaces the WARN)
+  assert.deepEqual(parseResultDoc(`${RES_TITLE}\ntreść bez wyniku i bez ceny`, null, 'u'), []);
 });

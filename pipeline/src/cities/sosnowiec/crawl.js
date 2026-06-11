@@ -15,13 +15,15 @@
 // its bezprzetargowe tenant flat sales are skipped (see SPIKE-WAVE2.md). One flat
 // per announcement → one active listing carrying round + auction date + the
 // article page as detail_url. build-properties classifies past-dated ones
-// `archived`. crawlResultDocs() is [] (results stream not wired).
+// `archived`. crawlResultDocs() walks the sibling "Wyniki przetargów" board
+// (menu 7043) for the achieved-price stream — see the function below.
 
 import { getText } from '../../core/fetch.js';
-import { isFlatAuction, parseAnnouncement } from './parse.js';
+import { isFlatAuction, parseAnnouncement, isFlatResult, htmlToText } from './parse.js';
 
 const ORIGIN = 'https://www.bip.um.sosnowiec.pl';
 const MENU_ID = 6339; // "Przetargi"
+const RESULTS_MENU_ID = 7043; // "Wyniki przetargów" (sibling of Przetargi)
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
@@ -132,13 +134,60 @@ export async function crawlActive() {
 }
 
 /**
- * Sosnowiec publishes auction *results* ("informacja o wyniku przetargu") as a
- * separate thread; not wired yet. Returning [] keeps the refresh loop's OCR/parse
- * phase a no-op for this city.
- * @returns {Promise<Array>}
+ * Sosnowiec's achieved-price stream: the "Wyniki przetargów" board (menu
+ * 7043, same JSON API shape — 182+ archived notices, mostly land/dzierżawa).
+ * We keep only flat-sale results (isFlatResult) and hand each one to
+ * parse.js parseResultDoc as `"<title>\n<flattened body>"` — title carries
+ * the address, the body carries date / starting / achieved price / buyer.
+ * @returns {Promise<Array<{text:string, auction_date:string|null, pdf_url:string}>>}
  */
 export async function crawlResultDocs() {
-  return [];
+  const resultsListApi = (archived, limit, offset) =>
+    `${ORIGIN}/api/menu/${RESULTS_MENU_ID}/articles?limit=${limit}&offset=${offset}&archived=${archived}`;
+
+  const refs = [];
+  const seen = new Set();
+  for (const archived of [0, 1]) {
+    for (let offset = 0; offset < 5000; offset += PAGE) {
+      let json;
+      try {
+        json = JSON.parse(await getText(resultsListApi(archived, PAGE, offset), FETCH_OPTS));
+      } catch (err) {
+        console.error(`  sosnowiec results list (archived=${archived}) failed at offset ${offset}: ${err.message}`);
+        break;
+      }
+      const { refs: pageRefs, total } = parseList(json);
+      let added = 0;
+      for (const r of pageRefs) {
+        if (r.id && !seen.has(r.id)) {
+          seen.add(r.id);
+          refs.push(r);
+          added++;
+        }
+      }
+      if (seen.size >= total || pageRefs.length === 0 || added === 0) break;
+    }
+  }
+
+  const flatRefs = refs.filter((r) => isFlatResult(r.title));
+  console.error(`  sosnowiec results: ${refs.length} notices, ${flatRefs.length} flat result(s)`);
+
+  const out = [];
+  for (const r of flatRefs) {
+    let article;
+    try {
+      article = JSON.parse(await getText(articleApi(r.id), FETCH_OPTS));
+    } catch (err) {
+      console.error(`  sosnowiec result article ${r.id} fetch failed: ${err.message}`);
+      continue;
+    }
+    out.push({
+      text: `${r.title}\n${htmlToText(article?.content || '')}`,
+      auction_date: r.published_date || null, // parse prefers the body date
+      pdf_url: r.detail_url,
+    });
+  }
+  return out;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

@@ -287,6 +287,91 @@ async function notifyNewListing(key, entry, listing) {
   });
 }
 
+// ---------------- deadline reminders (wadium / auction day) ----------------
+
+// Europe/Warsaw civil date (YYYY-MM-DD) — same rationale as popup.js: UTC
+// "today" flips 1-2 h late, which matters for "is the deadline tomorrow?".
+function todayWarsaw() {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Warsaw',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+}
+
+/** Whole days from `today` (YYYY-MM-DD) to `dateISO`; null when unparsable. */
+function daysUntil(dateISO, today) {
+  const a = Date.parse(dateISO);
+  const b = Date.parse(today);
+  if (!Number.isFinite(a) || !Number.isFinite(b)) return null;
+  return Math.round((a - b) / 86400000);
+}
+
+/**
+ * Which reminders are due for one watched listing. A reminder is due in the
+ * [day-before, day-of] window — one notification per deadline (the id embeds
+ * the deadline date, and `sent` dedupes), so catching it on the day itself
+ * (e.g. the browser was closed yesterday) still works without double-firing.
+ * Pure (exported for tests via globalThis below).
+ * @param {{auction_date?:string, wadium_deadline?:string}} listing
+ * @param {string} today  YYYY-MM-DD (Warsaw)
+ * @returns {Array<{type:'wadium'|'auction', date:string}>}
+ */
+function dueReminders(listing, today) {
+  const out = [];
+  for (const [type, date] of [
+    ['wadium', listing.wadium_deadline],
+    ['auction', listing.auction_date],
+  ]) {
+    if (!date) continue;
+    const d = daysUntil(date, today);
+    if (d != null && d >= 0 && d <= 1) out.push({ type, date });
+  }
+  return out;
+}
+
+const REMIND_KEY = 'remind:sent';
+
+async function notifyReminder(key, entry, listing, reminder) {
+  const id = `zgm-remind-${key}-${reminder.type}-${reminder.date}`;
+  const sent = (await chrome.storage.local.get(REMIND_KEY))[REMIND_KEY] || {};
+  if (sent[id]) return;
+
+  const reg = (await chrome.storage.local.get('notif:registry'))['notif:registry'] || {};
+  reg[id] = listing.detail_url || entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
+  await chrome.storage.local.set({ 'notif:registry': reg });
+
+  const cityLabel = entry.city ? ` [${entry.city}]` : '';
+  const today = todayWarsaw();
+  const when = reminder.date === today ? 'dziś' : `jutro (${reminder.date})`;
+  const title =
+    reminder.type === 'wadium'
+      ? `przetargimiejskie${cityLabel} — przypomnienie: wadium`
+      : `przetargimiejskie${cityLabel} — przypomnienie: aukcja`;
+  const body =
+    reminder.type === 'wadium'
+      ? `${entry.addr} — termin wpłaty wadium mija ${when}.` +
+        (listing.auction_date ? ` Aukcja ${listing.auction_date}.` : '')
+      : `${entry.addr} — aukcja ${when}` +
+        (listing.starting_price_pln != null ? ` od ${fmtPLN(listing.starting_price_pln)}.` : '.');
+  await chrome.notifications.create(id, {
+    type: 'basic',
+    iconUrl: 'icons/icon-128.png',
+    title,
+    message: body,
+    priority: 2,
+  });
+
+  // Record + prune: drop entries whose deadline date is >14 days past, so the
+  // sent-set can't grow forever.
+  sent[id] = reminder.date;
+  const cutoff = daysUntil; // alias for clarity below
+  for (const [sid, sdate] of Object.entries(sent)) {
+    const d = cutoff(today, sdate); // days from sdate to today
+    if (d != null && d > 14) delete sent[sid];
+  }
+  await chrome.storage.local.set({ [REMIND_KEY]: sent });
+}
+
 async function runWatchlistCheck() {
   await migrateWatchlistOnce();
   let payload;
@@ -302,6 +387,15 @@ async function runWatchlistCheck() {
   const propsByKey = new Map(
     (payload.properties?.properties || []).map((p) => [p.key, p]),
   );
+  // active.json listings carry the dates the reminders need (wadium_deadline
+  // lives ONLY here — the merged property listings don't have it).
+  const activeByKey = new Map();
+  for (const l of payload.active?.listings || []) {
+    if (l.address?.key && !activeByKey.has(l.address.key)) {
+      activeByKey.set(l.address.key, l);
+    }
+  }
+  const today = todayWarsaw();
 
   for (const [key, entry] of Object.entries(watchlist)) {
     const prop = propsByKey.get(key);
@@ -312,6 +406,23 @@ async function runWatchlistCheck() {
       }
       continue;
     }
+
+    // Day-before / day-of reminders for wadium + auction on watched listings.
+    const live = activeByKey.get(key);
+    const dates = {
+      auction_date: live?.auction_date || active.date || null,
+      wadium_deadline: live?.wadium_deadline || null,
+      detail_url: live?.detail_url || null,
+      starting_price_pln: live?.starting_price_pln ?? active.starting_price_pln ?? null,
+    };
+    for (const reminder of dueReminders(dates, today)) {
+      try {
+        await notifyReminder(key, entry, dates, reminder);
+      } catch (err) {
+        console.warn('[ZGM bg] reminder failed:', err);
+      }
+    }
+
     const fp = activeFingerprint({
       auction_date: active.date,
       starting_price_pln: active.starting_price_pln,

@@ -141,7 +141,7 @@ export function roundFromText(text) {
  * @param {string} s
  * @returns {number|null}
  */
-function parsePLN(s) {
+export function parsePLN(s) {
   if (!s) return null;
   let c = String(s).replace(/[\s ]/g, '');
   c = c.replace(/z[łl].*$/i, '');           // drop "zł" + anything after
