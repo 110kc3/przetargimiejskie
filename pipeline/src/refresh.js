@@ -133,14 +133,68 @@ async function refreshCity(city) {
   const crawlEmpty = active.length === 0 && beforeFloor === 0 && wykaz.length === 0;
   if (crawlEmpty && prevProperties.length > 0) {
     console.error(
-      `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data; skipping write.`,
+      `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data.`,
     );
     let prevMeta = null;
     try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
-    return prevMeta
-      ? { ...prevMeta, city: city.id, stale: true }
-      : { schema_version: SCHEMA_VERSION, city: city.id, unique_properties: prevProperties.length,
-          active_listings: 0, active_auctions: 0, archived_auctions: 0, wykaz_entries: 0, stale: true };
+
+    // Even while preserving, AGE OUT concluded auctions. Some boards (e.g. ZGM
+    // Rybnik) legitimately empty out after an auction day — every announcement
+    // is removed until the next batch. Without this, the preserved listings
+    // stay frozen at outcome 'active' with a past date forever, and the UI
+    // shows them NOWHERE (the active view date-filters them; the archive view
+    // only shows concluded outcomes). A past auction date means the auction is
+    // over regardless of whether the source is down or just empty, so this
+    // reclassification is always safe. Idempotent: next run ages out 0 and
+    // skips the write again.
+    const aged = archivePastActive(prevProperties, todayWarsaw());
+    if (aged === 0) {
+      console.error('  nothing to age out; skipping write.');
+      return prevMeta
+        ? { ...prevMeta, city: city.id, stale: true }
+        : { schema_version: SCHEMA_VERSION, city: city.id, unique_properties: prevProperties.length,
+            active_listings: 0, active_auctions: 0, archived_auctions: 0, wykaz_entries: 0, stale: true };
+    }
+    console.error(`  aged out ${aged} past-dated preserved listings (active → archived); rewriting data files.`);
+
+    let activeAuctions = 0;
+    let archivedAuctions = 0;
+    for (const p of prevProperties) {
+      for (const l of p.listings || []) {
+        if (l.outcome === 'active') activeAuctions++;
+        else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archivedAuctions++;
+      }
+    }
+    const cityDir = join(DATA_DIR, city.id);
+    await mkdir(cityDir, { recursive: true });
+    await writeFile(
+      join(cityDir, 'properties.json'),
+      JSON.stringify({ schema_version: SCHEMA_VERSION, city: city.id, properties: prevProperties }, null, 2) + '\n',
+    );
+    // Mirror the aging in active.json (the popup's live snapshot): drop
+    // past-dated rows, keep dateless/future ones exactly as last published.
+    try {
+      const activePath = join(cityDir, 'active.json');
+      const prevActive = JSON.parse(await readFile(activePath, 'utf8'));
+      const today = todayWarsaw();
+      const keep = (prevActive.listings || []).filter((l) => !l.auction_date || l.auction_date >= today);
+      if (keep.length !== (prevActive.listings || []).length) {
+        await writeFile(activePath, JSON.stringify({ ...prevActive, listings: keep }, null, 2) + '\n');
+      }
+    } catch { /* no previous active.json — nothing to age */ }
+    const meta = {
+      ...(prevMeta || { schema_version: SCHEMA_VERSION, parser_version: PARSER_VERSION }),
+      city: city.id,
+      generated_at: new Date().toISOString(),
+      unique_properties: prevProperties.length,
+      active_auctions: activeAuctions,
+      archived_auctions: archivedAuctions,
+      stale: true,
+    };
+    await writeFile(metaPath, JSON.stringify(meta, null, 2) + '\n');
+    console.error('--- summary (preserved + aged) ---');
+    console.error(JSON.stringify(meta, null, 2));
+    return meta;
   }
 
   // Accumulate against the previously-committed file so upstream deletions

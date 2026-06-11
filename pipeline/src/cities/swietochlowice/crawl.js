@@ -2,14 +2,17 @@
 //
 //   INDEX:   /bipkod/29287911                              (current flat auctions)
 //            /bipkod/29287911?showArchive=true&start=<n>   (archive, 0-based pages)
-//   DETAIL:  each announcement is a Word .doc at /res/serwisy/pliki/<id>
+//   DETAIL:  each announcement is an attachment at /res/serwisy/pliki/<id> —
+//            EITHER a legacy Word .doc (older posts) OR a scanned image-only
+//            PDF (most posts since ~2023; pdftotext yields nothing → OCR)
 //
 // Walks the current page + archive pages (stopping after 3 empty archive pages),
 // harvests the flat-auction announcement links, and for each: takes the address
 // + round from the announcement TITLE (always present, consistent spelling) and
-// the price / usable area / auction date from the .doc body (catdoc via
-// core/doc-text.js). If the .doc can't be fetched/parsed, the listing is still
-// emitted from the title (price/area/date null). One flat per announcement →
+// the price / usable area / auction date from the attachment body via
+// attachmentText() (pdftotext → tesseract OCR → catdoc routing). If the
+// attachment can't be fetched/parsed, the listing is still emitted from the
+// title (price/area/date null). One flat per announcement →
 // one active listing; build-properties marks past-dated ones `archived`.
 // crawlResultDocs() reuses the SAME memoised page walk and routes the board's
 // "Informacja o wyniku …" PDFs to parse.js parseResultDoc — the achieved-price
@@ -19,15 +22,20 @@
 // browser-like UA; the .doc announcement is OLE/legacy Word (catdoc), the .docx
 // "KW" annex is ignored by isFlatAnnouncement.
 
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
 import { config } from './config.js';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { pdfText } from '../../core/pdf-text.js';
+import { ocrPdf } from '../../core/ocr-pdf.js';
 import {
   htmlToText, addressFrom, roundFromTitle, shareFromTitle,
   priceFromText, areaFromText, auctionDateFromText,
   parseDocLinks, isFlatAnnouncement, isFlatResultNotice,
 } from './parse.js';
+import { urlCacheKey } from '../../core/hash.js';
 
 const ORIGIN = config.bip.origin;
 const LIST = `${ORIGIN}${config.bip.listPath}`;
@@ -41,6 +49,40 @@ const BROWSER_UA =
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 const RETRIES_BOARD = 4;   // ~1+2+4+8s backoff across attempts
 const RETRIES_ARCHIVE = 2;
+
+// OCR cleanup: tesseract reads the superscript "²" of "m²" as "?" (and the
+// scans are low-res), so "38,01 m²" comes out "38,01 m?" — which would hide
+// the usable area from areaFromText. Only the digit-adjacent case is touched.
+const fixOcrText = (s) => String(s || '').replace(/(\d)\s*m\?/g, '$1 m²');
+
+/**
+ * Extract the text of one /res/serwisy/pliki/<id> attachment, routing by type:
+ *   text PDF   → pdftotext           (pdf-text-cache)
+ *   image PDF  → tesseract OCR       (ocr-cache)      — the common case since ~2023
+ *   legacy .doc→ catdoc              (doc-text-cache)
+ * pdf-text.js's magic-byte check throws "not a PDF" for the .doc case; a PDF
+ * whose extracted text is (near-)empty is a scan → OCR.
+ * @param {string} url
+ * @returns {Promise<string>}
+ */
+const DOC_CACHE_DIR = fileURLToPath(new URL('../../../doc-text-cache/', import.meta.url));
+
+async function attachmentText(url) {
+  // Already extracted as a legacy .doc? Serve the committed cache and skip the
+  // PDF probe — pdfText only caches actual PDFs, so probing a .doc URL would
+  // re-download it on EVERY run just to learn (again) that it isn't a PDF.
+  if (existsSync(`${DOC_CACHE_DIR}${urlCacheKey(url)}.txt`)) {
+    return docText(url, FETCH_OPTS);
+  }
+  let text;
+  try {
+    text = await pdfText(url, FETCH_OPTS);
+  } catch {
+    return docText(url, FETCH_OPTS); // not a PDF → legacy Word .doc
+  }
+  if (text.replace(/\s+/g, '').length >= 200) return text;
+  return fixOcrText(await ocrPdf(url, FETCH_OPTS)); // image-only scan
+}
 
 /** Did a fetch fail because the host is unreachable (vs. a normal 404/empty)? */
 function isConnError(err) {
@@ -125,12 +167,12 @@ export async function crawlActive() {
     let area = null;
     let date = null;
     try {
-      const text = htmlToText(await docText(e.url, FETCH_OPTS));
+      const text = htmlToText(await attachmentText(e.url));
       price = priceFromText(text);
       area = areaFromText(text);
       date = auctionDateFromText(text);
     } catch (err) {
-      console.error(`  swietochlowice .doc parse failed (${e.url}): ${err.message}`);
+      console.error(`  swietochlowice attachment parse failed (${e.url}): ${err.message}`);
     }
     listings.push({
       kind: 'mieszkalny',
@@ -151,9 +193,9 @@ export async function crawlActive() {
 }
 
 /**
- * The achieved-price stream: the board's "Informacja o wyniku …" PDFs
- * (~45 KB; assumed text PDFs — pdftotext first, catdoc fallback for any
- * legacy .doc). Each ref carries `"<title>\n<extracted text>"` for parse.js
+ * The achieved-price stream: the board's "Informacja o wyniku …" attachments
+ * (text PDFs, scanned PDFs → OCR, or legacy .doc → catdoc — see
+ * attachmentText). Each ref carries `"<title>\n<extracted text>"` for parse.js
  * parseResultDoc (title = address key + round; body = date + prices).
  * @returns {Promise<Array<{text:string, auction_date:null, pdf_url:string}>>}
  */
@@ -166,14 +208,11 @@ export async function crawlResultDocs() {
   for (const n of notices) {
     let text = '';
     try {
-      text = await pdfText(n.url, FETCH_OPTS);
+      // Same routing as announcements: text PDF → scan-OCR → legacy .doc.
+      text = await attachmentText(n.url);
     } catch (err) {
-      try {
-        text = await docText(n.url, FETCH_OPTS);
-      } catch (err2) {
-        console.error(`  swietochlowice result extract failed (${n.url}): ${err.message}`);
-        continue;
-      }
+      console.error(`  swietochlowice result extract failed (${n.url}): ${err.message}`);
+      continue;
     }
     out.push({
       text: `${n.title}\n${htmlToText(text)}`,

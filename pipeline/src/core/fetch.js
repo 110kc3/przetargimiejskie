@@ -9,7 +9,10 @@ import https from 'node:https';
 const USER_AGENT =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
 
-const MIN_INTERVAL_MS = 1000; // 1 req/sec, easily under any reasonable threshold
+// 1 req/sec default, easily under any reasonable threshold. The env override
+// (FETCH_MIN_INTERVAL_MS) exists for local one-off runs against hosts already
+// verified to tolerate it - CI never sets it.
+const MIN_INTERVAL_MS = Number(process.env.FETCH_MIN_INTERVAL_MS) || 1000;
 let lastFetchAt = 0;
 
 async function throttle() {

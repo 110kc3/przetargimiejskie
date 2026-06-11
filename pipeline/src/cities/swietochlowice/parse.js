@@ -133,6 +133,19 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     const mon = ds ? PL_MONTH[ds[2].toLowerCase()] : null;
     if (mon) auction_date = `${ds[3]}-${String(mon).padStart(2, '0')}-${ds[1].padStart(2, '0')}`;
   }
+  if (!auction_date) {
+    // The board's own phrasing puts the date BEFORE the verb, with no "w dniu":
+    // "w Urzędzie Miejskim w Świętochłowicach, 21 kwietnia 2026 r., przeprowadzono
+    // trzeci publiczny przetarg …" — spelled or numeric variant.
+    const pr = /(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})\s*r?\W{0,5}przeprowadzono/i.exec(body);
+    const mon = pr ? PL_MONTH[pr[2].toLowerCase()] : null;
+    if (mon) {
+      auction_date = `${pr[3]}-${String(mon).padStart(2, '0')}-${pr[1].padStart(2, '0')}`;
+    } else {
+      const pn = /(\d{1,2})\.(\d{1,2})\.(\d{4})\s*r?\W{0,5}przeprowadzono/i.exec(body);
+      if (pn) auction_date = `${pn[3]}-${pn[2].padStart(2, '0')}-${pn[1].padStart(2, '0')}`;
+    }
+  }
   if (!auction_date && fallbackDate) {
     auction_date = fallbackDate;
     notes.push('date: board publish-date fallback');

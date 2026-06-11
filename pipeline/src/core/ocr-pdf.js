@@ -23,23 +23,29 @@ const TESS_ENV = process.env.TESSDATA_PREFIX
  * Returns the OCR text for a result PDF, hitting cache when possible.
  * Cache file lives at pipeline/ocr-cache/<filename>.<hash>.txt and is committed.
  * @param {string} pdfUrl
+ * @param {{ userAgent?: string, insecureTLS?: boolean }} [opts]  optional
+ *        browser-like UA / relaxed TLS for hosts that gate the bot UA
+ *        (e.g. bip.swietochlowice.pl) — forwarded to getBytes.
  * @returns {Promise<string>}
  */
-export async function ocrPdf(pdfUrl) {
+export async function ocrPdf(pdfUrl, opts = {}) {
   await mkdir(CACHE_DIR, { recursive: true });
   const cachePath = join(CACHE_DIR, urlCacheKey(pdfUrl) + '.txt');
   if (existsSync(cachePath)) {
     return await readFile(cachePath, 'utf8');
   }
   console.error(`  OCR: ${pdfUrl}`);
-  const text = await ocrPdfFresh(pdfUrl);
+  const text = await ocrPdfFresh(pdfUrl, opts);
   await writeFile(cachePath, text, 'utf8');
   return text;
 }
 
 /** Fetch, rasterize, OCR; no cache. @param {string} pdfUrl */
-async function ocrPdfFresh(pdfUrl) {
-  const bytes = await getBytes(pdfUrl);
+async function ocrPdfFresh(pdfUrl, opts = {}) {
+  const bytes = await getBytes(pdfUrl, {
+    userAgent: opts.userAgent,
+    insecureTLS: opts.insecureTLS,
+  });
   const work = await mkdtemp(join(tmpdir(), 'zgm-ocr-'));
   try {
     const pdfPath = join(work, 'in.pdf');
