@@ -4,6 +4,16 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.18.0 — 2026-06-11
+
+- **"Źródło" verify link on every listing** (MINOR): each row in the popup
+  (active + watchlist) and the archive page (active + historical) now carries a
+  dedicated **source link** that opens the listing straight at the city
+  BIP/ZGM page or result PDF, so anyone can confirm the data first-hand. The
+  historical table's old PDF-only cell now also links announcement-page sources
+  (not just result PDFs); rows with no source URL show nothing. Links point only
+  at the official municipal source, never at the project's own site.
+
 ## v1.17.0 — 2026-06-10
 
 - **Deadline reminders for watched properties** (MINOR): the background

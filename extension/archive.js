@@ -213,6 +213,7 @@ function flatten(payload) {
           outcome: l.outcome,
           unsold_reason: l.unsold_reason,
           source_pdf: l.source_pdf,
+          detail_url: l.detail_url,
         });
       }
     }
@@ -345,10 +346,18 @@ function renderTable() {
         <td>${fmtPLN(r.final_price_pln)}</td>
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
         <td>${esc(outcomeLabel(r))}</td>
-        <td>${safeHref(r.source_pdf) ? `<a target="_blank" rel="noopener" href="${esc(safeHref(r.source_pdf))}">PDF</a>` : ''}</td>
+        <td>${srcLinkCell(r.source_pdf || r.detail_url)}</td>
       </tr>`,
     )
     .join('');
+}
+
+// A dedicated 'verify at the source' link cell — points straight at the city
+// BIP/ZGM page or result PDF so the user can confirm the listing themselves.
+// Blank when the listing carries no source URL (a small minority).
+function srcLinkCell(u) {
+  const h = safeHref(u);
+  return h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
 }
 
 function roundCell(n) {
@@ -436,12 +445,14 @@ function renderActiveTable() {
           <td>${askM2}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
+          <td>${srcLinkCell(a.detail_url)}</td>
         </tr>`;
     })
     .join('');
 
   for (const tr of $activeTbody.querySelectorAll('tr[data-url]')) {
-    tr.addEventListener('click', () => {
+    tr.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
       const url = tr.dataset.url;
       if (url) window.open(url, '_blank', 'noopener');
     });

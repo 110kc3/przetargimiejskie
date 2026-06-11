@@ -390,3 +390,5 @@ section h2 {
 }
 .zgm-support { color: var(--amber-fg); font-weight: 600; text-decoration: none; }
 .zgm-support:hover { text-decoration: underline; }
+
+.zgm-src-link { white-space: nowrap; }

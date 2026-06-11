@@ -98,7 +98,8 @@
       'col.kind': 'kind',
       'col.final': 'final',
       'col.reason': 'reason',
-      'col.src': 'src',
+      'col.src': 'source',
+      'link.verify': 'verify ↗',
 
       // outcomes
       'outcome.sold': 'sold',
@@ -227,6 +228,7 @@
       'col.final': 'cena końcowa',
       'col.reason': 'powód',
       'col.src': 'źródło',
+      'link.verify': 'sprawdź ↗',
 
       // outcomes
       'outcome.sold': 'sprzedane',

@@ -233,14 +233,15 @@ function renderActive() {
           <td>${askM2}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
+          <td>${srcLinkCell(a.detail_url)}</td>
         </tr>`;
     })
     .join('');
 
-  // Row click → open detail page (but not when the click was on the star).
+  // Row click → open detail page (but not when the click was on the star or link).
   for (const tr of $tbody.querySelectorAll('tr[data-url]')) {
     tr.addEventListener('click', (e) => {
-      if (e.target.closest('.zgm-star')) return;
+      if (e.target.closest('.zgm-star') || e.target.closest('a')) return;
       const url = tr.dataset.url;
       if (url) chrome.tabs.create({ url });
     });
@@ -269,6 +270,13 @@ function renderActive() {
 
   $activeHeading.hidden = false;
   $table.hidden = false;
+}
+
+// Dedicated 'verify at the source' link cell → the city BIP/ZGM detail page,
+// so the user can confirm any listing first-hand. Blank when no source URL.
+function srcLinkCell(u) {
+  const h = safeHref(u);
+  return h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
 }
 
 function renderWatching() {
@@ -306,7 +314,7 @@ function renderWatching() {
           <td class="zgm-star-cell"><button type="button" class="zgm-star on" data-key="${esc(key)}" title="${esc(t('watch.button.remove'))}">★</button></td>
           <td>${addrCell}</td>
           <td>${statusHtml}</td>
-          <td>${url ? `<a target="_blank" rel="noopener" href="${esc(url)}">→</a>` : ''}</td>
+          <td>${srcLinkCell(url)}</td>
         </tr>`;
     })
     .join('');

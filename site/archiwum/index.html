@@ -76,6 +76,7 @@ a:hover{color:var(--accent);text-decoration:underline}
 .pill-reason{color:var(--faint);font-weight:500;font-size:12px;margin-left:2px}
 .badge-share{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600;
   color:var(--accent-hi);background:var(--accent-weak);border:1px solid var(--border-2);vertical-align:1px;white-space:nowrap}
+.data-table .src-link{white-space:nowrap;font-size:12.5px}
 .dot-gliwice{background:var(--c-gliwice)}.dot-katowice{background:var(--c-katowice)}
 .dot-zabrze{background:var(--c-zabrze)}.dot-bytom{background:var(--c-bytom)}
 .dot-sosnowiec{background:var(--c-sosnowiec)}.dot-rybnik{background:var(--c-rybnik)}
@@ -117,7 +118,7 @@ a:hover{color:var(--accent);text-decoration:underline}
     <div class="table-scroll">
       <table class="data-table"><thead><tr>
         <th class="num">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th>
-        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th>
+        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th>Źródło</th>
       </tr></thead><tbody id="active-body"></tbody></table>
     </div>
   </div>
@@ -129,7 +130,7 @@ a:hover{color:var(--accent);text-decoration:underline}
         <th class="sortable num" data-sort="date">Data</th><th>Miasto / nieruchomość</th><th>Typ</th>
         <th class="sortable" data-sort="round">Runda</th><th class="sortable num" data-sort="area">Powierzchnia</th>
         <th class="sortable num" data-sort="start">Cena wyw.</th><th class="sortable num" data-sort="final">Cena końc.</th>
-        <th class="sortable num" data-sort="m2">zł/m²</th><th>Wynik</th>
+        <th class="sortable num" data-sort="m2">zł/m²</th><th>Wynik</th><th>Źródło</th>
       </tr></thead><tbody id="hist-body"></tbody></table>
     </div>
   </div>
@@ -162,6 +163,9 @@ const reasonLabel = code => code==null?'':(REASON[code]??code);
 // Fractional-share sale ("sprzedaż udziału 4/6 części") — flagged so a price
 // that looks low against the others is read as a share, not the whole flat.
 const shareBadge = s => s?`<span class="badge-share" title="Sprzedaż udziału ${esc(s)} części nieruchomości">udział ${esc(s)}</span>`:'';
+// Direct "verify at the source" link — straight to the city BIP/ZGM page or
+// result PDF. Blank when the listing has no source URL.
+const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">źródło ↗</a>`:''; };
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
 let sortKey='date', sortDir='desc';
@@ -265,20 +269,22 @@ function render(){
     <td class="num">${fmtPLN(r.final)}</td>
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
     <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&reasonLabel(r.reason)?`<span class="pill-reason">${esc(reasonLabel(r.reason))}</span>`:''}</td>
-  </tr>`).join('') || '<tr class="empty-row"><td colspan="9">Brak rekordów dla wybranych filtrów.</td></tr>';
+    <td>${srcLink(r.src)}</td>
+  </tr>`).join('') || '<tr class="empty-row"><td colspan="10">Brak rekordów dla wybranych filtrów.</td></tr>';
 
   const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(!q||fold(a.addr).includes(q)));
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
     <td class="num muted-cell">${esc(a.date)||'—'}</td>
-    <td class="addr">${chip(a.city,a.cityLabel)}${href?`<a href="${esc(href)}" target="_blank" rel="noopener">${esc(a.addr)||''}</a>`:(esc(a.addr)||'')}${shareBadge(a.share)}</td>
+    <td class="addr">${chip(a.city,a.cityLabel)}${esc(a.addr)||''}${shareBadge(a.share)}</td>
     <td>${esc(KIND[a.kind]||a.kind)}</td>
     <td>${roundLabel(a.round)}</td>
     <td class="num">${a.area?esc(a.area)+' m²':'—'}</td>
     <td class="num">${fmtPLN(a.start)}</td>
     <td class="num">${fmtM2(a.start,a.area)}</td>
-  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="7">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
+    <td>${srcLink(href)}</td>
+  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="8">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
 
   refreshHeaders();
 }
