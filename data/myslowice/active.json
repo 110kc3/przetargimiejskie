@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Fryderyka Chopina 15/3",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "15",
+        "apt": "3",
+        "key": "fryderyka chopina|15|3",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Brzezińskiej 47/2",
       "address": {
         "street": "Brzezińskiej",
