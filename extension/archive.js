@@ -69,6 +69,21 @@ const todayWarsaw = () =>
     year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
 
+// Drop pre-cutoff historical listings from prior counts (mirrors popup.js
+// withinYearWindow). Active / announced / archived rows always pass — they're
+// current postings, not history. settings.js is optional (defensive ?.).
+const withinYearWindow = (l) => {
+  if (
+    l.outcome === 'active' ||
+    l.outcome === 'announced' ||
+    l.outcome === 'archived'
+  )
+    return true;
+  const y = window.ZGM_SETTINGS?.getMinHistoryYear?.() ?? 0;
+  if (!y || !l.date) return true;
+  return Number(l.date.slice(0, 4)) >= y;
+};
+
 function median(nums) {
   if (!nums.length) return null;
   const s = [...nums].sort((a, b) => a - b);
@@ -132,21 +147,21 @@ function sortActiveItems(items) {
   });
 }
 
+// Warsaw civil "today" (not the viewer's local midnight) so the urgency flag
+// can't be a day off for a non-Polish-timezone user — mirrors background.js.
 function wadiumCellHtml(date) {
   if (!date) return '—';
-  const today = new Date();
-  const target = new Date(date + 'T00:00:00');
-  const daysLeft = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
-  if (daysLeft < 0) return `<span class="zgm-past">${date}</span>`;
-  if (daysLeft <= 7) return `<span class="zgm-urgent" title="${daysLeft}d">${date}</span>`;
-  return date;
+  const daysLeft = Math.round((Date.parse(date) - Date.parse(todayWarsaw())) / 86400000);
+  if (daysLeft < 0) return `<span class="zgm-past">${esc(date)}</span>`;
+  if (daysLeft <= 7) return `<span class="zgm-urgent" title="${daysLeft}d">${esc(date)}</span>`;
+  return esc(date);
 }
 
 function datesCellHtml(a) {
   const rows = [];
-  if (a.auction_date) rows.push(`<span class="zgm-date-label">${t('popup.label.auction')}</span> ${a.auction_date}`);
+  if (a.auction_date) rows.push(`<span class="zgm-date-label">${t('popup.label.auction')}</span> ${esc(a.auction_date)}`);
   if (a.wadium_deadline) rows.push(`<span class="zgm-date-label">${t('popup.label.wadium')}</span> ${wadiumCellHtml(a.wadium_deadline)}`);
-  if (a.viewing_date) rows.push(`<span class="zgm-date-label">${t('popup.label.viewing')}</span> ${a.viewing_date}`);
+  if (a.viewing_date) rows.push(`<span class="zgm-date-label">${t('popup.label.viewing')}</span> ${esc(a.viewing_date)}`);
   return rows.join('<br>');
 }
 
@@ -377,7 +392,9 @@ function roundCell(n) {
 function outcomeLabel(r) {
   if (r.outcome === 'sold') return t('outcome.sold');
   if (r.outcome === 'unsold') {
-    const reason = r.unsold_reason ? ` (${t('reason.' + r.unsold_reason)})` : '';
+    const reason = r.unsold_reason
+      ? ` (${t('reason.' + r.unsold_reason, { default: r.unsold_reason })})`
+      : '';
     return t('outcome.unsold') + reason;
   }
   if (r.outcome === 'archived') return t('outcome.archived');
@@ -418,9 +435,15 @@ function renderActiveTable() {
     })
     .map((a) => {
       const prop = a.address ? propByKey.get(a.address.key) : null;
+      // Same prior-history rule the popup uses (isPrior): exclude live rows
+      // AND respect the saved minHistoryYear — otherwise the two surfaces
+      // disagree on "listed N× before" for the same property.
       const prior = prop
         ? prop.listings.filter(
-            (l) => l.outcome !== 'active' && l.outcome !== 'announced',
+            (l) =>
+              l.outcome !== 'active' &&
+              l.outcome !== 'announced' &&
+              withinYearWindow(l),
           )
         : [];
       const unsold = prior.filter((l) => l.outcome === 'unsold');

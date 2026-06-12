@@ -290,7 +290,12 @@
     const en = STRINGS.en[key];
     const tr = STRINGS[_lang]?.[key];
     const template = tr != null ? tr : en;
-    if (template == null) return key;
+    // vars.default = fallback for unknown enum values (e.g. a new
+    // unsold_reason the strings don't cover yet) — show the raw value
+    // instead of the literal "reason.xyz" key.
+    if (template == null) {
+      return vars && vars.default != null ? String(vars.default) : key;
+    }
     return format(template, vars);
   }
 

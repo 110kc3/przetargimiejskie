@@ -1,7 +1,10 @@
 # TODO
 
 > Open backlog only. Completed work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site). Last sweep: 10 June 2026 —
+> (extension) and git history (pipeline/site). 13 June 2026 audit: extension
+> bug fixes shipped as v1.20.1 (Warsaw-time wadium flag, i18n default
+> fallback, escaping hardening, archive/popup prior-count parity); new items
+> below (6-city adapter gap, store-zip rebuild). Last big sweep: 10 June 2026 —
 > the June bug reviews (pipeline ~25 findings, extension E/L series), the
 > Zabrze result-stream + edge cases, the Świętochłowice price/date fix, the
 > Katowice land-row/kind fixes, the per-city CI matrix, and the site/archive
@@ -64,13 +67,12 @@ has rolled off the source yet). Confirm, once older auctions age out of both
 the i-BIIP catalog and the BIP list, that their `properties.json` entries
 (figures recovered from the cached `.doc`) survive the merge.
 
-### Verify the first per-city matrix CI run
+### ~~Verify the first per-city matrix CI run~~ — DONE (13 June 2026)
 
-The matrix refresh (setup → per-city jobs → index rebuild) shipped 10 June
-2026 but hasn't run on Actions yet. On the first run after push, check: the
-rebase-retry pushes don't collide, `build-index.js` produces a complete
-`data/index.json`, and the Zabrze result-stream dedupe folds sold rows onto
-the archived announcement listings as designed.
+Verified against the 12 June run: per-city `data: refresh <city>` commits
+landed without rebase-retry collisions and `data: rebuild index` produced a
+complete 9-city `data/index.json` (shape matches what site/index.html and
+archiwum consume).
 
 ### Katowice — externally blocked / product-gated
 
@@ -100,14 +102,35 @@ incident). Add it to `.gitignore` and remove from the index.
 
 ## Extension
 
-### Publish v1.16.0 to the Chrome Web Store — PACKAGE READY
+### Publish to the Chrome Web Store — REBUILD ZIP FIRST (updated 13 June 2026)
 
 The live store build is **v1.3.3** (29 May): 2 cities, the old "Od roku"
-filter, none of the v1.14.2–v1.17.0 fixes/features (incl. innerHTML escaping
-and the new wadium/auction deadline reminders). Ready to upload:
-**`przetargimiejskie-extension-v1.17.0.zip`** (repo root, syntax-verified) +
-refreshed copy in [WEB_STORE_LISTING.md](./WEB_STORE_LISTING.md) (9 cities).
-Remaining: the developer-dashboard submission itself (account action).
+filter, none of the v1.14.2+ fixes/features (incl. innerHTML escaping and
+the wadium/auction deadline reminders). The previously-built
+`…-v1.17.0.zip` no longer exists in the repo root and is 3 minors stale —
+**re-zip `extension/` at the current version (v1.20.1)** before uploading.
+Listing copy is ready in [WEB_STORE_LISTING.md](./WEB_STORE_LISTING.md)
+(9 cities). Remaining: zip + the developer-dashboard submission (account
+action).
+
+### Content-script adapters for the 6 newer cities (gap found 13 June 2026)
+
+`extension/sites/` covers only Gliwice, Katowice and Bytom — the manifest's
+`content_scripts.matches` lists just those hosts. Zabrze, Sosnowiec, Rybnik,
+Bielsko-Biała, Mysłowice and Świętochłowice are fully present in the popup /
+archive / watchlist, but get **no on-page BIP badges or detail panels** (the
+headline feature). Each needs a `sites/<city>.js` adapter + manifest
+`matches`/`host_permissions` entries (MINOR bump per city or batch —
+new hosts re-prompt permissions, so batch them).
+
+### Manifest host-list alignment (cosmetic, fold into the adapter work)
+
+`content_scripts.matches` includes `https://katowice.eu/*` and
+`https://bytom.pl/*` (no-www) but `host_permissions` omits them. No
+functional impact today (the SW only fetches raw.githubusercontent.com);
+align the two lists in the next MINOR that already touches permissions —
+adding host permissions in a standalone PATCH would re-prompt users for
+nothing.
 
 ## City coverage (reference)
 

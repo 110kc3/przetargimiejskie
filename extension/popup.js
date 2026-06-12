@@ -15,6 +15,10 @@ const $watchingTbody = $watchingSection.querySelector('tbody');
 const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
   n == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
+// Polish decimal comma ("37,91 m²"), matching archive.js/content.js — the raw
+// JSON number used to render with a dot.
+const fmtArea = (a) =>
+  a == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 }).format(a) + ' m²';
 
 // Escape crawled strings before they land in innerHTML — CSP blocks inline
 // <script>, but attribute breakout and javascript:-style hrefs are still
@@ -85,20 +89,20 @@ const isPrior = (l) =>
 
 function datesCellHtml(a) {
   const rows = [];
-  if (a.auction_date) rows.push(`<span class="zgm-date-label">${t('popup.label.auction')}</span> ${a.auction_date}`);
+  if (a.auction_date) rows.push(`<span class="zgm-date-label">${t('popup.label.auction')}</span> ${esc(a.auction_date)}`);
   if (a.wadium_deadline) rows.push(`<span class="zgm-date-label">${t('popup.label.wadium')}</span> ${wadiumCellHtml(a.wadium_deadline)}`);
-  if (a.viewing_date) rows.push(`<span class="zgm-date-label">${t('popup.label.viewing')}</span> ${a.viewing_date}`);
+  if (a.viewing_date) rows.push(`<span class="zgm-date-label">${t('popup.label.viewing')}</span> ${esc(a.viewing_date)}`);
   return rows.join('<br>');
 }
 
+// Warsaw civil "today" (not the viewer's local midnight) so the urgency flag
+// can't be a day off for a non-Polish-timezone user — mirrors background.js.
 function wadiumCellHtml(date) {
   if (!date) return '—';
-  const today = new Date();
-  const target = new Date(date + 'T00:00:00');
-  const daysLeft = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
-  if (daysLeft < 0) return `<span class="zgm-past">${date}</span>`;
-  if (daysLeft <= 7) return `<span class="zgm-urgent" title="${daysLeft}d">${date}</span>`;
-  return date;
+  const daysLeft = Math.round((Date.parse(date) - Date.parse(todayWarsaw())) / 86400000);
+  if (daysLeft < 0) return `<span class="zgm-past">${esc(date)}</span>`;
+  if (daysLeft <= 7) return `<span class="zgm-urgent" title="${daysLeft}d">${esc(date)}</span>`;
+  return esc(date);
 }
 
 
@@ -207,7 +211,7 @@ function renderActive() {
   $tbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold, key }) => {
       const cityTag = cityTagHtml(a.city || cityFromKey(key));
-      const addr = cityTag + esc(a.address_raw || '') + (a.area_m2 ? ` · ${esc(a.area_m2)} m²` : '');
+      const addr = cityTag + esc(a.address_raw || '') + (a.area_m2 ? ` · ${fmtArea(a.area_m2)}` : '');
       // "nowa" (new) only when this really is a first auction with no recorded
       // history. A 2nd/3rd przetarg is a re-listing, not new — show its round.
       const priorCell =

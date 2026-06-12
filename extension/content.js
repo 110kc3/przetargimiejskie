@@ -277,8 +277,8 @@
     const rows = prior
       .map(
         (l) => `
-        <tr class="zgm-ext-row-${l.outcome}">
-          <td>${l.date ?? '?'}</td>
+        <tr class="zgm-ext-row-${esc(l.outcome)}">
+          <td>${esc(l.date ?? '?')}</td>
           <td>${kindLabel(l.kind)}</td>
           <td>${fmtPLN(l.starting_price_pln)}</td>
           <td>${fmtPerM2(l.starting_price_pln, l.area_m2 ?? prop.area_m2)}</td>
@@ -494,8 +494,8 @@
       ${priorOf(prop)
         .map(
           (l) => `
-          <tr class="zgm-ext-row-${l.outcome}">
-            <td>${l.date ?? '?'}</td>
+          <tr class="zgm-ext-row-${esc(l.outcome)}">
+            <td>${esc(l.date ?? '?')}</td>
             <td>${fmtPLN(l.starting_price_pln)}</td>
             <td>${fmtPerM2(l.starting_price_pln, l.area_m2 ?? prop.area_m2 ?? fallbackArea)}</td>
             <td>${outcomeLabel(l)}</td>
@@ -532,13 +532,16 @@
     if (l.outcome === 'unsold') return t('outcome.unsold');
     if (l.outcome === 'no_winner') return t('outcome.no_winner');
     if (l.outcome === 'archived') return t('outcome.archived');
-    return l.outcome;
+    // Unknown enum value from the data — escape, it lands in innerHTML.
+    return esc(l.outcome);
   }
 
   function reasonLabel(reason) {
     const t = window.ZGM_I18N.t;
     if (!reason) return '';
-    return t('reason.' + reason, { default: reason });
+    // esc() the whole result: the templates are plain text, and the default
+    // path returns the raw (crawled-derived) enum value into innerHTML.
+    return esc(t('reason.' + reason, { default: reason }));
   }
 
   function kindLabel(kind) {

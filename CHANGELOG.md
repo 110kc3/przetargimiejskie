@@ -4,6 +4,27 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.20.1 — 2026-06-13
+
+- **Fixes (PATCH)** from the 13 June code audit:
+  - The wadium-deadline urgency flag (popup + archive) now computes "days
+    left" against Warsaw civil time like everything else, instead of the
+    viewer's local midnight — a non-Polish-timezone user's "pilne" marker
+    could be a day off.
+  - The popup's area now renders with the Polish decimal comma
+    ("37,91 m²"), matching the archive/content fix from v1.19.1.
+  - `t(key, { default })` fallback actually works now: an unknown
+    `unsold_reason` enum value renders as the raw reason instead of the
+    literal `reason.xyz` key (the call sites passed a `default` option the
+    i18n layer never implemented).
+  - Escaping hardening: auction/wadium/viewing dates and unknown
+    outcome/reason enum values are now esc()'d before reaching innerHTML in
+    popup, archive and content-script tables (parser-normalized today, but
+    they're crawled-derived — same invariant as v1.14.3).
+  - The archive's "Currently active" prior counts now respect the saved
+    min-history-year setting, matching the popup (the two surfaces could
+    disagree on "listed N× before" for the same property).
+
 ## v1.20.0 — 2026-06-12
 
 - **Archived rounds now count as history** (MINOR): on detail pages and badge
