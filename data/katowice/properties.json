@@ -1052,11 +1052,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 250000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 332500,
-          "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 66.7,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=506",
           "wadium_deadline": "2025-03-31",
@@ -1064,6 +1060,27 @@
         }
       ],
       "area_m2": 66.7
+    },
+    {
+      "key": "powstanczej|5|10",
+      "street": "Powstańczej",
+      "street_norm": "powstanczej",
+      "building": "5",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 332500,
+          "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
+          "notes": []
+        }
+      ]
     },
     {
       "key": "obroncow westerplatte|96|",
@@ -1092,6 +1109,27 @@
       "street_norm": "oddzialow mlodziezy i ustny",
       "building": "86",
       "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 450000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 517500,
+          "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "powstanczej|5|8",
+      "street": "Powstańczej",
+      "street_norm": "powstanczej",
+      "building": "5",
+      "apt": "8",
       "kind": "mieszkalny",
       "listings": [
         {
