@@ -163,3 +163,9 @@ this before adding more cities.
   self-heals on the next refresh (announcement text is cached; the wrapped-m²
   parser fix re-reads it). For Gliwice, consider a one-off crawl of archived
   detail slugs still resolvable on zgm-gliwice.pl.
+- **Świętochłowice cellar-area leftovers** — 5 properties still carry a
+  cellar-sized area (`hutniczej|9B|9`, `grunwaldzkiej|5|5`, `hutniczej|9B|`,
+  `sredniej|12C|4`, `nowej|12|5`): their announcement attachments aren't in the
+  local text caches, so the offline re-derivation couldn't verify them. The
+  fixed `areaFromText` should heal them on the next CI refresh — verify after
+  the run.

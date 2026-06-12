@@ -595,14 +595,16 @@
           "date": "2026-02-03",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 180000221400,
+          "starting_price_pln": 180000,
           "outcome": "sold",
           "unsold_reason": null,
-          "final_price_pln": null,
+          "final_price_pln": 221400,
           "source_pdf": "https://katowice.eu/SiteAssets/Lists/Wykazy%20dotyczce%20wynikw%20przetargw%20i%20inne%20ogoszenia/AllItems/Wyniki%2003.02.2026%20pozytywne.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 26.26
         }
-      ]
+      ],
+      "area_m2": 26.26
     },
     {
       "key": "marackiej|26|",

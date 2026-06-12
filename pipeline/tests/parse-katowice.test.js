@@ -116,3 +116,29 @@ test('yearly summary: column-bleed street ("… II ustny …") is rejected, clea
   assert.equal(ok.starting_price_pln, 100000);
   assert.equal(ok.final_price_pln, 120000);
 });
+
+// Result-table row where the start-price cell has no own "zł" and the area
+// uses the terse "o pow. X m2" (the Widok 37/3 case, "Wyniki 03.02.2026
+// pozytywne.pdf"): whitespace collapse glues "180 000      221 400 zł" into
+// one 180-billion token. splitGluedAmounts must yield start + achieved, and
+// the lokal-anchored area fallback must catch 26,26 m² while the parcel's
+// "o łącznej pow. 68 194 m2" stays excluded.
+const GLUED_PRICE_PDF = `WYKAZ Z DNIA 05.02.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
+
+                                                      ul. Widok 37/3
+                   Urząd Miasta                       lokal mieszkalny o pow. 26,26 m2
+                     Katowice           ustny         dz. nr 18/16 i 177/10
+3     03.02.2026                                                                                         180 000      221 400 zł          7                 0                     Jan Nowak
+                   ul. Młyńska 4   nieograniczony     o łącznej pow. 12 570 m2,
+`;
+
+test('glued start+achieved prices are split; terse "o pow." area parsed (Widok 37/3)', () => {
+  const recs = parseResultPdf(GLUED_PRICE_PDF, null, 'sample://glued');
+  assert.equal(recs.length, 1);
+  const r = recs[0];
+  assert.equal(r.address_raw, 'Widok 37/3');
+  assert.equal(r.starting_price_pln, 180000);
+  assert.equal(r.final_price_pln, 221400);
+  assert.equal(r.outcome, 'sold');
+  assert.equal(r.area_m2, 26.26, 'flat area, not the 12 570 m² parcel');
+});

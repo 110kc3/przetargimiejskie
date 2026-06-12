@@ -209,10 +209,20 @@ export function shareFromTitle(title, text = '') {
 export function areaFromText(text) {
   if (!text) return null;
   const plausible = (v) => v != null && v >= 8 && v <= 300;
-  // Labelled flat area: "pow[ierzchni]. użytkow… <num> m²".
-  const lab = /pow(?:ierzchni)?\w*\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*[²2]/i.exec(text);
-  if (lab) {
-    const v = parseArea(lab[1]);
+  // Labelled flat area: "pow[ierzchni]. użytkow… <num> m²". Scanned as a
+  // GLOBAL match with a cellar/plot guard: announcements label the cellar the
+  // same way ("wraz z piwnicą o powierzchni użytkowej 8,36 m2"), and the REAL
+  // flat label can sit further from its number ("Łączna powierzchnia użytkowa
+  // lokalu mieszkalnego wynosi: 71,10 m2" — 28 chars, over the old {0,20}
+  // gap), so the first *unguarded* labelled hit used to be the cellar —
+  // producing 8 m² "flats" at 21 000+ zł/m² in the archive.
+  const LAB_EXCLUDE = /piwnic|kom[óo]rk|przynale[żz]|gara[żz]|strych|dzia[łl]k|grunt/i;
+  const LAB = /pow(?:ierzchni)?\w*\.?\s+u[żz]ytkow\w*([^0-9]{0,40}?)([\d.,]+)\s*m\s*[²2]/gi;
+  let lm;
+  while ((lm = LAB.exec(text)) !== null) {
+    const before = text.slice(Math.max(0, lm.index - 30), lm.index);
+    if (LAB_EXCLUDE.test(before) || LAB_EXCLUDE.test(lm[1])) continue;
+    const v = parseArea(lm[2]);
     if (plausible(v)) return v;
   }
   // Fallback: a bare "<num> m²". Prefer one tagged "użytkow…"; skip plot/share/cellar.
@@ -221,13 +231,16 @@ export function areaFromText(text) {
   let m;
   while ((m = M2.exec(text)) !== null) {
     const before = text.slice(Math.max(0, m.index - 40), m.index);
-    if (/u[żz]ytkow/i.test(before)) {
-      const v = parseArea(m[1]);
-      if (plausible(v)) return v;
-    }
+    // Exclusions FIRST: a cellar is often itself labelled "użytkow…" ("wraz z
+    // piwnicą o powierzchni użytkowej 8,36 m2"), so the użytkow fast-path must
+    // not fire on a guarded value.
     if (/dzia[łl]k|grunt|obr[ęe]b|[łl][ąa]cznej|udzia[łl]/i.test(before)) continue; // plot / share
     if (/piwnic|kom[óo]rk|przynale[żz]|gara[żz]|strych/i.test(before)) continue; // cellar / attic
     const v = parseArea(m[1]);
+    if (/u[żz]ytkow/i.test(before)) {
+      if (plausible(v)) return v;
+      continue;
+    }
     if (plausible(v)) cands.push(v);
   }
   return cands.length ? Math.max(...cands) : null;

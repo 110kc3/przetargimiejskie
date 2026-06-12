@@ -120,6 +120,37 @@ const ANCHOR = /^\s*(\d{1,3})\s+(\d{2})\.(\d{2})\.(\d{4})\b/;
 // and negative rows, so this is detected PER ROW, not per document.
 const NEGATIVE_ROW_RE = /wynikiem\s+negatywnym|nie\s+wy[łl]oniono\s+nabywc/i;
 
+
+// The result table prints the starting price WITHOUT its own "zł" when the
+// achieved-price cell follows on the same line ("180 000      221 400 zł");
+// the blob's whitespace collapse then glues them into one spaced-thousands
+// token ("180 000 221 400") that parses as 180 BILLION. When an amount is
+// implausibly large, try splitting its 3-digit groups into TWO plausible
+// amounts (start + achieved); a unique valid split wins, otherwise the
+// original is kept so genuinely odd rows stay visible rather than guessed at.
+const MAX_PLAUSIBLE_PLN = 50_000_000;
+function splitGluedAmounts(numStr) {
+  const whole = parsePLN(numStr);
+  if (whole == null || whole <= MAX_PLAUSIBLE_PLN) return [whole];
+  const groups = numStr.replace(/,\d{2}$/, '').trim().split(/[. ]/);
+  if (groups.length < 2) return [whole];
+  const splits = [];
+  for (let i = 1; i < groups.length; i++) {
+    const left = Number(groups.slice(0, i).join(''));
+    // The right part must look like a number's own start: no "000…" group.
+    if (/^0/.test(groups[i])) continue;
+    const right = Number(groups.slice(i).join(''));
+    if (
+      Number.isFinite(left) && Number.isFinite(right) &&
+      left >= 1000 && right >= 1000 &&
+      left <= MAX_PLAUSIBLE_PLN && right <= MAX_PLAUSIBLE_PLN
+    ) {
+      splits.push([left, right]);
+    }
+  }
+  return splits.length === 1 ? splits[0] : [whole];
+}
+
 function parseResultRow(blob, anchorDate, sourceUrl) {
   const notes = [];
   const negative = NEGATIVE_ROW_RE.test(blob);
@@ -165,14 +196,18 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
     kind = /^[IVXL]+$/i.test(address.apt) ? 'uzytkowy' : 'mieszkalny';
   }
 
-  const arM = /o\s+pow\.\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob);
+  // Area: the labelled "o pow. użytkowej X m2" form, OR the result-table's
+  // terser "lokal mieszkalny o pow. 26,26 m2" (no "użytkowej"). The fallback
+  // anchors on "lokal" so the parcel's "o łącznej pow. 68 194 m2" can't match.
+  const arM = /o\s+pow\.\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob)
+    || /lokal\w*[^.]{0,40}?o\s+pow\.\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob);
   const areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
 
   // Same amount shape as PLN_ALL_RE below: spaced or dotted thousands and
   // optional grosze — "850 000 zł", "150 000,00 zł", "150.000,00 zł". The
   // lookbehind also excludes ',' so the ",00 zł" tail can't match alone.
   const prices = [...blob.matchAll(/(?<![\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/gi)]
-    .map((m) => parsePLN(m[1]))
+    .flatMap((m) => splitGluedAmounts(m[1]))
     .filter((n) => n != null);
   const starting_price_pln = prices[0] ?? null;
   // In a negative row the achieved-price column is "------" — any second
