@@ -146,6 +146,25 @@ function flatAreaFromBlock(block) {
     if (isPlot || isCellar) continue;
     cands.push(v);
   }
+  if (cands.length) return Math.max(...cands);
+  // Fallback: pdftotext sometimes wraps the superscript of "m²" onto a
+  // DIFFERENT line than the number ("lokalu: parter   2" / "34,90 m łazienka…"
+  // — the Harcerska 2/2 layout), so the strict M2_RE never sees "m2". Re-scan
+  // for a bare "<num> m" token (NOT followed by another letter, so "mapy"/"mieszkalny"
+  // don't match), same plot/cellar exclusions, only when the strict pass found
+  // nothing — the strict token is always preferred when present.
+  const BARE_M_RE = /([\d][\d.,]*)\s*m(?![a-ząćęłńóśźż0-9²])/gi;
+  BARE_M_RE.lastIndex = 0;
+  while ((m = BARE_M_RE.exec(region)) !== null) {
+    const v = parseArea(m[1]);
+    if (v == null || v <= 0) continue;
+    const idx = m.index;
+    const inPlotSpan = dz >= 0 && opis > dz && idx > dz && idx < opis;
+    const isPlot = inPlotSpan || /dzia[łl]k/i.test(region.slice(Math.max(0, idx - 35), idx));
+    const isCellar = /piwnic|kom[óo]rk|gara[żz]/i.test(region.slice(Math.max(0, idx - 18), idx));
+    if (isPlot || isCellar) continue;
+    cands.push(v);
+  }
   return cands.length ? Math.max(...cands) : null;
 }
 

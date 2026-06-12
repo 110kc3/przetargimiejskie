@@ -220,3 +220,28 @@ test('parseAnnouncementText: typographic apostrophe address + kind not fooled by
   assert.equal(flats[0].area_m2, 48.14);
   assert.equal(flats[0].starting_price_pln, 144000);
 });
+
+// Third real layout (docs 91932/96874, the Harcerska 2/2 case): pdftotext
+// wraps the SUPERSCRIPT of the flat's "m²" onto the PREVIOUS line ("lokalu:
+// parter   2" / "34,90 m łazienka…"), so the strict "<num> m2" token never
+// appears for the flat — only for the plot and the cellar. The bare-"<num> m"
+// fallback must recover the flat area without picking up plot or cellar.
+const ANN_WRAPPED_SUPERSCRIPT = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieograniczone
+4.                                          adres: ul. Harcerska 2/2
+działka:   nr 473/57          pow.:     Arkusz mapy 3,               prawo:           udział:
+                              176 m2 Obręb 0010 Stolarzowice         własność         93/1000
+opis     położenie:     pow.:       pomieszczenia: pokój, kuchnia, pomieszczenia przynależne do
+lokalu: parter                   2
+                        34,90 m łazienka z wc, przedpokój            lokalu: piwnica o pow. 7,10 m2
+Cena wywoławcza: w tym:          96,92% stanowi cena lokalu 3,08% stanowi cena udziału w prawie
+70.000,00 zł                                                   własności gruntu
+Wysokość wadium: 7.000,00 zł`;
+
+test('parseAnnouncementText: flat area recovered when the m² superscript wraps to another line (Harcerska 2/2)', () => {
+  const flats = parseAnnouncementText(ANN_WRAPPED_SUPERSCRIPT);
+  assert.equal(flats.length, 1);
+  const h = flats[0];
+  assert.equal(h.address.key, 'harcerska|2|2');
+  assert.equal(h.area_m2, 34.9, 'flat area 34,90 — not the 176 m² plot nor the 7,10 m² cellar');
+  assert.equal(h.starting_price_pln, 70000);
+});

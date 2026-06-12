@@ -14,11 +14,15 @@
   const DETAIL_RE = /^\/[a-z0-9-]+-\d{2}-\d{2}-\d{4}-r\/?$/;
 
   // "…m² - <price> zł" → { area_m2, price_pln } (either may be null).
+  // Parsed INDEPENDENTLY: a card that omits the area ("<addr> - <date> -
+  // 70 000 zł") must still yield its price — the old single regex required
+  // both figures, so a card missing its area silently lost the price too
+  // (and with it the inline zł/m² slot's price fallback).
   function parseCardFigures(text) {
-    const m = /(\d{1,4}(?:[,.]\d{1,3})?)\s*m[²2]\s*-\s*([\d.,\s]+)\s*z[łl]/i.exec(text);
-    if (!m) return { area_m2: null, price_pln: null };
-    const area = Number(m[1].replace(',', '.'));
-    const price = Number(m[2].replace(/[.\s]/g, '').replace(',', '.'));
+    const am = /(\d{1,4}(?:[,.]\d{1,3})?)\s*m[²2]/i.exec(text);
+    const pm = /(\d[\d.,\s]*)\s*z[łl]\b/i.exec(text);
+    const area = am ? Number(am[1].replace(',', '.')) : NaN;
+    const price = pm ? Number(pm[1].replace(/[.\s]/g, '').replace(',', '.')) : NaN;
     return {
       area_m2: Number.isFinite(area) ? area : null,
       price_pln: Number.isFinite(price) ? Math.round(price) : null,

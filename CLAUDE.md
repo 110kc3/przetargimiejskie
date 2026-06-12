@@ -11,7 +11,7 @@
 ## Version Management (CRITICAL)
 - **Bump on every functional change:** Any change to files under `extension/` that affects the built artifact MUST bump the version in BOTH places at once, before considering the change done:
   - `extension/manifest.json` → `"version": "X.Y.Z"`
-  - `extension/popup/popup.html` → `<span class="version">vX.Y.Z</span>`
+  - `extension/popup.html` → `<span class="version">vX.Y.Z</span>`
   Both must always match. If they drift, the popup will misreport while Chrome reads the manifest.
 - **Semantic versioning:**
   - **PATCH** (`1.0.x`) — bug fixes, copy/wording tweaks, refactors, selector updates, anything with no new user-visible feature.

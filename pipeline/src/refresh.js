@@ -25,7 +25,7 @@ try { setDefaultResultOrder('ipv4first'); } catch { /* older node */ }
 import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
-import { buildCityData, todayWarsaw } from './core/build-properties.js';
+import { buildCityData, healStreetVariants, todayWarsaw } from './core/build-properties.js';
 import { mergeProperties, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
 
@@ -210,6 +210,16 @@ async function refreshCity(city) {
       );
     } catch (err) {
       console.error(`  WARN: history merge skipped (${err.message}); writing fresh build.`);
+    }
+    // Heal street case-variant ZOMBIES the merge resurrects: a genitive key
+    // committed by an old run ("sportowej|6|2") is re-seeded forever even
+    // after buildCityData coalesced the fresh copy into the nominative
+    // ("sportowa|6|2") — duplicating the same auction in the archive. Fold
+    // variants + dedupe per date on the POST-merge array.
+    const beforeHeal = properties.length;
+    properties = healStreetVariants(properties);
+    if (properties.length !== beforeHeal) {
+      console.error(`  healed ${beforeHeal - properties.length} street-variant zombie propert${beforeHeal - properties.length === 1 ? 'y' : 'ies'} post-merge.`);
     }
   }
 

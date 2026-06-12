@@ -141,7 +141,9 @@ a:hover{color:var(--accent);text-decoration:underline}
 // keeping an auction "active" too long (mirrors the extension's todayWarsaw()).
 const TODAY = new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const nf = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:0});
+const nfArea = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:2});
 const fmtPLN = n => n==null?'—':nf.format(n)+' zł';
+const fmtArea = a => a?nfArea.format(a)+' m²':'—'; // Polish decimal comma, not the raw JSON dot
 const fmtM2 = (p,a)=>(p==null||!a)?'—':nf.format(Math.round(p/a))+' zł/m²';
 const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x-y); const m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
 // Escape crawled strings before they go into innerHTML, and only let http(s)
@@ -267,7 +269,7 @@ function render(){
     <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}${shareBadge(r.share)}</td>
     <td>${esc(KIND[r.kind]||r.kind)}</td>
     <td>${roundLabel(r.round)}</td>
-    <td class="num">${r.area?esc(r.area)+' m²':'—'}</td>
+    <td class="num">${fmtArea(r.area)}</td>
     <td class="num">${fmtPLN(r.start)}</td>
     <td class="num">${fmtPLN(r.final)}</td>
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
@@ -283,7 +285,7 @@ function render(){
     <td class="addr">${chip(a.city,a.cityLabel)}${esc(a.addr)||''}${shareBadge(a.share)}</td>
     <td>${esc(KIND[a.kind]||a.kind)}</td>
     <td>${roundLabel(a.round)}</td>
-    <td class="num">${a.area?esc(a.area)+' m²':'—'}</td>
+    <td class="num">${fmtArea(a.area)}</td>
     <td class="num">${fmtPLN(a.start)}</td>
     <td class="num">${fmtM2(a.start,a.area)}</td>
     <td>${srcLink(href)}${bipLink(a.bip)}</td>

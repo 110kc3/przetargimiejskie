@@ -91,3 +91,28 @@ test('positive wykaz row still parses as sold with both prices', () => {
   assert.equal(recs[0].starting_price_pln, 280000);
   assert.equal(recs[0].final_price_pln, 286000);
 });
+
+// Yearly-summary table: the linearised columns can interleave the auction-type
+// cell into a street capture ("ul. Oddziałów Młodzieży  II ustny … 86 000 zł"
+// → street "Oddziałów Młodzieży II ustny…" with the price's leading digits as
+// the building). pickAddress now applies the same column-bleed vocabulary
+// filter as parseResultRow: such a candidate is junk, the row is dropped
+// rather than emitted under a garbage key. Clean rows still parse.
+const YEARLY_BLEED_PDF = `Wykaz nieruchomości sprzedanych w roku 2025
+
+1   07.04.2025r.  lokal mieszkalny  ul. Oddziałów Młodzieży   II ustny nieograniczony   86 000,00 zł   95 000,00 zł
+2   12.05.2025r.  lokal mieszkalny  ul. Gliwicka 12/3   28,5 m2   100 000,00 zł   120 000,00 zł
+`;
+
+test('yearly summary: column-bleed street ("… II ustny …") is rejected, clean row still parses', () => {
+  const recs = parseResultDoc(YEARLY_BLEED_PDF, null, 'sample://yearly-bleed');
+  assert.ok(
+    !recs.some((r) => /ustny|przetarg/i.test(r.address_raw || '')),
+    'no record may carry auction-type words in its address',
+  );
+  const ok = recs.find((r) => r.address_raw === 'Gliwicka 12/3');
+  assert.ok(ok, 'clean Gliwicka 12/3 row missing');
+  assert.equal(ok.outcome, 'sold');
+  assert.equal(ok.starting_price_pln, 100000);
+  assert.equal(ok.final_price_pln, 120000);
+});

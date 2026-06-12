@@ -240,15 +240,25 @@ function isYearlySummaryText(text) {
 
 const BUYER_DESIGNATION_RE = /^(?:fiz|fizyczn\w*|prawn\w*)\b/i;
 
+// Column-bleed sanity for the yearly-summary table — same junk vocabulary as
+// parseResultRow's filter above. The linearised table interleaves cells, so a
+// lazy street capture can swallow the neighbouring "II ustny przetarg" /
+// "Urząd Miasta" columns ("Oddziałów Młodzieży II ustny 86" with a price or
+// area as the building). Such a candidate is junk, not an address.
+const COLUMN_BLEED_RE =
+  /\b(urz[ąa]d|miasta|ustny|nieograniczon\w*|przetarg\w*|zako[ńn]czon\w*|gruntow\w*|lokal\w*|sprzedan\w*)\b/i;
+const badAddrCand = (cand) =>
+  BUYER_DESIGNATION_RE.test(cand) || COLUMN_BLEED_RE.test(cand);
+
 function pickAddress(blob) {
   for (const m of blob.matchAll(/\b(?:ul|al|pl|os)\.\s*([A-ZŻŹĆĄŚĘÓŁŃa-ząćęłńóśźż][\wąćęłńóśźż.\- ]+?\s+\d+[A-Za-z]?(?:\s*\/\s*[\dIVX]+[A-Za-z]?)?)\b/gi)) {
     const cand = m[1].replace(ADDR_TAIL_RE, '').trim();
-    if (!BUYER_DESIGNATION_RE.test(cand)) return cand;
+    if (!badAddrCand(cand)) return cand;
   }
   const bare = /(?<!\w)([A-ZŻŹĆĄŚĘÓŁŃ][\wąćęłńóśźż.\-]+(?:\s+[A-ZŻŹĆĄŚĘÓŁŃ][\wąćęłńóśźż.\-]+)?\s+\d+[A-Za-z]?(?:\s*\/\s*[\dIVX]+[A-Za-z]?)?)\b/.exec(blob);
   if (!bare) return null;
   const cand = bare[1].replace(ADDR_TAIL_RE, '').trim();
-  return BUYER_DESIGNATION_RE.test(cand) ? null : cand;
+  return badAddrCand(cand) ? null : cand;
 }
 
 function parseYearlySummaryRow(lines, lo, _anchorI, hi, prices, sourceUrl) {
@@ -338,3 +348,4 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }
   return parseResultPdf(text, fallbackDate, sourceUrl);
 }
+// (pickAddress column-bleed filter added June 2026 — see COLUMN_BLEED_RE.)

@@ -4,6 +4,13 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.19.1 — 2026-06-12
+
+- **Fix (PATCH):** Gliwice listing cards without an area no longer lose their
+  price too (the two figures are parsed independently now), and the archive
+  tables render areas with the Polish decimal comma ("37,91 m²" instead of
+  "37.91 m²"), matching the rest of the UI.
+
 ## v1.19.0 — 2026-06-12
 
 - **City-BIP added as a second Gliwice source** (MINOR): Gliwice now also crawls

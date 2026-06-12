@@ -10,7 +10,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildCityData } from '../src/core/build-properties.js';
+import { buildCityData, healStreetVariants } from '../src/core/build-properties.js';
 import { parseAddress } from '../src/core/normalize.js';
 
 const resultRec = (addrRaw, date, o = {}) => ({
@@ -85,4 +85,37 @@ test('distinct dates remain distinct listings with derived rounds', () => {
   });
   assert.equal(properties[0].listings.length, 2);
   assert.deepEqual(properties[0].listings.map((l) => l.round), [1, 2]);
+});
+
+test('healStreetVariants folds a post-merge genitive zombie into the nominative property', () => {
+  // Simulates mergeProperties output: the fresh build coalesced "sportowej|6|2"
+  // into "sportowa|6|2", but the merge re-seeded the old genitive key from the
+  // previously-committed file — same sold auction in BOTH properties.
+  const sold = {
+    date: '2026-02-23', round: 3, kind: 'mieszkalny',
+    starting_price_pln: 142000, final_price_pln: 142000,
+    outcome: 'sold', source_pdf: 'sample://wyniki.pdf',
+  };
+  const merged = [
+    {
+      key: 'sportowa|6|2', street: 'Sportowa', street_norm: 'sportowa',
+      building: '6', apt: '2', kind: 'mieszkalny', area_m2: 41.2,
+      listings: [
+        { date: '2025-11-17', round: 1, outcome: 'unsold', starting_price_pln: 177500, source_pdf: 'sample://a.pdf' },
+        { ...sold },
+      ],
+    },
+    {
+      key: 'sportowej|6|2', street: 'Sportowej', street_norm: 'sportowej',
+      building: '6', apt: '2', kind: 'mieszkalny',
+      listings: [{ ...sold }],
+    },
+  ];
+  const healed = healStreetVariants(merged);
+  assert.equal(healed.length, 1, 'zombie genitive property folded away');
+  const p = healed[0];
+  assert.equal(p.key, 'sportowa|6|2');
+  assert.equal(p.listings.length, 2, 'duplicate same-date sold listing deduped');
+  assert.equal(p.listings.filter((l) => l.outcome === 'sold').length, 1);
+  assert.equal(p.area_m2, 41.2);
 });

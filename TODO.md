@@ -141,3 +141,25 @@ published data: email alerts off a saved search ("new active listing in
 district X under N zł/m²"). Needs a tiny hosted layer (Vercel + Supabase +
 Resend), independent of the extension. Not started; decide whether to do
 this before adding more cities.
+
+## Leftovers from the 12 June 2026 bug sweep (missing m² / weird streets)
+
+- **Katowice `oddzialow mlodziezy i ustny|86|`** — junk key from the (now
+  fixed) yearly-summary column bleed. Holds a REAL sale (2025-02-24,
+  450 000 → 517 500 zł) whose true building/apt the bleed destroyed, and no
+  surviving property matches it by date+price, so `heal-properties.js`
+  deliberately refuses to fold it. Resolve manually against the source PDF
+  ("Przetargi 2025 na BIP.pdf") and either re-key or fold it.
+- **Genitive street display** — streets captured after "przy ul. …" render in
+  the genitive ("Częstochowskiej 4/9", "Kalinowej 51"). Join keys are healed,
+  but the display form stays grammatically odd. A nominative display pass
+  (reuse SUFFIX_SUBS on the DISPLAY string, conservative allowlist) would fix
+  the cosmetics without touching keys.
+- **Bytom multi-street property** — "Strażacka 3 i ul. Podgórna" parsed as one
+  street. Decide: split into two properties or keep with a sanitized label.
+- **Area backfill for concluded listings** — Gliwice 37 and Katowice 40-odd
+  properties have no `area_m2` because result PDFs carry no area and
+  detail-page enrichment only covers listings active at crawl time. Zabrze
+  self-heals on the next refresh (announcement text is cached; the wrapped-m²
+  parser fix re-reads it). For Gliwice, consider a one-off crawl of archived
+  detail slugs still resolvable on zgm-gliwice.pl.

@@ -440,39 +440,6 @@
       "area_m2": 61.19
     },
     {
-      "key": "gornej|4|",
-      "street": "Górnej",
-      "street_norm": "gornej",
-      "building": "4",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-03",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 1049.48,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=534",
-          "wadium_deadline": "2026-01-26",
-          "viewing_date": null
-        },
-        {
-          "date": "2026-04-28",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 1400000,
-          "outcome": "archived",
-          "area_m2": 1049.48,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
-          "wadium_deadline": "2026-04-20",
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 1049.48
-    },
-    {
       "key": "borowej|30|",
       "street": "Borowej",
       "street_norm": "borowej",
@@ -636,28 +603,6 @@
           "notes": []
         }
       ]
-    },
-    {
-      "key": "gornej 4 6 i|8|",
-      "street": "Górnej 4, 6 i",
-      "street_norm": "gornej 4 6 i",
-      "building": "8",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-03",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 1049.48,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=534",
-          "wadium_deadline": "2026-01-26",
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 1049.48
     },
     {
       "key": "marackiej|26|",
@@ -1107,7 +1052,11 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 250000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 332500,
+          "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
+          "notes": [],
           "area_m2": 66.7,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=506",
           "wadium_deadline": "2025-03-31",
@@ -1115,27 +1064,6 @@
         }
       ],
       "area_m2": 66.7
-    },
-    {
-      "key": "oddzialow mlodziezy ii ustny|66|",
-      "street": "Oddziałów Młodzieży II ustny",
-      "street_norm": "oddzialow mlodziezy ii ustny",
-      "building": "66",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-04-07",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 332500,
-          "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
-        }
-      ]
     },
     {
       "key": "obroncow westerplatte|96|",

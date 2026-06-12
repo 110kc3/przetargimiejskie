@@ -91,6 +91,15 @@ const ADDR_FROM_SOLD_GARAGE =
 const PARA_SPLIT_SOLD =
   /\n(?=\s*(?:w\s+dniu|o\s+godz\.?|w\s+dniu\.?)\s+)/i;
 
+// OCR noise inside a captured address: a stray ";x" / ":x" fragment glued to
+// the street ("Jagiellońskiej;j 1/24" — the ADDR char classes admit ; and :
+// so a capture isn't cut short, but the junk must not reach parseAddress and
+// become part of the street/key). Strips the punctuation and anything glued
+// to it up to the next space.
+function cleanAddrNoise(s) {
+  return s.replace(/[;:]\S*/g, '').replace(/\s+/g, ' ').trim();
+}
+
 /**
  * Parse the "sold" section into one record per auction paragraph.
  * @param {string} sold
@@ -108,7 +117,7 @@ function parseSoldSection(sold, auctionDate, sourcePdf) {
     if (!/odby[łl]\s+si[ęe]/.test(para)) continue;
     const kind = classifyKind(para);
     const addrM = ADDR_FROM_SOLD.exec(para);
-    let addressRaw = addrM ? addrM[1].trim().replace(/\s+/g, ' ') : '';
+    let addressRaw = addrM ? cleanAddrNoise(addrM[1]) : '';
     let address = addressRaw ? parseAddress(addressRaw) : null;
     if (!address) {
       const gm = ADDR_FROM_SOLD_GARAGE.exec(para);
@@ -215,7 +224,7 @@ function extractUnsoldItems(chunk, auctionDate, sourcePdf, reason) {
   UNSOLD_ITEM_RE.lastIndex = 0;
   let m;
   while ((m = UNSOLD_ITEM_RE.exec(chunk)) !== null) {
-    const addressRaw = m[1].trim().replace(/\s+/g, ' ');
+    const addressRaw = cleanAddrNoise(m[1]);
     const tail = m[2];
     const kind = classifyKind(tail);
     // For garages the addr is "Kurpiowska 16" and the description is "garażu nr 1"

@@ -24,7 +24,11 @@ const $historicalSection = document.getElementById('historical-section');
 
 const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const nf = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 });
+const nfArea = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 });
 const fmtPLN = (n) => (n == null ? '—' : nf.format(n) + ' zł');
+// Polish decimal comma ("37,91 m²"), matching content.js's fmtArea — the raw
+// JSON number used to render with a dot ("37.91 m²").
+const fmtArea = (a) => (a == null ? '—' : nfArea.format(a) + ' m²');
 const fmtPerM2 = (price, area) =>
   price == null || area == null || area === 0
     ? '—'
@@ -342,7 +346,7 @@ function renderTable() {
         <td>${cityTagHtml(r.city)}${esc(r.addr_display)}</td>
         <td>${esc(t('kind.' + r.kind))}</td>
         <td>${roundCell(r.round)}</td>
-        <td>${r.area_m2 ? esc(r.area_m2) + ' m²' : '—'}</td>
+        <td>${r.area_m2 ? fmtArea(r.area_m2) : '—'}</td>
         <td>${fmtPLN(r.starting_price_pln)}</td>
         <td>${fmtPLN(r.final_price_pln)}</td>
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
@@ -429,7 +433,7 @@ function renderActiveTable() {
 
   $activeTbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold }) => {
-      const addr = cityTagHtml(a.city) + esc(a.address_raw || '') + (a.area_m2 ? ` · ${esc(a.area_m2)} m²` : '');
+      const addr = cityTagHtml(a.city) + esc(a.address_raw || '') + (a.area_m2 ? ` · ${fmtArea(a.area_m2)}` : '');
       const priorCell =
         prior.length === 0
           ? `<span class="zgm-fresh">${t('popup.fresh')}</span>`

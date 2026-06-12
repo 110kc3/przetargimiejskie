@@ -98,3 +98,19 @@ test('every record has either a starting price or a parse note explaining why', 
     }
   }
 });
+
+test('OCR ";j" street noise is stripped from the captured address (Jagiellońskiej;j 1/24)', () => {
+  const text = [
+    'INFORMACJA O WYNIKACH POSTĘPOWANIA',
+    '',
+    'w dniu 16.02.2026 r. odbył się I ustny przetarg nieograniczony na sprzedaż lokalu',
+    'mieszkalnego położonego w Gliwicach przy ul. Jagiellońskiej;j 1/24 wraz',
+    'ze sprzedażą udziału w działce. Cena wywoławcza nieruchomości: 203.900,00 zł.',
+    'Cena osiągnięta w przetargu: 212.060,00 zł.',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2026-02-16', 'sample://noise');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].address_raw, 'Jagiellońskiej 1/24');
+  assert.equal(recs[0].address.key, 'jagiellonskiej|1|24');
+  assert.equal(recs[0].address.apt, '24');
+});

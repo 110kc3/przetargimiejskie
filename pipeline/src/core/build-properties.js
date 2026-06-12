@@ -32,7 +32,7 @@ function streetSuffixVariants(street) {
  * nominative-keyed one (the suffix subs map genitive → nominative), so no
  * standalone key is ever renamed — only same-run splits are healed.
  */
-function coalesceStreetVariants(props) {
+export function coalesceStreetVariants(props) {
   for (const p of [...props.values()]) {
     for (const alt of streetSuffixVariants(p.street_norm)) {
       const altKey = `${alt}|${p.building}|${p.apt ?? ''}`;
@@ -58,7 +58,7 @@ function coalesceStreetVariants(props) {
  * The result-backed row (has source_pdf, i.e. a concluded outcome) wins;
  * missing fields are back-filled from the other row.
  */
-function dedupeListingsByDate(p) {
+export function dedupeListingsByDate(p) {
   const byDate = new Map();
   const out = [];
   for (const l of p.listings) {
@@ -88,6 +88,28 @@ function dedupeListingsByDate(p) {
     }
   }
   p.listings = out;
+}
+
+/**
+ * Heal street case-variant DUPLICATES in an already-built properties ARRAY —
+ * the post-merge counterpart of coalesceStreetVariants. buildCityData
+ * coalesces within one run, but mergeProperties re-seeds every key from the
+ * previously-committed file, so a genitive key written by an OLD run (before
+ * a parser fix, or when its nominative twin wasn't visible that run) is
+ * resurrected forever — e.g. "sportowej|6|2" duplicating "sportowa|6|2" with
+ * the same sold auction in both. Run this on the post-merge array; listings
+ * folded together are then deduped per date.
+ * @param {Array} properties
+ * @returns {Array} healed array (same objects, zombie variants folded in)
+ */
+export function healStreetVariants(properties) {
+  const map = new Map((properties || []).map((p) => [p.key, p]));
+  coalesceStreetVariants(map);
+  for (const p of map.values()) {
+    dedupeListingsByDate(p);
+    p.listings.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
+  }
+  return [...map.values()];
 }
 
 /**
