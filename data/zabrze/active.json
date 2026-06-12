@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Fryderyka Chopina 30/2",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "30",
+        "apt": "2",
+        "key": "fryderyka chopina|30|2",
+        "warning": null
+      },
+      "auction_date": "2026-08-11",
+      "round": 2,
+      "area_m2": 38.59,
+      "starting_price_pln": 95000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25868"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Gen. Władysława Andersa 35/4",
       "address": {
         "street": "Gen. Władysława Andersa",
@@ -202,7 +219,7 @@
       },
       "auction_date": "2026-04-28",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 33.44,
       "starting_price_pln": 80000,
       "detail_url": "https://bip.miastozabrze.pl/doc/24783"
     },
@@ -372,7 +389,7 @@
       },
       "auction_date": "2026-04-16",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 34.9,
       "starting_price_pln": 70000,
       "detail_url": "https://bip.miastozabrze.pl/doc/24573"
     },
@@ -508,7 +525,7 @@
       },
       "auction_date": "2026-03-26",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 38.59,
       "starting_price_pln": 185000,
       "detail_url": "https://bip.miastozabrze.pl/doc/24571"
     },
@@ -1052,7 +1069,7 @@
       },
       "auction_date": "2026-01-29",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 33.44,
       "starting_price_pln": 150000,
       "detail_url": "https://bip.miastozabrze.pl/doc/23826"
     },
@@ -1290,7 +1307,7 @@
       },
       "auction_date": "2026-01-15",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 34.9,
       "starting_price_pln": 140000,
       "detail_url": "https://bip.miastozabrze.pl/doc/23772"
     },
@@ -1528,7 +1545,7 @@
       },
       "auction_date": "2025-10-23",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 38.61,
       "starting_price_pln": 100000,
       "detail_url": "https://bip.miastozabrze.pl/doc/22841"
     },
@@ -1545,7 +1562,7 @@
       },
       "auction_date": "2025-10-23",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 29.21,
       "starting_price_pln": 70000,
       "detail_url": "https://bip.miastozabrze.pl/doc/22841"
     },
@@ -2599,7 +2616,7 @@
       },
       "auction_date": "2025-06-26",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 35.03,
       "starting_price_pln": 53000,
       "detail_url": "https://bip.miastozabrze.pl/doc/21806"
     },
@@ -2616,7 +2633,7 @@
       },
       "auction_date": "2025-06-26",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 31.1,
       "starting_price_pln": 48000,
       "detail_url": "https://bip.miastozabrze.pl/doc/21806"
     },
@@ -2633,7 +2650,7 @@
       },
       "auction_date": "2025-06-26",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 36,
       "starting_price_pln": 50000,
       "detail_url": "https://bip.miastozabrze.pl/doc/21806"
     },
@@ -2684,7 +2701,7 @@
       },
       "auction_date": "2025-06-26",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 60.3,
       "starting_price_pln": 140000,
       "detail_url": "https://bip.miastozabrze.pl/doc/21806"
     },
@@ -4180,7 +4197,7 @@
       },
       "auction_date": "2024-02-27",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 39.45,
       "starting_price_pln": 80000,
       "detail_url": "https://bip.miastozabrze.pl/doc/16700"
     },
@@ -4622,7 +4639,7 @@
       },
       "auction_date": "2023-07-28",
       "round": 2,
-      "area_m2": null,
+      "area_m2": 31.3,
       "starting_price_pln": 50000,
       "detail_url": "https://bip.miastozabrze.pl/doc/14463"
     },
@@ -4945,7 +4962,7 @@
       },
       "auction_date": "2023-03-09",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 32.59,
       "starting_price_pln": 110000,
       "detail_url": "https://bip.miastozabrze.pl/doc/13266"
     },
@@ -5863,7 +5880,7 @@
       },
       "auction_date": "2022-09-16",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 24.35,
       "starting_price_pln": 91000,
       "detail_url": "https://bip.miastozabrze.pl/doc/5979"
     },
@@ -6169,7 +6186,7 @@
       },
       "auction_date": "2022-10-04",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 120.44,
       "starting_price_pln": 275000,
       "detail_url": "https://bip.miastozabrze.pl/doc/5983"
     },
@@ -6186,7 +6203,7 @@
       },
       "auction_date": "2022-10-04",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 26.74,
       "starting_price_pln": 82000,
       "detail_url": "https://bip.miastozabrze.pl/doc/5983"
     },
@@ -6203,7 +6220,7 @@
       },
       "auction_date": "2022-10-04",
       "round": 1,
-      "area_m2": null,
+      "area_m2": 40.58,
       "starting_price_pln": 120000,
       "detail_url": "https://bip.miastozabrze.pl/doc/5983"
     },

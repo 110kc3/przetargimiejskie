@@ -3,6 +3,39 @@
   "city": "zabrze",
   "properties": [
     {
+      "key": "fryderyka chopina|30|2",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "30",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "archived",
+          "area_m2": 38.59,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24571",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-11",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "active",
+          "area_m2": 38.59,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25868",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.59
+    },
+    {
       "key": "gen wladyslawa andersa|35|4",
       "street": "Gen. Władysława Andersa",
       "street_norm": "gen wladyslawa andersa",
@@ -885,7 +918,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": 140000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 34.9,
           "detail_url": "https://bip.miastozabrze.pl/doc/23772",
           "wadium_deadline": null,
           "viewing_date": null
@@ -896,12 +929,13 @@
           "kind": "mieszkalny",
           "starting_price_pln": 70000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 34.9,
           "detail_url": "https://bip.miastozabrze.pl/doc/24573",
           "wadium_deadline": null,
           "viewing_date": null
         }
-      ]
+      ],
+      "area_m2": 34.9
     },
     {
       "key": "jaworowa|16|4",
@@ -1133,27 +1167,6 @@
         }
       ],
       "area_m2": 47.3
-    },
-    {
-      "key": "fryderyka chopina|30|2",
-      "street": "Fryderyka Chopina",
-      "street_norm": "fryderyka chopina",
-      "building": "30",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-03-26",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 185000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24571",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
     },
     {
       "key": "ks konstantego damrota|19|10",
@@ -5580,12 +5593,13 @@
           "kind": "mieszkalny",
           "starting_price_pln": 110000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 32.59,
           "detail_url": "https://bip.miastozabrze.pl/doc/13266",
           "wadium_deadline": null,
           "viewing_date": null
         }
-      ]
+      ],
+      "area_m2": 32.59
     },
     {
       "key": "turystyczna|2|11",
@@ -6789,12 +6803,13 @@
           "kind": "mieszkalny",
           "starting_price_pln": 91000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 24.35,
           "detail_url": "https://bip.miastozabrze.pl/doc/5979",
           "wadium_deadline": null,
           "viewing_date": null
         }
-      ]
+      ],
+      "area_m2": 24.35
     },
     {
       "key": "jozefa lapkowskiego|16|8",
