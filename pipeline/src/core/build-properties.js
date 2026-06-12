@@ -1,3 +1,5 @@
+import { nominativeStreetDisplay } from './normalize.js';
+
 // Merges parsed result records + active listings + wykaz announcements into
 // the one-entry-per-property structure the extension consumes, then enriches
 // each property with unit area from the detail-page crawl.
@@ -74,8 +76,8 @@ export function dedupeListingsByDate(p) {
     }
     const [primary, secondary] = prev.source_pdf || !l.source_pdf ? [prev, l] : [l, prev];
     for (const k of [
-      'round', 'starting_price_pln', 'area_m2', 'detail_url', 'bip_url',
-      'wadium_deadline', 'viewing_date',
+      'round', 'starting_price_pln', 'area_m2', 'land_area_m2', 'detail_url',
+      'bip_url', 'wadium_deadline', 'viewing_date',
     ]) {
       if (primary[k] == null && secondary[k] != null) primary[k] = secondary[k];
     }
@@ -109,7 +111,36 @@ export function healStreetVariants(properties) {
     dedupeListingsByDate(p);
     p.listings.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
   }
-  return [...map.values()];
+  const healed = [...map.values()];
+  applyDisplayStreets(healed);
+  return healed;
+}
+
+/**
+ * Display-only street naming over a built properties array. Two rules:
+ *   1. Unambiguous adjectival genitive endings flip via
+ *      nominativeStreetDisplay ("Sportowej" → "Sportowa").
+ *   2. -skiej/-ckiej/-dzkiej (ambiguous with female-patron surnames) flip
+ *      ONLY when the dataset itself contains the nominative twin street —
+ *      evidence the name is adjectival ("Częstochowskiej" + a property on
+ *      "Częstochowska" elsewhere), never for "Skłodowskiej"-style patrons.
+ * Keys and street_norm are untouched (presentation only).
+ */
+export function applyDisplayStreets(properties) {
+  const byNorm = new Map();
+  for (const p of properties) if (!byNorm.has(p.street_norm)) byNorm.set(p.street_norm, p);
+  for (const p of properties) {
+    p.street = nominativeStreetDisplay(p.street);
+    if (/[\s-]/.test(p.street) || !/(skiej|ckiej|dzkiej)$/i.test(p.street)) continue;
+    for (const alt of streetSuffixVariants(p.street_norm)) {
+      if (alt === p.street_norm) continue;
+      const twin = byNorm.get(alt);
+      if (twin && !/[\s-]/.test(twin.street)) {
+        p.street = twin.street;
+        break;
+      }
+    }
+  }
 }
 
 /**
@@ -171,6 +202,9 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       // Some sources (e.g. Katowice result PDFs) carry the unit area on the
       // sold record itself; Gliwice does not, so add the key only when present.
       ...(r.area_m2 != null ? { area_m2: r.area_m2 } : {}),
+      // Whole-property sales: plot/building total — kept separate from the
+      // unit area so zł/m² is never computed from a 1 920 m² plot.
+      ...(r.land_area_m2 != null ? { land_area_m2: r.land_area_m2 } : {}),
       // Fractional-share sale ("udziału 4/6 części") — present only on share
       // listings; carried so the archive can flag the share price as such.
       ...(r.share ? { share: r.share } : {}),
@@ -195,6 +229,7 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       starting_price_pln: a.starting_price_pln,
       outcome: isPast ? 'archived' : 'active',
       area_m2: a.area_m2,
+      ...(a.land_area_m2 != null ? { land_area_m2: a.land_area_m2 } : {}),
       detail_url: a.detail_url,
       wadium_deadline: a.wadium_deadline || null,
       viewing_date: a.viewing_date || null,
@@ -308,6 +343,7 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
     const lb = b.listings[b.listings.length - 1]?.date || '0';
     return lb.localeCompare(la);
   });
+  applyDisplayStreets(properties);
 
   return { properties };
 }

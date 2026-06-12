@@ -101,6 +101,13 @@ jobs:
         working-directory: pipeline
         run: CITY=${{ matrix.city }} npm run refresh
 
+      # Data sanity gate — glued prices, cellar/plot areas, junk streets,
+      # genitive zombie duplicates (the June 2026 bug classes). A failure
+      # blocks ONLY this city's commit; its last-good data stays published.
+      - name: Sanity-check ${{ matrix.city }} data
+        working-directory: pipeline
+        run: node scripts/sanity-check.js ${{ matrix.city }}
+
       - name: Commit and push if data changed
         run: |
           git config user.name  "zgm-data-bot"

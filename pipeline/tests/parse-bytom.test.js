@@ -181,3 +181,19 @@ test('attachmentUrlFromDetail keeps an absolute href and falls back to .pdf', ()
   );
   assert.equal(attachmentUrlFromDetail('<a href="/foo">no attachment</a>'), null);
 });
+
+// Joint-lot titles ("ul. Strażacka 3 i ul. Podgórna 6/1" — one auction, one
+// price): key on the FIRST address instead of swallowing the whole phrase
+// into the street ("Strażacka 3 i ul. Podgórna", building 6).
+test('joint two-address title keys on the first address', () => {
+  const html = `<li class="aktualnosc__item">
+    <span class="aktualnosci__data">2026-02-12</span>
+    <a href="/bip/x/idn:12717">ul. Strażacka 3 i ul. Podgórna 6/1</a>
+    <p class="aktualnosci__tresc">trzeci przetarg ustny nieograniczony na sprzedaż nieruchomości zabudowanej i lokalu niemieszkalnego (użytkowego)</p>
+  </li>`;
+  const items = parseBipList(html);
+  assert.equal(items.length, 1);
+  assert.equal(items[0].address.key, 'strazacka|3|');
+  assert.equal(items[0].address.street, 'Strażacka');
+  assert.equal(items[0].address_raw, 'ul. Strażacka 3 i ul. Podgórna 6/1');
+});

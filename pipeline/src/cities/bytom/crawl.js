@@ -107,6 +107,15 @@ function kindFromText(txt) {
 
 // ---- i-BIIP catalog (price/area/auction_date enrichment) -----------------
 
+
+// Joint-lot sales list TWO addresses in one title ("ul. Strażacka 3 i ul.
+// Podgórna 6/1" — one auction, one price, two properties). Key on the FIRST
+// address; the full joint label stays in address_raw. Without this the whole
+// phrase became the street ("Strażacka 3 i ul. Podgórna", building 6).
+function primaryAddress(addrRaw) {
+  return addrRaw.split(/\s+i\s+(?:ul|al|pl|os)\.\s+/i)[0].trim();
+}
+
 const CAT = {
   adres: /ADRES\s*:?\s*([\s\S]*?)\s*TYP\s*:/i,
   termin: /TERMIN\s+PRZETARGU\s*:?\s*(\d{4}-\d{2}-\d{2})/i,
@@ -132,7 +141,7 @@ export function parseCatalog(html) {
     const text = stripTags(chunk);
     const addrRaw = CAT.adres.exec(text)?.[1]?.trim();
     if (!addrRaw || /\bdz\.?\s*\d/i.test(addrRaw)) continue;
-    const address = parseAddress(addrRaw);
+    const address = parseAddress(primaryAddress(addrRaw));
     if (!address) continue;
     const hrefM = /href="([^"]+\.doc[^"]*)"/i.exec(chunk);
     byKey.set(address.key, {
@@ -169,7 +178,7 @@ export function parseBipList(html) {
     const kind = kindFromText(desc);
     if (!kind) continue; // land / garages / leases
     if (/\bdz\.?\s*\d|działk/i.test(addrRaw)) continue; // plot in title → skip
-    const address = parseAddress(addrRaw);
+    const address = parseAddress(primaryAddress(addrRaw));
     if (!address) continue;
 
     out.push({

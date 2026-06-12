@@ -84,6 +84,12 @@ export function parseAnnouncement(html, title, docUrl) {
   // — pdftotext-ish artefact that occurs in some bodies.
   const areaM = /o\s+pow(?:\.|ierzchni)\s*(?:u[żz]ytkowej\s*)?(\d+(?:[,.]\d+)?)\s*m\s*[²2]/i.exec(text);
   const areaNum = areaM ? Number(areaM[1].replace(',', '.')) : null;
+  // Whole-property sales ("nieruchomość zabudowana budynkiem mieszkalnym przy
+  // ul. Górnej 4…") have no lokal — the first "o powierzchni" is the PLOT or
+  // building total (1 049,48 m²), not a usable flat area. Putting it in
+  // area_m2 produced apples-to-oranges zł/m² next to flat rows, so it goes to
+  // land_area_m2 and the UI's zł/m² stays blank for these.
+  const isWholeProperty = !/lokal/i.test(title) && !/lokal/i.test(text);
 
   const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
   const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
@@ -103,7 +109,8 @@ export function parseAnnouncement(html, title, docUrl) {
     address_raw: addrRaw,
     address,
     auction_date,
-    area_m2: Number.isFinite(areaNum) ? areaNum : null,
+    area_m2: !isWholeProperty && Number.isFinite(areaNum) ? areaNum : null,
+    ...(isWholeProperty && Number.isFinite(areaNum) ? { land_area_m2: areaNum } : {}),
     starting_price_pln,
     detail_url: docUrl,
     wadium_deadline,
@@ -201,6 +208,9 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   // anchors on "lokal" so the parcel's "o łącznej pow. 68 194 m2" can't match.
   const arM = /o\s+pow\.\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob)
     || /lokal\w*[^.]{0,40}?o\s+pow\.\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob);
+  // No lokal in the row → the area belongs to the whole property (plot /
+  // building), not a unit. See parseAnnouncement's land_area_m2 note.
+  const rowIsWholeProperty = !/lokal/i.test(blob);
   const areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
 
   // Same amount shape as PLN_ALL_RE below: spaced or dotted thousands and
@@ -227,7 +237,8 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
     final_price_pln,
     outcome: negative ? 'unsold' : 'sold',
     unsold_reason: negative ? 'unknown' : null,
-    area_m2: Number.isFinite(areaNum) ? areaNum : null,
+    area_m2: !rowIsWholeProperty && Number.isFinite(areaNum) ? areaNum : null,
+    ...(rowIsWholeProperty && Number.isFinite(areaNum) ? { land_area_m2: areaNum } : {}),
     notes,
   };
 }
@@ -324,8 +335,18 @@ function parseYearlySummaryRow(lines, lo, _anchorI, hi, prices, sourceUrl) {
     kind = 'mieszkalny';
   }
 
-  const arM = /(\d{1,5}(?:[,.]\d{1,3})?)\s*m2\b/i.exec(blob);
-  const areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
+  // Area: "<num> m2" when the unit is printed; some yearly tables print the
+  // area column BARE ("Mariacka 1/10   34,47   lokal mieszkalny"). The bare
+  // fallback requires a non-zero leading digit + exactly 2 decimals, which a
+  // spaced-thousands price fragment ("2 500 000,00") can never satisfy, and
+  // the value is range-checked below as belt-and-braces.
+  const arM = /(\d{1,5}(?:[,.]\d{1,3})?)\s*m2\b/i.exec(blob)
+    || /(?<![\d,.])([1-9]\d{0,3},\d{2})(?=\s)/.exec(blob);
+  // "nieruchomość zabudowana" rows (no lokal) carry the PLOT/building total —
+  // route to land_area_m2 (see parseAnnouncement's note).
+  const yearlyWholeProperty = !/lokal/i.test(blob);
+  let areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
+  if (areaNum != null && (areaNum < 8 || areaNum > 5000)) areaNum = null;
 
   let round = null;
   const rm = ROUND_RE.exec(blob);
@@ -345,7 +366,8 @@ function parseYearlySummaryRow(lines, lo, _anchorI, hi, prices, sourceUrl) {
     final_price_pln,
     outcome: 'sold',
     unsold_reason: null,
-    area_m2: Number.isFinite(areaNum) ? areaNum : null,
+    area_m2: !yearlyWholeProperty && Number.isFinite(areaNum) ? areaNum : null,
+    ...(yearlyWholeProperty && Number.isFinite(areaNum) ? { land_area_m2: areaNum } : {}),
     notes,
   };
 }

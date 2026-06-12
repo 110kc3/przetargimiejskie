@@ -333,11 +333,11 @@
       "area_m2": 67.01
     },
     {
-      "key": "strazacka 3 i ul podgorna|6|1",
-      "street": "Strażacka 3 i ul. Podgórna",
-      "street_norm": "strazacka 3 i ul podgorna",
-      "building": "6",
-      "apt": "1",
+      "key": "strazacka|3|",
+      "street": "Strażacka",
+      "street_norm": "strazacka",
+      "building": "3",
+      "apt": null,
       "kind": "uzytkowy",
       "listings": [
         {
@@ -346,13 +346,15 @@
           "kind": "uzytkowy",
           "starting_price_pln": 500000,
           "outcome": "archived",
-          "area_m2": 1749,
+          "area_m2": null,
           "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Strazacka-3-i-ul.-Podgorna-61/idn:12717",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 1749
         }
       ],
-      "area_m2": 1749
+      "area_m2": null,
+      "land_area_m2": 1749
     },
     {
       "key": "grottgera|8A|12",

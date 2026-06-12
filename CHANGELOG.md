@@ -4,6 +4,15 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.20.0 — 2026-06-12
+
+- **Archived rounds now count as history** (MINOR): on detail pages and badge
+  tooltips, a flat's earlier rounds from announcement-only cities (Bytom,
+  Zabrze — outcome "zakończone, brak wyniku") are listed as prior auctions
+  with their prices, instead of the panel claiming "brak wcześniejszych
+  aukcji" while the chip said "3. przetarg". New badge wording for properties
+  whose history has no published results.
+
 ## v1.19.1 — 2026-06-12
 
 - **Fix (PATCH):** Gliwice listing cards without an area no longer lose their
@@ -478,8 +487,4 @@ MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
   history badge after the Wave 0 merge). Lookups now namespace via the
   adapter's `city`, matching what `background.js` stores.
 - Branding cleanup: the extension name, short name, action title, popup tab
-  title, archive tab title, notification title (PL + EN), and the PL/EN
-  `popup.title` / `notif.title` / `archive.title` i18n strings no longer
-  claim to be ZGM-Gliwice-only — they read "przetargimiejskie" instead. The
-  popup's GitHub footer link now points at the actual data repo
-  (`110kc3/przetargimiejskie`). Popup footer also shows the version string.
+  title, archive tab title, notification title (PL + EN), 

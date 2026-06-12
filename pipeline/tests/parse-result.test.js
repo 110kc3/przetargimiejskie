@@ -114,3 +114,24 @@ test('OCR ";j" street noise is stripped from the captured address (Jagielloński
   assert.equal(recs[0].address.key, 'jagiellonskiej|1|24');
   assert.equal(recs[0].address.apt, '24');
 });
+
+test('garage on a bare parcel re-keys via the rejon convention (Mastalerza, działka 233/1)', () => {
+  const text = [
+    'INFORMACJA O WYNIKACH POSTĘPOWANIA',
+    '',
+    'w dniu 08.09.2025 r. odbył się I ustny przetarg nieograniczony na sprzedaż części',
+    'nieruchomości gruntowej zabudowanej garażem położonej w Gliwicach',
+    'przy ul. Mastalerza na działce nr 233/1 o powierzchni wynoszącej 126 m”, obręb Zatorze,',
+    'KW GL1G/00032798/0.',
+    'Cena wywoławcza nieruchomości wynosiła 102.400,00 zł',
+    'Cena nieruchomości osiągnięta w przetargu wyniosła 111.030,00 zł',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2025-09-08', 'sample://parcel-garage');
+  assert.equal(recs.length, 1);
+  const r = recs[0];
+  assert.equal(r.address.key, 'mastalerza|0|garaz-233');
+  assert.equal(r.address.street, 'Mastalerza');
+  assert.equal(r.kind, 'garaz');
+  assert.equal(r.starting_price_pln, 102400);
+  assert.equal(r.final_price_pln, 111030);
+});

@@ -142,3 +142,25 @@ test('glued start+achieved prices are split; terse "o pow." area parsed (Widok 3
   assert.equal(r.outcome, 'sold');
   assert.equal(r.area_m2, 26.26, 'flat area, not the 12 570 m² parcel');
 });
+
+// Whole-property rows (no lokal): the area is the PLOT/building total — it
+// must land in land_area_m2, never area_m2 (zł/m² from a 1080 m² plot next
+// to flat rows was apples-to-oranges). The bare-column area form ("1080,73"
+// with no m2 unit) parses; spaced-thousands price fragments can't match it.
+const YEARLY_ZABUDOWANA_PDF = `Wykaz nieruchomości sprzedanych w roku 2023
+
+32   20.03.2023r.  I ustny  lokal mieszkalny  ul. Wita Stwosza 1/11   144,07   430 000,00 zł   490 200,00 zł
+33   26.06.2023r.  I ustny  nieruchomość zabudowana  ul. Stanisława 7   1080,73   2 500 000,00 zł   4 000 000,00 zł
+`;
+
+test('yearly summary: zabudowana row area → land_area_m2, lokal row → area_m2', () => {
+  const recs = parseResultDoc(YEARLY_ZABUDOWANA_PDF, null, 'sample://zabudowana');
+  const flat = recs.find((r) => r.address_raw === 'Wita Stwosza 1/11');
+  assert.ok(flat, 'lokal row missing');
+  assert.equal(flat.area_m2, 144.07);
+  assert.equal(flat.land_area_m2 ?? null, null);
+  const bldg = recs.find((r) => r.address_raw.startsWith('Stanisława'));
+  assert.ok(bldg, 'zabudowana row missing');
+  assert.equal(bldg.area_m2, null, 'plot total must not be a flat area');
+  assert.equal(bldg.land_area_m2, 1080.73);
+});

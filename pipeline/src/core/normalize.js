@@ -28,6 +28,32 @@ const TRAIL_NOISE = /\s*wraz\b.*/i;
 
 const ROMAN_OK = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/i;
 
+
+// Display-only genitive → nominative for SINGLE-WORD adjectival street names:
+// sources write "przy ul. Sportowej 6", so the stored display name ends up
+// genitive ("Sportowej 6/2" in every table). Only unambiguous adjectival
+// endings are converted — -skiej/-ckiej stay untouched here because they are
+// morphologically identical to female-patron surnames ("Bytomskiej" should
+// flip, "Skłodowskiej" must not; callers may flip those only with evidence,
+// e.g. a nominative twin elsewhere in the dataset). Multi-word and hyphenated
+// names (patron full names, "Królewskiej Tamy") are left alone. Keys and
+// street_norm are NEVER touched — this is presentation only.
+const NOMINATIVE_ENDINGS = [
+  ['owej', 'owa'],   // Sportowej → Sportowa, Kalinowej → Kalinowa
+  ['niej', 'nia'],   // Średniej → Średnia
+  ['czej', 'cza'],   // Hutniczej → Hutnicza
+  ['nej', 'na'],     // Cmentarnej → Cmentarna, Piwnej → Piwna
+];
+export function nominativeStreetDisplay(street) {
+  if (!street || /[\s\-]/.test(street)) return street;
+  for (const [gen, nom] of NOMINATIVE_ENDINGS) {
+    if (street.toLowerCase().endsWith(gen) && street.length > gen.length) {
+      return street.slice(0, -gen.length) + nom;
+    }
+  }
+  return street;
+}
+
 /**
  * @typedef {object} ParsedAddress
  * @property {string} street

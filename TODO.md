@@ -150,22 +150,26 @@ this before adding more cities.
   surviving property matches it by date+price, so `heal-properties.js`
   deliberately refuses to fold it. Resolve manually against the source PDF
   ("Przetargi 2025 na BIP.pdf") and either re-key or fold it.
-- **Genitive street display** — streets captured after "przy ul. …" render in
-  the genitive ("Częstochowskiej 4/9", "Kalinowej 51"). Join keys are healed,
-  but the display form stays grammatically odd. A nominative display pass
-  (reuse SUFFIX_SUBS on the DISPLAY string, conservative allowlist) would fix
-  the cosmetics without touching keys.
-- **Bytom multi-street property** — "Strażacka 3 i ul. Podgórna" parsed as one
-  street. Decide: split into two properties or keep with a sanitized label.
+- ~~Genitive street display~~ — DONE for unambiguous endings (-owej/-nej/
+  -czej/-niej via `nominativeStreetDisplay`) and for -skiej/-ckiej/-dzkiej
+  with a nominative twin anywhere in the dataset (cross-city evidence in
+  heal-properties). Remaining genitives ("Częstochowskiej", "Jagiellońskiej",
+  "Grunwaldzkiej") are morphologically ambiguous with patron surnames — flip
+  only if a curated allowlist of place-adjectives is ever added.
+- ~~Bytom multi-street property~~ — DONE: joint-lot titles ("ul. Strażacka 3
+  i ul. Podgórna 6/1") key on the first address (crawl.js `primaryAddress`);
+  the published record was re-keyed to `strazacka|3|` with the 1 749 m² total
+  moved to `land_area_m2`.
 - **Area backfill for concluded listings** — Gliwice 37 and Katowice 40-odd
   properties have no `area_m2` because result PDFs carry no area and
   detail-page enrichment only covers listings active at crawl time. Zabrze
   self-heals on the next refresh (announcement text is cached; the wrapped-m²
   parser fix re-reads it). For Gliwice, consider a one-off crawl of archived
   detail slugs still resolvable on zgm-gliwice.pl.
-- **Świętochłowice cellar-area leftovers** — 5 properties still carry a
-  cellar-sized area (`hutniczej|9B|9`, `grunwaldzkiej|5|5`, `hutniczej|9B|`,
-  `sredniej|12C|4`, `nowej|12|5`): their announcement attachments aren't in the
-  local text caches, so the offline re-derivation couldn't verify them. The
-  fixed `areaFromText` should heal them on the next CI refresh — verify after
-  the run.
+- ~~Świętochłowice cellar-area leftovers~~ — DONE (12 June, evening): the CI
+  refresh with the fixed `areaFromText` healed all five (verified 37–50 m²).
+- **CI data sanity gate added** (12 June): `pipeline/scripts/sanity-check.js`
+  runs per city in refresh.yml between refresh and commit — glued prices,
+  cellar/plot areas, junk streets, zombie duplicates. Known exception:
+  `katowice|oddzialow mlodziezy i ustny|86|` is allowlisted until the manual
+  re-key (entry above). Keep the allowlist tied to TODO entries.

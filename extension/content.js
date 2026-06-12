@@ -80,6 +80,24 @@
     l.outcome !== 'archived' &&
     withinYearWindow(l);
 
+  // Prior rounds for a property, INCLUDING 'archived' ones (announcement-only
+  // cities — Bytom/Zabrze — publish no results, so a flat's earlier rounds are
+  // all 'archived'; hiding them made the detail panel claim "no prior
+  // auctions" while the chip said "3. przetarg"). The one archived row that IS
+  // the page's current listing (a just-passed auction with no fresher row) is
+  // still excluded — a listing is not its own history.
+  const priorOf = (prop) => {
+    if (!prop) return [];
+    const cur = currentListing(prop);
+    return prop.listings.filter(
+      (l) =>
+        l.outcome !== 'active' &&
+        l.outcome !== 'announced' &&
+        !(l === cur && cur.outcome === 'archived') &&
+        withinYearWindow(l),
+    );
+  };
+
   let payload;
   try {
     const res = await chrome.runtime.sendMessage({ type: 'getData' });
@@ -158,7 +176,7 @@
      try {
       const { element, address, area_m2, price_pln, descTarget } = card;
       const prop = lookup(address);
-      const prior = prop ? prop.listings.filter(isPriorHistory) : [];
+      const prior = priorOf(prop);
 
       // (a) zł/m² inline, right after the price in the description line.
       //     Only when the adapter exposed both numbers from the card text.
@@ -209,8 +227,11 @@
             unsold: unsoldCount,
             sold_clause,
           });
-        } else {
+        } else if (soldCount > 0) {
           label = t('badge.prev_sold', { n: prior.length });
+        } else {
+          // Only 'archived' rounds (no published result) — neither sold nor unsold.
+          label = t('badge.prev_archived', { n: prior.length });
         }
         const badge = makeBadge({ kind, text: label });
         // Pass the card-parsed area as a fallback so the history table can
@@ -251,7 +272,7 @@
       return;
     }
 
-    const prior = prop.listings.filter(isPriorHistory);
+    const prior = priorOf(prop);
     const active = currentListing(prop);
     const rows = prior
       .map(
@@ -470,8 +491,7 @@
         </tr>
       </thead>
       <tbody>
-      ${prop.listings
-        .filter(isPriorHistory)
+      ${priorOf(prop)
         .map(
           (l) => `
           <tr class="zgm-ext-row-${l.outcome}">
@@ -511,6 +531,7 @@
     if (l.outcome === 'sold') return t('outcome.sold');
     if (l.outcome === 'unsold') return t('outcome.unsold');
     if (l.outcome === 'no_winner') return t('outcome.no_winner');
+    if (l.outcome === 'archived') return t('outcome.archived');
     return l.outcome;
   }
 

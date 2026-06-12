@@ -85,6 +85,7 @@
         'prev ${n}× — ${unsold} unsold${sold_clause}',
       'badge.prev_unsold.sold_clause': ', ${sold} sold',
       'badge.prev_sold': 'prev ${n}× sold',
+      'badge.prev_archived': 'prev ${n}× (result not published)',
       'chip.round': 'auction ${r}',
 
       // tooltip/table headers
@@ -214,6 +215,7 @@
         'poprzednio ${n}× — ${unsold} bez sprzedaży${sold_clause}',
       'badge.prev_unsold.sold_clause': ', ${sold} sprzedane',
       'badge.prev_sold': 'poprzednio ${n}× sprzedane',
+      'badge.prev_archived': 'poprzednio ${n}× (brak opublikowanego wyniku)',
       'chip.round': '${r}. przetarg',
 
       // tooltip/table headers

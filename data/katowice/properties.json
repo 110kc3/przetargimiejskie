@@ -4,7 +4,7 @@
   "properties": [
     {
       "key": "dzialkowej|17|",
-      "street": "Działkowej",
+      "street": "Działkowa",
       "street_norm": "dzialkowej",
       "building": "17",
       "apt": null,
@@ -26,7 +26,7 @@
     },
     {
       "key": "kosmicznej|10|",
-      "street": "Kosmicznej",
+      "street": "Kosmiczna",
       "street_norm": "kosmicznej",
       "building": "10",
       "apt": null,
@@ -125,7 +125,7 @@
     },
     {
       "key": "sokolskiej|54|5",
-      "street": "Sokolskiej",
+      "street": "Sokolska",
       "street_norm": "sokolskiej",
       "building": "54",
       "apt": "5",
@@ -147,7 +147,7 @@
     },
     {
       "key": "wiertniczej|6|26",
-      "street": "Wiertniczej",
+      "street": "Wiertnicza",
       "street_norm": "wiertniczej",
       "building": "6",
       "apt": "26",
@@ -244,10 +244,11 @@
           "kind": "mieszkalny",
           "starting_price_pln": 2000000,
           "outcome": "archived",
-          "area_m2": 725.06,
+          "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=518",
           "wadium_deadline": "2025-11-17",
-          "viewing_date": "2025-11-17"
+          "viewing_date": "2025-11-17",
+          "land_area_m2": 725.06
         },
         {
           "date": "2026-02-17",
@@ -255,10 +256,11 @@
           "kind": "mieszkalny",
           "starting_price_pln": 1400000,
           "outcome": "archived",
-          "area_m2": 725.06,
+          "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=542",
           "wadium_deadline": "2026-02-09",
-          "viewing_date": "2026-02-09"
+          "viewing_date": "2026-02-09",
+          "land_area_m2": 725.06
         },
         {
           "date": "2026-05-19",
@@ -266,13 +268,15 @@
           "kind": "mieszkalny",
           "starting_price_pln": 1000000,
           "outcome": "archived",
-          "area_m2": 725.06,
+          "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=555",
           "wadium_deadline": "2026-05-11",
-          "viewing_date": "2026-05-11"
+          "viewing_date": "2026-05-11",
+          "land_area_m2": 725.06
         }
       ],
-      "area_m2": 725.06
+      "area_m2": null,
+      "land_area_m2": 725.06
     },
     {
       "key": "francuska|6|II",
@@ -395,10 +399,11 @@
           "kind": "mieszkalny",
           "starting_price_pln": 2000000,
           "outcome": "archived",
-          "area_m2": 1049.48,
+          "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=534",
           "wadium_deadline": "2026-01-26",
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 1049.48
         },
         {
           "date": "2026-04-28",
@@ -410,16 +415,18 @@
           "final_price_pln": 3010000,
           "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
           "notes": [],
-          "area_m2": 1049.48,
+          "area_m2": null,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
-          "wadium_deadline": "2026-04-20"
+          "wadium_deadline": "2026-04-20",
+          "land_area_m2": 1049.48
         }
       ],
-      "area_m2": 1049.48
+      "area_m2": null,
+      "land_area_m2": 1049.48
     },
     {
       "key": "mariackiej|26|",
-      "street": "Mariackiej",
+      "street": "Mariacka",
       "street_norm": "mariackiej",
       "building": "26",
       "apt": null,
@@ -441,7 +448,7 @@
     },
     {
       "key": "borowej|30|",
-      "street": "Borowej",
+      "street": "Borowa",
       "street_norm": "borowej",
       "building": "30",
       "apt": null,
@@ -771,7 +778,7 @@
     },
     {
       "key": "debowej|15|",
-      "street": "Dębowej",
+      "street": "Dębowa",
       "street_norm": "debowej",
       "building": "15",
       "apt": null,
@@ -814,7 +821,7 @@
     },
     {
       "key": "goscinnej|3A|",
-      "street": "Gościnnej",
+      "street": "Gościnna",
       "street_norm": "goscinnej",
       "building": "3A",
       "apt": null,
@@ -836,7 +843,7 @@
     },
     {
       "key": "granicznej|57|7",
-      "street": "Granicznej",
+      "street": "Graniczna",
       "street_norm": "granicznej",
       "building": "57",
       "apt": "7",
@@ -1067,7 +1074,7 @@
     },
     {
       "key": "powstanczej|5|10",
-      "street": "Powstańczej",
+      "street": "Powstańcza",
       "street_norm": "powstanczej",
       "building": "5",
       "apt": "10",
@@ -1130,7 +1137,7 @@
     },
     {
       "key": "powstanczej|5|8",
-      "street": "Powstańczej",
+      "street": "Powstańcza",
       "street_norm": "powstanczej",
       "building": "5",
       "apt": "8",
@@ -1633,11 +1640,11 @@
       ]
     },
     {
-      "key": "przetargi|26|",
-      "street": "Przetargi",
-      "street_norm": "przetargi",
-      "building": "26",
-      "apt": null,
+      "key": "wita stwosza|1|11",
+      "street": "Wita Stwosza",
+      "street_norm": "wita stwosza",
+      "building": "1",
+      "apt": "11",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -1649,9 +1656,11 @@
           "unsold_reason": null,
           "final_price_pln": 490200,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 144.07
         }
-      ]
+      ],
+      "area_m2": 144.07
     },
     {
       "key": "wita stwosza|1|9",
@@ -2132,10 +2141,12 @@
           "final_price_pln": 918000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
-          "area_m2": 447.14
+          "area_m2": null,
+          "land_area_m2": 447.14
         }
       ],
-      "area_m2": 447.14
+      "area_m2": null,
+      "land_area_m2": 447.14
     },
     {
       "key": "kozielska|10A|18",
@@ -2362,10 +2373,12 @@
           "final_price_pln": 4480000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
-          "area_m2": 1920
+          "area_m2": null,
+          "land_area_m2": 1920
         }
       ],
-      "area_m2": 1920
+      "area_m2": null,
+      "land_area_m2": 1920
     },
     {
       "key": "kwiatowa|9A|",
@@ -2408,10 +2421,12 @@
           "final_price_pln": 3975000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
-          "area_m2": 817.6
+          "area_m2": null,
+          "land_area_m2": 817.6
         }
       ],
-      "area_m2": 817.6
+      "area_m2": null,
+      "land_area_m2": 817.6
     },
     {
       "key": "zwirki i wigury|5|14",
@@ -2822,10 +2837,12 @@
           "final_price_pln": 163500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202020.pdf",
           "notes": [],
-          "area_m2": 1716.67
+          "area_m2": null,
+          "land_area_m2": 1716.67
         }
       ],
-      "area_m2": 1716.67
+      "area_m2": null,
+      "land_area_m2": 1716.67
     },
     {
       "key": "kozielska|10A|23",
@@ -3013,7 +3030,7 @@
     },
     {
       "key": "francuskiej|6|",
-      "street": "Francuskiej",
+      "street": "Francuska",
       "street_norm": "francuskiej",
       "building": "6",
       "apt": null,

@@ -119,6 +119,24 @@ function parseSoldSection(sold, auctionDate, sourcePdf) {
     const addrM = ADDR_FROM_SOLD.exec(para);
     let addressRaw = addrM ? cleanAddrNoise(addrM[1]) : '';
     let address = addressRaw ? parseAddress(addressRaw) : null;
+    // Garage on a bare parcel: "nieruchomości gruntowej zabudowanej garażem …
+    // przy ul. Mastalerza na działce nr 233/1" — there is no building number,
+    // so the generic capture swallowed "na działce nr 233/1" into the street
+    // (street "Mastalerza na działce nr", building 233). Re-key with the
+    // rejon-garage convention (building "0", apt "garaz-<parcel>") so the
+    // record survives with an honest, stable key.
+    if (/na\s+dzia[łl]/i.test(addressRaw)) {
+      const pg =
+        /zabudowan\w+\s+gara[żz]em[\s\S]{0,120}?przy\s+(?:ul|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\- ]+?)\s+na\s+dzia[łl]ce\s+nr\s+(\d+)(?:\/(\d+))?/i.exec(para);
+      if (pg) {
+        const street = pg[1].trim();
+        addressRaw = `${street} działka nr ${pg[2]}${pg[3] ? '/' + pg[3] : ''}`;
+        address = parseAddress(`${street} 0 garaż nr ${pg[2]}`);
+      } else {
+        // Unknown "na działce" shape — better an addressless note than a junk key.
+        address = null;
+      }
+    }
     if (!address) {
       const gm = ADDR_FROM_SOLD_GARAGE.exec(para);
       if (gm) {
