@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-12T06:36:52.155Z",
+  "generated_at": "2026-06-12T10:04:08.944Z",
   "cities": [
     {
       "id": "gliwice",
       "label": "Gliwice",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 186,
+      "unique_properties": 176,
       "active_listings": 18,
       "active_auctions": 18,
       "archived_auctions": 234,
@@ -18,10 +18,10 @@
       "label": "Katowice",
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
-      "unique_properties": 129,
+      "unique_properties": 128,
       "active_listings": 45,
       "active_auctions": 8,
-      "archived_auctions": 132,
+      "archived_auctions": 134,
       "wykaz_entries": 0
     },
     {
@@ -41,8 +41,8 @@
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
       "unique_properties": 264,
-      "active_listings": 412,
-      "active_auctions": 5,
+      "active_listings": 413,
+      "active_auctions": 6,
       "archived_auctions": 412,
       "wykaz_entries": 0
     },
@@ -51,7 +51,7 @@
       "label": "Sosnowiec",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 26,
+      "unique_properties": 25,
       "active_listings": 35,
       "active_auctions": 4,
       "archived_auctions": 39,
