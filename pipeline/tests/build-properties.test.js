@@ -119,3 +119,22 @@ test('healStreetVariants folds a post-merge genitive zombie into the nominative 
   assert.equal(p.listings.filter((l) => l.outcome === 'sold').length, 1);
   assert.equal(p.area_m2, 41.2);
 });
+
+test('healStreetVariants migrates merged-in plot areas to land_area_m2 (post-merge self-heal)', () => {
+  // Simulates the CI failure of 12 June: the committed file carries a 1716 m²
+  // "flat" (old parser), the merge re-imports it every run — the post-merge
+  // heal must demote it so the sanity gate passes without manual data edits.
+  const merged = [{
+    key: 'gliwicka|132A|6', street: 'Gliwicka', street_norm: 'gliwicka',
+    building: '132A', apt: '6', kind: 'mieszkalny', area_m2: 1716.67,
+    listings: [
+      { date: '2026-05-04', outcome: 'archived', starting_price_pln: 150000, area_m2: 1716.67 },
+    ],
+  }];
+  const healed = healStreetVariants(merged);
+  const p = healed[0];
+  assert.equal(p.area_m2, null);
+  assert.equal(p.land_area_m2, 1716.67);
+  assert.equal(p.listings[0].area_m2, null);
+  assert.equal(p.listings[0].land_area_m2, 1716.67);
+});

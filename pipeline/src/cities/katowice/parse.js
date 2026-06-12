@@ -82,14 +82,45 @@ export function parseAnnouncement(html, title, docUrl) {
   // full word "o powierzchni" / "o powierzchni użytkowej" (common on the
   // city-portal SharePoint announcements). Also accept "m 2" with a space
   // — pdftotext-ish artefact that occurs in some bodies.
-  const areaM = /o\s+pow(?:\.|ierzchni)\s*(?:u[żz]ytkowej\s*)?(\d+(?:[,.]\d+)?)\s*m\s*[²2]/i.exec(text);
-  const areaNum = areaM ? Number(areaM[1].replace(',', '.')) : null;
+  //
+  // SELECTION matters: a lokal announcement's body usually states the PARCEL
+  // first ("nieruchomości gruntowej … o powierzchni 800 m²") and the flat
+  // later — the old first-match grab published 500–800 m² "flats"
+  // (oswobodzenia 38C/57 @ 225 zł/m², caught by the CI sanity gate). Order:
+  //   1. the explicitly labelled "pow. użytkowej" value;
+  //   2. any "o pow." NOT preceded by parcel vocabulary, preferring one in a
+  //      lokal context;
+  // and a flat-implausible (>300 m²) pick is demoted to land_area_m2.
+  const labM = /o\s+pow(?:\.|ierzchni)\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m\s*[²2]/i.exec(text);
+  let areaNum = labM ? Number(labM[1].replace(',', '.')) : null;
+  if (areaNum == null) {
+    const RE = /o\s+pow(?:\.|ierzchni)\s*(\d+(?:[,.]\d+)?)\s*m\s*[²2]/gi;
+    let am;
+    let fallback = null;
+    while ((am = RE.exec(text)) !== null) {
+      // The NEAREST preceding keyword decides what this area describes —
+      // "… działka nr 12/3 o powierzchni 800 m². Lokal mieszkalny o
+      // powierzchni 38,40 m² …" has parcel vocabulary in the window of BOTH
+      // matches; only proximity separates them.
+      const before = text.slice(Math.max(0, am.index - 80), am.index).toLowerCase();
+      const lastParcel = Math.max(
+        ...['działk', 'dzialk', 'grunt', 'teren', 'obręb', 'obreb'].map((w) => before.lastIndexOf(w)),
+      );
+      const lastLokal = before.lastIndexOf('lokal');
+      const v = Number(am[1].replace(',', '.'));
+      if (lastLokal > lastParcel) { areaNum = v; break; }
+      if (lastParcel > lastLokal) continue; // parcel
+      if (fallback == null) fallback = v;
+    }
+    if (areaNum == null) areaNum = fallback;
+  }
   // Whole-property sales ("nieruchomość zabudowana budynkiem mieszkalnym przy
-  // ul. Górnej 4…") have no lokal — the first "o powierzchni" is the PLOT or
-  // building total (1 049,48 m²), not a usable flat area. Putting it in
-  // area_m2 produced apples-to-oranges zł/m² next to flat rows, so it goes to
-  // land_area_m2 and the UI's zł/m² stays blank for these.
-  const isWholeProperty = !/lokal/i.test(title) && !/lokal/i.test(text);
+  // ul. Górnej 4…") have no lokal — whatever area we found is the PLOT or
+  // building total, not a usable flat area → land_area_m2, zł/m² stays blank.
+  // A "flat" area over 300 m² is the same thing wearing a lokal announcement.
+  const isWholeProperty =
+    (!/lokal/i.test(title) && !/lokal/i.test(text)) ||
+    (areaNum != null && areaNum > 300);
 
   const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
   const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;

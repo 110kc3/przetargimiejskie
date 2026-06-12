@@ -113,7 +113,36 @@ export function healStreetVariants(properties) {
   }
   const healed = [...map.values()];
   applyDisplayStreets(healed);
+  healPlotAreas(healed);
   return healed;
+}
+
+/**
+ * Migrate plot/building totals out of the flat-area field, in place. A
+ * mieszkalny/unknown property cannot have a 300+ m² unit — such a value is a
+ * parcel or building total that an older parser published (and that
+ * mergeProperties re-imports from the committed file on EVERY run, which is
+ * why this lives in the post-merge heal and not only in the parsers). The CI
+ * sanity gate fails on exactly these, so without this hook one bad historical
+ * value would block a city's refresh forever.
+ * @param {Array} properties
+ */
+export function healPlotAreas(properties) {
+  const MAX_FLAT_M2 = 300;
+  for (const p of properties) {
+    if (p.kind !== 'mieszkalny' && p.kind !== 'unknown') continue;
+    if (p.area_m2 != null && p.area_m2 > MAX_FLAT_M2) {
+      p.land_area_m2 = p.land_area_m2 ?? p.area_m2;
+      p.area_m2 = null;
+    }
+    for (const l of p.listings) {
+      if (l.area_m2 != null && l.area_m2 > MAX_FLAT_M2) {
+        l.land_area_m2 = l.land_area_m2 ?? l.area_m2;
+        l.area_m2 = null;
+        console.error(`  plot-area healed: ${p.key} ${l.date || ''} ${l.land_area_m2} m² → land_area_m2`);
+      }
+    }
+  }
 }
 
 /**

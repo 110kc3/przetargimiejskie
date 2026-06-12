@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
+import { parseAnnouncement, parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
 
 const NEG_PDF = `                                     WYKAZ Z DNIA 27.05.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
 
@@ -163,4 +163,30 @@ test('yearly summary: zabudowana row area → land_area_m2, lokal row → area_m
   assert.ok(bldg, 'zabudowana row missing');
   assert.equal(bldg.area_m2, null, 'plot total must not be a flat area');
   assert.equal(bldg.land_area_m2, 1080.73);
+});
+
+// Announcement area SELECTION (CI sanity-gate catch, June 2026): lokal
+// announcements state the PARCEL first ("nieruchomości gruntowej … o
+// powierzchni 800 m²"), so the old first-match grab published 800 m² "flats"
+// at 225 zł/m². The flat's own area must win; whole-property announcements
+// route their total to land_area_m2.
+test('announcement: parcel area is skipped, the lokal area wins', () => {
+  const html = `<p>Sprzedaż lokalu mieszkalnego nr 57 położonego w budynku przy
+    ul. Oswobodzenia 38C, usytuowanego na nieruchomości gruntowej oznaczonej
+    jako działka nr 12/3 o powierzchni 800 m². Lokal mieszkalny o powierzchni
+    38,40 m² składa się z pokoju i kuchni. Cena wywoławcza: 180 000 zł.
+    Przetarg odbędzie się w dniu 10.07.2026 r.</p>`;
+  const a = parseAnnouncement(html, 'Pierwszy przetarg … lokalu mieszkalnego przy ul. Oswobodzenia 38C/57', 'doc://x');
+  assert.ok(a);
+  assert.equal(a.area_m2, 38.4, 'flat area, not the 800 m² parcel');
+  assert.equal(a.land_area_m2 ?? null, null);
+});
+
+test('announcement: whole-property total → land_area_m2, never area_m2', () => {
+  const html = `<p>Sprzedaż nieruchomości zabudowanej budynkiem mieszkalnym przy
+    ul. Górnej 4 o powierzchni 1049,48 m². Cena wywoławcza: 2 000 000 zł.</p>`;
+  const a = parseAnnouncement(html, 'Pierwszy przetarg … nieruchomości zabudowanej przy ul. Górnej 4', 'doc://y');
+  assert.ok(a);
+  assert.equal(a.area_m2, null);
+  assert.equal(a.land_area_m2, 1049.48);
 });
