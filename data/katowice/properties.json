@@ -17,6 +17,7 @@
           "starting_price_pln": 450000,
           "outcome": "active",
           "area_m2": 100.37,
+          "land_area_m2": 100.37,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151978&menu=679",
           "wadium_deadline": "2026-09-07",
           "viewing_date": "2026-09-07"
@@ -39,6 +40,7 @@
           "starting_price_pln": 260000,
           "outcome": "active",
           "area_m2": 83.64,
+          "land_area_m2": 83.64,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152358&menu=679",
           "wadium_deadline": "2026-09-07",
           "viewing_date": "2026-09-07"
@@ -247,8 +249,7 @@
           "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=518",
           "wadium_deadline": "2025-11-17",
-          "viewing_date": "2025-11-17",
-          "land_area_m2": 725.06
+          "viewing_date": "2025-11-17"
         },
         {
           "date": "2026-02-17",
@@ -259,8 +260,7 @@
           "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=542",
           "wadium_deadline": "2026-02-09",
-          "viewing_date": "2026-02-09",
-          "land_area_m2": 725.06
+          "viewing_date": "2026-02-09"
         },
         {
           "date": "2026-05-19",
@@ -271,8 +271,7 @@
           "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=555",
           "wadium_deadline": "2026-05-11",
-          "viewing_date": "2026-05-11",
-          "land_area_m2": 725.06
+          "viewing_date": "2026-05-11"
         }
       ],
       "area_m2": null,
@@ -461,6 +460,7 @@
           "starting_price_pln": 700000,
           "outcome": "archived",
           "area_m2": 127.66,
+          "land_area_m2": 127.66,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=525",
           "wadium_deadline": "2025-12-01",
           "viewing_date": "2025-12-01"
@@ -472,6 +472,7 @@
           "starting_price_pln": 500000,
           "outcome": "archived",
           "area_m2": 127.66,
+          "land_area_m2": 127.66,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=543",
           "wadium_deadline": "2026-03-09",
           "viewing_date": "2026-03-09"
@@ -834,6 +835,7 @@
           "starting_price_pln": 350000,
           "outcome": "archived",
           "area_m2": 51.71,
+          "land_area_m2": 51.71,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=526",
           "wadium_deadline": "2025-11-17",
           "viewing_date": "2025-11-17"
@@ -878,6 +880,7 @@
           "starting_price_pln": 1000000,
           "outcome": "archived",
           "area_m2": 70.88,
+          "land_area_m2": 70.88,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=514",
           "wadium_deadline": "2025-10-20",
           "viewing_date": "2025-10-20"
@@ -903,13 +906,13 @@
           "final_price_pln": 208000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
           "notes": [],
-          "area_m2": 31.72,
+          "area_m2": 21.72,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=512",
           "wadium_deadline": "2025-09-22",
           "viewing_date": "2025-09-22"
         }
       ],
-      "area_m2": 31.72
+      "area_m2": 21.72
     },
     {
       "key": "kotlarza|9D|8",
@@ -929,13 +932,15 @@
           "final_price_pln": 224700,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
           "notes": [],
-          "area_m2": 33.1,
+          "area_m2": null,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=515",
           "wadium_deadline": "2025-09-22",
-          "viewing_date": "2025-09-22"
+          "viewing_date": "2025-09-22",
+          "land_area_m2": 700
         }
       ],
-      "area_m2": 33.1
+      "area_m2": null,
+      "land_area_m2": 700
     },
     {
       "key": "graniczna|53C|73",
@@ -980,9 +985,11 @@
           "unsold_reason": null,
           "final_price_pln": 403300,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 300
         }
-      ]
+      ],
+      "area_m2": 300
     },
     {
       "key": "francuska|49|8",
@@ -1001,9 +1008,11 @@
           "unsold_reason": null,
           "final_price_pln": 273000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 38.68
         }
-      ]
+      ],
+      "area_m2": 38.68
     },
     {
       "key": "wojewodzka|29|17",
@@ -1022,9 +1031,11 @@
           "unsold_reason": null,
           "final_price_pln": 500400,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 71.25
         }
-      ]
+      ],
+      "area_m2": 71.25
     },
     {
       "key": "sw jacka|13|",
@@ -1044,6 +1055,7 @@
           "final_price_pln": 1080000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
           "notes": [],
+          "land_area_m2": 247.16,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=504",
           "wadium_deadline": "2025-03-31",
           "viewing_date": "2025-03-31"
@@ -1089,9 +1101,13 @@
           "unsold_reason": null,
           "final_price_pln": 332500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 500
         }
-      ]
+      ],
+      "area_m2": null,
+      "land_area_m2": 500
     },
     {
       "key": "obroncow westerplatte|96|",
@@ -1110,7 +1126,8 @@
           "unsold_reason": null,
           "final_price_pln": 565600,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "land_area_m2": 306.13
         }
       ]
     },
@@ -1152,9 +1169,11 @@
           "unsold_reason": null,
           "final_price_pln": 517500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 86.38
         }
-      ]
+      ],
+      "area_m2": 86.38
     },
     {
       "key": "kolobrzeska|21|14",
@@ -1173,9 +1192,11 @@
           "unsold_reason": null,
           "final_price_pln": 210100,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 100
         }
-      ]
+      ],
+      "area_m2": 100
     },
     {
       "key": "piastowska|5|",
@@ -1215,9 +1236,11 @@
           "unsold_reason": null,
           "final_price_pln": 270000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 32.92
         }
-      ]
+      ],
+      "area_m2": 32.92
     },
     {
       "key": "zabrska|1|11",
@@ -1236,9 +1259,11 @@
           "unsold_reason": null,
           "final_price_pln": 495000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 83.74
         }
-      ]
+      ],
+      "area_m2": 83.74
     },
     {
       "key": "illakowiczowny|17A|3",
@@ -1278,9 +1303,13 @@
           "unsold_reason": null,
           "final_price_pln": 217800,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Przetargi%202025%20na%20BIP.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 800
         }
-      ]
+      ],
+      "area_m2": null,
+      "land_area_m2": 800
     },
     {
       "key": "hierowskiego|69|",
@@ -1299,7 +1328,8 @@
           "unsold_reason": null,
           "final_price_pln": 500500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "land_area_m2": 69.64
         }
       ]
     },
@@ -1320,9 +1350,11 @@
           "unsold_reason": null,
           "final_price_pln": 303000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 56.97
         }
-      ]
+      ],
+      "area_m2": 56.97
     },
     {
       "key": "sienkiewicza|20|3",
@@ -1341,9 +1373,13 @@
           "unsold_reason": null,
           "final_price_pln": 565500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 500
         }
-      ]
+      ],
+      "area_m2": null,
+      "land_area_m2": 500
     },
     {
       "key": "andrzeja|13|16",
@@ -1362,9 +1398,11 @@
           "unsold_reason": null,
           "final_price_pln": 205200,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 200
         }
-      ]
+      ],
+      "area_m2": 200
     },
     {
       "key": "stanislawa|7|",
@@ -1383,7 +1421,8 @@
           "unsold_reason": null,
           "final_price_pln": 4000000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "land_area_m2": 1080.73
         }
       ]
     },
@@ -1404,9 +1443,11 @@
           "unsold_reason": null,
           "final_price_pln": 327000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 62.88
         }
-      ]
+      ],
+      "area_m2": 62.88
     },
     {
       "key": "jozefowska|116|53",
@@ -1425,9 +1466,11 @@
           "unsold_reason": null,
           "final_price_pln": 257250,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 250
         }
-      ]
+      ],
+      "area_m2": 250
     },
     {
       "key": "tysiaclecia|47|33",
@@ -1446,9 +1489,13 @@
           "unsold_reason": null,
           "final_price_pln": 327600,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 600
         }
-      ]
+      ],
+      "area_m2": null,
+      "land_area_m2": 600
     },
     {
       "key": "curie|16|",
@@ -1467,9 +1514,11 @@
           "unsold_reason": null,
           "final_price_pln": 90750,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 750
         }
-      ]
+      ],
+      "area_m2": 750
     },
     {
       "key": "gorniczego stanu|47|",
@@ -1488,7 +1537,8 @@
           "unsold_reason": null,
           "final_price_pln": 555500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "land_area_m2": 500
         }
       ]
     },
@@ -1509,7 +1559,8 @@
           "unsold_reason": null,
           "final_price_pln": 252500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "land_area_m2": 86.82
         }
       ]
     },
@@ -1530,9 +1581,11 @@
           "unsold_reason": null,
           "final_price_pln": 260000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 55.66
         }
-      ]
+      ],
+      "area_m2": 55.66
     },
     {
       "key": "mariacka|1|10",
@@ -1551,9 +1604,11 @@
           "unsold_reason": null,
           "final_price_pln": 260800,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 34.47
         }
-      ]
+      ],
+      "area_m2": 34.47
     },
     {
       "key": "wita stwosza|1|7",
@@ -1572,9 +1627,11 @@
           "unsold_reason": null,
           "final_price_pln": 486000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 113.47
         }
-      ]
+      ],
+      "area_m2": 113.47
     },
     {
       "key": "wita stwosza|1|11A",
@@ -1593,9 +1650,11 @@
           "unsold_reason": null,
           "final_price_pln": 160000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 23.01
         }
-      ]
+      ],
+      "area_m2": 23.01
     },
     {
       "key": "wita stwosza|1|III",
@@ -1614,9 +1673,11 @@
           "unsold_reason": null,
           "final_price_pln": 272700,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 82.91
         }
-      ]
+      ],
+      "area_m2": 82.91
     },
     {
       "key": "wita stwosza|1|2",
@@ -1635,9 +1696,11 @@
           "unsold_reason": null,
           "final_price_pln": 353500,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 114.81
         }
-      ]
+      ],
+      "area_m2": 114.81
     },
     {
       "key": "wita stwosza|1|11",
@@ -1679,9 +1742,11 @@
           "unsold_reason": null,
           "final_price_pln": 575000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 164.44
         }
-      ]
+      ],
+      "area_m2": 164.44
     },
     {
       "key": "wita stwosza|1|4",
@@ -1700,9 +1765,11 @@
           "unsold_reason": null,
           "final_price_pln": 728000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 212.09
         }
-      ]
+      ],
+      "area_m2": 212.09
     },
     {
       "key": "wita stwosza|1|5",
@@ -1721,9 +1788,11 @@
           "unsold_reason": null,
           "final_price_pln": 546000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 160.54
         }
-      ]
+      ],
+      "area_m2": 160.54
     },
     {
       "key": "wita stwosza|1|6",
@@ -1742,9 +1811,13 @@
           "unsold_reason": null,
           "final_price_pln": 999600,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 600
         }
-      ]
+      ],
+      "area_m2": null,
+      "land_area_m2": 600
     },
     {
       "key": "raciborska|14|11",
@@ -1763,9 +1836,11 @@
           "unsold_reason": null,
           "final_price_pln": 355000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 89.13
         }
-      ]
+      ],
+      "area_m2": 89.13
     },
     {
       "key": "plebiscytowa|30|5",
@@ -1784,9 +1859,11 @@
           "unsold_reason": null,
           "final_price_pln": 383800,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 107.8
         }
-      ]
+      ],
+      "area_m2": 107.8
     },
     {
       "key": "sienkiewicza|24|1",
@@ -1805,9 +1882,11 @@
           "unsold_reason": null,
           "final_price_pln": 435200,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 97.43
         }
-      ]
+      ],
+      "area_m2": 97.43
     },
     {
       "key": "wojewodzka|20|1",
@@ -1826,9 +1905,11 @@
           "unsold_reason": null,
           "final_price_pln": 367200,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 84.43
         }
-      ]
+      ],
+      "area_m2": 84.43
     },
     {
       "key": "francuska|29|5",
@@ -1847,9 +1928,11 @@
           "unsold_reason": null,
           "final_price_pln": 232300,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 71.24
         }
-      ]
+      ],
+      "area_m2": 71.24
     },
     {
       "key": "wigury|31|2",
@@ -1868,9 +1951,11 @@
           "unsold_reason": null,
           "final_price_pln": 400400,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 81.96
         }
-      ]
+      ],
+      "area_m2": 81.96
     },
     {
       "key": "mlynska|5|2",
@@ -1889,9 +1974,11 @@
           "unsold_reason": null,
           "final_price_pln": 1373600,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%202023%20roku.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 253.55
         }
-      ]
+      ],
+      "area_m2": 253.55
     },
     {
       "key": "wspolna|40|",
@@ -1911,6 +1998,7 @@
           "final_price_pln": 492000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
+          "land_area_m2": 128.04,
           "area_m2": 128.04
         }
       ],
@@ -1934,6 +2022,7 @@
           "final_price_pln": 761200,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
+          "land_area_m2": 108.1,
           "area_m2": 108.1
         }
       ],
@@ -2141,7 +2230,6 @@
           "final_price_pln": 918000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
-          "area_m2": null,
           "land_area_m2": 447.14
         }
       ],
@@ -2235,6 +2323,7 @@
           "final_price_pln": 454400,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
+          "land_area_m2": 82.11,
           "area_m2": 82.11
         }
       ],
@@ -2350,6 +2439,7 @@
           "final_price_pln": 429000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
+          "land_area_m2": 142.09,
           "area_m2": 142.09
         }
       ],
@@ -2373,7 +2463,6 @@
           "final_price_pln": 4480000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
-          "area_m2": null,
           "land_area_m2": 1920
         }
       ],
@@ -2398,6 +2487,7 @@
           "final_price_pln": 282000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
+          "land_area_m2": 50.17,
           "area_m2": 50.17
         }
       ],
@@ -2421,7 +2511,6 @@
           "final_price_pln": 3975000,
           "source_pdf": "https://katowice.eu/SiteAssets/dla-mieszka%C5%84ca/zamieszkaj-w-katowicach/przetargi-na-nieruchomo%C5%9Bci-miasta/Wykaz%20nieruchomo%C5%9Bci%20sprzedanych%20w%20drodze%20przetargu%20w%20roku%202021.pdf",
           "notes": [],
-          "area_m2": null,
           "land_area_m2": 817.6
         }
       ],
