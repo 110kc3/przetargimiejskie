@@ -34,13 +34,13 @@ body{margin:0;font-family:var(--font);
 a{color:var(--accent-hi);text-decoration:none}
 a:hover{color:var(--accent);text-decoration:underline}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
-.brand{font-weight:700;font-size:16px;letter-spacing:.2px;color:var(--fg-strong)}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:8px 18px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--border)}
+.brand{font-weight:700;font-size:16px;letter-spacing:.2px;color:var(--fg-strong);white-space:nowrap}
 .brand b{color:var(--accent-hi);font-weight:700}
 .brand .brand-sep{color:var(--faint);font-weight:500;margin:0 7px}
 .brand .brand-region{color:var(--muted);font-weight:500}
 .site-nav{display:flex;gap:22px}
-.site-nav a{color:var(--muted);font-size:13.5px}
+.site-nav a{color:var(--muted);font-size:13.5px;white-space:nowrap}
 .site-nav a:hover{color:var(--fg);text-decoration:none}
 .hero{padding:52px 0 36px}
 .hero-title{font-size:40px;line-height:1.12;margin:0 0 16px;font-weight:800;letter-spacing:-.6px;color:var(--fg-strong);max-width:16ch;text-wrap:balance}
@@ -85,7 +85,16 @@ a:hover{color:var(--accent);text-decoration:underline}
 .dot-sosnowiec{background:var(--c-sosnowiec)}.dot-rybnik{background:var(--c-rybnik)}
 .dot-myslowice{background:var(--c-myslowice)}.dot-bielsko{background:var(--c-bielsko)}
 .dot-swietochlowice{background:var(--c-swietochlowice)}
-@media (max-width:720px){.stat-row{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:30px}}
+@media (max-width:720px){
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:30px}
+  /* Header stacks: brand on its own line, nav links in a row below —
+     prevents the nav squeezing next to the brand and "Jak działa"
+     breaking mid-link on phones. */
+  .site-header{padding:14px 0}
+  .site-nav{width:100%;gap:18px}
+  .hero{padding:36px 0 28px}
+}
 </style>
 </head>
 <body>
