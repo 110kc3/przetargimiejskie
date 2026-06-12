@@ -3,6 +3,28 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "brzezinskiej|47|2",
+      "street": "Brzezińskiej",
+      "street_norm": "brzezinskiej",
+      "building": "47",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "active",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.86
+    },
+    {
       "key": "powstancow|1|11",
       "street": "Powstańców",
       "street_norm": "powstancow",
@@ -14,23 +36,25 @@
           "date": "2026-05-12",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 205500,
           "outcome": "archived",
           "area_m2": 59,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-mi",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "share": "4/6"
         },
         {
           "date": "2026-07-07",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 205500,
           "outcome": "active",
           "area_m2": 59,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-m",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "share": "4/6"
         }
       ],
       "area_m2": 59
@@ -257,7 +281,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 36.54,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21-p",
           "wadium_deadline": null,
@@ -279,7 +303,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 145000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 30.55,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-41-pr",
           "wadium_deadline": null,

@@ -3,6 +3,63 @@
   "city": "bytom",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Dworcowa 5/1",
+      "address": {
+        "street": "Dworcowa",
+        "street_norm": "dworcowa",
+        "building": "5",
+        "apt": "1",
+        "key": "dworcowa|5|1",
+        "warning": null
+      },
+      "auction_date": "2026-07-10",
+      "published_date": "2026-06-10",
+      "round": 3,
+      "area_m2": 52.96,
+      "starting_price_pln": 97500,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Dworcowa-51/idn:13483",
+      "doc_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Dworcowa-5-1,7904.doc"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Katowicka 63/17",
+      "address": {
+        "street": "Katowicka",
+        "street_norm": "katowicka",
+        "building": "63",
+        "apt": "17",
+        "key": "katowicka|63|17",
+        "warning": null
+      },
+      "auction_date": "2026-07-10",
+      "published_date": "2026-06-10",
+      "round": 3,
+      "area_m2": 99.11,
+      "starting_price_pln": 100000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Katowicka-6317/idn:13482",
+      "doc_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Katowicka-63-17,7902.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Katowicka 33a/8",
+      "address": {
+        "street": "Katowicka",
+        "street_norm": "katowicka",
+        "building": "33A",
+        "apt": "8",
+        "key": "katowicka|33A|8",
+        "warning": null
+      },
+      "auction_date": "2026-07-08",
+      "published_date": "2026-06-08",
+      "round": 3,
+      "area_m2": 32.31,
+      "starting_price_pln": 50000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Katowicka-33a8/idn:13475",
+      "doc_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Katowicka-33a-8,7894.doc"
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "ul. Dworcowa 5/18",
       "address": {

@@ -55,7 +55,8 @@
           "area_m2": 68.14,
           "detail_url": "https://zgm-gliwice.pl/rybnicka-25-19-01-12-2025-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-26"
+          "viewing_date": "2026-06-26",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
         }
       ],
       "area_m2": 68.14
@@ -89,7 +90,8 @@
           "area_m2": 47.5,
           "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-25"
+          "viewing_date": "2026-06-25",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
         }
       ],
       "area_m2": 47.5
@@ -123,7 +125,8 @@
           "area_m2": 49,
           "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-24"
+          "viewing_date": "2026-06-24",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
         }
       ],
       "area_m2": 49
@@ -157,7 +160,8 @@
           "area_m2": 71.07,
           "detail_url": "https://zgm-gliwice.pl/zwyciestwa-11-6c-30-03-2026-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-23"
+          "viewing_date": "2026-06-23",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
         }
       ],
       "area_m2": 71.07
@@ -203,7 +207,8 @@
           "area_m2": 45.29,
           "detail_url": "https://zgm-gliwice.pl/rybitwy-13-17-01-12-2025-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-26"
+          "viewing_date": "2026-06-26",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
         }
       ],
       "area_m2": 45.29
@@ -225,10 +230,46 @@
           "area_m2": 51.59,
           "detail_url": "https://zgm-gliwice.pl/daszynskiego-65-10-30-03-2026-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-23"
+          "viewing_date": "2026-06-23",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
         }
       ],
       "area_m2": 51.59
+    },
+    {
+      "key": "karola libelta|10|1",
+      "street": "KAROLA LIBELTA",
+      "street_norm": "karola libelta",
+      "building": "10",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 334100,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 47.67
+        },
+        {
+          "date": "2026-07-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 267280,
+          "outcome": "active",
+          "area_m2": 47.67,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        }
+      ],
+      "area_m2": 47.67
     },
     {
       "key": "krolewskiej tamy|55|2",
@@ -271,7 +312,8 @@
           "area_m2": 25.27,
           "detail_url": "https://zgm-gliwice.pl/krolewskiej-tamy-55-2-09-03-2026-r/",
           "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-17"
+          "viewing_date": "2026-06-17",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-29062026-ul-krolewskiej-tamy-552-ul-krolewskiej-tamy-532-ul-plebiscytowa-4-9-ul-poniatowskiego-113-lokale-mieszkalne-ul-zwyciestwa-457-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1"
         }
       ],
       "area_m2": 25.27
@@ -317,7 +359,8 @@
           "area_m2": 26.89,
           "detail_url": "https://zgm-gliwice.pl/krolewskiej-tamy-5-2-09-03-2026-r/",
           "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-17"
+          "viewing_date": "2026-06-17",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-29062026-ul-krolewskiej-tamy-552-ul-krolewskiej-tamy-532-ul-plebiscytowa-4-9-ul-poniatowskiego-113-lokale-mieszkalne-ul-zwyciestwa-457-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1"
         }
       ],
       "area_m2": 26.89
@@ -387,7 +430,8 @@
           "area_m2": 64.78,
           "detail_url": "https://zgm-gliwice.pl/zwyciestwa-45-7-08-12-2025-r/",
           "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-15"
+          "viewing_date": "2026-06-15",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-29062026-ul-krolewskiej-tamy-552-ul-krolewskiej-tamy-532-ul-plebiscytowa-4-9-ul-poniatowskiego-113-lokale-mieszkalne-ul-zwyciestwa-457-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1"
         }
       ],
       "area_m2": 64.78
@@ -433,7 +477,8 @@
           "area_m2": 38.09,
           "detail_url": "https://zgm-gliwice.pl/poniatowskiego-1-13-19-01-2026-r/",
           "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-18"
+          "viewing_date": "2026-06-18",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-29062026-ul-krolewskiej-tamy-552-ul-krolewskiej-tamy-532-ul-plebiscytowa-4-9-ul-poniatowskiego-113-lokale-mieszkalne-ul-zwyciestwa-457-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1"
         }
       ],
       "area_m2": 38.09
@@ -479,7 +524,8 @@
           "area_m2": 52.45,
           "detail_url": "https://zgm-gliwice.pl/plebiscytowa-4-9-19-01-2026-r/",
           "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-16"
+          "viewing_date": "2026-06-16",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-29062026-ul-krolewskiej-tamy-552-ul-krolewskiej-tamy-532-ul-plebiscytowa-4-9-ul-poniatowskiego-113-lokale-mieszkalne-ul-zwyciestwa-457-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1"
         }
       ],
       "area_m2": 52.45
@@ -501,7 +547,8 @@
           "area_m2": 16.92,
           "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
           "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-16"
+          "viewing_date": "2026-06-16",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-29062026-ul-krolewskiej-tamy-552-ul-krolewskiej-tamy-532-ul-plebiscytowa-4-9-ul-poniatowskiego-113-lokale-mieszkalne-ul-zwyciestwa-457-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1"
         }
       ],
       "area_m2": 16.92
@@ -535,7 +582,8 @@
           "area_m2": 86.79,
           "detail_url": "https://zgm-gliwice.pl/zygmunta-starego-29-4-23-03-2026-r/",
           "wadium_deadline": "2026-06-16",
-          "viewing_date": "2026-05-06"
+          "viewing_date": "2026-05-06",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-22062026-ul-zygmunta-starego-294-ul-czarnieckiego-251-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne"
         }
       ],
       "area_m2": 86.79
@@ -569,7 +617,8 @@
           "area_m2": 81.81,
           "detail_url": "https://zgm-gliwice.pl/czarnieckiego-25-1-23-03-2026-r/",
           "wadium_deadline": "2026-06-16",
-          "viewing_date": "2026-05-07"
+          "viewing_date": "2026-05-07",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-22062026-ul-zygmunta-starego-294-ul-czarnieckiego-251-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne"
         }
       ],
       "area_m2": 81.81
@@ -591,10 +640,69 @@
           "area_m2": 134.17,
           "detail_url": "https://zgm-gliwice.pl/przyjazni-9-5-30-03-2026-r/",
           "wadium_deadline": "2026-06-16",
-          "viewing_date": "2026-05-08"
+          "viewing_date": "2026-05-08",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-22062026-ul-zygmunta-starego-294-ul-czarnieckiego-251-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne"
         }
       ],
       "area_m2": 134.17
+    },
+    {
+      "key": "lompy|7|7",
+      "street": "LOMPY",
+      "street_norm": "lompy",
+      "building": "7",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 969800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 155.07
+        },
+        {
+          "date": "2026-06-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 872820,
+          "outcome": "active",
+          "area_m2": 155.07,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-22062026-ul-zygmunta-starego-294-ul-czarnieckiego-251-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        }
+      ],
+      "area_m2": 155.07
+    },
+    {
+      "key": "chodkiewicza|12|11",
+      "street": "Chodkiewicza",
+      "street_norm": "chodkiewicza",
+      "building": "12",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180557,
+          "outcome": "active",
+          "area_m2": 24.34,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1211wlasnosc-skarbu-panstwa",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        }
+      ],
+      "area_m2": 24.34
     },
     {
       "key": "zygmunta starego|33|5",
@@ -1106,29 +1214,6 @@
       "area_m2": 82.71
     },
     {
-      "key": "karola libelta|10|1",
-      "street": "Karola Libelta",
-      "street_norm": "karola libelta",
-      "building": "10",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-03-30",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 334100,
-          "outcome": "unsold",
-          "unsold_reason": "no_deposits",
-          "final_price_pln": null,
-          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/30.03.2026-r.-wyniki-przetargow.pdf",
-          "notes": [],
-          "area_m2": 47.67
-        }
-      ],
-      "area_m2": 47.67
-    },
-    {
       "key": "ignacego daszynskiego|65|10",
       "street": "Ignacego Daszyńskiego",
       "street_norm": "ignacego daszynskiego",
@@ -1150,29 +1235,6 @@
         }
       ],
       "area_m2": 51.59
-    },
-    {
-      "key": "lompy|7|7",
-      "street": "Lompy",
-      "street_norm": "lompy",
-      "building": "7",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-03-23",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 969800,
-          "outcome": "unsold",
-          "unsold_reason": "no_deposits",
-          "final_price_pln": null,
-          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
-          "notes": [],
-          "area_m2": 155.07
-        }
-      ],
-      "area_m2": 155.07
     },
     {
       "key": "plebiscytowej|16|11",

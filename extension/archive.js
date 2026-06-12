@@ -214,6 +214,7 @@ function flatten(payload) {
           unsold_reason: l.unsold_reason,
           source_pdf: l.source_pdf,
           detail_url: l.detail_url,
+          bip_url: l.bip_url,
         });
       }
     }
@@ -346,7 +347,7 @@ function renderTable() {
         <td>${fmtPLN(r.final_price_pln)}</td>
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
         <td>${esc(outcomeLabel(r))}</td>
-        <td>${srcLinkCell(r.source_pdf || r.detail_url)}</td>
+        <td>${srcLinkCell(r.source_pdf || r.detail_url, r.bip_url)}</td>
       </tr>`,
     )
     .join('');
@@ -355,9 +356,13 @@ function renderTable() {
 // A dedicated 'verify at the source' link cell — points straight at the city
 // BIP/ZGM page or result PDF so the user can confirm the listing themselves.
 // Blank when the listing carries no source URL (a small minority).
-function srcLinkCell(u) {
+function srcLinkCell(u, bip) {
   const h = safeHref(u);
-  return h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
+  const primary = h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
+  // Secondary source: the city BIP page for an auction also listed on ZGM.
+  const hb = safeHref(bip);
+  const secondary = hb ? `${primary ? ' ' : ''}<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(hb)}">BIP ↗</a>` : '';
+  return primary + secondary;
 }
 
 function roundCell(n) {
@@ -445,7 +450,7 @@ function renderActiveTable() {
           <td>${askM2}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
-          <td>${srcLinkCell(a.detail_url)}</td>
+          <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>
         </tr>`;
     })
     .join('');

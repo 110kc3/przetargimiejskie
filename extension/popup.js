@@ -233,7 +233,7 @@ function renderActive() {
           <td>${askM2}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
-          <td>${srcLinkCell(a.detail_url)}</td>
+          <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>
         </tr>`;
     })
     .join('');
@@ -274,9 +274,13 @@ function renderActive() {
 
 // Dedicated 'verify at the source' link cell → the city BIP/ZGM detail page,
 // so the user can confirm any listing first-hand. Blank when no source URL.
-function srcLinkCell(u) {
+function srcLinkCell(u, bip) {
   const h = safeHref(u);
-  return h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
+  const primary = h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
+  // Secondary source: the city BIP page for an auction also listed on ZGM.
+  const hb = safeHref(bip);
+  const secondary = hb ? `${primary ? ' ' : ''}<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(hb)}">BIP ↗</a>` : '';
+  return primary + secondary;
 }
 
 function renderWatching() {
@@ -314,7 +318,7 @@ function renderWatching() {
           <td class="zgm-star-cell"><button type="button" class="zgm-star on" data-key="${esc(key)}" title="${esc(t('watch.button.remove'))}">★</button></td>
           <td>${addrCell}</td>
           <td>${statusHtml}</td>
-          <td>${srcLinkCell(url)}</td>
+          <td>${srcLinkCell(url, active?.bip_url)}</td>
         </tr>`;
     })
     .join('');

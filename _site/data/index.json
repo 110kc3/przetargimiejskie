@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-07T13:51:01.452Z",
+  "generated_at": "2026-06-12T06:26:12.830Z",
   "cities": [
     {
       "id": "gliwice",
       "label": "Gliwice",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 183,
-      "active_listings": 15,
-      "active_auctions": 15,
-      "archived_auctions": 232,
+      "unique_properties": 186,
+      "active_listings": 18,
+      "active_auctions": 18,
+      "archived_auctions": 244,
       "wykaz_entries": 11
     },
     {
@@ -19,9 +19,9 @@
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
       "unique_properties": 129,
-      "active_listings": 29,
-      "active_auctions": 6,
-      "archived_auctions": 133,
+      "active_listings": 45,
+      "active_auctions": 8,
+      "archived_auctions": 136,
       "wykaz_entries": 0
     },
     {
@@ -29,9 +29,9 @@
       "label": "Bytom",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 16,
-      "active_listings": 16,
-      "active_auctions": 8,
+      "unique_properties": 19,
+      "active_listings": 19,
+      "active_auctions": 11,
       "archived_auctions": 8,
       "wykaz_entries": 0
     },
@@ -40,10 +40,10 @@
       "label": "Zabrze",
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
-      "unique_properties": 259,
-      "active_listings": 407,
+      "unique_properties": 264,
+      "active_listings": 412,
       "active_auctions": 5,
-      "archived_auctions": 402,
+      "archived_auctions": 412,
       "wykaz_entries": 0
     },
     {
@@ -51,10 +51,10 @@
       "label": "Sosnowiec",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 21,
+      "unique_properties": 26,
       "active_listings": 35,
       "active_auctions": 4,
-      "archived_auctions": 34,
+      "archived_auctions": 40,
       "wykaz_entries": 0
     },
     {
@@ -64,8 +64,8 @@
       "host": "bip.zgm.rybnik.pl",
       "unique_properties": 6,
       "active_listings": 6,
-      "active_auctions": 6,
-      "archived_auctions": 0,
+      "active_auctions": 0,
+      "archived_auctions": 6,
       "wykaz_entries": 0
     },
     {
@@ -84,10 +84,10 @@
       "label": "Mysłowice",
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
-      "unique_properties": 18,
-      "active_listings": 30,
-      "active_auctions": 7,
-      "archived_auctions": 23,
+      "unique_properties": 19,
+      "active_listings": 29,
+      "active_auctions": 6,
+      "archived_auctions": 25,
       "wykaz_entries": 0
     },
     {
@@ -95,10 +95,10 @@
       "label": "Świętochłowice",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "unique_properties": 72,
+      "active_listings": 164,
+      "active_auctions": 2,
+      "archived_auctions": 171,
       "wykaz_entries": 0
     }
   ]

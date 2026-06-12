@@ -15,11 +15,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 241250,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,556264,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-.html",
+          "notes": [],
           "area_m2": 48.25,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555120,przetarg-ustny-nieograniczony-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555120,przetarg-ustny-nieograniczony-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego.html"
         },
         {
           "date": "2026-06-12",
@@ -48,11 +50,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 77000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 92000,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,562340,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-przy.html",
+          "notes": [],
           "area_m2": 17.85,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561784,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-15-polozonego-w-budynku-wielomieszk.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561784,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-15-polozonego-w-budynku-wielomieszk.html"
         }
       ],
       "area_m2": 17.85
@@ -92,11 +96,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 160000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559213,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-.html",
+          "notes": [],
           "area_m2": 51.63,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558714,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-6-zlokalizowany-w-budynku-po.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558714,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-6-zlokalizowany-w-budynku-po.html"
         }
       ],
       "area_m2": 51.63
@@ -114,11 +120,15 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 304000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558046,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-przy.html",
+          "notes": [
+            "parse: missing achieved price"
+          ],
           "area_m2": 223.27,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,557592,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-1-polozonego-przy-ul-nowej-1.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,557592,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-1-polozonego-przy-ul-nowej-1.html"
         }
       ],
       "area_m2": 223.27
@@ -136,14 +146,41 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 67572,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,557462,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-nr-59-polo.html",
+          "notes": [
+            "parse: missing achieved price"
+          ],
           "area_m2": 18.77,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556690,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556690,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html"
         }
       ],
       "area_m2": 18.77
+    },
+    {
+      "key": "zwyciestwa|20|11",
+      "street": "Zwycięstwa",
+      "street_norm": "zwyciestwa",
+      "building": "20",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 323000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 326230,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,560967,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-nr-11-polo.html",
+          "notes": [],
+          "area_m2": 75.97
+        }
+      ],
+      "area_m2": 75.97
     },
     {
       "key": "chemicznej|12|15",
@@ -158,22 +195,26 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 138000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,555910,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-ul-ch.html",
+          "notes": [],
           "area_m2": 40.15,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555389,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555389,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html"
         },
         {
           "date": "2024-07-12",
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 138000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,556838,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-ul-ch.html",
+          "notes": [],
           "area_m2": 40.15,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556420,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556420,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html"
         }
       ],
       "area_m2": 40.15
@@ -191,13 +232,16 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 401000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555752,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-przy-ul-mar.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,556225,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-.html",
+          "notes": [],
+          "area_m2": 81.53,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555752,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-przy-ul-mar.html"
         }
-      ]
+      ],
+      "area_m2": 81.53
     },
     {
       "key": "wita stwosza|2|59",
@@ -213,12 +257,13 @@
           "kind": "mieszkalny",
           "starting_price_pln": 204080,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 51.02,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,555713,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-nr-59-polozonego-przy-.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
-      ]
+      ],
+      "area_m2": 51.02
     },
     {
       "key": "kalinowej|51|74",
@@ -242,6 +287,55 @@
       ]
     },
     {
+      "key": "zwyciestwa|20|59",
+      "street": "Zwycięstwa",
+      "street_norm": "zwyciestwa",
+      "building": "20",
+      "apt": "59",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 204080,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 229000,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,556268,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawo-wlasnosci-lokalu-mieszkalnego-nr-59-polo.html",
+          "notes": [],
+          "area_m2": 51.02
+        }
+      ],
+      "area_m2": 51.02
+    },
+    {
+      "key": "kalinowa|51|74",
+      "street": "Kalinowa",
+      "street_norm": "kalinowa",
+      "building": "51",
+      "apt": "74",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 152000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,556267,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-przy.html",
+          "notes": [
+            "parse: missing achieved price"
+          ],
+          "area_m2": 38.2,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555531,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-74-ul-kalinowa-51.html"
+        }
+      ],
+      "area_m2": 38.2
+    },
+    {
       "key": "matki teresy kierocinskiej|24|1",
       "street": "Matki Teresy Kierocińskiej",
       "street_norm": "matki teresy kierocinskiej",
@@ -255,10 +349,32 @@
           "kind": "mieszkalny",
           "starting_price_pln": 147000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 32.45,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,555408,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-nr-1-polozonego-przy-u.html",
           "wadium_deadline": null,
           "viewing_date": null
+        }
+      ],
+      "area_m2": 32.45
+    },
+    {
+      "key": "zwyciestwa|20|1",
+      "street": "Zwycięstwa",
+      "street_norm": "zwyciestwa",
+      "building": "20",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 147000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 180000,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,555985,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawo-wlasnosci-lokalu-mieszkalnego-nr-1-poloz.html",
+          "notes": []
         }
       ]
     },
@@ -276,7 +392,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": 218000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 47.1,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,549783,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-1-ul-modrzejowska-28.html",
           "wadium_deadline": null,
           "viewing_date": null
@@ -287,7 +403,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": 218000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 47.1,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,550676,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-1-ul-modrzejowska-28.html",
           "wadium_deadline": null,
           "viewing_date": null
@@ -297,13 +413,18 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 229000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,554506,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-1-ul-modrzejowska-28.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,555395,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-przy.html",
+          "notes": [
+            "parse: missing achieved price"
+          ],
+          "area_m2": 47.1,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,554506,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-1-ul-modrzejowska-28.html"
         }
-      ]
+      ],
+      "area_m2": 47.1
     },
     {
       "key": "narutowicza|42|64",
@@ -328,8 +449,40 @@
       "area_m2": 31.03
     },
     {
+      "key": "modrzejowskiej|28|",
+      "street": "Modrzejowskiej",
+      "street_norm": "modrzejowskiej",
+      "building": "28",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-01-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 218000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,550336,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-ul-mo.html",
+          "notes": []
+        },
+        {
+          "date": "2023-03-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 218000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,550945,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-ul-mo.html",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "gen j hallera|68|40",
-      "street": "Gen. J. Hallera",
+      "street": "Gen J. Hallera",
       "street_norm": "gen j hallera",
       "building": "68",
       "apt": "40",
@@ -340,11 +493,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 148000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 160000,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,550494,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-nr-40-polozonego-sosnowcu-.html",
+          "notes": [],
           "area_m2": 39.11,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,549825,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-poloznego-w-sosnowcu-przy-ul-gen-j-hal.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,549825,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-poloznego-w-sosnowcu-przy-ul-gen-j-hal.html"
         }
       ],
       "area_m2": 39.11
@@ -493,7 +648,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": null,
           "outcome": "archived",
-          "area_m2": 69.17,
+          "area_m2": 61.27,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,539756,przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalnych-o-numerach-12-i-20-ul-targowa-16.html",
           "wadium_deadline": null,
           "viewing_date": null
@@ -504,7 +659,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": null,
           "outcome": "archived",
-          "area_m2": 69.17,
+          "area_m2": 61.27,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,540529,przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalnych-o-numerach-12-i-20-ul-targowa-16.html",
           "wadium_deadline": null,
           "viewing_date": null
@@ -515,7 +670,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": null,
           "outcome": "archived",
-          "area_m2": 69.17,
+          "area_m2": 61.27,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,543903,przetarg-ustny-nieograniczony-na-sprzedaz-lokali-mieszkalnych-o-numerach-12-i-20-ul-targowa-16.html",
           "wadium_deadline": null,
           "viewing_date": null
@@ -526,7 +681,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": null,
           "outcome": "archived",
-          "area_m2": 69.17,
+          "area_m2": 61.27,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,545043,przetarg-ustny-nieograniczony-na-sprzedaz-lokali-mieszkalnych-o-numerach-12-i-20-ul-targowa-16.html",
           "wadium_deadline": null,
           "viewing_date": null
@@ -543,7 +698,7 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 69.17
+      "area_m2": 61.27
     },
     {
       "key": "ostrogorska|35A|",

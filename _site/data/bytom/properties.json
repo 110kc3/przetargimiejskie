@@ -3,6 +3,72 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "dworcowa|5|1",
+      "street": "Dworcowa",
+      "street_norm": "dworcowa",
+      "building": "5",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97500,
+          "outcome": "active",
+          "area_m2": 52.96,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Dworcowa-51/idn:13483",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.96
+    },
+    {
+      "key": "katowicka|63|17",
+      "street": "Katowicka",
+      "street_norm": "katowicka",
+      "building": "63",
+      "apt": "17",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-10",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 99.11,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Katowicka-6317/idn:13482",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 99.11
+    },
+    {
+      "key": "katowicka|33A|8",
+      "street": "Katowicka",
+      "street_norm": "katowicka",
+      "building": "33A",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 32.31,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Katowicka-33a8/idn:13475",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.31
+    },
+    {
       "key": "dworcowa|5|18",
       "street": "Dworcowa",
       "street_norm": "dworcowa",

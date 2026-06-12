@@ -74,7 +74,7 @@ function dedupeListingsByDate(p) {
     }
     const [primary, secondary] = prev.source_pdf || !l.source_pdf ? [prev, l] : [l, prev];
     for (const k of [
-      'round', 'starting_price_pln', 'area_m2', 'detail_url',
+      'round', 'starting_price_pln', 'area_m2', 'detail_url', 'bip_url',
       'wadium_deadline', 'viewing_date',
     ]) {
       if (primary[k] == null && secondary[k] != null) primary[k] = secondary[k];
@@ -176,6 +176,10 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       detail_url: a.detail_url,
       wadium_deadline: a.wadium_deadline || null,
       viewing_date: a.viewing_date || null,
+      // Secondary "verify at the source" link: a city-BIP page for an auction
+      // whose primary row is the ZGM listing (see gliwice foldBipDuplicates).
+      ...(a.bip_url ? { bip_url: a.bip_url } : {}),
+      ...(a.source ? { source: a.source } : {}),
       ...(a.share ? { share: a.share } : {}),
     });
   }

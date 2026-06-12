@@ -356,11 +356,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 90000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 125000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
           "area_m2": 34.31,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24783",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/24783"
         }
       ],
       "area_m2": 34.31
@@ -379,7 +381,7 @@
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
           "outcome": "archived",
-          "area_m2": null,
+          "area_m2": 33.44,
           "detail_url": "https://bip.miastozabrze.pl/doc/23826",
           "wadium_deadline": null,
           "viewing_date": null
@@ -389,13 +391,16 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24783",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 133000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
+          "area_m2": 33.44,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24783"
         }
-      ]
+      ],
+      "area_m2": 33.44
     },
     {
       "key": "armii krajowej|6A|12",
@@ -421,14 +426,186 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 100000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 101000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
           "area_m2": 46.56,
-          "detail_url": "https://bip.miastozabrze.pl/doc/24782",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/24782"
         }
       ],
       "area_m2": 46.56
+    },
+    {
+      "key": "armii krajowej|29|1",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "29",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "archived",
+          "area_m2": 41.53,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 137000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
+          "area_m2": 41.53
+        }
+      ],
+      "area_m2": 41.53
+    },
+    {
+      "key": "kazimierza brodzinskiego|11|4",
+      "street": "Kazimierza Brodzińskiego",
+      "street_norm": "kazimierza brodzinskiego",
+      "building": "11",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 54.7,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 176000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
+          "area_m2": 54.7
+        }
+      ],
+      "area_m2": 54.7
+    },
+    {
+      "key": "ks stanislawa brzoski|60|9",
+      "street": "Ks. Stanisława Brzóski",
+      "street_norm": "ks stanislawa brzoski",
+      "building": "60",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 43.75,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 174000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
+          "area_m2": 43.75
+        }
+      ],
+      "area_m2": 43.75
+    },
+    {
+      "key": "johanna goethego|32|2",
+      "street": "Johanna Goethego",
+      "street_norm": "johanna goethego",
+      "building": "32",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "archived",
+          "area_m2": 38.9,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 126000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
+          "area_m2": 38.9
+        }
+      ],
+      "area_m2": 38.9
+    },
+    {
+      "key": "gen charlesa de gaulle a|94|7",
+      "street": "gen. Charlesa de Gaulle’a",
+      "street_norm": "gen charlesa de gaulle a",
+      "building": "94",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 18.58,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 101000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/97916",
+          "notes": [],
+          "area_m2": 18.58
+        }
+      ],
+      "area_m2": 18.58
     },
     {
       "key": "sw floriana|9B|4",
@@ -1375,94 +1552,6 @@
       "area_m2": 53.59
     },
     {
-      "key": "armii krajowej|29|1",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "29",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-01-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "archived",
-          "area_m2": 41.53,
-          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 41.53
-    },
-    {
-      "key": "kazimierza brodzinskiego|11|4",
-      "street": "Kazimierza Brodzińskiego",
-      "street_norm": "kazimierza brodzinskiego",
-      "building": "11",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-01-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "archived",
-          "area_m2": 54.7,
-          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 54.7
-    },
-    {
-      "key": "ks stanislawa brzoski|60|9",
-      "street": "Ks. Stanislawa Brzóski",
-      "street_norm": "ks stanislawa brzoski",
-      "building": "60",
-      "apt": "9",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-01-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 190000,
-          "outcome": "archived",
-          "area_m2": 43.75,
-          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 43.75
-    },
-    {
-      "key": "johanna goethego|32|2",
-      "street": "Johanna Goethego",
-      "street_norm": "johanna goethego",
-      "building": "32",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-01-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 160000,
-          "outcome": "archived",
-          "area_m2": 38.9,
-          "detail_url": "https://bip.miastozabrze.pl/doc/23828",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 38.9
-    },
-    {
       "key": "armii krajowej|8A|12",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -2176,6 +2265,28 @@
         }
       ],
       "area_m2": 43.02
+    },
+    {
+      "key": "gen charlesa de gaulle a|84|5",
+      "street": "Gen. Charlesa de Gaulle’a",
+      "street_norm": "gen charlesa de gaulle a",
+      "building": "84",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 19.31,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22838",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 19.31
     },
     {
       "key": "opolska|18|5",
@@ -6544,6 +6655,28 @@
       "area_m2": 34.45
     },
     {
+      "key": "gen de gaulle a|63|4",
+      "street": "Gen. de Gaulle’a",
+      "street_norm": "gen de gaulle a",
+      "building": "63",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-09-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "archived",
+          "area_m2": 35.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/5982",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.8
+    },
+    {
       "key": "stefana czarnieckiego|20|7",
       "street": "Stefana Czarnieckiego",
       "street_norm": "stefana czarnieckiego",
@@ -6994,6 +7127,28 @@
       "area_m2": 33.97
     },
     {
+      "key": "gen de gaulle a|89|3",
+      "street": "Gen. de Gaulle’a",
+      "street_norm": "gen de gaulle a",
+      "building": "89",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-07-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 144000,
+          "outcome": "archived",
+          "area_m2": 48.14,
+          "detail_url": "https://bip.miastozabrze.pl/doc/5975",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.14
+    },
+    {
       "key": "grzybowska|29|1",
       "street": "Grzybowska",
       "street_norm": "grzybowska",
@@ -7124,6 +7279,28 @@
         }
       ],
       "area_m2": 34.62
+    },
+    {
+      "key": "gen charlesa de gaulle a|116|6",
+      "street": "Gen. Charlesa de Gaulle’a",
+      "street_norm": "gen charlesa de gaulle a",
+      "building": "116",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-05-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 94000,
+          "outcome": "archived",
+          "area_m2": 33.07,
+          "detail_url": "https://bip.miastozabrze.pl/doc/5972",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.07
     },
     {
       "key": "anieli krzywon|11|3",

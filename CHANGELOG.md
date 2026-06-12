@@ -4,6 +4,17 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.19.0 — 2026-06-12
+
+- **City-BIP added as a second Gliwice source** (MINOR): Gliwice now also crawls
+  the City of Gliwice BIP (bip.gliwice.eu) property-sale board alongside the ZGM
+  board. New lokale found only there appear as normal listings. When an auction
+  is published on **both** boards (same unit + date), the listing is not
+  duplicated — the ZGM row stays primary and the city-BIP page is shown as an
+  extra **"BIP ↗"** source link next to "źródło", in the popup (active +
+  watchlist) and the archive page. Land plots, rent and lease notices on the BIP
+  are ignored. Source links still point only at official municipal pages.
+
 ## v1.18.0 — 2026-06-11
 
 - **"Źródło" verify link on every listing** (MINOR): each row in the popup
