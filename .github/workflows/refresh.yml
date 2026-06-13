@@ -42,8 +42,8 @@ jobs:
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
       - name: Install pipeline deps
@@ -73,7 +73,7 @@ jobs:
       matrix:
         city: ${{ fromJSON(needs.setup.outputs.cities) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Install OCR toolchain
         run: |
@@ -82,7 +82,7 @@ jobs:
           # catdoc: legacy .doc → text (Bytom announcement attachments)
           sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-pol catdoc
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
 
@@ -136,10 +136,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: main   # not the triggering SHA — we need the matrix jobs' commits
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
       - name: Install pipeline deps

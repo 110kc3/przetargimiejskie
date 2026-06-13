@@ -12,22 +12,19 @@
 
 ## Pipeline
 
-### CI security scanning — Trivy + SAST (NEW, 10 June 2026)
+### ~~CI security scanning — Trivy + SAST~~ — DONE (13 June 2026)
 
-Add `.github/workflows/security.yml`:
+`.github/workflows/security.yml` added: CodeQL (javascript, PR/push + Monday
+cron) and Trivy `fs` (vuln + secret scanners, SARIF → Security tab,
+non-blocking). All third-party actions across security.yml, refresh.yml,
+pages.yml and ovh-deploy.yml are now pinned to a full commit SHA with the
+human tag in a trailing comment (checkout v4.3.1, setup-node v4.4.0,
+upload-pages-artifact v3.0.1, deploy-pages v4.0.5, codeql-action v3.36.2,
+trivy-action 0.35.0).
 
-- **CodeQL (javascript)** — free for public repos; covers the project's real
-  risk class (crawled municipal content flowing into `innerHTML`/hrefs across
-  extension, site and popup — the exact bug family fixed by hand in
-  v1.14.3). Run on PR/push + weekly cron.
-- **Trivy `fs` mode** — lockfile CVEs (the playwright chain is the only dep)
-  + secret scanning over the repo (crawl caches and `data/` get committed —
-  cheap insurance against an accidental token).
-- While in there: **pin GitHub Actions by commit SHA** in refresh.yml /
-  pages.yml / security.yml — the refresh workflow holds `contents: write`.
-
-Scope expectations: no containers, one dependency — this is a ~3-4 min/run
-safety net, not a deep audit.
+NOTE: SARIF upload to the Security tab requires code scanning to be enabled
+on the repo (free for public repos). If the first run errors on upload,
+enable it under Settings → Security → Code scanning.
 
 ### ~~Wire the remaining sold-price results streams~~ — DONE where streams exist (10 June 2026)
 
