@@ -4,6 +4,22 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.21.0 — 2026-06-13
+
+- **On-page badges for three more cities** (MINOR): the in-page history badges,
+  stats chips and detail panels — previously only on Gliwice, Katowice and
+  Bytom — now also work on the BIP boards of **Rybnik** (ZGM,
+  bip.zgm.rybnik.pl), **Mysłowice** (bip.myslowice.pl) and **Świętochłowice**
+  (bip.swietochlowice.pl). These three were already in the popup, archive and
+  watchlist; this adds the live on-site overlay. New site adapters
+  (`sites/rybnik.js`, `sites/myslowice.js`, `sites/swietochlowice.js`) plus a
+  shared `sites/finn-common.js` that mirrors the pipeline's FINN-BIP title/
+  address parsing so badges join the same property keys. Adds the three hosts
+  to the content-script matches (Chrome will ask you to approve the new sites
+  on update). Zabrze, Sosnowiec and Bielsko-Biała are still popup/archive-only
+  (their listing pages are JS SPAs or put the flat address inside a downloaded
+  document, not the page DOM).
+
 ## v1.20.1 — 2026-06-13
 
 - **Fixes (PATCH)** from the 13 June code audit:
