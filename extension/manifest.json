@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Przetargi miejskie",
   "short_name": "Przetargi miejskie",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "description": "Przetargi miejskie na Śląsku: Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik i inne. Historia cen, zł/m²..",
   "author": "110kc3",
   "icons": {
@@ -48,7 +48,9 @@
         "https://bip.zgm.rybnik.pl/*",
         "https://bip.myslowice.pl/*",
         "https://www.bip.swietochlowice.pl/*",
-        "https://bip.swietochlowice.pl/*"
+        "https://bip.swietochlowice.pl/*",
+        "https://bielsko-biala.pl/*",
+        "https://www.bielsko-biala.pl/*"
       ],
       "js": [
         "i18n.js",
@@ -63,6 +65,7 @@
         "sites/rybnik.js",
         "sites/myslowice.js",
         "sites/swietochlowice.js",
+        "sites/bielsko.js",
         "content.js"
       ],
       "css": [

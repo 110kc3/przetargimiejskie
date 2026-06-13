@@ -99,35 +99,44 @@ incident). Add it to `.gitignore` and remove from the index.
 
 ## Extension
 
-### Publish to the Chrome Web Store — REBUILD ZIP FIRST (updated 13 June 2026)
+### Publish to the Chrome Web Store — SUBMIT (account action, 13 June 2026)
 
 The live store build is **v1.3.3** (29 May): 2 cities, the old "Od roku"
-filter, none of the v1.14.2+ fixes/features (incl. innerHTML escaping and
-the wadium/auction deadline reminders). The previously-built
-`…-v1.17.0.zip` no longer exists in the repo root and is 3 minors stale —
-**re-zip `extension/` at the current version (v1.20.1)** before uploading.
-Listing copy is ready in [WEB_STORE_LISTING.md](./WEB_STORE_LISTING.md)
-(9 cities). Remaining: zip + the developer-dashboard submission (account
-action).
+filter, none of the v1.14.2+ fixes/features. The current upload bundle
+**`przetargimiejskie-extension-v1.22.0.zip`** is rebuilt at the repo root from
+`extension/` (manifest.json verified at the root of the zip) and is gitignored.
+Listing copy is ready in [WEB_STORE_LISTING.md](./WEB_STORE_LISTING.md).
+**Only remaining step is the developer-dashboard upload + submission itself —
+an account action I can't perform.** Note the v1.21.0/v1.22.0 host additions
+mean the store review will flag new host permissions (expected).
 
-### Content-script adapters for the 6 newer cities (gap found 13 June 2026)
+### ~~Content-script adapters for the newer cities~~ — 7/9 DONE (13 June 2026)
 
-`extension/sites/` covers only Gliwice, Katowice and Bytom — the manifest's
-`content_scripts.matches` lists just those hosts. Zabrze, Sosnowiec, Rybnik,
-Bielsko-Biała, Mysłowice and Świętochłowice are fully present in the popup /
-archive / watchlist, but get **no on-page BIP badges or detail panels** (the
-headline feature). Each needs a `sites/<city>.js` adapter + manifest
-`matches`/`host_permissions` entries (MINOR bump per city or batch —
-new hosts re-prompt permissions, so batch them).
+Shipped on-page overlays for four more cities (v1.21.0 + v1.22.0):
+**Rybnik** (`sites/rybnik.js`, OGŁOSZENIE link label), **Mysłowice** +
+**Świętochłowice** (`sites/myslowice.js` / `swietochlowice.js` + shared
+`sites/finn-common.js`, FINN/Liferay title), **Bielsko-Biała**
+(`sites/bielsko.js`, giełda node "Adres:" field, detail pages only). Keys
+verified against the published data.
 
-### Manifest host-list alignment (cosmetic, fold into the adapter work)
+Still popup/archive-only, deferred by platform (not worth the risk with a
+single document_idle content script):
+- **Zabrze** — Vue SPA list; each flat's address lives inside a downloaded
+  announcement attachment, not the page DOM. No reliable DOM key.
+- **Sosnowiec** — React SPA backed by a JSON API; content.js runs once at
+  document_idle (before hydration) and doesn't re-fire on SPA route changes.
+
+Revisit only if either site gains a server-rendered surface, or if the content
+script is reworked to observe SPA navigations + late hydration.
+
+### Manifest host-list alignment (cosmetic)
 
 `content_scripts.matches` includes `https://katowice.eu/*` and
-`https://bytom.pl/*` (no-www) but `host_permissions` omits them. No
-functional impact today (the SW only fetches raw.githubusercontent.com);
-align the two lists in the next MINOR that already touches permissions —
-adding host permissions in a standalone PATCH would re-prompt users for
-nothing.
+`https://bytom.pl/*` (no-www) absent from `host_permissions`. No functional
+impact (the SW only fetches raw.githubusercontent.com; content scripts inject
+off `matches` alone). The v1.21/v1.22 city hosts were likewise added to
+`matches` only — content scripts don't need `host_permissions`. Align the two
+lists only if a future change needs page-host fetch permissions.
 
 ## City coverage (reference)
 

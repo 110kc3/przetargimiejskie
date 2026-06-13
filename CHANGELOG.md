@@ -4,6 +4,18 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.22.0 — 2026-06-13
+
+- **On-page detail panel for Bielsko-Biała** (MINOR): opening a Giełda
+  Nieruchomości offer (bielsko-biala.pl/nieruchomosc/<slug>) now shows the
+  auction-history panel, keyed off the node's "Adres:" field
+  (`sites/bielsko.js`, mirroring the pipeline's cities/bielsko/parse.js). The
+  giełda's index cards don't carry a reliable address block, so only the
+  per-offer detail pages are decorated. With this, 7 of 9 cities have the
+  on-page overlay; Zabrze and Sosnowiec remain popup/archive-only — both are
+  JS SPAs and the content script runs once at document_idle (Zabrze also keeps
+  each flat's address inside a downloaded attachment, not the page DOM).
+
 ## v1.21.0 — 2026-06-13
 
 - **On-page badges for three more cities** (MINOR): the in-page history badges,
