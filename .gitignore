@@ -8,3 +8,10 @@ pipeline/pages-cache/
 _smoke.mjs
 _*.mjs
 extension.zip
+# Build artifact: build-site.sh regenerates _site/ (rm -rf + rebuild) and the
+# Cloudflare/OVH/Pages deploys all build it fresh. The committed copy went
+# stale and shadowed the real source during debugging — never track it.
+_site/
+
+# Packaged extension upload bundles (rebuilt from extension/ per release).
+przetargimiejskie-extension-*.zip
