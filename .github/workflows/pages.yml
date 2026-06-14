@@ -1,15 +1,16 @@
 # Deploys przetargimiejskie.pl (GitHub Pages) — DISABLED / FALLBACK ONLY.
 #
-# przetargimiejskie.pl is now served by Cloudflare Pages/Workers (see
-# build-site.sh + wrangler.jsonc). This workflow is kept as a manual fallback in
-# case Cloudflare is unavailable, so the push trigger is removed — it now runs
-# ONLY when started by hand from the Actions tab (workflow_dispatch). To re-enable
-# automatic GitHub Pages deploys, restore the `push:` block below.
+# THE LIVE HOST IS OVH (see .github/workflows/ovh-deploy.yml). przetargimiejskie.pl's
+# DNS A/AAAA records point at OVH shared hosting, and ovh-deploy.yml is the only
+# path that deploys automatically. This GitHub Pages workflow is kept purely as a
+# manual fallback for when OVH is unavailable, so the push trigger is removed — it
+# runs ONLY when started by hand from the Actions tab (workflow_dispatch). To make
+# GitHub Pages the live host instead, restore the `push:` block below AND repoint
+# the domain's DNS to GitHub Pages (and reattach it under repo Settings → Pages).
 #
-# NOTE: GitHub Pages and Cloudflare cannot both own the przetargimiejskie.pl
-# custom domain at once. If you run this fallback, the domain still points at
-# Cloudflare; this only refreshes the *.github.io copy unless you reattach the
-# domain under repo Settings → Pages.
+# NOTE: only one host can own the przetargimiejskie.pl custom domain at a time.
+# Running this fallback only refreshes the *.github.io copy unless you also
+# repoint DNS away from OVH — the live domain keeps pointing at OVH.
 #
 # The published site = site/ (landing + web archive) + the data/ JSON the
 # archive reads + a downloadable copy of the extension. The Chrome extension
@@ -18,7 +19,7 @@
 name: Deploy site (przetargimiejskie.pl) [manual fallback]
 
 on:
-  # Auto-deploy disabled — Cloudflare is the live host now. Run by hand only.
+  # Auto-deploy disabled — OVH is the live host (ovh-deploy.yml). Run by hand only.
   workflow_dispatch:
 
 permissions:

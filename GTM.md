@@ -202,7 +202,7 @@ Track from day one (Plausible/Umami — privacy-friendly, on-brand):
 - [ ] SEO pages: one per city + one per active/archived listing, over existing JSON.
 - [ ] Sitemap + meta titles/descriptions on the §3 queries; monthly per-city recap.
 - [ ] Privacy-friendly analytics (Plausible/Umami) live.
-- [ ] `site/CNAME` + DNS + GitHub Pages HTTPS confirmed (per README §Website).
+- [ ] DNS + OVH hosting + HTTPS confirmed for przetargimiejskie.pl (per README §Website; OVH is the live host).
 - [ ] Launch the weekly newsletter ("co tydzień: nowe przetargi miejskie na Śląsku").
 - [ ] Extension: discreet "powered by przetargimiejskie.pl" link on each badge.
 

@@ -110,17 +110,20 @@ See [TODO.md](./TODO.md) for the live backlog (sold-price streams for Bytom/Zabr
 
 ## Website (przetargimiejskie.pl)
 
-The same repo also publishes a public website via **GitHub Pages**, so the data is usable without installing anything.
+The same repo also publishes a public website, so the data is usable without installing anything.
 
-Lives in [`site/`](./site) — fully static, no build step. The Pages workflow ([`.github/workflows/pages.yml`](./.github/workflows/pages.yml)) assembles the published site on every push to `main` that touches `site/`, `data/`, or `extension/`:
+Lives in [`site/`](./site) — fully static, no build step. [`build-site.sh`](./build-site.sh) assembles the published site (`_site/`) from:
 
 - `site/index.html` → landing page (live city counts pulled from `/data/index.json`).
 - `site/archiwum/` → a standalone web version of the archive — same filters/summary as the extension's archive, but it fetches `/data/<city>/*.json` directly (no Chrome APIs), so it works in any browser.
 - `site/privacy/` → privacy page (`/privacy`).
 - `data/` is copied to `/data/…` so the archive can read it.
-- `extension/` is zipped to `/extension.zip` for download. **The extension still lives in its own top-level `extension/` directory** — Pages only exposes a downloadable copy; the site root is `site/`, not the extension.
 
-One-time GitHub setup (the workflow can't do this itself): repo **Settings → Pages → Source: GitHub Actions**, then add the custom domain `przetargimiejskie.pl` (the `site/CNAME` file already declares it) and point the domain's DNS at GitHub Pages (A/AAAA records or a `CNAME` to `<user>.github.io`). After DNS resolves, enable **Enforce HTTPS**.
+**The extension is not bundled into the site** — it lives in its own top-level `extension/` directory and is distributed via the Chrome Web Store; the site root is `site/`, not the extension.
+
+**Hosting: the live host is OVH.** The domain's DNS A/AAAA records point at OVH shared hosting, and [`.github/workflows/ovh-deploy.yml`](./.github/workflows/ovh-deploy.yml) is the canonical deploy: on every push to `main` touching `site/`/`data/`/`extension/`, **and** after each data-refresh run, it runs `build-site.sh` and mirrors `_site/` to OVH over SFTP (requires the `OVH_FTP_*` repo secrets documented in that workflow).
+
+[`.github/workflows/pages.yml`](./.github/workflows/pages.yml) is a **manual-only GitHub Pages fallback** (run by hand from the Actions tab) for when OVH is unavailable; making it the live host would require repointing DNS to GitHub Pages. Only one host can own the `przetargimiejskie.pl` custom domain at a time.
 
 ## Current coverage (data quality notes)
 

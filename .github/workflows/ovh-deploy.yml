@@ -1,6 +1,11 @@
 # Publishes przetargimiejskie.pl to OVH shared web hosting via SFTP.
 #
-# The site is fully static (HTML + JSON in /data + extension.zip). This assembles
+# ★ THIS IS THE CANONICAL / LIVE DEPLOY. ★ The domain's DNS A/AAAA records point
+# at OVH; this workflow is the only one that deploys automatically. The GitHub
+# Pages workflow (pages.yml) is a manual-only fallback, and there is no Cloudflare
+# deploy (the old wrangler.jsonc was removed once DNS confirmed OVH is live).
+#
+# The site is fully static (HTML + JSON in /data). This assembles
 # _site (build-site.sh) and mirrors it to the hosting's document root over SFTP
 # (SSH, port 22) — OVH offers both FTP/FTPS (21) and SFTP (22), and SFTP is the
 # reliable one from CI (FTPS times out from GitHub runners due to passive-port
