@@ -14,7 +14,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
@@ -64,14 +64,46 @@ test('extension exposes window.ZGM_NORMALIZE.parseAddress', () => {
     'extension/normalize.js must expose window.ZGM_NORMALIZE.parseAddress');
 });
 
-for (const raw of FIXTURES) {
-  test(`parseAddress parity: ${JSON.stringify(raw)}`, () => {
-    // JSON round-trip strips the node:vm realm's distinct Object.prototype so
-    // assert/strict compares values, not which realm created the object.
-    const a = JSON.parse(JSON.stringify(pipelineParse(raw) ?? null));
-    const b = JSON.parse(JSON.stringify(extApi.parseAddress(raw) ?? null));
-    assert.deepEqual(b, a,
-      `normalizers diverged on ${JSON.stringify(raw)} — fix extension/normalize.js ` +
-      `or pipeline/src/core/normalize.js so their parseAddress output matches.`);
-  });
+// Compare both normalizers on one input. JSON round-trip strips the node:vm
+// realm's distinct Object.prototype so assert/strict compares values, not which
+// realm created the object.
+function assertParity(raw) {
+  const a = JSON.parse(JSON.stringify(pipelineParse(raw) ?? null));
+  const b = JSON.parse(JSON.stringify(extApi.parseAddress(raw) ?? null));
+  assert.deepEqual(b, a,
+    `normalizers diverged on ${JSON.stringify(raw)} — fix extension/normalize.js ` +
+    `or pipeline/src/core/normalize.js so their parseAddress output matches.`);
 }
+
+for (const raw of FIXTURES) {
+  test(`parseAddress parity: ${JSON.stringify(raw)}`, () => assertParity(raw));
+}
+
+// Live sweep: the curated FIXTURES are the *known* bug shapes, but a real drift
+// could hide in any of the hundreds of actual street names in the published
+// data. Rebuild a natural address string from every property in every city's
+// properties.json and assert both normalizers still agree — so a regression is
+// caught even on an address nobody thought to add as a fixture.
+function liveAddressStrings() {
+  const dataRoot = fileURLToPath(new URL('../../data', import.meta.url));
+  const out = [];
+  if (!existsSync(dataRoot)) return out;
+  for (const entry of readdirSync(dataRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const propsPath = `${dataRoot}/${entry.name}/properties.json`;
+    if (!existsSync(propsPath)) continue;
+    const parsed = JSON.parse(readFileSync(propsPath, 'utf8'));
+    const props = Array.isArray(parsed) ? parsed : parsed.properties || [];
+    for (const p of props) {
+      if (!p.street || !p.building) continue;
+      out.push(`${p.street} ${p.building}${p.apt ? `/${p.apt}` : ''}`);
+    }
+  }
+  return out;
+}
+
+test('parseAddress parity across every live property address', () => {
+  const strings = liveAddressStrings();
+  assert.ok(strings.length > 0, 'no live property addresses found under data/*/properties.json');
+  for (const raw of strings) assertParity(raw);
+});
