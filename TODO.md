@@ -14,10 +14,11 @@
 > README/PLAN/EXPANSION/GTM produced a prioritised improvement list (P0/P1/P2 +
 > chores), captured in the new section directly below. **Shipped that day:**
 > P0-B (health monitor), P1-B (version-lockstep test), P1-C (deal-score badge,
-> ext **v1.23.0**), P2-A (normalize parity test), P2-C (Katowice junk-key fold).
-> Still open: P0-A coverage growth, P0-C (SEO site), P1-A (extension CI), P1-D
-> (newsletter), P2-B (area backfill), P2-D (durable heals), P2-E (schema v2),
-> chores.
+> ext **v1.23.0**), P2-A (normalize parity test incl. live-address sweep),
+> P2-C (Katowice junk-key fold), and the **deploy-host consolidation on OVH**
+> (Cloudflare move reverted — see the dated entry below).
+> Still open: P0-C (SEO site), P1-A (extension CI), P1-D (newsletter), P2-B
+> (area backfill), P2-D (durable heals), P2-E (schema v2), chores.
 
 ## Improvement backlog (14 June 2026 audit)
 
@@ -27,18 +28,21 @@
 > monitoring + normalize-parity are the three things that most protect and grow
 > the product for the least work.
 
-### P0-A — Guard pipeline↔extension `normalize.js` parity (DONE substrate, expand coverage)
+### ~~P0-A — Guard pipeline↔extension `normalize.js` parity~~ — DONE (14 June 2026)
 
 The extension's `extension/normalize.js` (IIFE → `window.ZGM_NORMALIZE`) and the
 pipeline's `pipeline/src/core/normalize.js` (ESM) hand-maintain the SAME
 `parseAddress` join-key logic in two files (different module systems, no
 extension build step). Every drift between them has silently hidden auction
-history in production (v1.14.0 join-key bugs, v1.14.2 E1–E4). **Done so far:**
+history in production (v1.14.0 join-key bugs, v1.14.2 E1–E4).
 `pipeline/tests/normalize-parity.test.js` loads the extension file via `node:vm`
-and asserts identical `parseAddress` output over 20 bug-history fixtures (runs
-in `npm test`, so CI is now red on any divergence). **Still open:** grow the
-fixture list whenever a new join bug is found; consider asserting
-`addressFromSlug` parity too if the pipeline ever gains a slug parser.
+and asserts identical `parseAddress` output over 20 bug-history fixtures **plus a
+live sweep that reconstructs and re-parses every property address in all nine
+cities' `properties.json`** — so a drift is caught even on a real street name
+nobody thought to add as a fixture. Runs in `npm test`, so CI is red on any
+divergence. **Follow-up (optional):** grow the fixture list whenever a new join
+bug is found; assert `addressFromSlug` parity too if the pipeline ever gains a
+slug parser.
 
 ### ~~P0-B — Data-freshness / source-health monitor~~ — DONE (14 June 2026)
 
@@ -54,13 +58,31 @@ Rybnik today). Verified green against current data (9 cities). **Follow-up
 pinned github-script, and a "dropped from non-zero to 0" delta check (needs
 previous-state history, not just the current snapshot).
 
+### ~~Deploy host consolidation on OVH~~ — DONE (14 June 2026)
+
+The repo briefly claimed three different hosts for `przetargimiejskie.pl`:
+Cloudflare (a "Move to cloudflare" commit added `wrangler.jsonc` + Cloudflare
+comments in `pages.yml`/`build-site.sh`), GitHub Pages (the README), and OVH
+(`ovh-deploy.yml`). DNS settles it — the A/AAAA records point at OVH
+(`213.32.10.205`), and `ovh-deploy.yml` is the only workflow that deploys
+automatically (on push + after each refresh), so **OVH is and stays the live
+host**. The Cloudflare move was never finished (DNS never repointed). Done:
+deleted the dead `wrangler.jsonc`; marked `ovh-deploy.yml` canonical; relabeled
+`pages.yml` a manual-only GitHub Pages fallback and removed its false
+"served by Cloudflare" claims; made `build-site.sh`'s header host-agnostic
+(OVH is the live consumer); and corrected README §Website + the GTM checklist.
+**Note:** `ovh-deploy.yml` depends on the `OVH_FTP_*` repo secrets — if that
+password is ever rotated, the only live deploy silently fails (the P0-B health
+monitor watches data freshness, not the deploy itself).
+
 ### P0-C — Build the SEO site pages (per-city + per-listing)
 
 GTM.md §3/§7 makes indexable per-city and per-listing pages the **prerequisite
 for every revenue model** and the cheap demand test ("if SEO doesn't pull
 traffic, nothing works — learned for ≈€0"). Today `site/` is only `index.html` +
-`archiwum/` + `privacy/`. All the JSON already exists. In `pages.yml`, generate
-at build time: one `/<miasto>/` page per city and one page per listing, with
+`archiwum/` + `privacy/`. All the JSON already exists. In `build-site.sh` (the
+canonical assembler the OVH deploy runs), generate at build time: one
+`/<miasto>/` page per city and one page per listing, with
 `<title>`/meta on the queries the doc lists (`przetarg mieszkania <miasto>`,
 `lokale ZGM <miasto>`), a `sitemap.xml`, and a monthly "co miasto wystawiło w
 <miesiąc>" recap per city. Mostly templating over existing data — the

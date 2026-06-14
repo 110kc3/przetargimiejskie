@@ -95,7 +95,7 @@ What it does:
 - **Archive** (`archive.html` + `archive.js`) — a full sortable/filterable table of all past listings (city, kind, round, area, prices, zł/m², outcome), with city/kind/outcome/year filters and free-text search.
 - **Language: PL / EN.** The popup has a small `PL` / `EN` button in the header. Default is PL (since the source data is Polish municipal records). Toggle is persisted in `chrome.storage.local` and broadcast across tabs — flipping it in the popup retranslates open zgm-gliwice.pl tabs in place, no reload required. All user-facing strings live in [`extension/i18n.js`](./extension/i18n.js).
 
-**Address-key parity** — the extension's `normalize.js` and the pipeline's `normalize.js` produce identical `street_norm|building|apt` join keys. This is verified end-to-end against live data: every active listing in `active.json` round-trips from page-title → parsed address → matching property key in `properties.json`.
+**Address-key parity** — the extension's `normalize.js` and the pipeline's `normalize.js` produce identical `street_norm|building|apt` join keys. This is verified end-to-end against live data: every active listing in `active.json` round-trips from page-title → parsed address → matching property key in `properties.json`. A committed test (`pipeline/tests/normalize-parity.test.js`, run in `npm test`/CI) additionally asserts the two `parseAddress` implementations stay byte-identical — over bug-history fixtures **and** a sweep of every published property address.
 
 **Detail-page address detection** — the page `<title>` is preferred over the URL slug because slug encoding is ambiguous on digit collisions (e.g. `/krolewskiej-tamy-5-2-...` could be either `5/2` or `53/2`); the title carries the canonical address.
 
