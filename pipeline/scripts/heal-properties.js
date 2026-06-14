@@ -38,13 +38,21 @@ const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 //   …ii ustny|66|    — yearly-summary column bleed; same date AND same
 //                      250 000 zł start as powstanczej|5|10's archived row,
 //                      so the fold also contributes the achieved price.
-// (…i ustny|86| is NOT here: its 2025-02-24 sale matches no surviving
-// property — a different flat on the same street whose real building/apt the
-// junk row destroyed. Left in place pending a manual source lookup.)
+//   …i ustny|86|     — yearly-summary column bleed; "86" is the bled area
+//                      (86,38 m²), the street fragment "Oddziałów Młodzieży
+//                      [Powstańczej] I ustny" merged from the title. Its
+//                      2025-02-24 / 450 000 → 517 500 zł sale matches exactly
+//                      one surviving property — powstanczej|5|8 (area 86,38),
+//                      which the per-auction wykaz source captured cleanly
+//                      ("Powstańcza" is the short spelling of "Oddziałów
+//                      Młodzieży Powstańczej"; the |5|10 pair shows the same
+//                      two spellings of one street). The earlier "matches no
+//                      survivor" note predated that clean capture.
 const VERIFIED_JUNK = {
   katowice: [
     ['gornej 4 6 i|8|', 'gorna|4|'],
     ['oddzialow mlodziezy ii ustny|66|', 'oddzialow mlodziezy powstanczej|5|10'],
+    ['oddzialow mlodziezy i ustny|86|', 'powstanczej|5|8'],
   ],
 };
 

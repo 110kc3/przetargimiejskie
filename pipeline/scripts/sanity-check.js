@@ -30,8 +30,13 @@ const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
 // key → reason. Keep this SHORT — every entry must reference a TODO item.
 const ALLOWLIST = {
-  // Real 2025 sale whose true building/apt was destroyed by the (since-fixed)
-  // yearly-summary column bleed; pending manual source lookup (see TODO.md).
+  // RESOLVED in committed data: heal-properties.js now folds this bled key
+  // (2025-02-24 / 450 000 → 517 500 zł sale) into powstanczej|5|8 (area 86,38).
+  // This entry stays ONLY as a re-derivation guard: heal runs manually, not in
+  // refresh.yml, so if the 2025 BIP yearly-summary crawl still re-emits the
+  // bleed, mergeProperties re-adds the junk key between refresh and the next
+  // manual heal. Drop this once a Katowice CI run confirms the source no longer
+  // emits it, or once the VERIFIED_JUNK folds run inside refresh. See TODO.md.
   'katowice|oddzialow mlodziezy i ustny|86|': 'junk-street',
 };
 

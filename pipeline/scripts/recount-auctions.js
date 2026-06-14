@@ -26,7 +26,7 @@ function countCity(cityId) {
       else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archived++;
     }
   }
-  return { active, archived };
+  return { active, archived, unique: props.length };
 }
 
 const idxPath = join(DATA_DIR, 'index.json');
@@ -35,9 +35,10 @@ const idx = JSON.parse(readFileSync(idxPath, 'utf8'));
 let totalActive = 0;
 let totalArchived = 0;
 for (const c of idx.cities) {
-  const { active, archived } = countCity(c.id);
+  const { active, archived, unique } = countCity(c.id);
   c.active_auctions = active;
   c.archived_auctions = archived;
+  c.unique_properties = unique;
   totalActive += active;
   totalArchived += archived;
 
@@ -46,6 +47,7 @@ for (const c of idx.cities) {
     const m = JSON.parse(readFileSync(metaPath, 'utf8'));
     m.active_auctions = active;
     m.archived_auctions = archived;
+    m.unique_properties = unique;
     writeFileSync(metaPath, JSON.stringify(m, null, 2) + '\n');
   }
   console.error(`${c.label.padEnd(16)} aktualne: ${String(active).padStart(3)}  w archiwum: ${String(archived).padStart(4)}`);
