@@ -20,6 +20,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | `data/<city>/meta.json` | Provenance: when generated, schema/parser versions, counts. |
 | [`data/index.json`](./data/index.json) | Per-city summary (label, authority, host, counts). |
 | [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | GitHub Actions: re-runs the pipeline weekly **and on push to `main`**, commits any deltas. |
+| [`.github/workflows/health.yml`](./.github/workflows/health.yml) | Daily source-health check (`pipeline/scripts/health-check.js`): fails (→ email) if any city's data is empty or stale. |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
 | [`PRIVACY.md`](./PRIVACY.md) | Privacy policy for the Chrome extension (required for Web Store). |
@@ -88,9 +89,9 @@ What it does:
 
 - **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL.
 - **Content script** (`content.js` + per-site adapters in `sites/`) runs on each covered host:
-  - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
+  - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², a **deal score** (`▼ N% below median` / `▲ N% above median` vs the city's median zł/m²), auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
   - On property-detail pages: injects a sidebar with a chronological history table and a price-delta summary versus the first historical attempt.
-- **Popup** (`popup.html` + `popup.js`) lists all currently-active properties across cities (city-tagged), sorted by most-relisted first; re-listings show their round (`2./3. przetarg`) rather than "nowa". Click a row → opens that property's detail page.
+- **Popup** (`popup.html` + `popup.js`) lists all currently-active properties across cities (city-tagged), sorted by most-relisted first; re-listings show their round (`2./3. przetarg`) rather than "nowa"; the zł/m² cell carries the same deal-score badge. Click a row → opens that property's detail page. The per-city median zł/m² is computed client-side in [`extension/dealscore.js`](./extension/dealscore.js) (residential flats only, ≥5 priced samples).
 - **Archive** (`archive.html` + `archive.js`) — a full sortable/filterable table of all past listings (city, kind, round, area, prices, zł/m², outcome), with city/kind/outcome/year filters and free-text search.
 - **Language: PL / EN.** The popup has a small `PL` / `EN` button in the header. Default is PL (since the source data is Polish municipal records). Toggle is persisted in `chrome.storage.local` and broadcast across tabs — flipping it in the popup retranslates open zgm-gliwice.pl tabs in place, no reload required. All user-facing strings live in [`extension/i18n.js`](./extension/i18n.js).
 
