@@ -10,6 +10,7 @@
   "scripts": {
     "refresh": "node src/refresh.js",
     "build-index": "node src/build-index.js",
+    "health": "node scripts/health-check.js",
     "crawl:results": "node src/cities/gliwice/crawl-results.js",
     "crawl:active": "node src/cities/gliwice/crawl-active.js",
     "test": "node --test --test-reporter=dot tests/*.test.js"

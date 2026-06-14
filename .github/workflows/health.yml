@@ -1,0 +1,42 @@
+name: Data health check
+
+# Silent-breakage guard. refresh.yml proves the crawl RAN; this proves it
+# produced fresh, non-empty data for every city. Runs daily on the committed
+# data (no crawl, no network) so a stalled adapter is caught within a day. On
+# failure the job fails and GitHub emails the maintainer — the same
+# failure-visibility mechanism refresh.yml already relies on. (To also open a
+# tracking issue, add an `if: failure()` step calling a pinned github-script /
+# gh issue create — left out here to avoid an extra action + write permission.)
+
+on:
+  schedule:
+    - cron: '0 7 * * *'      # 07:00 UTC daily — an hour after the Monday refresh.
+  workflow_dispatch: {}
+  # Also gate PRs that touch data so a bad hand-edit is caught before merge.
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'pipeline/scripts/health-check.js'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: health-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+      - name: Check data freshness & non-emptiness
+        working-directory: pipeline
+        # STALE_DAYS=14: refresh is weekly, so >2 weeks stale = a real outage.
+        env:
+          STALE_DAYS: '14'
+        run: node scripts/health-check.js
