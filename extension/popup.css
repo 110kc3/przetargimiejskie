@@ -190,6 +190,10 @@ tbody tr:last-child td { border-bottom: none; }
 
 .zgm-fresh { color: var(--green-fg); }
 .zgm-prior { color: var(--amber-fg); font-weight: 600; }
+/* Deal score: zł/m² vs the city median. Green = cheaper than local median. */
+.zgm-deal { font-size: 11px; font-weight: 600; white-space: nowrap; }
+.zgm-deal.good { color: var(--green-fg); }
+.zgm-deal.bad { color: var(--amber-fg); }
 
 footer {
   display: flex;

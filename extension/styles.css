@@ -19,6 +19,11 @@
 .zgm-ext-amber { background: #fff4d6; color: #7a5500; border: 1px solid #f1d893; }
 .zgm-ext-red   { background: #fde7e7; color: #8b1c1c; border: 1px solid #f4b6b6; }
 
+/* Deal score on the stats chip: zł/m² vs the city median (green = cheaper). */
+.zgm-ext-deal { font-weight: 700; }
+.zgm-ext-deal.good { color: #1e6b34; }
+.zgm-ext-deal.bad  { color: #8b1c1c; }
+
 .zgm-ext-tooltip {
   display: none;
   position: absolute;

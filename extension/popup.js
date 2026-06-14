@@ -198,6 +198,9 @@ function renderActive() {
     (a) => !a.auction_date || a.auction_date >= today,
   );
 
+  // Per-city median zł/m² for the "deal score" badge (residential only).
+  const cityMedians = window.ZGM_DEALSCORE.buildCityMedians(properties);
+
   const items = liveActive.map((a) => {
     const prop = a.address ? byKey.get(a.address.key) : null;
     const prior = prop ? prop.listings.filter(isPrior) : [];
@@ -226,6 +229,10 @@ function renderActive() {
       const watched = key ? watchlist[key] : null;
       const star = `<button type="button" class="zgm-star ${watched ? 'on' : ''}" data-key="${esc(key || '')}" title="${esc(t(watched ? 'watch.button.remove' : 'watch.button.add'))}">${watched ? '★' : '☆'}</button>`;
       const askM2 = (a.area_m2 && a.starting_price_pln != null) ? new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²' : '—';
+      const ds = window.ZGM_DEALSCORE.score(a.starting_price_pln, a.area_m2, a.kind, cityMedians.get(a.city || cityFromKey(key)));
+      const dealCell = ds
+        ? `<br><span class="zgm-deal ${ds.below ? 'good' : 'bad'}" title="${esc(t('dealscore.tooltip', { median: Math.round(ds.median), n: cityMedians.get(a.city || cityFromKey(key)).n }))}">${ds.below ? '▼' : '▲'} ${ds.pct}% ${esc(t(ds.below ? 'dealscore.below' : 'dealscore.above'))}</span>`
+        : '';
       const datesCell = datesCellHtml(a);
       return `
         <tr data-url="${esc(safeHref(a.detail_url))}">
@@ -234,7 +241,7 @@ function renderActive() {
           <td>${esc(t('kind.' + (a.kind || 'unknown')))}</td>
           <td class="zgm-dates-cell">${datesCell}</td>
           <td>${fmtPLN(a.starting_price_pln)}</td>
-          <td>${askM2}</td>
+          <td>${askM2}${dealCell}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
           <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>

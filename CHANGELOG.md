@@ -4,6 +4,19 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.23.0 — 2026-06-14
+
+- **Deal score: zł/m² vs the local median** (MINOR): every priced flat now
+  shows how its price per m² compares to the **median for that city** — a green
+  "▼ N% below median" or amber "▲ N% above median" badge. It appears next to
+  zł/m² in the popup's "Currently active" table and on the on-page stats chip
+  the content script injects on listing pages, so the "is this cheap for here?"
+  read is right where you're looking. The median is computed client-side from
+  the data already fetched (residential flats only — garages/commercial are
+  excluded so they can't skew it), per city, requiring at least 5 priced flats
+  before a badge is shown. New `extension/dealscore.js` helper, loaded in the
+  popup and as a content script. PL/EN strings added. No new permissions.
+
 ## v1.22.0 — 2026-06-13
 
 - **On-page detail panel for Bielsko-Biała** (MINOR): opening a Giełda

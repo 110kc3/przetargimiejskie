@@ -115,6 +115,12 @@
   const byKey = new Map(properties.map((p) => [p.key, p]));
   const nsKey = (addrKey) => `${site.city}|${addrKey}`;
 
+  // Per-city median zł/m² for the "deal score" badge on the stats chip
+  // (residential only). Computed once from the merged dataset.
+  const cityMedians = window.ZGM_DEALSCORE
+    ? window.ZGM_DEALSCORE.buildCityMedians(properties)
+    : new Map();
+
   // Polish-case street-suffix swaps (genitive ↔ nominative), mirrored from
   // pipeline/src/core/build-properties.js. The pipeline coalesces genitive
   // street keys ("staromiejskiej|…") into the nominative ("staromiejska|…"),
@@ -449,6 +455,26 @@
     const chip = document.createElement('div');
     chip.className = 'zgm-ext-infochip zgm-ext-stats';
     chip.textContent = parts.join('  ·  ');
+    // Deal score: how this listing's zł/m² compares to the city median.
+    // Appended as a styled span (defensive — a failure leaves the chip text
+    // intact rather than blanking the card's decoration).
+    try {
+      const ds = window.ZGM_DEALSCORE && window.ZGM_DEALSCORE.score(
+        l.starting_price_pln, area, l.kind ?? prop.kind,
+        cityMedians.get(prop.city || site.city),
+      );
+      if (ds) {
+        chip.appendChild(document.createTextNode('  ·  '));
+        const span = document.createElement('span');
+        span.className = 'zgm-ext-deal ' + (ds.below ? 'good' : 'bad');
+        span.textContent = `${ds.below ? '▼' : '▲'} ${ds.pct}% ${t(ds.below ? 'dealscore.below' : 'dealscore.above')}`;
+        span.title = t('dealscore.tooltip', {
+          median: Math.round(ds.median),
+          n: cityMedians.get(prop.city || site.city).n,
+        });
+        chip.appendChild(span);
+      }
+    } catch { /* deal score is best-effort — never break the chip */ }
     return chip;
   }
 
