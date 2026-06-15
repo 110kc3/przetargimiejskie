@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-15T12:49:19.931Z",
+  "generated_at": "2026-06-15T13:22:42.067Z",
   "cities": [
     {
       "id": "gliwice",
@@ -36,7 +36,7 @@
       "active_auctions": 8,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 0
     },
     {
       "id": "zabrze",
@@ -103,9 +103,9 @@
       "label": "Świętochłowice",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 78,
-      "active_listings": 176,
-      "active_auctions": 2,
+      "unique_properties": 80,
+      "active_listings": 179,
+      "active_auctions": 5,
       "archived_auctions": 182,
       "wykaz_entries": 0,
       "land_plots": 17
