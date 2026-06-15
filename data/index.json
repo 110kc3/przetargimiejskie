@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-15T12:26:43.476Z",
+  "generated_at": "2026-06-15T12:49:19.931Z",
   "cities": [
     {
       "id": "gliwice",
@@ -68,7 +68,7 @@
       "authority": "ZGM Rybnik",
       "host": "bip.zgm.rybnik.pl",
       "unique_properties": 6,
-      "active_listings": 6,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 6,
       "wykaz_entries": 0,
@@ -79,12 +79,12 @@
       "label": "Bielsko-Biała",
       "authority": "Urząd Miejski w Bielsku-Białej",
       "host": "bielsko-biala.pl",
-      "unique_properties": 2,
-      "active_listings": 2,
-      "active_auctions": 2,
+      "unique_properties": 6,
+      "active_listings": 6,
+      "active_auctions": 6,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 10
     },
     {
       "id": "myslowice",
