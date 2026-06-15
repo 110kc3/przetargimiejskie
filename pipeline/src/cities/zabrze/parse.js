@@ -370,6 +370,16 @@ export function parseLandAttachment(text) {
   const address_raw = streetM ? `${streetM[1]}. ${streetM[2].replace(/\s+/g, ' ').trim()}` : null;
   const priceM = /cena\s+wywo[\u0142l]awcza[^0-9]{0,60}?([\d][\d \u00a0.]*(?:,\d{2})?)\s*z[\u0142l]/i.exec(t);
   const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
+  // Auction date — body says "Przetarg odbędzie się [w dniu] DD.MM.YYYY" OR a
+  // SPELLED Polish month ("Przetarg odbędzie się 20 października 2022 r").
+  let auction_date = null;
+  const numM = /odb[ęe]dzie\s+si[ęe](?:\s+w\s+dniu)?\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(t);
+  if (numM) auction_date = `${numM[3]}-${numM[2].padStart(2, '0')}-${numM[1].padStart(2, '0')}`;
+  if (!auction_date) {
+    const spM = /odb[ęe]dzie\s+si[ęe]\s+(\d{1,2})\s+([a-ząęóśżźćłńA-ZĄĘÓŚŻŹĆŁŃ]+)\s+(\d{4})/i.exec(t);
+    const mo = spM ? PL_MONTH[spM[2].toLowerCase()] : null;
+    if (mo) auction_date = `${spM[3]}-${String(mo).padStart(2, '0')}-${spM[1].padStart(2, '0')}`;
+  }
   if (!dzialka_nr && !address_raw) return null;
-  return { dzialka_nr, obreb, area_m2, address_raw, starting_price_pln, auction_date: null };
+  return { dzialka_nr, obreb, area_m2, address_raw, starting_price_pln, auction_date };
 }

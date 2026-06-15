@@ -302,6 +302,8 @@ function render(){
   </tr>`).join('') || '<tr class="empty-row"><td colspan="11">Brak rekordów dla wybranych filtrów.</td></tr>';
 
   const acts = active.filter(a=>(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
+  // Sort by auction date (soonest first); undated listings go to the bottom.
+  acts.sort((a,b)=>{ if(!a.date&&!b.date)return 0; if(!a.date)return 1; if(!b.date)return -1; return a.date.localeCompare(b.date); });
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
