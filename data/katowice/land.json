@@ -15,6 +15,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.1241%2F36",
       "area_m2": 1772,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-09-15",
@@ -24,6 +25,13 @@
           "area_m2": 1772,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152394&menu=679",
           "source_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152394&menu=679"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1241/36",
+          "dzialka_id": "246901_1.0013.AR_19.1241/36",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.1241%2F36"
         }
       ]
     },
@@ -40,6 +48,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_1.811%2F69",
       "area_m2": 80702,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-06-16",
@@ -49,6 +58,13 @@
           "area_m2": 80702,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151403&menu=679",
           "source_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151403&menu=679"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "811/69",
+          "dzialka_id": "246901_1.0005.AR_1.811/69",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_1.811%2F69"
         }
       ]
     },
@@ -65,6 +81,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0009.AR_2.3101%2F47",
       "area_m2": 556,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-01-20",
@@ -74,6 +91,13 @@
           "area_m2": 556,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=528",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=528"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3101/47",
+          "dzialka_id": "246901_1.0009.AR_2.3101/47",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0009.AR_2.3101%2F47"
         }
       ]
     },
@@ -90,6 +114,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20195%2F5%20Bogucice%20-%20Zawodzie%20Katowice%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-01-20",
@@ -98,6 +123,12 @@
           "outcome": "archived",
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=529",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=529"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "195/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20195%2F5%20Bogucice%20-%20Zawodzie%20Katowice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -114,6 +145,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20924%20D%C4%85br%C3%B3wka%20Ma%C5%82a%20Katowice%20geoportal%20dzia%C5%82ki",
       "area_m2": 287,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-09-08",
@@ -123,6 +155,12 @@
           "area_m2": 287,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=510",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=510"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "924",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20924%20D%C4%85br%C3%B3wka%20Ma%C5%82a%20Katowice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -139,6 +177,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Ligota%20Katowice%20geoportal%20dzia%C5%82ki",
       "area_m2": 14867,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -149,7 +188,8 @@
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|górne lasy pszczyńskie|790/36",
@@ -164,6 +204,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.790%2F36",
       "area_m2": 117,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -173,6 +214,13 @@
           "area_m2": 117,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "790/36",
+          "dzialka_id": "246901_1.0013.AR_19.790/36",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.790%2F36"
         }
       ]
     }
