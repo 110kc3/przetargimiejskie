@@ -4,6 +4,63 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Hutniczej 11a/2",
+      "address": {
+        "street": "Hutniczej",
+        "street_norm": "hutniczej",
+        "building": "11A",
+        "apt": "2",
+        "key": "hutniczej|11A|2",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 82.61,
+      "starting_price_pln": 330000,
+      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Dmowskiego 16/5",
+      "address": {
+        "street": "Dmowskiego",
+        "street_norm": "dmowskiego",
+        "building": "16",
+        "apt": "5",
+        "key": "dmowskiego|16|5",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 36.51,
+      "starting_price_pln": 210000,
+      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Grunwaldzkiej 5/3",
+      "address": {
+        "street": "Grunwaldzkiej",
+        "street_norm": "grunwaldzkiej",
+        "building": "5",
+        "apt": "3",
+        "key": "grunwaldzkiej|5|3",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 50.5,
+      "starting_price_pln": 310000,
+      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Powstańców Śl. 8/20",
       "address": {
         "street": "Powstańców Śl.",

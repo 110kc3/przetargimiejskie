@@ -15,6 +15,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200001%20Chropacz%C3%B3w%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 7033,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-03-31",
@@ -25,7 +26,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42514128",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42514128"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "addr|ul. ceramicznej prezydent miasta świętochłowice ogłasza ill przetarg ustny nieograniczony na sprzedaż przysługującego gminie świętochłowice prawa własności nieruchomości niezabudowanej",
@@ -40,6 +42,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 27.224,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-03-19",
@@ -50,7 +53,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430604",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430604"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0003 świętochłowice|3946/4",
@@ -65,6 +69,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3946%2F4",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-12-12",
@@ -73,6 +78,13 @@
           "outcome": "archived",
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430078",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430078"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3946/4",
+          "dzialka_id": "247601_1.0003.3946/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3946%2F4"
         }
       ]
     },
@@ -89,6 +101,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 27.224,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-12-08",
@@ -99,7 +112,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41597679",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41597679"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|3100/5",
@@ -114,6 +128,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203100%2F5%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 296,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-11-18",
@@ -123,6 +138,11 @@
           "area_m2": 296,
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42178904",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42178904"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3100/5"
         }
       ]
     },
@@ -139,6 +159,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 684,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-09-25",
@@ -158,7 +179,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41615693",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41615693"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "addr|ul. zielonej i ul",
@@ -173,6 +195,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 7288,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-11-04",
@@ -192,7 +215,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/36357826",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/36357826"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|chropaczów|3116/175",
@@ -207,6 +231,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3116%2F175",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-11-27",
@@ -224,6 +249,13 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33905538",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33905538"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "3116/175",
+          "dzialka_id": "247601_1.0001.3116/175",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3116%2F175"
+        }
       ]
     },
     {
@@ -239,6 +271,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.125",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-02-23",
@@ -247,6 +280,13 @@
           "outcome": "archived",
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33830657",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33830657"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "125",
+          "dzialka_id": "247601_1.0003.125",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.125"
         }
       ]
     },
@@ -263,6 +303,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3979",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-10-13",
@@ -280,6 +321,13 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33703404",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33703404"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "3979",
+          "dzialka_id": "247601_1.0003.3979",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3979"
+        }
       ]
     },
     {
@@ -295,6 +343,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3427",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-11-10",
@@ -312,6 +361,13 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33653132",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33653132"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "3427",
+          "dzialka_id": "247601_1.0001.3427",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3427"
+        }
       ]
     },
     {
@@ -327,6 +383,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%2C%200209%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-09-08",
@@ -335,6 +392,16 @@
           "outcome": "archived",
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/32924659",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/32924659"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "0",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "0209",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200209%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -351,6 +418,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2021-09-10",
@@ -384,7 +452,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/32172117",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/32172117"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|świętochłowice|568/116",
@@ -399,6 +468,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.568%2F116",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-02-17",
@@ -407,6 +477,13 @@
           "outcome": "archived",
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/31372849",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/31372849"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "568/116",
+          "dzialka_id": "247601_1.0003.568/116",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.568%2F116"
         }
       ]
     },
@@ -423,6 +500,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4424",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2022-09-09",
@@ -431,6 +509,13 @@
           "outcome": "archived",
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30086350",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30086350"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4424",
+          "dzialka_id": "247601_1.0003.4424",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4424"
         }
       ]
     },
@@ -447,6 +532,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201329%2F133%200003%20(%C5%9Awi%C4%99toch%C5%82owice)%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2022-07-01",
@@ -455,6 +541,12 @@
           "outcome": "archived",
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/29719670",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/29719670"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1329/133",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201329%2F133%200003%20(%C5%9Awi%C4%99toch%C5%82owice)%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -471,6 +563,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 86667,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2021-12-17",
@@ -599,7 +692,8 @@
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30519857",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30519857"
         }
-      ]
+      ],
+      "parcels": []
     }
   ]
 }
