@@ -408,9 +408,20 @@ export function parseLandAnnouncement(title, contentHtml, url) {
   const streetM = /(?:przy|w\s+rejonie|po[łl]o[żz]onej?\s+(?:przy\s+)?(?:ul\.|ulicy)?)\s+(?:ul\.|ulicy|al\.|alei)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?=\s*[,;.]|\s+w\s+[A-Z]|\s+obejmują|\s+(?:o\s+)?łączn|\s+na\s+arkusz|$)/i.exec(text);
   if (streetM) {
     street = streetM[1].replace(/\s+/g, ' ').trim();
-    address_raw = 'ul. ' + street;
-    const parsed = parseAddress(address_raw);
-    if (parsed) address = parsed;
+    // Joint-lot phrasing ("Stokrotek i ul. Skowronków") — keep only the first street.
+    street = street.replace(/\s+i\s+ul\b.*$/i, '').trim();
+    // Reject over-captures: a bare "ul", or a prose run the lazy match swallowed
+    // ("…nabywaniu nieruchomości będą miały…"). A real street name is short and
+    // free of verb/clause words. Such records keep their parcel (still keyed +
+    // geoportal); a parcel-less one becomes unkeyable and drops out below.
+    const PROSE =
+      /\b(będą|miały|mają|zastosowanie|przepis|nieruchomoś|nabywani|sprzeda|oraz|które[jmn]?|stanowiąc|zgodnie|obejmuj|wynosi|posiada)\b/i;
+    if (street.length > 38 || PROSE.test(street) || /^ul\.?$/i.test(street)) {
+      street = null;
+    } else {
+      address_raw = 'ul. ' + street;
+      address = parseAddress(address_raw) || null;
+    }
   }
 
   if (!dzialka_nr && !street) return null;

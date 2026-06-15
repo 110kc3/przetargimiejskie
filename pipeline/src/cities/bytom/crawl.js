@@ -313,7 +313,7 @@ export async function crawlActive() {
   // fetch only a handful of docs per refresh. Fully defensive: a .doc fetch/parse
   // failure leaves the catalog value untouched.
   const suspect = [...listings, ...land].filter(
-    (r) => r.starting_price_pln == null || r.starting_price_pln < 1000,
+    (r) => r.starting_price_pln != null && r.starting_price_pln < 1000,
   );
   for (const r of suspect) {
     const url =
@@ -351,4 +351,61 @@ export function attachmentUrlFromDetail(html) {
   } catch {
     return null;
   }
+}
+
+export async function enrichActive(active) {
+  let recovered = 0;
+  for (const l of active) {
+    const hasData =
+      l.starting_price_pln != null || l.area_m2 != null || l.auction_date != null;
+    if (hasData) continue;
+
+    let docUrl = l.doc_url;
+    if (!docUrl && l.detail_url) {
+      try {
+        const html = await getText(l.detail_url, { userAgent: BROWSER_UA });
+        docUrl = attachmentUrlFromDetail(html);
+        if (docUrl) l.doc_url = docUrl;
+      } catch (err) {
+        console.error(`  bytom enrich: detail fetch failed (${l.address_raw}): ${err.message}`);
+      }
+    }
+    if (!docUrl) continue;
+
+    try {
+      const text = /\.pdf(\?|$)/i.test(docUrl)
+        ? await pdfText(docUrl, { userAgent: BROWSER_UA })
+        : await docText(docUrl, { userAgent: BROWSER_UA });
+      const f = parseAnnouncement(text);
+      if (l.auction_date == null) l.auction_date = f.auction_date;
+      if (l.area_m2 == null) l.area_m2 = f.area_m2;
+      if (l.starting_price_pln == null) l.starting_price_pln = f.starting_price_pln;
+      if (l.round == null) l.round = f.round;
+      if (f.auction_date || f.area_m2 != null || f.starting_price_pln != null) recovered++;
+    } catch (err) {
+      console.error(`  bytom enrich: .doc parse failed (${l.address_raw}): ${err.message}`);
+    }
+  }
+
+  const before = active.length;
+  for (let i = active.length - 1; i >= 0; i--) {
+    const l = active[i];
+    if (l.starting_price_pln == null && l.area_m2 == null && l.auction_date == null) {
+      active.splice(i, 1);
+    }
+  }
+  const dropped = before - active.length;
+  console.error(
+    `  bytom enrich: recovered ${recovered} from .doc, dropped ${dropped} still-empty listing(s)`,
+  );
+}
+
+export async function crawlResultDocs() {
+  return [];
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const { listings } = await crawlActive();
+  process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
+  console.error(`Total: ${listings.length} active listing(s)`);
 }
