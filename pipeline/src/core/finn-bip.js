@@ -405,7 +405,7 @@ export function parseLandAnnouncement(title, contentHtml, url) {
   let street = null;
   let address_raw = null;
   let address = null;
-  const streetM = /(?:przy|w\s+rejonie|po[łl]o[żz]onej?\s+(?:przy\s+)?(?:ul\.|ulicy)?)\s+(?:ul\.|ulicy|al\.|alei)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?=\s*[,;.]|\s+w\s+[A-Z]|\s+obejmują|\s+(?:o\s+)?łączn|\s+na\s+arkusz|$)/i.exec(text);
+  const streetM = /(?:przy|w\s+rejonie|po[łl]o[żz]onej?\s+(?:przy\s+)?(?:ul\.|ulicy)?)\s+(?:ul\.|ulicy|al\.|alei)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?=\s*[,;.]|\s+w\s+[A-Z]|\s+obejmują|\s+(?:o\s+)?(?:łączn|powierzchn|pow\b)|\s+na\s+arkusz|$)/i.exec(text);
   if (streetM) {
     street = streetM[1].replace(/\s+/g, ' ').trim();
     // Joint-lot phrasing ("Stokrotek i ul. Skowronków") — keep only the first street.

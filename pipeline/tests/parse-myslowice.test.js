@@ -169,7 +169,7 @@ test('parseLandAnnouncement: street fallback when no parcel', () => {
   assert.ok(r);
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, null);
-  assert.ok(r.street);
+  assert.equal(r.street, 'Stokrotek'); // the real street, not the "ul" prefix
   assert.equal(r.area_m2, 500);
   assert.equal(r.starting_price_pln, 75000);
 });
