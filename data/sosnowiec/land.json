@@ -1,5 +1,3683 @@
 {
   "schema_version": 1,
   "city": "sosnowiec",
-  "plots": []
+  "plots": [
+    {
+      "key": "dz|0012 sosnowiec|856/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "856/1",
+      "obreb": "0012 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 856/1, obręb 0012 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20856%2F1%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2026-07-10",
+          "round": 2,
+          "starting_price_pln": 1340000,
+          "outcome": "active",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563392,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,563392,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|03 zagórze|2225/10",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2225/10",
+      "obreb": "03 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2225/10, 2226/6, 2227/6, 2225/23, 2226/18, 2227/18, obręb 03 Zagórze",
+      "dzialka_id": "247501_1.0003.2225/10",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.2225%2F10",
+      "area_m2": 1308,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-07-25",
+          "round": 1,
+          "starting_price_pln": 516000,
+          "outcome": "archived",
+          "area_m2": 1308,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,559819,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ale.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,559819,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ale.html"
+        },
+        {
+          "date": "2026-01-23",
+          "round": 1,
+          "starting_price_pln": 516000,
+          "outcome": "archived",
+          "area_m2": 1308,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561580,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ale.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,561580,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ale.html"
+        },
+        {
+          "date": "2026-07-10",
+          "round": 1,
+          "starting_price_pln": 516000,
+          "outcome": "active",
+          "area_m2": 1308,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563249,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ale.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,563249,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ale.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0006 klimontów|1776",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1776",
+      "obreb": "0006 Klimontów",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1776, obręb 0006 Klimontów",
+      "dzialka_id": "247501_1.0006.1776",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0006.1776",
+      "area_m2": 68,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2026-03-06",
+          "round": 1,
+          "starting_price_pln": 14000,
+          "outcome": "archived",
+          "area_m2": 68,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562269,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ulicy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,562269,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ulicy-.html"
+        },
+        {
+          "date": "2026-05-29",
+          "round": 1,
+          "starting_price_pln": 14000,
+          "outcome": "archived",
+          "area_m2": 68,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563212,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ulicy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,563212,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ulicy-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|11 sosnowiec|3278",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3278",
+      "obreb": "11 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3278, 3281, 3283/2, 3280/3, obręb 11 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203278%2011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2930,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2026-05-08",
+          "round": 1,
+          "starting_price_pln": 1200000,
+          "outcome": "archived",
+          "area_m2": 2930,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562492,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,562492,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|06 klimontów|2523/9",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2523/9",
+      "obreb": "06 Klimontów",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2523/9, obręb 06 Klimontów",
+      "dzialka_id": "247501_1.0006.2523/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0006.2523%2F9",
+      "area_m2": 2310,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2026-04-17",
+          "round": 1,
+          "starting_price_pln": 508000,
+          "outcome": "archived",
+          "area_m2": 2310,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562434,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,562434,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0007 porąbka|779/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "779/2",
+      "obreb": "0007 Porąbka",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 779/2, obręb 0007 Porąbka",
+      "dzialka_id": "247501_1.0007.779/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0007.779%2F2",
+      "area_m2": 328,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2026-03-06",
+          "round": 1,
+          "starting_price_pln": 32800,
+          "outcome": "archived",
+          "area_m2": 328,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562358,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-7792-obreb-0007-porabka-polozonej-w-sosnowcu-w-rej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,562358,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-7792-obreb-0007-porabka-polozonej-w-sosnowcu-w-rej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0003 zagórze|1408/39",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1408/39",
+      "obreb": "0003 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1408/39, obręb 0003 Zagórze",
+      "dzialka_id": "247501_1.0003.1408/39",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.1408%2F39",
+      "area_m2": 593,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2026-01-16",
+          "round": 1,
+          "starting_price_pln": 141000,
+          "outcome": "archived",
+          "area_m2": 593,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561573,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejonie-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,561573,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejonie-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010 sosnowiec|2420",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2420",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2420, obręb 0010 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202420%200010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1457,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-06-13",
+          "round": 1,
+          "starting_price_pln": 506000,
+          "outcome": "archived",
+          "area_m2": 1457,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,559449,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-nr-2420-obreb-0010-sosnowiec-polozonej-w-sosnowcu-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,559449,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-nr-2420-obreb-0010-sosnowiec-polozonej-w-sosnowcu-.html"
+        },
+        {
+          "date": "2026-01-16",
+          "round": 1,
+          "starting_price_pln": 506000,
+          "outcome": "archived",
+          "area_m2": 1457,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561518,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-nr-2420-obreb-0010-sosnowiec-polozonej-w-sosnowcu-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,561518,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-nr-2420-obreb-0010-sosnowiec-polozonej-w-sosnowcu-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|2165/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2165/2",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2165/2, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202165%2F2%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 726,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-12-12",
+          "round": 1,
+          "starting_price_pln": 133000,
+          "outcome": "archived",
+          "area_m2": 726,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561185,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,561185,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|04 kazimierz|496/8",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "496/8",
+      "obreb": "04 Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 496/8, obręb 04 Kazimierz",
+      "dzialka_id": "247501_1.0004.496/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.496%2F8",
+      "area_m2": 4057,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-10-10",
+          "round": 1,
+          "starting_price_pln": 1526000,
+          "outcome": "archived",
+          "area_m2": 4057,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560394,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,560394,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|5819",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "5819",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 5819, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205819%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1101,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-05-16",
+          "round": 1,
+          "starting_price_pln": 324000,
+          "outcome": "archived",
+          "area_m2": 1101,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,551214,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,551214,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2025-09-12",
+          "round": 1,
+          "starting_price_pln": 366000,
+          "outcome": "archived",
+          "area_m2": 1101,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560386,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,560386,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|07 porąbka|2694/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2694/2",
+      "obreb": "07 Porąbka",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Kryptologów - Spadochroniarzy.",
+      "dzialka_id": "247501_1.0007.2694/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0007.2694%2F2",
+      "area_m2": 484,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-08-25",
+          "round": 1,
+          "starting_price_pln": 147000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560791,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,560791,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|07 porąbka|2694/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2694/3",
+      "obreb": "07 Porąbka",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Kryptologów - Spadochroniarzy.",
+      "dzialka_id": "247501_1.0007.2694/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0007.2694%2F3",
+      "area_m2": 484,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-08-25",
+          "round": 1,
+          "starting_price_pln": 147000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560791,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,560791,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|09 sosnowiec|1936/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1936/2",
+      "obreb": "09 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1936/2, 1938, 1940, obręb 09 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201936%2F2%2009%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1315,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-05-30",
+          "round": 1,
+          "starting_price_pln": 267000,
+          "outcome": "archived",
+          "area_m2": 1315,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,559297,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejoni.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,559297,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejoni.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|1186/16",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1186/16",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1186/16, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201186%2F16%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4648,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-01-24",
+          "round": 1,
+          "starting_price_pln": 636000,
+          "outcome": "archived",
+          "area_m2": 4648,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538556,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538556,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2020-07-03",
+          "round": 1,
+          "starting_price_pln": 636000,
+          "outcome": "archived",
+          "area_m2": 4648,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540133,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540133,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2020-12-18",
+          "round": 2,
+          "starting_price_pln": 443100,
+          "outcome": "archived",
+          "area_m2": 4648,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541611,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541611,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        },
+        {
+          "date": "2021-10-29",
+          "round": 1,
+          "starting_price_pln": 756000,
+          "outcome": "archived",
+          "area_m2": 4648,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544503,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544503,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2022-03-30",
+          "round": 1,
+          "starting_price_pln": 756000,
+          "outcome": "archived",
+          "area_m2": 4648,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,546233,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,546233,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2025-04-04",
+          "round": 1,
+          "starting_price_pln": 1166000,
+          "outcome": "archived",
+          "area_m2": 4648,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558753,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,558753,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|339",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "339",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 339, obręb Kazimierz",
+      "dzialka_id": "247501_1.0004.339",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.339",
+      "area_m2": 2093,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2025-02-14",
+          "round": 1,
+          "starting_price_pln": 523250,
+          "outcome": "archived",
+          "area_m2": 2093,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558122,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejoni.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,558122,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejoni.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|496/8",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "496/8",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 496/8, obręb Kazimierz",
+      "dzialka_id": "247501_1.0004.496/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.496%2F8",
+      "area_m2": 4057,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-10-04",
+          "round": 1,
+          "starting_price_pln": 1220000,
+          "outcome": "archived",
+          "area_m2": 4057,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556720,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,556720,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0003 zagórze|1933/10",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1933/10",
+      "obreb": "0003 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1933/10, obręb 0003 Zagórze",
+      "dzialka_id": "247501_1.0003.1933/10",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.1933%2F10",
+      "area_m2": 5725,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-09-13",
+          "round": 1,
+          "starting_price_pln": 515250,
+          "outcome": "archived",
+          "area_m2": 5725,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556588,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-193310-obreb-0003-zagorze-polozonej-w-sosnowcu-w-r.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,556588,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-193310-obreb-0003-zagorze-polozonej-w-sosnowcu-w-r.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|3271",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3271",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3271, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203271%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 19636,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-08-23",
+          "round": 1,
+          "starting_price_pln": 5500000,
+          "outcome": "archived",
+          "area_m2": 19636,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556248,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,556248,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|7/7",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "7/7",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 7/7, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%207%2F7%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1690,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-08-09",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1690,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556184,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,556184,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0009 sosnowiec|1114",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1114",
+      "obreb": "0009 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1114, 1115, obręb 0009 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201114%200009%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 110,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-06-28",
+          "round": 1,
+          "starting_price_pln": 12000,
+          "outcome": "archived",
+          "area_m2": 110,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,556136,przetarg-ustny-ograniczony-na-sprzedaz-prawa-wlasnosci-nieruchomosci-gruntowej-nr-1114-i-nr-1115-obr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,556136,przetarg-ustny-ograniczony-na-sprzedaz-prawa-wlasnosci-nieruchomosci-gruntowej-nr-1114-i-nr-1115-obr.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0009 sosnowiec|4402",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4402",
+      "obreb": "0009 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4402, obręb 0009 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204402%200009%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 700,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-06-14",
+          "round": 1,
+          "starting_price_pln": 208000,
+          "outcome": "archived",
+          "area_m2": 700,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555789,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-polozonej-w-sosnowcu-przy-ul-raclawickiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,555789,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-polozonej-w-sosnowcu-przy-ul-raclawickiej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0003 zagórze|2354/4",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2354/4",
+      "obreb": "0003 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2354/4, obręb 0003 Zagórze",
+      "dzialka_id": "247501_1.0003.2354/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.2354%2F4",
+      "area_m2": 405,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-06-07",
+          "round": 1,
+          "starting_price_pln": 122000,
+          "outcome": "archived",
+          "area_m2": 405,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555892,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-nr-23544-obreb-0003-zagorze-polozonej-w-sosnowcu-p.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,555892,przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-nr-23544-obreb-0003-zagorze-polozonej-w-sosnowcu-p.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|1508",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1508",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1508, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201508%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 59,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-04-21",
+          "round": 1,
+          "starting_price_pln": 11800,
+          "outcome": "archived",
+          "area_m2": 59,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,550941,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,550941,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2024-04-26",
+          "round": 1,
+          "starting_price_pln": 12000,
+          "outcome": "archived",
+          "area_m2": 59,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,555135,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,555135,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|12 sosnowiec|2452/4",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2452/4",
+      "obreb": "12 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2452/4, obręb 12 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202452%2F4%2012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1108,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-04-12",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1108,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,554748,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,554748,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|173/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "173/2",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 173/2, 173/13, 173/15, 175/16, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F2%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7480,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-02-16",
+          "round": 1,
+          "starting_price_pln": 2792000,
+          "outcome": "archived",
+          "area_m2": 7480,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,554181,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,554181,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0003 zagórze|1241/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1241/1",
+      "obreb": "0003 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1241/1, obręb 0003 Zagórze",
+      "dzialka_id": "247501_1.0003.1241/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.1241%2F1",
+      "area_m2": 367,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2024-01-12",
+          "round": 1,
+          "starting_price_pln": 111000,
+          "outcome": "archived",
+          "area_m2": 367,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,554058,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-12411-obreb-0003-zagorze-polozonej-w-sosnowcu-przy.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,554058,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-12411-obreb-0003-zagorze-polozonej-w-sosnowcu-przy.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|2929",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2929",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2929, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202929%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 439,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-09-29",
+          "round": 1,
+          "starting_price_pln": 105000,
+          "outcome": "archived",
+          "area_m2": 439,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,552985,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-rejon-ul.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,552985,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-rejon-ul.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0003 zagórze|2894/6",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2894/6",
+      "obreb": "0003 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2894/6, obręb 0003 Zagórze",
+      "dzialka_id": "247501_1.0003.2894/6",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.2894%2F6",
+      "area_m2": 345,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-05-12",
+          "round": 1,
+          "starting_price_pln": 53000,
+          "outcome": "archived",
+          "area_m2": 345,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,551070,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-28946-obreb-0003-zagorze-polozonej-w-sosnowcu-przy.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,551070,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-28946-obreb-0003-zagorze-polozonej-w-sosnowcu-przy.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|5659/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "5659/2",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 5659/2, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205659%2F2%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 610,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "starting_price_pln": 196000,
+          "outcome": "archived",
+          "area_m2": 610,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,551203,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,551203,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|11 sosnowiec|3824",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3824",
+      "obreb": "11 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3824, obręb 11 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203824%2011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1185,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-04-14",
+          "round": 1,
+          "starting_price_pln": 466000,
+          "outcome": "archived",
+          "area_m2": 1185,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,550808,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,550808,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|553/9",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "553/9",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 553/9, obręb Ostrowy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20553%2F9%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5782,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-03-17",
+          "round": 1,
+          "starting_price_pln": 1156400,
+          "outcome": "archived",
+          "area_m2": 5782,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,550354,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,550354,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|por|2694/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2694/2",
+      "obreb": "Por",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Kryptologów - Spadochroniarzy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202694%2F2%20Por%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 484,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-08-17",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533501,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533501,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2018-11-23",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533881,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533881,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2019-03-15",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535419,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535419,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2023-03-13",
+          "round": 1,
+          "starting_price_pln": 143000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,550942,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,550942,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|por|2694/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2694/3",
+      "obreb": "Por",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Kryptologów - Spadochroniarzy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202694%2F3%20Por%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 484,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-03-13",
+          "round": 1,
+          "starting_price_pln": 143000,
+          "outcome": "archived",
+          "area_m2": 484,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,550942,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,550942,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0012|856/4",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "856/4",
+      "obreb": "0012",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 856/4, obręb 0012",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20856%2F4%200012%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2023-01-13",
+          "round": 1,
+          "starting_price_pln": 29656000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,549620,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,549620,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejo.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|8/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "8/1",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 8/1, obręb Kazimierz",
+      "dzialka_id": "247501_1.0004.8/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.8%2F1",
+      "area_m2": 679,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-05-31",
+          "round": 1,
+          "starting_price_pln": 135800,
+          "outcome": "archived",
+          "area_m2": 679,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543629,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543629,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        },
+        {
+          "date": "2022-02-10",
+          "round": 1,
+          "starting_price_pln": 172000,
+          "outcome": "archived",
+          "area_m2": 679,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,546450,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,546450,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        },
+        {
+          "date": "2022-04-26",
+          "round": 1,
+          "starting_price_pln": 172000,
+          "outcome": "archived",
+          "area_m2": 679,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547301,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,547301,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        },
+        {
+          "date": "2022-09-09",
+          "round": 1,
+          "starting_price_pln": 172000,
+          "outcome": "archived",
+          "area_m2": 679,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,548513,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,548513,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|485",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "485",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 485, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20485%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2022-07-25",
+          "round": 1,
+          "starting_price_pln": 341000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547964,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,547964,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0012 sosnowiec|2452/4",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2452/4",
+      "obreb": "0012 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2452/4, obręb 0012 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202452%2F4%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1108,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-03-30",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1108,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532561,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532561,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        },
+        {
+          "date": "2022-07-22",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1108,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547917,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako-dz-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,547917,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako-dz-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|21/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "21/1",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 21/1, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%2F1%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-12-01",
+          "round": 1,
+          "starting_price_pln": 369400,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530682,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-rtraugutta.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530682,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-rtraugutta.html"
+        },
+        {
+          "date": "2022-03-21",
+          "round": 1,
+          "starting_price_pln": 653000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,546126,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,546126,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        },
+        {
+          "date": "2022-06-06",
+          "round": 1,
+          "starting_price_pln": 653000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547002,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,547002,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|8/4",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "8/4",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Nowej.",
+      "dzialka_id": "247501_1.0004.8/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.8%2F4",
+      "area_m2": 769,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-05-31",
+          "round": 1,
+          "starting_price_pln": 153800,
+          "outcome": "archived",
+          "area_m2": 769,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543629,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543629,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        },
+        {
+          "date": "2022-02-10",
+          "round": 1,
+          "starting_price_pln": 202000,
+          "outcome": "archived",
+          "area_m2": 769,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,546450,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,546450,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        },
+        {
+          "date": "2022-04-26",
+          "round": 1,
+          "starting_price_pln": 202000,
+          "outcome": "archived",
+          "area_m2": 769,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547301,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,547301,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4600",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4600",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4600, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204600%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2022-03-28",
+          "round": 1,
+          "starting_price_pln": 115000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,546426,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,546426,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|523/6",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "523/6",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 523/6, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20523%2F6%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-03-31",
+          "round": 1,
+          "starting_price_pln": 919432,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527404,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-komuny-paryskiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,527404,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-komuny-paryskiej.html"
+        },
+        {
+          "date": "2017-08-04",
+          "round": 1,
+          "starting_price_pln": 919432,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528761,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-komuny-paryskiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528761,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-komuny-paryskiej.html"
+        },
+        {
+          "date": "2017-10-27",
+          "round": 1,
+          "starting_price_pln": 919432,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530030,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-komuny-paryskiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530030,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-komuny-paryskiej.html"
+        },
+        {
+          "date": "2022-02-07",
+          "round": 1,
+          "starting_price_pln": 1375000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,545744,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,545744,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3762",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3762",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3762, obręb Ostrowy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203762%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 127700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 127700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 127700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 127700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2021-11-19",
+          "round": 1,
+          "starting_price_pln": 134000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544739,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544739,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0012 sosnowiec|3069/7",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3069/7",
+      "obreb": "0012 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3069/7, obręb 0012 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203069%2F7%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 29401,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-12-11",
+          "round": 1,
+          "starting_price_pln": 2710000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530669,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530669,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html"
+        },
+        {
+          "date": "2019-10-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 29401,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,537754,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,537754,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html"
+        },
+        {
+          "date": "2019-10-25",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 29401,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538940,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538940,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html"
+        },
+        {
+          "date": "2020-10-05",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 29401,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541015,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-posiadanego-przez-gmine-sosnowiec-prawa-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541015,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-posiadanego-przez-gmine-sosnowiec-prawa-.html"
+        },
+        {
+          "date": "2021-10-18",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 29401,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544527,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544527,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomo.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|5979/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "5979/2",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 5979/2, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205979%2F2%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 492,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-10-08",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 492,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544143,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544143,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-niezabudowanej-pol-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|170/16",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "170/16",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 170/16, 171/7, 170/17, 171/19, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20170%2F16%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1804,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-09-24",
+          "round": 1,
+          "starting_price_pln": 277000,
+          "outcome": "archived",
+          "area_m2": 1804,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544061,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544061,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|2508/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2508/2",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2508/2, 2512/3, 2513/7, 2513/8, 2823/2, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202508%2F2%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3266,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-09-17",
+          "round": 1,
+          "starting_price_pln": 653200,
+          "outcome": "archived",
+          "area_m2": 3266,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543832,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543832,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|2266",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2266",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2266, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202266%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1033,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-09-10",
+          "round": 1,
+          "starting_price_pln": 153000,
+          "outcome": "archived",
+          "area_m2": 1033,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543930,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-uzytkowania-wieczystego-do-nieruchomosci-niezabudowa.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543930,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-uzytkowania-wieczystego-do-nieruchomosci-niezabudowa.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|por|2478",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2478",
+      "obreb": "Por",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Wileńskiej. ",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202478%20Por%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1129,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-08-16",
+          "round": 1,
+          "starting_price_pln": 169350,
+          "outcome": "archived",
+          "area_m2": 1129,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544466,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544466,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|por|2481",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2481",
+      "obreb": "Por",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Wileńskiej. ",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202481%20Por%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 786,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-08-16",
+          "round": 1,
+          "starting_price_pln": 117900,
+          "outcome": "archived",
+          "area_m2": 786,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544466,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544466,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|por|2486",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2486",
+      "obreb": "Por",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Wileńskiej. ",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202486%20Por%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 408,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-08-16",
+          "round": 1,
+          "starting_price_pln": 61200,
+          "outcome": "archived",
+          "area_m2": 408,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544466,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,544466,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010 sosnowiec|6897",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "6897",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 6897, obręb 0010 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206897%200010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3105,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-06-25",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 3105,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543194,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-dzialek-niezabudowanych-dznr-6897-dznr-689.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543194,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-dzialek-niezabudowanych-dznr-6897-dznr-689.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|2244",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2244",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2244, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202244%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 303,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-06-11",
+          "round": 1,
+          "starting_price_pln": 92000,
+          "outcome": "archived",
+          "area_m2": 303,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543312,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ulstarej-8.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543312,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ulstarej-8.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|1273",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1273",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1273, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201273%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1119,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-06-11",
+          "round": 1,
+          "starting_price_pln": 252000,
+          "outcome": "archived",
+          "area_m2": 1119,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543311,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ulksjpopieluszki.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543311,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ulksjpopieluszki.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|8/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "8/3",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanych położonych w Sosnowcu, przy ul. Nowej",
+      "dzialka_id": "247501_1.0004.8/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.8%2F3",
+      "area_m2": 778,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-05-31",
+          "round": 1,
+          "starting_price_pln": 155600,
+          "outcome": "archived",
+          "area_m2": 778,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543629,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543629,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-u.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010 sosnowiec|5657",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "5657",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 5657, obręb 0010 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205657%200010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 614,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-12-13",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 614,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,531448,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,531448,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        },
+        {
+          "date": "2018-10-15",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 614,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534150,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534150,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        },
+        {
+          "date": "2019-03-01",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 614,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535294,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535294,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        },
+        {
+          "date": "2020-02-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 614,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538939,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538939,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        },
+        {
+          "date": "2020-07-03",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 614,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540364,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540364,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        },
+        {
+          "date": "2021-05-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 614,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543195,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-dzialek-niezabudowanych-ozn-nr-5657-nr-581.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,543195,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-dzialek-niezabudowanych-ozn-nr-5657-nr-581.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|560",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "560",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 560, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20560%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 194,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2021-03-12",
+          "round": 1,
+          "starting_price_pln": 19200,
+          "outcome": "archived",
+          "area_m2": 194,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542353,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-braci-gierymskich.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542353,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-braci-gierymskich.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3758",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3758",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg  ustny  nieograniczony na  sprzedaż  nieruchomości niezabudowanych poł. przy  ul .Niecałej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203758%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 88700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 88700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 88700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 88700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3759",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3759",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg  ustny  nieograniczony na  sprzedaż  nieruchomości niezabudowanych poł. przy  ul .Niecałej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203759%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 83700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 83700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 83700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 83700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3760",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3760",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg  ustny  nieograniczony na  sprzedaż  nieruchomości niezabudowanych poł. przy  ul .Niecałej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203760%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 85700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 85700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 85700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 85700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3761",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3761",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg  ustny  nieograniczony na  sprzedaż  nieruchomości niezabudowanych poł. przy  ul .Niecałej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203761%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 125700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 125700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 125700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 125700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3763",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3763",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg  ustny  nieograniczony na  sprzedaż  nieruchomości niezabudowanych poł. przy  ul .Niecałej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203763%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 121700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 121700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 121700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 121700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|3764",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3764",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "Przetarg  ustny  nieograniczony na  sprzedaż  nieruchomości niezabudowanych poł. przy  ul .Niecałej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203764%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-12-11",
+          "round": 1,
+          "starting_price_pln": 112700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538926,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-04-08",
+          "round": 1,
+          "starting_price_pln": 112700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539970,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        },
+        {
+          "date": "2020-09-10",
+          "round": 1,
+          "starting_price_pln": 112700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541339,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulniecalej.html"
+        },
+        {
+          "date": "2021-01-18",
+          "round": 1,
+          "starting_price_pln": 112700,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,542393,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-niecalej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|12 sosnowiec|106",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "106",
+      "obreb": "12 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 106, obręb 12 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20106%2012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 9255,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-03-13",
+          "round": 1,
+          "starting_price_pln": 538000,
+          "outcome": "archived",
+          "area_m2": 9255,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539014,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-106-obreb-12-sosnowiec-polozonej-w-sosnowcu-w-rejo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539014,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-106-obreb-12-sosnowiec-polozonej-w-sosnowcu-w-rejo.html"
+        },
+        {
+          "date": "2020-06-30",
+          "round": 1,
+          "starting_price_pln": 538000,
+          "outcome": "archived",
+          "area_m2": 9255,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540134,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-106-obreb-12-sosnowiec-polozonej-w-sosnowcu-w-rejo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540134,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-106-obreb-12-sosnowiec-polozonej-w-sosnowcu-w-rejo.html"
+        },
+        {
+          "date": "2020-12-11",
+          "round": 2,
+          "starting_price_pln": 403500,
+          "outcome": "archived",
+          "area_m2": 9255,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541480,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-106-obreb-12-sosnowiec-polozonej-w-sosnowcu-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541480,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-106-obreb-12-sosnowiec-polozonej-w-sosnowcu-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4292/4",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4292/4",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4292/4, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204292%2F4%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-12-04",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541574,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulkukulek.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541574,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulkukulek.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|919",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "919",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 919, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20919%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4910,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-11-20",
+          "round": 1,
+          "starting_price_pln": 491000,
+          "outcome": "archived",
+          "area_m2": 4910,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541331,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-logistycznej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541331,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-logistycznej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|2812/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2812/2",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2812/2, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202812%2F2%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1057,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-01-28",
+          "round": 1,
+          "starting_price_pln": 172000,
+          "outcome": "archived",
+          "area_m2": 1057,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538685,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-lenartowicza-szymano.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538685,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-lenartowicza-szymano.html"
+        },
+        {
+          "date": "2020-10-02",
+          "round": 1,
+          "starting_price_pln": 183000,
+          "outcome": "archived",
+          "area_m2": 1057,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541080,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ullenartowicza-szyma.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541080,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ullenartowicza-szyma.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|12 sosnowiec|3833",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3833",
+      "obreb": "12 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3833, obręb 12 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203833%2012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 344,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-02-14",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 344,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538731,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538731,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2020-05-29",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 344,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540132,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540132,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2020-09-25",
+          "round": 2,
+          "starting_price_pln": 56000,
+          "outcome": "archived",
+          "area_m2": 344,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541052,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541052,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4292/11",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4292/11",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4292/11, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204292%2F11%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-09-17",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,541112,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulkukulek.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,541112,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ulkukulek.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|1612/7",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1612/7",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1612/7, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201612%2F7%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 719,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-09-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 719,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540646,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-makuszynskiego-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540646,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-makuszynskiego-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4397",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4397",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4397, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204397%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 870,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-01-22",
+          "round": 1,
+          "starting_price_pln": 167000,
+          "outcome": "archived",
+          "area_m2": 870,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538684,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-raclawickiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538684,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-raclawickiej.html"
+        },
+        {
+          "date": "2020-04-10",
+          "round": 1,
+          "starting_price_pln": 167000,
+          "outcome": "archived",
+          "area_m2": 870,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539704,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-raclawickiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539704,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-raclawickiej.html"
+        },
+        {
+          "date": "2020-07-31",
+          "round": 2,
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "area_m2": 870,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540382,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-raclawickiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540382,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-raclawickiej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4292/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4292/3",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4292/3, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204292%2F3%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-07-10",
+          "round": 1,
+          "starting_price_pln": 231200,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540025,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-kukulek.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540025,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-kukulek.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|11 sosnowiec|371/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "371/2",
+      "obreb": "11 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 371/2, obręb 11 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20371%2F2%2011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 293,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-06-19",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 293,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540267,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540267,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|444/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "444/2",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 444/2, obręb Ostrowy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20444%2F2%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2177,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2020-03-09",
+          "round": 1,
+          "starting_price_pln": 274500,
+          "outcome": "archived",
+          "area_m2": 2177,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,539241,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-gornej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,539241,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-gornej.html"
+        },
+        {
+          "date": "2020-03-13",
+          "round": 1,
+          "starting_price_pln": 274500,
+          "outcome": "archived",
+          "area_m2": 2177,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,540746,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-gornej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,540746,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-gornej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010 sosnowiec|3272/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3272/2",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3272/2, obręb 0010 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203272%2F2%200010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8496,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-03-25",
+          "round": 1,
+          "starting_price_pln": 2252000,
+          "outcome": "archived",
+          "area_m2": 8496,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535327,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535327,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html"
+        },
+        {
+          "date": "2020-01-31",
+          "round": 1,
+          "starting_price_pln": 2063000,
+          "outcome": "archived",
+          "area_m2": 8496,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538675,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudowan.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538675,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudowan.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0012 sosnowiec|2451",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2451",
+      "obreb": "0012 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2451, obręb 0012 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202451%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-05-29",
+          "round": 1,
+          "starting_price_pln": 1810900,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528100,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528100,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html"
+        },
+        {
+          "date": "2017-06-02",
+          "round": 1,
+          "starting_price_pln": 1810900,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,529249,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,529249,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html"
+        },
+        {
+          "date": "2018-01-15",
+          "round": 2,
+          "starting_price_pln": 1263500,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530845,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530845,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html"
+        },
+        {
+          "date": "2018-01-19",
+          "round": 2,
+          "starting_price_pln": 1263500,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532232,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532232,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html"
+        },
+        {
+          "date": "2018-08-27",
+          "round": 2,
+          "starting_price_pln": 1263500,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533402,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533402,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html"
+        },
+        {
+          "date": "2019-04-08",
+          "round": 1,
+          "starting_price_pln": 1806000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535514,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535514,ogloszenie-o-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudow.html"
+        },
+        {
+          "date": "2019-09-02",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,537067,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,537067,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html"
+        },
+        {
+          "date": "2020-01-20",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538621,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538621,ogloszenie-o-ii-pisemnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabu.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|3610/46",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3610/46",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3610/46, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203610%2F46%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 6307,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-08-27",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 6307,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533866,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533866,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html"
+        },
+        {
+          "date": "2018-12-10",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 6307,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534930,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534930,przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html"
+        },
+        {
+          "date": "2019-06-14",
+          "round": 1,
+          "starting_price_pln": 762000,
+          "outcome": "archived",
+          "area_m2": 6307,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,536209,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,536209,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2019-09-27",
+          "round": 2,
+          "starting_price_pln": 570000,
+          "outcome": "archived",
+          "area_m2": 6307,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,537501,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,537501,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        },
+        {
+          "date": "2019-12-13",
+          "round": 2,
+          "starting_price_pln": 570000,
+          "outcome": "archived",
+          "area_m2": 6307,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538225,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,538225,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010 sosnowiec|6383",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "6383",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 6383, obręb 0010 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206383%200010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1416,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-05-24",
+          "round": 1,
+          "starting_price_pln": 210000,
+          "outcome": "archived",
+          "area_m2": 1416,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,536306,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudowan.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,536306,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-niezabudowan.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4114",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4114",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4114, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204114%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 438,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-05-06",
+          "round": 1,
+          "starting_price_pln": 131000,
+          "outcome": "archived",
+          "area_m2": 438,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,536015,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-partyzantow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,536015,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-partyzantow.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|394/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "394/1",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 394/1, obręb Ostrowy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20394%2F1%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 856,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-03-02",
+          "round": 1,
+          "starting_price_pln": 107110,
+          "outcome": "archived",
+          "area_m2": 856,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,531798,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,531798,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2018-06-15",
+          "round": 1,
+          "starting_price_pln": 107110,
+          "outcome": "archived",
+          "area_m2": 856,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532431,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532431,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2018-12-07",
+          "round": 2,
+          "starting_price_pln": 85600,
+          "outcome": "archived",
+          "area_m2": 856,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534448,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534448,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        },
+        {
+          "date": "2019-02-22",
+          "round": 2,
+          "starting_price_pln": 85600,
+          "outcome": "archived",
+          "area_m2": 856,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535061,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535061,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        },
+        {
+          "date": "2019-04-30",
+          "round": 2,
+          "starting_price_pln": 85600,
+          "outcome": "archived",
+          "area_m2": 856,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,536029,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,536029,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|80/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "80/2",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 80/2, obręb Kazimierz",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2080%2F2%20Kazimierz%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 830,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-05-18",
+          "round": 1,
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 830,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532356,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-w-sosnowcu-przy-ul-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532356,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-w-sosnowcu-przy-ul-n.html"
+        },
+        {
+          "date": "2018-07-27",
+          "round": 1,
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 830,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533359,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-w-sosnowcu-przy-ul-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533359,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-w-sosnowcu-przy-ul-n.html"
+        },
+        {
+          "date": "2019-01-18",
+          "round": 2,
+          "starting_price_pln": 65600,
+          "outcome": "archived",
+          "area_m2": 830,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534970,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-przy-ul-nowej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534970,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-przy-ul-nowej.html"
+        },
+        {
+          "date": "2019-04-12",
+          "round": 2,
+          "starting_price_pln": 65600,
+          "outcome": "archived",
+          "area_m2": 830,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535695,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-przy-ul-nowej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535695,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-802-obreb-kazimierz-polozonej-przy-ul-nowej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|12 sosnowiec|3238/14",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3238/14",
+      "obreb": "12 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3238/14, obręb 12 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203238%2F14%2012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 921,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2019-04-10",
+          "round": 1,
+          "starting_price_pln": 112000,
+          "outcome": "archived",
+          "area_m2": 921,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,536239,ustne-przetargi-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,536239,ustne-przetargi-nieograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-sosnowcu-przy-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|3414/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3414/2",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3414/2, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203414%2F2%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 727,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-11-30",
+          "round": 1,
+          "starting_price_pln": 113000,
+          "outcome": "archived",
+          "area_m2": 727,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534491,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jdabrowskiego.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534491,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jdabrowskiego.html"
+        },
+        {
+          "date": "2019-03-01",
+          "round": 2,
+          "starting_price_pln": 66000,
+          "outcome": "archived",
+          "area_m2": 727,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535234,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jdabrowskie.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535234,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jdabrowskie.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|550",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "550",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 550, obręb Kazimierz",
+      "dzialka_id": "247501_1.0004.550",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.550",
+      "area_m2": 1602,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-02-16",
+          "round": 1,
+          "starting_price_pln": 93110,
+          "outcome": "archived",
+          "area_m2": 1602,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,531715,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-koscius.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,531715,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-koscius.html"
+        },
+        {
+          "date": "2018-06-08",
+          "round": 1,
+          "starting_price_pln": 93110,
+          "outcome": "archived",
+          "area_m2": 1602,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532432,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-koscius.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532432,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-koscius.html"
+        },
+        {
+          "date": "2018-11-30",
+          "round": 2,
+          "starting_price_pln": 74400,
+          "outcome": "archived",
+          "area_m2": 1602,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534532,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-k.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534532,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-k.html"
+        },
+        {
+          "date": "2019-02-08",
+          "round": 2,
+          "starting_price_pln": 74400,
+          "outcome": "archived",
+          "area_m2": 1602,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535119,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-k.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,535119,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-550-obreb-kazimierz-polozonej-w-rejonie-ul-k.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|1186/17",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1186/17",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1186/17, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201186%2F17%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1740,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-10-05",
+          "round": 1,
+          "starting_price_pln": 239000,
+          "outcome": "archived",
+          "area_m2": 1740,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533735,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533735,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        },
+        {
+          "date": "2019-01-11",
+          "round": 1,
+          "starting_price_pln": 239000,
+          "outcome": "archived",
+          "area_m2": 1740,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534603,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,534603,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|4246/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "4246/1",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4246/1, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204246%2F1%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1518,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-11-04",
+          "round": 1,
+          "starting_price_pln": 415000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,493681,prezydent-miasta-sosnowca-oglasza-pisemny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabud.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,493681,prezydent-miasta-sosnowca-oglasza-pisemny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabud.html"
+        },
+        {
+          "date": "2018-10-08",
+          "round": 1,
+          "starting_price_pln": 415000,
+          "outcome": "archived",
+          "area_m2": 1518,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533857,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-e-zegadlowicza.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533857,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-e-zegadlowicza.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0011 sosnowiec|754",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "754",
+      "obreb": "0011 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 754, obręb 0011 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20754%200011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1003,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-09-14",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1003,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533779,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533779,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|11 sosnowiec|2452",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2452",
+      "obreb": "11 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2452, obręb 11 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202452%2011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 325,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-08-10",
+          "round": 1,
+          "starting_price_pln": 63000,
+          "outcome": "archived",
+          "area_m2": 325,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532946,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532946,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|11 sosnowiec|3535",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3535",
+      "obreb": "11 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3535, obręb 11 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203535%2011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 340,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-07-13",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 340,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532812,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532812,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|10 sosnowiec|2886",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2886",
+      "obreb": "10 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2886, obręb 10 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202886%2010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 178,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-08-25",
+          "round": 1,
+          "starting_price_pln": 12143,
+          "outcome": "archived",
+          "area_m2": 178,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,529715,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu-przy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,529715,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu-przy-.html"
+        },
+        {
+          "date": "2017-10-27",
+          "round": 1,
+          "starting_price_pln": 12143,
+          "outcome": "archived",
+          "area_m2": 178,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530338,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu-przy-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530338,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu-przy-.html"
+        },
+        {
+          "date": "2018-02-09",
+          "round": 2,
+          "starting_price_pln": 9600,
+          "outcome": "archived",
+          "area_m2": 178,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,531547,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,531547,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu.html"
+        },
+        {
+          "date": "2018-06-01",
+          "round": 2,
+          "starting_price_pln": 9600,
+          "outcome": "archived",
+          "area_m2": 178,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532367,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532367,drugi-przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-2886-obreb-10-sosnowiec-polozonej-w-sosnowcu.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|09 sosnowiec|7337/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "7337/2",
+      "obreb": "09 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 7337/2, obręb 09 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%207337%2F2%2009%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 6114,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-05-22",
+          "round": 1,
+          "starting_price_pln": 1164110,
+          "outcome": "archived",
+          "area_m2": 6114,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532224,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532224,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejo.html"
+        },
+        {
+          "date": "2018-05-28",
+          "round": 1,
+          "starting_price_pln": 1164110,
+          "outcome": "archived",
+          "area_m2": 6114,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533544,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejo.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,533544,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-w-rejo.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|6718/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "6718/2",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 6718/2, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206718%2F2%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-01-22",
+          "round": 1,
+          "starting_price_pln": 1310200,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530899,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jednosci.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530899,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jednosci.html"
+        },
+        {
+          "date": "2018-05-21",
+          "round": 1,
+          "starting_price_pln": 1310200,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532206,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jednosci.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532206,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-jednosci.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|568",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "568",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 568, obręb Ostrowy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20568%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2018-03-02",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532552,drugie-przetargi-ustne-ograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-feliks.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,532552,drugie-przetargi-ustne-ograniczone-na-sprzedaz-nieruchomosci-niezabudowanych-pol-przy-ul-feliks.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|1292/9",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1292/9",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1292/9, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201292%2F9%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-12-15",
+          "round": 1,
+          "starting_price_pln": 1200,
+          "outcome": "archived",
+          "area_m2": 8,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530727,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-szeroki-lan-zimowej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530727,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-szeroki-lan-zimowej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|2410/15",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2410/15",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2410/15, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202410%2F15%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-04-21",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528023,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528023,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        },
+        {
+          "date": "2017-06-20",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528711,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528711,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        },
+        {
+          "date": "2017-09-29",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530061,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,530061,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|1399/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1399/2",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1399/2, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201399%2F2%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 271,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-09-15",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 271,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,529850,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,529850,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|2697/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2697/2",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2697/2, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202697%2F2%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 481,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-09-08",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 481,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,529708,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,529708,ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ozn-jako.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|804/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "804/1",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 804/1, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20804%2F1%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2016-12-12",
+          "round": 1,
+          "starting_price_pln": 142400,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,526685,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,526685,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        },
+        {
+          "date": "2017-03-24",
+          "round": 2,
+          "starting_price_pln": 98000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527422,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-d.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,527422,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-d.html"
+        },
+        {
+          "date": "2017-06-20",
+          "round": 2,
+          "starting_price_pln": 98000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528712,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-d.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528712,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-d.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|2967/28",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2967/28",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2967/28, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202967%2F28%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-02-17",
+          "round": 1,
+          "starting_price_pln": 3206145,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527013,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-projektowej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,527013,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-projektowej.html"
+        },
+        {
+          "date": "2017-06-09",
+          "round": 2,
+          "starting_price_pln": 1923600,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528218,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-projektowej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528218,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-projektowej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|3775/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3775/3",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3775/3, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203775%2F3%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3091,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-05-15",
+          "round": 1,
+          "starting_price_pln": 465143,
+          "outcome": "archived",
+          "area_m2": 3091,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528042,przetarg-pisemny-nieograniczony-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomosci-niezabudowan.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,528042,przetarg-pisemny-nieograniczony-na-sprzedaz-prawa-uzytkowania-wieczystego-nieruchomosci-niezabudowan.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|261/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "261/1",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 261/1, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20261%2F1%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-03-31",
+          "round": 1,
+          "starting_price_pln": 4280000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527405,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-kresowej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,527405,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-pol-przy-ul-kresowej.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|2697/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2697/1",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2697/1, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202697%2F1%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2017-03-17",
+          "round": 1,
+          "starting_price_pln": 84000,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527406,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,527406,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|1325",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1325",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1325, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201325%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1516,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2016-10-10",
+          "round": 1,
+          "starting_price_pln": 190143,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,525873,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,525873,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        },
+        {
+          "date": "2017-02-17",
+          "round": 2,
+          "starting_price_pln": 133000,
+          "outcome": "archived",
+          "area_m2": 1516,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527342,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-d.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,527342,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-d.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|zag|5/5",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "5/5",
+      "obreb": "Zag",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 5/5, obręb Zag",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F5%20Zag%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2016-10-28",
+          "round": 1,
+          "starting_price_pln": 168100,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,525877,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,525877,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010 sosnowiec|1244",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1244",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1244, obręb 0010 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201244%200010%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2016-10-21",
+          "round": 1,
+          "starting_price_pln": 55730,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,525882,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,525882,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ozn-jako-dz-n.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0011 sosnowiec|1218/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1218/3",
+      "obreb": "0011 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1218/3, obręb 0011 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201218%2F3%200011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2014-11-07",
+          "round": 1,
+          "starting_price_pln": 246171,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,506299,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,506299,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrowy|952",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "952",
+      "obreb": "Ostrowy",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 952, obręb Ostrowy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20952%20Ostrowy%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-12-06",
+          "round": 1,
+          "starting_price_pln": 25200,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,494494,prezydent-miasta-sosnowca-oglasza-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowane.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,494494,prezydent-miasta-sosnowca-oglasza-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-niezabudowane.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|klimont|1161/107",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1161/107",
+      "obreb": "Klimont",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1161/107, obręb Klimont",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201161%2F107%20Klimont%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-10-21",
+          "round": 1,
+          "starting_price_pln": 312500,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,493411,prezydent-miasta-sosnowca-oglasza-pisemny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabud.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,493411,prezydent-miasta-sosnowca-oglasza-pisemny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabud.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|3527",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3527",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3527, 3528, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203527%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 601,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-08-23",
+          "round": 1,
+          "starting_price_pln": 164000,
+          "outcome": "archived",
+          "area_m2": 601,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,489932,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,489932,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|1144/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "1144/3",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 1144/3, 1144/4, 1144/5, 1144/6, obręb Kazimierz",
+      "dzialka_id": "247501_1.0004.1144/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.1144%2F3",
+      "area_m2": 785,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-04-05",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 785,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,485839,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,485839,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|93",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "93",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 93, 98, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2093%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 598,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-03-15",
+          "round": 1,
+          "starting_price_pln": 79000,
+          "outcome": "archived",
+          "area_m2": 598,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,485611,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,485611,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|kazimierz|743/13",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "743/13",
+      "obreb": "Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 743/13, 743/15, obręb Kazimierz",
+      "dzialka_id": "247501_1.0004.743/13",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.743%2F13",
+      "area_m2": 548,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-03-15",
+          "round": 1,
+          "starting_price_pln": 54000,
+          "outcome": "archived",
+          "area_m2": 548,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,485608,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,485608,prezydent-miasta-sosnowca-oglasza-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudow.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|sosnowiec|645",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "645",
+      "obreb": "Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 645, obręb Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20645%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 22851,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2013-02-08",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 22851,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,483352,prezydent-miasta-sosnowca-oglasza-pisemne-przetargi-nieograniczone-na-sprzedaz-prawa-uzytkowania-wie.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,483352,prezydent-miasta-sosnowca-oglasza-pisemne-przetargi-nieograniczone-na-sprzedaz-prawa-uzytkowania-wie.html"
+        }
+      ]
+    },
+    {
+      "key": "dz|0011 sosnowiec|3925",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3925",
+      "obreb": "0011 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3925, obręb 0011 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203925%200011%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": "2012-11-20",
+          "round": 2,
+          "starting_price_pln": 236600,
+          "outcome": "archived",
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,484721,prezydent-miasta-sosnowca-oglasza-ii-pisemny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-nieza.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,484721,prezydent-miasta-sosnowca-oglasza-ii-pisemny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-nieza.html"
+        }
+      ]
+    }
+  ]
 }
