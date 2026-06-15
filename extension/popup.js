@@ -214,7 +214,11 @@ function renderActive() {
   $tbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold, key }) => {
       const cityTag = cityTagHtml(a.city || cityFromKey(key));
-      const addr = cityTag + esc(a.address_raw || '') + (a.area_m2 ? ` · ${fmtArea(a.area_m2)}` : '');
+      // For houses with both a building area and a plot area, show both
+      // ("· 185 m² · dz. 450 m²") so usable vs plot is distinguishable.
+      const aArea = a.area_m2 ?? a.land_area_m2; // building (or the sole area if that's all we have)
+      const addr = cityTag + esc(a.address_raw || '') + (aArea ? ` · ${fmtArea(aArea)}` : '')
+        + (a.area_m2 != null && a.land_area_m2 != null ? ` · dz. ${fmtArea(a.land_area_m2)}` : '');
       // "nowa" (new) only when this really is a first auction with no recorded
       // history. A 2nd/3rd przetarg is a re-listing, not new — show its round.
       const priorCell =

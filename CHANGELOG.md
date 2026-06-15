@@ -4,6 +4,18 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.28.0 — 2026-06-15
+
+Houses: building area vs plot area. When a house has both a usable (building) area
+and a plot area, the usable area stays in the Powierzchnia column and the plot area
+now shows in the Działka column (extension archive + website), or inline as
+"· dz. N m²" in the popup. zł/m² is computed on the usable area. Bielsko house
+listings now parse the two areas separately.
+
+Wider popup (540 → 760 px) so the right-most active-table columns (deal score, prior
+round, last unsold, source) and the median-delta badge no longer clip; the badge now
+wraps to a second line instead of being cut off at the popup edge.
+
 ## v1.27.0 — 2026-06-15
 
 Land area completeness. Bielsko land plots now show their area (read from the

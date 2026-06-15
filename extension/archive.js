@@ -236,6 +236,9 @@ function flatten(payload) {
             .toLowerCase(),
           kind: l.kind || p.kind || 'unknown',
           area_m2: l.area_m2 ?? p.area_m2 ?? l.land_area_m2 ?? null,
+          // Plot area only when the building area is ALSO known (so it's genuinely
+          // the plot, not the sole area). Shown in the Działka column for houses.
+          plot_area_m2: (l.area_m2 != null && l.land_area_m2 != null) ? l.land_area_m2 : null,
           round: l.round,
           starting_price_pln: l.starting_price_pln,
           final_price_pln: l.final_price_pln,
@@ -408,7 +411,7 @@ function renderTable() {
         <td>${fmtPLN(r.final_price_pln)}</td>
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
         <td>${esc(outcomeLabel(r))}</td>
-        <td>${parcelCell(r)}</td>
+        <td>${r.plot_area_m2 ? fmtArea(r.plot_area_m2) : parcelCell(r)}</td>
         <td>${srcLinkCell(r.source_pdf || r.detail_url, r.bip_url)}</td>
       </tr>`,
     )

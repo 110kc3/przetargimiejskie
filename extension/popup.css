@@ -131,7 +131,9 @@
 body {
   margin: 0;
   padding: 12px 14px;
-  width: 540px;
+  /* 9-column active table — wide enough that the right-most columns (deal-score,
+   * prior round, last unsold, source) never clip. Chrome caps popups at 800px. */
+  width: 760px;
   font: 13px/1.4 system-ui, -apple-system, sans-serif;
   color: var(--fg);
   background: var(--bg);
@@ -191,7 +193,8 @@ tbody tr:last-child td { border-bottom: none; }
 .zgm-fresh { color: var(--green-fg); }
 .zgm-prior { color: var(--amber-fg); font-weight: 600; }
 /* Deal score: zł/m² vs the city median. Green = cheaper than local median. */
-.zgm-deal { font-size: 11px; font-weight: 600; white-space: nowrap; }
+/* Deal badge may wrap to a second line in a narrow column instead of clipping. */
+.zgm-deal { font-size: 11px; font-weight: 600; }
 .zgm-deal.good { color: var(--green-fg); }
 .zgm-deal.bad { color: var(--amber-fg); }
 

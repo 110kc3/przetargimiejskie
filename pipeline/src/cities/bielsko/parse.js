@@ -314,13 +314,21 @@ export function parseListingNode(html, url, kind) {
   const text = htmlToText(html);
   const addr = addressFrom(text);
   if (!addr) return null;
+  // Building's usable area from the prose; plot area from the structured
+  // "Powierzchnia działki" / "Powierzchnia" field. For HOUSES keep them separate
+  // (area_m2 = building, land_area_m2 = plot) so the UI can show both. When there
+  // is no prose figure, fall back to the plot value so a house still has an area
+  // (and we don't then duplicate it into land_area_m2).
+  const building = areaFrom(text);
+  const plot = plotAreaFrom(text);
   return {
     kind,
     address_raw: addr.address_raw,
     address: addr.address,
-    // Usable area from prose; fall back to the structured plot/building area
-    // ("Powierzchnia") so houses without a prose figure still get an area.
-    area_m2: areaFrom(text) ?? plotAreaFrom(text),
+    area_m2: building ?? plot,
+    ...(kind === 'zabudowana' && building != null && plot != null && plot !== building
+      ? { land_area_m2: plot }
+      : {}),
     starting_price_pln: priceFrom(text),
     round: roundFromForma(field(text, 'Forma przetargu')),
     auction_date: auctionDateFrom(text),
