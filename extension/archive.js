@@ -412,6 +412,7 @@ function renderTable() {
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
         <td>${esc(outcomeLabel(r))}</td>
         <td>${r.plot_area_m2 ? fmtArea(r.plot_area_m2) : parcelCell(r)}</td>
+        <td>${mapsCell(r)}</td>
         <td>${srcLinkCell(r.source_pdf || r.detail_url, r.bip_url)}</td>
       </tr>`,
     )
@@ -432,6 +433,17 @@ function srcLinkCell(u, bip) {
 
 // Land rows link the parcel to a geoportal (resolved per-city in build-land);
 // non-land rows have no parcel link, so the cell is blank.
+// Direct Google Maps link for non-land listings (flats/houses/commercial/garages).
+// Land plots use the Parcel/geoportal column instead.
+function mapsCell(r) {
+  if (r.kind === 'grunt') return '—';
+  const base = (r.street ? `${r.street}${r.building ? ' ' + r.building : ''}`
+                         : String(r.address_raw || r.addr_display || '').replace(/\s*\/\s*\d+\w*$/, '')).trim();
+  if (!base) return '—';
+  const q = encodeURIComponent(`${base}, ${r.city || ''}`.replace(/,\s*$/, '').trim());
+  return `<a class="zgm-src-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">${t('col.map')} ↗</a>`;
+}
+
 function parcelCell(r) {
   // Multi-parcel plots ("263/2, 263/6") get one geoportal link per parcel.
   if (r.parcels && r.parcels.length) {
@@ -541,6 +553,7 @@ function renderActiveTable() {
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
           <td>${parcelCell(a)}</td>
+          <td>${mapsCell(a)}</td>
           <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>
         </tr>`;
     })

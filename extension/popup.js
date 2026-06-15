@@ -162,6 +162,15 @@ function sortActiveItems(items) {
   });
 }
 
+// Direct Google Maps link for a non-land active listing (land has no street address).
+function mapsCell(a) {
+  if (a.kind === 'grunt') return '—';
+  const base = String(a.address_raw || '').replace(/\s*\/\s*\d+\w*$/, '').trim();
+  if (!base) return '—';
+  const q = encodeURIComponent(`${base}, ${a.city || ''}`.replace(/,\s*$/, '').trim());
+  return `<a class="zgm-src-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">${t('col.map')} ↗</a>`;
+}
+
 async function load(force) {
   $status.hidden = false;
   $status.textContent = force ? t('popup.refreshing') : t('popup.loading');
@@ -248,6 +257,7 @@ function renderActive() {
           <td>${askM2}${dealCell}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
+          <td>${mapsCell(a)}</td>
           <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>
         </tr>`;
     })

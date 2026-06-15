@@ -4,6 +4,13 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.29.0 — 2026-06-15
+
+Google Maps column. Every non-land listing (flats, houses, commercial, garages) now
+has a direct "Mapa" link that opens Google Maps at the street address — a new column
+in the popup and the archive (and on the website). Land plots keep their geoportal
+parcel link instead. The popup widened to 800px to fit the extra column.
+
 ## v1.28.0 — 2026-06-15
 
 Houses: building area vs plot area. When a house has both a usable (building) area

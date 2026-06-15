@@ -67,6 +67,7 @@ a:hover{color:var(--accent);text-decoration:underline}
 .data-table .muted-cell{color:var(--faint)}
 /* Działka column is hidden unless the Rodzaj filter is land/houses (toggled in render()). */
 body.hide-dz .dz-col{display:none}
+body.hide-map .map-col{display:none}
 .empty-row td{color:var(--faint);text-align:center;padding:22px}
 .chip{display:inline-flex;align-items:center;gap:7px;margin-right:8px;font-size:12.5px;color:var(--fg);font-weight:600}
 .chip .city-dot{width:7px;height:7px}
@@ -121,7 +122,7 @@ body.hide-dz .dz-col{display:none}
     <div class="table-scroll">
       <table class="data-table"><thead><tr>
         <th class="num">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th>
-        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th class="dz-col">Działka</th><th>Źródło</th>
+        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th class="dz-col">Działka</th><th class="map-col">Mapa</th><th>Źródło</th>
       </tr></thead><tbody id="active-body"></tbody></table>
     </div>
   </div>
@@ -133,7 +134,7 @@ body.hide-dz .dz-col{display:none}
         <th class="sortable num" data-sort="date">Data</th><th>Miasto / nieruchomość</th><th>Typ</th>
         <th class="sortable" data-sort="round">Runda</th><th class="sortable num" data-sort="area">Powierzchnia</th>
         <th class="sortable num" data-sort="start">Cena wyw.</th><th class="sortable num" data-sort="final">Cena końc.</th>
-        <th class="sortable num" data-sort="m2">zł/m²</th><th>Wynik</th><th class="dz-col">Działka</th><th>Źródło</th>
+        <th class="sortable num" data-sort="m2">zł/m²</th><th>Wynik</th><th class="dz-col">Działka</th><th class="map-col">Mapa</th><th>Źródło</th>
       </tr></thead><tbody id="hist-body"></tbody></table>
     </div>
   </div>
@@ -181,6 +182,17 @@ const geoLink = r => {
     return links||'—';
   }
   const h=safeHref(r.geo); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(r.dz||'mapa')} ↗</a>`:'—';
+};
+// Direct Google Maps link for non-land listings (flats/houses/commercial/garages).
+// Historical rows carry street+building; active rows carry the raw address (apt
+// stripped). Land plots use the Działka geoportal link instead.
+const mapsLink = r => {
+  if (r.kind === 'grunt') return '';
+  const base = (r.street ? `${r.street}${r.building?(' '+r.building):''}`
+                         : String(r.addr||'').replace(/\s*\/\s*\d+\w*$/,'')).trim();
+  if (!base) return '—';
+  const q = encodeURIComponent(`${base}, ${r.cityLabel||''}`.replace(/,\s*$/,'').trim());
+  return `<a class="src-link" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Mapa ↗</a>`;
 };
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
@@ -284,6 +296,8 @@ function render(){
   // The Działka column only applies to land + houses; hide it for flats /
   // commercial / garages (the default view is flats, so it starts hidden).
   document.body.classList.toggle('hide-dz', cls!=='grunt'&&cls!=='zabudowana');
+  // The Mapa (Google Maps) column is for non-land listings only.
+  document.body.classList.toggle('hide-map', cls==='grunt');
   const cityYear = r => (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
   renderSummary(records.filter(cityYear));
 
@@ -303,8 +317,9 @@ function render(){
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
     <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&reasonLabel(r.reason)?`<span class="pill-reason">${esc(reasonLabel(r.reason))}</span>`:''}</td>
     <td class="dz-col">${r.plotArea?esc(fmtArea(r.plotArea)):geoLink(r)}</td>
+    <td class="map-col">${mapsLink(r)}</td>
     <td>${srcLink(r.src)}${bipLink(r.bip)}</td>
-  </tr>`).join('') || '<tr class="empty-row"><td colspan="11">Brak rekordów dla wybranych filtrów.</td></tr>';
+  </tr>`).join('') || '<tr class="empty-row"><td colspan="12">Brak rekordów dla wybranych filtrów.</td></tr>';
 
   const acts = active.filter(a=>(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
   // Sort by auction date (soonest first); undated listings go to the bottom.
@@ -320,8 +335,9 @@ function render(){
     <td class="num">${fmtPLN(a.start)}</td>
     <td class="num">${fmtM2(a.start,a.area)}</td>
     <td class="dz-col">${a.plotArea?esc(fmtArea(a.plotArea)):geoLink(a)}</td>
+    <td class="map-col">${mapsLink(a)}</td>
     <td>${srcLink(href)}${bipLink(a.bip)}</td>
-  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="9">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
+  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="10">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
 
   refreshHeaders();
 }

@@ -131,9 +131,9 @@
 body {
   margin: 0;
   padding: 12px 14px;
-  /* 9-column active table — wide enough that the right-most columns (deal-score,
-   * prior round, last unsold, source) never clip. Chrome caps popups at 800px. */
-  width: 760px;
+  /* 10-column active table (incl. Maps) — 800px is Chrome's popup max; the
+   * right-most columns wrap rather than clip. */
+  width: 800px;
   font: 13px/1.4 system-ui, -apple-system, sans-serif;
   color: var(--fg);
   background: var(--bg);
