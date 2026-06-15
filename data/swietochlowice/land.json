@@ -3,14 +3,14 @@
   "city": "swietochlowice",
   "plots": [
     {
-      "key": "addr|ul. krokusów i ul",
+      "key": "addr|ul. krokusów",
       "kind": "grunt",
       "city": "swietochlowice",
       "dzialka_nr": null,
       "obreb": "0001 Chropaczów",
-      "street": "Krokusów i ul",
+      "street": "Krokusów",
       "building": null,
-      "address_raw": "ul. Krokusów i ul",
+      "address_raw": "ul. Krokusów",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200001%20Chropacz%C3%B3w%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 7033,
@@ -25,33 +25,6 @@
           "area_m2": 7033,
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42514128",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42514128"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|ul. ceramicznej prezydent miasta świętochłowice ogłasza ill przetarg ustny nieograniczony na sprzedaż przysługującego gminie świętochłowice prawa własności nieruchomości niezabudowanej",
-      "kind": "grunt",
-      "city": "swietochlowice",
-      "dzialka_nr": null,
-      "obreb": "Świętochłowice",
-      "street": "Ceramicznej Prezydent Miasta Świętochłowice ogłasza Ill przetarg ustny nieograniczony na sprzedaż przysługującego Gminie Świętochłowice prawa własności nieruchomości niezabudowanej",
-      "building": null,
-      "address_raw": "ul. Ceramicznej Prezydent Miasta Świętochłowice ogłasza Ill przetarg ustny nieograniczony na sprzedaż przysługującego Gminie Świętochłowice prawa własności nieruchomości niezabudowanej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 27.224,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-03-19",
-          "round": 3,
-          "starting_price_pln": 2900000,
-          "outcome": "archived",
-          "area_m2": 27.224,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430604",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430604"
         }
       ],
       "parcels": []
@@ -89,41 +62,14 @@
       ]
     },
     {
-      "key": "addr|ul. ceramicznej prezydent miasta świętochłowice ogłasza ii przetarg ustny nieograniczony na sprzedaż przysługującego gminie świętochłowice prawa własności nieruchomości niezabudowanej",
-      "kind": "grunt",
-      "city": "swietochlowice",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Ceramicznej Prezydent Miasta Świętochłowice ogłasza II przetarg ustny nieograniczony na sprzedaż przysługującego Gminie Świętochłowice prawa własności nieruchomości niezabudowanej",
-      "building": null,
-      "address_raw": "ul. Ceramicznej Prezydent Miasta Świętochłowice ogłasza II przetarg ustny nieograniczony na sprzedaż przysługującego Gminie Świętochłowice prawa własności nieruchomości niezabudowanej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 27.224,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-08",
-          "round": 2,
-          "starting_price_pln": 3200000,
-          "outcome": "archived",
-          "area_m2": 27.224,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41597679",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41597679"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "dz|3100/5",
       "kind": "grunt",
       "city": "swietochlowice",
       "dzialka_nr": "3100/5",
       "obreb": null,
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203100%2F5%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 296,
@@ -183,14 +129,14 @@
       "parcels": []
     },
     {
-      "key": "addr|ul. zielonej i ul",
+      "key": "addr|ul. zielonej",
       "kind": "grunt",
       "city": "swietochlowice",
       "dzialka_nr": null,
       "obreb": "0003 Świętochłowice",
-      "street": "Zielonej i ul",
+      "street": "Zielonej",
       "building": null,
-      "address_raw": "ul. Zielonej i ul",
+      "address_raw": "ul. Zielonej",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 7288,
@@ -376,9 +322,9 @@
       "city": "swietochlowice",
       "dzialka_nr": "0, 0209",
       "obreb": "Świętochłowice",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%2C%200209%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
@@ -461,9 +407,9 @@
       "city": "swietochlowice",
       "dzialka_nr": "568/116",
       "obreb": "Świętochłowice",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": "247601_1.0003.568/116",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.568%2F116",
       "area_m2": null,
@@ -493,9 +439,9 @@
       "city": "swietochlowice",
       "dzialka_nr": "4424",
       "obreb": "Świętochłowice",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": "247601_1.0003.4424",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4424",
       "area_m2": null,
@@ -525,9 +471,9 @@
       "city": "swietochlowice",
       "dzialka_nr": "1329/133",
       "obreb": "0003 (Świętochłowice)",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201329%2F133%200003%20(%C5%9Awi%C4%99toch%C5%82owice)%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
@@ -549,151 +495,6 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201329%2F133%200003%20(%C5%9Awi%C4%99toch%C5%82owice)%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
-    },
-    {
-      "key": "addr|ul. ul",
-      "kind": "grunt",
-      "city": "swietochlowice",
-      "dzialka_nr": null,
-      "obreb": "Świętochłowice",
-      "street": "ul",
-      "building": null,
-      "address_raw": "ul. ul",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 86667,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2021-12-17",
-          "round": 1,
-          "starting_price_pln": 26000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/28128823",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/28128823"
-        },
-        {
-          "date": "2021-12-22",
-          "round": 1,
-          "starting_price_pln": 6600000,
-          "outcome": "archived",
-          "area_m2": 86667,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/27932784",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/27932784"
-        },
-        {
-          "date": "2022-09-15",
-          "round": 3,
-          "starting_price_pln": 6500000,
-          "outcome": "archived",
-          "area_m2": 86667,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30086400",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30086400"
-        },
-        {
-          "date": "2022-12-16",
-          "round": 1,
-          "starting_price_pln": 45000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30918730",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30918730"
-        },
-        {
-          "date": "2023-01-20",
-          "round": 4,
-          "starting_price_pln": 5200000,
-          "outcome": "archived",
-          "area_m2": 86667,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30918620",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30918620"
-        },
-        {
-          "date": "2023-04-21",
-          "round": 2,
-          "starting_price_pln": 44000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/31859191",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/31859191"
-        },
-        {
-          "date": "2024-01-12",
-          "round": 1,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33656747",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/33656747"
-        },
-        {
-          "date": "2024-04-18",
-          "round": 2,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/34518218",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/34518218"
-        },
-        {
-          "date": "2024-11-04",
-          "round": 1,
-          "starting_price_pln": 1200000,
-          "outcome": "archived",
-          "area_m2": 487,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/36111046",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/36111046"
-        },
-        {
-          "date": "2025-05-20",
-          "round": 1,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/40328788",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/40328788"
-        },
-        {
-          "date": "2025-09-25",
-          "round": 1,
-          "starting_price_pln": 70000,
-          "outcome": "archived",
-          "area_m2": 433,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41306376",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41306376"
-        },
-        {
-          "date": "2025-10-30",
-          "round": 1,
-          "starting_price_pln": 1500000,
-          "outcome": "archived",
-          "area_m2": 7033,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41321054",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41321054"
-        },
-        {
-          "date": "2026-01-15",
-          "round": 3,
-          "starting_price_pln": 700000,
-          "outcome": "archived",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41820356",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41820356"
-        },
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 1301,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430665",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42430665"
-        },
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": 90000,
-          "outcome": "active",
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30519857",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/30519857"
-        }
-      ],
-      "parcels": []
     }
   ]
 }
