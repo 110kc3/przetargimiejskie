@@ -15,6 +15,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.389",
       "area_m2": 7918,
       "zoning": "usługowe",
+      "status": "przetarg ogłoszony",
       "listings": [
         {
           "date": "2026-08-04",
@@ -24,6 +25,13 @@
           "area_m2": 7918,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-389-obreb-stare-gliwice-ul-labedzka-4",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "389",
+          "dzialka_id": "246601_1.0052.389",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.389"
         }
       ]
     },
@@ -40,6 +48,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2",
       "area_m2": 1626,
       "zoning": "mieszkaniowe",
+      "status": "przetarg ogłoszony",
       "listings": [
         {
           "date": "2026-07-14",
@@ -49,6 +58,18 @@
           "area_m2": 1626,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-i-nr-2636-obreb-bojkow-wschod-ul-zytnia-1",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "263/2",
+          "dzialka_id": "246601_1.0019.263/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2"
+        },
+        {
+          "nr": "263/6",
+          "dzialka_id": "246601_1.0019.263/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F6"
         }
       ]
     },
@@ -65,6 +86,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
       "area_m2": 1097,
       "zoning": "mieszkaniowe",
+      "status": "przetarg ogłoszony",
       "listings": [
         {
           "date": "2026-06-16",
@@ -74,6 +96,13 @@
           "area_m2": 1097,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-13122-obreb-bojkow-ul-chmielna-1",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1312/2",
+          "dzialka_id": "246601_1.0018.1312/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
@@ -90,6 +119,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F5",
       "area_m2": 3863,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -99,6 +129,13 @@
           "area_m2": 3863,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-4695-obreb-brzezinka-w-poblizu-ul-radomskiej",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "469/5",
+          "dzialka_id": "246601_1.0020.469/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F5"
         }
       ]
     },
@@ -115,6 +152,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0039.50",
       "area_m2": 1754,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -124,6 +162,13 @@
           "area_m2": 1754,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_5937.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "50",
+          "dzialka_id": "246601_1.0039.50",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0039.50"
         }
       ]
     },
@@ -140,6 +185,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.188",
       "area_m2": 6271,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -149,6 +195,58 @@
           "area_m2": 6271,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7512.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "188",
+          "dzialka_id": "246601_1.0027.188",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.188"
+        },
+        {
+          "nr": "191",
+          "dzialka_id": "246601_1.0027.191",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.191"
+        },
+        {
+          "nr": "193/1",
+          "dzialka_id": "246601_1.0027.193/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F1"
+        },
+        {
+          "nr": "193/2",
+          "dzialka_id": "246601_1.0027.193/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F2"
+        },
+        {
+          "nr": "193/3",
+          "dzialka_id": "246601_1.0027.193/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F3"
+        },
+        {
+          "nr": "193/4",
+          "dzialka_id": "246601_1.0027.193/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F4"
+        },
+        {
+          "nr": "193/5",
+          "dzialka_id": "246601_1.0027.193/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F5"
+        },
+        {
+          "nr": "193/6",
+          "dzialka_id": "246601_1.0027.193/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F6"
+        },
+        {
+          "nr": "193/7",
+          "dzialka_id": "246601_1.0027.193/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F7"
+        },
+        {
+          "nr": "193/8",
+          "dzialka_id": "246601_1.0027.193/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.193%2F8"
         }
       ]
     },
@@ -165,6 +263,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201337%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1391,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -174,6 +273,12 @@
           "area_m2": 1391,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_9053.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1337",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201337%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -190,6 +295,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2",
       "area_m2": 2091,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -199,6 +305,18 @@
           "area_m2": 2091,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2165.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1168/2",
+          "dzialka_id": "246601_1.0051.1168/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2"
+        },
+        {
+          "nr": "1170/2",
+          "dzialka_id": "246601_1.0051.1170/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1170%2F2"
         }
       ]
     },
@@ -215,6 +333,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 728,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -224,6 +343,12 @@
           "area_m2": 728,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_1192_obr_Bojkow.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1192",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -240,6 +365,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0034.433",
       "area_m2": 1869,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -249,6 +375,13 @@
           "area_m2": 1869,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9104.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "433",
+          "dzialka_id": "246601_1.0034.433",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0034.433"
         }
       ]
     },
@@ -265,6 +398,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1021",
       "area_m2": 1947,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -274,6 +408,13 @@
           "area_m2": 1947,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_1021_obr_Bojkow.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1021",
+          "dzialka_id": "246601_1.0018.1021",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1021"
         }
       ]
     },
@@ -290,6 +431,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1063",
       "area_m2": 675,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -299,6 +441,13 @@
           "area_m2": 675,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1667.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1063",
+          "dzialka_id": "246601_1.0051.1063",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1063"
         }
       ]
     },
@@ -315,6 +464,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.248%2F1",
       "area_m2": 4304,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -324,6 +474,23 @@
           "area_m2": 4304,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6524.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "248/1",
+          "dzialka_id": "246601_1.0023.248/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.248%2F1"
+        },
+        {
+          "nr": "248/2",
+          "dzialka_id": "246601_1.0023.248/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.248%2F2"
+        },
+        {
+          "nr": "249",
+          "dzialka_id": "246601_1.0023.249",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.249"
         }
       ]
     },
@@ -340,6 +507,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F3",
       "area_m2": 680,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -349,6 +517,13 @@
           "area_m2": 680,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3384.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1203/3",
+          "dzialka_id": "246601_1.0061.1203/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F3"
         }
       ]
     },
@@ -361,10 +536,11 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Klasztorna",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20272%2F1%3B%20272%2F3%20Stare%20%C5%81ab%C4%99dy%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "246601_1.0053.272/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0053.272%2F1",
       "area_m2": 1723,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -374,6 +550,18 @@
           "area_m2": 1723,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_272_obr__Stare_Labedy.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "272/1",
+          "dzialka_id": "246601_1.0053.272/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0053.272%2F1"
+        },
+        {
+          "nr": "272/3",
+          "dzialka_id": "246601_1.0053.272/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0053.272%2F3"
         }
       ]
     },
@@ -390,6 +578,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.120%2F2",
       "area_m2": 2160,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -399,6 +588,18 @@
           "area_m2": 2160,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_767.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "120/2",
+          "dzialka_id": "246601_1.0022.120/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.120%2F2"
+        },
+        {
+          "nr": "121",
+          "dzialka_id": "246601_1.0022.121",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.121"
         }
       ]
     },
@@ -415,6 +616,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.844",
       "area_m2": 831,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -424,6 +626,18 @@
           "area_m2": 831,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7510.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "844",
+          "dzialka_id": "246601_1.0024.844",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.844"
+        },
+        {
+          "nr": "845",
+          "dzialka_id": "246601_1.0024.845",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.845"
         }
       ]
     },
@@ -440,6 +654,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0057.340%2F2",
       "area_m2": 2139,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -449,6 +664,13 @@
           "area_m2": 2139,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1265.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "340/2",
+          "dzialka_id": "246601_1.0057.340/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0057.340%2F2"
         }
       ]
     },
@@ -465,6 +687,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F8",
       "area_m2": 1228,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -474,6 +697,13 @@
           "area_m2": 1228,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2629.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "469/8",
+          "dzialka_id": "246601_1.0020.469/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F8"
         }
       ]
     },
@@ -490,6 +720,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.181%2F2",
       "area_m2": 8108,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -499,6 +730,53 @@
           "area_m2": 8108,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9150.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "181/2",
+          "dzialka_id": "246601_1.0036.181/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.181%2F2"
+        },
+        {
+          "nr": "163",
+          "dzialka_id": "246601_1.0036.163",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.163"
+        },
+        {
+          "nr": "160",
+          "dzialka_id": "246601_1.0036.160",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.160"
+        },
+        {
+          "nr": "161",
+          "dzialka_id": "246601_1.0036.161",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.161"
+        },
+        {
+          "nr": "162",
+          "dzialka_id": "246601_1.0036.162",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.162"
+        },
+        {
+          "nr": "164",
+          "dzialka_id": "246601_1.0036.164",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.164"
+        },
+        {
+          "nr": "165",
+          "dzialka_id": "246601_1.0036.165",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.165"
+        },
+        {
+          "nr": "166",
+          "dzialka_id": "246601_1.0036.166",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.166"
+        },
+        {
+          "nr": "167",
+          "dzialka_id": "246601_1.0036.167",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.167"
         }
       ]
     },
@@ -515,6 +793,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.181%2F3",
       "area_m2": 9131,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -524,6 +803,13 @@
           "area_m2": 9131,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9149.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "181/3",
+          "dzialka_id": "246601_1.0036.181/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.181%2F3"
         }
       ]
     },
@@ -540,6 +826,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20814%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 400,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -549,6 +836,12 @@
           "area_m2": 400,
           "detail_url": "https://geoportal.gliwice.eu/isdp/core/download/documents/.att/MJ/KWLaRuRnyIrbZm-AFSPg/ogloszenie_ZPM_2014_6250.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "814",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20814%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -565,6 +858,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828",
       "area_m2": 1170,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -574,6 +868,18 @@
           "area_m2": 1170,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-828-i-nr-829-obreb-klodnica-na-wsch-od-ul-j-sliwki-ul-kotlarska",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "828",
+          "dzialka_id": "246601_1.0024.828",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828"
+        },
+        {
+          "nr": "829",
+          "dzialka_id": "246601_1.0024.829",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.829"
         }
       ]
     },
@@ -590,6 +896,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.263%2F2",
       "area_m2": 772,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -599,6 +906,13 @@
           "area_m2": 772,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3367.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "263/2",
+          "dzialka_id": "246601_1.0018.263/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.263%2F2"
         }
       ]
     },
@@ -615,6 +929,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F3",
       "area_m2": 1080,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -624,6 +939,13 @@
           "area_m2": 1080,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2582.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "152/3",
+          "dzialka_id": "246601_1.0036.152/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F3"
         }
       ]
     },
@@ -640,6 +962,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1778,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -649,6 +972,12 @@
           "area_m2": 1778,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6575.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1055/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -665,6 +994,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52",
       "area_m2": 10099,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -674,6 +1004,38 @@
           "area_m2": 10099,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-3",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "52",
+          "dzialka_id": "246601_1.0030.52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52"
+        },
+        {
+          "nr": "53",
+          "dzialka_id": "246601_1.0030.53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
+        },
+        {
+          "nr": "54",
+          "dzialka_id": "246601_1.0030.54",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
+        },
+        {
+          "nr": "56",
+          "dzialka_id": "246601_1.0030.56",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
+        },
+        {
+          "nr": "559",
+          "dzialka_id": "246601_1.0030.559",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
+        },
+        {
+          "nr": "560",
+          "dzialka_id": "246601_1.0030.560",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
         }
       ]
     },
@@ -690,6 +1052,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F2",
       "area_m2": 1487,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -699,6 +1062,13 @@
           "area_m2": 1487,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2493.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "152/2",
+          "dzialka_id": "246601_1.0036.152/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F2"
         }
       ]
     },
@@ -715,6 +1085,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F5",
       "area_m2": 1070,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -724,6 +1095,13 @@
           "area_m2": 1070,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2577.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "152/5",
+          "dzialka_id": "246601_1.0036.152/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F5"
         }
       ]
     },
@@ -740,6 +1118,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F4",
       "area_m2": 661,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -749,6 +1128,13 @@
           "area_m2": 661,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3444.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1203/4",
+          "dzialka_id": "246601_1.0061.1203/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F4"
         }
       ]
     },
@@ -765,6 +1151,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F4",
       "area_m2": 1027,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -774,6 +1161,13 @@
           "area_m2": 1027,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2583.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "152/4",
+          "dzialka_id": "246601_1.0036.152/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F4"
         }
       ]
     },
@@ -790,6 +1184,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.808",
       "area_m2": 4059,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -799,6 +1194,18 @@
           "area_m2": 4059,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6903",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "808",
+          "dzialka_id": "246601_1.0052.808",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.808"
+        },
+        {
+          "nr": "810",
+          "dzialka_id": "246601_1.0052.810",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.810"
         }
       ]
     },
@@ -815,6 +1222,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F6",
       "area_m2": 1085,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -824,6 +1232,13 @@
           "area_m2": 1085,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2584.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "152/6",
+          "dzialka_id": "246601_1.0036.152/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F6"
         }
       ]
     },
@@ -840,6 +1255,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.687",
       "area_m2": 2076,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -849,6 +1265,18 @@
           "area_m2": 2076,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1969.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "687",
+          "dzialka_id": "246601_1.0024.687",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.687"
+        },
+        {
+          "nr": "689",
+          "dzialka_id": "246601_1.0024.689",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.689"
         }
       ]
     },
@@ -865,6 +1293,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.220",
       "area_m2": 759,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -874,6 +1303,13 @@
           "area_m2": 759,
           "detail_url": "https://geoportal.gliwice.eu/isdp/core/download/documents/.att/2B/DTJ1LFQNADUYERWWY57G/ogloszenie_ZPM_2014_5829.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "220",
+          "dzialka_id": "246601_1.0051.220",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.220"
         }
       ]
     },
@@ -890,6 +1326,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.41",
       "area_m2": 9584,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -899,6 +1336,13 @@
           "area_m2": 9584,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz__nr_41_obr_bojkow.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "41",
+          "dzialka_id": "246601_1.0018.41",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.41"
         }
       ]
     },
@@ -915,6 +1359,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20366%2C%20367%20Czechowice%20Zach%C3%B3d%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 17000,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -924,6 +1369,16 @@
           "area_m2": 17000,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_366_367_obr_czechowice_zachod.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "366",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20366%20Czechowice%20Zach%C3%B3d%20Gliwice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "367",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20367%20Czechowice%20Zach%C3%B3d%20Gliwice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -940,6 +1395,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F3",
       "area_m2": 824,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -949,6 +1405,13 @@
           "area_m2": 824,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3284.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1201/3",
+          "dzialka_id": "246601_1.0061.1201/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F3"
         }
       ]
     },
@@ -965,6 +1428,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0031.143%2F2",
       "area_m2": 872,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -974,6 +1438,13 @@
           "area_m2": 872,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7513.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143/2",
+          "dzialka_id": "246601_1.0031.143/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0031.143%2F2"
         }
       ]
     },
@@ -990,6 +1461,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.164%2F1",
       "area_m2": 984,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -999,6 +1471,18 @@
           "area_m2": 984,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7207.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "164/1",
+          "dzialka_id": "246601_1.0030.164/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.164%2F1"
+        },
+        {
+          "nr": "166/2",
+          "dzialka_id": "246601_1.0030.166/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.166%2F2"
         }
       ]
     },
@@ -1015,6 +1499,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.418",
       "area_m2": 1164,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1024,6 +1509,13 @@
           "area_m2": 1164,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6068.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "418",
+          "dzialka_id": "246601_1.0018.418",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.418"
         }
       ]
     },
@@ -1040,6 +1532,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F3",
       "area_m2": 824,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1049,6 +1542,13 @@
           "area_m2": 824,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3436.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "292/3",
+          "dzialka_id": "246601_1.0023.292/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F3"
         }
       ]
     },
@@ -1065,6 +1565,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0053.305%2F2",
       "area_m2": 2622,
       "zoning": "usługowo-produkcyjne",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1074,6 +1575,13 @@
           "area_m2": 2622,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_305_obr_stare_labedy.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "305/2",
+          "dzialka_id": "246601_1.0053.305/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0053.305%2F2"
         }
       ]
     },
@@ -1090,6 +1598,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.529",
       "area_m2": 1381,
       "zoning": "mieszkaniowo-usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1099,6 +1608,13 @@
           "area_m2": 1381,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_529_obr_bojkow.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "529",
+          "dzialka_id": "246601_1.0018.529",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.529"
         }
       ]
     },
@@ -1115,6 +1631,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0026.155%2F2",
       "area_m2": 1878,
       "zoning": "usługowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1124,6 +1641,13 @@
           "area_m2": 1878,
           "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_155_obr_kopernik.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "155/2",
+          "dzialka_id": "246601_1.0026.155/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0026.155%2F2"
         }
       ]
     },
@@ -1140,6 +1664,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0045.515",
       "area_m2": 5268,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1149,6 +1674,13 @@
           "area_m2": 5268,
           "detail_url": "http://bip.gliwice.eu/sprzedaz-dz-nr-515-obreb-przedmiescie-na-polnoc-ul-daszynskiego-1",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "515",
+          "dzialka_id": "246601_1.0045.515",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0045.515"
         }
       ]
     },
@@ -1165,6 +1697,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.58%2F1",
       "area_m2": 805,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1174,6 +1707,13 @@
           "area_m2": 805,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9431.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "58/1",
+          "dzialka_id": "246601_1.0022.58/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.58%2F1"
         }
       ]
     },
@@ -1190,6 +1730,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.915",
       "area_m2": 2493,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1199,6 +1740,13 @@
           "area_m2": 2493,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7193.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "915",
+          "dzialka_id": "246601_1.0018.915",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.915"
         }
       ]
     },
@@ -1215,6 +1763,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.59%2F1",
       "area_m2": 597,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1224,6 +1773,13 @@
           "area_m2": 597,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9432.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "59/1",
+          "dzialka_id": "246601_1.0022.59/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.59%2F1"
         }
       ]
     },
@@ -1240,6 +1796,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.483",
       "area_m2": 20778,
       "zoning": "usługowo-produkcyjne",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1249,6 +1806,13 @@
           "area_m2": 20778,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-483-obreb-bojkow-wschod-na-wschod-od-ul-bojkowskiej-1",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "483",
+          "dzialka_id": "246601_1.0019.483",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.483"
         }
       ]
     },
@@ -1265,6 +1829,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1158",
       "area_m2": 2119,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1274,6 +1839,23 @@
           "area_m2": 2119,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_8663.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1158",
+          "dzialka_id": "246601_1.0051.1158",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1158"
+        },
+        {
+          "nr": "1160",
+          "dzialka_id": "246601_1.0051.1160",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1160"
+        },
+        {
+          "nr": "1161",
+          "dzialka_id": "246601_1.0051.1161",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1161"
         }
       ]
     },
@@ -1290,6 +1872,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F6",
       "area_m2": 3027,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1299,6 +1882,13 @@
           "area_m2": 3027,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-4696-obreb-brzezinka-rejon-ul-radomskiej-1",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "469/6",
+          "dzialka_id": "246601_1.0020.469/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F6"
         }
       ]
     },
@@ -1315,6 +1905,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0062.559",
       "area_m2": 3511,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1324,6 +1915,23 @@
           "area_m2": 3511,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1789.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "559",
+          "dzialka_id": "246601_1.0062.559",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0062.559"
+        },
+        {
+          "nr": "560",
+          "dzialka_id": "246601_1.0062.560",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0062.560"
+        },
+        {
+          "nr": "561",
+          "dzialka_id": "246601_1.0062.561",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0062.561"
         }
       ]
     },
@@ -1340,6 +1948,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.66%2F4",
       "area_m2": 853,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1349,6 +1958,18 @@
           "area_m2": 853,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9430.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "66/4",
+          "dzialka_id": "246601_1.0022.66/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.66%2F4"
+        },
+        {
+          "nr": "65/7",
+          "dzialka_id": "246601_1.0022.65/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F7"
         }
       ]
     },
@@ -1365,6 +1986,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.59%2F3",
       "area_m2": 716,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1374,6 +1996,13 @@
           "area_m2": 716,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9434.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "59/3",
+          "dzialka_id": "246601_1.0022.59/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.59%2F3"
         }
       ]
     },
@@ -1390,6 +2019,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.63",
       "area_m2": 1284,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1399,6 +2029,28 @@
           "area_m2": 1284,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9438.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "63",
+          "dzialka_id": "246601_1.0022.63",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.63"
+        },
+        {
+          "nr": "64/1",
+          "dzialka_id": "246601_1.0022.64/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.64%2F1"
+        },
+        {
+          "nr": "65/5",
+          "dzialka_id": "246601_1.0022.65/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F5"
+        },
+        {
+          "nr": "66/2",
+          "dzialka_id": "246601_1.0022.66/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.66%2F2"
         }
       ]
     },
@@ -1415,6 +2067,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.634%2F1",
       "area_m2": 5015,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1424,6 +2077,22 @@
           "area_m2": 5015,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_8286.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "634/1",
+          "dzialka_id": "246601_1.0061.634/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.634%2F1"
+        },
+        {
+          "nr": "634/2",
+          "dzialka_id": "246601_1.0061.634/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.634%2F2"
+        },
+        {
+          "nr": "634/3 i 634/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20634%2F3%20i%20634%2F4%20%C5%BBerniki%20Gliwice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1440,6 +2109,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F4",
       "area_m2": 913,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1449,6 +2119,18 @@
           "area_m2": 913,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9437.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "65/4",
+          "dzialka_id": "246601_1.0022.65/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F4"
+        },
+        {
+          "nr": "66/1",
+          "dzialka_id": "246601_1.0022.66/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.66%2F1"
         }
       ]
     },
@@ -1465,6 +2147,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0031.28%2F1",
       "area_m2": 2221,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1474,6 +2157,13 @@
           "area_m2": 2221,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_914.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "28/1",
+          "dzialka_id": "246601_1.0031.28/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0031.28%2F1"
         }
       ]
     },
@@ -1490,6 +2180,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F1",
       "area_m2": 794,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1499,6 +2190,13 @@
           "area_m2": 794,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9435.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "65/1",
+          "dzialka_id": "246601_1.0022.65/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F1"
         }
       ]
     },
@@ -1515,6 +2213,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F2",
       "area_m2": 1380,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1524,6 +2223,13 @@
           "area_m2": 1380,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9436.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "65/2",
+          "dzialka_id": "246601_1.0022.65/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F2"
         }
       ]
     },
@@ -1540,6 +2246,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.58%2F2",
       "area_m2": 729,
       "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
       "listings": [
         {
           "date": null,
@@ -1549,6 +2256,13 @@
           "area_m2": 729,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9433.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "58/2",
+          "dzialka_id": "246601_1.0022.58/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.58%2F2"
         }
       ]
     },
@@ -1565,6 +2279,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F2",
       "area_m2": 461,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1574,6 +2289,13 @@
           "area_m2": 461,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3274.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1201/2",
+          "dzialka_id": "246601_1.0061.1201/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F2"
         }
       ]
     },
@@ -1590,6 +2312,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F4",
       "area_m2": 784,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1599,6 +2322,13 @@
           "area_m2": 784,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3435.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "292/4",
+          "dzialka_id": "246601_1.0023.292/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F4"
         }
       ]
     },
@@ -1615,6 +2345,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F12",
       "area_m2": 846,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1624,6 +2355,13 @@
           "area_m2": 846,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3410.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/12",
+          "dzialka_id": "246601_1.0027.102/12",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F12"
         }
       ]
     },
@@ -1640,6 +2378,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F13",
       "area_m2": 920,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1649,6 +2388,13 @@
           "area_m2": 920,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3406.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/13",
+          "dzialka_id": "246601_1.0027.102/13",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F13"
         }
       ]
     },
@@ -1665,6 +2411,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F16",
       "area_m2": 1061,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1674,6 +2421,13 @@
           "area_m2": 1061,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3416.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/16",
+          "dzialka_id": "246601_1.0027.102/16",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F16"
         }
       ]
     },
@@ -1690,6 +2444,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F14",
       "area_m2": 842,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1699,6 +2454,13 @@
           "area_m2": 842,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3419.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/14",
+          "dzialka_id": "246601_1.0027.102/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F14"
         }
       ]
     },
@@ -1715,6 +2477,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F2",
       "area_m2": 673,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1724,6 +2487,13 @@
           "area_m2": 673,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3374.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1203/2",
+          "dzialka_id": "246601_1.0061.1203/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F2"
         }
       ]
     },
@@ -1740,6 +2510,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F1",
       "area_m2": 666,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1749,6 +2520,13 @@
           "area_m2": 666,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3375.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1203/1",
+          "dzialka_id": "246601_1.0061.1203/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F1"
         }
       ]
     },
@@ -1765,6 +2543,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F11",
       "area_m2": 924,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1774,6 +2553,13 @@
           "area_m2": 924,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3402.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/11",
+          "dzialka_id": "246601_1.0027.102/11",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F11"
         }
       ]
     },
@@ -1790,6 +2576,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F10",
       "area_m2": 848,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1799,6 +2586,13 @@
           "area_m2": 848,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3411.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/10",
+          "dzialka_id": "246601_1.0027.102/10",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F10"
         }
       ]
     },
@@ -1815,6 +2609,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F17",
       "area_m2": 894,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1824,6 +2619,13 @@
           "area_m2": 894,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3415.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/17",
+          "dzialka_id": "246601_1.0027.102/17",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F17"
         }
       ]
     },
@@ -1840,6 +2642,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F5",
       "area_m2": 910,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1849,6 +2652,13 @@
           "area_m2": 910,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3430.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1203/5",
+          "dzialka_id": "246601_1.0061.1203/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F5"
         }
       ]
     },
@@ -1865,6 +2675,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F5",
       "area_m2": 823,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1874,6 +2685,13 @@
           "area_m2": 823,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3434.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "292/5",
+          "dzialka_id": "246601_1.0023.292/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F5"
         }
       ]
     },
@@ -1890,6 +2708,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F15",
       "area_m2": 916,
       "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
       "listings": [
         {
           "date": null,
@@ -1899,6 +2718,13 @@
           "area_m2": 916,
           "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3417.pdf",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/15",
+          "dzialka_id": "246601_1.0027.102/15",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F15"
         }
       ]
     }
