@@ -8,12 +8,12 @@
       "street_norm": "dzialkowej",
       "building": "17",
       "apt": null,
-      "kind": "mieszkalny",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2026-09-15",
           "round": 1,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 450000,
           "outcome": "active",
           "area_m2": 100.37,
@@ -31,12 +31,12 @@
       "street_norm": "kosmicznej",
       "building": "10",
       "apt": null,
-      "kind": "mieszkalny",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2026-09-15",
           "round": 1,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 260000,
           "outcome": "active",
           "area_m2": 83.64,
@@ -238,12 +238,12 @@
       "street_norm": "morawa",
       "building": "24",
       "apt": null,
-      "kind": "mieszkalny",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-11-24",
           "round": 1,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 2000000,
           "outcome": "archived",
           "area_m2": null,
@@ -254,7 +254,7 @@
         {
           "date": "2026-02-17",
           "round": 2,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 1400000,
           "outcome": "archived",
           "area_m2": null,
@@ -265,7 +265,7 @@
         {
           "date": "2026-05-19",
           "round": 3,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 1000000,
           "outcome": "archived",
           "area_m2": null,
@@ -451,12 +451,12 @@
       "street_norm": "borowej",
       "building": "30",
       "apt": null,
-      "kind": "mieszkalny",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-12-09",
           "round": 1,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 700000,
           "outcome": "archived",
           "area_m2": 127.66,
@@ -468,7 +468,7 @@
         {
           "date": "2026-03-17",
           "round": 2,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 500000,
           "outcome": "archived",
           "area_m2": 127.66,
@@ -783,12 +783,12 @@
       "street_norm": "debowej",
       "building": "15",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-04-22",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 1400000,
           "outcome": "archived",
           "area_m2": null,
@@ -799,7 +799,7 @@
         {
           "date": "2025-09-15",
           "round": 2,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 1000000,
           "outcome": "archived",
           "area_m2": null,
@@ -810,7 +810,7 @@
         {
           "date": "2025-12-09",
           "round": 3,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 700000,
           "outcome": "archived",
           "area_m2": null,
@@ -826,12 +826,12 @@
       "street_norm": "goscinnej",
       "building": "3A",
       "apt": null,
-      "kind": "mieszkalny",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-11-24",
           "round": 1,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 350000,
           "outcome": "archived",
           "area_m2": 51.71,
@@ -871,12 +871,12 @@
       "street_norm": "wesolowskiej",
       "building": "1A",
       "apt": null,
-      "kind": "mieszkalny",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-10-28",
           "round": 1,
-          "kind": "mieszkalny",
+          "kind": "zabudowana",
           "starting_price_pln": 1000000,
           "outcome": "archived",
           "area_m2": 70.88,
@@ -1043,12 +1043,12 @@
       "street_norm": "sw jacka",
       "building": "13",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-04-07",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 600000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1115,12 +1115,12 @@
       "street_norm": "obroncow westerplatte",
       "building": "96",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-03-17",
           "round": 2,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 560000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1183,12 +1183,12 @@
       "street_norm": "piastowska",
       "building": "5",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2025-02-04",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 2000000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1296,12 +1296,12 @@
       "street_norm": "hierowskiego",
       "building": "69",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2023-11-14",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 350000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1389,12 +1389,12 @@
       "street_norm": "stanislawa",
       "building": "7",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2023-06-26",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 2500000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1505,12 +1505,12 @@
       "street_norm": "gorniczego stanu",
       "building": "47",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2023-05-22",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 550000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1527,12 +1527,12 @@
       "street_norm": "kosmiczna",
       "building": "45",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2023-03-22",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 250000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1965,12 +1965,12 @@
       "street_norm": "wspolna",
       "building": "40",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-12-14",
           "round": 3,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 410000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -1989,12 +1989,12 @@
       "street_norm": "ludowa",
       "building": "1",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-09-17",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 440000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -2197,12 +2197,12 @@
       "street_norm": "pola",
       "building": "16",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-05-26",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 540000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -2290,12 +2290,12 @@
       "street_norm": "kwiatowa",
       "building": "13",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-04-26",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 320000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -2406,12 +2406,12 @@
       "street_norm": "powstancow",
       "building": "4A",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-03-15",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 150000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -2430,12 +2430,12 @@
       "street_norm": "chodnikowa",
       "building": "33E",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-03-04",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 4000000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -2454,12 +2454,12 @@
       "street_norm": "kwiatowa",
       "building": "9A",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-02-17",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 200000,
           "outcome": "sold",
           "unsold_reason": null,
@@ -2478,12 +2478,12 @@
       "street_norm": "mlynska",
       "building": "9",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
         {
           "date": "2021-02-08",
           "round": 1,
-          "kind": "unknown",
+          "kind": "zabudowana",
           "starting_price_pln": 2500000,
           "outcome": "sold",
           "unsold_reason": null,
