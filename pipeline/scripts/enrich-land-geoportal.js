@@ -15,7 +15,8 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cities } from '../src/cities/index.js';
 import { resolveTerytId } from '../src/core/uldk.js';
-import { nationalGeoportalUrl } from '../src/core/geoportal.js';
+import { nationalGeoportalUrl, parcelSearchUrl } from '../src/core/geoportal.js';
+import { splitParcels } from '../src/core/build-land.js';
 
 const DATA = fileURLToPath(new URL('../../data/', import.meta.url));
 const CACHE_DIR = fileURLToPath(new URL('../uldk-cache/', import.meta.url));
@@ -42,28 +43,40 @@ async function enrichCity(city) {
     await writeFile(cachePath, JSON.stringify(cache, null, 2) + '\n');
     await writeFile(landPath, JSON.stringify(data, null, 2) + '\n');
   };
-  let resolved = 0, fromCache = 0, upgraded = 0, since = 0;
+  let resolved = 0, fromCache = 0, links = 0, since = 0;
   for (const p of plots) {
-    if (p.dzialka_id) continue;               // already precise
-    if (!p.obreb || !p.dzialka_nr) continue;  // ULDK needs both
-    const parcel = String(p.dzialka_nr).split(',')[0].trim(); // first of a multi-parcel
-    const ck = `${p.obreb}|${parcel}`;
-    let id;
-    if (ck in cache) { id = cache[ck]; fromCache++; }
-    else {
-      id = await resolveTerytId({ obreb: p.obreb, parcel, terytGmina: city.teryt });
-      cache[ck] = id;
-      if (id) resolved++;
+    // Resolve EACH parcel of the plot ("263/2, 263/6" → two links). Older
+    // land.json may predate the `parcels` field — derive it from dzialka_nr.
+    const parcels = (p.parcels && p.parcels.length) ? p.parcels : splitParcels(p.dzialka_nr);
+    if (!parcels.length || !p.obreb) continue;
+    let touched = false;
+    for (const parcel of parcels) {
+      if (parcel.dzialka_id && parcel.geoportal_url) continue; // already resolved
+      const ck = `${p.obreb}|${parcel.nr}`;
+      let id;
+      if (ck in cache) { id = cache[ck]; fromCache++; }
+      else {
+        id = await resolveTerytId({ obreb: p.obreb, parcel: parcel.nr, terytGmina: city.teryt });
+        cache[ck] = id;
+        if (id) resolved++;
+      }
+      if (id) { parcel.dzialka_id = id; parcel.geoportal_url = nationalGeoportalUrl(id); }
+      else { parcel.geoportal_url = parcelSearchUrl({ nr: parcel.nr, obreb: p.obreb, label: city.label }); }
+      links++;
+      touched = true;
     }
-    if (id) {
-      p.dzialka_id = id;
-      const precise = nationalGeoportalUrl(id);
-      if (precise && isSearchFallback(p.geoportal_url)) { p.geoportal_url = precise; upgraded++; }
+    p.parcels = parcels;
+    // Back-compat: keep a top-level dzialka_id + geoportal_url (first resolved
+    // parcel) so any consumer not reading `parcels` still gets a precise link.
+    const first = parcels.find((x) => x.dzialka_id);
+    if (first) {
+      p.dzialka_id = first.dzialka_id;
+      if (isSearchFallback(p.geoportal_url)) p.geoportal_url = first.geoportal_url;
     }
-    if (++since >= 8) { await flush(); since = 0; }
+    if (touched && ++since >= 8) { await flush(); since = 0; }
   }
   await flush();
-  console.error(`${city.id}: resolved ${resolved} (+${fromCache} cached) → ${upgraded} precise geoportal links`);
+  console.error(`${city.id}: resolved ${resolved} new (+${fromCache} cached), ${links} parcel link(s) this run`);
 }
 
 const only = (process.env.CITY || '').split(',').map((s) => s.trim()).filter(Boolean);

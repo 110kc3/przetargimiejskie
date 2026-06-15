@@ -97,10 +97,6 @@ a:hover{color:var(--accent);text-decoration:underline}
   <div class="filters">
     <label class="field"><span class="field-label">Miasto</span>
       <select class="control" id="f-city"><option value="all">Wszystkie</option></select></label>
-    <label class="field"><span class="field-label">Typ</span>
-      <select class="control" id="f-kind">
-        <option value="all">Wszystkie</option><option value="mieszkalny">mieszkalny</option>
-        <option value="uzytkowy">użytkowy</option><option value="garaz">garaż</option></select></label>
     <label class="field"><span class="field-label">Rodzaj</span>
       <select class="control" id="f-class">
         <option value="all">Wszystkie</option><option value="mieszkalny">mieszkania</option>
@@ -177,7 +173,13 @@ const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="
 // the ZGM listing (Gliwice lists the same auction on both boards).
 const bipLink = u => { const h=safeHref(u); return h?` <a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">BIP ↗</a>`:''; };
 // Land plots link their parcel to a geoportal (resolved per-city in build-land).
-const geoLink = r => { const h=safeHref(r.geo); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(r.dz||'mapa')} ↗</a>`:'—'; };
+const geoLink = r => {
+  if (r.parcels && r.parcels.length) {
+    const links = r.parcels.map(p=>{const h=safeHref(p.geoportal_url);return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(p.nr)} ↗</a>`:esc(p.nr);}).join(' ');
+    return links||'—';
+  }
+  const h=safeHref(r.geo); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(r.dz||'mapa')} ↗</a>`:'—';
+};
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
 let sortKey='date', sortDir='desc';
@@ -218,10 +220,10 @@ async function load(){
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))
             records.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',
               date:l.date,round:l.round,area:p.area_m2??l.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
-              outcome:l.outcome,reason:null,share:null,src:l.detail_url||l.source_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr});
+              outcome:l.outcome,reason:null,share:null,src:l.detail_url||l.source_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
           else if(l.outcome==='active' && (!l.date || l.date>=TODAY))
             active.push({city:c.id,cityLabel:c.label,kind:'grunt',addr:disp,round:l.round,
-              area:p.area_m2??l.area_m2,start:l.starting_price_pln,date:l.date,share:null,url:l.detail_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr});
+              area:p.area_m2??l.area_m2,start:l.starting_price_pln,date:l.date,share:null,url:l.detail_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
         }
       }
     }catch(e){}
@@ -236,7 +238,7 @@ async function load(){
   document.getElementById('sub').textContent =
     `Dane od ${minDate||'—'} do ${maxDate||'—'} · ${records.length} rekordów · odświeżono ${lastRefresh||'—'}`;
 
-  ['f-city','f-kind','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  ['f-city','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
   document.querySelectorAll('th[data-sort]').forEach(th=>{
     th.dataset.label = th.textContent.trim();
     th.addEventListener('click',()=>{
@@ -273,20 +275,20 @@ function refreshHeaders(){
 }
 
 function render(){
-  const city=document.getElementById('f-city').value, kind=document.getElementById('f-kind').value,
+  const city=document.getElementById('f-city').value,
         cls=document.getElementById('f-class').value,
         outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
         q=fold(document.getElementById('f-q').value.trim());
   const cityYear = r => (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
   renderSummary(records.filter(cityYear));
 
-  const match = r => cityYear(r) && (kind==='all'||r.kind===kind) && (cls==='all'||r.kind===cls) && (outcome==='all'||r.outcome===outcome)
+  const match = r => cityYear(r) && (cls==='all'||r.kind===cls) && (outcome==='all'||r.outcome===outcome)
     && (!q || fold(addrText(r)).includes(q));
   let rows = records.filter(match);
   rows.sort((a,b)=>{const av=getSort(a),bv=getSort(b);const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));return sortDir==='asc'?c:-c;});
   document.getElementById('count').textContent = rows.length+' rekordów';
   document.getElementById('hist-body').innerHTML = rows.map(r=>`<tr>
-    <td class="num muted-cell">${esc(r.date)||'—'}</td>
+    <td class="num muted-cell">${esc(r.date)||esc(r.status)||'—'}</td>
     <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}${shareBadge(r.share)}</td>
     <td>${esc(KIND[r.kind]||r.kind)}</td>
     <td>${roundLabel(r.round)}</td>
@@ -299,11 +301,11 @@ function render(){
     <td>${srcLink(r.src)}${bipLink(r.bip)}</td>
   </tr>`).join('') || '<tr class="empty-row"><td colspan="11">Brak rekordów dla wybranych filtrów.</td></tr>';
 
-  const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
+  const acts = active.filter(a=>(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
-    <td class="num muted-cell">${esc(a.date)||'—'}</td>
+    <td class="num muted-cell">${esc(a.date)||esc(a.status)||'—'}</td>
     <td class="addr">${chip(a.city,a.cityLabel)}${esc(a.addr)||''}${shareBadge(a.share)}</td>
     <td>${esc(KIND[a.kind]||a.kind)}</td>
     <td>${roundLabel(a.round)}</td>

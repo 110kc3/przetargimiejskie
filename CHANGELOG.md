@@ -4,6 +4,17 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.26.0 — 2026-06-15
+
+Land filter + geoportal polish. Merged the duplicate property-type filters into
+a single **Rodzaj** dropdown (mieszkania / domy / działki / lokale użytkowe /
+garaże). Multi-parcel plots ("263/2, 263/6") now show **one geoportal link per
+parcel** instead of linking only the first. Land rows with no auction date show
+the source **status** (e.g. Gliwice's "oferta do wznowienia" / "przetarg
+wkrótce") instead of a blank — those municipal land *offers* have no price/date
+until an auction is formally announced (every other city has full price/date
+coverage).
+
 ## v1.25.0 — 2026-06-15
 
 Land — Bielsko-Biała plots + geoportal links. The Bielsko-Biała adapter now

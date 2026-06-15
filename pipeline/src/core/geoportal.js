@@ -13,6 +13,14 @@ const GEOPORTAL_PARCEL = 'https://mapy.geoportal.gov.pl/imap/?identifyParcel=';
 // WWPPGG_R.OOOO[.AR_x].NDZ  (TERYT gmina _ type . obręb [. arkusz] . parcel)
 const TERYT_ID = /^\d{6}_\d(?:\.[\w/]+){1,3}$/;
 
+/** A geoportal-scoped parcel-SEARCH fallback link (used when the precise
+ *  TERYT id is unknown). */
+export function parcelSearchUrl({ nr, obreb, label } = {}) {
+  const q = ['działka', nr, obreb, label].filter(Boolean).join(' ');
+  if (!nr && !obreb) return null;
+  return 'https://www.google.com/search?q=' + encodeURIComponent(q + ' geoportal działki');
+}
+
 /** The national-geoportal precise deep-link for a full TERYT parcel id, or null. */
 export function nationalGeoportalUrl(id) {
   return id && TERYT_ID.test(String(id)) ? GEOPORTAL_PARCEL + encodeURIComponent(id) : null;

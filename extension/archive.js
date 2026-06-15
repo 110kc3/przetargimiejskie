@@ -10,7 +10,6 @@ const $tbody = $table.querySelector('tbody');
 const $langToggle = document.getElementById('lang-toggle');
 const $themeToggle = document.getElementById('theme-toggle');
 const $filterCity = document.getElementById('filter-city');
-const $filterKind = document.getElementById('filter-kind');
 const $filterClass = document.getElementById('filter-class');
 const $filterOutcome = document.getElementById('filter-outcome');
 const $filterYear = document.getElementById('filter-year');
@@ -267,7 +266,7 @@ function flatten(payload) {
           round: l.round, starting_price_pln: l.starting_price_pln,
           final_price_pln: l.final_price_pln ?? null, outcome: l.outcome,
           detail_url: l.detail_url, source_pdf: l.source_url || null,
-          geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr,
+          geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr, parcels: p.parcels, status: p.status,
         });
       } else if (l.outcome === 'active') {
         landActive.push({
@@ -276,7 +275,7 @@ function flatten(payload) {
           area_m2: p.area_m2 ?? l.area_m2 ?? null,
           auction_date: l.date, round: l.round,
           starting_price_pln: l.starting_price_pln, detail_url: l.detail_url,
-          geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr,
+          geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr, parcels: p.parcels, status: p.status,
         });
       }
     }
@@ -372,7 +371,6 @@ function getSortValue(r, key) {
 
 function renderTable() {
   const city = $filterCity.value;
-  const kind = $filterKind.value;
   const outcome = $filterOutcome.value;
   const year = selectedYear();
   // Polish-fold the query so it matches the folded street_search (typing
@@ -381,7 +379,6 @@ function renderTable() {
 
   let rows = records.slice();
   if (city !== 'all') rows = rows.filter((r) => r.city === city);
-  if (kind !== 'all') rows = rows.filter((r) => r.kind === kind);
   const cls = $filterClass ? $filterClass.value : 'all';
   if (cls !== 'all') rows = rows.filter((r) => r.kind === cls);
   if (outcome !== 'all') rows = rows.filter((r) => r.outcome === outcome);
@@ -402,7 +399,7 @@ function renderTable() {
     .map(
       (r) => `
       <tr class="zgm-ext-row-${r.outcome}">
-        <td>${r.date || '—'}</td>
+        <td>${r.date || esc(r.status) || '—'}</td>
         <td>${cityTagHtml(r.city)}${esc(r.addr_display)}</td>
         <td>${esc(t('kind.' + r.kind))}</td>
         <td>${roundCell(r.round)}</td>
@@ -433,6 +430,14 @@ function srcLinkCell(u, bip) {
 // Land rows link the parcel to a geoportal (resolved per-city in build-land);
 // non-land rows have no parcel link, so the cell is blank.
 function parcelCell(r) {
+  // Multi-parcel plots ("263/2, 263/6") get one geoportal link per parcel.
+  if (r.parcels && r.parcels.length) {
+    const links = r.parcels.map((p) => {
+      const h = safeHref(p.geoportal_url);
+      return h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(p.nr)} ↗</a>` : esc(p.nr);
+    }).join(' ');
+    return links || '—';
+  }
   const h = safeHref(r.geoportal_url);
   if (!h) return '—';
   const label = r.dzialka_nr || t('link.map');
@@ -472,7 +477,6 @@ function renderProvenance() {
 
 function renderActiveTable() {
   const city = $filterCity.value;
-  const kind = $filterKind.value;
   // Fold the query AND the address so diacritics match either way (the
   // active-table search previously compared a folded-or-not query against the
   // raw, diacritic-bearing address_raw).
@@ -482,7 +486,6 @@ function renderActiveTable() {
   const items = activeListings
     .filter((a) => !a.auction_date || a.auction_date >= today)
     .filter((a) => city === 'all' || a.city === city)
-    .filter((a) => kind === 'all' || a.kind === kind)
     .filter((a) => { const cls = $filterClass ? $filterClass.value : 'all'; return cls === 'all' || a.kind === cls; })
     .filter((a) => {
       if (!q) return true;
@@ -523,7 +526,7 @@ function renderActiveTable() {
       const askM2 = a.area_m2 && a.starting_price_pln
         ? nf.format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²'
         : '—';
-      const datesCell = datesCellHtml(a);
+      const datesCell = datesCellHtml(a) || esc(a.status || '');
       return `
         <tr data-url="${esc(safeHref(a.detail_url))}">
           <td>${addr}</td>
@@ -590,7 +593,6 @@ function syncThemeButton() {
   $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
   const onFilterChange = () => { renderSummary(); renderActiveTable(); renderTable(); };
   $filterCity.addEventListener('change', onFilterChange);
-  $filterKind.addEventListener('change', onFilterChange);
   $filterClass?.addEventListener('change', onFilterChange);
   $filterOutcome.addEventListener('change', renderTable);
   $filterYear?.addEventListener('change', () => {

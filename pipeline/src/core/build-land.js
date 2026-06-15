@@ -21,6 +21,19 @@
 import { todayWarsaw } from './build-properties.js';
 import { geoportalUrl } from './geoportal.js';
 
+/** Split a parcel field ("263/2, 263/6" / "5/1; 5/2") into distinct parcel
+ *  numbers, deduped, in source order. */
+export function splitParcels(dzialkaNr) {
+  if (!dzialkaNr) return [];
+  const seen = new Set();
+  const out = [];
+  for (const raw of String(dzialkaNr).split(/\s*[,;]\s*/)) {
+    const nr = raw.trim();
+    if (nr && !seen.has(nr)) { seen.add(nr); out.push({ nr }); }
+  }
+  return out;
+}
+
 export function landKey(r) {
   if (!r || typeof r !== 'object') return null;
   const parcel = (r.dzialka_nr ?? '').toString().trim();
@@ -72,6 +85,7 @@ export function buildLand(records, cityId, cfg = {}) {
         geoportal_url: r.geoportal_url ?? null,
         area_m2: null, // PLOT area (not usable floor area) — kept separate from flat zł/m²
         zoning: r.zoning ?? null,
+        status: r.status ?? null, // source status (e.g. Gliwice MSIP "oferta do wznowienia")
         listings: [],
       };
       plots.set(key, p);
@@ -79,6 +93,7 @@ export function buildLand(records, cityId, cfg = {}) {
     if (p.dzialka_nr == null && r.dzialka_nr != null) p.dzialka_nr = r.dzialka_nr;
     if (p.obreb == null && r.obreb != null) p.obreb = r.obreb;
     if (p.zoning == null && r.zoning != null) p.zoning = r.zoning;
+    if (p.status == null && r.status != null) p.status = r.status;
     if (p.address_raw == null && r.address_raw != null) p.address_raw = r.address_raw;
     if (p.street == null && r.street != null) p.street = r.street;
     if (p.dzialka_id == null && r.dzialka_id != null) p.dzialka_id = r.dzialka_id;
@@ -128,6 +143,9 @@ export function buildLand(records, cityId, cfg = {}) {
   }
 
   for (const p of plots.values()) {
+    // Per-parcel list (multi-parcel plots link each one separately); the
+    // enrich step fills in each parcel's TERYT id + geoportal link.
+    p.parcels = splitParcels(p.dzialka_nr);
     p.geoportal_url = geoportalUrl(p, cfg);
   }
 

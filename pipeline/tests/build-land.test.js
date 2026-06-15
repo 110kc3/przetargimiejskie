@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLand, landKey } from '../src/core/build-land.js';
+import { buildLand, landKey, splitParcels } from '../src/core/build-land.js';
 
 test('landKey prefers parcel, then obręb-qualified parcel, then address', () => {
   assert.equal(landKey({ dzialka_nr: '233/1' }), 'dz|233/1');
@@ -63,4 +63,16 @@ test('empty input → empty plots', () => {
 test('buildLand attaches a geoportal_url to each plot', () => {
   const { plots } = buildLand([{ dzialka_nr: '5/5', obreb: 'X', auction_date: '2026-09-01', starting_price_pln: 1 }], 'demo', { label: 'Demo' });
   assert.ok(plots[0].geoportal_url, 'geoportal_url set');
+});
+
+test('splitParcels: distinct parcels, deduped, with separators', () => {
+  assert.deepEqual(splitParcels('263/2, 263/6').map((p) => p.nr), ['263/2', '263/6']);
+  assert.deepEqual(splitParcels('5/1; 5/2, 5/1').map((p) => p.nr), ['5/1', '5/2']);
+  assert.deepEqual(splitParcels('389').map((p) => p.nr), ['389']);
+  assert.deepEqual(splitParcels(null), []);
+});
+
+test('buildLand attaches a per-parcel `parcels` list for multi-parcel plots', () => {
+  const { plots } = buildLand([{ dzialka_nr: '263/2, 263/6', obreb: 'Bojków', area_m2: 1626, auction_date: '2026-07-14', starting_price_pln: 543060 }], 'gliwice', { label: 'Gliwice' });
+  assert.deepEqual(plots[0].parcels.map((p) => p.nr), ['263/2', '263/6']);
 });

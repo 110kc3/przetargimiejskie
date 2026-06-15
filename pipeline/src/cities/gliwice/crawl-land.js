@@ -136,6 +136,7 @@ export function parseMsipRecord(r, price = null) {
     starting_price_pln:  price,
     auction_date:        parseDate(r.DATA_OGL),
     round:               roundFromUwagi(r.UWAGI),
+    status:              (r.UWAGI ?? '').trim() || null,
     detail_url:          r.LINK || null,
     source_url:          MSIP_JSON_URL,
   };
