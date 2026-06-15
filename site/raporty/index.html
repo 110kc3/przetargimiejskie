@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title id="doc-title">Raporty rynku — przetargimiejskie</title>
+<meta id="doc-desc" name="description" content="Raporty z miejskich przetargów na mieszkania na Górnym Śląsku: skuteczność sprzedaży, ceny końcowe vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec i więcej." />
+<meta property="og:title" content="Raporty rynku — przetargimiejskie" />
+<meta property="og:description" content="Analiza miejskich przetargów na mieszkania: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², aktualne okazje." />
+<meta property="og:type" content="website" />
+<style>
+/* ===== przetargimiejskie — Slate Ledger (dark) — shared with / and /archiwum ===== */
+:root{
+  color-scheme: dark;
+  --bg:#0d1117; --bg-grad:#131a26; --surface:#161b22; --surface-2:#1b2230;
+  --border:#272e3a; --border-2:#313a48; --track:#2a3242;
+  --fg:#e6edf3; --fg-strong:#f4f8fc; --muted:#8b97a8; --faint:#646f80;
+  --accent:#2f81f7; --accent-hi:#5fa0ff; --accent-ink:#08111f;
+  --accent-weak:rgba(47,129,247,.14); --accent-line:rgba(47,129,247,.35);
+  --ok:#3fc079; --ok-bg:rgba(63,192,121,.13); --bad:#e0635a; --bad-bg:rgba(224,99,90,.13);
+  --warn:#e9a72f; --warn-bg:rgba(233,167,47,.13); --cyan:#2bc4c4;
+  --c-gliwice:#4f9dff; --c-katowice:#f2645a; --c-zabrze:#e0a73c; --c-bytom:#46c08a;
+  --c-sosnowiec:#2bc4c4; --c-rybnik:#a07bf0; --c-myslowice:#38b6e6; --c-bielsko:#ec6cb0; --c-swietochlowice:#b6c34a;
+  --radius:8px; --radius-s:6px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);
+  background:radial-gradient(1100px 520px at 78% -12%,var(--bg-grad) 0%,transparent 62%),var(--bg);
+  color:var(--fg);font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;letter-spacing:.1px}
+a{color:var(--accent-hi);text-decoration:none}
+a:hover{color:var(--accent);text-decoration:underline}
+.wrap{max-width:1280px;margin:0 auto;padding:0 22px}
+
+.arc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:22px 0 8px}
+.arc-title{font-size:24px;margin:0 0 3px;font-weight:800;letter-spacing:-.4px;color:var(--fg-strong)}
+.arc-sub{color:var(--muted);margin:0;font-size:13px}
+.report-date{margin:6px 0 0;font-size:13px;color:var(--muted)}
+.report-date b{color:var(--fg-strong);font-weight:700}
+.site-nav{display:flex;gap:20px;align-items:center}
+.site-nav a{color:var(--muted);font-size:13.5px;white-space:nowrap}
+.site-nav a:hover{color:var(--fg);text-decoration:none}
+.site-nav a.active{color:var(--fg-strong);font-weight:600}
+.err{color:#f0a8a8}
+
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:14px 0 4px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);font-weight:600}
+.control{background:var(--bg);color:var(--fg);border:1px solid var(--border-2);border-radius:var(--radius-s);
+  padding:8px 10px;font-size:13.5px;font-family:var(--font);min-width:150px}
+.control:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-weak)}
+.spacer{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:var(--radius-s);
+  font-weight:600;font-size:13px;border:1px solid var(--border-2);cursor:pointer;background:var(--surface);color:var(--fg);
+  transition:background .12s,border-color .12s;font-family:var(--font)}
+.btn:hover{background:var(--surface-2);border-color:var(--border-2);text-decoration:none}
+.btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-hi);color:var(--accent-ink)}
+
+.city-nav{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px}
+.city-pill{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);
+  border-radius:999px;padding:5px 12px 5px 10px;font-size:13px;color:var(--fg);cursor:pointer}
+.city-pill:hover{border-color:var(--border-2);background:var(--surface-2);text-decoration:none}
+.city-pill.active{border-color:var(--accent-line);background:var(--accent-weak);color:var(--fg-strong);font-weight:600}
+.city-dot{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin:18px 0 6px;
+  background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.kpi{background:var(--surface);padding:18px 18px 16px;position:relative;overflow:hidden}
+.kpi::after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--kpi-accent,var(--accent))}
+.kpi-value{font-size:25px;font-weight:800;color:var(--fg-strong);letter-spacing:-.5px}
+.kpi-value.tint{color:var(--kpi-accent,var(--fg-strong))}
+.kpi-value small{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0}
+.kpi-label{color:var(--muted);font-size:12px;margin-top:3px}
+.kpi-sub{color:var(--faint);font-size:11.5px;margin-top:4px}
+
+.section{padding:26px 0;border-top:1px solid var(--border);margin-top:18px}
+.section:first-of-type{border-top:none}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:700;margin:0 0 4px}
+.section-lead{color:var(--faint);font-size:13px;margin:0 0 18px;max-width:78ch}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
+
+/* horizontal bars (spread buckets, benchmarks) */
+.hbars{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.hbar{display:grid;grid-template-columns:124px 1fr auto;align-items:center;gap:10px;font-size:13px}
+.hbar .hbar-label{color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbar .hbar-track{display:block;background:var(--track);border:1px solid var(--border);border-radius:6px;height:20px;overflow:hidden}
+/* fill MUST be display:block — inline spans ignore width/height. Base colour is an
+   inline background-color; the class layers a gloss gradient via background-image. */
+.hbar .hbar-fill{display:block;height:100%;border-radius:5px;min-width:0;background-color:var(--accent);
+  background-image:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 58%,rgba(0,0,0,.16))}
+.hbar .hbar-val{color:var(--muted);font-weight:600;white-space:nowrap}
+.hbar .hbar-val b{color:var(--fg-strong)}
+
+/* vertical column chart (supply) with value labels */
+.cols{display:flex;align-items:flex-end;gap:4px;height:180px;margin-top:8px}
+.col{flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.col-num{font-size:10.5px;color:var(--faint);line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums}
+.col .col-bar{width:100%;max-width:34px;border-radius:3px 3px 0 0;min-height:2px;transition:background .12s;
+  background-color:var(--accent);background-image:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0))}
+.col:hover .col-bar{background-color:var(--accent-hi)}
+.col.is-now .col-bar{background-color:var(--accent-hi)}
+.col-axis{display:flex;gap:4px;margin-top:7px;color:var(--faint);font-size:10.5px}
+.col-axis span{flex:1 1 0;text-align:center;min-width:0;overflow:hidden;white-space:nowrap}
+.chart-empty{color:var(--faint);padding:30px 0;text-align:center}
+
+/* grouped zł/m² histogram (sold vs unsold) with value labels */
+.hist-legend{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:0 0 14px;font-size:12.5px;color:var(--muted)}
+.hist-legend .key{display:inline-flex;align-items:center;gap:7px}
+.hist-legend .swatch{width:12px;height:12px;border-radius:3px;display:inline-block}
+.hist{display:flex;align-items:flex-end;gap:14px;height:200px;margin-top:4px}
+.hist-col{flex:1 1 0;display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%;min-width:0}
+.hist-bc{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;flex:1 1 0;min-width:0}
+.hist-num{font-size:10px;color:var(--faint);line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums}
+.hist-bar{width:100%;max-width:26px;border-radius:3px 3px 0 0;min-height:0;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0))}
+.hist-bar.sold{background-color:var(--ok)}
+.hist-bar.unsold{background-color:var(--warn)}
+.hist-axis{display:flex;gap:14px;margin-top:7px;color:var(--faint);font-size:11px}
+.hist-axis span{flex:1 1 0;text-align:center;min-width:0}
+
+/* tables */
+.table-scroll{border:1px solid var(--border);border-radius:var(--radius);overflow-x:auto;margin-top:6px}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table thead th{text-align:left;padding:10px 12px;background:var(--surface-2);color:var(--muted);
+  font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;
+  border-bottom:1px solid var(--border);white-space:nowrap}
+.data-table td{padding:9px 12px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--fg)}
+.data-table tbody tr:last-child td{border-bottom:none}
+.data-table tbody tr:hover td{background:var(--surface)}
+.data-table .num{text-align:right;font-variant-numeric:tabular-nums}
+.data-table .addr{white-space:normal;min-width:190px}
+.data-table .muted-cell{color:var(--faint)}
+.chip{display:inline-flex;align-items:center;gap:7px;margin-right:7px;font-size:12.5px;color:var(--fg);font-weight:600}
+.chip .city-dot{width:7px;height:7px}
+.delta-down{color:var(--ok);font-weight:700}
+.delta-up{color:var(--bad);font-weight:700}
+tr.deal-hot td{background:rgba(63,192,121,.06)}
+tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
+.badge-deal{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;
+  color:var(--ok);background:var(--ok-bg);border:1px solid rgba(63,192,121,.34);white-space:nowrap}
+.badge-unsold{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600;
+  color:var(--bad);background:var(--bad-bg);white-space:nowrap}
+.src-link{white-space:nowrap;font-size:12.5px}
+.empty-row td{color:var(--faint);text-align:center;padding:22px}
+.recap-split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:860px){.recap-split{grid-template-columns:1fr}}
+
+.dot-gliwice{background:var(--c-gliwice)}.dot-katowice{background:var(--c-katowice)}
+.dot-zabrze{background:var(--c-zabrze)}.dot-bytom{background:var(--c-bytom)}
+.dot-sosnowiec{background:var(--c-sosnowiec)}.dot-rybnik{background:var(--c-rybnik)}
+.dot-myslowice{background:var(--c-myslowice)}.dot-bielsko{background:var(--c-bielsko)}
+.dot-swietochlowice{background:var(--c-swietochlowice)}
+
+.site-footer{padding:26px 0 46px;color:var(--faint);font-size:12.5px;border-top:1px solid var(--border);margin-top:18px}
+.site-footer p{margin:0 0 8px}
+
+@media (max-width:980px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.hbar{grid-template-columns:96px 1fr auto}}
+
+@media print{
+  :root{--bg:#fff;--bg-grad:#fff;--surface:#fff;--surface-2:#f1f3f6;--border:#ccd2da;--border-2:#b9c1cc;--track:#eaedf2;
+    --fg:#11161d;--fg-strong:#000;--muted:#444c57;--faint:#6b727c;--accent:#2f6fd0;--accent-hi:#2f6fd0;
+    --ok:#1f8a53;--bad:#c23b30;--warn:#a8780f;--cyan:#127d7d;--accent-weak:#eef3fb}
+  body{background:#fff}
+  .controls,.city-nav,.site-nav,.no-print{display:none !important}
+  .section{break-inside:avoid;border-top:1px solid var(--border)}
+  .table-scroll{overflow:visible;border-color:var(--border)}
+  .hbar .hbar-track{background:#eef1f5}
+  a{color:var(--fg)}
+  .arc-head{padding-top:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="arc-head">
+    <div>
+      <h1 class="arc-title" id="page-title">Raporty rynku</h1>
+      <p class="arc-sub" id="sub">Ładowanie…</p>
+      <p class="report-date" id="report-date"></p>
+    </div>
+    <nav class="site-nav no-print">
+      <a href="/">Strona główna</a>
+      <a href="/archiwum">Archiwum</a>
+      <a href="/raporty" class="active">Raporty</a>
+      <a href="/privacy">Prywatność</a>
+    </nav>
+  </div>
+
+  <div class="controls no-print">
+    <label class="field"><span class="field-label">Miasto</span>
+      <select class="control" id="f-city"><option value="all">Wszystkie miasta</option></select></label>
+    <label class="field"><span class="field-label">Rodzaj</span>
+      <select class="control" id="f-kind">
+        <option value="mieszkalny">Mieszkania</option>
+        <option value="all">Wszystkie rodzaje</option>
+        <option value="zabudowana">Domy</option><option value="grunt">Działki</option>
+        <option value="uzytkowy">Lokale użytkowe</option><option value="garaz">Garaże</option></select></label>
+    <label class="field"><span class="field-label">Okres analizy</span>
+      <select class="control" id="f-period"></select></label>
+    <span class="spacer"></span>
+    <button class="btn" id="btn-csv" title="Pobierz tabelę okazji jako plik CSV (otwiera się w Excelu)">⤓ CSV</button>
+    <button class="btn btn-primary" id="btn-pdf" title="Zapisz raport jako PDF (okno drukowania)">⤓ PDF</button>
+  </div>
+
+  <div class="city-nav no-print" id="city-nav"></div>
+
+  <div class="kpi-grid" id="kpis"></div>
+
+  <section class="section" id="s-spread">
+    <div class="section-head"><h2 class="section-title">Cena końcowa vs wywoławcza</h2></div>
+    <p class="section-lead" id="spread-lead"></p>
+    <div class="panel"><div class="hbars" id="spread-bars"></div></div>
+  </section>
+
+  <section class="section" id="s-m2">
+    <div class="section-head"><h2 class="section-title">Rozkład cen za m² — ile płacą kupujący</h2></div>
+    <p class="section-lead">Ile nieruchomości sprzedano w danym przedziale zł/m² (cena uzyskana) w porównaniu z cenami wywoławczymi ofert, które nie znalazły nabywcy. Liczba nad słupkiem = liczba nieruchomości.</p>
+    <div class="panel">
+      <div class="hist-legend">
+        <span class="key"><span class="swatch" style="background:var(--ok)"></span> sprzedane (cena uzyskana)</span>
+        <span class="key"><span class="swatch" style="background:var(--warn)"></span> niesprzedane (cena wywoławcza)</span>
+      </div>
+      <div class="hist" id="m2-hist"></div>
+      <div class="hist-axis" id="m2-axis"></div>
+    </div>
+  </section>
+
+  <section class="section" id="s-supply">
+    <div class="section-head"><h2 class="section-title">Aktywność rynku — liczba aukcji w miesiącu</h2></div>
+    <p class="section-lead">Ile nieruchomości trafiło na licytację w każdym miesiącu (wszystkie rundy). Wyższy słupek = więcej ofert; pokazuje tempo wystawiania i sezonowość.</p>
+    <div class="panel">
+      <div class="cols" id="supply-cols"></div>
+      <div class="col-axis" id="supply-axis"></div>
+    </div>
+  </section>
+
+  <section class="section" id="s-bench">
+    <div class="section-head"><h2 class="section-title">Mediany zł/m² — mieszkania sprzedane</h2></div>
+    <p class="section-lead">Mediana ceny za m² z faktycznie sprzedanych mieszkań, według miasta. Podstawa „deal score” w rozszerzeniu.</p>
+    <div class="panel"><div class="hbars" id="bench-bars"></div></div>
+  </section>
+
+  <section class="section" id="s-deals">
+    <div class="section-head"><h2 class="section-title">Tablica okazji — aktualne aukcje po obniżce</h2></div>
+    <p class="section-lead">Nieruchomości <b>obecnie wystawione na aukcję</b> (możesz licytować), które były już wystawiane wcześniej — z ceną wywoławczą obniżoną względem pierwszego podejścia. Największe obniżki na górze; spadek ≥ 25% oznaczony na zielono.</p>
+    <div class="table-scroll">
+      <table class="data-table"><thead><tr>
+        <th>Miasto / nieruchomość</th><th>Rodzaj</th><th class="num">Runda</th>
+        <th class="num">Cena pierwsza</th><th class="num">Cena teraz</th><th class="num">Obniżka</th>
+        <th class="num">Powierzchnia</th><th class="num">zł/m²</th><th class="num">Aukcja</th><th>Źródło</th>
+      </tr></thead><tbody id="deals-body"></tbody></table>
+    </div>
+  </section>
+
+  <section class="section" id="s-recap">
+    <div class="section-head">
+      <h2 class="section-title">Co wystawiono i sprzedano</h2>
+      <label class="field no-print" style="flex-direction:row;align-items:center;gap:8px">
+        <span class="field-label">Miesiąc</span>
+        <select class="control" id="f-month" style="min-width:120px"></select></label>
+    </div>
+    <p class="section-lead" id="recap-lead"></p>
+    <div class="recap-split">
+      <div>
+        <div class="section-title" style="margin-bottom:8px">Wystawione w tym miesiącu</div>
+        <div class="table-scroll">
+          <table class="data-table"><thead><tr>
+            <th>Miasto / nieruchomość</th><th>Rodzaj</th><th class="num">Runda</th><th class="num">Cena wyw.</th><th class="num">zł/m²</th>
+          </tr></thead><tbody id="recap-listed"></tbody></table>
+        </div>
+      </div>
+      <div>
+        <div class="section-title" style="margin-bottom:8px">Sprzedane w tym miesiącu</div>
+        <div class="table-scroll">
+          <table class="data-table"><thead><tr>
+            <th>Miasto / nieruchomość</th><th>Rodzaj</th><th class="num">Cena końc.</th><th class="num">vs wyw.</th><th class="num">zł/m²</th>
+          </tr></thead><tbody id="recap-sold"></tbody></table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Dane pochodzą z publicznych Biuletynów Informacji Publicznej urzędów miast i miejskich
+       zakładów gospodarki mieszkaniowej. Wartości historyczne pochodzą z dokumentów wyników przetargów (część po OCR) —
+       traktuj je informacyjnie; wiążące są zawsze dokumenty źródłowe urzędu.</p>
+    <p>Kontakt: <a href="mailto:kontakt@przetargimiejskie.pl">kontakt@przetargimiejskie.pl</a> ·
+       <a href="/archiwum">Archiwum</a> · <a href="/privacy">Prywatność</a> ·
+       <a href="https://github.com/110kc3/przetargimiejskie">Kod źródłowy</a></p>
+  </footer>
+</div>
+
+<script>
+// ===== formatters & helpers (mirror /archiwum + the extension) =====
+const TODAY = new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const CURYM = TODAY.slice(0,7);
+const nf = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:0});
+const nf1 = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:1});
+const nfArea = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:2});
+const fmtPLN = n => n==null?'—':nf.format(Math.round(n))+' zł';
+const fmtArea = a => a?nfArea.format(a)+' m²':'—';
+const fmtM2 = (p,a)=>(p==null||!a)?'—':nf.format(Math.round(p/a))+' zł/m²';
+const fmtPct = (v,d=1)=>v==null?'—':(v>0?'+':'')+ (d?nf1:nf).format(v)+'%';
+const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x-y); const m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href); return (x.protocol==='http:'||x.protocol==='https:')?x.href:''; }catch{ return ''; } };
+const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
+const KIND_PLURAL = {mieszkalny:'mieszkania',zabudowana:'domy',grunt:'działki',uzytkowy:'lokale użytkowe',garaz:'garaże',all:'nieruchomości'};
+const roundLabel = r => r ? `${r}.` : '—';
+const monthName = ym => { const [y,m]=ym.split('-'); return new Intl.DateTimeFormat('pl-PL',{month:'long',year:'numeric'}).format(new Date(+y,+m-1,1)); };
+const monthShort = ym => { const [y,m]=ym.split('-'); return new Intl.DateTimeFormat('pl-PL',{month:'short'}).format(new Date(+y,+m-1,1)).replace('.','')+' '+y.slice(2); };
+const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">źródło ↗</a>`:'—'; };
+function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${esc(city)}"></span>${esc(label||city)}</span>`; }
+
+// ===== report period =====
+const PERIODS=[['12','Ostatnie 12 miesięcy'],['6','Ostatnie 6 miesięcy'],['3','Ostatnie 3 miesiące'],['24','Ostatnie 24 miesiące'],['all','Cały okres']];
+function periodLabel(){ return (PERIODS.find(p=>p[0]===fPeriod)||['','—'])[1]; }
+function periodStartYM(){ if(fPeriod==='all') return null; const n=+fPeriod; const [y,m]=CURYM.split('-').map(Number);
+  const d=new Date(y,m-1-(n-1),1); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`; }
+const inPeriod = ds => { if(fPeriod==='all') return true; const ym=(ds||'').slice(0,7); return !!ym && ym>=periodStartYM(); };
+
+// ===== state =====
+let CITIES=[], CITY_LABEL={}, IDX=[], PROPS=[], lastRefresh='';
+let fCity='all', fKind='mieszkalny', fMonth='', fPeriod='12';
+
+// ===== load =====
+async function load(){
+  let idx;
+  try { idx = await fetch('/data/index.json').then(r=>r.json()); }
+  catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
+  IDX = idx.cities||[]; CITIES = IDX.map(c=>c.id);
+  IDX.forEach(c=>CITY_LABEL[c.id]=c.label);
+  lastRefresh = (idx.generated_at||'').slice(0,10);
+
+  const fc=document.getElementById('f-city');
+  IDX.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.label;fc.appendChild(o);});
+  const fp=document.getElementById('f-period');
+  PERIODS.forEach(([v,l])=>{const o=document.createElement('option');o.value=v;o.textContent=l;fp.appendChild(o);});
+  fp.value=fPeriod;
+
+  document.getElementById('city-nav').innerHTML =
+    `<a class="city-pill" data-city="all" href="/raporty">Wszystkie</a>` +
+    IDX.map(c=>`<a class="city-pill" data-city="${esc(c.id)}" href="/raporty?miasto=${esc(c.id)}"><span class="city-dot dot-${esc(c.id)}"></span>${esc(c.label)}</a>`).join('');
+  document.querySelectorAll('.city-pill').forEach(el=>el.addEventListener('click',e=>{ e.preventDefault(); setCity(el.dataset.city,true); }));
+
+  await Promise.all(IDX.map(async c=>{
+    try{
+      const [props, land] = await Promise.all([
+        fetch(`/data/${c.id}/properties.json`).then(r=>r.json()).catch(()=>({properties:[]})),
+        fetch(`/data/${c.id}/land.json`).then(r=>r.json()).catch(()=>({plots:[]})),
+      ]);
+      for(const p of (props.properties||[])){
+        const listings = (p.listings||[]).map(l=>({
+          date:l.date, round:l.round, kind:l.kind||p.kind||'unknown',
+          start:l.starting_price_pln, final:l.final_price_pln, outcome:l.outcome,
+          area:l.area_m2??p.area_m2, src:l.detail_url||l.source_pdf||l.bip_url
+        })).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
+        if(listings.length) PROPS.push({city:c.id,cityLabel:c.label,kind:p.kind||(listings[0]&&listings[0].kind)||'unknown',
+          street:p.street,building:p.building,apt:p.apt,listings});
+      }
+      for(const pl of (land.plots||[])){
+        const disp = pl.street ? `${pl.street}${pl.building?' '+pl.building:''}`
+          : (pl.dzialka_nr?`dz. ${pl.dzialka_nr}${pl.obreb?' ('+pl.obreb+')':''}`:(pl.address_raw||'—'));
+        const listings = (pl.listings||[]).map(l=>({
+          date:l.date, round:l.round, kind:'grunt', start:l.starting_price_pln, final:l.final_price_pln,
+          outcome:l.outcome, area:pl.area_m2??l.area_m2, src:l.detail_url||l.source_url
+        })).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
+        if(listings.length) PROPS.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',listings});
+      }
+    }catch(e){}
+  }));
+
+  const months=[...new Set(PROPS.flatMap(p=>p.listings.map(l=>(l.date||'').slice(0,7))).filter(Boolean))].sort().reverse();
+  const fm=document.getElementById('f-month');
+  months.forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=monthName(m);fm.appendChild(o);});
+  fMonth = months.find(m=>m<=CURYM) || months[0] || '';
+  fm.value=fMonth;
+
+  document.getElementById('f-city').addEventListener('change',e=>setCity(e.target.value,true));
+  document.getElementById('f-kind').addEventListener('change',e=>{fKind=e.target.value;render();});
+  document.getElementById('f-period').addEventListener('change',e=>{fPeriod=e.target.value;render();});
+  document.getElementById('f-month').addEventListener('change',e=>{fMonth=e.target.value;renderRecap();});
+  document.getElementById('btn-csv').addEventListener('click',exportCSV);
+  document.getElementById('btn-pdf').addEventListener('click',()=>window.print());
+
+  const q=new URLSearchParams(location.search).get('miasto');
+  if(q && CITIES.includes(q)) fCity=q;
+  document.getElementById('f-city').value=fCity;
+  render();
+}
+
+function setCity(city,push){
+  fCity = (city==='all'||CITIES.includes(city)) ? city : 'all';
+  document.getElementById('f-city').value=fCity;
+  if(push) history.replaceState(null,'', fCity==='all' ? '/raporty' : `/raporty?miasto=${fCity}`);
+  render();
+}
+
+// listings in current city+kind scope. Period-filtered unless allTime=true.
+function scopedListings(kindOverride, allTime){
+  const k = kindOverride||fKind;
+  const out=[];
+  for(const p of PROPS){
+    if(fCity!=='all' && p.city!==fCity) continue;
+    for(const l of p.listings){
+      if(k!=='all' && (l.kind||p.kind)!==k) continue;
+      if(!allTime && !inPeriod(l.date)) continue;
+      out.push({...l, city:p.city, cityLabel:p.cityLabel, addr:`${p.street||''} ${p.building||''}${p.apt?'/'+p.apt:''}`.trim()});
+    }
+  }
+  return out;
+}
+
+// ===== render =====
+function render(){
+  const cityLabel = fCity==='all' ? 'Górny Śląsk' : (CITY_LABEL[fCity]||fCity);
+  document.getElementById('page-title').textContent = fCity==='all' ? 'Raporty rynku — Górny Śląsk' : `Raporty rynku — ${cityLabel}`;
+  document.getElementById('doc-title').textContent = (fCity==='all' ? 'Raporty rynku' : `Raporty — ${cityLabel}`) + ' — przetargimiejskie';
+  document.getElementById('doc-desc').setAttribute('content',
+    `Raport z miejskich przetargów na mieszkania — ${cityLabel}: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje.`);
+  document.getElementById('sub').textContent =
+    `${cityLabel} · ${KIND_PLURAL[fKind]||'nieruchomości'} · dane odświeżono ${lastRefresh||'—'}`;
+  const rangeTxt = fPeriod==='all' ? 'cały dostępny okres' : `${monthName(periodStartYM())} – ${monthName(CURYM)}`;
+  document.getElementById('report-date').innerHTML =
+    `Raport: <b>${esc(periodLabel().toLowerCase())}</b> (${esc(rangeTxt)}) · stan na ${esc(monthName(CURYM))}`;
+  document.querySelectorAll('.city-pill').forEach(el=>el.classList.toggle('active', el.dataset.city===fCity));
+
+  renderKPIs();
+  renderSpread();
+  renderM2Hist();
+  renderSupply();
+  renderBenchmarks();
+  renderDeals();
+  renderRecap();
+}
+
+function renderKPIs(){
+  const scope = fCity==='all' ? IDX : IDX.filter(c=>c.id===fCity);
+  const sum = k => scope.reduce((s,c)=>s+(c[k]||0),0);
+  const props = sum('unique_properties'), active = sum('active_auctions'), land = sum('land_plots');
+  const ls = scopedListings();
+  const sold = ls.filter(l=>l.outcome==='sold' && l.final!=null);
+  const decided = ls.filter(l=>l.outcome==='sold'||l.outcome==='unsold');
+  const sellThrough = decided.length ? sold.length/decided.length*100 : null;
+  const prem = sold.filter(l=>l.start).map(l=>(l.final-l.start)/l.start*100);
+  const medPrem = prem.length? median(prem) : null;
+  const m2 = sold.filter(l=>l.area).map(l=>l.final/l.area);
+  const medM2 = m2.length? median(m2) : null;
+
+  const stColor = sellThrough==null?'var(--muted)':(sellThrough>=60?'var(--ok)':sellThrough>=40?'var(--warn)':'var(--bad)');
+  const premColor = medPrem==null?'var(--muted)':(medPrem>=0?'var(--ok)':'var(--bad)');
+
+  const tiles=[
+    [nf.format(props), 'nieruchomości', fCity==='all'?`${scope.length} miast`:'w tym mieście', 'var(--accent)', false],
+    [nf.format(sold.length), 'sprzedanych (w okresie)', medM2!=null?`mediana ${nf.format(Math.round(medM2))} zł/m²`:'—', 'var(--c-bytom)', false],
+    [sellThrough!=null?nf.format(Math.round(sellThrough))+'<small>%</small>':'—', 'skuteczność sprzedaży', `${sold.length}/${decided.length} rozstrzygniętych`, stColor, true],
+    [medPrem!=null?fmtPct(medPrem):'—', 'mediana: cena vs wyw.', prem.length?`${nf.format(Math.round(prem.filter(x=>x>=0).length/prem.length*100))}% ≥ ceny wyw.`:'—', premColor, true],
+    [nf.format(active), 'aktualnych aukcji', land?`+ ${nf.format(land)} działek`:'—', 'var(--c-rybnik)', false],
+  ];
+  document.getElementById('kpis').innerHTML = tiles.map(([v,l,s,color,tint])=>
+    `<div class="kpi" style="--kpi-accent:${color}"><div class="kpi-value${tint?' tint':''}">${v}</div><div class="kpi-label">${esc(l)}</div><div class="kpi-sub">${esc(s)}</div></div>`).join('');
+}
+
+function renderSpread(){
+  const sold = scopedListings().filter(l=>l.outcome==='sold' && l.final!=null && l.start);
+  const lead=document.getElementById('spread-lead');
+  if(!sold.length){ lead.textContent='Brak sprzedanych nieruchomości w tym zakresie.'; document.getElementById('spread-bars').innerHTML=''; return; }
+  const prem = sold.map(l=>(l.final-l.start)/l.start*100);
+  const med = median(prem);
+  const atOrAbove = Math.round(prem.filter(x=>x>=0).length/prem.length*100);
+  lead.innerHTML = `Z <b>${sold.length}</b> sprzedanych: mediana ceny końcowej to <b>${fmtPct(med)}</b> względem wywoławczej, a <b>${atOrAbove}%</b> osiągnęło cenę wywoławczą lub wyższą.`;
+  const buckets=[
+    ['poniżej ceny wyw.', x=>x<0, 'var(--ok)'],
+    ['0 – 10%', x=>x>=0&&x<10, 'var(--cyan)'],
+    ['10 – 25%', x=>x>=10&&x<25, 'var(--accent)'],
+    ['25 – 50%', x=>x>=25&&x<50, 'var(--warn)'],
+    ['ponad 50%', x=>x>=50, 'var(--bad)'],
+  ];
+  const counts=buckets.map(([lab,f])=>prem.filter(f).length);
+  const max=Math.max(1,...counts);
+  document.getElementById('spread-bars').innerHTML = buckets.map(([lab,f,color],i)=>
+    `<div class="hbar"><span class="hbar-label">${esc(lab)}</span>
+      <span class="hbar-track"><span class="hbar-fill" style="width:${counts[i]/max*100}%;background-color:${color}"></span></span>
+      <span class="hbar-val"><b>${counts[i]}</b></span></div>`).join('');
+}
+
+// zł/m² distribution: how many sold (achieved) vs unsold (asking) fall in each price band.
+function renderM2Hist(){
+  const ls = scopedListings();
+  const soldM2=[], unsoldM2=[];
+  for(const l of ls){
+    if(!l.area) continue;
+    if(l.outcome==='sold' && l.final!=null) soldM2.push(l.final/l.area);
+    else if(l.outcome==='unsold' && l.start!=null) unsoldM2.push(l.start/l.area);
+  }
+  const host=document.getElementById('m2-hist'), axis=document.getElementById('m2-axis');
+  const all=[...soldM2,...unsoldM2];
+  if(!all.length){ host.innerHTML='<div class="chart-empty">Brak danych z ceną i powierzchnią w tym zakresie.</div>'; axis.innerHTML=''; return; }
+  const maxv=Math.max(...all);
+  let step=1000; while(maxv/step>8) step*=2;
+  const nb=Math.max(1,Math.ceil(maxv/step));
+  const band=v=>Math.min(nb-1,Math.floor(v/step));
+  const sC=new Array(nb).fill(0), uC=new Array(nb).fill(0);
+  soldM2.forEach(v=>sC[band(v)]++); unsoldM2.forEach(v=>uC[band(v)]++);
+  const max=Math.max(1,...sC,...uC);
+  const kLabel=n=>(n%1000===0?(n/1000):(n/1000).toFixed(1))+'k';
+  const barH=v=>v/max*86;     // leave headroom for the value label above the bar
+  host.innerHTML = sC.map((s,b)=>{
+    const t=`${kLabel(b*step)}–${kLabel((b+1)*step)} zł/m² · sprzedane ${s}, niesprzedane ${uC[b]}`;
+    return `<div class="hist-col" title="${esc(t)}">
+      <div class="hist-bc"><span class="hist-num">${s||''}</span><div class="hist-bar sold" style="height:${barH(s)}%"></div></div>
+      <div class="hist-bc"><span class="hist-num">${uC[b]||''}</span><div class="hist-bar unsold" style="height:${barH(uC[b])}%"></div></div>
+    </div>`;
+  }).join('');
+  axis.innerHTML = sC.map((_,b)=>`<span>${esc(kLabel(b*step))}–${esc(kLabel((b+1)*step))}</span>`).join('');
+}
+
+function renderSupply(){
+  const ls = scopedListings().filter(l=>l.date);
+  const byMonth={};
+  ls.forEach(l=>{const m=l.date.slice(0,7); byMonth[m]=(byMonth[m]||0)+1;});
+  const cols=document.getElementById('supply-cols'), axis=document.getElementById('supply-axis');
+  if(!Object.keys(byMonth).length){ cols.innerHTML='<div class="chart-empty">Brak danych w tym okresie.</div>'; axis.innerHTML=''; return; }
+  const winN = fPeriod==='all'?24:Math.min(+fPeriod,24);
+  const [cy,cm]=CURYM.split('-').map(Number);
+  const series=[];
+  for(let i=winN-1;i>=0;i--){ const d=new Date(cy,cm-1-i,1); const ym=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`; series.push([ym, byMonth[ym]||0]); }
+  const max=Math.max(1,...series.map(s=>s[1]));
+  const showNum = winN<=14, everyLbl = winN<=12 ? 1 : (winN<=18?2:3);
+  cols.innerHTML = series.map(([ym,v],i)=>
+    `<div class="col${ym===CURYM?' is-now':''}" title="${esc(monthName(ym))}: ${v} aukcji">
+      ${showNum?`<span class="col-num">${v||''}</span>`:''}
+      <div class="col-bar" style="height:${v/max*86}%"></div></div>`).join('');
+  axis.innerHTML = series.map(([ym],i)=>`<span>${(i%everyLbl===0||ym===CURYM)?esc(monthShort(ym)):''}</span>`).join('');
+}
+
+function renderBenchmarks(){
+  const rows=[];
+  for(const c of IDX){
+    if(fCity!=='all' && c.id!==fCity) continue;
+    const m2=[];
+    for(const p of PROPS){ if(p.city!==c.id) continue;
+      for(const l of p.listings){ if(fKind!=='all'&&(l.kind||p.kind)!==fKind) continue;
+        if(!inPeriod(l.date)) continue;
+        if(l.outcome==='sold'&&l.final!=null&&l.area) m2.push(l.final/l.area); } }
+    if(m2.length) rows.push([c.id,c.label,median(m2),m2.length]);
+  }
+  rows.sort((a,b)=>b[2]-a[2]);
+  const bars=document.getElementById('bench-bars');
+  if(!rows.length){ bars.innerHTML='<div class="chart-empty">Brak sprzedanych nieruchomości tego rodzaju w tym okresie do wyliczenia mediany.</div>'; return; }
+  const max=Math.max(...rows.map(r=>r[2]));
+  bars.innerHTML = rows.map(([id,label,med,n])=>
+    `<div class="hbar"><span class="hbar-label"><span class="city-dot dot-${esc(id)}"></span> ${esc(label)}</span>
+      <span class="hbar-track"><span class="hbar-fill" style="width:${med/max*100}%;background-color:var(--c-${id},var(--accent))"></span></span>
+      <span class="hbar-val"><b>${nf.format(Math.round(med))}</b> zł/m² <span style="color:var(--faint);font-weight:500">(${n})</span></span></div>`).join('');
+}
+
+// Deal board: currently-active listings that were relisted (price cut vs first attempt).
+function dealRows(){
+  const out=[];
+  for(const p of PROPS){
+    if(fCity!=='all'&&p.city!==fCity) continue;
+    if(fKind!=='all'&&p.kind!==fKind) continue;
+    const ls=p.listings;
+    let cur=null; for(let i=ls.length-1;i>=0;i--){ if(ls[i].outcome==='active'||ls[i].outcome==='announced'){cur=ls[i];break;} }
+    if(!cur) continue;
+    const priors=ls.filter(l=>l!==cur);
+    if(!priors.length) continue;                       // never relisted → not a discount opportunity
+    const priorUnsold=priors.filter(l=>l.outcome==='unsold').length;
+    const priced=ls.filter(l=>l.start!=null);
+    const first=priced.length?priced[0].start:null;
+    const cut=(first!=null&&cur.start!=null)?(cur.start-first)/first*100:null;
+    const area=cur.area||ls.map(l=>l.area).find(a=>a)||null;
+    out.push({city:p.city,cityLabel:p.cityLabel,kind:p.kind,
+      addr:`${p.street||''} ${p.building||''}${p.apt?'/'+p.apt:''}`.trim(),
+      round:cur.round, priorUnsold, first, now:cur.start, cut, area, date:cur.date, src:cur.src});
+  }
+  out.sort((a,b)=>(a.cut==null?1:b.cut==null?-1:a.cut-b.cut)); // biggest discount first
+  return out;
+}
+function renderDeals(){
+  const rows=dealRows();
+  document.getElementById('deals-body').innerHTML = rows.length? rows.map(r=>{
+    const cls=r.cut==null?'':(r.cut<0?'delta-down':(r.cut>0?'delta-up':''));
+    const hot=r.cut!=null&&r.cut<=-25;
+    const okazja=hot?`<span class="badge-deal">↓ okazja</span>`:'';
+    const unsoldB=r.priorUnsold>0?`<span class="badge-unsold">${r.priorUnsold}× bez sprzedaży</span>`:'';
+    return `<tr class="${hot?'deal-hot':''}">
+      <td class="addr">${chip(r.city,r.cityLabel)}${esc(r.addr)}${okazja}${unsoldB}</td>
+      <td>${esc(KIND[r.kind]||r.kind)}</td>
+      <td class="num">${roundLabel(r.round)}</td>
+      <td class="num">${fmtPLN(r.first)}</td>
+      <td class="num">${fmtPLN(r.now)}</td>
+      <td class="num ${cls}">${fmtPct(r.cut)}</td>
+      <td class="num">${fmtArea(r.area)}</td>
+      <td class="num">${fmtM2(r.now,r.area)}</td>
+      <td class="num muted-cell">${esc(r.date||'—')}</td>
+      <td>${srcLink(r.src)}</td></tr>`;
+  }).join('') : '<tr class="empty-row"><td colspan="10">Brak aktualnych aukcji po obniżce w tym zakresie. Zmień miasto/rodzaj lub sprawdź później.</td></tr>';
+}
+
+function renderRecap(){
+  const lead=document.getElementById('recap-lead');
+  if(!fMonth){ lead.textContent='Brak danych miesięcznych.'; return; }
+  const inMonth = l => (l.date||'').slice(0,7)===fMonth;
+  const ls = scopedListings(null,true).filter(inMonth);   // recap is its own month — ignore the period filter
+  const listed = ls.slice().sort((a,b)=>String(a.date).localeCompare(b.date));
+  const sold = ls.filter(l=>l.outcome==='sold'&&l.final!=null);
+  lead.innerHTML = `<b>${monthName(fMonth)}</b>: wystawiono <b>${listed.length}</b>, sprzedano <b>${sold.length}</b>${
+    fCity==='all'?'':` w mieście ${esc(CITY_LABEL[fCity]||fCity)}`}.`;
+  document.getElementById('recap-listed').innerHTML = listed.length? listed.map(l=>`<tr>
+    <td class="addr">${chip(l.city,l.cityLabel)}${esc(l.addr)}</td>
+    <td>${esc(KIND[l.kind]||l.kind)}</td>
+    <td class="num">${roundLabel(l.round)}</td>
+    <td class="num">${fmtPLN(l.start)}</td>
+    <td class="num">${fmtM2(l.start,l.area)}</td></tr>`).join('')
+    : '<tr class="empty-row"><td colspan="5">Brak wystawień.</td></tr>';
+  document.getElementById('recap-sold').innerHTML = sold.length? sold.map(l=>{
+    const prem=l.start?(l.final-l.start)/l.start*100:null;
+    return `<tr>
+    <td class="addr">${chip(l.city,l.cityLabel)}${esc(l.addr)}</td>
+    <td>${esc(KIND[l.kind]||l.kind)}</td>
+    <td class="num">${fmtPLN(l.final)}</td>
+    <td class="num ${prem!=null&&prem>=0?'delta-up':'delta-down'}">${prem!=null?fmtPct(prem):'—'}</td>
+    <td class="num">${fmtM2(l.final,l.area)}</td></tr>`;}).join('')
+    : '<tr class="empty-row"><td colspan="5">Brak sprzedaży.</td></tr>';
+}
+
+// ===== CSV export (current opportunities; semicolon + BOM for PL Excel) =====
+function exportCSV(){
+  const rows=dealRows();
+  const head=['miasto','adres','rodzaj','runda','razy_bez_sprzedazy','cena_pierwsza_pln','cena_teraz_pln','obnizka_proc','powierzchnia_m2','zl_m2','data_aukcji'];
+  const body=rows.map(r=>[r.cityLabel,r.addr,KIND[r.kind]||r.kind,r.round??'',r.priorUnsold,
+    r.first??'',r.now??'',r.cut!=null?Math.round(r.cut*10)/10:'',r.area??'',(r.area&&r.now)?Math.round(r.now/r.area):'',r.date??'']);
+  const cell=v=>{const s=String(v==null?'':v);return /[";\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;};
+  const csv='﻿'+[head,...body].map(r=>r.map(cell).join(';')).join('\r\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`przetargimiejskie-okazje-${fCity}-${TODAY}.csv`;
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
+}
+
+load();
+</script>
+</body>
+</html>
