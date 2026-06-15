@@ -15,6 +15,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.6038%2F49",
       "area_m2": 715,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -24,6 +25,13 @@
           "area_m2": 715,
           "detail_url": "https://bip.miastozabrze.pl/doc/6042",
           "source_url": "https://bip.miastozabrze.pl/attachment/43867"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6038/49",
+          "dzialka_id": "247801_1.0012.AR_14.6038/49",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.6038%2F49"
         }
       ]
     },
@@ -40,6 +48,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.6089%2F50",
       "area_m2": 477,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -49,6 +58,13 @@
           "area_m2": 477,
           "detail_url": "https://bip.miastozabrze.pl/doc/6041",
           "source_url": "https://bip.miastozabrze.pl/attachment/43864"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6089/50",
+          "dzialka_id": "247801_1.0012.AR_14.6089/50",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.6089%2F50"
         }
       ]
     },
@@ -65,6 +81,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Zabrze%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -74,7 +91,8 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/5998",
           "source_url": "https://bip.miastozabrze.pl/attachment/43739"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|zabrze|2696/74, 2480/25",
@@ -89,6 +107,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_1.2696%2F74",
       "area_m2": 175,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -108,6 +127,18 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6018",
           "source_url": "https://bip.miastozabrze.pl/attachment/43802"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2696/74",
+          "dzialka_id": "247801_1.0012.AR_1.2696/74",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_1.2696%2F74"
+        },
+        {
+          "nr": "2480/25",
+          "dzialka_id": "247801_1.0012.AR_1.2480/25",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_1.2480%2F25"
+        }
       ]
     },
     {
@@ -123,6 +154,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0001.AR_1.2140%2F81",
       "area_m2": 333,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -142,6 +174,13 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6034",
           "source_url": "https://bip.miastozabrze.pl/attachment/43845"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2140/81",
+          "dzialka_id": "247801_1.0001.AR_1.2140/81",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0001.AR_1.2140%2F81"
+        }
       ]
     },
     {
@@ -157,6 +196,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0003.AR_4.634%2F115",
       "area_m2": 6479,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -166,6 +206,13 @@
           "area_m2": 6479,
           "detail_url": "https://bip.miastozabrze.pl/doc/6038",
           "source_url": "https://bip.miastozabrze.pl/attachment/43855"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "634/115",
+          "dzialka_id": "247801_1.0003.AR_4.634/115",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0003.AR_4.634%2F115"
         }
       ]
     },
@@ -182,6 +229,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_4.2660%2F12",
       "area_m2": 170,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -191,6 +239,13 @@
           "area_m2": 170,
           "detail_url": "https://bip.miastozabrze.pl/doc/6032",
           "source_url": "https://bip.miastozabrze.pl/attachment/43839"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2660/12",
+          "dzialka_id": "247801_1.0012.AR_4.2660/12",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_4.2660%2F12"
         }
       ]
     },
@@ -207,6 +262,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0009.AR_1.527%2F39",
       "area_m2": 393,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -216,6 +272,13 @@
           "area_m2": 393,
           "detail_url": "https://bip.miastozabrze.pl/doc/6031",
           "source_url": "https://bip.miastozabrze.pl/attachment/43836"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "527/39",
+          "dzialka_id": "247801_1.0009.AR_1.527/39",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0009.AR_1.527%2F39"
         }
       ]
     },
@@ -232,6 +295,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_4.5524%2F141",
       "area_m2": 4,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -241,6 +305,13 @@
           "area_m2": 4,
           "detail_url": "https://bip.miastozabrze.pl/doc/6026",
           "source_url": "https://bip.miastozabrze.pl/attachment/43822"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5524/141",
+          "dzialka_id": "247801_1.0006.AR_4.5524/141",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_4.5524%2F141"
         }
       ]
     },
@@ -257,6 +328,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_15.53%2F1",
       "area_m2": 752,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -276,6 +348,13 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6009",
           "source_url": "https://bip.miastozabrze.pl/attachment/43764"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "53/1",
+          "dzialka_id": "247801_1.0012.AR_15.53/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_15.53%2F1"
+        }
       ]
     },
     {
@@ -291,6 +370,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_15.52%2F1",
       "area_m2": 752,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -310,6 +390,13 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6010",
           "source_url": "https://bip.miastozabrze.pl/attachment/43766"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "52/1",
+          "dzialka_id": "247801_1.0012.AR_15.52/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_15.52%2F1"
+        }
       ]
     },
     {
@@ -325,6 +412,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_12.731%2F4",
       "area_m2": 113,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -344,6 +432,18 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6007",
           "source_url": "https://bip.miastozabrze.pl/attachment/43760"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "731/4",
+          "dzialka_id": "247801_1.0012.AR_12.731/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_12.731%2F4"
+        },
+        {
+          "nr": "747/4",
+          "dzialka_id": "247801_1.0012.AR_12.747/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_12.747%2F4"
+        }
       ]
     },
     {
@@ -359,6 +459,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.5064%2F9",
       "area_m2": 784,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -368,6 +469,13 @@
           "area_m2": 784,
           "detail_url": "https://bip.miastozabrze.pl/doc/6024",
           "source_url": "https://bip.miastozabrze.pl/attachment/43816"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5064/9",
+          "dzialka_id": "247801_1.0012.AR_14.5064/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.5064%2F9"
         }
       ]
     },
@@ -384,6 +492,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_3.1384%2F34",
       "area_m2": 1412,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -393,6 +502,13 @@
           "area_m2": 1412,
           "detail_url": "https://bip.miastozabrze.pl/doc/6025",
           "source_url": "https://bip.miastozabrze.pl/attachment/43819"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1384/34",
+          "dzialka_id": "247801_1.0011.AR_3.1384/34",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_3.1384%2F34"
         }
       ]
     },
@@ -409,6 +525,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.681%2F164",
       "area_m2": 1612,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -418,6 +535,13 @@
           "area_m2": 1612,
           "detail_url": "https://bip.miastozabrze.pl/doc/6023",
           "source_url": "https://bip.miastozabrze.pl/attachment/43813"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "681/164",
+          "dzialka_id": "247801_1.0011.AR_5.681/164",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.681%2F164"
         }
       ]
     },
@@ -434,6 +558,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.460%2F162",
       "area_m2": 831,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -443,6 +568,13 @@
           "area_m2": 831,
           "detail_url": "https://bip.miastozabrze.pl/doc/6022",
           "source_url": "https://bip.miastozabrze.pl/attachment/43810"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "460/162",
+          "dzialka_id": "247801_1.0011.AR_5.460/162",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.460%2F162"
         }
       ]
     },
@@ -459,6 +591,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.950%2F149",
       "area_m2": 757,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -468,6 +601,13 @@
           "area_m2": 757,
           "detail_url": "https://bip.miastozabrze.pl/doc/6021",
           "source_url": "https://bip.miastozabrze.pl/attachment/43808"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "950/149",
+          "dzialka_id": "247801_1.0011.AR_5.950/149",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.950%2F149"
         }
       ]
     },
@@ -484,6 +624,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.948%2F148",
       "area_m2": 654,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -493,6 +634,13 @@
           "area_m2": 654,
           "detail_url": "https://bip.miastozabrze.pl/doc/6020",
           "source_url": "https://bip.miastozabrze.pl/attachment/43806"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "948/148",
+          "dzialka_id": "247801_1.0011.AR_5.948/148",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.948%2F148"
         }
       ]
     },
@@ -509,6 +657,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.80",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -517,6 +666,13 @@
           "outcome": "active",
           "detail_url": "https://bip.miastozabrze.pl/doc/6019",
           "source_url": "https://bip.miastozabrze.pl/attachment/43804"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "80",
+          "dzialka_id": "247801_1.0011.AR_5.80",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.80"
         }
       ]
     },
@@ -533,6 +689,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_25.12%2F20",
       "area_m2": 2024,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -552,6 +709,13 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6008",
           "source_url": "https://bip.miastozabrze.pl/attachment/43762"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "12/20",
+          "dzialka_id": "247801_1.0012.AR_25.12/20",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_25.12%2F20"
+        }
       ]
     },
     {
@@ -567,6 +731,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_3.1406%2F34",
       "area_m2": 2709,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -595,6 +760,13 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6004",
           "source_url": "https://bip.miastozabrze.pl/attachment/43754"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "1406/34",
+          "dzialka_id": "247801_1.0011.AR_3.1406/34",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_3.1406%2F34"
+        }
       ]
     },
     {
@@ -610,6 +782,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202240%2F27%20Zabrze%20Zabrze%20geoportal%20dzia%C5%82ki",
       "area_m2": 407,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -619,6 +792,12 @@
           "area_m2": 407,
           "detail_url": "https://bip.miastozabrze.pl/doc/6015",
           "source_url": "https://bip.miastozabrze.pl/attachment/43776"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2240/27",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202240%2F27%20Zabrze%20Zabrze%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -635,6 +814,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_2.1153%2F249",
       "area_m2": 735,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -654,6 +834,13 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6002",
           "source_url": "https://bip.miastozabrze.pl/attachment/43750"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "1153/249",
+          "dzialka_id": "247801_1.0011.AR_2.1153/249",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_2.1153%2F249"
+        }
       ]
     },
     {
@@ -669,6 +856,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_2.2494%2F52",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -686,6 +874,23 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6006",
           "source_url": "https://bip.miastozabrze.pl/attachment/43758"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2494/52",
+          "dzialka_id": "247801_1.0006.AR_2.2494/52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_2.2494%2F52"
+        },
+        {
+          "nr": "2491/52",
+          "dzialka_id": "247801_1.0006.AR_2.2491/52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_2.2491%2F52"
+        },
+        {
+          "nr": "2492/52",
+          "dzialka_id": "247801_1.0006.AR_2.2492/52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_2.2492%2F52"
+        }
       ]
     },
     {
@@ -701,6 +906,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20So%C5%9Bnica%20Zabrze%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -710,7 +916,8 @@
           "detail_url": "https://bip.miastozabrze.pl/doc/6035",
           "source_url": "https://bip.miastozabrze.pl/attachment/43847"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|zaborze|942/184",
@@ -725,6 +932,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.942%2F184",
       "area_m2": 1419,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -734,6 +942,13 @@
           "area_m2": 1419,
           "detail_url": "https://bip.miastozabrze.pl/doc/6005",
           "source_url": "https://bip.miastozabrze.pl/attachment/43756"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "942/184",
+          "dzialka_id": "247801_1.0011.AR_5.942/184",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.942%2F184"
         }
       ]
     },
@@ -750,6 +965,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_16.594%2F190",
       "area_m2": 387,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -759,6 +975,13 @@
           "area_m2": 387,
           "detail_url": "https://bip.miastozabrze.pl/doc/6011",
           "source_url": "https://bip.miastozabrze.pl/attachment/43768"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "594/190",
+          "dzialka_id": "247801_1.0012.AR_16.594/190",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_16.594%2F190"
         }
       ]
     },
@@ -775,6 +998,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_8.399%2F105",
       "area_m2": 292,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": null,
@@ -784,6 +1008,18 @@
           "area_m2": 292,
           "detail_url": "https://bip.miastozabrze.pl/doc/6003",
           "source_url": "https://bip.miastozabrze.pl/attachment/43752"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "399/105",
+          "dzialka_id": "247801_1.0006.AR_8.399/105",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_8.399%2F105"
+        },
+        {
+          "nr": "205/98",
+          "dzialka_id": "247801_1.0006.AR_8.205/98",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_8.205%2F98"
         }
       ]
     }
