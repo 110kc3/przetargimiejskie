@@ -261,14 +261,14 @@
       ]
     },
     {
-      "key": "addr|ul. stokrotek i ul",
+      "key": "addr|ul. stokrotek",
       "kind": "grunt",
       "city": "myslowice",
       "dzialka_nr": null,
       "obreb": "0007 Mysłowice",
-      "street": "Stokrotek i ul",
+      "street": "Stokrotek",
       "building": null,
-      "address_raw": "ul. Stokrotek i ul",
+      "address_raw": "ul. Stokrotek",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 657,
@@ -311,9 +311,9 @@
       "city": "myslowice",
       "dzialka_nr": "2057/21",
       "obreb": "0003 Dziećkowice",
-      "street": "Skowronków i ul",
+      "street": "Skowronków",
       "building": null,
-      "address_raw": "ul. Skowronków i ul",
+      "address_raw": "ul. Skowronków",
       "dzialka_id": "247001_1.0003.AR_2.2057/21",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.2057%2F21",
       "area_m2": 309,
@@ -720,33 +720,6 @@
       ]
     },
     {
-      "key": "addr|ul. nabywaniu nieruchomości będą miały zastosowanie odpowiednie przepisy nin",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": null,
-      "obreb": "0003 Dziećkowice",
-      "street": "nabywaniu nieruchomości będą miały zastosowanie odpowiednie przepisy nin",
-      "building": null,
-      "address_raw": "ul. nabywaniu nieruchomości będą miały zastosowanie odpowiednie przepisy nin",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20Dzie%C4%87kowice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 7695,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-18",
-          "round": 1,
-          "starting_price_pln": 212000,
-          "outcome": "archived",
-          "area_m2": 7695,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-o-pow-0",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-o-pow-0"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "dz|0001 brzezinka|2680/210",
       "kind": "grunt",
       "city": "myslowice",
@@ -818,9 +791,9 @@
       "city": "myslowice",
       "dzialka_nr": "3, 490/43",
       "obreb": "0007 Mysłowice",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203%2C%20490%2F43%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 15841,
@@ -863,9 +836,9 @@
       "city": "myslowice",
       "dzialka_nr": "1678/292",
       "obreb": "0003 Dziećkowice",
-      "street": "nabywaniu nieruchomości będą miały zastosowanie odpowiednie przepisy nin",
+      "street": null,
       "building": null,
-      "address_raw": "ul. nabywaniu nieruchomości będą miały zastosowanie odpowiednie przepisy nin",
+      "address_raw": null,
       "dzialka_id": "247001_1.0003.AR_2.1678/292",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.1678%2F292",
       "area_m2": 8177,
@@ -1008,9 +981,9 @@
       "city": "myslowice",
       "dzialka_nr": "3490/43",
       "obreb": "0007 Mysłowice",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": "247001_1.0007.AR_4.3490/43",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_4.3490%2F43",
       "area_m2": 15841,
@@ -1639,9 +1612,9 @@
       "city": "myslowice",
       "dzialka_nr": "2206/105",
       "obreb": "0010 Wesoła",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": "247001_1.0010.AR_3.2206/105",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0010.AR_3.2206%2F105",
       "area_m2": 10915,
@@ -1765,9 +1738,9 @@
       "city": "myslowice",
       "dzialka_nr": "2/13",
       "obreb": "0001 Brzezinka.",
-      "street": "ul",
+      "street": null,
       "building": null,
-      "address_raw": "ul. ul",
+      "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%2F13%200001%20Brzezinka.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1936,
@@ -1874,105 +1847,6 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204042%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
-    },
-    {
-      "key": "addr|ul. ul",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": null,
-      "obreb": "0003 Dziećkowice",
-      "street": "ul",
-      "building": null,
-      "address_raw": "ul. ul",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20Dzie%C4%87kowice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3543,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-07-15",
-          "round": 1,
-          "starting_price_pln": 323000,
-          "outcome": "archived",
-          "area_m2": 2583,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-orla-b",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-orla-b"
-        },
-        {
-          "date": "2025-07-22",
-          "round": 1,
-          "starting_price_pln": 60000,
-          "outcome": "archived",
-          "area_m2": 514,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-batalio",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-batalio"
-        },
-        {
-          "date": "2025-07-29",
-          "round": 1,
-          "starting_price_pln": 249000,
-          "outcome": "archived",
-          "area_m2": 3543,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-szabeln",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-szabeln"
-        },
-        {
-          "date": "2025-08-26",
-          "round": 1,
-          "starting_price_pln": 300000,
-          "outcome": "archived",
-          "area_m2": 793,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-rej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-rej"
-        },
-        {
-          "date": "2025-12-09",
-          "round": 2,
-          "starting_price_pln": 60000,
-          "outcome": "archived",
-          "area_m2": 514,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-s-1",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-s-1"
-        },
-        {
-          "date": "2026-04-14",
-          "round": 3,
-          "starting_price_pln": 60000,
-          "outcome": "archived",
-          "area_m2": 514,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-2",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-2"
-        },
-        {
-          "date": "2026-06-16",
-          "round": 4,
-          "starting_price_pln": 60000,
-          "outcome": "active",
-          "area_m2": 514,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej"
-        },
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 329,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-odwolaniu-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-dz-2378-16-ul-akac",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-odwolaniu-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-dz-2378-16-ul-akac"
-        },
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 584,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-odwolaniu-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-dz-2376-16-ul-akac",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-odwolaniu-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-dz-2376-16-ul-akac"
-        }
-      ],
-      "parcels": []
     }
   ]
 }
