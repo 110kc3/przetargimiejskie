@@ -50,6 +50,7 @@ const LABELS = [
   'Forma przetargu',
   'Status oferty',
   'Wysokość wadium',
+  'Powierzchnia działki',
   'Powierzchnia użytkowa',
   'Powierzchnia',
   'Cena wywoławcza',
@@ -253,7 +254,7 @@ export function findMapLink(html) {
  *  area (unlike flats, where it is ignored). "812 m2" / "1 234,50 m²" / "1234"
  *  → m² or null. */
 export function plotAreaFrom(text) {
-  const f = field(text, 'Powierzchnia');
+  const f = field(text, 'Powierzchnia działki') || field(text, 'Powierzchnia');
   if (!f) return null;
   const m = /([\d][\d\s.\u00a0]*(?:,\d+)?)/.exec(f);
   if (!m) return null;
@@ -317,7 +318,9 @@ export function parseListingNode(html, url, kind) {
     kind,
     address_raw: addr.address_raw,
     address: addr.address,
-    area_m2: areaFrom(text),
+    // Usable area from prose; fall back to the structured plot/building area
+    // ("Powierzchnia") so houses without a prose figure still get an area.
+    area_m2: areaFrom(text) ?? plotAreaFrom(text),
     starting_price_pln: priceFrom(text),
     round: roundFromForma(field(text, 'Forma przetargu')),
     auction_date: auctionDateFrom(text),

@@ -208,12 +208,12 @@ async function load(){
         for(const l of (p.listings||[]))
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))
             records.push({city:c.id,cityLabel:c.label,kind:l.kind||p.kind,street:p.street,building:p.building,apt:p.apt,
-              date:l.date,round:l.round,area:l.area_m2??p.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
+              date:l.date,round:l.round,area:l.area_m2??p.area_m2??l.land_area_m2,start:l.starting_price_pln,final:l.final_price_pln,
               outcome:l.outcome,reason:l.unsold_reason,share:l.share??p.share,src:l.source_pdf||l.detail_url,bip:l.bip_url});
       for(const l of (act.listings||[]))
         if(!l.auction_date || l.auction_date>=TODAY)
           active.push({city:c.id,cityLabel:c.label,kind:l.kind,addr:l.address_raw,round:l.round,
-            area:l.area_m2,start:l.starting_price_pln,date:l.auction_date,share:l.share,url:l.detail_url,bip:l.bip_url});
+            area:l.area_m2??l.land_area_m2,start:l.starting_price_pln,date:l.auction_date,share:l.share,url:l.detail_url,bip:l.bip_url});
       for(const p of (land.plots||[])){
         const disp = p.street ? `${p.street}${p.building?' '+p.building:''}` : (p.dzialka_nr?`dz. ${p.dzialka_nr}${p.obreb?' ('+p.obreb+')':''}`:(p.address_raw||'—'));
         for(const l of (p.listings||[])){

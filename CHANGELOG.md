@@ -4,6 +4,14 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.27.0 — 2026-06-15
+
+Land area completeness. Bielsko land plots now show their area (read from the
+giełda's "Powierzchnia działki" field) and houses fall back to the structured
+area when no usable-area figure is in the prose. Houses/whole-property sales
+whose area is stored as the plot/building total now display that area instead
+of a blank (Katowice domy).
+
 ## v1.26.0 — 2026-06-15
 
 Land filter + geoportal polish. Merged the duplicate property-type filters into

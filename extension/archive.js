@@ -235,7 +235,7 @@ function flatten(payload) {
           street_search: (p.street_norm + ' ' + p.building + ' ' + (p.apt || ''))
             .toLowerCase(),
           kind: l.kind || p.kind || 'unknown',
-          area_m2: l.area_m2 ?? p.area_m2 ?? null,
+          area_m2: l.area_m2 ?? p.area_m2 ?? l.land_area_m2 ?? null,
           round: l.round,
           starting_price_pln: l.starting_price_pln,
           final_price_pln: l.final_price_pln,
@@ -515,7 +515,8 @@ function renderActiveTable() {
 
   $activeTbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold }) => {
-      const addr = cityTagHtml(a.city) + esc(a.address_raw || '') + (a.area_m2 ? ` · ${fmtArea(a.area_m2)}` : '');
+      const aArea = a.area_m2 ?? a.land_area_m2;
+      const addr = cityTagHtml(a.city) + esc(a.address_raw || '') + (aArea ? ` · ${fmtArea(aArea)}` : '');
       const priorCell =
         prior.length === 0
           ? `<span class="zgm-fresh">${t('popup.fresh')}</span>`
