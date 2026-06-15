@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "city": "zabrze",
+  "plots": [
+    {
+      "key": "dz|zabrze|6038/49",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "6038/49",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Henryka Sienkiewicza",
+      "dzialka_id": "247801_1.0012.AR_14.6038/49",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.6038%2F49",
+      "area_m2": 715,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 715,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6042",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43867"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|6089/50",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "6089/50",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stefana Batorego",
+      "dzialka_id": "247801_1.0012.AR_14.6089/50",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.6089%2F50",
+      "area_m2": 477,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 477,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6041",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43864"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. józefa poniatowskiego",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Józefa Poniatowskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Zabrze%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.miastozabrze.pl/doc/5998",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43739"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|2696/74, 2480/25",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "2696/74, 2480/25",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Orląt Lwowskich",
+      "dzialka_id": "247801_1.0012.AR_1.2696/74",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_1.2696%2F74",
+      "area_m2": 175,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 25000,
+          "outcome": "active",
+          "area_m2": 175,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6040",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43861"
+        }
+      ]
+    },
+    {
+      "key": "dz|bielszowice|2140/81",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "2140/81",
+      "obreb": "Bielszowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Beskidzkiej",
+      "dzialka_id": "247801_1.0001.AR_1.2140/81",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0001.AR_1.2140%2F81",
+      "area_m2": 333,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 40000,
+          "outcome": "active",
+          "area_m2": 333,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6039",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43858"
+        }
+      ]
+    },
+    {
+      "key": "dz|grzybowice|634/115",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "634/115",
+      "obreb": "Grzybowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przy Ujęciu",
+      "dzialka_id": "247801_1.0003.AR_4.634/115",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0003.AR_4.634%2F115",
+      "area_m2": 6479,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 1000000,
+          "outcome": "active",
+          "area_m2": 6479,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6038",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43855"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|2660/12",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "2660/12",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stanisława Wyspiańskiego",
+      "dzialka_id": "247801_1.0012.AR_4.2660/12",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_4.2660%2F12",
+      "area_m2": 170,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 45000,
+          "outcome": "active",
+          "area_m2": 170,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6032",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43839"
+        }
+      ]
+    },
+    {
+      "key": "dz|sośnica|527/39",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "527/39",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wolności",
+      "dzialka_id": "247801_1.0009.AR_1.527/39",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0009.AR_1.527%2F39",
+      "area_m2": 393,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 550000,
+          "outcome": "active",
+          "area_m2": 393,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6031",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43836"
+        }
+      ]
+    },
+    {
+      "key": "dz|mikulczyce|5524/141",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "5524/141",
+      "obreb": "Mikulczyce",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Księcia Józefa Poniatowskiego",
+      "dzialka_id": "247801_1.0006.AR_4.5524/141",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_4.5524%2F141",
+      "area_m2": 4,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 60000,
+          "outcome": "active",
+          "area_m2": 4,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6026",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43822"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|53/1",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "53/1",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elizy Orzeszkowej",
+      "dzialka_id": "247801_1.0012.AR_15.53/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_15.53%2F1",
+      "area_m2": 752,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 752,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6029",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43830"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|52/1",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "52/1",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elizy Orzeszkowej",
+      "dzialka_id": "247801_1.0012.AR_15.52/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_15.52%2F1",
+      "area_m2": 752,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 752,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6028",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43827"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|731/4, 747/4",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "731/4, 747/4",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wandy",
+      "dzialka_id": "247801_1.0012.AR_12.731/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_12.731%2F4",
+      "area_m2": 113,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 45000,
+          "outcome": "active",
+          "area_m2": 113,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6027",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43824"
+        }
+      ]
+    },
+    {
+      "key": "dz|zabrze|5064/9",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "5064/9",
+      "obreb": "Zabrze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bolesława Wallek - Walewskiego",
+      "dzialka_id": "247801_1.0012.AR_14.5064/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0012.AR_14.5064%2F9",
+      "area_m2": 784,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 205000,
+          "outcome": "active",
+          "area_m2": 784,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6024",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43816"
+        }
+      ]
+    },
+    {
+      "key": "dz|zaborze|1384/34",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "1384/34",
+      "obreb": "Zaborze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Adama Napieralskiego",
+      "dzialka_id": "247801_1.0011.AR_3.1384/34",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_3.1384%2F34",
+      "area_m2": 1412,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 1412,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6025",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43819"
+        }
+      ]
+    },
+    {
+      "key": "dz|zaborze|681/164",
+      "kind": "grunt",
+      "city": "zabrze",
+      "dzialka_nr": "681/164",
+      "obreb": "Zaborze",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Adama Asnyka",
+      "dzialka_id": "247801_1.0011.AR_5.681/164",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.681%2F164",
+      "area_m2": 1612,
+      "zoning": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 225000,
+          "outcome": "active",
+          "area_m2": 1612,
+          "detail_url": "https://bip.miastozabrze.pl/doc/6023",
+          "source_url": "https://bip.miastozabrze.pl/attachment/43813"
+        }
+      ]
+    }
+  ]
+}

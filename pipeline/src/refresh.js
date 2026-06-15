@@ -26,6 +26,8 @@ import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
 import { buildCityData, healStreetVariants, todayWarsaw } from './core/build-properties.js';
+import { buildLand } from './core/build-land.js';
+import { LAND_KIND } from './core/classify-kind.js';
 import { mergeProperties, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
 
@@ -36,6 +38,7 @@ import { closeBrowser } from './core/render.js';
 const MERGE_HISTORY = process.env.MERGE_HISTORY !== '0';
 
 const SCHEMA_VERSION = 1;
+const LAND_SCHEMA_VERSION = 1;
 const PARSER_VERSION = '0.2.0';
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
@@ -90,8 +93,25 @@ async function refreshCity(city) {
   );
 
   console.error('Crawling active listings + wykaz ...');
-  const { listings: active, wykaz } = await city.crawlActive();
+  const { listings: active, wykaz, land = [] } = await city.crawlActive();
   console.error(`Got ${active.length} active listings, ${wykaz.length} wykaz entries.\n`);
+
+  // Partition LAND (kind 'grunt') out of the address-keyed streams: land has no
+  // street|building|apt, so it must never enter build-properties' property map.
+  // Collected here (+ any land the adapter returned explicitly via `land`) and
+  // written to the SEPARATE data/<city>/land.json by buildLand below. Houses
+  // (kind 'zabudowana') DO have addresses and stay in the flat streams.
+  const crawledActiveCount = active.length;
+  const landRecords = [...land];
+  for (const arr of [active, allRecords]) {
+    const keep = [];
+    for (const x of arr) (x.kind === LAND_KIND ? landRecords : keep).push(x);
+    arr.length = 0;
+    arr.push(...keep);
+  }
+  if (landRecords.length) {
+    console.error(`  partitioned ${landRecords.length} land record(s) → land.json`);
+  }
 
   // Optional per-city enrichment of the active listings (e.g. wadium dates).
   if (city.enrichActive) await city.enrichActive(active);
@@ -130,7 +150,7 @@ async function refreshCity(city) {
   // Use the PRE-floor record count: a city whose entire history is older than
   // MIN_HISTORY_YEAR still had a perfectly healthy crawl — only a crawl that
   // saw literally nothing indicates a source outage.
-  const crawlEmpty = active.length === 0 && beforeFloor === 0 && wykaz.length === 0;
+  const crawlEmpty = crawledActiveCount === 0 && beforeFloor === 0 && wykaz.length === 0 && landRecords.length === 0;
   if (crawlEmpty && prevProperties.length > 0) {
     console.error(
       `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data.`,
@@ -260,6 +280,8 @@ async function refreshCity(city) {
     }
   }
 
+  const landBuilt = buildLand(landRecords, city.id, city);
+
   const meta = {
     schema_version: SCHEMA_VERSION,
     parser_version: PARSER_VERSION,
@@ -273,6 +295,8 @@ async function refreshCity(city) {
     active_auctions: activeAuctions,       // genuinely running (outcome 'active')
     archived_auctions: archivedAuctions,   // concluded (archived/sold/unsold)
     wykaz_entries: wykaz.length,
+    land_plots: landBuilt.plots.length,    // unique parcels in land.json
+    land_listings: landRecords.length,     // raw land auction rows seen this run
     retained_properties: retained.kept_properties,
   };
 
@@ -289,6 +313,13 @@ async function refreshCity(city) {
   await writeFile(
     join(cityDir, 'meta.json'),
     JSON.stringify(meta, null, 2) + '\n',
+  );
+  // Separate parcel-keyed store for land (działki/grunty). Flats, houses
+  // (zabudowana) and commercial stay in properties.json/active.json; only land
+  // lives here. See core/build-land.js.
+  await writeFile(
+    join(cityDir, 'land.json'),
+    JSON.stringify({ schema_version: LAND_SCHEMA_VERSION, city: city.id, plots: landBuilt.plots }, null, 2) + '\n',
   );
 
   console.error('--- summary ---');
@@ -368,6 +399,7 @@ async function main() {
           active_auctions: m?.active_auctions ?? 0,
           archived_auctions: m?.archived_auctions ?? 0,
           wykaz_entries: m?.wykaz_entries ?? 0,
+          land_plots: m?.land_plots ?? 0,
         };
       }),
     };

@@ -61,6 +61,7 @@
       'archive.median_m2': 'median PLN/m²',
       'archive.filter.city': 'City',
       'archive.filter.kind': 'Kind',
+      'archive.filter.class': 'Property',
       'archive.filter.outcome': 'Outcome',
       'archive.filter.min_year': 'From year',
       'archive.filter.year': 'Year',
@@ -100,6 +101,8 @@
       'col.outcome': 'outcome',
       'col.note': 'note',
       'col.kind': 'kind',
+      'col.parcel': 'Parcel',
+      'link.map': 'map',
       'col.final': 'final',
       'col.reason': 'reason',
       'col.src': 'source',
@@ -120,6 +123,8 @@
 
       // kind enum
       'kind.mieszkalny': 'residential',
+      'kind.zabudowana': 'house',
+      'kind.grunt': 'land',
       'kind.uzytkowy': 'commercial',
       'kind.garaz': 'garage',
       'kind.unknown': 'unknown',
@@ -194,6 +199,7 @@
       'archive.median_m2': 'mediana zł/m²',
       'archive.filter.city': 'Miasto',
       'archive.filter.kind': 'Typ',
+      'archive.filter.class': 'Rodzaj',
       'archive.filter.outcome': 'Wynik',
       'archive.filter.min_year': 'Od roku',
       'archive.filter.year': 'Rok',
@@ -233,6 +239,8 @@
       'col.outcome': 'wynik',
       'col.note': 'uwagi',
       'col.kind': 'typ',
+      'col.parcel': 'Działka',
+      'link.map': 'mapa',
       'col.final': 'cena końcowa',
       'col.reason': 'powód',
       'col.src': 'źródło',
@@ -253,6 +261,8 @@
 
       // kind enum
       'kind.mieszkalny': 'mieszkalny',
+      'kind.zabudowana': 'dom',
+      'kind.grunt': 'działka',
       'kind.uzytkowy': 'użytkowy',
       'kind.garaz': 'garaż',
       'kind.unknown': 'nieznany',

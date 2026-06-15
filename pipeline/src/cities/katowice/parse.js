@@ -1,5 +1,6 @@
 // Katowice city-BIP parsers:
 //   parseAnnouncement(html, …)        — sale-auction announcement HTML body -> active listing
+//   parseLandAnnouncement(html, …)    — same source, nieruchomość gruntowa → land record
 //   parseResultPdf(text, …)           — per-auction "Wyniki przetargów DD.MM.YYYY" PDF table
 //   parseYearlySummaryPdf(text, …)    — annual "Wykaz nieruchomości sprzedanych w roku YYYY" PDF
 //   parseResultDoc(text, …)           — dispatcher: picks the right parser by content sniff
@@ -41,12 +42,13 @@ function isoDate(dd, mm, yyyy) {
 }
 
 function kindFromText(t) {
-  // Whole-building sale: "budynkiem mieszkalnym" / "budynek mieszkalny" /
-  // "nieruchomość zabudowana budynkiem mieszkalnym" — these are residential
-  // even though they don't contain "lokal".
-  if (/(?:lokal|budyn\w+|domem|zabudow\w+\s+budynk)\w*\s+mieszkaln/i.test(t)) return 'mieszkalny';
+  // A FLAT is a "lokal mieszkalny". A whole residential BUILDING ("budynek
+  // mieszkalny" / "nieruchomość zabudowana budynkiem mieszkalnym") is a HOUSE
+  // → 'zabudowana', not a flat (HL-0 reclassify; see core/classify-kind.js).
+  if (/lokal\w*\s+mieszkaln/i.test(t)) return 'mieszkalny';
   if (/lokal\w*\s+(?:niemieszkaln|u[żz]ytkow)/i.test(t)) return 'uzytkowy';
   if (/gara[żz]/i.test(t)) return 'garaz';
+  if (/(?<!nie)zabudowan|budyn\w*\s+mieszkaln|domem\s+mieszkaln/i.test(t)) return 'zabudowana';
   return 'unknown';
 }
 
@@ -149,6 +151,75 @@ export function parseAnnouncement(html, title, docUrl) {
   };
 }
 
+/**
+ * Parse a land-sale announcement (nieruchomość gruntowa) into a parcel-shaped
+ * land record. Returns null when neither a parcel number nor a street can be
+ * found (unkeyable). Keyed by parcel, not address — mirrors parseLandNode in
+ * the Bielsko adapter.
+ *
+ * Live pattern (bip.katowice.eu idr=152394):
+ *   title: "Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej
+ *           … przy ul. Solskiego (dz. 1241/36)"
+ *   body:  "działka nr 1241/36 … obręb Górne Lasy Pszczyńskie … o pow. 1772 m2 …
+ *           Cena wywoławcza … 880 000 zł … Przetarg odbędzie się w dniu 15.09.2026"
+ *
+ * @param {string} html    announcement HTML body
+ * @param {string} title   board link-text (used for street + round fallback)
+ * @param {string} docUrl  canonical URL for this announcement document
+ * @returns {object|null}  parcel-shaped record or null
+ */
+export function parseLandAnnouncement(html, title, docUrl) {
+  const text = stripTags(html);
+
+  // -- parcel number: "działka nr 1241/36", "działki nr 811/69 i 813/69",
+  //    "dz. nr 1241/36", "dz. 1241/36" (board title uses no space after dz.)
+  const dzM =
+    /dzia[łl]ki?\s+nr\s+([\d/]+)/i.exec(text) ||
+    /dz\.\s*nr\s+([\d/]+)/i.exec(text) ||
+    /dz\.\s*([\d/]+)/i.exec(title);
+  const dzialka_nr = dzM ? dzM[1].trim() : null;
+
+  // -- obreb: "obręb Górne Lasy Pszczyńskie", "obrębie Śródmieście"
+  const obrebM = /obr[ęe]bi?\w*\s+([^,;(]{2,50}?)(?=[,;(]|\s+stanowi|\s+wpisano|\s+nr\s+KW|$)/i.exec(text);
+  const obreb = obrebM ? obrebM[1].replace(/\s+/g, ' ').trim() : null;
+
+  // -- plot area: "o pow. 1772 m2", "o powierzchni 1772 m²"
+  const areaM = /o\s+pow(?:\.|ierzchni)\s*(\d[\d\s]*(?:[.,]\d+)?)\s*m\s*[²2]/i.exec(text);
+  const area_m2 = areaM ? Number(areaM[1].replace(/\s/g, '').replace(',', '.')) : null;
+
+  // -- street from title: "przy ul. Solskiego", "przy ul. Magazynowej"
+  //    We only extract the street name (no building) — land parcels rarely have one.
+  const streetM =
+    /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?:\s*[\(\[,]|\s+(?:dz\.|działk|obr|stanowi|$))/i.exec(title);
+  const street = streetM ? streetM[1].replace(/\s+/g, ' ').trim() : null;
+
+  // unkeyable: no parcel AND no street → skip
+  if (!dzialka_nr && !street) return null;
+
+  const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,60}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
+  const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
+
+  const adM = /Przetarg\s+odb[ęe]dzie\s+si[ęe][^.]{0,40}?w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  const auction_date = adM ? isoDate(adM[1], adM[2], adM[3]) : null;
+
+  return {
+    kind: 'grunt',
+    dzialka_nr,
+    obreb: obreb || null,
+    zoning: null,
+    address_raw: street || null,
+    street: street || null,
+    building: null,
+    address: null,
+    area_m2: Number.isFinite(area_m2) && area_m2 > 0 ? area_m2 : null,
+    starting_price_pln,
+    auction_date,
+    round: roundFromTitle(title),
+    detail_url: docUrl,
+    source_url: docUrl,
+  };
+}
+
 // ----------------------------------------------------------- result PDF table
 
 const ANCHOR = /^\s*(\d{1,3})\s+(\d{2})\.(\d{2})\.(\d{4})\b/;
@@ -210,6 +281,7 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   if (/lokal\w*\s+mieszkaln/i.test(blob)) kind = 'mieszkalny';
   else if (/lokal\w*\s+niemieszkaln/i.test(blob)) kind = 'uzytkowy';
   else if (/gara[żz]/i.test(blob)) kind = 'garaz';
+  else if (/(?<!nie)zabudowan|budyn\w*\s+mieszkaln/i.test(blob)) kind = 'zabudowana';
 
   const addrCands = [
     ...blob.matchAll(
@@ -362,6 +434,7 @@ function parseYearlySummaryRow(lines, lo, _anchorI, hi, prices, sourceUrl) {
   if (/lokal\w*\s+mieszkaln/i.test(blob)) kind = 'mieszkalny';
   else if (/lokal\w*\s+(?:niemieszkaln|u[żz]ytkow)/i.test(blob)) kind = 'uzytkowy';
   else if (/gara[żz]/i.test(blob)) kind = 'garaz';
+  else if (/(?<!nie)zabudowan|budyn\w*\s+mieszkaln/i.test(blob)) kind = 'zabudowana';
   if (kind === 'unknown' && address.apt && /^\d+[a-z]?$/i.test(address.apt)) {
     kind = 'mieszkalny';
   }
@@ -436,4 +509,3 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }
   return parseResultPdf(text, fallbackDate, sourceUrl);
 }
-// (pickAddress column-bleed filter added June 2026 — see COLUMN_BLEED_RE.)

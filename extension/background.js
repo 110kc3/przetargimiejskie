@@ -44,7 +44,7 @@ const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan
 // cached merge from a previous build (e.g. before a city was added) is never
 // read back — adding/removing a city automatically invalidates the cache. Bump
 // `cacheSchema` only when the payload SHAPE changes.
-const CACHE_SCHEMA = 2;
+const CACHE_SCHEMA = 3;
 const KEYS = {
   merged: `cache:v${CACHE_SCHEMA}:${[...CITIES].sort().join('+')}:merged`,
 };
@@ -94,12 +94,23 @@ function namespaceActiveListings(listings, city) {
   return listings;
 }
 
+// Land plots keep their own parcel keys (dz|… / street|building| / addr|…);
+// namespace them by city the same way as properties so cities can't collide.
+function namespaceLandPlots(plots, city) {
+  for (const p of plots) {
+    p.key = nsKey(city, p.key);
+    p.city = city;
+  }
+  return plots;
+}
+
 // Builds the merged payload the popup/archive consume. Each city contributes
 // its own three JSONs; key namespacing happens here.
 function mergeCityPayloads(cityPayloads) {
   const allProperties = [];
   const allActive = [];
   const allWykaz = [];
+  const allLand = [];
   const perCityMeta = {};
   let totalSourcePdfs = 0;
   let totalUnique = 0;
@@ -107,7 +118,7 @@ function mergeCityPayloads(cityPayloads) {
   let totalWykaz = 0;
   let latestGenerated = null;
 
-  for (const { city, properties, active, meta } of cityPayloads) {
+  for (const { city, properties, active, meta, land } of cityPayloads) {
     const props = properties?.properties || [];
     namespaceProperties(props, city);
     allProperties.push(...props);
@@ -119,6 +130,10 @@ function mergeCityPayloads(cityPayloads) {
     const wykaz = active?.wykaz || [];
     for (const w of wykaz) w.city = city;
     allWykaz.push(...wykaz);
+
+    const plots = land?.plots || [];
+    namespaceLandPlots(plots, city);
+    allLand.push(...plots);
 
     perCityMeta[city] = meta || null;
     totalSourcePdfs += meta?.source_pdf_count || 0;
@@ -147,6 +162,10 @@ function mergeCityPayloads(cityPayloads) {
       listings: allActive,
       wykaz: allWykaz,
     },
+    land: {
+      schema_version: 1,
+      plots: allLand,
+    },
     meta: {
       schema_version: 1,
       generated_at: latestGenerated,
@@ -168,7 +187,9 @@ async function fetchCity(city) {
       fetchJson(`${base}/active.json`),
       fetchJson(`${base}/meta.json`),
     ]);
-    return { city, properties, active, meta };
+    // land.json is newer; tolerate its absence on a not-yet-redeployed city.
+    const land = await fetchJson(`${base}/land.json`).catch(() => ({ plots: [] }));
+    return { city, properties, active, meta, land };
   } catch (err) {
     // A city whose data isn't published yet (e.g. just added to CITIES, not yet
     // pushed) must NOT blank the whole extension. Skip it; the others still load.
@@ -185,6 +206,7 @@ async function getOrFetch(force = false) {
       properties: cached.data.properties,
       active: cached.data.active,
       meta: cached.data.meta,
+      land: cached.data.land,
       fetched_at: cached.fetched_at,
     };
   }
@@ -202,6 +224,7 @@ async function getOrFetch(force = false) {
         properties: cached.data.properties,
         active: cached.data.active,
         meta: cached.data.meta,
+        land: cached.data.land,
         fetched_at: cached.fetched_at,
       };
     }

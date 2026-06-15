@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-14T17:47:45.168Z",
+  "generated_at": "2026-06-15T11:28:11.193Z",
   "cities": [
     {
       "id": "gliwice",
@@ -11,7 +11,8 @@
       "active_listings": 18,
       "active_auctions": 18,
       "archived_auctions": 234,
-      "wykaz_entries": 9
+      "wykaz_entries": 9,
+      "land_plots": 76
     },
     {
       "id": "katowice",
@@ -22,18 +23,20 @@
       "active_listings": 45,
       "active_auctions": 8,
       "archived_auctions": 133,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 7
     },
     {
       "id": "bytom",
       "label": "Bytom",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 19,
+      "unique_properties": 18,
       "active_listings": 18,
       "active_auctions": 8,
-      "archived_auctions": 11,
-      "wykaz_entries": 0
+      "archived_auctions": 10,
+      "wykaz_entries": 0,
+      "land_plots": 12
     },
     {
       "id": "zabrze",
@@ -44,7 +47,8 @@
       "active_listings": 413,
       "active_auctions": 6,
       "archived_auctions": 412,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 15
     },
     {
       "id": "sosnowiec",
@@ -55,7 +59,8 @@
       "active_listings": 35,
       "active_auctions": 3,
       "archived_auctions": 40,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 0
     },
     {
       "id": "rybnik",
@@ -66,18 +71,20 @@
       "active_listings": 6,
       "active_auctions": 0,
       "archived_auctions": 6,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 2
     },
     {
       "id": "bielsko",
       "label": "Bielsko-Biała",
       "authority": "Urząd Miejski w Bielsku-Białej",
       "host": "bielsko-biala.pl",
-      "unique_properties": 2,
-      "active_listings": 2,
-      "active_auctions": 2,
+      "unique_properties": 6,
+      "active_listings": 6,
+      "active_auctions": 6,
       "archived_auctions": 0,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 10
     },
     {
       "id": "myslowice",
@@ -88,7 +95,8 @@
       "active_listings": 30,
       "active_auctions": 8,
       "archived_auctions": 25,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 12
     },
     {
       "id": "swietochlowice",
@@ -99,7 +107,8 @@
       "active_listings": 164,
       "active_auctions": 2,
       "archived_auctions": 171,
-      "wykaz_entries": 0
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }

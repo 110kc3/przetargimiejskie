@@ -1,35 +1,26 @@
 // Sosnowiec parsers.
 //
-// Sosnowiec's BIP (bip.um.sosnowiec.pl) is a React SPA backed by a JSON API.
-// Each auction is one article whose `content` is HTML holding the full
-// announcement text inline (no PDF needed for flats). We keep only the open
-// `przetarg ustny … na sprzedaż lokalu mieszkalnego` auctions (the city also
-// auctions land/działki and sells flats bezprzetargowo to tenants — both
-// skipped). One flat per announcement. See crawl.js.
+// Sosnowiec BIP (bip.um.sosnowiec.pl) is a React SPA backed by a JSON API.
+// Each auction is one article whose content is HTML holding the full
+// announcement text inline (no PDF needed for flats). Flat auctions AND land
+// (dzialka/grunt) auctions are parsed here; see crawl.js for routing.
 //
-// Confirmed phrasings (June 2026), parsed below:
-//   title:  "… na sprzedaż lokalu mieszkalnego nr 15 … przy Alei Zwycięstwa 25"
-//   price:  "Cena wywoławcza do przetargu wynosi 77 000,00 zł"
-//   area:   "powierzchnia użytkowa: 17,85 m2"  (plot is "działka … o pow. 438 m2")
-//   date:   "Przetarg odbędzie się w dniu 23 stycznia 2026 r."  (spelled month)
+// LAND phrasings (June 2026), confirmed from live API:
+//   Single plot: "dzialka nr 2420 obreb 0010 Sosnowiec, o powierzchni 1.457 m2"
+//   Multi-merged: "dzialki o numerach 2225/10, 2226/6, obreb 03 Zagorze, 1308 m2"
+//   Multi-separate: I. Nieruchomosc ... II. Nieruchomosc ...
+//   Date forms: "w dniu 10 lipca 2026 r." / "w dniu 21.08.2026 r." / "6.02.2026 r."
 
 import { parseAddress } from '../../core/normalize.js';
 
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
-  lipca: 7, sierpnia: 8, września: 9, wrzesnia: 9, października: 10,
+  lipca: 7, sierpnia: 8, 'wrzesnia': 9, 'wrzesień': 9, 'września': 9, wrzesnia: 9, 'październik': 10, 'października': 10,
   pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
 const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6 };
 
-/**
- * Decode a BIP `content` HTML string to plain text. The API entity-encodes
- * Polish letters as numeric refs (e.g. `&#380;` = ż), so a numeric decoder plus
- * a few named entities covers it; tags are stripped.
- * @param {string} html
- * @returns {string}
- */
 export function htmlToText(html) {
   if (!html) return '';
   let s = html.replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/h\d)\s*\/?>/gi, ' ');
@@ -44,11 +35,12 @@ export function htmlToText(html) {
     .replace(/&lt;/gi, '<')
     .replace(/&gt;/gi, '>')
     .replace(/&quot;/gi, '"')
-    .replace(/&oacute;/gi, 'ó');
-  return s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+    .replace(/&oacute;/gi, 'ó')
+    .replace(/&ndash;/gi, '–')
+    .replace(/&mdash;/gi, '—');
+  return s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-/** Is this article an open auction selling a residential flat? */
 export function isFlatAuction(title) {
   const t = (title || '').toLowerCase();
   if (!/przetarg/.test(t) || /bezprzetarg/.test(t)) return false;
@@ -56,13 +48,6 @@ export function isFlatAuction(title) {
   return /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+mieszkaln/.test(t);
 }
 
-/**
- * Auction round, anchored on the announcement verb: "ogłasza <ordinal> przetarg".
- * Scanning the whole body is unsafe — it recounts prior rounds in the history
- * section and a list item "3. Przetarg odbędzie się…". So we only read the span
- * between "ogłasza" and the next "przetarg". No ordinal there (e.g. "ogłasza
- * ustny przetarg") = first/unstated → 1.
- */
 export function roundFromText(text) {
   const m = /og[łl]asza\s+([\s\S]{0,60}?)przetarg/i.exec(text || '');
   const scope = m ? m[1] : '';
@@ -75,7 +60,6 @@ export function roundFromText(text) {
   return /og[łl]asza/i.test(text || '') ? 1 : null;
 }
 
-/** "Przetarg odbędzie się w dniu 23 stycznia 2026 r." → "2026-01-23". */
 export function auctionDateFromText(text) {
   if (!text) return null;
   const m = /odb[ęe]dzie\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
@@ -88,7 +72,6 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-// "77 000,00" → 77000
 function parsePLN(s) {
   if (!s) return null;
   const cleaned = s.replace(/\s/g, '').replace(/,\d{2}$/, '');
@@ -101,23 +84,14 @@ function parseArea(s) {
   return Number.isFinite(n) ? n : null;
 }
 
-/** Starting price: "Cena wywoławcza … wynosi 77 000,00 zł". */
 export function priceFromText(text) {
-  const m = /cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d][\d  .]*(?:,\d{2})?)\s*z[łl]/i.exec(text || '');
+  const m = /cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/**
- * Flat area: prefer the labelled "powierzchnia użytkowa: X m²". Falls back to a
- * bare "<num> m²" that is NOT the plot ("działka … o pow. Y m2"). Returns m².
- */
 export function areaFromText(text) {
   if (!text) return null;
-  // Plausible flat-area window: excludes the plot ("o pow. 488 m²") and
-  // cellar/share fragments ("4,5 m²") that otherwise leak through.
   const plausible = (v) => v != null && v >= 8 && v <= 300;
-  // Accepts the full word and the abbreviation — result notices write
-  // "o pow. użytkowej 17,85 m2" where announcements spell it out.
   const lab = /pow(?:ierzchni\w*)?\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*[²2]/i.exec(text);
   if (lab) {
     const v = parseArea(lab[1]);
@@ -128,24 +102,18 @@ export function areaFromText(text) {
   const cands = [];
   while ((m = M2.exec(text)) !== null) {
     const before = text.slice(Math.max(0, m.index - 40), m.index);
-    if (/dzia[łl]k|grunt|o\s+pow\b/i.test(before)) continue; // plot
+    if (/dzia[łl]k|grunt|o\s+pow\b/i.test(before)) continue;
     const v = parseArea(m[1]);
     if (plausible(v)) cands.push(v);
   }
-  // largest remaining plausible value is the flat (cellars are smaller)
   return cands.length ? Math.max(...cands) : null;
 }
 
-/**
- * Address: title says "… lokalu mieszkalnego nr 15 … przy Alei Zwycięstwa 25".
- * Build "<street> <building>/<apt>" and normalise to the join key.
- * @returns {{address_raw:string, address:object}|null}
- */
 export function addressFrom(title, text) {
   const src = `${title} ${text}`;
   const apt = /lokal\w*\s+mieszkaln\w*\s+(?:o\s+numerze|nr)\s*(\d+[A-Za-z]?)/i.exec(src)?.[1] || null;
-  const loc = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\b/.exec(title)
-    || /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\b/.exec(src);
+  const RE_LOC = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\b/;
+  const loc = RE_LOC.exec(title) || RE_LOC.exec(src);
   if (!loc) return null;
   const street = loc[1].replace(/\s+/g, ' ').trim();
   const building = loc[2];
@@ -154,12 +122,6 @@ export function addressFrom(title, text) {
   return address ? { address_raw: raw, address } : null;
 }
 
-/**
- * Parse one flat-auction article into a listing (or null if unkeyable).
- * @param {string} title  article title
- * @param {string} content  article `content` HTML
- * @returns {null | {kind, address_raw, address, area_m2, starting_price_pln, round, auction_date}}
- */
 export function parseAnnouncement(title, content) {
   const text = htmlToText(content);
   const addr = addressFrom(title, text);
@@ -175,36 +137,179 @@ export function parseAnnouncement(title, content) {
   };
 }
 
-// ---------------- results ("Wyniki przetargów", menu 7043) -----------------
-//
-// Sosnowiec publishes per-auction result notices on a dedicated board, same
-// JSON API shape as the announcements. A flat result looks like:
-//
-//   title:  "Wyniki ustnego przetargu nieograniczonego na sprzedaż lokalu
-//            mieszkalnego położonego w Sosnowcu przy Alei Zwycięstwa 25/15"
-//   body:   "że w dniu 23.01.2026 r. … odbył się ustny przetarg … lokalu
-//            mieszkalnego o numerze 15 … przy Alei Zwycięstwa 25 … o pow.
-//            użytkowej 17,85 m2 … Cena wywoławcza do przetargu wynosiła:
-//            77 000,00 zł … osiągnięto najwyższą cenę w wysokości:
-//            92 000,00 zł … nabywca został …"
-//
-// crawl.js hands parseResultDoc `"<title>\n<flattened body>"`. Most of the
-// board is land/dzierżawa — isFlatResult keeps only flat SALES.
+// ---------------- land (dzialki/grunty) parsing ----------------------------
 
-/** Is this "Wyniki przetargów" article a flat-sale result? */
+function parsePricesPerParcel(text) {
+  const map = new Map();
+  const re = /za\s+nieruchomo[śs][ćc]\s+oznaczon[^\s]*\s+geodezyjnie\s+jako\s+dzia[łl]ka\s+nr\s+([\d\/]+)[\s\S]{0,120}?([\d][\d\s.]*,\d{2})\s*z[łl]/gi;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    const parcel = m[1].trim();
+    const price = parsePLN(m[2]);
+    if (price != null) map.set(parcel, price);
+  }
+  return map;
+}
+
+function parseDatesPerParcel(text) {
+  const map = new Map();
+  const re = /[Pp]rzetarg\s+na\s+sprzeda[żz][^\s]*\s*nieruchomo[śs]ci\s+oznaczone[jg]\s+geodezyjnie\s+jako\s+dzia[łl]ka\s+nr\s+([\d\/]+)[\s\S]{0,120}?[–\-]\s*(\d{1,2}\.\d{1,2}\.\d{4})/g;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    const parcel = m[1].trim();
+    const date = parseDateNumeric(m[2]);
+    if (date) map.set(parcel, date);
+  }
+  return map;
+}
+
+function parseDateNumeric(s) {
+  if (!s) return null;
+  const m = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(s);
+  if (!m) return null;
+  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+}
+
+function parsePlotArea(text) {
+  if (!text) return null;
+  const re1 = /o\s+(?:pow(?:ierzchni)?\.?\s+)?(?:[łl][ąa]cznej\s+)?(?:powierzchni\s+)?(?:(?:[łl][ąa]cznej|razem)\s+)?([\d][\d .]*(?:,\d+)?)\s*m\s*[²2]/i;
+  const re2 = /powierzchni\w*\s+(?:[łl][ąa]cznej\s+)?([\d][\d .]*(?:,\d+)?)\s*m\s*[²2]/i;
+  const m = re1.exec(text) || re2.exec(text);
+  if (!m) return null;
+  let raw = m[1].replace(/\s/g, '');
+  if (/^\d{1,3}(?:\.\d{3})+$/.test(raw)) raw = raw.replace(/\./g, '');
+  raw = raw.replace(',', '.');
+  const n = Number(raw);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+function parseObreb(text) {
+  if (!text) return null;
+  const m = /obr[ęe]b\s+([\d]+\s+[A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ\-]+)/i.exec(text);
+  if (m) return m[1].trim();
+  const m2 = /obr[ęe]b\s+([\w\/]+)/i.exec(text);
+  return m2 ? m2[1].trim() : null;
+}
+
+function parseFirstParcel(text) {
+  if (!text) return null;
+  const m =
+    /dzia[łl]ka\s+nr\s+([\d\/]+)/i.exec(text) ||
+    /dzia[łl]ki\s+(?:o\s+)?numerach?\s+([\d\/]+)/i.exec(text) ||
+    /dzia[łl]k[aie]\s+(?:o\s+)?(?:nr|numerze|numerach)\s+([\d\/]+)/i.exec(text);
+  return m ? m[1].trim() : null;
+}
+
+function parseAllParcels(text) {
+  if (!text) return [];
+  const m = /dzia[łl]ki\s+(?:o\s+)?numerach?\s+([\d\/,\s]+?)(?:\s*,\s*obr[ęe]b|\s*(?:o\s+)?pow)/i.exec(text);
+  if (!m) return [];
+  return m[1].split(',').map(s => s.trim()).filter(Boolean);
+}
+
+function parseMultiPlotBlocks(text) {
+  if (!text) return [];
+  const blocks = [];
+  const RE_BLOCK = /\b(I{1,3}V?|VI{0,3}|IV|IX|V)\.\s+Nieruchomo[śs][ćc]/g;
+  let m;
+  const positions = [];
+  while ((m = RE_BLOCK.exec(text)) !== null) positions.push(m.index);
+  if (positions.length < 2) return [];
+  positions.push(text.length);
+  for (let i = 0; i < positions.length - 1; i++) {
+    const chunk = text.slice(positions[i], positions[i + 1]);
+    const parcel = parseFirstParcel(chunk);
+    if (!parcel) continue;
+    const obreb = parseObreb(chunk);
+    const area_m2 = parsePlotArea(chunk);
+    blocks.push({ parcel, obreb, area_m2 });
+  }
+  return blocks;
+}
+
+export function isLandAuction(title) {
+  const t = (title || '').toLowerCase();
+  if (!/przetarg/.test(t)) return false;
+  if (!/sprzeda/.test(t)) return false;
+  if (/bezprzetarg|dzier[żz]aw|najem/.test(t)) return false;
+  if (/odwo[łl]anie|lista\s+os[óo]b|wynik/.test(t)) return false;
+  if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln/.test(t)) return false;
+  return /niezabudowan|dzia[łl]k|grunt/.test(t);
+}
+
+export function parseLandAnnouncement(title, content, detailUrl) {
+  const text = htmlToText(content);
+  const round = roundFromText(text);
+
+  const blocks = parseMultiPlotBlocks(text);
+  if (blocks.length >= 2) {
+    const priceMap = parsePricesPerParcel(text);
+    const dateMap = parseDatesPerParcel(text);
+    const results = [];
+    for (const blk of blocks) {
+      results.push({
+        kind: 'grunt',
+        dzialka_nr: blk.parcel,
+        obreb: blk.obreb,
+        area_m2: blk.area_m2,
+        address_raw: title || null,
+        street: null,
+        starting_price_pln: priceMap.get(blk.parcel) ?? null,
+        auction_date: dateMap.get(blk.parcel) ?? null,
+        round,
+        detail_url: detailUrl,
+        source_url: detailUrl,
+        geoportal_url: null,
+      });
+    }
+    return results;
+  }
+
+  const firstParcel = parseFirstParcel(text) || parseFirstParcel(title);
+  if (!firstParcel) return [];
+
+  const allParcels = parseAllParcels(text);
+  const obreb = parseObreb(text);
+  const area_m2 = parsePlotArea(text);
+  const parcelStr = allParcels.length > 1 ? allParcels.join(', ') : firstParcel;
+  const address_raw = obreb
+    ? `dz. nr ${parcelStr}, obręb ${obreb}`
+    : `dz. nr ${parcelStr}`;
+  const starting_price_pln = priceFromText(text);
+  const auction_date = auctionDateFromText(text) || parseDateNumericFromText(text);
+
+  return [{
+    kind: 'grunt',
+    dzialka_nr: firstParcel,
+    obreb,
+    area_m2,
+    address_raw,
+    street: null,
+    starting_price_pln,
+    auction_date,
+    round,
+    detail_url: detailUrl,
+    source_url: detailUrl,
+    geoportal_url: null,
+  }];
+}
+
+function parseDateNumericFromText(text) {
+  if (!text) return null;
+  const m = /w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  if (m) return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+  const m2 = /przetarg\s+odb[ęe]dzie[^.]{0,80}?(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  if (m2) return `${m2[3]}-${m2[2].padStart(2, '0')}-${m2[1].padStart(2, '0')}`;
+  return null;
+}
+
 export function isFlatResult(title) {
   const t = (title || '').toLowerCase();
-  if (!/^\s*wynik/.test(t)) return false; // titles open with "Wynik/Wyniki …"
-  if (!/sprzeda/.test(t)) return false;   // excludes dzierżawa/najem results
+  if (!/^\s*wynik/.test(t)) return false;
+  if (!/sprzeda/.test(t)) return false;
   return /lokalu?\s+mieszkaln/.test(t);
 }
 
-/**
- * Parse one flat result notice into a concluded record (framework shape).
- * @param {string} text  `"<title>\n<body text>"` from crawlResultDocs
- * @param {string|null} fallbackDate  publish date (used when no body date)
- * @param {string} sourceUrl  the article's detail URL (provenance)
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const s = String(text || '');
   const nl = s.indexOf('\n');
@@ -216,9 +321,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const addr = addressFrom(title, body);
   if (!addr) return [];
 
-  // Past-tense operative date: "że w dniu 23.01.2026 r. … odbył się" — the
-  // date PRECEDES the verb here (unlike announcements), so anchor on the
-  // first "w dniu <date>" in the body; numeric and month-name forms.
   let auction_date = null;
   const dn = /w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(body);
   if (dn) {
@@ -230,11 +332,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }
   if (!auction_date) auction_date = fallbackDate || null;
 
-  // "W toku przetargu osiągnięto najwyższą cenę w wysokości: 92 000,00 zł"
-  const finalM =
-    /najwy[żz]sz[ąa]\s+cen[ęe][^0-9]{0,60}?([\d][\d  .]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
-  // Defensive: no negative flat result observed yet on this board, but handle
-  // the standard wording + "no achieved price and no buyer" shape anyway.
+  const finalM = /najwy[żz]sz[ąa]\s+cen[ęe][^0-9]{0,60}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
   const negative =
     /negatywn|nie\s+wy[łl]oniono|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem/i.test(body) ||
     (!finalM && !/nabywc/i.test(body));

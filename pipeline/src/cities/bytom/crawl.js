@@ -1,35 +1,29 @@
-// Bytom crawler (v2) — primary source is the city BIP's server-rendered sales
-// list; the i-BIIP catalog is kept only as a price/area enrichment.
+// Bytom crawler (v2) -- primary source is the city BIP's server-rendered sales
+// list; the i-BIIP catalog supplies price/area enrichment AND is the sole source
+// for land (grunty niezabudowane / zabudowane) because the BIP list items for
+// land carry no parseable inline data.
 //
 //   PRIMARY:  https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/nieruchomosci-wszystkie
-//   ENRICH:   https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html
+//   CATALOG:  https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html
 //
-// Why this layout (see SPIKE-WAVE2.md "Update — bytom.pl/bip is server-rendered"):
+// Why this layout (see SPIKE-WAVE2.md):
 //   - The BIP list is NOT a JS SPA. It's plain server-rendered HTML, paginated
 //     `?strona=N` (~10 items/page, ~4 pages), each item a
 //     `<li class="aktualnosc__item">` with a publication date, a title link to
-//     a real per-property page (`…/idn:<id>`), and a one-line description that
-//     states the round ("drugi/trzeci przetarg"). This gives us:
-//       * a proper detail-page URL (fixes the v1 ".doc download" link),
-//       * the relisting round,
-//       * broader coverage than the catalog (more flats).
-//   - BUT the BIP list/detail pages carry NO inline price or area (those live
-//     only inside the attached .doc). So we still read the i-BIIP catalog and
-//     join by address key to fill starting_price_pln + area_m2 + auction_date.
-//   - Bytom publishes NO achieved sale prices and the list only spans the last
-//     ~few months, so there is still no sold-price history — every listing is
-//     `outcome: 'active'`. crawlResultDocs() stays [].
+//     a real per-property page and a one-line description stating the round.
+//   - BIP list/detail pages carry NO inline price or area; we still read the
+//     i-BIIP catalog and join by address key to fill those fields.
+//   - Bytom publishes NO achieved sale prices -- crawlResultDocs() stays [].
 //
-// IMPORTANT: bytom.pl serves an EMPTY body to the default bot User-Agent
-// (that's why plain web_fetch saw "JS-rendered" — it wasn't). We pass a
-// browser-like UA for these fetches. Confirmed in a browser network trace, but
-// not runnable from the CI sandbox (its DNS can't reach bytom.pl) — validate on
-// the first real refresh.
+// IMPORTANT: bytom.pl serves an EMPTY body to the default bot User-Agent.
+// We pass a browser-like UA for all fetches.
 //
-// We keep only `lokal mieszkalny` / `lokal użytkowy` (flats + commercial, with
-// a keyable "<street> <bldg>/<apt>" address) and skip every land parcel.
+// LAND (grunty niezabudowane / zabudowane): parsed exclusively from the i-BIIP
+// catalog via parseCatalogLand(). crawlActive() returns { listings, wykaz, land }
+// so refresh.js partitions grunt records into data/bytom/land.json.
 
 import { getText } from '../../core/fetch.js';
+import { classifyKind } from '../../core/classify-kind.js';
 import { parseAddress } from '../../core/normalize.js';
 import { docText } from '../../core/doc-text.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -40,25 +34,11 @@ const BIP_BASE =
 const CATALOG_URL =
   'https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html';
 
-// A real browser UA — bytom.pl gates the default bot UA to an empty body.
+// A real browser UA -- bytom.pl gates the default bot UA to an empty body.
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
 const MAX_PAGES = 10; // safety cap; real list is ~4 pages
-
-/**
- * @typedef {object} ActiveListing
- * @property {'mieszkalny'|'uzytkowy'} kind
- * @property {string} address_raw
- * @property {ReturnType<typeof parseAddress>|null} address
- * @property {string|null} auction_date     ISO — from the i-BIIP catalog (BIP list has none)
- * @property {string|null} published_date   ISO — when the BIP announcement was posted
- * @property {number|null} round
- * @property {number|null} area_m2
- * @property {number|null} starting_price_pln
- * @property {string} detail_url            the real BIP per-property page (…/idn:N)
- * @property {string} doc_url               the .doc announcement (from the catalog)
- */
 
 function stripTags(s) {
   return s
@@ -81,37 +61,28 @@ function parseArea(numStr) {
   return Number.isFinite(n) ? n : null;
 }
 
-// Polish ordinal in the LIST-ITEM TITLE → round number. Bare "przetarg"
-// (no ordinal) is the first auction. Titles are one short line, so the
-// whole-text scan is safe here (full .doc bodies go through parse.js's
-// clause-scoped roundFromText instead); `(?!e[ńn])` keeps "pierwszeństwo"
-// (right of first refusal) from reading as round 1.
+// Polish ordinal in the LIST-ITEM TITLE -> round number. Bare "przetarg"
+// (no ordinal) is the first auction.
 function roundFromText(txt) {
   const t = (txt || '').toLowerCase();
-  if (/\bpierwsz(?!e[ńn])/.test(t)) return 1;
+  if (/\bpierwsz(?!e[nn])/.test(t)) return 1;
   if (/\bdrug/.test(t)) return 2;
   if (/\btrzeci/.test(t)) return 3;
   if (/\bczwart/.test(t)) return 4;
-  if (/\bpiąt|\bpiat/.test(t)) return 5;
+  if (/\bpi[au]t/.test(t)) return 5;
   if (/\bprzetarg/.test(t)) return 1;
   return null;
 }
 
-// Announcement description → property kind, or null to skip (land etc.).
+// Announcement description -> property kind, or null to skip (land etc.).
 function kindFromText(txt) {
   const t = (txt || '').toLowerCase();
-  if (/niemieszkaln/.test(t)) return 'uzytkowy'; // "lokalu niemieszkalnego"
-  if (/mieszkaln/.test(t)) return 'mieszkalny'; // "lokalu mieszkalnego"
-  return null; // "nieruchomości gruntowej / zabudowanej", "działkę", garaże…
+  if (/niemieszkaln/.test(t)) return 'uzytkowy';
+  if (/mieszkaln/.test(t)) return 'mieszkalny';
+  return null;
 }
 
-// ---- i-BIIP catalog (price/area/auction_date enrichment) -----------------
-
-
-// Joint-lot sales list TWO addresses in one title ("ul. Strażacka 3 i ul.
-// Podgórna 6/1" — one auction, one price, two properties). Key on the FIRST
-// address; the full joint label stays in address_raw. Without this the whole
-// phrase became the street ("Strażacka 3 i ul. Podgórna", building 6).
+// Joint-lot sales list TWO addresses in one title. Key on the FIRST address.
 function primaryAddress(addrRaw) {
   return addrRaw.split(/\s+i\s+(?:ul|al|pl|os)\.\s+/i)[0].trim();
 }
@@ -123,12 +94,6 @@ const CAT = {
   powierzchnia: /POWIERZCHNIA\s*:?\s*([\d.,]+)/i,
 };
 
-/**
- * Parse the i-BIIP catalog into a Map<address.key, {auction_date, area_m2,
- * starting_price_pln, doc_url}>. Records are delimited by the "ADRES:" label.
- * @param {string} html
- * @returns {Map<string, {auction_date:string|null, area_m2:number|null, starting_price_pln:number|null, doc_url:string}>}
- */
 export function parseCatalog(html) {
   const starts = [];
   const adresRe = /ADRES\s*:?/gi;
@@ -154,13 +119,87 @@ export function parseCatalog(html) {
   return byKey;
 }
 
-// ---- BIP list (primary: detail_url + round + coverage) -------------------
+export function parseCatalogLand(html) {
+  const land = [];
+  const adresRe = /ADRES\s*:?/gi;
+  const starts = [];
+  let m;
+  while ((m = adresRe.exec(html)) !== null) starts.push(m.index);
 
-/**
- * Parse one BIP sales-list page into raw items.
- * @param {string} html
- * @returns {Array<{address_raw:string, address:object|null, kind:string|null, round:number|null, published_date:string|null, detail_url:string}>}
- */
+  for (let i = 0; i < starts.length; i++) {
+    try {
+      const chunk = html.slice(starts[i], starts[i + 1] ?? html.length);
+      const text = stripTags(chunk);
+
+      const addrRaw = CAT.adres.exec(text)?.[1]?.trim();
+      if (!addrRaw) continue;
+
+      // TYP field sits between "TYP :" and "ETAP"
+      const typM = /TYP\s*:\s*([\s\S]*?)\s*(?:ETAP|$)/i.exec(text);
+      const typ = typM?.[1]?.trim() ?? '';
+      // The catalog TYP is always "grunty niezabudowane" or "grunty zabudowane".
+      // classifyKind("grunty zabudowane") returns 'zabudowana' (not 'grunt'),
+      // so we gate on the source word "grunt" directly instead.
+      if (!/\bgrunty?\b/i.test(typ)) continue;
+
+      // Parcel: "Alfonsa Zgrzebnioka dz. 1922/182" -> dzialka_nr = "1922/182"
+      const dzM = /dz\.?\s+([\d/,\s]+)/.exec(addrRaw);
+      const dzialka_nr = dzM ? dzM[1].replace(/\s+/g, '').replace(/,$/, '') : null;
+      const streetRaw = dzM
+        ? addrRaw.slice(0, dzM.index).replace(/[;,]+\s*$/, '').trim()
+        : addrRaw.trim();
+
+      // Round from ETAP SPRZEDAZY ("I Przetarg" -> 1, "III Przetarg" -> 3)
+      const etapM = /ETAP\s+SPRZEDA[ŻZ]Y\s*:\s*([\s\S]*?)\s*(?:TERMIN|$)/i.exec(text);
+      const etap = etapM?.[1]?.trim() ?? '';
+      const round = (() => {
+        if (/\bIV\b|czwarty/i.test(etap)) return 4;
+        if (/\bIII\b|trzeci/i.test(etap)) return 3;
+        if (/\bII\b|drugi/i.test(etap)) return 2;
+        if (/\bV\b|pi[au]ty/i.test(etap)) return 5;
+        return 1;
+      })();
+
+      const auction_date = CAT.termin.exec(text)?.[1] ?? null;
+      const starting_price_pln = parsePLN(CAT.cena.exec(text)?.[1]);
+      const area_m2 = parseArea(CAT.powierzchnia.exec(text)?.[1]);
+
+      // Detail URL: BIP /idn: page or .doc announcement
+      const linkHrefM = /href="([^"]+(?:\.doc|idn:\d+)[^"]*)"/i.exec(chunk);
+      const detail_url = linkHrefM
+        ? linkHrefM[1].replace(/&amp;/gi, '&')
+        : null;
+
+      // Geoportal link (sitplan.um.bytom.pl) supplied by the catalog itself
+      const geoM = /href="(https:\/\/sitplan\.um\.bytom\.pl[^"]+)"/i.exec(chunk);
+      const geoportal_url = geoM ? geoM[1].replace(/&amp;/gi, '&') : null;
+
+      const zoning = /niezabudowan/i.test(typ) ? 'niezabudowana' : 'zabudowana';
+
+      land.push({
+        kind: 'grunt',
+        dzialka_nr,
+        obreb: null,
+        zoning,
+        address_raw: addrRaw,
+        street: streetRaw || null,
+        building: null,
+        address: null,
+        area_m2,
+        starting_price_pln,
+        auction_date,
+        round,
+        detail_url: detail_url ?? (geoportal_url ?? null),
+        source_url: 'https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html',
+        geoportal_url,
+      });
+    } catch (err) {
+      console.error(`  bytom parseCatalogLand row ${i} failed: ${err.message}`);
+    }
+  }
+  return land;
+}
+
 export function parseBipList(html) {
   const out = [];
   const itemRe = /<li[^>]*class="[^"]*aktualnosc__item[^"]*"[^>]*>([\s\S]*?)<\/li>/gi;
@@ -176,8 +215,8 @@ export function parseBipList(html) {
     const desc = stripTags(descM?.[1] || '');
 
     const kind = kindFromText(desc);
-    if (!kind) continue; // land / garages / leases
-    if (/\bdz\.?\s*\d|działk/i.test(addrRaw)) continue; // plot in title → skip
+    if (!kind) continue;
+    if (/\bdz\.?\s*\d|dzia[ll]k/i.test(addrRaw)) continue;
     const address = parseAddress(primaryAddress(addrRaw));
     if (!address) continue;
 
@@ -193,7 +232,6 @@ export function parseBipList(html) {
   return out;
 }
 
-/** Crawl every page of the BIP sales list. */
 async function crawlBipList() {
   const items = [];
   const seenKeys = new Set();
@@ -207,34 +245,32 @@ async function crawlBipList() {
       break;
     }
     const pageItems = parseBipList(html);
-    if (pageItems.length === 0) break; // past the last page
+    if (pageItems.length === 0) break;
     let added = 0;
     for (const it of pageItems) {
-      if (seenKeys.has(it.address.key)) continue; // newest round wins (page 1 first)
+      if (seenKeys.has(it.address.key)) continue;
       seenKeys.add(it.address.key);
       items.push(it);
       added++;
     }
     console.error(`  bytom BIP page ${page}: ${pageItems.length} items (${added} new flats/commercial)`);
-    // The list has a hard last page; stop once a page yields no *new* keys too.
   }
   return items;
 }
 
-/** @returns {Promise<{ listings: ActiveListing[], wykaz: object[] }>} */
 export async function crawlActive() {
-  // Enrichment map (price/area/auction_date) from i-BIIP — best-effort.
   let catByKey = new Map();
+  let land = [];
   try {
-    catByKey = parseCatalog(await getText(CATALOG_URL));
+    const catHtml = await getText(CATALOG_URL);
+    catByKey = parseCatalog(catHtml);
+    land = parseCatalogLand(catHtml);
   } catch (err) {
-    console.error(`  bytom i-BIIP catalog fetch failed (enrichment skipped): ${err.message}`);
+    console.error(`  bytom i-BIIP catalog fetch failed (enrichment + land skipped): ${err.message}`);
   }
 
   const bip = await crawlBipList();
 
-  // BIP list is the spine (gives the real per-property page URL + round);
-  // the i-BIIP catalog enriches with price/area/auction_date.
   const allBip = bip.map((it) => {
     const c = catByKey.get(it.address.key);
     return {
@@ -246,21 +282,14 @@ export async function crawlActive() {
       round: it.round,
       area_m2: c?.area_m2 ?? null,
       starting_price_pln: c?.starting_price_pln ?? null,
-      detail_url: it.detail_url, // real per-property BIP page
+      detail_url: it.detail_url,
       doc_url: c?.doc_url ?? '',
     };
   });
-  // Listings the catalog can't enrich (null price/area/date) are concluded
-  // auctions that have rolled off the i-BIIP catalog but still linger on the BIP
-  // list; their figures live only inside the per-property .doc. We DON'T drop
-  // them here — enrichActive() (below) fetches each one's .doc, parses it, and
-  // fills the fields; only the rows still empty after that are dropped.
   const listings = allBip;
 
-  // Fallback: if the BIP crawl returned nothing (e.g. UA gate / outage) but the
-  // catalog worked, emit catalog-only listings so we never regress to empty.
   if (listings.length === 0 && catByKey.size > 0) {
-    console.error('  bytom: BIP list empty — falling back to i-BIIP catalog only');
+    console.error('  bytom: BIP list empty -- falling back to i-BIIP catalog only');
     for (const [key, c] of catByKey) {
       const [street_norm] = key.split('|');
       listings.push({
@@ -278,13 +307,12 @@ export async function crawlActive() {
     }
   }
 
-  console.error(`  bytom active: ${listings.length} listings (BIP ${bip.length}, catalog ${catByKey.size})`);
-  return { listings, wykaz: [] };
+  console.error(
+    `  bytom active: ${listings.length} listings (BIP ${bip.length}, catalog ${catByKey.size}); ${land.length} land plot(s)`,
+  );
+  return { listings, wykaz: [], land };
 }
 
-// Find the announcement attachment URL on a per-property (/idn:N) page. Bytom
-// links a .doc (and occasionally a .pdf); prefer .doc. Hrefs may be relative or
-// absolute — resolve against www.bytom.pl.
 export function attachmentUrlFromDetail(html) {
   const doc = /href="([^"]+\.docx?(?:\?[^"]*)?)"/i.exec(html || '');
   const pdf = /href="([^"]+\.pdf(?:\?[^"]*)?)"/i.exec(html || '');
@@ -299,28 +327,13 @@ export function attachmentUrlFromDetail(html) {
   }
 }
 
-/**
- * Recover price / area / auction-date / round for listings the i-BIIP catalog
- * couldn't enrich (concluded auctions that rolled off the catalog but still hang
- * on the BIP list). For each such listing we open its /idn page, find the .doc
- * announcement, convert it (catdoc, via core/doc-text.js) and parse the figures
- * out. Rows still empty afterwards (no .doc, or unparseable) are dropped in place
- * so the build never sees data-less listings.
- *
- * Mutates `active` in place (the refresh loop passes the same array on to the
- * build — see refresh.js). A past `auction_date` recovered here is what lets
- * build-properties classify the listing `archived`, populating the archive.
- * @param {ActiveListing[]} active
- */
 export async function enrichActive(active) {
   let recovered = 0;
   for (const l of active) {
     const hasData =
       l.starting_price_pln != null || l.area_m2 != null || l.auction_date != null;
-    if (hasData) continue; // catalog already filled it
+    if (hasData) continue;
 
-    // Need the announcement URL. Catalog-enriched rows carry doc_url; these
-    // don't, so read it off the per-property page.
     let docUrl = l.doc_url;
     if (!docUrl && l.detail_url) {
       try {
@@ -348,7 +361,6 @@ export async function enrichActive(active) {
     }
   }
 
-  // Drop rows still without any data (no recoverable .doc / unparseable).
   const before = active.length;
   for (let i = active.length - 1; i >= 0; i--) {
     const l = active[i];
@@ -362,11 +374,6 @@ export async function enrichActive(active) {
   );
 }
 
-/**
- * Bytom publishes no machine-readable sold-price results — returning []
- * keeps the refresh loop's OCR/parse phase a no-op for this city.
- * @returns {Promise<Array<{ pdf_url: string, auction_date: string|null }>>}
- */
 export async function crawlResultDocs() {
   return [];
 }

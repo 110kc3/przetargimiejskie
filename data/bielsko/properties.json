@@ -45,6 +45,92 @@
         }
       ],
       "area_m2": 117.62
+    },
+    {
+      "key": "gen stefana grota roweckiego|4|11B",
+      "street": "gen. Stefana Grota-Roweckiego",
+      "street_norm": "gen stefana grota roweckiego",
+      "building": "4",
+      "apt": "11B",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 199000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gen-stefana-grota-roweckiego-411b",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "jana sobieskiego|140|",
+      "street": "Jana Sobieskiego",
+      "street_norm": "jana sobieskiego",
+      "building": "140",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 299000,
+          "outcome": "active",
+          "area_m2": 56,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-jana-sobieskiego-140",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 56
+    },
+    {
+      "key": "lukowa 15 lukowa|17|",
+      "street": "Łukowa 15, Łukowa",
+      "street_norm": "lukowa 15 lukowa",
+      "building": "17",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1750000,
+          "outcome": "active",
+          "area_m2": 185.08,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-lukowa-15-lukowa-17",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 185.08
+    },
+    {
+      "key": "gorska|94|",
+      "street": "Górska",
+      "street_norm": "gorska",
+      "building": "94",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1350000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gorska-94",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     }
   ]
 }

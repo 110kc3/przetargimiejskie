@@ -11,6 +11,7 @@ const $langToggle = document.getElementById('lang-toggle');
 const $themeToggle = document.getElementById('theme-toggle');
 const $filterCity = document.getElementById('filter-city');
 const $filterKind = document.getElementById('filter-kind');
+const $filterClass = document.getElementById('filter-class');
 const $filterOutcome = document.getElementById('filter-outcome');
 const $filterYear = document.getElementById('filter-year');
 const $filterSearch = document.getElementById('filter-search');
@@ -101,8 +102,17 @@ function cityTagHtml(city) {
   return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
 }
 
+// Display label for a land parcel (no street|building|apt): prefer a street,
+// else the cadastral parcel number (+ obręb), else the raw address.
+function landDisplay(p) {
+  if (p.street) return `${p.street}${p.building ? ' ' + p.building : ''}`;
+  if (p.dzialka_nr) return `dz. ${p.dzialka_nr}${p.obreb ? ' (' + p.obreb + ')' : ''}`;
+  return p.address_raw || '—';
+}
+
 let records = [];
 let activeListings = [];
+let landActive = [];
 let propByKey = new Map();
 let lastMeta = null;
 let lastFetchedAt = null;
@@ -181,7 +191,7 @@ async function load() {
     const res = await chrome.runtime.sendMessage({ type: 'getData' });
     if (!res?.ok) throw new Error(res?.error || 'unknown');
     flatten(res.payload);
-    activeListings = res.payload.active?.listings || [];
+    activeListings = (res.payload.active?.listings || []).concat(landActive);
     propByKey = new Map(
       (res.payload.properties?.properties || []).map((p) => [p.key, p]),
     );
@@ -202,6 +212,7 @@ async function load() {
 
 function flatten(payload) {
   records = [];
+  landActive = [];
   const props = payload.properties?.properties || [];
   for (const p of props) {
     for (const l of p.listings) {
@@ -234,6 +245,38 @@ function flatten(payload) {
           source_pdf: l.source_pdf,
           detail_url: l.detail_url,
           bip_url: l.bip_url,
+        });
+      }
+    }
+  }
+  // Land (działki/grunty) come from the SEPARATE land.json store (parcel-keyed).
+  // Surface plots with kind 'grunt' so the dedicated property-type filter can
+  // show/hide them. Plot area is shown as-is (zł/m² is plot-based; dealscore
+  // ignores non-residential kinds).
+  for (const p of (payload.land?.plots || [])) {
+    const disp = landDisplay(p);
+    const search = POLISH_LOWER(disp);
+    for (const l of (p.listings || [])) {
+      if (l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'archived' || l.outcome === 'no_winner') {
+        records.push({
+          date: l.date, city: p.city || null,
+          street: p.street, building: p.building, apt: null,
+          addr_display: disp, street_search: search,
+          kind: 'grunt',
+          area_m2: p.area_m2 ?? l.area_m2 ?? null,
+          round: l.round, starting_price_pln: l.starting_price_pln,
+          final_price_pln: l.final_price_pln ?? null, outcome: l.outcome,
+          detail_url: l.detail_url, source_pdf: l.source_url || null,
+          geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr,
+        });
+      } else if (l.outcome === 'active') {
+        landActive.push({
+          city: p.city || null, kind: 'grunt',
+          address_raw: disp, address: null,
+          area_m2: p.area_m2 ?? l.area_m2 ?? null,
+          auction_date: l.date, round: l.round,
+          starting_price_pln: l.starting_price_pln, detail_url: l.detail_url,
+          geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr,
         });
       }
     }
@@ -339,6 +382,8 @@ function renderTable() {
   let rows = records.slice();
   if (city !== 'all') rows = rows.filter((r) => r.city === city);
   if (kind !== 'all') rows = rows.filter((r) => r.kind === kind);
+  const cls = $filterClass ? $filterClass.value : 'all';
+  if (cls !== 'all') rows = rows.filter((r) => r.kind === cls);
   if (outcome !== 'all') rows = rows.filter((r) => r.outcome === outcome);
   if (year) rows = rows.filter((r) => matchesYear(r, year));
   if (q) rows = rows.filter((r) => r.street_search.includes(q));
@@ -366,6 +411,7 @@ function renderTable() {
         <td>${fmtPLN(r.final_price_pln)}</td>
         <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
         <td>${esc(outcomeLabel(r))}</td>
+        <td>${parcelCell(r)}</td>
         <td>${srcLinkCell(r.source_pdf || r.detail_url, r.bip_url)}</td>
       </tr>`,
     )
@@ -382,6 +428,15 @@ function srcLinkCell(u, bip) {
   const hb = safeHref(bip);
   const secondary = hb ? `${primary ? ' ' : ''}<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(hb)}">BIP ↗</a>` : '';
   return primary + secondary;
+}
+
+// Land rows link the parcel to a geoportal (resolved per-city in build-land);
+// non-land rows have no parcel link, so the cell is blank.
+function parcelCell(r) {
+  const h = safeHref(r.geoportal_url);
+  if (!h) return '—';
+  const label = r.dzialka_nr || t('link.map');
+  return `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(label)} ↗</a>`;
 }
 
 function roundCell(n) {
@@ -428,6 +483,7 @@ function renderActiveTable() {
     .filter((a) => !a.auction_date || a.auction_date >= today)
     .filter((a) => city === 'all' || a.city === city)
     .filter((a) => kind === 'all' || a.kind === kind)
+    .filter((a) => { const cls = $filterClass ? $filterClass.value : 'all'; return cls === 'all' || a.kind === cls; })
     .filter((a) => {
       if (!q) return true;
       const s = POLISH_LOWER(a.address_raw || '');
@@ -477,6 +533,7 @@ function renderActiveTable() {
           <td>${askM2}</td>
           <td>${priorCell}</td>
           <td>${lastUnsoldCell}</td>
+          <td>${parcelCell(a)}</td>
           <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>
         </tr>`;
     })
@@ -534,6 +591,7 @@ function syncThemeButton() {
   const onFilterChange = () => { renderSummary(); renderActiveTable(); renderTable(); };
   $filterCity.addEventListener('change', onFilterChange);
   $filterKind.addEventListener('change', onFilterChange);
+  $filterClass?.addEventListener('change', onFilterChange);
   $filterOutcome.addEventListener('change', renderTable);
   $filterYear?.addEventListener('change', () => {
     renderSummary();

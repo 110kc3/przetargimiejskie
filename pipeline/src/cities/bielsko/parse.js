@@ -55,7 +55,13 @@ const LABELS = [
   'Cena wywoławcza',
   'Cena',
   'Numer działki',
+  'Typ działki',
   'Obręb',
+  'Księga wieczysta',
+  'Udział w częściach wspólnych',
+  'Plan zagospodarowania/Studium',
+  'Lokalizacja',
+  'Galeria zdjęć',
   'Adres',
 ];
 
@@ -219,6 +225,93 @@ export function parseNode(html) {
     round: roundFromForma(field(text, 'Forma przetargu')),
     auction_date: auctionDateFrom(text),
     status: field(text, 'Status oferty'),
+  };
+}
+
+/** A map/geoportal link the source embedded in the node, if any — so we can
+ *  point straight at where the parcel is shown. Recognises the national
+ *  geoportal, e-mapa.net / geoportal2 municipal instances and generic SIP/"mapa"
+ *  hrefs. Returns null when the node links no map (the common case). */
+export function findMapLink(html) {
+  if (!html) return null;
+  const re = /href=\"([^\"]*(?:geoportal\.gov\.pl|e-mapa\.net|geoportal2\.pl|sip\.[a-z]|msip\.|\/mapa\b)[^\"]*)\"/i;
+  const m = re.exec(html);
+  return m ? m[1].replace(/&amp;/gi, '&') : null;
+}
+
+/** Plot area from the structured `Powierzchnia` field — for LAND this IS the plot
+ *  area (unlike flats, where it is ignored). "812 m2" / "1 234,50 m²" / "1234"
+ *  → m² or null. */
+export function plotAreaFrom(text) {
+  const f = field(text, 'Powierzchnia');
+  if (!f) return null;
+  const m = /([\d][\d\s.\u00a0]*(?:,\d+)?)/.exec(f);
+  if (!m) return null;
+  const n = Number(m[1].replace(/[\s.\u00a0]/g, '').replace(',', '.'));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+/**
+ * Parse a /nieruchomosc/ node that is a LAND (działka) offer into a parcel-shaped
+ * land record, or null if it can't be keyed (no parcel number AND no address).
+ * Land has no building/apt, so build-land keys it on its parcel, NOT the
+ * street|building|apt property map.
+ * @param {string} html  the node's server-rendered HTML
+ * @param {string} url   the node URL (kept as detail_url + source_url)
+ */
+export function parseLandNode(html, url) {
+  const text = htmlToText(html);
+  const dzialka = field(text, 'Numer działki');
+  const obreb = field(text, 'Obręb');
+  const addrRaw = field(text, 'Adres');
+  if (!dzialka && !addrRaw) return null; // unkeyable → skip (defensive)
+  let address = null;
+  let street = null;
+  let building = null;
+  if (addrRaw) {
+    const a = parseAddress(addrRaw); // tolerate failure — land may have no street
+    if (a) { address = a; street = a.street; building = a.building; }
+  }
+  return {
+    kind: 'grunt',
+    dzialka_nr: dzialka || null,
+    obreb: obreb || null,
+    zoning: field(text, 'Typ działki') || null,
+    address_raw: addrRaw || null,
+    street,
+    building,
+    address,
+    area_m2: plotAreaFrom(text), // PLOT area
+    starting_price_pln: priceFrom(text),
+    auction_date: auctionDateFrom(text),
+    round: roundFromForma(field(text, 'Forma przetargu')),
+    detail_url: url,
+    source_url: url,
+    geoportal_url: findMapLink(html), // source-provided map link, if present
+  };
+}
+
+/**
+ * Parse a /nieruchomosc/ node that is an address-keyed sale (house 'zabudowana'
+ * or commercial 'uzytkowy') into a listing, or null if it has no keyable address.
+ * Mirrors parseNode (the flat path) but carries the supplied kind.
+ * @param {string} html
+ * @param {string} url
+ * @param {'zabudowana'|'uzytkowy'} kind
+ */
+export function parseListingNode(html, url, kind) {
+  const text = htmlToText(html);
+  const addr = addressFrom(text);
+  if (!addr) return null;
+  return {
+    kind,
+    address_raw: addr.address_raw,
+    address: addr.address,
+    area_m2: areaFrom(text),
+    starting_price_pln: priceFrom(text),
+    round: roundFromForma(field(text, 'Forma przetargu')),
+    auction_date: auctionDateFrom(text),
+    detail_url: url,
   };
 }
 

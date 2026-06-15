@@ -38,6 +38,7 @@ export async function buildIndexFromDisk() {
       active_auctions: m?.active_auctions ?? 0,
       archived_auctions: m?.archived_auctions ?? 0,
       wykaz_entries: m?.wykaz_entries ?? 0,
+      land_plots: m?.land_plots ?? 0,
     });
   }
   const index = {

@@ -332,3 +332,44 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }
   return out;
 }
+
+
+// ------------------- land announcements (board 555: dzialki/grunty) ----------
+//
+// Zabrze municipal LAND sale auctions ("Ogloszenie ... o ... przetargu na
+// sprzedaz nieruchomosci niezabudowanej") live on document-list board 555 (a
+// sibling of the flats board 549, found by probing the document-list API). Each
+// attachment is single-parcel prose:
+//   "... Dzialka nr 6089/50 o pow. 477 m2 ... polozona w Zabrzu przy ul. Stefana
+//    Batorego, obreb: Zabrze ... Cena wywolawcza ... 97 000 zl ..."
+// parseLandAttachment pulls parcel, plot area, obreb, street and price; the
+// record is emitted kind:'grunt' -> data/zabrze/land.json (see crawl-land.js).
+
+/** Polish plot area: "1.377"/"1 377" -> 1377; "477" -> 477; "52,40" -> 52.4. */
+function parsePlotArea(s) {
+  if (s == null) return null;
+  const n = Number(String(s).replace(/[ .\u00a0]/g, '').replace(',', '.'));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+/**
+ * Parse one Zabrze land (dzialka) announcement attachment into a parcel record.
+ * @param {string} text  extracted attachment text (pdftotext / catdoc)
+ * @returns {null | {dzialka_nr, obreb, area_m2, address_raw, starting_price_pln, auction_date}}
+ */
+export function parseLandAttachment(text) {
+  if (!text) return null;
+  const t = text.replace(/\s+/g, ' ');
+  const parcels = [...t.matchAll(/dzia[\u0142l]k[ai]?\s+nr\s+(\d+(?:\/\d+)?)/gi)].map((m) => m[1]);
+  const dzialka_nr = parcels.length ? [...new Set(parcels)].join(', ') : null;
+  const areaM = /o\s+pow(?:\.|ierzchni)?\s+([\d][\d \u00a0.]*(?:,\d+)?)\s*m\s*[\u00b22]/i.exec(t);
+  const area_m2 = areaM ? parsePlotArea(areaM[1]) : null;
+  const obrebM = /obr[\u0119e]b(?:ie)?\s*:?\s*([A-Z\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143][A-Za-z\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143\u017c\u017a\u0107\u0142\u015b\u0105\u0119\u00f3\u0144-]*)/i.exec(t);
+  const obreb = obrebM ? obrebM[1] : null;
+  const streetM = /przy\s+(ul|al|pl|os)\.?\s+([A-Z\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143][A-Za-z0-9\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143\u017c\u017a\u0107\u0142\u015b\u0105\u0119\u00f3\u0144.'\u2019\- ]{2,60}?)\s*(?:,|obr[\u0119e]b|stanowi|zapisan|o\s+pow)/i.exec(t);
+  const address_raw = streetM ? `${streetM[1]}. ${streetM[2].replace(/\s+/g, ' ').trim()}` : null;
+  const priceM = /cena\s+wywo[\u0142l]awcza[^0-9]{0,60}?([\d][\d \u00a0.]*(?:,\d{2})?)\s*z[\u0142l]/i.exec(t);
+  const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
+  if (!dzialka_nr && !address_raw) return null;
+  return { dzialka_nr, obreb, area_m2, address_raw, starting_price_pln, auction_date: null };
+}

@@ -4,6 +4,7 @@
 
 export const config = {
   id: 'gliwice',
+  teryt: '246601_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
   label: 'Gliwice',
   authority: 'ZGM',
   host: 'zgm-gliwice.pl',

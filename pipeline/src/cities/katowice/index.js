@@ -38,10 +38,13 @@ function pdfBasename(url) {
   return decodeURIComponent(idx >= 0 ? stripped.slice(idx + 1) : stripped);
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[] }>} */
+/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 async function crawlActive() {
   const bip = await crawlActiveBip();
-  const spListings = await crawlSharePointAnnouncements();
+  const spResult = await crawlSharePointAnnouncements();
+  // crawlSharePointAnnouncements now returns { listings, land }
+  const spListings = Array.isArray(spResult) ? spResult : (spResult.listings || []);
+  const spLand = Array.isArray(spResult) ? [] : (spResult.land || []);
 
   const seen = new Set();
   const merged = [];
@@ -59,10 +62,21 @@ async function crawlActive() {
     merged.push(l);
     spAdds++;
   }
+
+  // Merge land from both routes; dedup by (dzialka_nr|auction_date)
+  const landSeen = new Set();
+  const land = [];
+  for (const lr of [...(bip.land || []), ...spLand]) {
+    const lkey = `${lr.dzialka_nr || lr.address_raw || ''}|${lr.auction_date || ''}`;
+    if (lkey && landSeen.has(lkey)) continue;
+    if (lkey) landSeen.add(lkey);
+    land.push(lr);
+  }
+
   console.error(
-    `  katowice merged active: ${merged.length} unique (BIP ${bip.listings.length} + SP ${spListings.length} → SP added ${spAdds})`,
+    `  katowice merged active: ${merged.length} unique (BIP ${bip.listings.length} + SP ${spListings.length} → SP added ${spAdds}); ${land.length} land record(s)`,
   );
-  return { listings: merged, wykaz: bip.wykaz };
+  return { listings: merged, wykaz: bip.wykaz, land };
 }
 
 /** @returns {Promise<Array<{ pdf_url: string, auction_date: string|null }>>} */

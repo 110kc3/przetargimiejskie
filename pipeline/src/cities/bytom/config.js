@@ -13,6 +13,7 @@
 
 export const config = {
   id: 'bytom',
+  teryt: '246301_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
   label: 'Bytom',
   authority: 'Urząd Miasta Bytom',
   // v2: primary crawl is the city BIP sales list (www.bytom.pl/bip); the

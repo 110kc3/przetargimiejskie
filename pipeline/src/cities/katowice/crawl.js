@@ -6,7 +6,8 @@
 // consecutive pages yield no new auction-relevant docs.
 
 import { getText } from '../../core/fetch.js';
-import { parseAnnouncement } from './parse.js';
+import { parseAnnouncement, parseLandAnnouncement } from './parse.js';
+import { classifyKind } from '../../core/classify-kind.js';
 
 const BOARD =
   'https://bip.katowice.eu/ogloszenia/tablicaogloszen/default.aspx?idt=468&menu=679';
@@ -75,11 +76,12 @@ async function crawlBoard() {
   return docs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[] }>} */
+/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   const docs = (await crawlBoard()).filter((d) => d.kind === 'announcement');
   console.error(`  katowice: ${docs.length} sale-announcement document(s)`);
   const listings = [];
+  const land = [];
   for (const d of docs) {
     let html;
     try {
@@ -88,11 +90,21 @@ export async function crawlActive() {
       console.error(`  katowice doc ${d.idr}: ${err.message}`);
       continue;
     }
-    const listing = parseAnnouncement(html, d.title, d.doc_url);
-    if (listing) listings.push(listing);
+    try {
+      const titleKind = classifyKind(d.title);
+      if (titleKind === 'grunt') {
+        const lr = parseLandAnnouncement(html, d.title, d.doc_url);
+        if (lr) land.push(lr);
+      } else {
+        const listing = parseAnnouncement(html, d.title, d.doc_url);
+        if (listing) listings.push(listing);
+      }
+    } catch (err) {
+      console.error(`  katowice doc ${d.idr} parse error: ${err.message}`);
+    }
   }
-  console.error(`  katowice: ${listings.length} active listing(s) parsed`);
-  return { listings, wykaz: [] };
+  console.error(`  katowice: ${listings.length} active listing(s), ${land.length} land record(s) parsed`);
+  return { listings, wykaz: [], land };
 }
 
 /** @returns {Promise<Array<{ pdf_url: string, auction_date: string|null }>>} */

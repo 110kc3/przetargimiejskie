@@ -1,0 +1,1906 @@
+{
+  "schema_version": 1,
+  "city": "gliwice",
+  "plots": [
+    {
+      "key": "dz|stare gliwice|389",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "389",
+      "obreb": "Stare Gliwice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Łabędzka",
+      "dzialka_id": "246601_1.0052.389",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.389",
+      "area_m2": 7918,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 2370000,
+          "outcome": "active",
+          "area_m2": 7918,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-389-obreb-stare-gliwice-ul-labedzka-4",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków wschód|263/2, 263/6",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "263/2, 263/6",
+      "obreb": "Bojków Wschód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żytnia",
+      "dzialka_id": "246601_1.0019.263/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2",
+      "area_m2": 1626,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "starting_price_pln": 543060,
+          "outcome": "active",
+          "area_m2": 1626,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-i-nr-2636-obreb-bojkow-wschod-ul-zytnia-1",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|1312/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1312/2",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Chmielna",
+      "dzialka_id": "246601_1.0018.1312/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
+      "area_m2": 1097,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "starting_price_pln": 336000,
+          "outcome": "active",
+          "area_m2": 1097,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-13122-obreb-bojkow-ul-chmielna-1",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|brzezinka|469/5",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "469/5",
+      "obreb": "Brzezinka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Radomskiej",
+      "dzialka_id": "246601_1.0020.469/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F5",
+      "area_m2": 3863,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 3863,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-4695-obreb-brzezinka-w-poblizu-ul-radomskiej",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostropa pola|50",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "50",
+      "obreb": "Ostropa Pola",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Daszyńskiego",
+      "dzialka_id": "246601_1.0039.50",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0039.50",
+      "area_m2": 1754,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1754,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_5937.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|188, 191, 193/1, 193/2, 193/3, 193/4, 193/5, 193/6, 193/7, 193/8",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "188, 191, 193/1, 193/2, 193/3, 193/4, 193/5, 193/6, 193/7, 193/8",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lubelska",
+      "dzialka_id": "246601_1.0027.188",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.188",
+      "area_m2": 6271,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 6271,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7512.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|1337",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1337",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zielna",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201337%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1391,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1391,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_9053.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|sośnica|1168/2, 1170/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1168/2, 1170/2",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żeromskiego",
+      "dzialka_id": "246601_1.0051.1168/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2",
+      "area_m2": 2091,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2091,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2165.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|1192",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1192",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spacerowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 728,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 728,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_1192_obr_Bojkow.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|łąki kłodnickie|433",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "433",
+      "obreb": "Łąki Kłodnickie",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Goduli",
+      "dzialka_id": "246601_1.0034.433",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0034.433",
+      "area_m2": 1869,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1869,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9104.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|1021",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1021",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Rolników",
+      "dzialka_id": "246601_1.0018.1021",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1021",
+      "area_m2": 1947,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1947,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_1021_obr_Bojkow.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|sośnica|1063",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1063",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sikorskiego",
+      "dzialka_id": "246601_1.0051.1063",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1063",
+      "area_m2": 675,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 675,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1667.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice zachód|248/1, 248/2, 249",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "248/1, 248/2, 249",
+      "obreb": "Czechowice Zachód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Nad Łąkami",
+      "dzialka_id": "246601_1.0023.248/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.248%2F1",
+      "area_m2": 4304,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 4304,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6524.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1203/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1203/3",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1203/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F3",
+      "area_m2": 680,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 680,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3384.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|stare łabędy|272/1; 272/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "272/1; 272/3",
+      "obreb": "Stare Łabędy",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Klasztorna",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20272%2F1%3B%20272%2F3%20Stare%20%C5%81ab%C4%99dy%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1723,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1723,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_272_obr__Stare_Labedy.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|120/2, 121",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "120/2, 121",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Borówkowa",
+      "dzialka_id": "246601_1.0022.120/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.120%2F2",
+      "area_m2": 2160,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2160,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_767.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|844, 845",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "844, 845",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Domańskiego",
+      "dzialka_id": "246601_1.0024.844",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.844",
+      "area_m2": 831,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 831,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7510.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|wójtowa wieś|340/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "340/2",
+      "obreb": "Wójtowa Wieś",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wójtowska",
+      "dzialka_id": "246601_1.0057.340/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0057.340%2F2",
+      "area_m2": 2139,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2139,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1265.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|brzezinka|469/8",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "469/8",
+      "obreb": "Brzezinka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Radomskiej",
+      "dzialka_id": "246601_1.0020.469/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F8",
+      "area_m2": 1228,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1228,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2629.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|181/2, 163, 160, 161, 162, 164, 165, 166, 167",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "181/2, 163, 160, 161, 162, 164, 165, 166, 167",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Staromiejskiej",
+      "dzialka_id": "246601_1.0036.181/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.181%2F2",
+      "area_m2": 8108,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 8108,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9150.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|181/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "181/3",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Staromiejskiej",
+      "dzialka_id": "246601_1.0036.181/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.181%2F3",
+      "area_m2": 9131,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 9131,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9149.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|814",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "814",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Rolników",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20814%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 400,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 400,
+          "detail_url": "https://geoportal.gliwice.eu/isdp/core/download/documents/.att/MJ/KWLaRuRnyIrbZm-AFSPg/ogloszenie_ZPM_2014_6250.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|828, 829",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "828, 829",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kotlarska",
+      "dzialka_id": "246601_1.0024.828",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828",
+      "area_m2": 1170,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1170,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-828-i-nr-829-obreb-klodnica-na-wsch-od-ul-j-sliwki-ul-kotlarska",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|263/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "263/2",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Knurowska",
+      "dzialka_id": "246601_1.0018.263/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.263%2F2",
+      "area_m2": 772,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 772,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3367.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|152/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "152/3",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Starogliwicka",
+      "dzialka_id": "246601_1.0036.152/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F3",
+      "area_m2": 1080,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1080,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2582.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostropa północ|1055/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1055/3",
+      "obreb": "Ostropa Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Tokarska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1778,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1778,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6575.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "52, 53, 54, 56, 559, 560",
+      "obreb": "Ligota Zabrska",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Św. Jacka",
+      "dzialka_id": "246601_1.0030.52",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52",
+      "area_m2": 10099,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 10099,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-3",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|152/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "152/2",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Starogliwicka",
+      "dzialka_id": "246601_1.0036.152/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F2",
+      "area_m2": 1487,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1487,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2493.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|152/5",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "152/5",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Starogliwicka",
+      "dzialka_id": "246601_1.0036.152/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F5",
+      "area_m2": 1070,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1070,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2577.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1203/4",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1203/4",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1203/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F4",
+      "area_m2": 661,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 661,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3444.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|152/4",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "152/4",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Starogliwicka",
+      "dzialka_id": "246601_1.0036.152/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F4",
+      "area_m2": 1027,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1027,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2583.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|stare gliwice|808, 810",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "808, 810",
+      "obreb": "Stare Gliwice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kozielska",
+      "dzialka_id": "246601_1.0052.808",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.808",
+      "area_m2": 4059,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 4059,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6903",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|niepaszyce północ|152/6",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "152/6",
+      "obreb": "Niepaszyce Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Starogliwicka",
+      "dzialka_id": "246601_1.0036.152/6",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0036.152%2F6",
+      "area_m2": 1085,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1085,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2584.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|687, 689",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "687, 689",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Nad Torami",
+      "dzialka_id": "246601_1.0024.687",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.687",
+      "area_m2": 2076,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2076,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1969.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|sośnica|220",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "220",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ignacego Chodźki",
+      "dzialka_id": "246601_1.0051.220",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.220",
+      "area_m2": 759,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 759,
+          "detail_url": "https://geoportal.gliwice.eu/isdp/core/download/documents/.att/2B/DTJ1LFQNADUYERWWY57G/ogloszenie_ZPM_2014_5829.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|41",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "41",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Rybnicka/autostrada A4",
+      "dzialka_id": "246601_1.0018.41",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.41",
+      "area_m2": 9584,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 9584,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz__nr_41_obr_bojkow.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice zachód|366, 367",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "366, 367",
+      "obreb": "Czechowice Zachód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Toszecka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20366%2C%20367%20Czechowice%20Zach%C3%B3d%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 17000,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 17000,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_366_367_obr_czechowice_zachod.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1201/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1201/3",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1201/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F3",
+      "area_m2": 824,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 824,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3284.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|łabędy|143/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "143/2",
+      "obreb": "Łabędy",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Oświęcimska",
+      "dzialka_id": "246601_1.0031.143/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0031.143%2F2",
+      "area_m2": 872,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 872,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7513.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|ligota zabrska|164/1, 166/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "164/1, 166/2",
+      "obreb": "Ligota Zabrska",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Dolna",
+      "dzialka_id": "246601_1.0030.164/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.164%2F1",
+      "area_m2": 984,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 984,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7207.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|418",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "418",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Knurowska",
+      "dzialka_id": "246601_1.0018.418",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.418",
+      "area_m2": 1164,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1164,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2022_6068.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice zachód|292/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "292/3",
+      "obreb": "Czechowice Zachód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Grzybowa",
+      "dzialka_id": "246601_1.0023.292/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F3",
+      "area_m2": 824,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 824,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3436.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|stare łabędy|305/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "305/2",
+      "obreb": "Stare Łabędy",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Eiffel'a",
+      "dzialka_id": "246601_1.0053.305/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0053.305%2F2",
+      "area_m2": 2622,
+      "zoning": "usługowo-produkcyjne",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2622,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_305_obr_stare_labedy.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|529",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "529",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Miodowa",
+      "dzialka_id": "246601_1.0018.529",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.529",
+      "area_m2": 1381,
+      "zoning": "mieszkaniowo-usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1381,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_529_obr_bojkow.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kopernik|155/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "155/2",
+      "obreb": "Kopernik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kopernika",
+      "dzialka_id": "246601_1.0026.155/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0026.155%2F2",
+      "area_m2": 1878,
+      "zoning": "usługowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1878,
+          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_155_obr_kopernik.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|przedmieście|515",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "515",
+      "obreb": "Przedmieście",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Daszyńskiego",
+      "dzialka_id": "246601_1.0045.515",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0045.515",
+      "area_m2": 5268,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 5268,
+          "detail_url": "http://bip.gliwice.eu/sprzedaz-dz-nr-515-obreb-przedmiescie-na-polnoc-ul-daszynskiego-1",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|58/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "58/1",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.58/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.58%2F1",
+      "area_m2": 805,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 805,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9431.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|915",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "915",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zielna",
+      "dzialka_id": "246601_1.0018.915",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.915",
+      "area_m2": 2493,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2493,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_7193.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|59/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "59/1",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.59/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.59%2F1",
+      "area_m2": 597,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 597,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9432.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków wschód|483",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "483",
+      "obreb": "Bojków Wschód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bojkowska",
+      "dzialka_id": "246601_1.0019.483",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.483",
+      "area_m2": 20778,
+      "zoning": "usługowo-produkcyjne",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 20778,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-483-obreb-bojkow-wschod-na-wschod-od-ul-bojkowskiej-1",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|sośnica|1158, 1160, 1161",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1158, 1160, 1161",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stefana Żeromskiego",
+      "dzialka_id": "246601_1.0051.1158",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1158",
+      "area_m2": 2119,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2119,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_8663.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|brzezinka|469/6",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "469/6",
+      "obreb": "Brzezinka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Radomskiej",
+      "dzialka_id": "246601_1.0020.469/6",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0020.469%2F6",
+      "area_m2": 3027,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 3027,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-4696-obreb-brzezinka-rejon-ul-radomskiej-1",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki las|559, 560, 561",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "559, 560, 561",
+      "obreb": "Żerniki Las",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Na Łuku",
+      "dzialka_id": "246601_1.0062.559",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0062.559",
+      "area_m2": 3511,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 3511,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_1789.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|66/4, 65/7",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "66/4, 65/7",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.66/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.66%2F4",
+      "area_m2": 853,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 853,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9430.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|59/3",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "59/3",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.59/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.59%2F3",
+      "area_m2": 716,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 716,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9434.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|63, 64/1, 65/5, 66/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "63, 64/1, 65/5, 66/2",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.63",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.63",
+      "area_m2": 1284,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1284,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9438.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|634/1, 634/2, 634/3 i 634/4",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "634/1, 634/2, 634/3 i 634/4",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Graniczna",
+      "dzialka_id": "246601_1.0061.634/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.634%2F1",
+      "area_m2": 5015,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 5015,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2023_8286.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|65/4, 66/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "65/4, 66/1",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.65/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F4",
+      "area_m2": 913,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 913,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9437.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|łabędy|28/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "28/1",
+      "obreb": "Łabędy",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Anny Jagiellonki",
+      "dzialka_id": "246601_1.0031.28/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0031.28%2F1",
+      "area_m2": 2221,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 2221,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_914.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|65/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "65/1",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.65/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F1",
+      "area_m2": 794,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 794,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9435.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|65/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "65/2",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.65/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F2",
+      "area_m2": 1380,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1380,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9436.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice północ|58/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "58/2",
+      "obreb": "Czechowice Północ",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ziemięcicka",
+      "dzialka_id": "246601_1.0022.58/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.58%2F2",
+      "area_m2": 729,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 729,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9433.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1201/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1201/2",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1201/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F2",
+      "area_m2": 461,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 461,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3274.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice zachód|292/4",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "292/4",
+      "obreb": "Czechowice Zachód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Grzybowa",
+      "dzialka_id": "246601_1.0023.292/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F4",
+      "area_m2": 784,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 784,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3435.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/12",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/12",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/12",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F12",
+      "area_m2": 846,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 846,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3410.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/13",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/13",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/13",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F13",
+      "area_m2": 920,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 920,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3406.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/16",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/16",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/16",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F16",
+      "area_m2": 1061,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1061,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3416.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/14",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/14",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F14",
+      "area_m2": 842,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 842,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3419.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1203/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1203/2",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1203/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F2",
+      "area_m2": 673,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 673,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3374.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1203/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1203/1",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1203/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F1",
+      "area_m2": 666,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 666,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3375.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/11",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/11",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/11",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F11",
+      "area_m2": 924,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 924,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3402.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/10",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/10",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/10",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F10",
+      "area_m2": 848,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 848,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3411.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/17",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/17",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/17",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F17",
+      "area_m2": 894,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 894,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3415.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1203/5",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1203/5",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej",
+      "dzialka_id": "246601_1.0061.1203/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1203%2F5",
+      "area_m2": 910,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 910,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3430.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|czechowice zachód|292/5",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "292/5",
+      "obreb": "Czechowice Zachód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Grzybowa",
+      "dzialka_id": "246601_1.0023.292/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0023.292%2F5",
+      "area_m2": 823,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 823,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3434.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    },
+    {
+      "key": "dz|kozłówka|102/15",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "102/15",
+      "obreb": "Kozłówka",
+      "street": null,
+      "building": null,
+      "address_raw": "rejon ul. Kozielskiej i ul. Puławskiej",
+      "dzialka_id": "246601_1.0027.102/15",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F15",
+      "area_m2": 916,
+      "zoning": "mieszkaniowe",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 916,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3417.pdf",
+          "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
+        }
+      ]
+    }
+  ]
+}

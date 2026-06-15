@@ -19,6 +19,8 @@ import {
   parsePLN,
 } from '../../core/finn-bip.js';
 
+export { classifyKind } from '../../core/classify-kind.js';
+
 export {
   htmlToText,
   priceFromText,
@@ -29,7 +31,26 @@ export {
   roundFromText,
   shareFromTitle,
   parseAnnouncement,
+  parseLandAnnouncement,
 } from '../../core/finn-bip.js';
+
+
+/**
+ * Is this a GENERIC przetarg announcement (not a result notice / intent / wykaz)?
+ * Used for sibling category boards (houses + land + commercial) where the title
+ * may not contain "lokal mieszkalny". HL-27.
+ * @param {string} title
+ * @returns {boolean}
+ */
+export function isAuctionAnnouncement(title) {
+  const t = (title || '').toLowerCase();
+  if (/informacj\w*\s+o\b|wynik\w*\s+(?:z\s+)?\w*\s*przetarg|odwo[łl]ani|uniewa[żz]ni|zamiar\s+sprzeda|^\s*wykaz|za[łl][ąa]cznik/.test(t)) {
+    return false;
+  }
+  if (/^\s*(?:kw\b|ksi[eę]g)/.test(t)) return false;
+  if (!/przetarg/.test(t)) return false;
+  return /sprzeda/.test(t);
+}
 
 /**
  * Is this index link an actual flat-sale AUCTION announcement (the .doc we want),

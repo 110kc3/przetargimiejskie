@@ -21,7 +21,8 @@
 // pager loop are written to the documented structure. VALIDATE on first refresh.
 
 import { getText } from '../../core/fetch.js';
-import { parseNode, isFlat, htmlToText, field } from './parse.js';
+import { classifyKind } from '../../core/classify-kind.js';
+import { parseNode, parseLandNode, parseListingNode, isFlat, htmlToText, field } from './parse.js';
 
 const ORIGIN = 'https://bielsko-biala.pl';
 const INDEX = `${ORIGIN}/gielda-nieruchomosci`;
@@ -74,13 +75,16 @@ async function crawlIndex() {
   return urls;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[] }>} */
+/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   const nodeUrls = await crawlIndex();
   console.error(`  bielsko: ${nodeUrls.length} giełda offer(s) to inspect`);
 
-  const listings = [];
+  const listings = []; // address-keyed: flats + houses + commercial
+  const land = [];      // parcel-keyed: działki / grunty → land.json
   let flats = 0;
+  let houses = 0;
+  let commercial = 0;
   for (const url of nodeUrls) {
     let html;
     try {
@@ -89,34 +93,60 @@ export async function crawlActive() {
       console.error(`  bielsko node fetch failed (${url}): ${err.message}`);
       continue;
     }
-    // Quick pre-filter to skip the obvious non-flats cheaply, but the real
-    // decision is parseNode (which re-checks Rodzaj).
+    // Classify on the node's own `Rodzaj nieruchomości` and route. Every parse
+    // is wrapped so one malformed offer can never abort the whole crawl.
     const rodzaj = field(htmlToText(html), 'Rodzaj nieruchomości');
-    if (rodzaj && !isFlat(rodzaj)) continue;
-
-    const parsed = parseNode(html);
-    if (!parsed) {
-      if (isFlat(rodzaj)) {
-        console.error(`  bielsko WARN: unkeyable flat offer ${url}`);
+    const kind = classifyKind(rodzaj || '');
+    try {
+      if (kind === 'grunt') {
+        const lr = parseLandNode(html, url);
+        if (lr) land.push(lr);
+      } else if (isFlat(rodzaj)) {
+        // Flat path UNCHANGED (parseNode) so existing output stays byte-identical.
+        const parsed = parseNode(html);
+        if (parsed) {
+          flats++;
+          listings.push({
+            kind: parsed.kind,
+            address_raw: parsed.address_raw,
+            address: parsed.address,
+            auction_date: parsed.auction_date,
+            published_date: null,
+            round: parsed.round,
+            area_m2: parsed.area_m2,
+            starting_price_pln: parsed.starting_price_pln,
+            detail_url: url,
+          });
+        } else {
+          console.error(`  bielsko WARN: unkeyable flat offer ${url}`);
+        }
+      } else if (kind === 'zabudowana' || kind === 'uzytkowy') {
+        const node = parseListingNode(html, url, kind);
+        if (node) {
+          if (kind === 'zabudowana') houses++; else commercial++;
+          listings.push({
+            kind: node.kind,
+            address_raw: node.address_raw,
+            address: node.address,
+            auction_date: node.auction_date,
+            published_date: null,
+            round: node.round,
+            area_m2: node.area_m2,
+            starting_price_pln: node.starting_price_pln,
+            detail_url: url,
+          });
+        }
       }
-      continue;
+      // garaż / unknown → skipped (the giełda rarely lists standalone garages).
+    } catch (err) {
+      console.error(`  bielsko node parse failed (${url}): ${err.message}`);
     }
-    flats++;
-    listings.push({
-      kind: parsed.kind,
-      address_raw: parsed.address_raw,
-      address: parsed.address,
-      auction_date: parsed.auction_date,
-      published_date: null,
-      round: parsed.round,
-      area_m2: parsed.area_m2,
-      starting_price_pln: parsed.starting_price_pln,
-      detail_url: url,
-    });
   }
 
-  console.error(`  bielsko active: ${listings.length} flat listing(s) from ${flats} flat offer(s)`);
-  return { listings, wykaz: [] };
+  console.error(
+    `  bielsko active: ${flats} flat, ${houses} house, ${commercial} commercial listing(s); ${land.length} land plot(s)`,
+  );
+  return { listings, wykaz: [], land };
 }
 
 /**

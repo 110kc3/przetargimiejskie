@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseAnnouncement, parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
+import { parseAnnouncement, parseLandAnnouncement, parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
 
 const NEG_PDF = `                                     WYKAZ Z DNIA 27.05.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
 
@@ -189,4 +189,69 @@ test('announcement: whole-property total → land_area_m2, never area_m2', () =>
   assert.ok(a);
   assert.equal(a.area_m2, null);
   assert.equal(a.land_area_m2, 1049.48);
+});
+
+// ------------------------------------------------------------------ land
+
+// Live fixture modelled on bip.katowice.eu idr=152394:
+//   title: "Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej
+//           … przy ul. Solskiego (dz. 1241/36)"
+//   body:  "działka nr 1241/36, z karty mapy 19, obręb Górne Lasy Pszczyńskie …
+//           o pow. 1772 m2 … Cena wywoławcza … 880 000 zł …
+//           Przetarg odbędzie się w dniu 15.09.2026 …"
+const LAND_HTML = `<p>Prezydent Miasta Katowice ogłasza przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej o
+pow. 1772 m2, położonej przy ul. Solskiego, oznaczonej jako działka nr
+1241/36, z karty mapy 19, obręb Górne Lasy Pszczyńskie, stanowiącej
+własność Miasta Katowice.</p>
+<p>Cena wywoławcza nieruchomości wynosi&#58;&#160; 880 000 zł</p>
+<p>Wadium może być wnoszone w pieniądzu do dnia 07.09.2026 r.
+Przetarg odbędzie się w dniu 15.09.2026 o godz. 09&#58;40 w sali nr 4-5
+w siedzibie Urzędu Miasta Katowice, ul. Młyńska 4.</p>`;
+
+const LAND_TITLE =
+  'Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej położonej w Katowicach przy ul. Solskiego (dz. 1241/36)';
+
+test('parseLandAnnouncement: extracts dzialka_nr, obreb, area, price, date', () => {
+  const r = parseLandAnnouncement(
+    LAND_HTML,
+    LAND_TITLE,
+    'https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152394&menu=679',
+  );
+  assert.ok(r, 'expected non-null land record');
+  assert.equal(r.kind, 'grunt');
+  assert.equal(r.dzialka_nr, '1241/36', 'parcel number');
+  assert.ok(
+    r.obreb && /G[oó]rne\s+Lasy/i.test(r.obreb),
+    `obreb should contain "Górne Lasy", got: ${r.obreb}`,
+  );
+  assert.equal(r.area_m2, 1772, 'plot area in m²');
+  assert.equal(r.starting_price_pln, 880000, 'starting price');
+  assert.equal(r.auction_date, '2026-09-15', 'auction date');
+  assert.equal(r.round, 1, 'first auction → round 1');
+  // Land parcels have no building number
+  assert.equal(r.building, null);
+  assert.equal(r.address, null);
+  assert.ok(r.street, 'street extracted from title');
+});
+
+test('parseLandAnnouncement: multi-parcel body, obreb present', () => {
+  const html = `<p>przetarg ustny nieograniczony na sprzedaz nieruchomosci gruntowej o
+pow. 80 702 m2, polozone] przy ul. Magazynowej, oznaczonej jako dzialki
+nr 811/69 i 813/69, z karty mapy 1, obreb Rozdzien, stanowiacej wlasnosc
+Miasta Katowice.</p>
+<p>Cena wywolawcza nieruchomosci wynosi&#58; 20 000 000 zl</p>
+<p>Przetarg odbedzie sie w dniu 16.06.2026 r. o godz. 09&#58;00</p>`;
+  const title = 'Przetarg ustny nieograniczony na sprzedaz nieruchomosci gruntowej przy ul. Magazynowej (dz.811/69 i 813/69)';
+  const r = parseLandAnnouncement(
+    html,
+    title,
+    'https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151403&menu=679',
+  );
+  assert.ok(r, 'expected non-null land record');
+  assert.equal(r.kind, 'grunt');
+  assert.ok(r.dzialka_nr, 'parcel number present');
+  assert.match(r.dzialka_nr, /811\/69/, 'first parcel number captured');
+  assert.equal(r.area_m2, 80702);
+  assert.equal(r.starting_price_pln, 20000000);
+  assert.equal(r.auction_date, '2026-06-16');
 });

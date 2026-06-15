@@ -7,6 +7,7 @@
 
 export const config = {
   id: 'katowice',
+  teryt: '246901_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
   label: 'Katowice',
   authority: 'Urząd Miasta Katowice',
   host: 'bip.katowice.eu',

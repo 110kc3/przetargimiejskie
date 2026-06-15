@@ -19,6 +19,170 @@
 > (Cloudflare move reverted — see the dated entry below).
 > Still open: P0-C (SEO site), P1-A (extension CI), P1-D (newsletter), P2-B
 > (area backfill), P2-D (durable heals), P2-E (schema v2), chores.
+>
+> **15 June 2026 — houses & land expansion:** a 9-agent, one-per-city live
+> source spike (**[SPIKE-HOUSES-LAND.md](./SPIKE-HOUSES-LAND.md)**) confirmed
+> every city's existing source also publishes **house**, **land** and
+> **commercial** auctions — flats are isolated by a single filter each. New
+> backlog section **"Houses, land & commercial"** directly below, including the
+> requested land/house **kind filters** on the extension (archive + popup +
+> on-page) and the site archive, mirroring `mieszkalny / użytkowy / garaż`.
+
+## Houses, land & commercial — new asset types + filters (15 June 2026 spike)
+
+> Source spike: **[SPIKE-HOUSES-LAND.md](./SPIKE-HOUSES-LAND.md)** — one
+> investigation agent per city, each live-fetched its real source (15 June 2026)
+> and cross-checked against the tree. **Finding:** every city's existing source
+> also publishes **house** (`nieruchomość zabudowana`), **land**
+> (`działka / grunt / niezabudowana`) and **commercial** (`lokal użytkowy / garaż`)
+> sale auctions; the flat pipeline isolates flats with one filter per city.
+> **Land is 100% uncovered today and the highest-volume class** (Mysłowice drops
+> 95, Gliwice's city portal lists 76 live plots, Sosnowiec's results board is
+> "mostly land"). **Commercial/garages are already partly ingested** (Gliwice
+> 115 `uzytkowy` + 26 `garaz`, Katowice 30, Bytom 14 — verified in `data/`).
+>
+> **Sequencing is strict: the data must carry the new `kind`s before the UI
+> filters can show them.** HL-0 (schema) → HL-1/HL-2 (pipeline) → HL-3/HL-4
+> (the requested filters). The filter UI is data-driven, so HL-3/HL-4 are mostly
+> additive once a city's data carries `grunt`/`zabudowana`.
+
+### HL-0 — Decide the `kind` taxonomy + land join key (PREREQUISITE — blocks all)
+
+Two schema choices the whole expansion hinges on; make them once, here.
+
+1. **New `kind` values.** Today the enum is `mieszkalny | uzytkowy | garaz |
+   unknown` (pipeline `classifyKind`/`kindFromText`; extension + site i18n and
+   filters). Add:
+   - `grunt` — land (`działka` / `nieruchomość niezabudowana`).
+   - `zabudowana` — built property / house (`nieruchomość zabudowana`, incl.
+     Bielsko's explicit "Domy"). **Open Q:** split a separate `dom` out of
+     `zabudowana`? Recommend **not** initially — one `zabudowana` kind, labelled
+     "dom / house" in the UI; revisit only if standalone-house volume justifies.
+   Keep `uzytkowy`/`garaz` as-is (already emitted and ingested).
+2. **Land breaks the join key.** The property key is `street|building|apt`; a
+   parcel has no building/apt. Decision (ties into the existing "Katowice land"
+   note + EXPANSION §1.5): key land on its parcel number — `kind:"grunt"` + a new
+   `dzialka_nr` field, join key `<city>|dz|<parcel>` (optionally `|<obręb>`).
+   This is the right moment to land **`schema_version: 2`** (pairs with P2-E and
+   the city-namespaced keys).
+3. **Reclassify the residential-`zabudowana` leaks.** Katowice & Sosnowiec
+   currently tag a residential built-property as `mieszkalny` (e.g. Katowice
+   Kosmiczna 10, Działkowa 17 — live in `active.json`). Once `zabudowana` exists,
+   recommend reclassifying them so the flat zł/m² median stays clean.
+
+### HL-1 — Pipeline: emit the new kinds on the filter-relax cities (Low)
+
+Per SPIKE-HOUSES-LAND.md §A — same source already fetched, just relax the flat
+gate and add a `kind` classifier (no new source, no OCR):
+
+- **Mysłowice** — widen `config.js:38` `linkFilter: /lokal/i` (→
+  `/lokal|niezabudow|zabudow|uzytkow/i`, or drop and classify) + add a
+  slug/title `kind` classifier in `parse.js`. ~95 land + 23 house + 7 commercial
+  are already on the two index pages, dropped only by the slug regex.
+- **Sosnowiec** — replace `isFlatAuction()`/`isFlatResult()`
+  (`pipeline/src/cities/sosnowiec/parse.js:52` / `:195`) with a classifier; same
+  JSON API (`menu 6339` + results `7043`), inline HTML, no PDF/OCR.
+- **Bielsko-Biała** — loosen/remove `isFlat(rodzaj)`
+  (`pipeline/src/cities/bielsko/crawl.js:95`); the giełda node's
+  `Rodzaj nieruchomości` field already names the type. Map `term/9 Domy →
+  zabudowana`, `term/10 Działki → grunt`, `term/14 → uzytkowy`.
+- **Bytom** — add `grunt`/`zabudowana` branches to `kindFromText()`
+  (`pipeline/src/cities/bytom/crawl.js:101-105`) and gate the `dz.`-address skip
+  (`:180`) on kind; the i-BIIP `TYP` field already labels every record.
+- **Katowice** — drop the land guard
+  (`pipeline/src/cities/katowice/parse.js:204-206`) + add the parcel key;
+  commercial and residential `zabudowana` already classify.
+- **Świętochłowice** — add the sibling Liferay categories `/bipkod/003/010/003`
+  (houses + land, mixed) and `/bipkod/42668516` (commercial + garaże) to the
+  crawl; same `.doc`/PDF extraction as the flats category.
+
+### HL-2 — Pipeline: new-host adapters for land/houses (Med / High)
+
+Per SPIKE-HOUSES-LAND.md §B — here the housing authority sells only flats, so
+land/houses need a different host:
+
+- **Zabrze** (Low-Med) — flats board is `/api/v1/document-list/549`
+  (`crawl.js:39`); add sibling boards `…/zabrze_pn_grunty`,
+  `…/zabrze_pn_uzytkowe`, `…/zabrze_pn_inne`. **Blocker:** capture their numeric
+  `document-list` IDs from the live SPA (the BIP host blocks the CI sandbox on an
+  incomplete TLS chain — one browser visit per board resolves it). Each non-flat
+  announcement is one property (not a multi-flat table) → add a single-property
+  parse variant.
+- **Gliwice** (Med) — houses + land are on `msip.gliwice.eu` (76 land / 4 built)
+  with detail pages on `bip.gliwice.eu/sprzedaz-dzialka-*`, **not** ZGM. New
+  index crawl + parser; the MSIP index offers a JSON/CSV export to skip HTML
+  parsing. `crawl-bip.js` already reaches `bip.gliwice.eu`, so the fetch pattern
+  is proven.
+- **Rybnik** (High) — land lives on the **city** BIP `bip.um.rybnik.eu`
+  (`Page=339`), a different institution from the ZGM source; untyped mixed list,
+  RTF attachments (reuse `core/rtf-text.js`). Fresh adapter; it also re-publishes
+  the same flat auctions, so it could later become the canonical Rybnik source.
+
+### HL-3 — Extension: land/house kind FILTERS — archive + popup + on-page ⟵ requested
+
+Mirror exactly how `mieszkalny / uzytkowy / garaz` already work. The archive is
+data-driven, so once a city's data carries the new kinds this is mostly additive
+markup + strings:
+
+- **`extension/archive.html`** — add two summary tiles after the `garaz` tile
+  (line 37): `<div class="tile" data-kind="grunt">…</div>` and
+  `data-kind="zabudowana"` (copy the existing tile block, swap the `data-i18n`
+  key). Add two `<option>`s to `#filter-kind` after line 66: `value="grunt"` and
+  `value="zabudowana"`.
+- **`extension/archive.js`** — **no logic change needed**: the summary loop reads
+  `.tile[data-kind]` (`:277`) and both table filters use `r.kind === kind`
+  (`:341`, `:430`). Just sanity-check the tile median branch (~`:283+`) reads
+  sensibly for land (announcement-only → median *starting* price; land zł/m² is
+  plot-based — see HL-5).
+- **`extension/i18n.js`** — add `kind.grunt` / `kind.zabudowana` to **both**
+  blocks: EN after `:124` (`'kind.grunt':'land'`, `'kind.zabudowana':'house'`),
+  PL after `:257` (`'kind.grunt':'działka'`, `'kind.zabudowana':'dom'`).
+- **`extension/popup.html` + `popup.js`** — the popup shows the `kind` column
+  (`popup.html:40`) but has **no kind filter** today. Add a compact kind filter
+  (dropdown or chip row) in the popup header so the active list can be narrowed
+  to land/houses, matching the archive. New strings via i18n.
+- **`extension/content.js`** — `kindLabel()` (`:573`) is already i18n-driven, so
+  on-page badges/labels pick the new kinds up for free. *Optional:* add badge
+  color classes (`.zgm-ext-grunt`, `.zgm-ext-zabudowana`) in `styles.css`
+  alongside `fresh/gray/amber/red`.
+- **`extension/dealscore.js`** — confirm `isResidential()` (`:23-24`) still
+  returns true **only** for `mieszkalny`/`unknown`, so `grunt`/`zabudowana` are
+  excluded from the flat zł/m² median (they are today — add a `dealscore.test.js`
+  case so a future edit can't regress it).
+- **Version bump (CLAUDE.md):** new user-visible filter = **MINOR** bump in
+  `extension/manifest.json` + `extension/popup.html` `<span class="version">` +
+  a `CHANGELOG.md` entry. Adds no new permissions.
+
+### HL-4 — Site: land/house kind FILTERS — site/archiwum ⟵ requested
+
+Same shape in the standalone web archive `site/archiwum/index.html`:
+
+- Add `<option value="grunt">` / `<option value="zabudowana">` to `#f-kind`
+  (lines 101-103).
+- Extend the `KIND` label map (`:157`) with `grunt:'działka'`,
+  `zabudowana:'dom'`.
+- Add `['grunt','Działka']` and `['zabudowana','Dom']` to the `kinds` tile array
+  (`:231`). The row/active filters (`:262`, `:280`) are already `r.kind===kind`,
+  so no logic change. Rebuild via `build-site.sh`.
+
+### HL-5 — zł/m² + deal-score semantics for land (do alongside HL-3)
+
+Land area is **plot** m², not usable floor area, so a land zł/m² is a different
+metric and must never pool with flats. `dealscore.isResidential` already excludes
+non-flats. *Optional later:* a separate land zł/m²(plot) median + badge. For now,
+keep land/houses out of the flat median and suppress the flat-style deal badge on
+them.
+
+### HL-6 — Verification
+
+- **Pipeline:** per-city parser tests asserting the new kinds are emitted with
+  the right key; a sanity-check that no land row ever lands under a
+  `street|building|apt` key. Targeted test files only, failures-only output (per
+  CLAUDE.md testing rules).
+- **Extension/site:** load the archive for a city that has land — confirm the new
+  tiles + filter options appear and filter correctly in **both PL and EN**, and
+  that the deal badge does **not** render on land/house rows.
+- Cross-check counts against the live snapshots in SPIKE-HOUSES-LAND.md.
 
 ## Improvement backlog (14 June 2026 audit)
 

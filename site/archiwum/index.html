@@ -101,6 +101,11 @@ a:hover{color:var(--accent);text-decoration:underline}
       <select class="control" id="f-kind">
         <option value="all">Wszystkie</option><option value="mieszkalny">mieszkalny</option>
         <option value="uzytkowy">użytkowy</option><option value="garaz">garaż</option></select></label>
+    <label class="field"><span class="field-label">Rodzaj</span>
+      <select class="control" id="f-class">
+        <option value="all">Wszystkie</option><option value="mieszkalny">mieszkania</option>
+        <option value="zabudowana">domy</option><option value="grunt">działki</option>
+        <option value="uzytkowy">lokale użytkowe</option><option value="garaz">garaże</option></select></label>
     <label class="field"><span class="field-label">Wynik</span>
       <select class="control" id="f-outcome">
         <option value="all">Wszystkie</option><option value="sold">sprzedane</option>
@@ -118,7 +123,7 @@ a:hover{color:var(--accent);text-decoration:underline}
     <div class="table-scroll">
       <table class="data-table"><thead><tr>
         <th class="num">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th>
-        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th>Źródło</th>
+        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th>Działka</th><th>Źródło</th>
       </tr></thead><tbody id="active-body"></tbody></table>
     </div>
   </div>
@@ -130,7 +135,7 @@ a:hover{color:var(--accent);text-decoration:underline}
         <th class="sortable num" data-sort="date">Data</th><th>Miasto / nieruchomość</th><th>Typ</th>
         <th class="sortable" data-sort="round">Runda</th><th class="sortable num" data-sort="area">Powierzchnia</th>
         <th class="sortable num" data-sort="start">Cena wyw.</th><th class="sortable num" data-sort="final">Cena końc.</th>
-        <th class="sortable num" data-sort="m2">zł/m²</th><th>Wynik</th><th>Źródło</th>
+        <th class="sortable num" data-sort="m2">zł/m²</th><th>Wynik</th><th>Działka</th><th>Źródło</th>
       </tr></thead><tbody id="hist-body"></tbody></table>
     </div>
   </div>
@@ -154,7 +159,7 @@ const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href);
 const fold = s => String(s||'').toLowerCase()
   .replace(/[ąàá]/g,'a').replace(/[ćč]/g,'c').replace(/[ęè]/g,'e').replace(/[ł]/g,'l')
   .replace(/[ńñ]/g,'n').replace(/[óòô]/g,'o').replace(/[śš]/g,'s').replace(/[żź]/g,'z');
-const KIND = {mieszkalny:'mieszkalny',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
+const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
 const roundLabel = r => r ? `${r}. przet.` : '—';
 const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia'};
 // Why the auction didn't sell, in Polish. 'unknown' carries no info → suppressed
@@ -171,6 +176,8 @@ const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="
 // Secondary source: the city BIP page for an auction whose primary źródło is
 // the ZGM listing (Gliwice lists the same auction on both boards).
 const bipLink = u => { const h=safeHref(u); return h?` <a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">BIP ↗</a>`:''; };
+// Land plots link their parcel to a geoportal (resolved per-city in build-land).
+const geoLink = r => { const h=safeHref(r.geo); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(r.dz||'mapa')} ↗</a>`:'—'; };
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
 let sortKey='date', sortDir='desc';
@@ -190,9 +197,10 @@ async function load(){
 
   await Promise.all(CITIES.map(async c=>{
     try{
-      const [props, act] = await Promise.all([
+      const [props, act, land] = await Promise.all([
         fetch(`/data/${c.id}/properties.json`).then(r=>r.json()).catch(()=>({properties:[]})),
         fetch(`/data/${c.id}/active.json`).then(r=>r.json()).catch(()=>({listings:[]})),
+        fetch(`/data/${c.id}/land.json`).then(r=>r.json()).catch(()=>({plots:[]})),
       ]);
       for(const p of (props.properties||[]))
         for(const l of (p.listings||[]))
@@ -204,6 +212,18 @@ async function load(){
         if(!l.auction_date || l.auction_date>=TODAY)
           active.push({city:c.id,cityLabel:c.label,kind:l.kind,addr:l.address_raw,round:l.round,
             area:l.area_m2,start:l.starting_price_pln,date:l.auction_date,share:l.share,url:l.detail_url,bip:l.bip_url});
+      for(const p of (land.plots||[])){
+        const disp = p.street ? `${p.street}${p.building?' '+p.building:''}` : (p.dzialka_nr?`dz. ${p.dzialka_nr}${p.obreb?' ('+p.obreb+')':''}`:(p.address_raw||'—'));
+        for(const l of (p.listings||[])){
+          if(['sold','unsold','archived','no_winner'].includes(l.outcome))
+            records.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',
+              date:l.date,round:l.round,area:p.area_m2??l.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
+              outcome:l.outcome,reason:null,share:null,src:l.detail_url||l.source_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr});
+          else if(l.outcome==='active' && (!l.date || l.date>=TODAY))
+            active.push({city:c.id,cityLabel:c.label,kind:'grunt',addr:disp,round:l.round,
+              area:p.area_m2??l.area_m2,start:l.starting_price_pln,date:l.date,share:null,url:l.detail_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr});
+        }
+      }
     }catch(e){}
   }));
 
@@ -216,7 +236,7 @@ async function load(){
   document.getElementById('sub').textContent =
     `Dane od ${minDate||'—'} do ${maxDate||'—'} · ${records.length} rekordów · odświeżono ${lastRefresh||'—'}`;
 
-  ['f-city','f-kind','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  ['f-city','f-kind','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
   document.querySelectorAll('th[data-sort]').forEach(th=>{
     th.dataset.label = th.textContent.trim();
     th.addEventListener('click',()=>{
@@ -228,7 +248,7 @@ async function load(){
 
 function renderSummary(scopeAll){
   const tiles=document.getElementById('tiles');
-  const kinds=[['mieszkalny','Mieszkalny'],['uzytkowy','Użytkowy'],['garaz','Garaż']];
+  const kinds=[['mieszkalny','Mieszkalny'],['zabudowana','Domy'],['grunt','Działki'],['uzytkowy','Użytkowy'],['garaz','Garaż']];
   tiles.innerHTML = kinds.map(([k,label])=>{
     const ofKind = scopeAll.filter(r=>r.kind===k);
     const sold = ofKind.filter(r=>r.outcome==='sold'&&r.final!=null);
@@ -254,12 +274,13 @@ function refreshHeaders(){
 
 function render(){
   const city=document.getElementById('f-city').value, kind=document.getElementById('f-kind').value,
+        cls=document.getElementById('f-class').value,
         outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
         q=fold(document.getElementById('f-q').value.trim());
   const cityYear = r => (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
   renderSummary(records.filter(cityYear));
 
-  const match = r => cityYear(r) && (kind==='all'||r.kind===kind) && (outcome==='all'||r.outcome===outcome)
+  const match = r => cityYear(r) && (kind==='all'||r.kind===kind) && (cls==='all'||r.kind===cls) && (outcome==='all'||r.outcome===outcome)
     && (!q || fold(addrText(r)).includes(q));
   let rows = records.filter(match);
   rows.sort((a,b)=>{const av=getSort(a),bv=getSort(b);const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));return sortDir==='asc'?c:-c;});
@@ -274,10 +295,11 @@ function render(){
     <td class="num">${fmtPLN(r.final)}</td>
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
     <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&reasonLabel(r.reason)?`<span class="pill-reason">${esc(reasonLabel(r.reason))}</span>`:''}</td>
+    <td>${geoLink(r)}</td>
     <td>${srcLink(r.src)}${bipLink(r.bip)}</td>
-  </tr>`).join('') || '<tr class="empty-row"><td colspan="10">Brak rekordów dla wybranych filtrów.</td></tr>';
+  </tr>`).join('') || '<tr class="empty-row"><td colspan="11">Brak rekordów dla wybranych filtrów.</td></tr>';
 
-  const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(!q||fold(a.addr).includes(q)));
+  const acts = active.filter(a=>(city==='all'||a.city===city)&&(kind==='all'||a.kind===kind)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
@@ -288,8 +310,9 @@ function render(){
     <td class="num">${fmtArea(a.area)}</td>
     <td class="num">${fmtPLN(a.start)}</td>
     <td class="num">${fmtM2(a.start,a.area)}</td>
+    <td>${geoLink(a)}</td>
     <td>${srcLink(href)}${bipLink(a.bip)}</td>
-  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="8">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
+  </tr>`;}).join('') || '<tr class="empty-row"><td colspan="9">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
 
   refreshHeaders();
 }

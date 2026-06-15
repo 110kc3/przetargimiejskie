@@ -39,6 +39,18 @@
         <p class="muted"><span class="med-label" data-i18n="archive.median"></span>: <span class="med-total">—</span></p>
         <p class="muted"><span data-i18n="archive.median_m2"></span>: <span class="med-m2">—</span></p>
       </div>
+      <div class="tile" data-kind="zabudowana">
+        <h3 data-i18n="kind.zabudowana"></h3>
+        <p class="big"><span class="n">—</span> <span class="suffix" data-i18n="archive.sold_suffix"></span></p>
+        <p class="muted"><span class="med-label" data-i18n="archive.median"></span>: <span class="med-total">—</span></p>
+        <p class="muted"><span data-i18n="archive.median_m2"></span>: <span class="med-m2">—</span></p>
+      </div>
+      <div class="tile" data-kind="grunt">
+        <h3 data-i18n="kind.grunt"></h3>
+        <p class="big"><span class="n">—</span> <span class="suffix" data-i18n="archive.sold_suffix"></span></p>
+        <p class="muted"><span class="med-label" data-i18n="archive.median"></span>: <span class="med-total">—</span></p>
+        <p class="muted"><span data-i18n="archive.median_m2"></span>: <span class="med-m2">—</span></p>
+      </div>
     </div>
   </section>
 
@@ -62,6 +74,16 @@
         <select id="filter-kind">
           <option value="all" data-i18n="archive.filter.all"></option>
           <option value="mieszkalny" data-i18n="kind.mieszkalny"></option>
+          <option value="uzytkowy" data-i18n="kind.uzytkowy"></option>
+          <option value="garaz" data-i18n="kind.garaz"></option>
+        </select>
+      </label>
+      <label><span data-i18n="archive.filter.class"></span>
+        <select id="filter-class">
+          <option value="all" data-i18n="archive.filter.all"></option>
+          <option value="mieszkalny" data-i18n="kind.mieszkalny"></option>
+          <option value="zabudowana" data-i18n="kind.zabudowana"></option>
+          <option value="grunt" data-i18n="kind.grunt"></option>
           <option value="uzytkowy" data-i18n="kind.uzytkowy"></option>
           <option value="garaz" data-i18n="kind.garaz"></option>
         </select>
@@ -99,6 +121,7 @@
           <th data-sort="m2" data-i18n="popup.col.ask_per_m2"></th>
           <th data-sort="prior" data-i18n="popup.col.prior"></th>
           <th data-i18n="popup.col.last_unsold"></th>
+          <th data-i18n="col.parcel"></th>
           <th data-i18n="col.src"></th>
         </tr>
       </thead>
@@ -123,6 +146,7 @@
         <th data-sort="final" data-i18n="col.final"></th>
         <th data-sort="m2" data-i18n="col.price_per_m2"></th>
         <th data-i18n="col.outcome"></th>
+        <th data-i18n="col.parcel"></th>
         <th data-i18n="col.src"></th>
       </tr>
     </thead>

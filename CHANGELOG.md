@@ -4,6 +4,29 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.25.0 — 2026-06-15
+
+Land — Bielsko-Biała plots + geoportal links. The Bielsko-Biała adapter now
+captures działki/grunty (plus houses/commercial) from the Giełda Nieruchomości,
+so `data/bielsko/land.json` fills with real parcels. The archive (extension +
+website) gains a **Działka** column that links each plot to a geoportal where
+the parcel resolves on a map — the portal is configurable per city (a
+source-provided link, a municipal-SIP override, the national geoportal
+deep-link when a full TERYT id is known, or a geoportal-scoped search
+otherwise). Land is aged out by date and kept out of the flat zł/m² median.
+
+## v1.24.0 — 2026-06-15
+
+Houses & land — phase 1 (HL-0). Adds two property kinds: **dom** (house /
+`nieruchomość zabudowana`) and **działka** (land / `grunt`), plus a dedicated
+**"Rodzaj nieruchomości"** filter in the archive (extension + website) so plots
+and houses can be shown or hidden on their own — alongside the existing
+mieszkalny / użytkowy / garaż type filter. Land is stored separately
+(`data/<city>/land.json`, parcel-keyed) and is excluded from the flat zł/m²
+median. Katowice residential buildings now classify as houses, not flats.
+Per-city land crawlers follow in later waves; the filter surfaces land as each
+city starts publishing it.
+
 ## v1.23.0 — 2026-06-14
 
 - **Deal score: zł/m² vs the local median** (MINOR): every priced flat now

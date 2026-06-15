@@ -134,3 +134,56 @@ test('parseIndexLinks extracts unique /nieruchomosc node URLs', () => {
     'https://bielsko-biala.pl/nieruchomosc/modrzewskiego-2-5',
   ]);
 });
+
+// ---- Land (działka) wiring (HL-1 Bielsko) ----
+import { parseLandNode, plotAreaFrom } from '../src/cities/bielsko/parse.js';
+import { buildLand } from '../src/core/build-land.js';
+
+const LAND_NODE = `
+<article class="nieruchomosc">
+  <h1>Działka niezabudowana — ul. Bukowa</h1>
+  <div class="najwazniejsze">
+    <div class="field"><div class="label">Adres:</div><div class="val">ul. Bukowa</div></div>
+    <div class="field"><div class="label">Numer działki:</div><div class="val">1922/182</div></div>
+    <div class="field"><div class="label">Typ działki:</div><div class="val">budowlana</div></div>
+    <div class="field"><div class="label">Cena:</div><div class="val">670 000,00 zł</div></div>
+    <div class="field"><div class="label">Rodzaj nieruchomości:</div><div class="val">nieruchomość niezabudowana</div></div>
+    <div class="field"><div class="label">Forma przetargu:</div><div class="val">Pierwszy przetarg ustny nieograniczony</div></div>
+    <div class="field"><div class="label">Obręb:</div><div class="val">Lipnik</div></div>
+    <div class="field"><div class="label">Księga wieczysta:</div><div class="val">BB1B/00097805/6</div></div>
+    <div class="field"><div class="label">Data przetargu / rokowań:</div><div class="val">15.07.2026 r.</div></div>
+    <div class="field"><div class="label">Powierzchnia:</div><div class="val">1 234 m2</div></div>
+  </div>
+</article>`;
+
+test('plotAreaFrom reads the structured Powierzchnia (plot) area', () => {
+  assert.equal(plotAreaFrom(htmlToText(LAND_NODE)), 1234);
+});
+
+test('parseLandNode parses a działka into a parcel-shaped land record', () => {
+  const r = parseLandNode(LAND_NODE, 'https://bielsko-biala.pl/nieruchomosc/bukowa-dz');
+  assert.ok(r);
+  assert.equal(r.kind, 'grunt');
+  assert.equal(r.dzialka_nr, '1922/182'); // not "1922/182 Typ działki: budowlana"
+  assert.equal(r.obreb, 'Lipnik');        // not "Lipnik Księga wieczysta: …"
+  assert.equal(r.zoning, 'budowlana');
+  assert.equal(r.area_m2, 1234);
+  assert.equal(r.starting_price_pln, 670000);
+  assert.equal(r.round, 1);
+  assert.equal(r.auction_date, '2026-07-15');
+});
+
+test('parseLandNode returns null for an unkeyable plot (no parcel, no address)', () => {
+  const node = '<div><div class="label">Rodzaj nieruchomości:</div><div class="val">działka</div></div>';
+  assert.equal(parseLandNode(node, 'u'), null);
+});
+
+test('Bielsko land node flows through buildLand into a keyed plot + geoportal link', () => {
+  const r = parseLandNode(LAND_NODE, 'u://x');
+  const { plots } = buildLand([r], 'bielsko', { label: 'Bielsko-Biała' });
+  assert.equal(plots.length, 1);
+  assert.equal(plots[0].key, 'dz|lipnik|1922/182');
+  assert.equal(plots[0].kind, 'grunt');
+  assert.equal(plots[0].area_m2, 1234);
+  assert.ok(plots[0].geoportal_url, 'geoportal_url resolved');
+});

@@ -245,3 +245,23 @@ test('parseAnnouncementText: flat area recovered when the m² superscript wraps 
   assert.equal(h.area_m2, 34.9, 'flat area 34,90 — not the 176 m² plot nor the 7,10 m² cellar');
   assert.equal(h.starting_price_pln, 70000);
 });
+
+// ---- Land (board 555 działki/grunty) ----
+import { parseLandAttachment } from '../src/cities/zabrze/parse.js';
+
+test('parseLandAttachment: parcel/area/obręb/street/price from a real land notice', () => {
+  const text = 'Prezydent Miasta Zabrze ogłasza I ustny przetarg nieograniczony na sprzedaż prawa własności nieruchomości niezabudowanej, stanowiącej własność Gminy Miejskiej Zabrze Oznaczenie nieruchomości według danych z ewidencji gruntów i księgi wieczystej: Działka nr 6089/50 o pow. 477 m2, użytek Bp, zapisana w księdze wieczystej nr GL1Z/00013557/6, położona w Zabrzu przy ul. Stefana Batorego, obręb: Zabrze, stanowi własność Gminy Miejskiej Zabrze. Cena wywoławcza nieruchomości wynosi 150 000,00 zł.';
+  const r = parseLandAttachment(text);
+  assert.equal(r.dzialka_nr, '6089/50');
+  assert.equal(r.area_m2, 477);
+  assert.equal(r.obreb, 'Zabrze');
+  assert.equal(r.address_raw, 'ul. Stefana Batorego');
+  assert.equal(r.starting_price_pln, 150000);
+});
+
+test('parseLandAttachment: plot thousands "1.377 m2" → 1377; null for GDPR annex', () => {
+  const r = parseLandAttachment('Działka nr 4129/50 o pow. 1.377 m2 przy ul. Testowa, obręb: Mikulczyce.');
+  assert.equal(r.dzialka_nr, '4129/50');
+  assert.equal(r.area_m2, 1377);
+  assert.equal(parseLandAttachment('INFORMACJA O PRZETWARZANIU DANYCH OSOBOWYCH w drodze przetargu'), null);
+});

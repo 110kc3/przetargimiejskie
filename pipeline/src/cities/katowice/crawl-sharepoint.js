@@ -25,7 +25,8 @@
 // refresh.js doesn't waste 5 minutes per cron run fetching 404s.
 
 import { politeGet } from '../../core/fetch.js';
-import { parseAnnouncement } from './parse.js';
+import { parseAnnouncement, parseLandAnnouncement } from './parse.js';
+import { classifyKind } from '../../core/classify-kind.js';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
@@ -202,6 +203,7 @@ export async function crawlSharePointAnnouncements() {
     return [];
   }
   const listings = [];
+  const land = [];
   let droppedNonAuction = 0;
   for (const it of items) {
     const title = (it[F_TITLE] || '').trim();
@@ -213,13 +215,23 @@ export async function crawlSharePointAnnouncements() {
     }
     const docUrl =
       `${ORIGIN}/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=${it.Id}`;
-    const listing = parseAnnouncement(body, title, docUrl);
-    if (listing) listings.push(listing);
+    try {
+      const titleKind = classifyKind(title);
+      if (titleKind === 'grunt') {
+        const lr = parseLandAnnouncement(body, title, docUrl);
+        if (lr) land.push(lr);
+      } else {
+        const listing = parseAnnouncement(body, title, docUrl);
+        if (listing) listings.push(listing);
+      }
+    } catch (err) {
+      console.error(`  katowice SP item ${it.Id} parse error: ${err.message}`);
+    }
   }
   console.error(
-    `  katowice SP: ${listings.length} announcement(s) parsed from ${items.length} list item(s) (dropped ${droppedNonAuction} non-auction notice(s))`,
+    `  katowice SP: ${listings.length} listing(s), ${land.length} land record(s) from ${items.length} item(s) (dropped ${droppedNonAuction} non-auction)`,
   );
-  return listings;
+  return { listings, land };
 }
 
 export async function crawlSharePointResultDocs() {

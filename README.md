@@ -15,6 +15,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | [`pipeline/ocr-cache/`](./pipeline/ocr-cache) | Committed OCR text per scanned PDF (each OCR'd once). |
 | [`pipeline/pdf-text-cache/`](./pipeline/pdf-text-cache) | Committed `pdftotext` output for text PDFs (Katowice, Zabrze). |
 | [`pipeline/doc-text-cache/`](./pipeline/doc-text-cache) | Committed `catdoc` output for legacy `.doc` announcements (Bytom). Doubles as a retention store if a source later removes the file. |
+| [`pipeline/uldk-cache/`](./pipeline/uldk-cache) | Committed ULDK lookups (obręb + parcel → TERYT parcel id) so each land plot gets a precise geoportal `identifyParcel` deep-link, resolved once per parcel. |
 | `data/<city>/properties.json` | One record per unique `(street, building, apt)` with the full chronological listings history. **The file the Chrome extension consumes.** |
 | `data/<city>/active.json` | Currently-active auctions and "wykaz" pre-announcements. |
 | `data/<city>/meta.json` | Provenance: when generated, schema/parser versions, counts. |

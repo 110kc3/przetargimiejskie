@@ -6,6 +6,11 @@
 // the live BIP (June 2026, rendered-DOM spike + parser dry-run): the filter kept
 // 21 real announcements and dropped 30 notices across 5 archive pages with no
 // unkeyable entries.
+//
+// Land tests (HL-27): sibling boards /bipkod/003/010/003 (houses + land) and
+// /bipkod/42668516 (commercial + garages) are now crawled. isAuctionAnnouncement
+// is the generic filter for these boards; classifyKind routes grunt → land[].
+// parseLandAnnouncement (from finn-bip.js) is used for body parsing.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -13,6 +18,9 @@ import assert from 'node:assert/strict';
 import {
   parseDocLinks,
   isFlatAnnouncement,
+  isAuctionAnnouncement,
+  classifyKind,
+  parseLandAnnouncement,
   addressFrom,
   roundFromTitle,
   priceFromText,
@@ -137,11 +145,63 @@ test('parseResultDoc: sold record (title key + round, body date + prices)', () =
 
 test('parseResultDoc: negative result / undeterminable body', () => {
   const neg = parseResultDoc(
-    `${RES_TITLE}\nw dniu 16.04.2026 r. przetarg zakończył się wynikiem negatywnym — nikt nie przystąpił do przetargu. Cena wywoławcza wynosiła 95 000,00 zł.`,
+    RES_TITLE + '\nw dniu 16.04.2026 r. przetarg zakonczyl sie wynikiem negatywnym. Cena 95 000,00 zl.',
     null, 'u',
   )[0];
   assert.equal(neg.outcome, 'unsold');
   assert.equal(neg.final_price_pln, null);
-  // outcome not determinable → no record (refresh surfaces the WARN)
-  assert.deepEqual(parseResultDoc(`${RES_TITLE}\ntreść bez wyniku i bez ceny`, null, 'u'), []);
+  assert.deepEqual(parseResultDoc(RES_TITLE + '\ntresc bez wyniku', null, 'u'), []);
+});
+
+// ---- Sibling board: isAuctionAnnouncement + land (HL-27) ----
+
+test('isAuctionAnnouncement: keeps przetarg/sprzedaz, drops notices/intents/wykaz', () => {
+  assert.equal(isAuctionAnnouncement('I przetarg na sprzedaz niezabudowanej ul. Bytomska'), true);
+  assert.equal(isAuctionAnnouncement('II przetarg na sprzedaz nieruchomosci zabudowanej'), true);
+  assert.equal(isAuctionAnnouncement('I przetarg na sprzedaz lokalu uzytkowego nr 1'), true);
+  assert.equal(isAuctionAnnouncement('Informacja o wyniku przetargu nieruchomosci'), false);
+  assert.equal(isAuctionAnnouncement('Zamiar sprzedazy nieruchomosci ul. Bytomska'), false);
+  assert.equal(isAuctionAnnouncement('Wykaz nieruchomosci przeznaczonych do sprzedazy'), false);
+  assert.equal(isAuctionAnnouncement('zalacznik I przetarg KW nieruchomosc.docx'), false);
+});
+
+test('classifyKind: routes sibling-board titles correctly', () => {
+  assert.equal(classifyKind('I przetarg na sprzedaz niezabudowanej ul. Bytomska'), 'grunt');
+  assert.equal(classifyKind('II przetarg na sprzedaz nieruchomosci zabudowanej ul. Polaka'), 'zabudowana');
+  assert.equal(classifyKind('I przetarg na sprzedaz lokalu uzytkowego nr 1'), 'uzytkowy');
+  assert.equal(classifyKind('I przetarg na sprzedaz lokalu mieszkalnego nr 20'), 'mieszkalny');
+});
+
+const LAND_TITLE_SW = 'I przetarg na sprzedaz nieruchomosci niezabudowanej ul. Bytomska.';
+const LAND_BODY_SW =
+  'Oglasza przetarg na sprzedaz dzialki nr 624/5 o powierzchni 820 m2, ' +
+  'obreb Centrum, ul. Bytomska w Swietochlowicach. ' +
+  'Cena wywolawcza nieruchomosci wynosi 185 000,00 zl. ' +
+  'Przetarg odbedzie sie w dniu 10 wrzesnia 2026 r.';
+const LAND_URL_SW = 'https://www.bip.swietochlowice.pl/res/serwisy/pliki/44001234';
+
+test('parseLandAnnouncement: Swietochlowice land body (catdoc text in <p>)', () => {
+  const r = parseLandAnnouncement(LAND_TITLE_SW, '<p>' + LAND_BODY_SW + '</p>', LAND_URL_SW);
+  assert.ok(r, 'should return a land record');
+  assert.equal(r.kind, 'grunt');
+  assert.equal(r.dzialka_nr, '624/5');
+  assert.ok(r.obreb && /centrum/i.test(r.obreb), 'obreb: ' + r.obreb);
+  assert.equal(r.area_m2, 820);
+  assert.equal(r.starting_price_pln, 185000);
+  assert.equal(r.auction_date, '2026-09-10');
+  assert.equal(r.round, 1);
+  assert.equal(r.detail_url, LAND_URL_SW);
+});
+
+test('parseLandAnnouncement: null when unkeyable', () => {
+  assert.equal(parseLandAnnouncement(
+    'Przetarg na sprzedaz gruntu.',
+    '<p>Tresc bez dzialki i bez ulicy.</p>',
+    'https://www.bip.swietochlowice.pl/res/serwisy/pliki/99',
+  ), null);
+});
+
+test('isFlatAnnouncement: no regression (HL-27)', () => {
+  assert.equal(isFlatAnnouncement('I przetarg na sprzedaz lokalu mieszkalnego ul. Powstancow 8/20'), true);
+  assert.equal(isFlatAnnouncement(LAND_TITLE_SW), false);
 });

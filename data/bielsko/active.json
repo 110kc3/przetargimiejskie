@@ -37,6 +37,78 @@
       "area_m2": 117.62,
       "starting_price_pln": 599000,
       "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-233"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. gen. Stefana Grota-Roweckiego 4/11B",
+      "address": {
+        "street": "gen. Stefana Grota-Roweckiego",
+        "street_norm": "gen stefana grota roweckiego",
+        "building": "4",
+        "apt": "11B",
+        "key": "gen stefana grota roweckiego|4|11B",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 199000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gen-stefana-grota-roweckiego-411b"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Jana Sobieskiego 140",
+      "address": {
+        "street": "Jana Sobieskiego",
+        "street_norm": "jana sobieskiego",
+        "building": "140",
+        "apt": null,
+        "key": "jana sobieskiego|140|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 56,
+      "starting_price_pln": 299000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-jana-sobieskiego-140"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Łukowa 15, Łukowa 17",
+      "address": {
+        "street": "Łukowa 15, Łukowa",
+        "street_norm": "lukowa 15 lukowa",
+        "building": "17",
+        "apt": null,
+        "key": "lukowa 15 lukowa|17|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 2,
+      "area_m2": 185.08,
+      "starting_price_pln": 1750000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-lukowa-15-lukowa-17"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Górska 94",
+      "address": {
+        "street": "Górska",
+        "street_norm": "gorska",
+        "building": "94",
+        "apt": null,
+        "key": "gorska|94|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 1350000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gorska-94"
     }
   ],
   "wykaz": []

@@ -22,6 +22,7 @@
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
+import { classifyKind } from './classify-kind.js';
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
@@ -337,8 +338,9 @@ export function parseAnnouncement(title, contentHtml) {
   const text = htmlToText(contentHtml);
   const addr = addressFrom(title, text);
   if (!addr) return null;
+  const kind = classifyKind(title);
   return {
-    kind: 'mieszkalny',
+    kind: kind === 'mieszkalny' || kind === 'unknown' ? 'mieszkalny' : kind,
     address_raw: addr.address_raw,
     address: addr.address,
     area_m2: areaFromText(text),
@@ -348,6 +350,90 @@ export function parseAnnouncement(title, contentHtml) {
     share: shareFromTitle(title, text),
   };
 }
+
+/**
+ * Parse one FINN article body for LAND (działka/grunt) fields.
+ * Extracts parcel number, obręb, plot area, street, price, date, round.
+ * Normalises CMS-injected spaces: "106 .000,-zł" → 106000, "2 3 czerwca 202 6" → 2026-06-23.
+ * Returns null when the record is not keyable (no parcel nr AND no street).
+ * @param {string} title
+ * @param {string} contentHtml  article body HTML (or plain text wrapped in <p>)
+ * @param {string} url
+ * @returns {object|null}
+ */
+export function parseLandAnnouncement(title, contentHtml, url) {
+  const rawText = htmlToText(contentHtml);
+  // Fix "NNN .NNN" — space before decimal point inside amount
+  let text = rawText.replace(/(\d)\s+\./g, '$1.').replace(/\.\s+(\d)/g, '.$1');
+  // Fix spaced-out year "202 6" → "2026"
+  text = text.replace(/\b(20[23])\s+(\d)\b/g, '$1$2');
+  // Fix spaced-out day digits before a Polish month name
+  text = text.replace(
+    /\b(\d)\s+(\d)\s+(stycznia|lutego|marca|kwietnia|maja|czerwca|lipca|sierpnia|wrzesnia|wrze[śs]nia|pa[źz]dziernika|pa[źz]dziernik|listopada|grudnia|stycze[ńn]|luty|marzec|kwiecie[ńn]|czerwiec|lipiec|sierpie[ńn]|wrzesie[ńn]|listopad|grudzie[ńn])/gi,
+    '$1$2 $3',
+  );
+
+  // --- Parcel number ---
+  const parcelM = /dzia[łl][ek]{1,2}\w*\s+(?:nr\.?|numer)?\s*([\d/][\d/,\s]+)/i.exec(text);
+  let dzialka_nr = null;
+  if (parcelM) {
+    const run = parcelM[1].slice(0, 80);
+    const parcels = [...run.matchAll(/(\d+\/?\d*)/g)].map((m) => m[1]);
+    const clean = parcels.filter((p) => /^\d+(?:\/\d+)?$/.test(p));
+    if (clean.length) dzialka_nr = clean.join(', ');
+  }
+
+  // --- Obręb ---
+  const obrebM = /obr[eę]b[u]?\s+(?:nr\.?\s*)?(\d{4}(?:\s+\S+)?|[A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ\s-]{1,40})/i.exec(text);
+  const obreb = obrebM ? obrebM[1].replace(/\s+/g, ' ').trim().replace(/\s*,.*$/, '') : null;
+
+  // --- Plot area ---
+  let area_m2 = null;
+  const AREA_RE = /(?:(?:[łl]ącznej\s+)?pow(?:ierzchni)?\.?\s*|powierzchni[a]?\s+)([\d.,\s]+)\s*m\s*[²2]/gi;
+  let am;
+  while ((am = AREA_RE.exec(text)) !== null) {
+    const before = text.slice(Math.max(0, am.index - 40), am.index);
+    if (/u[żz]ytkow/i.test(before) || /u[żz]ytkow/i.test(am[0])) continue;
+    const raw = am[1].replace(/\s/g, '');
+    const n = Number(raw.replace(',', '.'));
+    if (Number.isFinite(n) && n > 0 && n < 1e7) {
+      if (area_m2 == null || n > area_m2) area_m2 = n;
+    }
+  }
+
+  // --- Street address ---
+  let street = null;
+  let address_raw = null;
+  let address = null;
+  const streetM = /(?:przy|w\s+rejonie|po[łl]o[żz]onej?\s+(?:przy\s+)?(?:ul\.|ulicy)?)\s+(?:ul\.|ulicy|al\.|alei)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?=\s*[,;.]|\s+w\s+[A-Z]|\s+obejmują|\s+(?:o\s+)?łączn|\s+na\s+arkusz|$)/i.exec(text);
+  if (streetM) {
+    street = streetM[1].replace(/\s+/g, ' ').trim();
+    address_raw = 'ul. ' + street;
+    const parsed = parseAddress(address_raw);
+    if (parsed) address = parsed;
+  }
+
+  if (!dzialka_nr && !street) return null;
+
+  return {
+    kind: 'grunt',
+    dzialka_nr,
+    obreb,
+    zoning: null,
+    address_raw: address_raw ?? null,
+    street,
+    building: null,
+    address,
+    area_m2,
+    starting_price_pln: priceFromText(text),
+    auction_date: auctionDateFromText(text),
+    round: roundFromTitle(title) ?? roundFromText(text),
+    detail_url: url,
+    source_url: url,
+    geoportal_url: null,
+  };
+}
+
 
 /**
  * Harvest unique announcement article URLs from one FINN index page's HTML.
@@ -394,10 +480,11 @@ export function extractArticle(html, fallbackTitle = '') {
  * @param {string[]} cfg.indexUrls  category pages to harvest announcement links from
  * @param {string} cfg.id           city id, for log lines
  * @param {RegExp} [cfg.linkPattern]  which /artykul/ hrefs are announcements
- * @param {RegExp} [cfg.linkFilter]   extra href filter to skip obvious non-flats
- *                                     cheaply (e.g. /lokal/ keeps only flat slugs)
- * @param {(title:string)=>boolean} [cfg.isFlat]  override the flat-auction filter
- * @returns {() => Promise<{listings:object[], wykaz:object[]}>}
+ * @param {RegExp} [cfg.linkFilter]   extra href filter applied to URL slugs.
+ *   Pass null to inspect every matched announcement — classifyKind decides kind.
+ *   Example: /lokal|niezabudow|zabudow|uzytkow|dzialk/i admits flats + land.
+ * @param {(title:string)=>boolean} [cfg.isFlat]  override the flat-auction guard.
+ * @returns {() => Promise<{listings:object[], wykaz:object[], land:object[]}>}
  */
 export function makeCrawlActive(cfg) {
   const {
@@ -436,7 +523,9 @@ export function makeCrawlActive(cfg) {
 
     // 2) Fetch each, keep the flat-sale auctions, parse the body.
     const listings = [];
+    const land = [];
     let flats = 0;
+    let plots = 0;
     for (const url of urls) {
       let html;
       try {
@@ -445,29 +534,57 @@ export function makeCrawlActive(cfg) {
         console.error(`  ${id} article fetch failed (${url}): ${err.message}`);
         continue;
       }
-      const { title, body } = extractArticle(html);
-      if (!isFlat(title)) continue;
-      flats++;
-      const parsed = parseAnnouncement(title, body);
-      if (!parsed) {
-        console.error(`  ${id} WARN: unkeyable flat auction ${url} (${title.slice(0, 70)})`);
+      let title, body;
+      try {
+        ({ title, body } = extractArticle(html));
+      } catch (err) {
+        console.error(`  ${id} article extract failed (${url}): ${err.message}`);
         continue;
       }
-      listings.push({
-        kind: parsed.kind,
-        address_raw: parsed.address_raw,
-        address: parsed.address,
-        auction_date: parsed.auction_date,
-        published_date: null,
-        round: parsed.round,
-        area_m2: parsed.area_m2,
-        starting_price_pln: parsed.starting_price_pln,
-        detail_url: url,
-        share: parsed.share,
-      });
+
+      // Classify on the title; route grunt -> land[], flats -> listings[].
+      const kindFromTitle = classifyKind(title);
+
+      if (kindFromTitle === 'grunt') {
+        try {
+          const lr = parseLandAnnouncement(title, body, url);
+          if (lr) { land.push(lr); plots++; }
+          else console.error(`  ${id} WARN: unkeyable land ${url} (${title.slice(0, 70)})`);
+        } catch (err) {
+          console.error(`  ${id} land parse failed (${url}): ${err.message}`);
+        }
+        continue;
+      }
+
+      // Flat path -- guard with isFlatAuction to drop rentals/bezprzetargowe.
+      if (!isFlat(title)) continue;
+      flats++;
+      try {
+        const parsed = parseAnnouncement(title, body);
+        if (!parsed) {
+          console.error(`  ${id} WARN: unkeyable flat ${url} (${title.slice(0, 70)})`);
+          continue;
+        }
+        listings.push({
+          kind: parsed.kind,
+          address_raw: parsed.address_raw,
+          address: parsed.address,
+          auction_date: parsed.auction_date,
+          published_date: null,
+          round: parsed.round,
+          area_m2: parsed.area_m2,
+          starting_price_pln: parsed.starting_price_pln,
+          detail_url: url,
+          share: parsed.share,
+        });
+      } catch (err) {
+        console.error(`  ${id} flat parse failed (${url}): ${err.message}`);
+      }
     }
-    console.error(`  ${id} active: ${listings.length} flat listing(s) from ${flats} flat article(s)`);
-    return { listings, wykaz: [] };
+    console.error(
+      `  ${id} active: ${listings.length} flat listing(s) from ${flats}; ${plots} land plot(s)`,
+    );
+    return { listings, wykaz: [], land };
   };
 }
 

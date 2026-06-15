@@ -1,15 +1,21 @@
-// Zabrze city adapter — implements the registry contract (see ../index.js).
-//
-// The city BIP "Lokale mieszkalne" board is crawled ONCE per run (memoised in
-// crawl.js); each announcement's attachment is extracted and parsed into
-// per-flat active listings, while attachments that are published RESULT
-// notices ("INFORMACJA O WYNIKU PRZETARGÓW") feed crawlResultDocs() →
-// parseResultDoc() — Zabrze's achieved-price stream (sold/unsold + final
-// price per flat).
-
 import { config } from './config.js';
-import { crawlActive, crawlResultDocs } from './crawl.js';
+import { crawlActive as crawlActiveFlats, crawlResultDocs } from './crawl.js';
+import { crawlLand } from './crawl-land.js';
 import { parseResultDoc } from './parse.js';
+
+// crawlActive merges the flats/houses/commercial board (549) with the LAND
+// board (555). Land is defensive: a land-crawl failure leaves the flats stream
+// intact (refresh.js partitions kind:'grunt' from `land` into data/zabrze/land.json).
+async function crawlActive() {
+  const base = await crawlActiveFlats(); // { listings, wykaz }
+  let land = [];
+  try {
+    land = await crawlLand();
+  } catch (err) {
+    console.error(`  zabrze land crawl failed (kept flats): ${err.message}`);
+  }
+  return { ...base, land };
+}
 
 export default {
   ...config,
