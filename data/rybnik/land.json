@@ -15,6 +15,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.2190",
       "area_m2": 2201,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-09-17",
@@ -24,6 +25,13 @@
           "area_m2": 2201,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104073",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3501867"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2190",
+          "dzialka_id": "247301_1.0007.2190",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.2190"
         }
       ]
     },
@@ -40,6 +48,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.3698",
       "area_m2": 3780,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-03-26",
@@ -49,6 +58,13 @@
           "area_m2": 3780,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103998",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3499886"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3698",
+          "dzialka_id": "247301_1.0007.3698",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.3698"
         }
       ]
     }
