@@ -15,6 +15,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248",
       "area_m2": 10452,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-06-17",
@@ -52,6 +53,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-3",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-3"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2684/248",
+          "dzialka_id": "247001_1.0001.AR_4.2684/248",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248"
+        }
       ]
     },
     {
@@ -67,6 +75,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.1935%2F210",
       "area_m2": 3295,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-05-13",
@@ -95,6 +104,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanych-o-laczn",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanych-o-laczn"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "1935/210",
+          "dzialka_id": "247001_1.0001.AR_4.1935/210",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.1935%2F210"
+        }
       ]
     },
     {
@@ -110,6 +126,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.4131%2F241",
       "area_m2": 1507,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-05-20",
@@ -138,6 +155,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-pol",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-pol"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "4131/241",
+          "dzialka_id": "247001_1.0002.AR_1.4131/241",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.4131%2F241"
+        }
       ]
     },
     {
@@ -153,6 +177,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200005%20Krasowy%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 2583,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-12-09",
@@ -181,7 +206,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-2",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-2"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0009 słupna|257/144",
@@ -196,6 +222,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0009.AR_1.257%2F144",
       "area_m2": 1305,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-10-14",
@@ -224,6 +251,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-1",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-1"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "257/144",
+          "dzialka_id": "247001_1.0009.AR_1.257/144",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0009.AR_1.257%2F144"
+        }
       ]
     },
     {
@@ -239,6 +273,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 657,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-01-13",
@@ -267,7 +302,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanych-nieruchomosci",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanych-nieruchomosci"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0003 dziećkowice|2057/21",
@@ -282,6 +318,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.2057%2F21",
       "area_m2": 309,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-10-14",
@@ -319,6 +356,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-o",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-o"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2057/21",
+          "dzialka_id": "247001_1.0003.AR_2.2057/21",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.2057%2F21"
+        }
       ]
     },
     {
@@ -334,6 +378,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52",
       "area_m2": 847,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-10-21",
@@ -371,6 +416,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2003/52",
+          "dzialka_id": "247001_1.0003.AR_1.2003/52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52"
+        }
       ]
     },
     {
@@ -386,6 +438,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200010%20Weso%C5%82a%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 21596,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-06-23",
@@ -396,7 +449,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0007 mysłowice|9386/403",
@@ -411,6 +465,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9386%2F403",
       "area_m2": 748,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-02-18",
@@ -448,6 +503,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "9386/403",
+          "dzialka_id": "247001_1.0007.AR_3.9386/403",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9386%2F403"
+        }
       ]
     },
     {
@@ -463,6 +525,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0006.AR_1.2517%2F7",
       "area_m2": 4182,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-09-30",
@@ -482,6 +545,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej-1",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej-1"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2517/7",
+          "dzialka_id": "247001_1.0006.AR_1.2517/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0006.AR_1.2517%2F7"
+        }
       ]
     },
     {
@@ -497,6 +567,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%2C%20376%2F16%200004%20Kosztowy%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 584,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2026-05-05",
@@ -506,6 +577,16 @@
           "area_m2": 584,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-akacjowej",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-akacjowej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%200004%20Kosztowy%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "376/16",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20376%2F16%200004%20Kosztowy%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -522,6 +603,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 3543,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-10-15",
@@ -559,7 +641,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-s",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-s"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0007 mysłowice|7902/25",
@@ -574,6 +657,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.7902%2F25",
       "area_m2": 98,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-12-02",
@@ -583,6 +667,13 @@
           "area_m2": 98,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-laczna",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-laczna"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "7902/25",
+          "dzialka_id": "247001_1.0007.AR_3.7902/25",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.7902%2F25"
         }
       ]
     },
@@ -599,6 +690,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9545%2F42",
       "area_m2": 76,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-09-09",
@@ -618,6 +710,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-aleksandra-f",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-aleksandra-f"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "9545/42",
+          "dzialka_id": "247001_1.0007.AR_3.9545/42",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9545%2F42"
+        }
       ]
     },
     {
@@ -633,6 +732,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20Dzie%C4%87kowice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 7695,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-11-18",
@@ -643,7 +743,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-o-pow-0",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-o-pow-0"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0001 brzezinka|2680/210",
@@ -658,6 +759,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2680%2F210",
       "area_m2": 3746,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-11-04",
@@ -667,6 +769,13 @@
           "area_m2": 3746,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-pierwszym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowany",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-pierwszym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowany"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2680/210",
+          "dzialka_id": "247001_1.0001.AR_4.2680/210",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2680%2F210"
         }
       ]
     },
@@ -683,6 +792,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.3065%2F149",
       "area_m2": 64,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-10-28",
@@ -692,6 +802,13 @@
           "area_m2": 64,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-janowskiej",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-janowskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3065/149",
+          "dzialka_id": "247001_1.0007.AR_3.3065/149",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.3065%2F149"
         }
       ]
     },
@@ -708,6 +825,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203%2C%20490%2F43%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 15841,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-11-19",
@@ -727,6 +845,16 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-mik",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-mik"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "490/43",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%2F43%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        }
       ]
     },
     {
@@ -742,6 +870,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.1678%2F292",
       "area_m2": 8177,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-09-16",
@@ -751,6 +880,13 @@
           "area_m2": 8177,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-rolnej-dzieck",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-rolnej-dzieck"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1678/292",
+          "dzialka_id": "247001_1.0003.AR_2.1678/292",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.1678%2F292"
         }
       ]
     },
@@ -767,6 +903,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_3.1897%2F111",
       "area_m2": 108,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-05-13",
@@ -786,6 +923,23 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-zachety",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-zachety"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "1897/111",
+          "dzialka_id": "247001_1.0003.AR_3.1897/111",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_3.1897%2F111"
+        },
+        {
+          "nr": "1893/113",
+          "dzialka_id": "247001_1.0003.AR_3.1893/113",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_3.1893%2F113"
+        },
+        {
+          "nr": "1889/113",
+          "dzialka_id": "247001_1.0003.AR_3.1889/113",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_3.1889%2F113"
+        }
       ]
     },
     {
@@ -801,6 +955,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0010.AR_3.3321%2F68",
       "area_m2": 55,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-07-22",
@@ -810,6 +965,13 @@
           "area_m2": 55,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wiosny-ludow",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wiosny-ludow"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3321/68",
+          "dzialka_id": "247001_1.0010.AR_3.3321/68",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0010.AR_3.3321%2F68"
         }
       ]
     },
@@ -826,6 +988,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20Dzie%C4%87kowice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 847,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-07-22",
@@ -836,7 +999,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dluga",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dluga"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0007 mysłowice|3490/43",
@@ -851,6 +1015,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_4.3490%2F43",
       "area_m2": 15841,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-05-06",
@@ -860,6 +1025,13 @@
           "area_m2": 15841,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-miko",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-miko"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3490/43",
+          "dzialka_id": "247001_1.0007.AR_4.3490/43",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_4.3490%2F43"
         }
       ]
     },
@@ -876,6 +1048,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200002%20Brz%C4%99czkowice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 793,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-01-28",
@@ -895,7 +1068,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-w-rejonie-ul",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-w-rejonie-ul"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0005 krasowy|1390/66",
@@ -910,6 +1084,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0005.AR_4.1390%2F66",
       "area_m2": 165,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-04-15",
@@ -919,6 +1094,13 @@
           "area_m2": 165,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-plebiscytow",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-plebiscytow"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1390/66",
+          "dzialka_id": "247001_1.0005.AR_4.1390/66",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0005.AR_4.1390%2F66"
         }
       ]
     },
@@ -935,6 +1117,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.2364%2F86",
       "area_m2": 15786,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-04-16",
@@ -963,6 +1146,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-jozefa-wyb",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-jozefa-wyb"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2364/86",
+          "dzialka_id": "247001_1.0001.AR_2.2364/86",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.2364%2F86"
+        }
       ]
     },
     {
@@ -978,6 +1168,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200005%20Krasowy%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1634,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-01-21",
@@ -988,7 +1179,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-plebiscyto",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-plebiscyto"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|3448/89",
@@ -1003,6 +1195,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203448%2F89%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 17974,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-01-21",
@@ -1012,6 +1205,11 @@
           "area_m2": 17974,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-fabryczna",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-fabryczna"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3448/89"
         }
       ]
     },
@@ -1028,6 +1226,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0005.AR_1.1910%2F17",
       "area_m2": 1305,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-04-16",
@@ -1047,6 +1246,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-w-rejonie-ul-p",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-w-rejonie-ul-p"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "1910/17",
+          "dzialka_id": "247001_1.0005.AR_1.1910/17",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0005.AR_1.1910%2F17"
+        }
       ]
     },
     {
@@ -1062,6 +1268,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.3102%2F4",
       "area_m2": 865,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-12-12",
@@ -1099,6 +1306,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-lesna-1-d",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-lesna-1-d"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "3102/4",
+          "dzialka_id": "247001_1.0001.AR_2.3102/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.3102%2F4"
+        }
       ]
     },
     {
@@ -1114,6 +1328,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202341%2F80%200001%20Brzezinka.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1211,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-09-17",
@@ -1123,6 +1338,12 @@
           "area_m2": 1211,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-si",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-si"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2341/80",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202341%2F80%200001%20Brzezinka.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1139,6 +1360,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2637%2F224",
       "area_m2": 105,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-03-26",
@@ -1167,6 +1389,13 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-fabryczna",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-fabryczna"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "2637/224",
+          "dzialka_id": "247001_1.0001.AR_4.2637/224",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2637%2F224"
+        }
       ]
     },
     {
@@ -1182,6 +1411,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208946%2F403%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 32,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-04-03",
@@ -1201,6 +1431,12 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-swierkowa",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-swierkowa"
         }
+      ],
+      "parcels": [
+        {
+          "nr": "8946/403",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208946%2F403%200007%20Mys%C5%82owice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        }
       ]
     },
     {
@@ -1216,6 +1452,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.6239%2F64",
       "area_m2": 529,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-07-02",
@@ -1225,6 +1462,13 @@
           "area_m2": 529,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-aleksandra-fredry-pow-529",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-aleksandra-fredry-pow-529"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6239/64",
+          "dzialka_id": "247001_1.0007.AR_3.6239/64",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.6239%2F64"
         }
       ]
     },
@@ -1241,6 +1485,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_3.1224%2F9",
       "area_m2": 649,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-06-18",
@@ -1250,6 +1495,13 @@
           "area_m2": 649,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-topolowa",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-topolowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1224/9",
+          "dzialka_id": "247001_1.0001.AR_3.1224/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_3.1224%2F9"
         }
       ]
     },
@@ -1266,6 +1518,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_5.1657%2F20",
       "area_m2": 153,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-05-21",
@@ -1275,6 +1528,13 @@
           "area_m2": 153,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-laryska",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-laryska"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1657/20",
+          "dzialka_id": "247001_1.0001.AR_5.1657/20",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_5.1657%2F20"
         }
       ]
     },
@@ -1291,6 +1551,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9397%2F14",
       "area_m2": 888,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-05-21",
@@ -1300,6 +1561,13 @@
           "area_m2": 888,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-mieczyslawa",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-mieczyslawa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "9397/14",
+          "dzialka_id": "247001_1.0007.AR_3.9397/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9397%2F14"
         }
       ]
     },
@@ -1316,6 +1584,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202378%2F16%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 329,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-05-07",
@@ -1325,6 +1594,11 @@
           "area_m2": 329,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-akacjowa-dz-2378-16",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-akacjowa-dz-2378-16"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2378/16"
         }
       ]
     },
@@ -1341,6 +1615,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202376%2F16%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 584,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-04-30",
@@ -1350,6 +1625,11 @@
           "area_m2": 584,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-akacjowa-dz-2376-16",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-akacjowa-dz-2376-16"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2376/16"
         }
       ]
     },
@@ -1366,6 +1646,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0010.AR_3.2206%2F105",
       "area_m2": 10915,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-03-05",
@@ -1375,6 +1656,13 @@
           "area_m2": 10915,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-3-go-maja",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-3-go-maja"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2206/105",
+          "dzialka_id": "247001_1.0010.AR_3.2206/105",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0010.AR_3.2206%2F105"
         }
       ]
     },
@@ -1391,6 +1679,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200010%20Weso%C5%82a%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 21596,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-02-20",
@@ -1401,7 +1690,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-u-zbiegu-ulic-harcerzy-slaski",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-u-zbiegu-ulic-harcerzy-slaski"
         }
-      ]
+      ],
+      "parcels": []
     },
     {
       "key": "dz|0002 brzęczkowice|3714/404",
@@ -1416,6 +1706,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.3714%2F404",
       "area_m2": 18599,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-02-06",
@@ -1425,6 +1716,13 @@
           "area_m2": 18599,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-gen-jerzego-zietka",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-gen-jerzego-zietka"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3714/404",
+          "dzialka_id": "247001_1.0002.AR_1.3714/404",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.3714%2F404"
         }
       ]
     },
@@ -1441,6 +1739,7 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.914%2F163",
       "area_m2": 110,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2024-01-30",
@@ -1450,6 +1749,13 @@
           "area_m2": 110,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sien",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sien"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "914/163",
+          "dzialka_id": "247001_1.0001.AR_2.914/163",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.914%2F163"
         }
       ]
     },
@@ -1466,6 +1772,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%2F13%200001%20Brzezinka.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1936,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-12-12",
@@ -1475,6 +1782,12 @@
           "area_m2": 1936,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-laryska-cicha",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-laryska-cicha"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2/13",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%2F13%200001%20Brzezinka.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1491,6 +1804,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204039%2F415%2C%204040%2F415%2C%204041%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 2224,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-08-29",
@@ -1500,6 +1814,20 @@
           "area_m2": 2224,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-chrzanowskiej",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-chrzanowskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4039/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204039%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "4040/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204040%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "4041/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204041%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1516,6 +1844,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204039%2F415%2C%204040%2F415%2C%204041%2F415%2C%204042%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 2346,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2023-08-29",
@@ -1525,6 +1854,24 @@
           "area_m2": 2346,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-chrzanowskiej",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-chrzanowskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4039/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204039%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "4040/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204040%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "4041/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204041%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "4042/415",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204042%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1541,6 +1888,7 @@
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20Dzie%C4%87kowice%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
       "area_m2": 3543,
       "zoning": null,
+      "status": null,
       "listings": [
         {
           "date": "2025-07-15",
@@ -1623,7 +1971,8 @@
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-odwolaniu-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-dz-2376-16-ul-akac",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-odwolaniu-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-dz-2376-16-ul-akac"
         }
-      ]
+      ],
+      "parcels": []
     }
   ]
 }
