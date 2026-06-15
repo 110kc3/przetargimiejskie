@@ -200,8 +200,18 @@ export function areaFrom(text) {
 export function addressFrom(text) {
   const raw = field(text, 'Adres');
   if (!raw) return null;
-  const address = parseAddress(raw);
-  return address ? { address_raw: raw, address } : null;
+  // Joint-lot listings carry two addresses ("ul. Łukowa 15, Łukowa 17",
+  // "ul. X 5+7") — key on the FIRST so the street stays clean (mirrors Bytom's
+  // joint-lot handling). Fall back to the whole string if the split doesn't key.
+  const first = raw.split(/\s*[,;+]\s*/)[0].trim();
+  const address = parseAddress(first) || parseAddress(raw);
+  if (!address) return null;
+  // Defensive: never emit a junk street — the CI sanity gate (and the join key)
+  // reject ':'/';'/digits in the street name; only leading "3 Maja"-style is OK.
+  const street = address.street || '';
+  const digitsOk = /^\d+\s/.test(street);
+  if (/[;:]/.test(street) || (!digitsOk && /\d/.test(street))) return null;
+  return { address_raw: raw, address };
 }
 
 /**

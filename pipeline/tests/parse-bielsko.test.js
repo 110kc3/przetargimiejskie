@@ -187,3 +187,19 @@ test('Bielsko land node flows through buildLand into a keyed plot + geoportal li
   assert.equal(plots[0].area_m2, 1234);
   assert.ok(plots[0].geoportal_url, 'geoportal_url resolved');
 });
+
+// ---- joint-lot address (the Łukowa 15+17 CI sanity failure) ----
+test('addressFrom keys a joint-lot ("ul. Łukowa 15, Łukowa 17") on the first, clean street', () => {
+  const node = '<div><div class="label">Adres:</div><div class="val">ul. Łukowa 15, Łukowa 17</div></div>';
+  const a = addressFrom(htmlToText(node));
+  assert.ok(a, 'joint-lot still keyed');
+  assert.equal(a.address.street_norm, 'lukowa');   // not "lukowa 15 lukowa"
+  assert.equal(a.address.building, '15');
+  assert.ok(!/\d/.test(a.address.street), 'street has no digits → passes the sanity gate');
+});
+
+test('addressFrom drops an address that can only resolve to a junk (digit) street', () => {
+  const node = '<div><div class="label">Adres:</div><div class="val">działka 12/3 na terenie</div></div>';
+  // no clean street → null (rather than emit a junk-street record that fails CI)
+  assert.equal(addressFrom(htmlToText(node)), null);
+});
