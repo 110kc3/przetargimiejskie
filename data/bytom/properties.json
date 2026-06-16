@@ -146,7 +146,7 @@
           "date": "2026-06-16",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 200000,
+          "starting_price_pln": null,
           "outcome": "active",
           "area_m2": 52.4,
           "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Chorzowska-2013/idn:13326",
@@ -221,6 +221,28 @@
         }
       ],
       "area_m2": 59.28
+    },
+    {
+      "key": "reja|2237|14",
+      "street": "Reja",
+      "street_norm": "reja",
+      "building": "2237",
+      "apt": "14",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 12400,
+          "outcome": "archived",
+          "area_m2": 26.4,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-dzialki-pod-garazami/ul.-Reja-dzialka-gruntu-nr-223714/idn:13230",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.4
     },
     {
       "key": "aleja legionow|20|4",
@@ -397,6 +419,28 @@
         }
       ],
       "area_m2": 40.1
+    },
+    {
+      "key": "witczaka|3143|37",
+      "street": "Witczaka",
+      "street_norm": "witczaka",
+      "building": "3143",
+      "apt": "37",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-03-16",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 8350,
+          "outcome": "archived",
+          "area_m2": 15.9,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-dzialki-pod-garazami/ul.-Witczaka-dz.-314337/idn:12731",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 15.9
     }
   ]
 }
