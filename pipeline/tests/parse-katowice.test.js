@@ -334,3 +334,45 @@ test('single-unit announcement still yields exactly one listing', () => {
   assert.equal(recs[0].starting_price_pln, 180000);
   assert.equal(recs[0].address.key, 'oswobodzenia|38C|57');
 });
+
+// Auction-date regex regression (June 2026): the multi-unit change rewrote the
+// shared auction-date pattern from `odb[ęe]dzie\s+si[ęe]` to
+// `odb[ęe]d[ąa]?\s*si[ęe]` to catch the plural "Przetargi odbędą się". But the
+// optional single `[ąa]` cannot span the "zie" in the SINGULAR "odbędzie się"
+// that every single-property announcement uses (verified live on
+// bip.katowice.eu idr=152394: "Przetarg odbędzie się w dniu 15.09.2026 …"), so
+// auction_date silently dropped to null for ~30 active listings. The fixed
+// alternation `odb[ęe]d(?:zie|[ąa])\s*si[ęe]` matches BOTH forms. This guards
+// the singular path; the multi-unit test above guards the plural one.
+test('single-unit announcement extracts auction_date from singular "odbędzie się"', () => {
+  // Body wording lifted verbatim from bip.katowice.eu idr=152394.
+  const flatHtml = `<p>Sprzedaż lokalu mieszkalnego nr 5 przy ul. Solskiego 10
+    o pow. użytkowej 42,10 m². Cena wywoławcza: 250 000 zł.
+    Wadium może być wnoszone w pieniądzu do dnia 07.09.2026 r.
+    Przetarg odbędzie się w dniu 15.09.2026 o godz. 09:40 w sali nr 4-5
+    w siedzibie Urzędu Miasta Katowice, ul. Młyńska 4.</p>`;
+  const flat = parseAnnouncement(
+    flatHtml,
+    'Pierwszy przetarg … lokalu mieszkalnego przy ul. Solskiego 10/5',
+    'doc://singular-flat',
+  );
+  assert.ok(flat, 'expected a listing');
+  assert.equal(flat.auction_date, '2026-09-15', 'singular "odbędzie się" must set auction_date');
+  assert.equal(flat.wadium_deadline, '2026-09-07');
+  assert.equal(flat.area_m2, 42.1, 'flat usable area');
+
+  // A single-unit zabudowana with the same singular wording: the date must
+  // resolve AND the plot total must route to land_area_m2, not area_m2.
+  const zabHtml = `<p>Sprzedaż nieruchomości zabudowanej budynkiem mieszkalnym
+    przy ul. Górnej 4 o powierzchni 1049,48 m². Cena wywoławcza: 2 000 000 zł.
+    Przetarg odbędzie się w dniu 12.08.2026 o godz. 10:00.</p>`;
+  const zab = parseAnnouncement(
+    zabHtml,
+    'Pierwszy przetarg … nieruchomości zabudowanej przy ul. Górnej 4',
+    'doc://singular-zab',
+  );
+  assert.ok(zab, 'expected a listing');
+  assert.equal(zab.auction_date, '2026-08-12', 'singular form on a zabudowana announcement');
+  assert.equal(zab.area_m2, null, 'plot total is not a flat area');
+  assert.equal(zab.land_area_m2, 1049.48, 'whole-property total → land_area_m2 (by design)');
+});

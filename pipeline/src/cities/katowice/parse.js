@@ -69,7 +69,13 @@ function pickFlatArea(text) {
   return areaNum;
 }
 function sharedDates(fullText) {
-  const adM = /Przetarg\w*\s+odb[ęe]d[ąa]?\s*si[ęe][^.]{0,40}?\bw\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
+  // Match BOTH the singular "Przetarg odbędzie się" (single-property
+  // announcements) AND the plural "Przetargi odbędą się" (multi-unit). A
+  // prior multi-unit change rewrote this to `odb[ęe]d[ąa]?\s*si[ęe]`, whose
+  // optional single `[ąa]` could not span the "zie" in "odbędzie", silently
+  // dropping auction_date from every single-unit listing. The alternation
+  // (?:zie|[ąa]) keeps both forms. See the singular/plural fixtures below.
+  const adM = /Przetarg\w*\s+odb[ęe]d(?:zie|[ąa])\s*si[ęe][^.]{0,40}?\bw\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
   const auction_date = adM ? isoDate(adM[1], adM[2], adM[3]) : null;
   const wadM = /[Ww]adium[^.]{0,90}?do\s+dnia\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
   const wadium_deadline = wadM ? isoDate(wadM[1], wadM[2], wadM[3]) : null;

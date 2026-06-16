@@ -136,7 +136,11 @@ function parseArea(s) {
 }
 
 export function priceFromText(text) {
-  const m = /cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(text || '');
+  // Widened from {0,40} and singular "cena wywoławcza": the price often sits behind
+  // a long qualifier ("…do II ustnego przetargu nieograniczonego wynosi:", "…za całą
+  // nieruchomość wynosi –", "…wynosi netto :") and the header is sometimes plural
+  // ("Ceny wywoławcze … wynoszą"). The \s*zł anchor keeps it from grabbing a non-price number.
+  const m = /cen[ay]\s+wywo[łl]awcz\w*[^0-9]{0,90}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
@@ -232,7 +236,12 @@ export function parsePropertyAnnouncement(title, content, kind) {
 
 function parsePricesPerParcel(text) {
   const map = new Map();
-  const re = /za\s+nieruchomo[śs][ćc]\s+oznaczon[^\s]*\s+geodezyjnie\s+jako\s+dzia[łl]ka\s+nr\s+([\d\/]+)[\s\S]{0,120}?([\d][\d\s.]*,\d{2})\s*z[łl]/gi;
+  // Multi-plot announcements price each parcel separately, in many phrasings:
+  //   "dla działki nr 4292/4 wynosi : 199 200,00 zł", "dla dz. nr 2452/4 o pow.… - 148 000,00 zł",
+  //   "za działkę nr 645 wynosi netto : 1.877.000,00 zł", "za nieruchomość … geodezyjne jako
+  //   działka nr 3414 – 8.000,00 zł" (note the "geodezyjne" typo). Anchor on dla/za + parcel,
+  //   skip an optional "o pow.…/udział…" clause, take the next "<price> zł" (glued or spaced).
+  const re = /(?:dla|za)\s+(?:nieruchomo[śs][ćc]\s+oznaczon[a-zżźćńłśąęó]*\s+geodezyjn[a-zżźćńłśąęó]*\s+jako\s+)?(?:dzia[łl]k[a-zżźćńłśąęó]*|dz\.)\s*(?:nr\s*)?(\d+(?:\/\d+)?)[\s\S]{0,90}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/gi;
   let m;
   while ((m = re.exec(text)) !== null) {
     const parcel = m[1].trim();

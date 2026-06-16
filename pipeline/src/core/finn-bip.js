@@ -253,6 +253,10 @@ export function shareFromTitle(title, text = '') {
 export function areaFromText(text) {
   if (!text) return null;
   const plausible = (v) => v != null && v >= 8 && v <= 300;
+  // An explicitly LABELLED usable area ("powierzchni użytkowej N m²") has no upper
+  // cap: a house/kamienica/commercial unit can exceed 300 m² (e.g. 749, 814, 957).
+  // Cellars/plots are already excluded by the guards, so a big labelled value is real.
+  const plausibleLab = (v) => v != null && v >= 8;
   // Labelled flat area: "pow[ierzchni]. użytkow… <num> m²". Scanned as a
   // GLOBAL match with a cellar/plot guard: announcements label the cellar the
   // same way ("wraz z piwnicą o powierzchni użytkowej 8,36 m2"), and the REAL
@@ -267,7 +271,7 @@ export function areaFromText(text) {
     const before = text.slice(Math.max(0, lm.index - 30), lm.index);
     if (LAB_EXCLUDE.test(before) || LAB_EXCLUDE.test(lm[1])) continue;
     const v = parseArea(lm[2]);
-    if (plausible(v)) return v;
+    if (plausibleLab(v)) return v;
   }
   // Fallback: a bare "<num> m²". Prefer one tagged "użytkow…"; skip plot/share/cellar.
   const M2 = /([\d][\d.,]*)\s*m\s*[²2](?!\d)/gi;
@@ -282,7 +286,7 @@ export function areaFromText(text) {
     if (/piwnic|kom[óo]rk|przynale[żz]|gara[żz]|strych/i.test(before)) continue; // cellar / attic
     const v = parseArea(m[1]);
     if (/u[żz]ytkow/i.test(before)) {
-      if (plausible(v)) return v;
+      if (plausibleLab(v)) return v;
       continue;
     }
     if (plausible(v)) cands.push(v);
