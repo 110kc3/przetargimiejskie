@@ -112,7 +112,7 @@
       "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20195%2F5%20Bogucice%20-%20Zawodzie%20Katowice%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "area_m2": 2489,
       "zoning": null,
       "status": null,
       "listings": [
@@ -121,6 +121,7 @@
           "round": 1,
           "starting_price_pln": 750000,
           "outcome": "archived",
+          "area_m2": 2489,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=529",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=529"
         }
@@ -202,7 +203,7 @@
       "address_raw": null,
       "dzialka_id": "246901_1.0013.AR_19.790/36",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.790%2F36",
-      "area_m2": 117,
+      "area_m2": 317,
       "zoning": null,
       "status": null,
       "listings": [
@@ -211,7 +212,7 @@
           "round": 1,
           "starting_price_pln": 95000,
           "outcome": "active",
-          "area_m2": 117,
+          "area_m2": 317,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539"
         }
