@@ -362,8 +362,16 @@ export function parseLandAttachment(text) {
   const t = text.replace(/\s+/g, ' ');
   const parcels = [...t.matchAll(/dzia[\u0142l]k[ai]?\s+nr\s+(\d+(?:\/\d+)?)/gi)].map((m) => m[1]);
   const dzialka_nr = parcels.length ? [...new Set(parcels)].join(', ') : null;
-  const areaM = /o\s+pow(?:\.|ierzchni)?\s+([\d][\d \u00a0.]*(?:,\d+)?)\s*m\s*[\u00b22]/i.exec(t);
-  const area_m2 = areaM ? parsePlotArea(areaM[1]) : null;
+  const areaM = /o\s+(?:[\u0142l][\u0105a]cznej\s+)?pow(?:\.|ierzchni)?\s+([\d][\d \u00a0.]*(?:,\d+)?)\s*m\s*[\u00b22]/i.exec(t);
+  let area_m2 = areaM ? parsePlotArea(areaM[1]) : null;
+  // Hectare fallback \u2014 Zabrze land attachments often state area only as "0,0725 ha".
+  if (area_m2 == null) {
+    const haM = /o\s+(?:[\u0142l][\u0105a]cznej\s+)?pow(?:\.|ierzchni)?\s+([\d][\d \u00a0.]*(?:,\d+)?)\s*ha\b/i.exec(t);
+    if (haM) {
+      const n = Number(haM[1].replace(/[\s\u00a0]/g, '').replace(',', '.'));
+      if (Number.isFinite(n) && n > 0) area_m2 = Math.round(n * 10000);
+    }
+  }
   const obrebM = /obr[\u0119e]b(?:ie)?\s*:?\s*([A-Z\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143][A-Za-z\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143\u017c\u017a\u0107\u0142\u015b\u0105\u0119\u00f3\u0144-]*)/i.exec(t);
   const obreb = obrebM ? obrebM[1] : null;
   const streetM = /przy\s+(ul|al|pl|os)\.?\s+([A-Z\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143][A-Za-z0-9\u017b\u0179\u0106\u0141\u015a\u0104\u0118\u00d3\u0143\u017c\u017a\u0107\u0142\u015b\u0105\u0119\u00f3\u0144.'\u2019\- ]{2,60}?)\s*(?:,|obr[\u0119e]b|stanowi|zapisan|o\s+pow)/i.exec(t);

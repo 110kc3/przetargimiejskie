@@ -389,7 +389,7 @@ export function parseLandAnnouncement(title, contentHtml, url) {
 
   // --- Plot area ---
   let area_m2 = null;
-  const AREA_RE = /(?:(?:[łl]ącznej\s+)?pow(?:ierzchni)?\.?\s*|powierzchni[a]?\s+)([\d.,\s]+)\s*m\s*[²2]/gi;
+  const AREA_RE = /(?:(?:[łl]ącznej\s+)?pow(?:ierzchni)?\.?\s*|powierzchni[a]?\s+)([\d.,\s]+)\s*m\s*(?:[²2]|kw|["”])/gi;
   let am;
   while ((am = AREA_RE.exec(text)) !== null) {
     const before = text.slice(Math.max(0, am.index - 40), am.index);
@@ -398,6 +398,14 @@ export function parseLandAnnouncement(title, contentHtml, url) {
     const n = Number(raw.replace(',', '.'));
     if (Number.isFinite(n) && n > 0 && n < 1e7) {
       if (area_m2 == null || n > area_m2) area_m2 = n;
+    }
+  }
+  // Hectare fallback — many land notices give the area only as "0,1115 ha".
+  if (area_m2 == null) {
+    const haM = /([\d][\d.,\s]*)\s*ha\b/i.exec(text);
+    if (haM) {
+      const n = Number(haM[1].replace(/\s/g, '').replace(',', '.'));
+      if (Number.isFinite(n) && n > 0 && n < 1e4) area_m2 = Math.round(n * 10000);
     }
   }
 

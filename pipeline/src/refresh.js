@@ -282,6 +282,24 @@ async function refreshCity(city) {
 
   const landBuilt = buildLand(landRecords, city.id, city);
 
+  // PRESERVE-ON-EMPTY for LAND. Land has a single source per city (e.g. Bytom's
+  // i-BIIP catalog), so a silent fetch failure there yields 0 plots and would
+  // otherwise overwrite good land.json with an empty file. If we got 0 plots but
+  // previously published some, treat it as a source outage and keep the last-good
+  // file — same philosophy as the properties preserve-on-empty net above.
+  const landFile = join(DATA_DIR, city.id, 'land.json');
+  let landPlots = landBuilt.plots;
+  let landPreserved = false;
+  if (landPlots.length === 0 && existsSync(landFile)) {
+    let prevPlots = [];
+    try { prevPlots = JSON.parse(await readFile(landFile, 'utf8'))?.plots || []; } catch { prevPlots = []; }
+    if (prevPlots.length > 0) {
+      console.error(`  ${city.id}: land crawl returned 0 plots but ${prevPlots.length} were previously published — preserving land.json (likely a land-source outage).`);
+      landPlots = prevPlots;
+      landPreserved = true;
+    }
+  }
+
   const meta = {
     schema_version: SCHEMA_VERSION,
     parser_version: PARSER_VERSION,
@@ -295,7 +313,7 @@ async function refreshCity(city) {
     active_auctions: activeAuctions,       // genuinely running (outcome 'active')
     archived_auctions: archivedAuctions,   // concluded (archived/sold/unsold)
     wykaz_entries: wykaz.length,
-    land_plots: landBuilt.plots.length,    // unique parcels in land.json
+    land_plots: landPlots.length,          // unique parcels in land.json (preserved on empty-crawl outage)
     land_listings: landRecords.length,     // raw land auction rows seen this run
     retained_properties: retained.kept_properties,
   };
@@ -317,10 +335,13 @@ async function refreshCity(city) {
   // Separate parcel-keyed store for land (działki/grunty). Flats, houses
   // (zabudowana) and commercial stay in properties.json/active.json; only land
   // lives here. See core/build-land.js.
-  await writeFile(
-    join(cityDir, 'land.json'),
-    JSON.stringify({ schema_version: LAND_SCHEMA_VERSION, city: city.id, plots: landBuilt.plots }, null, 2) + '\n',
-  );
+  // Skip when preserving (above) so the last-good land.json is left untouched.
+  if (!landPreserved) {
+    await writeFile(
+      join(cityDir, 'land.json'),
+      JSON.stringify({ schema_version: LAND_SCHEMA_VERSION, city: city.id, plots: landBuilt.plots }, null, 2) + '\n',
+    );
+  }
 
   console.error('--- summary ---');
   console.error(JSON.stringify(meta, null, 2));

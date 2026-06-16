@@ -184,7 +184,7 @@ export function parseLandAnnouncement(html, title, docUrl) {
   const obreb = obrebM ? obrebM[1].replace(/\s+/g, ' ').trim() : null;
 
   // -- plot area: "o pow. 1772 m2", "o powierzchni 1772 m²"
-  const areaM = /o\s+pow(?:\.|ierzchni)\s*(\d[\d\s]*(?:[.,]\d+)?)\s*m\s*[²2]/i.exec(text);
+  const areaM = /o\s+(?:[łl][ąa]cznej\s+)?pow(?:\.|ierzchni)\s*(\d[\d\s]*(?:[.,]\d+)?)\s*m\s*[²2]/i.exec(text);
   const area_m2 = areaM ? Number(areaM[1].replace(/\s/g, '').replace(',', '.')) : null;
 
   // -- street from title: "przy ul. Solskiego", "przy ul. Magazynowej"

@@ -92,17 +92,17 @@ export function priceFromText(text) {
 export function areaFromText(text) {
   if (!text) return null;
   const plausible = (v) => v != null && v >= 8 && v <= 300;
-  const lab = /pow(?:ierzchni\w*)?\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*[²2]/i.exec(text);
+  const lab = /pow(?:ierzchni\w*)?\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*(?:[²2]|kw)/i.exec(text);
   if (lab) {
     const v = parseArea(lab[1]);
     if (plausible(v)) return v;
   }
-  const M2 = /([\d][\d.,]*)\s*m\s*[²2](?!\d)/gi;
+  const M2 = /([\d][\d.,]*)\s*m\s*(?:[²2]|kw)(?!\d)/gi;
   let m;
   const cands = [];
   while ((m = M2.exec(text)) !== null) {
     const before = text.slice(Math.max(0, m.index - 40), m.index);
-    if (/dzia[łl]k|grunt|o\s+pow\b/i.test(before)) continue;
+    if (/dzia[łl]k|grunt/i.test(before)) continue;
     const v = parseArea(m[1]);
     if (plausible(v)) cands.push(v);
   }
@@ -172,15 +172,21 @@ function parseDateNumeric(s) {
 
 function parsePlotArea(text) {
   if (!text) return null;
-  const re1 = /o\s+(?:pow(?:ierzchni)?\.?\s+)?(?:[łl][ąa]cznej\s+)?(?:powierzchni\s+)?(?:(?:[łl][ąa]cznej|razem)\s+)?([\d][\d .]*(?:,\d+)?)\s*m\s*[²2]/i;
-  const re2 = /powierzchni\w*\s+(?:[łl][ąa]cznej\s+)?([\d][\d .]*(?:,\d+)?)\s*m\s*[²2]/i;
-  const m = re1.exec(text) || re2.exec(text);
-  if (!m) return null;
-  let raw = m[1].replace(/\s/g, '');
-  if (/^\d{1,3}(?:\.\d{3})+$/.test(raw)) raw = raw.replace(/\./g, '');
-  raw = raw.replace(',', '.');
-  const n = Number(raw);
-  return Number.isFinite(n) && n > 0 ? n : null;
+  const num = (s) => {
+    let raw = String(s).replace(/[  ]/g, '');
+    if (/^\d{1,3}(?:\.\d{3})+$/.test(raw)) raw = raw.replace(/\./g, ''); // thousands dots
+    raw = raw.replace(',', '.');
+    const n = Number(raw);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  };
+  // m² / m2 / mkw, optional pow./powierzchni/łącznej preamble, glued or spaced.
+  const reM2 = /(?:pow(?:ierzchni)?\.?|powierzchni\w*)?\s*(?:[łl][ąa]cznej\s+)?([\d][\d . ]*(?:,\d+)?)\s*m\s*(?:[²2]|kw)(?!\d)/i;
+  let m = reM2.exec(text);
+  if (m) { const n = num(m[1]); if (n != null) return n; }
+  // hectares: "0,1115 ha" / "1,5350 ha" → m²
+  m = /([\d][\d . ]*(?:,\d+)?)\s*ha\b/i.exec(text);
+  if (m) { const n = num(m[1]); if (n != null) return Math.round(n * 10000); }
+  return null;
 }
 
 function parseObreb(text) {
@@ -332,7 +338,9 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }
   if (!auction_date) auction_date = fallbackDate || null;
 
-  const finalM = /najwy[żz]sz[ąa]\s+cen[ęe][^0-9]{0,60}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
+  let finalM = /najwy[żz]sz[ąa]\s+cen[ęe][^0-9]{0,60}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
+  // Older result notices phrase the achieved price as "...osiągnęła kwotę w wysokości N zł".
+  if (!finalM) finalM = /osi[ąa]gn[ęe][łl]a\s+kwot[ęe][^0-9]{0,30}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
   const negative =
     /negatywn|nie\s+wy[łl]oniono|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem/i.test(body) ||
     (!finalM && !/nabywc/i.test(body));

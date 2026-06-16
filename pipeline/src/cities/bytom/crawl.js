@@ -262,7 +262,10 @@ export async function crawlActive() {
   let catByKey = new Map();
   let land = [];
   try {
-    const catHtml = await getText(CATALOG_URL);
+    // Browser UA: the i-BIIP host (like bytom.pl) intermittently serves an empty
+    // body to the default bot UA, which silently zeroed out land (see refresh.js
+    // empty-land guard for the durable backstop).
+    const catHtml = await getText(CATALOG_URL, { userAgent: BROWSER_UA });
     catByKey = parseCatalog(catHtml);
     land = parseCatalogLand(catHtml);
   } catch (err) {

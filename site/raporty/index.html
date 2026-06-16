@@ -166,10 +166,13 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
      column and tile colour, so the charts come out blank. */
   *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
   @page{ margin:13mm; }
-  :root{--bg:#fff;--bg-grad:#fff;--surface:#fff;--surface-2:#f1f3f6;--border:#ccd2da;--border-2:#b9c1cc;--track:#e7ebf1;
+  /* color-scheme:light is the actual border fix — the page declares color-scheme:dark,
+     which makes the browser paint a DARK canvas; print-color-adjust:exact (needed for the
+     charts) was then forcing that dark canvas onto every page as a black frame. */
+  :root{color-scheme:light;--bg:#fff;--bg-grad:#fff;--surface:#fff;--surface-2:#f1f3f6;--border:#ccd2da;--border-2:#b9c1cc;--track:#e7ebf1;
     --fg:#11161d;--fg-strong:#000;--muted:#444c57;--faint:#6b727c;--accent:#2f6fd0;--accent-hi:#2f6fd0;
     --ok:#1f8a53;--bad:#c23b30;--warn:#a8780f;--cyan:#127d7d;--accent-weak:#eef3fb}
-  body{background:#fff;font-size:12px}
+  html,body{background:#fff !important;background-image:none !important;font-size:12px;color-scheme:light}
   .wrap{max-width:none;padding:0}
   .controls,.city-nav,.site-nav,.no-print{display:none !important}
   /* keep charts + tiles whole on a page; let long tables flow across pages */
