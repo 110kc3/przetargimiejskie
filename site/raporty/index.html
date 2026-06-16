@@ -162,16 +162,26 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
 @media (max-width:720px){.hbar{grid-template-columns:96px 1fr auto}}
 
 @media print{
-  :root{--bg:#fff;--bg-grad:#fff;--surface:#fff;--surface-2:#f1f3f6;--border:#ccd2da;--border-2:#b9c1cc;--track:#eaedf2;
+  /* Force backgrounds/fills to print — without this Chrome drops every bar,
+     column and tile colour, so the charts come out blank. */
+  *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  @page{ margin:13mm; }
+  :root{--bg:#fff;--bg-grad:#fff;--surface:#fff;--surface-2:#f1f3f6;--border:#ccd2da;--border-2:#b9c1cc;--track:#e7ebf1;
     --fg:#11161d;--fg-strong:#000;--muted:#444c57;--faint:#6b727c;--accent:#2f6fd0;--accent-hi:#2f6fd0;
     --ok:#1f8a53;--bad:#c23b30;--warn:#a8780f;--cyan:#127d7d;--accent-weak:#eef3fb}
-  body{background:#fff}
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:none;padding:0}
   .controls,.city-nav,.site-nav,.no-print{display:none !important}
-  .section{break-inside:avoid;border-top:1px solid var(--border)}
+  /* keep charts + tiles whole on a page; let long tables flow across pages */
+  .section{border-top:1px solid var(--border);padding:14px 0;margin-top:10px}
+  .panel,.kpi-grid,.cols,.hist,.hbars{break-inside:avoid}
+  .data-table{font-size:10.5px}
+  .data-table thead{display:table-header-group}     /* repeat header on each page */
   .table-scroll{overflow:visible;border-color:var(--border)}
-  .hbar .hbar-track{background:#eef1f5}
-  a{color:var(--fg)}
+  .hbar .hbar-track{background:#e7ebf1}
+  a{color:var(--fg);text-decoration:none}
   .arc-head{padding-top:0}
+  .report-date{font-size:12px}
 }
 </style>
 </head>
@@ -325,7 +335,7 @@ function periodStartYM(){ if(fPeriod==='all') return null; const n=+fPeriod; con
 const inPeriod = ds => { if(fPeriod==='all') return true; const ym=(ds||'').slice(0,7); return !!ym && ym>=periodStartYM(); };
 
 // ===== state =====
-let CITIES=[], CITY_LABEL={}, IDX=[], PROPS=[], lastRefresh='';
+let CITIES=[], CITY_LABEL={}, IDX=[], PROPS=[], ACTIVE=[], PBK=new Map(), lastRefresh='';
 let fCity='all', fKind='mieszkalny', fMonth='', fPeriod='12';
 
 // ===== load =====
@@ -350,9 +360,10 @@ async function load(){
 
   await Promise.all(IDX.map(async c=>{
     try{
-      const [props, land] = await Promise.all([
+      const [props, land, act] = await Promise.all([
         fetch(`/data/${c.id}/properties.json`).then(r=>r.json()).catch(()=>({properties:[]})),
         fetch(`/data/${c.id}/land.json`).then(r=>r.json()).catch(()=>({plots:[]})),
+        fetch(`/data/${c.id}/active.json`).then(r=>r.json()).catch(()=>({listings:[]})),
       ]);
       for(const p of (props.properties||[])){
         const listings = (p.listings||[]).map(l=>({
@@ -360,8 +371,11 @@ async function load(){
           start:l.starting_price_pln, final:l.final_price_pln, outcome:l.outcome,
           area:l.area_m2??p.area_m2, src:l.detail_url||l.source_pdf||l.bip_url
         })).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
-        if(listings.length) PROPS.push({city:c.id,cityLabel:c.label,kind:p.kind||(listings[0]&&listings[0].kind)||'unknown',
-          street:p.street,building:p.building,apt:p.apt,listings});
+        if(listings.length){
+          const prop={city:c.id,cityLabel:c.label,key:p.key,kind:p.kind||(listings[0]&&listings[0].kind)||'unknown',
+            street:p.street,building:p.building,apt:p.apt,listings};
+          PROPS.push(prop); if(p.key) PBK.set(c.id+'|'+p.key, prop);
+        }
       }
       for(const pl of (land.plots||[])){
         const disp = pl.street ? `${pl.street}${pl.building?' '+pl.building:''}`
@@ -371,6 +385,14 @@ async function load(){
           outcome:l.outcome, area:pl.area_m2??l.area_m2, src:l.detail_url||l.source_url
         })).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
         if(listings.length) PROPS.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',listings});
+      }
+      // active.json = the canonical list of currently-running auctions, and the
+      // only place that reliably carries auction_date. The deal board joins these
+      // to property history (by address key) to compute the discount.
+      for(const l of (act.listings||[])){
+        ACTIVE.push({city:c.id, cityLabel:c.label, key:(l.address&&l.address.key)||null, kind:l.kind||'unknown',
+          addr:l.address_raw||'', round:l.round, start:l.starting_price_pln, area:l.area_m2,
+          date:l.auction_date||null, src:l.detail_url||l.bip_url||null});
       }
     }catch(e){}
   }));
@@ -560,27 +582,30 @@ function renderBenchmarks(){
       <span class="hbar-val"><b>${nf.format(Math.round(med))}</b> zł/m² <span style="color:var(--faint);font-weight:500">(${n})</span></span></div>`).join('');
 }
 
-// Deal board: currently-active listings that were relisted (price cut vs first attempt).
+// Deal board: currently-active auctions (from active.json — these carry the
+// auction date) priced BELOW their first historical attempt (history from
+// properties.json, joined by address key).
 function dealRows(){
   const out=[];
-  for(const p of PROPS){
-    if(fCity!=='all'&&p.city!==fCity) continue;
-    if(fKind!=='all'&&p.kind!==fKind) continue;
-    const ls=p.listings;
-    let cur=null; for(let i=ls.length-1;i>=0;i--){ if(ls[i].outcome==='active'||ls[i].outcome==='announced'){cur=ls[i];break;} }
-    if(!cur) continue;
-    const priors=ls.filter(l=>l!==cur);
-    if(!priors.length) continue;                       // never relisted → not a discount opportunity
-    const priorUnsold=priors.filter(l=>l.outcome==='unsold').length;
-    const priced=ls.filter(l=>l.start!=null);
-    const first=priced.length?priced[0].start:null;
-    const cut=(first!=null&&cur.start!=null)?(cur.start-first)/first*100:null;
-    const area=cur.area||ls.map(l=>l.area).find(a=>a)||null;
-    out.push({city:p.city,cityLabel:p.cityLabel,kind:p.kind,
-      addr:`${p.street||''} ${p.building||''}${p.apt?'/'+p.apt:''}`.trim(),
-      round:cur.round, priorUnsold, first, now:cur.start, cut, area, date:cur.date, src:cur.src});
+  for(const a of ACTIVE){
+    if(fCity!=='all'&&a.city!==fCity) continue;
+    if(fKind!=='all'&&a.kind!==fKind) continue;
+    if(a.date && a.date<TODAY) continue;                 // auction already happened
+    const pr = a.key ? PBK.get(a.city+'|'+a.key) : null;
+    if(!pr) continue;
+    const priced = pr.listings.filter(l=>l.start!=null && l.outcome!=='active' && l.outcome!=='announced');
+    if(!priced.length) continue;                         // no prior attempt to compare against
+    const first = priced[0].start, now = a.start;
+    if(now==null) continue;
+    const cut = (now-first)/first*100;
+    if(!(cut<0)) continue;                               // only genuine reductions ("po obniżce")
+    const priorUnsold = pr.listings.filter(l=>l.outcome==='unsold').length;
+    const addr = `${pr.street||''} ${pr.building||''}${pr.apt?'/'+pr.apt:''}`.trim() || a.addr;
+    const area = a.area || pr.listings.map(l=>l.area).find(x=>x) || null;
+    out.push({city:a.city,cityLabel:a.cityLabel,kind:a.kind,addr,
+      round:a.round, priorUnsold, first, now, cut, area, date:a.date, src:a.src});
   }
-  out.sort((a,b)=>(a.cut==null?1:b.cut==null?-1:a.cut-b.cut)); // biggest discount first
+  out.sort((x,y)=>x.cut-y.cut);   // biggest discount first
   return out;
 }
 function renderDeals(){
@@ -599,7 +624,7 @@ function renderDeals(){
       <td class="num ${cls}">${fmtPct(r.cut)}</td>
       <td class="num">${fmtArea(r.area)}</td>
       <td class="num">${fmtM2(r.now,r.area)}</td>
-      <td class="num muted-cell">${esc(r.date||'—')}</td>
+      <td class="num muted-cell">${r.date?esc(r.date):'<span title="Urząd nie ogłosił jeszcze terminu">termin nieustalony</span>'}</td>
       <td>${srcLink(r.src)}</td></tr>`;
   }).join('') : '<tr class="empty-row"><td colspan="10">Brak aktualnych aukcji po obniżce w tym zakresie. Zmień miasto/rodzaj lub sprawdź później.</td></tr>';
 }
