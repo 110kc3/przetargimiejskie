@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-16T11:20:24.967Z",
+  "generated_at": "2026-06-16T12:58:01.521Z",
   "cities": [
     {
       "id": "gliwice",
@@ -12,17 +12,17 @@
       "active_auctions": 18,
       "archived_auctions": 234,
       "wykaz_entries": 10,
-      "land_plots": 76
+      "land_plots": 79
     },
     {
       "id": "katowice",
       "label": "Katowice",
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
-      "unique_properties": 127,
-      "active_listings": 45,
-      "active_auctions": 8,
-      "archived_auctions": 133,
+      "unique_properties": 133,
+      "active_listings": 46,
+      "active_auctions": 43,
+      "archived_auctions": 139,
       "wykaz_entries": 0,
       "land_plots": 7
     },
@@ -31,10 +31,10 @@
       "label": "Bytom",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 18,
-      "active_listings": 18,
+      "unique_properties": 20,
+      "active_listings": 20,
       "active_auctions": 7,
-      "archived_auctions": 11,
+      "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 12
     },
@@ -43,10 +43,10 @@
       "label": "Zabrze",
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
-      "unique_properties": 264,
-      "active_listings": 413,
-      "active_auctions": 6,
-      "archived_auctions": 412,
+      "unique_properties": 282,
+      "active_listings": 459,
+      "active_auctions": 7,
+      "archived_auctions": 457,
       "wykaz_entries": 0,
       "land_plots": 28
     },
@@ -67,12 +67,12 @@
       "label": "Rybnik",
       "authority": "ZGM Rybnik",
       "host": "bip.zgm.rybnik.pl",
-      "unique_properties": 6,
-      "active_listings": 0,
+      "unique_properties": 9,
+      "active_listings": 6,
       "active_auctions": 0,
-      "archived_auctions": 6,
+      "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 1
     },
     {
       "id": "bielsko",
@@ -91,10 +91,10 @@
       "label": "Mysłowice",
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
-      "unique_properties": 19,
-      "active_listings": 30,
-      "active_auctions": 8,
-      "archived_auctions": 25,
+      "unique_properties": 30,
+      "active_listings": 58,
+      "active_auctions": 15,
+      "archived_auctions": 41,
       "wykaz_entries": 0,
       "land_plots": 46
     },
