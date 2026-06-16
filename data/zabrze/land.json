@@ -722,7 +722,7 @@
       "address_raw": "ul. Gen. Walerego Wróblewskiego",
       "dzialka_id": "247801_1.0011.AR_5.80",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0011.AR_5.80",
-      "area_m2": null,
+      "area_m2": 725,
       "zoning": null,
       "status": null,
       "listings": [
@@ -731,6 +731,7 @@
           "round": 1,
           "starting_price_pln": 100000,
           "outcome": "archived",
+          "area_m2": 725,
           "detail_url": "https://bip.miastozabrze.pl/doc/6019",
           "source_url": "https://bip.miastozabrze.pl/attachment/43804"
         }
@@ -861,7 +862,7 @@
       "address_raw": "ul. Jana Galla",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20So%C5%9Bnica%20Zabrze%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "area_m2": 397,
       "zoning": null,
       "status": null,
       "listings": [
@@ -870,6 +871,7 @@
           "round": 1,
           "starting_price_pln": 200000,
           "outcome": "archived",
+          "area_m2": 397,
           "detail_url": "https://bip.miastozabrze.pl/doc/6035",
           "source_url": "https://bip.miastozabrze.pl/attachment/43847"
         }
@@ -984,7 +986,7 @@
       "address_raw": "ul. Jana Keplera",
       "dzialka_id": "247801_1.0006.AR_2.2494/52",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0006.AR_2.2494%2F52",
-      "area_m2": null,
+      "area_m2": 19,
       "zoning": null,
       "status": null,
       "listings": [
@@ -993,6 +995,7 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "active",
+          "area_m2": 19,
           "detail_url": "https://bip.miastozabrze.pl/doc/6013",
           "source_url": "https://bip.miastozabrze.pl/attachment/43772"
         },
@@ -1001,6 +1004,7 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "active",
+          "area_m2": 19,
           "detail_url": "https://bip.miastozabrze.pl/doc/6006",
           "source_url": "https://bip.miastozabrze.pl/attachment/43758"
         }
