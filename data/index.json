@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-16T12:58:01.521Z",
+  "generated_at": "2026-06-16T13:36:16.152Z",
   "cities": [
     {
       "id": "gliwice",
@@ -21,7 +21,7 @@
       "host": "bip.katowice.eu",
       "unique_properties": 133,
       "active_listings": 46,
-      "active_auctions": 43,
+      "active_auctions": 44,
       "archived_auctions": 139,
       "wykaz_entries": 0,
       "land_plots": 7
@@ -55,12 +55,12 @@
       "label": "Sosnowiec",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 25,
-      "active_listings": 35,
-      "active_auctions": 3,
-      "archived_auctions": 40,
+      "unique_properties": 46,
+      "active_listings": 88,
+      "active_auctions": 5,
+      "archived_auctions": 88,
       "wykaz_entries": 0,
-      "land_plots": 114
+      "land_plots": 227
     },
     {
       "id": "rybnik",
@@ -93,7 +93,7 @@
       "host": "bip.myslowice.pl",
       "unique_properties": 30,
       "active_listings": 58,
-      "active_auctions": 15,
+      "active_auctions": 14,
       "archived_auctions": 41,
       "wykaz_entries": 0,
       "land_plots": 46
@@ -103,12 +103,12 @@
       "label": "Świętochłowice",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 80,
-      "active_listings": 179,
-      "active_auctions": 5,
-      "archived_auctions": 182,
+      "unique_properties": 90,
+      "active_listings": 199,
+      "active_auctions": 7,
+      "archived_auctions": 199,
       "wykaz_entries": 0,
-      "land_plots": 14
+      "land_plots": 21
     }
   ]
 }
