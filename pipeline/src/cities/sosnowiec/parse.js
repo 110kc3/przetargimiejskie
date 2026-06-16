@@ -163,7 +163,7 @@ export function areaFromText(text) {
 export function addressFrom(title, text) {
   const src = `${title} ${text}`;
   const apt = /lokal\w*\s+mieszkaln\w*\s+(?:o\s+numerze|nr)\s*(\d+[A-Za-z]?)/i.exec(src)?.[1] || null;
-  const RE_LOC = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\b/;
+  const RE_LOC = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]{1,40}?)\s+(\d+[A-Za-z]?)\b/;  // ≤40 chars: stop the lazy street swallowing a whole sentence to a far number
   // Try the title first (cleanest), then the body alone. We deliberately do NOT
   // run the regex over `title + body` concatenated: when the title ends mid-street
   // (e.g. "…przy ul. M. Skłodowskiej-Curie" with the number only in the body) the
