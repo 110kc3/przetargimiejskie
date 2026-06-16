@@ -3,39 +3,6 @@
   "city": "rybnik",
   "plots": [
     {
-      "key": "dz|boguszowice|2190",
-      "kind": "grunt",
-      "city": "rybnik",
-      "dzialka_nr": "2190",
-      "obreb": "Boguszowice",
-      "street": "Gotartowickiej",
-      "building": null,
-      "address_raw": "ul. Gotartowickiej",
-      "dzialka_id": "247301_1.0007.2190",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.2190",
-      "area_m2": 2201,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-17",
-          "round": 5,
-          "starting_price_pln": 208600,
-          "outcome": "active",
-          "area_m2": 2201,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104073",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3501867"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2190",
-          "dzialka_id": "247301_1.0007.2190",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.2190"
-        }
-      ]
-    },
-    {
       "key": "dz|boguszowice|3698",
       "kind": "grunt",
       "city": "rybnik",
@@ -51,10 +18,10 @@
       "status": null,
       "listings": [
         {
-          "date": "2026-03-26",
+          "date": "2026-09-17",
           "round": 2,
           "starting_price_pln": 631000,
-          "outcome": "archived",
+          "outcome": "active",
           "area_m2": 3780,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103998",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3499886"
