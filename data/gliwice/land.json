@@ -36,6 +36,68 @@
       ]
     },
     {
+      "key": "dz|sikornik|736",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "736",
+      "obreb": "Sikornik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Czajki 7",
+      "dzialka_id": "246601_1.0048.736",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 691100,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "736",
+          "dzialka_id": "246601_1.0048.736",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736"
+        }
+      ]
+    },
+    {
+      "key": "dz|sośnica|884",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "884",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Limanowskiego",
+      "dzialka_id": "246601_1.0051.884",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.884",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "starting_price_pln": 640000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-884-obreb-sosnica-ul-limanowskiego-1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "884",
+          "dzialka_id": "246601_1.0051.884",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.884"
+        }
+      ]
+    },
+    {
       "key": "dz|bojków wschód|263/2, 263/6",
       "kind": "grunt",
       "city": "gliwice",
@@ -70,6 +132,37 @@
           "nr": "263/6",
           "dzialka_id": "246601_1.0019.263/6",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F6"
+        }
+      ]
+    },
+    {
+      "key": "dz|nowe gliwice|72/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "72/2",
+      "obreb": "Nowe Gliwice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pszczyńska 204",
+      "dzialka_id": "246601_1.0037.72/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 2,
+          "starting_price_pln": 601000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dz-nr-722-obreb-nowe-gliwice-ul-pszczynska-204"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "72/2",
+          "dzialka_id": "246601_1.0037.72/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2"
         }
       ]
     },
