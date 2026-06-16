@@ -3,6 +3,25 @@
   "city": "myslowice",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "address_raw": "Robotnicza 9",
+      "address": {
+        "street": "Robotnicza",
+        "street_norm": "robotnicza",
+        "building": "9",
+        "apt": null,
+        "key": "robotnicza|9|",
+        "warning": null
+      },
+      "auction_date": "2026-08-04",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 35.73,
+      "starting_price_pln": 58000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-uzytkowego-nr-6-znajdujacy-sie-w-budynku-nr-9-przy",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Fryderyka Chopina 15/3",
       "address": {
@@ -41,6 +60,25 @@
       "share": null
     },
     {
+      "kind": "zabudowana",
+      "address_raw": "Mikołaja Kopernika 15",
+      "address": {
+        "street": "Mikołaja Kopernika",
+        "street_norm": "mikolaja kopernika",
+        "building": "15",
+        "apt": null,
+        "key": "mikolaja kopernika|15|",
+        "warning": null
+      },
+      "auction_date": "2026-08-25",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 163,
+      "starting_price_pln": 830000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wl",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Powstańców 1/11",
       "address": {
@@ -58,6 +96,25 @@
       "starting_price_pln": 205500,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-m",
       "share": "4/6"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Chrzanowskiej 60",
+      "address": {
+        "street": "Chrzanowskiej",
+        "street_norm": "chrzanowskiej",
+        "building": "60",
+        "apt": null,
+        "key": "chrzanowskiej|60|",
+        "warning": null
+      },
+      "auction_date": "2026-06-30",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 128,
+      "starting_price_pln": 205000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
+      "share": null
     },
     {
       "kind": "mieszkalny",
@@ -133,6 +190,25 @@
       "area_m2": 46.02,
       "starting_price_pln": 205000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Katowickiej 9",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "9",
+        "apt": null,
+        "key": "katowickiej|9|",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "published_date": null,
+      "round": 5,
+      "area_m2": 27.31,
+      "starting_price_pln": 35500,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-9-przy-uli",
       "share": null
     },
     {
@@ -212,6 +288,25 @@
       "share": null
     },
     {
+      "kind": "zabudowana",
+      "address_raw": "Gwarków 7",
+      "address": {
+        "street": "Gwarków",
+        "street_norm": "gwarkow",
+        "building": "7",
+        "apt": null,
+        "key": "gwarkow|7|",
+        "warning": null
+      },
+      "auction_date": "2026-05-26",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 258.1,
+      "starting_price_pln": 420000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wlas-1",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 4/11",
       "address": {
@@ -269,6 +364,63 @@
       "share": null
     },
     {
+      "kind": "uzytkowy",
+      "address_raw": "Katowickiej 9",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "9",
+        "apt": null,
+        "key": "katowickiej|9|",
+        "warning": null
+      },
+      "auction_date": "2026-04-14",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 27.31,
+      "starting_price_pln": 35500,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-9-przy-ul",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Mikołaja Kopernika 15",
+      "address": {
+        "street": "Mikołaja Kopernika",
+        "street_norm": "mikolaja kopernika",
+        "building": "15",
+        "apt": null,
+        "key": "mikolaja kopernika|15|",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 163,
+      "starting_price_pln": 840000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wla",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Mikołaja Kopernika 15",
+      "address": {
+        "street": "Mikołaja Kopernika",
+        "street_norm": "mikolaja kopernika",
+        "building": "15",
+        "apt": null,
+        "key": "mikolaja kopernika|15|",
+        "warning": null
+      },
+      "auction_date": "2026-01-13",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 163,
+      "starting_price_pln": 840000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wlas",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 4/11",
       "address": {
@@ -304,6 +456,25 @@
       "area_m2": 30.37,
       "starting_price_pln": 154000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-16-znajdujacy-sie-w-budynku-nr-10b",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Katowickiej 9",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "9",
+        "apt": null,
+        "key": "katowickiej|9|",
+        "warning": null
+      },
+      "auction_date": "2025-12-02",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 27.31,
+      "starting_price_pln": 35500,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-9-przy-u",
       "share": null
     },
     {
@@ -345,6 +516,25 @@
       "share": null
     },
     {
+      "kind": "uzytkowy",
+      "address_raw": "Armii Krajowej 22",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "22",
+        "apt": null,
+        "key": "armii krajowej|22|",
+        "warning": null
+      },
+      "auction_date": "2025-10-21",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 79.66,
+      "starting_price_pln": 158000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-22-przy-u",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 4/11",
       "address": {
@@ -361,6 +551,25 @@
       "area_m2": 37.49,
       "starting_price_pln": 157000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Katowickiej 9",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "9",
+        "apt": null,
+        "key": "katowickiej|9|",
+        "warning": null
+      },
+      "auction_date": "2025-09-23",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 27.31,
+      "starting_price_pln": 35500,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-9-przy-ul",
       "share": null
     },
     {
@@ -383,6 +592,44 @@
       "share": null
     },
     {
+      "kind": "zabudowana",
+      "address_raw": "Placu Wolności 7",
+      "address": {
+        "street": "Placu Wolności",
+        "street_norm": "placu wolnosci",
+        "building": "7",
+        "apt": null,
+        "key": "placu wolnosci|7|",
+        "warning": null
+      },
+      "auction_date": "2024-11-12",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 207.94,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-przy-placu-wolnos",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Armii Krajowej 22",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "22",
+        "apt": null,
+        "key": "armii krajowej|22|",
+        "warning": null
+      },
+      "auction_date": "2025-07-29",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 79.66,
+      "starting_price_pln": 158000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-22-przy-ul",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 4/11",
       "address": {
@@ -399,6 +646,25 @@
       "area_m2": 37.49,
       "starting_price_pln": 157000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Katowickiej 9",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "9",
+        "apt": null,
+        "key": "katowickiej|9|",
+        "warning": null
+      },
+      "auction_date": "2025-05-27",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 27.31,
+      "starting_price_pln": 35500,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-9-przy-ul",
       "share": null
     },
     {
@@ -437,6 +703,44 @@
       "area_m2": 30.41,
       "starting_price_pln": 133000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-znajdujacy-sie-w-budynku-nr-6a-p",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Placu Wolności 7",
+      "address": {
+        "street": "Placu Wolności",
+        "street_norm": "placu wolnosci",
+        "building": "7",
+        "apt": null,
+        "key": "placu wolnosci|7|",
+        "warning": null
+      },
+      "auction_date": "2024-11-12",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 207.94,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-plac-wolnosci",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Emila Caspariego 3",
+      "address": {
+        "street": "Emila Caspariego",
+        "street_norm": "emila caspariego",
+        "building": "3",
+        "apt": null,
+        "key": "emila caspariego|3|",
+        "warning": null
+      },
+      "auction_date": "2023-01-24",
+      "published_date": null,
+      "round": 6,
+      "area_m2": 103.07,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-emila-caspar",
       "share": null
     },
     {
@@ -535,6 +839,158 @@
       "share": null
     },
     {
+      "kind": "zabudowana",
+      "address_raw": "Powstańców 1",
+      "address": {
+        "street": "Powstańców",
+        "street_norm": "powstancow",
+        "building": "1",
+        "apt": null,
+        "key": "powstancow|1|",
+        "warning": null
+      },
+      "auction_date": "2025-02-25",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 19,
+      "starting_price_pln": 780000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-spokojna",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Powstańców 1",
+      "address": {
+        "street": "Powstańców",
+        "street_norm": "powstancow",
+        "building": "1",
+        "apt": null,
+        "key": "powstancow|1|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 127,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-partyzantow",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Placu Wolności 7",
+      "address": {
+        "street": "Placu Wolności",
+        "street_norm": "placu wolnosci",
+        "building": "7",
+        "apt": null,
+        "key": "placu wolnosci|7|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 207.94,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-plac-wolnosci",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Powstańców 1",
+      "address": {
+        "street": "Powstańców",
+        "street_norm": "powstancow",
+        "building": "1",
+        "apt": null,
+        "key": "powstancow|1|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 19,
+      "starting_price_pln": 780000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-spokojna",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Portowej 4",
+      "address": {
+        "street": "Portowej",
+        "street_norm": "portowej",
+        "building": "4",
+        "apt": null,
+        "key": "portowej|4|",
+        "warning": null
+      },
+      "auction_date": "2024-02-20",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 234,
+      "starting_price_pln": 490000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-portowa-4",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Emila Caspariego 3",
+      "address": {
+        "street": "Emila Caspariego",
+        "street_norm": "emila caspariego",
+        "building": "3",
+        "apt": null,
+        "key": "emila caspariego|3|",
+        "warning": null
+      },
+      "auction_date": "2023-01-24",
+      "published_date": null,
+      "round": 5,
+      "area_m2": 103.07,
+      "starting_price_pln": 235000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-emila-caspari",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Portowej 4",
+      "address": {
+        "street": "Portowej",
+        "street_norm": "portowej",
+        "building": "4",
+        "apt": null,
+        "key": "portowej|4|",
+        "warning": null
+      },
+      "auction_date": "2024-02-20",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 234,
+      "starting_price_pln": 499000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-portowa-4-6",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Grunwaldzkiej 9",
+      "address": {
+        "street": "Grunwaldzkiej",
+        "street_norm": "grunwaldzkiej",
+        "building": "9",
+        "apt": null,
+        "key": "grunwaldzkiej|9|",
+        "warning": null
+      },
+      "auction_date": "2024-06-04",
+      "published_date": null,
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 670000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzk",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Katowickiej 29A/17",
       "address": {
@@ -551,6 +1007,82 @@
       "area_m2": 34.93,
       "starting_price_pln": 129000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-29a",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Emila Caspariego 3",
+      "address": {
+        "street": "Emila Caspariego",
+        "street_norm": "emila caspariego",
+        "building": "3",
+        "apt": null,
+        "key": "emila caspariego|3|",
+        "warning": null
+      },
+      "auction_date": "2023-01-24",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 103.07,
+      "starting_price_pln": 240000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-emila-caspar",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Portowej 4",
+      "address": {
+        "street": "Portowej",
+        "street_norm": "portowej",
+        "building": "4",
+        "apt": null,
+        "key": "portowej|4|",
+        "warning": null
+      },
+      "auction_date": "2024-02-20",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 234,
+      "starting_price_pln": 510000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-portowa-4-6",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Grunwaldzkiej 9",
+      "address": {
+        "street": "Grunwaldzkiej",
+        "street_norm": "grunwaldzkiej",
+        "building": "9",
+        "apt": null,
+        "key": "grunwaldzkiej|9|",
+        "warning": null
+      },
+      "auction_date": "2023-12-12",
+      "published_date": null,
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 700000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzka",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Emila Caspariego 3",
+      "address": {
+        "street": "Emila Caspariego",
+        "street_norm": "emila caspariego",
+        "building": "3",
+        "apt": null,
+        "key": "emila caspariego|3|",
+        "warning": null
+      },
+      "auction_date": "2023-11-14",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 103.07,
+      "starting_price_pln": 249000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-emila-caspa",
       "share": null
     },
     {
