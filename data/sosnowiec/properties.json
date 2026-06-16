@@ -3,6 +3,85 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "targowej|12|",
+      "street": "Targowa",
+      "street_norm": "targowej",
+      "building": "12",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-02-07",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 9986000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558951,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558039,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
+        },
+        {
+          "date": "2025-05-16",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 9986000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559862,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,559142,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
+        },
+        {
+          "date": "2025-11-07",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 6988573,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,561552,wynik-drugiego-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obr.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560468,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html"
+        },
+        {
+          "date": "2026-08-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 8867000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563715,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "szczecinskiej|11|",
+      "street": "Szczecińskiej",
+      "street_norm": "szczecinskiej",
+      "building": "11",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-06-19",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2505000,
+          "outcome": "active",
+          "area_m2": 709.58,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562961,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-szc.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 709.58
+    },
+    {
       "key": "kaliskiej|14A|2",
       "street": "Kaliskiej",
       "street_norm": "kaliskiej",
@@ -38,6 +117,43 @@
         }
       ],
       "area_m2": 48.25
+    },
+    {
+      "key": "pilsudskiego|34|",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "34",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-02-27",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 580000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,562673,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-nieruchomosci-zabudowanej-poloz.html",
+          "notes": [],
+          "area_m2": 191.71,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,561886,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-pil.html"
+        },
+        {
+          "date": "2026-06-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 580000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,563805,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-nieruchomosci-zabudowanej-poloz.html",
+          "notes": [],
+          "area_m2": 154,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562960,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-pil.html"
+        }
+      ],
+      "area_m2": 154
     },
     {
       "key": "alei zwyciestwa|25|15",
@@ -86,6 +202,40 @@
       "area_m2": 75.97
     },
     {
+      "key": "rybnej|3|",
+      "street": "Rybna",
+      "street_norm": "rybnej",
+      "building": "3",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-11-29",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 214000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558287,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,557716,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
+        },
+        {
+          "date": "2025-04-11",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 214000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559471,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558786,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
+        }
+      ]
+    },
+    {
       "key": "zagaje|6|6",
       "street": "Zagaje",
       "street_norm": "zagaje",
@@ -132,6 +282,30 @@
         }
       ],
       "area_m2": 223.27
+    },
+    {
+      "key": "m sklodowskiej curie|14|",
+      "street": "M. Skłodowskiej-Curie",
+      "street_norm": "m sklodowskiej curie",
+      "building": "14",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-10-25",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 68150,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 68840,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,557878,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-uzytkowego-poloznego-przy-ul-m-sklodows.html",
+          "notes": [],
+          "area_m2": 27.26,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,557464,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-poloznego-w-sosnowcu-przy-ul-m-sklodowsk.html"
+        }
+      ],
+      "area_m2": 27.26
     },
     {
       "key": "jagiellonskiej|3|59",
@@ -481,6 +655,107 @@
       "area_m2": 39.11
     },
     {
+      "key": "armii krajowej|84|",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "84",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2021-08-13",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1014250,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,544465,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-4968-obreb-kazimi.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543713,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-arm.html"
+        },
+        {
+          "date": "2021-11-26",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1014250,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,545640,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-4968-obreb-kazimi.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,544853,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-arm.html"
+        },
+        {
+          "date": "2022-06-24",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,548044,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-4968-obreb-kazimi.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547270,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-arm.html"
+        },
+        {
+          "date": "2023-01-20",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,550432,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-4968-obreb-kazimi.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,549734,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-arm.html"
+        }
+      ]
+    },
+    {
+      "key": "starej|8|",
+      "street": "Starej",
+      "street_norm": "starej",
+      "building": "8",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-05-06",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 125000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,546873,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-zabudowanej-pol-przy-ul-s.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2022-07-22",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 125000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,547842,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-do-nieruchomosci-zabudowanej-pol-przy-ul-s.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2022-10-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 125000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,549093,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-przy-ul-starej-8.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "anki kowalskiej|21|1",
       "street": "Anki Kowalskiej",
       "street_norm": "anki kowalskiej",
@@ -503,6 +778,60 @@
       "area_m2": 34.69
     },
     {
+      "key": "nogi|9|",
+      "street": "Nogi",
+      "street_norm": "nogi",
+      "building": "9",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2021-07-23",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 68800,
+          "outcome": "archived",
+          "area_m2": 158,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543804,przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-zabudowanych-pol-przy-ul-nogi-9-11.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 158
+    },
+    {
+      "key": "zagaje|12|",
+      "street": "Zagaje",
+      "street_norm": "zagaje",
+      "building": "12",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2021-03-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 140100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,542352,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-pol-przy-ul-zagaje-12.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2021-06-25",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 140100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,543430,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-pol-przy-ul-zagaje-12.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "warszawskiej|6|4",
       "street": "Warszawskiej",
       "street_norm": "warszawskiej",
@@ -523,6 +852,167 @@
         }
       ],
       "area_m2": 32.01
+    },
+    {
+      "key": "ks j popieluszki|11|",
+      "street": "Ks. J. Popiełuszki",
+      "street_norm": "ks j popieluszki",
+      "building": "11",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2019-05-31",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 272000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,536294,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-przy-ul-ks-j-popielusz.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2019-09-20",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 272000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,537393,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-przy-ul-ks-j-popielusz.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2020-02-14",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 175825,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,538745,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-przy-ul-ks-j-pop.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "orlat lwowskich|9|",
+      "street": "Orląt Lwowskich",
+      "street_norm": "orlat lwowskich",
+      "building": "9",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2016-05-30",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 83400,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,523978,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-pol-przy-ulorlat-lwowskich-9.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2019-04-01",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 142000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535530,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-pol-przy-ul-orlat-lwowskich-9.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wrzosowej|10|",
+      "street": "Wrzosowa",
+      "street_norm": "wrzosowej",
+      "building": "10",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2018-10-19",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533749,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-wrz.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-12-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534679,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-wrz.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2019-03-22",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 109800,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,535546,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "chemicznej|4|",
+      "street": "Chemiczna",
+      "street_norm": "chemicznej",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2018-06-29",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532744,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-che.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-09-07",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533712,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-che.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2019-01-25",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 168000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534859,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "s kisielewskiego|9|",
@@ -556,6 +1046,157 @@
         }
       ],
       "area_m2": 44.13
+    },
+    {
+      "key": "raclawickiej|4|",
+      "street": "Racławickiej",
+      "street_norm": "raclawickiej",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2018-05-11",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532366,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-nr-4.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-06-29",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532805,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-nr-4.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-09-14",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534409,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-n.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "piotrkowskiej|25|",
+      "street": "Piotrkowskiej",
+      "street_norm": "piotrkowskiej",
+      "building": "25",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2014-09-12",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 117391,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,504345,prezydent-miasta-sosnowca-oglasza-ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudow.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-06-22",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,532732,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-nr-2.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-09-07",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 102000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,534410,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-n.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "naftowej|1|",
+      "street": "Naftowa",
+      "street_norm": "naftowej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2017-06-09",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1232143,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528187,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-naf.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-09-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1232143,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,529445,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-naf.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-01-12",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,530767,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-04-06",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,531914,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-08-29",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,533362,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "niweckiej|22|6",
@@ -611,6 +1252,144 @@
         }
       ],
       "area_m2": 25.14
+    },
+    {
+      "key": "nowopogonskiej|32|",
+      "street": "Nowopogońskiej",
+      "street_norm": "nowopogonskiej",
+      "building": "32",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2017-04-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528075,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-nr-5.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-06-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,528721,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-nr-5.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-09-01",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,529772,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ozn-jako-dz-n.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "ciepla|7|",
+      "street": "Ciepła",
+      "street_norm": "ciepla",
+      "building": "7",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2016-12-09",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 198615,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,526672,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosn.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-02-24",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,527421,ogloszenie-o-ii-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-s.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "objazd|4|",
+      "street": "Objazd",
+      "street_norm": "objazd",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2016-10-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 221353,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,525864,ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosn.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "st zeromskiego|3|",
+      "street": "St. Żeromskiego",
+      "street_norm": "st zeromskiego",
+      "building": "3",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2016-09-12",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 975900,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,525337,ii-przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-pol-przy-ulst-zeromskiego-3.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "teatralnej|3|",
+      "street": "Teatralna",
+      "street_norm": "teatralnej",
+      "building": "3",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2016-06-10",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,524902,przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-pol-przy-ulteatralnej-3.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "targowej|16|",
