@@ -3,6 +3,46 @@
   "city": "swietochlowice",
   "plots": [
     {
+      "key": "dz|3446",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": "3446",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203446%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 72.686,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-14",
+          "round": 1,
+          "starting_price_pln": 20900000,
+          "outcome": "archived",
+          "area_m2": 72.686,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42619585",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42619585"
+        },
+        {
+          "date": "2026-07-09",
+          "round": 2,
+          "starting_price_pln": 16000000,
+          "outcome": "active",
+          "area_m2": 72.686,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/43455528",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/43455528"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3446"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. krokusów",
       "kind": "grunt",
       "city": "swietochlowice",
@@ -25,6 +65,60 @@
           "area_m2": 7033,
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42514128",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42514128"
+        },
+        {
+          "date": "2026-06-18",
+          "round": 4,
+          "starting_price_pln": 800000,
+          "outcome": "active",
+          "area_m2": 7033,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/43222841",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/43222841"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. mikołaja reja",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": null,
+      "obreb": "0003 Świętochłowice",
+      "street": "Mikołaja Reja",
+      "building": null,
+      "address_raw": "ul. Mikołaja Reja",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 684,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-25",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 684,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41306030",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41306030"
+        },
+        {
+          "date": "2025-11-13",
+          "round": 2,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 684,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41615693",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41615693"
+        },
+        {
+          "date": "2026-01-21",
+          "round": 3,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 684,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42178729",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42178729"
         }
       ],
       "parcels": []
@@ -94,40 +188,68 @@
       ]
     },
     {
-      "key": "addr|ul. mikołaja reja",
+      "key": "dz|świętochłowice|4252",
       "kind": "grunt",
       "city": "swietochlowice",
-      "dzialka_nr": null,
-      "obreb": "0003 Świętochłowice",
-      "street": "Mikołaja Reja",
+      "dzialka_nr": "4252",
+      "obreb": "Świętochłowice",
+      "street": "Wojska Polskiego",
       "building": null,
-      "address_raw": "ul. Mikołaja Reja",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 684,
+      "address_raw": "ul. Wojska Polskiego",
+      "dzialka_id": "247601_1.0003.4252",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4252",
+      "area_m2": 4584,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2025-09-25",
+          "date": "2025-05-29",
           "round": 1,
-          "starting_price_pln": 100000,
+          "starting_price_pln": 1375200,
           "outcome": "archived",
-          "area_m2": 684,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41306030",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41306030"
-        },
-        {
-          "date": "2025-11-13",
-          "round": 2,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 684,
-          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41615693",
-          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/41615693"
+          "area_m2": 4584,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/39579030",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/39579030"
         }
       ],
-      "parcels": []
+      "parcels": [
+        {
+          "nr": "4252",
+          "dzialka_id": "247601_1.0003.4252",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4252"
+        }
+      ]
+    },
+    {
+      "key": "dz|3100/1",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": "3100/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203100%2F1%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 592,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-27",
+          "round": 1,
+          "starting_price_pln": 75000,
+          "outcome": "archived",
+          "area_m2": 592,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/40369270",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/40369270"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3100/1"
+        }
+      ]
     },
     {
       "key": "addr|ul. zielonej",
@@ -325,6 +447,39 @@
       ]
     },
     {
+      "key": "dz|świętochłowice|3384/14",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": "3384/14",
+      "obreb": "Świętochłowice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "247601_1.0003.3384/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3384%2F14",
+      "area_m2": 1680,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-15",
+          "round": 1,
+          "starting_price_pln": 415000,
+          "outcome": "archived",
+          "area_m2": 1680,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/32749946",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/32749946"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3384/14",
+          "dzialka_id": "247601_1.0003.3384/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3384%2F14"
+        }
+      ]
+    },
+    {
       "key": "dz|świętochłowice|0, 0209",
       "kind": "grunt",
       "city": "swietochlowice",
@@ -401,6 +556,15 @@
           "area_m2": 1031,
           "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/28221340",
           "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/28221340"
+        },
+        {
+          "date": "2022-04-01",
+          "round": 5,
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 1031,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/28944886",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/28944886"
         },
         {
           "date": "2023-06-02",
@@ -509,6 +673,97 @@
         {
           "nr": "1329/133",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201329%2F133%200003%20(%C5%9Awi%C4%99toch%C5%82owice)%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. cichej",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Cichej",
+      "building": null,
+      "address_raw": "ul. Cichej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 211,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 211,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42792273",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/42792273"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|4469",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": "4469",
+      "obreb": null,
+      "street": "Juliusza Krauzego",
+      "building": null,
+      "address_raw": "ul. Juliusza Krauzego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204469%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 196,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 196,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/35915960",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/35915960"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4469"
+        }
+      ]
+    },
+    {
+      "key": "dz|0003 świętochłowice|1602/285",
+      "kind": "grunt",
+      "city": "swietochlowice",
+      "dzialka_nr": "1602/285",
+      "obreb": "0003 Świętochłowice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "247601_1.0003.1602/285",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.1602%2F285",
+      "area_m2": 860,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 860,
+          "detail_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/36223242",
+          "source_url": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/36223242"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1602/285",
+          "dzialka_id": "247601_1.0003.1602/285",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.1602%2F285"
         }
       ]
     }

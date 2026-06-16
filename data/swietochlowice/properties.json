@@ -3,6 +3,39 @@
   "city": "swietochlowice",
   "properties": [
     {
+      "key": "katowickiej|35|",
+      "street": "Katowicka",
+      "street_norm": "katowickiej",
+      "building": "35",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1600000,
+          "outcome": "archived",
+          "area_m2": 20,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1400000,
+          "outcome": "active",
+          "area_m2": 20,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 20
+    },
+    {
       "key": "powstancow sl|8|20",
       "street": "Powstańców Śl.",
       "street_norm": "powstancow sl",
@@ -23,6 +56,39 @@
         }
       ],
       "area_m2": 38.01
+    },
+    {
+      "key": "kaliny|38|",
+      "street": "Kaliny",
+      "street_norm": "kaliny",
+      "building": "38",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-03-31",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1000000,
+          "outcome": "archived",
+          "area_m2": 121,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 600000,
+          "outcome": "active",
+          "area_m2": 121,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 121
     },
     {
       "key": "bytomskiej|8|",
@@ -181,6 +247,81 @@
       "area_m2": 33.96
     },
     {
+      "key": "juliusza krauzego|1|",
+      "street": "Juliusza Krauzego",
+      "street_norm": "juliusza krauzego",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 950000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-08",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "chorzowskiej|25|",
+      "street": "Chorzowskiej",
+      "street_norm": "chorzowskiej",
+      "building": "25",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-01-23",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-12-03",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 3250000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-03-20",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "hutniczej|9B|9",
       "street": "Hutnicza",
       "street_norm": "hutniczej",
@@ -272,6 +413,83 @@
         }
       ],
       "area_m2": 51.97
+    },
+    {
+      "key": "katowickiej|15|",
+      "street": "Katowicka",
+      "street_norm": "katowickiej",
+      "building": "15",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-11-17",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1500000,
+          "outcome": "archived",
+          "area_m2": 170.25,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-16",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1250000,
+          "outcome": "archived",
+          "area_m2": 170.25,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-07-12",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 1200000,
+          "outcome": "archived",
+          "area_m2": 170.25,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-05",
+          "round": 6,
+          "kind": "zabudowana",
+          "starting_price_pln": 950000,
+          "outcome": "archived",
+          "area_m2": 170.25,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-02",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 975000,
+          "outcome": "archived",
+          "area_m2": 91.73,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-12-08",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": 170.25,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 170.25
     },
     {
       "key": "katowickiej|45|10",
@@ -585,6 +803,49 @@
         }
       ],
       "area_m2": 35.79
+    },
+    {
+      "key": "bytomskiej i przy ul slezan|1|",
+      "street": "Bytomskiej i przy ul. Ślęzan.",
+      "street_norm": "bytomskiej i przy ul slezan",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-07-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "katowickiej|54|",
+      "street": "Katowicka",
+      "street_norm": "katowickiej",
+      "building": "54",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-06-26",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1200000,
+          "outcome": "archived",
+          "area_m2": 262,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 262
     },
     {
       "key": "bytomskiej|6|2",
@@ -990,6 +1251,28 @@
       "area_m2": 52.85
     },
     {
+      "key": "juliusza krauzego oraz zarzadzenia nr|166|2024",
+      "street": "Juliusza Krauzego oraz Zarządzenia Nr",
+      "street_norm": "juliusza krauzego oraz zarzadzenia nr",
+      "building": "166",
+      "apt": "2024",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-08-02",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 103.09,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 103.09
+    },
+    {
       "key": "szpitalnej|9|3",
       "street": "Szpitalna",
       "street_norm": "szpitalnej",
@@ -1010,50 +1293,6 @@
         }
       ],
       "area_m2": 25.2
-    },
-    {
-      "key": "katowickiej|15|",
-      "street": "Katowicka",
-      "street_norm": "katowickiej",
-      "building": "15",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2023-11-17",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 1500000,
-          "outcome": "archived",
-          "area_m2": 170.25,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-02-16",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 1250000,
-          "outcome": "archived",
-          "area_m2": 170.25,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-07-12",
-          "round": 3,
-          "kind": "zabudowana",
-          "starting_price_pln": 1200000,
-          "outcome": "archived",
-          "area_m2": 170.25,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 170.25
     },
     {
       "key": "chopina|23A|8",
@@ -2328,6 +2567,17 @@
           "viewing_date": null
         },
         {
+          "date": "2022-03-18",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 650000,
+          "outcome": "archived",
+          "area_m2": 232,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
           "date": "2023-03-17",
           "round": 1,
           "kind": "zabudowana",
@@ -2351,6 +2601,27 @@
         }
       ],
       "area_m2": 198
+    },
+    {
+      "key": "wojska polskiego oraz zarzadzenia nr|146|2023",
+      "street": "Wojska Polskiego oraz Zarządzenia Nr",
+      "street_norm": "wojska polskiego oraz zarzadzenia nr",
+      "building": "146",
+      "apt": "2023",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-05-12",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 345000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "lagiewnickiej|1|3",
@@ -2569,6 +2840,27 @@
       "area_m2": 48.37
     },
     {
+      "key": "wojska polskiego oraz zarzadzenia nr|541|2022",
+      "street": "Wojska Polskiego oraz Zarządzenia Nr",
+      "street_norm": "wojska polskiego oraz zarzadzenia nr",
+      "building": "541",
+      "apt": "2022",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-03-07",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 345000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "kamionki|2|5",
       "street": "Kamionki",
       "street_norm": "kamionki",
@@ -2650,6 +2942,27 @@
         }
       ],
       "area_m2": 22.38
+    },
+    {
+      "key": "uroczysko|21|",
+      "street": "Uroczysko",
+      "street_norm": "uroczysko",
+      "building": "21",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-09-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 16000000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "katowickiej|34|",
