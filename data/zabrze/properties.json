@@ -36,6 +36,72 @@
       "area_m2": 38.59
     },
     {
+      "key": "3 maja|10|",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "10",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-04-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 1100000,
+          "outcome": "archived",
+          "area_m2": 591.06,
+          "detail_url": "https://bip.miastozabrze.pl/doc/20847",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-07-15",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 900000,
+          "outcome": "archived",
+          "area_m2": 591.06,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21848",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-01-08",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 700000,
+          "outcome": "archived",
+          "area_m2": 591.06,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23438",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-23",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": 591.06,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24558",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-11",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": 600000,
+          "outcome": "active",
+          "area_m2": 591.06,
+          "detail_url": "https://bip.miastozabrze.pl/doc/25705",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 591.06
+    },
+    {
       "key": "gen wladyslawa andersa|35|4",
       "street": "Gen. Władysława Andersa",
       "street_norm": "gen wladyslawa andersa",
@@ -1169,6 +1235,83 @@
       "area_m2": 47.3
     },
     {
+      "key": "bytomskich strzelcow|37|1",
+      "street": "Bytomskich Strzelców",
+      "street_norm": "bytomskich strzelcow",
+      "building": "37",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 68.39,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24570",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 68.39
+    },
+    {
+      "key": "marcina lutra|3|II",
+      "street": "Marcina Lutra",
+      "street_norm": "marcina lutra",
+      "building": "3",
+      "apt": "II",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-07-10",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 83.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22147",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-23",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 280000,
+          "outcome": "archived",
+          "area_m2": 83.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22845",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-01-08",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 280000,
+          "outcome": "archived",
+          "area_m2": 83.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23771",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-03-10",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 83.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24417",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 83.8
+    },
+    {
       "key": "ks konstantego damrota|19|10",
       "street": "Ks. Konstantego Damrota",
       "street_norm": "ks konstantego damrota",
@@ -1532,6 +1675,138 @@
       "area_m2": 34.72
     },
     {
+      "key": "galileusza|10|1",
+      "street": "Galileusza",
+      "street_norm": "galileusza",
+      "building": "10",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-02-11",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 480000,
+          "outcome": "archived",
+          "area_m2": 125.57,
+          "detail_url": "https://bip.miastozabrze.pl/doc/20311",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-04-17",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 360000,
+          "outcome": "archived",
+          "area_m2": 125.57,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21229",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-06-24",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 360000,
+          "outcome": "archived",
+          "area_m2": 125.57,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21833",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-14",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 360000,
+          "outcome": "archived",
+          "area_m2": 125.57,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22842",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-02-03",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": 290000,
+          "outcome": "archived",
+          "area_m2": 125.57,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23943",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 125.57
+    },
+    {
+      "key": "3 maja|28|",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "28",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-01-21",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 70.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/20343",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-04-17",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 70.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21230",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-06-24",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 70.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21832",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-14",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 70.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22843",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-02-03",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 70.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23941",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 70.2
+    },
+    {
       "key": "jagodowa|8C|13",
       "street": "Jagodowa",
       "street_norm": "jagodowa",
@@ -1563,6 +1838,28 @@
         }
       ],
       "area_m2": 53.59
+    },
+    {
+      "key": "wolnosci|232|I",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "232",
+      "apt": "I",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 281000,
+          "outcome": "archived",
+          "area_m2": 67.3,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23770",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 67.3
     },
     {
       "key": "armii krajowej|8A|12",
@@ -2302,6 +2599,50 @@
       "area_m2": 19.31
     },
     {
+      "key": "wandy|1|III",
+      "street": "Wandy",
+      "street_norm": "wandy",
+      "building": "1",
+      "apt": "III",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-03-25",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 450000,
+          "outcome": "archived",
+          "area_m2": 124.58,
+          "detail_url": "https://bip.miastozabrze.pl/doc/20602",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-06-26",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 360000,
+          "outcome": "archived",
+          "area_m2": 124.58,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21830",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-08-26",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 360000,
+          "outcome": "archived",
+          "area_m2": 124.58,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22522",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 124.58
+    },
+    {
       "key": "opolska|18|5",
       "street": "Opolska",
       "street_norm": "opolska",
@@ -2597,6 +2938,50 @@
         }
       ],
       "area_m2": 30.5
+    },
+    {
+      "key": "stefana czarnieckiego|28|",
+      "street": "Stefana Czarnieckiego",
+      "street_norm": "stefana czarnieckiego",
+      "building": "28",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-03-04",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 105.62,
+          "detail_url": "https://bip.miastozabrze.pl/doc/20658",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-22",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 105.62,
+          "detail_url": "https://bip.miastozabrze.pl/doc/21631",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-07-15",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 105.62,
+          "detail_url": "https://bip.miastozabrze.pl/doc/22148",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 105.62
     },
     {
       "key": "klonowa|6|8",
@@ -3897,6 +4282,39 @@
       "area_m2": 61.07
     },
     {
+      "key": "prof tadeusza banachiewicza|21|1",
+      "street": "prof. Tadeusza Banachiewicza",
+      "street_norm": "prof tadeusza banachiewicza",
+      "building": "21",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-05-23",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 98.7,
+          "detail_url": "https://bip.miastozabrze.pl/doc/17349",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-09-17",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 98.7,
+          "detail_url": "https://bip.miastozabrze.pl/doc/18816",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 98.7
+    },
+    {
       "key": "boleslawa smialego|19|2",
       "street": "Bolesława Śmiałego",
       "street_norm": "boleslawa smialego",
@@ -4568,6 +4986,138 @@
       "area_m2": 51.87
     },
     {
+      "key": "cieszynska|3|II",
+      "street": "Cieszyńska",
+      "street_norm": "cieszynska",
+      "building": "3",
+      "apt": "II",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-11-16",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 230.02,
+          "detail_url": "https://bip.miastozabrze.pl/doc/15251",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-03-05",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 230.02,
+          "detail_url": "https://bip.miastozabrze.pl/doc/16693",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 230.02
+    },
+    {
+      "key": "wolnosci|291|6",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "291",
+      "apt": "6",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 400000,
+          "outcome": "archived",
+          "area_m2": 123.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/15259",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-29",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 123.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/16694",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 123.2
+    },
+    {
+      "key": "wolnosci|291|9",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "291",
+      "apt": "9",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 31.7,
+          "detail_url": "https://bip.miastozabrze.pl/doc/15259",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-29",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 50000,
+          "outcome": "archived",
+          "area_m2": 31.7,
+          "detail_url": "https://bip.miastozabrze.pl/doc/16694",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.7
+    },
+    {
+      "key": "wolnosci|291|17",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "291",
+      "apt": "17",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 31.4,
+          "detail_url": "https://bip.miastozabrze.pl/doc/15259",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-29",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 50000,
+          "outcome": "archived",
+          "area_m2": 31.4,
+          "detail_url": "https://bip.miastozabrze.pl/doc/16694",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.4
+    },
+    {
       "key": "ks boleslawa domanskiego|6|9",
       "street": "Ks. Bolesława Domańskiego",
       "street_norm": "ks boleslawa domanskiego",
@@ -5206,6 +5756,94 @@
       "area_m2": 32.8
     },
     {
+      "key": "wolnosci|291|19",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "291",
+      "apt": "19",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2022-12-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 380000,
+          "outcome": "archived",
+          "area_m2": 148.5,
+          "detail_url": "https://bip.miastozabrze.pl/doc/5996",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-03-30",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 148.5,
+          "detail_url": "https://bip.miastozabrze.pl/doc/13271",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-06-15",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 148.5,
+          "detail_url": "https://bip.miastozabrze.pl/doc/13791",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 148.5
+    },
+    {
+      "key": "wolnosci|291|21",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "291",
+      "apt": "21",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2022-12-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 550000,
+          "outcome": "archived",
+          "area_m2": 214.1,
+          "detail_url": "https://bip.miastozabrze.pl/doc/5995",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-03-30",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 214.1,
+          "detail_url": "https://bip.miastozabrze.pl/doc/13271",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-06-15",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 214.1,
+          "detail_url": "https://bip.miastozabrze.pl/doc/13791",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 214.1
+    },
+    {
       "key": "wojciecha kossaka|53|7",
       "street": "Wojciecha Kossaka",
       "street_norm": "wojciecha kossaka",
@@ -5578,6 +6216,50 @@
         }
       ],
       "area_m2": 23.8
+    },
+    {
+      "key": "wincentego witosa|6|2",
+      "street": "Wincentego Witosa",
+      "street_norm": "wincentego witosa",
+      "building": "6",
+      "apt": "2",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-03-10",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 40000,
+          "outcome": "archived",
+          "area_m2": 20.79,
+          "detail_url": "https://bip.miastozabrze.pl/doc/13270",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 20.79
+    },
+    {
+      "key": "wincentego witosa|6|3",
+      "street": "Wincentego Witosa",
+      "street_norm": "wincentego witosa",
+      "building": "6",
+      "apt": "3",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-03-10",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 35000,
+          "outcome": "archived",
+          "area_m2": 25.81,
+          "detail_url": "https://bip.miastozabrze.pl/doc/13270",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 25.81
     },
     {
       "key": "witkacego|10|2",
@@ -7448,6 +8130,28 @@
         }
       ],
       "area_m2": 30.4
+    },
+    {
+      "key": "3 maja|33|1",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "33",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2022-05-17",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "area_m2": 118.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/5994",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 118.2
     },
     {
       "key": "ks boleslawa domanskiego|4|6",
