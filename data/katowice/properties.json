@@ -188,57 +188,6 @@
       "area_m2": 61.19
     },
     {
-      "key": "gorna|4|",
-      "street": "Górna",
-      "street_norm": "gorna",
-      "building": "4",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-03",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=534",
-          "wadium_deadline": "2026-01-26",
-          "viewing_date": null,
-          "land_area_m2": 1049.48
-        },
-        {
-          "date": "2026-04-28",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 1400000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 3010000,
-          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
-          "notes": [],
-          "area_m2": null,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
-          "wadium_deadline": "2026-04-20",
-          "land_area_m2": 1049.48
-        },
-        {
-          "date": null,
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 1400000,
-          "outcome": "active",
-          "area_m2": null,
-          "land_area_m2": 1049.48,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
-          "wadium_deadline": "2026-04-20",
-          "viewing_date": null
-        }
-      ],
-      "area_m2": null,
-      "land_area_m2": 1049.48
-    },
-    {
       "key": "widok|37|3",
       "street": "Widok",
       "street_norm": "widok",
@@ -2439,6 +2388,69 @@
         }
       ],
       "area_m2": 57.6
+    },
+    {
+      "key": "gorna|4|",
+      "street": "Górna",
+      "street_norm": "gorna",
+      "building": "4",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=534",
+          "wadium_deadline": "2026-01-26",
+          "viewing_date": null,
+          "land_area_m2": 1049.48
+        },
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1400000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 3010000,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/151152/Wyniki%20przetargów%2028.04.2026.pdf",
+          "notes": [],
+          "area_m2": null,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
+          "wadium_deadline": "2026-04-20",
+          "land_area_m2": 1049.48
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1400000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 1049.48,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
+          "wadium_deadline": "2026-04-20",
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1400000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 1049.48,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=150674&menu=679",
+          "wadium_deadline": "2026-04-20",
+          "viewing_date": null
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 1049.48
     },
     {
       "key": "dzialkowej|17|",
