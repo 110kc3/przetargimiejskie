@@ -2,14 +2,15 @@
 // Prezydent Miasta sale board — clean server-rendered HTML, distinct from the
 // ZGM Elementor board. Fixtures reproduce the real June/July 2026 markup
 // (verified against the live pages): a bundled multi-lokal announcement, a
-// single-lokal Skarb-Państwa page (title-only address), and a działka page
-// (must yield nothing).
+// single-lokal Skarb-Państwa page (title-only address), and działka pages
+// (now each emit one 'grunt' LAND record routed to build-land.js).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { parseBipSaleDoc, stripBip, foldBipDuplicates } from '../src/cities/gliwice/crawl-bip.js';
 import { parseAddress } from '../src/core/normalize.js';
+import { landKey } from '../src/core/build-land.js';
 
 // A bundled announcement: header date in word form, two lokale + one garaż.
 // `m&sup2;` and `m<sup>2</sup>` both appear in the wild — exercise both, plus a
@@ -51,14 +52,29 @@ const SINGLE_HTML = `
 <p>Cena wywoławcza brutto za prawo własności nieruchomości: 180 557 zł</p>
 </body></html>`;
 
-// A działka (land) page — present-tense sale of "prawa własności
-// nieruchomości" / "działkę nr …" but NO lokal. Must yield nothing.
+// A działka (land) page — sale of "prawa własności nieruchomości" obejmującej a
+// "(nie)zabudowaną działkę nr …", NO lokal. Emits one 'grunt' record (parcel +
+// obręb + address from the title; price/round from the body) for build-land.js.
 const DZIALKA_HTML = `
 <html><head><title>SPRZEDAŻ – działka nr 736, obręb Sikornik, ul. Czajki 7 - BIP Gliwice</title></head>
 <body>
 <p>Prezydent Miasta Gliwice ogłasza I ustny przetarg nieograniczony na sprzedaż prawa własności nieruchomości</p>
 <p>4 sierpnia 2026 r. … odbędą się przetargi … obejmującej zabudowaną działkę nr 736, obręb Sikornik, o powierzchni 0,0703 ha.</p>
 <p>Cena wywoławcza nieruchomości (brutto): 691 100,00 zł</p>
+</body></html>`;
+
+// The live BIP-only plot the MSIP export misses (slug "sprzedaz-dz-nr-722-…",
+// so isBipDetailUrl in crawl-land.js — which only matches "sprzedaz-dzialka-" —
+// skips it). Title uses "dz. nr 72/2"; a prior attempt date (17 marca) must NOT
+// win over the scheduled "rozpocznie się 14 lipca 2026".
+const DZ722_HTML = `
+<html><head><title>SPRZEDAŻ – dz. nr 72/2, obręb Nowe Gliwice, ul. Pszczyńska 204 - BIP Gliwice</title></head>
+<body>
+<p>Prezydent Miasta Gliwice … ogłasza II ustny przetarg nieograniczony na sprzedaż prawa własności nieruchomości</p>
+<p>14 lipca 2026 r. … rozpocznie się II ustny przetarg nieograniczony na sprzedaż prawa własności części nieruchomości położonej w Gliwicach przy ul. Pszczyńskiej 204, obejmującej zabudowaną działkę nr 72/2, obręb Nowe Gliwice (identyfikator: 246601_1.0037.72/2), o powierzchni 0,0350 ha, stanowiącą własność Miasta Gliwice.</p>
+<p>Cena wywoławcza nieruchomości (brutto): 601 000,00 zł</p>
+<p>I ustny przetarg nieograniczony odbył się 17 marca 2026 r.</p>
+<p>Przetarg rozpocznie się 14 lipca 2026 r.</p>
 </body></html>`;
 
 test('stripBip decodes entities including &sup2; and numeric refs', () => {
@@ -110,9 +126,44 @@ test('single-lokal page → title address + integer (no-grosze) price', () => {
   assert.equal(l.starting_price_pln, 180557);
 });
 
-test('działka (land) page yields no listings', () => {
-  const out = parseBipSaleDoc(DZIALKA_HTML, 'https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-1', 'SPRZEDAŻ – działka nr 736');
-  assert.equal(out.length, 0);
+test('działka (land) page → one grunt record (parcel + obręb + price)', () => {
+  const out = parseBipSaleDoc(
+    DZIALKA_HTML,
+    'https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-1',
+    'SPRZEDAŻ – działka nr 736, obręb Sikornik, ul. Czajki 7 - BIP Gliwice',
+  );
+  assert.equal(out.length, 1);
+  const g = out[0];
+  assert.equal(g.kind, 'grunt');
+  assert.equal(g.dzialka_nr, '736');
+  assert.equal(g.obreb, 'Sikornik');
+  assert.equal(g.address_raw, 'ul. Czajki 7');
+  assert.equal(g.auction_date, '2026-08-04');
+  assert.equal(g.starting_price_pln, 691100);
+  assert.equal(g.round, 1);
+  assert.equal(g.source, 'bip');
+  assert.equal(g.detail_url, 'https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-1');
+  assert.ok(!('address' in g), 'land records carry address_raw only, no parsed address');
+});
+
+test('BIP-only działka (dz. nr 72/2, Pszczyńska 204) → grunt the MSIP export misses', () => {
+  const out = parseBipSaleDoc(
+    DZ722_HTML,
+    'https://bip.gliwice.eu/sprzedaz-dz-nr-722-obreb-nowe-gliwice-ul-pszczynska-204',
+    'SPRZEDAŻ – dz. nr 72/2, obręb Nowe Gliwice, ul. Pszczyńska 204 - BIP Gliwice',
+  );
+  assert.equal(out.length, 1);
+  const g = out[0];
+  assert.equal(g.kind, 'grunt');
+  assert.equal(g.dzialka_nr, '72/2');
+  assert.equal(g.obreb, 'Nowe Gliwice');
+  assert.equal(g.address_raw, 'ul. Pszczyńska 204');
+  assert.equal(g.starting_price_pln, 601000);
+  assert.equal(g.auction_date, '2026-07-14'); // scheduled date, not the 17 marca prior attempt
+  assert.equal(g.round, 2);
+  assert.equal(g.source, 'bip');
+  // build-land.js keys on dz|<obreb>|<parcel> → folds with the MSIP twin if present.
+  assert.equal(landKey(g), 'dz|nowe gliwice|72/2');
 });
 
 

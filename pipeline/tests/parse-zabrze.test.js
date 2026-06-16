@@ -265,3 +265,92 @@ test('parseLandAttachment: plot thousands "1.377 m2" → 1377; null for GDPR ann
   assert.equal(r.area_m2, 1377);
   assert.equal(parseLandAttachment('INFORMACJA O PRZETWARZANIU DANYCH OSOBOWYCH w drodze przetargu'), null);
 });
+
+// ---- Commercial (board 552 lokale użytkowe) ----
+// Fixtures faithful to the real `pdftotext -layout` output (docs 99878 / 95852 /
+// 43727): a numbered "lokal użytkowy [nr N]" header, a *plot* `pow.` (działka)
+// before the *unit* `pow.` (opis lokalu/położenie), and the "Cena wywoławcza"
+// split by an inline "w tym: …%" cell. parseCommercialAttachment emits
+// kind:'uzytkowy', the unit's usable area (not the plot), and the starting price.
+import { parseCommercialAttachment } from '../src/cities/zabrze/parse.js';
+
+// doc 99878: single unit spanning several floors — its "położenie" LISTS
+// "piwnica, parter, …", so a naive cellar filter would wrongly drop the area.
+const COMM_MULTIFLOOR = `                                    Prezydent Miasta Zabrze
+   ogłasza V ustny przetarg nieograniczony na sprzedaż niżej wymienionego lokalu użytkowego
+                             udziału w gruncie, położonego w Zabrzu:
+1.                                         adres : ul. 3 Maja 10 lokal użytkowy
+działka:     nr 764/82     pow. 792 m2        arkusz mapy: 10,         prawo: wieczyste       udział: 631/1000
+lokal: położenie:       pow.:       pomieszczenia:                                                pomieszczenie
+         piwnica,       591,06 m2 piwnica: 6 korytarzy, 7 magazynów, kotłownia                    przynależne
+         parter,                    parter: klatka schodowa, przedsionek                          do lokalu:
+Cena wywoławcza: w tym:           95,91 % stanowi          4,09 % stanowi I opłata z tytułu użytkowania
+600.000,00 zł                     cena lokalu              wieczystego udziału w gruncie
+Wysokość wadium: 60.000,00 zł
+Przetarg odbędzie się w dniu 11.08.2026 roku o godz. 9:30, w sali 207 Urzędu Miejskiego w Zabrzu.`;
+
+test('parseCommercialAttachment: single unit — unit area 591,06 (not plot 792), price; "piwnica" floor list not mistaken for a cellar', () => {
+  const u = parseCommercialAttachment(COMM_MULTIFLOOR);
+  assert.equal(u.length, 1);
+  assert.equal(u[0].address.key, '3 maja|10|', 'bare building when no "nr" (lokal użytkowy stripped)');
+  assert.equal(u[0].kind, 'uzytkowy');
+  assert.equal(u[0].area_m2, 591.06, 'unit usable area, not the 792 m² plot');
+  assert.equal(u[0].starting_price_pln, 600000);
+});
+
+// doc 95852: NO "adres:" label — the street sits directly on the numbered line.
+const COMM_NO_ADRES = `                                        Prezydent Miasta Zabrze
+           I ustny przetarg nieograniczony na sprzedaż niżej wymienionego lokalu użytkowego
+1.                           ul. Bytomskich Strzelców 37 lokal użytkowy nr 1
+działka:   nr 6167/205    pow.: 1129 m2 Arkusz mapy 4,               prawo: własność udział: 143/1000
+opis       położenie: parter pow.: 68,39 m2    pomieszczenia: 4 pomieszczenia, wc
+Cena wywoławcza: w tym:              57,57% stanowi cena lokalu 42,43% stanowi cena udziału
+130.000,00 zł
+Wysokość wadium: 13.000,00 zł
+Przetarg odbędzie się w dniu 26.03.2026 roku o godz. 9:30.`;
+
+test('parseCommercialAttachment: header without "adres:" label still parses; "nr 1" → /1 apt', () => {
+  const u = parseCommercialAttachment(COMM_NO_ADRES);
+  assert.equal(u.length, 1);
+  assert.equal(u[0].address.key, 'bytomskich strzelcow|37|1');
+  assert.equal(u[0].area_m2, 68.39);
+  assert.equal(u[0].starting_price_pln, 130000);
+});
+
+// doc 43727: TWO units at the same building (nr 2 + nr 3) — must NOT collapse to
+// one record. A footer viewing-times list repeats "ul. Witosa 6 lokal użytkowy
+// nr N o godz. …" but those lines aren't numbered headers, so they're ignored.
+const COMM_MULTI = `Prezydent Miasta Zabrze ogłasza III ustne przetargi nieograniczone na sprzedaż lokali użytkowych
+   1.                         adres: ul. Wincentego Witosa 6 lokal użytkowy nr 2
+   działka: nr 1234/5  pow.: 600 m2   prawo: własność udział: 50/1000
+   opis lokalu: położenie: parter pow.: 20,79 m2 pomieszczenia: sala, wc
+   Cena              w tym:      90,47 % stanowi cena       9,53 % stanowi cena udziału
+   wywoławcza:                   lokalu
+   40.000,00 zł
+   Wysokość wadium: 4.000,00 zł
+   2.                         adres: ul. Wincentego Witosa 6 lokal użytkowy nr 3
+   działka: nr 1234/5  pow.: 600 m2   prawo: własność udział: 60/1000
+   opis lokalu: położenie: parter pow.: 25,81 m2 pomieszczenia: 2 pomieszczenia, wc
+   Cena              w tym:      87,50 % stanowi cena       12,50 % stanowi cena udziału
+   wywoławcza:                   lokalu
+   35.000,00 zł
+   Wysokość wadium: 3.500,00 zł
+Przetargi odbędą się w dniu 15.06.2023 roku:
+- ul. Witosa 6 lokal użytkowy nr 2 o godz. 9:00,
+- ul. Witosa 6 lokal użytkowy nr 3 o godz. 9:30.`;
+
+test('parseCommercialAttachment: multi-unit keeps distinct keys; footer viewing-list lines excluded', () => {
+  const u = parseCommercialAttachment(COMM_MULTI);
+  assert.equal(u.length, 2, 'two units, footer list lines are not headers');
+  assert.equal(u[0].address.key, 'wincentego witosa|6|2');
+  assert.equal(u[0].area_m2, 20.79);
+  assert.equal(u[0].starting_price_pln, 40000);
+  assert.equal(u[1].address.key, 'wincentego witosa|6|3');
+  assert.equal(u[1].area_m2, 25.81);
+  assert.equal(u[1].starting_price_pln, 35000);
+  assert.ok(u.every((x) => x.kind === 'uzytkowy'));
+});
+
+test('parseCommercialAttachment: empty text → no units', () => {
+  assert.deepEqual(parseCommercialAttachment(''), []);
+});

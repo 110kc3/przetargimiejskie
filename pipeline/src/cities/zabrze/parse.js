@@ -214,6 +214,108 @@ export function parseAnnouncementText(text) {
   return out;
 }
 
+// ------------------- commercial announcements (board 552: lokale użytkowe) ----
+//
+// Zabrze's COMMERCIAL sale auctions ("Prezydent Miasta Zabrze ogłasza … przetarg
+// … na sprzedaż … lokalu użytkowego") live on document-list board 552 (sibling of
+// the flats board 549 / land board 555 — found by probing the document-list API).
+// The attachment is the SAME numbered per-unit table the flats board produces, so
+// each block carries a *plot* `pow.` (działka) before the *unit* `pow.` (opis
+// lokalu), and the "Cena wywoławcza" may be split by an inline "w tym: …%" cell —
+// we reuse flatAreaFromBlock / priceFromBlock (validated on the flat layouts).
+//
+// Two differences from a flat block, both handled below:
+//   1. the unit address ends "… lokal użytkowy [nr N]" (Arabic or Roman N), not a
+//      "/apt" — we rewrite "lokal użytkowy nr N" → "/N" so MULTI-unit announcements
+//      (e.g. doc 13270: Witosa 6 lokal użytkowy nr 2 + nr 3) keep distinct keys
+//      instead of collapsing onto the bare building. A bare "lokal użytkowy" with
+//      no number stays apt-less (parseAddress accepts a bare-building commercial).
+//   2. some docs omit the "adres:" label (the street sits directly on the numbered
+//      line — e.g. doc 24570 "ul. Bytomskich Strzelców 37 lokal użytkowy nr 1"), so
+//      we split on the per-unit "lokal użytkowy" anchor rather than "adres:".
+
+// The address token on a commercial unit's HEADER line. The header is a numbered
+// list item ("1.", "2.") optionally followed by "adres:", then "<street> <bldg>"
+// and "lokal użytkowy [nr N]" (Arabic, "9a", or Roman). Anchoring on the leading
+// "<num>." is what separates a real unit header from the two boilerplate places
+// "ul. … lokal użytkowy" also appears — the prose recital ("…przy ul. X, lokal
+// użytkowy będący przedmiotem…") and the footer viewing-times list ("- ul. X
+// lokal użytkowy nr N o godz. …") — neither of which is a numbered list item.
+// The address sub-group (cm[1]) is rewritten to the "/N" apt form before parseAddress.
+const COMM_HEADER_RE =
+  /^[ \t]*\d+\.[ \t]*(?:adres\s*:?\s*)?((?:ul|al|pl|os)\.?\s*[A-ZŻŹĆŁŚĄĘÓŃ0-9][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s+lokal\w*\s+u[żz]ytkow\w*(?:\s+nr\s*(?:\d+[A-Za-z]?|[IVX]+))?)?)/im;
+
+// Unit (lokal użytkowy) usable area for one block. Same idea as the flat helper
+// but WITHOUT its cellar-exclusion: a commercial unit's "położenie" routinely
+// LISTS its floors ("piwnica, parter, I piętro") so a "piwnica," prefix here is
+// part of the unit, not a separate attached cellar (which is what the flat helper
+// strips). We take the FLAT "pow.:" — the value in the "opis lokalu"/"lokal:
+// położenie" section — and drop the "działka …" PLOT value that precedes it.
+function commercialAreaFromBlock(block) {
+  const cut = block.search(/Wysoko[śs][ćc]\s+wadium|Cena\b/i);
+  const region = cut > 0 ? block.slice(0, cut) : block;
+  const opis = region.search(/opis\s+lokalu|lokal\s*:|po[łl]o[żz]enie/i);
+  // Restrict to the unit section when we can find it (skips the działka plot row
+  // entirely); otherwise fall back to the whole pre-Cena region.
+  const scan = opis >= 0 ? region.slice(opis) : region;
+  const cands = [];
+  for (const re of [/([\d][\d.,]*)\s*m\s*[²2](?!\d)/gi, /([\d][\d.,]*)\s*m(?![a-ząćęłńóśźż0-9²])/gi]) {
+    re.lastIndex = 0;
+    let m;
+    while ((m = re.exec(scan)) !== null) {
+      const v = parseArea(m[1]);
+      if (v == null || v <= 0) continue;
+      // Drop a plot value that slipped in ("działka … 792 m2" directly preceding).
+      if (/dzia[łl]k/i.test(scan.slice(Math.max(0, m.index - 35), m.index))) continue;
+      cands.push(v);
+    }
+    if (cands.length) break; // prefer the strict "m²" token; only fall back if none
+  }
+  return cands.length ? Math.max(...cands) : null;
+}
+
+/**
+ * Extract per-unit commercial rows from one board-552 announcement attachment.
+ * Single- or multi-unit; emits kind:'uzytkowy' (address-keyed → properties.json).
+ * @param {string} text  extracted attachment text (pdftotext -layout)
+ * @returns {Array<{address_raw:string, address:object|null, kind:string, area_m2:number|null, starting_price_pln:number|null}>}
+ */
+export function parseCommercialAttachment(text) {
+  if (!text) return [];
+  const t = text.replace(/\r/g, '');
+  // One block per numbered unit header. The header may carry leading whitespace
+  // (the table indents it), so match per-line with the multiline flag and use the
+  // match index to slice each unit's block up to the next header.
+  const headerRe = /^[ \t]*\d+\.[ \t]*(?:adres\s*:?\s*)?(?:ul|al|pl|os)\.?\s*[^\n]*?lokal\w*\s+u[żz]ytkow/gim;
+  const starts = [...t.matchAll(headerRe)].map((m) => m.index);
+  if (starts.length === 0) return [];
+  const out = [];
+  const seen = new Set();
+  for (let i = 0; i < starts.length; i++) {
+    const block = t.slice(starts[i], starts[i + 1] ?? t.length);
+    const hm = COMM_HEADER_RE.exec(block);
+    if (!hm) continue;
+    // "ul. Galileusza 10 lokal użytkowy nr 1" → "ul. Galileusza 10/1";
+    // "ul. 3 Maja 10 lokal użytkowy"          → "ul. 3 Maja 10" (bare building).
+    const addressRaw = hm[1]
+      .replace(/\s+lokal\w*\s+u[żz]ytkow\w*\s+nr\s*(\d+[A-Za-z]?|[IVX]+)/i, '/$1')
+      .replace(/\s+lokal\w*\s+u[żz]ytkow\w*/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const address = parseAddress(addressRaw);
+    if (!address || seen.has(address.key)) continue;
+    seen.add(address.key);
+    out.push({
+      address_raw: addressRaw,
+      address,
+      kind: 'uzytkowy', // board 552 is the commercial board by definition
+      area_m2: commercialAreaFromBlock(block),
+      starting_price_pln: priceFromBlock(block),
+    });
+  }
+  return out;
+}
+
 // ------------------- result notices ("INFORMACJA O WYNIKU PRZETARGÓW") ------
 //
 // Some /doc pages on the same board carry the published RESULT notice as

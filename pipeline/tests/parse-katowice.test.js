@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseAnnouncement, parseLandAnnouncement, parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
+import { parseAnnouncement, parseAnnouncements, parseLandAnnouncement, parseResultDoc, parseResultPdf } from '../src/cities/katowice/parse.js';
 
 const NEG_PDF = `                                     WYKAZ Z DNIA 27.05.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
 
@@ -254,4 +254,83 @@ Miasta Katowice.</p>
   assert.equal(r.area_m2, 80702);
   assert.equal(r.starting_price_pln, 20000000);
   assert.equal(r.auction_date, '2026-06-16');
+});
+
+// -------------------------------------------------------- multi-unit announcement
+
+const MULTI_TITLE =
+  'Przetargi ustne nieograniczone na sprzedaż 4 lokali mieszkalnych (ul. Rybnicka 8/8, ul. Broniewskiego 1b/13, ul. Sokolska 52/12 i ul. Grażyńskiego 42/4)';
+
+const MULTI_HTML = `<p>PREZYDENT MIASTA KATOWICE ogłasza przetargi ustne nieograniczone na sprzedaż:</p>
+<p>1. lokalu mieszkalnego nr 8 o pow. 28,52 m2, usytuowanego w Katowicach przy
+ul. Rybnickiej 8 wraz ze sprzedażą ułamkowej części gruntu w wysokości 0,0484
+cz. oznaczonego jako nr 160/1 o pow. 222 m2, karta mapy 58, obręb Bogucice -
+Zawodzie, stanowiącej współwłasność Miasta Katowice i innych osób.</p>
+<p>Cena wywoławcza wynosi:&#160;<b>380 000,00 zł</b><br>Wysokość wadium wynosi:&#160;<b>38 000,00 zł</b></p>
+<p>2. lokalu mieszkalnego nr 13 o pow. 21,35 m2, usytuowanego w Katowicach przy
+ul. Broniewskiego 1b wraz ze sprzedażą ułamkowej części gruntu w wysokości
+0,0099 cz. oznaczonego jako działki nr 110/21 i 127/1 o łącznej pow. 349 m2,
+karta mapy 24, obręb Bogucice - Zawodzie, stanowiącej współwłasność Miasta
+Katowice i innych osób.</p>
+<p>Cena wywoławcza wynosi:&#160;<b>170 000,00 zł</b><br>Wysokość wadium wynosi:&#160;<b>17 000,00 zł</b></p>
+<p>3. lokalu mieszkalnego nr 12 o pow. 52,41 m2, usytuowanego w Katowicach przy
+ul. Sokolskiej 52 wraz ze sprzedażą ułamkowej części gruntu w wysokości 0,0935
+cz. oznaczonego jako działka nr 25/5 o pow. 194 m2, karta mapy 24, obręb
+Bogucice - Zawodzie.</p>
+<p>Cena wywoławcza wynosi:&#160;<b>330 000,00 zł</b><br>Wysokość wadium wynosi:&#160;<b>33 000,00 zł</b></p>
+<p>4. lokalu mieszkalnego nr 4 o pow. 48,00 m2, usytuowanego w Katowicach przy
+ul. Grażyńskiego 42 wraz ze sprzedażą ułamkowej części gruntu w wysokości
+0,0100 cz. oznaczonego jako działki nr 25/35, 59/8 i 60/1 o łącznej pow. 174
+m2, karta mapy 24, obręb Bogucice - Zawodzie.</p>
+<p>Cena wywoławcza wynosi:&#160;<b>320 000,00 zł</b><br>Wysokość wadium wynosi:&#160;<b>32 000,00 zł</b></p>
+<p>Sprzedaż lokali następuje za cenę uzyskaną w wyniku przetargów.</p>
+<p>Wadium może być wnoszone w pieniądzu <b>do dnia 06.07.2026 r.</b></p>
+<p>Przetargi odbędą się <b>w dniu 14.07.2026 r.</b></p>
+<p>1. na sprzedaż nieruchomości z poz. 1 <b>o godz. 09:20</b></p>
+<p>2. na sprzedaż nieruchomości z poz. 2 <b>o godz. 09:40</b></p>
+<p>3. na sprzedaż nieruchomości z poz. 3 <b>o godz. 10:00</b></p>
+<p>4. na sprzedaż nieruchomości z poz. 4 <b>o godz. 10:20</b></p>
+<p>Oglądanie lokali będzie możliwe w dniach od 11.06.2026 r. do 06.07.2026 r.</p>`;
+
+test('multi-unit announcement (idr=152360): emits one listing per flat', () => {
+  const recs = parseAnnouncements(
+    MULTI_HTML,
+    MULTI_TITLE,
+    'https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152360&menu=679',
+  );
+  assert.equal(recs.length, 4, 'four flats → four listings');
+  const expected = [
+    { key: 'rybnicka|8|8', area: 28.52, price: 380000 },
+    { key: 'broniewskiego|1B|13', area: 21.35, price: 170000 },
+    { key: 'sokolska|52|12', area: 52.41, price: 330000 },
+    { key: 'grazynskiego|42|4', area: 48, price: 320000 },
+  ];
+  expected.forEach((e, i) => {
+    assert.equal(recs[i].address.key, e.key, `unit ${i + 1} address key`);
+    assert.equal(recs[i].area_m2, e.area, `unit ${i + 1} flat area (not the parcel)`);
+    assert.equal(recs[i].land_area_m2 ?? null, null, `unit ${i + 1} has no land_area_m2`);
+    assert.equal(recs[i].starting_price_pln, e.price, `unit ${i + 1} starting price`);
+    assert.equal(recs[i].kind, 'mieszkalny', `unit ${i + 1} kind`);
+    assert.equal(recs[i].auction_date, '2026-07-14', `unit ${i + 1} auction date`);
+    assert.equal(recs[i].wadium_deadline, '2026-07-06', `unit ${i + 1} wadium deadline`);
+    assert.equal(recs[i].viewing_date, '2026-07-06', `unit ${i + 1} viewing date`);
+  });
+});
+
+test('single-unit announcement still yields exactly one listing', () => {
+  const html = `<p>Sprzedaż lokalu mieszkalnego nr 57 położonego w budynku przy
+    ul. Oswobodzenia 38C, usytuowanego na nieruchomości gruntowej oznaczonej
+    jako działka nr 12/3 o powierzchni 800 m². Lokal mieszkalny o powierzchni
+    38,40 m² składa się z pokoju i kuchni. Cena wywoławcza: 180 000 zł.
+    Przetarg odbędzie się w dniu 10.07.2026 r.</p>`;
+  const recs = parseAnnouncements(
+    html,
+    'Pierwszy przetarg … lokalu mieszkalnego przy ul. Oswobodzenia 38C/57',
+    'doc://single',
+  );
+  assert.equal(recs.length, 1, 'single-unit → one listing');
+  assert.equal(recs[0].area_m2, 38.4, 'flat area, not the 800 m² parcel');
+  assert.equal(recs[0].land_area_m2 ?? null, null);
+  assert.equal(recs[0].starting_price_pln, 180000);
+  assert.equal(recs[0].address.key, 'oswobodzenia|38C|57');
 });

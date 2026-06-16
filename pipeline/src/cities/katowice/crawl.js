@@ -6,7 +6,7 @@
 // consecutive pages yield no new auction-relevant docs.
 
 import { getText } from '../../core/fetch.js';
-import { parseAnnouncement, parseLandAnnouncement } from './parse.js';
+import { parseAnnouncements, parseLandAnnouncement } from './parse.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
 const BOARD =
@@ -96,8 +96,11 @@ export async function crawlActive() {
         const lr = parseLandAnnouncement(html, d.title, d.doc_url);
         if (lr) land.push(lr);
       } else {
-        const listing = parseAnnouncement(html, d.title, d.doc_url);
-        if (listing) listings.push(listing);
+        // One announcement may carry several units ("… 4 lokali mieszkalnych
+        // (ul. A, ul. B, …)", idr=152360) → one listing per unit.
+        for (const listing of parseAnnouncements(html, d.title, d.doc_url)) {
+          listings.push(listing);
+        }
       }
     } catch (err) {
       console.error(`  katowice doc ${d.idr} parse error: ${err.message}`);

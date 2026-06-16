@@ -181,15 +181,25 @@ export async function crawlActive() {
     console.error(`  swietochlowice ${sibPath}: ${announcements.length} announcement(s) (of ${sibEntries.length} links)`);
 
     for (const e of announcements) {
-      const kind = classifyKind(e.title);
+      // The sibling boards mix houses, land and commercial, and the city titles
+      // most land sales tersely ("…na sprzedaż nieruchomości – ul. X") with no
+      // niezabudowanej/zabudowanej/działka word — classifyKind(title) returns
+      // `unknown`, and the loop previously had no branch for that, so every
+      // terse land auction (e.g. ul. Lotnicza 11,98 ha; Krokusów/Chrobrego) was
+      // dropped and land.json stayed empty. Fix: fetch the body once (every kept
+      // kind needs it) and, when the title alone is `unknown`, re-classify on
+      // title + body — the body always carries the disambiguating word — then
+      // route grunt → parseLandAnnouncement and house/commercial → listings[].
+      let bodyText = '';
+      try {
+        bodyText = htmlToText(await attachmentText(e.url));
+      } catch (err) {
+        console.error(`  swietochlowice attachment fetch failed (${e.url}): ${err.message}`);
+      }
+      let kind = classifyKind(e.title);
+      if (kind === 'unknown') kind = classifyKind(`${e.title} ${bodyText}`);
 
       if (kind === 'grunt') {
-        let bodyText = '';
-        try {
-          bodyText = htmlToText(await attachmentText(e.url));
-        } catch (err) {
-          console.error(`  swietochlowice land attachment fetch failed (${e.url}): ${err.message}`);
-        }
         try {
           const lr = parseLandAnnouncement(e.title, `<p>${bodyText}</p>`, e.url);
           if (lr) {
@@ -204,36 +214,31 @@ export async function crawlActive() {
       }
 
       if (kind === 'zabudowana' || kind === 'uzytkowy') {
-        const addr = addressFrom(e.title, '');
+        // Address from the title, then the body as a fallback — a terse house
+        // title may carry no street, but the body does.
+        const addr = addressFrom(e.title, bodyText);
         if (!addr) {
           console.error(`  swietochlowice WARN: unkeyable ${kind} announcement (${e.title.slice(0, 70)})`);
           continue;
-        }
-        let price = null;
-        let area = null;
-        let date = null;
-        try {
-          const text = htmlToText(await attachmentText(e.url));
-          price = priceFromText(text);
-          area = areaFromText(text);
-          date = auctionDateFromText(text);
-        } catch (err) {
-          console.error(`  swietochlowice ${kind} attachment parse failed (${e.url}): ${err.message}`);
         }
         listings.push({
           kind,
           address_raw: addr.address_raw,
           address: addr.address,
-          auction_date: date,
+          auction_date: auctionDateFromText(bodyText),
           published_date: null,
           round: roundFromTitle(e.title),
-          area_m2: area,
-          starting_price_pln: price,
+          area_m2: areaFromText(bodyText),
+          starting_price_pln: priceFromText(bodyText),
           detail_url: sibUrl,
           share: null,
         });
         continue;
       }
+
+      // Still unresolved after the body fallback: log so a future board change
+      // surfaces in the refresh output rather than silently disappearing.
+      console.error(`  swietochlowice WARN: unclassified auction dropped (${e.title.slice(0, 70)})`);
     }
   }
 

@@ -74,6 +74,29 @@ export function htmlToText(html) {
 }
 
 /**
+ * Is this announcement an OPEN SALE auction at all (any asset kind)? The generic
+ * gate used to admit houses/commercial that share a flat board: keeps
+ * `przetarg … na sprzedaż …`; drops bezprzetargowe tenant sales, rentals
+ * (najem/dzierżawa) and any "informacja o wyniku / odwołanie / unieważnienie /
+ * zamiar sprzedaży / wykaz" notice (these aren't a live auction to parse). It is
+ * intentionally KIND-agnostic — the body classifier decides house vs commercial
+ * vs flat; this only filters out non-auctions so a terse house title
+ * ("…na sprzedaż nieruchomości – ul. X") still passes.
+ * @param {string} title
+ * @returns {boolean}
+ */
+export function isSaleAuction(title) {
+  const t = (title || '').toLowerCase();
+  if (/informacj\w*\s+o\b|wynik\w*\s+(?:z\s+)?\w*\s*przetarg|odwo[łl]ani|uniewa[żz]ni|zamiar\s+sprzeda|^\s*wykaz|za[łl][ąa]cznik/.test(t)) {
+    return false;
+  }
+  if (!/przetarg/.test(t) || /bezprzetarg/.test(t)) return false;
+  if (!/sprzeda/.test(t)) return false;
+  if (/\bnajem\b|najmu|dzier[żz]aw|wynajem/.test(t)) return false;
+  return true;
+}
+
+/**
  * Is this announcement an OPEN auction selling a residential flat?
  * Keeps `przetarg … na sprzedaż … lokal(u) mieszkalny(ego)` (incl. share sales
  * "sprzedaż udziału … lokalu mieszkalnego"); drops bezprzetargowe tenant sales,
@@ -87,6 +110,26 @@ export function isFlatAuction(title) {
   if (!/sprzeda/.test(t)) return false;
   if (/\bnajem\b|najmu|dzier[żz]aw|wynajem/.test(t)) return false;
   return /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln/.test(t);
+}
+
+/**
+ * Resolve an announcement's asset kind from its TITLE, falling back to the BODY
+ * when the title is terse. Municipal sale titles are routinely generic
+ * ("Ogłoszenie o I przetargu na sprzedaż nieruchomości – ul. X") with the
+ * disambiguating word (niezabudowanej / zabudowanej / lokalu użytkowego /
+ * działka nr) only in the body. classifyKind is title-first (FLAT beats HOUSE
+ * beats LAND in a fixed order), so a body fallback only fires when the title
+ * alone yields `unknown` — a flat/house/land title still wins on its own and a
+ * plot mentioned inside a flat body can't override a "lokalu mieszkalnego"
+ * title. classifyKind itself is NOT modified (shared single source of truth).
+ * @param {string} title
+ * @param {string} bodyText  flattened article body (htmlToText output)
+ * @returns {'mieszkalny'|'zabudowana'|'uzytkowy'|'garaz'|'grunt'|'unknown'}
+ */
+export function resolveKind(title, bodyText) {
+  const fromTitle = classifyKind(title);
+  if (fromTitle !== 'unknown') return fromTitle;
+  return classifyKind(`${title} ${bodyText || ''}`);
 }
 
 /**
@@ -544,6 +587,7 @@ export function makeCrawlActive(cfg) {
     const listings = [];
     const land = [];
     let flats = 0;
+    let others = 0;
     let plots = 0;
     for (const url of urls) {
       let html;
@@ -561,16 +605,52 @@ export function makeCrawlActive(cfg) {
         continue;
       }
 
-      // Classify on the title; route grunt -> land[], flats -> listings[].
-      const kindFromTitle = classifyKind(title);
+      // Classify on the title, falling back to the body when the title is terse
+      // (FINN sale titles are often generic — the kind word lives in the body).
+      // Routes: grunt -> parcel-keyed land[]; house/commercial/flat ->
+      // address-keyed listings[]. A non-flat, non-grunt building kind used to be
+      // dropped here (the old `if (!isFlat(title)) continue;`), losing every
+      // `zabudowana` house and `uzytkowy` commercial that shares the board.
+      const kind = resolveKind(title, htmlToText(body));
 
-      if (kindFromTitle === 'grunt') {
+      if (kind === 'grunt') {
         try {
           const lr = parseLandAnnouncement(title, body, url);
           if (lr) { land.push(lr); plots++; }
           else console.error(`  ${id} WARN: unkeyable land ${url} (${title.slice(0, 70)})`);
         } catch (err) {
           console.error(`  ${id} land parse failed (${url}): ${err.message}`);
+        }
+        continue;
+      }
+
+      // House (zabudowana) / commercial (uzytkowy): same address-keyed shape as a
+      // flat, parsed by the announcement parser, but stamped with the resolved
+      // kind (parseAnnouncement defaults unknown→mieszkalny, so override it).
+      // Gated by the generic sale-auction filter to drop rentals/bezprzetargowe.
+      if (kind === 'zabudowana' || kind === 'uzytkowy') {
+        if (!isSaleAuction(title)) continue;
+        try {
+          const parsed = parseAnnouncement(title, body);
+          if (!parsed) {
+            console.error(`  ${id} WARN: unkeyable ${kind} ${url} (${title.slice(0, 70)})`);
+            continue;
+          }
+          others++;
+          listings.push({
+            kind,
+            address_raw: parsed.address_raw,
+            address: parsed.address,
+            auction_date: parsed.auction_date,
+            published_date: null,
+            round: parsed.round,
+            area_m2: parsed.area_m2,
+            starting_price_pln: parsed.starting_price_pln,
+            detail_url: url,
+            share: parsed.share,
+          });
+        } catch (err) {
+          console.error(`  ${id} ${kind} parse failed (${url}): ${err.message}`);
         }
         continue;
       }
@@ -601,7 +681,7 @@ export function makeCrawlActive(cfg) {
       }
     }
     console.error(
-      `  ${id} active: ${listings.length} flat listing(s) from ${flats}; ${plots} land plot(s)`,
+      `  ${id} active: ${listings.length} listing(s) (${flats} flat + ${others} house/commercial); ${plots} land plot(s)`,
     );
     return { listings, wykaz: [], land };
   };

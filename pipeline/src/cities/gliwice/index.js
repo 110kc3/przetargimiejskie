@@ -31,7 +31,10 @@ import { crawlMsipLand } from './crawl-land.js';
 async function crawlActive() {
   const zgm = await crawlActiveZgm();
 
-  let bip = [];
+  // BIP yields BOTH lokale (→ listings) and działka sales (→ land). A BIP-only
+  // plot (e.g. dz. 72/2, Pszczyńska 204) that the MSIP export misses is captured
+  // here; one also in MSIP folds to a single parcel in core/build-land.js.
+  let bip = { listings: [], land: [] };
   try {
     bip = await crawlBipSales();
   } catch (err) {
@@ -39,16 +42,18 @@ async function crawlActive() {
   }
 
   // MSIP land plots — isolated so a failure never aborts the flat/commercial crawl.
-  let land = [];
+  let msipLand = [];
   try {
-    land = await crawlMsipLand();
+    msipLand = await crawlMsipLand();
   } catch (err) {
-    console.error(`  WARN: MSIP land crawl failed (${err.message}); land omitted this run.`);
+    console.error(`  WARN: MSIP land crawl failed (${err.message}); MSIP land omitted this run.`);
   }
 
-  // Fold BIP rows that duplicate a ZGM auction into a secondary source link
-  // (bip_url) rather than emitting a second row; BIP-only auctions are kept.
-  const listings = foldBipDuplicates([...zgm.listings, ...bip]);
+  // Fold BIP lokale rows that duplicate a ZGM auction into a secondary source
+  // link (bip_url) rather than emitting a second row; BIP-only auctions kept.
+  const listings = foldBipDuplicates([...zgm.listings, ...bip.listings]);
+  // MSIP + BIP land merge; buildLand dedups by parcel so twins fold to one.
+  const land = [...msipLand, ...bip.land];
   return { listings, wykaz: zgm.wykaz, land };
 }
 

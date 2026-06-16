@@ -1,18 +1,23 @@
-// Rybnik crawler — ZGM Rybnik's "Ogłoszenie o przetargach" page.
+// Rybnik (legacy) crawler — ZGM Rybnik's standalone "Ogłoszenie o przetargach"
+// page.
 //
 //   LIST:     https://bip.zgm.rybnik.pl/Default.aspx?Page=214            (current batch)
 //   ARCHIVE:  https://bip.zgm.rybnik.pl/Default.aspx?Page=214&Archive=<id>
 //   RTF:      https://bip.zgm.rybnik.pl/Download.ashx?id=<id>            (one per flat)
 //
-// ZGM (the municipal housing manager) auctions vacated municipal flats. Each
-// announcement is an "OGŁOSZENIE <address> [rtf]" download link; the address is
-// in the label, the price/area/date/round inside the RTF (decoded by
-// core/rtf-text.js — pure JS, no external tool). The page is server-rendered
-// ASP.NET; older batches hang off `&Archive=<id>` links on the current page.
+// NOTE (June 2026): this ZGM page is DEAD — Page=214 now renders the ZGM home
+// (0 "OGŁOSZENIE …" links), so crawlActive() returns no flats. ZGM's flat
+// auctions are published on the CITY BIP register instead (bip.um.rybnik.eu,
+// Page=339) and are now crawled by crawl-land.js (parseFlatRtf). This module is
+// kept as a resilient fallback: parseListPage finds nothing on the dead page,
+// so crawlActive() yields [] harmlessly; if ZGM ever republishes here the
+// adapter (index.js) merges those flats back in (de-duped by address key).
 //
-// Active-listings adapter (like Bytom/Zabrze/Sosnowiec): current-batch flats are
-// upcoming auctions (future date → active); archived batches are past (→
-// archived by date). crawlResultDocs() is [] (no achieved-price stream wired).
+// Originally an active-listings adapter (like Bytom/Zabrze/Sosnowiec): each
+// announcement was an "OGŁOSZENIE <address> [rtf]" link (address in the label,
+// price/area/date/round in the RTF, decoded by core/rtf-text.js). The page is
+// server-rendered ASP.NET; older batches hung off `&Archive=<id>` links.
+// crawlResultDocs() is [] (no achieved-price stream wired).
 
 import { getText } from '../../core/fetch.js';
 import { rtfText } from '../../core/rtf-text.js';

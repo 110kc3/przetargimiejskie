@@ -1,5 +1,6 @@
 // Katowice city-BIP parsers:
 //   parseAnnouncement(html, …)        — sale-auction announcement HTML body -> active listing
+//   parseAnnouncements(html, …)       — same, but emits ONE listing per unit (multi-unit aware)
 //   parseLandAnnouncement(html, …)    — same source, nieruchomość gruntowa → land record
 //   parseResultPdf(text, …)           — per-auction "Wyniki przetargów DD.MM.YYYY" PDF table
 //   parseYearlySummaryPdf(text, …)    — annual "Wykaz nieruchomości sprzedanych w roku YYYY" PDF
@@ -18,40 +19,25 @@ function decodeEntities(s) {
     .replace(/&lt;/gi, '<')
     .replace(/&gt;/gi, '>');
 }
-
 function stripTags(html) {
   return decodeEntities(
-    html
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' '),
-  )
-    .replace(/\s+/g, ' ')
-    .trim();
+    html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' '),
+  ).replace(/\s+/g, ' ').trim();
 }
-
 function parsePLN(s) {
   if (!s) return null;
   const cleaned = s.replace(/\s/g, '').replace(/,\d{2}$/, '').replace(/[^\d]/g, '');
   const n = Number(cleaned);
   return Number.isFinite(n) && n > 0 ? n : null;
 }
-
-function isoDate(dd, mm, yyyy) {
-  return `${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
-}
-
+function isoDate(dd, mm, yyyy) { return `${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`; }
 function kindFromText(t) {
-  // A FLAT is a "lokal mieszkalny". A whole residential BUILDING ("budynek
-  // mieszkalny" / "nieruchomość zabudowana budynkiem mieszkalnym") is a HOUSE
-  // → 'zabudowana', not a flat (HL-0 reclassify; see core/classify-kind.js).
   if (/lokal\w*\s+mieszkaln/i.test(t)) return 'mieszkalny';
   if (/lokal\w*\s+(?:niemieszkaln|u[żz]ytkow)/i.test(t)) return 'uzytkowy';
   if (/gara[żz]/i.test(t)) return 'garaz';
   if (/(?<!nie)zabudowan|budyn\w*\s+mieszkaln|domem\s+mieszkaln/i.test(t)) return 'zabudowana';
   return 'unknown';
 }
-
 function roundFromTitle(title) {
   const t = title.toLowerCase();
   if (/\bdrug\w*\s+przetarg/.test(t)) return 2;
@@ -59,98 +45,112 @@ function roundFromTitle(title) {
   if (/\bczwart\w*\s+przetarg/.test(t)) return 4;
   return 1;
 }
-
 function addressFromTitle(title) {
-  // Capture street + building[/apt] and STOP — capturing to end-of-title made
-  // trailing words ("… przy ul. Gliwickiej 50 w Katowicach", "… – II przetarg")
-  // part of the street, parseAddress failed, and the announcement was silently
-  // dropped.
-  const m =
-    /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?)/i.exec(title);
+  const m = /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*\d+[A-Za-z]?)?)/i.exec(title);
   return m ? m[1].trim() : null;
 }
-
-export function parseAnnouncement(html, title, docUrl) {
-  const text = stripTags(html);
-
-  const addrRaw = addressFromTitle(title);
-  const address = addrRaw ? parseAddress(addrRaw) : null;
-  if (!address) return null;
-
-  const titleKind = kindFromText(title);
-  const kind = titleKind !== 'unknown' ? titleKind : kindFromText(text);
-
-  // Area: accept both "o pow." (abbreviated, common on the BIP) and the
-  // full word "o powierzchni" / "o powierzchni użytkowej" (common on the
-  // city-portal SharePoint announcements). Also accept "m 2" with a space
-  // — pdftotext-ish artefact that occurs in some bodies.
-  //
-  // SELECTION matters: a lokal announcement's body usually states the PARCEL
-  // first ("nieruchomości gruntowej … o powierzchni 800 m²") and the flat
-  // later — the old first-match grab published 500–800 m² "flats"
-  // (oswobodzenia 38C/57 @ 225 zł/m², caught by the CI sanity gate). Order:
-  //   1. the explicitly labelled "pow. użytkowej" value;
-  //   2. any "o pow." NOT preceded by parcel vocabulary, preferring one in a
-  //      lokal context;
-  // and a flat-implausible (>300 m²) pick is demoted to land_area_m2.
+function pickFlatArea(text) {
   const labM = /o\s+pow(?:\.|ierzchni)\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m\s*[²2]/i.exec(text);
   let areaNum = labM ? Number(labM[1].replace(',', '.')) : null;
   if (areaNum == null) {
     const RE = /o\s+pow(?:\.|ierzchni)\s*(\d+(?:[,.]\d+)?)\s*m\s*[²2]/gi;
-    let am;
-    let fallback = null;
+    let am; let fallback = null;
     while ((am = RE.exec(text)) !== null) {
-      // The NEAREST preceding keyword decides what this area describes —
-      // "… działka nr 12/3 o powierzchni 800 m². Lokal mieszkalny o
-      // powierzchni 38,40 m² …" has parcel vocabulary in the window of BOTH
-      // matches; only proximity separates them.
       const before = text.slice(Math.max(0, am.index - 80), am.index).toLowerCase();
-      const lastParcel = Math.max(
-        ...['działk', 'dzialk', 'grunt', 'teren', 'obręb', 'obreb'].map((w) => before.lastIndexOf(w)),
-      );
+      const lastParcel = Math.max(...['działk', 'dzialk', 'grunt', 'teren', 'obręb', 'obreb', 'oznaczon'].map((w) => before.lastIndexOf(w)));
       const lastLokal = before.lastIndexOf('lokal');
       const v = Number(am[1].replace(',', '.'));
       if (lastLokal > lastParcel) { areaNum = v; break; }
-      if (lastParcel > lastLokal) continue; // parcel
+      if (lastParcel > lastLokal) continue;
       if (fallback == null) fallback = v;
     }
     if (areaNum == null) areaNum = fallback;
   }
-  // Whole-property sales ("nieruchomość zabudowana budynkiem mieszkalnym przy
-  // ul. Górnej 4…") have no lokal — whatever area we found is the PLOT or
-  // building total, not a usable flat area → land_area_m2, zł/m² stays blank.
-  // A "flat" area over 300 m² is the same thing wearing a lokal announcement.
-  const isWholeProperty =
-    (!/lokal/i.test(title) && !/lokal/i.test(text)) ||
-    (areaNum != null && areaNum > 300);
-
-  const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
-  const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
-
-  const adM = /Przetarg\s+odb[ęe]dzie\s+si[ęe][^.]{0,40}?\bw\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  return areaNum;
+}
+function sharedDates(fullText) {
+  const adM = /Przetarg\w*\s+odb[ęe]d[ąa]?\s*si[ęe][^.]{0,40}?\bw\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
   const auction_date = adM ? isoDate(adM[1], adM[2], adM[3]) : null;
-
-  const wadM = /[Ww]adium[^.]{0,90}?do\s+dnia\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  const wadM = /[Ww]adium[^.]{0,90}?do\s+dnia\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
   const wadium_deadline = wadM ? isoDate(wadM[1], wadM[2], wadM[3]) : null;
-
-  const viewM = /Ogl[ąa]danie[\s\S]{0,160}?\bdo\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  const viewM = /Ogl[ąa]danie[\s\S]{0,160}?\bdo\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
   const viewing_date = viewM ? isoDate(viewM[1], viewM[2], viewM[3]) : null;
-
+  return { auction_date, wadium_deadline, viewing_date };
+}
+function buildListing({ addrRaw, address, kind, span, shared, docUrl, round }) {
+  const areaNum = pickFlatArea(span);
+  const isWholeProperty = !/lokal/i.test(span) || (areaNum != null && areaNum > 300);
+  const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(span);
+  const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
   return {
-    kind,
-    round: roundFromTitle(title),
-    address_raw: addrRaw,
-    address,
-    auction_date,
+    kind, round, address_raw: addrRaw, address,
+    auction_date: shared.auction_date,
     area_m2: !isWholeProperty && Number.isFinite(areaNum) ? areaNum : null,
     ...(isWholeProperty && Number.isFinite(areaNum) ? { land_area_m2: areaNum } : {}),
-    starting_price_pln,
-    detail_url: docUrl,
-    wadium_deadline,
-    viewing_date,
+    starting_price_pln, detail_url: docUrl,
+    wadium_deadline: shared.wadium_deadline, viewing_date: shared.viewing_date,
   };
 }
-
+export function parseAnnouncements(html, title, docUrl) {
+  const text = stripTags(html);
+  const shared = sharedDates(text);
+  const round = roundFromTitle(title);
+  const blocks = [...text.matchAll(/(\d+)\.\s*lokal\w*\b[\s\S]*?(?=\s\d+\.\s*lokal\w*\b|$)/gi)].map((m) => m[0]);
+  const titleAddrs = [
+    ...title.matchAll(/(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*\/\s*[\dIVXLA-Za-z]+)?)(?=\s*(?:,|\bi\b|\)|$))/gi),
+  ].map((m) => m[1].trim());
+  const isMultiUnit = blocks.length >= 2 || titleAddrs.length >= 2;
+  if (!isMultiUnit) {
+    const single = parseAnnouncement(html, title, docUrl);
+    return single ? [single] : [];
+  }
+  const out = [];
+  if (blocks.length >= 2) {
+    blocks.forEach((span, i) => {
+      const blkKind = kindFromText(span);
+      const kind = blkKind !== 'unknown' ? blkKind : (kindFromText(title) || 'unknown');
+      const addrRaw = titleAddrs[i] || addressFromBlock(span);
+      const address = addrRaw ? parseAddress(addrRaw) : null;
+      if (!address) return;
+      out.push(buildListing({ addrRaw, address, kind, span, shared, docUrl, round }));
+    });
+    return out;
+  }
+  const kind = kindFromText(title) !== 'unknown' ? kindFromText(title) : kindFromText(text);
+  for (const addrRaw of titleAddrs) {
+    const address = parseAddress(addrRaw);
+    if (!address) continue;
+    out.push(buildListing({ addrRaw, address, kind, span: text, shared, docUrl, round }));
+  }
+  return out;
+}
+function addressFromBlock(blk) {
+  const stM = /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?\s+\d+(?:-\d+)?[A-Za-z]?)(?=\s+(?:wraz|w\s|,|\.|$))/i.exec(blk);
+  if (!stM) return null;
+  let s = stM[1].trim();
+  const aptM = /lokal\w*(?:\s+(?:mieszkaln\w*|niemieszkaln\w*|u[żz]ytkow\w*))?\s+nr\s+(\d+[A-Za-z]?|[IVXL]+)\b/i.exec(blk);
+  if (aptM) s += '/' + aptM[1];
+  return s;
+}
+export function parseAnnouncement(html, title, docUrl) {
+  const text = stripTags(html);
+  const addrRaw = addressFromTitle(title);
+  const address = addrRaw ? parseAddress(addrRaw) : null;
+  if (!address) return null;
+  const titleKind = kindFromText(title);
+  const kind = titleKind !== 'unknown' ? titleKind : kindFromText(text);
+  const areaNum = pickFlatArea(text);
+  const isWholeProperty = (!/lokal/i.test(title) && !/lokal/i.test(text)) || (areaNum != null && areaNum > 300);
+  const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,40}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
+  const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
+  const { auction_date, wadium_deadline, viewing_date } = sharedDates(text);
+  return {
+    kind, round: roundFromTitle(title), address_raw: addrRaw, address, auction_date,
+    area_m2: !isWholeProperty && Number.isFinite(areaNum) ? areaNum : null,
+    ...(isWholeProperty && Number.isFinite(areaNum) ? { land_area_m2: areaNum } : {}),
+    starting_price_pln, detail_url: docUrl, wadium_deadline, viewing_date,
+  };
+}
 /**
  * Parse a land-sale announcement (nieruchomość gruntowa) into a parcel-shaped
  * land record. Returns null when neither a parcel number nor a street can be

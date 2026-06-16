@@ -61,6 +61,46 @@ test('parseBipList: empty / non-list HTML yields no items', () => {
   assert.deepEqual(parseBipList('<html><body>nic</body></html>'), []);
 });
 
+// Garage-plot SALES ("sprzedaż działki gruntu pod garażem") live ONLY on the
+// BIP list (no i-BIIP catalog row). They were dropped twice: kindFromText
+// returned null (no "mieszkaln"/"niemieszkaln") and the dz./działka address
+// guard discarded the parcel-bearing title. Live examples (June 2026):
+//   ul. Reja (działka gruntu nr 2237/14)  -- auction 2026-05-06
+//   ul. Witczaka (dz. 3143/37)            -- auction 2026-02-13
+const BIP_GARAGE_HTML = `<ul class="aktualnosci">
+${li({ date: '2026-05-06', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-dzialki-pod-garazami/ul.-Reja-dzialka-gruntu-nr-223714/idn:13230', addr: 'ul. Reja (dzialka gruntu nr 2237/14)', desc: 'Prezydent Bytomia oglasza przetarg ustny ograniczony na sprzedaz dzialki gruntu pod garazem, polozonej w Bytomiu przy ul. Reja (dzialka gruntu nr 2237/14)' })}
+${li({ date: '2026-02-13', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-dzialki-pod-garazami/ul.-Witczaka-dz.-314337/idn:12731', addr: 'ul. Witczaka (dz. 3143/37)', desc: 'Prezydent Bytomia oglasza przetarg ustny ograniczony na sprzedaz dzialki gruntu pod garazem, polozonej w Bytomiu przy ul. Witczaka (dzialka gruntu nr 3143/37)' })}
+${li({ date: '2026-05-25', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-nieruchomosci-zabudowane/-ul.-Gleboka-20-w-Parzymiechach/idn:13385', addr: 'ul. Gleboka 20 w Parzymiechach', desc: 'Prezydent Bytomia oglasza drugi przetarg ustny ograniczony na sprzedaz nieruchomosci gruntowej zabudowanej polozonej w Gminie Lipie, w miejscowosci Parzymiechy przy ul. Glebokiej 20.' })}
+</ul>`;
+
+test('parseBipList captures a garage-plot sale as kind=garaz, parcel-keyed', () => {
+  const items = parseBipList(BIP_GARAGE_HTML);
+  const garages = items.filter((i) => i.kind === 'garaz');
+  assert.equal(garages.length, 2, 'both garage-plot sales must be captured');
+
+  const reja = garages.find((g) => g.address.key === 'reja|2237|14');
+  assert.ok(reja, 'Reja garage-plot must survive the dz./dzialka guard');
+  assert.equal(reja.kind, 'garaz');
+  assert.equal(reja.address.street, 'Reja'); // street only, parenthetical stripped
+  assert.equal(reja.round, 1); // bare "przetarg" = first
+  assert.equal(reja.published_date, '2026-05-06');
+  assert.match(reja.detail_url, /\/idn:13230$/);
+
+  const witczaka = garages.find((g) => g.address.key === 'witczaka|3143|37');
+  assert.ok(witczaka, 'Witczaka garage-plot must survive the dz./dzialka guard');
+  assert.equal(witczaka.address.street, 'Witczaka');
+});
+
+test('parseBipList: garage branch does not pull in land or the out-of-gmina house', () => {
+  const items = parseBipList(BIP_GARAGE_HTML);
+  // The Parzymiechy house (Gmina Lipie) has no "garaz" in its description, so
+  // it stays dropped (out of scope -- different gmina).
+  assert.ok(!items.some((i) => /gleboka/.test(i.address.key)), 'Parzymiechy house excluded');
+  // Plain land sales still come only from the i-BIIP catalog, never this list.
+  const land = parseBipList(BIP_HTML).filter((i) => /zgrzebnioka/.test(i.address.key));
+  assert.equal(land.length, 0, 'niezabudowana grunt parcel still excluded from the BIP list');
+});
+
 // ---- i-BIIP catalog (price/area enrichment, now a Map) --------------------
 
 const CATALOG_HTML = `<main>

@@ -6,9 +6,10 @@
 //
 // The BIP "Sprzedaż nieruchomości i przetargi na wysokość czynszu" board mixes
 // three announcement kinds — SPRZEDAŻ (sales), NAJEM (rent auctions) and
-// DZIERŻAWA (land leases). We ingest ONLY the SPRZEDAŻ pages, and within those
-// only LOKALE (apartments / commercial units / garages) — działki (bare land
-// plots) are intentionally skipped (the lokale-only scope decision).
+// DZIERŻAWA (land leases). We ingest ONLY the SPRZEDAŻ pages. Within those,
+// LOKALE (apartments / commercial units / garages) become active listings and
+// DZIAŁKI (bare land plots) become 'grunt' land records (routed to build-land,
+// merged with the MSIP land export so a BIP-only plot is no longer dropped).
 //
 // A single SPRZEDAŻ page is usually a BUNDLE: one "Prezydent Miasta Gliwice
 // ogłasza … odbędą się przetargi" announcement listing several lokale, each in
@@ -66,7 +67,7 @@ export function stripBip(html) {
     .replace(/&sup3;/g, '³')
     .replace(/&([a-zA-Z]+);/g, (m, n) => (NAMED[n] != null ? NAMED[n] : ' '))
     .replace(/&#(\d+);/g, (m, d) => { try { return String.fromCodePoint(+d); } catch { return ' '; } })
-    .replace(/[ \t ]+/g, ' ')
+    .replace(/[ \t ]+/g, ' ')
     .replace(/\s*\n\s*/g, '\n')
     .replace(/\n{2,}/g, '\n')
     .trim();
@@ -105,11 +106,11 @@ function blockFigures(seg) {
   const a =
     /(?:POWIERZCHNIA LOKALU:|POWIERZCHNIA GARAŻU:|o powierzchni(?: użytkowej)?)\s*(\d+(?:[,]\d+)?)\s*m\s?[²2]/i.exec(seg);
   const p =
-    /CENA WYWOŁAWCZA[^:\n]*:\s*([\d  .]+?)(?:,\d{2})?\s*z[łl]/i.exec(seg) ||
-    /cena wywoławcza[^:\n]*:\s*([\d  .]+?)(?:,\d{2})?\s*z[łl]/i.exec(seg);
+    /CENA WYWOŁAWCZA[^:\n]*:\s*([\d  .]+?)(?:,\d{2})?\s*z[łl]/i.exec(seg) ||
+    /cena wywoławcza[^:\n]*:\s*([\d  .]+?)(?:,\d{2})?\s*z[łl]/i.exec(seg);
   return {
     area_m2: a ? Number(a[1].replace(',', '.')) : null,
-    starting_price_pln: p ? Number(p[1].replace(/[  .]/g, '')) : null,
+    starting_price_pln: p ? Number(p[1].replace(/[  .]/g, '')) : null,
   };
 }
 
@@ -127,9 +128,73 @@ function makeListing(addressRaw, kind, date, round, figures, url) {
   };
 }
 
+// A SPRZEDAŻ page is a DZIAŁKA (bare-land) sale when the title leads with
+// "dz.|działka [nr]" or the body's subject is "(nie)zabudowaną działkę". These
+// pages never carry a lokal block, so they're routed to LAND, not lokale. The
+// slug varies ("sprzedaz-dzialka-nr-…", "sprzedaz-dz-nr-…"), so we key off the
+// title/body, not the URL.
+function isDzialkaDoc(text, title) {
+  return (
+    // "dz." is an abbreviation (always dot-terminated); the full word may end the
+    // token. Try the word form first so the short "dz." branch can't shave "dz"
+    // off "działka" and leave "iałka …" behind.
+    /sprzeda[zż]\s*[–-]\s*(?:dzia[łl]k[ai]\b|dz\.)/i.test(title || '') ||
+    /obejmuj[ąa]c\w*\s+(?:nie)?zabudowan\w*\s+dzia[łl]k/i.test(text)
+  );
+}
+
+// "263/2 i nr 263/6" → "263/2, 263/6" so the comma split + the MSIP "NR_DZ"
+// form line up and buildLand's `dz|<obreb>|<parcel>` key folds the two sources.
+function normalizeParcels(s) {
+  return (s || '').replace(/\s+i\s+(?:nr\s+)?/gi, ', ').replace(/\s+/g, ' ').trim();
+}
+
 /**
- * Parse one SPRZEDAŻ detail page into 0..N lokale active-listings.
- * Returns [] for działka pages and anything that doesn't parse cleanly.
+ * Parse one działka SPRZEDAŻ page into 0..1 land records (kind 'grunt'), shaped
+ * for core/build-land.js (keyed by `dz|<obreb>|<parcel>`, so a plot also in the
+ * MSIP export folds to one). Parcel/obręb/address come from the title (the most
+ * reliable, always-present form); the body backstops any missing field. Price
+ * and round reuse the lokale helpers. Returns [] when no parcel can be read.
+ * @param {string} text  already-stripped detail-page text
+ * @param {string|null} date  resolved auction date
+ * @param {string} url   detail-page URL (→ detail_url)
+ * @param {string} [title]  page <title>
+ * @returns {Array}
+ */
+function parseBipLandDoc(text, date, url, title) {
+  // Title form: "SPRZEDAŻ – dz. nr 72/2, obręb Nowe Gliwice, ul. Pszczyńska 204 - BIP Gliwice"
+  // (word form first; see isDzialkaDoc). Parcel = group 1, obręb = 2, address = 3.
+  const tm =
+    /sprzeda[zż]\s*[–-]\s*(?:dzia[łl]k[ai]|dz\.)\s*(?:nr\s*)?(.+?),\s*obr[eę]b\s+(.+?),\s*(.+?)\s*[–-]\s*BIP/i.exec(title || '');
+  // Body form (backstop for terse titles): "obejmującej zabudowaną działkę nr 736, obręb Sikornik, …"
+  const bm =
+    /(?:nie)?zabudowan\w*\s+dzia[łl]k[ęi]\s+(?:nr\s+)?([\d/]+(?:\s+i\s+(?:nr\s+)?[\d/]+)*)(?:,\s*obr[eę]b\s+([^,.(]+?))?(?=[,.(]|\s+o\s+pow|\s+po[łl]o)/i.exec(text);
+
+  const dzialka_nr = normalizeParcels(tm ? tm[1] : bm ? bm[1] : '') || null;
+  if (!dzialka_nr) return []; // unkeyable without a parcel
+  const obreb =
+    (tm && tm[2] ? tm[2] : bm && bm[2] ? bm[2] : '').replace(/\s+/g, ' ').trim() || null;
+  const address_raw = tm && tm[3] ? tm[3].replace(/\s+/g, ' ').trim() : null;
+
+  const rm = /([IVX]+)\s+ustny przetarg/i.exec(text);
+  return [{
+    kind: 'grunt',
+    dzialka_nr,
+    obreb,
+    address_raw,
+    auction_date: date,
+    starting_price_pln: blockFigures(text).starting_price_pln,
+    round: rm ? ROMAN[rm[1]] || null : null,
+    detail_url: url,
+    source: 'bip',
+  }];
+}
+
+/**
+ * Parse one SPRZEDAŻ detail page into records. Działka (bare-land) pages emit a
+ * single LAND record (kind 'grunt'); lokale pages emit 0..N apartment/commercial
+ * /garage listings. Returns [] for anything that doesn't parse cleanly. The
+ * caller (crawlBipSales) splits grunt off into the land stream.
  * @param {string} html  raw detail-page HTML
  * @param {string} url   detail-page URL (becomes detail_url + a date source)
  * @param {string} [title]  page <title> (carries the date and the single-lokal address)
@@ -138,6 +203,9 @@ function makeListing(addressRaw, kind, date, round, figures, url) {
 export function parseBipSaleDoc(html, url, title) {
   const text = stripBip(html);
   const date = resolveDate(text, url, title);
+
+  // ---- Land branch: działka sale → one 'grunt' record (routed to LAND) -----
+  if (isDzialkaDoc(text, title)) return parseBipLandDoc(text, date, url, title);
 
   // ---- Path A: bundled blocks that name the address inline -----------------
   // "<ROMAN> ustny przetarg … na sprzedaż|zbycie prawa własności
@@ -197,8 +265,10 @@ const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 const SPRZEDAZ_HREF_RE = /href="(https?:\/\/bip\.gliwice\.eu\/sprzedaz-[a-z0-9-]+)"/gi;
 
 /**
- * Crawl the BIP board: list page → SPRZEDAŻ detail pages → lokale listings.
- * @returns {Promise<Array>} active-listing records (lokale only)
+ * Crawl the BIP board: list page → SPRZEDAŻ detail pages → records. Lokale go
+ * to `listings` (the ZGM active contract); działka sales go to `land` (kind
+ * 'grunt', the build-land contract) so they merge with the MSIP land export.
+ * @returns {Promise<{listings: Array, land: Array}>}
  */
 export async function crawlBipSales() {
   const listHtml = await getText(LIST_URL, { userAgent: UA });
@@ -208,7 +278,9 @@ export async function crawlBipSales() {
   while ((m = SPRZEDAZ_HREF_RE.exec(listHtml)) !== null) urls.add(m[1]);
 
   const listings = [];
+  const land = [];
   let lokalePages = 0;
+  let landPages = 0;
   for (const url of urls) {
     let html;
     try {
@@ -219,19 +291,24 @@ export async function crawlBipSales() {
     }
     const title = (TITLE_RE.exec(html) || [, ''])[1].replace(/\s+/g, ' ').trim();
     const recs = parseBipSaleDoc(html, url, title);
-    if (recs.length) lokalePages++;
-    listings.push(...recs);
+    const grunt = recs.filter((r) => r.kind === 'grunt');
+    const lokale = recs.filter((r) => r.kind !== 'grunt');
+    if (grunt.length) landPages++;
+    else if (lokale.length) lokalePages++;
+    listings.push(...lokale);
+    land.push(...grunt);
   }
   console.error(
-    `  BIP (bip.gliwice.eu): ${urls.size} sprzedaż pages, ${lokalePages} with lokale → ${listings.length} listings`,
+    `  BIP (bip.gliwice.eu): ${urls.size} sprzedaż pages, ${lokalePages} with lokale, ` +
+      `${landPages} działka → ${listings.length} listings + ${land.length} land`,
   );
-  return listings;
+  return { listings, land };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const listings = await crawlBipSales();
-  process.stdout.write(JSON.stringify(listings, null, 2) + '\n');
-  console.error(`Total: ${listings.length} BIP lokale listing(s)`);
+  const { listings, land } = await crawlBipSales();
+  process.stdout.write(JSON.stringify({ listings, land }, null, 2) + '\n');
+  console.error(`Total: ${listings.length} BIP lokale + ${land.length} BIP land record(s)`);
 }
 
 // ---- BIP/ZGM duplicate folding -------------------------------------------
@@ -291,7 +368,7 @@ export function foldBipDuplicates(listings) {
     );
     if (twin) {
       if (l.detail_url && !twin.bip_url) twin.bip_url = l.detail_url;
-      continue; // drop the duplicate BIP row
+      continue; // drop the duplicate BIP lokal row
     }
     out.push(l);
   }

@@ -151,7 +151,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     auction_date = `${dn[3]}-${dn[2].padStart(2, '0')}-${dn[1].padStart(2, '0')}`;
   } else {
     const ds = /w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(body);
-    const mon = ds ? PL_MONTH[ds[2].toLowerCase()] : null;
+    const mon = ds ? (PL_MONTH[ds[2].toLowerCase()] || (/^pa[zżź]dz/.test(ds[2].toLowerCase()) ? 10 : null)) : null;
     if (mon) auction_date = `${ds[3]}-${String(mon).padStart(2, '0')}-${ds[1].padStart(2, '0')}`;
   }
   if (!auction_date) {
@@ -159,7 +159,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     // "w Urzędzie Miejskim w Świętochłowicach, 21 kwietnia 2026 r., przeprowadzono
     // trzeci publiczny przetarg …" — spelled or numeric variant.
     const pr = /(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})\s*r?\W{0,5}przeprowadzono/i.exec(body);
-    const mon = pr ? PL_MONTH[pr[2].toLowerCase()] : null;
+    const mon = pr ? (PL_MONTH[pr[2].toLowerCase()] || (/^pa[zżź]dz/.test(pr[2].toLowerCase()) ? 10 : null)) : null;
     if (mon) {
       auction_date = `${pr[3]}-${String(mon).padStart(2, '0')}-${pr[1].padStart(2, '0')}`;
     } else {

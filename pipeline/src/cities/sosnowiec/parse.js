@@ -41,11 +41,62 @@ export function htmlToText(html) {
   return s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-export function isFlatAuction(title) {
+// Shared "this is a sale auction" gate: a przetarg na sprzedaż that is not a
+// lease/withdrawal/qualified-bidders/result notice. Class (flat / commercial /
+// building / land) is decided on top of this.
+export function isSaleAuctionTitle(title) {
   const t = (title || '').toLowerCase();
   if (!/przetarg/.test(t) || /bezprzetarg/.test(t)) return false;
   if (!/sprzeda/.test(t)) return false;
-  return /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+mieszkaln/.test(t);
+  if (/dzier[żz]aw|najem|oddanie\s+w/.test(t)) return false;
+  if (/^\s*odwo[łl]anie|lista\s+os[óo]b|^\s*wynik/.test(t)) return false;
+  return true;
+}
+
+// Flat auctions. The title usually carries "lokal(u) mieszkalny(ego)" or the
+// co-op phrasing "…prawa do lokalu mieszkalnego…". Some co-op titles are
+// truncated before "mieszkalnego" ("…prawo do lokalu poł. przy…"); pass `body`
+// so those are still recognised when the body confirms a residential lokal.
+export function isFlatAuction(title, body) {
+  if (!isSaleAuctionTitle(title)) return false;
+  const t = (title || '').toLowerCase();
+  if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+mieszkaln/.test(t)) {
+    return true;
+  }
+  // Truncated co-op / "prawo do lokalu …" title: confirm via body.
+  const coopTitle = /praw\w*\s+(?:w[łl]asno[śs]ci\w*\s+)?(?:sp[óo][łl]dziel\w*\s+)?(?:w[łl]asno[śs]ci\w*\s+)?(?:do\s+)?lokal/.test(t);
+  if (coopTitle && !/u[żz]ytkow/.test(t) && /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln/i.test(body || '')) {
+    return true;
+  }
+  return false;
+}
+
+// Commercial unit ("lokal użytkowy") sale → property record, kind 'uzytkowy'.
+export function isCommercialAuction(title) {
+  if (!isSaleAuctionTitle(title)) return false;
+  const t = (title || '').toLowerCase();
+  return /lokal\w*\s+u[żz]ytkow|lokalu\s+u[żz]ytkow|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+u[żz]ytkow/.test(t);
+}
+
+// Built-up property ("nieruchomość zabudowana" — kamienica, dom, budynek
+// mieszkalno-użytkowy) sale → property record, kind 'zabudowana'. The parcel/area
+// live in the body; the title only says "…na sprzedaż nieruchomości zabudowanej…".
+// The (?<!nie) lookbehind keeps "niezabudowanej" (vacant land) out.
+export function isBuildingAuction(title) {
+  if (!isSaleAuctionTitle(title)) return false;
+  const t = (title || '').toLowerCase();
+  if (/lokal/.test(t)) return false; // a lokal in a building → flat/commercial, handled above
+  return /(?<!nie)zabudowan/.test(t);
+}
+
+// Generic "…na sprzedaż nieruchomości…" with no class word in the TITLE. The
+// disambiguator (działka / zabudowana / lokal) is only in the body. Route to the
+// body-driven parsers (land logic recovers the parcel/area).
+export function isGenericSaleAuction(title) {
+  if (!isSaleAuctionTitle(title)) return false;
+  const t = (title || '').toLowerCase();
+  if (/niezabudowan|dzia[łl]k|grunt|zabudowan|lokal/.test(t)) return false;
+  return /sprzeda[żz]\w*\s+(?:prawa\s+u[żz]ytkowania\s+wieczystego\s+)?(?:do\s+)?nieruchomo[śs]ci/.test(t);
 }
 
 export function roundFromText(text) {
@@ -113,7 +164,11 @@ export function addressFrom(title, text) {
   const src = `${title} ${text}`;
   const apt = /lokal\w*\s+mieszkaln\w*\s+(?:o\s+numerze|nr)\s*(\d+[A-Za-z]?)/i.exec(src)?.[1] || null;
   const RE_LOC = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\b/;
-  const loc = RE_LOC.exec(title) || RE_LOC.exec(src);
+  // Try the title first (cleanest), then the body alone. We deliberately do NOT
+  // run the regex over `title + body` concatenated: when the title ends mid-street
+  // (e.g. "…przy ul. M. Skłodowskiej-Curie" with the number only in the body) the
+  // glued string captures the title tail + body preamble as one bogus street.
+  const loc = RE_LOC.exec(title) || RE_LOC.exec(text);
   if (!loc) return null;
   const street = loc[1].replace(/\s+/g, ' ').trim();
   const building = loc[2];
@@ -134,6 +189,42 @@ export function parseAnnouncement(title, content) {
     starting_price_pln: priceFromText(text),
     round: roundFromText(text),
     auction_date: auctionDateFromText(text),
+  };
+}
+
+// Usable area of a whole building ("powierzchni użytkowej 709,58 m²"). Unlike
+// areaFromText (flat-sized, capped at 300 m²) a kamienica/budynek can be far
+// larger, so only a sane lower bound is applied.
+export function buildingAreaFromText(text) {
+  if (!text) return null;
+  const m = /pow(?:ierzchni\w*)?\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*(?:[²2]|kw)/i.exec(text);
+  if (!m) return null;
+  const v = parseArea(m[1]);
+  return v != null && v >= 8 ? v : null;
+}
+
+// Built property ('zabudowana') and commercial unit ('uzytkowy') → one property
+// record. Reuses the flat helpers for address/price/date/round; area is the flat
+// usable area for a lokal użytkowy, the building usable area for a zabudowana
+// (with the plot's parcel/obręb/area carried alongside when present in the body).
+export function parsePropertyAnnouncement(title, content, kind) {
+  const text = htmlToText(content);
+  const addr = addressFrom(title, text);
+  if (!addr) return null;
+  const area_m2 = kind === 'zabudowana'
+    ? (buildingAreaFromText(text) ?? areaFromText(text))
+    : areaFromText(text);
+  return {
+    kind,
+    address_raw: addr.address_raw,
+    address: addr.address,
+    area_m2,
+    starting_price_pln: priceFromText(text),
+    round: roundFromText(text),
+    auction_date: auctionDateFromText(text) || parseDateNumericFromText(text),
+    dzialka_nr: parseFirstParcel(text),
+    obreb: parseObreb(text),
+    plot_area_m2: parsePlotArea(text),
   };
 }
 
@@ -233,14 +324,22 @@ function parseMultiPlotBlocks(text) {
   return blocks;
 }
 
-export function isLandAuction(title) {
+// Land (działki / grunty / niezabudowana) auctions. The title normally carries
+// niezabudowan / działk / grunt. A generic "…na sprzedaż nieruchomości…" title
+// keeps the parcel only in the body, so pass `body` to recover those: if the
+// body shows a "działka nr …" it is parsed through the land logic too.
+export function isLandAuction(title, body) {
   const t = (title || '').toLowerCase();
   if (!/przetarg/.test(t)) return false;
   if (!/sprzeda/.test(t)) return false;
   if (/bezprzetarg|dzier[żz]aw|najem/.test(t)) return false;
   if (/odwo[łl]anie|lista\s+os[óo]b|wynik/.test(t)) return false;
-  if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln/.test(t)) return false;
-  return /niezabudowan|dzia[łl]k|grunt/.test(t);
+  if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|lokal\w*\s+u[żz]ytkow|lokalu\s+u[żz]ytkow/.test(t)) return false;
+  if (/(?<!nie)zabudowan/.test(t)) return false; // built property → isBuildingAuction
+  if (/niezabudowan|dzia[łl]k|grunt/.test(t)) return true;
+  // Generic-sale title (no class word): trust the body's "działka nr …".
+  if (isGenericSaleAuction(title) && /dzia[łl]k[ai]?\s+(?:o\s+)?(?:nr|numer)/i.test(body || '')) return true;
+  return false;
 }
 
 export function parseLandAnnouncement(title, content, detailUrl) {
@@ -316,12 +415,33 @@ export function isFlatResult(title) {
   return /lokalu?\s+mieszkaln/.test(t);
 }
 
+// Result-notice classifier mirroring the auction side: a "Wyniki … na sprzedaż …"
+// notice for a flat (mieszkaln), commercial unit (użytkowy) or built property
+// (zabudowana). Returns the property kind, or null if it is not a sale result we
+// keep (lease/withdrawal/land results are excluded here — land has no result
+// stream wired).
+export function saleResultKind(title) {
+  const t = (title || '').toLowerCase();
+  if (!/^\s*wynik/.test(t)) return null;
+  if (!/sprzeda/.test(t)) return null;
+  if (/dzier[żz]aw|najem/.test(t)) return null;
+  if (/lokalu?\s+u[żz]ytkow/.test(t)) return 'uzytkowy';
+  if (/lokalu?\s+mieszkaln/.test(t)) return 'mieszkalny';
+  if (/(?<!nie)zabudowan/.test(t)) return 'zabudowana';
+  return null;
+}
+
+export function isSaleResult(title) {
+  return saleResultKind(title) != null;
+}
+
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const s = String(text || '');
   const nl = s.indexOf('\n');
   const title = nl >= 0 ? s.slice(0, nl) : s;
   const body = nl >= 0 ? s.slice(nl + 1) : '';
-  if (!isFlatResult(title)) return [];
+  const kind = saleResultKind(title);
+  if (!kind) return [];
 
   const notes = [];
   const addr = addressFrom(title, body);
@@ -350,10 +470,14 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const final_price_pln = negative ? null : finalM ? parsePLN(finalM[1]) : null;
   if (!negative && final_price_pln == null) notes.push('parse: missing achieved price');
 
+  const area_m2 = kind === 'zabudowana'
+    ? (buildingAreaFromText(body) ?? areaFromText(body))
+    : areaFromText(body);
+
   return [{
     auction_date,
     source_pdf: sourceUrl,
-    kind: 'mieszkalny',
+    kind,
     address_raw: addr.address_raw,
     address: addr.address,
     round: null,
@@ -361,7 +485,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     final_price_pln,
     outcome: negative ? 'unsold' : 'sold',
     unsold_reason: negative ? 'unknown' : null,
-    area_m2: areaFromText(body),
+    area_m2,
     notes,
   }];
 }

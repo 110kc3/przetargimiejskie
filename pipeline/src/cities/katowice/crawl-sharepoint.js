@@ -25,7 +25,7 @@
 // refresh.js doesn't waste 5 minutes per cron run fetching 404s.
 
 import { politeGet } from '../../core/fetch.js';
-import { parseAnnouncement, parseLandAnnouncement } from './parse.js';
+import { parseAnnouncements, parseLandAnnouncement } from './parse.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -221,8 +221,10 @@ export async function crawlSharePointAnnouncements() {
         const lr = parseLandAnnouncement(body, title, docUrl);
         if (lr) land.push(lr);
       } else {
-        const listing = parseAnnouncement(body, title, docUrl);
-        if (listing) listings.push(listing);
+        // Multi-unit announcements ("… N lokali …") emit one listing per unit.
+        for (const listing of parseAnnouncements(body, title, docUrl)) {
+          listings.push(listing);
+        }
       }
     } catch (err) {
       console.error(`  katowice SP item ${it.Id} parse error: ${err.message}`);

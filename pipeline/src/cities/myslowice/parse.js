@@ -15,6 +15,8 @@
 export {
   htmlToText,
   isFlatAuction,
+  isSaleAuction,
+  resolveKind,
   roundFromTitle,
   roundFromText,
   priceFromText,
@@ -28,3 +30,5 @@ export {
   extractArticle,
   parseResultDoc,
 } from '../../core/finn-bip.js';
+
+export { classifyKind } from '../../core/classify-kind.js';

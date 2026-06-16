@@ -19,6 +19,8 @@ import {
   landAuctionDateFromText,
   landRoundFromText,
   parseLandRtf,
+  addressFromTitle,
+  parseFlatRtf,
 } from '../src/cities/rybnik/crawl-land.js';
 
 // --- Fixtures ---
@@ -274,4 +276,137 @@ test('parseLandRtf: listDate fallback when RTF body has no date', () => {
   // Caller applies listDate as fallback
   if (!rec.auction_date) rec.auction_date = '2026-03-05';
   assert.equal(rec.auction_date, '2026-03-05');
+});
+
+// --- Round-2 history-clause date guard (the real Rajska Id=103998 RTF) ---
+//
+// A re-listed plot's RTF states BOTH the failed earlier round and the operative
+// future date, in that order:
+//   "Przetarg przeprowadzony w dniu 26 marca 2026 r. zakończony został wynikiem
+//    negatywnym. Przetarg rozpocznie się w dniu 17 września 2026 r. …"
+// A first-match scan grabbed 2026-03-26 (past) → the plot was wrongly stamped
+// 'archived' even though its round-2 auction (2026-09-17) is in the future.
+const RAJSKA_HISTORY_TEXT = `ESOD: 2026-113126
+Prezydent Miasta Rybnika
+ogłasza drugi przetarg ustny nieograniczony
+na sprzedaż nieruchomości gruntowej położonej w Rybniku
+przy ul. Rajskiej
+Cena wywoł awcza : 631000 złotych (netto)
+Nieruchomość gruntowa składająca się z działek nr 3698 i 3694 (poprzednio nr 2722/45 i 2718/55) o łącznej powierzchni 0,3780 ha, obręb Boguszowice.
+Przetarg przeprowadzony w dniu 26 marca 2026 r. zakończony został wynikiem negatywnym.
+Przetarg rozpocznie się w dniu 17 września 2026 r. o godzinie 9:00.`;
+
+test('landAuctionDateFromText: skips the history-clause date, returns the operative round-2 date', () => {
+  // BUG was: returned 2026-03-26 (the failed round-1 date in the history clause)
+  assert.equal(landAuctionDateFromText(RAJSKA_HISTORY_TEXT), '2026-09-17');
+});
+
+test('landAuctionDateFromText: numeric history-then-operative also picks operative', () => {
+  assert.equal(
+    landAuctionDateFromText(
+      'Przetarg przeprowadzony w dniu 11.03.2026 r. zakonczony zostal wynikiem negatywnym. ' +
+        'Przetarg rozpocznie sie w dniu 17.09.2026 r.',
+    ),
+    '2026-09-17',
+  );
+});
+
+test('landAuctionDateFromText: history-only RTF still yields a date (fallback)', () => {
+  // When every "w dniu" hit is a history clause, fall back to the first one
+  // rather than null — buildLand will then stamp it archived (correct: round
+  // concluded, no future date stated).
+  assert.equal(
+    landAuctionDateFromText('Przetarg przeprowadzony w dniu 11.03.2026 r. zakonczony wynikiem negatywnym.'),
+    '2026-03-11',
+  );
+});
+
+test('parseLandRtf: Rajska II with history clause -> future operative date (not archived)', () => {
+  const rec = parseLandRtf(
+    'ogloszenie II przetargu na sprzedaz nieruchomosci gruntowej przy ul. Rajskiej',
+    RAJSKA_HISTORY_TEXT,
+    'https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103998',
+    'https://bip.um.rybnik.eu/Download.ashx?id=3499886',
+  );
+  assert.equal(rec.round, 2);
+  assert.equal(rec.auction_date, '2026-09-17'); // future -> buildLand keeps it active
+  assert.equal(rec.dzialka_nr, '3698/3694');
+  assert.equal(rec.starting_price_pln, 631000);
+});
+
+// --- Flat (lokal mieszkalny) announcements on Page=339 ---
+//
+// ZGM's flat auctions live on this SAME register; their list titles carry the
+// address inline ("Przetarg 9 czerwca br. ul. św. Józefa 18/47") and the RTF
+// body is "lokal mieszkalny" + price/area/date. Fixture mirrors the real Id
+// 103647 (św. Józefa) RTF body output observed June 2026.
+const JOZEFA_FLAT_TEXT = `PREZYDENT MIASTA RYBNIKA
+ogłasza
+pierwszy publiczny ustny nieograniczony przetarg na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego położonego w Rybniku przy ul. św. Józefa 18/47 .
+Lokal mieszkalny numer 47 usytuowany na dziewiątym piętrze budynku wielomieszkaniowego, składający się z dwóch pokoi, kuchni, łazienki z wc i przedpokoju o powierzchni użytkowej 45,90 m 2. Do lokalu przynależy piwnica o powierzchni użytkowej 1,95 m 2.
+Cena wywoławcza lokalu mieszkalnego: 230 000,00 zł, sprzedaż lokalu mieszkalnego zwolniona jest z podatku.
+Przetarg odbędzie się w dniu 09.06.2026 r. o godzinie 11:30 w Zakładzie Gospodarki Mieszkaniowej w Rybniku przy ul. Tadeusza Kościuszki 17.`;
+
+const FLAT_LIST_HTML = `
+<table><tbody>
+  <tr>
+    <td class="text-nowrap text-center">2026-05-08</td>
+    <td>Przetarg 9 czerwca br. ul. św. Józefa 18/47</td>
+    <td class="text-nowrap text-center">2026-06-09</td>
+    <td>Sprzedaż</td>
+    <td><a href="Default.aspx?Page=339&amp;Id=103647">Pokaż</a></td>
+  </tr>
+  <tr>
+    <td class="text-nowrap text-center">2026-05-08</td>
+    <td>Przetarg 9.06.2026 ul. Zgrzebnioka 7b/6</td>
+    <td class="text-nowrap text-center">2026-06-09</td>
+    <td>Sprzedaż</td>
+    <td><a href="Default.aspx?Page=339&amp;Id=103642">Pokaż</a></td>
+  </tr>
+</tbody></table>`;
+
+test('parseListPage: extracts flat-announcement rows (address-bearing titles)', () => {
+  const rows = parseListPage(FLAT_LIST_HTML);
+  assert.equal(rows.length, 2);
+  assert.equal(rows[0].detailId, '103647');
+  assert.ok(rows[0].title.includes('św. Józefa 18/47'));
+  assert.equal(rows[0].listDate, '2026-06-09'); // auction date (last date cell)
+  assert.equal(rows[1].detailId, '103642');
+});
+
+test('addressFromTitle: strips "Przetarg <date>" prefix, keeps "ul." address', () => {
+  assert.equal(addressFromTitle('Przetarg 9 czerwca br. ul. św. Józefa 18/47').address.key, 'sw jozefa|18|47');
+  assert.equal(addressFromTitle('Przetarg 9.06.2026 ul. Zgrzebnioka 7b/6').address.key, 'zgrzebnioka|7B|6');
+  // hand-typed " <bldg> <letter>" spacing is normalised: "6 a/3" -> "6A/3"
+  assert.equal(addressFromTitle('Przetarg 9 .06.2026 ul. Cierpioła 6 a/3').address.key, 'cierpiola|6A|3');
+  assert.equal(addressFromTitle('Przetarg 9.06.2026 ul. gen. Janke Waltera 5 b/2').address.key, 'gen janke waltera|5B|2');
+  // trailing " r." after the date, plus spaced building letter
+  assert.equal(addressFromTitle('Przetarg 9.06.2026 r. ul. Kilińskiego 28 a/17').address.key, 'kilinskiego|28A|17');
+});
+
+test('addressFromTitle: a land title (no "ul. <num>") yields null', () => {
+  assert.equal(addressFromTitle('ogloszenie II przetargu na sprzedaz nieruchomosci gruntowej przy ul. Rajskiej'), null);
+});
+
+test('parseFlatRtf: full flat record from a Page=339 announcement', () => {
+  const rec = parseFlatRtf(
+    'Przetarg 9 czerwca br. ul. św. Józefa 18/47',
+    JOZEFA_FLAT_TEXT,
+    'https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103647',
+    'https://bip.um.rybnik.eu/Download.ashx?id=3489449',
+  );
+  assert.ok(rec);
+  assert.equal(rec.kind, 'mieszkalny');
+  assert.equal(rec.address.key, 'sw jozefa|18|47');
+  assert.equal(rec.starting_price_pln, 230000);
+  assert.equal(rec.area_m2, 45.9); // flat area, not the 1,95 m² cellar
+  assert.equal(rec.auction_date, '2026-06-09');
+  assert.equal(rec.round, 1);
+  assert.equal(rec.detail_url, 'https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103647');
+});
+
+test('parseFlatRtf: falls back to the body "przy ul. …" when the title lacks an address', () => {
+  const rec = parseFlatRtf('Ogłoszenie o przetargu', JOZEFA_FLAT_TEXT, 'D', 'R');
+  assert.ok(rec);
+  assert.equal(rec.address.key, 'sw jozefa|18|47');
 });

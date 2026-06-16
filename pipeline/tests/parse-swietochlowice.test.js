@@ -205,3 +205,44 @@ test('isFlatAnnouncement: no regression (HL-27)', () => {
   assert.equal(isFlatAnnouncement('I przetarg na sprzedaz lokalu mieszkalnego ul. Powstancow 8/20'), true);
   assert.equal(isFlatAnnouncement(LAND_TITLE_SW), false);
 });
+
+// ---- Terse land title → unknown-by-title → body re-classify (coverage fix) ----
+// The city titles most land sales tersely ("…na sprzedaż nieruchomości – ul. X"),
+// with no niezabudowanej/działka word. classifyKind(title) → 'unknown', and the
+// sibling-board loop previously had no branch for 'unknown', so the auction was
+// dropped and land.json stayed empty despite live land (e.g. ul. Lotnicza
+// 11,98 ha). crawl.js now fetches the body and re-classifies on title + body,
+// then routes resolved grunt → parseLandAnnouncement. These tests cover that
+// title-only-vs-title+body decision and the land body parse.
+
+const TERSE_LAND_TITLE_SW =
+  'I przetarg ustny nieograniczony na sprzedaż nieruchomości – ul. Lotnicza';
+const TERSE_LAND_BODY_SW =
+  'Prezydent Miasta Świętochłowice ogłasza I przetarg ustny nieograniczony na ' +
+  'sprzedaż nieruchomości niezabudowanej, oznaczonej jako działka nr 1234/56 ' +
+  'o powierzchni 11,98 ha, obręb 0005 Lipiny, położonej przy ul. Lotniczej w ' +
+  'Świętochłowicach. Cenę wywoławczą ustala się na kwotę 3 200 000,00 zł. ' +
+  'Przetarg odbędzie się w dniu 15 września 2026 r. o godz. 10.00.';
+const TERSE_LAND_URL_SW = 'https://www.bip.swietochlowice.pl/res/serwisy/pliki/44009999';
+
+test('terse land: title alone is unknown, title+body resolves grunt', () => {
+  // The auction gate still passes (przetarg + sprzedaż, not a notice/intent).
+  assert.equal(isAuctionAnnouncement(TERSE_LAND_TITLE_SW), true);
+  // Title alone can't classify the kind …
+  assert.equal(classifyKind(TERSE_LAND_TITLE_SW), 'unknown');
+  // … but the body carries "niezabudowanej"/"działka", so title+body → grunt
+  // (this is exactly the re-classify crawl.js performs before routing).
+  assert.equal(classifyKind(`${TERSE_LAND_TITLE_SW} ${TERSE_LAND_BODY_SW}`), 'grunt');
+});
+
+test('terse land: parseLandAnnouncement extracts parcel/area(ha)/price/date', () => {
+  const r = parseLandAnnouncement(TERSE_LAND_TITLE_SW, `<p>${TERSE_LAND_BODY_SW}</p>`, TERSE_LAND_URL_SW);
+  assert.ok(r, 'terse land must produce a keyable land record');
+  assert.equal(r.kind, 'grunt');
+  assert.equal(r.dzialka_nr, '1234/56');
+  assert.equal(r.area_m2, 119800); // 11,98 ha → 119800 m²
+  assert.equal(r.starting_price_pln, 3200000);
+  assert.equal(r.auction_date, '2026-09-15');
+  assert.equal(r.round, 1);
+  assert.equal(r.detail_url, TERSE_LAND_URL_SW);
+});

@@ -19,7 +19,7 @@ import {
   addressFrom,
 } from '../src/cities/bielsko/parse.js';
 
-import { parseIndexLinks } from '../src/cities/bielsko/crawl.js';
+import { parseIndexLinks, classifyFallback } from '../src/cities/bielsko/crawl.js';
 
 // A flat offer's detail node, Drupal-style label/value divs. Includes the
 // structured `Powierzchnia` = PLOT area (438 m²) to confirm it is NOT taken as
@@ -136,7 +136,7 @@ test('parseIndexLinks extracts unique /nieruchomosc node URLs', () => {
 });
 
 // ---- Land (działka) wiring (HL-1 Bielsko) ----
-import { parseLandNode, plotAreaFrom } from '../src/cities/bielsko/parse.js';
+import { parseLandNode, plotAreaFrom, parseListingNode } from '../src/cities/bielsko/parse.js';
 import { buildLand } from '../src/core/build-land.js';
 
 const LAND_NODE = `
@@ -202,4 +202,69 @@ test('addressFrom drops an address that can only resolve to a junk (digit) stree
   const node = '<div><div class="label">Adres:</div><div class="val">działka 12/3 na terenie</div></div>';
   // no clean street → null (rather than emit a junk-street record that fails CI)
   assert.equal(addressFrom(htmlToText(node)), null);
+});
+
+// ---- missing-Rodzaj fallback (the silently-dropped-offer bug) ----
+//
+// Live example: ul. Andrzeja Frycza Modrzewskiego 2/5, 768 080 zł — the node
+// carries NO `Rodzaj nieruchomości` field, so classifyKind('') → 'unknown' and
+// the crawl's if/else chain fires no branch → the offer was silently dropped.
+// The body prose ("Lokal mieszkalny…") and the category chip carry the kind, so
+// classifyFallback must recover 'mieszkalny'.
+const FLAT_NODE_NO_RODZAJ = `
+<article class="nieruchomosc">
+  <h1>Ogłoszenie o przetargu — ul. Andrzeja Frycza Modrzewskiego 2/5</h1>
+  <div class="kategoria">Kategoria: Mieszkania</div>
+  <div class="najwazniejsze">
+    <div class="field"><div class="label">Adres:</div><div class="val">ul. Andrzeja Frycza Modrzewskiego 2/5</div></div>
+    <div class="field"><div class="label">Cena:</div><div class="val">768&nbsp;080,00 zł</div></div>
+    <div class="field"><div class="label">Data przetargu / rokowań:</div><div class="val">14.07.2026 r.</div></div>
+    <div class="field"><div class="label">Forma przetargu:</div><div class="val">Pierwszy przetarg ustny nieograniczony</div></div>
+    <div class="field"><div class="label">Powierzchnia:</div><div class="val">512 m2</div></div>
+  </div>
+  <div class="opis">
+    <p>Lokal mieszkalny położony na parterze budynku. Powierzchnia użytkowa lokalu wynosi 130,21 m2.</p>
+  </div>
+</article>`;
+
+test('classifyFallback recovers a flat from a node with NO Rodzaj field (chip + prose)', () => {
+  assert.equal(classifyFallback(htmlToText(FLAT_NODE_NO_RODZAJ)), 'mieszkalny');
+});
+
+test('classifyFallback reads the category chip even without body prose', () => {
+  assert.equal(classifyFallback('Kategoria: Lokale użytkowe'), 'uzytkowy');
+  assert.equal(classifyFallback('Kategoria: Domy'), 'zabudowana');
+  assert.equal(classifyFallback('Kategoria: Działki'), 'grunt');
+  assert.equal(classifyFallback('Kategoria: Mieszkania'), 'mieszkalny');
+});
+
+test('classifyFallback falls back to title+body prose when there is no chip', () => {
+  // commercial only in the prose ("lokal użytkowy")
+  assert.equal(
+    classifyFallback('Przedmiotem przetargu jest lokal użytkowy o powierzchni 45 m2.'),
+    'uzytkowy',
+  );
+  // house only in the prose ("nieruchomość zabudowana budynkiem")
+  assert.equal(
+    classifyFallback('Sprzedaż nieruchomości zabudowanej budynkiem mieszkalnym jednorodzinnym.'),
+    'zabudowana',
+  );
+});
+
+test('classifyFallback returns unknown when neither chip nor prose carries a kind', () => {
+  assert.equal(classifyFallback('Ogłoszenie. Cena wywoławcza 100 000 zł. Termin 01.01.2027.'), 'unknown');
+});
+
+test('a missing-Rodzaj flat node is keyable as a listing via the fallback path', () => {
+  // The crawl routes a fallback 'mieszkalny' through parseListingNode (parseNode
+  // would reject it for lack of the Rodzaj field). Confirm it keys + carries the
+  // prose area, not the 512 m² plot.
+  const node = parseListingNode(FLAT_NODE_NO_RODZAJ, 'https://bielsko-biala.pl/nieruchomosc/modrzewskiego-2-5', 'mieszkalny');
+  assert.ok(node, 'missing-Rodzaj flat still keyed');
+  assert.equal(node.kind, 'mieszkalny');
+  assert.equal(node.starting_price_pln, 768080);
+  assert.equal(node.area_m2, 130.21); // prose area, not the 512 m² plot
+  assert.equal(node.address.building, '2');
+  assert.equal(node.address.apt, '5');
+  assert.equal(node.auction_date, '2026-07-14');
 });

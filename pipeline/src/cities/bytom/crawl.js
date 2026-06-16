@@ -75,16 +75,39 @@ function roundFromText(txt) {
 }
 
 // Announcement description -> property kind, or null to skip (land etc.).
+// A garage-plot sale ("…na sprzedaż działki gruntu pod garażem…") carries
+// neither "mieszkaln" nor "niemieszkaln"; it's recognised by "garaż" and
+// emitted as a garage (an address-keyed kind), so it survives the dz./działka
+// address guard in parseBipList. Plain land sales ("…gruntowej niezabudowanej…")
+// still return null here -- they come from the i-BIIP catalog, not this list.
 function kindFromText(txt) {
   const t = (txt || '').toLowerCase();
   if (/niemieszkaln/.test(t)) return 'uzytkowy';
   if (/mieszkaln/.test(t)) return 'mieszkalny';
+  if (/gara[żz]/.test(t)) return 'garaz';
   return null;
 }
 
 // Joint-lot sales list TWO addresses in one title. Key on the FIRST address.
 function primaryAddress(addrRaw) {
   return addrRaw.split(/\s+i\s+(?:ul|al|pl|os)\.\s+/i)[0].trim();
+}
+
+// Garage-plot sales title the property with a street + a parcel and NO building
+// number ("ul. Reja (działka gruntu nr 2237/14)"), so parseAddress() returns
+// null on the raw title and the dz./działka guard would drop it. Pull the street
+// (text before the parcel) and the parcel, then let parseAddress key the
+// synthesized "<street> <num>/<den>" form (→ street_norm|num|den) so two plots
+// on one street stay distinct. Returns null if no parcel is found.
+function garagePlotAddress(addrRaw) {
+  const noLead = addrRaw.replace(/^\s*(?:ul|al|pl|os)\.?\s+/i, '');
+  const parcel = /(\d+\/\d+)/.exec(noLead)?.[1] ?? null;
+  const street = noLead
+    .replace(/\s*\(?\s*dz(?:ia[łl]k\w*)?\.?\s*(?:gruntu\s*)?(?:nr\s*)?\d.*$/is, '')
+    .replace(/\s*\(.*$/s, '')
+    .trim();
+  if (!street || !parcel) return null;
+  return parseAddress(`${street} ${parcel}`);
 }
 
 const CAT = {
@@ -216,8 +239,16 @@ export function parseBipList(html) {
 
     const kind = kindFromText(desc);
     if (!kind) continue;
-    if (/\bdz\.?\s*\d|dzia[ll]k/i.test(addrRaw)) continue;
-    const address = parseAddress(primaryAddress(addrRaw));
+    // Garages carry a parcel in the title and thus trip the dz./działka guard;
+    // build their address from street+parcel and bypass the guard. Everything
+    // else with a parcel in the address is land (catalog-sourced) -> skip here.
+    let address;
+    if (kind === 'garaz') {
+      address = garagePlotAddress(addrRaw);
+    } else {
+      if (/\bdz\.?\s*\d|dzia[ll]k/i.test(addrRaw)) continue;
+      address = parseAddress(primaryAddress(addrRaw));
+    }
     if (!address) continue;
 
     out.push({
