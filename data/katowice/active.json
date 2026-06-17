@@ -4,6 +4,26 @@
   "listings": [
     {
       "kind": "zabudowana",
+      "round": 3,
+      "address_raw": "Borowej 30",
+      "address": {
+        "street": "Borowej",
+        "street_norm": "borowej",
+        "building": "30",
+        "apt": null,
+        "key": "borowej|30|",
+        "warning": null
+      },
+      "auction_date": "2026-07-21",
+      "area_m2": null,
+      "land_area_m2": 127.66,
+      "starting_price_pln": 350000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152477&menu=679",
+      "wadium_deadline": "2026-07-13",
+      "viewing_date": "2026-07-13"
+    },
+    {
+      "kind": "zabudowana",
       "round": 1,
       "address_raw": "Kosmicznej 10",
       "address": {
