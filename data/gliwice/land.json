@@ -184,8 +184,8 @@
         {
           "date": "2026-06-16",
           "round": 1,
-          "starting_price_pln": 336000,
-          "outcome": "active",
+          "starting_price_pln": null,
+          "outcome": "archived",
           "area_m2": 1097,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-13122-obreb-bojkow-ul-chmielna-1",
           "source_url": "https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json"
@@ -954,8 +954,15 @@
       "status": "oferta do wznowienia",
       "listings": [
         {
+          "date": "2026-08-18",
+          "round": 2,
+          "starting_price_pln": 478800,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-828-i-nr-829-obreb-klodnica-na-wsch-od-ul-j-sliwki-ul-kotlarska-1"
+        },
+        {
           "date": null,
-          "round": 1,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "active",
           "area_m2": 1170,
