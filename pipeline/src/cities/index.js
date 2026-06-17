@@ -11,8 +11,9 @@ import rybnik from './rybnik/index.js';
 import bielsko from './bielsko/index.js';
 import myslowice from './myslowice/index.js';
 import swietochlowice from './swietochlowice/index.js';
+import tarnowskieGory from './tarnowskie-gory/index.js';
 
-export const cities = [gliwice, katowice, bytom, zabrze, sosnowiec, rybnik, bielsko, myslowice, swietochlowice];
+export const cities = [gliwice, katowice, bytom, zabrze, sosnowiec, rybnik, bielsko, myslowice, swietochlowice, tarnowskieGory];
 
 /** @param {string} id @returns {object|null} */
 export function getCity(id) {
