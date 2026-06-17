@@ -1,0 +1,1205 @@
+{
+  "schema_version": 1,
+  "city": "tarnowskie-gory",
+  "properties": [
+    {
+      "key": "pokoju|10|5",
+      "street": "Pokoju",
+      "street_norm": "pokoju",
+      "building": "10",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 176900,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122005",
+          "notes": [],
+          "area_m2": 37.7,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100151.html"
+        },
+        {
+          "date": "2026-04-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 176900,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 178000,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122941",
+          "notes": [],
+          "area_m2": 37.7,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,101179.html"
+        }
+      ],
+      "area_m2": 37.7
+    },
+    {
+      "key": "gorniczej|34|7",
+      "street": "Górnicza",
+      "street_norm": "gorniczej",
+      "building": "34",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121231",
+          "notes": [],
+          "land_area_m2": 892,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99220.html"
+        },
+        {
+          "date": "2025-10-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179900,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121880",
+          "notes": [],
+          "land_area_m2": 892,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99822.html"
+        },
+        {
+          "date": "2026-03-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 159000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 160600,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122786",
+          "notes": [],
+          "land_area_m2": 892,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100963.html"
+        }
+      ]
+    },
+    {
+      "key": "jozefa rymera|8|",
+      "street": "Józefa Rymera",
+      "street_norm": "jozefa rymera",
+      "building": "8",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-10-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 490000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121617",
+          "notes": [],
+          "land_area_m2": 573,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99431.html"
+        },
+        {
+          "date": "2026-01-13",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 389000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 488000,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122242",
+          "notes": [],
+          "land_area_m2": 573,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100288.html"
+        }
+      ]
+    },
+    {
+      "key": "skosnej|5|",
+      "street": "Skośna",
+      "street_norm": "skosnej",
+      "building": "5",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-12-09",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 1460,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100163.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "pokoju|12|4",
+      "street": "Pokoju",
+      "street_norm": "pokoju",
+      "building": "12",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 149800,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 151300,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121741",
+          "notes": [],
+          "area_m2": 32.5,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99821.html"
+        }
+      ],
+      "area_m2": 32.5
+    },
+    {
+      "key": "krakowskiej|17|11",
+      "street": "Krakowskiej",
+      "street_norm": "krakowskiej",
+      "building": "17",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 227200,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119461",
+          "notes": [],
+          "land_area_m2": 728,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97814.html"
+        },
+        {
+          "date": "2025-04-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 193000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120238",
+          "notes": [],
+          "land_area_m2": 728,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98458.html"
+        },
+        {
+          "date": "2025-07-29",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121164",
+          "notes": [],
+          "land_area_m2": 728,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99043.html"
+        },
+        {
+          "date": "2025-10-16",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 159900,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 179400,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121652",
+          "notes": [],
+          "land_area_m2": 728,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99671.html"
+        }
+      ]
+    },
+    {
+      "key": "slonecznikow|49|2",
+      "street": "Słoneczników",
+      "street_norm": "slonecznikow",
+      "building": "49",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 168300,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 189000,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121622",
+          "notes": [],
+          "land_area_m2": 2850,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99672.html"
+        }
+      ]
+    },
+    {
+      "key": "kardynala stefana wyszynskiego|1B|4",
+      "street": "Kardynała Stefana Wyszyńskiego",
+      "street_norm": "kardynala stefana wyszynskiego",
+      "building": "1B",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 490000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118517",
+          "notes": [],
+          "land_area_m2": 1530,
+          "area_m2": 93.4,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96844.html"
+        },
+        {
+          "date": "2024-11-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 416000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119158",
+          "notes": [],
+          "land_area_m2": 1530,
+          "area_m2": 93.4,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97519.html"
+        },
+        {
+          "date": "2025-03-18",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 367800,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120076",
+          "notes": [],
+          "land_area_m2": 1530,
+          "area_m2": 93.4,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98250.html"
+        },
+        {
+          "date": "2025-06-16",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 299000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 301990,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120714",
+          "notes": [],
+          "land_area_m2": 1530,
+          "area_m2": 93.4,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98834.html"
+        }
+      ],
+      "area_m2": 93.4
+    },
+    {
+      "key": "slonecznikow|49B|11",
+      "street": "Słoneczników",
+      "street_norm": "slonecznikow",
+      "building": "49B",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 199000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120341",
+          "notes": [],
+          "land_area_m2": 2850,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98457.html"
+        }
+      ]
+    },
+    {
+      "key": "slonecznikow|69|11",
+      "street": "Słoneczników",
+      "street_norm": "slonecznikow",
+      "building": "69",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119246",
+          "notes": [],
+          "area_m2": 28.59,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97520.html"
+        },
+        {
+          "date": "2025-03-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 132000,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120168",
+          "notes": [],
+          "area_m2": 28.59,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98345.html"
+        }
+      ],
+      "area_m2": 28.59
+    },
+    {
+      "key": "augustyna swidra|20|",
+      "street": "Augustyna Świdra",
+      "street_norm": "augustyna swidra",
+      "building": "20",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-06-27",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 1137,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96654.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-11-12",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 465000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 484650,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119339",
+          "notes": [],
+          "land_area_m2": 1137,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97467.html"
+        }
+      ]
+    },
+    {
+      "key": "swidra|20|",
+      "street": "Świdra",
+      "street_norm": "swidra",
+      "building": "20",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-06-27",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 579600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118147",
+          "notes": [],
+          "land_area_m2": 1137
+        }
+      ]
+    },
+    {
+      "key": "generala jozefa bema|14|4",
+      "street": "Generała Józefa Bema",
+      "street_norm": "generala jozefa bema",
+      "building": "14",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 128300,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 130900,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=116572",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "radzionkowskiej|23|",
+      "street": "Radzionkowskiej",
+      "street_norm": "radzionkowskiej",
+      "building": "23",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-12-10",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 553000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119446",
+          "notes": [],
+          "land_area_m2": 342
+        },
+        {
+          "date": "2025-03-06",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 398000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119986",
+          "notes": [],
+          "land_area_m2": 342
+        },
+        {
+          "date": "2025-05-09",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 332000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120414",
+          "notes": [],
+          "land_area_m2": 342
+        },
+        {
+          "date": null,
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99218.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 332000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 342,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98618.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 342,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98210.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 342,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97532.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "generala jozefa bema|14|12",
+      "street": "Generała Józefa Bema",
+      "street_norm": "generala jozefa bema",
+      "building": "14",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118617",
+          "notes": [],
+          "area_m2": 30.9
+        },
+        {
+          "date": "2024-12-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119423",
+          "notes": [],
+          "area_m2": 30.9
+        },
+        {
+          "date": "2025-04-07",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 141000,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120213",
+          "notes": [],
+          "area_m2": 30.9
+        },
+        {
+          "date": null,
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 30.9,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98391.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 30.9,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97686.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 30.9,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97211.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.9
+    },
+    {
+      "key": "gorniczej|37|",
+      "street": "Górnicza",
+      "street_norm": "gorniczej",
+      "building": "37",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-05-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 376,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96396.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-11-19",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 376,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97641.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-04-02",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 315000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 320002,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120207",
+          "notes": [],
+          "land_area_m2": 376,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98470.html"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 405000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119279",
+          "notes": [],
+          "land_area_m2": 376
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 450000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117585",
+          "notes": [],
+          "land_area_m2": 376
+        }
+      ]
+    },
+    {
+      "key": "strzeleckiej|1|",
+      "street": "Strzeleckiej",
+      "street_norm": "strzeleckiej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-06-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117893",
+          "notes": [],
+          "land_area_m2": 481
+        },
+        {
+          "date": "2024-10-01",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 2200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118892",
+          "notes": [],
+          "land_area_m2": 481
+        },
+        {
+          "date": "2025-01-21",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 2110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119675",
+          "notes": [],
+          "land_area_m2": 481
+        },
+        {
+          "date": null,
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97720.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97186.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96483.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "slonecznikow|49C|9",
+      "street": "Słoneczników",
+      "street_norm": "slonecznikow",
+      "building": "49C",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 261000,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119376",
+          "notes": [],
+          "land_area_m2": 2850
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 2850,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97687.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "powstancow slaskich|19|6",
+      "street": "Powstańców Śląskich",
+      "street_norm": "powstancow slaskich",
+      "building": "19",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 215100,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 223900,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=116516",
+          "notes": [],
+          "area_m2": 50.7
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 215100,
+          "outcome": "active",
+          "area_m2": 50.7,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,95770.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.7
+    },
+    {
+      "key": "sienkiewicza|2|3",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "2",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,86960.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "odrodzenia|14|2",
+      "street": "Odrodzenia",
+      "street_norm": "odrodzenia",
+      "building": "14",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,85595.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,85572.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "opolskiej|5|9",
+      "street": "Opolskiej",
+      "street_norm": "opolskiej",
+      "building": "5",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 30000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,85571.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "tylnej|1|3",
+      "street": "Tylna",
+      "street_norm": "tylnej",
+      "building": "1",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 142000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,84590.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "chopina|31A|12",
+      "street": "Chopina",
+      "street_norm": "chopina",
+      "building": "31A",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83953.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "opolskiej|5|1",
+      "street": "Opolskiej",
+      "street_norm": "opolskiej",
+      "building": "5",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83661.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "tylnej|1|4",
+      "street": "Tylna",
+      "street_norm": "tylnej",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83660.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "bema|16|20",
+      "street": "Bema",
+      "street_norm": "bema",
+      "building": "16",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83417.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "gliwickiej|5|1",
+      "street": "Gliwickiej",
+      "street_norm": "gliwickiej",
+      "building": "5",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82650.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82259.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "francuskiej|4|1",
+      "street": "Francuskiej",
+      "street_norm": "francuskiej",
+      "building": "4",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82467.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "slonecznikow|49B|15",
+      "street": "Słoneczników",
+      "street_norm": "slonecznikow",
+      "building": "49B",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82470.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "krakowskiej|17|4",
+      "street": "Krakowskiej",
+      "street_norm": "krakowskiej",
+      "building": "17",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82471.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "krolika|10|",
+      "street": "Królika",
+      "street_norm": "krolika",
+      "building": "10",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82466.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82005.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "swidra|9|8",
+      "street": "Świdra",
+      "street_norm": "swidra",
+      "building": "9",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82260.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "sienkiewicza|45|1A",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "45",
+      "apt": "1A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82012.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}

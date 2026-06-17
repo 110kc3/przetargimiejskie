@@ -1,0 +1,1038 @@
+{
+  "schema_version": 1,
+  "city": "tarnowskie-gory",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pokoju 10/5",
+      "address": {
+        "street": "Pokoju",
+        "street_norm": "pokoju",
+        "building": "10",
+        "apt": "5",
+        "key": "pokoju|10|5",
+        "warning": null
+      },
+      "area_m2": 37.7,
+      "starting_price_pln": 159000,
+      "auction_date": "2026-04-14",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,101179.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122580"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górniczej 34/7",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "34",
+        "apt": "7",
+        "key": "gorniczej|34|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 892,
+      "starting_price_pln": 159000,
+      "auction_date": "2026-03-23",
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100963.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122428"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Józefa Rymera 8",
+      "address": {
+        "street": "Józefa Rymera",
+        "street_norm": "jozefa rymera",
+        "building": "8",
+        "apt": null,
+        "key": "jozefa rymera|8|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 573,
+      "starting_price_pln": 389000,
+      "auction_date": "2026-01-13",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100288.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121872"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Skośnej 5",
+      "address": {
+        "street": "Skośnej",
+        "street_norm": "skosnej",
+        "building": "5",
+        "apt": null,
+        "key": "skosnej|5|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 1460,
+      "starting_price_pln": null,
+      "auction_date": "2025-12-09",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100163.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121743"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pokoju 10/5",
+      "address": {
+        "street": "Pokoju",
+        "street_norm": "pokoju",
+        "building": "10",
+        "apt": "5",
+        "key": "pokoju|10|5",
+        "warning": null
+      },
+      "area_m2": 37.7,
+      "starting_price_pln": 176900,
+      "auction_date": "2025-12-15",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,100151.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121733"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pokoju 12/4",
+      "address": {
+        "street": "Pokoju",
+        "street_norm": "pokoju",
+        "building": "12",
+        "apt": "4",
+        "key": "pokoju|12|4",
+        "warning": null
+      },
+      "area_m2": 32.5,
+      "starting_price_pln": 149800,
+      "auction_date": "2025-11-03",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99821.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121441"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górniczej 34/7",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "34",
+        "apt": "7",
+        "key": "gorniczej|34|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 892,
+      "starting_price_pln": 179900,
+      "auction_date": "2025-10-27",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99822.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121442"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 49/2",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "49",
+        "apt": "2",
+        "key": "slonecznikow|49|2",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 2850,
+      "starting_price_pln": null,
+      "auction_date": "2025-10-14",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99672.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121306"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/11",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "11",
+        "key": "krakowskiej|17|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 728,
+      "starting_price_pln": 159900,
+      "auction_date": "2025-10-16",
+      "round": 4,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99671.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121305"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Józefa Rymera 8",
+      "address": {
+        "street": "Józefa Rymera",
+        "street_norm": "jozefa rymera",
+        "building": "8",
+        "apt": null,
+        "key": "jozefa rymera|8|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 573,
+      "starting_price_pln": null,
+      "auction_date": "2025-10-15",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99431.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121076"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Radzionkowskiej 23",
+      "address": {
+        "street": "Radzionkowskiej",
+        "street_norm": "radzionkowskiej",
+        "building": "23",
+        "apt": null,
+        "key": "radzionkowskiej|23|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99218.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120781"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górniczej 34/7",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "34",
+        "apt": "7",
+        "key": "gorniczej|34|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 892,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-11",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99220.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120785"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/11",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "11",
+        "key": "krakowskiej|17|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 728,
+      "starting_price_pln": null,
+      "auction_date": "2025-07-29",
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,99043.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120570"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
+      "address": {
+        "street": "Kardynała Stefana Wyszyńskiego",
+        "street_norm": "kardynala stefana wyszynskiego",
+        "building": "1B",
+        "apt": "4",
+        "key": "kardynala stefana wyszynskiego|1B|4",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": null,
+      "auction_date": "2025-06-16",
+      "round": 4,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98834.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120346"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Radzionkowskiej 23",
+      "address": {
+        "street": "Radzionkowskiej",
+        "street_norm": "radzionkowskiej",
+        "building": "23",
+        "apt": null,
+        "key": "radzionkowskiej|23|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 342,
+      "starting_price_pln": 332000,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98618.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=120097"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Górniczej 37",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "37",
+        "apt": null,
+        "key": "gorniczej|37|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 376,
+      "starting_price_pln": null,
+      "auction_date": "2025-04-02",
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98470.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119937"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/11",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "11",
+        "key": "krakowskiej|17|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 728,
+      "starting_price_pln": null,
+      "auction_date": "2025-04-16",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98458.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119925"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 49B/11",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "49B",
+        "apt": "11",
+        "key": "slonecznikow|49B|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 2850,
+      "starting_price_pln": null,
+      "auction_date": "2025-04-29",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98457.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119924"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Generała Józefa Bema 14/12",
+      "address": {
+        "street": "Generała Józefa Bema",
+        "street_norm": "generala jozefa bema",
+        "building": "14",
+        "apt": "12",
+        "key": "generala jozefa bema|14|12",
+        "warning": null
+      },
+      "area_m2": 30.9,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98391.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119844"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 69/11",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "69",
+        "apt": "11",
+        "key": "slonecznikow|69|11",
+        "warning": null
+      },
+      "area_m2": 28.59,
+      "starting_price_pln": null,
+      "auction_date": "2025-03-27",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98345.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119803"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
+      "address": {
+        "street": "Kardynała Stefana Wyszyńskiego",
+        "street_norm": "kardynala stefana wyszynskiego",
+        "building": "1B",
+        "apt": "4",
+        "key": "kardynala stefana wyszynskiego|1B|4",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": null,
+      "auction_date": "2025-03-18",
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98250.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119697"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Radzionkowskiej 23",
+      "address": {
+        "street": "Radzionkowskiej",
+        "street_norm": "radzionkowskiej",
+        "building": "23",
+        "apt": null,
+        "key": "radzionkowskiej|23|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 342,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,98210.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119655"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/11",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "11",
+        "key": "krakowskiej|17|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 728,
+      "starting_price_pln": null,
+      "auction_date": "2024-12-19",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97814.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119204"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Strzeleckiej 1",
+      "address": {
+        "street": "Strzeleckiej",
+        "street_norm": "strzeleckiej",
+        "building": "1",
+        "apt": null,
+        "key": "strzeleckiej|1|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 481,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97720.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119086"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 49C/9",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "49C",
+        "apt": "9",
+        "key": "slonecznikow|49C|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 2850,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97687.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119022"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Generała Józefa Bema 14/12",
+      "address": {
+        "street": "Generała Józefa Bema",
+        "street_norm": "generala jozefa bema",
+        "building": "14",
+        "apt": "12",
+        "key": "generala jozefa bema|14|12",
+        "warning": null
+      },
+      "area_m2": 30.9,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97686.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119020"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Górniczej 37",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "37",
+        "apt": null,
+        "key": "gorniczej|37|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 376,
+      "starting_price_pln": null,
+      "auction_date": "2024-11-19",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97641.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118960"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Radzionkowskiej 23",
+      "address": {
+        "street": "Radzionkowskiej",
+        "street_norm": "radzionkowskiej",
+        "building": "23",
+        "apt": null,
+        "key": "radzionkowskiej|23|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 342,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97532.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118754"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 69/11",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "69",
+        "apt": "11",
+        "key": "slonecznikow|69|11",
+        "warning": null
+      },
+      "area_m2": 28.59,
+      "starting_price_pln": null,
+      "auction_date": "2024-11-18",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97520.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118738"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
+      "address": {
+        "street": "Kardynała Stefana Wyszyńskiego",
+        "street_norm": "kardynala stefana wyszynskiego",
+        "building": "1B",
+        "apt": "4",
+        "key": "kardynala stefana wyszynskiego|1B|4",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": null,
+      "auction_date": "2024-11-07",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97519.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118737"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Augustyna Świdra 20",
+      "address": {
+        "street": "Augustyna Świdra",
+        "street_norm": "augustyna swidra",
+        "building": "20",
+        "apt": null,
+        "key": "augustyna swidra|20|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 1137,
+      "starting_price_pln": null,
+      "auction_date": "2024-11-12",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97467.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118645"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Strzeleckiej 1",
+      "address": {
+        "street": "Strzeleckiej",
+        "street_norm": "strzeleckiej",
+        "building": "1",
+        "apt": null,
+        "key": "strzeleckiej|1|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 481,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97186.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118261"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Generała Józefa Bema 14/12",
+      "address": {
+        "street": "Generała Józefa Bema",
+        "street_norm": "generala jozefa bema",
+        "building": "14",
+        "apt": "12",
+        "key": "generala jozefa bema|14|12",
+        "warning": null
+      },
+      "area_m2": 30.9,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,97211.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118294"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
+      "address": {
+        "street": "Kardynała Stefana Wyszyńskiego",
+        "street_norm": "kardynala stefana wyszynskiego",
+        "building": "1B",
+        "apt": "4",
+        "key": "kardynala stefana wyszynskiego|1B|4",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": null,
+      "auction_date": "2024-08-12",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96844.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117696"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Augustyna Świdra 20",
+      "address": {
+        "street": "Augustyna Świdra",
+        "street_norm": "augustyna swidra",
+        "building": "20",
+        "apt": null,
+        "key": "augustyna swidra|20|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 1137,
+      "starting_price_pln": null,
+      "auction_date": "2024-06-27",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96654.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117417"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Strzeleckiej 1",
+      "address": {
+        "street": "Strzeleckiej",
+        "street_norm": "strzeleckiej",
+        "building": "1",
+        "apt": null,
+        "key": "strzeleckiej|1|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96483.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117164"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Górniczej 37",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "37",
+        "apt": null,
+        "key": "gorniczej|37|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 376,
+      "starting_price_pln": null,
+      "auction_date": "2024-05-14",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,96396.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117038"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 19/6",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "19",
+        "apt": "6",
+        "key": "powstancow slaskich|19|6",
+        "warning": null
+      },
+      "area_m2": 50.7,
+      "starting_price_pln": 215100,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,95770.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=116159"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sienkiewicza 2/3",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "2",
+        "apt": "3",
+        "key": "sienkiewicza|2|3",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 100000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,86960.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=102746"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Odrodzenia 14/2",
+      "address": {
+        "street": "Odrodzenia",
+        "street_norm": "odrodzenia",
+        "building": "14",
+        "apt": "2",
+        "key": "odrodzenia|14|2",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 90000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,85595.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=100792"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Opolskiej 5/9",
+      "address": {
+        "street": "Opolskiej",
+        "street_norm": "opolskiej",
+        "building": "5",
+        "apt": "9",
+        "key": "opolskiej|5|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 30000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,85571.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=100755"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Odrodzenia 14/2",
+      "address": {
+        "street": "Odrodzenia",
+        "street_norm": "odrodzenia",
+        "building": "14",
+        "apt": "2",
+        "key": "odrodzenia|14|2",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 90000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,85572.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=100756"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tylnej 1/3",
+      "address": {
+        "street": "Tylnej",
+        "street_norm": "tylnej",
+        "building": "1",
+        "apt": "3",
+        "key": "tylnej|1|3",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 142000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,84590.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=99415"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Chopina 31A/12",
+      "address": {
+        "street": "Chopina",
+        "street_norm": "chopina",
+        "building": "31A",
+        "apt": "12",
+        "key": "chopina|31A|12",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83953.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=98591"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Opolskiej 5/1",
+      "address": {
+        "street": "Opolskiej",
+        "street_norm": "opolskiej",
+        "building": "5",
+        "apt": "1",
+        "key": "opolskiej|5|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83661.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=98270"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tylnej 1/4",
+      "address": {
+        "street": "Tylnej",
+        "street_norm": "tylnej",
+        "building": "1",
+        "apt": "4",
+        "key": "tylnej|1|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83660.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=98269"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bema 16/20",
+      "address": {
+        "street": "Bema",
+        "street_norm": "bema",
+        "building": "16",
+        "apt": "20",
+        "key": "bema|16|20",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,83417.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=97989"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gliwickiej 5/1",
+      "address": {
+        "street": "Gliwickiej",
+        "street_norm": "gliwickiej",
+        "building": "5",
+        "apt": "1",
+        "key": "gliwickiej|5|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82650.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=96687"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Francuskiej 4/1",
+      "address": {
+        "street": "Francuskiej",
+        "street_norm": "francuskiej",
+        "building": "4",
+        "apt": "1",
+        "key": "francuskiej|4|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82467.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=96367"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 49B/15",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "49B",
+        "apt": "15",
+        "key": "slonecznikow|49B|15",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82470.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=96370"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/4",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "4",
+        "key": "krakowskiej|17|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82471.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=96371"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Królika 10",
+      "address": {
+        "street": "Królika",
+        "street_norm": "krolika",
+        "building": "10",
+        "apt": null,
+        "key": "krolika|10|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82466.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=96366"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gliwickiej 5/1",
+      "address": {
+        "street": "Gliwickiej",
+        "street_norm": "gliwickiej",
+        "building": "5",
+        "apt": "1",
+        "key": "gliwickiej|5|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82259.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=95950"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Świdra 9/8",
+      "address": {
+        "street": "Świdra",
+        "street_norm": "swidra",
+        "building": "9",
+        "apt": "8",
+        "key": "swidra|9|8",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82260.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=95951"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sienkiewicza 45/1A",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "45",
+        "apt": "1A",
+        "key": "sienkiewicza|45|1A",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82012.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=95676"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Królika 10",
+      "address": {
+        "street": "Królika",
+        "street_norm": "krolika",
+        "building": "10",
+        "apt": null,
+        "key": "krolika|10|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/Article/id,82005.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=95669"
+    }
+  ],
+  "wykaz": []
+}
