@@ -310,13 +310,13 @@ function render(){
   rows.sort((a,b)=>{const av=getSort(a),bv=getSort(b);const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));return sortDir==='asc'?c:-c;});
   document.getElementById('count').textContent = rows.length+' rekordów';
   document.getElementById('hist-body').innerHTML = rows.map(r=>`<tr>
-    <td class="num muted-cell">${esc(r.date)||esc(r.status)||'—'}</td>
+    <td class="num muted-cell">${esc(r.date)||esc(r.status)||'<span title="Brak daty w dokumencie źródłowym">—</span>'}</td>
     <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}${shareBadge(r.share)}</td>
     <td>${esc(KIND[r.kind]||r.kind)}</td>
     <td>${roundLabel(r.round)}</td>
     <td class="num">${fmtArea(r.area)}</td>
     <td class="num">${fmtPLN(r.start)}</td>
-    <td class="num">${fmtPLN(r.final)}</td>
+    <td class="num">${r.final!=null?fmtPLN(r.final):'<span title="Cena końcowa nieopublikowana w źródle (lub brak sprzedaży)">—</span>'}</td>
     <td class="num">${fmtM2(r.outcome==='sold'?r.final:r.start, r.area)}</td>
     <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&reasonLabel(r.reason)?`<span class="pill-reason">${esc(reasonLabel(r.reason))}</span>`:''}</td>
     <td class="dz-col">${r.plotArea?esc(fmtArea(r.plotArea)):geoLink(r)}</td>
@@ -330,7 +330,7 @@ function render(){
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
-    <td class="num muted-cell">${esc(a.date)||esc(a.status)||'—'}</td>
+    <td class="num muted-cell">${esc(a.date)||esc(a.status)||'<span title="Wykaz / pre-ogłoszenie — urząd nie ustalił jeszcze terminu przetargu">termin nieogłoszony</span>'}</td>
     <td class="addr">${chip(a.city,a.cityLabel)}${esc(a.addr)||''}${shareBadge(a.share)}</td>
     <td>${esc(KIND[a.kind]||a.kind)}</td>
     <td>${roundLabel(a.round)}</td>
