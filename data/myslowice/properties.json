@@ -77,6 +77,17 @@
       "kind": "mieszkalny",
       "listings": [
         {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "archived",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
           "date": "2026-07-14",
           "round": 2,
           "kind": "mieszkalny",
@@ -347,7 +358,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 205000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 46.02,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16",
           "wadium_deadline": null,
@@ -413,7 +424,7 @@
           "round": 5,
           "kind": "uzytkowy",
           "starting_price_pln": 35500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 27.31,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-uzytkowego-znajdujacego-sie-w-budynku-nr-9-przy-uli",
           "wadium_deadline": null,
@@ -467,6 +478,50 @@
       "area_m2": 30.55
     },
     {
+      "key": "armii krajowej|24|5",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "24",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 31.58,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-5-znajdujacy-sie-w-budynku-nr-24-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.58
+    },
+    {
+      "key": "wielka skotnica|5A|12",
+      "street": "Wielka Skotnica",
+      "street_norm": "wielka skotnica",
+      "building": "5A",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 218000,
+          "outcome": "archived",
+          "area_m2": 48.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.86
+    },
+    {
       "key": "gwarkow|7|",
       "street": "Gwarków",
       "street_norm": "gwarkow",
@@ -487,6 +542,72 @@
         }
       ],
       "area_m2": 258.1
+    },
+    {
+      "key": "armii krajowej|1C|3",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "1C",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "archived",
+          "area_m2": 48.27,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-1c-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.27
+    },
+    {
+      "key": "janowskiej|131|3",
+      "street": "Janowskiej",
+      "street_norm": "janowskiej",
+      "building": "131",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 38.91,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-131-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.91
+    },
+    {
+      "key": "janowskiej|131|1",
+      "street": "Janowskiej",
+      "street_norm": "janowskiej",
+      "building": "131",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 29.84,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-1-znajdujacy-sie-w-budynku-nr-131-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29.84
     },
     {
       "key": "zielonej|8|1",
