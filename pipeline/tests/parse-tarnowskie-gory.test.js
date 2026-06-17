@@ -71,6 +71,12 @@ test('auctionDateFromText: future "będzie DD miesiąc YYYY", not the prior-roun
   assert.equal(auctionDateFromText(body), '2026-04-14'); // not 2025-12-15
   assert.equal(auctionDateFromText('Przetarg będzie 13 stycznia 2026 r. o godzinie 12:00'), '2026-01-13');
   assert.equal(auctionDateFromText('Przetarg będzie 21 kwietnia 2026r. o godzinie 12:00'), '2026-04-21'); // "2026r." no space
+  // Regression (przetarg pisemny): the open-bids date reads "Część jawna przetargu
+  // odbędzie się DD <miesiąc> YYYY". "się" ends in ę (a non-word char), so a \b
+  // after the anchor never matched and silently dropped EVERY such date — the
+  // anchor must be followed by \s, not \b.
+  assert.equal(auctionDateFromText('Część jawna przetargu odbędzie się 9 maja 2025 r. o godzinie 13:00'), '2025-05-09');
+  assert.equal(auctionDateFromText('Przetarg odbędzie się 7 kwietnia 2025 r. o godzinie 12:00'), '2025-04-07');
 });
 
 test('resultDateFromText: "DD miesiąc YYYY r.[,] [w] Urząd Miejski"', () => {

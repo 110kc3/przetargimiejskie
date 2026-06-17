@@ -124,11 +124,14 @@ export function roundFromText(text) {
  * [ustny nieograniczony] będzie DD <miesiac> YYYY" or "… odbędzie się DD
  * <miesiac> YYYY". Anchored on "będzie"/"odbędzie się" so the PRIOR-round line
  * ("Pierwszy przetarg był 15 października 2025 r.") is never picked up.
+ * (Anchor is followed by \s, NOT \b: "się" ends in ę — a non-word char — so a
+ * trailing \b never matches there and would silently drop every "odbędzie się
+ * DD <miesiąc> YYYY" date, which is how the pisemny tenders phrase it.)
  * -> ISO date or null. (Tolerates "2026r." with no space before "r".)
  */
 export function auctionDateFromText(text) {
   const m =
-    /(?:przetarg\w*(?:\s+ustn\w+(?:\s+(?:nie)?ograniczon\w+)?)?\s+b[ęe]dzie|odb[ęe]dzie\s+si[ęe])\b[^.]*?(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(
+    /(?:przetarg\w*(?:\s+ustn\w+(?:\s+(?:nie)?ograniczon\w+)?)?\s+b[ęe]dzie|odb[ęe]dzie\s+si[ęe])\s[^.]*?(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(
       text || '',
     );
   if (!m) return null;

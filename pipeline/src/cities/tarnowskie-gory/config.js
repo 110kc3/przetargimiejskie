@@ -28,9 +28,11 @@
 // refs that already carry `.text` (exactly like Zabrze). The PDFs are text
 // (pdftotext -layout), not scanned — verified against live data in the spike.
 //
-// NOTE: the JSON API is an undocumented vendor (eUrząd/Logonet) endpoint. If it
-// ever changes, the server-rendered article fallback is `/Article/id,<N>.html`
-// (and the human board pages are linked off the BIP menu node 3472).
+// NOTE: the JSON API is an undocumented vendor (eUrząd/Logonet) endpoint. The
+// canonical per-article page is the API's own `link` (a,<id>,<slug>.html) — that
+// is what crawl.js stores as detail_url. (The guessed /Article/id,<N>.html is NOT
+// a real SPA route — it returns the 200 shell but the client router 404s — so it
+// must never be used as a link.) The human board pages hang off menu node 3472.
 
 export const config = {
   id: 'tarnowskie-gory',

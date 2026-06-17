@@ -109,8 +109,11 @@ async function listBoard(board) {
   return refs;
 }
 
-/** First PDF attachment URL for an article, via the article API. */
-async function pdfUrlForArticle(id) {
+/**
+ * PDF attachment URL + canonical human page for an article, via the article API.
+ * @returns {Promise<{pdfUrl:string, detailUrl:string}|null>}
+ */
+async function articleAssets(id) {
   let json;
   try {
     json = JSON.parse(await getText(articleApi(id)));
@@ -124,7 +127,16 @@ async function pdfUrlForArticle(id) {
   if (!att) return null;
   // The API gives a relative link ("e,pobierz,get.html?id=<attId>"); prefer the
   // attachment id (stable) to build the absolute URL.
-  return att.id != null ? fileUrl(att.id) : `${ORIGIN}/${String(att.link).replace(/^\/+/, '')}`;
+  const pdfUrl = att.id != null ? fileUrl(att.id) : `${ORIGIN}/${String(att.link).replace(/^\/+/, '')}`;
+  // Canonical article page = the API's own `link` (a,<id>,<slug>.html — the SPA
+  // route the BIP itself links to). The guessed /Article/id,N.html is NOT a real
+  // SPA route: it returns the 200 shell but the client router shows an in-app
+  // 404, so it must never be used. Fall back to the article API URL when the
+  // slug is missing (same shape as the Sosnowiec adapter on this vendor).
+  const detailUrl = json?.link
+    ? `${ORIGIN}/${String(json.link).replace(/^\/+/, '')}`
+    : `${ORIGIN}/api/articles/${id}`;
+  return { pdfUrl, detailUrl };
 }
 
 // One memoised pass over both boards — see the file header.
@@ -144,11 +156,12 @@ async function crawlAll() {
     );
 
     for (const ref of refs) {
-      const pdfUrl = await pdfUrlForArticle(ref.id);
-      if (!pdfUrl) {
+      const assets = await articleAssets(ref.id);
+      if (!assets) {
         console.error(`  tarnowskie-gory: no PDF attachment on article ${ref.id} (${ref.title.slice(0, 60)})`);
         continue;
       }
+      const { pdfUrl, detailUrl } = assets;
       let text;
       try {
         text = await pdfText(pdfUrl);
@@ -161,7 +174,7 @@ async function crawlAll() {
       // reliable than the noisy title). A result notice → the achieved-price
       // stream; everything else → an active announcement.
       if (isResultNotice(text)) {
-        resultRefs.push({ text, pdf_url: pdfUrl, auction_date: null, isLandBoard: ref.isLandBoard });
+        resultRefs.push({ text, pdf_url: pdfUrl, detail_url: detailUrl, auction_date: null, isLandBoard: ref.isLandBoard });
         continue;
       }
 
@@ -170,11 +183,10 @@ async function crawlAll() {
         console.error(`  tarnowskie-gory WARN: announcement not parsed (article ${ref.id}, ${ref.title.slice(0, 60)})`);
         continue;
       }
-      const detail_url = `${ORIGIN}/Article/id,${ref.id}.html`; // server-rendered article page
       if (rec.kind === 'grunt') {
-        land.push({ ...rec, detail_url, source_url: pdfUrl });
+        land.push({ ...rec, detail_url: detailUrl, source_url: pdfUrl });
       } else {
-        listings.push({ ...rec, detail_url, source_url: pdfUrl });
+        listings.push({ ...rec, detail_url: detailUrl, source_url: pdfUrl });
       }
     }
   }
