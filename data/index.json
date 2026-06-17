@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-17T09:31:43.560Z",
+  "generated_at": "2026-06-17T10:57:38.853Z",
   "cities": [
     {
       "id": "gliwice",
@@ -109,6 +109,18 @@
       "archived_auctions": 199,
       "wykaz_entries": 0,
       "land_plots": 21
+    },
+    {
+      "id": "tarnowskie-gory",
+      "label": "Tarnowskie Góry",
+      "authority": "Urząd Miejski w Tarnowskich Górach",
+      "host": "bip.tarnowskiegory.pl",
+      "unique_properties": 34,
+      "active_listings": 56,
+      "active_auctions": 30,
+      "archived_auctions": 41,
+      "wykaz_entries": 0,
+      "land_plots": 45
     }
   ]
 }
