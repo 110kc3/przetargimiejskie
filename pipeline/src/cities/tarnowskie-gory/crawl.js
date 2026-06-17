@@ -41,6 +41,15 @@ const BOARDS = [
 ];
 const PAGE = 500; // the API returns the whole board well within one page today
 
+// Articles published more than this long ago that still lack a parseable auction
+// date are treated as concluded: we stamp their publish date as the auction date
+// so they age into the ARCHIVE rather than lingering as dateless "current" rows.
+// (Recent undated ones keep a null date and stay active, so a genuinely upcoming
+// auction whose date we failed to parse is never wrongly hidden.) The BIP returns
+// the whole archive on both archived flags, so without this most "active" rows
+// would be auctions held a year or two ago.
+const STALE_CUTOFF = new Date(Date.now() - 90 * 864e5).toISOString().slice(0, 10);
+
 const listApi = (menuId, offset) =>
   `${ORIGIN}/api/menu/${menuId}/articles?limit=${PAGE}&offset=${offset}&archived=true`;
 const articleApi = (id) => `${ORIGIN}/api/articles/${id}`;
@@ -182,6 +191,12 @@ async function crawlAll() {
       if (!rec) {
         console.error(`  tarnowskie-gory WARN: announcement not parsed (article ${ref.id}, ${ref.title.slice(0, 60)})`);
         continue;
+      }
+      // Stale, dateless tenders → age into the archive via their publish date
+      // (see STALE_CUTOFF). The auction date stays authoritative when parsed.
+      if (!rec.auction_date && ref.published_date && ref.published_date < STALE_CUTOFF) {
+        rec.auction_date = ref.published_date;
+        rec.auction_date_estimated = true;
       }
       if (rec.kind === 'grunt') {
         land.push({ ...rec, detail_url: detailUrl, source_url: pdfUrl });
