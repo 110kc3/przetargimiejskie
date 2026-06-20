@@ -3,6 +3,44 @@
   "city": "bielsko",
   "plots": [
     {
+      "key": "dz|stare bielsko|759/56, 759/45",
+      "kind": "grunt",
+      "city": "bielsko",
+      "dzialka_nr": "759/56, 759/45",
+      "obreb": "Stare Bielsko",
+      "street": null,
+      "building": null,
+      "address_raw": "al. gen. Władysława Andersa/ ks. Mateusza Opolskiego Wysokość wadium / zaliczki: 15 000,00 zł",
+      "dzialka_id": "246101_1.0038.759/56",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F56",
+      "area_m2": 433,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-24",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 433,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/al-gen-wladyslawa-andersa-ks-mateusza-opolskiego",
+          "source_url": "https://bielsko-biala.pl/nieruchomosc/al-gen-wladyslawa-andersa-ks-mateusza-opolskiego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "759/56",
+          "dzialka_id": "246101_1.0038.759/56",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F56"
+        },
+        {
+          "nr": "759/45",
+          "dzialka_id": "246101_1.0038.759/45",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F45"
+        }
+      ]
+    },
+    {
       "key": "dz|lipnik|290/96",
       "kind": "grunt",
       "city": "bielsko",
@@ -21,7 +59,7 @@
           "date": "2026-06-19",
           "round": 1,
           "starting_price_pln": 286807,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 493,
           "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-helmuta-kajzara",
           "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-helmuta-kajzara"
@@ -54,7 +92,7 @@
           "date": "2026-06-18",
           "round": 2,
           "starting_price_pln": 2653840,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 4739,
           "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia",
           "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia"
@@ -179,44 +217,6 @@
           "nr": "572/102",
           "dzialka_id": "246101_1.0001.572/102",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0001.572%2F102"
-        }
-      ]
-    },
-    {
-      "key": "dz|stare bielsko|759/56, 759/45",
-      "kind": "grunt",
-      "city": "bielsko",
-      "dzialka_nr": "759/56, 759/45",
-      "obreb": "Stare Bielsko",
-      "street": null,
-      "building": null,
-      "address_raw": "al. gen. Władysława Andersa/ ks. Mateusza Opolskiego Wysokość wadium / zaliczki: 15 000,00 zł",
-      "dzialka_id": "246101_1.0038.759/56",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F56",
-      "area_m2": 433,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2000-09-26",
-          "round": 1,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 433,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/al-gen-wladyslawa-andersa-ks-mateusza-opolskiego",
-          "source_url": "https://bielsko-biala.pl/nieruchomosc/al-gen-wladyslawa-andersa-ks-mateusza-opolskiego"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "759/56",
-          "dzialka_id": "246101_1.0038.759/56",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F56"
-        },
-        {
-          "nr": "759/45",
-          "dzialka_id": "246101_1.0038.759/45",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F45"
         }
       ]
     },
