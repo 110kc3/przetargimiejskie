@@ -60,6 +60,28 @@
       ]
     },
     {
+      "key": "kisielewskiego|3|45",
+      "street": "Kisielewskiego",
+      "street_norm": "kisielewskiego",
+      "building": "3",
+      "apt": "45",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 164700,
+          "outcome": "active",
+          "area_m2": 32.94,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563848,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-45-ul-kisielewskiego-3.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.94
+    },
+    {
       "key": "szczecinskiej|11|",
       "street": "Szczecińskiej",
       "street_norm": "szczecinskiej",
@@ -72,7 +94,7 @@
           "round": 1,
           "kind": "zabudowana",
           "starting_price_pln": 2505000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 709.58,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,562961,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-szc.html",
           "wadium_deadline": null,

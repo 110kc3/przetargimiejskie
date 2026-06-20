@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Kisielewskiego 3/45",
+      "address": {
+        "street": "Kisielewskiego",
+        "street_norm": "kisielewskiego",
+        "building": "3",
+        "apt": "45",
+        "key": "kisielewskiego|3|45",
+        "warning": null
+      },
+      "auction_date": "2026-08-07",
+      "published_date": "2026-06-19",
+      "round": 1,
+      "area_m2": 32.94,
+      "starting_price_pln": 164700,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,563848,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-45-ul-kisielewskiego-3.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Kaliskiej 14a/2",
       "address": {
         "street": "Kaliskiej",
