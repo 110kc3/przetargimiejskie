@@ -158,82 +158,6 @@
       "viewing_date": "2026-09-07"
     },
     {
-      "kind": "mieszkalny",
-      "round": 2,
-      "address_raw": "Sienkiewicza 8/9",
-      "address": {
-        "street": "Sienkiewicza",
-        "street_norm": "sienkiewicza",
-        "building": "8",
-        "apt": "9",
-        "key": "sienkiewicza|8|9",
-        "warning": null
-      },
-      "auction_date": "2026-06-16",
-      "area_m2": 19.83,
-      "starting_price_pln": 85000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151814&menu=679",
-      "wadium_deadline": "2026-06-08",
-      "viewing_date": "2026-06-08"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Koszalińskiej 36a/5",
-      "address": {
-        "street": "Koszalińskiej",
-        "street_norm": "koszalinskiej",
-        "building": "36A",
-        "apt": "5",
-        "key": "koszalinskiej|36A|5",
-        "warning": null
-      },
-      "auction_date": "2026-06-16",
-      "area_m2": 38.4,
-      "starting_price_pln": 270000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151815&menu=679",
-      "wadium_deadline": "2026-06-08",
-      "viewing_date": "2026-06-08"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Sokolskiej 54/5",
-      "address": {
-        "street": "Sokolskiej",
-        "street_norm": "sokolskiej",
-        "building": "54",
-        "apt": "5",
-        "key": "sokolskiej|54|5",
-        "warning": null
-      },
-      "auction_date": "2026-06-16",
-      "area_m2": 37.5,
-      "starting_price_pln": 240000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151816&menu=679",
-      "wadium_deadline": "2026-06-08",
-      "viewing_date": "2026-06-08"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 2,
-      "address_raw": "Wiertniczej 6/26",
-      "address": {
-        "street": "Wiertniczej",
-        "street_norm": "wiertniczej",
-        "building": "6",
-        "apt": "26",
-        "key": "wiertniczej|6|26",
-        "warning": null
-      },
-      "auction_date": "2026-06-16",
-      "area_m2": 35.22,
-      "starting_price_pln": 175000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151817&menu=679",
-      "wadium_deadline": "2026-06-08",
-      "viewing_date": "2026-06-08"
-    },
-    {
       "kind": "zabudowana",
       "round": 2,
       "address_raw": "Górnej 4",
@@ -1150,6 +1074,82 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=559",
       "wadium_deadline": "2026-05-11",
       "viewing_date": "2026-05-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Sienkiewicza 8/9",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "8",
+        "apt": "9",
+        "key": "sienkiewicza|8|9",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "area_m2": 19.83,
+      "starting_price_pln": 85000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=560",
+      "wadium_deadline": "2026-06-08",
+      "viewing_date": "2026-06-08"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Koszalińskiej 36a/5",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "36A",
+        "apt": "5",
+        "key": "koszalinskiej|36A|5",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "area_m2": 38.4,
+      "starting_price_pln": 270000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=561",
+      "wadium_deadline": "2026-06-08",
+      "viewing_date": "2026-06-08"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Sokolskiej 54/5",
+      "address": {
+        "street": "Sokolskiej",
+        "street_norm": "sokolskiej",
+        "building": "54",
+        "apt": "5",
+        "key": "sokolskiej|54|5",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "area_m2": 37.5,
+      "starting_price_pln": 240000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=562",
+      "wadium_deadline": "2026-06-08",
+      "viewing_date": "2026-06-08"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Wiertniczej 6/26",
+      "address": {
+        "street": "Wiertniczej",
+        "street_norm": "wiertniczej",
+        "building": "6",
+        "apt": "26",
+        "key": "wiertniczej|6|26",
+        "warning": null
+      },
+      "auction_date": "2026-06-16",
+      "area_m2": 35.22,
+      "starting_price_pln": 175000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=563",
+      "wadium_deadline": "2026-06-08",
+      "viewing_date": "2026-06-08"
     }
   ],
   "wykaz": []
