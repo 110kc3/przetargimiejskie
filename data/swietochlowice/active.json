@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Zubrzyckiego 16/16",
+      "address": {
+        "street": "Zubrzyckiego",
+        "street_norm": "zubrzyckiego",
+        "building": "16",
+        "apt": "16",
+        "key": "zubrzyckiego|16|16",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 28.3,
+      "starting_price_pln": 170000,
+      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Hutniczej 11a/2",
       "address": {
         "street": "Hutniczej",
