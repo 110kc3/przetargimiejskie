@@ -42,9 +42,24 @@ import { getText } from '../../core/fetch.js';
 export const MSIP_JSON_URL =
   'https://msip.gliwice.eu/pobierz-dane.php?idlang=0&id=1400002263&code=d1d58634a2b70ed6b4dd9781e274c86b&type=json';
 
+// Human-browsable city portal that lists these land offers (the JSON above is its
+// machine export). Shown as each plot's displayed `source_url` so the extension
+// and site link users to a readable city source page, not a raw JSON endpoint.
+export const MSIP_OFFERS_URL =
+  'https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane';
+
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
   '(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+
+// Cap BIP price fetches per refresh to bound runtime (fetch.js throttles 1 req/s).
+// Only `isBipDetailUrl` LINKs are fetched, and those are a small minority of the
+// export — most plots are pre-announcements ("przetarg wkrótce" / "oferta do
+// wznowienia") whose LINK is a wykaz PDF with no scrapeable cena wywoławcza — so
+// this rarely bites; the cap is a safety bound against a future flood of
+// simultaneously-announced auctions. Raised from 30 → 80 so a full export
+// (≤76 plots today) is never truncated mid-list. Override with GLIWICE_BIP_PRICE_CAP.
+const BIP_PRICE_CAP = Number(process.env.GLIWICE_BIP_PRICE_CAP) || 80;
 
 // "2026.06.16" → "2026-06-16"  /  null/empty → null
 export function parseDate(s) {
@@ -83,6 +98,37 @@ function stripHtml(html) {
 }
 
 /**
+ * Extract the starting price (cena wywoławcza) from the *stripped* text of a
+ * bip.gliwice.eu działka detail page. Returns null when no price is present.
+ * Exported so the parser is unit-tested directly (no network) and so the test
+ * and the live path can never drift apart.
+ *
+ * Two patterns, tried in order:
+ *   1. Colon-anchored (primary). The price sits right after the label's colon,
+ *      e.g. "Cena wywoławcza nieruchomości (brutto): 2 370 000,00 zł". The colon
+ *      anchor means a digit *inside* the label (e.g. "… działki 389:") is part of
+ *      [^:] and can't be mistaken for the amount.
+ *   2. Keyword-anchored fallback (no colon). Some pages phrase it
+ *      "… brutto 2 370 000,00 zł" or "… wynosi 2 370 000,00 zł". We require a
+ *      brutto/netto/wynosi keyword immediately before the number and forbid any
+ *      digit between the label and that keyword ([^:0-9]) so a label number can
+ *      never leak in. Without this guard a bare-number fallback would risk
+ *      grabbing a parcel number or the wadium.
+ * @param {string} text  HTML-stripped page text
+ * @returns {number|null}
+ */
+export function priceFromBipText(text) {
+  if (!text) return null;
+  const primary =
+    /[Cc]ENA\s+WYWO[ŁL]AWCZA[^:]{0,60}:\s*([\d][\d\s.]*(?:[,]\d{2})?)\s*z[łl]/i.exec(text);
+  if (primary) return parsePLN(primary[1].trim() + ' zł');
+  const fallback =
+    /[Cc]ENA\s+WYWO[ŁL]AWCZA[^:0-9]{0,60}?(?:brutto|netto|wynosi)\s+([\d][\d\s.]*(?:[,]\d{2})?)\s*z[łl]/i.exec(text);
+  if (fallback) return parsePLN(fallback[1].trim() + ' zł');
+  return null;
+}
+
+/**
  * Attempt to scrape starting_price_pln from a bip.gliwice.eu działka detail
  * page. Returns null on any fetch/parse failure — never throws.
  * @param {string} url  bip.gliwice.eu/sprzedaz-dzialka-* URL
@@ -91,14 +137,7 @@ function stripHtml(html) {
 export async function fetchBipPrice(url) {
   try {
     const html = await getText(url, { userAgent: UA });
-    const text = stripHtml(html);
-    // "Cena wywoławcza nieruchomości (brutto): 691 100,00 zł"
-    // "Cena wywoławcza: 200 000,00 zł"
-    // "CENA WYWOŁAWCZA NIERUCHOMOŚCI: 214 080,00 zł"
-    const m =
-      /[Cc]ENA\s+WYWO[ŁL]AWCZA[^:]{0,60}:\s*([\d][\d\s.]*(?:[,]\d{2})?)\s*z[łl]/i.exec(text);
-    if (m) return parsePLN(m[1].trim() + ' zł');
-    return null;
+    return priceFromBipText(stripHtml(html));
   } catch {
     return null;
   }
@@ -138,7 +177,7 @@ export function parseMsipRecord(r, price = null) {
     round:               roundFromUwagi(r.UWAGI),
     status:              (r.UWAGI ?? '').trim() || null,
     detail_url:          r.LINK || null,
-    source_url:          MSIP_JSON_URL,
+    source_url:          MSIP_OFFERS_URL,  // human portal page, not the JSON export
   };
 }
 
@@ -182,10 +221,10 @@ export async function crawlMsipLand() {
     }
 
     // Fetch price from BIP for records with a proper BIP announcement URL.
-    // Throttle: fetch.js already enforces 1 req/s; cap at 30 BIP fetches per
-    // refresh to avoid long runs when many auctions are active simultaneously.
+    // Throttle: fetch.js already enforces 1 req/s; cap BIP fetches per refresh
+    // (BIP_PRICE_CAP) to avoid long runs when many auctions are active at once.
     let price = null;
-    if (isBipDetailUrl(r.LINK) && pricesFetched < 30) {
+    if (isBipDetailUrl(r.LINK) && pricesFetched < BIP_PRICE_CAP) {
       price = await fetchBipPrice(r.LINK);
       pricesFetched++;
     }

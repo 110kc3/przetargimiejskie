@@ -268,7 +268,7 @@ function flatten(payload) {
           area_m2: p.area_m2 ?? l.area_m2 ?? null,
           round: l.round, starting_price_pln: l.starting_price_pln,
           final_price_pln: l.final_price_pln ?? null, outcome: l.outcome,
-          detail_url: l.detail_url, source_pdf: l.source_url || null,
+          detail_url: l.detail_url, source_pdf: null, portal_url: l.source_url || null,
           geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr, parcels: p.parcels, status: p.status,
         });
       } else if (l.outcome === 'active') {
@@ -277,7 +277,7 @@ function flatten(payload) {
           address_raw: disp, address: null,
           area_m2: p.area_m2 ?? l.area_m2 ?? null,
           auction_date: l.date, round: l.round,
-          starting_price_pln: l.starting_price_pln, detail_url: l.detail_url,
+          starting_price_pln: l.starting_price_pln, detail_url: l.detail_url, portal_url: l.source_url || null,
           geoportal_url: p.geoportal_url, dzialka_nr: p.dzialka_nr, parcels: p.parcels, status: p.status,
         });
       }
@@ -413,7 +413,7 @@ function renderTable() {
         <td>${esc(outcomeLabel(r))}</td>
         <td>${r.plot_area_m2 ? fmtArea(r.plot_area_m2) : parcelCell(r)}</td>
         <td>${mapsCell(r)}</td>
-        <td>${srcLinkCell(r.source_pdf || r.detail_url, r.bip_url)}</td>
+        <td>${srcLinkCell(r.source_pdf || r.detail_url, r.bip_url)}${r.kind === 'grunt' ? portalLinkCell(r.portal_url) : ''}</td>
       </tr>`,
     )
     .join('');
@@ -429,6 +429,14 @@ function srcLinkCell(u, bip) {
   const hb = safeHref(bip);
   const secondary = hb ? `${primary ? ' ' : ''}<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(hb)}">BIP ↗</a>` : '';
   return primary + secondary;
+}
+
+// City-portal "source" link for a land plot — the human listing page the plot
+// was crawled from, distinct from the geoportal MAP link in the Parcel column.
+// Lets users see a plot's source, not only its map. Blank for non-land / no URL.
+function portalLinkCell(u) {
+  const h = safeHref(u);
+  return h ? ` <a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">portal ↗</a>` : '';
 }
 
 // Land rows link the parcel to a geoportal (resolved per-city in build-land);
@@ -554,7 +562,7 @@ function renderActiveTable() {
           <td>${lastUnsoldCell}</td>
           <td>${parcelCell(a)}</td>
           <td>${mapsCell(a)}</td>
-          <td>${srcLinkCell(a.detail_url, a.bip_url)}</td>
+          <td>${srcLinkCell(a.detail_url, a.bip_url)}${a.kind === 'grunt' ? portalLinkCell(a.portal_url) : ''}</td>
         </tr>`;
     })
     .join('');

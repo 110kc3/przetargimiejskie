@@ -19,8 +19,23 @@ import {
   parsePLN,
   isBipDetailUrl,
   fetchBipPrice,
+  priceFromBipText,
   MSIP_JSON_URL,
+  MSIP_OFFERS_URL,
 } from '../src/cities/gliwice/crawl-land.js';
+
+// Mirror crawl-land.js stripHtml() so the fixture-based price tests below feed
+// priceFromBipText() the same shape the live path does (no network).
+function stripFixture(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&sup2;/g, '²')
+    .replace(/&([a-zA-Z]+);/g, () => ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
 // ---------------------------------------------------------------------------
 // parseDate
@@ -121,7 +136,7 @@ test('parseMsipRecord: announced auction with price', () => {
   assert.equal(r.auction_date, '2026-08-04');
   assert.equal(r.round, 1); // "przetarg ogłoszony" → round 1
   assert.equal(r.detail_url, RAW_STARE_GLIWICE.LINK);
-  assert.equal(r.source_url, MSIP_JSON_URL);
+  assert.equal(r.source_url, MSIP_OFFERS_URL);
 });
 
 // Record 2: "oferta do wznowienia" — no auction date, no price, PDF link
@@ -231,18 +246,32 @@ test('parsePLN parses the exact price string found on bip.gliwice.eu działka pa
   assert.equal(parsePLN('336 000,00 zł'), 336000);
 });
 
-// Confirm the regex pattern used inside fetchBipPrice matches the HTML fixture.
-test('fetchBipPrice regex matches "Cena wywoławcza nieruchomości (brutto): X zł"', () => {
-  // Replicate the stripping + regex from fetchBipPrice without a live fetch.
-  const text = BIP_DZIALKA_HTML
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&sup2;/g, '²')
-    .replace(/&([a-zA-Z]+);/g, () => ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const m = /[Cc]ENA\s+WYWO[ŁL]AWCZA[^:]{0,60}:\s*([\d][\d\s.]*(?:[,]\d{2})?)\s*z[łl]/i.exec(text);
-  assert.ok(m, 'price regex should match the BIP fixture');
-  assert.equal(parsePLN(m[1].trim() + ' zł'), 2370000);
+// Confirm priceFromBipText (the real extractor) matches the HTML fixture.
+test('priceFromBipText: "Cena wywoławcza nieruchomości (brutto): X zł"', () => {
+  assert.equal(priceFromBipText(stripFixture(BIP_DZIALKA_HTML)), 2370000);
+});
+
+// Fallback path: same label without a colon ("… brutto 2 370 000,00 zł").
+test('priceFromBipText: keyword fallback, no colon', () => {
+  const t = stripFixture('<p>Cena wywoławcza nieruchomości brutto 543 060,00 zł</p>');
+  assert.equal(priceFromBipText(t), 543060);
+});
+
+// "wynosi" phrasing (also colon-less) is accepted by the fallback.
+test('priceFromBipText: "cena wywoławcza ... wynosi X zł"', () => {
+  const t = stripFixture('<p>Cena wywoławcza nieruchomości wynosi 200 000,00 zł</p>');
+  assert.equal(priceFromBipText(t), 200000);
+});
+
+// A digit inside the label (parcel nr) must NOT be mistaken for the price.
+test('priceFromBipText: label-embedded parcel number is not the price', () => {
+  const t = stripFixture('<p>Cena wywoławcza działki nr 389 (brutto): 2 370 000,00 zł</p>');
+  assert.equal(priceFromBipText(t), 2370000);
+});
+
+// No price on the page (e.g. a wykaz/pre-announcement) → null, never a throw.
+test('priceFromBipText: no cena wywoławcza → null', () => {
+  assert.equal(priceFromBipText(stripFixture('<p>Wadium: 237 000,00 zł</p>')), null);
+  assert.equal(priceFromBipText(''), null);
+  assert.equal(priceFromBipText(null), null);
 });

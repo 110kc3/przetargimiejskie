@@ -124,8 +124,8 @@ body.hide-map .map-col{display:none}
     <h2 class="table-title">Aktualne aukcje</h2>
     <div class="table-scroll">
       <table class="data-table"><thead><tr>
-        <th class="num">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th>Runda</th>
-        <th class="num">Powierzchnia</th><th class="num">Cena</th><th class="num">zł/m²</th><th class="dz-col">Działka</th><th class="map-col">Mapa</th><th>Źródło</th>
+        <th class="sortable num" data-asort="date">Data</th><th>Miasto / nieruchomość</th><th>Typ</th><th class="sortable" data-asort="round">Runda</th>
+        <th class="sortable num" data-asort="area">Powierzchnia</th><th class="sortable num" data-asort="start">Cena</th><th class="sortable num" data-asort="m2">zł/m²</th><th class="dz-col">Działka</th><th class="map-col">Mapa</th><th>Źródło</th>
       </tr></thead><tbody id="active-body"></tbody></table>
     </div>
   </div>
@@ -178,6 +178,9 @@ const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="
 // Secondary source: the city BIP page for an auction whose primary źródło is
 // the ZGM listing (Gliwice lists the same auction on both boards).
 const bipLink = u => { const h=safeHref(u); return h?` <a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">BIP ↗</a>`:''; };
+// Land: the city portal the plot was crawled from — its SOURCE, shown next to the
+// geoportal MAP link so a plot's origin is visible, not only its parcel map.
+const portalLink = u => { const h=safeHref(u); return h?` <a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">portal ↗</a>`:''; };
 // Land plots link their parcel to a geoportal (resolved per-city in build-land).
 const geoLink = r => {
   if (r.parcels && r.parcels.length) {
@@ -200,10 +203,14 @@ const mapsLink = r => {
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
 let sortKey='date', sortDir='desc';
+// The "Aktualne aukcje" table has its own sort state so it can be ordered by
+// Cena / Powierzchnia / zł/m² independently of the history table below.
+let aSortKey='date', aSortDir='asc';
 
 function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${esc(city)}"></span>${esc(label||city)}</span>`; }
 function addrText(r){ return `${r.street||''} ${r.building||''}${r.apt?'/'+r.apt:''}`.trim(); }
 function arrow(k){ return sortKey===k?`<span class="arrow">${sortDir==='asc'?'▲':'▼'}</span>`:''; }
+function aArrow(k){ return aSortKey===k?`<span class="arrow">${aSortDir==='asc'?'▲':'▼'}</span>`:''; }
 
 async function load(){
   let idx;
@@ -237,10 +244,10 @@ async function load(){
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))
             records.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',
               date:l.date,round:l.round,area:p.area_m2??l.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
-              outcome:l.outcome,reason:null,share:null,src:l.detail_url||l.source_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
+              outcome:l.outcome,reason:null,share:null,src:l.detail_url||l.source_url,bip:null,portal:l.source_url,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
           else if(l.outcome==='active' && (!l.date || l.date>=TODAY))
             active.push({city:c.id,cityLabel:c.label,kind:'grunt',addr:disp,round:l.round,
-              area:p.area_m2??l.area_m2,start:l.starting_price_pln,date:l.date,share:null,url:l.detail_url,bip:null,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
+              area:p.area_m2??l.area_m2,start:l.starting_price_pln,date:l.date,share:null,url:l.detail_url||l.source_url,bip:null,portal:l.source_url,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
         }
       }
     }catch(e){}
@@ -260,6 +267,12 @@ async function load(){
     th.dataset.label = th.textContent.trim();
     th.addEventListener('click',()=>{
       const k=th.dataset.sort; if(sortKey===k) sortDir=sortDir==='asc'?'desc':'asc'; else {sortKey=k;sortDir='desc';} render();
+    });
+  });
+  document.querySelectorAll('th[data-asort]').forEach(th=>{
+    th.dataset.label = th.textContent.trim();
+    th.addEventListener('click',()=>{
+      const k=th.dataset.asort; if(aSortKey===k) aSortDir=aSortDir==='asc'?'desc':'asc'; else {aSortKey=k;aSortDir='desc';} render();
     });
   });
   render();
@@ -289,7 +302,20 @@ function getSort(r){ switch(sortKey){case 'date':return r.date||'';case 'round':
 
 function refreshHeaders(){
   document.querySelectorAll('th[data-sort]').forEach(th=>{ th.innerHTML = th.dataset.label + arrow(th.dataset.sort); });
+  document.querySelectorAll('th[data-asort]').forEach(th=>{ th.innerHTML = th.dataset.label + aArrow(th.dataset.asort); });
 }
+// Value a row sorts on in the active table; null = "missing" so it can be sunk
+// to the bottom regardless of direction (a plot with no price still shows, last).
+function activeVal(a){ switch(aSortKey){
+  case 'round': return a.round ?? null;
+  case 'area':  return a.area ?? null;
+  case 'start': return a.start ?? null;
+  case 'm2':    return (a.area && a.start!=null) ? a.start/a.area : null;
+  default:      return a.date || null; } }
+function activeCmp(a,b){ const av=activeVal(a), bv=activeVal(b);
+  if(av==null&&bv==null) return 0; if(av==null) return 1; if(bv==null) return -1;
+  const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));
+  return aSortDir==='asc'?c:-c; }
 
 function render(){
   const city=document.getElementById('f-city').value,
@@ -321,12 +347,13 @@ function render(){
     <td><span class="pill pill-${esc(r.outcome)}">${esc((OUTCOME[r.outcome]||r.outcome).replace(/ \(.*\)/,''))}</span>${r.outcome==='unsold'&&reasonLabel(r.reason)?`<span class="pill-reason">${esc(reasonLabel(r.reason))}</span>`:''}</td>
     <td class="dz-col">${r.plotArea?esc(fmtArea(r.plotArea)):geoLink(r)}</td>
     <td class="map-col">${mapsLink(r)}</td>
-    <td>${srcLink(r.src)}${bipLink(r.bip)}</td>
+    <td>${srcLink(r.src)}${bipLink(r.bip)}${r.kind==='grunt'&&r.portal&&r.portal!==r.src?portalLink(r.portal):''}</td>
   </tr>`).join('') || '<tr class="empty-row"><td colspan="12">Brak rekordów dla wybranych filtrów.</td></tr>';
 
   const acts = active.filter(a=>(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
-  // Sort by auction date (soonest first); undated listings go to the bottom.
-  acts.sort((a,b)=>{ if(!a.date&&!b.date)return 0; if(!a.date)return 1; if(!b.date)return -1; return a.date.localeCompare(b.date); });
+  // Header-driven sort (Data default = soonest first). Undated / unpriced rows
+  // always sink to the bottom so the "—" cells never displace rows with a value.
+  acts.sort(activeCmp);
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);
     return `<tr>
@@ -339,7 +366,7 @@ function render(){
     <td class="num">${fmtM2(a.start,a.area)}</td>
     <td class="dz-col">${a.plotArea?esc(fmtArea(a.plotArea)):geoLink(a)}</td>
     <td class="map-col">${mapsLink(a)}</td>
-    <td>${srcLink(href)}${bipLink(a.bip)}</td>
+    <td>${srcLink(href)}${bipLink(a.bip)}${a.kind==='grunt'&&a.portal&&a.portal!==a.url?portalLink(a.portal):''}</td>
   </tr>`;}).join('') || '<tr class="empty-row"><td colspan="10">Brak aktualnych aukcji dla wybranych filtrów.</td></tr>';
 
   refreshHeaders();

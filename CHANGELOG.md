@@ -4,6 +4,19 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.30.0 — 2026-06-20
+
+- **Land plots now show their source, not only a map link.** Each działka row
+  gets a city-portal "portal ↗" link (the human MSIP offers page it was crawled
+  from) beside the announcement link, in both the Active and Archive tables —
+  the geoportal stays as the separate parcel/map link. The land source no longer
+  points at the raw MSIP JSON export.
+- **Gliwice land prices.** The starting price (cena wywoławcza) is now captured
+  for every *announced* Gliwice plot (BIP price-fetch cap raised 30 → 80, the
+  extractor hardened against page-wording drift). Plots still in pre-announcement
+  ("przetarg wkrótce" / "oferta do wznowienia") carry no published price yet and
+  show "—".
+
 ## v1.29.0 — 2026-06-15
 
 Google Maps column. Every non-land listing (flats, houses, commercial, garages) now
