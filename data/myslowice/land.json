@@ -3,6 +3,39 @@
   "city": "myslowice",
   "plots": [
     {
+      "key": "dz|0001 brzezinka|3420/174",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "3420/174",
+      "obreb": "0001 Brzezinka",
+      "street": "Henryka Sienkiewicza",
+      "building": null,
+      "address_raw": "ul. Henryka Sienkiewicza",
+      "dzialka_id": "247001_1.0001.AR_2.3420/174",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.3420%2F174",
+      "area_m2": 3368,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 1,
+          "starting_price_pln": 480000,
+          "outcome": "active",
+          "area_m2": 3368,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3420/174",
+          "dzialka_id": "247001_1.0001.AR_2.3420/174",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.3420%2F174"
+        }
+      ]
+    },
+    {
       "key": "dz|0001 brzezinka|2684/248",
       "kind": "grunt",
       "city": "myslowice",
