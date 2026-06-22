@@ -1,4 +1,5 @@
 import { nominativeStreetDisplay } from './normalize.js';
+import { normalizeKind } from './classify-kind.js';
 
 // Merges parsed result records + active listings + wykaz announcements into
 // the one-entry-per-property structure the extension consumes, then enriches
@@ -143,6 +144,41 @@ export function healPlotAreas(properties) {
       }
     }
   }
+}
+
+/**
+ * Coerce every property- and listing-level `kind` to the canonical
+ * vocabulary (classify-kind's normalizeKind). mergeProperties re-seeds each
+ * key from the previously-committed file, so a non-canonical kind an OLD run
+ * published (e.g. "zabudowa", a truncated "zabudowana") is otherwise
+ * resurrected on every run — leaking the raw value into the extension/site TYP
+ * column and excluding the row from the houses filter. Runs on the POST-merge
+ * array, mirroring healPlotAreas. Mutates in place; returns the heal count.
+ * @param {Array} properties
+ * @returns {number}
+ */
+export function healKinds(properties) {
+  let n = 0;
+  for (const p of properties || []) {
+    if (p.kind != null) {
+      const pk = normalizeKind(p.kind);
+      if (pk !== p.kind) {
+        console.error(`  kind healed: ${p.key} '${p.kind}' \u2192 '${pk}'`);
+        p.kind = pk;
+        n++;
+      }
+    }
+    for (const l of p.listings || []) {
+      if (l.kind == null) continue;
+      const lk = normalizeKind(l.kind);
+      if (lk !== l.kind) {
+        console.error(`  kind healed: ${p.key} ${l.date || ''} '${l.kind}' \u2192 '${lk}'`);
+        l.kind = lk;
+        n++;
+      }
+    }
+  }
+  return n;
 }
 
 /**

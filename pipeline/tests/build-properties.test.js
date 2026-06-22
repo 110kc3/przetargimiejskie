@@ -10,7 +10,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildCityData, healStreetVariants } from '../src/core/build-properties.js';
+import { buildCityData, healStreetVariants, healKinds } from '../src/core/build-properties.js';
 import { parseAddress } from '../src/core/normalize.js';
 
 const resultRec = (addrRaw, date, o = {}) => ({
@@ -137,4 +137,20 @@ test('healStreetVariants migrates merged-in plot areas to land_area_m2 (post-mer
   assert.equal(p.land_area_m2, 1716.67);
   assert.equal(p.listings[0].area_m2, null);
   assert.equal(p.listings[0].land_area_m2, 1716.67);
+});
+
+test('healKinds heals a persisted "zabudowa" kind at property and listing level', () => {
+  const props = [
+    { key: 'x|1|', kind: 'zabudowa', listings: [
+      { date: '2025-01-01', kind: 'zabudowa', outcome: 'unsold' },
+      { date: '2025-02-01', kind: 'mieszkalny', outcome: 'sold' },
+    ] },
+    { key: 'y|2|', kind: 'mieszkalny', listings: [{ date: '2025-03-01', kind: 'mieszkalny' }] },
+  ];
+  const healed = healKinds(props);
+  assert.equal(healed, 2);
+  assert.equal(props[0].kind, 'zabudowana');
+  assert.equal(props[0].listings[0].kind, 'zabudowana');
+  assert.equal(props[0].listings[1].kind, 'mieszkalny');
+  assert.equal(props[1].kind, 'mieszkalny');
 });

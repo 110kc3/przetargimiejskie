@@ -4,6 +4,16 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.30.1 — 2026-06-22
+
+- **TYP column no longer shows a raw code like "kind.zabudowa".** When a
+  listing's type didn't have a translation, the Active and Archive tables (and
+  the on-page table on city sites) printed the internal key instead of a word.
+  Unmapped types now fall back to a readable label, and the specific stray value
+  `zabudowa` (a built-up parcel) is mapped to **dom** / *house*, the same as
+  `zabudowana`. Affects the popup, the archive page, and the injected on-site
+  table. Reload the extension to pick it up.
+
 ## v1.30.0 — 2026-06-20
 
 - **Land plots now show their source, not only a map link.** Each działka row

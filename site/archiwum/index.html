@@ -161,7 +161,7 @@ const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href);
 const fold = s => String(s||'').toLowerCase()
   .replace(/[ąàá]/g,'a').replace(/[ćč]/g,'c').replace(/[ęè]/g,'e').replace(/[ł]/g,'l')
   .replace(/[ńñ]/g,'n').replace(/[óòô]/g,'o').replace(/[śš]/g,'s').replace(/[żź]/g,'z');
-const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
+const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',zabudowa:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
 const roundLabel = r => r ? `${r}. przet.` : '—';
 const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia'};
 // Why the auction didn't sell, in Polish. 'unknown' carries no info → suppressed

@@ -573,7 +573,11 @@
   function kindLabel(kind) {
     const t = window.ZGM_I18N.t;
     if (!kind) return '';
-    return t('kind.' + kind);
+    // esc() the whole result: the templates are plain text, but the default
+    // path returns the raw (crawled-derived) kind value into innerHTML. Passing
+    // { default: kind } stops an unmapped kind (e.g. "zabudowa") from leaking
+    // the literal "kind.xyz" key into the TYP column.
+    return esc(t('kind.' + kind, { default: kind }));
   }
 
   function noteCell(l) {

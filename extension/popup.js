@@ -251,7 +251,7 @@ function renderActive() {
         <tr data-url="${esc(safeHref(a.detail_url))}">
           <td class="zgm-star-cell">${star}</td>
           <td>${addr}</td>
-          <td>${esc(t('kind.' + (a.kind || 'unknown')))}</td>
+          <td>${esc(t('kind.' + (a.kind || 'unknown'), { default: a.kind || 'unknown' }))}</td>
           <td class="zgm-dates-cell">${datesCell}</td>
           <td>${fmtPLN(a.starting_price_pln)}</td>
           <td>${askM2}${dealCell}</td>

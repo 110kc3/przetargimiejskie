@@ -200,20 +200,22 @@ the extension displays. No user data is sent with these requests.
 > `WEB_STORE_LISTING.md` at the repo root. The text above this line is the
 > original Gliwice-only draft, kept for reference.
 
-Current 1280×800 PNGs for the 6-city build, ready to upload (regenerate with
-`node make.js` then convert the SVGs):
+Current 1280×800 PNGs for the 9-city build, ready to upload (regenerate with
+`node make.js`, then render the SVGs to PNG with cairosvg or ImageMagick):
 
 1. `01-on-page-chip.png` — a municipal BIP announcement with the extension's
    info-chip docked beside the title: auction round, asking price, m², zł/m²,
-   and date. This is the headline feature.
-2. `02-popup-all-cities.png` — the popup listing active auctions across all six
-   cities (Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik) with city
-   colour pills and round labels.
-3. `03-web-archive.png` — the searchable archive: summary tiles (sold vs. in
-   archive, median zł/m²), filter bar, and the sortable history table.
-
-Older Gliwice-era captures kept for reference: `01-properties-list.png`,
-`02-archive.png`, `03-property-detail.png`.
+   date, and a deal-score badge (zł/m² vs the city median). The headline feature.
+2. `02-popup-all-cities.png` — the popup listing active auctions across the nine
+   cities, mixing flats, houses (dom) and land (działka), with a Rodzaj filter,
+   deal-score badges and a Google-Maps link per row.
+3. `03-web-archive.png` — the searchable archive: summary tiles (incl. houses &
+   land), the filter bar with the Rodzaj dropdown, and the sortable history
+   table with a geoportal link for each plot.
+4. `04-houses-land.png` — the Rodzaj filter in focus: domy and działki with their
+   own area column and a geoportal "mapa działki" link per parcel.
+5. `05-raporty.png` — the Raporty page: median zł/m² by city (the deal-score
+   basis) and the price-drop deals board (Tablica okazji).
 
 ---
 

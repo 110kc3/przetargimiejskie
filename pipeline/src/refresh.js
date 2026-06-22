@@ -25,9 +25,9 @@ try { setDefaultResultOrder('ipv4first'); } catch { /* older node */ }
 import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
-import { buildCityData, healStreetVariants, todayWarsaw } from './core/build-properties.js';
+import { buildCityData, healStreetVariants, healKinds, todayWarsaw } from './core/build-properties.js';
 import { buildLand } from './core/build-land.js';
-import { LAND_KIND } from './core/classify-kind.js';
+import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
 
@@ -185,6 +185,9 @@ async function refreshCity(city) {
         else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archivedAuctions++;
       }
     }
+    // Even on the preserve path, coerce any non-canonical kind re-seeded from the
+    // committed file before re-publishing prevProperties verbatim.
+    healKinds(prevProperties);
     const cityDir = join(DATA_DIR, city.id);
     await mkdir(cityDir, { recursive: true });
     await writeFile(
@@ -198,6 +201,7 @@ async function refreshCity(city) {
       const prevActive = JSON.parse(await readFile(activePath, 'utf8'));
       const today = todayWarsaw();
       const keep = (prevActive.listings || []).filter((l) => !l.auction_date || l.auction_date >= today);
+      for (const l of keep) if (l.kind != null) l.kind = normalizeKind(l.kind);
       if (keep.length !== (prevActive.listings || []).length) {
         await writeFile(activePath, JSON.stringify({ ...prevActive, listings: keep }, null, 2) + '\n');
       }
@@ -241,6 +245,10 @@ async function refreshCity(city) {
     if (properties.length !== beforeHeal) {
       console.error(`  healed ${beforeHeal - properties.length} street-variant zombie propert${beforeHeal - properties.length === 1 ? 'y' : 'ies'} post-merge.`);
     }
+    // Coerce any non-canonical kind the merge re-seeded from the committed file
+    // (e.g. a historical "zabudowa" → "zabudowana"); see build-properties' healKinds.
+    const kindsHealed = healKinds(properties);
+    if (kindsHealed) console.error(`  healed ${kindsHealed} non-canonical kind value(s) post-merge.`);
   }
 
   // Age out retained listings: a listing the source removed while still

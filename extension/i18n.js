@@ -125,6 +125,9 @@
       // kind enum
       'kind.mieszkalny': 'residential',
       'kind.zabudowana': 'house',
+      // Alias: some sources tag a built-up land parcel as bare "zabudowa"
+      // (no -na). Same bucket as zabudowana so the TYP column reads cleanly.
+      'kind.zabudowa': 'house',
       'kind.grunt': 'land',
       'kind.uzytkowy': 'commercial',
       'kind.garaz': 'garage',
@@ -264,6 +267,9 @@
       // kind enum
       'kind.mieszkalny': 'mieszkalny',
       'kind.zabudowana': 'dom',
+      // Alias dla rekordów oznaczonych jako "zabudowa" (bez -na) — to samo co
+      // zabudowana, żeby kolumna TYP nie pokazywała surowego klucza "kind.…".
+      'kind.zabudowa': 'dom',
       'kind.grunt': 'działka',
       'kind.uzytkowy': 'użytkowy',
       'kind.garaz': 'garaż',

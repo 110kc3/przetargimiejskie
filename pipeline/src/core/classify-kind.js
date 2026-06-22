@@ -64,6 +64,31 @@ export const LAND_KIND = 'grunt';
 /** Kinds that are address-keyed and live in properties.json/active.json. */
 export const ADDRESS_KINDS = ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', 'unknown'];
 
+/** Non-canonical kind spellings that have appeared in committed data, mapped to
+ *  the canonical vocabulary. "zabudowa" (no -na) is a truncated "zabudowana" (a
+ *  built property / house) published by an older path; healing it makes the TYP
+ *  column read "dom" and lets the houses filter group the row. */
+export const KIND_ALIASES = { zabudowa: 'zabudowana' };
+
+const VALID_KINDS = new Set([...KINDS, 'unknown']);
+
+/**
+ * Coerce a stored kind to the canonical vocabulary: canonical kinds pass
+ * through unchanged, known aliases map to their canonical form, and anything
+ * else (empty/garbage) collapses to 'unknown'. The post-merge heal
+ * (build-properties' healKinds) runs every record through this so a
+ * non-canonical kind persisted in a committed file — which mergeProperties
+ * re-imports on every run — can never reach the extension/site TYP column.
+ * @param {string|null|undefined} kind
+ * @returns {'mieszkalny'|'zabudowana'|'uzytkowy'|'garaz'|'grunt'|'unknown'}
+ */
+export function normalizeKind(kind) {
+  if (!kind) return 'unknown';
+  if (VALID_KINDS.has(kind)) return kind;
+  if (Object.prototype.hasOwnProperty.call(KIND_ALIASES, kind)) return KIND_ALIASES[kind];
+  return 'unknown';
+}
+
 /** True when this kind belongs in the separate land.json store. */
 export function isLandKind(kind) {
   return kind === LAND_KIND;

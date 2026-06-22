@@ -404,7 +404,7 @@ function renderTable() {
       <tr class="zgm-ext-row-${r.outcome}">
         <td>${r.date || esc(r.status) || '—'}</td>
         <td>${cityTagHtml(r.city)}${esc(r.addr_display)}</td>
-        <td>${esc(t('kind.' + r.kind))}</td>
+        <td>${esc(t('kind.' + r.kind, { default: r.kind }))}</td>
         <td>${roundCell(r.round)}</td>
         <td>${r.area_m2 ? fmtArea(r.area_m2) : '—'}</td>
         <td>${fmtPLN(r.starting_price_pln)}</td>
@@ -554,7 +554,7 @@ function renderActiveTable() {
       return `
         <tr data-url="${esc(safeHref(a.detail_url))}">
           <td>${addr}</td>
-          <td>${esc(t('kind.' + (a.kind || 'unknown')))}</td>
+          <td>${esc(t('kind.' + (a.kind || 'unknown'), { default: a.kind || 'unknown' }))}</td>
           <td class="zgm-dates-cell">${datesCell}</td>
           <td>${fmtPLN(a.starting_price_pln)}</td>
           <td>${askM2}</td>

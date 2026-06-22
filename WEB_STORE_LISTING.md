@@ -145,6 +145,9 @@ kontakt@przetargimiejskie.pl
 
 ## Screenshots
 
-See `screenshots/chrome-store/` — 1280×800 PNGs:
-`01-properties-list.png` (popup, all cities), `02-archive.png` (archive + summary),
-`03-property-detail.png` (on-page badge/chip).
+See `screenshots/chrome-store/` — five 1280×800 PNGs, regenerated from SVG via `make.js`:
+`01-on-page-chip.png` (auction history + deal score injected on a BIP announcement),
+`02-popup-all-cities.png` (popup: 9 cities, flats/houses/land, deal score, map links),
+`03-web-archive.png` (searchable archive incl. houses & land),
+`04-houses-land.png` (the Rodzaj filter — domy & działki with geoportal links),
+`05-raporty.png` (Raporty: median zł/m² by city + price-drop deals board).

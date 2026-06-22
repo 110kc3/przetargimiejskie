@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyKind, isLandKind, LAND_KIND } from '../src/core/classify-kind.js';
+import { classifyKind, isLandKind, LAND_KIND, normalizeKind } from '../src/core/classify-kind.js';
 
 test('flats — lokal mieszkalny → mieszkalny', () => {
   for (const s of [
@@ -78,4 +78,22 @@ test('helpers', () => {
   assert.equal(isLandKind('grunt'), true);
   assert.equal(isLandKind('zabudowana'), false);
   assert.equal(isLandKind('mieszkalny'), false);
+});
+
+test('normalizeKind — canonical kinds pass through unchanged', () => {
+  for (const k of ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', 'grunt', 'unknown']) {
+    assert.equal(normalizeKind(k), k);
+  }
+});
+
+test('normalizeKind — "zabudowa" alias heals to "zabudowana" (the TYP-column bug)', () => {
+  assert.equal(normalizeKind('zabudowa'), 'zabudowana');
+});
+
+test('normalizeKind — empty / nullish / garbage → unknown', () => {
+  assert.equal(normalizeKind(''), 'unknown');
+  assert.equal(normalizeKind(null), 'unknown');
+  assert.equal(normalizeKind(undefined), 'unknown');
+  assert.equal(normalizeKind('kind.zabudowa'), 'unknown');
+  assert.equal(normalizeKind('wat'), 'unknown');
 });
