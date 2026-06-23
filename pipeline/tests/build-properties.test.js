@@ -154,3 +154,28 @@ test('healKinds heals a persisted "zabudowa" kind at property and listing level'
   assert.equal(props[0].listings[1].kind, 'mieszkalny');
   assert.equal(props[1].kind, 'mieszkalny');
 });
+
+test('dedupe collapses two identical dateless active rows into one', () => {
+  const { properties } = buildCityData({
+    allRecords: [],
+    active: [
+      activeListing('ul. Gorna 4', null, { kind: 'zabudowana', starting: 1400000 }),
+      activeListing('ul. Gorna 4', null, { kind: 'zabudowana', starting: 1400000 }),
+    ],
+    wykaz: [],
+    detailAreas: new Map(),
+  });
+  assert.equal(properties.length, 1);
+  assert.equal(properties[0].listings.length, 1, 'identical dateless rows collapse to one');
+});
+
+test('property kind reconciles from its listings (unknown -> zabudowana)', () => {
+  const { properties } = buildCityData({
+    allRecords: [resultRec('ul. Gorna 4', '2026-03-01', { kind: 'unknown', outcome: 'unsold' })],
+    active: [activeListing('ul. Gorna 4', '2026-05-01', { kind: 'zabudowana', starting: 1400000 })],
+    wykaz: [],
+    detailAreas: new Map(),
+  });
+  assert.equal(properties.length, 1);
+  assert.equal(properties[0].kind, 'zabudowana', 'property kind adopts the most-recent specific listing kind');
+});

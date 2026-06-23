@@ -97,3 +97,9 @@ test('normalizeKind — empty / nullish / garbage → unknown', () => {
   assert.equal(normalizeKind('kind.zabudowa'), 'unknown');
   assert.equal(normalizeKind('wat'), 'unknown');
 });
+
+test('normalizeKind: zabudowy (genitive) + zabudowa heal to zabudowana (house)', () => {
+  assert.equal(normalizeKind('zabudowy'), 'zabudowana');
+  assert.equal(normalizeKind('zabudowa'), 'zabudowana');
+  assert.equal(normalizeKind('zabudowana'), 'zabudowana');
+});

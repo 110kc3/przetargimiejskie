@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <!-- Natively dark — keeps dark-mode browser extensions from re-tinting. -->
 <meta name="color-scheme" content="dark" />
 <title>Archiwum przetargów — przetargimiejskie</title>
@@ -162,6 +165,11 @@ const fold = s => String(s||'').toLowerCase()
   .replace(/[ąàá]/g,'a').replace(/[ćč]/g,'c').replace(/[ęè]/g,'e').replace(/[ł]/g,'l')
   .replace(/[ńñ]/g,'n').replace(/[óòô]/g,'o').replace(/[śš]/g,'s').replace(/[żź]/g,'z');
 const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',zabudowa:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
+// Fold legacy house aliases to the canonical kind so the "domy" filter + summary
+// tile (which compare === 'zabudowana') don't silently drop an aliased row.
+// null/undefined pass through unchanged so the l.kind||p.kind fallbacks still work.
+const KIND_ALIAS = {zabudowa:'zabudowana',zabudowy:'zabudowana'};
+const aliasKind = k => KIND_ALIAS[k] || k;
 const roundLabel = r => r ? `${r}. przet.` : '—';
 const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia'};
 // Why the auction didn't sell, in Polish. 'unknown' carries no info → suppressed
@@ -228,6 +236,14 @@ async function load(){
         fetch(`/data/${c.id}/active.json`).then(r=>r.json()).catch(()=>({listings:[]})),
         fetch(`/data/${c.id}/land.json`).then(r=>r.json()).catch(()=>({plots:[]})),
       ]);
+      // Canonicalize legacy house-kind aliases in place before any === 'zabudowana'
+      // filter/summary comparison downstream (defence-in-depth; the pipeline now
+      // heals these too).
+      for(const p of (props.properties||[])){
+        if(p.kind) p.kind = aliasKind(p.kind);
+        for(const l of (p.listings||[])) if(l.kind) l.kind = aliasKind(l.kind);
+      }
+      for(const l of (act.listings||[])) if(l.kind) l.kind = aliasKind(l.kind);
       for(const p of (props.properties||[]))
         for(const l of (p.listings||[]))
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))

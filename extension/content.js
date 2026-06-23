@@ -328,7 +328,15 @@
   function priceSummary(active, prior) {
     const t = window.ZGM_I18N.t;
     if (!active || prior.length === 0) return '';
-    const first = prior[0];
+    // "First attempt" = the earliest prior auction. Nothing upstream guarantees
+    // `prior` is date-sorted (background.js never sorts listings), so pick the
+    // earliest dated row rather than trusting prior[0] — otherwise the discount
+    // and the shown date can be computed against the wrong baseline.
+    const first = prior.reduce((a, b) => {
+      const da = a.date || '9999'; // undated → treat as latest so a dated row
+      const db = b.date || '9999'; // is preferred as the "first attempt"
+      return da <= db ? a : b;
+    });
     const startPrice = active.starting_price_pln;
     if (!first?.starting_price_pln || !startPrice) return '';
     const delta = startPrice - first.starting_price_pln;

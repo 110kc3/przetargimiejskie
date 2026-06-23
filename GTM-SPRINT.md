@@ -99,44 +99,9 @@ pilot."**
 
 ---
 
-## Outreach artifacts (copy-paste, Polish)
+## Outreach artifacts
 
-### Cold email — mortgage broker
-
-> **Temat:** Współpraca — leady: osoby kupujące mieszkania z przetargów miejskich (Śląsk)
->
-> Dzień dobry [Imię],
->
-> prowadzę **przetargimiejskie.pl** — bezpłatny serwis, który w jednym miejscu zbiera
-> miejskie przetargi na mieszkania na Śląsku i pokazuje historię cen. Trafiają tu osoby
-> aktywnie szukające mieszkania od miasta — czyli w większości za chwilę będą
-> potrzebować finansowania.
->
-> Chcę połączyć te osoby z **jednym** zaufanym ekspertem kredytowym w regionie.
-> Propozycja na próbę, bez ryzyka: pierwszych **5 kontaktów przekazuję bezpłatnie**.
-> Jeśli jakość będzie dobra, ustalamy stawkę za kontakt (CPL) albo stały miesięczny
-> ryczałt — co będzie wygodniejsze.
->
-> Dwa krótkie pytania: (1) czy bierze Pan/Pani leady z zewnątrz i ile zwykle płaci za
-> wartościowy kontakt? (2) jakie miasta Pan/Pani obsługuje?
->
-> Pozdrawiam,
-> Kamil [nazwisko]
-> przetargimiejskie.pl · kontakt@przetargimiejskie.pl
-
-### Call opener (~30 seconds)
-
-> "Dzień dobry, Kamil z przetargimiejskie.pl. Prowadzę serwis, na który trafiają osoby
-> szukające mieszkań z przetargów miejskich na Śląsku — w większości będą potrzebować
-> kredytu. Szukam **jednego** eksperta kredytowego do współpracy na leady; pierwsze
-> kontakty daję bezpłatnie na próbę. Czy w ogóle bierze Pan/Pani leady z zewnątrz —
-> i ile zwykle płaci się za dobry kontakt?"
-
-### Renovation-firm variant
-
-Swap the value moment: *"mieszkania z przetargów miejskich są niemal zawsze do
-remontu — kupujący od razu szukają ekipy."* Same free-pilot structure; ask their
-typical price for a warm lead and which cities they cover.
+Outreach email and call-script drafts are kept out of the public repo (maintained privately).
 
 ---
 

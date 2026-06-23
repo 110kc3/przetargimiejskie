@@ -160,7 +160,12 @@ function sortActiveItems(items) {
 // can't be a day off for a non-Polish-timezone user — mirrors background.js.
 function wadiumCellHtml(date) {
   if (!date) return '—';
-  const daysLeft = Math.round((Date.parse(date) - Date.parse(todayWarsaw())) / 86400000);
+  const t0 = Date.parse(date);
+  // A non-ISO date (e.g. "12.07.2026") parses to NaN; NaN<0 and NaN<=7 are both
+  // false, so an urgent deadline would render neutral (and title="NaNd"). Show
+  // the raw value instead of silently dropping the urgency cue.
+  if (!Number.isFinite(t0)) return esc(date);
+  const daysLeft = Math.round((t0 - Date.parse(todayWarsaw())) / 86400000);
   if (daysLeft < 0) return `<span class="zgm-past">${esc(date)}</span>`;
   if (daysLeft <= 7) return `<span class="zgm-urgent" title="${daysLeft}d">${esc(date)}</span>`;
   return esc(date);
@@ -359,16 +364,19 @@ let sortKey = 'date';
 let sortDir = 'desc';
 
 function getSortValue(r, key) {
+  // Return null (not ''/-1) for missing values so the comparator can park them
+  // at the bottom in BOTH directions, matching the active table. The old ''/-1
+  // sentinels floated dateless/area-less rows to the top in the ascending view.
   switch (key) {
-    case 'date': return r.date || '';
-    case 'round': return r.round ?? -1;
-    case 'area': return r.area_m2 ?? -1;
-    case 'price': return r.starting_price_pln ?? -1;
-    case 'final': return r.final_price_pln ?? -1;
+    case 'date': return r.date || null;
+    case 'round': return r.round ?? null;
+    case 'area': return r.area_m2 ?? null;
+    case 'price': return r.starting_price_pln ?? null;
+    case 'final': return r.final_price_pln ?? null;
     case 'm2':
       return r.area_m2 && r.starting_price_pln
-        ? r.starting_price_pln / r.area_m2 : -1;
-    default: return '';
+        ? r.starting_price_pln / r.area_m2 : null;
+    default: return null;
   }
 }
 
@@ -391,6 +399,10 @@ function renderTable() {
   rows.sort((a, b) => {
     const av = getSortValue(a, sortKey);
     const bv = getSortValue(b, sortKey);
+    // Missing values always sink to the bottom, regardless of direction.
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
     let cmp;
     if (typeof av === 'number' && typeof bv === 'number') cmp = av - bv;
     else cmp = String(av).localeCompare(String(bv));

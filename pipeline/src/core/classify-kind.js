@@ -64,11 +64,12 @@ export const LAND_KIND = 'grunt';
 /** Kinds that are address-keyed and live in properties.json/active.json. */
 export const ADDRESS_KINDS = ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', 'unknown'];
 
-/** Non-canonical kind spellings that have appeared in committed data, mapped to
- *  the canonical vocabulary. "zabudowa" (no -na) is a truncated "zabudowana" (a
- *  built property / house) published by an older path; healing it makes the TYP
- *  column read "dom" and lets the houses filter group the row. */
-export const KIND_ALIASES = { zabudowa: 'zabudowana' };
+/** Non-canonical kind spellings that have appeared in (or could leak into)
+ *  committed data, mapped to the canonical vocabulary. "zabudowa" (no -na) and
+ *  the genitive "zabudowy" are both truncations/declensions of "zabudowana" (a
+ *  built property / house); healing them makes the TYP column read "dom" and
+ *  lets the houses filter group the row. */
+export const KIND_ALIASES = { zabudowa: 'zabudowana', zabudowy: 'zabudowana' };
 
 const VALID_KINDS = new Set([...KINDS, 'unknown']);
 

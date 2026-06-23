@@ -136,10 +136,10 @@ function mergeCityPayloads(cityPayloads) {
     allLand.push(...plots);
 
     perCityMeta[city] = meta || null;
-    totalSourcePdfs += meta?.source_pdf_count || 0;
-    totalUnique += meta?.unique_properties || props.length;
-    totalActive += meta?.active_listings || listings.length;
-    totalWykaz += meta?.wykaz_entries || wykaz.length;
+    totalSourcePdfs += meta?.source_pdf_count ?? 0;
+    totalUnique += meta?.unique_properties ?? props.length;
+    totalActive += meta?.active_listings ?? listings.length;
+    totalWykaz += meta?.wykaz_entries ?? wykaz.length;
     if (meta?.generated_at) {
       if (!latestGenerated || meta.generated_at > latestGenerated) {
         latestGenerated = meta.generated_at;
@@ -290,11 +290,27 @@ function fmtPLN(n) {
   return new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
 }
 
+// notif:registry maps a notification id → the URL its click should open. Three
+// writers mutate it (notifyNewListing, notifyReminder, onClicked); a bare
+// read-modify-write lets a click's write-back clobber URLs a concurrent alarm
+// scan just added. Chain every mutation through one promise so they serialize.
+let _regQueue = Promise.resolve();
+function mutateRegistry(fn) {
+  _regQueue = _regQueue
+    .then(async () => {
+      const reg = (await chrome.storage.local.get('notif:registry'))['notif:registry'] || {};
+      await fn(reg);
+      await chrome.storage.local.set({ 'notif:registry': reg });
+    })
+    .catch((err) => console.warn('[ZGM bg] registry mutation failed:', err));
+  return _regQueue;
+}
+
 async function notifyNewListing(key, entry, listing) {
   const id = `zgm-watch-${key}-${listing.auction_date || 'now'}`;
-  const reg = (await chrome.storage.local.get('notif:registry'))['notif:registry'] || {};
-  reg[id] = entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
-  await chrome.storage.local.set({ 'notif:registry': reg });
+  await mutateRegistry((reg) => {
+    reg[id] = entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
+  });
 
   // PL strings (the app's default). City prefix helps disambiguate now that
   // notifications can fire for any of CITIES.
@@ -359,9 +375,9 @@ async function notifyReminder(key, entry, listing, reminder) {
   const sent = (await chrome.storage.local.get(REMIND_KEY))[REMIND_KEY] || {};
   if (sent[id]) return;
 
-  const reg = (await chrome.storage.local.get('notif:registry'))['notif:registry'] || {};
-  reg[id] = listing.detail_url || entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
-  await chrome.storage.local.set({ 'notif:registry': reg });
+  await mutateRegistry((reg) => {
+    reg[id] = listing.detail_url || entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
+  });
 
   const cityLabel = entry.city ? ` [${entry.city}]` : '';
   const today = todayWarsaw();
@@ -410,19 +426,31 @@ async function runWatchlistCheck() {
   const propsByKey = new Map(
     (payload.properties?.properties || []).map((p) => [p.key, p]),
   );
-  // active.json listings carry the dates the reminders need (wadium_deadline
-  // lives ONLY here — the merged property listings don't have it).
-  const activeByKey = new Map();
-  for (const l of payload.active?.listings || []) {
-    if (l.address?.key && !activeByKey.has(l.address.key)) {
-      activeByKey.set(l.address.key, l);
-    }
-  }
   const today = todayWarsaw();
+  // active.json listings carry the dates the reminders need (wadium_deadline
+  // lives ONLY here — the merged property listings don't have it). When a key
+  // has several active rows (re-list / duplicate board post), prefer the
+  // soonest still-upcoming auction so reminders track the next real event
+  // rather than whichever row happened to be first.
+  const activeByKey = new Map();
+  const reminderRank = (l) => {
+    const d = l.auction_date || '';
+    if (!d) return [2, ''];               // undated → lowest priority
+    return d >= today ? [0, d] : [1, d];  // upcoming before past
+  };
+  for (const l of payload.active?.listings || []) {
+    const k = l.address?.key;
+    if (!k) continue;
+    const prev = activeByKey.get(k);
+    if (!prev) { activeByKey.set(k, l); continue; }
+    const [pr, pd] = reminderRank(prev);
+    const [nr, nd] = reminderRank(l);
+    if (nr < pr || (nr === pr && nd && (!pd || nd < pd))) activeByKey.set(k, l);
+  }
 
   for (const [key, entry] of Object.entries(watchlist)) {
     const prop = propsByKey.get(key);
-    const active = prop?.listings.find((l) => l.outcome === 'active');
+    const active = prop?.listings?.find((l) => l.outcome === 'active');
     if (!active) {
       if (entry.last_seen_active) {
         await ZGM_WATCH.markSeenActive(key, null);
@@ -488,8 +516,9 @@ chrome.notifications.onClicked.addListener(async (id) => {
   const url = reg[id];
   if (url) chrome.tabs.create({ url });
   chrome.notifications.clear(id);
-  delete reg[id];
-  await chrome.storage.local.set({ 'notif:registry': reg });
+  // Serialize the delete through the queue so it re-reads the latest registry
+  // and can't erase entries a concurrent scan added since the read above.
+  await mutateRegistry((r) => { delete r[id]; });
 });
 
 // ---------------- message handlers ----------------

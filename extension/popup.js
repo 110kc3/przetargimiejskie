@@ -11,6 +11,17 @@ const $themeToggle = document.getElementById('theme-toggle');
 const $activeHeading = document.getElementById('active-heading');
 const $watchingSection = document.getElementById('watching-section');
 const $watchingTbody = $watchingSection.querySelector('tbody');
+const $filterBar = document.getElementById('filter-bar');
+const $filterCity = document.getElementById('filter-city');
+const $filterKind = document.getElementById('filter-kind');
+const $filterCount = document.getElementById('filter-count');
+
+// Active-list filters (city + kind), in-memory for the popup session.
+let filterCity = 'all';
+let filterKind = 'all';
+let _cityOptsSig = '';
+let _kindOptsSig = '';
+const KIND_ORDER = ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', 'grunt', 'unknown'];
 
 const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
@@ -99,7 +110,12 @@ function datesCellHtml(a) {
 // can't be a day off for a non-Polish-timezone user — mirrors background.js.
 function wadiumCellHtml(date) {
   if (!date) return '—';
-  const daysLeft = Math.round((Date.parse(date) - Date.parse(todayWarsaw())) / 86400000);
+  const t0 = Date.parse(date);
+  // A non-ISO date (e.g. "12.07.2026") parses to NaN; NaN<0 and NaN<=7 are both
+  // false, so an urgent deadline would render neutral (and title="NaNd"). Show
+  // the raw value instead of silently dropping the urgency cue.
+  if (!Number.isFinite(t0)) return esc(date);
+  const daysLeft = Math.round((t0 - Date.parse(todayWarsaw())) / 86400000);
   if (daysLeft < 0) return `<span class="zgm-past">${esc(date)}</span>`;
   if (daysLeft <= 7) return `<span class="zgm-urgent" title="${daysLeft}d">${esc(date)}</span>`;
   return esc(date);
@@ -191,6 +207,39 @@ async function load(force) {
   }
 }
 
+function cityOf(a) {
+  return a.city || cityFromKey(a.address?.key) || null;
+}
+function cityLabel(c) {
+  const l = t('city.' + c);
+  return l === 'city.' + c ? c.charAt(0).toUpperCase() + c.slice(1) : l;
+}
+function fillFilterSelect($sel, values, labelFn) {
+  const allLabel = t('popup.filter.all');
+  $sel.innerHTML =
+    `<option value="all">${esc(allLabel)}</option>` +
+    values.map((v) => `<option value="${esc(v)}">${esc(labelFn(v))}</option>`).join('');
+}
+// Rebuild the city + kind dropdowns from what's actually present in the live
+// active set (only when that set or the language changed), then keep the current
+// selection valid. Hides the bar when there's nothing to show.
+function populateFilters(live) {
+  const lang = window.ZGM_I18N.getLang();
+  const cities = [...new Set(live.map(cityOf).filter(Boolean))].sort((x, y) =>
+    cityLabel(x).localeCompare(cityLabel(y), 'pl'),
+  );
+  const kinds = KIND_ORDER.filter((k) => live.some((a) => (a.kind || 'unknown') === k));
+  const csig = lang + '|' + cities.join('|');
+  const ksig = lang + '|' + kinds.join('|');
+  if (csig !== _cityOptsSig) { fillFilterSelect($filterCity, cities, cityLabel); _cityOptsSig = csig; }
+  if (ksig !== _kindOptsSig) { fillFilterSelect($filterKind, kinds, (k) => t('kind.' + k, { default: k })); _kindOptsSig = ksig; }
+  if (![...$filterCity.options].some((o) => o.value === filterCity)) filterCity = 'all';
+  if (![...$filterKind.options].some((o) => o.value === filterKind)) filterKind = 'all';
+  $filterCity.value = filterCity;
+  $filterKind.value = filterKind;
+  $filterBar.hidden = live.length === 0;
+}
+
 function renderActive() {
   const payload = lastPayload;
   const watchlist = lastWatchlist;
@@ -207,10 +256,24 @@ function renderActive() {
     (a) => !a.auction_date || a.auction_date >= today,
   );
 
+  // City + kind filters: populate from the live set, then narrow what we show.
+  populateFilters(liveActive);
+  const shown = liveActive.filter(
+    (a) =>
+      (filterCity === 'all' || cityOf(a) === filterCity) &&
+      (filterKind === 'all' || (a.kind || 'unknown') === filterKind),
+  );
+  if ($filterCount) {
+    $filterCount.textContent =
+      shown.length === liveActive.length
+        ? ''
+        : t('popup.filter.count', { shown: shown.length, total: liveActive.length });
+  }
+
   // Per-city median zł/m² for the "deal score" badge (residential only).
   const cityMedians = window.ZGM_DEALSCORE.buildCityMedians(properties);
 
-  const items = liveActive.map((a) => {
+  const items = shown.map((a) => {
     const prop = a.address ? byKey.get(a.address.key) : null;
     const prior = prop ? prop.listings.filter(isPrior) : [];
     const unsold = prior.filter((l) => l.outcome === 'unsold');
@@ -322,8 +385,8 @@ function renderWatching() {
   $watchingTbody.innerHTML = entries
     .map(([key, entry]) => {
       const prop = byKey.get(key);
-      const active = prop?.listings.find((l) => l.outcome === 'active');
-      const prior = prop ? prop.listings.filter(isPrior) : [];
+      const active = prop?.listings?.find((l) => l.outcome === 'active');
+      const prior = prop?.listings ? prop.listings.filter(isPrior) : [];
       const unsold = prior.filter((l) => l.outcome === 'unsold').length;
       let statusHtml;
       if (active) {
@@ -415,6 +478,8 @@ function syncThemeButton() {
     render();
   });
   $refresh.addEventListener('click', () => load(true));
+  $filterCity.addEventListener('change', () => { filterCity = $filterCity.value; if (lastPayload) renderActive(); });
+  $filterKind.addEventListener('change', () => { filterKind = $filterKind.value; if (lastPayload) renderActive(); });
   $langToggle.addEventListener('click', () => {
     const next = window.ZGM_I18N.getLang() === 'pl' ? 'en' : 'pl';
     window.ZGM_I18N.setLang(next);

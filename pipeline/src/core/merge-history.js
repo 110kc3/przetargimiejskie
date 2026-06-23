@@ -42,7 +42,13 @@ export function listingFingerprint(l) {
   // Wykaz pre-announcements are dated by PUBLICATION, not auction — keep them
   // from colliding with a same-day auction row.
   const prefix = l.outcome === 'announced' ? 'w|' : '';
-  return prefix + (l.date ? l.date : '|' + (l.kind || ''));
+  if (l.date) return prefix + l.date;
+  // Dateless rows have no date to key on. Prefer detail_url as the stable
+  // per-listing identity so two genuinely-different dateless listings on one
+  // property don't collide (and collapse to one) on kind alone; fall back to
+  // kind when there's no url. Price/outcome stay OUT so a re-crawl still
+  // corrects a dateless row in place rather than duplicating it (see header).
+  return prefix + '|' + (l.detail_url || ('k:' + (l.kind || '')));
 }
 
 /**

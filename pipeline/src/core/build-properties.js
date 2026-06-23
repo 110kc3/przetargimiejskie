@@ -63,10 +63,33 @@ export function coalesceStreetVariants(props) {
  */
 export function dedupeListingsByDate(p) {
   const byDate = new Map();
+  const byDateless = new Map(); // collapse byte-identical dateless rows (no date key)
   const out = [];
   for (const l of p.listings) {
-    if (!l.date || l.outcome === 'announced') {
+    // Wykaz pre-announcements are intents, not auction events — never dedupe them.
+    if (l.outcome === 'announced') {
       out.push(l);
+      continue;
+    }
+    if (!l.date) {
+      // No date to key on, so collapse only TRULY identical dateless rows (same
+      // kind + outcome + starting price + detail_url) — two streams can emit the
+      // same dateless auction (observed: katowice gorna|4| had two identical
+      // dateless active rows). Distinct dateless listings (different price/url)
+      // still coexist; missing fields are back-filled from the duplicate.
+      const fp = [l.kind || '', l.outcome || '', l.starting_price_pln ?? '', l.detail_url || ''].join('|');
+      const prevDl = byDateless.get(fp);
+      if (!prevDl) {
+        byDateless.set(fp, l);
+        out.push(l);
+        continue;
+      }
+      for (const k of [
+        'round', 'area_m2', 'land_area_m2', 'detail_url',
+        'bip_url', 'wadium_deadline', 'viewing_date', 'source_pdf', 'final_price_pln',
+      ]) {
+        if (prevDl[k] == null && l[k] != null) prevDl[k] = l[k];
+      }
       continue;
     }
     const prev = byDate.get(l.date);
@@ -130,8 +153,14 @@ export function healStreetVariants(properties) {
  */
 export function healPlotAreas(properties) {
   const MAX_FLAT_M2 = 300;
+  // mieszkalny/unknown are flats (a >300 m² value is a parcel/building total).
+  // zabudowana (house) is reconciled from listings (see buildCityData) and its
+  // area_m2 is likewise a building/plot total, not usable floor area — heal it
+  // too so zł/m² is never computed off a plot. uzytkowy/garaz can legitimately
+  // be large, and grunt has its own land handling, so those are left alone.
+  const HEAL_KINDS = new Set(['mieszkalny', 'unknown', 'zabudowana']);
   for (const p of properties) {
-    if (p.kind !== 'mieszkalny' && p.kind !== 'unknown') continue;
+    if (!HEAL_KINDS.has(p.kind)) continue;
     if (p.area_m2 != null && p.area_m2 > MAX_FLAT_M2) {
       p.land_area_m2 = p.land_area_m2 ?? p.area_m2;
       p.area_m2 = null;
@@ -323,6 +352,23 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
   // same auction seen from two streams into one listing.
   coalesceStreetVariants(props);
   for (const p of props.values()) dedupeListingsByDate(p);
+
+  // Reconcile each property's kind with its listings. ensureProperty froze the
+  // kind from whichever record FIRST created the property (often a wykaz/result
+  // row tagged 'unknown', or a stream that disagrees with the others); when its
+  // listings settle on a more specific kind, adopt the most-recent dated
+  // non-unknown one so property-keyed views (the houses/land filters, the
+  // summary tiles) agree with the row's own TYP column. (Observed: a katowice
+  // flat read 'mieszkalny' at property level while every listing was 'zabudowana'.)
+  for (const p of props.values()) {
+    const dated = p.listings
+      .filter((l) => l.date && l.kind && l.kind !== 'unknown' && l.outcome !== 'announced')
+      .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+    const best = dated.length
+      ? dated[dated.length - 1].kind
+      : p.listings.find((l) => l.kind && l.kind !== 'unknown' && l.outcome !== 'announced')?.kind;
+    if (best && best !== p.kind) p.kind = best;
+  }
 
   // ---- enrich with area from detail pages
   for (const [key, area] of detailAreas) {

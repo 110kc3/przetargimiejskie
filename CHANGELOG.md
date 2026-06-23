@@ -4,6 +4,44 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.31.0 — 2026-06-23
+
+- **Filter the active list by city and type.** The popup now has two dropdowns
+  above the list: pick a city and/or a property type (flat, house, commercial,
+  garage, land) to narrow the currently-active auctions. The dropdowns only
+  offer the cities and types actually present right now, and a small "X of Y"
+  counter shows how many rows the filter leaves. Mirrors the filters on the web
+  archive. Selection resets when you close the popup.
+
+## v1.30.2 — 2026-06-23
+
+Bug-fix sweep from a full code audit. No new features or permissions.
+
+- **Watched-property alerts no longer go quiet.** A single watched record with
+  missing listing data used to abort the whole background check, silently
+  stopping new-listing notifications and wadium/auction reminders for every
+  other watched property. The check now skips the bad record and carries on.
+- **Clicking a notification reliably opens the right page.** Overlapping
+  notification writes could erase each other's target links, so a click
+  occasionally opened nothing. Notification bookkeeping is now serialized.
+- **Reminders follow the next auction.** When a property has more than one live
+  listing, wadium/auction reminders now track the soonest upcoming auction
+  instead of whichever listing happened to be first.
+- **Wadium deadline urgency shows even for oddly-formatted dates.** A deadline
+  written in a non-standard format no longer loses its red "due soon" highlight
+  (and no longer shows a stray "NaNd" tooltip).
+- **`zabudowy` now reads as "dom" / "house".** Added the genitive spelling as an
+  alias of `zabudowana`, alongside the existing `zabudowa`, so the TYP column
+  and the houses filter group it correctly.
+- **Detail-panel discount uses the true first attempt.** The "vs first attempt"
+  price change now always compares against the earliest auction, even when the
+  listing history isn't in date order.
+- **Archive sorting:** rows with no date or no value now always sink to the
+  bottom in both sort directions, instead of floating to the top when sorting
+  ascending.
+- **Popup footer counts** no longer slightly over-count when a city legitimately
+  reports zero active listings.
+
 ## v1.30.1 — 2026-06-22
 
 - **TYP column no longer shows a raw code like "kind.zabudowa".** When a

@@ -83,9 +83,14 @@ async function refreshCity(city) {
   // Apply the pipeline floor. Records with no auction_date pass through —
   // they're rare (parser noise) and harmless; the extension's soft window
   // will hide them too if they fall outside.
-  const floored = allRecords.filter(
-    (r) => !r.auction_date || Number(r.auction_date.slice(0, 4)) >= PIPELINE_MIN_HISTORY_YEAR,
-  );
+  const floored = allRecords.filter((r) => {
+    if (!r.auction_date) return true; // dateless rows pass through (parser noise)
+    const yr = Number(r.auction_date.slice(0, 4));
+    // An unparseable year (e.g. a malformed "unknown" date → NaN) is garbage,
+    // not "too old" — treat it like a dateless row and keep it, rather than
+    // silently dropping what may be a real auction.
+    return !Number.isFinite(yr) || yr >= PIPELINE_MIN_HISTORY_YEAR;
+  });
   allRecords.length = 0;
   allRecords.push(...floored);
   console.error(
@@ -225,6 +230,12 @@ async function refreshCity(city) {
   // don't erase history. active.json stays a live snapshot (current crawl only).
   let retained = { kept_properties: 0, kept_listings: 0 };
   if (MERGE_HISTORY && prevProperties.length > 0) {
+    // Canonicalize kinds on the COMMITTED side BEFORE the merge so the
+    // dateless-row fingerprint can't read a legacy "zabudowa" and a fresh
+    // "zabudowana" as two distinct events that then heal into a duplicate.
+    // (Fresh kinds are already canonical out of the parsers; the committed file
+    // is the only source of legacy spellings.) Post-merge healKinds stays below.
+    healKinds(prevProperties);
     try {
       const merged = mergeProperties(prevProperties, properties);
       properties = merged.properties;
@@ -249,6 +260,16 @@ async function refreshCity(city) {
     // (e.g. a historical "zabudowa" → "zabudowana"); see build-properties' healKinds.
     const kindsHealed = healKinds(properties);
     if (kindsHealed) console.error(`  healed ${kindsHealed} non-canonical kind value(s) post-merge.`);
+  } else {
+    // No history merge ran (city's FIRST publish, or MERGE_HISTORY=0). The merge
+    // branch above is where kinds + street variants + plot areas normally get
+    // healed, so heal here too — otherwise a non-canonical kind or a plot-sized
+    // area from a parser reaches properties.json unhealed on exactly these paths
+    // (the first-run gap in the kind/TYP guarantee). healStreetVariants also runs
+    // healPlotAreas; buildCityData already coalesced fresh street variants.
+    properties = healStreetVariants(properties);
+    const kindsHealed = healKinds(properties);
+    if (kindsHealed) console.error(`  healed ${kindsHealed} non-canonical kind value(s) (fresh build).`);
   }
 
   // Age out retained listings: a listing the source removed while still
@@ -404,7 +425,21 @@ async function main() {
         const prevMeta = JSON.parse(await readFile(join(DATA_DIR, city.id, 'meta.json'), 'utf8'));
         metas.push({ ...prevMeta, city: city.id, stale: true });
       } catch {
-        console.error(`    (no previously-published data for ${city.id}; it will be absent this run)`);
+        console.error(`    (no previously-published data for ${city.id}; emitting a zero-count placeholder so it still appears in index.json)`);
+        // Mirror build-index.js, which writes a zero-count row for a city with no
+        // data on disk. Without this the city silently vanishes from a full-run
+        // index.json whenever its very first crawl fails.
+        metas.push({
+          schema_version: SCHEMA_VERSION,
+          city: city.id,
+          unique_properties: 0,
+          active_listings: 0,
+          active_auctions: 0,
+          archived_auctions: 0,
+          wykaz_entries: 0,
+          land_plots: 0,
+          stale: true,
+        });
       }
     }
   }

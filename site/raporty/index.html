@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="color-scheme" content="dark" />
 <title id="doc-title">Raporty rynku — przetargimiejskie</title>
 <meta id="doc-desc" name="description" content="Raporty z miejskich przetargów na mieszkania na Górnym Śląsku: skuteczność sprzedaży, ceny końcowe vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec i więcej." />
@@ -323,6 +326,11 @@ const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href); return (x.protocol==='http:'||x.protocol==='https:')?x.href:''; }catch{ return ''; } };
 const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',zabudowa:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
+// Fold legacy house aliases to canonical so every === comparison + KPI keyed on
+// 'zabudowana' (filters, benchmarks, deal rows) counts an aliased house row.
+// null/undefined pass through unchanged so the l.kind||p.kind fallbacks still work.
+const KIND_ALIAS = {zabudowa:'zabudowana',zabudowy:'zabudowana'};
+const aliasKind = k => KIND_ALIAS[k] || k;
 const KIND_PLURAL = {mieszkalny:'mieszkania',zabudowana:'domy',grunt:'działki',uzytkowy:'lokale użytkowe',garaz:'garaże',all:'nieruchomości'};
 const roundLabel = r => r ? `${r}.` : '—';
 const monthName = ym => { const [y,m]=ym.split('-'); return new Intl.DateTimeFormat('pl-PL',{month:'long',year:'numeric'}).format(new Date(+y,+m-1,1)); };
@@ -368,6 +376,13 @@ async function load(){
         fetch(`/data/${c.id}/land.json`).then(r=>r.json()).catch(()=>({plots:[]})),
         fetch(`/data/${c.id}/active.json`).then(r=>r.json()).catch(()=>({listings:[]})),
       ]);
+      // Canonicalize legacy house-kind aliases in place before any === comparison
+      // downstream (defence-in-depth; the pipeline now heals these too).
+      for(const p of (props.properties||[])){
+        if(p.kind) p.kind = aliasKind(p.kind);
+        for(const l of (p.listings||[])) if(l.kind) l.kind = aliasKind(l.kind);
+      }
+      for(const l of (act.listings||[])) if(l.kind) l.kind = aliasKind(l.kind);
       for(const p of (props.properties||[])){
         const listings = (p.listings||[]).map(l=>({
           date:l.date, round:l.round, kind:l.kind||p.kind||'unknown',

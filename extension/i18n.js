@@ -50,6 +50,10 @@
       'notif.title': 'przetargimiejskie — watched property listed',
       'notif.body': '${addr} — auction ${date} at ${price}',
       'popup.archive_link': 'Archive',
+      'popup.filter.city': 'City',
+      'popup.filter.kind': 'Kind',
+      'popup.filter.all': 'All',
+      'popup.filter.count': '${shown} of ${total}',
       'archive.title': 'przetargimiejskie — auction archive',
       'archive.provenance': 'Data from ${from} to ${to} · last refreshed ${updated}',
       'archive.back': 'Back to popup',
@@ -126,8 +130,10 @@
       'kind.mieszkalny': 'residential',
       'kind.zabudowana': 'house',
       // Alias: some sources tag a built-up land parcel as bare "zabudowa"
-      // (no -na). Same bucket as zabudowana so the TYP column reads cleanly.
+      // (no -na) or the genitive "zabudowy". Same bucket as zabudowana so the
+      // TYP column reads cleanly.
       'kind.zabudowa': 'house',
+      'kind.zabudowy': 'house',
       'kind.grunt': 'land',
       'kind.uzytkowy': 'commercial',
       'kind.garaz': 'garage',
@@ -192,6 +198,10 @@
       'notif.title': 'przetargimiejskie — nowa aukcja obserwowanej nieruchomości',
       'notif.body': '${addr} — aukcja ${date} po ${price}',
       'popup.archive_link': 'Archiwum',
+      'popup.filter.city': 'Miasto',
+      'popup.filter.kind': 'Typ',
+      'popup.filter.all': 'Wszystkie',
+      'popup.filter.count': '${shown} z ${total}',
       'archive.title': 'Archiwum aukcji — przetargimiejskie',
       'archive.provenance': 'Dane od ${from} do ${to} · ostatnie odświeżenie ${updated}',
       'archive.back': 'Wróć do popupa',
@@ -267,9 +277,11 @@
       // kind enum
       'kind.mieszkalny': 'mieszkalny',
       'kind.zabudowana': 'dom',
-      // Alias dla rekordów oznaczonych jako "zabudowa" (bez -na) — to samo co
-      // zabudowana, żeby kolumna TYP nie pokazywała surowego klucza "kind.…".
+      // Alias dla rekordów oznaczonych jako "zabudowa" (bez -na) lub w dopełniaczu
+      // "zabudowy" — to samo co zabudowana, żeby kolumna TYP nie pokazywała
+      // surowego klucza "kind.…".
       'kind.zabudowa': 'dom',
+      'kind.zabudowy': 'dom',
       'kind.grunt': 'działka',
       'kind.uzytkowy': 'użytkowy',
       'kind.garaz': 'garaż',
