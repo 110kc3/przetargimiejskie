@@ -854,10 +854,11 @@
           "kind": "zabudowana",
           "starting_price_pln": 700000,
           "outcome": "archived",
-          "area_m2": 557.86,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzka",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 557.86
         },
         {
           "date": "2024-06-04",
@@ -865,13 +866,15 @@
           "kind": "zabudowana",
           "starting_price_pln": 670000,
           "outcome": "archived",
-          "area_m2": 557.86,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzk",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 557.86
         }
       ],
-      "area_m2": 557.86
+      "area_m2": null,
+      "land_area_m2": 557.86
     },
     {
       "key": "katowickiej|29A|17",
@@ -909,13 +912,15 @@
           "kind": "zabudowana",
           "starting_price_pln": 490000,
           "outcome": "archived",
-          "area_m2": 1117,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-portowa-4",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 1117
         }
       ],
-      "area_m2": 1117
+      "area_m2": null,
+      "land_area_m2": 1117
     },
     {
       "key": "janowskiej|128|6",
@@ -1030,10 +1035,11 @@
           "kind": "zabudowana",
           "starting_price_pln": null,
           "outcome": "archived",
-          "area_m2": 1379.6,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-przy-placu-wolnos",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 1379.6
         },
         {
           "date": null,
@@ -1041,13 +1047,15 @@
           "kind": "zabudowana",
           "starting_price_pln": null,
           "outcome": "active",
-          "area_m2": 1379.6,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-plac-wolnosci",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 1379.6
         }
       ],
-      "area_m2": 1379.6
+      "area_m2": null,
+      "land_area_m2": 1379.6
     },
     {
       "key": "powstancow|1|",
@@ -1063,10 +1071,11 @@
           "kind": "zabudowana",
           "starting_price_pln": 780000,
           "outcome": "archived",
-          "area_m2": 396.2,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-spokojna",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 396.2
         },
         {
           "date": null,
@@ -1074,13 +1083,27 @@
           "kind": "zabudowana",
           "starting_price_pln": 780000,
           "outcome": "active",
-          "area_m2": 396.2,
+          "area_m2": null,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-spokojna",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 396.2
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-partyzantow",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 514
         }
       ],
-      "area_m2": 396.2
+      "area_m2": null,
+      "land_area_m2": 396.2
     }
   ]
 }
