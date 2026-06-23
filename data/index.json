@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T12:29:14.388Z",
+  "generated_at": "2026-06-23T10:31:05.782Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,9 +8,9 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 177,
-      "active_listings": 18,
-      "active_auctions": 18,
-      "archived_auctions": 234,
+      "active_listings": 16,
+      "active_auctions": 13,
+      "archived_auctions": 239,
       "wykaz_entries": 10,
       "land_plots": 79
     },
@@ -21,7 +21,7 @@
       "host": "bip.katowice.eu",
       "unique_properties": 133,
       "active_listings": 60,
-      "active_auctions": 41,
+      "active_auctions": 40,
       "archived_auctions": 143,
       "wykaz_entries": 0,
       "land_plots": 7
@@ -32,9 +32,9 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 20,
-      "active_listings": 20,
-      "active_auctions": 5,
-      "archived_auctions": 15,
+      "active_listings": 19,
+      "active_auctions": 4,
+      "archived_auctions": 16,
       "wykaz_entries": 0,
       "land_plots": 12
     },
@@ -93,7 +93,7 @@
       "host": "bip.myslowice.pl",
       "unique_properties": 36,
       "active_listings": 67,
-      "active_auctions": 13,
+      "active_auctions": 14,
       "archived_auctions": 49,
       "wykaz_entries": 0,
       "land_plots": 47
