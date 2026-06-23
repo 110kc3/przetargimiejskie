@@ -126,13 +126,15 @@
           "kind": "zabudowana",
           "starting_price_pln": 1350000,
           "outcome": "active",
-          "area_m2": 1465,
+          "area_m2": null,
           "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gorska-94",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 1465
         }
       ],
-      "area_m2": 1465
+      "area_m2": null,
+      "land_area_m2": 1465
     }
   ]
 }
