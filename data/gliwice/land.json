@@ -3,6 +3,61 @@
   "city": "gliwice",
   "plots": [
     {
+      "key": "dz|ligota zabrska|: 52, 53, 54, 559, 560, 56",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": ": 52, 53, 54, 559, 560, 56",
+      "obreb": "Ligota Zabrska",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. św. Jacka-1",
+      "dzialka_id": "246601_1.0030.53",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-31",
+          "round": 3,
+          "starting_price_pln": 4587000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-4"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": ": 52",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%3A%2052%20Ligota%20Zabrska%20Gliwice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "53",
+          "dzialka_id": "246601_1.0030.53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
+        },
+        {
+          "nr": "54",
+          "dzialka_id": "246601_1.0030.54",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
+        },
+        {
+          "nr": "559",
+          "dzialka_id": "246601_1.0030.559",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
+        },
+        {
+          "nr": "560",
+          "dzialka_id": "246601_1.0030.560",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
+        },
+        {
+          "nr": "56",
+          "dzialka_id": "246601_1.0030.56",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
+        }
+      ]
+    },
+    {
       "key": "dz|stare gliwice|389",
       "kind": "grunt",
       "city": "gliwice",
@@ -353,7 +408,7 @@
       "building": null,
       "address_raw": "ul. Zielna",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201337%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201337%20ul.%20Zielna%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1391,
       "zoning": "mieszkaniowe",
       "status": "oferta do wznowienia",
@@ -423,7 +478,7 @@
       "building": null,
       "address_raw": "ul. Spacerowa",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20ul.%20Spacerowa%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 728,
       "zoning": "mieszkaniowe",
       "status": "oferta do wznowienia",
@@ -916,7 +971,7 @@
       "building": null,
       "address_raw": "ul. Rolników",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20814%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20814%20ul.%20Rolnik%C3%B3w%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 400,
       "zoning": "mieszkaniowo-usługowe",
       "status": "oferta do wznowienia",
@@ -1059,7 +1114,7 @@
       "building": null,
       "address_raw": "ul. Tokarska",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20ul.%20Tokarska%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 1778,
       "zoning": "mieszkaniowo-usługowe",
       "status": "oferta do wznowienia",
@@ -1456,7 +1511,7 @@
       "building": null,
       "address_raw": "ul. Toszecka",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20366%2C%20367%20Czechowice%20Zach%C3%B3d%20Gliwice%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20366%2C%20367%20ul.%20Toszecka%20Czechowice%20Zach%C3%B3d%20Gliwice%20geoportal%20dzia%C5%82ki",
       "area_m2": 17000,
       "zoning": "usługowe",
       "status": "oferta do wznowienia",
@@ -2193,44 +2248,6 @@
         {
           "nr": "634/3 i 634/4",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20634%2F3%20i%20634%2F4%20%C5%BBerniki%20Gliwice%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|czechowice północ|65/4, 66/1",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "65/4, 66/1",
-      "obreb": "Czechowice Północ",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Ziemięcicka",
-      "dzialka_id": "246601_1.0022.65/4",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F4",
-      "area_m2": 913,
-      "zoning": "mieszkaniowe",
-      "status": "oferta do wznowienia",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 913,
-          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2024_9437.pdf",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "65/4",
-          "dzialka_id": "246601_1.0022.65/4",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.65%2F4"
-        },
-        {
-          "nr": "66/1",
-          "dzialka_id": "246601_1.0022.66/1",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0022.66%2F1"
         }
       ]
     },
