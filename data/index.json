@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-23T10:31:05.782Z",
+  "generated_at": "2026-06-25T09:15:04.671Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,10 +8,10 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 177,
-      "active_listings": 16,
+      "active_listings": 13,
       "active_auctions": 13,
       "archived_auctions": 239,
-      "wykaz_entries": 10,
+      "wykaz_entries": 4,
       "land_plots": 79
     },
     {
@@ -32,7 +32,7 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 20,
-      "active_listings": 19,
+      "active_listings": 18,
       "active_auctions": 4,
       "archived_auctions": 16,
       "wykaz_entries": 0,
@@ -44,9 +44,9 @@
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
       "unique_properties": 282,
-      "active_listings": 459,
+      "active_listings": 454,
       "active_auctions": 2,
-      "archived_auctions": 462,
+      "archived_auctions": 467,
       "wykaz_entries": 0,
       "land_plots": 28
     },
@@ -55,9 +55,9 @@
       "label": "Sosnowiec",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 47,
-      "active_listings": 89,
-      "active_auctions": 5,
+      "unique_properties": 48,
+      "active_listings": 90,
+      "active_auctions": 6,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -92,11 +92,11 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 36,
-      "active_listings": 67,
-      "active_auctions": 14,
-      "archived_auctions": 49,
+      "active_listings": 66,
+      "active_auctions": 13,
+      "archived_auctions": 51,
       "wykaz_entries": 0,
-      "land_plots": 47
+      "land_plots": 48
     },
     {
       "id": "swietochlowice",
@@ -104,7 +104,7 @@
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
       "unique_properties": 91,
-      "active_listings": 200,
+      "active_listings": 199,
       "active_auctions": 7,
       "archived_auctions": 200,
       "wykaz_entries": 0,
