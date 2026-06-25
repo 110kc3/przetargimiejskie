@@ -4,6 +4,16 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.31.1 — 2026-06-25
+
+Hardening. No new features or permissions.
+
+- **Active-list map links use the structured address.** The popup's Google-Maps
+  link is now built from the listing's `street` + `building` (the same logic the
+  web archive already uses), falling back to the raw address. Closes a latent
+  case where a listing missing `address_raw` would show no map link even though
+  it had a structured address.
+
 ## v1.31.0 — 2026-06-23
 
 - **Filter the active list by city and type.** The popup now has two dropdowns

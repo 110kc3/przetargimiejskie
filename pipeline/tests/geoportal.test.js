@@ -24,6 +24,19 @@ test('fallback search includes parcel + obręb + city', () => {
   assert.ok(dec.includes('1922/182') && dec.includes('Lipnik') && dec.includes('Bielsko-Biała'));
 });
 
+test('fallback search includes the street for addr-only plots (no parcel number)', () => {
+  // Regression: an addr-only plot used to collapse to the obreb code + city,
+  // dropping the street it has. The street must survive into the query.
+  const u = geoportalUrl(
+    { street: 'Orła Białego', address_raw: 'ul. Orła Białego', obreb: '0005 Krasowy' },
+    { label: 'Mysłowice' },
+  );
+  assert.ok(u.startsWith('https://www.google.com/search?q='), u);
+  const dec = decodeURIComponent(u);
+  assert.ok(dec.includes('Orła Białego'), 'street present: ' + dec);
+  assert.ok(dec.includes('Mysłowice'), 'city present: ' + dec);
+});
+
 test('null when there is nothing to locate', () => {
   assert.equal(geoportalUrl({}), null);
   assert.equal(geoportalUrl(null), null);

@@ -47,7 +47,10 @@ export function geoportalUrl(plot, cfg = {}) {
   // 4) Fallback: a geoportal-scoped search that resolves the parcel by
   //    obręb + number (the portal app has no stable free-text GET param).
   if (!plot.dzialka_nr && !plot.obreb && !plot.address_raw && !plot.street) return null;
-  const q = ['działka', plot.dzialka_nr, plot.obreb, cfg.label || plot.city]
+  // Include the street/address too. For addr-only plots (no parcel number)
+  // the obreb code alone is near-useless; the street is what locates them.
+  const street = plot.street || plot.address_raw || null;
+  const q = ['działka', plot.dzialka_nr, street, plot.obreb, cfg.label || plot.city]
     .filter(Boolean)
     .join(' ');
   return 'https://www.google.com/search?q=' + encodeURIComponent(q + ' geoportal działki');

@@ -18,6 +18,22 @@
 >   (not dropped), zero-count index placeholder on first-run failure. Site:
 >   kind-alias normalisation on load + cities-stat default.
 > - Website **favicon** (all pages).
+>
+> **Uncommitted — 25 June 2026 session (needs commit/PR, then move to shipped):**
+> - **Pipeline now refreshes DAILY** — `refresh.yml` cron `0 4 * * *` (04:00 UTC
+>   ≈ 06:00 PL) instead of weekly Mondays. OVH deploy already chains off it via
+>   `workflow_run`; `health.yml` / `health-check.js` comments updated for daily.
+> - **Geoportal/ULDK fixes:** `geoportal.js` fallback now keeps the street for
+>   addr-only plots; `uldk.js` gained a *construct-and-verify* path (build
+>   `gmina.OOOO.parcel`, confirm via ULDK `GetParcelById`) that bypasses
+>   placeholder obręb names. Applied to Sosnowiec land data: **63 → 157 precise
+>   geoportal links** (+94). New `uldk`/`geoportal` unit tests. Full write-up in
+>   `BUGCHECK-2026-06-25.md`.
+> - **Quick-win chores (done):** health `STALE_DAYS` 14 -> 3 (safe under the
+>   daily cadence — `generated_at` is rewritten every run); `.gitattributes`
+>   line-ending normalisation, which kills the CRLF `git status` noise
+>   (~1,200 -> 15 modified files); popup `mapsCell` now uses the structured
+>   `street`+`building` like the archive. Ext **v1.31.0 -> v1.31.1** (+ CHANGELOG).
 
 ## Highest leverage
 
@@ -90,6 +106,28 @@ makes the zł/m² deal score far more complete. Write as
 have area), run once under CI. Requires live network + mutates committed data,
 so it can't be authored/verified fully offline.
 
+### Tarnowskie Góry — active listings missing price + area (PDF extraction)
+
+15 active listings carry no starting price and 18 no `area_m2` — the worst of
+any city (audit 25 June 2026). The source is a React SPA with a clean JSON API
+where each announcement carries ONE text PDF holding address / parcel / area /
+starting price / auction date — so the data exists; the gap is the PDF
+field-extraction not pulling price + area for these announcements. Fix the
+parser's PDF field parsing, then re-crawl. Network-gated (needs the
+announcement PDFs): author against the cached PDFs in `pipeline/pdf-text-cache/`
+and verify before shipping.
+
+### Tarnowskie Góry — geoportal links don't resolve (name-only obręby)
+
+~45 land plots fall back to a Google search instead of a precise geoportal
+deep-link. Unlike Sosnowiec (fixed 25 June via the obręb-number construct
+path), TG's weak plots have NAME-ONLY obręby — no numeric code, so
+construct-and-verify can't help — and several parcels don't resolve in ULDK by
+name even after stripping the `" arkusz"` suffix (e.g. `Strzybnica arkusz
+2476/3` → `brak wyników`). Needs deeper obręb/parcel normalisation (likely a
+TG obręb name→number map); 12 of the 45 are addr-only (no parcel) and can't be
+precise at all.
+
 ### P2-D — Make `heal-properties.js` folds durable in refresh
 
 `heal-properties.js` (VERIFIED_JUNK, VERIFIED_RENAMES, crossCityDisplay) is a
@@ -146,9 +184,6 @@ A RODO/privacy policy split is a prerequisite (see Chores).
 
 ## Chores (quick wins)
 
-- **`.gitignore` the committed `_site/`** and remove it from the index — a build
-  artifact (`build-site.sh` regenerates it) that goes stale and once misled
-  debugging.
 - **RODO/privacy split:** `PRIVACY.md` only covers the zero-data extension. The
   day a newsletter (P1-D) or lead form ships, a separate policy is needed
   (consent, lawful basis, deletion/export). Draft it alongside P1-D.

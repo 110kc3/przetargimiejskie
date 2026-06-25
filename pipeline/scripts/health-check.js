@@ -11,8 +11,8 @@
 //   - a city's meta.json is missing/unparseable
 //   - unique_properties === 0 for an established city (adapter broke: an
 //     established city never legitimately drops to zero tracked properties)
-//   - generated_at older than STALE_DAYS (default 14 — refresh is weekly, so
-//     two missed refreshes means the crawl genuinely stopped working)
+//   - generated_at older than STALE_DAYS (default 14 — refresh is daily, so
+//     a multi-day gap means the crawl genuinely stopped working)
 // WARN (reported, does not fail — could be a legitimate quiet period):
 //   - active_auctions === 0 (no current auctions on the board right now)
 //   - active_listings === 0

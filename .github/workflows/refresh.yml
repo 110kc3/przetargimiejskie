@@ -22,7 +22,9 @@ on:
       - 'extension/**'
       - '**/*.md'
   schedule:
-    - cron: '0 6 * * 1'      # Mondays 06:00 UTC. Daily also fine — runs are short.
+    - cron: '0 4 * * *'      # Daily 04:00 UTC (approx 06:00 Polish time, CEST).
+                             # cron is UTC-only and can't follow DST, so in winter
+                             # (CET) it fires 05:00 local. health.yml runs at 07:00 UTC.
   workflow_dispatch: {}      # adds a "Run workflow" button in the Actions UI
 
 permissions:

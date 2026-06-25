@@ -10,7 +10,7 @@ name: Data health check
 
 on:
   schedule:
-    - cron: '0 7 * * *'      # 07:00 UTC daily — an hour after the Monday refresh.
+    - cron: '0 7 * * *'      # 07:00 UTC daily - a few hours after the daily 04:00 refresh.
   workflow_dispatch: {}
   # Also gate PRs that touch data so a bad hand-edit is caught before merge.
   pull_request:
@@ -36,7 +36,12 @@ jobs:
           node-version: '20'
       - name: Check data freshness & non-emptiness
         working-directory: pipeline
-        # STALE_DAYS=14: refresh is weekly, so >2 weeks stale = a real outage.
+        # STALE_DAYS=3: the crawl runs daily and meta.generated_at is rewritten
+        # every run, so committed data is normally <1 day old; >3 days means a
+        # genuine stall (the scheduled crawl stopped, or a city's commit has been
+        # blocked by the sanity gate for days). Tolerates a missed daily run or
+        # two. It only emails the maintainer, never blocks a deploy, so raise it
+        # again only if a legitimately-static source ever trips it.
         env:
-          STALE_DAYS: '14'
+          STALE_DAYS: '3'
         run: node scripts/health-check.js

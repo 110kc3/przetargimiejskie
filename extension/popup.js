@@ -181,7 +181,12 @@ function sortActiveItems(items) {
 // Direct Google Maps link for a non-land active listing (land has no street address).
 function mapsCell(a) {
   if (a.kind === 'grunt') return '—';
-  const base = String(a.address_raw || '').replace(/\s*\/\s*\d+\w*$/, '').trim();
+  // Prefer the structured street + building (mirrors archive.js); fall back to
+  // the raw address with the apartment number stripped. Active listings carry
+  // street/building under `a.address`, not at the top level.
+  const ad = a.address || {};
+  const base = (ad.street ? `${ad.street}${ad.building ? ' ' + ad.building : ''}`
+                          : String(a.address_raw || '').replace(/\s*\/\s*\d+\w*$/, '')).trim();
   if (!base) return '—';
   const q = encodeURIComponent(`${base}, ${a.city || ''}`.replace(/,\s*$/, '').trim());
   return `<a class="zgm-src-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">${t('col.map')} ↗</a>`;
