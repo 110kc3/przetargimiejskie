@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Witkiewicza 24/33",
+      "address": {
+        "street": "Witkiewicza",
+        "street_norm": "witkiewicza",
+        "building": "24",
+        "apt": "33",
+        "key": "witkiewicza|24|33",
+        "warning": null
+      },
+      "auction_date": "2026-08-28",
+      "published_date": "2026-06-24",
+      "round": 1,
+      "area_m2": 30.8,
+      "starting_price_pln": 154000,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,563891,przetarg-ustny-nieograniczony-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Kisielewskiego 3/45",
       "address": {
         "street": "Kisielewskiego",

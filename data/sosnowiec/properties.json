@@ -3,6 +3,28 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "witkiewicza|24|33",
+      "street": "Witkiewicza",
+      "street_norm": "witkiewicza",
+      "building": "24",
+      "apt": "33",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 154000,
+          "outcome": "active",
+          "area_m2": 30.8,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563891,przetarg-ustny-nieograniczony-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.8
+    },
+    {
       "key": "targowej|12|",
       "street": "Targowa",
       "street_norm": "targowej",
