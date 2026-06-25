@@ -91,6 +91,128 @@
       "area_m2": 48
     },
     {
+      "key": "koszalinska|36A|5",
+      "street": "Koszalińska",
+      "street_norm": "koszalinska",
+      "building": "36A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/152574/Wyniki%2016.06.26%20Magazynowa%20i%20Koszalińska%2036a.5%20neg.pdf",
+          "notes": [],
+          "area_m2": 38.4,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=561",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 38.4,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151815&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 38.4
+    },
+    {
+      "key": "sokolska|54|5",
+      "street": "Sokolska",
+      "street_norm": "sokolska",
+      "building": "54",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 304800,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/152576/Wyniki%2016.06.2026%20%20Sienkiewicza%208.9%20II%20i%20in.%20POZ.pdf",
+          "notes": [],
+          "area_m2": 37.5,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=562",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 37.5,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151816&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 37.5
+    },
+    {
+      "key": "wiertnicza|6|26",
+      "street": "Wiertnicza",
+      "street_norm": "wiertnicza",
+      "building": "6",
+      "apt": "26",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 35.22,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=553",
+          "wadium_deadline": "2026-03-23",
+          "viewing_date": "2026-03-23"
+        },
+        {
+          "date": "2026-06-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/152576/Wyniki%2016.06.2026%20%20Sienkiewicza%208.9%20II%20i%20in.%20POZ.pdf",
+          "notes": [],
+          "area_m2": 35.22,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=563",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "active",
+          "area_m2": 35.22,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151817&menu=679",
+          "wadium_deadline": "2026-06-08",
+          "viewing_date": "2026-06-08"
+        }
+      ],
+      "area_m2": 35.22
+    },
+    {
       "key": "francuska|6|II",
       "street": "Francuska",
       "street_norm": "francuska",
@@ -2567,7 +2689,11 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 85000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 135150,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/152576/Wyniki%2016.06.2026%20%20Sienkiewicza%208.9%20II%20i%20in.%20POZ.pdf",
+          "notes": [],
           "area_m2": 19.83,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=560",
           "wadium_deadline": "2026-06-08",
@@ -2586,116 +2712,6 @@
         }
       ],
       "area_m2": 19.83
-    },
-    {
-      "key": "koszalinskiej|36A|5",
-      "street": "Koszalińskiej",
-      "street_norm": "koszalinskiej",
-      "building": "36A",
-      "apt": "5",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 270000,
-          "outcome": "archived",
-          "area_m2": 38.4,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=561",
-          "wadium_deadline": "2026-06-08",
-          "viewing_date": "2026-06-08"
-        },
-        {
-          "date": null,
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 270000,
-          "outcome": "active",
-          "area_m2": 38.4,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151815&menu=679",
-          "wadium_deadline": "2026-06-08",
-          "viewing_date": "2026-06-08"
-        }
-      ],
-      "area_m2": 38.4
-    },
-    {
-      "key": "sokolskiej|54|5",
-      "street": "Sokolska",
-      "street_norm": "sokolskiej",
-      "building": "54",
-      "apt": "5",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 240000,
-          "outcome": "archived",
-          "area_m2": 37.5,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=562",
-          "wadium_deadline": "2026-06-08",
-          "viewing_date": "2026-06-08"
-        },
-        {
-          "date": null,
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 240000,
-          "outcome": "active",
-          "area_m2": 37.5,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151816&menu=679",
-          "wadium_deadline": "2026-06-08",
-          "viewing_date": "2026-06-08"
-        }
-      ],
-      "area_m2": 37.5
-    },
-    {
-      "key": "wiertniczej|6|26",
-      "street": "Wiertnicza",
-      "street_norm": "wiertniczej",
-      "building": "6",
-      "apt": "26",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-03-31",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "archived",
-          "area_m2": 35.22,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=553",
-          "wadium_deadline": "2026-03-23",
-          "viewing_date": "2026-03-23"
-        },
-        {
-          "date": "2026-06-16",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "archived",
-          "area_m2": 35.22,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=563",
-          "wadium_deadline": "2026-06-08",
-          "viewing_date": "2026-06-08"
-        },
-        {
-          "date": null,
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "active",
-          "area_m2": 35.22,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=151817&menu=679",
-          "wadium_deadline": "2026-06-08",
-          "viewing_date": "2026-06-08"
-        }
-      ],
-      "area_m2": 35.22
     },
     {
       "key": "sklodowskiej curie|21|1",
