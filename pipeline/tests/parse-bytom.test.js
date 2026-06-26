@@ -5,7 +5,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseBipList, parseCatalog, parseCatalogLand, attachmentUrlFromDetail } from '../src/cities/bytom/crawl.js';
+import { parseBipList, parseCatalog, parseCatalogLand, attachmentUrlFromDetail, nullImplausiblePrices } from '../src/cities/bytom/crawl.js';
 import {
   parseAnnouncement,
   roundFromText,
@@ -309,4 +309,36 @@ test('parseCatalogLand: grunty zabudowane row -- previously dropped, now include
 test('parseCatalogLand: empty HTML returns empty array without throwing', () => {
   assert.deepEqual(parseCatalogLand(''), []);
   assert.deepEqual(parseCatalogLand('<html><body>nothing here</body></html>'), []);
+});
+
+// ---- sub-1000 price backstop (sanity-gate guard) -------------------------
+//
+// Regression (refresh #84, 2026-06-26): a flat at ul. Falata 24/5 reached
+// properties.json with starting_price_pln 0 -- the i-BIIP catalog row carried a
+// 0/placeholder price and the .doc repair could not recover a real number -- so
+// sanity-check's price-glue floor (< 1000 zl) hard-failed and blocked the WHOLE
+// Bytom data commit. crawlActive/enrichActive now null any price the repair
+// leaves below the floor, turning a city-blocking error into a gracefully
+// missing price (a null price is "unknown"; the gate skips it).
+test('nullImplausiblePrices nulls a 0/placeholder and a missing-thousands slip', () => {
+  const recs = [
+    { address_raw: 'Falata 24/5', starting_price_pln: 0 },         // catalog 0,00 -> the #84 failure
+    { dzialka_nr: '60/5', starting_price_pln: 550 },               // Piekarska-style missing-thousands slip
+    { address_raw: 'Katowicka 44/8', starting_price_pln: 85000 },  // real price -- untouched
+    { address_raw: 'no price yet', starting_price_pln: null },     // already unknown -- untouched, not counted
+  ];
+  const nulled = nullImplausiblePrices(recs);
+  assert.equal(nulled, 2);
+  assert.equal(recs[0].starting_price_pln, null);
+  assert.equal(recs[1].starting_price_pln, null);
+  assert.equal(recs[2].starting_price_pln, 85000);
+  assert.equal(recs[3].starting_price_pln, null);
+});
+
+test('nullImplausiblePrices keeps the 1000 floor inclusive and is null-safe', () => {
+  const recs = [{ starting_price_pln: 1000 }, { starting_price_pln: 999 }, null, {}];
+  const nulled = nullImplausiblePrices(recs);
+  assert.equal(nulled, 1); // only 999; 1000 is the inclusive floor, null/{} skipped
+  assert.equal(recs[0].starting_price_pln, 1000);
+  assert.equal(recs[1].starting_price_pln, null);
 });

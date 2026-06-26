@@ -289,6 +289,30 @@ async function crawlBipList() {
   return items;
 }
 
+// Real estate is never priced below this; a parsed value under it is a source
+// slip -- missing thousands ("550" for "550 000"), a "0,00"/placeholder, or a
+// stray column fragment -- not a real opening price. Kept in sync with
+// sanity-check.js MIN_PLN so the crawler never emits a price the gate rejects.
+const MIN_REAL_PLN = 1000;
+
+// After the .doc repair has had its chance, force any STILL-implausible price to
+// null. A null price is "unknown" (the sanity gate skips it and the UI shows no
+// price), whereas a sub-threshold NUMBER is provably wrong and hard-fails the
+// gate, blocking the WHOLE city's data commit over a single not-yet-priced
+// listing (e.g. a flat the i-BIIP catalog lists at 0,00). Mutates in place;
+// returns how many prices were nulled. Otherwise side-effect-free, so it is
+// unit-tested directly (crawlActive/enrichActive are network-bound).
+export function nullImplausiblePrices(records) {
+  let nulled = 0;
+  for (const r of records) {
+    if (r && r.starting_price_pln != null && r.starting_price_pln < MIN_REAL_PLN) {
+      r.starting_price_pln = null;
+      nulled++;
+    }
+  }
+  return nulled;
+}
+
 export async function crawlActive() {
   let catByKey = new Map();
   let land = [];
@@ -347,7 +371,7 @@ export async function crawlActive() {
   // fetch only a handful of docs per refresh. Fully defensive: a .doc fetch/parse
   // failure leaves the catalog value untouched.
   const suspect = [...listings, ...land].filter(
-    (r) => r.starting_price_pln != null && r.starting_price_pln < 1000,
+    (r) => r.starting_price_pln != null && r.starting_price_pln < MIN_REAL_PLN,
   );
   for (const r of suspect) {
     const url =
@@ -365,6 +389,17 @@ export async function crawlActive() {
     } catch (err) {
       console.error(`  bytom .doc price-repair failed (${url}): ${err.message}`);
     }
+  }
+
+  // Backstop: anything the .doc repair could not lift above the floor (no doc,
+  // an unreachable host, or a 0/placeholder in the source) is nulled here so a
+  // single not-yet-priced listing can't hard-fail the sanity gate and block the
+  // whole city's refresh. See nullImplausiblePrices.
+  const nulled = nullImplausiblePrices([...listings, ...land]);
+  if (nulled) {
+    console.error(
+      `  bytom: nulled ${nulled} unrecoverable sub-${MIN_REAL_PLN} price(s) (kept as listings, just without a price)`,
+    );
   }
 
   console.error(
@@ -420,6 +455,11 @@ export async function enrichActive(active) {
       console.error(`  bytom enrich: .doc parse failed (${l.address_raw}): ${err.message}`);
     }
   }
+
+  // A .doc carrying a 0/placeholder price (priceFromText returns 0) must not slip
+  // a sub-floor value back in past the catalog backstop; clear it before the
+  // empty-listing sweep below (which then drops any now-data-less listing).
+  nullImplausiblePrices(active);
 
   const before = active.length;
   for (let i = active.length - 1; i >= 0; i--) {
