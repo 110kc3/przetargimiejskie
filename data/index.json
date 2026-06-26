@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-26T09:26:53.653Z",
+  "generated_at": "2026-06-26T17:49:26.985Z",
   "cities": [
     {
       "id": "gliwice",
@@ -121,6 +121,90 @@
       "archived_auctions": 60,
       "wykaz_entries": 0,
       "land_plots": 45
+    },
+    {
+      "id": "kedzierzyn-kozle",
+      "label": "Kędzierzyn-Koźle",
+      "authority": "Urząd Miasta Kędzierzyn-Koźle",
+      "host": "bip.kedzierzynkozle.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "trzebinia",
+      "label": "Trzebinia",
+      "authority": "Urząd Miasta w Trzebini",
+      "host": "trzebinia.pl",
+      "unique_properties": 2,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "krakow",
+      "label": "Kraków",
+      "authority": "Urząd Miasta Krakowa (Wydział Skarbu Miasta)",
+      "host": "bip.krakow.pl",
+      "unique_properties": 9,
+      "active_listings": 13,
+      "active_auctions": 1,
+      "archived_auctions": 12,
+      "wykaz_entries": 0,
+      "land_plots": 3
+    },
+    {
+      "id": "olkusz",
+      "label": "Olkusz",
+      "authority": "Urząd Miasta i Gminy w Olkuszu",
+      "host": "umig.olkusz.pl",
+      "unique_properties": 2,
+      "active_listings": 3,
+      "active_auctions": 1,
+      "archived_auctions": 2,
+      "wykaz_entries": 0,
+      "land_plots": 6
+    },
+    {
+      "id": "opole",
+      "label": "Opole",
+      "authority": "Urząd Miasta Opola (Wydział Gospodarki Nieruchomościami)",
+      "host": "bip.um.opole.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "oswiecim",
+      "label": "Oświęcim",
+      "authority": "Urząd Miasta Oświęcim (Wydział Mienia Komunalnego)",
+      "host": "bip.oswiecim.um.gov.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "chrzanow",
+      "label": "Chrzanów",
+      "authority": "Urząd Miejski w Chrzanowie",
+      "host": "chrzanow.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }
