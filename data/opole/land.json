@@ -1,0 +1,900 @@
+{
+  "schema_version": 1,
+  "city": "opole",
+  "plots": [
+    {
+      "key": "dz|bierkowice|242/2, 243/2, 244/3, 245/2, 246/2, 259/1, 261/2",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "242/2, 243/2, 244/3, 245/2, 246/2, 259/1, 261/2",
+      "obreb": "Bierkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pisankowej",
+      "dzialka_id": "166101_1.0005.242/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.242%2F2",
+      "area_m2": 35263,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-15",
+          "round": 1,
+          "starting_price_pln": 8182016,
+          "outcome": "archived",
+          "area_m2": 35263,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_285",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-7_285"
+        },
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "starting_price_pln": 8000000,
+          "outcome": "active",
+          "area_m2": 35263,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_456",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-7_456"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "242/2",
+          "dzialka_id": "166101_1.0005.242/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.242%2F2"
+        },
+        {
+          "nr": "243/2",
+          "dzialka_id": "166101_1.0005.243/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.243%2F2"
+        },
+        {
+          "nr": "244/3",
+          "dzialka_id": "166101_1.0005.244/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.244%2F3"
+        },
+        {
+          "nr": "245/2",
+          "dzialka_id": "166101_1.0005.245/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.245%2F2"
+        },
+        {
+          "nr": "246/2",
+          "dzialka_id": "166101_1.0005.246/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.246%2F2"
+        },
+        {
+          "nr": "259/1",
+          "dzialka_id": "166101_1.0005.259/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.259%2F1"
+        },
+        {
+          "nr": "261/2",
+          "dzialka_id": "166101_1.0005.261/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.261%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|groszowice|1842",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "1842",
+      "obreb": "Groszowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Podbornej",
+      "dzialka_id": "166101_1.0058.1842",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.1842",
+      "area_m2": 67,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-07",
+          "round": 1,
+          "starting_price_pln": 15000,
+          "outcome": "active",
+          "area_m2": 67,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_462",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-7_462"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1842",
+          "dzialka_id": "166101_1.0058.1842",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.1842"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. leona wyczółkowskiego",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Szczepanowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Leona Wyczółkowskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Leona%20Wycz%C3%B3%C5%82kowskiego%20Szczepanowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 480,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-08",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 480,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_446",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-6_446"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|szczepanowice|1161",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "1161",
+      "obreb": "Szczepanowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Leona Wyczółkowskiego",
+      "dzialka_id": "166101_1.0128.1161",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0128.1161",
+      "area_m2": 921,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-05",
+          "round": 1,
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 921,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-5_433",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-5_433"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1161",
+          "dzialka_id": "166101_1.0128.1161",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0128.1161"
+        }
+      ]
+    },
+    {
+      "key": "dz|chmielowice|1462/3",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "1462/3",
+      "obreb": "Chmielowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Promiennej Przetarg ogranicza się do właścicieli działek sąsiednich",
+      "dzialka_id": "166101_1.0150.1462/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F3",
+      "area_m2": 94,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": 1,
+          "starting_price_pln": 14200,
+          "outcome": "archived",
+          "area_m2": 94,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-4_418",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-4_418"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1462/3",
+          "dzialka_id": "166101_1.0150.1462/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F3"
+        }
+      ]
+    },
+    {
+      "key": "dz|chmielowice|1462/1",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "1462/1",
+      "obreb": "Chmielowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Promiennej Przetarg ogranicza się do właścicieli działek sąsiednich",
+      "dzialka_id": "166101_1.0150.1462/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F1",
+      "area_m2": 99,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-14",
+          "round": 1,
+          "starting_price_pln": 15000,
+          "outcome": "archived",
+          "area_m2": 99,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-4_416",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-4_416"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1462/1",
+          "dzialka_id": "166101_1.0150.1462/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F1"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. władysława broniewskiego",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Kolonia Gosławicka",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Władysława Broniewskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20W%C5%82adys%C5%82awa%20Broniewskiego%20Kolonia%20Gos%C5%82awicka%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 899,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-17",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 899,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-3_411",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-3_411"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|wrzoski|622/1, 623/7, 624/3, 624/5",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "622/1, 623/7, 624/3, 624/5",
+      "obreb": "Wrzoski",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Inwestycyjnej",
+      "dzialka_id": "166101_1.0147.622/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.622%2F1",
+      "area_m2": 84468,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-03",
+          "round": 1,
+          "starting_price_pln": 10000000,
+          "outcome": "archived",
+          "area_m2": 84468,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-3_403",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-3_403"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "622/1",
+          "dzialka_id": "166101_1.0147.622/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.622%2F1"
+        },
+        {
+          "nr": "623/7",
+          "dzialka_id": "166101_1.0147.623/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.623%2F7"
+        },
+        {
+          "nr": "624/3",
+          "dzialka_id": "166101_1.0147.624/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.624%2F3"
+        },
+        {
+          "nr": "624/5",
+          "dzialka_id": "166101_1.0147.624/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.624%2F5"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. berylowej",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Grotowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Berylowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Berylowej%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7481,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-15",
+          "round": 1,
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 7481,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-10_193",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-10_193"
+        },
+        {
+          "date": "2025-01-14",
+          "round": 2,
+          "starting_price_pln": 450000,
+          "outcome": "archived",
+          "area_m2": 7481,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-1_208",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-1_208"
+        },
+        {
+          "date": "2026-02-04",
+          "round": 1,
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 7481,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-2_391",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-2_391"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kolonia gosławicka|203",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "203",
+      "obreb": "Kolonia Gosławicka",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Alei Wincentego Witosa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20203%20ul.%20Alei%20Wincentego%20Witosa%20Kolonia%20Gos%C5%82awicka%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 90,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-20",
+          "round": 1,
+          "starting_price_pln": 25966,
+          "outcome": "archived",
+          "area_m2": 90,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-1_395",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-1_395"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "203",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20203%20Kolonia%20Gos%C5%82awicka%20Opole%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. partyzanckiej",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Półwieś",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Partyzanckiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Partyzanckiej%20P%C3%B3%C5%82wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 455,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-13",
+          "round": 1,
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 455,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-1_383",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-1_383"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|półwieś|2271",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "2271",
+      "obreb": "Półwieś",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "166101_1.0061.2271",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2271",
+      "area_m2": 557,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-15",
+          "round": 1,
+          "starting_price_pln": 225000,
+          "outcome": "archived",
+          "area_m2": 557,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-12_376",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-12_376"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2271",
+          "dzialka_id": "166101_1.0061.2271",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2271"
+        }
+      ]
+    },
+    {
+      "key": "dz|półwieś|2933, 2224",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "2933, 2224",
+      "obreb": "Półwieś",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "166101_1.0061.2933",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2933",
+      "area_m2": 639,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-15",
+          "round": 1,
+          "starting_price_pln": 260000,
+          "outcome": "archived",
+          "area_m2": 639,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-12_377",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-12_377"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2933",
+          "dzialka_id": "166101_1.0061.2933",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2933"
+        },
+        {
+          "nr": "2224",
+          "dzialka_id": "166101_1.0061.2224",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2224"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. odrzańskiej",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Grotowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Odrzańskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Odrza%C5%84skiej%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 13054,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-27",
+          "round": 1,
+          "starting_price_pln": 1210000,
+          "outcome": "archived",
+          "area_m2": 13054,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-2_126",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-2_126"
+        },
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 524900,
+          "outcome": "archived",
+          "area_m2": 5243,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_315",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-9_315"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. oświęcimskiej",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Grotowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Oświęcimskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20O%C5%9Bwi%C4%99cimskiej%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1500,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-02",
+          "round": 1,
+          "starting_price_pln": 470000,
+          "outcome": "archived",
+          "area_m2": 1500,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_263",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-6_263"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. krapkowickiej",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Szczepanowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krapkowickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Krapkowickiej%20Szczepanowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2982,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-02",
+          "round": 1,
+          "starting_price_pln": 2020000,
+          "outcome": "archived",
+          "area_m2": 2982,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_262",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-6_262"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|grotowice|1/23",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "1/23",
+      "obreb": "Grotowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kobaltowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F23%20ul.%20Kobaltowej%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3246,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-04-28",
+          "round": 1,
+          "starting_price_pln": 320000,
+          "outcome": "archived",
+          "area_m2": 3246,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-4_257",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-4_257"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1/23",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F23%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|wrzoski|718, 715, 714, 713, 712, 711, 710",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "718, 715, 714, 713, 712, 711, 710",
+      "obreb": "Wrzoski",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wrocławskiej-Brzeskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2C%20715%2C%20714%2C%20713%2C%20712%2C%20711%2C%20710%20ul.%20Wroc%C5%82awskiej-Brzeskiej%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 88193,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-20",
+          "round": 1,
+          "starting_price_pln": 12630200,
+          "outcome": "archived",
+          "area_m2": 88193,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-2_225",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2025-2_225"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "715",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20715%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "714",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20714%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "713",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20713%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "712",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20712%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "711",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20711%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "710",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20710%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|szczepanowice|17/1",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "17/1",
+      "obreb": "Szczepanowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Prószkowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20ul.%20Pr%C3%B3szkowskiej%20Szczepanowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1813,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-11",
+          "round": 1,
+          "starting_price_pln": 750000,
+          "outcome": "archived",
+          "area_m2": 1813,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-9_189",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-9_189"
+        },
+        {
+          "date": "2024-11-22",
+          "round": 2,
+          "starting_price_pln": 675000,
+          "outcome": "archived",
+          "area_m2": 1813,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-11_200",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-11_200"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "17/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20Szczepanowice%20Opole%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|grotowice|287/5",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "287/5",
+      "obreb": "Grotowice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "166101_1.0057.287/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0057.287%2F5",
+      "area_m2": 5243,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-10",
+          "round": 1,
+          "starting_price_pln": 550000,
+          "outcome": "archived",
+          "area_m2": 5243,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-9_187",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-9_187"
+        },
+        {
+          "date": "2024-11-20",
+          "round": 2,
+          "starting_price_pln": 495000,
+          "outcome": "archived",
+          "area_m2": 5243,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-11_199",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-11_199"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "287/5",
+          "dzialka_id": "166101_1.0057.287/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0057.287%2F5"
+        }
+      ]
+    },
+    {
+      "key": "dz|wójtowa wieś|1419, 1420, 1422, 1423",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "1419, 1420, 1422, 1423",
+      "obreb": "Wójtowa Wieś",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wincentego Hlouszka - Prószkowskiej",
+      "dzialka_id": "166101_1.0139.1419",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1419",
+      "area_m2": 3770,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-13",
+          "round": 1,
+          "starting_price_pln": 1200000,
+          "outcome": "archived",
+          "area_m2": 3770,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-11_197",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-11_197"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1419",
+          "dzialka_id": "166101_1.0139.1419",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1419"
+        },
+        {
+          "nr": "1420",
+          "dzialka_id": "166101_1.0139.1420",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1420"
+        },
+        {
+          "nr": "1422",
+          "dzialka_id": "166101_1.0139.1422",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1422"
+        },
+        {
+          "nr": "1423",
+          "dzialka_id": "166101_1.0139.1423",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1423"
+        }
+      ]
+    },
+    {
+      "key": "dz|groszowice|2323",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "2323",
+      "obreb": "Groszowice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "166101_1.0058.2323",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.2323",
+      "area_m2": 5025,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-08",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 5025,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-10_198",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-10_198"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2323",
+          "dzialka_id": "166101_1.0058.2323",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.2323"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. budowlanych",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": null,
+      "obreb": "Zakrzów",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Budowlanych",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Budowlanych%20Zakrz%C3%B3w%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 234,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-20",
+          "round": 1,
+          "starting_price_pln": 77000,
+          "outcome": "archived",
+          "area_m2": 234,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-8_190",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-8_190"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|wójtowa wieś|55/3, 55/4, 55/6, 55/7",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "55/3, 55/4, 55/6, 55/7",
+      "obreb": "Wójtowa Wieś",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wincentego Hlouszka - Prószkowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F3%2C%2055%2F4%2C%2055%2F6%2C%2055%2F7%20ul.%20Wincentego%20Hlouszka%20-%20Pr%C3%B3szkowskiej%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3770,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-05",
+          "round": 1,
+          "starting_price_pln": 1400000,
+          "outcome": "archived",
+          "area_m2": 3770,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-3_127",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2024-3_127"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "55/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F3%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "55/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F4%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "55/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F6%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "55/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F7%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}
