@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "city": "trzebinia",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Świętego Stanisława 13/2",
+      "address": {
+        "street": "Świętego Stanisława",
+        "street_norm": "swietego stanislawa",
+        "building": "13",
+        "apt": "2",
+        "key": "swietego stanislawa|13|2",
+        "warning": null
+      },
+      "area_m2": 32.07,
+      "starting_price_pln": 162090,
+      "auction_date": "2026-07-09",
+      "round": 3,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12226-przetarg-lokal-2-do-15-07-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Świętego Stanisława 15/25",
+      "address": {
+        "street": "Świętego Stanisława",
+        "street_norm": "swietego stanislawa",
+        "building": "15",
+        "apt": "25",
+        "key": "swietego stanislawa|15|25",
+        "warning": null
+      },
+      "area_m2": 32.8,
+      "starting_price_pln": 171000,
+      "auction_date": "2026-07-09",
+      "round": 3,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12225-przetarg-lokal-25-do-15-07-2026"
+    }
+  ],
+  "wykaz": []
+}

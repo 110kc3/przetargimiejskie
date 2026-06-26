@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "city": "trzebinia",
+  "properties": [
+    {
+      "key": "swietego stanislawa|13|2",
+      "street": "Świętego Stanisława",
+      "street_norm": "swietego stanislawa",
+      "building": "13",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 162090,
+          "outcome": "active",
+          "area_m2": 32.07,
+          "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12226-przetarg-lokal-2-do-15-07-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.07
+    },
+    {
+      "key": "swietego stanislawa|15|25",
+      "street": "Świętego Stanisława",
+      "street_norm": "swietego stanislawa",
+      "building": "15",
+      "apt": "25",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 171000,
+          "outcome": "active",
+          "area_m2": 32.8,
+          "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12225-przetarg-lokal-25-do-15-07-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.8
+    }
+  ]
+}
