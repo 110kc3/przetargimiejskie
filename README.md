@@ -1,8 +1,8 @@
 # przetargimiejskie
 
-A pipeline that scrapes municipal property auctions from several Silesian cities, parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
+A pipeline that scrapes municipal property auctions from Polish cities (the Silesian / Górnośląsko-Zagłębiowska cluster, now expanding into the neighbouring Małopolskie and Opolskie voivodeships), parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
 
-**Cities covered:** Gliwice (ZGM — full sold-price history via OCR'd result PDFs), Katowice (BIP + SharePoint — yearly result summaries + announcements), Bytom (`www.bytom.pl/bip` sales list + i-BIIP catalog + `.doc` announcements), Zabrze (`bip.miastozabrze.pl` document board + attachment PDFs), Sosnowiec (`bip.um.sosnowiec.pl` JSON API — open flat auctions, filtered out of the city's land/commercial + tenant bezprzetargowe sales), Rybnik (ZGM `bip.zgm.rybnik.pl` — flat auctions as RTF announcements, decoded by a pure-JS RTF reader). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
+**Cities covered:** Gliwice (ZGM — full sold-price history via OCR'd result PDFs), Katowice (BIP + SharePoint — yearly result summaries + announcements), Bytom (`www.bytom.pl/bip` sales list + i-BIIP catalog + `.doc` announcements), Zabrze (`bip.miastozabrze.pl` document board + attachment PDFs), Sosnowiec (`bip.um.sosnowiec.pl` JSON API — open flat auctions, filtered out of the city's land/commercial + tenant bezprzetargowe sales), Rybnik (ZGM `bip.zgm.rybnik.pl` — flat auctions as RTF announcements, decoded by a pure-JS RTF reader) — plus Bielsko-Biała, Mysłowice, Świętochłowice and Tarnowskie Góry. **Plus the first seven non-Śląskie cities** (neighbouring-voivodeship expansion — adapters built + parser-tested + registered, crawlers validated on first live refresh): Kędzierzyn-Koźle & Opole (Opolskie), and Kraków, Trzebinia, Chrzanów, Olkusz & Oświęcim (Małopolskie). See the *Neighbouring-voivodeship expansion* section in [TODO.md](./TODO.md) and the source profiles in [SPIKE-NEIGHBORS.md](./SPIKE-NEIGHBORS.md). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
 
 The architecture is deliberately simple: **local pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No server, no paid service, no hosted database. See [PLAN.md](./PLAN.md) for the why.
 
@@ -64,6 +64,41 @@ npm test
 Output ends up in `../data/*.json`. The OCR cache lives in `pipeline/ocr-cache/` — commit it.
 
 The pipeline is incremental: deleting `pipeline/ocr-cache/` forces re-OCR; deleting `data/*.json` rebuilds from cached OCR text in seconds.
+
+## Testing
+
+All automated tests live in [`pipeline/tests/`](./pipeline/tests) and run on Node's built-in test runner (`node --test`, no extra deps). They are **offline and fast** — every parser test runs against committed fixtures (condensed-but-faithful copies of real extracted source text), so you do **not** need network or the OCR/PDF tools to run them.
+
+```bash
+cd pipeline
+npm install            # one-time (installs the dev test deps; playwright is optional)
+
+# Full suite — only FAILURES print (dot reporter). A clean run shows just dots + a summary.
+npm test
+
+# One file — the inner-loop while building/altering a single city's parser:
+node --test tests/parse-kedzierzyn-kozle.test.js
+
+# If a runner is ever chatty, filter to failures only (project convention):
+node --test tests/parse-kedzierzyn-kozle.test.js 2>&1 | grep -iE "fail|not ok|error|✖" || echo "pass"
+```
+
+**What's covered.** One `tests/parse-<city>.test.js` per city (each asserts the city's parser against real announcement/result fixtures — address keys, prices, round, area, sold/unsold outcome, dates), plus the cross-cutting engines: `normalize.test.js` + `normalize-parity.test.js` (the pipeline↔extension address-key must stay byte-identical), `classify-kind.test.js`, `build-properties.test.js`, `merge-history.test.js`, `build-land.test.js` / `land-robustness.test.js`, `dealscore.test.js`, and `extension-version.test.js` (the `manifest.json` ↔ `popup.html` ↔ `CHANGELOG.md` version lockstep). **Adding a city = adding its `parse-<city>.test.js` with real fixtures**; CI runs the whole suite before every refresh.
+
+**Testing one city end-to-end (live, network-gated).** Unit tests cover the *parsers*; the *crawlers* fetch live municipal sites, so they're validated by an actual refresh. Run a single city without touching the others:
+
+```bash
+# Needs the extraction tools: poppler-utils tesseract-ocr tesseract-ocr-pol (+ catdoc for Bytom).
+CITY=kedzierzyn-kozle npm run refresh      # writes data/kedzierzyn-kozle/*.json, skips index.json
+npm run build-index                        # rebuild data/index.json after a filtered run
+node src/cities/kedzierzyn-kozle/crawl.js  # smoke-run just the crawler → prints counts + a sample record
+```
+
+A brand-new city adapter's crawler is therefore **first validated on its first CI refresh** (or a local `CITY=<id> npm run refresh`) — review that run's committed `data/<city>/` delta before relying on it. Per-city isolation in `refresh.js` means a new city that errors or returns empty can't break the others.
+
+**Source-health check.** `npm run health` (script: [`pipeline/scripts/health-check.js`](./pipeline/scripts/health-check.js)) fails if any registered city's data is empty or stale — the same gate [`.github/workflows/health.yml`](./.github/workflows/health.yml) runs daily.
+
+**Extension.** No automated DOM tests; load it unpacked (see [Chrome extension](#chrome-extension) below) and verify against a covered site. The only enforced invariant is the version lockstep test above.
 
 ## Running on GitHub Actions
 

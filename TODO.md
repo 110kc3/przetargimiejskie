@@ -35,6 +35,81 @@
 >   (~1,200 -> 15 modified files); popup `mapsCell` now uses the structured
 >   `street`+`building` like the archive. Ext **v1.31.0 -> v1.31.1** (+ CHANGELOG).
 
+## Neighbouring-voivodeship expansion (IN PROGRESS — 26 June 2026)
+
+First push **outside Śląskie**, into the two adjacent voivodeships that hug the
+existing cluster. Seven candidate gminas were live-spiked in parallel (full
+per-city source profiles in [SPIKE-NEIGHBORS.md](./SPIKE-NEIGHBORS.md)): **5 BUILD,
+2 NEEDS-LIVE-VERIFY, zero dead ends — and all 7 adapters are now built, parser-
+tested and registered** (16 → 17 cities in `cities/index.js`; full suite 352/352).
+
+**Build status — all 7 BUILT + parser-tested + registered (26 June 2026)**
+
+| City | Voivodeship | Source profile (closest analog) | Parser test | Streams |
+|---|---|---|---|---|
+| Kędzierzyn-Koźle | Opolskie | Logonet eUrząd, text PDFs (Tarnowskie Góry) | ✅ green | announcements + **results** |
+| Trzebinia | Małopolskie | Joomla HTML + price table (Bytom) | ✅ green | announcements + **results** |
+| Kraków | Małopolskie | bespoke BIP, multi-property HTML (Tarn. Góry) | ✅ green | announcements + **results** |
+| Olkusz | Małopolskie | WordPress HTML (FINN family) | ✅ green | announcements (offer-side) |
+| Opole | Opolskie | SISCO, SSR articles | ✅ green | announcements only |
+| Oświęcim | Małopolskie | REKORD list + PDF→OCR, multi-property | ✅ green | announcements (results scanned) |
+| Chrzanów | Małopolskie | city-portal index + SPA BIP (render.js), land table | ✅ green | announcements (results pending) |
+
+Each parser is groundtruthed against real fetched documents and unit-tested. The
+**crawlers** (live BIP fetch) are validated on the first real refresh — see the
+per-`config.js` "confirm on first CI refresh" notes (the SPA/OCR/SISCO-list/PDF
+body paths especially).
+
+### Pending — from YOU (Kamil): manual / account / review
+
+Cannot be automated from inside a session:
+
+1. **Run the first live refresh & review the data.** Parsers are unit-tested
+   offline, but each *crawler* is only validated against the live BIP on a real
+   run. Either push (CI `refresh.yml` runs it automatically) or run locally —
+   `cd pipeline && CITY=kedzierzyn-kozle npm run refresh && npm run build-index`
+   (needs `poppler-utils tesseract-ocr tesseract-ocr-pol`) — then **review the
+   committed `data/kedzierzyn-kozle/` delta** before trusting it. Repeat per city
+   as each lands.
+2. **Decide on on-page overlays for the new cities.** Today they work **data-only**
+   (popup + archive + website, fed from `data/<city>/*.json`) with **no extension
+   change and no Web Store resubmit** — same posture as Zabrze/Sosnowiec. Adding
+   the in-page badge overlay for a new host needs a `extension/sites/<city>.js` DOM
+   adapter **+** new `host_permissions` in `manifest.json` **+ a Chrome Web Store
+   resubmit** (account action, new-host-permissions review). Tell me if you want
+   overlays; otherwise they stay data-only.
+3. **Rebrand "Silesian" copy + `schema_version: 2` call.** README/PRIVACY/store
+   copy still say "Silesian"; the data is now multi-voivodeship. Decide when to
+   update the copy and whether to bundle the city-namespaced-key schema bump
+   (P2-E) — both are user-facing calls.
+
+### Pending — from ME (code, automatable next session)
+
+1. ✅ **DONE — all 7 adapters built, parser-tested, registered.** Each has a
+   groundtruthed `pipeline/tests/parse-<city>.test.js` and a `cities/index.js`
+   entry; full suite 352/352.
+2. **Crawler hardening after the first live refresh** (the body-fetch paths that
+   can't be verified offline — flagged per-`config.js`): **Chrzanów** SPA body via
+   `render.js` vs. BIP article JSON vs. text-PDF; **Oświęcim** scanned-PDF OCR
+   output quality (REKORD `api/download/file`); **Opole** SISCO SPA list →
+   `?news_id` harvest (AJAX endpoint / id-probing); the Małopolskie WordPress/Joomla
+   index harvests + pagination depth. Tune against the first run's logs/deltas.
+3. **Result (achieved-price) streams still to add:** **Chrzanów** "Wyniki
+   przetargów" board; **Oświęcim** result notices (scanned → OCR); confirm whether
+   **Opole** posts any result notice at all. (Kędzierzyn-Koźle, Trzebinia, Kraków
+   already parse results.)
+4. **Kędzierzyn-Koźle refinements** (low risk, after first run): flat-*announcement*
+   table parsing (upcoming flat auctions as active listings) + genitive↔nominative
+   announcement↔result join key; confirm the Logonet `/api/menu/<id>/articles` JSON
+   and board-85 master-table auto-discovery reaches every year.
+5. **README "Cities covered" / attribution** refresh (done for the 7) and (optional)
+   the **per-city CI matrix** in `refresh.yml` (EXPANSION §1.6) so one new city's
+   break is isolated.
+
+> This expansion is **pipeline-only** → **no extension version bump** (per
+> CLAUDE.md): the new cities surface through the existing `data/<city>/*.json`
+> path that the popup, archive and website already read.
+
 ## Highest leverage
 
 ### Publish to the Chrome Web Store — SUBMIT (account action)
@@ -201,7 +276,11 @@ volume, not mechanics. Full status + drop rationale in
 - **Dropped (no open flat-auction stream):** Chorzów, Tychy, Dąbrowa Górnicza,
   Częstochowa, Siemianowice, Piekary, Wodzisław — flats go bezprzetargowo to
   tenants; auctions there are land/commercial.
-- **Out of region / demand-gated:** Kraków, Warszawa (~18 district BIPs).
+- **Now the active expansion (no longer "out of region"):** the Małopolskie +
+  Opolskie neighbours — Kędzierzyn-Koźle (built), Kraków, Trzebinia, Chrzanów,
+  Olkusz, Oświęcim, Opole. See the *Neighbouring-voivodeship expansion* section at
+  the top of this file and [SPIKE-NEIGHBORS.md](./SPIKE-NEIGHBORS.md).
+- **Out of region / demand-gated:** Warszawa (~18 district BIPs).
 - **Heuristic for any future spike:** a dedicated municipal housing manager
   (ZGM/ZBM/MZBM/ZGL) publishing "przetarg ustny … na sprzedaż lokali
   mieszkalnych" = build candidate; generic city-BIP property sections skew to

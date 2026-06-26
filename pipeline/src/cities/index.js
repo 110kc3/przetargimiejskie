@@ -12,8 +12,34 @@ import bielsko from './bielsko/index.js';
 import myslowice from './myslowice/index.js';
 import swietochlowice from './swietochlowice/index.js';
 import tarnowskieGory from './tarnowskie-gory/index.js';
+// Neighbouring-voivodeship expansion (first non-Śląskie cities) — see SPIKE-NEIGHBORS.md.
+import kedzierzynKozle from './kedzierzyn-kozle/index.js';
+import trzebinia from './trzebinia/index.js';
+import krakow from './krakow/index.js';
+import olkusz from './olkusz/index.js';
+import opole from './opole/index.js';
+import oswiecim from './oswiecim/index.js';
+import chrzanow from './chrzanow/index.js';
 
-export const cities = [gliwice, katowice, bytom, zabrze, sosnowiec, rybnik, bielsko, myslowice, swietochlowice, tarnowskieGory];
+export const cities = [
+  gliwice,
+  katowice,
+  bytom,
+  zabrze,
+  sosnowiec,
+  rybnik,
+  bielsko,
+  myslowice,
+  swietochlowice,
+  tarnowskieGory,
+  kedzierzynKozle,
+  trzebinia,
+  krakow,
+  olkusz,
+  opole,
+  oswiecim,
+  chrzanow,
+];
 
 /** @param {string} id @returns {object|null} */
 export function getCity(id) {
