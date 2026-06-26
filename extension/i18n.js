@@ -149,6 +149,20 @@
       'city.bielsko': 'Bielsko-Biała',
       'city.myslowice': 'Mysłowice',
       'city.swietochlowice': 'Świętochłowice',
+      'city.tarnowskie-gory': 'Tarnowskie Góry',
+      'city.kedzierzyn-kozle': 'Kędzierzyn-Koźle',
+      'city.trzebinia': 'Trzebinia',
+      'city.krakow': 'Kraków',
+      'city.olkusz': 'Olkusz',
+      'city.opole': 'Opole',
+      'city.oswiecim': 'Oświęcim',
+      'city.chrzanow': 'Chrzanów',
+      // voivodeship (województwo) labels + filter
+      'woj.slaskie': 'Silesian (Śląskie)',
+      'woj.malopolskie': 'Lesser Poland (Małopolskie)',
+      'woj.opolskie': 'Opole (Opolskie)',
+      'popup.filter.woj': 'Voivodeship',
+      'archive.filter.woj': 'Voivodeship',
 
       // detail-page panel
       'panel.title': 'Auction history — ${addr}',
@@ -297,6 +311,20 @@
       'city.bielsko': 'Bielsko-Biała',
       'city.myslowice': 'Mysłowice',
       'city.swietochlowice': 'Świętochłowice',
+      'city.tarnowskie-gory': 'Tarnowskie Góry',
+      'city.kedzierzyn-kozle': 'Kędzierzyn-Koźle',
+      'city.trzebinia': 'Trzebinia',
+      'city.krakow': 'Kraków',
+      'city.olkusz': 'Olkusz',
+      'city.opole': 'Opole',
+      'city.oswiecim': 'Oświęcim',
+      'city.chrzanow': 'Chrzanów',
+      // voivodeship (województwo) labels + filter
+      'woj.slaskie': 'Śląskie',
+      'woj.malopolskie': 'Małopolskie',
+      'woj.opolskie': 'Opolskie',
+      'popup.filter.woj': 'Województwo',
+      'archive.filter.woj': 'Województwo',
 
       // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',
@@ -380,5 +408,19 @@
     });
   } catch {}
 
-  window.ZGM_I18N = { t, getLang, setLang, onChange, ready };
+  // City → voivodeship (województwo). Mirrors pipeline/src/cities/<city>/config.js
+  // `voivodeship` (also emitted into data/index.json). Keep in sync when adding a
+  // city: the site reads it from index.json; the extension uses this static copy
+  // (popup + archive don't fetch index.json).
+  const WOJ = {
+    gliwice: 'slaskie', katowice: 'slaskie', bytom: 'slaskie', zabrze: 'slaskie',
+    sosnowiec: 'slaskie', rybnik: 'slaskie', bielsko: 'slaskie', myslowice: 'slaskie',
+    swietochlowice: 'slaskie', 'tarnowskie-gory': 'slaskie',
+    'kedzierzyn-kozle': 'opolskie', opole: 'opolskie',
+    krakow: 'malopolskie', trzebinia: 'malopolskie', chrzanow: 'malopolskie',
+    olkusz: 'malopolskie', oswiecim: 'malopolskie',
+  };
+  function wojOf(city) { return city ? (WOJ[city] || null) : null; }
+
+  window.ZGM_I18N = { t, getLang, setLang, onChange, ready, WOJ, wojOf };
 })();

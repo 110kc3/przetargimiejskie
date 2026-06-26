@@ -31,6 +31,7 @@ export async function buildIndexFromDisk() {
     entries.push({
       id: c.id,
       label: c.label,
+      voivodeship: c.voivodeship,
       authority: c.authority,
       host: c.host,
       unique_properties: m?.unique_properties ?? 0,

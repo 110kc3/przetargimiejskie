@@ -104,6 +104,8 @@ body.hide-map .map-col{display:none}
   <div class="summary-grid" id="tiles"></div>
 
   <div class="filters">
+    <label class="field" id="f-woj-field" hidden><span class="field-label">Województwo</span>
+      <select class="control" id="f-woj"><option value="all">Wszystkie</option></select></label>
     <label class="field"><span class="field-label">Miasto</span>
       <select class="control" id="f-city"><option value="all">Wszystkie</option></select></label>
     <label class="field"><span class="field-label">Rodzaj</span>
@@ -209,7 +211,7 @@ const mapsLink = r => {
   return `<a class="src-link" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Mapa ↗</a>`;
 };
 
-let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh;
+let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh, WOJ_BY_CITY={};
 let sortKey='date', sortDir='desc';
 // The "Aktualne aukcje" table has its own sort state so it can be ordered by
 // Cena / Powierzchnia / zł/m² independently of the history table below.
@@ -228,6 +230,15 @@ async function load(){
   lastRefresh = (idx.generated_at||'').slice(0,10);
   const fc=document.getElementById('f-city');
   CITIES.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.label;fc.appendChild(o);});
+  // Voivodeship (województwo) filter, driven by index.json's per-city voivodeship.
+  WOJ_BY_CITY = Object.fromEntries(CITIES.map(c=>[c.id, c.voivodeship||null]));
+  const WOJ_LABELS = {slaskie:'Śląskie', malopolskie:'Małopolskie', opolskie:'Opolskie'};
+  const wojs=[...new Set(CITIES.map(c=>c.voivodeship).filter(Boolean))].sort((a,b)=>(WOJ_LABELS[a]||a).localeCompare(WOJ_LABELS[b]||b,'pl'));
+  const fw=document.getElementById('f-woj');
+  wojs.forEach(w=>{const o=document.createElement('option');o.value=w;o.textContent=WOJ_LABELS[w]||w;fw.appendChild(o);});
+  if(wojs.length>1) document.getElementById('f-woj-field').hidden=false;
+  // Picking a voivodeship narrows the city dropdown to that voivodeship.
+  fw.addEventListener('change',()=>{ const w=fw.value; for(const o of fc.options){ if(o.value==='all') continue; o.hidden = w!=='all' && WOJ_BY_CITY[o.value]!==w; } if(fc.selectedOptions[0]&&fc.selectedOptions[0].hidden) fc.value='all'; });
 
   await Promise.all(CITIES.map(async c=>{
     try{
@@ -278,7 +289,7 @@ async function load(){
   document.getElementById('sub').textContent =
     `Dane od ${minDate||'—'} do ${maxDate||'—'} · ${records.length} rekordów · odświeżono ${lastRefresh||'—'}`;
 
-  ['f-city','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  ['f-woj','f-city','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
   document.querySelectorAll('th[data-sort]').forEach(th=>{
     th.dataset.label = th.textContent.trim();
     th.addEventListener('click',()=>{
@@ -334,7 +345,8 @@ function activeCmp(a,b){ const av=activeVal(a), bv=activeVal(b);
   return aSortDir==='asc'?c:-c; }
 
 function render(){
-  const city=document.getElementById('f-city').value,
+  const woj=document.getElementById('f-woj').value,
+        city=document.getElementById('f-city').value,
         cls=document.getElementById('f-class').value,
         outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
         q=fold(document.getElementById('f-q').value.trim());
@@ -343,7 +355,7 @@ function render(){
   document.body.classList.toggle('hide-dz', cls!=='grunt'&&cls!=='zabudowana');
   // The Mapa (Google Maps) column is for non-land listings only.
   document.body.classList.toggle('hide-map', cls==='grunt');
-  const cityYear = r => (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
+  const cityYear = r => (woj==='all'||WOJ_BY_CITY[r.city]===woj) && (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
   renderSummary(records.filter(cityYear));
 
   const match = r => cityYear(r) && (cls==='all'||r.kind===cls) && (outcome==='all'||r.outcome===outcome)
@@ -366,7 +378,7 @@ function render(){
     <td>${srcLink(r.src)}${bipLink(r.bip)}${r.kind==='grunt'&&r.portal&&r.portal!==r.src?portalLink(r.portal):''}</td>
   </tr>`).join('') || '<tr class="empty-row"><td colspan="12">Brak rekordów dla wybranych filtrów.</td></tr>';
 
-  const acts = active.filter(a=>(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
+  const acts = active.filter(a=>(woj==='all'||WOJ_BY_CITY[a.city]===woj)&&(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
   // Header-driven sort (Data default = soonest first). Undated / unpriced rows
   // always sink to the bottom so the "—" cells never displace rows with a value.
   acts.sort(activeCmp);

@@ -23,9 +23,24 @@ export function isSaleAnnouncement(text) {
 }
 
 // Flat usable area: "o łącznej pow. 68,38m2" / "o pow. 68,38 m2" (m², not ha).
+// Flat usable area: "o łącznej pow. 95,38m2" / "o powierzchni użytkowej 47,00 m2".
+// Takes the LARGEST plausible (>=8 m2) "pow … N m2" that is NOT a land-share /
+// grunt / common area — a flat is always bigger than its cellar/komórka, so the
+// ancillary (which caused cellar-area + insane-m2 errors) can never win. Land
+// share is in ha (skipped); if no plausible flat area is found, returns null
+// (a missing area is a WARN, never the cellar).
 export function flatAreaFromText(text) {
-  const m = /(?:o\s+)?(?:[łl][ąa]cznej\s+)?pow(?:ierzchni)?\w*\.?\s+(\d+[.,]\d+|\d+)\s*m\s*[²2](?!\w)/i.exec(text || '');
-  if (!m) return null; const n = Number(m[1].replace(',', '.')); return Number.isFinite(n) && n > 0 && n < 1e5 ? n : null;
+  const t = text || '';
+  const re = /pow(?:ierzchni)?\w*\.?\s+(?:[a-ząćęłńóśźż]+\s+){0,2}(\d+(?:[.,]\d+)?)\s*m\s*[²2](?!\w)/gi;
+  const cands = [];
+  let m;
+  while ((m = re.exec(t)) !== null) {
+    const before = t.slice(Math.max(0, m.index - 55), m.index);
+    if (/udzia[łl]|gruntu?\b|dz\.\s*nr|dzia[łl]k|wsp[óo]ln|piwnic|kom[óo]rk|przynale[żz]|gospodarcz|strych|gara[żz]/i.test(before)) continue;
+    const n = Number(m[1].replace(',', '.'));
+    if (Number.isFinite(n) && n >= 8 && n < 1e5) cands.push(n);
+  }
+  return cands.length ? Math.max(...cands) : null;
 }
 // Plot parcel + obręb + ha area (land).
 export function parcelFromText(text) { const m = /dz(?:ia[łl]k\w*)?\.?\s+nr\s+(\d+(?:\/\d+)?(?:\s*(?:,|i)\s*\d+(?:\/\d+)?)*)/i.exec(text || ''); if (!m) return null; const nums = m[1].split(/\s*(?:,|i)\s*/).map((x) => x.trim()).filter((x) => /^\d+(?:\/\d+)?$/.test(x)); return nums.length ? nums.join(', ') : null; }

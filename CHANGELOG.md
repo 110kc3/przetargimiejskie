@@ -4,6 +4,23 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.32.0 — 2026-06-26
+
+New feature: a **województwo (voivodeship) filter** in the popup and the archive,
+now that the data spans three voivodeships (the neighbouring-voivodeship expansion
+added Małopolskie + Opolskie cities alongside the original Śląskie ones).
+
+- **Voivodeship filter.** The popup's active-list filter bar and the archive's
+  filter row gain a *Województwo* dropdown (Śląskie / Małopolskie / Opolskie). It
+  narrows the city dropdown to the chosen voivodeship and filters the rows, so the
+  city list stays manageable. The popup shows the control only when more than one
+  voivodeship is live. City→voivodeship lives in `i18n.js` (mirrors each
+  `pipeline/src/cities/<city>/config.js` `voivodeship`, also emitted into
+  `data/index.json`).
+- **City labels** for the first non-Śląskie cities (Kraków, Trzebinia, Chrzanów,
+  Olkusz, Oświęcim, Kędzierzyn-Koźle, Opole) and Tarnowskie Góry; the archive's
+  city dropdown now lists all of them (it was stale at the original nine).
+
 ## v1.31.1 — 2026-06-25
 
 Hardening. No new features or permissions.

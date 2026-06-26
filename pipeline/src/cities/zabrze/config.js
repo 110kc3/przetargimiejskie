@@ -27,6 +27,7 @@ export const config = {
   id: 'zabrze',
   teryt: '247801_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
   label: 'Zabrze',
+  voivodeship: "slaskie",
   authority: 'Urząd Miejski w Zabrzu',
   host: 'bip.miastozabrze.pl',
   source: 'html',

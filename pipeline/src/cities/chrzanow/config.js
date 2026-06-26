@@ -26,6 +26,7 @@ export const config = {
   id: 'chrzanow',
   teryt: '120301_4', // gmina miejsko-wiejska Chrzanów (powiat chrzanowski) — confirm on first geoportal run
   label: 'Chrzanów',
+  voivodeship: "malopolskie",
   authority: 'Urząd Miejski w Chrzanowie',
   host: 'chrzanow.pl',
   source: 'html',

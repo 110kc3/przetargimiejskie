@@ -12,13 +12,16 @@ const $activeHeading = document.getElementById('active-heading');
 const $watchingSection = document.getElementById('watching-section');
 const $watchingTbody = $watchingSection.querySelector('tbody');
 const $filterBar = document.getElementById('filter-bar');
+const $filterWoj = document.getElementById('filter-woj');
 const $filterCity = document.getElementById('filter-city');
 const $filterKind = document.getElementById('filter-kind');
 const $filterCount = document.getElementById('filter-count');
 
-// Active-list filters (city + kind), in-memory for the popup session.
+// Active-list filters (voivodeship + city + kind), in-memory for the popup session.
+let filterWoj = 'all';
 let filterCity = 'all';
 let filterKind = 'all';
+let _wojOptsSig = '';
 let _cityOptsSig = '';
 let _kindOptsSig = '';
 const KIND_ORDER = ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', 'grunt', 'unknown'];
@@ -219,6 +222,11 @@ function cityLabel(c) {
   const l = t('city.' + c);
   return l === 'city.' + c ? c.charAt(0).toUpperCase() + c.slice(1) : l;
 }
+const wojOf = (c) => window.ZGM_I18N.wojOf(c);
+function wojLabel(w) {
+  const l = t('woj.' + w);
+  return l === 'woj.' + w ? w.charAt(0).toUpperCase() + w.slice(1) : l;
+}
 function fillFilterSelect($sel, values, labelFn) {
   const allLabel = t('popup.filter.all');
   $sel.innerHTML =
@@ -230,18 +238,31 @@ function fillFilterSelect($sel, values, labelFn) {
 // selection valid. Hides the bar when there's nothing to show.
 function populateFilters(live) {
   const lang = window.ZGM_I18N.getLang();
-  const cities = [...new Set(live.map(cityOf).filter(Boolean))].sort((x, y) =>
+  // Voivodeship dropdown — from the voivodeships actually present in the live set.
+  const wojs = [...new Set(live.map((a) => wojOf(cityOf(a))).filter(Boolean))].sort((x, y) =>
+    wojLabel(x).localeCompare(wojLabel(y), 'pl'),
+  );
+  const wsig = lang + '|' + wojs.join('|');
+  if (wsig !== _wojOptsSig) { fillFilterSelect($filterWoj, wojs, wojLabel); _wojOptsSig = wsig; }
+  if (![...$filterWoj.options].some((o) => o.value === filterWoj)) filterWoj = 'all';
+  // City dropdown — narrowed to the selected voivodeship (so it's not a huge flat list).
+  const cityPool = live.filter((a) => filterWoj === 'all' || wojOf(cityOf(a)) === filterWoj);
+  const cities = [...new Set(cityPool.map(cityOf).filter(Boolean))].sort((x, y) =>
     cityLabel(x).localeCompare(cityLabel(y), 'pl'),
   );
   const kinds = KIND_ORDER.filter((k) => live.some((a) => (a.kind || 'unknown') === k));
-  const csig = lang + '|' + cities.join('|');
+  const csig = lang + '|' + filterWoj + '|' + cities.join('|');
   const ksig = lang + '|' + kinds.join('|');
   if (csig !== _cityOptsSig) { fillFilterSelect($filterCity, cities, cityLabel); _cityOptsSig = csig; }
   if (ksig !== _kindOptsSig) { fillFilterSelect($filterKind, kinds, (k) => t('kind.' + k, { default: k })); _kindOptsSig = ksig; }
   if (![...$filterCity.options].some((o) => o.value === filterCity)) filterCity = 'all';
   if (![...$filterKind.options].some((o) => o.value === filterKind)) filterKind = 'all';
+  $filterWoj.value = filterWoj;
   $filterCity.value = filterCity;
   $filterKind.value = filterKind;
+  // Hide the voivodeship control unless >1 voivodeship is live (else it's noise).
+  const wojWrap = $filterWoj.closest('label') || $filterWoj.parentElement;
+  if (wojWrap) wojWrap.hidden = wojs.length < 2;
   $filterBar.hidden = live.length === 0;
 }
 
@@ -265,6 +286,7 @@ function renderActive() {
   populateFilters(liveActive);
   const shown = liveActive.filter(
     (a) =>
+      (filterWoj === 'all' || wojOf(cityOf(a)) === filterWoj) &&
       (filterCity === 'all' || cityOf(a) === filterCity) &&
       (filterKind === 'all' || (a.kind || 'unknown') === filterKind),
   );
@@ -483,6 +505,7 @@ function syncThemeButton() {
     render();
   });
   $refresh.addEventListener('click', () => load(true));
+  $filterWoj.addEventListener('change', () => { filterWoj = $filterWoj.value; filterCity = 'all'; if (lastPayload) renderActive(); });
   $filterCity.addEventListener('change', () => { filterCity = $filterCity.value; if (lastPayload) renderActive(); });
   $filterKind.addEventListener('change', () => { filterKind = $filterKind.value; if (lastPayload) renderActive(); });
   $langToggle.addEventListener('click', () => {

@@ -41,6 +41,7 @@ export const config = {
   //                    series (Świętochłowice 2476 → Zabrze 2478); ULDK was
   //                    unreachable in-sandbox, so confirm on the first refresh.
   label: 'Tarnowskie Góry',
+  voivodeship: "slaskie",
   authority: 'Urząd Miejski w Tarnowskich Górach',
   host: 'bip.tarnowskiegory.pl',
   source: 'html',

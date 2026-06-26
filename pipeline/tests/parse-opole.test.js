@@ -15,6 +15,11 @@ test('helpers', () => {
   assert.equal(isSaleAnnouncement(BODY), true);
   assert.equal(flatAreaFromText(BODY), 68.38);
   assert.equal(flatAddressFromText(BODY), 'ul. Rynek 3/2'); // property, not the office Rynek 1A
+  // robust area — pick the flat, NEVER the ancillary (komórka/piwnica). This was
+  // the cellar-area + insane-m2 bug that failed the opole CI refresh.
+  assert.equal(flatAreaFromText('o powierzchni użytkowej 47,00 m2 oraz pomieszczenia przynależnego – komórki o pow. 6,94 m2'), 47);
+  assert.equal(flatAreaFromText('o łącznej pow. 90,00 m2 oraz przynależnej komórki o pow. 11,14 m2'), 90);
+  assert.equal(flatAreaFromText('o łącznej pow. 95,38m2 wraz ze sprzedażą ułamkowej części gruntu obejmującego dz. nr 2513 o pow. 0,0257ha'), 95.38);
 });
 
 test('parseAnnouncement: flat — address key, area, price, future date, round', () => {

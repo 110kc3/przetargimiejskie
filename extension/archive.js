@@ -9,6 +9,7 @@ const $table = document.getElementById('archive-table');
 const $tbody = $table.querySelector('tbody');
 const $langToggle = document.getElementById('lang-toggle');
 const $themeToggle = document.getElementById('theme-toggle');
+const $filterWoj = document.getElementById('filter-woj');
 const $filterCity = document.getElementById('filter-city');
 const $filterClass = document.getElementById('filter-class');
 const $filterOutcome = document.getElementById('filter-outcome');
@@ -20,6 +21,7 @@ const $activeSection = document.getElementById('active-section');
 const $activeTable = document.getElementById('active-table');
 const $activeTbody = $activeTable.querySelector('tbody');
 const $activeEmpty = document.getElementById('active-empty');
+const wojOf = (c) => window.ZGM_I18N.wojOf(c);
 const $historicalSection = document.getElementById('historical-section');
 
 const t = (k, vars) => window.ZGM_I18N.t(k, vars);
@@ -318,10 +320,11 @@ function populateYears() {
 }
 
 function renderSummary() {
+  const woj = $filterWoj ? $filterWoj.value : 'all';
   const city = $filterCity.value;
   const year = selectedYear();
   const scope = records.filter(
-    (r) => (city === 'all' || r.city === city) && matchesYear(r, year),
+    (r) => (woj === 'all' || wojOf(r.city) === woj) && (city === 'all' || r.city === city) && matchesYear(r, year),
   );
   for (const tile of document.querySelectorAll('#summary .tile')) {
     const kind = tile.dataset.kind;
@@ -381,6 +384,7 @@ function getSortValue(r, key) {
 }
 
 function renderTable() {
+  const woj = $filterWoj ? $filterWoj.value : 'all';
   const city = $filterCity.value;
   const outcome = $filterOutcome.value;
   const year = selectedYear();
@@ -389,6 +393,7 @@ function renderTable() {
   const q = POLISH_LOWER($filterSearch.value.trim());
 
   let rows = records.slice();
+  if (woj !== 'all') rows = rows.filter((r) => wojOf(r.city) === woj);
   if (city !== 'all') rows = rows.filter((r) => r.city === city);
   const cls = $filterClass ? $filterClass.value : 'all';
   if (cls !== 'all') rows = rows.filter((r) => r.kind === cls);
@@ -511,6 +516,7 @@ function renderProvenance() {
 }
 
 function renderActiveTable() {
+  const woj = $filterWoj ? $filterWoj.value : 'all';
   const city = $filterCity.value;
   // Fold the query AND the address so diacritics match either way (the
   // active-table search previously compared a folded-or-not query against the
@@ -520,6 +526,7 @@ function renderActiveTable() {
   const today = todayWarsaw();
   const items = activeListings
     .filter((a) => !a.auction_date || a.auction_date >= today)
+    .filter((a) => woj === 'all' || wojOf(a.city) === woj)
     .filter((a) => city === 'all' || a.city === city)
     .filter((a) => { const cls = $filterClass ? $filterClass.value : 'all'; return cls === 'all' || a.kind === cls; })
     .filter((a) => {
@@ -629,6 +636,17 @@ function syncThemeButton() {
   });
   $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
   const onFilterChange = () => { renderSummary(); renderActiveTable(); renderTable(); };
+  // Voivodeship filter: narrow the city dropdown to the chosen voivodeship and
+  // reset the city if it's now hidden, then re-render.
+  function syncCityOptions() {
+    const woj = $filterWoj ? $filterWoj.value : 'all';
+    for (const o of $filterCity.options) {
+      if (o.value === 'all') continue;
+      o.hidden = woj !== 'all' && wojOf(o.value) !== woj;
+    }
+    if ($filterCity.selectedOptions[0] && $filterCity.selectedOptions[0].hidden) $filterCity.value = 'all';
+  }
+  if ($filterWoj) $filterWoj.addEventListener('change', () => { syncCityOptions(); onFilterChange(); });
   $filterCity.addEventListener('change', onFilterChange);
   $filterClass?.addEventListener('change', onFilterChange);
   $filterOutcome.addEventListener('change', renderTable);
