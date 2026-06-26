@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "city": "krakow",
+  "plots": [
+    {
+      "key": "dz|p-49|85/1",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "85/1",
+      "obreb": "P-49",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szczęśliwej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2085%2F1%20ul.%20Szcz%C4%99%C5%9Bliwej%20P-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3349,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "starting_price_pln": 510000,
+          "outcome": "sold",
+          "final_price_pln": 515100,
+          "area_m2": 3349
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "85/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2085%2F1%20P-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-38|101/11",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "101/11",
+      "obreb": "P-38",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Podole",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20101%2F11%20ul.%20Podole%20P-38%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 833,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-21",
+          "round": 1,
+          "starting_price_pln": 890000,
+          "outcome": "sold",
+          "final_price_pln": 898900,
+          "area_m2": 833
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "101/11",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20101%2F11%20P-38%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. karola knausa i ul",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": null,
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Karola Knausa i ul",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Karola%20Knausa%20i%20ul%20P-86%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 408,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 238000,
+          "outcome": "sold",
+          "final_price_pln": 353300,
+          "area_m2": 338
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

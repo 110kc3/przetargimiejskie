@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "city": "krakow",
+  "properties": [
+    {
+      "key": "krolewskiej|69|garaz-12",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "69",
+      "apt": "garaz-12",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2025-11-04",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 145000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 221850,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=236926",
+          "notes": [],
+          "area_m2": 17,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=232849"
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "garaz",
+          "starting_price_pln": 114000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 130000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=249643",
+          "notes": [],
+          "area_m2": 17,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=245809"
+        }
+      ],
+      "area_m2": 17
+    },
+    {
+      "key": "zakatek|3|13",
+      "street": "Zakątek",
+      "street_norm": "zakatek",
+      "building": "3",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 747000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=234919",
+          "notes": [],
+          "area_m2": 53.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=229690"
+        },
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 709650,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=244873",
+          "notes": [],
+          "area_m2": 53.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=238255"
+        }
+      ],
+      "area_m2": 53.54
+    },
+    {
+      "key": "kalwaryjskiej|29|15",
+      "street": "Kalwaryjskiej",
+      "street_norm": "kalwaryjskiej",
+      "building": "29",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1086000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=235885",
+          "notes": [],
+          "area_m2": 91.79,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=230116"
+        },
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 999120,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=244873",
+          "notes": [],
+          "area_m2": 91.79,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=238255"
+        }
+      ],
+      "area_m2": 91.79
+    },
+    {
+      "key": "dlugiej|31|9",
+      "street": "Długiej",
+      "street_norm": "dlugiej",
+      "building": "31",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 464000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=235885",
+          "notes": [],
+          "area_m2": 26.82,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=230116"
+        },
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 440800,
+          "outcome": "archived",
+          "area_m2": 26.82,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=238255",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.82
+    },
+    {
+      "key": "urzedniczej|45|8",
+      "street": "Urzędnicza",
+      "street_norm": "urzedniczej",
+      "building": "45",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 993000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=237961",
+          "notes": [],
+          "area_m2": 71.2,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=232321"
+        }
+      ],
+      "area_m2": 71.2
+    },
+    {
+      "key": "lubelskiej|21|17",
+      "street": "Lubelskiej",
+      "street_norm": "lubelskiej",
+      "building": "21",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1154000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=237961",
+          "notes": [],
+          "area_m2": 78.84,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=232321"
+        }
+      ],
+      "area_m2": 78.84
+    },
+    {
+      "key": "jozefa brodowicza|7|12",
+      "street": "Józefa Brodowicza",
+      "street_norm": "jozefa brodowicza",
+      "building": "7",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 395000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 414750,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=234919",
+          "notes": [],
+          "area_m2": 29.37,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=229690"
+        }
+      ],
+      "area_m2": 29.37
+    },
+    {
+      "key": "grodzkiej|13|1",
+      "street": "Grodzkiej",
+      "street_norm": "grodzkiej",
+      "building": "13",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 934000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1311000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=234919",
+          "notes": [],
+          "area_m2": 49.98,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=229690"
+        }
+      ],
+      "area_m2": 49.98
+    },
+    {
+      "key": "karola knausa i ul karola homolacsa cena wywolawcza dzialek|259|",
+      "street": "Karola Knausa i ul. Karola Homolacsa. - cena wywoławcza działek",
+      "street_norm": "karola knausa i ul karola homolacsa cena wywolawcza dzialek",
+      "building": "259",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}

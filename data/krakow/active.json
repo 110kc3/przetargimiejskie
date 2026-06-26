@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "city": "krakow",
+  "listings": [
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Królewskiej 69 garaż nr 12",
+      "address": {
+        "street": "Królewskiej",
+        "street_norm": "krolewskiej",
+        "building": "69",
+        "apt": "garaz-12",
+        "key": "krolewskiej|69|garaz-12",
+        "warning": null
+      },
+      "area_m2": 17,
+      "round": 2,
+      "starting_price_pln": 114000,
+      "auction_date": "2026-04-15",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=245809",
+      "source_url": "https://www.bip.krakow.pl/?news_id=245809"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zakątek 3/13",
+      "address": {
+        "street": "Zakątek",
+        "street_norm": "zakatek",
+        "building": "3",
+        "apt": "13",
+        "key": "zakatek|3|13",
+        "warning": null
+      },
+      "area_m2": 53.54,
+      "round": 1,
+      "starting_price_pln": 709650,
+      "auction_date": "2026-02-19",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=238255",
+      "source_url": "https://www.bip.krakow.pl/?news_id=238255"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Długiej 31/9",
+      "address": {
+        "street": "Długiej",
+        "street_norm": "dlugiej",
+        "building": "31",
+        "apt": "9",
+        "key": "dlugiej|31|9",
+        "warning": null
+      },
+      "area_m2": 26.82,
+      "round": 1,
+      "starting_price_pln": 440800,
+      "auction_date": "2026-02-19",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=238255",
+      "source_url": "https://www.bip.krakow.pl/?news_id=238255"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kalwaryjskiej 29/15",
+      "address": {
+        "street": "Kalwaryjskiej",
+        "street_norm": "kalwaryjskiej",
+        "building": "29",
+        "apt": "15",
+        "key": "kalwaryjskiej|29|15",
+        "warning": null
+      },
+      "area_m2": 91.79,
+      "round": 1,
+      "starting_price_pln": 999120,
+      "auction_date": "2026-02-19",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=238255",
+      "source_url": "https://www.bip.krakow.pl/?news_id=238255"
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Królewskiej 69 garaż nr 12",
+      "address": {
+        "street": "Królewskiej",
+        "street_norm": "krolewskiej",
+        "building": "69",
+        "apt": "garaz-12",
+        "key": "krolewskiej|69|garaz-12",
+        "warning": null
+      },
+      "area_m2": 35.36,
+      "round": 1,
+      "starting_price_pln": 114000,
+      "auction_date": "2025-11-04",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=232849",
+      "source_url": "https://www.bip.krakow.pl/?news_id=232849"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Urzędniczej 45/8",
+      "address": {
+        "street": "Urzędniczej",
+        "street_norm": "urzedniczej",
+        "building": "45",
+        "apt": "8",
+        "key": "urzedniczej|45|8",
+        "warning": null
+      },
+      "area_m2": 71.2,
+      "round": 1,
+      "starting_price_pln": 993000,
+      "auction_date": "2025-11-18",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=232321",
+      "source_url": "https://www.bip.krakow.pl/?news_id=232321"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Lubelskiej 21/17",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "21",
+        "apt": "17",
+        "key": "lubelskiej|21|17",
+        "warning": null
+      },
+      "area_m2": 78.84,
+      "round": 1,
+      "starting_price_pln": 1154000,
+      "auction_date": "2025-11-18",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=232321",
+      "source_url": "https://www.bip.krakow.pl/?news_id=232321"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Długiej 31/9",
+      "address": {
+        "street": "Długiej",
+        "street_norm": "dlugiej",
+        "building": "31",
+        "apt": "9",
+        "key": "dlugiej|31|9",
+        "warning": null
+      },
+      "area_m2": 26.82,
+      "round": 1,
+      "starting_price_pln": 464000,
+      "auction_date": "2025-10-21",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=230116",
+      "source_url": "https://www.bip.krakow.pl/?news_id=230116"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kalwaryjskiej 29/15",
+      "address": {
+        "street": "Kalwaryjskiej",
+        "street_norm": "kalwaryjskiej",
+        "building": "29",
+        "apt": "15",
+        "key": "kalwaryjskiej|29|15",
+        "warning": null
+      },
+      "area_m2": 91.79,
+      "round": 1,
+      "starting_price_pln": 1086000,
+      "auction_date": "2025-10-21",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=230116",
+      "source_url": "https://www.bip.krakow.pl/?news_id=230116"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Brodowicza 7/12",
+      "address": {
+        "street": "Józefa Brodowicza",
+        "street_norm": "jozefa brodowicza",
+        "building": "7",
+        "apt": "12",
+        "key": "jozefa brodowicza|7|12",
+        "warning": null
+      },
+      "area_m2": 29.37,
+      "round": null,
+      "starting_price_pln": 395000,
+      "auction_date": "2025-10-14",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=229690",
+      "source_url": "https://www.bip.krakow.pl/?news_id=229690"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grodzkiej 13/1",
+      "address": {
+        "street": "Grodzkiej",
+        "street_norm": "grodzkiej",
+        "building": "13",
+        "apt": "1",
+        "key": "grodzkiej|13|1",
+        "warning": null
+      },
+      "area_m2": 49.98,
+      "round": null,
+      "starting_price_pln": 934000,
+      "auction_date": "2025-10-14",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=229690",
+      "source_url": "https://www.bip.krakow.pl/?news_id=229690"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zakątek 3/13",
+      "address": {
+        "street": "Zakątek",
+        "street_norm": "zakatek",
+        "building": "3",
+        "apt": "13",
+        "key": "zakatek|3|13",
+        "warning": null
+      },
+      "area_m2": 53.54,
+      "round": null,
+      "starting_price_pln": 747000,
+      "auction_date": "2025-10-14",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=229690",
+      "source_url": "https://www.bip.krakow.pl/?news_id=229690"
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Karola Knausa i ul. Karola Homolacsa. - cena wywoławcza działek 259",
+      "address": {
+        "street": "Karola Knausa i ul. Karola Homolacsa. - cena wywoławcza działek",
+        "street_norm": "karola knausa i ul karola homolacsa cena wywolawcza dzialek",
+        "building": "259",
+        "apt": null,
+        "key": "karola knausa i ul karola homolacsa cena wywolawcza dzialek|259|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+      "source_url": "https://www.bip.krakow.pl/?news_id=227539"
+    }
+  ],
+  "wykaz": []
+}
