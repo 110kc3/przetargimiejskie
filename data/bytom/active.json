@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Fałata 24/5",
+      "address": {
+        "street": "Fałata",
+        "street_norm": "falata",
+        "building": "24",
+        "apt": "5",
+        "key": "falata|24|5",
+        "warning": null
+      },
+      "auction_date": "2026-07-27",
+      "published_date": "2026-06-25",
+      "round": 1,
+      "area_m2": 38.36,
+      "starting_price_pln": null,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Falata-245/idn:13579",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Falata-24_5,24104.doc"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Dworcowa 5/1",
       "address": {
         "street": "Dworcowa",

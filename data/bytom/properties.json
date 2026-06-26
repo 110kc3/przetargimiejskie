@@ -3,6 +3,28 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "falata|24|5",
+      "street": "Fałata",
+      "street_norm": "falata",
+      "building": "24",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 38.36,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Falata-245/idn:13579",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.36
+    },
+    {
       "key": "dworcowa|5|1",
       "street": "Dworcowa",
       "street_norm": "dworcowa",
