@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "city": "olkusz",
+  "properties": [
+    {
+      "key": "k k wielkiego|44|",
+      "street": "K. K. Wielkiego",
+      "street_norm": "k k wielkiego",
+      "building": "44",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-12-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1623200,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umig.olkusz.pl/index.php/2023/10/13/13-10-2023-ogloszenie-6/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 580.33
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 580.33
+    },
+    {
+      "key": "mikolowskiej|40|66",
+      "street": "Mikołowskiej",
+      "street_norm": "mikolowskiej",
+      "building": "40",
+      "apt": "66",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 52.1,
+          "detail_url": "https://umig.olkusz.pl/index.php/2023/10/20/20-10-2023-ogloszenie-3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 13.25,
+          "detail_url": "https://umig.olkusz.pl/index.php/2023/07/13/28-07-2023-ogloszenie-10/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.1
+    }
+  ]
+}

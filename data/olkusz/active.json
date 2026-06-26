@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "city": "olkusz",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mikołowskiej 40/66",
+      "address": {
+        "street": "Mikołowskiej",
+        "street_norm": "mikolowskiej",
+        "building": "40",
+        "apt": "66",
+        "key": "mikolowskiej|40|66",
+        "warning": null
+      },
+      "area_m2": 52.1,
+      "starting_price_pln": 330000,
+      "auction_date": "2023-11-24",
+      "round": 2,
+      "detail_url": "https://umig.olkusz.pl/index.php/2023/10/20/20-10-2023-ogloszenie-3/"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. K. K. Wielkiego 44",
+      "address": {
+        "street": "K. K. Wielkiego",
+        "street_norm": "k k wielkiego",
+        "building": "44",
+        "apt": null,
+        "key": "k k wielkiego|44|",
+        "warning": null
+      },
+      "area_m2": 580.33,
+      "starting_price_pln": 1623200,
+      "auction_date": "2022-12-15",
+      "round": 1,
+      "detail_url": "https://umig.olkusz.pl/index.php/2023/10/13/13-10-2023-ogloszenie-6/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mikołowskiej 40/66",
+      "address": {
+        "street": "Mikołowskiej",
+        "street_norm": "mikolowskiej",
+        "building": "40",
+        "apt": "66",
+        "key": "mikolowskiej|40|66",
+        "warning": null
+      },
+      "area_m2": 13.25,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://umig.olkusz.pl/index.php/2023/07/13/28-07-2023-ogloszenie-10/"
+    }
+  ],
+  "wykaz": []
+}
