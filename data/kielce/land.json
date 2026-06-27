@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "city": "kielce",
+  "plots": [
+    {
+      "key": "dunskiej obr|0024|",
+      "kind": "grunt",
+      "city": "kielce",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Duńskiej /obr.",
+      "building": "0024",
+      "address_raw": "Duńskiej /obr. 0024",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Du%C5%84skiej%20%2Fobr.%20Kielce%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 2100000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "karola olszewskiego obr|0005|",
+      "kind": "grunt",
+      "city": "kielce",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Karola Olszewskiego /obr.",
+      "building": "0005",
+      "address_raw": "Karola Olszewskiego /obr. 0005",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Karola%20Olszewskiego%20%2Fobr.%20Kielce%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 3000000,
+          "outcome": "sold",
+          "final_price_pln": 30300000000
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "city": "kielce",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Dąbrowskiej 5/11",
+      "address": {
+        "street": "Dąbrowskiej",
+        "street_norm": "dabrowskiej",
+        "building": "5",
+        "apt": "11",
+        "key": "dabrowskiej|5|11",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-02-20",
+      "round": 3,
+      "area_m2": 18.21,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o-trzecim-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-11-polozonego-w-budynku-przy-ul-dabrowskiej-5-w-kielcach-o-powierzchni-uzytkowej-1821-m2-wraz-z-udzialem-w-ni.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Dąbrowskiej 5/20",
+      "address": {
+        "street": "Dąbrowskiej",
+        "street_norm": "dabrowskiej",
+        "building": "5",
+        "apt": "20",
+        "key": "dabrowskiej|5|20",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-02-13",
+      "round": 2,
+      "area_m2": 21.19,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o--ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-20-polozonego-w-budynku-przy-ul-dabrowskiej-5-w-kielcach-o-powierzchni-uzytkowej-2119m2-wraz-z-udzialem-w-nieruch.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawskiej 3/15",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "3",
+        "apt": "15",
+        "key": "warszawskiej|3|15",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-02-09",
+      "round": 1,
+      "area_m2": 22.54,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-15-polozonego-w-budynku-przy-ul-warszawskiej-3-w-kielcach-o-powierzchni-uzytkowej-2254-m2-wraz-z-udzialem.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": null,
+      "address": null,
+      "auction_date": null,
+      "published_date": "2025-03-18",
+      "round": 1,
+      "area_m2": 15.61,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-40-polozonego-w-budynku-przy-ul-stefana-zeromskiego-2024b-w-kielcach-o-powierzchni-uzytkowej-1561m2-wraz-z-udzialem-w-nieruchomosci-wspolnej.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": null,
+      "address": null,
+      "auction_date": null,
+      "published_date": "2023-01-25",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-25-polozonego-w-budynku-przy-ul-rewolucji-1905-roku-6870-w-lodzi-wraz.html"
+    }
+  ],
+  "wykaz": []
+}
