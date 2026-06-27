@@ -36,12 +36,15 @@ async function crawlAll() {
 
   const seen = new Set();
   const ids = [];
-  for (let p = 0; p < MAX_PAGES; p++) {
+  for (let p = 1; p <= MAX_PAGES; p++) {
+    // REKORD pagination is 1-indexed (strona/0 → 404). The first page is strona/1.
     const url = `${ORIGIN}${BOARD}/strona/${p}`;
     let html;
     try { html = await getText(url); } catch (err) { break; }
     let added = 0;
-    for (const m of html.matchAll(/\/5987\/dokument\/(\d+)/g)) { if (!seen.has(m[1])) { seen.add(m[1]); ids.push(m[1]); added++; } }
+    // REKORD now emits RELATIVE hrefs ("5987/dokument/123", no leading slash);
+    // tolerate both forms with an optional slash so a CMS revert can't re-break it.
+    for (const m of html.matchAll(/\/?5987\/dokument\/(\d+)/g)) { if (!seen.has(m[1])) { seen.add(m[1]); ids.push(m[1]); added++; } }
     if (added === 0 && p > 0) break;
   }
   console.error(`  oswiecim: ${ids.length} dokument(y) on board ${BOARD}`);
@@ -54,7 +57,7 @@ async function crawlAll() {
 
     let recs = parseAnnouncement('', html, url);
     if (recs.length === 0) {
-      const att = /\/api\/download\/file\?id=(\d+)/.exec(html);
+      const att = /\/?api\/download\/file\?id=(\d+)/.exec(html); // relative or absolute href
       if (att) {
         const text = await attachmentText(`${ORIGIN}/api/download/file?id=${att[1]}`);
         if (text) recs = parseAnnouncement('', text, url);

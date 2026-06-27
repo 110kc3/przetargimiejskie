@@ -10,10 +10,10 @@
      extensions don't re-tint the already-dark palette (washed accents,
      magenta visited links). -->
 <meta name="color-scheme" content="dark" />
-<title>przetargimiejskie – śląsk · historia miejskich przetargów na mieszkania</title>
-<meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice." />
-<meta property="og:title" content="przetargimiejskie – śląsk" />
-<meta property="og:description" content="Historia miejskich przetargów na sprzedaż mieszkań na Górnym Śląsku." />
+<title>przetargimiejskie – Polska · historia miejskich przetargów na mieszkania</title>
+<meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań w Polsce: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Kraków, Zabrze, Sosnowiec, Opole, Kędzierzyn-Koźle i kolejne miasta." />
+<meta property="og:title" content="przetargimiejskie – Polska" />
+<meta property="og:description" content="Historia miejskich przetargów na sprzedaż mieszkań w Polsce." />
 <meta property="og:type" content="website" />
 <style>
 /* ===== przetargimiejskie — Slate Ledger (dark) ===== */
@@ -65,10 +65,12 @@ a:hover{color:var(--accent);text-decoration:underline}
 .section{padding:34px 0;border-top:1px solid var(--border)}
 .section-title{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:700;margin:0 0 18px}
 .section-note{color:var(--faint);font-size:13px;margin:16px 0 0}
-.city-list{display:flex;flex-wrap:wrap;gap:8px}
+.city-groups{display:grid;gap:18px}
+.city-group-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:700;margin:0 0 9px}
+.city-row{display:flex;flex-wrap:wrap;gap:8px}
 .city-chip{display:inline-flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);
   border-radius:999px;padding:7px 14px 7px 11px;font-size:13.5px}
-.city-dot{width:8px;height:8px;border-radius:50%;flex:none}
+.city-dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--border-2)}
 .city-name{color:var(--fg);font-weight:600}
 .city-meta{color:var(--faint);font-size:12px}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px}
@@ -103,7 +105,7 @@ a:hover{color:var(--accent);text-decoration:underline}
 <body>
 <div class="wrap">
   <header class="site-header">
-    <div class="brand">przetargi<b>miejskie</b><span class="brand-sep">·</span><span class="brand-region">śląsk</span></div>
+    <div class="brand">przetargi<b>miejskie</b><span class="brand-sep">·</span><span class="brand-region">Polska</span></div>
     <nav class="site-nav">
       <a href="/raporty">Raporty</a>
       <a href="/archiwum">Archiwum</a>
@@ -113,7 +115,7 @@ a:hover{color:var(--accent);text-decoration:underline}
   </header>
 
   <div class="hero">
-    <h1 class="hero-title">Historia miejskich przetargów na mieszkania — Górny Śląsk</h1>
+    <h1 class="hero-title">Historia miejskich przetargów na mieszkania w Polsce</h1>
     <p class="hero-lead">Sprawdź, czy gminne mieszkanie było już wystawiane, w której rundzie,
       za ile i ile to wychodzi na zł/m². Dane prosto z miejskich BIP-ów, w przeglądarce
       i w przeszukiwalnym archiwum.</p>
@@ -133,17 +135,16 @@ a:hover{color:var(--accent);text-decoration:underline}
 
   <section class="section" id="miasta">
     <h2 class="section-title">Obsługiwane miasta</h2>
-    <div class="city-list" id="cities"></div>
-    <p class="section-note">Kolejne miasta dodajemy w miarę dostępności otwartych przetargów na mieszkania.</p>
+    <div class="city-groups" id="cities"></div>
+    <p class="section-note">Miasta pogrupowane według województw. Kolejne dodajemy w miarę dostępności otwartych przetargów na mieszkania.</p>
   </section>
 
   <section class="section" id="jak">
     <h2 class="section-title">Jak to działa</h2>
     <div class="card-grid">
       <div class="card"><h3>Na stronie BIP</h3><p>Otwierasz ogłoszenie o przetargu na miejskim BIP — rozszerzenie dokleja obok rundę, cenę wywoławczą, powierzchnię, zł/m² i datę.</p></div>
-      <div class="card"><h3>Runda, nie „nowość”</h3><p>Od razu widać, czy to 2. lub 3. przetarg — czyli ile razy mieszkanie nie znalazło nabywcy i jak spada cena.</p></div>
+      <div class="card"><h3>Która to już runda</h3><p>Od razu widać, czy to 2. lub 3. przetarg — czyli ile razy mieszkanie nie znalazło nabywcy i jak spada cena.</p></div>
       <div class="card"><h3>Archiwum</h3><p>Przeszukiwalna tabela wszystkich dotychczasowych przetargów: filtr miasta, typu, rocznika, wyszukiwarka po ulicy, mediany zł/m².</p></div>
-      <div class="card"><h3>Prywatnie</h3><p>Nic nie wychodzi z Twojego komputera. Dane to publiczne pliki JSON; rozszerzenie czyta tylko strony, które i tak otwierasz.</p></div>
     </div>
   </section>
 
@@ -184,12 +185,24 @@ a:hover{color:var(--accent);text-decoration:underline}
     document.getElementById('stat-props').textContent = props.toLocaleString('pl-PL');
     document.getElementById('stat-active').textContent = active.toLocaleString('pl-PL');
     document.getElementById('stat-archived').textContent = archived.toLocaleString('pl-PL');
-    const box = document.getElementById('cities');
-    box.innerHTML = cities.map(c=>{
+
+    // Group the supported-city chips by voivodeship (województwo). index.json
+    // carries `voivodeship` per city; groups are ordered by city count (then
+    // name), cities within a group alphabetically.
+    const WOJ = {dolnoslaskie:'Dolnośląskie','kujawsko-pomorskie':'Kujawsko-Pomorskie',lubelskie:'Lubelskie',lubuskie:'Lubuskie',lodzkie:'Łódzkie',malopolskie:'Małopolskie',mazowieckie:'Mazowieckie',opolskie:'Opolskie',podkarpackie:'Podkarpackie',podlaskie:'Podlaskie',pomorskie:'Pomorskie',slaskie:'Śląskie',swietokrzyskie:'Świętokrzyskie','warminsko-mazurskie':'Warmińsko-Mazurskie',wielkopolskie:'Wielkopolskie',zachodniopomorskie:'Zachodniopomorskie'};
+    const plural = n => n===1 ? 'aukcja' : (n%10>=2 && n%10<=4 && (n%100<12 || n%100>14)) ? 'aukcje' : 'aukcji';
+    const chip = c => {
       const a = activeOf(c), arch = archivedOf(c);
-      const plural = n => n===1 ? 'aukcja' : (n%10>=2 && n%10<=4 && (n%100<12 || n%100>14)) ? 'aukcje' : 'aukcji';
       const meta = `${a} ${plural(a)}` + (arch?` · ${arch} w archiwum`:'');
       return `<span class="city-chip"><span class="city-dot dot-${c.id}"></span><span class="city-name">${c.label}</span><span class="city-meta">${meta}</span></span>`;
+    };
+    const groups = {};
+    cities.forEach(c=>{ const k=c.voivodeship||'inne'; (groups[k]=groups[k]||[]).push(c); });
+    const keys = Object.keys(groups).sort((x,y)=> groups[y].length-groups[x].length || (WOJ[x]||x).localeCompare(WOJ[y]||y,'pl'));
+    const box = document.getElementById('cities');
+    box.innerHTML = keys.map(woj=>{
+      const rows = groups[woj].slice().sort((x,y)=>x.label.localeCompare(y.label,'pl')).map(chip).join('');
+      return `<div class="city-group"><div class="city-group-title">${WOJ[woj]||woj}</div><div class="city-row">${rows}</div></div>`;
     }).join('');
   }).catch(()=>{});
 </script>

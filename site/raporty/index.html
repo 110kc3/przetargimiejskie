@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="color-scheme" content="dark" />
 <title id="doc-title">Raporty rynku — przetargimiejskie</title>
-<meta id="doc-desc" name="description" content="Raporty z miejskich przetargów na mieszkania na Górnym Śląsku: skuteczność sprzedaży, ceny końcowe vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje. Gliwice, Katowice, Bytom, Zabrze, Sosnowiec i więcej." />
+<meta id="doc-desc" name="description" content="Raporty z miejskich przetargów na mieszkania w Polsce: skuteczność sprzedaży, ceny końcowe vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje. Gliwice, Katowice, Kraków, Zabrze, Opole i więcej." />
 <meta property="og:title" content="Raporty rynku — przetargimiejskie" />
 <meta property="og:description" content="Analiza miejskich przetargów na mieszkania: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², aktualne okazje." />
 <meta property="og:type" content="website" />
@@ -458,8 +458,8 @@ function scopedListings(kindOverride, allTime){
 
 // ===== render =====
 function render(){
-  const cityLabel = fCity==='all' ? 'Górny Śląsk' : (CITY_LABEL[fCity]||fCity);
-  document.getElementById('page-title').textContent = fCity==='all' ? 'Raporty rynku — Górny Śląsk' : `Raporty rynku — ${cityLabel}`;
+  const cityLabel = fCity==='all' ? 'cała Polska' : (CITY_LABEL[fCity]||fCity);
+  document.getElementById('page-title').textContent = fCity==='all' ? 'Raporty rynku — cała Polska' : `Raporty rynku — ${cityLabel}`;
   document.getElementById('doc-title').textContent = (fCity==='all' ? 'Raporty rynku' : `Raporty — ${cityLabel}`) + ' — przetargimiejskie';
   document.getElementById('doc-desc').setAttribute('content',
     `Raport z miejskich przetargów na mieszkania — ${cityLabel}: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje.`);

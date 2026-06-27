@@ -20,6 +20,13 @@ import olkusz from './olkusz/index.js';
 import opole from './opole/index.js';
 import oswiecim from './oswiecim/index.js';
 import chrzanow from './chrzanow/index.js';
+// All-Poland expansion (city-counties + powiat seats) — see spikes/ + SPIKE-PROGRESS.md.
+import legnica from './legnica/index.js';
+import raciborz from './raciborz/index.js';
+import olsztyn from './olsztyn/index.js';
+import torun from './torun/index.js';
+import pabianice from './pabianice/index.js';
+import wejherowo from './wejherowo/index.js';
 
 export const cities = [
   gliwice,
@@ -39,6 +46,12 @@ export const cities = [
   opole,
   oswiecim,
   chrzanow,
+  legnica,
+  raciborz,
+  olsztyn,
+  torun,
+  pabianice,
+  wejherowo,
 ];
 
 /** @param {string} id @returns {object|null} */

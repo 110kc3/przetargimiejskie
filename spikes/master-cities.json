@@ -1,0 +1,1580 @@
+{
+  "schema": "spike-master/1",
+  "generated_at": "2026-06-27T15:13:07.606Z",
+  "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
+  "total": 108,
+  "cities": [
+    {
+      "id": "boleslawiec",
+      "label": "Bolesławiec",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-boleslawiecki",
+      "powiat_label": "powiat boleslawiecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "MZGM flat auctions ~6-10/yr; Joomla portal (JS-render) announcements + BIP results w/ achieved price"
+      }
+    },
+    {
+      "id": "jelenia-gora",
+      "label": "Jelenia Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "jelenia-gora",
+      "powiat_label": "Jelenia Góra (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Active flat-sale stream on bip.jeleniagora.pl; born-digital PDFs w/ achieved prices; Bytom-analog"
+      }
+    },
+    {
+      "id": "klodzko",
+      "label": "Kłodzko",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-klodzki",
+      "powiat_label": "powiat klodzki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "um.bip.klodzko.pl (menu=346) flat przetargi + result notices inline HTML; ~5-10/yr; archive tab may need Playwright"
+      }
+    },
+    {
+      "id": "legnica",
+      "label": "Legnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "legnica",
+      "powiat_label": "Legnica (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/dolnoslaskie/legnica/legnica.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "BUILT this session — pipeline/src/cities/legnica/ + parse-legnica.test.js (27 green). BIP-E.PL HTML, .doc result attachments; near-Gliwice clone"
+      }
+    },
+    {
+      "id": "lubin",
+      "label": "Lubin",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-lubinski",
+      "powiat_label": "powiat lubinski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-lubinski/lubin.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Active flat stream >=8 lots/session (2022-26); text-PDF bip.um.lubin.pl/attachments; JS category index"
+      }
+    },
+    {
+      "id": "olesnica",
+      "label": "Oleśnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-olesnicki",
+      "powiat_label": "powiat olesnicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/dolnoslaskie/powiat-olesnicki/olesnica.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat auctions ~1-3/yr (rest bezprzetargowo); no achieved-price stream published"
+      }
+    },
+    {
+      "id": "swidnica",
+      "label": "Świdnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-swidnicki",
+      "powiat_label": "powiat swidnicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "MZN flat auctions ~11+ YTD 2026; bip.swidnica.nv.pl is an nv.pl SPA (needs headless render); analog Bytom"
+      }
+    },
+    {
+      "id": "walbrzych",
+      "label": "Wałbrzych",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "walbrzych",
+      "powiat_label": "Wałbrzych (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "High volume ~60 flats/yr on bip.um.walbrzych.pl; born-digital PDF result notices (pdftotext); mosparo token + multi-col PDF table"
+      }
+    },
+    {
+      "id": "wroclaw",
+      "label": "Wrocław",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "wroclaw",
+      "powiat_label": "Wrocław (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/wroclaw/wroclaw.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Strong flat volume on bip.um.wroc.pl; achieved price via Giełda Nieruchomości; RODO same-week page deletion; two-source join"
+      }
+    },
+    {
+      "id": "bydgoszcz",
+      "label": "Bydgoszcz",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "bydgoszcz",
+      "powiat_label": "Bydgoszcz (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Logonet BIP bip.um.bydgoszcz.pl/artykuly/1208; single source; achieved price in DOCX attachment"
+      }
+    },
+    {
+      "id": "grudziadz",
+      "label": "Grudziądz",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "grudziadz",
+      "powiat_label": "Grudziądz (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Open flat auctions on bip.grudziadz.pl (614-entry board, JS-paginated); prices in DOC; ~4-10 lots/yr"
+      }
+    },
+    {
+      "id": "inowroclaw",
+      "label": "Inowrocław",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-inowroclawski",
+      "powiat_label": "powiat inowroclawski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/kujawsko-pomorskie/powiat-inowroclawski/inowroclaw.md",
+      "spike": {
+        "wave": "B",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Board empty 2026-06-27; ~9 flats/yr mostly bezprzetargowy tenant buy-out; too sporadic"
+      }
+    },
+    {
+      "id": "torun",
+      "label": "Toruń",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "torun",
+      "powiat_label": "Toruń (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/kujawsko-pomorskie/torun/torun.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "BUILT this session — pipeline/src/cities/torun/ + parse-torun.test.js (40 green), registered. bip.torun.pl XML feed + HTML + DOCX result notices."
+      }
+    },
+    {
+      "id": "wloclawek",
+      "label": "Włocławek",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "wloclawek",
+      "powiat_label": "Włocławek (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.um.wlocl.pl server-rendered (regional KP platform); thin ~1/yr — best bundled with other Kujawsko-Pomorskie cities"
+      }
+    },
+    {
+      "id": "belchatow",
+      "label": "Bełchatów",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-belchatowski",
+      "powiat_label": "powiat belchatowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-belchatowski/belchatow.md",
+      "spike": {
+        "wave": "B",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "City hall publishes flat przetargi on belchatow.pl/category/przetargi/mieszkania + BIP; clean HTML; ~1-2/yr"
+      }
+    },
+    {
+      "id": "kutno",
+      "label": "Kutno",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-kutnowski",
+      "powiat_label": "powiat kutnowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-kutnowski/kutno.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo; ZNM rental-only; BIP land przetargi only; per-unit council resolutions"
+      }
+    },
+    {
+      "id": "lodz",
+      "label": "Łódź",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "lodz",
+      "powiat_label": "Łódź (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/lodzkie/lodz/lodz.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "High-volume ZNN flat auctions on bip.uml.lodz.pl (TYPO3); born-digital PDFs + co-located result notices; analog Kraków"
+      }
+    },
+    {
+      "id": "pabianice",
+      "label": "Pabianice",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-pabianicki",
+      "powiat_label": "powiat pabianicki",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/lodzkie/powiat-pabianicki/pabianice.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Low–Medium",
+        "confidence": "LIVE",
+        "note": "BUILT this session — pipeline/src/cities/pabianice/ + parse-pabianice.test.js (33 green), registered. bip.um.pabianice.pl Logonet HTML list + PDF results; ~15-20 flats/yr."
+      }
+    },
+    {
+      "id": "piotrkow-trybunalski",
+      "label": "Piotrków Trybunalski",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "piotrkow-trybunalski",
+      "powiat_label": "Piotrków Trybunalski (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold bezprzetargowo (tenant right of first refusal); land auctions only"
+      }
+    },
+    {
+      "id": "skierniewice",
+      "label": "Skierniewice",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "skierniewice",
+      "powiat_label": "Skierniewice (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/lodzkie/skierniewice/skierniewice.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats ~2-5/yr but heavy bezprzetargowy leakage; low ROI standalone; bundle w/ Łódź"
+      }
+    },
+    {
+      "id": "tomaszow-mazowiecki",
+      "label": "Tomaszów Mazowiecki",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-tomaszowski",
+      "powiat_label": "powiat tomaszowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.tomaszow.miasta.pl flat przetargi + result notices w/ achieved price; session-cookie for deep links"
+      }
+    },
+    {
+      "id": "zgierz",
+      "label": "Zgierz",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-zgierski",
+      "powiat_label": "powiat zgierski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-zgierski/zgierz.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Flat przetargi ~12-20/yr; BIP is Nefeni Next.js SPA → API probing (zgierz-api.bip.net.pl, like Bytom); MPGM written-tender bonus"
+      }
+    },
+    {
+      "id": "biala-podlaska",
+      "label": "Biała Podlaska",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "biala-podlaska",
+      "powiat_label": "Biała Podlaska (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "ZGL Sp. z o.o. oral flat auctions; static HTML zglbp.pl; ~1-3/yr; no achieved-price published"
+      }
+    },
+    {
+      "id": "chelm",
+      "label": "Chełm",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "chelm",
+      "powiat_label": "Chełm (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/lubelskie/chelm/chelm.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Active flat-sale przetargi on umchelm.bip.lubelskie.pl (text PDFs, lubelskie.pl BIP platform); weak achieved-price"
+      }
+    },
+    {
+      "id": "lublin",
+      "label": "Lublin",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "lublin",
+      "powiat_label": "Lublin (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/lubelskie/lublin/lublin.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold exclusively bezprzetargowo to tenants; auction stream is land + 1 non-residential only"
+      }
+    },
+    {
+      "id": "pulawy",
+      "label": "Puławy",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-pulawski",
+      "powiat_label": "powiat pulawski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-pulawski/pulawy.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to tenants (art. 34 UGN); auctions land/commercial only"
+      }
+    },
+    {
+      "id": "swidnik",
+      "label": "Świdnik",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-swidnicki",
+      "powiat_label": "powiat swidnicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-swidnicki/swidnik.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Open flats ~2-4/yr, mostly negative rounds; bezprzetargowy dominant (6 on one wykaz); too thin"
+      }
+    },
+    {
+      "id": "zamosc",
+      "label": "Zamość",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "zamosc",
+      "powiat_label": "Zamość (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/lubelskie/zamosc/zamosc.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No flat-sale auctions; ZGL rental-only oral auctions; BIP land/industrial only"
+      }
+    },
+    {
+      "id": "gorzow-wielkopolski",
+      "label": "Gorzów Wielkopolski",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "gorzow-wielkopolski",
+      "powiat_label": "Gorzów Wielkopolski (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.um.gorzow.pl batches ~12 flats; born-digital PDFs both streams (achieved price inline); XML feed fallback"
+      }
+    },
+    {
+      "id": "zielona-gora",
+      "label": "Zielona Góra",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "zielona-gora",
+      "powiat_label": "Zielona Góra (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/lubuskie/zielona-gora/zielona-gora.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Open flat auctions ~1-3/yr (most flats go bezprzetargowo) — too thin"
+      }
+    },
+    {
+      "id": "chrzanow",
+      "label": "Chrzanów",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-chrzanowski",
+      "powiat_label": "powiat chrzanowski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md"
+    },
+    {
+      "id": "krakow",
+      "label": "Kraków",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "krakow",
+      "powiat_label": "Kraków (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/malopolskie/krakow/krakow.md"
+    },
+    {
+      "id": "nowy-sacz",
+      "label": "Nowy Sącz",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "nowy-sacz",
+      "powiat_label": "Nowy Sącz (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "verify",
+      "path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Occasional flat auctions (1 confirmed Apr 2024, WGN); low volume, tenant-sale dominant; bip.malopolska SPA render to confirm live"
+      }
+    },
+    {
+      "id": "nowy-targ",
+      "label": "Nowy Targ",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-nowotarski",
+      "powiat_label": "powiat nowotarski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/malopolskie/powiat-nowotarski/nowy-targ.md",
+      "spike": {
+        "wave": "B",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Only a one-time ~5-flat Kraków-portfolio clearance (2025); no ongoing local flat-auction stream"
+      }
+    },
+    {
+      "id": "olkusz",
+      "label": "Olkusz",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-olkuski",
+      "powiat_label": "powiat olkuski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/malopolskie/powiat-olkuski/olkusz.md"
+    },
+    {
+      "id": "oswiecim",
+      "label": "Oświęcim",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-oswiecimski",
+      "powiat_label": "powiat oświęcimski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/malopolskie/powiat-oswiecimski/oswiecim.md"
+    },
+    {
+      "id": "tarnow",
+      "label": "Tarnów",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "tarnow",
+      "powiat_label": "Tarnów (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/malopolskie/tarnow/tarnow.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE/DESK",
+        "note": "City auctions only land/commercial; MZB lokale mieszkalne is rental (wynajem); no flat-sale stream 2022-26"
+      }
+    },
+    {
+      "id": "trzebinia",
+      "label": "Trzebinia",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-chrzanowski",
+      "powiat_label": "powiat chrzanowski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/malopolskie/powiat-chrzanowski/trzebinia.md"
+    },
+    {
+      "id": "ciechanow",
+      "label": "Ciechanów",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-ciechanowski",
+      "powiat_label": "powiat ciechanowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-ciechanowski/ciechanow.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo (art. 34); 0 flat auctions in 216-entry BIP archive 2016-26; land only"
+      }
+    },
+    {
+      "id": "minsk-mazowiecki",
+      "label": "Mińsk Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-minski",
+      "powiat_label": "powiat minski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-minski/minsk-mazowiecki.md",
+      "spike": {
+        "wave": "C",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to tenants (Uchwała XXIV.227.2020); only land plots at auction (~2/yr)"
+      }
+    },
+    {
+      "id": "ostroleka",
+      "label": "Ostrołęka",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "ostroleka",
+      "powiat_label": "Ostrołęka (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/mazowieckie/ostroleka/ostroleka.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "City BIP lokal mieszkalny przetargi (Logonet HTML); result PDFs per listing; ~2-4/yr"
+      }
+    },
+    {
+      "id": "plock",
+      "label": "Płock",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "plock",
+      "powiat_label": "Płock (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/mazowieckie/plock/plock.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "ARS Sp. z o.o. runs oral flat auctions; ars.plock.pl server-rendered HTML; ~2-5/yr; some scanned result PDFs → OCR"
+      }
+    },
+    {
+      "id": "pruszkow",
+      "label": "Pruszków",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-pruszkowski",
+      "powiat_label": "powiat pruszkowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-pruszkowski/pruszkow.md",
+      "spike": {
+        "wave": "B",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold bezprzetargowo to tenants (resolution XIII/122/2011); only land/buildings at auction"
+      }
+    },
+    {
+      "id": "radom",
+      "label": "Radom",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "radom",
+      "powiat_label": "Radom (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/radom/radom.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat auctions ~1/yr; dominant route bezprzetargowy via MZL; result PDFs scanned (OCR)"
+      }
+    },
+    {
+      "id": "siedlce",
+      "label": "Siedlce",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "siedlce",
+      "powiat_label": "Siedlce (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/mazowieckie/siedlce/siedlce.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Open flat auctions (>=3 in 2024); bip.siedlce.pl session-gated (needs browser) + siedlce.pl mirror; achieved price weak"
+      }
+    },
+    {
+      "id": "warszawa",
+      "label": "Warszawa",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "warszawa",
+      "powiat_label": "Warszawa (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/mazowieckie/warszawa/warszawa.md",
+      "spike": {
+        "wave": "A",
+        "effort": "High",
+        "confidence": "LIVE",
+        "note": "ETO eto.um.warszawa.pl active flat auctions; per-dzielnica result notices; DOCX parsing; decentralised (~18 dzielnice)"
+      }
+    },
+    {
+      "id": "brzeg",
+      "label": "Brzeg",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-brzeski",
+      "powiat_label": "powiat brzeski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-brzeski/brzeg.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "~10 flats/yr; dual-host brzeg.pl (WordPress) + bip.brzeg.pl (MegaBIP); result-price extraction needs one live-verify"
+      }
+    },
+    {
+      "id": "kedzierzyn-kozle",
+      "label": "Kędzierzyn-Koźle",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-kedzierzynsko-kozielski",
+      "powiat_label": "powiat kędzierzyńsko-kozielski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md"
+    },
+    {
+      "id": "nysa",
+      "label": "Nysa",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-nyski",
+      "powiat_label": "powiat nyski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-nyski/nysa.md",
+      "spike": {
+        "wave": "B",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Burmistrz Nysy runs flat przetargi on bip.nysa.pl; text-PDFs + achieved-price notices same article; no blockers"
+      }
+    },
+    {
+      "id": "opole",
+      "label": "Opole",
+      "voivodeship": "opolskie",
+      "powiat_slug": "opole",
+      "powiat_label": "Opole (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/opolskie/opole/opole.md"
+    },
+    {
+      "id": "debica",
+      "label": "Dębica",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-debicki",
+      "powiat_label": "powiat debicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-debicki/debica.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Zero gmina flat auctions since 2018 (land/commercial only); only cooperative SM flats (out of scope)"
+      }
+    },
+    {
+      "id": "jaroslaw",
+      "label": "Jarosław",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-jaroslawski",
+      "powiat_label": "powiat jaroslawski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-jaroslawski/jaroslaw.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to tenants; BIP przetarg stream is land/plots only; no achieved-price"
+      }
+    },
+    {
+      "id": "krosno",
+      "label": "Krosno",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "krosno",
+      "powiat_label": "Krosno (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/krosno/krosno.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat volume trivially thin (1 asset, 3 failed rounds); ePatent BIP bot-block; no achieved-price feed"
+      }
+    },
+    {
+      "id": "mielec",
+      "label": "Mielec",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-mielecki",
+      "powiat_label": "powiat mielecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-mielecki/mielec.md",
+      "spike": {
+        "wave": "C",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat auctions ~1-2/yr (single recycled unit); MZBM commercial-only; no machine-readable price stream"
+      }
+    },
+    {
+      "id": "przemysl",
+      "label": "Przemyśl",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "przemysl",
+      "powiat_label": "Przemyśl (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/podkarpackie/przemysl/przemysl.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Flats on bip.przemysl.pl HTML + result notices same host; title-filter pagination over mixed list"
+      }
+    },
+    {
+      "id": "rzeszow",
+      "label": "Rzeszów",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "rzeszow",
+      "powiat_label": "Rzeszów (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "verify",
+      "path": "spikes/podkarpackie/rzeszow/rzeszow.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE/DESK",
+        "note": "BGM active land auctions (results inline); flat auctions historical (2017) but absent 2024-26 — page archive to count first"
+      }
+    },
+    {
+      "id": "stalowa-wola",
+      "label": "Stalowa Wola",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-stalowowolski",
+      "powiat_label": "powiat stalowowolski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-stalowowolski/stalowa-wola.md",
+      "spike": {
+        "wave": "B",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats sold bezprzetargowo to tenants (99% bonifikata, NIK); auctions are commercial/land only"
+      }
+    },
+    {
+      "id": "tarnobrzeg",
+      "label": "Tarnobrzeg",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "tarnobrzeg",
+      "powiat_label": "Tarnobrzeg (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat volume ~1/yr; bezprzetargowy dominant; no housing-manager board; prices in .docx"
+      }
+    },
+    {
+      "id": "bialystok",
+      "label": "Białystok",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "bialystok",
+      "powiat_label": "Białystok (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/podlaskie/bialystok/bialystok.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Low–Medium",
+        "confidence": "LIVE",
+        "note": "Single clean BIP /postepowania/przetargi_na_nieruchomosci; Cena nabycia inline HTML; JS pagination"
+      }
+    },
+    {
+      "id": "lomza",
+      "label": "Łomża",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "lomza",
+      "powiat_label": "Łomża (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/podlaskie/lomza/lomza.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold exclusively bezprzetargowo (70% tenant discount); BIP land/commercial only"
+      }
+    },
+    {
+      "id": "suwalki",
+      "label": "Suwałki",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "suwalki",
+      "powiat_label": "Suwałki (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/podlaskie/suwalki/suwalki.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Open flats ~1/yr (bezprzetargowy dominates); SmartSite BIP; Low effort if revisited"
+      }
+    },
+    {
+      "id": "gdansk",
+      "label": "Gdańsk",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "gdansk",
+      "powiat_label": "Gdańsk (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/pomorskie/gdansk/gdansk.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Active lokale mieszkalne on bip.gdansk.pl (Wydział Skarbu); born-digital PDFs + HTML; result-notice URL to confirm"
+      }
+    },
+    {
+      "id": "gdynia",
+      "label": "Gdynia",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "gdynia",
+      "powiat_label": "Gdynia (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/pomorskie/gdynia/gdynia.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Residential flat sales suspended by council resolution since 2016 (through 2026); land-only; BIP is a JS SPA"
+      }
+    },
+    {
+      "id": "malbork",
+      "label": "Malbork",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-malborski",
+      "powiat_label": "powiat malborski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-malborski/malbork.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Active flat auctions (II-V rounds, up to 4 lokale/session) on bip.malbork.pl; JS SPA render needed; result notices present"
+      }
+    },
+    {
+      "id": "slupsk",
+      "label": "Słupsk",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "slupsk",
+      "powiat_label": "Słupsk (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/pomorskie/slupsk/slupsk.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Open flats on bip.um.slupsk.pl; HTML notices + born-digital PDF results (232+); HTML scraper + PDF join"
+      }
+    },
+    {
+      "id": "sopot",
+      "label": "Sopot",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "sopot",
+      "powiat_label": "Sopot (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/pomorskie/sopot/sopot.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Open flats ~1-3/yr; SPA BIP needs headless render; prices in DOCX; high-value resort"
+      }
+    },
+    {
+      "id": "tczew",
+      "label": "Tczew",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-tczewski",
+      "powiat_label": "powiat tczewski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-tczewski/tczew.md",
+      "spike": {
+        "wave": "B",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.tczew.pl (IDcom) flat przetargi ~3-6/yr; achieved price in text-PDF attachments; TTBS bonus publisher"
+      }
+    },
+    {
+      "id": "wejherowo",
+      "label": "Wejherowo",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-wejherowski",
+      "powiat_label": "powiat wejherowski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/pomorskie/powiat-wejherowski/wejherowo.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "BUILT this session — pipeline/src/cities/wejherowo/ + parse-wejherowo.test.js (43 green), registered. bip.wejherowo.pl annual pages (BROWSER_UA), HTML body + text-PDF results; ~55-60 flats/yr (highest volume)."
+      }
+    },
+    {
+      "id": "bielsko-biala",
+      "label": "Bielsko-Biała",
+      "voivodeship": "slaskie",
+      "powiat_slug": "bielsko-biala",
+      "powiat_label": "Bielsko-Biała (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/bielsko-biala/bielsko-biala.md"
+    },
+    {
+      "id": "bytom",
+      "label": "Bytom",
+      "voivodeship": "slaskie",
+      "powiat_slug": "bytom",
+      "powiat_label": "Bytom (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/bytom/bytom.md"
+    },
+    {
+      "id": "chorzow",
+      "label": "Chorzów",
+      "voivodeship": "slaskie",
+      "powiat_slug": "chorzow",
+      "powiat_label": "Chorzów (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "dropped",
+      "path": "spikes/slaskie/chorzow/chorzow.md"
+    },
+    {
+      "id": "cieszyn",
+      "label": "Cieszyn",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-cieszynski",
+      "powiat_label": "powiat cieszynski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/slaskie/powiat-cieszynski/cieszyn.md",
+      "spike": {
+        "wave": "B",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Flat auctions on bip.um.cieszyn.pl (Logonet, like Bytom/Zabrze); inline HTML tables; results in ~30-day expiring articles"
+      }
+    },
+    {
+      "id": "czestochowa",
+      "label": "Częstochowa",
+      "voivodeship": "slaskie",
+      "powiat_slug": "czestochowa",
+      "powiat_label": "Częstochowa (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "dropped",
+      "path": "spikes/slaskie/czestochowa/czestochowa.md"
+    },
+    {
+      "id": "dabrowa-gornicza",
+      "label": "Dąbrowa Górnicza",
+      "voivodeship": "slaskie",
+      "powiat_slug": "dabrowa-gornicza",
+      "powiat_label": "Dąbrowa Górnicza (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "dropped",
+      "path": "spikes/slaskie/dabrowa-gornicza/dabrowa-gornicza.md"
+    },
+    {
+      "id": "gliwice",
+      "label": "Gliwice",
+      "voivodeship": "slaskie",
+      "powiat_slug": "gliwice",
+      "powiat_label": "Gliwice (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/gliwice/gliwice.md"
+    },
+    {
+      "id": "jastrzebie-zdroj",
+      "label": "Jastrzębie-Zdrój",
+      "voivodeship": "slaskie",
+      "powiat_slug": "jastrzebie-zdroj",
+      "powiat_label": "Jastrzębie-Zdrój (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/slaskie/jastrzebie-zdroj/jastrzebie-zdroj.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Zero municipal flat auctions 2015-26; land-only; MZN rental-only; bezprzetargowy disposal"
+      }
+    },
+    {
+      "id": "jaworzno",
+      "label": "Jaworzno",
+      "voivodeship": "slaskie",
+      "powiat_slug": "jaworzno",
+      "powiat_label": "Jaworzno (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "deferred",
+      "path": "spikes/slaskie/jaworzno/jaworzno.md"
+    },
+    {
+      "id": "katowice",
+      "label": "Katowice",
+      "voivodeship": "slaskie",
+      "powiat_slug": "katowice",
+      "powiat_label": "Katowice (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/katowice/katowice.md"
+    },
+    {
+      "id": "myslowice",
+      "label": "Mysłowice",
+      "voivodeship": "slaskie",
+      "powiat_slug": "myslowice",
+      "powiat_label": "Mysłowice (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/myslowice/myslowice.md"
+    },
+    {
+      "id": "piekary-slaskie",
+      "label": "Piekary Śląskie",
+      "voivodeship": "slaskie",
+      "powiat_slug": "piekary-slaskie",
+      "powiat_label": "Piekary Śląskie (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "dropped",
+      "path": "spikes/slaskie/piekary-slaskie/piekary-slaskie.md"
+    },
+    {
+      "id": "raciborz",
+      "label": "Racibórz",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-raciborski",
+      "powiat_label": "powiat raciborski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/slaskie/powiat-raciborski/raciborz.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "BUILT this session — pipeline/src/cities/raciborz/ + parse-raciborz.test.js (43 green), registered in cities/index.js. bipraciborz.pl text-PDFs, ~15-30 flats/yr."
+      }
+    },
+    {
+      "id": "ruda-slaska",
+      "label": "Ruda Śląska",
+      "voivodeship": "slaskie",
+      "powiat_slug": "ruda-slaska",
+      "powiat_label": "Ruda Śląska (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "deferred",
+      "path": "spikes/slaskie/ruda-slaska/ruda-slaska.md"
+    },
+    {
+      "id": "rybnik",
+      "label": "Rybnik",
+      "voivodeship": "slaskie",
+      "powiat_slug": "rybnik",
+      "powiat_label": "Rybnik (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/rybnik/rybnik.md"
+    },
+    {
+      "id": "siemianowice-slaskie",
+      "label": "Siemianowice Śląskie",
+      "voivodeship": "slaskie",
+      "powiat_slug": "siemianowice-slaskie",
+      "powiat_label": "Siemianowice Śląskie (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "dropped",
+      "path": "spikes/slaskie/siemianowice-slaskie/siemianowice-slaskie.md"
+    },
+    {
+      "id": "sosnowiec",
+      "label": "Sosnowiec",
+      "voivodeship": "slaskie",
+      "powiat_slug": "sosnowiec",
+      "powiat_label": "Sosnowiec (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/sosnowiec/sosnowiec.md"
+    },
+    {
+      "id": "swietochlowice",
+      "label": "Świętochłowice",
+      "voivodeship": "slaskie",
+      "powiat_slug": "swietochlowice",
+      "powiat_label": "Świętochłowice (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/swietochlowice/swietochlowice.md"
+    },
+    {
+      "id": "tarnowskie-gory",
+      "label": "Tarnowskie Góry",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-tarnogorski",
+      "powiat_label": "powiat tarnogórski",
+      "type": "land-powiat-seat",
+      "status": "built",
+      "path": "spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md"
+    },
+    {
+      "id": "tychy",
+      "label": "Tychy",
+      "voivodeship": "slaskie",
+      "powiat_slug": "tychy",
+      "powiat_label": "Tychy (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "dropped",
+      "path": "spikes/slaskie/tychy/tychy.md"
+    },
+    {
+      "id": "zabrze",
+      "label": "Zabrze",
+      "voivodeship": "slaskie",
+      "powiat_slug": "zabrze",
+      "powiat_label": "Zabrze (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/slaskie/zabrze/zabrze.md"
+    },
+    {
+      "id": "zawiercie",
+      "label": "Zawiercie",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-zawiercianski",
+      "powiat_label": "powiat zawiercianski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/slaskie/powiat-zawiercianski/zawiercie.md",
+      "spike": {
+        "wave": "B",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "City BIP auctions land only; flat co-ownership shares go bezprzetargowo; ZGM rental-only"
+      }
+    },
+    {
+      "id": "zory",
+      "label": "Żory",
+      "voivodeship": "slaskie",
+      "powiat_slug": "zory",
+      "powiat_label": "Żory (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "deferred",
+      "path": "spikes/slaskie/zory/zory.md"
+    },
+    {
+      "id": "kielce",
+      "label": "Kielce",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "kielce",
+      "powiat_label": "Kielce (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/swietokrzyskie/kielce/kielce.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "SmartSite BIP bipum.kielce.eu single board; achieved price in DOCX; ~5-8 flats/yr; analog Bytom"
+      }
+    },
+    {
+      "id": "ostrowiec-swietokrzyski",
+      "label": "Ostrowiec Świętokrzyski",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-ostrowiecki",
+      "powiat_label": "powiat ostrowiecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/swietokrzyskie/powiat-ostrowiecki/ostrowiec-swietokrzyski.md",
+      "spike": {
+        "wave": "C",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Land/commercial only (0 flats in 235-entry BIP history); flats bezprzetargowo; OTBS stock exhausted"
+      }
+    },
+    {
+      "id": "starachowice",
+      "label": "Starachowice",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-starachowicki",
+      "powiat_label": "powiat starachowicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/swietokrzyskie/powiat-starachowicki/starachowice.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "starachowice.eu portal flat przetargi (multi-round, ul. Majówka) ~5-10/yr; achieved price in BIP PDFs (Playwright)"
+      }
+    },
+    {
+      "id": "elblag",
+      "label": "Elbląg",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "elblag",
+      "powiat_label": "Elbląg (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/elblag/elblag.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.elblag.eu Logonet, born-digital PDFs; ~3-8 flats/yr; must filter the bezprzetargowy tenant-sale stream on same BIP"
+      }
+    },
+    {
+      "id": "olsztyn",
+      "label": "Olsztyn",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "olsztyn",
+      "powiat_label": "Olsztyn (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "built",
+      "path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "BUILT this session — pipeline/src/cities/olsztyn/ + parse-olsztyn.test.js (29 green), registered. bip.olsztyn.eu inline-HTML, achieved price in prose; monthly flat auctions."
+      }
+    },
+    {
+      "id": "gniezno",
+      "label": "Gniezno",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-gnieznienski",
+      "powiat_label": "powiat gnieznienski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-gnieznienski/gniezno.md",
+      "spike": {
+        "wave": "C",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.gniezno.eu (IDcom) flat przetargi; text-PDF + HTML result notices (cena osiągnięta/nabywca); ~3-6/yr"
+      }
+    },
+    {
+      "id": "kalisz",
+      "label": "Kalisz",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "kalisz",
+      "powiat_label": "Kalisz (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/wielkopolskie/kalisz/kalisz.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.kalisz.pl WGM board; born-digital PDFs + achieved-price notices same feed; ~5-15/yr; analog Poznań"
+      }
+    },
+    {
+      "id": "konin",
+      "label": "Konin",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "konin",
+      "powiat_label": "Konin (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/konin/konin.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No flat-auction stream; flats bezprzetargowo to tenants; only land/garages at auction"
+      }
+    },
+    {
+      "id": "krotoszyn",
+      "label": "Krotoszyn",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-krotoszynski",
+      "powiat_label": "powiat krotoszynski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-krotoszynski/krotoszyn.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "~1 flat/yr rural sołectwa, repeat rounds no buyers; bezprzetargowy dominant; SPA; no online achieved-price"
+      }
+    },
+    {
+      "id": "leszno",
+      "label": "Leszno",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "leszno",
+      "powiat_label": "Leszno (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/leszno/leszno.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat auctions ~1-3/yr, none 2025-26 YTD; prices in .doc; MZBK rental-only; land-dominant"
+      }
+    },
+    {
+      "id": "ostrow-wielkopolski",
+      "label": "Ostrów Wielkopolski",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-ostrowski",
+      "powiat_label": "powiat ostrowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-ostrowski/ostrow-wielkopolski.md",
+      "spike": {
+        "wave": "B",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold bezprzetargowo to tenants; MZGM rental przetargi only; commercial-only auctions"
+      }
+    },
+    {
+      "id": "pila",
+      "label": "Piła",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-pilski",
+      "powiat_label": "powiat pilski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-pilski/pila.md",
+      "spike": {
+        "wave": "B",
+        "effort": "Low–Medium",
+        "confidence": "LIVE",
+        "note": "Prezydent Piły runs flat przetargi on bip.pila.pl (server-rendered HTML) ~10-20 lots/yr; analog Tarnowskie Góry"
+      }
+    },
+    {
+      "id": "poznan",
+      "label": "Poznań",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "poznan",
+      "powiat_label": "Poznań (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/wielkopolskie/poznan/poznan.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE/DESK",
+        "note": "WGN bip.poznan.pl server-rendered; thin ~5-15 flats/yr; achieved-price stream unconfirmed"
+      }
+    },
+    {
+      "id": "koszalin",
+      "label": "Koszalin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "koszalin",
+      "powiat_label": "Koszalin (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/koszalin/koszalin.md",
+      "spike": {
+        "wave": "A",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flat volume ~1/yr; primarily a land-auction publisher; clean HTML but achieved prices PDF-only"
+      }
+    },
+    {
+      "id": "stargard",
+      "label": "Stargard",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-stargardzki",
+      "powiat_label": "powiat stargardzki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md",
+      "spike": {
+        "wave": "B",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Stargardzkie TBS (tbs.stargard.pl) + result notices on bip.stargard.eu; ~15-25 flats/yr; dual-source dedup"
+      }
+    },
+    {
+      "id": "szczecin",
+      "label": "Szczecin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "szczecin",
+      "powiat_label": "Szczecin (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/szczecin/szczecin.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "ICOR BIP HTML (ustny przetarg) + STBS miastooferuje.szczecin.eu supplementary stream; two scrapers"
+      }
+    },
+    {
+      "id": "swinoujscie",
+      "label": "Świnoujście",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "swinoujscie",
+      "powiat_label": "Świnoujście (miasto na prawach powiatu)",
+      "type": "city-county",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md",
+      "spike": {
+        "wave": "A",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "TBS Lokum + city WEiON on Logonet BIP; born-digital HTML; ~4-8 flats/yr; resort pricing valuable"
+      }
+    }
+  ]
+}

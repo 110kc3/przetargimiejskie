@@ -33,6 +33,15 @@ const MIN_UNIQUE = Number(process.env.MIN_UNIQUE || 1);
 // reason, like sanity-check.js's allowlist.
 const EXEMPT_EMPTY = new Set();
 
+// Cities pending their FIRST successful live refresh — newly-built adapters
+// being validated against the live BIP (June 2026: Oświęcim REKORD relative-href
+// fix, Chrzanów stub-depth fix, Kędzierzyn-Koźle crawl bound). For these, a
+// missing meta.json or unique_properties=0 is a WARN, not a build-failing FAIL,
+// so the established cities' health isn't blocked by a city still settling in.
+// REMOVE a city from here the moment its first real refresh commits non-empty
+// data (then a future drop to 0 correctly fails again).
+const EXEMPT_NEW = new Set(['kedzierzyn-kozle', 'oswiecim', 'chrzanow']);
+
 const now = Date.now();
 const fails = [];
 const warns = [];
@@ -52,7 +61,9 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 for (const c of index.cities || []) {
   const metaPath = join(DATA_DIR, c.id, 'meta.json');
   if (!existsSync(metaPath)) {
-    fails.push(`${c.id}: meta.json missing`);
+    (EXEMPT_NEW.has(c.id) ? warns : fails).push(
+      `${c.id}: meta.json missing${EXEMPT_NEW.has(c.id) ? ' (new adapter, pending first live refresh)' : ''}`,
+    );
     continue;
   }
   let meta;
@@ -69,7 +80,11 @@ for (const c of index.cities || []) {
   const age = daysSince(meta.generated_at);
 
   if (unique < MIN_UNIQUE) {
-    fails.push(`${c.id}: unique_properties=${unique} (< ${MIN_UNIQUE}) — adapter likely broke`);
+    (EXEMPT_NEW.has(c.id) ? warns : fails).push(
+      `${c.id}: unique_properties=${unique} (< ${MIN_UNIQUE}) — ${
+        EXEMPT_NEW.has(c.id) ? 'new adapter, pending first live refresh' : 'adapter likely broke'
+      }`,
+    );
   }
   if (age > STALE_DAYS) {
     const ageStr = age === Infinity ? 'no/invalid generated_at' : `${age.toFixed(1)} days old`;

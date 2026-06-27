@@ -50,10 +50,18 @@ async function fetchHtml(url) {
 /** Master-table article paths discovered on a board-85 menu page. */
 function discoverMasterTables(html) {
   const out = new Set();
+  // Bound the work: only the current + previous year's master tables. Deep
+  // historical year-tables (rok-2019, …) would make the crawl fetch+extract a
+  // PDF for hundreds of archived articles and blow the 25-min CI job timeout;
+  // prior years are already retained in committed data by merge-history.
+  const minYear = new Date().getFullYear() - 1;
   const re = /\/artykul\/85\/(\d+)\/([a-z0-9-]+)/g;
   let m;
   while ((m = re.exec(html)) !== null) {
-    if (/w-trybie-przetargow|trybie-przetargowym/.test(m[2])) out.add(`/artykul/85/${m[1]}/${m[2]}`);
+    if (!/w-trybie-przetargow|trybie-przetargowym/.test(m[2])) continue;
+    const ym = /rok-(\d{4})/.exec(m[2]);
+    if (ym && Number(ym[1]) < minYear) continue;
+    out.add(`/artykul/85/${m[1]}/${m[2]}`);
   }
   return [...out];
 }
@@ -114,7 +122,20 @@ async function crawlAll() {
   for (const a of SEED_ARTICLES) if (!articles.has(a.id)) articles.set(a.id, a);
 
   // 3) Process each article: select non-skan PDFs, extract text, route by body.
+  // Hard bound so the CI job never blows its 25-min timeout (the failure that
+  // cancelled refresh #88): a wall-clock budget + an article cap. Recent items
+  // (seeds + current-year tables) are processed first; anything not reached
+  // backfills on later runs — the text-PDF cache makes those fast and
+  // merge-history retains prior results. Override via KK_CRAWL_BUDGET_MS / KK_MAX_ARTICLES.
+  const deadline = Date.now() + (Number(process.env.KK_CRAWL_BUDGET_MS) || 12 * 60 * 1000);
+  const maxArticles = Number(process.env.KK_MAX_ARTICLES) || 150;
+  let processed = 0;
   for (const a of articles.values()) {
+    if (processed >= maxArticles || Date.now() > deadline) {
+      console.error(`  kedzierzyn-kozle: crawl budget reached (processed ${processed}/${articles.size}); stopping early — remainder backfills next run`);
+      break;
+    }
+    processed++;
     const detail_url = abs(`/artykul/127/${a.id}/${a.slug}`);
     const html = await fetchHtml(detail_url);
     if (!html) continue;
