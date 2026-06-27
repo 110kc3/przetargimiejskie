@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "city": "brzeg",
+  "properties": [
+    {
+      "key": "3 maja|1|1",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "1",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97000,
+          "outcome": "archived",
+          "detail_url": "https://bip.brzeg.pl/przetargi,9_1-2024-7_72",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "bip_url": "https://bip.brzeg.pl/przetargi,9_1-2024-7_72"
+        }
+      ]
+    },
+    {
+      "key": "3 maja|1|2",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "1",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "detail_url": "https://bip.brzeg.pl/przetargi,9_1-2024-7_73",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "bip_url": "https://bip.brzeg.pl/przetargi,9_1-2024-7_73"
+        }
+      ]
+    },
+    {
+      "key": "3 maja|1|4",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "detail_url": "https://bip.brzeg.pl/przetargi,9_1-2024-7_74",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "bip_url": "https://bip.brzeg.pl/przetargi,9_1-2024-7_74"
+        }
+      ]
+    }
+  ]
+}
