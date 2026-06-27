@@ -1,0 +1,781 @@
+{
+  "schema_version": 1,
+  "city": "kedzierzyn-kozle",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 42,
+      "starting_price_pln": 170000,
+      "auction_date": "2025-12-10",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29090/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73799"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 39.41,
+      "starting_price_pln": 900000,
+      "auction_date": "2026-01-13",
+      "round": 6,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29090/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73800"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 86.6,
+      "starting_price_pln": 345000,
+      "auction_date": "2025-12-10",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29090/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73802"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 65.2,
+      "starting_price_pln": 280000,
+      "auction_date": "2025-12-10",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29090/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73804"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 59.4,
+      "starting_price_pln": 250000,
+      "auction_date": "2025-12-10",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29090/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73806"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 45.95,
+      "starting_price_pln": 200000,
+      "auction_date": "2025-11-26",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29038/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73584"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 130000,
+      "auction_date": "2025-11-18",
+      "round": 8,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28992/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73343"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 100000,
+      "auction_date": "2025-11-18",
+      "round": 8,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28992/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73345"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 170000,
+      "auction_date": "2025-11-18",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28992/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73347"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 32.31,
+      "starting_price_pln": 50000,
+      "auction_date": "2025-11-18",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28992/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73349"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 65.2,
+      "starting_price_pln": 315500,
+      "auction_date": "2025-10-29",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28861/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72775"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 140000,
+      "auction_date": "2025-10-07",
+      "round": 7,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28744/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72319"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 180000,
+      "auction_date": "2025-10-07",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28744/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72320"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 110000,
+      "auction_date": "2025-10-07",
+      "round": 7,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28744/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72322"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 32.31,
+      "starting_price_pln": 60000,
+      "auction_date": "2025-10-07",
+      "round": 3,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28744/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72324"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 39.41,
+      "starting_price_pln": 1000000,
+      "auction_date": "2025-10-28",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28734/ogloszenia-o-przetargach",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72225"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 32.31,
+      "starting_price_pln": 70000,
+      "auction_date": "2025-08-20",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28603/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71741"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 150000,
+      "auction_date": "2025-08-12",
+      "round": 6,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28536/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71491"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 190000,
+      "auction_date": "2025-08-12",
+      "round": 3,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28536/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71492"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 120000,
+      "auction_date": "2025-08-12",
+      "round": 6,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28536/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71494"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 32.92,
+      "starting_price_pln": 61000,
+      "auction_date": "2025-08-07",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28536/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71496"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 39.41,
+      "starting_price_pln": 1100000,
+      "auction_date": "2025-08-19",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28443/ogloszenie-o-przetargach",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71116"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 200000,
+      "auction_date": "2025-07-01",
+      "round": 13,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28385/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70925"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 32.31,
+      "starting_price_pln": 80000,
+      "auction_date": "2025-07-01",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28385/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70927"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 65.2,
+      "starting_price_pln": 307000,
+      "auction_date": "2025-07-01",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28385/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70929"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 170000,
+      "auction_date": "2025-06-18",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28288/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70442"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 210000,
+      "auction_date": "2025-06-18",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28288/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70444"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 130000,
+      "auction_date": "2025-06-12",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28288/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70447"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 270000,
+      "auction_date": "2025-04-23",
+      "round": 6,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28099/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69602"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 140000,
+      "auction_date": "2025-04-23",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28099/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69606"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 220000,
+      "auction_date": "2025-04-23",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28099/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69608"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 181000,
+      "auction_date": "2025-04-23",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28099/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69610"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 39.41,
+      "starting_price_pln": 1100000,
+      "auction_date": "2025-05-13",
+      "round": 3,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28047/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69322"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 142000,
+      "auction_date": "2025-03-06",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27846/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68440"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 140000,
+      "auction_date": "2025-03-11",
+      "round": 3,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27846/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68441"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Wyzwolenia 25A",
+      "address": {
+        "street": "Wyzwolenia",
+        "street_norm": "wyzwolenia",
+        "building": "25A",
+        "apt": null,
+        "key": "wyzwolenia|25A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 9000,
+      "auction_date": "2025-03-06",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27846/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68446"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 280000,
+      "auction_date": "2025-03-11",
+      "round": 5,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27846/ogloszenia-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68448"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 39.41,
+      "starting_price_pln": 1100000,
+      "auction_date": "2025-02-18",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27670/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67790"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 181000,
+      "auction_date": "2025-01-23",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27601/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67511"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 142000,
+      "auction_date": "2025-01-23",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27601/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67512"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ligonia 5a",
+      "address": {
+        "street": "Ligonia",
+        "street_norm": "ligonia",
+        "building": "5A",
+        "apt": null,
+        "key": "ligonia|5A|",
+        "warning": null
+      },
+      "area_m2": 48.71,
+      "starting_price_pln": 160000,
+      "auction_date": "2025-01-16",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27559/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67335"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Wyzwolenia 25A",
+      "address": {
+        "street": "Wyzwolenia",
+        "street_norm": "wyzwolenia",
+        "building": "25A",
+        "apt": null,
+        "key": "wyzwolenia|25A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 10000,
+      "auction_date": "2025-01-16",
+      "round": 4,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27559/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67337"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Judyma 4",
+      "address": {
+        "street": "Judyma",
+        "street_norm": "judyma",
+        "building": "4",
+        "apt": null,
+        "key": "judyma|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 100000,
+      "auction_date": "2025-09-30",
+      "round": 1,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72275"
+    }
+  ],
+  "wykaz": []
+}
