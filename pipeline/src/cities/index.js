@@ -27,6 +27,16 @@ import olsztyn from './olsztyn/index.js';
 import torun from './torun/index.js';
 import pabianice from './pabianice/index.js';
 import wejherowo from './wejherowo/index.js';
+import lodz from './lodz/index.js';
+import walbrzych from './walbrzych/index.js';
+import bialystok from './bialystok/index.js';
+import nysa from './nysa/index.js';
+import gdansk from './gdansk/index.js';
+import kielce from './kielce/index.js';
+import pila from './pila/index.js';
+import szczecin from './szczecin/index.js';
+import klodzko from './klodzko/index.js';
+import brzeg from './brzeg/index.js';
 
 export const cities = [
   gliwice,
@@ -52,6 +62,16 @@ export const cities = [
   torun,
   pabianice,
   wejherowo,
+  lodz,
+  walbrzych,
+  bialystok,
+  nysa,
+  gdansk,
+  kielce,
+  pila,
+  szczecin,
+  klodzko,
+  brzeg,
 ];
 
 /** @param {string} id @returns {object|null} */

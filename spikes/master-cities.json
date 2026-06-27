@@ -1,6 +1,6 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-06-27T15:13:07.606Z",
+  "generated_at": "2026-06-27T20:11:42.292Z",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
   "total": 108,
   "cities": [
@@ -43,13 +43,13 @@
       "powiat_slug": "powiat-klodzki",
       "powiat_label": "powiat klodzki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md",
       "spike": {
         "wave": "D",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "um.bip.klodzko.pl (menu=346) flat przetargi + result notices inline HTML; ~5-10/yr; archive tab may need Playwright"
+        "note": "BUILT — pipeline/src/cities/klodzko/ + parse-klodzko.test.js (34 green), registered. um.bip.klodzko.pl menu=346 inline-HTML results; archive tab needs Playwright (gap)."
       }
     },
     {
@@ -123,13 +123,13 @@
       "powiat_slug": "walbrzych",
       "powiat_label": "Wałbrzych (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "High volume ~60 flats/yr on bip.um.walbrzych.pl; born-digital PDF result notices (pdftotext); mosparo token + multi-col PDF table"
+        "note": "BUILT — pipeline/src/cities/walbrzych/ + parse-walbrzych.test.js (30 green), registered. bip.um.walbrzych.pl multi-column PDF result tables (pdftotext -layout); ~60 flats/yr."
       }
     },
     {
@@ -161,7 +161,7 @@
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Logonet BIP bip.um.bydgoszcz.pl/artykuly/1208; single source; achieved price in DOCX attachment"
+        "note": "BUILD-ready — adapter generated 2026-06-27 was CORRUPTED by sandbox mount-sync (truncated parse.js → 3 failing announcement tests). UNREGISTERED + test stubbed; needs a CLEAN REBUILD. Logonet bip.um.bydgoszcz.pl/artykuly/1208, DOCX achieved price."
       }
     },
     {
@@ -267,13 +267,13 @@
       "powiat_slug": "lodz",
       "powiat_label": "Łódź (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/lodz/lodz.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "High-volume ZNN flat auctions on bip.uml.lodz.pl (TYPO3); born-digital PDFs + co-located result notices; analog Kraków"
+        "note": "BUILT — pipeline/src/cities/lodz/ + parse-lodz.test.js (36 green), registered. bip.uml.lodz.pl TYPO3 text-PDFs (ZNN_sn_*) + HTML result notices; high volume."
       }
     },
     {
@@ -465,7 +465,7 @@
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "bip.um.gorzow.pl batches ~12 flats; born-digital PDFs both streams (achieved price inline); XML feed fallback"
+        "note": "BUILD-ready — adapter generated 2026-06-27 was CORRUPTED by sandbox mount-sync (test file failed to load). Not registered + test stubbed; needs a CLEAN REBUILD. bip.um.gorzow.pl born-digital PDFs both streams."
       }
     },
     {
@@ -717,13 +717,13 @@
       "powiat_slug": "powiat-brzeski",
       "powiat_label": "powiat brzeski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/opolskie/powiat-brzeski/brzeg.md",
       "spike": {
         "wave": "D",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "~10 flats/yr; dual-host brzeg.pl (WordPress) + bip.brzeg.pl (MegaBIP); result-price extraction needs one live-verify"
+        "note": "BUILT — pipeline/src/cities/brzeg/ + parse-brzeg.test.js (49 green), registered. brzeg.pl WP announcements + bip.brzeg.pl results; result-PDF body validate first run."
       }
     },
     {
@@ -743,13 +743,13 @@
       "powiat_slug": "powiat-nyski",
       "powiat_label": "powiat nyski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/opolskie/powiat-nyski/nysa.md",
       "spike": {
         "wave": "B",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Burmistrz Nysy runs flat przetargi on bip.nysa.pl; text-PDFs + achieved-price notices same article; no blockers"
+        "note": "BUILT — pipeline/src/cities/nysa/ + parse-nysa.test.js (21 green), registered. bip.nysa.pl text-PDFs, results in same article (boards c=280/c=318)."
       }
     },
     {
@@ -897,13 +897,13 @@
       "powiat_slug": "bialystok",
       "powiat_label": "Białystok (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/podlaskie/bialystok/bialystok.md",
       "spike": {
         "wave": "A",
         "effort": "Low–Medium",
         "confidence": "LIVE",
-        "note": "Single clean BIP /postepowania/przetargi_na_nieruchomosci; Cena nabycia inline HTML; JS pagination"
+        "note": "BUILT — pipeline/src/cities/bialystok/ + parse-bialystok.test.js (35 green), registered. bip.bialystok.pl inline-HTML Cena nabycia, offset pagination; ~10-20/yr."
       }
     },
     {
@@ -945,13 +945,13 @@
       "powiat_slug": "gdansk",
       "powiat_label": "Gdańsk (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/gdansk/gdansk.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Active lokale mieszkalne on bip.gdansk.pl (Wydział Skarbu); born-digital PDFs + HTML; result-notice URL to confirm"
+        "note": "BUILT — pipeline/src/cities/gdansk/ + parse-gdansk.test.js (41 green), registered. bip.gdansk.pl born-digital PDFs + HTML. NOTE: announcement parser groundtruthed on a RECONSTRUCTED fixture (CDN PDF timed out) — validate vs real PDF on first refresh; result-notice URL still to confirm."
       }
     },
     {
@@ -1311,13 +1311,13 @@
       "powiat_slug": "kielce",
       "powiat_label": "Kielce (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/swietokrzyskie/kielce/kielce.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "SmartSite BIP bipum.kielce.eu single board; achieved price in DOCX; ~5-8 flats/yr; analog Bytom"
+        "note": "BUILT — pipeline/src/cities/kielce/ + parse-kielce.test.js (34 green), registered. SmartSite bipum.kielce.eu single board; DOCX achieved price; ~5-8/yr."
       }
     },
     {
@@ -1487,13 +1487,13 @@
       "powiat_slug": "powiat-pilski",
       "powiat_label": "powiat pilski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-pilski/pila.md",
       "spike": {
         "wave": "B",
         "effort": "Low–Medium",
         "confidence": "LIVE",
-        "note": "Prezydent Piły runs flat przetargi on bip.pila.pl (server-rendered HTML) ~10-20 lots/yr; analog Tarnowskie Góry"
+        "note": "BUILT — pipeline/src/cities/pila/ + parse-pila.test.js (63 green), registered. bip.pila.pl server-rendered HTML (browser UA); ~10-20/yr. Result parser unvalidated vs real wyniki PDF (first-run)."
       }
     },
     {
@@ -1551,13 +1551,13 @@
       "powiat_slug": "szczecin",
       "powiat_label": "Szczecin (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/szczecin/szczecin.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "ICOR BIP HTML (ustny przetarg) + STBS miastooferuje.szczecin.eu supplementary stream; two scrapers"
+        "note": "BUILT — pipeline/src/cities/szczecin/ + parse-szczecin.test.js (67 green), registered. bip.um.szczecin.pl ICOR via RSS feed; STBS second source TODO."
       }
     },
     {
