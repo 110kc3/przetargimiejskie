@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "city": "szczecin",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pocztowa 30/16",
+      "address": {
+        "street": "Pocztowa",
+        "street_norm": "pocztowa",
+        "building": "30",
+        "apt": "16",
+        "key": "pocztowa|30|16",
+        "warning": null
+      },
+      "auction_date": "2026-06-03",
+      "published_date": "2026-03-30",
+      "round": 2,
+      "area_m2": 162.04,
+      "starting_price_pln": 806200,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=0375356C3DCF4DC3BC96D57C3AA247C7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kapitańska 6/9",
+      "address": {
+        "street": "Kapitańska",
+        "street_norm": "kapitanska",
+        "building": "6",
+        "apt": "9",
+        "key": "kapitanska|6|9",
+        "warning": null
+      },
+      "auction_date": "2026-07-09",
+      "published_date": "2026-04-28",
+      "round": 1,
+      "area_m2": 153.93,
+      "starting_price_pln": 706300,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=117571C4898F473AABC7EEF24609235C"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Krzemienna 28/4",
+      "address": {
+        "street": "Krzemienna",
+        "street_norm": "krzemienna",
+        "building": "28",
+        "apt": "4",
+        "key": "krzemienna|28|4",
+        "warning": null
+      },
+      "auction_date": "2026-05-11",
+      "published_date": "2026-04-03",
+      "round": 3,
+      "area_m2": 31.4,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=179399F423194126ACFDFFAA3050F327"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Mazurska 43/4",
+      "address": {
+        "street": "Mazurska",
+        "street_norm": "mazurska",
+        "building": "43",
+        "apt": "4",
+        "key": "mazurska|43|4",
+        "warning": null
+      },
+      "auction_date": "2026-07-30",
+      "published_date": "2026-04-14",
+      "round": 2,
+      "area_m2": 169.15,
+      "starting_price_pln": 955500,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=1FD17A8768BB48C9AAFCD0D89001F32A"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pocztowa 10/11",
+      "address": {
+        "street": "Pocztowa",
+        "street_norm": "pocztowa",
+        "building": "10",
+        "apt": "11",
+        "key": "pocztowa|10|11",
+        "warning": null
+      },
+      "auction_date": "2026-07-30",
+      "published_date": "2026-05-14",
+      "round": 2,
+      "area_m2": 107.41,
+      "starting_price_pln": 533100,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=30AB545C23424308BA986C0ACAADF961"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kaszubska 65/1",
+      "address": {
+        "street": "Kaszubska",
+        "street_norm": "kaszubska",
+        "building": "65",
+        "apt": "1",
+        "key": "kaszubska|65|1",
+        "warning": null
+      },
+      "auction_date": "2026-07-09",
+      "published_date": "2026-04-28",
+      "round": 1,
+      "area_m2": 150.95,
+      "starting_price_pln": 645300,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=32B668C6894048F8946379CBE1567910"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Krzemienna 28/1",
+      "address": {
+        "street": "Krzemienna",
+        "street_norm": "krzemienna",
+        "building": "28",
+        "apt": "1",
+        "key": "krzemienna|28|1",
+        "warning": null
+      },
+      "auction_date": "2026-05-04",
+      "published_date": "2026-03-30",
+      "round": 3,
+      "area_m2": 65.57,
+      "starting_price_pln": 350000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=38A5276AEB5841FEB5D82085D52D1AB4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kaszubska 58/2",
+      "address": {
+        "street": "Kaszubska",
+        "street_norm": "kaszubska",
+        "building": "58",
+        "apt": "2",
+        "key": "kaszubska|58|2",
+        "warning": null
+      },
+      "auction_date": "2026-08-20",
+      "published_date": "2026-06-09",
+      "round": 1,
+      "area_m2": 175.33,
+      "starting_price_pln": 892600,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4ED4FA88B59B4B0D993F5593278C6597"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kaszubska 65/6",
+      "address": {
+        "street": "Kaszubska",
+        "street_norm": "kaszubska",
+        "building": "65",
+        "apt": "6",
+        "key": "kaszubska|65|6",
+        "warning": null
+      },
+      "auction_date": "2026-06-03",
+      "published_date": "2026-03-30",
+      "round": 2,
+      "area_m2": 179.86,
+      "starting_price_pln": 981600,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=5BE7473C72564079A86C5610A68AC7BE"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Batalionów Chłopskich 32/3",
+      "address": {
+        "street": "Batalionów Chłopskich",
+        "street_norm": "batalionow chlopskich",
+        "building": "32",
+        "apt": "3",
+        "key": "batalionow chlopskich|32|3",
+        "warning": null
+      },
+      "auction_date": "2026-05-11",
+      "published_date": "2026-04-08",
+      "round": 3,
+      "area_m2": 47.78,
+      "starting_price_pln": 330000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=5D6C2F168AB140C1BC0AE1E842D81C6F"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kaszubska 65/4",
+      "address": {
+        "street": "Kaszubska",
+        "street_norm": "kaszubska",
+        "building": "65",
+        "apt": "4",
+        "key": "kaszubska|65|4",
+        "warning": null
+      },
+      "auction_date": "2026-07-27",
+      "published_date": "2026-04-30",
+      "round": 1,
+      "area_m2": 185.52,
+      "starting_price_pln": 793000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=71BE1D6171A5483D89F693752F86A10A"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Małopolska 61/3",
+      "address": {
+        "street": "Małopolska",
+        "street_norm": "malopolska",
+        "building": "61",
+        "apt": "3",
+        "key": "malopolska|61|3",
+        "warning": null
+      },
+      "auction_date": "2026-07-10",
+      "published_date": "2026-04-29",
+      "round": 1,
+      "area_m2": 134.6,
+      "starting_price_pln": 617600,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=809805C4A42549D4A28D830B99C2495B"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pocztowa 10/11",
+      "address": {
+        "street": "Pocztowa",
+        "street_norm": "pocztowa",
+        "building": "10",
+        "apt": "11",
+        "key": "pocztowa|10|11",
+        "warning": null
+      },
+      "auction_date": "2026-07-30",
+      "published_date": "2026-05-11",
+      "round": 2,
+      "area_m2": 107.41,
+      "starting_price_pln": 533100,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=80E1F762B57B4B0285092C6D7C88419D"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Kaszubska 17/11",
+      "address": {
+        "street": "Kaszubska",
+        "street_norm": "kaszubska",
+        "building": "17",
+        "apt": "11",
+        "key": "kaszubska|17|11",
+        "warning": null
+      },
+      "auction_date": "2026-06-11",
+      "published_date": "2026-03-30",
+      "round": 3,
+      "area_m2": 167.1,
+      "starting_price_pln": 944000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=85A960A064BF4BDC97D47CA860ED8897"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Marszałka Józefa Piłsudskiego 19/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "19",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|19|11",
+        "warning": null
+      },
+      "auction_date": "2026-07-23",
+      "published_date": "2026-05-22",
+      "round": 2,
+      "area_m2": 182.35,
+      "starting_price_pln": 881700,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=8716BCAFDF7C43DAB6A9287232D16D85"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Henryka Pobożnego 3/7",
+      "address": {
+        "street": "Henryka Pobożnego",
+        "street_norm": "henryka poboznego",
+        "building": "3",
+        "apt": "7",
+        "key": "henryka poboznego|3|7",
+        "warning": null
+      },
+      "auction_date": "2026-07-27",
+      "published_date": "2026-04-14",
+      "round": 2,
+      "area_m2": 177.23,
+      "starting_price_pln": 933300,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=89745857E21A4BDDB01275EF2526F972"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bolesława Limanowskiego 3/20",
+      "address": {
+        "street": "Bolesława Limanowskiego",
+        "street_norm": "boleslawa limanowskiego",
+        "building": "3",
+        "apt": "20",
+        "key": "boleslawa limanowskiego|3|20",
+        "warning": null
+      },
+      "auction_date": "2026-05-18",
+      "published_date": "2026-04-09",
+      "round": 2,
+      "area_m2": 30.12,
+      "starting_price_pln": 173600,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=993EF01315EA49D58D4ACE45A8C92AB7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "aleja Bohaterów Warszawy 100/9",
+      "address": {
+        "street": "aleja Bohaterów Warszawy",
+        "street_norm": "aleja bohaterow warszawy",
+        "building": "100",
+        "apt": "9",
+        "key": "aleja bohaterow warszawy|100|9",
+        "warning": null
+      },
+      "auction_date": "2026-07-10",
+      "published_date": "2026-04-29",
+      "round": 3,
+      "area_m2": 98.53,
+      "starting_price_pln": 500000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=BEF01E8425234774A19CFB0D5607882B"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bolesława Śmiałego 7/5",
+      "address": {
+        "street": "Bolesława Śmiałego",
+        "street_norm": "boleslawa smialego",
+        "building": "7",
+        "apt": "5",
+        "key": "boleslawa smialego|7|5",
+        "warning": null
+      },
+      "auction_date": "2026-08-20",
+      "published_date": "2026-06-09",
+      "round": 2,
+      "area_m2": 145.57,
+      "starting_price_pln": 603400,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=CDAF93906E6F49FF921D989B73581B2D"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Księcia Bogusława X 28/3",
+      "address": {
+        "street": "Księcia Bogusława X",
+        "street_norm": "ksiecia boguslawa x",
+        "building": "28",
+        "apt": "3",
+        "key": "ksiecia boguslawa x|28|3",
+        "warning": null
+      },
+      "auction_date": "2026-06-08",
+      "published_date": "2026-03-30",
+      "round": 1,
+      "area_m2": 143.24,
+      "starting_price_pln": 661800,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=D644AF6F0D6449F1AE141C25BCA1E3B0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bolesława Krzywoustego 48/13",
+      "address": {
+        "street": "Bolesława Krzywoustego",
+        "street_norm": "boleslawa krzywoustego",
+        "building": "48",
+        "apt": "13",
+        "key": "boleslawa krzywoustego|48|13",
+        "warning": null
+      },
+      "auction_date": "2026-07-08",
+      "published_date": "2026-04-27",
+      "round": 1,
+      "area_m2": 104.68,
+      "starting_price_pln": 487500,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=DE30F98EBA414A85B61D8EEC06A2EE7A"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Księcia Bogusława X 28/11",
+      "address": {
+        "street": "Księcia Bogusława X",
+        "street_norm": "ksiecia boguslawa x",
+        "building": "28",
+        "apt": "11",
+        "key": "ksiecia boguslawa x|28|11",
+        "warning": null
+      },
+      "auction_date": "2026-07-08",
+      "published_date": "2026-04-27",
+      "round": 1,
+      "area_m2": 149.9,
+      "starting_price_pln": 671260,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=EDB7E17BBF6F41A6BC66A53B633A6F7D"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Władysława Jagiełły 1/6",
+      "address": {
+        "street": "Władysława Jagiełły",
+        "street_norm": "wladyslawa jagielly",
+        "building": "1",
+        "apt": "6",
+        "key": "wladyslawa jagielly|1|6",
+        "warning": null
+      },
+      "auction_date": "2026-06-08",
+      "published_date": "2026-03-30",
+      "round": 2,
+      "area_m2": 150.98,
+      "starting_price_pln": 710000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=FCEF081E03BA4FD8A596C168ED3B9692"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ul. Kaszubska 13/7",
+      "address": {
+        "street": "Kaszubska",
+        "street_norm": "kaszubska",
+        "building": "13",
+        "apt": "7",
+        "key": "kaszubska|13|7",
+        "warning": null
+      },
+      "auction_date": "2026-06-11",
+      "published_date": "2026-03-30",
+      "round": 3,
+      "area_m2": 168.73,
+      "starting_price_pln": 953200,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=FF552ACD14B646CD993F408E1221408D"
+    }
+  ],
+  "wykaz": []
+}
