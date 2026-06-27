@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "city": "raciborz",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wileńskiej 15/16",
+      "address": {
+        "street": "Wileńskiej",
+        "street_norm": "wilenskiej",
+        "building": "15",
+        "apt": "16",
+        "key": "wilenskiej|15|16",
+        "warning": null
+      },
+      "area_m2": 35.05,
+      "starting_price_pln": null,
+      "auction_date": "2026-07-29",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43849017",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43849103?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Staszica 23/1",
+      "address": {
+        "street": "Staszica",
+        "street_norm": "staszica",
+        "building": "23",
+        "apt": "1",
+        "key": "staszica|23|1",
+        "warning": null
+      },
+      "area_m2": 23.14,
+      "starting_price_pln": null,
+      "auction_date": "2026-07-29",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43848747",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43848769?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mickiewicza 13/15",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "13",
+        "apt": "15",
+        "key": "mickiewicza|13|15",
+        "warning": null
+      },
+      "area_m2": 23.4,
+      "starting_price_pln": null,
+      "auction_date": "2026-07-29",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43848027",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43848090?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Opawskiej 93/2",
+      "address": {
+        "street": "Opawskiej",
+        "street_norm": "opawskiej",
+        "building": "93",
+        "apt": "2",
+        "key": "opawskiej|93|2",
+        "warning": null
+      },
+      "area_m2": 83.02,
+      "starting_price_pln": 381000,
+      "auction_date": "2026-07-15",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43782185",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43782206?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stalmacha 7a/10",
+      "address": {
+        "street": "Stalmacha",
+        "street_norm": "stalmacha",
+        "building": "7A",
+        "apt": "10",
+        "key": "stalmacha|7A|10",
+        "warning": null
+      },
+      "area_m2": 58.25,
+      "starting_price_pln": 281000,
+      "auction_date": "2026-07-15",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43779639",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43779983?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Winnej 10/5",
+      "address": {
+        "street": "Winnej",
+        "street_norm": "winnej",
+        "building": "10",
+        "apt": "5",
+        "key": "winnej|10|5",
+        "warning": null
+      },
+      "area_m2": 40.17,
+      "starting_price_pln": 200000,
+      "auction_date": "2026-06-30",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43658310",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43658331?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skłodowskiej-Curie 20/1",
+      "address": {
+        "street": "Skłodowskiej-Curie",
+        "street_norm": "sklodowskiej curie",
+        "building": "20",
+        "apt": "1",
+        "key": "sklodowskiej curie|20|1",
+        "warning": null
+      },
+      "area_m2": 40.08,
+      "starting_price_pln": 205000,
+      "auction_date": "2026-06-30",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43658127",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43658173?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Browarnej 7/3",
+      "address": {
+        "street": "Browarnej",
+        "street_norm": "browarnej",
+        "building": "7",
+        "apt": "3",
+        "key": "browarnej|7|3",
+        "warning": null
+      },
+      "area_m2": 46.1,
+      "starting_price_pln": 220000,
+      "auction_date": "2026-06-30",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43657983",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43658047?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Londzina 47",
+      "address": {
+        "street": "Londzina",
+        "street_norm": "londzina",
+        "building": "47",
+        "apt": null,
+        "key": "londzina|47|",
+        "warning": null
+      },
+      "area_m2": 52.49,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-15",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43522633",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43522655?version=1.0"
+    }
+  ],
+  "wykaz": []
+}

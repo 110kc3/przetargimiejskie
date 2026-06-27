@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "city": "raciborz",
+  "plots": [
+    {
+      "key": "dz|537/2,537/4,537/5,537/6,537/7,537/8,537/9",
+      "kind": "grunt",
+      "city": "raciborz",
+      "dzialka_nr": "537/2,537/4,537/5,537/6,537/7,537/8,537/9",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20537%2F2%2C537%2F4%2C537%2F5%2C537%2F6%2C537%2F7%2C537%2F8%2C537%2F9%20Racib%C3%B3rz%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "537/2"
+        },
+        {
+          "nr": "537/4"
+        },
+        {
+          "nr": "537/5"
+        },
+        {
+          "nr": "537/6"
+        },
+        {
+          "nr": "537/7"
+        },
+        {
+          "nr": "537/8"
+        },
+        {
+          "nr": "537/9"
+        }
+      ]
+    }
+  ]
+}
