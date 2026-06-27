@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "city": "torun",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ślusarska 5 m. 5a",
+      "address": {
+        "street": "Ślusarska",
+        "street_norm": "slusarska",
+        "building": "5",
+        "apt": "5A",
+        "key": "slusarska|5|5A",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 140000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/61782/ul-slusarska-5-m-5a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mickiewicza 93 m. 13A",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "93",
+        "apt": "13A",
+        "key": "mickiewicza|93|13A",
+        "warning": null
+      },
+      "auction_date": "2026-06-30",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 100000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/54536/ul-mickiewicza-93-m-13a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mostowa 10 m. 2",
+      "address": {
+        "street": "Mostowa",
+        "street_norm": "mostowa",
+        "building": "10",
+        "apt": "2",
+        "key": "mostowa|10|2",
+        "warning": null
+      },
+      "auction_date": "2026-05-19",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 193000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/61786/ul-mostowa-10-m-2-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Poznańska 81 m. 8",
+      "address": {
+        "street": "Poznańska",
+        "street_norm": "poznanska",
+        "building": "81",
+        "apt": "8",
+        "key": "poznanska|81|8",
+        "warning": null
+      },
+      "auction_date": "2026-01-27",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 90000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/60703/ul-poznanska-81-m-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Poznańska 81 m. 7",
+      "address": {
+        "street": "Poznańska",
+        "street_norm": "poznanska",
+        "building": "81",
+        "apt": "7",
+        "key": "poznanska|81|7",
+        "warning": null
+      },
+      "auction_date": "2025-11-25",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 9000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59591/ul-poznanska-81-m-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Poznańska 81 m. 5",
+      "address": {
+        "street": "Poznańska",
+        "street_norm": "poznanska",
+        "building": "81",
+        "apt": "5",
+        "key": "poznanska|81|5",
+        "warning": null
+      },
+      "auction_date": "2025-11-18",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/52582/poznanska-81-m-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wielkie Garbary 5 m. 21 A",
+      "address": null,
+      "auction_date": "2025-11-06",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 109000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59271/ul-wielkie-garbary-5-m-21-a-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Św. Jakuba 18 m. 6",
+      "address": {
+        "street": "Św. Jakuba",
+        "street_norm": "sw jakuba",
+        "building": "18",
+        "apt": "6",
+        "key": "sw jakuba|18|6",
+        "warning": null
+      },
+      "auction_date": "2025-11-06",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 109000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59531/ul-sw-jakuba-18-m-6-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Żeglarska 4 m. 6",
+      "address": {
+        "street": "Żeglarska",
+        "street_norm": "zeglarska",
+        "building": "4",
+        "apt": "6",
+        "key": "zeglarska|4|6",
+        "warning": null
+      },
+      "auction_date": "2025-06-24",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 268000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59188/ul-zeglarska-4-m-6-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wielkie Garbary 17 m. 3 i m. 4",
+      "address": null,
+      "auction_date": "2025-05-20",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/55317/ul-wielkie-garbary-17-m-3-i-m-4-lokale-sprzedane"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bydgoska 22A",
+      "address": {
+        "street": "Bydgoska",
+        "street_norm": "bydgoska",
+        "building": "22A",
+        "apt": null,
+        "key": "bydgoska|22A|",
+        "warning": null
+      },
+      "auction_date": "2024-09-10",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 249000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/57190/ul-bydgoska-22a-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Słowackiego 51 m. 10",
+      "address": {
+        "street": "Słowackiego",
+        "street_norm": "slowackiego",
+        "building": "51",
+        "apt": "10",
+        "key": "slowackiego|51|10",
+        "warning": null
+      },
+      "auction_date": "2024-09-02",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 260000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/52584/slowackiego-51-m-10-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krasińskiego 22-24",
+      "address": {
+        "street": "Krasińskiego",
+        "street_norm": "krasinskiego",
+        "building": "22-24",
+        "apt": null,
+        "key": "krasinskiego|22-24|",
+        "warning": null
+      },
+      "auction_date": "2024-09-02",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 145000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/57535/ul-krasinskiego-22-24-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Łazienna 28 m. 15",
+      "address": {
+        "street": "Łazienna",
+        "street_norm": "lazienna",
+        "building": "28",
+        "apt": "15",
+        "key": "lazienna|28|15",
+        "warning": null
+      },
+      "auction_date": "2024-04-23",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 262200,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/53532/ul-lazienna-28-m-15"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Klonowica 41 m. 4A",
+      "address": {
+        "street": "Klonowica",
+        "street_norm": "klonowica",
+        "building": "41",
+        "apt": "4A",
+        "key": "klonowica|41|4A",
+        "warning": null
+      },
+      "auction_date": "2024-04-23",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 135000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/56627/ul-klonowica-41-m-4a-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 2",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "2",
+        "apt": null,
+        "key": "warszawska|2|",
+        "warning": null
+      },
+      "auction_date": "2024-03-05",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 550000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/55975/ul-warszawska-2-lokal-sprzedany"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ślusarska 5 m. 8",
+      "address": {
+        "street": "Ślusarska",
+        "street_norm": "slusarska",
+        "building": "5",
+        "apt": "8",
+        "key": "slusarska|5|8",
+        "warning": null
+      },
+      "auction_date": "2023-09-19",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": 199600,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/53087/ul-slusarska-5-m-8"
+    }
+  ],
+  "wykaz": []
+}

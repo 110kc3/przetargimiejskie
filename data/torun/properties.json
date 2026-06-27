@@ -1,0 +1,464 @@
+{
+  "schema_version": 1,
+  "city": "torun",
+  "properties": [
+    {
+      "key": "slusarska|5|5A",
+      "street": "Ślusarska",
+      "street_norm": "slusarska",
+      "building": "5",
+      "apt": "5A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/61782/ul-slusarska-5-m-5a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|93|13A",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "93",
+      "apt": "13A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/54536/ul-mickiewicza-93-m-13a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "nr|2|",
+      "street": "Nr",
+      "street_norm": "nr",
+      "building": "2",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.torun.pl/attachments/download/58022",
+          "notes": [],
+          "area_m2": 28.8
+        },
+        {
+          "date": "2026-05-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 193000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 194930,
+          "source_pdf": "https://bip.torun.pl/attachments/download/59378",
+          "notes": [],
+          "area_m2": 28.8
+        }
+      ],
+      "area_m2": 28.8
+    },
+    {
+      "key": "mostowa|10|2",
+      "street": "Mostowa",
+      "street_norm": "mostowa",
+      "building": "10",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 193000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/61786/ul-mostowa-10-m-2-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|110|",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "110",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.torun.pl/attachments/download/58022",
+          "notes": [],
+          "area_m2": 79.45
+        }
+      ],
+      "area_m2": 79.45
+    },
+    {
+      "key": "poznanska|81|8",
+      "street": "Poznańska",
+      "street_norm": "poznanska",
+      "building": "81",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/60703/ul-poznanska-81-m-8",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "poznanska|81|7",
+      "street": "Poznańska",
+      "street_norm": "poznanska",
+      "building": "81",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 9000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59591/ul-poznanska-81-m-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "poznanska|81|5",
+      "street": "Poznańska",
+      "street_norm": "poznanska",
+      "building": "81",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/52582/poznanska-81-m-5",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "nr|6|",
+      "street": "Nr",
+      "street_norm": "nr",
+      "building": "6",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.torun.pl/attachments/download/52551",
+          "notes": []
+        },
+        {
+          "date": "2025-07-08",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.torun.pl/attachments/download/53639",
+          "notes": []
+        },
+        {
+          "date": "2025-11-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.torun.pl/attachments/download/54912",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "sw jakuba|18|6",
+      "street": "Św. Jakuba",
+      "street_norm": "sw jakuba",
+      "building": "18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 109000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59531/ul-sw-jakuba-18-m-6-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "zeglarska|4|6",
+      "street": "Żeglarska",
+      "street_norm": "zeglarska",
+      "building": "4",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 268000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59188/ul-zeglarska-4-m-6-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "nr|3|",
+      "street": "Nr",
+      "street_norm": "nr",
+      "building": "3",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 450000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 530000,
+          "source_pdf": "https://bip.torun.pl/attachments/download/52502",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "nr|4|",
+      "street": "Nr",
+      "street_norm": "nr",
+      "building": "4",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.torun.pl/attachments/download/52502",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "bydgoska|22A|",
+      "street": "Bydgoska",
+      "street_norm": "bydgoska",
+      "building": "22A",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 249000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/57190/ul-bydgoska-22a-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "slowackiego|51|10",
+      "street": "Słowackiego",
+      "street_norm": "slowackiego",
+      "building": "51",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/52584/slowackiego-51-m-10-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "krasinskiego|22-24|",
+      "street": "Krasińskiego",
+      "street_norm": "krasinskiego",
+      "building": "22-24",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/57535/ul-krasinskiego-22-24-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lazienna|28|15",
+      "street": "Łazienna",
+      "street_norm": "lazienna",
+      "building": "28",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 262200,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/53532/ul-lazienna-28-m-15",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "klonowica|41|4A",
+      "street": "Klonowica",
+      "street_norm": "klonowica",
+      "building": "41",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/56627/ul-klonowica-41-m-4a-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "warszawska|2|",
+      "street": "Warszawska",
+      "street_norm": "warszawska",
+      "building": "2",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 550000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/55975/ul-warszawska-2-lokal-sprzedany",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "slusarska|5|8",
+      "street": "Ślusarska",
+      "street_norm": "slusarska",
+      "building": "5",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-09-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 199600,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/53087/ul-slusarska-5-m-8",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}
