@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "city": "legnica",
+  "properties": [
+    {
+      "key": "zlotoryjska|43|3",
+      "street": "Złotoryjska",
+      "street_norm": "zlotoryjska",
+      "building": "43",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 3,
+          "kind": "unknown",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 106.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 106.6
+    },
+    {
+      "key": "wroclawska|97|3",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "97",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": 87.7,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38647,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-97.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 87.7
+    },
+    {
+      "key": "senatorska|44|8",
+      "street": "Senatorska",
+      "street_norm": "senatorska",
+      "building": "44",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-20",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 45.61,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38607,Ogloszenie-o-przetargu-na-lokal-przy-ul-Senatorskiej-44.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.61
+    },
+    {
+      "key": "bracka|6|13",
+      "street": "Bracka",
+      "street_norm": "bracka",
+      "building": "6",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 36.2,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38605,Ogloszenie-o-przetargu-na-lokal-przy-ul-Brackiej-6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.2
+    },
+    {
+      "key": "wroclawska|45|1B",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "45",
+      "apt": "1B",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 280000,
+          "outcome": "active",
+          "area_m2": 82.75,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38590,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-45.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 82.75
+    },
+    {
+      "key": "piastowska|10|7",
+      "street": "Piastowska",
+      "street_norm": "piastowska",
+      "building": "10",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 56.2,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38589,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 56.2
+    },
+    {
+      "key": "zwirki i wigury|10|2",
+      "street": "Żwirki i Wigury",
+      "street_norm": "zwirki i wigury",
+      "building": "10",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 58.4,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38588,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zwirki-i-Wigury-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 58.4
+    },
+    {
+      "key": "jaworzynska|5|4",
+      "street": "Jaworzyńska",
+      "street_norm": "jaworzynska",
+      "building": "5",
+      "apt": "4",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-28",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 75.32,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38635,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Jaworzynskiej-5.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 75.32
+    }
+  ]
+}
