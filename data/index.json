@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-28T12:29:40.896Z",
+  "generated_at": "2026-06-28T15:05:12.109Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 16,
-      "active_listings": 79,
+      "active_listings": 70,
       "active_auctions": 1,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 103
+      "land_plots": 84
     },
     {
       "id": "trzebinia",
@@ -333,10 +333,10 @@
       "voivodeship": "podlaskie",
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "unique_properties": 111,
+      "active_listings": 18,
+      "active_auctions": 12,
+      "archived_auctions": 99,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 20,
+      "active_listings": 17,
       "active_auctions": 13,
       "archived_auctions": 23,
       "wykaz_entries": 0,
