@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "city": "tczew",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 5, położonego w Tczewie przy ul. Elżbiety 4, będącego własnością Gminy Miejskiej Tczew.",
+      "address": {
+        "street": "Elżbiety",
+        "street_norm": "elzbiety",
+        "building": "4",
+        "apt": "5",
+        "key": "elzbiety|4|5",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-02-02",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.tczew.pl/wiadomosci/archiwum/3/wiadomosc/865130/ogloszenie_o_i_przetargu_ustnym_nieograniczonym_na_sprzedaz_loka"
+    }
+  ],
+  "wykaz": []
+}

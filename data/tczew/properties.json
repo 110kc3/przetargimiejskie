@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "city": "tczew",
+  "properties": [
+    {
+      "key": "elzbiety|4|5",
+      "street": "Elżbiety",
+      "street_norm": "elzbiety",
+      "building": "4",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.tczew.pl/wiadomosci/archiwum/3/wiadomosc/865130/ogloszenie_o_i_przetargu_ustnym_nieograniczonym_na_sprzedaz_loka",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}
