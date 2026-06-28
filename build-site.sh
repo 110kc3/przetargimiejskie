@@ -17,6 +17,10 @@ rm -rf "$OUT"
 mkdir -p "$OUT"
 
 cp -r site/. "$OUT"/            # landing + /archiwum + /raporty + /privacy (CNAME copied too; harmless on CF)
+# /archiwum-all = a build-time copy of /archiwum. The archive JS detects the
+# "archiwum-all" path and shows EVERY voivodeship there (private test view),
+# while the public /archiwum stays Śląskie-only. One codebase, two endpoints.
+cp -r "$OUT/archiwum" "$OUT/archiwum-all"
 cp -r data "$OUT"/data         # JSON the web pages fetch at /data/<city>/...
 
 # Note: we no longer publish /extension.zip — the site links to the Chrome Web

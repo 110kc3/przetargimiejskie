@@ -226,13 +226,17 @@ async function load(){
   let idx;
   try { idx = await fetch('/data/index.json').then(r=>r.json()); }
   catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
-  CITIES = idx.cities||[];
+  // Public archive = mature Śląskie cities only. The /archiwum-all test endpoint
+  // shows every voivodeship (non-Śląskie cities are still being validated).
+  const SHOW_ALL = /archiwum-all/.test(location.pathname);
+  CITIES = (idx.cities||[]).filter(c => SHOW_ALL || c.voivodeship === 'slaskie');
+  if (SHOW_ALL) { const t=document.querySelector('.arc-title'); if(t) t.textContent='Archiwum przetargów — wszystkie miasta (wersja testowa)'; }
   lastRefresh = (idx.generated_at||'').slice(0,10);
   const fc=document.getElementById('f-city');
   CITIES.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.label;fc.appendChild(o);});
   // Voivodeship (województwo) filter, driven by index.json's per-city voivodeship.
   WOJ_BY_CITY = Object.fromEntries(CITIES.map(c=>[c.id, c.voivodeship||null]));
-  const WOJ_LABELS = {slaskie:'Śląskie', malopolskie:'Małopolskie', opolskie:'Opolskie'};
+  const WOJ_LABELS = {dolnoslaskie:'Dolnośląskie','kujawsko-pomorskie':'Kujawsko-Pomorskie',lubelskie:'Lubelskie',lubuskie:'Lubuskie',lodzkie:'Łódzkie',malopolskie:'Małopolskie',mazowieckie:'Mazowieckie',opolskie:'Opolskie',podkarpackie:'Podkarpackie',podlaskie:'Podlaskie',pomorskie:'Pomorskie',slaskie:'Śląskie',swietokrzyskie:'Świętokrzyskie','warminsko-mazurskie':'Warmińsko-Mazurskie',wielkopolskie:'Wielkopolskie',zachodniopomorskie:'Zachodniopomorskie'};
   const wojs=[...new Set(CITIES.map(c=>c.voivodeship).filter(Boolean))].sort((a,b)=>(WOJ_LABELS[a]||a).localeCompare(WOJ_LABELS[b]||b,'pl'));
   const fw=document.getElementById('f-woj');
   wojs.forEach(w=>{const o=document.createElement('option');o.value=w;o.textContent=WOJ_LABELS[w]||w;fw.appendChild(o);});

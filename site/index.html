@@ -177,7 +177,7 @@ a:hover{color:var(--accent);text-decoration:underline}
   const activeOf = c => (c.active_auctions ?? c.active_listings ?? 0);
   const archivedOf = c => (c.archived_auctions ?? 0);
   fetch('/data/index.json').then(r=>r.json()).then(idx=>{
-    const cities = idx.cities || [];
+    const cities = (idx.cities || []).filter(c => c.voivodeship === 'slaskie'); // public = Śląskie only; non-Śląskie live at /archiwum-all (test)
     document.getElementById('stat-cities').textContent = cities.length;
     const props = cities.reduce((s,c)=>s+(c.unique_properties||0),0);
     const active = cities.reduce((s,c)=>s+activeOf(c),0);

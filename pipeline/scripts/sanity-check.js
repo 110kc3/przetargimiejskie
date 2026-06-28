@@ -52,8 +52,25 @@ const errors = [];
 const warns = [];
 function err(city, key, cls, msg) {
   if (ALLOWLIST[`${city}|${key}`] === cls) return;
-  errors.push(`${city}: [${cls}] ${key} — ${msg}`);
+  errors.push({ city, text: `${city}: [${cls}] ${key} — ${msg}` });
 }
+
+// Tiering: only Śląskie cities are "public" (shown on the main site) and BLOCK CI
+// on a sanity error. Every other voivodeship is TEST-TIER — visible only under
+// /archiwum-all while its parser is still being validated — so its errors are
+// reported as non-blocking WARNs. Voivodeship comes from the committed
+// data/index.json; an unknown (brand-new) city is treated as test-tier. The
+// hardcoded Śląskie set is a fallback so the public tier is never left unchecked
+// if index.json is briefly missing.
+const SLASKIE_FALLBACK = new Set(['gliwice', 'katowice', 'bytom', 'zabrze', 'sosnowiec', 'rybnik', 'bielsko', 'myslowice', 'swietochlowice', 'tarnowskie-gory']);
+let WOJ_BY_CITY = {};
+try {
+  WOJ_BY_CITY = Object.fromEntries(
+    (JSON.parse(readFileSync(join(DATA_DIR, 'index.json'), 'utf8')).cities || []).map((c) => [c.id, c.voivodeship]),
+  );
+} catch { /* index.json missing — fall back to the hardcoded Śląskie set */ }
+const isPublicTier = (city) =>
+  Object.keys(WOJ_BY_CITY).length ? WOJ_BY_CITY[city] === 'slaskie' : SLASKIE_FALLBACK.has(city);
 
 function checkCity(city) {
   const path = join(DATA_DIR, city, 'properties.json');
@@ -111,9 +128,16 @@ const cities = arg
   : readdirSync(DATA_DIR, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
 for (const c of cities) checkCity(c);
 
+const blocking = errors.filter((e) => isPublicTier(e.city));
+const testTier = errors.filter((e) => !isPublicTier(e.city));
+
 for (const w of warns) console.error('WARN  ' + w);
-for (const e of errors) console.error('ERROR ' + e);
-console.error(errors.length
-  ? `sanity-check: ${errors.length} error(s) across ${cities.length} city file(s).`
-  : `sanity-check: OK (${cities.length} city file(s) clean).`);
-process.exit(errors.length ? 1 : 0);
+for (const e of testTier) console.error('WARN  [test-tier · /archiwum-all, non-blocking] ' + e.text);
+for (const e of blocking) console.error('ERROR ' + e.text);
+console.error(blocking.length
+  ? `sanity-check: ${blocking.length} blocking error(s)` +
+      (testTier.length ? ` (+${testTier.length} test-tier, non-blocking)` : '') +
+      ` across ${cities.length} city file(s).`
+  : `sanity-check: OK (${cities.length} city file(s)` +
+      (testTier.length ? `; ${testTier.length} test-tier warning(s) ignored` : ' clean') + `).`);
+process.exit(blocking.length ? 1 : 0);

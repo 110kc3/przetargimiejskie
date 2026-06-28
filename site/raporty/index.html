@@ -354,7 +354,7 @@ async function load(){
   let idx;
   try { idx = await fetch('/data/index.json').then(r=>r.json()); }
   catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
-  IDX = idx.cities||[]; CITIES = IDX.map(c=>c.id);
+  IDX = (idx.cities||[]).filter(c=>c.voivodeship==='slaskie'); CITIES = IDX.map(c=>c.id); // public = Śląskie only (non-Śląskie are test-tier, /archiwum-all)
   IDX.forEach(c=>CITY_LABEL[c.id]=c.label);
   lastRefresh = (idx.generated_at||'').slice(0,10);
 

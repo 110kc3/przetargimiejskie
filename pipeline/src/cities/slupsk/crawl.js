@@ -1,14 +1,14 @@
-// Słupsk crawler.
+// Slupsk crawler.
 //
 //   LISTING: https://bip.um.slupsk.pl/przetargi/nieruchomosci/?pix=N
 //     Server-rendered HTML, 20 items/page, paginated via ?pix=N (0-indexed).
-//     "aktualne" = active; "zamknięte" = closed/past. We scrape ALL pages and
+//     "aktualne" = active; "zamkniete" = closed/past. We scrape ALL pages and
 //     filter to flat auctions (isFlatAuction in parse.js). Status "aktualne" is
-//     kept in active listings; "zamknięte" items are skipped (archive only).
+//     kept in active listings; "zamkniete" items are skipped (archive only).
 //
 //   DETAIL: https://bip.um.slupsk.pl/przetargi/<id>.html
-//     Single notice page per flat — full text inline (no PDF needed).
-//     Parsed by parseNoticePage → {area_m2, starting_price_pln, auction_date, kw, …}.
+//     Single notice page per flat -- full text inline (no PDF needed).
+//     Parsed by parseNoticePage -> {area_m2, starting_price_pln, auction_date, kw, ...}.
 //
 //   RESULT ARCHIVE: https://bip.um.slupsk.pl/nieruchomosci/dokumenty/846.html
 //     Lists the most-recently-added result PDFs as <div class="mx-files-item pdf">
@@ -20,6 +20,7 @@
 // avoid any WAF rejecting the default bot UA.
 
 import { getText } from '../../core/fetch.js';
+import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import {
   parseListingPage,
   hasNextPage,
@@ -130,7 +131,11 @@ export async function crawlActive() {
 
 /**
  * Fetch the result archive page and return PDF refs.
- * source:'html' → refresh loop calls parseResultDoc on pdfText(pdf_url).
+ * source:'html' -> refresh loop calls parseResultDoc on pdfText(pdf_url).
+ *
+ * Incremental skip: PDF URLs already recorded in data/slupsk/properties.json
+ * (pdf_url field of listings) are filtered out before returning, so re-runs
+ * only fetch genuinely new result documents.
  *
  * @returns {Promise<Array<{pdf_url:string, auction_date:null}>>}
  */
@@ -145,8 +150,19 @@ export async function crawlResultDocs() {
 
   const refs = parseResultArchive(html, ORIGIN);
   console.error(`  slupsk crawlResultDocs: ${refs.length} result PDF refs`);
+
+  // Incremental skip: filter out PDF URLs already captured in properties.json.
+  const known = await loadKnownSourceUrls('slupsk');
+  const newRefs = refs.filter((r) => !known.has(r.pdf_url));
+  const skipped = refs.length - newRefs.length;
+  if (skipped > 0) {
+    console.error(
+      `  slupsk result: skipping ${skipped} already-known PDF(s); ${newRefs.length} new ref(s) to fetch`,
+    );
+  }
+
   // Add auction_date:null so the refresh loop passes it to parseResultDoc as fallbackDate.
-  return refs.map((r) => ({ ...r, auction_date: null }));
+  return newRefs.map((r) => ({ ...r, auction_date: null }));
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
