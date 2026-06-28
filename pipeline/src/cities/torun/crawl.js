@@ -1,14 +1,14 @@
-// Toruń crawler.
+// Torun crawler.
 //
 // PRIMARY FLOW (crawlActive):
 //   1. Fetch the XML export: https://bip.torun.pl/przetargi-nieruchomosci/xml/1/200
-//      — one call returns ALL records (~100 currently). Fields: url, address,
+//      -- one call returns ALL records (~100 currently). Fields: url, address,
 //      przetarg-na, rodzaj-nieruchomosci, cena-wywolawcza, data-przetargu.
 //   2. Parse XML into raw records via parseXmlFeed().
 //   3. Keep only `Lokal mieszkalny` kind; emit as active listings. Other kinds
-//      (niezabudowana, zabudowana, użytkowy) are dropped (out of scope for the
+//      (niezabudowana, zabudowana, uzytkowy) are dropped (out of scope for the
 //      flat-auction pipeline).
-//   4. Resolved records ("lokal sprzedany" slug/address) are included — the
+//   4. Resolved records ("lokal sprzedany" slug/address) are included -- the
 //      refresh loop keeps them in the archive so result docs can fold prices in.
 //
 // RESULT DOCS FLOW (crawlResultDocs):
@@ -19,6 +19,12 @@
 //      .text already set.
 //   3. parseResultDoc() (via index.js) processes each ref.
 //
+// DETAIL AREAS FLOW (crawlDetailAreas):
+//   For each active (non-resolved) flat listing, fetch the detail page and
+//   extract the floor area in m2 via areaFromDetailHtml(). The BIP XML feed
+//   does not include area -- it lives only in the detail page body text.
+//   Returns Map<propertyKey, area> for buildCityData's detailAreas parameter.
+//
 // The two passes share one memoised XML fetch (crawlAll()), so the XML is
 // fetched exactly once per refresh run.
 
@@ -26,12 +32,12 @@ import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { parseAddress } from '../../core/normalize.js';
-import { parseXmlFeed, isResultNotice } from './parse.js';
+import { parseXmlFeed, isResultNotice, areaFromDetailHtml } from './parse.js';
 
 const ORIGIN = 'https://bip.torun.pl';
 // One call returns the full index. Per-page 200 is a safe upper bound.
 // If the archive ever exceeds 200 records, bump to 500 (the CMS has no
-// hard cap observed in the spike — the XML endpoint honoured /xml/1/100
+// hard cap observed in the spike -- the XML endpoint honoured /xml/1/100
 // returning 97 records as of 2026-06-27).
 const XML_URL = `${ORIGIN}/przetargi-nieruchomosci/xml/1/200`;
 
@@ -39,7 +45,7 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Attachment name pattern for result notices: "info o wyniku przetargu …"
+// Attachment name pattern for result notices: "info o wyniku przetargu ..."
 const RESULT_NOTICE_RE = /info\s+o\s+wyniku|wynik\w*\s+przetarg/i;
 
 /**
@@ -53,7 +59,7 @@ const RESULT_NOTICE_RE = /info\s+o\s+wyniku|wynik\w*\s+przetarg/i;
  */
 export function attachmentsFromDetailHtml(html) {
   const out = [];
-  // Match each <a id="attachments-title" …> block and capture the href + the
+  // Match each <a id="attachments-title" ...> block and capture the href + the
   // text content that follows it up to the next significant tag.
   const blockRe =
     /<a[^>]*id="attachments-title"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)(?=<a[^>]*id="attachments-title"|<\/div>|<input\b)/gi;
@@ -70,7 +76,7 @@ export function attachmentsFromDetailHtml(html) {
 
 /**
  * Filter attachments to only result-notice .docx files.
- * Toruń labels these "info o wyniku przetargu {date}r." or similar.
+ * Torun labels these "info o wyniku przetargu {date}r." or similar.
  */
 export function resultDocAttachments(attachments) {
   return attachments.filter(
@@ -78,7 +84,7 @@ export function resultDocAttachments(attachments) {
   );
 }
 
-// ── Shared crawl state ────────────────────────────────────────────────────────
+// -- Shared crawl state -------------------------------------------------------
 
 let crawlPromise = null;
 
@@ -109,13 +115,13 @@ async function crawlAll() {
       address,
       auction_date: r.auction_date,
       round: r.round,
-      area_m2: null, // not in the XML feed; available on the detail page HTML
+      area_m2: null, // not in the XML feed; fetched via crawlDetailAreas()
       starting_price_pln: r.starting_price_pln,
       detail_url: r.detail_url,
     };
   });
 
-  // Result refs: resolved flat records → fetch detail page → find result DOCXs.
+  // Result refs: resolved flat records -> fetch detail page -> find result DOCXs.
   const resolvedFlats = flatRecords.filter((r) => r.resolved);
   console.error(`  torun: ${resolvedFlats.length} resolved flat(s) to check for result docs`);
 
@@ -172,6 +178,51 @@ export async function crawlActive() {
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
+}
+
+/**
+ * Fetch the detail page for each active (non-resolved) flat listing and
+ * extract its floor area in m2.  Returns a Map<propertyKey, area> suitable
+ * for buildCityData's `detailAreas` parameter.
+ *
+ * This is the only way to obtain unit area for Torun active listings -- the
+ * BIP XML export does not include area; it lives only in the detail page body
+ * text, e.g. "...lacznej powierzchni uzytkowej 50,30 m2...".
+ *
+ * Only non-resolved flats are fetched (resolved ones are processed by
+ * crawlResultDocs / parseResultDoc which reads area from the DOCX table).
+ *
+ * @returns {Promise<Map<string, number>>}
+ */
+export async function crawlDetailAreas() {
+  crawlPromise ??= crawlAll();
+  const { listings } = await crawlPromise;
+
+  const areas = new Map();
+  for (const listing of listings) {
+    // Skip resolved listings -- their area comes from the result DOCX, not here.
+    if (!listing.detail_url || !listing.address) continue;
+
+    let html;
+    try {
+      html = await getText(listing.detail_url, FETCH_OPTS);
+    } catch (err) {
+      console.error(`  torun detail-area fetch failed ${listing.detail_url}: ${err.message}`);
+      continue;
+    }
+
+    const area = areaFromDetailHtml(html);
+    if (area == null) {
+      console.error(`  torun: no area found on detail page ${listing.detail_url}`);
+      continue;
+    }
+
+    areas.set(listing.address.key, area);
+    console.error(`  torun detail area: ${listing.address.key} = ${area} m2`);
+  }
+
+  console.error(`  torun crawlDetailAreas: ${areas.size} area(s) extracted`);
+  return areas;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

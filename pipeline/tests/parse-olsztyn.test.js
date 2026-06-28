@@ -158,6 +158,10 @@ test('parseResultDoc: Kasprowicza 5b/13 — brak wpłat → unsold, no final pri
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.unsold_reason, 'unknown');
+  // Regression: building must be 5B (from "budynku nr 5b"), NOT 5A (first number
+  // in the multi-building street fragment "Kasprowicza 5a,5b").
+  assert.equal(r.address?.building, '5B', 'building must be 5B not 5A');
+  assert.equal(r.address?.street, 'Kasprowicza', 'street must be clean (no digits/commas)');
 });
 
 test('parseResultDoc: Partyzantów 69/8 — wywoławcza 640 000, osiągnięta 646 400, sold', () => {
@@ -396,4 +400,74 @@ Przetarg odbędzie się 15 maja 2026 r. o godz. 10:00.`;
   assert.equal(r.auction_date, '2026-05-15');
   assert.equal(r.starting_price_pln, 150000);
   assert.equal(r.area_m2, 38.0);
+});
+
+// ── Multi-building announcement: "Kasprowicza 5a, 5b" ───────────────────────
+//
+// When a single announcement covers two buildings (e.g. "przy ulicy Kasprowicza
+// 5a, 5b w Olsztynie"), the street capture used to bleed the building list into
+// the street field ("Kasprowicza 5a, 5b"), producing a junk-street key.
+// The correct output: street="Kasprowicza", building from "budynku nr 5b".
+//
+// Bug reproduced live with sanity-check error:
+//   ERROR olsztyn: [junk-street] kasprowicza 5a 5b|5B|13 -- street 'Kasprowicza 5a, 5b'
+
+// Active announcement title as it appears on bip.olsztyn.eu for the flat in
+// building 5b (apt 13) of the Kasprowicza multi-building group.
+const ANN_TITLE_KASP = 'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 13 w budynku nr 5b przy ulicy Kasprowicza 5a, 5b w Olsztynie';
+const ANN_BODY_KASP = `Prezydent Olsztyna ogłasza przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego stanowiącego własność Gminy Olsztyn.
+Przedmiotem sprzedaży jest lokal nr 13 położony na III piętrze 5-kondygnacyjnego budynku nr 5b zlokalizowanego przy ul. Kasprowicza 5a,5b w Olsztynie.
+Powierzchnia użytkowa lokalu wynosi 68,0 m². W skład lokalu wchodzą: 3 pokoje, kuchnia, łazienka.
+Cenę wywoławczą nieruchomości ustalono na kwotę 540 000 zł.
+Przetarg odbędzie się 17 kwietnia 2026 r. o godz. 10:00 w siedzibie Urzędu Miasta Olsztyna.`;
+
+test('parseActiveDoc: Kasprowicza multi-building — street clean, building=5B', () => {
+  const r = parseActiveDoc(ANN_TITLE_KASP, ANN_BODY_KASP);
+  assert.ok(r, 'must parse the announcement');
+  // Street must be a bare name with no digits or commas (no junk-street).
+  assert.equal(r.address.street, 'Kasprowicza');
+  assert.ok(!/\d/.test(r.address.street), 'street must contain no digits');
+  // Building comes from "budynku nr 5b", not from the street fragment.
+  assert.equal(r.address.building, '5B');
+  assert.equal(r.address.apt, '13');
+});
+
+test('parseActiveDoc: Kasprowicza multi-building — area 68 m², price 540 000', () => {
+  const r = parseActiveDoc(ANN_TITLE_KASP, ANN_BODY_KASP);
+  assert.ok(r);
+  assert.equal(r.area_m2, 68.0);
+  assert.equal(r.starting_price_pln, 540000);
+  assert.equal(r.auction_date, '2026-04-17');
+});
+
+test('parseActiveDoc: Kasprowicza multi-building — key has no spaces/commas in street part', () => {
+  const r = parseActiveDoc(ANN_TITLE_KASP, ANN_BODY_KASP);
+  assert.ok(r);
+  // key format: "<street_norm>|<building>|<apt>"
+  // Before fix the key was: "kasprowicza 5a 5b|5B|13"  (junk-street)
+  // After fix the key must be: "kasprowicza|5B|13"
+  assert.equal(r.address.key, 'kasprowicza|5B|13');
+});
+
+// Result page with the Kasprowicza 5a,5b block (same text as RESULT_17APR_TEXT
+// fixture but exercised explicitly for the building-override code path).
+const RESULT_KASP_ONLY = `
+Informacja testowa
+
+przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 13 położonego na III piętrze 5-kondygnacyjnego budynku nr 5b zlokalizowanego przy ul. Kasprowicza 5a,5b w Olsztynie, z jednoczesną sprzedażą 45/1000 części wspólnych budynku oraz gruntu pod budynkiem (dz. nr 4, obr. 29, o powierzchni 670 m²). Nieruchomość objęta jest księgą wieczystą nr OL1O/00020517/6.
+liczba osób dopuszczonych do przetargu: 0, brak wpłat
+cena wywoławcza: 540 000,00 zł.
+`;
+
+test('parseResultDoc: Kasprowicza 5a,5b multi-building — building=5B, street clean', () => {
+  const recs = parseResultDoc(RESULT_KASP_ONLY, '2026-04-17', 'https://example.com');
+  assert.equal(recs.length, 1, 'one flat record');
+  const r = recs[0];
+  assert.equal(r.address.street, 'Kasprowicza');
+  assert.ok(!/\d/.test(r.address.street), 'street must not contain digits');
+  assert.equal(r.address.building, '5B', 'building from budynku nr 5b');
+  assert.equal(r.address.apt, '13');
+  assert.equal(r.address.key, 'kasprowicza|5B|13');
+  assert.equal(r.outcome, 'unsold');
+  assert.equal(r.starting_price_pln, 540000);
 });

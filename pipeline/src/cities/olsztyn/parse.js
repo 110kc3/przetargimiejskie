@@ -88,7 +88,7 @@ function normMonthKey(s) {
 }
 
 function parseDateSpelled(text) {
-  const m = /(\d{1,2})\s+([a-zÀ-ž]+)\s+(\d{4})/i.exec(text || '');
+  const m = /(\d{1,2})\s+([a-zA-ZÀ-ž]+)\s+(\d{4})/i.exec(text || '');
   if (!m) return null;
   const mon = PL_MONTHS[normMonthKey(m[2])];
   if (!mon) return null;
@@ -99,6 +99,21 @@ function parseDateNumeric(text) {
   const m = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(text || '');
   if (!m) return null;
   return m[3] + '-' + m[2].padStart(2, '0') + '-' + m[1].padStart(2, '0');
+}
+
+// ---------------------------------------------------------------------------
+// Shared address helpers
+// ---------------------------------------------------------------------------
+
+// Strip trailing multi-building address fragments from a street string.
+// "Kasprowicza 5a, 5b"  -> "Kasprowicza"
+// "Curie-Sklodowskiej"  -> "Curie-Sklodowskiej"  (unchanged)
+// "3 Maja"              -> "3 Maja"               (leading digit, unchanged)
+//
+// Matches: optional comma/space + digit(s) + optional letter, repeated.
+// Only strips from the END of the string so "3 Maja" (leading digit) is safe.
+function stripMultiBuildingSuffix(street) {
+  return street.replace(/[,\s]+\d+\w?(?:[,\s]+\d+\w?)*\s*$/, '').trim();
 }
 
 // ---------------------------------------------------------------------------
@@ -113,7 +128,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   //   "w dniu 17.04.2026 r."        (numeric)
   //   title text "z 20.03.2026 r."  (numeric in title)
   let sessionDate = null;
-  const spelledM = /w\s+dniu\s+(\d{1,2}\s+[a-zÀ-ž]+\s+\d{4})/i.exec(text);
+  const spelledM = /w\s+dniu\s+(\d{1,2}\s+[a-zA-ZÀ-ž]+\s+\d{4})/i.exec(text);
   if (spelledM) sessionDate = parseDateSpelled(spelledM[1]);
   if (!sessionDate) {
     const numM = /w\s+dniu\s+(\d{1,2}\.\d{1,2}\.\d{4})/i.exec(text);
@@ -184,8 +199,15 @@ function parseOneResultBlock(block, sessionDate, sourceUrl) {
     const reB = /przy\s+ul\.\s+([\wÀ-ž.\-]+(?:\s+[\wÀ-ž.\-]+){0,2}?)\s+(\d+\w?)\b/i;
     const mB = reB.exec(block);
     if (mB) {
-      const street = mB[1].trim();
-      const bldg = mB[2].toUpperCase();
+      // Strip any trailing multi-building suffix like "5a, 5b" -> just the street name.
+      const street = stripMultiBuildingSuffix(mB[1].trim());
+      // When the announcement covers multiple buildings (e.g. "budynku nr 5b
+      // zlokalizowanego przy ul. Kasprowicza 5a,5b"), Pattern B picks the first
+      // building number it sees in the street fragment (5a), not the correct one.
+      // Override from "budynku nr BLDG" when present -- it is always the precise
+      // building that contains the flat being sold.
+      const bldgOverrideM = /budynku\s+(?:nr\s+)?(\w+)/i.exec(block);
+      const bldg = (bldgOverrideM ? bldgOverrideM[1] : mB[2]).toUpperCase();
       const apt = aptM ? aptM[1].toUpperCase() : null;
       address_raw = apt ? (street + ' ' + bldg + '/' + apt) : (street + ' ' + bldg);
       address = parseAddress(address_raw);
@@ -272,7 +294,13 @@ export function parseActiveDoc(title, bodyText) {
   if (mT) {
     const apt = mT[1].toUpperCase();
     const bldg = mT[2].toUpperCase();
-    const street = mT[3].trim().replace(/\s+/g, ' ').replace(/[,\s]+$/, '');
+    // The street capture may include trailing building-list fragments when an
+    // announcement covers multiple buildings, e.g. "przy ulicy Kasprowicza 5a, 5b
+    // w Olsztynie" -> mT[3] = "Kasprowicza 5a, 5b". Strip them so only the clean
+    // street name remains; the correct building is already in mT[2] (bldg).
+    const street = stripMultiBuildingSuffix(
+      mT[3].trim().replace(/\s+/g, ' ').replace(/[,\s]+$/, ''),
+    );
     address_raw = street + ' ' + bldg + '/' + apt;
     address = parseAddress(address_raw);
   }

@@ -141,8 +141,6 @@ export function parseNoticePage(html, detailUrl) {
   const body = stripTags(bodyM ? bodyM[1] : html);
 
   // Area: "o powierzchni uzytkowej NN,NN m2" (with or without diacritics)
-  // Area: "o powierzchni uzytkowej NN,NN m2" -- "uzytkowej" matches any word after "u"
-  // "m 2" variant from <sup>2</sup> stripped by stripTags is handled by \s*[2²]? after m
   const areaM = /o\s+powierzchni\s+\S+\s+([\d.,]+)\s*m\s*[2²]?/i.exec(body);
   const area_m2 = areaM ? parseArea(areaM[1]) : null;
 
@@ -156,9 +154,13 @@ export function parseNoticePage(html, detailUrl) {
 
   // Address from title: "... przy ul. X N stanowiacego/stanowiacej ..."
   const addrM = /przy\s+ul\.\s+([\s\S]+?)(?:\s+stanowi[ąa]c|\s+w\s+obr[ęe]bie|$)/i.exec(title);
-  const address_raw = addrM
+  const addrRaw = addrM
     ? ('ul. ' + addrM[1].replace(/\s+/g, ' ').trim())
     : title;
+  // Corner addresses appear as "ul. Street1 N - Street2 M" (two intersecting streets).
+  // Normalise to the primary street only: drop everything from " - <word>" onward.
+  // Example: "ul. Stefana Starzynskiego 1 - Wojska Polskiego 54" -> "ul. Stefana Starzynskiego 1"
+  const address_raw = addrRaw.replace(/\s+-\s+\S.*$/, '').trim();
   const address = parseAddress(address_raw);
 
   // Flat apt number from body "lokal mieszkalny nr N"
@@ -217,7 +219,6 @@ function resultRoundFromText(text) {
 }
 
 // "rozstrzygnietym w dniu DD.MM.YYYY roku" -> ISO date.
-// Handles both Unicode (rozstrzygniętym) and plain-ASCII approximations.
 function resultDateFromText(text) {
   const m = /rozstrzygni[ęe]tym\s+w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text || '');
   if (!m) return null;
@@ -226,16 +227,6 @@ function resultDateFromText(text) {
 
 /**
  * Parse one result PDF text (from pdftotext -layout) into result records.
- *
- * Slupsk result PDF format (verified 2026-06-27):
- *   "Prezydent Miasta Slupska informuje o rozstrzygnietym w dniu DD.MM.YYYY roku
- *    ... [I/II/III] nieograniczonym przetargu ustnym dotyczacym
- *    sprzedazy ... (lokalu [mieszkalnego|niemieszkalnego]) ... przy ul. X N ...:
- *    - lokal [mieszkalny|niemieszkany] nr APT przy ul. X N, KW nr ...
- *    - cena wywolawcza nieruchomosci: NNN zl
- *    - najwyzsza cena osiagnieta w przetargu: NNN zl  (or: 0)
- *    - ustalony nabywca nieruchomosci: NAME  (or: przetarg zakonczyl sie wynikiem negatywnym)"
- *
  * @param {string} text  pdftotext -layout output
  * @param {string|null} fallbackDate  ISO date from crawl ref
  * @param {string} sourceUrl  the /file/<id> URL
@@ -246,7 +237,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const t = text.replace(/\r/g, '').replace(/\s+/g, ' ').trim();
 
   // Guard: must be a Slupsk property result notice.
-  // Matches both "Slupska" (ASCII) and "Słupska" (Unicode).
   if (!/Prezydent\s+Miasta\s+S[łl]upska\s+informuje/i.test(t)) return [];
   if (!/rozstrzygni[ęe]tym/i.test(t)) return [];
 
@@ -254,14 +244,12 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const auction_date = resultDateFromText(t) || fallbackDate || null;
   const round = resultRoundFromText(t);
 
-  // Kind: mieszkalny vs uzytkowy. Header says "(lokalu mieszkalnego)" or "(lokalu niemieszkalnego)".
+  // Kind: mieszkalny vs uzytkowy.
   const kindM = /sprzeda[ży]y\s+(?:cz[ęe][śs]ci\s+)?nieruchomo[śs]ci\s+\(lokalu\s+(mieszkalnego|niemieszkalnego)\)/i.exec(t);
   const kindWord = kindM ? kindM[1].toLowerCase() : '';
   const kind = /niemieszkalneg/.test(kindWord) ? 'uzytkowy' : 'mieszkalny';
 
   // Address from the bullet line: "- lokal WORD nr APT przy ul. STREET N,"
-  // The dash can be ASCII hyphen (-), en-dash (U+2013) or Unicode minus.
-  // After space-collapse the token before "nr" is a single word (e.g. "niemieszkany").
   const bulletRe = /[-–]\s*lokal\s+\S+\s+nr\s+(\d+[a-zA-Z]?)\s+przy\s+ul\.\s+([\wÀ-ɏ\s.]+?\d+\w*),/i;
   const bulletM = bulletRe.exec(t);
   let address_raw, address;
@@ -269,7 +257,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     address_raw = 'ul. ' + bulletM[2].replace(/\s+/g, ' ').trim() + '/' + bulletM[1];
     address = parseAddress(address_raw);
   } else {
-    // Fallback: header prose "przy ul. X N stanowiacego/stanowiacych ..."
     const hdrM = /przy\s+ul\.\s+([\wÀ-ɏ\s.]+?\d+\w*)\s+stanowi[ąa]c/i.exec(t);
     if (hdrM) {
       address_raw = 'ul. ' + hdrM[1].replace(/\s+/g, ' ').trim();
@@ -285,7 +272,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const starting_price_pln = startM ? parsePLN(startM[1]) : null;
   if (starting_price_pln == null) notes.push('parse: missing starting price');
 
-  // Achieved price: "- najwyzsza cena osiagnieta w przetargu: NNN zl" (0 = no sale)
+  // Achieved price
   const achievedM =
     /najwy[żs]sza\s+cena\s+osi[ąa]gni[ęe]ta\s+w\s+przetargu\s*:\s*([\d][^z\n–-]*?)\s*z[łl]/i.exec(t)
     || /najwy[żs]sza\s+cena\s+osi[ąa]gni[ęe]ta\s+w\s+przetargu\s*:\s*(\d+)/i.exec(t);

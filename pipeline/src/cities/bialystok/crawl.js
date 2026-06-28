@@ -31,6 +31,18 @@
 // source: 'html' — we pre-parse detail pages in-adapter so refresh.js bypasses
 // the generic PDF-OCR dispatch; crawlResultDocs() returns refs with `.text`
 // already populated (serialised field lines).
+//
+// CI budget controls (crawlResultDocs only — the bottleneck with ~1 584 candidates):
+//   BIALYSTOK_CRAWL_BUDGET_MS  wall-clock ms before stopping early (default 12 min)
+//   BIALYSTOK_MAX_DETAILS      max detail pages fetched per run (default 300)
+// Incremental skip: URLs already recorded in data/bialystok/properties.json
+// (source_pdf field) are skipped — only NEW candidates need fetching.
+// Together these keep every run well within the 25-min CI job cap.
+
+import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import { getText } from '../../core/fetch.js';
 import { parseDetailFields, parseDetailPage, stripTags } from './parse.js';
@@ -52,6 +64,55 @@ const STATUS_CANCELLED = 95157;   // Odwołany
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
+
+// ---------------------------------------------------------------------------
+// Budget / cap constants (env-overridable)
+// ---------------------------------------------------------------------------
+
+// Wall-clock budget for the detail-fetch loop in crawlResultDocs().
+// Default 12 min — well within the 25-min CI job cap even after index pagination
+// (~3–4 min) and crawlActive() overhead.
+const CRAWL_BUDGET_MS =
+  Number(process.env.BIALYSTOK_CRAWL_BUDGET_MS) || 12 * 60 * 1000;
+
+// Hard cap on the number of detail pages fetched per run.
+// At ~1 req/sec, 300 pages ≈ 5 min; combined with the budget the two guards
+// ensure we stop well before the CI timeout.
+const MAX_DETAILS =
+  Number(process.env.BIALYSTOK_MAX_DETAILS) || 300;
+
+// ---------------------------------------------------------------------------
+// Committed-data URL set (incremental skip)
+// ---------------------------------------------------------------------------
+
+// Resolve the repo-level data/bialystok/properties.json path relative to this
+// source file (pipeline/src/cities/bialystok/crawl.js → ../../../../data/).
+const PROPS_PATH = fileURLToPath(
+  new URL('../../../../data/bialystok/properties.json', import.meta.url),
+);
+
+/**
+ * Load the set of detail-page URLs already recorded in the committed
+ * data/bialystok/properties.json (via the source_pdf field).
+ * Returns an empty Set when the file doesn't exist yet (first run).
+ *
+ * @returns {Promise<Set<string>>}
+ */
+export async function loadKnownUrls() {
+  if (!existsSync(PROPS_PATH)) return new Set();
+  try {
+    const raw = await readFile(PROPS_PATH, 'utf8');
+    const parsed = JSON.parse(raw);
+    const records = Array.isArray(parsed?.properties) ? parsed.properties : [];
+    const urls = new Set();
+    for (const rec of records) {
+      if (rec?.source_pdf) urls.add(rec.source_pdf);
+    }
+    return urls;
+  } catch {
+    return new Set();
+  }
+}
 
 // ---------------------------------------------------------------------------
 // URL builder
@@ -240,6 +301,14 @@ export async function crawlActive() {
 /**
  * Crawl Rozstrzygnięty + Nierozstrzygnięty indexes and return result refs
  * for flat auctions, each carrying a pre-extracted `.text` blob.
+ *
+ * Two guards prevent CI timeout:
+ *   1. Incremental skip — URLs already in data/bialystok/properties.json
+ *      (source_pdf) are skipped; only new candidates are fetched.
+ *   2. Budget + cap — stops after BIALYSTOK_CRAWL_BUDGET_MS wall-clock ms
+ *      or BIALYSTOK_MAX_DETAILS fetched pages, whichever comes first.
+ *      Anything not reached backfills on the next run.
+ *
  * @returns {Promise<Array<{ text: string, auction_date: string|null, pdf_url: string }>>}
  */
 export async function crawlResultDocs() {
@@ -258,10 +327,32 @@ export async function crawlResultDocs() {
 
   console.error(`  bialystok result candidates: ${allRefs.length} detail pages to check`);
 
+  // --- incremental skip: load URLs already committed to properties.json ----
+  const knownUrls = await loadKnownUrls();
+  const newRefs = allRefs.filter((r) => !knownUrls.has(r.detailUrl));
+  const skipped = allRefs.length - newRefs.length;
+  if (skipped > 0) {
+    console.error(`  bialystok result: skipping ${skipped} already-known URL(s); ${newRefs.length} new candidate(s) to fetch`);
+  }
+
+  // --- budget + cap loop ---------------------------------------------------
+  const deadline = Date.now() + CRAWL_BUDGET_MS;
   const out = [];
-  for (const r of allRefs) {
+  let fetched = 0;
+
+  for (const r of newRefs) {
+    if (fetched >= MAX_DETAILS || Date.now() > deadline) {
+      const remaining = newRefs.length - fetched;
+      console.error(
+        `  bialystok result: crawl budget reached (fetched ${fetched}/${newRefs.length} new); ${remaining} remainder backfills next run`,
+      );
+      break;
+    }
+
     const text = await fetchDetailText(r.detailUrl);
+    fetched++;
     if (!text) continue; // not a flat
+
     // Extract auction date from the pre-fetched text for the ref metadata
     const terminM = /^Termin przetargu:\s*(\d{4}-\d{2}-\d{2})/m.exec(text);
     out.push({

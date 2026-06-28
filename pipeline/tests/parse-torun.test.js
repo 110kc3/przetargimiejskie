@@ -3,9 +3,9 @@
 // Fixtures sourced from:
 //   XML feed:  https://bip.torun.pl/przetargi-nieruchomosci/xml/1/100
 //   Detail:    https://bip.torun.pl/przetarg-nieruchomosci/61786/ul-mostowa-10-m-2-lokal-sprzedany
-//   DOCX 59378 (19.05.2026): Mostowa 10 m.2 SOLD 194,930 zł; Ślusarska 5 nr 5A unsold
-//   DOCX 58022 (17.03.2026): Mostowa 10 unsold; Ślusarska 5 nr 5A unsold; Mickiewicza 110 unsold
-//   DOCX 55913 (06.11.2025): Wielkie Garbary 5 Nr 21A SOLD 138,000 zł
+//   DOCX 59378 (19.05.2026): Mostowa 10 m.2 SOLD 194,930 zl; Slusarska 5 nr 5A unsold
+//   DOCX 58022 (17.03.2026): Mostowa 10 unsold; Slusarska 5 nr 5A unsold; Mickiewicza 110 unsold
+//   DOCX 55913 (06.11.2025): Wielkie Garbary 5 Nr 21A SOLD 138,000 zl
 //
 // All field values verified against the actual downloaded documents, not inferred.
 
@@ -20,6 +20,7 @@ import {
   isResolved,
   parseResultDoc,
   isResultNotice,
+  areaFromDetailHtml,
 } from '../src/cities/torun/parse.js';
 
 import {
@@ -27,14 +28,13 @@ import {
   resultDocAttachments,
 } from '../src/cities/torun/crawl.js';
 
-// ── parseDateField ────────────────────────────────────────────────────────────
+// -- parseDateField -----------------------------------------------------------
 
 test('parseDateField: clean date string', () => {
   assert.equal(parseDateField('08.09.2026 godz. 10:00'), '2026-09-08');
 });
 
 test('parseDateField: whitespace-embedded date (real XML format)', () => {
-  // The XML actually contains "08                  .09                  .2026  godz. 10:00"
   assert.equal(
     parseDateField('08                                .09                                .2026  godz. 10:00'),
     '2026-09-08',
@@ -51,27 +51,27 @@ test('parseDateField: null/empty returns null', () => {
   assert.equal(parseDateField('brak daty'), null);
 });
 
-// ── parsePriceField ───────────────────────────────────────────────────────────
+// -- parsePriceField ----------------------------------------------------------
 
-test('parsePriceField: standard format "140.000,00 zł; wadium 14.000,00 zł"', () => {
+test('parsePriceField: standard format with wadium semicolon', () => {
   assert.equal(parsePriceField('140.000,00 zł; wadium 14.000,00 zł'), 140000);
 });
 
-test('parsePriceField: "100.000,00 zł, wadium 10.000,00 zł"', () => {
+test('parsePriceField: comma-separated wadium', () => {
   assert.equal(parsePriceField('100.000,00 zł, wadium 10.000,00 zł'), 100000);
 });
 
-test('parsePriceField: "193.000,00 zł; wadium 19.000,00 zł"', () => {
+test('parsePriceField: 193000 with semicolon wadium', () => {
   assert.equal(parsePriceField('193.000,00 zł; wadium 19.000,00 zł'), 193000);
 });
 
-test('parsePriceField: range "od 585.000,00 zł do 760.000,00 zł" → null (multi-plot)', () => {
+test('parsePriceField: range "od ... do ..." returns null (multi-plot)', () => {
   assert.equal(parsePriceField('od 585.000,00 zł do 760.000,00 zł'), null);
 });
 
-test('parsePriceField: multi-plot price string → null', () => {
+test('parsePriceField: multi-plot price string returns null', () => {
   assert.equal(
-    parsePriceField('ul. Osadnicza 22 -cena wywoławcza 320.000,-zł, wadium 32.000,-zł; ul. Osadnicza 22C - cena wywoławcza 320.000,-zł'),
+    parsePriceField('ul. Osadnicza 22 -cena wywolawcza 320.000,-zł, wadium 32.000,-zł; ul. Osadnicza 22C - cena wywolawcza 320.000,-zł'),
     null,
   );
 });
@@ -81,59 +81,54 @@ test('parsePriceField: null/empty returns null', () => {
   assert.equal(parsePriceField(null), null);
 });
 
-// ── roundFromText ─────────────────────────────────────────────────────────────
+// -- roundFromText ------------------------------------------------------------
 
-test('roundFromText: bare przetarg → 1', () => {
-  // "przetarg" word present with no ordinal = first.
+test('roundFromText: bare przetarg returns 1', () => {
   assert.equal(roundFromText('przetarg ustny nieograniczony'), 1);
-  // No "przetarg" word at all (bare description) → null (round unknown, not first).
-  // The real XML <przetarg-na> always contains "przetarg" when present; this tests
-  // the boundary explicitly.
   assert.equal(roundFromText('na sprzedaz lokalu mieszkalnego'), null);
 });
 
-test('roundFromText: "Drugie przetargi …" → 2', () => {
-  assert.equal(roundFromText('Drugie przetargi ustne nieograniczone na sprzedaż'), 2);
+test('roundFromText: Drugie przetargi returns 2', () => {
+  assert.equal(roundFromText('Drugie przetargi ustne nieograniczone na sprzedaz'), 2);
 });
 
-test('roundFromText: "Sprzedaż w pierwszych przetargach …" → 1', () => {
-  assert.equal(roundFromText('Sprzedaż w pierwszych przetargach 3 nieruchomości'), 1);
+test('roundFromText: pierwszych przetargach returns 1', () => {
+  assert.equal(roundFromText('Sprzedaz w pierwszych przetargach 3 nieruchomosci'), 1);
 });
 
-test('roundFromText: "kolejny" → null (unspecified repeat)', () => {
+test('roundFromText: kolejny returns null (unspecified repeat)', () => {
   assert.equal(roundFromText('kolejny przetarg ustny nieograniczony'), null);
 });
 
-test('roundFromText: null/empty text → null', () => {
+test('roundFromText: null/empty text returns null', () => {
   assert.equal(roundFromText(''), null);
   assert.equal(roundFromText(null), null);
 });
 
-// ── isResolved ────────────────────────────────────────────────────────────────
+// -- isResolved ---------------------------------------------------------------
 
-test('isResolved: "lokal sprzedany" suffix → true', () => {
+test('isResolved: "lokal sprzedany" suffix returns true', () => {
   assert.equal(isResolved('ul. Mostowa 10 m. 2 - lokal sprzedany'), true);
 });
 
-test('isResolved: "lokale sprzedane" → true', () => {
+test('isResolved: "lokale sprzedane" returns true', () => {
   assert.equal(isResolved('ul. Wielkie Garbary 17 m. 3 i m. 4 - lokale sprzedane'), true);
 });
 
-test('isResolved: active listing → false', () => {
-  assert.equal(isResolved('ul. Ślusarska 5 m. 5a'), false);
+test('isResolved: active listing returns false', () => {
+  assert.equal(isResolved('ul. Slusarska 5 m. 5a'), false);
   assert.equal(isResolved(''), false);
 });
 
-// ── parseXmlFeed ─────────────────────────────────────────────────────────────
+// -- parseXmlFeed -------------------------------------------------------------
 //
 // Condensed but structurally faithful excerpt of the real XML export
 // (captured 2026-06-27). Contains:
-//   - Ślusarska 5 m. 5a    — active flat (Lokal mieszkalny)
-//   - Mickiewicza 93 m. 13A — active flat (Lokal mieszkalny)
-//   - Mostowa 10 m. 2      — resolved flat (Lokal mieszkalny, "lokal sprzedany")
-//   - Szubińska 13A        — land (Nieruchomość niezabudowana, should be in output
-//                             but classified grunt, not flat)
-//   - Grudziądzka 165 B    — land (skip from flat stream)
+//   - Slusarska 5 m. 5a     -- active flat (Lokal mieszkalny)
+//   - Mickiewicza 93 m. 13A -- active flat (Lokal mieszkalny)
+//   - Mostowa 10 m. 2       -- resolved flat (Lokal mieszkalny, "lokal sprzedany")
+//   - Szubinska 13A         -- land (Nieruchomość niezabudowana)
+//   - Grudziadzka 165 B     -- land (skip from flat stream)
 
 const XML_FIXTURE = `<?phpxml version="1.0" encoding="UTF-8"?><bip.torun.pl>
     <przetargi-nieruchomosci>
@@ -143,47 +138,47 @@ const XML_FIXTURE = `<?phpxml version="1.0" encoding="UTF-8"?><bip.torun.pl>
         <artykuly>
             <artykul>
                 <url>https://bip.torun.pl/przetarg-nieruchomosci/61782/ul-slusarska-5-m-5a</url>
-                <adres-nieruchomosci>ul. Ślusarska 5 m. 5a</adres-nieruchomosci>
-                <przetarg-na>na sprzedaż lokalu mieszkalnego nr 5 A stanowiącego własność Gminy Miasta Toruń usytuowanego w budynku położonym w Toruniu przy ul. Ślusarskiej 5 </przetarg-na>
+                <adres-nieruchomosci>ul. Slusarska 5 m. 5a</adres-nieruchomosci>
+                <przetarg-na>na sprzedaz lokalu mieszkalnego nr 5 A stanowiacego wlasnosc Gminy Miasta Torun usytuowanego w budynku polozonym w Toruniu przy ul. Slusarskiej 5 </przetarg-na>
                 <typ-przetargu>Przetarg ustny nieograniczony</typ-przetargu>
                 <rodzaj-nieruchomosci>Lokal mieszkalny</rodzaj-nieruchomosci>
-                <cena-wywolawcza>140.000,00 zł; wadium 14.000,00 zł</cena-wywolawcza>
+                <cena-wywolawcza>140.000,00 zl; wadium 14.000,00 zl</cena-wywolawcza>
                 <data-przetargu>14                                .07                                .2026  godz. 11:00</data-przetargu>
             </artykul>
             <artykul>
                 <url>https://bip.torun.pl/przetarg-nieruchomosci/54536/ul-mickiewicza-93-m-13a</url>
                 <adres-nieruchomosci>ul. Mickiewicza 93 m. 13A</adres-nieruchomosci>
-                <przetarg-na>na sprzedaż lokalu mieszkalnego nr 13A, stanowiącego własność Gminy Miasta Toruń, usytuowanego w budynku oficyny położonym przy ul. Mickiewicza 93 w Toruniu </przetarg-na>
+                <przetarg-na>na sprzedaz lokalu mieszkalnego nr 13A, stanowiacego wlasnosc Gminy Miasta Torun, usytuowanego w budynku oficyny polozonym przy ul. Mickiewicza 93 w Toruniu </przetarg-na>
                 <typ-przetargu>Przetarg ustny nieograniczony</typ-przetargu>
                 <rodzaj-nieruchomosci>Lokal mieszkalny</rodzaj-nieruchomosci>
-                <cena-wywolawcza>100.000,00 zł, wadium 10.000,00 zł</cena-wywolawcza>
+                <cena-wywolawcza>100.000,00 zl, wadium 10.000,00 zl</cena-wywolawcza>
                 <data-przetargu>30                                .06                                .2026  godz. 10:00</data-przetargu>
             </artykul>
             <artykul>
                 <url>https://bip.torun.pl/przetarg-nieruchomosci/61786/ul-mostowa-10-m-2-lokal-sprzedany</url>
                 <adres-nieruchomosci>ul. Mostowa 10 m. 2 - lokal sprzedany</adres-nieruchomosci>
-                <przetarg-na>sprzedaż lokalu mieszkalnego nr 2 stanowiącego własność Gminy Miasta Toruń usytuowanego w budynku położonym w Toruniu przy ul. Mostowej 10 </przetarg-na>
+                <przetarg-na>sprzedaz lokalu mieszkalnego nr 2 stanowiacego wlasnosc Gminy Miasta Torun usytuowanego w budynku polozonym w Toruniu przy ul. Mostowej 10 </przetarg-na>
                 <typ-przetargu>Przetarg ustny nieograniczony</typ-przetargu>
                 <rodzaj-nieruchomosci>Lokal mieszkalny</rodzaj-nieruchomosci>
-                <cena-wywolawcza>193.000,00 zł; wadium 19.000,00 zł</cena-wywolawcza>
+                <cena-wywolawcza>193.000,00 zl; wadium 19.000,00 zl</cena-wywolawcza>
                 <data-przetargu>19                                .05                                .2026  godz. 11:00</data-przetargu>
             </artykul>
             <artykul>
                 <url>https://bip.torun.pl/przetarg-nieruchomosci/62648/ul-szubinska-13a-w-toruniu</url>
-                <adres-nieruchomosci>ul. Szubińska 13A w Toruniu</adres-nieruchomosci>
-                <przetarg-na>Sprzedaż nieruchomości niezabudowanej położonej w Toruniu przy ul. Szubińskiej 13A - II przetarg </przetarg-na>
+                <adres-nieruchomosci>ul. Szubinska 13A w Toruniu</adres-nieruchomosci>
+                <przetarg-na>Sprzedaz nieruchomosci niezabudowanej polozonej w Toruniu przy ul. Szubinskiej 13A - II przetarg </przetarg-na>
                 <typ-przetargu>Przetarg ustny nieograniczony</typ-przetargu>
                 <rodzaj-nieruchomosci>Nieruchomość niezabudowana</rodzaj-nieruchomosci>
-                <cena-wywolawcza>1.500.000,00 zł, brutto z VAT wg stawki 23%; wadium : 150.000,00 zł</cena-wywolawcza>
+                <cena-wywolawcza>1.500.000,00 zl, brutto z VAT wg stawki 23%; wadium : 150.000,00 zl</cena-wywolawcza>
                 <data-przetargu>25                                .08                                .2026  godz. 10:00</data-przetargu>
             </artykul>
             <artykul>
                 <url>https://bip.torun.pl/przetarg-nieruchomosci/62030/ul-grudziadzka-165-b</url>
-                <adres-nieruchomosci>ul. Grudziądzka 165 B</adres-nieruchomosci>
-                <przetarg-na>sprzedaż nieruchomości położonej w Toruniu przy ul. Grudziądzkiej 165B</przetarg-na>
+                <adres-nieruchomosci>ul. Grudziadzka 165 B</adres-nieruchomosci>
+                <przetarg-na>sprzedaz nieruchomosci polozonej w Toruniu przy ul. Grudziadzkiej 165B</przetarg-na>
                 <typ-przetargu>Przetarg ustny nieograniczony</typ-przetargu>
                 <rodzaj-nieruchomosci>Nieruchomość niezabudowana</rodzaj-nieruchomosci>
-                <cena-wywolawcza>cena wywoławcza 8.000.000,00 zł, wadium 800.000,00 zł</cena-wywolawcza>
+                <cena-wywolawcza>cena wywolawcza 8.000.000,00 zl, wadium 800.000,00 zl</cena-wywolawcza>
                 <data-przetargu>12                                .05                                .2026  godz. 10:00</data-przetargu>
             </artykul>
         </artykuly>
@@ -195,23 +190,20 @@ test('parseXmlFeed: extracts 5 records from fixture XML', () => {
   assert.equal(records.length, 5);
 });
 
-test('parseXmlFeed: Slusarska 5 m. 5a — flat, price, date, round=null, not resolved', () => {
+test('parseXmlFeed: Slusarska 5 m. 5a -- flat, price, date, round=null, not resolved', () => {
   const records = parseXmlFeed(XML_FIXTURE);
   const r = records.find((x) => /lusarska/.test(x.address_raw));
   assert.ok(r, 'Slusarska record must be present');
   assert.equal(r.kind, 'mieszkalny');
   assert.equal(r.starting_price_pln, 140000);
   assert.equal(r.auction_date, '2026-07-14');
-  // The fixture <przetarg-na> text ("na sprzedaz lokalu mieszkalnego nr 5 A...")
-  // has no "przetarg" word, so roundFromText returns null (round unknown).
-  // In a real feed, such records are always first auctions; the null is acceptable.
   assert.equal(r.round, null);
   assert.equal(r.resolved, false);
   assert.match(r.detail_url, /\/przetarg-nieruchomosci\/61782\//);
   assert.equal(r.id, '61782');
 });
 
-test('parseXmlFeed: Mickiewicza 93 m. 13A — price and date', () => {
+test('parseXmlFeed: Mickiewicza 93 m. 13A -- price and date', () => {
   const records = parseXmlFeed(XML_FIXTURE);
   const r = records.find((x) => /Mickiewicza 93/.test(x.address_raw));
   assert.ok(r);
@@ -220,19 +212,18 @@ test('parseXmlFeed: Mickiewicza 93 m. 13A — price and date', () => {
   assert.equal(r.kind, 'mieszkalny');
 });
 
-test('parseXmlFeed: Mostowa 10 m. 2 — resolved=true, address stripped of "lokal sprzedany"', () => {
+test('parseXmlFeed: Mostowa 10 m. 2 -- resolved=true, address stripped of "lokal sprzedany"', () => {
   const records = parseXmlFeed(XML_FIXTURE);
   const r = records.find((x) => /Mostowa/.test(x.address_raw));
   assert.ok(r, 'Mostowa record must be present');
   assert.equal(r.resolved, true);
   assert.equal(r.kind, 'mieszkalny');
   assert.equal(r.starting_price_pln, 193000);
-  // address_raw must NOT contain "lokal sprzedany"
   assert.ok(!/lokal sprzeda/i.test(r.address_raw), 'address_raw must be clean');
   assert.equal(r.address_raw, 'ul. Mostowa 10 m. 2');
 });
 
-test('parseXmlFeed: Szubińska — kind=grunt (niezabudowana)', () => {
+test('parseXmlFeed: Szubinska -- kind=grunt (niezabudowana)', () => {
   const records = parseXmlFeed(XML_FIXTURE);
   const r = records.find((x) => /Szubi/.test(x.address_raw));
   assert.ok(r);
@@ -245,7 +236,7 @@ test('parseXmlFeed: empty string returns empty array', () => {
   assert.deepEqual(parseXmlFeed(null), []);
 });
 
-// ── attachmentsFromDetailHtml ─────────────────────────────────────────────────
+// -- attachmentsFromDetailHtml ------------------------------------------------
 //
 // Condensed real HTML from the Mostowa 10 m.2 detail page (bip.torun.pl).
 // The page has 4 PDF attachments and 2 DOCX result-notice attachments.
@@ -310,27 +301,25 @@ test('resultDocAttachments: returns empty when no result docs present', () => {
   assert.equal(resultDocAttachments(atts).length, 0);
 });
 
-// ── parseResultDoc — DOCX 59378 (19 maja 2026r.) ─────────────────────────────
+// -- parseResultDoc DOCX 59378 (19 maja 2026r.) ------------------------------
 //
-// Real DOCX text captured via `unzip -p result_mostowa.docx word/document.xml`
-// + XML stripping (2026-06-27). Contains two rows:
-//   Row 1: Ślusarska 5 Nr 5A  — unsold ("-")
-//   Row 2: Mostowa 10 Nr 2    — SOLD 194,930 zł (buyer: SSKI Sobierajski…)
+// Real DOCX text captured via unzip -p word/document.xml + XML stripping.
+// Two rows: Slusarska 5 Nr 5A (unsold), Mostowa 10 Nr 2 (SOLD 194,930 zl).
 
-const DOCX_59378_TEXT = `INFORMACJA O WYNIKACH  USTNYCH PRZETARGÓW NIEOGRANICZONYCH
-przeprowadzonych w  dniu 19 maja 2026r. w siedzibie Wydziału Gospodarki Nieruchomościami, mieszczącej się przy ul. Grudziądzkiej 126 B
-Położenie\tLokal/pow. \tDziałka\tKsięga Wieczysta \tMPZP\tCena wywoławcza\tCena wylicytowana\tIlość osób dopuszczonych/niedopuszczonych\tNabywca nieruchomości /lokalu
-ul. Ślusarska 5 \tNr 5A 23,87m2\t104/2 (B) ob. 17\n\t\tTO1T/00015081/9\t\tbrak\t175.000,00 zł\t-\t0/0\t
-ul. Mostowa 10 \tNr 2\n28,80 m2 \t125/2 ob. 16\nPow. 0,0215 ha\t\tTO1T/00005537/8\t\tbrak\t193.000,00 zł\t194.930,00 zł\t1/0\tSSKI Sobierajski Spółka Komandytowa
-\t\t\t\t\t\t\t\t\tKierownik \n\t\t\t\t\t\t\t\tReferatu Gospodarowania Mieniem\n\t\t\t\t\t\t\t\t(-) Marcin Gawełek`;
+const DOCX_59378_TEXT = `INFORMACJA O WYNIKACH  USTNYCH PRZETARGOW NIEOGRANICZONYCH
+przeprowadzonych w  dniu 19 maja 2026r. w siedzibie Wydzialu Gospodarki Nieruchomosciami, mieszczacej sie przy ul. Grudziadzkiej 126 B
+Polozenie\tLokal/pow. \tDzialka\tKsiega Wieczysta \tMPZP\tCena wywolawcza\tCena wylicytowana\tIlosc osob dopuszczonych/niedopuszczonych\tNabywca nieruchomosci /lokalu
+ul. Slusarska 5 \tNr 5A 23,87m2\t104/2 (B) ob. 17\n\t\tTO1T/00015081/9\t\tbrak\t175.000,00 zl\t-\t0/0\t
+ul. Mostowa 10 \tNr 2\n28,80 m2 \t125/2 ob. 16\nPow. 0,0215 ha\t\tTO1T/00005537/8\t\tbrak\t193.000,00 zl\t194.930,00 zl\t1/0\tSSKI Sobierajski Spolka Komandytowa
+\t\t\t\t\t\t\t\t\tKierownik \n\t\t\t\t\t\t\t\tReferatu Gospodarowania Mieniem\n\t\t\t\t\t\t\t\t(-) Marcin Gawelk`;
 
-test('isResultNotice: recognises Toruń DOCX header', () => {
+test('isResultNotice: recognises Torun DOCX header', () => {
   assert.equal(isResultNotice(DOCX_59378_TEXT), true);
-  assert.equal(isResultNotice('zwykły ogłoszenie'), false);
+  assert.equal(isResultNotice('zwykly ogloszenie'), false);
   assert.equal(isResultNotice(''), false);
 });
 
-test('parseResultDoc DOCX-59378: returns 2 rows (Ślusarska unsold, Mostowa sold)', () => {
+test('parseResultDoc DOCX-59378: returns 2 rows (Slusarska unsold, Mostowa sold)', () => {
   const rows = parseResultDoc(DOCX_59378_TEXT, null, 'https://bip.torun.pl/attachments/download/59378');
   assert.equal(rows.length, 2, `expected 2 rows, got ${rows.length}: ${JSON.stringify(rows.map(r=>r.address_raw))}`);
 });
@@ -340,7 +329,7 @@ test('parseResultDoc DOCX-59378: auction date parsed from "19 maja 2026r."', () 
   assert.ok(rows.every((r) => r.auction_date === '2026-05-19'), 'all rows must have auction_date 2026-05-19');
 });
 
-test('parseResultDoc DOCX-59378: Mostowa 10 Nr 2 — SOLD for 194,930 zł', () => {
+test('parseResultDoc DOCX-59378: Mostowa 10 Nr 2 -- SOLD for 194930 zl', () => {
   const rows = parseResultDoc(DOCX_59378_TEXT, null, 'https://bip.torun.pl/attachments/download/59378');
   const mostowa = rows.find((r) => /mostowa/i.test(r.address_raw));
   assert.ok(mostowa, 'Mostowa row must be present');
@@ -355,10 +344,10 @@ test('parseResultDoc DOCX-59378: Mostowa 10 Nr 2 — SOLD for 194,930 zł', () =
   assert.equal(mostowa.source_pdf, 'https://bip.torun.pl/attachments/download/59378');
 });
 
-test('parseResultDoc DOCX-59378: Ślusarska 5 Nr 5A — unsold (cena wylicytowana = "-")', () => {
+test('parseResultDoc DOCX-59378: Slusarska 5 Nr 5A -- unsold (cena wylicytowana = "-")', () => {
   const rows = parseResultDoc(DOCX_59378_TEXT, null, 'https://bip.torun.pl/attachments/download/59378');
   const slusarska = rows.find((r) => /lusarska/i.test(r.address_raw));
-  assert.ok(slusarska, 'Ślusarska row must be present');
+  assert.ok(slusarska, 'Slusarska row must be present');
   assert.equal(slusarska.outcome, 'unsold');
   assert.equal(slusarska.final_price_pln, null);
   assert.equal(slusarska.starting_price_pln, 175000);
@@ -367,22 +356,22 @@ test('parseResultDoc DOCX-59378: Ślusarska 5 Nr 5A — unsold (cena wylicytowan
   assert.equal(slusarska.address.apt, '5A');
 });
 
-// ── parseResultDoc — DOCX 55913 (6 listopada 2025r.) ─────────────────────────
+// -- parseResultDoc DOCX 55913 (6 listopada 2025r.) --------------------------
 //
-// Different DOCX title: "INFORMACJA O WYNIKU KOLEJNEGO PRZETARGU…"
-// One row: Wielkie Garbary 5 Nr 21A — SOLD 138,000 zł (buyer: Franciszek Żuchowski)
+// Different title: "INFORMACJA O WYNIKU KOLEJNEGO PRZETARGU..."
+// One row: Wielkie Garbary 5 Nr 21A -- SOLD 138,000 zl.
 
 const DOCX_55913_TEXT = `INFORMACJA O WYNIKU KOLEJNEGO PRZETARGU NIEOGRANICZONEGO
-przeprowadzonego w  dniu 6 listopada 2025r. w siedzibie Wydziału Gospodarki Nieruchomościami, mieszczącej się przy ul. Grudziądzkiej 126 B
-Położenie\tLokal/pow. \tDziałka\tKsięga Wieczysta \tMPZP\tCena wywoławcza\tCena wylicytowana\tIlość osób dopuszczonych/niedopuszczonych\tNabywca nieruchomości /lokalu
-Wielkie Garbary 5\tNr 21 A\n23,60 m2\t23/1 i 23/2 (B) ob. 17 pow. 0,0715 ha\t\tTO1T/00021508/4\t\tbrak\t109.000,00 zł\t138.000,00 zł\t5/0\tFranciszek Żuchowski
-\t\t\t\t\t\t\t\tZastępca Dyrektora\n\t\t\t\tWydziału Gospodarki Nieruchomościami\n\t\t\t\t(-) Ewa Koman`;
+przeprowadzonego w  dniu 6 listopada 2025r. w siedzibie Wydzialu Gospodarki Nieruchomosciami, mieszczacej sie przy ul. Grudziadzkiej 126 B
+Polozenie\tLokal/pow. \tDzialka\tKsiega Wieczysta \tMPZP\tCena wywolawcza\tCena wylicytowana\tIlosc osob dopuszczonych/niedopuszczonych\tNabywca nieruchomosci /lokalu
+Wielkie Garbary 5\tNr 21 A\n23,60 m2\t23/1 i 23/2 (B) ob. 17 pow. 0,0715 ha\t\tTO1T/00021508/4\t\tbrak\t109.000,00 zl\t138.000,00 zl\t5/0\tFranciszek Zuchowski
+\t\t\t\t\t\t\t\tZastepca Dyrektora\n\t\t\t\tWydzialu Gospodarki Nieruchomosciami\n\t\t\t\t(-) Ewa Koman`;
 
 test('parseResultDoc DOCX-55913: isResultNotice true for "WYNIKU KOLEJNEGO PRZETARGU"', () => {
   assert.equal(isResultNotice(DOCX_55913_TEXT), true);
 });
 
-test('parseResultDoc DOCX-55913: Wielkie Garbary 5 Nr 21A — SOLD 138,000 zł', () => {
+test('parseResultDoc DOCX-55913: Wielkie Garbary 5 Nr 21A -- SOLD 138000 zl', () => {
   const rows = parseResultDoc(DOCX_55913_TEXT, null, 'https://bip.torun.pl/attachments/download/55913');
   assert.equal(rows.length, 1);
   const r = rows[0];
@@ -395,20 +384,19 @@ test('parseResultDoc DOCX-55913: Wielkie Garbary 5 Nr 21A — SOLD 138,000 zł',
   assert.equal(r.address.apt, '21A');
 });
 
-// ── parseResultDoc — DOCX 58022 (17 marca 2026r.) ────────────────────────────
+// -- parseResultDoc DOCX 58022 (17 marca 2026r.) -----------------------------
 //
-// Three rows, all unsold: Mickiewicza 110, Ślusarska 5 Nr 5A, Mostowa 10 Nr 2.
-// This is the FIRST auction round for Mostowa (starting price 250,000 zł there).
+// Three rows, all unsold: Mickiewicza 110, Slusarska 5 Nr 5A, Mostowa 10 Nr 2.
 
-const DOCX_58022_TEXT = `INFORMACJA O WYNIKACH  USTNYCH PRZETARGÓW NIEOGRANICZONYCH
-przeprowadzonych w  dniu 17 marca 2026r. w siedzibie Wydziału Gospodarki Nieruchomościami, mieszczącej się przy ul. Grudziądzkiej 126 B
-Położenie\tLokal/pow. \tDziałka\tKsięga Wieczysta \tMPZP\tCena wywoławcza\tCena wylicytowana\tIlość osób dopuszczonych/niedopuszczonych\tNabywca nieruchomości /lokalu
-ul. Mickiewicza 110 \t79,45 m2\t278 (B) ob. 7 pow. 0,0319 ha\t\tTO1T/00036010/4\t\tbrak\t150.000,00 zł\t-\t0/0\t
-ul. Ślusarska 5 \tNr 5A 23,87m2\t104/2 (B) ob. 17\n\t\tTO1T/00015081/9\t\tbrak\t205.000,00 zł\t-\t1/0\t
-ul. Mostowa 10 \tNr 2\n28,80 m2 \t125/2 ob. 16\nPow. 0,0215 ha\t\tTO1T/00005537/8\t\tbrak\t250.000,00 zł\t-\t0/0\t
-\t\t\t\t\t\t\t\t\tZastępca Dyrektora \n\t\t\t\t\t\t\tWydziału Gospodarki Nieruchomościami\n\t\t\t\t\t\t\t(-) Ewa Koman`;
+const DOCX_58022_TEXT = `INFORMACJA O WYNIKACH  USTNYCH PRZETARGOW NIEOGRANICZONYCH
+przeprowadzonych w  dniu 17 marca 2026r. w siedzibie Wydzialu Gospodarki Nieruchomosciami, mieszczacej sie przy ul. Grudziadzkiej 126 B
+Polozenie\tLokal/pow. \tDzialka\tKsiega Wieczysta \tMPZP\tCena wywolawcza\tCena wylicytowana\tIlosc osob dopuszczonych/niedopuszczonych\tNabywca nieruchomosci /lokalu
+ul. Mickiewicza 110 \t79,45 m2\t278 (B) ob. 7 pow. 0,0319 ha\t\tTO1T/00036010/4\t\tbrak\t150.000,00 zl\t-\t0/0\t
+ul. Slusarska 5 \tNr 5A 23,87m2\t104/2 (B) ob. 17\n\t\tTO1T/00015081/9\t\tbrak\t205.000,00 zl\t-\t1/0\t
+ul. Mostowa 10 \tNr 2\n28,80 m2 \t125/2 ob. 16\nPow. 0,0215 ha\t\tTO1T/00005537/8\t\tbrak\t250.000,00 zl\t-\t0/0\t
+\t\t\t\t\t\t\t\t\tZastepca Dyrektora \n\t\t\t\t\t\t\tWydzialu Gospodarki Nieruchomosciami\n\t\t\t\t\t\t\t(-) Ewa Koman`;
 
-test('parseResultDoc DOCX-58022: returns 3 rows (Mickiewicza, Ślusarska, Mostowa — all unsold)', () => {
+test('parseResultDoc DOCX-58022: returns 3 rows (Mickiewicza, Slusarska, Mostowa -- all unsold)', () => {
   const rows = parseResultDoc(DOCX_58022_TEXT, null, 'https://bip.torun.pl/attachments/download/58022');
   assert.equal(rows.length, 3, `expected 3 rows, got ${rows.length}`);
   assert.ok(rows.every((r) => r.outcome === 'unsold'), 'all rows must be unsold');
@@ -425,11 +413,8 @@ test('parseResultDoc DOCX-58022: Mostowa 10 Nr 2 unsold (first round, higher sta
 });
 
 test('parseResultDoc: fallbackDate used when date not parseable', () => {
-  // Strip the date line to force fallback.
   const noDate = DOCX_55913_TEXT.replace(/przeprowadzon\w+.*\n/, '\n');
   const rows = parseResultDoc(noDate, '2025-11-06', 'https://example.com/test');
-  // May return 0 or 1 row depending on how well the text is stripped;
-  // the key assertion is: no throw and if rows exist, the date comes from the fallback.
   assert.ok(Array.isArray(rows));
   if (rows.length > 0) {
     assert.equal(rows[0].auction_date, '2025-11-06');
@@ -440,4 +425,68 @@ test('parseResultDoc: non-result-notice text returns empty array', () => {
   assert.deepEqual(parseResultDoc('Ogloszenie o przetargu na sprzedaz lokalu', null, 'https://x'), []);
   assert.deepEqual(parseResultDoc('', null, 'https://x'), []);
   assert.deepEqual(parseResultDoc(null, null, 'https://x'), []);
+});
+
+// -- areaFromDetailHtml -------------------------------------------------------
+//
+// Groundtruthed against the live bip.torun.pl detail pages (2026-06-28).
+//
+// ROOT CAUSE FIX: Mickiewicza 93 m. 13A (apt 13A, area 50.30 m2) was
+// previously missing area_m2 because the BIP XML feed does not include the
+// floor area -- it lives only in the detail page body text. crawlDetailAreas()
+// now fetches each active flat's detail page and calls areaFromDetailHtml()
+// to extract the area, returning a Map<propertyKey, area> consumed by
+// buildCityData's detailAreas parameter.
+
+// Condensed real HTML from Mickiewicza 93 m. 13A detail page (2026-06-28).
+// Critical text: "lacznej powierzchni uzytkowej 50,30 m2"
+const DETAIL_HTML_MICKIEWICZA_13A = [
+  '<div class="article-body">',
+  '  <p><span>Przedmiotem przetargu jest sprzedaz lokalu mieszkalnego nr 13A wraz z pomieszczeniem',
+  '  przynaleznym o lacznej powierzchni uzytkowej 50,30 m2, stanowiacego wlasnosc Gminy Miasta Torun,',
+  '  usytuowanego na I pietrze oficyny budynku mieszkalnego wielorodzinnego, posadowionego na nieruchomosci',
+  '  oznaczonej geodezyjnie numerami dzialek 361 i 362, polozonej w Toruniu przy ul. Mickiewicza 93',
+  '  o lacznej powierzchni 0,1222 ha, zapisanej w ksiedze wieczystej KW Nr TO1T/00029719/2</span></p>',
+  '  <p>Powierzchnia uzytkowa lokalu wynosi lacznie 50,30 m2. Klatka schodowa nie nalezy do lokalu.</p>',
+  '</div>',
+].join('\n');
+
+// Condensed real HTML from Slusarska 5 m. 5A detail page.
+// Format: "o powierzchni uzytkowej 23,87 m2" (without "lacznej").
+// Second area value (piwnica 7,44 m2) must be ignored -- first match wins.
+const DETAIL_HTML_SLUSARSKA_5A = [
+  '<div class="article-body">',
+  '  <p><span>Przedmiotem przetargu jest sprzedaz lokalu mieszkalnego nr 5A o powierzchni uzytkowej 23,87 m2',
+  '  wraz z pomieszczeniem przynaleznym - piwnica o powierzchni 7,44 m2, stanowiacego wlasnosc Gminy Miasta Torun.',
+  '  Nieruchomosc gruntowa o lacznej powierzchni 0,0359 ha.</span></p>',
+  '</div>',
+].join('\n');
+
+// Condensed real HTML from Slusarska 5 m. 8 detail page.
+// Format: "o powierzchni 61,08 m2" (bare "powierzchni", no "uzytkowej").
+const DETAIL_HTML_SLUSARSKA_8 = [
+  '<div class="article-body">',
+  '  <p><span>Przedmiotem przetargu jest sprzedaz lokalu mieszkalnego nr 8 o powierzchni 61,08 m2, stanowiacego wlasnosc Gminy Miasta Torun.</span></p>',
+  '</div>',
+].join('\n');
+
+test('areaFromDetailHtml: Mickiewicza 93 m. 13A -- 50.30 m2 (apt with letter suffix, the missed listing)', () => {
+  const area = areaFromDetailHtml(DETAIL_HTML_MICKIEWICZA_13A);
+  assert.equal(area, 50.3, 'expected 50.3 for Mickiewicza 93 m. 13A');
+});
+
+test('areaFromDetailHtml: Slusarska 5 m. 5A -- 23.87 m2 (first match wins, piwnica 7.44 ignored)', () => {
+  const area = areaFromDetailHtml(DETAIL_HTML_SLUSARSKA_5A);
+  assert.equal(area, 23.87);
+});
+
+test('areaFromDetailHtml: Slusarska 5 m. 8 -- 61.08 m2 (bare "powierzchni")', () => {
+  const area = areaFromDetailHtml(DETAIL_HTML_SLUSARSKA_8);
+  assert.equal(area, 61.08);
+});
+
+test('areaFromDetailHtml: null/empty input returns null', () => {
+  assert.equal(areaFromDetailHtml(''), null);
+  assert.equal(areaFromDetailHtml(null), null);
+  assert.equal(areaFromDetailHtml('<div>no area here</div>'), null);
 });

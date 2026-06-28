@@ -190,6 +190,37 @@ function _extractArea(s) {
   return m ? parseFloat(m[1].replace(',', '.')) : null;
 }
 
+// ---------------------------------------------------------------------------
+// Detail-page area extractor
+// ---------------------------------------------------------------------------
+
+/**
+ * Extract the unit floor area (m²) from a Toruń BIP detail page HTML.
+ *
+ * The CMS renders the area in the first substantial paragraph, always before
+ * any plot/land reference:
+ *   "…o łącznej powierzchni użytkowej 50,30 m2…"
+ *   "…o powierzchni użytkowej 23,87 m2…"
+ *   "…o powierzchni 61,08 m2…"
+ *
+ * Strategy: find the first occurrence of a decimal number (comma separator)
+ * followed by "m2" in the page text.  The flat area is always the first such
+ * value; land-plot areas come later and use "ha" or a much larger number.
+ * Returns null when no match is found.
+ *
+ * @param {string} html  raw detail page HTML
+ * @returns {number|null}
+ */
+export function areaFromDetailHtml(html) {
+  if (!html) return null;
+  // Strip tags so we don't match numbers buried in attribute values.
+  const text = html.replace(/<[^>]+>/g, ' ');
+  // First decimal-comma number followed by m2 (with optional space/whitespace).
+  const m = /(\d+[,.]\d+)\s*m2/i.exec(text);
+  if (!m) return null;
+  return parseFloat(m[1].replace(',', '.'));
+}
+
 /**
  * Parse one grouped record block (2-3 lines joined by \n).
  */
@@ -285,9 +316,10 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     } else if (pending !== null) {
       pending = pending + '\n' + line;
     }
-    // pre-record header/date text — ignored (pending is null)
+    // pre-record header/date text -- ignored (pending is null)
   }
   flush();
 
   return out;
 }
+
