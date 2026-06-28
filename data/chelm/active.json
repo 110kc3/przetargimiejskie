@@ -1,0 +1,1413 @@
+{
+  "schema_version": 1,
+  "city": "chelm",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wołyńskiej 65A/5",
+      "address": {
+        "street": "Wołyńskiej",
+        "street_norm": "wolynskiej",
+        "building": "65A",
+        "apt": "5",
+        "key": "wolynskiej|65A|5",
+        "warning": null
+      },
+      "area_m2": 51.5,
+      "starting_price_pln": 278350,
+      "auction_date": "1997-08-21",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2319732",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie_o_przetargu.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wołyńskiej 65A/5",
+      "address": {
+        "street": "Wołyńskiej",
+        "street_norm": "wolynskiej",
+        "building": "65A",
+        "apt": "5",
+        "key": "wolynskiej|65A|5",
+        "warning": null
+      },
+      "area_m2": 51.5,
+      "starting_price_pln": 293000,
+      "auction_date": "1997-08-21",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2292847",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie_o_ii_przetargu_wolynska_65a.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wołyńskiej 65A/5",
+      "address": {
+        "street": "Wołyńskiej",
+        "street_norm": "wolynskiej",
+        "building": "65A",
+        "apt": "5",
+        "key": "wolynskiej|65A|5",
+        "warning": null
+      },
+      "area_m2": 51.5,
+      "starting_price_pln": 293000,
+      "auction_date": "1997-08-21",
+      "round": 1,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2270821",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/ogloszenie_o_przetargu_spoldzielcze_wlasnosciowe_prawo_do_lokalu_.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Pocztowej 2B",
+      "address": {
+        "street": "Pocztowej",
+        "street_norm": "pocztowej",
+        "building": "2B",
+        "apt": null,
+        "key": "pocztowej|2B|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2024-08-30",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2066509",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/31wykaz.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Droga Męczenników 4/15",
+      "address": {
+        "street": "Droga Męczenników",
+        "street_norm": "droga meczennikow",
+        "building": "4",
+        "apt": "15",
+        "key": "droga meczennikow|4|15",
+        "warning": null
+      },
+      "area_m2": 53.6,
+      "starting_price_pln": 240000,
+      "auction_date": "1997-08-21",
+      "round": 1,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1851966",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/6-ogloszenie-o-przetargu.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Droga Męczenników 4/15",
+      "address": {
+        "street": "Droga Męczenników",
+        "street_norm": "droga meczennikow",
+        "building": "4",
+        "apt": "15",
+        "key": "droga meczennikow|4|15",
+        "warning": null
+      },
+      "area_m2": 53.6,
+      "starting_price_pln": 240000,
+      "auction_date": "1997-08-21",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1814944",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie-o-przetargu.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Ceramicznej 38A",
+      "address": {
+        "street": "Ceramicznej",
+        "street_norm": "ceramicznej",
+        "building": "38A",
+        "apt": null,
+        "key": "ceramicznej|38A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2022-08-26",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1787959",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/0wykaz-nieruchomosci.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1670769",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/I_Przetarg_Ogloszenie_Hutnicza.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1667087",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/III_Przetarg_Ogloszenie_Malowane.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. G. Stephensona 4/2A",
+      "address": {
+        "street": "G. Stephensona",
+        "street_norm": "g stephensona",
+        "building": "4",
+        "apt": "2A",
+        "key": "g stephensona|4|2A",
+        "warning": null
+      },
+      "area_m2": 16.83,
+      "starting_price_pln": null,
+      "auction_date": "2021-05-18",
+      "round": null,
+      "auction_date_estimated": true,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1636122",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/OGLOSZENIE_O_PRZETARGU.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. G. Stephensona 4/2A",
+      "address": {
+        "street": "G. Stephensona",
+        "street_norm": "g stephensona",
+        "building": "4",
+        "apt": "2A",
+        "key": "g stephensona|4|2A",
+        "warning": null
+      },
+      "area_m2": 16.83,
+      "starting_price_pln": null,
+      "auction_date": "2021-04-29",
+      "round": null,
+      "auction_date_estimated": true,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1629130",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/GEORGE`A_STEPHENSONA.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1629070",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/II_Przetarg_Ogloszenie_Malowane.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1620526",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Majdan_zabud_III_przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1620515",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Ogloszenie_II_przetarg_Wiercienskiego.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1620493",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Ogloszenie_III_przetarg_Browarna.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2020-12-16",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1583537",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Wykaz_Chelmonskiego.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1570757",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Ogloszenie_II_przetarg_Browarna.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1564012",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Hutnicza_III_Przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 6000,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1507344",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2020_Narcyzowa_ogl_o_III_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 6800,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1494957",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2020_Narcyzowa_ogl_o_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Ogrodowej 43",
+      "address": {
+        "street": "Ogrodowej",
+        "street_norm": "ogrodowej",
+        "building": "43",
+        "apt": null,
+        "key": "ogrodowej|43|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 95000,
+      "auction_date": "2019-03-11",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1479051",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/ogrodowa_43_-_ogloszenie_o_3_przetargu_na_bip_—_kopia.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 7500,
+      "auction_date": "2016-11-25",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1477934",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2020_Narcyzowa_ogl_o_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Ogrodowej 43",
+      "address": {
+        "street": "Ogrodowej",
+        "street_norm": "ogrodowej",
+        "building": "43",
+        "apt": null,
+        "key": "ogrodowej|43|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 99000,
+      "auction_date": "2019-03-11",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1462505",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/0ogrodowa_43_-_ogloszenie_o_przetargu_na_bip.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 9000,
+      "auction_date": "2001-12-28",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1446817",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Poludniowa_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Ogrodowej 43",
+      "address": {
+        "street": "Ogrodowej",
+        "street_norm": "ogrodowej",
+        "building": "43",
+        "apt": null,
+        "key": "ogrodowej|43|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2019-03-11",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1422930",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019Ogloszenie_Ogrodowa_43.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2001-12-28",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1421991",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_Szpitalna_ogloszenie_o_III_przet.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 283000,
+      "auction_date": "2004-09-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1393356",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_Powstacow_W_wy_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 11500,
+      "auction_date": "2001-12-28",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1393346",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_Poludniowa_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Ogrodowej 43",
+      "address": {
+        "street": "Ogrodowej",
+        "street_norm": "ogrodowej",
+        "building": "43",
+        "apt": null,
+        "key": "ogrodowej|43|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2019-05-29",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1392560",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_05_30_wykaz_Ogrodowa_43.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2001-12-28",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1369325",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_Szpitalna_ogloszenie_o_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2001-12-28",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1353386",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_Szpitalna_ogloszenie_o_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2018-09-06",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1353379",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2019_Rozana_III_przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2018-09-06",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1328163",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2018_Rozana_II_przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 93500,
+      "auction_date": "2013-03-05",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1318326",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2018_Pilarskiego_SPOgloszenie_przetarg.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Powstańców Warszawy 2A",
+      "address": {
+        "street": "Powstańców Warszawy",
+        "street_norm": "powstancow warszawy",
+        "building": "2A",
+        "apt": null,
+        "key": "powstancow warszawy|2A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2018-10-24",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1311252",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/02018_10_24_Nr1423_Powst_Wwy.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 13500,
+      "auction_date": "1997-08-21",
+      "round": 6,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1307379",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2018_Kollataja_VI_przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 2584000,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1285432",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/ogloszenie_o_III__przetargu_na_16.10.2018_r.__do_BIP.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 13500,
+      "auction_date": "2017-02-24",
+      "round": 5,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1273584",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_12_Kollataja_IV_przet_—_kopia.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 945900,
+      "auction_date": "1997-08-21",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1256609",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Chelmonskiego_-przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1247520",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/do_BIP.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1247511",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/ogloszenie_do_BIP.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 2871000,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1242863",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2018_1Pulku_Szwol_ogl_o_II_Przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1222282",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Lwowska_dz_7_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 14100,
+      "auction_date": "2017-02-24",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1221260",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_12_Kollataja_IV_przet.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 2900000,
+      "auction_date": "2004-09-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1215815",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/1_Pulku_Szwol_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 828450,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1205266",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/ogloszenie_2_przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2017-02-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1168833",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_05_25_Ogrodowa_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2017-02-24",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1159643",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_Pierackiej_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2017-02-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1155267",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/Ogrodowa_bip.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Partyzantów 4",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "4",
+        "apt": null,
+        "key": "partyzantow|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1152696",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/partyzantow_bip.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Broniewskiego 14",
+      "address": {
+        "street": "Władysława Broniewskiego",
+        "street_norm": "wladyslawa broniewskiego",
+        "building": "14",
+        "apt": null,
+        "key": "wladyslawa broniewskiego|14|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1152676",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/broniewskiego_bip-1.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Partyzantów 4",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "4",
+        "apt": null,
+        "key": "partyzantow|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2017-02-08",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1140919",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_726_Partyzantow4.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Wł. Andersa 1",
+      "address": {
+        "street": "Gen. Wł. Andersa",
+        "street_norm": "gen wl andersa",
+        "building": "1",
+        "apt": null,
+        "key": "gen wl andersa|1|",
+        "warning": null
+      },
+      "area_m2": 444.88,
+      "starting_price_pln": null,
+      "auction_date": "2017-02-03",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1139981",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_02_03Wykaz_nieruchomosci_-_lokal_Andersa_1'21.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Broniewskiego 14",
+      "address": {
+        "street": "Władysława Broniewskiego",
+        "street_norm": "wladyslawa broniewskiego",
+        "building": "14",
+        "apt": null,
+        "key": "wladyslawa broniewskiego|14|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1139899",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2017_02_03_Broniewskiego_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2001-12-28",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1116231",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2016_12_Al_przyjazni_ogl_o_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2001-12-28",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1091000",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2016_Szpitalna_przet_ogr_dz_73_10.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Nowy Świat 6/12",
+      "address": {
+        "street": "Nowy Świat",
+        "street_norm": "nowy swiat",
+        "building": "6",
+        "apt": "12",
+        "key": "nowy swiat|6|12",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2016-07-01",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1079559",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2016_539_HUTNICZA.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 145",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "145",
+        "apt": null,
+        "key": "lubelskiej|145|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 300000,
+      "auction_date": "2012-08-30",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1079541",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2016_Lubelska145_IVprzet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Kowalskiej 8",
+      "address": {
+        "street": "Kowalskiej",
+        "street_norm": "kowalskiej",
+        "building": "8",
+        "apt": null,
+        "key": "kowalskiej|8|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2016-03-03",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1047009",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2016_411_Kowalska8.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Jordana 12",
+      "address": {
+        "street": "Jordana",
+        "street_norm": "jordana",
+        "building": "12",
+        "apt": null,
+        "key": "jordana|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2016-02-11",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1038063",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2016_Jordana_12.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 145",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "145",
+        "apt": null,
+        "key": "lubelskiej|145|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2015-08-19",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=985776",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2015_236_Lubelska_145.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 8000,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=949813",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2015_Poludniowa_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 12630,
+      "auction_date": "2004-09-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=925418",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2014_Poludniowa_I_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 70000,
+      "auction_date": "2013-06-04",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=799138",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2014_Pocztowa_IV_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 80000,
+      "auction_date": "2013-06-04",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=785892",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2014_04_01_Pocztowa_IIIp.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 145",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "145",
+        "apt": null,
+        "key": "lubelskiej|145|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 4,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=778166",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2014_Lubelska145_IV_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 60000,
+      "auction_date": "2013-07-22",
+      "round": 1,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=772139",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2014Ogloszenie_II_przetarg_-_BIP.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 106800,
+      "auction_date": "2013-06-04",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=770763",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2014_Pocztowa_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 79000,
+      "auction_date": "2013-07-22",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=750663",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/_2013_10_Ogloszenie_przetarg.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 72A",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "72A",
+        "apt": null,
+        "key": "lubelskiej|72A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 850000,
+      "auction_date": "2012-01-30",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=739514",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/do_BIP_Lub.72.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 145",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "145",
+        "apt": null,
+        "key": "lubelskiej|145|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 3,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=738372",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2013_Lubelska_145_III_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 7000,
+      "auction_date": "2001-12-28",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=738338",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/III_przet_Kamienskiego.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 44500,
+      "auction_date": "2001-12-28",
+      "round": 1,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=722452",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2013_VII_przetarg_-IV_Ceramiczna_BIP.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lwowskiej 9",
+      "address": {
+        "street": "Lwowskiej",
+        "street_norm": "lwowskiej",
+        "building": "9",
+        "apt": null,
+        "key": "lwowskiej|9|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 2120000,
+      "auction_date": "2013-05-14",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=716614",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2013_Lwowska_9.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 72A",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "72A",
+        "apt": null,
+        "key": "lubelskiej|72A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 996000,
+      "auction_date": "2012-01-30",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=478061",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/02013_Lubelska_72a_I_przet.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 145",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "145",
+        "apt": null,
+        "key": "lubelskiej|145|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2004-09-14",
+      "round": 2,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=465205",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2013_Lubelska_145_II_przet.pdf"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Lubelskiej 65",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "65",
+        "apt": null,
+        "key": "lubelskiej|65|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 8500,
+      "auction_date": "2001-12-28",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=465063",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2013_IIprzet_Kamienskiego.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Lubelskiej 145",
+      "address": {
+        "street": "Lubelskiej",
+        "street_norm": "lubelskiej",
+        "building": "145",
+        "apt": null,
+        "key": "lubelskiej|145|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 800000,
+      "auction_date": "2012-08-30",
+      "round": null,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=332535",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/2013_Lubelska_145.pdf"
+    }
+  ],
+  "wykaz": []
+}

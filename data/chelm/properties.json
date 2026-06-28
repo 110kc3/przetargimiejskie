@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "city": "chelm",
+  "properties": [
+    {
+      "key": "pocztowej|2B|",
+      "street": "Pocztowa",
+      "street_norm": "pocztowej",
+      "building": "2B",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2024-08-30",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2066509",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "ceramicznej|38A|",
+      "street": "Ceramiczna",
+      "street_norm": "ceramicznej",
+      "building": "38A",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-08-26",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1787959",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "g stephensona|4|2A",
+      "street": "G. Stephensona",
+      "street_norm": "g stephensona",
+      "building": "4",
+      "apt": "2A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-04-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 16.83,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1629130",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2021-05-18",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 16.83,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1636122",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2021-06-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 33300,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 64030,
+          "source_pdf": "https://umchelm.bip.lubelskie.pl/upload/pliki/INFORMACJA_O_WYNIKACH_PRZETARGU.pdf",
+          "notes": [],
+          "area_m2": 16.83
+        }
+      ],
+      "area_m2": 16.83
+    },
+    {
+      "key": "lubelskiej|65|",
+      "street": "Lubelskiej",
+      "street_norm": "lubelskiej",
+      "building": "65",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "1997-08-21",
+          "round": 6,
+          "kind": "unknown",
+          "starting_price_pln": 13500,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1307379",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2001-12-28",
+          "round": 2,
+          "kind": "unknown",
+          "starting_price_pln": 9000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1446817",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2004-09-14",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 6000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1670769",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2013-03-05",
+          "round": 4,
+          "kind": "unknown",
+          "starting_price_pln": 93500,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1318326",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2013-06-04",
+          "round": 4,
+          "kind": "unknown",
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=799138",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2013-07-22",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 60000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=772139",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2016-11-25",
+          "round": 2,
+          "kind": "unknown",
+          "starting_price_pln": 7500,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1477934",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-02-14",
+          "round": 2,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1168833",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-02-24",
+          "round": 5,
+          "kind": "unknown",
+          "starting_price_pln": 13500,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1273584",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2018-09-06",
+          "round": 3,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1353379",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2020-12-16",
+          "round": 4,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1583537",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "ogrodowej|43|",
+      "street": "Ogrodowa",
+      "street_norm": "ogrodowej",
+      "building": "43",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2019-03-11",
+          "round": 3,
+          "kind": "unknown",
+          "starting_price_pln": 95000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1479051",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2019-05-29",
+          "round": 4,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1392560",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "powstancow warszawy|2A|",
+      "street": "Powstańców Warszawy",
+      "street_norm": "powstancow warszawy",
+      "building": "2A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2018-10-24",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1311252",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "partyzantow|4|",
+      "street": "Partyzantów",
+      "street_norm": "partyzantow",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2004-09-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1152696",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2017-02-08",
+          "round": 2,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1140919",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "gen wl andersa|1|",
+      "street": "Gen. Wł. Andersa",
+      "street_norm": "gen wl andersa",
+      "building": "1",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2017-02-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1139981",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 444.88
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 444.88
+    },
+    {
+      "key": "nowy swiat|6|12",
+      "street": "Nowy Świat",
+      "street_norm": "nowy swiat",
+      "building": "6",
+      "apt": "12",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2016-07-01",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1079559",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "kowalskiej|8|",
+      "street": "Kowalskiej",
+      "street_norm": "kowalskiej",
+      "building": "8",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2016-03-03",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1047009",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "jordana|12|",
+      "street": "Jordana",
+      "street_norm": "jordana",
+      "building": "12",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2016-02-11",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1038063",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lubelskiej|145|",
+      "street": "Lubelskiej",
+      "street_norm": "lubelskiej",
+      "building": "145",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2004-09-14",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=778166",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2012-08-30",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1079541",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2015-08-19",
+          "round": 5,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=985776",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lwowskiej|9|",
+      "street": "Lwowskiej",
+      "street_norm": "lwowskiej",
+      "building": "9",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2013-05-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2120000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=716614",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lubelskiej|72A|",
+      "street": "Lubelskiej",
+      "street_norm": "lubelskiej",
+      "building": "72A",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2012-01-30",
+          "round": 2,
+          "kind": "unknown",
+          "starting_price_pln": 850000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=739514",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wladyslawa broniewskiego|14|",
+      "street": "Władysława Broniewskiego",
+      "street_norm": "wladyslawa broniewskiego",
+      "building": "14",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2004-09-14",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1152676",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wolynskiej|65A|5",
+      "street": "Wołyńskiej",
+      "street_norm": "wolynskiej",
+      "building": "65A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "1997-08-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 278350,
+          "outcome": "archived",
+          "area_m2": 51.5,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2319732",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 51.5
+    },
+    {
+      "key": "droga meczennikow|4|15",
+      "street": "Droga Męczenników",
+      "street_norm": "droga meczennikow",
+      "building": "4",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "1997-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "archived",
+          "area_m2": 53.6,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=1851966",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 53.6
+    }
+  ]
+}
