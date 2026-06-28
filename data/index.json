@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-28T08:30:23.206Z",
+  "generated_at": "2026-06-28T09:46:36.455Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 16,
-      "active_listings": 66,
+      "active_listings": 79,
       "active_auctions": 1,
-      "archived_auctions": 83,
+      "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 91
     },
     {
       "id": "trzebinia",
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 24,
+      "active_listings": 20,
       "active_auctions": 13,
       "archived_auctions": 23,
       "wykaz_entries": 0,
@@ -428,6 +428,110 @@
       "active_listings": 3,
       "active_auctions": 0,
       "archived_auctions": 3,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "stargard",
+      "label": "Stargard",
+      "voivodeship": "zachodniopomorskie",
+      "authority": "Gmina-Miasto Stargard",
+      "host": "bip.stargard.eu",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "slupsk",
+      "label": "Słupsk",
+      "voivodeship": "pomorskie",
+      "authority": "Urząd Miejski w Słupsku",
+      "host": "bip.um.slupsk.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "tczew",
+      "label": "Tczew",
+      "voivodeship": "pomorskie",
+      "authority": "Gmina Miejska Tczew",
+      "host": "bip.tczew.pl",
+      "unique_properties": 1,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "gniezno",
+      "label": "Gniezno",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miasta Gniezna",
+      "host": "bip.gniezno.eu",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "cieszyn",
+      "label": "Cieszyn",
+      "voivodeship": "slaskie",
+      "authority": "Urząd Miejski w Cieszynie",
+      "host": "bip.um.cieszyn.pl",
+      "unique_properties": 17,
+      "active_listings": 37,
+      "active_auctions": 0,
+      "archived_auctions": 37,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "przemysl",
+      "label": "Przemyśl",
+      "voivodeship": "podkarpackie",
+      "authority": "Urząd Miasta Przemyśla",
+      "host": "bip.przemysl.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "chelm",
+      "label": "Chełm",
+      "voivodeship": "lubelskie",
+      "authority": "Urząd Miasta Chełm",
+      "host": "umchelm.bip.lubelskie.pl",
+      "unique_properties": 17,
+      "active_listings": 78,
+      "active_auctions": 0,
+      "archived_auctions": 33,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "swinoujscie",
+      "label": "Świnoujście",
+      "voivodeship": "zachodniopomorskie",
+      "authority": "Urząd Miasta Świnoujście",
+      "host": "bip.um.swinoujscie.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
     }
