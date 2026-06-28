@@ -28,6 +28,7 @@ import {
   stripTags,
   parseDetailFields,
   parseDetailPage,
+  parseDetailAddress,
   parseResultDoc,
 } from '../src/cities/bialystok/parse.js';
 
@@ -254,6 +255,56 @@ test('parseDetailPage: returns null for non-flat przeznaczenie (działka)', () =
 test('parseDetailPage: returns null for null/empty input', () => {
   assert.equal(parseDetailPage(null, 'https://example.com'), null);
   assert.equal(parseDetailPage('', 'https://example.com'), null);
+});
+
+// ---------------------------------------------------------------------------
+// parseDetailAddress — city-prefix + działka-tail stripping (junk-street gate)
+// ---------------------------------------------------------------------------
+//
+// Real-world BIP entries sometimes include a leading "Białystok, " city prefix
+// AND/OR a trailing ", dz. nr N" działka fragment in the Lokalizacja field.
+// Without stripping these, the street absorbs the city name and a comma —
+// both of which fail the sanity-check junk-street gate.
+//
+// Error from live sanity-check.js run:
+//   ERROR bialystok: [junk-street] bialystok aleja jozefa pilsudskiego 24 m 62 dz nr|1282|
+//   — street 'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr'
+
+test('parseDetailAddress: strips leading city prefix and trailing dz. nr fragment', () => {
+  const { address_raw, address } = parseDetailAddress(
+    'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282',
+  );
+  // address_raw must preserve the original string
+  assert.equal(address_raw, 'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282');
+  assert.ok(address, 'address must be parsed (not null)');
+  // Street must not contain the city prefix, a comma, or działka vocabulary
+  assert.ok(!/Bia[łl]ystok/i.test(address.street), `street must not contain city name: ${address.street}`);
+  assert.ok(!/,/.test(address.street), `street must not contain comma: ${address.street}`);
+  assert.ok(!/dz\.?\s*nr|dzia[łl]k/i.test(address.street), `street must not contain działka fragment: ${address.street}`);
+  // Building and apt must parse correctly from "24 m 62"
+  assert.equal(address.building, '24');
+  assert.equal(address.apt, '62');
+  // Street norm must contain Piłsudskiego
+  assert.ok(/pilsudsk/i.test(address.street_norm), `street_norm must contain pilsudsk: ${address.street_norm}`);
+});
+
+test('parseDetailAddress: strips trailing działka fragment without city prefix', () => {
+  const { address } = parseDetailAddress(
+    'ul. Testowa 5 m 3, działka nr 999',
+  );
+  assert.ok(address, 'address must be parsed');
+  assert.ok(!/dzia[łl]k/i.test(address.street), `street must not contain działka: ${address.street}`);
+  assert.equal(address.building, '5');
+  assert.equal(address.apt, '3');
+});
+
+test('parseDetailAddress: normal address (no prefix/tail) still parses correctly', () => {
+  // Regression: stripping must not break the common clean case
+  const { address } = parseDetailAddress('ul. Juliana Tuwima 1/1 m 41');
+  assert.ok(address, 'address must be parsed');
+  assert.ok(/tuwima/i.test(address.street_norm));
+  assert.equal(address.building, '1');
+  assert.equal(address.apt, '41');
 });
 
 // ---------------------------------------------------------------------------

@@ -1,44 +1,29 @@
-name: Refresh auction data
+name: Backfill (full refresh — parallel matrix, long timeout)
 
+# One-off "prime the cache" run, triggered MANUALLY (Actions → this workflow →
+# Run workflow). Same pipeline as the daily refresh.yml, but:
+#   1. every city's job gets a long timeout (350 min) so a COLD cache can't blow
+#      the cap on the heavy/OCR cities, and
+#   2. the budgeted crawlers (Białystok, Kędzierzyn-Koźle) are UN-bounded via env
+#      so they fetch the full archive in one pass.
+# Runs the cities in PARALLEL (matrix), so the whole backfill finishes in roughly
+# the slowest city's time, not the sum. After it lands once, the daily matrix is
+# fast on cache hits and the bounded crawlers only fetch deltas. Re-run if a job
+# ever times out — each re-run resumes off the committed cache.
 on:
-  push:
-    branches: [main]
-    # Run on pushes that change pipeline code/config — i.e. when a parser or
-    # crawler fix should regenerate data. We IGNORE pushes that only touch the
-    # generated data, the caches, docs, or the extension, so:
-    #   - the bot's own "data: refresh" commit never re-triggers a run
-    #     (belt-and-suspenders: GITHUB_TOKEN pushes don't trigger workflows
-    #      anyway, so there's no loop), and
-    #   - trivial doc / extension-only pushes don't kick off a full crawl.
-    # To run on EVERY push instead, delete this whole `paths-ignore` block.
-    paths-ignore:
-      - 'data/**'
-      - 'pipeline/ocr-cache/**'
-      - 'pipeline/pdf-text-cache/**'
-      - 'pipeline/doc-text-cache/**'
-      - 'pipeline/rtf-text-cache/**'
-      - 'pipeline/detail-cache/**'
-      - 'pipeline/uldk-cache/**'
-      - 'extension/**'
-      - '**/*.md'
-  schedule:
-    - cron: '0 4 * * *'      # Daily 04:00 UTC (approx 06:00 Polish time, CEST).
-                             # cron is UTC-only and can't follow DST, so in winter
-                             # (CET) it fires 05:00 local. health.yml runs at 07:00 UTC.
-  workflow_dispatch: {}      # adds a "Run workflow" button in the Actions UI
+  workflow_dispatch: {}
 
 permissions:
   contents: write
 
-# One refresh at a time — the per-city jobs inside a run push commits with a
-# rebase-retry, but two overlapping RUNS would interleave unpredictably.
+# Share the daily refresh's lock so a backfill and a scheduled run never
+# interleave commits on main.
 concurrency:
   group: refresh
   cancel-in-progress: false
 
 jobs:
-  # Emit the city registry as the matrix input + gate everything on the parser
-  # tests (run once here instead of 9× in the matrix).
+  # Emit the city registry as the matrix input + gate on the parser tests.
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -61,28 +46,30 @@ jobs:
         run: |
           echo "cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
 
-  # One job per city, so a broken parser/source in one city can't block the
-  # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
-  # skips data/index.json — see src/refresh.js) and commits only its own
-  # data/<city>/ + caches. Commits race on push, so push uses a rebase-retry;
-  # the per-job paths are disjoint, so the rebases are always clean.
-  refresh:
+  # One job per city, parallel, long timeout, crawlers un-bounded. A failure
+  # blocks ONLY that city's commit; the others still backfill.
+  backfill:
     needs: setup
     runs-on: ubuntu-latest
-    timeout-minutes: 25   # Zabrze alone needs ~113 throttled doc+attachment fetches
+    timeout-minutes: 350     # cold-cache full crawl per city (GitHub max is 360)
     strategy:
       fail-fast: false
-      max-parallel: 4     # be gentle: 9 jobs hammering GH + the BIPs at once is overkill
+      max-parallel: 4        # be polite to the BIPs even on a one-off
       matrix:
         city: ${{ fromJSON(needs.setup.outputs.cities) }}
+    env:
+      # Un-bound the budgeted crawlers for the backfill (daily keeps the caps).
+      KK_CRAWL_BUDGET_MS: '300000000'
+      KK_MAX_ARTICLES: '100000'
+      BIALYSTOK_CRAWL_BUDGET_MS: '300000000'
+      BIALYSTOK_MAX_DETAILS: '100000'
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Install OCR toolchain
         run: |
           sudo apt-get update -qq
-          # poppler-utils: pdftotext (text PDFs) · tesseract: OCR (scanned PDFs)
-          # catdoc: legacy .doc → text (Bytom announcement attachments)
+          # poppler-utils: pdftotext · tesseract: scanned-PDF OCR · catdoc: legacy .doc
           sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-pol catdoc
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -93,9 +80,6 @@ jobs:
         working-directory: pipeline
         run: npm ci || npm install
 
-      # Headless Chromium for the OPTIONAL renderer (core/render.js), used only by
-      # JS-rendered BIPs. It's lazy-loaded, so the server-rendered cities never
-      # touch it — installing here just keeps a future JS-rendered city working.
       - name: Install Playwright Chromium
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
@@ -104,18 +88,10 @@ jobs:
         working-directory: pipeline
         run: CITY=${{ matrix.city }} npm run refresh
 
-      # Data sanity gate — glued prices, cellar/plot areas, junk streets,
-      # genitive zombie duplicates (the June 2026 bug classes). A failure
-      # blocks ONLY this city's commit; its last-good data stays published.
       - name: Sanity-check ${{ matrix.city }} data
         working-directory: pipeline
         run: node scripts/sanity-check.js ${{ matrix.city }}
 
-      # Upgrade land plots' geoportal links to PRECISE national-geoportal
-      # identifyParcel deep-links (resolves obręb + parcel → TERYT id via ULDK).
-      # Cached in pipeline/uldk-cache/; fully defensive — a ULDK outage just
-      # degrades to the parcel-search fallback and never fails the data commit
-      # (continue-on-error makes that doubly sure).
       - name: Enrich land geoportal links for ${{ matrix.city }}
         continue-on-error: true
         working-directory: pipeline
@@ -125,18 +101,14 @@ jobs:
         run: |
           git config user.name  "zgm-data-bot"
           git config user.email "zgm-data-bot@users.noreply.github.com"
-          # Add only paths that exist. A thin/empty city may legitimately produce
-          # no data/<city>/ dir, and `git add <missing-path>` hard-fails the whole
-          # job (exit 128 — the "did not match any files" failure). Loop instead.
+          # Add only paths that exist (a thin city may produce no data dir).
           for p in data/${{ matrix.city }} pipeline/ocr-cache pipeline/pdf-text-cache pipeline/doc-text-cache pipeline/rtf-text-cache pipeline/detail-cache pipeline/uldk-cache; do
             [ -e "$p" ] && git add "$p"
           done
           if git diff --cached --quiet; then
             echo "No changes."
           else
-            git commit -m "data: refresh ${{ matrix.city }} $(date -u +%Y-%m-%d)"
-            # Sibling matrix jobs push concurrently; rebase-retry until ours
-            # lands. Paths are disjoint per city, so the rebase never conflicts.
+            git commit -m "data: backfill ${{ matrix.city }} $(date -u +%Y-%m-%d)"
             for i in 1 2 3 4 5 6; do
               git pull --rebase origin main && git push && exit 0
               echo "push attempt $i failed; retrying ..."
@@ -146,17 +118,16 @@ jobs:
             exit 1
           fi
 
-  # Rebuild data/index.json once, after every city job has finished (also when
-  # some failed — their last-published meta.json keeps them in the index).
+  # Rebuild data/index.json once every city job has finished.
   index:
-    needs: [setup, refresh]
+    needs: [setup, backfill]
     if: ${{ always() && needs.setup.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          ref: main   # not the triggering SHA — we need the matrix jobs' commits
+          ref: main
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
@@ -166,7 +137,7 @@ jobs:
       - name: Build data/index.json
         working-directory: pipeline
         run: |
-          git pull origin main   # pick up any commit that landed since checkout
+          git pull origin main
           npm run build-index
       - name: Commit and push if index changed
         run: |

@@ -81,6 +81,28 @@ test('parsePriceField: null/empty returns null', () => {
   assert.equal(parsePriceField(null), null);
 });
 
+// Regression: Poznańska 81 m. 7 (34.3 m², auction 2025-11-25).
+// The BIP XML field used "90.000,-zł" (dash-decimal shorthand) for the cena
+// wywoławcza while the wadium used the standard "9.000,00 zł" form.
+// The old regex /([\d][\d .,]*)[\s]*z[łl]/ stopped at the "-" in ",-zł",
+// so only the wadium (9 000 zł) was matched and stored as starting_price_pln,
+// yielding 9 000 / 34.3 = 262 zł/m² — flagged as [insane-m2] by sanity-check.
+// Fix: priceRe now allows optional ",-" before "zł" so the cena wywoławcza
+// is captured too; with 2 matches + "wadium" present, hits[0] = 90 000 is returned.
+test('parsePriceField: dash-decimal cena wywoławcza — Poznańska 81/7 regression', () => {
+  // The actual format that caused 9000 to be stored instead of 90000.
+  assert.equal(parsePriceField('90.000,-zł; wadium 9.000,00 zł'), 90000);
+});
+
+test('parsePriceField: dash-decimal both cena and wadium', () => {
+  // Both use ",-zł" format — should still return the first (cena wywoławcza).
+  assert.equal(parsePriceField('90.000,-zł; wadium 9.000,-zł'), 90000);
+});
+
+test('parsePriceField: dash-decimal with space before zł', () => {
+  assert.equal(parsePriceField('90.000,- zł; wadium 9.000,- zł'), 90000);
+});
+
 // -- roundFromText ------------------------------------------------------------
 
 test('roundFromText: bare przetarg returns 1', () => {

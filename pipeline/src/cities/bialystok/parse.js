@@ -110,8 +110,23 @@ function parsePLN(s) {
  */
 export function parseDetailAddress(raw) {
   if (!raw) return { address_raw: raw, address: null };
+  let s = raw.trim();
+
+  // Strip leading city-name prefix: "Białystok, " (case-insensitive, any diacritics)
+  // Seen on some BIP entries: "Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282"
+  s = s.replace(/^Bia[łl]ystok\s*,\s*/i, '');
+
+  // Strip trailing działka / dz. nr fragment:
+  //   ", dz. nr 1282"  /  ", działka nr 1282"
+  // The comma before "dz." is part of the tail and must be consumed here,
+  // otherwise it is left on the string and breaks the address parser.
+  s = s.replace(/\s*,?\s*dz\.\s*nr\b.*/i, '');
+  s = s.replace(/\s*,?\s*dzia[łl]ka\b.*/i, '');
+
+  s = s.trim();
+
   // Strip staircase: "BLDG/STAIRCASE m APT" -> "BLDG m APT"
-  const normalised = raw.replace(
+  const normalised = s.replace(
     /(\d+[A-Za-z]?)\/\d+(\s+m\.?\s*\d+[A-Za-z]?)/,
     '$1$2',
   );

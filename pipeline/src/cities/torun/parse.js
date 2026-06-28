@@ -50,13 +50,24 @@ export function parseDateField(raw) {
 /**
  * "140.000,00 zl; wadium 14.000,00 zl" -> 140000
  * "od 585.000,00 zl do 760.000,00 zl"  -> null  (range)
+ * "90.000,-zł; wadium 9.000,00 zł"     -> 90000  (dash-decimal cena wywoławcza)
  * Handles both ASCII "zl" and real Unicode zl character (U+0142).
+ *
+ * ROOT CAUSE FIX (2026-06-28): The BIP XML for some listings uses the Polish
+ * shorthand "90.000,-zł" (dash instead of "00") for the cena wywoławcza while
+ * the wadium uses the standard "9.000,00 zł" form.  The old regex
+ * /([\d][\d .,]*)[\s]*z[łl]/ stopped at the "-" in ",-zł", so only the
+ * wadium was matched, yielding 9 000 instead of 90 000 zł.
+ * Fix: allow an optional ",-" suffix in the price token before "zł".
  */
 export function parsePriceField(raw) {
   if (!raw) return null;
   const s = raw.trim();
   if (/\bod\b.*\bdo\b/i.test(s)) return null;
-  const priceRe = /([\d][\d .,]*)[\s]*z[łl]/gi;
+  // Match a price token: digits (with optional space/dot/comma grouping separators),
+  // optionally followed by ",-" (Polish dash-decimal shorthand), then optional
+  // whitespace, then the zł/zl currency marker.
+  const priceRe = /([\d][\d .,]*),?-?[\s]*z[łl]/gi;
   const hits = [];
   let m;
   while ((m = priceRe.exec(s)) !== null) {
@@ -322,4 +333,3 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
 
   return out;
 }
-
