@@ -94,24 +94,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Ul. Krzemienna 28/1",
-      "address": {
-        "street": "Krzemienna",
-        "street_norm": "krzemienna",
-        "building": "28",
-        "apt": "1",
-        "key": "krzemienna|28|1",
-        "warning": null
-      },
-      "auction_date": "2026-05-04",
-      "published_date": "2026-03-30",
-      "round": 3,
-      "area_m2": 65.57,
-      "starting_price_pln": 350000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=38A5276AEB5841FEB5D82085D52D1AB4"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Kaszubska 58/2",
       "address": {
         "street": "Kaszubska",
@@ -199,24 +181,6 @@
       "area_m2": 107.41,
       "starting_price_pln": 533100,
       "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=80E1F762B57B4B0285092C6D7C88419D"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Ul. Kaszubska 17/11",
-      "address": {
-        "street": "Kaszubska",
-        "street_norm": "kaszubska",
-        "building": "17",
-        "apt": "11",
-        "key": "kaszubska|17|11",
-        "warning": null
-      },
-      "auction_date": "2026-06-11",
-      "published_date": "2026-03-30",
-      "round": 3,
-      "area_m2": 167.1,
-      "starting_price_pln": 944000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=85A960A064BF4BDC97D47CA860ED8897"
     },
     {
       "kind": "mieszkalny",
@@ -343,24 +307,6 @@
       "area_m2": 149.9,
       "starting_price_pln": 671260,
       "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=EDB7E17BBF6F41A6BC66A53B633A6F7D"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Ul. Kaszubska 13/7",
-      "address": {
-        "street": "Kaszubska",
-        "street_norm": "kaszubska",
-        "building": "13",
-        "apt": "7",
-        "key": "kaszubska|13|7",
-        "warning": null
-      },
-      "auction_date": "2026-06-11",
-      "published_date": "2026-03-30",
-      "round": 3,
-      "area_m2": 168.73,
-      "starting_price_pln": 953200,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=FF552ACD14B646CD993F408E1221408D"
     }
   ],
   "wykaz": []
