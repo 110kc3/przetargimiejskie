@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "city": "slupsk",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ludwika Solskiego 19",
+      "address": {
+        "street": "Ludwika Solskiego",
+        "street_norm": "ludwika solskiego",
+        "building": "19",
+        "apt": "3",
+        "key": "ludwika solskiego|19|3",
+        "warning": null
+      },
+      "auction_date": "2026-09-02",
+      "round": 1,
+      "area_m2": 111.54,
+      "starting_price_pln": 480000,
+      "kw": "SL1S/000",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3167.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Szarych Szeregów 5",
+      "address": {
+        "street": "Szarych Szeregów",
+        "street_norm": "szarych szeregow",
+        "building": "5",
+        "apt": "2",
+        "key": "szarych szeregow|5|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-02",
+      "round": 1,
+      "area_m2": 102.51,
+      "starting_price_pln": 560000,
+      "kw": "SL1S/000",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3166.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zygmunta Krasińskiego 13",
+      "address": {
+        "street": "Zygmunta Krasińskiego",
+        "street_norm": "zygmunta krasinskiego",
+        "building": "13",
+        "apt": "10",
+        "key": "zygmunta krasinskiego|13|10",
+        "warning": null
+      },
+      "auction_date": "2026-07-09",
+      "round": 3,
+      "area_m2": 46.53,
+      "starting_price_pln": 110000,
+      "kw": "SL1S/00032142/9",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3157.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Starzyńskiego 1",
+      "address": {
+        "street": "Stefana Starzyńskiego",
+        "street_norm": "stefana starzynskiego",
+        "building": "1",
+        "apt": "5",
+        "key": "stefana starzynskiego|1|5",
+        "warning": null
+      },
+      "auction_date": "2026-07-09",
+      "round": 2,
+      "area_m2": 123.93,
+      "starting_price_pln": 280000,
+      "kw": "SL1S/00134115/6",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3154.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jana Kilińskiego 18",
+      "address": {
+        "street": "Jana Kilińskiego",
+        "street_norm": "jana kilinskiego",
+        "building": "18",
+        "apt": "4",
+        "key": "jana kilinskiego|18|4",
+        "warning": null
+      },
+      "auction_date": "2026-07-01",
+      "round": 2,
+      "area_m2": 95.57,
+      "starting_price_pln": 250000,
+      "kw": null,
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3143.html"
+    }
+  ],
+  "wykaz": []
+}
