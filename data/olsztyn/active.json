@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "city": "olsztyn",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Curie-Skłodowskiej 10/2A",
+      "address": {
+        "street": "Curie-Skłodowskiej",
+        "street_norm": "curie sklodowskiej",
+        "building": "10",
+        "apt": "2A",
+        "key": "curie sklodowskiej|10|2A",
+        "warning": null
+      },
+      "auction_date": "2026-04-17",
+      "published_date": "2026-03-13",
+      "round": 1,
+      "area_m2": 54.7,
+      "starting_price_pln": 380000,
+      "detail_url": "https://bip.olsztyn.eu/2626/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-2a-w-budynku-nr-10-przy-ulicy-curie-sklodowskiej-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kasprowicza 5B/13",
+      "address": {
+        "street": "Kasprowicza",
+        "street_norm": "kasprowicza",
+        "building": "5B",
+        "apt": "13",
+        "key": "kasprowicza|5B|13",
+        "warning": null
+      },
+      "auction_date": "2026-04-17",
+      "published_date": "2026-02-17",
+      "round": 1,
+      "area_m2": 98.8,
+      "starting_price_pln": 540000,
+      "detail_url": "https://bip.olsztyn.eu/2499/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-13-w-budynku-nr-5b-przy-ulicy-kasprowicza-5a-5b-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Curie-Skłodowskiej 10/2",
+      "address": {
+        "street": "Curie-Skłodowskiej",
+        "street_norm": "curie sklodowskiej",
+        "building": "10",
+        "apt": "2",
+        "key": "curie sklodowskiej|10|2",
+        "warning": null
+      },
+      "auction_date": "2026-04-17",
+      "published_date": "2026-02-17",
+      "round": 1,
+      "area_m2": 92.4,
+      "starting_price_pln": 460000,
+      "detail_url": "https://bip.olsztyn.eu/2498/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-nr-10-przy-ulicy-curie-sklodowskiej-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Partyzantów 69/8",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "69",
+        "apt": "8",
+        "key": "partyzantow|69|8",
+        "warning": null
+      },
+      "auction_date": "2026-04-17",
+      "published_date": "2026-02-17",
+      "round": 1,
+      "area_m2": 105.8,
+      "starting_price_pln": 640000,
+      "detail_url": "https://bip.olsztyn.eu/2497/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-8-w-budynku-nr-69-przy-ulicy-partyzantow-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Partyzantów 73/6",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "73",
+        "apt": "6",
+        "key": "partyzantow|73|6",
+        "warning": null
+      },
+      "auction_date": "2026-03-20",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.olsztyn.eu/2479/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-6-w-budynku-nr-73-przy-ulicy-partyzantow-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Mickiewicza 17/9",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "17",
+        "apt": "9",
+        "key": "mickiewicza|17|9",
+        "warning": null
+      },
+      "auction_date": "2026-03-13",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 350000,
+      "detail_url": "https://bip.olsztyn.eu/2476/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-nr-17-przy-ulicy-mickiewicza-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bałtyckiej 25B/4",
+      "address": {
+        "street": "Bałtyckiej",
+        "street_norm": "baltyckiej",
+        "building": "25B",
+        "apt": "4",
+        "key": "baltyckiej|25B|4",
+        "warning": null
+      },
+      "auction_date": "2026-03-20",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 250000,
+      "detail_url": "https://bip.olsztyn.eu/2475/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-nr-25b-przy-ulicy-baltyckiej-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Gdańskiej 5/3",
+      "address": {
+        "street": "Gdańskiej",
+        "street_norm": "gdanskiej",
+        "building": "5",
+        "apt": "3",
+        "key": "gdanskiej|5|3",
+        "warning": null
+      },
+      "auction_date": "2026-03-13",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 230000,
+      "detail_url": "https://bip.olsztyn.eu/2473/ogloszenie-o-przetargu-ustnym-niograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-3-w-budynku-nr-5-przy-ulicy-gdanskiej-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jagiellońskiej 51/19",
+      "address": {
+        "street": "Jagiellońskiej",
+        "street_norm": "jagiellonskiej",
+        "building": "51",
+        "apt": "19",
+        "key": "jagiellonskiej|51|19",
+        "warning": null
+      },
+      "auction_date": "2026-03-13",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": 30.9,
+      "starting_price_pln": 215000,
+      "detail_url": "https://bip.olsztyn.eu/2466/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-19-w-budynku-nr-51-przy-ulicy-jagiellonskiej-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Nowa Niepodległości 2",
+      "address": {
+        "street": "Nowa Niepodległości",
+        "street_norm": "nowa niepodleglosci",
+        "building": "2",
+        "apt": null,
+        "key": "nowa niepodleglosci|2|",
+        "warning": null
+      },
+      "auction_date": "2026-03-13",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": 49.8,
+      "starting_price_pln": 330000,
+      "detail_url": "https://bip.olsztyn.eu/2465/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-nr-2-przy-ulicy-nowa-niepodleglosci-w-olsztynie.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Partyzantów 67/4A",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "67",
+        "apt": "4A",
+        "key": "partyzantow|67|4A",
+        "warning": null
+      },
+      "auction_date": "2026-03-20",
+      "published_date": "2026-02-13",
+      "round": 1,
+      "area_m2": 58.34,
+      "starting_price_pln": 400000,
+      "detail_url": "https://bip.olsztyn.eu/2464/ogloszenie-o-przetargu-ustnym-nieograniczonym-naa-sprzedaz-lokalu-mieszkalnego-nr-4a-w-budynku-nr-67-przy-ulicy-partyzantow-w-olsztynie.html"
+    }
+  ],
+  "wykaz": []
+}
