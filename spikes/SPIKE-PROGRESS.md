@@ -1,14 +1,14 @@
 # SPIKE-PROGRESS — all-Poland city spike + build ledger
 
-> Updated 2026-06-27. Resume point for the all-Poland spike + build-out.
+> Updated 2026-06-28. Resume point for the all-Poland spike + build-out.
 > Master list: [master-cities.json](./master-cities.json) · convention: [README.md](./README.md).
 
 ## Roll-up (108 cities)
 
 | Status | Count |
 |---|---|
-| ✅ Built (shipped adapter, tests green) | 33 |
-| 🟢 BUILD (spiked, ready) | 31 |
+| ✅ Built (registered, tests green) | 41 |
+| 🟢 BUILD (spiked, ready) | 23 |
 | 🟡 NEEDS-LIVE-VERIFY | 2 |
 | 🔴 NO-BUILD (spiked) | 33 |
 | ❌ Dropped (prior, Śląsk) | 6 |
@@ -17,23 +17,23 @@
 
 **Tiers.** Wave A = all **66 miasta na prawach powiatu** (100% spiked). Land-powiat seats spiked: **36**. Long tail (~900 towns) later.
 
-## Built adapters (33) — registered, parser tests green
+## Built adapters (41) — registered, parser tests green
 
-Kłodzko, Legnica, Wałbrzych, Toruń, Łódź, Pabianice, Chrzanów, Kraków, Olkusz, Oświęcim, Trzebinia, Brzeg, Kędzierzyn-Koźle, Nysa, Opole, Białystok, Gdańsk, Wejherowo, Bielsko-Biała, Bytom, Gliwice, Katowice, Mysłowice, Racibórz, Rybnik, Sosnowiec, Świętochłowice, Tarnowskie Góry, Zabrze, Kielce, Olsztyn, Piła, Szczecin.
+Kłodzko, Legnica, Wałbrzych, Toruń, Łódź, Pabianice, Chełm, Chrzanów, Kraków, Olkusz, Oświęcim, Trzebinia, Brzeg, Kędzierzyn-Koźle, Nysa, Opole, Przemyśl, Białystok, Gdańsk, Słupsk, Tczew, Wejherowo, Bielsko-Biała, Bytom, Cieszyn, Gliwice, Katowice, Mysłowice, Racibórz, Rybnik, Sosnowiec, Świętochłowice, Tarnowskie Góry, Zabrze, Kielce, Olsztyn, Gniezno, Piła, Stargard, Szczecin, Świnoujście.
 
-**Built this session (15):** Legnica, Racibórz, Olsztyn, Toruń, Pabianice, Wejherowo, Łódź, Wałbrzych, Białystok, Nysa, Gdańsk, Kielce, Piła, Szczecin, Kłodzko, Brzeg. (Crawlers validate on first live CI refresh.)
+**Built this session (24):** Legnica, Racibórz, Olsztyn, Toruń, Pabianice, Wejherowo, Łódź, Wałbrzych, Białystok, Nysa, Gdańsk, Kielce, Piła, Szczecin, Kłodzko, Brzeg, Stargard, Słupsk, Tczew, Gniezno, Cieszyn, Przemyśl, Chełm, Świnoujście. (Crawlers validate on first live CI refresh.)
 
-> **Note (mount-sync corruption):** the Bydgoszcz + Gorzów Wielkopolski build agents' final writes were truncated by the sandbox mount; both are UNREGISTERED with stubbed tests and flagged `build` — they need a clean rebuild (the sandbox `rm` is blocked, so delete the stale `src/cities/{bydgoszcz,gorzow-wielkopolski}/` dirs on the Windows side before rebuilding).
+> **Needs clean rebuild (mount-sync corruption):** Bydgoszcz, Gorzów Wielkopolski — unregistered, tests stubbed, `build`. Delete stale `src/cities/{bydgoszcz,gorzow-wielkopolski}/` on Windows, then rebuild.
 
-## BUILD-ready queue (31, by effort)
+## BUILD-ready queue (23, by effort)
 
-Warszawa (High), Bełchatów (Low), Ostrołęka (Low), Bolesławiec (Medium), Jelenia Góra (Medium), Lubin (Medium), Świdnica (Medium), Wrocław (Medium), Bydgoszcz (Medium), Grudziądz (Medium), Włocławek (Medium), Tomaszów Mazowiecki (Medium), Zgierz (Medium), Biała Podlaska (Medium), Chełm (Medium), Gorzów Wielkopolski (Medium), Płock (Medium), Siedlce (Medium), Przemyśl (Medium), Malbork (Medium), Słupsk (Medium), Sopot (Medium), Tczew (Medium), Cieszyn (Medium), Starachowice (Medium), Elbląg (Medium), Gniezno (Medium), Kalisz (Medium), Poznań (Medium), Stargard (Medium), Świnoujście (Medium).
+Warszawa (High), Bełchatów (Low), Ostrołęka (Low), Bolesławiec (Medium), Jelenia Góra (Medium), Lubin (Medium), Świdnica (Medium), Wrocław (Medium), Bydgoszcz (Medium), Grudziądz (Medium), Włocławek (Medium), Tomaszów Mazowiecki (Medium), Zgierz (Medium), Biała Podlaska (Medium), Gorzów Wielkopolski (Medium), Płock (Medium), Siedlce (Medium), Malbork (Medium), Sopot (Medium), Starachowice (Medium), Elbląg (Medium), Kalisz (Medium), Poznań (Medium).
 
 SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Bolesławiec, Sopot, Zgierz.
 
 ## Resume protocol
 
-1. **Build:** clone the closest analog (15 worked examples in `pipeline/src/cities/`) + groundtruthed `tests/parse-<city>.test.js`; register in `pipeline/src/cities/index.js`. After each build, re-run the test in a fresh shell to confirm it persisted (guard against mount-sync truncation).
+1. **Build:** clone the closest analog (24 worked examples in `pipeline/src/cities/`) + groundtruthed `tests/parse-<city>.test.js`; register in `pipeline/src/cities/index.js`. After each build re-run its test in a fresh shell + null-byte check (the sandbox mount intermittently truncates/null-pads writes — verify before registering).
 2. **Spike (breadth):** remaining land-powiat seats then the town long tail — expect mostly NO-BUILD.
 
 ## Ledger by voivodeship
@@ -67,7 +67,7 @@ SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Boles
 | City | District (powiat) | Tier | Status | Effort·conf | File |
 |---|---|---|---|---|---|
 | Biała Podlaska | Biała Podlaska— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `lubelskie/biala-podlaska/biala-podlaska.md` |
-| Chełm | Chełm— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `lubelskie/chelm/chelm.md` |
+| Chełm | Chełm— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `lubelskie/chelm/chelm.md` |
 | Lublin | Lublin— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `lubelskie/lublin/lublin.md` |
 | Puławy | powiat pulawski | D | 🔴 NO-BUILD | — · LIVE | `lubelskie/powiat-pulawski/pulawy.md` |
 | Świdnik | powiat swidnicki | D | 🔴 NO-BUILD | — · LIVE | `lubelskie/powiat-swidnicki/swidnik.md` |
@@ -136,7 +136,7 @@ SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Boles
 | Jarosław | powiat jaroslawski | D | 🔴 NO-BUILD | — · LIVE | `podkarpackie/powiat-jaroslawski/jaroslaw.md` |
 | Krosno | Krosno— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `podkarpackie/krosno/krosno.md` |
 | Mielec | powiat mielecki | C | 🔴 NO-BUILD | — · LIVE | `podkarpackie/powiat-mielecki/mielec.md` |
-| Przemyśl | Przemyśl— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `podkarpackie/przemysl/przemysl.md` |
+| Przemyśl | Przemyśl— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `podkarpackie/przemysl/przemysl.md` |
 | Rzeszów | Rzeszów— m.n.p.p. | A | 🟡 VERIFY | — · LIVE/DESK | `podkarpackie/rzeszow/rzeszow.md` |
 | Stalowa Wola | powiat stalowowolski | B | 🔴 NO-BUILD | — · DESK | `podkarpackie/powiat-stalowowolski/stalowa-wola.md` |
 | Tarnobrzeg | Tarnobrzeg— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `podkarpackie/tarnobrzeg/tarnobrzeg.md` |
@@ -156,9 +156,9 @@ SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Boles
 | Gdańsk | Gdańsk— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `pomorskie/gdansk/gdansk.md` |
 | Gdynia | Gdynia— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `pomorskie/gdynia/gdynia.md` |
 | Malbork | powiat malborski | D | 🟢 BUILD | Medium · LIVE | `pomorskie/powiat-malborski/malbork.md` |
-| Słupsk | Słupsk— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `pomorskie/slupsk/slupsk.md` |
+| Słupsk | Słupsk— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `pomorskie/slupsk/slupsk.md` |
 | Sopot | Sopot— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `pomorskie/sopot/sopot.md` |
-| Tczew | powiat tczewski | B | 🟢 BUILD | Medium · LIVE | `pomorskie/powiat-tczewski/tczew.md` |
+| Tczew | powiat tczewski | B | ✅ BUILT | Medium · LIVE | `pomorskie/powiat-tczewski/tczew.md` |
 | Wejherowo | powiat wejherowski | C | ✅ BUILT | Medium · LIVE | `pomorskie/powiat-wejherowski/wejherowo.md` |
 
 ### Śląskie (23)
@@ -168,7 +168,7 @@ SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Boles
 | Bielsko-Biała | Bielsko-Biała— m.n.p.p. | A | ✅ BUILT |  | `slaskie/bielsko-biala/bielsko-biala.md` |
 | Bytom | Bytom— m.n.p.p. | A | ✅ BUILT |  | `slaskie/bytom/bytom.md` |
 | Chorzów | Chorzów— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/chorzow/chorzow.md` |
-| Cieszyn | powiat cieszynski | B | 🟢 BUILD | Medium · LIVE | `slaskie/powiat-cieszynski/cieszyn.md` |
+| Cieszyn | powiat cieszynski | B | ✅ BUILT | Medium · LIVE | `slaskie/powiat-cieszynski/cieszyn.md` |
 | Częstochowa | Częstochowa— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/czestochowa/czestochowa.md` |
 | Dąbrowa Górnicza | Dąbrowa Górnicza— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/dabrowa-gornicza/dabrowa-gornicza.md` |
 | Gliwice | Gliwice— m.n.p.p. | A | ✅ BUILT |  | `slaskie/gliwice/gliwice.md` |
@@ -208,7 +208,7 @@ SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Boles
 
 | City | District (powiat) | Tier | Status | Effort·conf | File |
 |---|---|---|---|---|---|
-| Gniezno | powiat gnieznienski | C | 🟢 BUILD | Medium · LIVE | `wielkopolskie/powiat-gnieznienski/gniezno.md` |
+| Gniezno | powiat gnieznienski | C | ✅ BUILT | Medium · LIVE | `wielkopolskie/powiat-gnieznienski/gniezno.md` |
 | Kalisz | Kalisz— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `wielkopolskie/kalisz/kalisz.md` |
 | Konin | Konin— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `wielkopolskie/konin/konin.md` |
 | Krotoszyn | powiat krotoszynski | D | 🔴 NO-BUILD | — · LIVE | `wielkopolskie/powiat-krotoszynski/krotoszyn.md` |
@@ -222,9 +222,9 @@ SPA-rendered (use `core/render.js`, batch separately): Świdnica, Malbork, Boles
 | City | District (powiat) | Tier | Status | Effort·conf | File |
 |---|---|---|---|---|---|
 | Koszalin | Koszalin— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `zachodniopomorskie/koszalin/koszalin.md` |
-| Stargard | powiat stargardzki | B | 🟢 BUILD | Medium · LIVE | `zachodniopomorskie/powiat-stargardzki/stargard.md` |
+| Stargard | powiat stargardzki | B | ✅ BUILT | Medium · LIVE | `zachodniopomorskie/powiat-stargardzki/stargard.md` |
 | Szczecin | Szczecin— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `zachodniopomorskie/szczecin/szczecin.md` |
-| Świnoujście | Świnoujście— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `zachodniopomorskie/swinoujscie/swinoujscie.md` |
+| Świnoujście | Świnoujście— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `zachodniopomorskie/swinoujscie/swinoujscie.md` |
 
 ---
 

@@ -37,6 +37,14 @@ import pila from './pila/index.js';
 import szczecin from './szczecin/index.js';
 import klodzko from './klodzko/index.js';
 import brzeg from './brzeg/index.js';
+import stargard from './stargard/index.js';
+import slupsk from './slupsk/index.js';
+import tczew from './tczew/index.js';
+import gniezno from './gniezno/index.js';
+import cieszyn from './cieszyn/index.js';
+import przemysl from './przemysl/index.js';
+import chelm from './chelm/index.js';
+import swinoujscie from './swinoujscie/index.js';
 
 export const cities = [
   gliwice,
@@ -72,6 +80,14 @@ export const cities = [
   szczecin,
   klodzko,
   brzeg,
+  stargard,
+  slupsk,
+  tczew,
+  gniezno,
+  cieszyn,
+  przemysl,
+  chelm,
+  swinoujscie,
 ];
 
 /** @param {string} id @returns {object|null} */

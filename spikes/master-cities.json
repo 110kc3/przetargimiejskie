@@ -1,6 +1,6 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-06-27T20:11:42.292Z",
+  "generated_at": "2026-06-28T08:58:06.091Z",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
   "total": 108,
   "cities": [
@@ -379,13 +379,13 @@
       "powiat_slug": "chelm",
       "powiat_label": "Chełm (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubelskie/chelm/chelm.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Active flat-sale przetargi on umchelm.bip.lubelskie.pl (text PDFs, lubelskie.pl BIP platform); weak achieved-price"
+        "note": "BUILT — chelm/ + parse-chelm.test.js (14 green, verified), registered. umchelm.bip.lubelskie.pl DataTables AJAX + text PDFs; weak achieved-price stream."
       }
     },
     {
@@ -833,13 +833,13 @@
       "powiat_slug": "przemysl",
       "powiat_label": "Przemyśl (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/podkarpackie/przemysl/przemysl.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Flats on bip.przemysl.pl HTML + result notices same host; title-filter pagination over mixed list"
+        "note": "BUILT — przemysl/ + parse-przemysl.test.js (23 green, verified), registered. bip.przemysl.pl/59228 results + invest.przemysl.eu announcements; title-filter pagination."
       }
     },
     {
@@ -993,13 +993,13 @@
       "powiat_slug": "slupsk",
       "powiat_label": "Słupsk (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/slupsk/slupsk.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Open flats on bip.um.slupsk.pl; HTML notices + born-digital PDF results (232+); HTML scraper + PDF join"
+        "note": "BUILT — pipeline/src/cities/slupsk/ + parse-slupsk.test.js (56 green, verified), registered. bip.um.slupsk.pl HTML notices + born-digital PDF results; tune sold-outcome PDF first-run."
       }
     },
     {
@@ -1025,13 +1025,13 @@
       "powiat_slug": "powiat-tczewski",
       "powiat_label": "powiat tczewski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/powiat-tczewski/tczew.md",
       "spike": {
         "wave": "B",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "bip.tczew.pl (IDcom) flat przetargi ~3-6/yr; achieved price in text-PDF attachments; TTBS bonus publisher"
+        "note": "BUILT — pipeline/src/cities/tczew/ + parse-tczew.test.js (33 green, verified), registered. bip.tczew.pl IDcom; result text-PDFs; ~3-6/yr."
       }
     },
     {
@@ -1087,13 +1087,13 @@
       "powiat_slug": "powiat-cieszynski",
       "powiat_label": "powiat cieszynski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/slaskie/powiat-cieszynski/cieszyn.md",
       "spike": {
         "wave": "B",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Flat auctions on bip.um.cieszyn.pl (Logonet, like Bytom/Zabrze); inline HTML tables; results in ~30-day expiring articles"
+        "note": "BUILT — cieszyn/ + parse-cieszyn.test.js (42 green, verified clean), registered. bip.um.cieszyn.pl Logonet inline-HTML tables; result notices ~30-day expiring."
       }
     },
     {
@@ -1391,13 +1391,13 @@
       "powiat_slug": "powiat-gnieznienski",
       "powiat_label": "powiat gnieznienski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-gnieznienski/gniezno.md",
       "spike": {
         "wave": "C",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "bip.gniezno.eu (IDcom) flat przetargi; text-PDF + HTML result notices (cena osiągnięta/nabywca); ~3-6/yr"
+        "note": "BUILT — pipeline/src/cities/gniezno/ + parse-gniezno.test.js (22 green, verified), registered. bip.gniezno.eu IDcom text-PDFs + gniezno.eu HTML results; ~3-6/yr."
       }
     },
     {
@@ -1535,13 +1535,13 @@
       "powiat_slug": "powiat-stargardzki",
       "powiat_label": "powiat stargardzki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md",
       "spike": {
         "wave": "B",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "Stargardzkie TBS (tbs.stargard.pl) + result notices on bip.stargard.eu; ~15-25 flats/yr; dual-source dedup"
+        "note": "BUILT — pipeline/src/cities/stargard/ + parse-stargard.test.js (21 green, null-byte-clean, independently verified), registered. TBS WordPress (tbs.stargard.pl) announcements + bip.stargard.eu results; achieved price PDF-only (TODO); ~15-25/yr."
       }
     },
     {
@@ -1567,13 +1567,13 @@
       "powiat_slug": "swinoujscie",
       "powiat_label": "Świnoujście (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "TBS Lokum + city WEiON on Logonet BIP; born-digital HTML; ~4-8 flats/yr; resort pricing valuable"
+        "note": "BUILT — swinoujscie/ + parse-swinoujscie.test.js (51 green, verified), registered. bip.um.swinoujscie.pl Logonet HTML; resort pricing; result-doc parser stub (first-run)."
       }
     }
   ]
