@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-28T09:46:36.455Z",
+  "generated_at": "2026-06-28T12:29:40.896Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 1,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 91
+      "land_plots": 103
     },
     {
       "id": "trzebinia",
@@ -255,10 +255,10 @@
       "voivodeship": "warminsko-mazurskie",
       "authority": "Urząd Miasta Olsztyna",
       "host": "bip.olsztyn.eu",
-      "unique_properties": 0,
-      "active_listings": 0,
+      "unique_properties": 11,
+      "active_listings": 11,
       "active_auctions": 0,
-      "archived_auctions": 0,
+      "archived_auctions": 11,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -450,9 +450,9 @@
       "voivodeship": "pomorskie",
       "authority": "Urząd Miejski w Słupsku",
       "host": "bip.um.slupsk.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 5,
+      "active_listings": 5,
+      "active_auctions": 5,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
