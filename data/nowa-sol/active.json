@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "city": "nowa-sol",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00004654/2",
+      "address_raw": "ul. Głogowska 28",
+      "address": {
+        "street": "Głogowska",
+        "street_norm": "glogowska",
+        "building": "28",
+        "apt": "4",
+        "key": "glogowska|28|4",
+        "warning": null
+      },
+      "area_m2": 35.57,
+      "round": 3,
+      "starting_price_pln": 105000,
+      "auction_date": "2026-07-30",
+      "published_date": "2026-06-25",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-nr-28-przy-ul-glogowskiej/25-06-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00034975/7",
+      "address_raw": "ul. Bolesława Chrobrego 34",
+      "address": {
+        "street": "Bolesława Chrobrego",
+        "street_norm": "boleslawa chrobrego",
+        "building": "34",
+        "apt": "2",
+        "key": "boleslawa chrobrego|34|2",
+        "warning": null
+      },
+      "area_m2": 51.94,
+      "round": 1,
+      "starting_price_pln": 130000,
+      "auction_date": "2026-07-30",
+      "published_date": "2026-06-22",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-nr-34-przy-ul-b-chrobrego/22-06-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00026717/2",
+      "address_raw": "ul. Hutnicza 6",
+      "address": {
+        "street": "Hutnicza",
+        "street_norm": "hutnicza",
+        "building": "6",
+        "apt": "7",
+        "key": "hutnicza|6|7",
+        "warning": null
+      },
+      "area_m2": 35.1,
+      "round": 1,
+      "starting_price_pln": 109000,
+      "auction_date": "2026-07-02",
+      "published_date": "2026-05-25",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-7-w-budynku-nr-6-przy-ul-hutniczej/25-05-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00034532/0",
+      "address_raw": "ul. Podwale 5",
+      "address": {
+        "street": "Podwale",
+        "street_norm": "podwale",
+        "building": "5",
+        "apt": "7",
+        "key": "podwale|5|7",
+        "warning": null
+      },
+      "area_m2": 32,
+      "round": null,
+      "starting_price_pln": 100000,
+      "auction_date": "2026-04-09",
+      "published_date": "2026-02-20",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-wraz-ze-sprzedaza-ulamkowej-czesci-nieruchomosci-budynkowej-i-gruntowej-na-ktorej-posadowiony-jest-budynek-3/20-02-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00004654/2",
+      "address_raw": "ul. Głogowska 28",
+      "address": {
+        "street": "Głogowska",
+        "street_norm": "glogowska",
+        "building": "28",
+        "apt": "4",
+        "key": "glogowska|28|4",
+        "warning": null
+      },
+      "area_m2": 35.57,
+      "round": 3,
+      "starting_price_pln": 117000,
+      "auction_date": "2026-03-02",
+      "published_date": "2026-01-27",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-wraz-ze-sprzedaza-ulamkowej-czesci-nieruchomosci-budynkowej-i-gruntowej-na-ktorej-posadowiony-jest-budynek-2/27-01-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00004654/2",
+      "address_raw": "ul. Głogowska 28",
+      "address": {
+        "street": "Głogowska",
+        "street_norm": "glogowska",
+        "building": "28",
+        "apt": "2A",
+        "key": "glogowska|28|2A",
+        "warning": null
+      },
+      "area_m2": 18.17,
+      "round": null,
+      "starting_price_pln": 55000,
+      "auction_date": "2026-03-02",
+      "published_date": "2026-01-27",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-wraz-ze-sprzedaza-ulamkowej-czesci-nieruchomosci-budynkowej-i-gruntowej-na-ktorej-posadowiony-jest-budynek/27-01-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "",
+      "kw_nr": "ZG1N/00065915/5",
+      "address_raw": "ul. 8 Maja 5",
+      "address": {
+        "street": "8 Maja",
+        "street_norm": "8 maja",
+        "building": "5",
+        "apt": "4",
+        "key": "8 maja|5|4",
+        "warning": null
+      },
+      "area_m2": 33.9,
+      "round": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-12-03",
+      "published_date": "2025-10-30",
+      "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokali-mieszkalnych/30-10-2025"
+    }
+  ],
+  "wykaz": []
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "city": "nowa-sol",
+  "properties": [
+    {
+      "key": "glogowska|28|4",
+      "street": "Głogowska",
+      "street_norm": "glogowska",
+      "building": "28",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 117000,
+          "outcome": "archived",
+          "area_m2": 35.57,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-wraz-ze-sprzedaza-ulamkowej-czesci-nieruchomosci-budynkowej-i-gruntowej-na-ktorej-posadowiony-jest-budynek-2/27-01-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-30",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "active",
+          "area_m2": 35.57,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-nr-28-przy-ul-glogowskiej/25-06-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.57
+    },
+    {
+      "key": "boleslawa chrobrego|34|2",
+      "street": "Bolesława Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "34",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 51.94,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-nr-34-przy-ul-b-chrobrego/22-06-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 51.94
+    },
+    {
+      "key": "hutnicza|6|7",
+      "street": "Hutnicza",
+      "street_norm": "hutnicza",
+      "building": "6",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 109000,
+          "outcome": "active",
+          "area_m2": 35.1,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-7-w-budynku-nr-6-przy-ul-hutniczej/25-05-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.1
+    },
+    {
+      "key": "podwale|5|7",
+      "street": "Podwale",
+      "street_norm": "podwale",
+      "building": "5",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 32,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-wraz-ze-sprzedaza-ulamkowej-czesci-nieruchomosci-budynkowej-i-gruntowej-na-ktorej-posadowiony-jest-budynek-3/20-02-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32
+    },
+    {
+      "key": "glogowska|28|2A",
+      "street": "Głogowska",
+      "street_norm": "glogowska",
+      "building": "28",
+      "apt": "2A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 55000,
+          "outcome": "archived",
+          "area_m2": 18.17,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-wraz-ze-sprzedaza-ulamkowej-czesci-nieruchomosci-budynkowej-i-gruntowej-na-ktorej-posadowiony-jest-budynek/27-01-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 18.17
+    },
+    {
+      "key": "8 maja|5|4",
+      "street": "8 Maja",
+      "street_norm": "8 maja",
+      "building": "5",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 33.9,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokali-mieszkalnych/30-10-2025",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.9
+    }
+  ]
+}
