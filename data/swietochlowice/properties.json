@@ -1709,6 +1709,41 @@
       "area_m2": 37.05
     },
     {
+      "key": "wisniowej|11A|10",
+      "street": "Wiśniowa",
+      "street_norm": "wisniowej",
+      "building": "11A",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "area_m2": 34.81,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-03-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 79900,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 80699,
+          "source_pdf": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/34787576",
+          "notes": [],
+          "area_m2": 34.81,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911"
+        }
+      ],
+      "area_m2": 34.81
+    },
+    {
       "key": "katowicka|9|6",
       "street": "Katowicka",
       "street_norm": "katowicka",
@@ -2094,6 +2129,50 @@
         }
       ],
       "area_m2": 38.53
+    },
+    {
+      "key": "hutniczej|11A|2",
+      "street": "Hutnicza",
+      "street_norm": "hutniczej",
+      "building": "11A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 82.61,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-09-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "archived",
+          "area_m2": 82.61,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-12-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "area_m2": 82.61,
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 82.61
     },
     {
       "key": "pocztowej|7A|4",
@@ -3040,61 +3119,6 @@
       "land_area_m2": 461.12
     },
     {
-      "key": "hutniczej|11A|2",
-      "street": "Hutnicza",
-      "street_norm": "hutniczej",
-      "building": "11A",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2023-06-15",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 82.61,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2023-09-13",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 185000,
-          "outcome": "archived",
-          "area_m2": 82.61,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2023-12-14",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 165000,
-          "outcome": "archived",
-          "area_m2": 82.61,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": null,
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 330000,
-          "outcome": "active",
-          "area_m2": 82.61,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 82.61
-    },
-    {
       "key": "powstancow slaskich|3|14",
       "street": "Powstańców Śląskich",
       "street_norm": "powstancow slaskich",
@@ -3142,52 +3166,6 @@
         }
       ],
       "area_m2": 38.04
-    },
-    {
-      "key": "wisniowej|11A|10",
-      "street": "Wiśniowa",
-      "street_norm": "wisniowej",
-      "building": "11A",
-      "apt": "10",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2023-12-20",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 99000,
-          "outcome": "archived",
-          "area_m2": 34.81,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-03-27",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 79900,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 80699,
-          "source_pdf": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/34787576",
-          "notes": [],
-          "area_m2": 34.81,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911"
-        },
-        {
-          "date": null,
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 122830,
-          "outcome": "active",
-          "area_m2": 34.81,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 34.81
     },
     {
       "key": "cmentarnej|3|8",
