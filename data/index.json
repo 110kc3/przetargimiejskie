@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-29T07:07:50.989Z",
+  "generated_at": "2026-06-29T09:10:09.756Z",
   "cities": [
     {
       "id": "gliwice",
@@ -62,7 +62,7 @@
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 48,
       "active_listings": 90,
-      "active_auctions": 6,
+      "active_auctions": 3,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -101,7 +101,7 @@
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
       "active_listings": 67,
-      "active_auctions": 14,
+      "active_auctions": 13,
       "archived_auctions": 51,
       "wykaz_entries": 0,
       "land_plots": 48
@@ -114,7 +114,7 @@
       "host": "bip.swietochlowice.pl",
       "unique_properties": 91,
       "active_listings": 199,
-      "active_auctions": 7,
+      "active_auctions": 5,
       "archived_auctions": 200,
       "wykaz_entries": 0,
       "land_plots": 21
@@ -127,7 +127,7 @@
       "host": "bip.tarnowskiegory.pl",
       "unique_properties": 34,
       "active_listings": 56,
-      "active_auctions": 20,
+      "active_auctions": 4,
       "archived_auctions": 60,
       "wykaz_entries": 0,
       "land_plots": 45
@@ -143,7 +143,7 @@
       "active_auctions": 1,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 99
+      "land_plots": 106
     },
     {
       "id": "trzebinia",
@@ -541,9 +541,9 @@
       "voivodeship": "mazowieckie",
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
-      "unique_properties": 3,
+      "unique_properties": 11,
       "active_listings": 11,
-      "active_auctions": 3,
+      "active_auctions": 11,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
