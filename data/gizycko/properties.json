@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "city": "gizycko",
+  "properties": [
+    {
+      "key": "dabrowskiego|6|12B",
+      "street": "Dąbrowskiego",
+      "street_norm": "dabrowskiego",
+      "building": "6",
+      "apt": "12B",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 27,
+          "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/818013/obwieszczenie__nr_532025__i_przetarg_ustny_nieograniczony_na_spr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "area_m2": 27,
+          "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/834125/obwieszczenie_nr_772025__ii_przetarg_na_sprzedaz_nieruchomosci__",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-12-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 27,
+          "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/845322/obwieszczenie_nr_922025__iii_przetarg_na_sprzedaz_lokalu_dabrows",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 27
+    },
+    {
+      "key": "warszawskiej|15|9",
+      "street": "Warszawskiej",
+      "street_norm": "warszawskiej",
+      "building": "15",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "1997-08-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 139500,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/798977/obwieszczenie_nr_152025__iii_przetarg_na_sprzedaz_lokalu_warszaw",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 167000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/844725/obwieszczenie_nr_902025__i_przetarg_na_sprzedaz_lokalu_warszawsk",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}

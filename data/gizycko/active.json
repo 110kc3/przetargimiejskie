@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "city": "gizycko",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obwieszczenie nr 92/2025 - III przetarg na sprzedaz lokalu Dąbrowskiego 6/12B",
+      "address": {
+        "street": "Dąbrowskiego",
+        "street_norm": "dabrowskiego",
+        "building": "6",
+        "apt": "12B",
+        "key": "dabrowskiego|6|12B",
+        "warning": null
+      },
+      "auction_date": "2025-12-10",
+      "published_date": "2025-10-21",
+      "round": 3,
+      "area_m2": 27,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/845322/obwieszczenie_nr_922025__iii_przetarg_na_sprzedaz_lokalu_dabrows"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obwieszczenie nr 90/2025 - I przetarg na sprzedaż lokalu Warszawska 15/9",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "15",
+        "apt": "9",
+        "key": "warszawskiej|15|9",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2025-10-17",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 167000,
+      "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/844725/obwieszczenie_nr_902025__i_przetarg_na_sprzedaz_lokalu_warszawsk"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obwieszczenie nr 77/2025 - II przetarg na sprzedaż nieruchomości ; lokal mieszkalny Dąbrowskiego 6/12B",
+      "address": {
+        "street": "Dąbrowskiego",
+        "street_norm": "dabrowskiego",
+        "building": "6",
+        "apt": "12B",
+        "key": "dabrowskiego|6|12B",
+        "warning": null
+      },
+      "auction_date": "2025-09-24",
+      "published_date": "2025-08-05",
+      "round": 2,
+      "area_m2": 27,
+      "starting_price_pln": 220000,
+      "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/834125/obwieszczenie_nr_772025__ii_przetarg_na_sprzedaz_nieruchomosci__"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "OBWIESZCZENIE  NR 53/2025 - I przetarg ustny nieograniczony na sprzedaż lokali w budynku Dąbrowskiego 6.",
+      "address": {
+        "street": "Dąbrowskiego",
+        "street_norm": "dabrowskiego",
+        "building": "6",
+        "apt": "12B",
+        "key": "dabrowskiego|6|12B",
+        "warning": null
+      },
+      "auction_date": "2025-06-18",
+      "published_date": "2025-04-29",
+      "round": 1,
+      "area_m2": 27,
+      "starting_price_pln": 250000,
+      "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/818013/obwieszczenie__nr_532025__i_przetarg_ustny_nieograniczony_na_spr"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obwieszczenie nr 15/2025 - III przetarg na sprzedaż lokalu Warszawska 15/9",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "15",
+        "apt": "9",
+        "key": "warszawskiej|15|9",
+        "warning": null
+      },
+      "auction_date": "1997-08-21",
+      "published_date": "2025-01-15",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 139500,
+      "detail_url": "https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/798977/obwieszczenie_nr_152025__iii_przetarg_na_sprzedaz_lokalu_warszaw"
+    }
+  ],
+  "wykaz": []
+}
