@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-29T10:49:19.552Z",
+  "generated_at": "2026-06-29T14:11:34.790Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 1,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 97
+      "land_plots": 106
     },
     {
       "id": "trzebinia",
@@ -544,6 +544,58 @@
       "unique_properties": 11,
       "active_listings": 11,
       "active_auctions": 11,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "skarzysko-kamienna",
+      "label": "Skarżysko-Kamienna",
+      "voivodeship": "swietokrzyskie",
+      "authority": "Gmina Skarżysko-Kamienna",
+      "host": "bip.skarzysko.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "gizycko",
+      "label": "Giżycko",
+      "voivodeship": "warminsko-mazurskie",
+      "authority": "Gmina Miejska Giżycko",
+      "host": "bip.gizycko.pl",
+      "unique_properties": 2,
+      "active_listings": 5,
+      "active_auctions": 1,
+      "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "nowa-sol",
+      "label": "Nowa Sól",
+      "voivodeship": "lubuskie",
+      "authority": "Gmina Nowa Sól-Miasto",
+      "host": "nowasol.pl",
+      "unique_properties": 6,
+      "active_listings": 7,
+      "active_auctions": 3,
+      "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "augustow",
+      "label": "Augustów",
+      "voivodeship": "podlaskie",
+      "authority": "Urząd Miejski w Augustowie",
+      "host": "bip.um.augustow.pl",
+      "unique_properties": 0,
+      "active_listings": 4,
+      "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
