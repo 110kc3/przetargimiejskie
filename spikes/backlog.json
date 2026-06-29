@@ -1,0 +1,3987 @@
+{
+  "generated_at": "2026-06-29T13:15:20.412Z",
+  "source": "Wikipedia Lista powiatow w Polsce (fetched 2026-06-29)",
+  "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
+  "total": 380,
+  "by_status": {
+    "pending": 205,
+    "done": 175
+  },
+  "by_voivodeship": {
+    "kujawsko-pomorskie": {
+      "done": 7,
+      "pending": 16
+    },
+    "podlaskie": {
+      "done": 4,
+      "pending": 13
+    },
+    "warminsko-mazurskie": {
+      "done": 5,
+      "pending": 16
+    },
+    "lodzkie": {
+      "done": 10,
+      "pending": 14
+    },
+    "slaskie": {
+      "done": 23,
+      "pending": 13
+    },
+    "lubelskie": {
+      "done": 8,
+      "pending": 16
+    },
+    "mazowieckie": {
+      "done": 11,
+      "pending": 31
+    },
+    "zachodniopomorskie": {
+      "done": 5,
+      "pending": 16
+    },
+    "podkarpackie": {
+      "done": 9,
+      "pending": 16
+    },
+    "malopolskie": {
+      "done": 10,
+      "pending": 12
+    },
+    "dolnoslaskie": {
+      "done": 9,
+      "pending": 21
+    },
+    "opolskie": {
+      "done": 4,
+      "pending": 8
+    },
+    "swietokrzyskie": {
+      "done": 4,
+      "pending": 10
+    },
+    "pomorskie": {
+      "done": 9,
+      "pending": 11
+    },
+    "wielkopolskie": {
+      "done": 9,
+      "pending": 26
+    },
+    "lubuskie": {
+      "done": 3,
+      "pending": 11
+    }
+  },
+  "cities": [
+    {
+      "label": "Aleksandrów Kujawski",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat aleksandrowski",
+      "powiat_slug": "powiat-aleksandrowski",
+      "city_slug": "aleksandrow-kujawski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-aleksandrowski/aleksandrow-kujawski.md"
+    },
+    {
+      "label": "Augustów",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat augustowski",
+      "powiat_slug": "powiat-augustowski",
+      "city_slug": "augustow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/powiat-augustowski/augustow.md",
+      "note": "seat is the city-county \"Augustów\" (covered, master status: built)"
+    },
+    {
+      "label": "Bartoszyce",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat bartoszycki",
+      "powiat_slug": "powiat-bartoszycki",
+      "city_slug": "bartoszyce",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md"
+    },
+    {
+      "label": "Bełchatów",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat bełchatowski",
+      "powiat_slug": "powiat-belchatowski",
+      "city_slug": "belchatow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-belchatowski/belchatow.md",
+      "note": "seat is the city-county \"Bełchatów\" (covered, master status: build)"
+    },
+    {
+      "label": "Będzin",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat będziński",
+      "powiat_slug": "powiat-bedzinski",
+      "city_slug": "bedzin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-bedzinski/bedzin.md"
+    },
+    {
+      "label": "Biała Podlaska",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat bialski",
+      "powiat_slug": "powiat-bialski",
+      "city_slug": "biala-podlaska",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-bialski/biala-podlaska.md",
+      "note": "seat is the city-county \"Biała Podlaska\" (covered, master status: build)"
+    },
+    {
+      "label": "Biała Podlaska",
+      "voivodeship": "lubelskie",
+      "powiat_label": "Biała Podlaska (miasto na prawach powiatu)",
+      "powiat_slug": "biala-podlaska",
+      "city_slug": "biala-podlaska",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md"
+    },
+    {
+      "label": "Białobrzegi",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat białobrzeski",
+      "powiat_slug": "powiat-bialobrzeski",
+      "city_slug": "bialobrzegi",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-bialobrzeski/bialobrzegi.md"
+    },
+    {
+      "label": "Białogard",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat białogardzki",
+      "powiat_slug": "powiat-bialogardzki",
+      "city_slug": "bialogard",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-bialogardzki/bialogard.md"
+    },
+    {
+      "label": "Białystok",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat białostocki",
+      "powiat_slug": "powiat-bialostocki",
+      "city_slug": "bialystok",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/powiat-bialostocki/bialystok.md",
+      "note": "seat is the city-county \"Białystok\" (covered, master status: built)"
+    },
+    {
+      "label": "Białystok",
+      "voivodeship": "podlaskie",
+      "powiat_label": "Białystok (miasto na prawach powiatu)",
+      "powiat_slug": "bialystok",
+      "city_slug": "bialystok",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/bialystok/bialystok.md"
+    },
+    {
+      "label": "Bielsko-Biała",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat bielski",
+      "powiat_slug": "powiat-bielski",
+      "city_slug": "bielsko-biala",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-bielski/bielsko-biala.md",
+      "note": "seat is the city-county \"Bielsko-Biała\" (covered, master status: built)"
+    },
+    {
+      "label": "Bielsk Podlaski",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat bielski",
+      "powiat_slug": "powiat-bielski",
+      "city_slug": "bielsk-podlaski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-bielski/bielsk-podlaski.md"
+    },
+    {
+      "label": "Bielsko-Biała",
+      "voivodeship": "slaskie",
+      "powiat_label": "Bielsko-Biała (miasto na prawach powiatu)",
+      "powiat_slug": "bielsko-biala",
+      "city_slug": "bielsko-biala",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md"
+    },
+    {
+      "label": "Bieruń",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat bieruńsko-lędziński",
+      "powiat_slug": "powiat-bierunsko-ledzinski",
+      "city_slug": "bierun",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-bierunsko-ledzinski/bierun.md"
+    },
+    {
+      "label": "Ustrzyki Dolne",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat bieszczadzki",
+      "powiat_slug": "powiat-bieszczadzki",
+      "city_slug": "ustrzyki-dolne",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-bieszczadzki/ustrzyki-dolne.md"
+    },
+    {
+      "label": "Biłgoraj",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat biłgorajski",
+      "powiat_slug": "powiat-bilgorajski",
+      "city_slug": "bilgoraj",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-bilgorajski/bilgoraj.md",
+      "note": "seat is the city-county \"Biłgoraj\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Bochnia",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat bocheński",
+      "powiat_slug": "powiat-bochenski",
+      "city_slug": "bochnia",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-bochenski/bochnia.md",
+      "note": "seat is the city-county \"Bochnia\" (covered, master status: build)"
+    },
+    {
+      "label": "Bolesławiec",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat bolesławiecki",
+      "powiat_slug": "powiat-boleslawiecki",
+      "city_slug": "boleslawiec",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md",
+      "note": "seat is the city-county \"Bolesławiec\" (covered, master status: build)"
+    },
+    {
+      "label": "Braniewo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat braniewski",
+      "powiat_slug": "powiat-braniewski",
+      "city_slug": "braniewo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md"
+    },
+    {
+      "label": "Brodnica",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat brodnicki",
+      "powiat_slug": "powiat-brodnicki",
+      "city_slug": "brodnica",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-brodnicki/brodnica.md",
+      "note": "seat is the city-county \"Brodnica\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Brzesko",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat brzeski",
+      "powiat_slug": "powiat-brzeski",
+      "city_slug": "brzesko",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-brzeski/brzesko.md"
+    },
+    {
+      "label": "Brzeg",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat brzeski",
+      "powiat_slug": "powiat-brzeski",
+      "city_slug": "brzeg",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/opolskie/powiat-brzeski/brzeg.md",
+      "note": "seat is the city-county \"Brzeg\" (covered, master status: built)"
+    },
+    {
+      "label": "Brzeziny",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat brzeziński",
+      "powiat_slug": "powiat-brzezinski",
+      "city_slug": "brzeziny",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-brzezinski/brzeziny.md"
+    },
+    {
+      "label": "Brzozów",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat brzozowski",
+      "powiat_slug": "powiat-brzozowski",
+      "city_slug": "brzozow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-brzozowski/brzozow.md"
+    },
+    {
+      "label": "Busko-Zdrój",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat buski",
+      "powiat_slug": "powiat-buski",
+      "city_slug": "busko-zdroj",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md"
+    },
+    {
+      "label": "Bydgoszcz",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat bydgoski",
+      "powiat_slug": "powiat-bydgoski",
+      "city_slug": "bydgoszcz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-bydgoski/bydgoszcz.md",
+      "note": "seat is the city-county \"Bydgoszcz\" (covered, master status: build)"
+    },
+    {
+      "label": "Bydgoszcz",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "Bydgoszcz (miasto na prawach powiatu)",
+      "powiat_slug": "bydgoszcz",
+      "city_slug": "bydgoszcz",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md"
+    },
+    {
+      "label": "Bytom",
+      "voivodeship": "slaskie",
+      "powiat_label": "Bytom (miasto na prawach powiatu)",
+      "powiat_slug": "bytom",
+      "city_slug": "bytom",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/bytom/bytom.md"
+    },
+    {
+      "label": "Bytów",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat bytowski",
+      "powiat_slug": "powiat-bytowski",
+      "city_slug": "bytow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-bytowski/bytow.md"
+    },
+    {
+      "label": "Chełm",
+      "voivodeship": "lubelskie",
+      "powiat_label": "Chełm (miasto na prawach powiatu)",
+      "powiat_slug": "chelm",
+      "city_slug": "chelm",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/chelm/chelm.md"
+    },
+    {
+      "label": "Chełmno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat chełmiński",
+      "powiat_slug": "powiat-chelminski",
+      "city_slug": "chelmno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md"
+    },
+    {
+      "label": "Chełm",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat chełmski",
+      "powiat_slug": "powiat-chelmski",
+      "city_slug": "chelm",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-chelmski/chelm.md",
+      "note": "seat is the city-county \"Chełm\" (covered, master status: built)"
+    },
+    {
+      "label": "Chodzież",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat chodzieski",
+      "powiat_slug": "powiat-chodzieski",
+      "city_slug": "chodziez",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md"
+    },
+    {
+      "label": "Chojnice",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat chojnicki",
+      "powiat_slug": "powiat-chojnicki",
+      "city_slug": "chojnice",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/powiat-chojnicki/chojnice.md",
+      "note": "seat is the city-county \"Chojnice\" (covered, master status: build)"
+    },
+    {
+      "label": "Chorzów",
+      "voivodeship": "slaskie",
+      "powiat_label": "Chorzów (miasto na prawach powiatu)",
+      "powiat_slug": "chorzow",
+      "city_slug": "chorzow",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/chorzow/chorzow.md"
+    },
+    {
+      "label": "Choszczno",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat choszczeński",
+      "powiat_slug": "powiat-choszczenski",
+      "city_slug": "choszczno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md"
+    },
+    {
+      "label": "Chrzanów",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat chrzanowski",
+      "powiat_slug": "powiat-chrzanowski",
+      "city_slug": "chrzanow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md",
+      "note": "seat is the city-county \"Chrzanów\" (covered, master status: built)"
+    },
+    {
+      "label": "Ciechanów",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat ciechanowski",
+      "powiat_slug": "powiat-ciechanowski",
+      "city_slug": "ciechanow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-ciechanowski/ciechanow.md",
+      "note": "seat is the city-county \"Ciechanów\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Cieszyn",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat cieszyński",
+      "powiat_slug": "powiat-cieszynski",
+      "city_slug": "cieszyn",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-cieszynski/cieszyn.md",
+      "note": "seat is the city-county \"Cieszyn\" (covered, master status: built)"
+    },
+    {
+      "label": "Czarnków",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat czarnkowsko-trzcianecki",
+      "powiat_slug": "powiat-czarnkowsko-trzcianecki",
+      "city_slug": "czarnkow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-czarnkowsko-trzcianecki/czarnkow.md"
+    },
+    {
+      "label": "Częstochowa",
+      "voivodeship": "slaskie",
+      "powiat_label": "Częstochowa (miasto na prawach powiatu)",
+      "powiat_slug": "czestochowa",
+      "city_slug": "czestochowa",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/czestochowa/czestochowa.md"
+    },
+    {
+      "label": "Częstochowa",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat częstochowski",
+      "powiat_slug": "powiat-czestochowski",
+      "city_slug": "czestochowa",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-czestochowski/czestochowa.md",
+      "note": "seat is the city-county \"Częstochowa\" (covered, master status: dropped)"
+    },
+    {
+      "label": "Człuchów",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat człuchowski",
+      "powiat_slug": "powiat-czluchowski",
+      "city_slug": "czluchow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-czluchowski/czluchow.md"
+    },
+    {
+      "label": "Dąbrowa Górnicza",
+      "voivodeship": "slaskie",
+      "powiat_label": "Dąbrowa Górnicza (miasto na prawach powiatu)",
+      "powiat_slug": "dabrowa-gornicza",
+      "city_slug": "dabrowa-gornicza",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/dabrowa-gornicza/dabrowa-gornicza.md"
+    },
+    {
+      "label": "Dąbrowa Tarnowska",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat dąbrowski",
+      "powiat_slug": "powiat-dabrowski",
+      "city_slug": "dabrowa-tarnowska",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md"
+    },
+    {
+      "label": "Dębica",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat dębicki",
+      "powiat_slug": "powiat-debicki",
+      "city_slug": "debica",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-debicki/debica.md",
+      "note": "seat is the city-county \"Dębica\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Drawsko Pomorskie",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat drawski",
+      "powiat_slug": "powiat-drawski",
+      "city_slug": "drawsko-pomorskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md"
+    },
+    {
+      "label": "Działdowo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat działdowski",
+      "powiat_slug": "powiat-dzialdowski",
+      "city_slug": "dzialdowo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-dzialdowski/dzialdowo.md"
+    },
+    {
+      "label": "Dzierżoniów",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat dzierżoniowski",
+      "powiat_slug": "powiat-dzierzoniowski",
+      "city_slug": "dzierzoniow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md"
+    },
+    {
+      "label": "Elbląg",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "Elbląg (miasto na prawach powiatu)",
+      "powiat_slug": "elblag",
+      "city_slug": "elblag",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/elblag/elblag.md"
+    },
+    {
+      "label": "Elbląg",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat elbląski",
+      "powiat_slug": "powiat-elblaski",
+      "city_slug": "elblag",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-elblaski/elblag.md",
+      "note": "seat is the city-county \"Elbląg\" (covered, master status: build)"
+    },
+    {
+      "label": "Ełk",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat ełcki",
+      "powiat_slug": "powiat-elcki",
+      "city_slug": "elk",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-elcki/elk.md",
+      "note": "seat is the city-county \"Ełk\" (covered, master status: build)"
+    },
+    {
+      "label": "Garwolin",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat garwoliński",
+      "powiat_slug": "powiat-garwolinski",
+      "city_slug": "garwolin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-garwolinski/garwolin.md"
+    },
+    {
+      "label": "Gdańsk",
+      "voivodeship": "pomorskie",
+      "powiat_label": "Gdańsk (miasto na prawach powiatu)",
+      "powiat_slug": "gdansk",
+      "city_slug": "gdansk",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/gdansk/gdansk.md"
+    },
+    {
+      "label": "Pruszcz Gdański",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat gdański",
+      "powiat_slug": "powiat-gdanski",
+      "city_slug": "pruszcz-gdanski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-gdanski/pruszcz-gdanski.md"
+    },
+    {
+      "label": "Gdynia",
+      "voivodeship": "pomorskie",
+      "powiat_label": "Gdynia (miasto na prawach powiatu)",
+      "powiat_slug": "gdynia",
+      "city_slug": "gdynia",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/gdynia/gdynia.md"
+    },
+    {
+      "label": "Giżycko",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat giżycki",
+      "powiat_slug": "powiat-gizycki",
+      "city_slug": "gizycko",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md",
+      "note": "seat is the city-county \"Giżycko\" (covered, master status: built)"
+    },
+    {
+      "label": "Gliwice",
+      "voivodeship": "slaskie",
+      "powiat_label": "Gliwice (miasto na prawach powiatu)",
+      "powiat_slug": "gliwice",
+      "city_slug": "gliwice",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/gliwice/gliwice.md"
+    },
+    {
+      "label": "Gliwice",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat gliwicki",
+      "powiat_slug": "powiat-gliwicki",
+      "city_slug": "gliwice",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-gliwicki/gliwice.md",
+      "note": "seat is the city-county \"Gliwice\" (covered, master status: built)"
+    },
+    {
+      "label": "Głogów",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat głogowski",
+      "powiat_slug": "powiat-glogowski",
+      "city_slug": "glogow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md"
+    },
+    {
+      "label": "Głubczyce",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat głubczycki",
+      "powiat_slug": "powiat-glubczycki",
+      "city_slug": "glubczyce",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md"
+    },
+    {
+      "label": "Gniezno",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat gnieźnieński",
+      "powiat_slug": "powiat-gnieznienski",
+      "city_slug": "gniezno",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-gnieznienski/gniezno.md",
+      "note": "seat is the city-county \"Gniezno\" (covered, master status: built)"
+    },
+    {
+      "label": "Goleniów",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat goleniowski",
+      "powiat_slug": "powiat-goleniowski",
+      "city_slug": "goleniow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-goleniowski/goleniow.md"
+    },
+    {
+      "label": "Golub-Dobrzyń",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat golubsko-dobrzyński",
+      "powiat_slug": "powiat-golubsko-dobrzynski",
+      "city_slug": "golub-dobrzyn",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md"
+    },
+    {
+      "label": "Gołdap",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat gołdapski",
+      "powiat_slug": "powiat-goldapski",
+      "city_slug": "goldap",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-goldapski/goldap.md"
+    },
+    {
+      "label": "Gorlice",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat gorlicki",
+      "powiat_slug": "powiat-gorlicki",
+      "city_slug": "gorlice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-gorlicki/gorlice.md"
+    },
+    {
+      "label": "Gorzów Wielkopolski",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat gorzowski",
+      "powiat_slug": "powiat-gorzowski",
+      "city_slug": "gorzow-wielkopolski",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubuskie/powiat-gorzowski/gorzow-wielkopolski.md",
+      "note": "seat is the city-county \"Gorzów Wielkopolski\" (covered, master status: build)"
+    },
+    {
+      "label": "Gorzów Wielkopolski",
+      "voivodeship": "lubuskie",
+      "powiat_label": "Gorzów Wielkopolski (miasto na prawach powiatu)",
+      "powiat_slug": "gorzow-wielkopolski",
+      "city_slug": "gorzow-wielkopolski",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md"
+    },
+    {
+      "label": "Gostynin",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat gostyniński",
+      "powiat_slug": "powiat-gostyninski",
+      "city_slug": "gostynin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md"
+    },
+    {
+      "label": "Gostyń",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat gostyński",
+      "powiat_slug": "powiat-gostynski",
+      "city_slug": "gostyn",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md"
+    },
+    {
+      "label": "Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat górowski",
+      "powiat_slug": "powiat-gorowski",
+      "city_slug": "gora",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md"
+    },
+    {
+      "label": "Grajewo",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat grajewski",
+      "powiat_slug": "powiat-grajewski",
+      "city_slug": "grajewo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-grajewski/grajewo.md"
+    },
+    {
+      "label": "Grodzisk Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat grodziski",
+      "powiat_slug": "powiat-grodziski",
+      "city_slug": "grodzisk-mazowiecki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md"
+    },
+    {
+      "label": "Grodzisk Wielkopolski",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat grodziski",
+      "powiat_slug": "powiat-grodziski",
+      "city_slug": "grodzisk-wielkopolski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md"
+    },
+    {
+      "label": "Grójec",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat grójecki",
+      "powiat_slug": "powiat-grojecki",
+      "city_slug": "grojec",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-grojecki/grojec.md"
+    },
+    {
+      "label": "Grudziądz",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "Grudziądz (miasto na prawach powiatu)",
+      "powiat_slug": "grudziadz",
+      "city_slug": "grudziadz",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md"
+    },
+    {
+      "label": "Grudziądz",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat grudziądzki",
+      "powiat_slug": "powiat-grudziadzki",
+      "city_slug": "grudziadz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-grudziadzki/grudziadz.md",
+      "note": "seat is the city-county \"Grudziądz\" (covered, master status: build)"
+    },
+    {
+      "label": "Gryfice",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat gryficki",
+      "powiat_slug": "powiat-gryficki",
+      "city_slug": "gryfice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md"
+    },
+    {
+      "label": "Gryfino",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat gryfiński",
+      "powiat_slug": "powiat-gryfinski",
+      "city_slug": "gryfino",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-gryfinski/gryfino.md"
+    },
+    {
+      "label": "Hajnówka",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat hajnowski",
+      "powiat_slug": "powiat-hajnowski",
+      "city_slug": "hajnowka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-hajnowski/hajnowka.md"
+    },
+    {
+      "label": "Hrubieszów",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat hrubieszowski",
+      "powiat_slug": "powiat-hrubieszowski",
+      "city_slug": "hrubieszow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-hrubieszowski/hrubieszow.md"
+    },
+    {
+      "label": "Iława",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat iławski",
+      "powiat_slug": "powiat-ilawski",
+      "city_slug": "ilawa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md"
+    },
+    {
+      "label": "Inowrocław",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat inowrocławski",
+      "powiat_slug": "powiat-inowroclawski",
+      "city_slug": "inowroclaw",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-inowroclawski/inowroclaw.md",
+      "note": "seat is the city-county \"Inowrocław\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Janów Lubelski",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat janowski",
+      "powiat_slug": "powiat-janowski",
+      "city_slug": "janow-lubelski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-janowski/janow-lubelski.md"
+    },
+    {
+      "label": "Jarocin",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat jarociński",
+      "powiat_slug": "powiat-jarocinski",
+      "city_slug": "jarocin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md"
+    },
+    {
+      "label": "Jarosław",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat jarosławski",
+      "powiat_slug": "powiat-jaroslawski",
+      "city_slug": "jaroslaw",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-jaroslawski/jaroslaw.md",
+      "note": "seat is the city-county \"Jarosław\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Jasło",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat jasielski",
+      "powiat_slug": "powiat-jasielski",
+      "city_slug": "jaslo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-jasielski/jaslo.md"
+    },
+    {
+      "label": "Jastrzębie-Zdrój",
+      "voivodeship": "slaskie",
+      "powiat_label": "Jastrzębie-Zdrój (miasto na prawach powiatu)",
+      "powiat_slug": "jastrzebie-zdroj",
+      "city_slug": "jastrzebie-zdroj",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/jastrzebie-zdroj/jastrzebie-zdroj.md"
+    },
+    {
+      "label": "Jawor",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat jaworski",
+      "powiat_slug": "powiat-jaworski",
+      "city_slug": "jawor",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-jaworski/jawor.md"
+    },
+    {
+      "label": "Jaworzno",
+      "voivodeship": "slaskie",
+      "powiat_label": "Jaworzno (miasto na prawach powiatu)",
+      "powiat_slug": "jaworzno",
+      "city_slug": "jaworzno",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/jaworzno/jaworzno.md"
+    },
+    {
+      "label": "Jelenia Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "Jelenia Góra (miasto na prawach powiatu)",
+      "powiat_slug": "jelenia-gora",
+      "city_slug": "jelenia-gora",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md"
+    },
+    {
+      "label": "Jędrzejów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat jędrzejowski",
+      "powiat_slug": "powiat-jedrzejowski",
+      "city_slug": "jedrzejow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md"
+    },
+    {
+      "label": "Kalisz",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat kaliski",
+      "powiat_slug": "powiat-kaliski",
+      "city_slug": "kalisz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-kaliski/kalisz.md",
+      "note": "seat is the city-county \"Kalisz\" (covered, master status: build)"
+    },
+    {
+      "label": "Kalisz",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "Kalisz (miasto na prawach powiatu)",
+      "powiat_slug": "kalisz",
+      "city_slug": "kalisz",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/kalisz/kalisz.md"
+    },
+    {
+      "label": "Kamienna Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat kamiennogórski",
+      "powiat_slug": "powiat-kamiennogorski",
+      "city_slug": "kamienna-gora",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md"
+    },
+    {
+      "label": "Kamień Pomorski",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat kamieński",
+      "powiat_slug": "powiat-kamienski",
+      "city_slug": "kamien-pomorski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-kamienski/kamien-pomorski.md"
+    },
+    {
+      "label": "Jelenia Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat karkonoski",
+      "powiat_slug": "powiat-karkonoski",
+      "city_slug": "jelenia-gora",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-karkonoski/jelenia-gora.md",
+      "note": "seat is the city-county \"Jelenia Góra\" (covered, master status: build)"
+    },
+    {
+      "label": "Kartuzy",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat kartuski",
+      "powiat_slug": "powiat-kartuski",
+      "city_slug": "kartuzy",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-kartuski/kartuzy.md"
+    },
+    {
+      "label": "Katowice",
+      "voivodeship": "slaskie",
+      "powiat_label": "Katowice (miasto na prawach powiatu)",
+      "powiat_slug": "katowice",
+      "city_slug": "katowice",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/katowice/katowice.md"
+    },
+    {
+      "label": "Kazimierza Wielka",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat kazimierski",
+      "powiat_slug": "powiat-kazimierski",
+      "city_slug": "kazimierza-wielka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-kazimierski/kazimierza-wielka.md"
+    },
+    {
+      "label": "Kędzierzyn-Koźle",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat kędzierzyńsko-kozielski",
+      "powiat_slug": "powiat-kedzierzynsko-kozielski",
+      "city_slug": "kedzierzyn-kozle",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md",
+      "note": "seat is the city-county \"Kędzierzyn-Koźle\" (covered, master status: built)"
+    },
+    {
+      "label": "Kępno",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat kępiński",
+      "powiat_slug": "powiat-kepinski",
+      "city_slug": "kepno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-kepinski/kepno.md"
+    },
+    {
+      "label": "Kętrzyn",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat kętrzyński",
+      "powiat_slug": "powiat-ketrzynski",
+      "city_slug": "ketrzyn",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md"
+    },
+    {
+      "label": "Kielce",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "Kielce (miasto na prawach powiatu)",
+      "powiat_slug": "kielce",
+      "city_slug": "kielce",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/swietokrzyskie/kielce/kielce.md"
+    },
+    {
+      "label": "Kielce",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat kielecki",
+      "powiat_slug": "powiat-kielecki",
+      "city_slug": "kielce",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/swietokrzyskie/powiat-kielecki/kielce.md",
+      "note": "seat is the city-county \"Kielce\" (covered, master status: built)"
+    },
+    {
+      "label": "Kluczbork",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat kluczborski",
+      "powiat_slug": "powiat-kluczborski",
+      "city_slug": "kluczbork",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-kluczborski/kluczbork.md"
+    },
+    {
+      "label": "Kłobuck",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat kłobucki",
+      "powiat_slug": "powiat-klobucki",
+      "city_slug": "klobuck",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-klobucki/klobuck.md"
+    },
+    {
+      "label": "Kłodzko",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat kłodzki",
+      "powiat_slug": "powiat-klodzki",
+      "city_slug": "klodzko",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md",
+      "note": "seat is the city-county \"Kłodzko\" (covered, master status: built)"
+    },
+    {
+      "label": "Kolbuszowa",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat kolbuszowski",
+      "powiat_slug": "powiat-kolbuszowski",
+      "city_slug": "kolbuszowa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md"
+    },
+    {
+      "label": "Kolno",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat kolneński",
+      "powiat_slug": "powiat-kolnenski",
+      "city_slug": "kolno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-kolnenski/kolno.md"
+    },
+    {
+      "label": "Koło",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat kolski",
+      "powiat_slug": "powiat-kolski",
+      "city_slug": "kolo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-kolski/kolo.md"
+    },
+    {
+      "label": "Kołobrzeg",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat kołobrzeski",
+      "powiat_slug": "powiat-kolobrzeski",
+      "city_slug": "kolobrzeg",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/zachodniopomorskie/powiat-kolobrzeski/kolobrzeg.md",
+      "note": "seat is the city-county \"Kołobrzeg\" (covered, master status: build)"
+    },
+    {
+      "label": "Końskie",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat konecki",
+      "powiat_slug": "powiat-konecki",
+      "city_slug": "konskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md"
+    },
+    {
+      "label": "Konin",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "Konin (miasto na prawach powiatu)",
+      "powiat_slug": "konin",
+      "city_slug": "konin",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/konin/konin.md"
+    },
+    {
+      "label": "Konin",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat koniński",
+      "powiat_slug": "powiat-koninski",
+      "city_slug": "konin",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-koninski/konin.md",
+      "note": "seat is the city-county \"Konin\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Koszalin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "Koszalin (miasto na prawach powiatu)",
+      "powiat_slug": "koszalin",
+      "city_slug": "koszalin",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/zachodniopomorskie/koszalin/koszalin.md"
+    },
+    {
+      "label": "Koszalin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat koszaliński",
+      "powiat_slug": "powiat-koszalinski",
+      "city_slug": "koszalin",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/zachodniopomorskie/powiat-koszalinski/koszalin.md",
+      "note": "seat is the city-county \"Koszalin\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Kościan",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat kościański",
+      "powiat_slug": "powiat-koscianski",
+      "city_slug": "koscian",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-koscianski/koscian.md"
+    },
+    {
+      "label": "Kościerzyna",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat kościerski",
+      "powiat_slug": "powiat-koscierski",
+      "city_slug": "koscierzyna",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md"
+    },
+    {
+      "label": "Kozienice",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat kozienicki",
+      "powiat_slug": "powiat-kozienicki",
+      "city_slug": "kozienice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-kozienicki/kozienice.md"
+    },
+    {
+      "label": "Kraków",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat krakowski",
+      "powiat_slug": "powiat-krakowski",
+      "city_slug": "krakow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-krakowski/krakow.md",
+      "note": "seat is the city-county \"Kraków\" (covered, master status: built)"
+    },
+    {
+      "label": "Kraków",
+      "voivodeship": "malopolskie",
+      "powiat_label": "Kraków (miasto na prawach powiatu)",
+      "powiat_slug": "krakow",
+      "city_slug": "krakow",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/krakow/krakow.md"
+    },
+    {
+      "label": "Krapkowice",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat krapkowicki",
+      "powiat_slug": "powiat-krapkowicki",
+      "city_slug": "krapkowice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md"
+    },
+    {
+      "label": "Krasnystaw",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat krasnostawski",
+      "powiat_slug": "powiat-krasnostawski",
+      "city_slug": "krasnystaw",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-krasnostawski/krasnystaw.md"
+    },
+    {
+      "label": "Kraśnik",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat kraśnicki",
+      "powiat_slug": "powiat-krasnicki",
+      "city_slug": "krasnik",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-krasnicki/krasnik.md",
+      "note": "seat is the city-county \"Kraśnik\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Krosno",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "Krosno (miasto na prawach powiatu)",
+      "powiat_slug": "krosno",
+      "city_slug": "krosno",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/krosno/krosno.md"
+    },
+    {
+      "label": "Krosno",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat krośnieński",
+      "powiat_slug": "powiat-krosnienski",
+      "city_slug": "krosno",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-krosnienski/krosno.md",
+      "note": "seat is the city-county \"Krosno\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Krosno Odrzańskie",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat krośnieński",
+      "powiat_slug": "powiat-krosnienski",
+      "city_slug": "krosno-odrzanskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md"
+    },
+    {
+      "label": "Krotoszyn",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat krotoszyński",
+      "powiat_slug": "powiat-krotoszynski",
+      "city_slug": "krotoszyn",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-krotoszynski/krotoszyn.md",
+      "note": "seat is the city-county \"Krotoszyn\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Kutno",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat kutnowski",
+      "powiat_slug": "powiat-kutnowski",
+      "city_slug": "kutno",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-kutnowski/kutno.md",
+      "note": "seat is the city-county \"Kutno\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Kwidzyn",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat kwidzyński",
+      "powiat_slug": "powiat-kwidzynski",
+      "city_slug": "kwidzyn",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md"
+    },
+    {
+      "label": "Legionowo",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat legionowski",
+      "powiat_slug": "powiat-legionowski",
+      "city_slug": "legionowo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-legionowski/legionowo.md"
+    },
+    {
+      "label": "Legnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "Legnica (miasto na prawach powiatu)",
+      "powiat_slug": "legnica",
+      "city_slug": "legnica",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/legnica/legnica.md"
+    },
+    {
+      "label": "Legnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat legnicki",
+      "powiat_slug": "powiat-legnicki",
+      "city_slug": "legnica",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-legnicki/legnica.md",
+      "note": "seat is the city-county \"Legnica\" (covered, master status: built)"
+    },
+    {
+      "label": "Lesko",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat leski",
+      "powiat_slug": "powiat-leski",
+      "city_slug": "lesko",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-leski/lesko.md"
+    },
+    {
+      "label": "Leszno",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat leszczyński",
+      "powiat_slug": "powiat-leszczynski",
+      "city_slug": "leszno",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-leszczynski/leszno.md",
+      "note": "seat is the city-county \"Leszno\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Leszno",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "Leszno (miasto na prawach powiatu)",
+      "powiat_slug": "leszno",
+      "city_slug": "leszno",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/leszno/leszno.md"
+    },
+    {
+      "label": "Leżajsk",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat leżajski",
+      "powiat_slug": "powiat-lezajski",
+      "city_slug": "lezajsk",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-lezajski/lezajsk.md"
+    },
+    {
+      "label": "Lębork",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat lęborski",
+      "powiat_slug": "powiat-leborski",
+      "city_slug": "lebork",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-leborski/lebork.md"
+    },
+    {
+      "label": "Lidzbark Warmiński",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat lidzbarski",
+      "powiat_slug": "powiat-lidzbarski",
+      "city_slug": "lidzbark-warminski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md"
+    },
+    {
+      "label": "Limanowa",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat limanowski",
+      "powiat_slug": "powiat-limanowski",
+      "city_slug": "limanowa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-limanowski/limanowa.md"
+    },
+    {
+      "label": "Lipno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat lipnowski",
+      "powiat_slug": "powiat-lipnowski",
+      "city_slug": "lipno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-lipnowski/lipno.md"
+    },
+    {
+      "label": "Lipsko",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat lipski",
+      "powiat_slug": "powiat-lipski",
+      "city_slug": "lipsko",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-lipski/lipsko.md"
+    },
+    {
+      "label": "Lubaczów",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat lubaczowski",
+      "powiat_slug": "powiat-lubaczowski",
+      "city_slug": "lubaczow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-lubaczowski/lubaczow.md"
+    },
+    {
+      "label": "Lubań",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat lubański",
+      "powiat_slug": "powiat-lubanski",
+      "city_slug": "luban",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md"
+    },
+    {
+      "label": "Lubartów",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat lubartowski",
+      "powiat_slug": "powiat-lubartowski",
+      "city_slug": "lubartow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-lubartowski/lubartow.md"
+    },
+    {
+      "label": "Lublin",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat lubelski",
+      "powiat_slug": "powiat-lubelski",
+      "city_slug": "lublin",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-lubelski/lublin.md",
+      "note": "seat is the city-county \"Lublin\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Lubin",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat lubiński",
+      "powiat_slug": "powiat-lubinski",
+      "city_slug": "lubin",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-lubinski/lubin.md",
+      "note": "seat is the city-county \"Lubin\" (covered, master status: build)"
+    },
+    {
+      "label": "Lublin",
+      "voivodeship": "lubelskie",
+      "powiat_label": "Lublin (miasto na prawach powiatu)",
+      "powiat_slug": "lublin",
+      "city_slug": "lublin",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/lublin/lublin.md"
+    },
+    {
+      "label": "Lubliniec",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat lubliniecki",
+      "powiat_slug": "powiat-lubliniecki",
+      "city_slug": "lubliniec",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md"
+    },
+    {
+      "label": "Lwówek Śląski",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat lwówecki",
+      "powiat_slug": "powiat-lwowecki",
+      "city_slug": "lwowek-slaski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md"
+    },
+    {
+      "label": "Łańcut",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat łańcucki",
+      "powiat_slug": "powiat-lancucki",
+      "city_slug": "lancut",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-lancucki/lancut.md"
+    },
+    {
+      "label": "Łask",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat łaski",
+      "powiat_slug": "powiat-laski",
+      "city_slug": "lask",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-laski/lask.md"
+    },
+    {
+      "label": "Łęczyca",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat łęczycki",
+      "powiat_slug": "powiat-leczycki",
+      "city_slug": "leczyca",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-leczycki/leczyca.md"
+    },
+    {
+      "label": "Łęczna",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat łęczyński",
+      "powiat_slug": "powiat-leczynski",
+      "city_slug": "leczna",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-leczynski/leczna.md"
+    },
+    {
+      "label": "Łobez",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat łobeski",
+      "powiat_slug": "powiat-lobeski",
+      "city_slug": "lobez",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-lobeski/lobez.md"
+    },
+    {
+      "label": "Łomża",
+      "voivodeship": "podlaskie",
+      "powiat_label": "Łomża (miasto na prawach powiatu)",
+      "powiat_slug": "lomza",
+      "city_slug": "lomza",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/lomza/lomza.md"
+    },
+    {
+      "label": "Łomża",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat łomżyński",
+      "powiat_slug": "powiat-lomzynski",
+      "city_slug": "lomza",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/powiat-lomzynski/lomza.md",
+      "note": "seat is the city-county \"Łomża\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Łosice",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat łosicki",
+      "powiat_slug": "powiat-losicki",
+      "city_slug": "losice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-losicki/losice.md"
+    },
+    {
+      "label": "Łowicz",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat łowicki",
+      "powiat_slug": "powiat-lowicki",
+      "city_slug": "lowicz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-lowicki/lowicz.md"
+    },
+    {
+      "label": "Łódź",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat łódzki wschodni",
+      "powiat_slug": "powiat-lodzki-wschodni",
+      "city_slug": "lodz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-lodzki-wschodni/lodz.md",
+      "note": "seat is the city-county \"Łódź\" (covered, master status: built)"
+    },
+    {
+      "label": "Łódź",
+      "voivodeship": "lodzkie",
+      "powiat_label": "Łódź (miasto na prawach powiatu)",
+      "powiat_slug": "lodz",
+      "city_slug": "lodz",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/lodz/lodz.md"
+    },
+    {
+      "label": "Łuków",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat łukowski",
+      "powiat_slug": "powiat-lukowski",
+      "city_slug": "lukow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-lukowski/lukow.md"
+    },
+    {
+      "label": "Maków Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat makowski",
+      "powiat_slug": "powiat-makowski",
+      "city_slug": "makow-mazowiecki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-makowski/makow-mazowiecki.md"
+    },
+    {
+      "label": "Malbork",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat malborski",
+      "powiat_slug": "powiat-malborski",
+      "city_slug": "malbork",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/powiat-malborski/malbork.md",
+      "note": "seat is the city-county \"Malbork\" (covered, master status: build)"
+    },
+    {
+      "label": "Miechów",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat miechowski",
+      "powiat_slug": "powiat-miechowski",
+      "city_slug": "miechow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-miechowski/miechow.md"
+    },
+    {
+      "label": "Mielec",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat mielecki",
+      "powiat_slug": "powiat-mielecki",
+      "city_slug": "mielec",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-mielecki/mielec.md",
+      "note": "seat is the city-county \"Mielec\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Międzychód",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat międzychodzki",
+      "powiat_slug": "powiat-miedzychodzki",
+      "city_slug": "miedzychod",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-miedzychodzki/miedzychod.md"
+    },
+    {
+      "label": "Międzyrzecz",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat międzyrzecki",
+      "powiat_slug": "powiat-miedzyrzecki",
+      "city_slug": "miedzyrzecz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md"
+    },
+    {
+      "label": "Mikołów",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat mikołowski",
+      "powiat_slug": "powiat-mikolowski",
+      "city_slug": "mikolow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-mikolowski/mikolow.md"
+    },
+    {
+      "label": "Milicz",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat milicki",
+      "powiat_slug": "powiat-milicki",
+      "city_slug": "milicz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-milicki/milicz.md"
+    },
+    {
+      "label": "Mińsk Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat miński",
+      "powiat_slug": "powiat-minski",
+      "city_slug": "minsk-mazowiecki",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-minski/minsk-mazowiecki.md",
+      "note": "seat is the city-county \"Mińsk Mazowiecki\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Mława",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat mławski",
+      "powiat_slug": "powiat-mlawski",
+      "city_slug": "mlawa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-mlawski/mlawa.md"
+    },
+    {
+      "label": "Mogilno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat mogileński",
+      "powiat_slug": "powiat-mogilenski",
+      "city_slug": "mogilno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md"
+    },
+    {
+      "label": "Mońki",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat moniecki",
+      "powiat_slug": "powiat-moniecki",
+      "city_slug": "monki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-moniecki/monki.md"
+    },
+    {
+      "label": "Mrągowo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat mrągowski",
+      "powiat_slug": "powiat-mragowski",
+      "city_slug": "mragowo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md"
+    },
+    {
+      "label": "Mysłowice",
+      "voivodeship": "slaskie",
+      "powiat_label": "Mysłowice (miasto na prawach powiatu)",
+      "powiat_slug": "myslowice",
+      "city_slug": "myslowice",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/myslowice/myslowice.md"
+    },
+    {
+      "label": "Myszków",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat myszkowski",
+      "powiat_slug": "powiat-myszkowski",
+      "city_slug": "myszkow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-myszkowski/myszkow.md"
+    },
+    {
+      "label": "Myślenice",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat myślenicki",
+      "powiat_slug": "powiat-myslenicki",
+      "city_slug": "myslenice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-myslenicki/myslenice.md"
+    },
+    {
+      "label": "Myślibórz",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat myśliborski",
+      "powiat_slug": "powiat-mysliborski",
+      "city_slug": "mysliborz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-mysliborski/mysliborz.md"
+    },
+    {
+      "label": "Nakło nad Notecią",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat nakielski",
+      "powiat_slug": "powiat-nakielski",
+      "city_slug": "naklo-nad-notecia",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md"
+    },
+    {
+      "label": "Namysłów",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat namysłowski",
+      "powiat_slug": "powiat-namyslowski",
+      "city_slug": "namyslow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-namyslowski/namyslow.md"
+    },
+    {
+      "label": "Nidzica",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat nidzicki",
+      "powiat_slug": "powiat-nidzicki",
+      "city_slug": "nidzica",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md"
+    },
+    {
+      "label": "Nisko",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat niżański",
+      "powiat_slug": "powiat-nizanski",
+      "city_slug": "nisko",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-nizanski/nisko.md"
+    },
+    {
+      "label": "Nowy Dwór Gdański",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat nowodworski",
+      "powiat_slug": "powiat-nowodworski",
+      "city_slug": "nowy-dwor-gdanski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-nowodworski/nowy-dwor-gdanski.md"
+    },
+    {
+      "label": "Nowy Dwór Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat nowodworski",
+      "powiat_slug": "powiat-nowodworski",
+      "city_slug": "nowy-dwor-mazowiecki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-nowodworski/nowy-dwor-mazowiecki.md"
+    },
+    {
+      "label": "Nowe Miasto Lubawskie",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat nowomiejski",
+      "powiat_slug": "powiat-nowomiejski",
+      "city_slug": "nowe-miasto-lubawskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-nowomiejski/nowe-miasto-lubawskie.md"
+    },
+    {
+      "label": "Nowy Sącz",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat nowosądecki",
+      "powiat_slug": "powiat-nowosadecki",
+      "city_slug": "nowy-sacz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-nowosadecki/nowy-sacz.md",
+      "note": "seat is the city-county \"Nowy Sącz\" (covered, master status: verify)"
+    },
+    {
+      "label": "Nowa Sól",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat nowosolski",
+      "powiat_slug": "powiat-nowosolski",
+      "city_slug": "nowa-sol",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubuskie/powiat-nowosolski/nowa-sol.md",
+      "note": "seat is the city-county \"Nowa Sól\" (covered, master status: built)"
+    },
+    {
+      "label": "Nowy Targ",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat nowotarski",
+      "powiat_slug": "powiat-nowotarski",
+      "city_slug": "nowy-targ",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-nowotarski/nowy-targ.md",
+      "note": "seat is the city-county \"Nowy Targ\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Nowy Tomyśl",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat nowotomyski",
+      "powiat_slug": "powiat-nowotomyski",
+      "city_slug": "nowy-tomysl",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-nowotomyski/nowy-tomysl.md"
+    },
+    {
+      "label": "Nowy Sącz",
+      "voivodeship": "malopolskie",
+      "powiat_label": "Nowy Sącz (miasto na prawach powiatu)",
+      "powiat_slug": "nowy-sacz",
+      "city_slug": "nowy-sacz",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md"
+    },
+    {
+      "label": "Nysa",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat nyski",
+      "powiat_slug": "powiat-nyski",
+      "city_slug": "nysa",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/opolskie/powiat-nyski/nysa.md",
+      "note": "seat is the city-county \"Nysa\" (covered, master status: built)"
+    },
+    {
+      "label": "Oborniki",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat obornicki",
+      "powiat_slug": "powiat-obornicki",
+      "city_slug": "oborniki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-obornicki/oborniki.md"
+    },
+    {
+      "label": "Olecko",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat olecki",
+      "powiat_slug": "powiat-olecki",
+      "city_slug": "olecko",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-olecki/olecko.md"
+    },
+    {
+      "label": "Olesno",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat oleski",
+      "powiat_slug": "powiat-oleski",
+      "city_slug": "olesno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-oleski/olesno.md"
+    },
+    {
+      "label": "Oleśnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat oleśnicki",
+      "powiat_slug": "powiat-olesnicki",
+      "city_slug": "olesnica",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-olesnicki/olesnica.md",
+      "note": "seat is the city-county \"Oleśnica\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Olkusz",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat olkuski",
+      "powiat_slug": "powiat-olkuski",
+      "city_slug": "olkusz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-olkuski/olkusz.md",
+      "note": "seat is the city-county \"Olkusz\" (covered, master status: built)"
+    },
+    {
+      "label": "Olsztyn",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "Olsztyn (miasto na prawach powiatu)",
+      "powiat_slug": "olsztyn",
+      "city_slug": "olsztyn",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md"
+    },
+    {
+      "label": "Olsztyn",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat olsztyński",
+      "powiat_slug": "powiat-olsztynski",
+      "city_slug": "olsztyn",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-olsztynski/olsztyn.md",
+      "note": "seat is the city-county \"Olsztyn\" (covered, master status: built)"
+    },
+    {
+      "label": "Oława",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat oławski",
+      "powiat_slug": "powiat-olawski",
+      "city_slug": "olawa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-olawski/olawa.md"
+    },
+    {
+      "label": "Opatów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat opatowski",
+      "powiat_slug": "powiat-opatowski",
+      "city_slug": "opatow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-opatowski/opatow.md"
+    },
+    {
+      "label": "Opoczno",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat opoczyński",
+      "powiat_slug": "powiat-opoczynski",
+      "city_slug": "opoczno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-opoczynski/opoczno.md"
+    },
+    {
+      "label": "Opole",
+      "voivodeship": "opolskie",
+      "powiat_label": "Opole (miasto na prawach powiatu)",
+      "powiat_slug": "opole",
+      "city_slug": "opole",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/opolskie/opole/opole.md"
+    },
+    {
+      "label": "Opole Lubelskie",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat opolski",
+      "powiat_slug": "powiat-opolski",
+      "city_slug": "opole-lubelskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-opolski/opole-lubelskie.md"
+    },
+    {
+      "label": "Opole",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat opolski",
+      "powiat_slug": "powiat-opolski",
+      "city_slug": "opole",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/opolskie/powiat-opolski/opole.md",
+      "note": "seat is the city-county \"Opole\" (covered, master status: built)"
+    },
+    {
+      "label": "Ostrołęka",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat ostrołęcki",
+      "powiat_slug": "powiat-ostrolecki",
+      "city_slug": "ostroleka",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-ostrolecki/ostroleka.md",
+      "note": "seat is the city-county \"Ostrołęka\" (covered, master status: build)"
+    },
+    {
+      "label": "Ostrołęka",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "Ostrołęka (miasto na prawach powiatu)",
+      "powiat_slug": "ostroleka",
+      "city_slug": "ostroleka",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/ostroleka/ostroleka.md"
+    },
+    {
+      "label": "Ostrowiec Świętokrzyski",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat ostrowiecki",
+      "powiat_slug": "powiat-ostrowiecki",
+      "city_slug": "ostrowiec-swietokrzyski",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/swietokrzyskie/powiat-ostrowiecki/ostrowiec-swietokrzyski.md",
+      "note": "seat is the city-county \"Ostrowiec Świętokrzyski\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Ostrów Wielkopolski",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat ostrowski",
+      "powiat_slug": "powiat-ostrowski",
+      "city_slug": "ostrow-wielkopolski",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-ostrowski/ostrow-wielkopolski.md",
+      "note": "seat is the city-county \"Ostrów Wielkopolski\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Ostrów Mazowiecka",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat ostrowski",
+      "powiat_slug": "powiat-ostrowski",
+      "city_slug": "ostrow-mazowiecka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-ostrowski/ostrow-mazowiecka.md"
+    },
+    {
+      "label": "Ostróda",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat ostródzki",
+      "powiat_slug": "powiat-ostrodzki",
+      "city_slug": "ostroda",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-ostrodzki/ostroda.md",
+      "note": "seat is the city-county \"Ostróda\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Ostrzeszów",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat ostrzeszowski",
+      "powiat_slug": "powiat-ostrzeszowski",
+      "city_slug": "ostrzeszow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md"
+    },
+    {
+      "label": "Oświęcim",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat oświęcimski",
+      "powiat_slug": "powiat-oswiecimski",
+      "city_slug": "oswiecim",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-oswiecimski/oswiecim.md",
+      "note": "seat is the city-county \"Oświęcim\" (covered, master status: built)"
+    },
+    {
+      "label": "Otwock",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat otwocki",
+      "powiat_slug": "powiat-otwocki",
+      "city_slug": "otwock",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-otwocki/otwock.md"
+    },
+    {
+      "label": "Pabianice",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat pabianicki",
+      "powiat_slug": "powiat-pabianicki",
+      "city_slug": "pabianice",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-pabianicki/pabianice.md",
+      "note": "seat is the city-county \"Pabianice\" (covered, master status: built)"
+    },
+    {
+      "label": "Pajęczno",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat pajęczański",
+      "powiat_slug": "powiat-pajeczanski",
+      "city_slug": "pajeczno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md"
+    },
+    {
+      "label": "Parczew",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat parczewski",
+      "powiat_slug": "powiat-parczewski",
+      "city_slug": "parczew",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-parczewski/parczew.md"
+    },
+    {
+      "label": "Piaseczno",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat piaseczyński",
+      "powiat_slug": "powiat-piaseczynski",
+      "city_slug": "piaseczno",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-piaseczynski/piaseczno.md",
+      "note": "seat is the city-county \"Piaseczno\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Piekary Śląskie",
+      "voivodeship": "slaskie",
+      "powiat_label": "Piekary Śląskie (miasto na prawach powiatu)",
+      "powiat_slug": "piekary-slaskie",
+      "city_slug": "piekary-slaskie",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/piekary-slaskie/piekary-slaskie.md"
+    },
+    {
+      "label": "Piła",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat pilski",
+      "powiat_slug": "powiat-pilski",
+      "city_slug": "pila",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-pilski/pila.md",
+      "note": "seat is the city-county \"Piła\" (covered, master status: built)"
+    },
+    {
+      "label": "Pińczów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat pińczowski",
+      "powiat_slug": "powiat-pinczowski",
+      "city_slug": "pinczow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-pinczowski/pinczow.md"
+    },
+    {
+      "label": "Piotrków Trybunalski",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat piotrkowski",
+      "powiat_slug": "powiat-piotrkowski",
+      "city_slug": "piotrkow-trybunalski",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-piotrkowski/piotrkow-trybunalski.md",
+      "note": "seat is the city-county \"Piotrków Trybunalski\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Piotrków Trybunalski",
+      "voivodeship": "lodzkie",
+      "powiat_label": "Piotrków Trybunalski (miasto na prawach powiatu)",
+      "powiat_slug": "piotrkow-trybunalski",
+      "city_slug": "piotrkow-trybunalski",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md"
+    },
+    {
+      "label": "Pisz",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat piski",
+      "powiat_slug": "powiat-piski",
+      "city_slug": "pisz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md"
+    },
+    {
+      "label": "Pleszew",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat pleszewski",
+      "powiat_slug": "powiat-pleszewski",
+      "city_slug": "pleszew",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md"
+    },
+    {
+      "label": "Płock",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "Płock (miasto na prawach powiatu)",
+      "powiat_slug": "plock",
+      "city_slug": "plock",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/plock/plock.md"
+    },
+    {
+      "label": "Płock",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat płocki",
+      "powiat_slug": "powiat-plocki",
+      "city_slug": "plock",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-plocki/plock.md",
+      "note": "seat is the city-county \"Płock\" (covered, master status: build)"
+    },
+    {
+      "label": "Płońsk",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat płoński",
+      "powiat_slug": "powiat-plonski",
+      "city_slug": "plonsk",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-plonski/plonsk.md"
+    },
+    {
+      "label": "Poddębice",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat poddębicki",
+      "powiat_slug": "powiat-poddebicki",
+      "city_slug": "poddebice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md"
+    },
+    {
+      "label": "Police",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat policki",
+      "powiat_slug": "powiat-policki",
+      "city_slug": "police",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-policki/police.md"
+    },
+    {
+      "label": "Polkowice",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat polkowicki",
+      "powiat_slug": "powiat-polkowicki",
+      "city_slug": "polkowice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-polkowicki/polkowice.md"
+    },
+    {
+      "label": "Poznań",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "Poznań (miasto na prawach powiatu)",
+      "powiat_slug": "poznan",
+      "city_slug": "poznan",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/poznan/poznan.md"
+    },
+    {
+      "label": "Poznań",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat poznański",
+      "powiat_slug": "powiat-poznanski",
+      "city_slug": "poznan",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-poznanski/poznan.md",
+      "note": "seat is the city-county \"Poznań\" (covered, master status: build)"
+    },
+    {
+      "label": "Proszowice",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat proszowicki",
+      "powiat_slug": "powiat-proszowicki",
+      "city_slug": "proszowice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md"
+    },
+    {
+      "label": "Prudnik",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat prudnicki",
+      "powiat_slug": "powiat-prudnicki",
+      "city_slug": "prudnik",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-prudnicki/prudnik.md"
+    },
+    {
+      "label": "Pruszków",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat pruszkowski",
+      "powiat_slug": "powiat-pruszkowski",
+      "city_slug": "pruszkow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-pruszkowski/pruszkow.md",
+      "note": "seat is the city-county \"Pruszków\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Przasnysz",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat przasnyski",
+      "powiat_slug": "powiat-przasnyski",
+      "city_slug": "przasnysz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-przasnyski/przasnysz.md"
+    },
+    {
+      "label": "Przemyśl",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat przemyski",
+      "powiat_slug": "powiat-przemyski",
+      "city_slug": "przemysl",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-przemyski/przemysl.md",
+      "note": "seat is the city-county \"Przemyśl\" (covered, master status: built)"
+    },
+    {
+      "label": "Przemyśl",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "Przemyśl (miasto na prawach powiatu)",
+      "powiat_slug": "przemysl",
+      "city_slug": "przemysl",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/przemysl/przemysl.md"
+    },
+    {
+      "label": "Przeworsk",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat przeworski",
+      "powiat_slug": "powiat-przeworski",
+      "city_slug": "przeworsk",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-przeworski/przeworsk.md"
+    },
+    {
+      "label": "Przysucha",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat przysuski",
+      "powiat_slug": "powiat-przysuski",
+      "city_slug": "przysucha",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-przysuski/przysucha.md"
+    },
+    {
+      "label": "Pszczyna",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat pszczyński",
+      "powiat_slug": "powiat-pszczynski",
+      "city_slug": "pszczyna",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md"
+    },
+    {
+      "label": "Puck",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat pucki",
+      "powiat_slug": "powiat-pucki",
+      "city_slug": "puck",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-pucki/puck.md"
+    },
+    {
+      "label": "Puławy",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat puławski",
+      "powiat_slug": "powiat-pulawski",
+      "city_slug": "pulawy",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-pulawski/pulawy.md",
+      "note": "seat is the city-county \"Puławy\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Pułtusk",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat pułtuski",
+      "powiat_slug": "powiat-pultuski",
+      "city_slug": "pultusk",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md"
+    },
+    {
+      "label": "Pyrzyce",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat pyrzycki",
+      "powiat_slug": "powiat-pyrzycki",
+      "city_slug": "pyrzyce",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-pyrzycki/pyrzyce.md"
+    },
+    {
+      "label": "Racibórz",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat raciborski",
+      "powiat_slug": "powiat-raciborski",
+      "city_slug": "raciborz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-raciborski/raciborz.md",
+      "note": "seat is the city-county \"Racibórz\" (covered, master status: built)"
+    },
+    {
+      "label": "Radom",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "Radom (miasto na prawach powiatu)",
+      "powiat_slug": "radom",
+      "city_slug": "radom",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/radom/radom.md"
+    },
+    {
+      "label": "Radom",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat radomski",
+      "powiat_slug": "powiat-radomski",
+      "city_slug": "radom",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-radomski/radom.md",
+      "note": "seat is the city-county \"Radom\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Radomsko",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat radomszczański",
+      "powiat_slug": "powiat-radomszczanski",
+      "city_slug": "radomsko",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-radomszczanski/radomsko.md",
+      "note": "seat is the city-county \"Radomsko\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Radziejów",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat radziejowski",
+      "powiat_slug": "powiat-radziejowski",
+      "city_slug": "radziejow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-radziejowski/radziejow.md"
+    },
+    {
+      "label": "Radzyń Podlaski",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat radzyński",
+      "powiat_slug": "powiat-radzynski",
+      "city_slug": "radzyn-podlaski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-radzynski/radzyn-podlaski.md"
+    },
+    {
+      "label": "Rawicz",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat rawicki",
+      "powiat_slug": "powiat-rawicki",
+      "city_slug": "rawicz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-rawicki/rawicz.md"
+    },
+    {
+      "label": "Rawa Mazowiecka",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat rawski",
+      "powiat_slug": "powiat-rawski",
+      "city_slug": "rawa-mazowiecka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md"
+    },
+    {
+      "label": "Ropczyce",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat ropczycko-sędziszowski",
+      "powiat_slug": "powiat-ropczycko-sedziszowski",
+      "city_slug": "ropczyce",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-ropczycko-sedziszowski/ropczyce.md"
+    },
+    {
+      "label": "Ruda Śląska",
+      "voivodeship": "slaskie",
+      "powiat_label": "Ruda Śląska (miasto na prawach powiatu)",
+      "powiat_slug": "ruda-slaska",
+      "city_slug": "ruda-slaska",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/ruda-slaska/ruda-slaska.md"
+    },
+    {
+      "label": "Rybnik",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat rybnicki",
+      "powiat_slug": "powiat-rybnicki",
+      "city_slug": "rybnik",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-rybnicki/rybnik.md",
+      "note": "seat is the city-county \"Rybnik\" (covered, master status: built)"
+    },
+    {
+      "label": "Rybnik",
+      "voivodeship": "slaskie",
+      "powiat_label": "Rybnik (miasto na prawach powiatu)",
+      "powiat_slug": "rybnik",
+      "city_slug": "rybnik",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/rybnik/rybnik.md"
+    },
+    {
+      "label": "Ryki",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat rycki",
+      "powiat_slug": "powiat-rycki",
+      "city_slug": "ryki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-rycki/ryki.md"
+    },
+    {
+      "label": "Rypin",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat rypiński",
+      "powiat_slug": "powiat-rypinski",
+      "city_slug": "rypin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-rypinski/rypin.md"
+    },
+    {
+      "label": "Rzeszów",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat rzeszowski",
+      "powiat_slug": "powiat-rzeszowski",
+      "city_slug": "rzeszow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-rzeszowski/rzeszow.md",
+      "note": "seat is the city-county \"Rzeszów\" (covered, master status: verify)"
+    },
+    {
+      "label": "Rzeszów",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "Rzeszów (miasto na prawach powiatu)",
+      "powiat_slug": "rzeszow",
+      "city_slug": "rzeszow",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/rzeszow/rzeszow.md"
+    },
+    {
+      "label": "Sandomierz",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat sandomierski",
+      "powiat_slug": "powiat-sandomierski",
+      "city_slug": "sandomierz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md"
+    },
+    {
+      "label": "Sanok",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat sanocki",
+      "powiat_slug": "powiat-sanocki",
+      "city_slug": "sanok",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-sanocki/sanok.md",
+      "note": "seat is the city-county \"Sanok\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Sejny",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat sejneński",
+      "powiat_slug": "powiat-sejnenski",
+      "city_slug": "sejny",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-sejnenski/sejny.md"
+    },
+    {
+      "label": "Sępólno Krajeńskie",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat sępoleński",
+      "powiat_slug": "powiat-sepolenski",
+      "city_slug": "sepolno-krajenskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md"
+    },
+    {
+      "label": "Siedlce",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "Siedlce (miasto na prawach powiatu)",
+      "powiat_slug": "siedlce",
+      "city_slug": "siedlce",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/siedlce/siedlce.md"
+    },
+    {
+      "label": "Siedlce",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat siedlecki",
+      "powiat_slug": "powiat-siedlecki",
+      "city_slug": "siedlce",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-siedlecki/siedlce.md",
+      "note": "seat is the city-county \"Siedlce\" (covered, master status: build)"
+    },
+    {
+      "label": "Siemianowice Śląskie",
+      "voivodeship": "slaskie",
+      "powiat_label": "Siemianowice Śląskie (miasto na prawach powiatu)",
+      "powiat_slug": "siemianowice-slaskie",
+      "city_slug": "siemianowice-slaskie",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/siemianowice-slaskie/siemianowice-slaskie.md"
+    },
+    {
+      "label": "Siemiatycze",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat siemiatycki",
+      "powiat_slug": "powiat-siemiatycki",
+      "city_slug": "siemiatycze",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-siemiatycki/siemiatycze.md"
+    },
+    {
+      "label": "Sieradz",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat sieradzki",
+      "powiat_slug": "powiat-sieradzki",
+      "city_slug": "sieradz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-sieradzki/sieradz.md",
+      "note": "seat is the city-county \"Sieradz\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Sierpc",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat sierpecki",
+      "powiat_slug": "powiat-sierpecki",
+      "city_slug": "sierpc",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-sierpecki/sierpc.md"
+    },
+    {
+      "label": "Skarżysko-Kamienna",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat skarżyski",
+      "powiat_slug": "powiat-skarzyski",
+      "city_slug": "skarzysko-kamienna",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md",
+      "note": "seat is the city-county \"Skarżysko-Kamienna\" (covered, master status: built)"
+    },
+    {
+      "label": "Skierniewice",
+      "voivodeship": "lodzkie",
+      "powiat_label": "Skierniewice (miasto na prawach powiatu)",
+      "powiat_slug": "skierniewice",
+      "city_slug": "skierniewice",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/skierniewice/skierniewice.md"
+    },
+    {
+      "label": "Skierniewice",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat skierniewicki",
+      "powiat_slug": "powiat-skierniewicki",
+      "city_slug": "skierniewice",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-skierniewicki/skierniewice.md",
+      "note": "seat is the city-county \"Skierniewice\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Sławno",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat sławieński",
+      "powiat_slug": "powiat-slawienski",
+      "city_slug": "slawno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-slawienski/slawno.md"
+    },
+    {
+      "label": "Słubice",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat słubicki",
+      "powiat_slug": "powiat-slubicki",
+      "city_slug": "slubice",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-slubicki/slubice.md"
+    },
+    {
+      "label": "Słupca",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat słupecki",
+      "powiat_slug": "powiat-slupecki",
+      "city_slug": "slupca",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-slupecki/slupca.md"
+    },
+    {
+      "label": "Słupsk",
+      "voivodeship": "pomorskie",
+      "powiat_label": "Słupsk (miasto na prawach powiatu)",
+      "powiat_slug": "slupsk",
+      "city_slug": "slupsk",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/slupsk/slupsk.md"
+    },
+    {
+      "label": "Słupsk",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat słupski",
+      "powiat_slug": "powiat-slupski",
+      "city_slug": "slupsk",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/powiat-slupski/slupsk.md",
+      "note": "seat is the city-county \"Słupsk\" (covered, master status: built)"
+    },
+    {
+      "label": "Sochaczew",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat sochaczewski",
+      "powiat_slug": "powiat-sochaczewski",
+      "city_slug": "sochaczew",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-sochaczewski/sochaczew.md"
+    },
+    {
+      "label": "Sokołów Podlaski",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat sokołowski",
+      "powiat_slug": "powiat-sokolowski",
+      "city_slug": "sokolow-podlaski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-sokolowski/sokolow-podlaski.md"
+    },
+    {
+      "label": "Sokółka",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat sokólski",
+      "powiat_slug": "powiat-sokolski",
+      "city_slug": "sokolka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-sokolski/sokolka.md"
+    },
+    {
+      "label": "Sopot",
+      "voivodeship": "pomorskie",
+      "powiat_label": "Sopot (miasto na prawach powiatu)",
+      "powiat_slug": "sopot",
+      "city_slug": "sopot",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/sopot/sopot.md"
+    },
+    {
+      "label": "Sosnowiec",
+      "voivodeship": "slaskie",
+      "powiat_label": "Sosnowiec (miasto na prawach powiatu)",
+      "powiat_slug": "sosnowiec",
+      "city_slug": "sosnowiec",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/sosnowiec/sosnowiec.md"
+    },
+    {
+      "label": "Stalowa Wola",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat stalowowolski",
+      "powiat_slug": "powiat-stalowowolski",
+      "city_slug": "stalowa-wola",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-stalowowolski/stalowa-wola.md",
+      "note": "seat is the city-county \"Stalowa Wola\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Starachowice",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat starachowicki",
+      "powiat_slug": "powiat-starachowicki",
+      "city_slug": "starachowice",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/swietokrzyskie/powiat-starachowicki/starachowice.md",
+      "note": "seat is the city-county \"Starachowice\" (covered, master status: build)"
+    },
+    {
+      "label": "Stargard",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat stargardzki",
+      "powiat_slug": "powiat-stargardzki",
+      "city_slug": "stargard",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md",
+      "note": "seat is the city-county \"Stargard\" (covered, master status: built)"
+    },
+    {
+      "label": "Starogard Gdański",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat starogardzki",
+      "powiat_slug": "powiat-starogardzki",
+      "city_slug": "starogard-gdanski",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md",
+      "note": "seat is the city-county \"Starogard Gdański\" (covered, master status: build)"
+    },
+    {
+      "label": "Staszów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat staszowski",
+      "powiat_slug": "powiat-staszowski",
+      "city_slug": "staszow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-staszowski/staszow.md"
+    },
+    {
+      "label": "Strzelce Opolskie",
+      "voivodeship": "opolskie",
+      "powiat_label": "powiat strzelecki",
+      "powiat_slug": "powiat-strzelecki",
+      "city_slug": "strzelce-opolskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md"
+    },
+    {
+      "label": "Strzelce Krajeńskie",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat strzelecko-drezdenecki",
+      "powiat_slug": "powiat-strzelecko-drezdenecki",
+      "city_slug": "strzelce-krajenskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md"
+    },
+    {
+      "label": "Strzelin",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat strzeliński",
+      "powiat_slug": "powiat-strzelinski",
+      "city_slug": "strzelin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-strzelinski/strzelin.md"
+    },
+    {
+      "label": "Strzyżów",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat strzyżowski",
+      "powiat_slug": "powiat-strzyzowski",
+      "city_slug": "strzyzow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podkarpackie/powiat-strzyzowski/strzyzow.md"
+    },
+    {
+      "label": "Sulęcin",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat sulęciński",
+      "powiat_slug": "powiat-sulecinski",
+      "city_slug": "sulecin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md"
+    },
+    {
+      "label": "Sucha Beskidzka",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat suski",
+      "powiat_slug": "powiat-suski",
+      "city_slug": "sucha-beskidzka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md"
+    },
+    {
+      "label": "Suwałki",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat suwalski",
+      "powiat_slug": "powiat-suwalski",
+      "city_slug": "suwalki",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/powiat-suwalski/suwalki.md",
+      "note": "seat is the city-county \"Suwałki\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Suwałki",
+      "voivodeship": "podlaskie",
+      "powiat_label": "Suwałki (miasto na prawach powiatu)",
+      "powiat_slug": "suwalki",
+      "city_slug": "suwalki",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podlaskie/suwalki/suwalki.md"
+    },
+    {
+      "label": "Szamotuły",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat szamotulski",
+      "powiat_slug": "powiat-szamotulski",
+      "city_slug": "szamotuly",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md"
+    },
+    {
+      "label": "Szczecin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "Szczecin (miasto na prawach powiatu)",
+      "powiat_slug": "szczecin",
+      "city_slug": "szczecin",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/zachodniopomorskie/szczecin/szczecin.md"
+    },
+    {
+      "label": "Szczecinek",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat szczecinecki",
+      "powiat_slug": "powiat-szczecinecki",
+      "city_slug": "szczecinek",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md"
+    },
+    {
+      "label": "Szczytno",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat szczycieński",
+      "powiat_slug": "powiat-szczycienski",
+      "city_slug": "szczytno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md"
+    },
+    {
+      "label": "Sztum",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat sztumski",
+      "powiat_slug": "powiat-sztumski",
+      "city_slug": "sztum",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/pomorskie/powiat-sztumski/sztum.md"
+    },
+    {
+      "label": "Szydłowiec",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat szydłowiecki",
+      "powiat_slug": "powiat-szydlowiecki",
+      "city_slug": "szydlowiec",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-szydlowiecki/szydlowiec.md"
+    },
+    {
+      "label": "Środa Wielkopolska",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat średzki",
+      "powiat_slug": "powiat-sredzki",
+      "city_slug": "sroda-wielkopolska",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md"
+    },
+    {
+      "label": "Środa Śląska",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat średzki",
+      "powiat_slug": "powiat-sredzki",
+      "city_slug": "sroda-slaska",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-sredzki/sroda-slaska.md"
+    },
+    {
+      "label": "Śrem",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat śremski",
+      "powiat_slug": "powiat-sremski",
+      "city_slug": "srem",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-sremski/srem.md"
+    },
+    {
+      "label": "Świdnik",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat świdnicki",
+      "powiat_slug": "powiat-swidnicki",
+      "city_slug": "swidnik",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-swidnicki/swidnik.md",
+      "note": "seat is the city-county \"Świdnik\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Świdnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat świdnicki",
+      "powiat_slug": "powiat-swidnicki",
+      "city_slug": "swidnica",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md",
+      "note": "seat is the city-county \"Świdnica\" (covered, master status: build)"
+    },
+    {
+      "label": "Świdwin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat świdwiński",
+      "powiat_slug": "powiat-swidwinski",
+      "city_slug": "swidwin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-swidwinski/swidwin.md"
+    },
+    {
+      "label": "Świebodzin",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat świebodziński",
+      "powiat_slug": "powiat-swiebodzinski",
+      "city_slug": "swiebodzin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-swiebodzinski/swiebodzin.md"
+    },
+    {
+      "label": "Świecie",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat świecki",
+      "powiat_slug": "powiat-swiecki",
+      "city_slug": "swiecie",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-swiecki/swiecie.md",
+      "note": "seat is the city-county \"Świecie\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Świętochłowice",
+      "voivodeship": "slaskie",
+      "powiat_label": "Świętochłowice (miasto na prawach powiatu)",
+      "powiat_slug": "swietochlowice",
+      "city_slug": "swietochlowice",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/swietochlowice/swietochlowice.md"
+    },
+    {
+      "label": "Świnoujście",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "Świnoujście (miasto na prawach powiatu)",
+      "powiat_slug": "swinoujscie",
+      "city_slug": "swinoujscie",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md"
+    },
+    {
+      "label": "Tarnobrzeg",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "Tarnobrzeg (miasto na prawach powiatu)",
+      "powiat_slug": "tarnobrzeg",
+      "city_slug": "tarnobrzeg",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md"
+    },
+    {
+      "label": "Tarnobrzeg",
+      "voivodeship": "podkarpackie",
+      "powiat_label": "powiat tarnobrzeski",
+      "powiat_slug": "powiat-tarnobrzeski",
+      "city_slug": "tarnobrzeg",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/podkarpackie/powiat-tarnobrzeski/tarnobrzeg.md",
+      "note": "seat is the city-county \"Tarnobrzeg\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Tarnowskie Góry",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat tarnogórski",
+      "powiat_slug": "powiat-tarnogorski",
+      "city_slug": "tarnowskie-gory",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md",
+      "note": "seat is the city-county \"Tarnowskie Góry\" (covered, master status: built)"
+    },
+    {
+      "label": "Tarnów",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat tarnowski",
+      "powiat_slug": "powiat-tarnowski",
+      "city_slug": "tarnow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-tarnowski/tarnow.md",
+      "note": "seat is the city-county \"Tarnów\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Tarnów",
+      "voivodeship": "malopolskie",
+      "powiat_label": "Tarnów (miasto na prawach powiatu)",
+      "powiat_slug": "tarnow",
+      "city_slug": "tarnow",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/tarnow/tarnow.md"
+    },
+    {
+      "label": "Zakopane",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat tatrzański",
+      "powiat_slug": "powiat-tatrzanski",
+      "city_slug": "zakopane",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-tatrzanski/zakopane.md",
+      "note": "seat is the city-county \"Zakopane\" (covered, master status: build)"
+    },
+    {
+      "label": "Tczew",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat tczewski",
+      "powiat_slug": "powiat-tczewski",
+      "city_slug": "tczew",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/powiat-tczewski/tczew.md",
+      "note": "seat is the city-county \"Tczew\" (covered, master status: built)"
+    },
+    {
+      "label": "Tomaszów Mazowiecki",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat tomaszowski",
+      "powiat_slug": "powiat-tomaszowski",
+      "city_slug": "tomaszow-mazowiecki",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md",
+      "note": "seat is the city-county \"Tomaszów Mazowiecki\" (covered, master status: build)"
+    },
+    {
+      "label": "Tomaszów Lubelski",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat tomaszowski",
+      "powiat_slug": "powiat-tomaszowski",
+      "city_slug": "tomaszow-lubelski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-tomaszowski/tomaszow-lubelski.md"
+    },
+    {
+      "label": "Toruń",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "Toruń (miasto na prawach powiatu)",
+      "powiat_slug": "torun",
+      "city_slug": "torun",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/torun/torun.md"
+    },
+    {
+      "label": "Toruń",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat toruński",
+      "powiat_slug": "powiat-torunski",
+      "city_slug": "torun",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-torunski/torun.md",
+      "note": "seat is the city-county \"Toruń\" (covered, master status: built)"
+    },
+    {
+      "label": "Trzebnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat trzebnicki",
+      "powiat_slug": "powiat-trzebnicki",
+      "city_slug": "trzebnica",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md"
+    },
+    {
+      "label": "Tuchola",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat tucholski",
+      "powiat_slug": "powiat-tucholski",
+      "city_slug": "tuchola",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-tucholski/tuchola.md"
+    },
+    {
+      "label": "Turek",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat turecki",
+      "powiat_slug": "powiat-turecki",
+      "city_slug": "turek",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-turecki/turek.md"
+    },
+    {
+      "label": "Tychy",
+      "voivodeship": "slaskie",
+      "powiat_label": "Tychy (miasto na prawach powiatu)",
+      "powiat_slug": "tychy",
+      "city_slug": "tychy",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/tychy/tychy.md"
+    },
+    {
+      "label": "Wadowice",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat wadowicki",
+      "powiat_slug": "powiat-wadowicki",
+      "city_slug": "wadowice",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/malopolskie/powiat-wadowicki/wadowice.md",
+      "note": "seat is the city-county \"Wadowice\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Wałbrzych",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "Wałbrzych (miasto na prawach powiatu)",
+      "powiat_slug": "walbrzych",
+      "city_slug": "walbrzych",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md"
+    },
+    {
+      "label": "Wałbrzych",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat wałbrzyski",
+      "powiat_slug": "powiat-walbrzyski",
+      "city_slug": "walbrzych",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-walbrzyski/walbrzych.md",
+      "note": "seat is the city-county \"Wałbrzych\" (covered, master status: built)"
+    },
+    {
+      "label": "Wałcz",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_label": "powiat wałecki",
+      "powiat_slug": "powiat-walecki",
+      "city_slug": "walcz",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md"
+    },
+    {
+      "label": "Warszawa",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "Warszawa (miasto na prawach powiatu)",
+      "powiat_slug": "warszawa",
+      "city_slug": "warszawa",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/warszawa/warszawa.md"
+    },
+    {
+      "label": "Ożarów Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat warszawski zachodni",
+      "powiat_slug": "powiat-warszawski-zachodni",
+      "city_slug": "ozarow-mazowiecki",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md"
+    },
+    {
+      "label": "Wąbrzeźno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat wąbrzeski",
+      "powiat_slug": "powiat-wabrzeski",
+      "city_slug": "wabrzezno",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md"
+    },
+    {
+      "label": "Wągrowiec",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat wągrowiecki",
+      "powiat_slug": "powiat-wagrowiecki",
+      "city_slug": "wagrowiec",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-wagrowiecki/wagrowiec.md"
+    },
+    {
+      "label": "Wejherowo",
+      "voivodeship": "pomorskie",
+      "powiat_label": "powiat wejherowski",
+      "powiat_slug": "powiat-wejherowski",
+      "city_slug": "wejherowo",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/pomorskie/powiat-wejherowski/wejherowo.md",
+      "note": "seat is the city-county \"Wejherowo\" (covered, master status: built)"
+    },
+    {
+      "label": "Węgorzewo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_label": "powiat węgorzewski",
+      "powiat_slug": "powiat-wegorzewski",
+      "city_slug": "wegorzewo",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md"
+    },
+    {
+      "label": "Węgrów",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat węgrowski",
+      "powiat_slug": "powiat-wegrowski",
+      "city_slug": "wegrow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md"
+    },
+    {
+      "label": "Wieliczka",
+      "voivodeship": "malopolskie",
+      "powiat_label": "powiat wielicki",
+      "powiat_slug": "powiat-wielicki",
+      "city_slug": "wieliczka",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/malopolskie/powiat-wielicki/wieliczka.md"
+    },
+    {
+      "label": "Wieluń",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat wieluński",
+      "powiat_slug": "powiat-wielunski",
+      "city_slug": "wielun",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-wielunski/wielun.md"
+    },
+    {
+      "label": "Wieruszów",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat wieruszowski",
+      "powiat_slug": "powiat-wieruszowski",
+      "city_slug": "wieruszow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-wieruszowski/wieruszow.md"
+    },
+    {
+      "label": "Włocławek",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "Włocławek (miasto na prawach powiatu)",
+      "powiat_slug": "wloclawek",
+      "city_slug": "wloclawek",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md"
+    },
+    {
+      "label": "Włocławek",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat włocławski",
+      "powiat_slug": "powiat-wloclawski",
+      "city_slug": "wloclawek",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-wloclawski/wloclawek.md",
+      "note": "seat is the city-county \"Włocławek\" (covered, master status: build)"
+    },
+    {
+      "label": "Włodawa",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat włodawski",
+      "powiat_slug": "powiat-wlodawski",
+      "city_slug": "wlodawa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubelskie/powiat-wlodawski/wlodawa.md"
+    },
+    {
+      "label": "Włoszczowa",
+      "voivodeship": "swietokrzyskie",
+      "powiat_label": "powiat włoszczowski",
+      "powiat_slug": "powiat-wloszczowski",
+      "city_slug": "wloszczowa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/swietokrzyskie/powiat-wloszczowski/wloszczowa.md"
+    },
+    {
+      "label": "Wodzisław Śląski",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat wodzisławski",
+      "powiat_slug": "powiat-wodzislawski",
+      "city_slug": "wodzislaw-slaski",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md"
+    },
+    {
+      "label": "Wolsztyn",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat wolsztyński",
+      "powiat_slug": "powiat-wolsztynski",
+      "city_slug": "wolsztyn",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-wolsztynski/wolsztyn.md"
+    },
+    {
+      "label": "Wołomin",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat wołomiński",
+      "powiat_slug": "powiat-wolominski",
+      "city_slug": "wolomin",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-wolominski/wolomin.md",
+      "note": "seat is the city-county \"Wołomin\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Wołów",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat wołowski",
+      "powiat_slug": "powiat-wolowski",
+      "city_slug": "wolow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md"
+    },
+    {
+      "label": "Wrocław",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "Wrocław (miasto na prawach powiatu)",
+      "powiat_slug": "wroclaw",
+      "city_slug": "wroclaw",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md"
+    },
+    {
+      "label": "Wrocław",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat wrocławski",
+      "powiat_slug": "powiat-wroclawski",
+      "city_slug": "wroclaw",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/dolnoslaskie/powiat-wroclawski/wroclaw.md",
+      "note": "seat is the city-county \"Wrocław\" (covered, master status: build)"
+    },
+    {
+      "label": "Września",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat wrzesiński",
+      "powiat_slug": "powiat-wrzesinski",
+      "city_slug": "wrzesnia",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/wielkopolskie/powiat-wrzesinski/wrzesnia.md",
+      "note": "seat is the city-county \"Września\" (covered, master status: build)"
+    },
+    {
+      "label": "Wschowa",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat wschowski",
+      "powiat_slug": "powiat-wschowski",
+      "city_slug": "wschowa",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-wschowski/wschowa.md"
+    },
+    {
+      "label": "Wysokie Mazowieckie",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat wysokomazowiecki",
+      "powiat_slug": "powiat-wysokomazowiecki",
+      "city_slug": "wysokie-mazowieckie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-wysokomazowiecki/wysokie-mazowieckie.md"
+    },
+    {
+      "label": "Wyszków",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat wyszkowski",
+      "powiat_slug": "powiat-wyszkowski",
+      "city_slug": "wyszkow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-wyszkowski/wyszkow.md"
+    },
+    {
+      "label": "Zabrze",
+      "voivodeship": "slaskie",
+      "powiat_label": "Zabrze (miasto na prawach powiatu)",
+      "powiat_slug": "zabrze",
+      "city_slug": "zabrze",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/zabrze/zabrze.md"
+    },
+    {
+      "label": "Zambrów",
+      "voivodeship": "podlaskie",
+      "powiat_label": "powiat zambrowski",
+      "powiat_slug": "powiat-zambrowski",
+      "city_slug": "zambrow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/podlaskie/powiat-zambrowski/zambrow.md"
+    },
+    {
+      "label": "Zamość",
+      "voivodeship": "lubelskie",
+      "powiat_label": "powiat zamojski",
+      "powiat_slug": "powiat-zamojski",
+      "city_slug": "zamosc",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/powiat-zamojski/zamosc.md",
+      "note": "seat is the city-county \"Zamość\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Zamość",
+      "voivodeship": "lubelskie",
+      "powiat_label": "Zamość (miasto na prawach powiatu)",
+      "powiat_slug": "zamosc",
+      "city_slug": "zamosc",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lubelskie/zamosc/zamosc.md"
+    },
+    {
+      "label": "Zawiercie",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat zawierciański",
+      "powiat_slug": "powiat-zawiercianski",
+      "city_slug": "zawiercie",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/slaskie/powiat-zawiercianski/zawiercie.md",
+      "note": "seat is the city-county \"Zawiercie\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Ząbkowice Śląskie",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat ząbkowicki",
+      "powiat_slug": "powiat-zabkowicki",
+      "city_slug": "zabkowice-slaskie",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md"
+    },
+    {
+      "label": "Zduńska Wola",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat zduńskowolski",
+      "powiat_slug": "powiat-zdunskowolski",
+      "city_slug": "zdunska-wola",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md"
+    },
+    {
+      "label": "Zgierz",
+      "voivodeship": "lodzkie",
+      "powiat_label": "powiat zgierski",
+      "powiat_slug": "powiat-zgierski",
+      "city_slug": "zgierz",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lodzkie/powiat-zgierski/zgierz.md",
+      "note": "seat is the city-county \"Zgierz\" (covered, master status: build)"
+    },
+    {
+      "label": "Zgorzelec",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat zgorzelecki",
+      "powiat_slug": "powiat-zgorzelecki",
+      "city_slug": "zgorzelec",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md"
+    },
+    {
+      "label": "Zielona Góra",
+      "voivodeship": "lubuskie",
+      "powiat_label": "Zielona Góra (miasto na prawach powiatu)",
+      "powiat_slug": "zielona-gora",
+      "city_slug": "zielona-gora",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/lubuskie/zielona-gora/zielona-gora.md"
+    },
+    {
+      "label": "Zielona Góra",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat zielonogórski",
+      "powiat_slug": "powiat-zielonogorski",
+      "city_slug": "zielona-gora",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/lubuskie/powiat-zielonogorski/zielona-gora.md",
+      "note": "seat is the city-county \"Zielona Góra\" (covered, master status: no-build)"
+    },
+    {
+      "label": "Złotoryja",
+      "voivodeship": "dolnoslaskie",
+      "powiat_label": "powiat złotoryjski",
+      "powiat_slug": "powiat-zlotoryjski",
+      "city_slug": "zlotoryja",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md"
+    },
+    {
+      "label": "Złotów",
+      "voivodeship": "wielkopolskie",
+      "powiat_label": "powiat złotowski",
+      "powiat_slug": "powiat-zlotowski",
+      "city_slug": "zlotow",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md"
+    },
+    {
+      "label": "Zwoleń",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat zwoleński",
+      "powiat_slug": "powiat-zwolenski",
+      "city_slug": "zwolen",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-zwolenski/zwolen.md"
+    },
+    {
+      "label": "Żagań",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat żagański",
+      "powiat_slug": "powiat-zaganski",
+      "city_slug": "zagan",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-zaganski/zagan.md"
+    },
+    {
+      "label": "Żary",
+      "voivodeship": "lubuskie",
+      "powiat_label": "powiat żarski",
+      "powiat_slug": "powiat-zarski",
+      "city_slug": "zary",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/lubuskie/powiat-zarski/zary.md"
+    },
+    {
+      "label": "Żnin",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_label": "powiat żniński",
+      "powiat_slug": "powiat-zninski",
+      "city_slug": "znin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md"
+    },
+    {
+      "label": "Żory",
+      "voivodeship": "slaskie",
+      "powiat_label": "Żory (miasto na prawach powiatu)",
+      "powiat_slug": "zory",
+      "city_slug": "zory",
+      "tier": "city-county",
+      "status": "done",
+      "spike_path": "spikes/slaskie/zory/zory.md"
+    },
+    {
+      "label": "Żuromin",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat żuromiński",
+      "powiat_slug": "powiat-zurominski",
+      "city_slug": "zuromin",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/mazowieckie/powiat-zurominski/zuromin.md"
+    },
+    {
+      "label": "Żyrardów",
+      "voivodeship": "mazowieckie",
+      "powiat_label": "powiat żyrardowski",
+      "powiat_slug": "powiat-zyrardowski",
+      "city_slug": "zyrardow",
+      "tier": "powiat-seat",
+      "status": "done",
+      "spike_path": "spikes/mazowieckie/powiat-zyrardowski/zyrardow.md",
+      "note": "seat is the city-county \"Żyrardów\" (covered, master status: build)"
+    },
+    {
+      "label": "Żywiec",
+      "voivodeship": "slaskie",
+      "powiat_label": "powiat żywiecki",
+      "powiat_slug": "powiat-zywiecki",
+      "city_slug": "zywiec",
+      "tier": "powiat-seat",
+      "status": "pending",
+      "spike_path": "spikes/slaskie/powiat-zywiecki/zywiec.md"
+    }
+  ]
+}

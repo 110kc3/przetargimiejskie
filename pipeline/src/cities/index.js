@@ -46,6 +46,10 @@ import przemysl from './przemysl/index.js';
 import chelm from './chelm/index.js';
 import swinoujscie from './swinoujscie/index.js';
 import warszawa from './warszawa/index.js';
+import skarzysko from './skarzysko-kamienna/index.js';
+import gizycko from './gizycko/index.js';
+import nowaSol from './nowa-sol/index.js';
+import augustow from './augustow/index.js';
 
 export const cities = [
   gliwice,
@@ -90,6 +94,10 @@ export const cities = [
   chelm,
   swinoujscie,
   warszawa,
+  skarzysko,
+  gizycko,
+  nowaSol,
+  augustow,
 ];
 
 /** @param {string} id @returns {object|null} */
