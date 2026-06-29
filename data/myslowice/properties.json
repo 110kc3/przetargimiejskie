@@ -146,6 +146,39 @@
       "area_m2": 26.57
     },
     {
+      "key": "fryderyka chopina|15|3",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "15",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198000,
+          "outcome": "archived",
+          "area_m2": 44.07,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198000,
+          "outcome": "active",
+          "area_m2": 44.07,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.07
+    },
+    {
       "key": "brzezinskiej|47|2",
       "street": "Brzezińskiej",
       "street_norm": "brzezinskiej",
@@ -1009,50 +1042,6 @@
         }
       ],
       "area_m2": 103.07
-    },
-    {
-      "key": "fryderyka chopina|15|3",
-      "street": "Fryderyka Chopina",
-      "street_norm": "fryderyka chopina",
-      "building": "15",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 198000,
-          "outcome": "archived",
-          "area_m2": 44.07,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-pr",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-07-21",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 198000,
-          "outcome": "active",
-          "area_m2": 44.07,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": null,
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 44.07,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 44.07
     },
     {
       "key": "placu wolnosci|7|",
