@@ -51,6 +51,27 @@ export function listingFingerprint(l) {
   return prefix + '|' + (l.detail_url || ('k:' + (l.kind || '')));
 }
 
+/** The stable source-document identity of a listing (the announcement/result
+ * page or attachment it was parsed from), or null if unknown. */
+export function listingSource(l) {
+  return l.detail_url || l.source_pdf || l.source_url || null;
+}
+
+/** Collapse "null-twin" duplicates within one property's listings: drop a
+ * DATELESS listing when a DATED listing parsed from the SAME source document
+ * exists. The dateless row is a superseded pre-date version of the same event
+ * (e.g. after a parser fix learned the auction date); it has a different
+ * fingerprint (detail_url vs date) so the plain union keeps both. Listings with
+ * no source id, or with no dated twin from the same source, are untouched. */
+export function dropSupersededDateless(listings) {
+  const datedSources = new Set(
+    (listings || []).filter((l) => l.date && listingSource(l)).map((l) => listingSource(l)),
+  );
+  return (listings || []).filter(
+    (l) => !(!l.date && listingSource(l) && datedSources.has(listingSource(l))),
+  );
+}
+
 /**
  * Reclassify past-dated 'active' listings as 'archived'. buildCityData does
  * this for FRESHLY-crawled listings only — a listing the source removed before
@@ -120,6 +141,10 @@ export function mergeProperties(previous, fresh) {
   // Count what survived only because of the merge (present in old, not fresh).
   const freshKeys = new Set((fresh || []).map((p) => p.key));
   for (const p of byKey.values()) if (!freshKeys.has(p.key)) keptProperties++;
+
+  // Collapse null-twin duplicates: a dateless row superseded by a dated row from
+  // the same source document (e.g. a parser fix that later learned the date).
+  for (const p of byKey.values()) p.listings = dropSupersededDateless(p.listings);
 
   const properties = [...byKey.values()].sort((a, b) => {
     const la = a.listings[a.listings.length - 1]?.date || '0';

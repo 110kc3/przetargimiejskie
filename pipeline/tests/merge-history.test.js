@@ -100,3 +100,24 @@ test('round derivation does not duplicate: null-round old + derived-round fresh 
   assert.equal(byDate['2025-12-08'], 1, 'fresh derived round wins');
   assert.equal(byDate['2026-01-26'], 2);
 });
+
+test('null-twin: dateless row superseded by a dated row from the same source is dropped', () => {
+  // Regression (Warszawa AMW): a pre-fix run stored the listing dateless +
+  // priceless; the fixed parser later yields the date + price from the SAME PDF.
+  // The dateless row (fingerprinted by detail_url) and the dated row
+  // (fingerprinted by date) must not both survive.
+  const url = 'https://eto.um.warszawa.pl/announcement/attachment/154506/256690';
+  const prev = [prop('smocza|4|13', [L(null, 'active', { detail_url: url, price: null, area: 19.6 })])];
+  const fresh = [prop('smocza|4|13', [L('2026-07-24', 'active', { detail_url: url, price: 340000, area: 19.6 })])];
+  const { properties } = mergeProperties(prev, fresh);
+  assert.equal(properties[0].listings.length, 1, 'null-twin collapsed to one row');
+  assert.equal(properties[0].listings[0].date, '2026-07-24', 'the dated row survives');
+  assert.equal(properties[0].listings[0].starting_price_pln, 340000);
+});
+
+test('null-twin guard: a dateless row with no dated twin from the same source is kept', () => {
+  const prev = [prop('a|1|2', [L(null, 'active', { detail_url: 'u1' })])];
+  const fresh = [prop('a|1|2', [L('2026-01-01', 'active', { detail_url: 'u2' })])]; // different source
+  const { properties } = mergeProperties(prev, fresh);
+  assert.equal(properties[0].listings.length, 2, 'distinct sources both kept');
+});

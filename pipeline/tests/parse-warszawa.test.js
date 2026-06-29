@@ -160,6 +160,9 @@ test('isResultNoticeTitle: does not flag normal auction titles', () => {
 // ---------------------------------------------------------------------------
 
 // Real HTML structure from srodmiescie.um.warszawa.pl (groundtruthed 2026-06-29)
+// NOTE: older Liferay theme had class on the <article> tag; current live pages put
+// class="journal-content-article" on an outer <div>, with a bare <article> inside.
+// Both variants must be handled.
 const HTML_MARSZALKOWSKA = `<html><body>
 <article class="entry-full-content journal-content-article" data-analytics-asset-id="160944475">
 08.06.2026 Zarząd Dzielnicy Śródmieście m.st. Warszawy informuje, że na Elektronicznej Tablicy
@@ -167,6 +170,25 @@ Ogłoszeń m.st. Warszawy został zamieszczony na okres 21 dni wykaz lokalu mies
 położonego przy ul.&nbsp;Marszałkowskiej 81, przeznaczonego&nbsp;do sprzedaży w drodze przetargu
 ustnego nieograniczonego wraz z udziałem w prawie własności gruntu.
 </article>
+</body></html>`;
+
+// Real live HTML structure fetched 2026-06-29: class is on the outer <div>, not <article>.
+// The inner <div class="article-description"> holds a bare <p> with the article text.
+const HTML_MARSZALKOWSKA_LIVE = `<html><body>
+<div class="journal-content-article " data-analytics-asset-id="160944475"
+     data-analytics-asset-title="Marszałkowska 81 m 19 - lokal mieszkalny...">
+  <article id="p_p_id_AssetPublisherPortlet_INSTANCE_2tAD6fyoOv9C_160944475_">
+    <div class="article-date"><time datetime="2026-06-08T06:00:00Z">08.06.2026</time></div>
+    <div class="article-description" data-ddmanchor="marszalkowska-81-m-19-...">
+      <div class=""> </div>
+      <p>Zarząd Dzielnicy Śródmieście m.st. Warszawy informuje, że na Elektronicznej Tablicy
+Ogłoszeń m.st. Warszawy został zamieszczony na okres 21 dni <a href="/WYKAZ.docx">wykaz
+lokalu mieszkalnego nr 19&nbsp;położonego przy ul.&nbsp;Marszałkowskiej 81, </a>przeznaczonego
+do sprzedaży w drodze przetargu ustnego nieograniczonego wraz z udziałem w prawie własności gruntu.</p>
+      <p>Podstawa prawna art. 35 ust. 1 i 2.</p>
+    </div>
+  </article>
+</div>
 </body></html>`;
 
 // Real Noakowski article (groundtruthed 2026-06-29) — has two odbędzie się clauses:
@@ -182,9 +204,16 @@ Przetarg na sprzedaż lokalu mieszkalnego nr 18 odbędzie się w dniu 9 lipca 20
 </article>
 </body></html>`;
 
-test('articleTextFromHtml: extracts Liferay journal-content-article text', () => {
+test('articleTextFromHtml: extracts Liferay journal-content-article text (class on article)', () => {
   const text = articleTextFromHtml(HTML_MARSZALKOWSKA);
   assert.ok(text.includes('Marszałkowskiej 81'), 'must include street name');
+  assert.ok(text.includes('nr 19'), 'must include flat number');
+  assert.ok(!text.includes('<'), 'must be stripped of HTML');
+});
+
+test('articleTextFromHtml: live page — class on outer div, article nested inside (BUG 2 fix)', () => {
+  const text = articleTextFromHtml(HTML_MARSZALKOWSKA_LIVE);
+  assert.ok(text.includes('Marszałkowskiej 81'), `must include street; got: ${text.slice(0, 120)}`);
   assert.ok(text.includes('nr 19'), 'must include flat number');
   assert.ok(!text.includes('<'), 'must be stripped of HTML');
 });
@@ -266,6 +295,41 @@ test('parseDetailText: round from "drugi przetarg"', () => {
 test('parseDetailText: numeric auction date 15.09.2026', () => {
   const r = parseDetailText(TEXT_WITH_EXTRAS);
   assert.equal(r.auction_date, '2026-09-15');
+});
+
+// Form B: ETO list title as input — no article body fetched (BUG 2 fix)
+test('parseDetailText: ETO title "Marszałkowska 81 m 19 -" → address + apt (Form B)', () => {
+  const r = parseDetailText(TITLE_MARSZALKOWSKA_19);
+  assert.ok(r.address, 'address must be parsed from title');
+  assert.ok(/marszalk/i.test(r.address.street_norm),
+    `street_norm: ${r.address.street_norm}`);
+  assert.equal(r.address.building, '81');
+  assert.equal(r.address.apt, '19');
+  assert.ok(r.address_raw, 'address_raw must be set');
+  assert.ok(r.address_raw.includes('81'));
+  assert.ok(r.address_raw.includes('19'));
+});
+
+test('parseDetailText: ETO title "Marszałkowska 81 m 11 -" → apt 11 (Form B)', () => {
+  const r = parseDetailText(TITLE_MARSZALKOWSKA_11);
+  assert.ok(r.address, 'address must be parsed');
+  assert.equal(r.address.building, '81');
+  assert.equal(r.address.apt, '11');
+});
+
+// Form C: AMW title "…, ul. Grójecka 66 w Dzielnicy…" (BUG 1 address fallback)
+test('parseDetailText: AMW title Grójecka 66 → street + building (Form C)', () => {
+  const title = 'Agencja Mienia Wojskowego, Wykaz ws. sprzedaży w trybie przetargu ustnego ' +
+    'nieograniczonego samodzielnego lokalu mieszkalnego nr 78, ul. Grójecka 66 ' +
+    'w Dzielnicy Ochota w Warszawie, działka ew. nr 43 obręb 2-02-07';
+  const r = parseDetailText(title);
+  assert.ok(r.address, 'address must be parsed');
+  assert.ok(/grojeck/i.test(r.address.street_norm),
+    `street_norm: ${r.address.street_norm}`);
+  assert.equal(r.address.building, '66');
+  assert.equal(r.apt, '78');
+  assert.ok(r.address_raw.includes('66'));
+  assert.ok(r.address_raw.includes('78'));
 });
 
 // ---------------------------------------------------------------------------
@@ -606,4 +670,76 @@ test('parseAmwPdfText: null/empty returns all-null', () => {
   assert.equal(r.auction_date, null);
   assert.equal(r.address, null);
   assert.equal(r.apt, null);
+});
+
+// ---------------------------------------------------------------------------
+// parseAmwPdfText — wykaz-format PDF (BUG 1 fix: price row "6 Cena NNN zl")
+// Groundtruthed on attachment 258223 (Grocjecka 66 m 78, wykaz 2026-06-25).
+// This is a pre-auction WYKAZ document: no "Przetarg odbedzie sie" line and
+// price row is "6 Cena 536 000,00 zl" (no "wywoławcza" / "netto" nearby).
+// ---------------------------------------------------------------------------
+
+const AMW_PDF_OCR_GROJECKA = [
+  'DYREKTOR ODDZIALU REGIONALNEGO',
+  'AGENCJI MIENIA WOJSKOWEGO',
+  'W WARSZAWIE',
+  '',
+  'podaje do publicznej wiadomosci wykaz nieruchomosci przeznaczonej do sprzedazy w trybie przetargu',
+  '',
+  'ustnego nieograniczonego.',
+  '',
+  'Warszawa, ul. Grocjecka 66 m. 78',
+  '',
+  'Samodzielny lokal mieszkalny nr 78 jest niewyodrebniony i nie posiada',
+  '',
+  'Powierzchnia lokalu',
+  '',
+  '26,02 m?',
+  '',
+  '=PR"PERETTE Lokal mieszkalny nr 78 o powierzchni 26,02 m, usytuowany jest na',
+  '',
+  'IV pietrze budynku i sklada sie z 1 pokoju, kuchni, lazienki z wc oraz przedpokoju.',
+  '',
+  'Lokal mieszkalny posiada swiadectwo charakterystyki energetycznej',
+  'nr SCHE/12531/510/2025.',
+  '',
+  '6 Cena 536 000,00 zl',
+  'nieruchomosci + obowiazujacy wg stanu na dzien sprzedazy, podatek VAT.',
+  '7 Terminy Cena nabycia platna nie pozniej niz na 3 dni przed podpisaniem umowy',
+  'wnoszenia oplat  |w formie aktu notarialnego.',
+  '8 Przeznaczenie Sprzedaz w formie przetargu ustnego nieograniczonego.',
+].join('\n');
+
+test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — starting price 536 000 (BUG 1 fix)', () => {
+  const r = parseAmwPdfText(AMW_PDF_OCR_GROJECKA);
+  assert.equal(r.starting_price_pln, 536000,
+    'starting_price_pln should be 536000 (wykaz "6 Cena" row), got ' + r.starting_price_pln);
+});
+
+test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — area 26.02', () => {
+  const r = parseAmwPdfText(AMW_PDF_OCR_GROJECKA);
+  assert.equal(r.area_m2, 26.02, 'area_m2 should be 26.02, got ' + r.area_m2);
+});
+
+test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — auction_date null (no przetarg date)', () => {
+  const r = parseAmwPdfText(AMW_PDF_OCR_GROJECKA);
+  assert.equal(r.auction_date, null,
+    'wykaz doc has no "Przetarg odbedzie sie" line — auction_date must be null');
+});
+
+test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — apt 78', () => {
+  const r = parseAmwPdfText(AMW_PDF_OCR_GROJECKA);
+  assert.equal(r.apt, '78', 'apt should be 78, got ' + r.apt);
+});
+
+test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — address Grocjecka building 66', () => {
+  const r = parseAmwPdfText(AMW_PDF_OCR_GROJECKA);
+  assert.ok(r.address, 'address must be parsed');
+  // ASCII fixture uses "Grocjecka" (OCR transliteration of Grójecka);
+  // street_norm = "grocjecka". Real cache has "Grójecka" → "grojecka".
+  // Match the common root "gr" + "jecka" to cover both variants.
+  assert.ok(/gr[oo]cjecka|gr[oo]jecka/i.test(r.address.street_norm),
+    'street_norm should match Grocjecka/Grojecka, got: ' + r.address?.street_norm);
+  assert.equal(r.address.building, '66');
+  assert.equal(r.address.apt, '78');
 });

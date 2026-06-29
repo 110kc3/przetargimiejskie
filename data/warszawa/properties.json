@@ -3,29 +3,6 @@
   "city": "warszawa",
   "properties": [
     {
-      "key": "smocza|4|13",
-      "street": "Smocza",
-      "street_norm": "smocza",
-      "building": "4",
-      "apt": "13",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 19.6,
-          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/154506/256690",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "source": "amw"
-        }
-      ],
-      "area_m2": 19.6
-    },
-    {
       "key": "gen w andersa|20|62",
       "street": "Gen. W. Andersa",
       "street_norm": "gen w andersa",
@@ -34,10 +11,10 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": null,
+          "date": "2026-08-10",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 466000,
           "outcome": "active",
           "area_m2": 20.76,
           "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/153692/255542",
@@ -57,10 +34,10 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": null,
+          "date": "2026-08-03",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 560000,
           "outcome": "active",
           "area_m2": 37.03,
           "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/153350/255012",
@@ -70,6 +47,206 @@
         }
       ],
       "area_m2": 37.03
+    },
+    {
+      "key": "smocza|4|13",
+      "street": "Smocza",
+      "street_norm": "smocza",
+      "building": "4",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "active",
+          "area_m2": 19.6,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/154506/256690",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 19.6
+    },
+    {
+      "key": "s noakowskiego|4|17",
+      "street": "S. Noakowskiego",
+      "street_norm": "s noakowskiego",
+      "building": "4",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/ul-noakowskiego-4-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalnych-nr-17-i-18",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "grojecka|66|78",
+      "street": "Grójecka",
+      "street_norm": "grojecka",
+      "building": "66",
+      "apt": "78",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 536000,
+          "outcome": "active",
+          "area_m2": 26.02,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/155716/258223",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 26.02
+    },
+    {
+      "key": "marszalkowskiej|81|19",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-19-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "marszalkowskiej|81|16",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-16-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "marszalkowskiej|81|15",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-15-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "marszalkowskiej|81|14",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-14-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "marszalkowskiej|81|12",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-12-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "marszalkowskiej|81|11",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-11-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
     }
   ]
 }
