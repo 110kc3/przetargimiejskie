@@ -109,8 +109,11 @@ jobs:
             echo "No changes."
           else
             git commit -m "data: backfill ${{ matrix.city }} $(date -u +%Y-%m-%d)"
+            # -X theirs: our fresh crawl wins a meta.json (generated_at) conflict;
+            # abort a failed rebase so "unmerged files" can't break every retry.
             for i in 1 2 3 4 5 6; do
-              git pull --rebase origin main && git push && exit 0
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
               echo "push attempt $i failed; retrying ..."
               sleep $(( (RANDOM % 8) + 2 ))
             done
@@ -148,11 +151,12 @@ jobs:
             echo "No changes."
           else
             git commit -m "data: rebuild index $(date -u +%Y-%m-%d)"
-            for i in 1 2 3; do
-              git pull --rebase origin main && git push && exit 0
+            for i in 1 2 3 4 5; do
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
               echo "push attempt $i failed; retrying ..."
               sleep 3
             done
-            echo "could not push index after 3 attempts" >&2
+            echo "could not push index after 5 attempts" >&2
             exit 1
           fi

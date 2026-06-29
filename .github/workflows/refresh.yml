@@ -135,10 +135,16 @@ jobs:
             echo "No changes."
           else
             git commit -m "data: refresh ${{ matrix.city }} $(date -u +%Y-%m-%d)"
-            # Sibling matrix jobs push concurrently; rebase-retry until ours
-            # lands. Paths are disjoint per city, so the rebase never conflicts.
+            # Sibling matrix jobs push concurrently; rebase-retry until ours lands.
+            # -X theirs: if our own data/<city>/meta.json (its generated_at line)
+            # conflicts with a version already on origin (a prior run, a manual
+            # push), our fresh crawl wins — we only ever touch our own city + the
+            # shared caches (content-addressed, so additions never truly conflict).
+            # On any failure, abort the half-done rebase so the next retry starts
+            # from a CLEAN tree — otherwise "unmerged files" breaks every retry.
             for i in 1 2 3 4 5 6; do
-              git pull --rebase origin main && git push && exit 0
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
               echo "push attempt $i failed; retrying ..."
               sleep $(( (RANDOM % 8) + 2 ))
             done
@@ -177,11 +183,12 @@ jobs:
             echo "No changes."
           else
             git commit -m "data: rebuild index $(date -u +%Y-%m-%d)"
-            for i in 1 2 3; do
-              git pull --rebase origin main && git push && exit 0
+            for i in 1 2 3 4 5; do
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
               echo "push attempt $i failed; retrying ..."
               sleep 3
             done
-            echo "could not push index after 3 attempts" >&2
+            echo "could not push index after 5 attempts" >&2
             exit 1
           fi
