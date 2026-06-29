@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "city": "warszawa",
+  "properties": [
+    {
+      "key": "smocza|4|13",
+      "street": "Smocza",
+      "street_norm": "smocza",
+      "building": "4",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 19.6,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/154506/256690",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 19.6
+    },
+    {
+      "key": "gen w andersa|20|62",
+      "street": "Gen. W. Andersa",
+      "street_norm": "gen w andersa",
+      "building": "20",
+      "apt": "62",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 20.76,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/153692/255542",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 20.76
+    },
+    {
+      "key": "smocza|4|38",
+      "street": "Smocza",
+      "street_norm": "smocza",
+      "building": "4",
+      "apt": "38",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 37.03,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/153350/255012",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 37.03
+    }
+  ]
+}
