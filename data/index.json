@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-28T20:02:19.480Z",
+  "generated_at": "2026-06-29T07:07:50.989Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 16,
-      "active_listings": 51,
+      "active_listings": 79,
       "active_auctions": 1,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 83
+      "land_plots": 99
     },
     {
       "id": "trzebinia",
@@ -231,8 +231,8 @@
       "host": "um.bip.legnica.eu",
       "unique_properties": 8,
       "active_listings": 8,
-      "active_auctions": 8,
-      "archived_auctions": 0,
+      "active_auctions": 7,
+      "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -531,6 +531,19 @@
       "unique_properties": 0,
       "active_listings": 0,
       "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "warszawa",
+      "label": "Warszawa",
+      "voivodeship": "mazowieckie",
+      "authority": "Miasto Stołeczne Warszawa",
+      "host": "eto.um.warszawa.pl",
+      "unique_properties": 3,
+      "active_listings": 11,
+      "active_auctions": 3,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
