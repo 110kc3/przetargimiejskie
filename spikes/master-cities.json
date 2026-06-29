@@ -1,6 +1,6 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-06-28T18:09:11.646Z",
+  "generated_at": "2026-06-29T06:29:40.852Z",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
   "total": 112,
   "cities": [
@@ -717,13 +717,13 @@
       "powiat_slug": "warszawa",
       "powiat_label": "Warszawa (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/warszawa/warszawa.md",
       "spike": {
         "wave": "A",
         "effort": "High",
         "confidence": "LIVE",
-        "note": "ETO eto.um.warszawa.pl active flat auctions; per-dzielnica result notices; DOCX parsing; decentralised (~18 dzielnice)"
+        "note": "BUILT — pipeline/src/cities/warszawa/ + parse-warszawa.test.js (57 green). Central ETO (eto.um.warszawa.pl/category/165) aggregates ALL 18 dzielnice flat auctions — 15 dzielnice spot-checked, NO parallel stream. AMW military-stock PDFs parsed via OCR (parseAmwPdfText)."
       }
     },
     {

@@ -210,3 +210,96 @@ Kraków (shared portal architecture) to reuse lessons learned.
 - https://bielany.um.warszawa.pl/nieruchomosci-na-sprzedaz — Bielany dzielnica (LIVE)
 - https://mokotow.um.warszawa.pl/przetargi — Mokotów dzielnica (LIVE)
 - https://bip.warszawa.pl/web/srodmiescie/-/srodmiescie-informacja-o-wyniku-... — result notice (TIMED OUT, not verified)
+
+---
+
+## District topology (resolved 2026-06-29)
+
+**FINDING: ETO `/category/165/announcement` is the sole required scrape target for flat auctions across all 18 dzielnice.**
+
+### Evidence (live fetches 2026-06-29)
+
+| Source | Observation |
+|---|---|
+| ETO `/category/165/` — 11 active items | 6 Śródmieście flat announcements (Marszałkowska 81 m 11–19, Noakowskiego 4 nr 17 & 18) + 4 AMW items + 1 Śródmieście Noakowski. **All city-owned flat auctions cross-posted here.** |
+| `srodmiescie.um.warszawa.pl/przetargi-na-sprzedaz` | Lists same items already on ETO. No additional flat auctions found. |
+| `wola.um.warszawa.pl/-/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-okopowa-78` | Article text states: *"zostało podane do publicznej wiadomości ogłoszenie … na ETO eto.um.warszawa.pl"* — confirms Wola submits directly to ETO. |
+| `mokotow.um.warszawa.pl/przetargi` | No active flat auction items — only links to BIP search and ZMSP. |
+| Praga-Południe | HTTP 000 (site unreachable on probe). |
+
+### ETO item anatomy (confirmed)
+
+Two item types on the same ETO list:
+
+1. **City-owned items** (href → `<dzielnica>.um.warszawa.pl/-/<slug>`): full detail in dzielnica article HTML (no DOCX in current samples). Address, flat number, auction date extractable from article text.
+2. **AMW items** (href → `eto.um.warszawa.pl/category/165/announcement/<id>`): PDF attachment at `/announcement/attachment/<eto-id>/<att-id>`. PDF not parsed in v1.
+
+### DOCX revision (spike correction)
+
+The May 2026 spike noted DOCX attachments. Live fetches 2026-06-29 show **no DOCX** on current Śródmieście announcements — only plain HTML article text. AMW items carry PDFs on the ETO detail page (not CDN DOCX). The adapter is implemented as `source:'html'` accordingly.
+
+### Per-dzielnica sources — TODO for first CI run
+
+The following dzielnice were not probed (or returned errors) on 2026-06-29. Confirm on first live CI refresh that they do not run parallel flat-auction streams outside ETO:
+
+| Dzielnica | URL to check | Status |
+|---|---|---|
+| Żoliborz | `zoliborz.um.warszawa.pl/nieruchomosci-na-sprzedaz` | Not probed |
+| Bielany | `bielany.um.warszawa.pl/nieruchomosci-na-sprzedaz` | Spiked 2026-06-27 (redirects to ETO) |
+| Praga-Południe | TBD | HTTP 000 on 2026-06-29 |
+| Praga-Północ | TBD | Not probed |
+| Wilanów | TBD | Not probed |
+| [13 others] | TBD | Not probed |
+
+### Adapter built
+
+- `pipeline/src/cities/warszawa/{config,crawl,parse,index}.js` — 2026-06-29
+- `pipeline/tests/parse-warszawa.test.js` — 44 tests, 0 failures
+- Source: ETO `/category/165/announcement` (single non-paginated page, all dzielnice)
+- Result notices: captured via `crawlResultDocs()` while active (≤8-day windows → daily CI required)
+- AMW items: captured from ETO list; PDF not parsed in v1
+- TERYT `146501_1` provisional — confirm on first geoportal run
+
+---
+
+## Per-dzielnica spot-check (2026-06-29)
+
+**Goal:** Verify that none of the 15 remaining dzielnice (i.e. all except Śródmieście,
+Mokotów, Wola, and Żoliborz, which were already checked) runs a flat-sale auction
+stream *outside* ETO.
+
+**Method:** Direct HTTP fetch of `<dzielnica>.um.warszawa.pl/nieruchomosci-na-sprzedaz`
+(or correct canonical URL where domain differs), checking HTML for `lokal mieszkalny`,
+`przetarg ustny`, and `eto.um.warszawa.pl` references. Web search used for unreachable
+domains to find correct canonical URL.
+
+### Results
+
+| Dzielnica | Canonical URL checked | Result |
+|---|---|---|
+| Bemowo | `bemowo.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content in body. ETO-complete. |
+| Białołęka | `bialoleka.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Bielany | `bielany.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced + `przetarg ustny` found — for *nieruchomość gruntowa niezabudowana* (land), not a flat. ETO-complete for flats. |
+| Ochota | `ochota.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Praga-Południe | `pragapld.um.warszawa.pl/nieruchomosci-na-sprzedaz` | `przetarg ustny nieograniczony` found — for *nieruchomość zabudowana* at ul. Obrońców 13 (land+building), not a flat. No ETO cross-post on this page, but the item type is out of scope. ETO-complete for flats. |
+| Praga-Północ | `pragapn.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no `lokal mieszkalny` or `przetarg ustny`. ETO-complete. |
+| Rembertów | `rembertow.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Targówek | `targowek.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Ursus | `ursus.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Ursynów | `ursynow.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Wawer | `wawer.um.warszawa.pl/nieruchomosci-na-sprzedaz` | Page has "Nieruchomości zabudowane" subpage only; `przetarg`/`lokal mieszkalny` false-positive from "Inicjatywa Lokalna" nav item. No flat auction content. ETO-complete. |
+| Wesoła | `wesola.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Wilanów | `wilanow.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Włochy | `wlochy.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content. ETO-complete. |
+| Żoliborz | `zoliborz.um.warszawa.pl/nieruchomosci-na-sprzedaz` | ETO referenced, no flat auction content beyond what ETO shows. ETO-complete. |
+
+### Conclusion
+
+**No parallel flat-auction stream found outside ETO across all 15 checked dzielnice.**
+All districts either (a) reference ETO explicitly, or (b) carry only land/building
+auctions outside scope. ETO `/category/165/announcement` remains the sole required
+scrape target for *lokal mieszkalny* auctions city-wide.
+
+The "TODO for first CI run" note in the District topology section above is now
+resolved — all 18 dzielnice are confirmed ETO-complete for flat auctions as of
+2026-06-29.

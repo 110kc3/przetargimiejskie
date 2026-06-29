@@ -45,6 +45,7 @@ import cieszyn from './cieszyn/index.js';
 import przemysl from './przemysl/index.js';
 import chelm from './chelm/index.js';
 import swinoujscie from './swinoujscie/index.js';
+import warszawa from './warszawa/index.js';
 
 export const cities = [
   gliwice,
@@ -88,6 +89,7 @@ export const cities = [
   przemysl,
   chelm,
   swinoujscie,
+  warszawa,
 ];
 
 /** @param {string} id @returns {object|null} */
