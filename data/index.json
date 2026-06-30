@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-29T14:11:34.790Z",
+  "generated_at": "2026-06-30T08:19:47.778Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,10 +9,10 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 177,
-      "active_listings": 13,
-      "active_auctions": 13,
-      "archived_auctions": 242,
-      "wykaz_entries": 3,
+      "active_listings": 8,
+      "active_auctions": 7,
+      "archived_auctions": 248,
+      "wykaz_entries": 2,
       "land_plots": 79
     },
     {
@@ -35,11 +35,11 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 21,
-      "active_listings": 19,
-      "active_auctions": 5,
-      "archived_auctions": 16,
+      "active_listings": 18,
+      "active_auctions": 4,
+      "archived_auctions": 17,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 9
     },
     {
       "id": "zabrze",
@@ -114,8 +114,8 @@
       "host": "bip.swietochlowice.pl",
       "unique_properties": 91,
       "active_listings": 199,
-      "active_auctions": 5,
-      "archived_auctions": 200,
+      "active_auctions": 4,
+      "archived_auctions": 201,
       "wykaz_entries": 0,
       "land_plots": 21
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 16,
-      "active_listings": 79,
-      "active_auctions": 1,
+      "active_listings": 83,
+      "active_auctions": 3,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 106
+      "land_plots": 103
     },
     {
       "id": "trzebinia",
