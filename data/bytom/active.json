@@ -131,7 +131,7 @@
       "published_date": "2026-05-13",
       "round": 1,
       "area_m2": 52.4,
-      "starting_price_pln": 200000,
+      "starting_price_pln": null,
       "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Chorzowska-2013/idn:13326",
       "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Chorzowska-20_13,23641.doc"
     },
@@ -153,25 +153,6 @@
       "starting_price_pln": 97000,
       "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/pl.-Akademicki-1112/idn:13287",
       "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Akademicki-11-12,23604.doc"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Piekarska 9/9",
-      "address": {
-        "street": "Piekarska",
-        "street_norm": "piekarska",
-        "building": "9",
-        "apt": "9",
-        "key": "piekarska|9|9",
-        "warning": null
-      },
-      "auction_date": "2026-06-12",
-      "published_date": "2026-05-11",
-      "round": 2,
-      "area_m2": 30.33,
-      "starting_price_pln": 46500,
-      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Piekarska-99/idn:13277",
-      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-9_9,23580.doc"
     },
     {
       "kind": "uzytkowy",
