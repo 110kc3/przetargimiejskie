@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Wołodyjowskiego 8 m 6",
+      "address": {
+        "street": "Wołodyjowskiego",
+        "street_norm": "wolodyjowskiego",
+        "building": "8",
+        "apt": "6",
+        "key": "wolodyjowskiego|8|6",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 513100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wolodyjowskiego-8-m-6.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Juliana Tuwima 1/1 m 41",
       "address": {
         "street": "Juliana Tuwima",
@@ -167,27 +184,10 @@
         "warning": null
       },
       "auction_date": "2026-06-30",
-      "round": 1,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": 285100,
       "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-95-m-57.html"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Gen. Józefa Bema 89C m 54",
-      "address": {
-        "street": "Gen. Józefa Bema",
-        "street_norm": "gen jozefa bema",
-        "building": "89C",
-        "apt": "54",
-        "key": "gen jozefa bema|89C|54",
-        "warning": null
-      },
-      "auction_date": "2026-06-30",
-      "round": 1,
-      "area_m2": null,
-      "starting_price_pln": 375100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54.html"
     },
     {
       "kind": "mieszkalny",
@@ -205,23 +205,6 @@
       "area_m2": null,
       "starting_price_pln": 359700,
       "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8b-m-7-11.html"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Sienkiewicza 18 m 13",
-      "address": {
-        "street": "Sienkiewicza",
-        "street_norm": "sienkiewicza",
-        "building": "18",
-        "apt": "13",
-        "key": "sienkiewicza|18|13",
-        "warning": null
-      },
-      "auction_date": "2026-06-30",
-      "round": 1,
-      "area_m2": null,
-      "starting_price_pln": 604100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13.html"
     },
     {
       "kind": "mieszkalny",

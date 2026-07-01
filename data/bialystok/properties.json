@@ -3,6 +3,27 @@
   "city": "bialystok",
   "properties": [
     {
+      "key": "wolodyjowskiego|8|6",
+      "street": "Wołodyjowskiego",
+      "street_norm": "wolodyjowskiego",
+      "building": "8",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 513100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wolodyjowskiego-8-m-6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "juliana tuwima|1|41",
       "street": "Juliana Tuwima",
       "street_norm": "juliana tuwima",
@@ -204,7 +225,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 285100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-95-m-57.html",
           "wadium_deadline": null,
@@ -225,7 +246,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 375100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54.html",
           "wadium_deadline": null,
@@ -246,7 +267,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 604100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13.html",
           "wadium_deadline": null,
