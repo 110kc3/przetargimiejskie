@@ -3,6 +3,28 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "swobodnej|8|",
+      "street": "Swobodna",
+      "street_norm": "swobodnej",
+      "building": "8",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-09-11",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 429040,
+          "outcome": "active",
+          "area_m2": 107.26,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563979,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-swo.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 107.26
+    },
+    {
       "key": "witkiewicza|24|33",
       "street": "Witkiewicza",
       "street_norm": "witkiewicza",

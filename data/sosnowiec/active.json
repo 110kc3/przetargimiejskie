@@ -691,6 +691,27 @@
     },
     {
       "kind": "zabudowana",
+      "address_raw": "Swobodnej 8",
+      "address": {
+        "street": "Swobodnej",
+        "street_norm": "swobodnej",
+        "building": "8",
+        "apt": null,
+        "key": "swobodnej|8|",
+        "warning": null
+      },
+      "auction_date": "2026-09-11",
+      "published_date": "2026-06-30",
+      "round": 1,
+      "area_m2": 107.26,
+      "starting_price_pln": 429040,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,563979,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-swo.html",
+      "dzialka_nr": "1136",
+      "obreb": "0011 Sosnowiec",
+      "plot_area_m2": 623
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "Targowej 12",
       "address": {
         "street": "Targowej",
