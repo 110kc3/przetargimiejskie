@@ -1,5 +1,70 @@
 {
   "schema_version": 1,
   "city": "chrzanow",
-  "plots": []
+  "plots": [
+    {
+      "key": "dz|luszowice|64/2",
+      "kind": "grunt",
+      "city": "chrzanow",
+      "dzialka_nr": "64/2",
+      "obreb": "Luszowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stanisława Przybyszewskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2064%2F2%20ul.%20Stanis%C5%82awa%20Przybyszewskiego%20Luszowice%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2257,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 260000,
+          "outcome": "archived",
+          "area_m2": 2257,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2872353,przetarg-ustny-na-sprzedaz-nieruchomosci-obejmujacej-dzialke-nr-642-obr-balin-ograniczony-do-wlascic.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2872353,przetarg-ustny-na-sprzedaz-nieruchomosci-obejmujacej-dzialke-nr-642-obr-balin-ograniczony-do-wlascic.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "64/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2064%2F2%20Luszowice%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|luszowice|3546/492",
+      "kind": "grunt",
+      "city": "chrzanow",
+      "dzialka_nr": "3546/492",
+      "obreb": "Luszowice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stanisława Przybyszewskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203546%2F492%20ul.%20Stanis%C5%82awa%20Przybyszewskiego%20Luszowice%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 441,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 160000,
+          "outcome": "archived",
+          "area_m2": 441,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2872372,przetarg-na-sprzedaz-lokalu-mieszkalnego-ul-oswiecimska-153-w-chrzanowie.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2872372,przetarg-na-sprzedaz-lokalu-mieszkalnego-ul-oswiecimska-153-w-chrzanowie.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3546/492",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203546%2F492%20Luszowice%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
 }
