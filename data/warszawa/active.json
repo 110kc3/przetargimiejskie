@@ -4,6 +4,26 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Bałuckiego 5/1",
+      "address": {
+        "street": "Bałuckiego",
+        "street_norm": "baluckiego",
+        "building": "5",
+        "apt": "1",
+        "key": "baluckiego|5|1",
+        "warning": null
+      },
+      "auction_date": "2026-08-06",
+      "published_date": "2026-06-30",
+      "round": 1,
+      "area_m2": 4.75,
+      "starting_price_pln": 270000,
+      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/155848/258398",
+      "eto_nr": "12877/2026",
+      "source": "amw"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Grójecka 66/78",
       "address": {
         "street": "Grójecka",
@@ -41,84 +61,6 @@
       "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/154506/256690",
       "eto_nr": "11535/2026",
       "source": "amw"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Marszałkowska 81 m 19 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu",
-      "address": null,
-      "auction_date": null,
-      "published_date": "2026-06-08",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-19-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
-      "eto_nr": "11501/2026",
-      "source": "city"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Marszałkowska 81 m 16 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu",
-      "address": null,
-      "auction_date": null,
-      "published_date": "2026-06-08",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-16-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
-      "eto_nr": "11499/2026",
-      "source": "city"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Marszałkowska 81 m 15 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu",
-      "address": null,
-      "auction_date": null,
-      "published_date": "2026-06-08",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-15-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
-      "eto_nr": "11498/2026",
-      "source": "city"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Marszałkowska 81 m 14 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu",
-      "address": null,
-      "auction_date": null,
-      "published_date": "2026-06-08",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-14-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
-      "eto_nr": "11497/2026",
-      "source": "city"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Marszałkowska 81 m 12 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu.",
-      "address": null,
-      "auction_date": null,
-      "published_date": "2026-06-08",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-12-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
-      "eto_nr": "11496/2026",
-      "source": "city"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Marszałkowska 81 m 11 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu",
-      "address": null,
-      "auction_date": null,
-      "published_date": "2026-06-08",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-11-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
-      "eto_nr": "11495/2026",
-      "source": "city"
     },
     {
       "kind": "mieszkalny",

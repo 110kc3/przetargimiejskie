@@ -26,6 +26,29 @@
       "area_m2": 20.76
     },
     {
+      "key": "baluckiego|5|1",
+      "street": "Bałuckiego",
+      "street_norm": "baluckiego",
+      "building": "5",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 4.75,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/155848/258398",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 4.75
+    },
+    {
       "key": "smocza|4|38",
       "street": "Smocza",
       "street_norm": "smocza",
