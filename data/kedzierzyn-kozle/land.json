@@ -356,13 +356,6 @@
           "area_m2": 23753
         },
         {
-          "date": "2026-05-05",
-          "round": 10,
-          "starting_price_pln": 2000000,
-          "outcome": "unsold",
-          "area_m2": 23753
-        },
-        {
           "date": "2026-07-21",
           "round": 11,
           "starting_price_pln": 2000000,
@@ -419,13 +412,6 @@
         {
           "date": "2025-10-28",
           "round": 8,
-          "starting_price_pln": 1500000,
-          "outcome": "unsold",
-          "area_m2": 41768
-        },
-        {
-          "date": "2026-05-05",
-          "round": 10,
           "starting_price_pln": 1500000,
           "outcome": "unsold",
           "area_m2": 41768
@@ -734,7 +720,8 @@
           "outcome": "archived",
           "area_m2": 1020,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77668"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77668",
+          "final_price_pln": 151500
         }
       ],
       "parcels": [
@@ -822,7 +809,7 @@
       "address_raw": "ul. Astrów",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Astr%C3%B3w%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "area_m2": 58,
       "zoning": null,
       "status": null,
       "listings": [
@@ -832,7 +819,9 @@
           "starting_price_pln": 15000,
           "outcome": "archived",
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77679"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77679",
+          "final_price_pln": 15150,
+          "area_m2": 58
         }
       ],
       "parcels": []
@@ -2185,70 +2174,6 @@
       "parcels": []
     },
     {
-      "key": "dz|kędzierzyn|3417/31, 3420/49",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "3417/31, 3420/49",
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Królowej",
-      "dzialka_id": "160301_1.0044.3417/31",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31",
-      "area_m2": 9278,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-18",
-          "round": 5,
-          "starting_price_pln": 3300000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2025-05-13",
-          "round": 6,
-          "starting_price_pln": 3300000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2025-08-19",
-          "round": 7,
-          "starting_price_pln": 3300000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2025-10-28",
-          "round": 8,
-          "starting_price_pln": 2800000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2026-05-05",
-          "round": 10,
-          "starting_price_pln": 2800000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3417/31",
-          "dzialka_id": "160301_1.0044.3417/31",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31"
-        },
-        {
-          "nr": "3420/49",
-          "dzialka_id": "160301_1.0044.3420/49",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3420%2F49"
-        }
-      ]
-    },
-    {
       "key": "addr|ul. wisławy szymborskiej",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -2971,6 +2896,63 @@
           "nr": "534/21",
           "dzialka_id": "160301_1.0046.534/21",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F21"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|3417/31, 3420/49",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/31, 3420/49",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": "160301_1.0044.3417/31",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31",
+      "area_m2": 9278,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-18",
+          "round": 5,
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2025-05-13",
+          "round": 6,
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2025-08-19",
+          "round": 7,
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2025-10-28",
+          "round": 8,
+          "starting_price_pln": 2800000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/31",
+          "dzialka_id": "160301_1.0044.3417/31",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31"
+        },
+        {
+          "nr": "3420/49",
+          "dzialka_id": "160301_1.0044.3420/49",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3420%2F49"
         }
       ]
     },
