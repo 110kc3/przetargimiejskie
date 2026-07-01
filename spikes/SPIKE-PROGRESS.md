@@ -1,256 +1,320 @@
 # SPIKE-PROGRESS — all-Poland city spike + build ledger
 
-> Updated 2026-06-29. Resume point for the all-Poland spike + build-out.
-> Master list: [master-cities.json](./master-cities.json) · convention: [README.md](./README.md).
+> Updated 2026-07-01. Queue: [backlog.json](./backlog.json) (132 pending / 248 done of 380 powiat seats). Per-city status: [master-cities.json](./master-cities.json). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md).
 
-## Roll-up (131 cities)
+## Roll-up (204 spiked)
 
 | Status | Count |
 |---|---|
-| ✅ Built (registered, tests green) | 46 |
-| 🟢 BUILD (spiked, ready) | 30 |
-| 🟡 NEEDS-LIVE-VERIFY | 2 |
-| 🔴 NO-BUILD (spiked) | 44 |
-| ❌ Dropped (prior, Śląsk) | 6 |
-| ⏸️ Deferred (prior, Śląsk) | 3 |
-| ⬜ Pending | 0 |
+| ✅ Built | 46 |
+| 🟢 BUILD (ready) | 64 |
+| 🟡 VERIFY | 12 |
+| 🔴 NO-BUILD | 73 |
+| ❌ Dropped | 6 |
+| ⏸️ Deferred | 3 |
 
-**Tiers.** Wave A = all **66 miasta na prawach powiatu** (100% spiked). Land-powiat seats spiked: **59**. Public site = Śląskie only; non-Śląskie are test-tier (`/archiwum-all`).
+**Convention:** only BUILD/verify/built cities get a per-city `.md`; NO-BUILD verdicts live in [NO-BUILD.md](./NO-BUILD.md) + master.
 
-## Built adapters (46) — registered, parser tests green
+## Built adapters (46)
 
 Kłodzko, Legnica, Wałbrzych, Toruń, Łódź, Pabianice, Chełm, Nowa Sól, Chrzanów, Kraków, Olkusz, Oświęcim, Trzebinia, Warszawa, Brzeg, Kędzierzyn-Koźle, Nysa, Opole, Przemyśl, Augustów, Białystok, Gdańsk, Słupsk, Tczew, Wejherowo, Bielsko-Biała, Bytom, Cieszyn, Gliwice, Katowice, Mysłowice, Racibórz, Rybnik, Sosnowiec, Świętochłowice, Tarnowskie Góry, Zabrze, Kielce, Skarżysko-Kamienna, Giżycko, Olsztyn, Gniezno, Piła, Stargard, Szczecin, Świnoujście.
 
-> **Needs clean rebuild (mount-sync corruption):** Bydgoszcz, Gorzów Wielkopolski (unregistered, tests stubbed).
+> Needs clean rebuild (mount corruption): Bydgoszcz, Gorzów Wielkopolski.
 
-## BUILD-ready queue (30, by effort)
+## BUILD-ready queue (64, by effort)
 
-Bełchatów (Low), Bochnia (Low), Ostrołęka (Low), Bolesławiec (Medium), Jelenia Góra (Medium), Lubin (Medium), Świdnica (Medium), Wrocław (Medium), Bydgoszcz (Medium), Grudziądz (Medium), Włocławek (Medium), Tomaszów Mazowiecki (Medium), Zgierz (Medium), Biała Podlaska (Medium), Gorzów Wielkopolski (Medium), Zakopane (Medium), Płock (Medium), Siedlce (Medium), Żyrardów (Medium), Chojnice (Medium), Malbork (Medium), Sopot (Medium), Starogard Gdański (Medium), Starachowice (Medium), Elbląg (Medium), Ełk (Medium), Kalisz (Medium), Poznań (Medium), Września (Medium), Kołobrzeg (Medium).
+Kamienna Góra (Low), Chełmno (Low), Bełchatów (Low), Krosno Odrzańskie (Low), Bochnia (Low), Ostrołęka (Low), Głubczyce (Low), Kolbuszowa (Low), Kwidzyn (Low), Lębork (Low), Kłobuck (Low), Busko-Zdrój (Low), Braniewo (Low), Kętrzyn (Low), Gostyń (Low), Jarocin (Low), Drawsko Pomorskie (Low), Lwówek Śląski (Low), Lipsko (Low), Bolesławiec (Medium), Lubań (Medium), Dzierżoniów (Medium), Głogów (Medium), Góra (Medium), Jelenia Góra (Medium), Lubin (Medium), Świdnica (Medium), Wrocław (Medium), Bydgoszcz (Medium), Golub-Dobrzyń (Medium), Grudziądz (Medium), Włocławek (Medium), Tomaszów Mazowiecki (Medium), Zgierz (Medium), Biała Podlaska (Medium), Gorzów Wielkopolski (Medium), Brzesko (Medium), Zakopane (Medium), Grodzisk Mazowiecki (Medium), Płock (Medium), Siedlce (Medium), Żyrardów (Medium), Kolno (Medium), Chojnice (Medium), Człuchów (Medium), Kościerzyna (Medium), Malbork (Medium), Sopot (Medium), Starogard Gdański (Medium), Będzin (Medium), Jędrzejów (Medium), Starachowice (Medium), Bartoszyce (Medium), Elbląg (Medium), Ełk (Medium), Iława (Medium), Lidzbark Warmiński (Medium), Grodzisk Wielkopolski (Medium), Kalisz (Medium), Poznań (Medium), Września (Medium), Goleniów (Medium), Gryfino (Medium), Kołobrzeg (Medium).
 
-SPA/JS-rendered (use `core/render.js`): Świdnica, Malbork, Bolesławiec, Sopot, Zgierz, Starogard Gdański, Kołobrzeg, Zakopane, Września, Żyrardów.
+## VERIFY (live re-check before building) (12)
 
-## Caching / CI
-
-Extraction caches (pdf/doc/ocr/rtf) content-addressed + committed. `core/known-urls.js` skips already-captured result pages (Białystok + Słupsk). `merge-history.js` drops null-twin duplicates. CI commit-push hardened (-X theirs + rebase --abort).
-
-## Resume protocol
-
-1. **Build:** clone the closest analog + groundtruthed `tests/parse-<city>.test.js`; register in `pipeline/src/cities/index.js`. Re-verify each build in a fresh shell (test + null-byte + node --check) BEFORE registering.
-2. **Spike (breadth):** remaining land-powiat seats then the town long tail — expect mostly NO-BUILD.
+Dąbrowa Tarnowska, Nowy Sącz, Gostynin, Kluczbork, Krapkowice, Jasło, Lesko, Rzeszów, Końskie, Chodzież, Choszczno, Gryfice.
 
 ## Ledger by voivodeship
 
-### Dolnośląskie (9)
+### Dolnośląskie (16)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Bolesławiec | powiat boleslawiecki | C | 🟢 BUILD | Medium · LIVE | `dolnoslaskie/powiat-boleslawiecki/boleslawiec.md` |
-| Jelenia Góra | Jelenia Góra— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `dolnoslaskie/jelenia-gora/jelenia-gora.md` |
-| Kłodzko | powiat klodzki | D | ✅ BUILT | Medium · LIVE | `dolnoslaskie/powiat-klodzki/klodzko.md` |
-| Legnica | Legnica— m.n.p.p. | A | ✅ BUILT | Low · LIVE | `dolnoslaskie/legnica/legnica.md` |
-| Lubin | powiat lubinski | C | 🟢 BUILD | Medium · LIVE | `dolnoslaskie/powiat-lubinski/lubin.md` |
-| Oleśnica | powiat olesnicki | D | 🔴 NO-BUILD | — · LIVE | `dolnoslaskie/powiat-olesnicki/olesnica.md` |
-| Świdnica | powiat swidnicki | C | 🟢 BUILD | Medium · LIVE | `dolnoslaskie/powiat-swidnicki/swidnica.md` |
-| Wałbrzych | Wałbrzych— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `dolnoslaskie/walbrzych/walbrzych.md` |
-| Wrocław | Wrocław— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `dolnoslaskie/wroclaw/wroclaw.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Bolesławiec | powiat boleslawiecki | 🟢 BUILD | Medium · LIVE |
+| Dzierżoniów | powiat dzierżoniowski | 🟢 BUILD | Medium · LIVE |
+| Głogów | powiat głogowski | 🟢 BUILD | Medium · LIVE |
+| Góra | powiat górowski | 🟢 BUILD | Medium · LIVE |
+| Jawor | powiat jaworski | 🔴 NO-BUILD | — · LIVE |
+| Jelenia Góra | Jelenia Góram.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Kamienna Góra | powiat kamiennogórski | 🟢 BUILD | Low · DESK |
+| Kłodzko | powiat klodzki | ✅ BUILT | Medium · LIVE |
+| Legnica | Legnicam.n.p.p. | ✅ BUILT | Low · LIVE |
+| Lubań | powiat lubański | 🟢 BUILD | Medium · DESK |
+| Lubin | powiat lubinski | 🟢 BUILD | Medium · LIVE |
+| Lwówek Śląski | powiat lwówecki | 🟢 BUILD | Low · DESK |
+| Oleśnica | powiat olesnicki | 🔴 NO-BUILD | — · LIVE |
+| Świdnica | powiat swidnicki | 🟢 BUILD | Medium · LIVE |
+| Wałbrzych | Wałbrzychm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Wrocław | Wrocławm.n.p.p. | 🟢 BUILD | Medium · LIVE |
 
-### Kujawsko-Pomorskie (7)
+### Kujawsko-Pomorskie (10)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Brodnica | powiat brodnicki | H | 🔴 NO-BUILD | — · LIVE | `kujawsko-pomorskie/powiat-brodnicki/brodnica.md` |
-| Bydgoszcz | Bydgoszcz— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `kujawsko-pomorskie/bydgoszcz/bydgoszcz.md` |
-| Grudziądz | Grudziądz— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `kujawsko-pomorskie/grudziadz/grudziadz.md` |
-| Inowrocław | powiat inowroclawski | B | 🔴 NO-BUILD | — · LIVE | `kujawsko-pomorskie/powiat-inowroclawski/inowroclaw.md` |
-| Świecie | powiat swiecki | G | 🔴 NO-BUILD | — · LIVE | `kujawsko-pomorskie/powiat-swiecki/swiecie.md` |
-| Toruń | Toruń— m.n.p.p. | A | ✅ BUILT | Low · LIVE | `kujawsko-pomorskie/torun/torun.md` |
-| Włocławek | Włocławek— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `kujawsko-pomorskie/wloclawek/wloclawek.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Aleksandrów Kujawski | powiat aleksandrowski | 🔴 NO-BUILD | — · LIVE |
+| Brodnica | powiat brodnicki | 🔴 NO-BUILD | — · LIVE |
+| Bydgoszcz | Bydgoszczm.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Chełmno | powiat chełmiński | 🟢 BUILD | Low · LIVE |
+| Golub-Dobrzyń | powiat golubsko-dobrzyński | 🟢 BUILD | Medium · LIVE |
+| Grudziądz | Grudziądzm.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Inowrocław | powiat inowroclawski | 🔴 NO-BUILD | — · LIVE |
+| Świecie | powiat swiecki | 🔴 NO-BUILD | — · LIVE |
+| Toruń | Toruńm.n.p.p. | ✅ BUILT | Low · LIVE |
+| Włocławek | Włocławekm.n.p.p. | 🟢 BUILD | Medium · LIVE |
 
-### Lubelskie (8)
+### Lubelskie (11)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Biała Podlaska | Biała Podlaska— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `lubelskie/biala-podlaska/biala-podlaska.md` |
-| Biłgoraj | powiat bilgorajski | H | 🔴 NO-BUILD | — · LIVE | `lubelskie/powiat-bilgorajski/bilgoraj.md` |
-| Chełm | Chełm— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `lubelskie/chelm/chelm.md` |
-| Kraśnik | powiat krasnicki | G | 🔴 NO-BUILD | — · LIVE | `lubelskie/powiat-krasnicki/krasnik.md` |
-| Lublin | Lublin— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `lubelskie/lublin/lublin.md` |
-| Puławy | powiat pulawski | D | 🔴 NO-BUILD | — · LIVE | `lubelskie/powiat-pulawski/pulawy.md` |
-| Świdnik | powiat swidnicki | D | 🔴 NO-BUILD | — · LIVE | `lubelskie/powiat-swidnicki/swidnik.md` |
-| Zamość | Zamość— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `lubelskie/zamosc/zamosc.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Biała Podlaska | Biała Podlaskam.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Biłgoraj | powiat bilgorajski | 🔴 NO-BUILD | — · LIVE |
+| Chełm | Chełmm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Hrubieszów | powiat hrubieszowski | 🔴 NO-BUILD | — · DESK |
+| Janów Lubelski | powiat janowski | 🔴 NO-BUILD | — · DESK |
+| Krasnystaw | powiat krasnostawski | 🔴 NO-BUILD | — · LIVE |
+| Kraśnik | powiat krasnicki | 🔴 NO-BUILD | — · LIVE |
+| Lublin | Lublinm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Puławy | powiat pulawski | 🔴 NO-BUILD | — · LIVE |
+| Świdnik | powiat swidnicki | 🔴 NO-BUILD | — · LIVE |
+| Zamość | Zamośćm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
 
-### Lubuskie (3)
+### Lubuskie (4)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Gorzów Wielkopolski | Gorzów Wielkopolski— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md` |
-| Nowa Sól | powiat nowosolski | F | ✅ BUILT | Low · LIVE | `lubuskie/powiat-nowosolski/nowa-sol.md` |
-| Zielona Góra | Zielona Góra— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `lubuskie/zielona-gora/zielona-gora.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Gorzów Wielkopolski | Gorzów Wielkopolskim.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Krosno Odrzańskie | powiat krośnieński | 🟢 BUILD | Low · DESK |
+| Nowa Sól | powiat nowosolski | ✅ BUILT | Low · LIVE |
+| Zielona Góra | Zielona Góram.n.p.p. | 🔴 NO-BUILD | — · LIVE |
 
-### Łódzkie (10)
+### Łódzkie (11)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Bełchatów | powiat belchatowski | B | 🟢 BUILD | Low · LIVE | `lodzkie/powiat-belchatowski/belchatow.md` |
-| Kutno | powiat kutnowski | D | 🔴 NO-BUILD | — · LIVE | `lodzkie/powiat-kutnowski/kutno.md` |
-| Łódź | Łódź— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `lodzkie/lodz/lodz.md` |
-| Pabianice | powiat pabianicki | C | ✅ BUILT | Low–Medium · LIVE | `lodzkie/powiat-pabianicki/pabianice.md` |
-| Piotrków Trybunalski | Piotrków Trybunalski— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md` |
-| Radomsko | powiat radomszczanski | F | 🔴 NO-BUILD | — · LIVE | `lodzkie/powiat-radomszczanski/radomsko.md` |
-| Sieradz | powiat sieradzki | E | 🔴 NO-BUILD | — · DESK | `lodzkie/powiat-sieradzki/sieradz.md` |
-| Skierniewice | Skierniewice— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `lodzkie/skierniewice/skierniewice.md` |
-| Tomaszów Mazowiecki | powiat tomaszowski | C | 🟢 BUILD | Medium · LIVE | `lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md` |
-| Zgierz | powiat zgierski | D | 🟢 BUILD | Medium · LIVE | `lodzkie/powiat-zgierski/zgierz.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Bełchatów | powiat belchatowski | 🟢 BUILD | Low · LIVE |
+| Brzeziny | powiat brzezinski | 🔴 NO-BUILD | — · DESK |
+| Kutno | powiat kutnowski | 🔴 NO-BUILD | — · LIVE |
+| Łódź | Łódźm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Pabianice | powiat pabianicki | ✅ BUILT | Low–Medium · LIVE |
+| Piotrków Trybunalski | Piotrków Trybunalskim.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Radomsko | powiat radomszczanski | 🔴 NO-BUILD | — · LIVE |
+| Sieradz | powiat sieradzki | 🔴 NO-BUILD | — · DESK |
+| Skierniewice | Skierniewicem.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Tomaszów Mazowiecki | powiat tomaszowski | 🟢 BUILD | Medium · LIVE |
+| Zgierz | powiat zgierski | 🟢 BUILD | Medium · LIVE |
 
-### Małopolskie (11)
+### Małopolskie (14)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Bochnia | powiat bochenski | F | 🟢 BUILD | Low · LIVE | `malopolskie/powiat-bochenski/bochnia.md` |
-| Chrzanów | powiat chrzanowski | — | ✅ BUILT |  | `malopolskie/powiat-chrzanowski/chrzanow.md` |
-| Kraków | Kraków— m.n.p.p. | A | ✅ BUILT |  | `malopolskie/krakow/krakow.md` |
-| Nowy Sącz | Nowy Sącz— m.n.p.p. | A | 🟡 VERIFY | — · DESK | `malopolskie/nowy-sacz/nowy-sacz.md` |
-| Nowy Targ | powiat nowotarski | B | 🔴 NO-BUILD | — · LIVE | `malopolskie/powiat-nowotarski/nowy-targ.md` |
-| Olkusz | powiat olkuski | — | ✅ BUILT |  | `malopolskie/powiat-olkuski/olkusz.md` |
-| Oświęcim | powiat oświęcimski | — | ✅ BUILT |  | `malopolskie/powiat-oswiecimski/oswiecim.md` |
-| Tarnów | Tarnów— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE/DESK | `malopolskie/tarnow/tarnow.md` |
-| Trzebinia | powiat chrzanowski | — | ✅ BUILT |  | `malopolskie/powiat-chrzanowski/trzebinia.md` |
-| Wadowice | powiat wadowicki | H | 🔴 NO-BUILD | — · LIVE | `malopolskie/powiat-wadowicki/wadowice.md` |
-| Zakopane | powiat tatrzanski | G | 🟢 BUILD | Medium · LIVE | `malopolskie/powiat-tatrzanski/zakopane.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Bochnia | powiat bochenski | 🟢 BUILD | Low · LIVE |
+| Brzesko | powiat brzeski | 🟢 BUILD | Medium · LIVE |
+| Chrzanów | powiat chrzanowski | ✅ BUILT |  |
+| Dąbrowa Tarnowska | powiat dąbrowski | 🟡 VERIFY | Low · DESK |
+| Gorlice | powiat gorlicki | 🔴 NO-BUILD | — · DESK |
+| Kraków | Krakówm.n.p.p. | ✅ BUILT |  |
+| Nowy Sącz | Nowy Sączm.n.p.p. | 🟡 VERIFY | — · DESK |
+| Nowy Targ | powiat nowotarski | 🔴 NO-BUILD | — · LIVE |
+| Olkusz | powiat olkuski | ✅ BUILT |  |
+| Oświęcim | powiat oświęcimski | ✅ BUILT |  |
+| Tarnów | Tarnówm.n.p.p. | 🔴 NO-BUILD | — · LIVE/DESK |
+| Trzebinia | powiat chrzanowski | ✅ BUILT |  |
+| Wadowice | powiat wadowicki | 🔴 NO-BUILD | — · LIVE |
+| Zakopane | powiat tatrzanski | 🟢 BUILD | Medium · LIVE |
 
-### Mazowieckie (11)
+### Mazowieckie (19)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Ciechanów | powiat ciechanowski | D | 🔴 NO-BUILD | — · LIVE | `mazowieckie/powiat-ciechanowski/ciechanow.md` |
-| Mińsk Mazowiecki | powiat minski | C | 🔴 NO-BUILD | — · LIVE | `mazowieckie/powiat-minski/minsk-mazowiecki.md` |
-| Ostrołęka | Ostrołęka— m.n.p.p. | A | 🟢 BUILD | Low · LIVE | `mazowieckie/ostroleka/ostroleka.md` |
-| Piaseczno | powiat piaseczynski | G | 🔴 NO-BUILD | — · LIVE | `mazowieckie/powiat-piaseczynski/piaseczno.md` |
-| Płock | Płock— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `mazowieckie/plock/plock.md` |
-| Pruszków | powiat pruszkowski | B | 🔴 NO-BUILD | — · LIVE | `mazowieckie/powiat-pruszkowski/pruszkow.md` |
-| Radom | Radom— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `mazowieckie/radom/radom.md` |
-| Siedlce | Siedlce— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `mazowieckie/siedlce/siedlce.md` |
-| Warszawa | Warszawa— m.n.p.p. | A | ✅ BUILT | High · LIVE | `mazowieckie/warszawa/warszawa.md` |
-| Wołomin | powiat wolominski | F | 🔴 NO-BUILD | — · LIVE | `mazowieckie/powiat-wolominski/wolomin.md` |
-| Żyrardów | powiat zyrardowski | H | 🟢 BUILD | Medium · LIVE | `mazowieckie/powiat-zyrardowski/zyrardow.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Białobrzegi | powiat bialobrzeski | 🔴 NO-BUILD | — · DESK |
+| Ciechanów | powiat ciechanowski | 🔴 NO-BUILD | — · LIVE |
+| Garwolin | powiat garwoliński | 🔴 NO-BUILD | — · LIVE |
+| Gostynin | powiat gostyniński | 🟡 VERIFY | Low · DESK |
+| Grodzisk Mazowiecki | powiat grodziski | 🟢 BUILD | Medium · DESK |
+| Grójec | powiat grójecki | 🔴 NO-BUILD | — · LIVE |
+| Kozienice | powiat kozienicki | 🔴 NO-BUILD | — · DESK |
+| Legionowo | powiat legionowski | 🔴 NO-BUILD | — · LIVE |
+| Lipsko | powiat lipski | 🟢 BUILD | Low · DESK |
+| Mińsk Mazowiecki | powiat minski | 🔴 NO-BUILD | — · LIVE |
+| Ostrołęka | Ostrołękam.n.p.p. | 🟢 BUILD | Low · LIVE |
+| Piaseczno | powiat piaseczynski | 🔴 NO-BUILD | — · LIVE |
+| Płock | Płockm.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Pruszków | powiat pruszkowski | 🔴 NO-BUILD | — · LIVE |
+| Radom | Radomm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Siedlce | Siedlcem.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Warszawa | Warszawam.n.p.p. | ✅ BUILT | High · LIVE |
+| Wołomin | powiat wolominski | 🔴 NO-BUILD | — · LIVE |
+| Żyrardów | powiat zyrardowski | 🟢 BUILD | Medium · LIVE |
 
-### Opolskie (4)
+### Opolskie (7)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Brzeg | powiat brzeski | D | ✅ BUILT | Medium · LIVE | `opolskie/powiat-brzeski/brzeg.md` |
-| Kędzierzyn-Koźle | powiat kędzierzyńsko-kozielski | — | ✅ BUILT |  | `opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md` |
-| Nysa | powiat nyski | B | ✅ BUILT | Low · LIVE | `opolskie/powiat-nyski/nysa.md` |
-| Opole | Opole— m.n.p.p. | A | ✅ BUILT |  | `opolskie/opole/opole.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Brzeg | powiat brzeski | ✅ BUILT | Medium · LIVE |
+| Głubczyce | powiat głubczycki | 🟢 BUILD | Low · DESK |
+| Kędzierzyn-Koźle | powiat kędzierzyńsko-kozielski | ✅ BUILT |  |
+| Kluczbork | powiat kluczborski | 🟡 VERIFY | Medium · DESK |
+| Krapkowice | powiat krapkowicki | 🟡 VERIFY | Medium · DESK |
+| Nysa | powiat nyski | ✅ BUILT | Low · LIVE |
+| Opole | Opolem.n.p.p. | ✅ BUILT |  |
 
-### Podkarpackie (9)
+### Podkarpackie (14)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Dębica | powiat debicki | D | 🔴 NO-BUILD | — · LIVE | `podkarpackie/powiat-debicki/debica.md` |
-| Jarosław | powiat jaroslawski | D | 🔴 NO-BUILD | — · LIVE | `podkarpackie/powiat-jaroslawski/jaroslaw.md` |
-| Krosno | Krosno— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `podkarpackie/krosno/krosno.md` |
-| Mielec | powiat mielecki | C | 🔴 NO-BUILD | — · LIVE | `podkarpackie/powiat-mielecki/mielec.md` |
-| Przemyśl | Przemyśl— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `podkarpackie/przemysl/przemysl.md` |
-| Rzeszów | Rzeszów— m.n.p.p. | A | 🟡 VERIFY | — · LIVE/DESK | `podkarpackie/rzeszow/rzeszow.md` |
-| Sanok | powiat sanocki | E | 🔴 NO-BUILD | — · LIVE | `podkarpackie/powiat-sanocki/sanok.md` |
-| Stalowa Wola | powiat stalowowolski | B | 🔴 NO-BUILD | — · DESK | `podkarpackie/powiat-stalowowolski/stalowa-wola.md` |
-| Tarnobrzeg | Tarnobrzeg— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `podkarpackie/tarnobrzeg/tarnobrzeg.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Brzozów | powiat brzozowski | 🔴 NO-BUILD | — · DESK |
+| Dębica | powiat debicki | 🔴 NO-BUILD | — · LIVE |
+| Jarosław | powiat jaroslawski | 🔴 NO-BUILD | — · LIVE |
+| Jasło | powiat jasielski | 🟡 VERIFY | Medium · DESK |
+| Kolbuszowa | powiat kolbuszowski | 🟢 BUILD | Low · DESK |
+| Krosno | Krosnom.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Lesko | powiat leski | 🟡 VERIFY | Low · DESK |
+| Leżajsk | powiat leżajski | 🔴 NO-BUILD | — · LIVE |
+| Mielec | powiat mielecki | 🔴 NO-BUILD | — · LIVE |
+| Przemyśl | Przemyślm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Rzeszów | Rzeszówm.n.p.p. | 🟡 VERIFY | — · LIVE/DESK |
+| Sanok | powiat sanocki | 🔴 NO-BUILD | — · LIVE |
+| Stalowa Wola | powiat stalowowolski | 🔴 NO-BUILD | — · DESK |
+| Tarnobrzeg | Tarnobrzegm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
 
-### Podlaskie (4)
+### Podlaskie (8)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Augustów | powiat augustowski | H | ✅ BUILT | Medium · LIVE | `podlaskie/powiat-augustowski/augustow.md` |
-| Białystok | Białystok— m.n.p.p. | A | ✅ BUILT | Low–Medium · LIVE | `podlaskie/bialystok/bialystok.md` |
-| Łomża | Łomża— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `podlaskie/lomza/lomza.md` |
-| Suwałki | Suwałki— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `podlaskie/suwalki/suwalki.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Augustów | powiat augustowski | ✅ BUILT | Medium · LIVE |
+| Białystok | Białystokm.n.p.p. | ✅ BUILT | Low–Medium · LIVE |
+| Bielsk Podlaski | powiat bielski | 🔴 NO-BUILD | — · LIVE |
+| Grajewo | powiat grajewski | 🔴 NO-BUILD | — · DESK |
+| Hajnówka | powiat hajnowski | 🔴 NO-BUILD | — · LIVE |
+| Kolno | powiat kolneński | 🟢 BUILD | Medium · DESK |
+| Łomża | Łomżam.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Suwałki | Suwałkim.n.p.p. | 🔴 NO-BUILD | — · LIVE |
 
-### Pomorskie (9)
+### Pomorskie (15)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Chojnice | powiat chojnicki | E | 🟢 BUILD | Medium · LIVE | `pomorskie/powiat-chojnicki/chojnice.md` |
-| Gdańsk | Gdańsk— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `pomorskie/gdansk/gdansk.md` |
-| Gdynia | Gdynia— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `pomorskie/gdynia/gdynia.md` |
-| Malbork | powiat malborski | D | 🟢 BUILD | Medium · LIVE | `pomorskie/powiat-malborski/malbork.md` |
-| Słupsk | Słupsk— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `pomorskie/slupsk/slupsk.md` |
-| Sopot | Sopot— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `pomorskie/sopot/sopot.md` |
-| Starogard Gdański | powiat starogardzki | E | 🟢 BUILD | Medium · LIVE | `pomorskie/powiat-starogardzki/starogard-gdanski.md` |
-| Tczew | powiat tczewski | B | ✅ BUILT | Medium · LIVE | `pomorskie/powiat-tczewski/tczew.md` |
-| Wejherowo | powiat wejherowski | C | ✅ BUILT | Medium · LIVE | `pomorskie/powiat-wejherowski/wejherowo.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Bytów | powiat bytowski | 🔴 NO-BUILD | — · LIVE |
+| Chojnice | powiat chojnicki | 🟢 BUILD | Medium · LIVE |
+| Człuchów | powiat człuchowski | 🟢 BUILD | Medium · LIVE |
+| Gdańsk | Gdańskm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Gdynia | Gdyniam.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Kartuzy | powiat kartuski | 🔴 NO-BUILD | — · DESK |
+| Kościerzyna | powiat kościerski | 🟢 BUILD | Medium · LIVE |
+| Kwidzyn | powiat kwidzyński | 🟢 BUILD | Low · DESK |
+| Lębork | powiat lęborski | 🟢 BUILD | Low · DESK |
+| Malbork | powiat malborski | 🟢 BUILD | Medium · LIVE |
+| Słupsk | Słupskm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Sopot | Sopotm.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Starogard Gdański | powiat starogardzki | 🟢 BUILD | Medium · LIVE |
+| Tczew | powiat tczewski | ✅ BUILT | Medium · LIVE |
+| Wejherowo | powiat wejherowski | ✅ BUILT | Medium · LIVE |
 
-### Śląskie (23)
+### Śląskie (26)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Bielsko-Biała | Bielsko-Biała— m.n.p.p. | A | ✅ BUILT |  | `slaskie/bielsko-biala/bielsko-biala.md` |
-| Bytom | Bytom— m.n.p.p. | A | ✅ BUILT |  | `slaskie/bytom/bytom.md` |
-| Chorzów | Chorzów— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/chorzow/chorzow.md` |
-| Cieszyn | powiat cieszynski | B | ✅ BUILT | Medium · LIVE | `slaskie/powiat-cieszynski/cieszyn.md` |
-| Częstochowa | Częstochowa— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/czestochowa/czestochowa.md` |
-| Dąbrowa Górnicza | Dąbrowa Górnicza— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/dabrowa-gornicza/dabrowa-gornicza.md` |
-| Gliwice | Gliwice— m.n.p.p. | A | ✅ BUILT |  | `slaskie/gliwice/gliwice.md` |
-| Jastrzębie-Zdrój | Jastrzębie-Zdrój— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `slaskie/jastrzebie-zdroj/jastrzebie-zdroj.md` |
-| Jaworzno | Jaworzno— m.n.p.p. | A | ⏸️ DEFERRED |  | `slaskie/jaworzno/jaworzno.md` |
-| Katowice | Katowice— m.n.p.p. | A | ✅ BUILT |  | `slaskie/katowice/katowice.md` |
-| Mysłowice | Mysłowice— m.n.p.p. | A | ✅ BUILT |  | `slaskie/myslowice/myslowice.md` |
-| Piekary Śląskie | Piekary Śląskie— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/piekary-slaskie/piekary-slaskie.md` |
-| Racibórz | powiat raciborski | C | ✅ BUILT | Low · LIVE | `slaskie/powiat-raciborski/raciborz.md` |
-| Ruda Śląska | Ruda Śląska— m.n.p.p. | A | ⏸️ DEFERRED |  | `slaskie/ruda-slaska/ruda-slaska.md` |
-| Rybnik | Rybnik— m.n.p.p. | A | ✅ BUILT |  | `slaskie/rybnik/rybnik.md` |
-| Siemianowice Śląskie | Siemianowice Śląskie— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/siemianowice-slaskie/siemianowice-slaskie.md` |
-| Sosnowiec | Sosnowiec— m.n.p.p. | A | ✅ BUILT |  | `slaskie/sosnowiec/sosnowiec.md` |
-| Świętochłowice | Świętochłowice— m.n.p.p. | A | ✅ BUILT |  | `slaskie/swietochlowice/swietochlowice.md` |
-| Tarnowskie Góry | powiat tarnogórski | — | ✅ BUILT |  | `slaskie/powiat-tarnogorski/tarnowskie-gory.md` |
-| Tychy | Tychy— m.n.p.p. | A | ❌ DROPPED |  | `slaskie/tychy/tychy.md` |
-| Zabrze | Zabrze— m.n.p.p. | A | ✅ BUILT |  | `slaskie/zabrze/zabrze.md` |
-| Zawiercie | powiat zawiercianski | B | 🔴 NO-BUILD | — · LIVE | `slaskie/powiat-zawiercianski/zawiercie.md` |
-| Żory | Żory— m.n.p.p. | A | ⏸️ DEFERRED |  | `slaskie/zory/zory.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Będzin | powiat bedzinski | 🟢 BUILD | Medium · LIVE |
+| Bielsko-Biała | Bielsko-Białam.n.p.p. | ✅ BUILT |  |
+| Bieruń | powiat bierunsko-ledzinski | 🔴 NO-BUILD | — · LIVE |
+| Bytom | Bytomm.n.p.p. | ✅ BUILT |  |
+| Chorzów | Chorzówm.n.p.p. | ❌ DROPPED |  |
+| Cieszyn | powiat cieszynski | ✅ BUILT | Medium · LIVE |
+| Częstochowa | Częstochowam.n.p.p. | ❌ DROPPED |  |
+| Dąbrowa Górnicza | Dąbrowa Górniczam.n.p.p. | ❌ DROPPED |  |
+| Gliwice | Gliwicem.n.p.p. | ✅ BUILT |  |
+| Jastrzębie-Zdrój | Jastrzębie-Zdrójm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Jaworzno | Jaworznom.n.p.p. | ⏸️ DEFERRED |  |
+| Katowice | Katowicem.n.p.p. | ✅ BUILT |  |
+| Kłobuck | powiat kłobucki | 🟢 BUILD | Low · DESK |
+| Mysłowice | Mysłowicem.n.p.p. | ✅ BUILT |  |
+| Piekary Śląskie | Piekary Śląskiem.n.p.p. | ❌ DROPPED |  |
+| Racibórz | powiat raciborski | ✅ BUILT | Low · LIVE |
+| Ruda Śląska | Ruda Śląskam.n.p.p. | ⏸️ DEFERRED |  |
+| Rybnik | Rybnikm.n.p.p. | ✅ BUILT |  |
+| Siemianowice Śląskie | Siemianowice Śląskiem.n.p.p. | ❌ DROPPED |  |
+| Sosnowiec | Sosnowiecm.n.p.p. | ✅ BUILT |  |
+| Świętochłowice | Świętochłowicem.n.p.p. | ✅ BUILT |  |
+| Tarnowskie Góry | powiat tarnogórski | ✅ BUILT |  |
+| Tychy | Tychym.n.p.p. | ❌ DROPPED |  |
+| Zabrze | Zabrzem.n.p.p. | ✅ BUILT |  |
+| Zawiercie | powiat zawiercianski | 🔴 NO-BUILD | — · LIVE |
+| Żory | Żorym.n.p.p. | ⏸️ DEFERRED |  |
 
-### Świętokrzyskie (4)
+### Świętokrzyskie (8)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Kielce | Kielce— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `swietokrzyskie/kielce/kielce.md` |
-| Ostrowiec Świętokrzyski | powiat ostrowiecki | C | 🔴 NO-BUILD | — · LIVE | `swietokrzyskie/powiat-ostrowiecki/ostrowiec-swietokrzyski.md` |
-| Skarżysko-Kamienna | powiat skarzyski | H | ✅ BUILT | Low–Medium · LIVE | `swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md` |
-| Starachowice | powiat starachowicki | C | 🟢 BUILD | Medium · LIVE | `swietokrzyskie/powiat-starachowicki/starachowice.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Busko-Zdrój | powiat buski | 🟢 BUILD | Low · LIVE |
+| Jędrzejów | powiat jędrzejowski | 🟢 BUILD | Medium · DESK |
+| Kazimierza Wielka | powiat kazimierski | 🔴 NO-BUILD | — · DESK |
+| Kielce | Kielcem.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Końskie | powiat konecki | 🟡 VERIFY | Medium · DESK |
+| Ostrowiec Świętokrzyski | powiat ostrowiecki | 🔴 NO-BUILD | — · LIVE |
+| Skarżysko-Kamienna | powiat skarzyski | ✅ BUILT | Low–Medium · LIVE |
+| Starachowice | powiat starachowicki | 🟢 BUILD | Medium · LIVE |
 
-### Warmińsko-Mazurskie (5)
+### Warmińsko-Mazurskie (12)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Elbląg | Elbląg— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `warminsko-mazurskie/elblag/elblag.md` |
-| Ełk | powiat elcki | F | 🟢 BUILD | Medium · LIVE | `warminsko-mazurskie/powiat-elcki/elk.md` |
-| Giżycko | powiat gizycki | H | ✅ BUILT | Low–Medium · LIVE | `warminsko-mazurskie/powiat-gizycki/gizycko.md` |
-| Olsztyn | Olsztyn— m.n.p.p. | A | ✅ BUILT | Low · LIVE | `warminsko-mazurskie/olsztyn/olsztyn.md` |
-| Ostróda | powiat ostrodzki | G | 🔴 NO-BUILD | — · LIVE | `warminsko-mazurskie/powiat-ostrodzki/ostroda.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Bartoszyce | powiat bartoszycki | 🟢 BUILD | Medium · LIVE |
+| Braniewo | powiat braniewski | 🟢 BUILD | Low · LIVE |
+| Działdowo | powiat działdowski | 🔴 NO-BUILD | — · LIVE |
+| Elbląg | Elblągm.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Ełk | powiat elcki | 🟢 BUILD | Medium · LIVE |
+| Giżycko | powiat gizycki | ✅ BUILT | Low–Medium · LIVE |
+| Gołdap | powiat gołdapski | 🔴 NO-BUILD | — · LIVE |
+| Iława | powiat iławski | 🟢 BUILD | Medium · LIVE |
+| Kętrzyn | powiat kętrzyński | 🟢 BUILD | Low · DESK |
+| Lidzbark Warmiński | powiat lidzbarski | 🟢 BUILD | Medium · DESK |
+| Olsztyn | Olsztynm.n.p.p. | ✅ BUILT | Low · LIVE |
+| Ostróda | powiat ostrodzki | 🔴 NO-BUILD | — · LIVE |
 
-### Wielkopolskie (9)
+### Wielkopolskie (17)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Gniezno | powiat gnieznienski | C | ✅ BUILT | Medium · LIVE | `wielkopolskie/powiat-gnieznienski/gniezno.md` |
-| Kalisz | Kalisz— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE | `wielkopolskie/kalisz/kalisz.md` |
-| Konin | Konin— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `wielkopolskie/konin/konin.md` |
-| Krotoszyn | powiat krotoszynski | D | 🔴 NO-BUILD | — · LIVE | `wielkopolskie/powiat-krotoszynski/krotoszyn.md` |
-| Leszno | Leszno— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `wielkopolskie/leszno/leszno.md` |
-| Ostrów Wielkopolski | powiat ostrowski | B | 🔴 NO-BUILD | — · LIVE | `wielkopolskie/powiat-ostrowski/ostrow-wielkopolski.md` |
-| Piła | powiat pilski | B | ✅ BUILT | Low–Medium · LIVE | `wielkopolskie/powiat-pilski/pila.md` |
-| Poznań | Poznań— m.n.p.p. | A | 🟢 BUILD | Medium · LIVE/DESK | `wielkopolskie/poznan/poznan.md` |
-| Września | powiat wrzesinski | G | 🟢 BUILD | Medium · LIVE | `wielkopolskie/powiat-wrzesinski/wrzesnia.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Chodzież | powiat chodzieski | 🟡 VERIFY | Medium · DESK |
+| Czarnków | powiat czarnkowsko-trzcianecki | 🔴 NO-BUILD | — · DESK |
+| Gniezno | powiat gnieznienski | ✅ BUILT | Medium · LIVE |
+| Gostyń | powiat gostyński | 🟢 BUILD | Low · DESK |
+| Grodzisk Wielkopolski | powiat grodziski | 🟢 BUILD | Medium · LIVE |
+| Jarocin | powiat jarociński | 🟢 BUILD | Low · DESK |
+| Kalisz | Kaliszm.n.p.p. | 🟢 BUILD | Medium · LIVE |
+| Kępno | powiat kępiński | 🔴 NO-BUILD | — · DESK |
+| Koło | powiat kolski | 🔴 NO-BUILD | — · LIVE |
+| Konin | Koninm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Kościan | powiat kościański | 🔴 NO-BUILD | — · DESK |
+| Krotoszyn | powiat krotoszynski | 🔴 NO-BUILD | — · LIVE |
+| Leszno | Lesznom.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Ostrów Wielkopolski | powiat ostrowski | 🔴 NO-BUILD | — · LIVE |
+| Piła | powiat pilski | ✅ BUILT | Low–Medium · LIVE |
+| Poznań | Poznańm.n.p.p. | 🟢 BUILD | Medium · LIVE/DESK |
+| Września | powiat wrzesinski | 🟢 BUILD | Medium · LIVE |
 
-### Zachodniopomorskie (5)
+### Zachodniopomorskie (12)
 
-| City | District (powiat) | Tier | Status | Effort·conf | File |
-|---|---|---|---|---|---|
-| Kołobrzeg | powiat kolobrzeski | F | 🟢 BUILD | Medium · LIVE | `zachodniopomorskie/powiat-kolobrzeski/kolobrzeg.md` |
-| Koszalin | Koszalin— m.n.p.p. | A | 🔴 NO-BUILD | — · LIVE | `zachodniopomorskie/koszalin/koszalin.md` |
-| Stargard | powiat stargardzki | B | ✅ BUILT | Medium · LIVE | `zachodniopomorskie/powiat-stargardzki/stargard.md` |
-| Szczecin | Szczecin— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `zachodniopomorskie/szczecin/szczecin.md` |
-| Świnoujście | Świnoujście— m.n.p.p. | A | ✅ BUILT | Medium · LIVE | `zachodniopomorskie/swinoujscie/swinoujscie.md` |
+| City | District | Status | Effort·conf |
+|---|---|---|---|
+| Białogard | powiat bialogardzki | 🔴 NO-BUILD | — · DESK |
+| Choszczno | powiat choszczeński | 🟡 VERIFY | Medium · DESK |
+| Drawsko Pomorskie | powiat drawski | 🟢 BUILD | Low · LIVE |
+| Goleniów | powiat goleniowski | 🟢 BUILD | Medium · DESK |
+| Gryfice | powiat gryficki | 🟡 VERIFY | Medium · DESK |
+| Gryfino | powiat gryfiński | 🟢 BUILD | Medium · LIVE |
+| Kamień Pomorski | powiat kamieński | 🔴 NO-BUILD | — · DESK |
+| Kołobrzeg | powiat kolobrzeski | 🟢 BUILD | Medium · LIVE |
+| Koszalin | Koszalinm.n.p.p. | 🔴 NO-BUILD | — · LIVE |
+| Stargard | powiat stargardzki | ✅ BUILT | Medium · LIVE |
+| Szczecin | Szczecinm.n.p.p. | ✅ BUILT | Medium · LIVE |
+| Świnoujście | Świnoujściem.n.p.p. | ✅ BUILT | Medium · LIVE |
 
 ---
 
-*Doc/data only — no `extension/` change, so no version bump (per CLAUDE.md).*
+*Doc/data only — no version bump.*

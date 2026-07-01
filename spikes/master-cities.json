@@ -1,8 +1,8 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-06-29T13:01:18.547Z",
+  "generated_at": "2026-07-01T00:00:00.000Z",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 131,
+  "total": 204,
   "cities": [
     {
       "id": "boleslawiec",
@@ -21,6 +21,70 @@
       }
     },
     {
+      "id": "dzierzoniow",
+      "label": "Dzierżoniów",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-dzierzoniowski",
+      "powiat_label": "powiat dzierżoniowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "HIGH VOLUME ~20-40 flat events/yr; gmina miejska ustny przetarg (Mar 2025: 4 flats, May: 8); announcements dzierzoniow.pl Drupal10 server-rendered + bip.um.dzierzoniow.pl SPA; results /o,63,wyniki-przetargow.html SPA + small text PDFs (no OCR)"
+      }
+    },
+    {
+      "id": "glogow",
+      "label": "Głogów",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-glogowski",
+      "powiat_label": "powiat głogowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Prezydent ustny przetarg per-flat (~9 lots 2024-25, multi-round); glogow.bip.info.pl idmp=27; listing JS-SPA but attachments text PDFs; dglnews.pl mirrors HTML; results \"Informacja o wyniku\" same board; analog bedzin bip.info.pl"
+      }
+    },
+    {
+      "id": "gora",
+      "label": "Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-gorowski",
+      "powiat_label": "powiat górowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-gorowski/gora.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (5+ results 2021-25); bip.gora.com.pl 2ClickPortal; results /wyniki-przetargow.html plain HTML + DOCX (python-docx); announcements 233-przetargi.html JS → render; ~2-4/yr"
+      }
+    },
+    {
+      "id": "jawor",
+      "label": "Jawor",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-jaworski",
+      "powiat_label": "powiat jaworski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/dolnoslaskie/powiat-jaworski/jawor.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo na rzecz najemcy (application form); ZLK przetargi only garage/commercial rental; 0 gmina flat auctions in BIP + adradar 8-page archive"
+      }
+    },
+    {
       "id": "jelenia-gora",
       "label": "Jelenia Góra",
       "voivodeship": "dolnoslaskie",
@@ -34,6 +98,22 @@
         "effort": "Medium",
         "confidence": "LIVE",
         "note": "Active flat-sale stream on bip.jeleniagora.pl; born-digital PDFs w/ achieved prices; Bytom-analog"
+      }
+    },
+    {
+      "id": "kamienna-gora",
+      "label": "Kamienna Góra",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-kamiennogorski",
+      "powiat_label": "powiat kamiennogórski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (10+ listings 2024-25, multi-round); bip.kamiennagora.pl slug-based HTML; \"informacja o wyniku\" same host; UA filter (empty body) → Chrome pass for selectors; analog walbrzych"
       }
     },
     {
@@ -149,6 +229,22 @@
       }
     },
     {
+      "id": "aleksandrow-kujawski",
+      "label": "Aleksandrów Kujawski",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-aleksandrowski",
+      "powiat_label": "powiat aleksandrowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/kujawsko-pomorskie/powiat-aleksandrowski/aleksandrow-kujawski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "City BIP only rokowania/procurement, no flat auctions; rural Gmina Wiejska has 1 thin flat auction but is a separate entity"
+      }
+    },
+    {
       "id": "brodnica",
       "label": "Brodnica",
       "voivodeship": "kujawsko-pomorskie",
@@ -178,6 +274,38 @@
         "effort": "Medium",
         "confidence": "LIVE",
         "note": "BUILD-ready — adapter generated 2026-06-27 was CORRUPTED by sandbox mount-sync (truncated parse.js → 3 failing announcement tests). UNREGISTERED + test stubbed; needs a CLEAN REBUILD. Logonet bip.um.bydgoszcz.pl/artykuly/1208, DOCX achieved price."
+      }
+    },
+    {
+      "id": "chelmno",
+      "label": "Chełmno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-chelminski",
+      "powiat_label": "powiat chełmiński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Gmina Miasto sells flats przetarg ustny (Wodna 34/9, Toruńska 8/7); bip.chelmno.pl/przetargi-nieruchomosci/781 Logonet ~110 records; achieved price inline in Rozstrzygnięcie field; analog tarnowskie-gory"
+      }
+    },
+    {
+      "id": "golub-dobrzyn",
+      "label": "Golub-Dobrzyń",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-golubsko-dobrzynski",
+      "powiat_label": "powiat golubsko-dobrzyński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Dual publisher: Starostwo bip.golub-dobrzyn.com.pl (PTTK 5 flats, sold 2026) + Gmina Miasto bip.golub-dobrzyn.pl/760; both bip.net v7 HTML server-rendered; achieved price+buyer on result pages; ~2-6/yr; powiat feed first"
       }
     },
     {
@@ -274,6 +402,22 @@
         "effort": "Low",
         "confidence": "LIVE",
         "note": "City hall publishes flat przetargi on belchatow.pl/category/przetargi/mieszkania + BIP; clean HTML; ~1-2/yr"
+      }
+    },
+    {
+      "id": "brzeziny",
+      "label": "Brzeziny",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-brzezinski",
+      "powiat_label": "powiat brzezinski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-brzezinski/brzeziny.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (bonifikata); ustny przetarg stream is land/undeveloped parcels only"
       }
     },
     {
@@ -469,6 +613,54 @@
       }
     },
     {
+      "id": "hrubieszow",
+      "label": "Hrubieszów",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-hrubieszowski",
+      "powiat_label": "powiat hrubieszowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-hrubieszowski/hrubieszow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Individual flats bezprzetargowo to tenants; sole open auction (2024) was derelict whole-house; BIP auction board currently empty; 0 flat volume"
+      }
+    },
+    {
+      "id": "janow-lubelski",
+      "label": "Janów Lubelski",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-janowski",
+      "powiat_label": "powiat janowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-janowski/janow-lubelski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (art. 34, 6-wk priority); all ustny przetarg auctions undeveloped plots + commercial; 2 BIPs both plots-only 2018-26"
+      }
+    },
+    {
+      "id": "krasnystaw",
+      "label": "Krasnystaw",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-krasnostawski",
+      "powiat_label": "powiat krasnostawski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-krasnostawski/krasnystaw.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Only land plots + lokale użytkowe at ustny przetarg; 0 lokal mieszkalny auctions in BIP Mienie komunalne 2024-26; usufruct conversions bezprzetargowo"
+      }
+    },
+    {
       "id": "krasnik",
       "label": "Kraśnik",
       "voivodeship": "lubelskie",
@@ -565,6 +757,22 @@
       }
     },
     {
+      "id": "krosno-odrzanskie",
+      "label": "Krosno Odrzańskie",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-krosnienski",
+      "powiat_label": "powiat krośnieński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Gmina pierwszy przetarg ustny na lokal mieszkalny (9/GN/2026 Chrobrego 26/3 78m², result Jun 2026); bip.krosnoodrzanskie.pl SYSTEMDOBIP /przetargi/202/status/1 + /270 results HTML static, fields in HTML body; ~3-6/yr"
+      }
+    },
+    {
       "id": "nowa-sol",
       "label": "Nowa Sól",
       "voivodeship": "lubuskie",
@@ -613,6 +821,22 @@
       }
     },
     {
+      "id": "brzesko",
+      "label": "Brzesko",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-brzeski",
+      "powiat_label": "powiat brzeski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/malopolskie/powiat-brzeski/brzesko.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Ustny przetarg na lokale mieszkalne (Mickiewicza 68a, 3 rounds); brzesko.pl/blog/5 server-rendered HTML; campaign cadence; achieved price NOT published (gap)"
+      }
+    },
+    {
       "id": "chrzanow",
       "label": "Chrzanów",
       "voivodeship": "malopolskie",
@@ -621,6 +845,38 @@
       "type": "land-powiat-seat",
       "status": "built",
       "path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md"
+    },
+    {
+      "id": "dabrowa-tarnowska",
+      "label": "Dąbrowa Tarnowska",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-dabrowski",
+      "powiat_label": "powiat dąbrowski",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Flats at ustny przetarg (Lwowska 65/10, III przetarg Dec 2025); dabrowatar.pl WordPress REST API + bip.malopolska.pl (JS); no wyniki article found yet; ~1/yr"
+      }
+    },
+    {
+      "id": "gorlice",
+      "label": "Gorlice",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-gorlicki",
+      "powiat_label": "powiat gorlicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/malopolskie/powiat-gorlicki/gorlice.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Municipal flats rental-only (najemcy); land at auction; sole flat przetarg 11 Listopada 5 was 2017 one-off; 0 ongoing flat volume"
+      }
     },
     {
       "id": "krakow",
@@ -743,6 +999,22 @@
       }
     },
     {
+      "id": "bialobrzegi",
+      "label": "Białobrzegi",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-bialobrzeski",
+      "powiat_label": "powiat bialobrzeski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-bialobrzeski/bialobrzegi.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "bip.bialobrzegi.pl sells only land plots + leases; no lokal mieszkalny auctions; 2024 report confirms no residential sales"
+      }
+    },
+    {
       "id": "ciechanow",
       "label": "Ciechanów",
       "voivodeship": "mazowieckie",
@@ -756,6 +1028,102 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "Flats bezprzetargowo (art. 34); 0 flat auctions in 216-entry BIP archive 2016-26; land only"
+      }
+    },
+    {
+      "id": "garwolin",
+      "label": "Garwolin",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-garwolinski",
+      "powiat_label": "powiat garwoliński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-garwolinski/garwolin.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold exclusively bezprzetargowo to tenants (art. 34); no ustny przetarg for lokale mieszkalne at Miasto or Gmina Garwolin"
+      }
+    },
+    {
+      "id": "gostynin",
+      "label": "Gostynin",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-gostyninski",
+      "powiat_label": "powiat gostyniński",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg na lokal mieszkalny (Wojska Polskiego 28B/83, 2024) alongside bezprzetargowo; umgostynin.bip.org.pl/index//id/4667 HTML + text PDF wykazy; result-notice format (HTML vs scan) unconfirmed — 1 live session resolves; ~2-5/yr"
+      }
+    },
+    {
+      "id": "grodzisk-mazowiecki",
+      "label": "Grodzisk Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-grodziski",
+      "powiat_label": "powiat grodziski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (8 flats planned 2026, 5/yr 2027-30); nieruchomosci.grodzisk.pl WordPress static HTML (announcements) + bip.grodzisk.pl SPA (achieved-price results→render); 2 sources"
+      }
+    },
+    {
+      "id": "grojec",
+      "label": "Grójec",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-grojecki",
+      "powiat_label": "powiat grójecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-grojecki/grojec.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Only commercial (wynajem lokalu użytkowego) + land/built at auction; 0 lokal mieszkalny sales across all 6 BIP pages 2021-26"
+      }
+    },
+    {
+      "id": "kozienice",
+      "label": "Kozienice",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-kozienicki",
+      "powiat_label": "powiat kozienicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-kozienicki/kozienice.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (wykup, pierwszeństwo); GS.6840 auctions land only, TA.4150 only lokale użytkowe; 0 flat auctions 2017-26"
+      }
+    },
+    {
+      "id": "legionowo",
+      "label": "Legionowo",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-legionowski",
+      "powiat_label": "powiat legionowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-legionowski/legionowo.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to tenants (150 flats, bonifikata); only 2016 one-off new-build presale at auction; open auctions land only"
       }
     },
     {
@@ -935,6 +1303,22 @@
       }
     },
     {
+      "id": "glubczyce",
+      "label": "Głubczyce",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-glubczycki",
+      "powiat_label": "powiat głubczycki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-glubczycki/glubczyce.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg flats (I-IV rounds 2018-2026); bip.glubczyce.pl/144 announcements + /145 results; eSoteka/Finn HTML + text PDFs; ~3-6/yr; analog kedzierzyn-kozle eSoteka"
+      }
+    },
+    {
       "id": "kedzierzyn-kozle",
       "label": "Kędzierzyn-Koźle",
       "voivodeship": "opolskie",
@@ -943,6 +1327,38 @@
       "type": "land-powiat-seat",
       "status": "built",
       "path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md"
+    },
+    {
+      "id": "kluczbork",
+      "label": "Kluczbork",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-kluczborski",
+      "powiat_label": "powiat kluczborski",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/opolskie/powiat-kluczborski/kluczbork.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (Zamkowa 15/14 Nov 2025, Curie 3 Jan 2026); bip.kluczbork.eu/452 announcements + /690 results + /453 wykazy HTML; achieved-price HTML-vs-PDF unconfirmed (rate-limited); ~3-6/yr"
+      }
+    },
+    {
+      "id": "krapkowice",
+      "label": "Krapkowice",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-krapkowicki",
+      "powiat_label": "powiat krapkowicki",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (~325-unit stock); bip.krapkowice.pl/2571 announcements + /16579 results board HTML + text PDFs; unknowns: achieved-price inline vs PDF, 2025-26 board active?; ~2-6/yr"
+      }
     },
     {
       "id": "nysa",
@@ -969,6 +1385,22 @@
       "type": "city-county",
       "status": "built",
       "path": "spikes/opolskie/opole/opole.md"
+    },
+    {
+      "id": "brzozow",
+      "label": "Brzozów",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-brzozowski",
+      "powiat_label": "powiat brzozowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-brzozowski/brzozow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Only land plots + a single-family house at auction; no standalone lokal mieszkalny; flats bezprzetargowo; very low volume"
+      }
     },
     {
       "id": "debica",
@@ -1003,6 +1435,38 @@
       }
     },
     {
+      "id": "jaslo",
+      "label": "Jasło",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-jasielski",
+      "powiat_label": "powiat jasielski",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/podkarpackie/powiat-jasielski/jaslo.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Borderline: 1 flat auction was pisemny (sealed) not ustny; dominant mode bezprzetargowo to tenants (1998 resolution); ≤1 flat auction/yr; um.jaslo.pl + um_jaslo.bip.gov.pl clean HTML; needs 3-yr BIP audit to confirm ustny flat volume"
+      }
+    },
+    {
+      "id": "kolbuszowa",
+      "label": "Kolbuszowa",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-kolbuszowski",
+      "powiat_label": "powiat kolbuszowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg na lokale mieszkalne (Targowa 8, Kolejowa 12/17 2026); bip.kolbuszowa.pl JO-CMS /63-przetargi year-index + /109 results; plain HTML no PDF; ~1-3/yr"
+      }
+    },
+    {
       "id": "krosno",
       "label": "Krosno",
       "voivodeship": "podkarpackie",
@@ -1016,6 +1480,38 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "Flat volume trivially thin (1 asset, 3 failed rounds); ePatent BIP bot-block; no achieved-price feed"
+      }
+    },
+    {
+      "id": "lesko",
+      "label": "Lesko",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-leski",
+      "powiat_label": "powiat leski",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/podkarpackie/powiat-leski/lesko.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (Smolki 7/91 4th round 2024-25); bip.lesko.pl dobrybip /lista/gospodarka-nieruchomosciami HTML; result/wynik board needs 1 live visit; ~1-3/yr"
+      }
+    },
+    {
+      "id": "lezajsk",
+      "label": "Leżajsk",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-lezajski",
+      "powiat_label": "powiat leżajski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-lezajski/lezajsk.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to sitting tenants (BIP procedure restricts to najemca); all auctions undeveloped land plots + commercial 2003-26"
       }
     },
     {
@@ -1147,6 +1643,70 @@
       }
     },
     {
+      "id": "bielsk-podlaski",
+      "label": "Bielsk Podlaski",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-bielski",
+      "powiat_label": "powiat bielski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-bielski/bielsk-podlaski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold bezprzetargowo only; open auctions are land/commercial parcels exclusively"
+      }
+    },
+    {
+      "id": "grajewo",
+      "label": "Grajewo",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-grajewski",
+      "powiat_label": "powiat grajewski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-grajewski/grajewo.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (art. 34, 434/599 flats already sold); all ustny przetarg listings land/commercial; bip.um.grajewo.pl SmartSite"
+      }
+    },
+    {
+      "id": "hajnowka",
+      "label": "Hajnówka",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-hajnowski",
+      "powiat_label": "powiat hajnowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-hajnowski/hajnowka.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Gmina miejska sells flats exclusively bezprzetargowo to tenants (art. 34); 0 flat auctions in BIP record 2011-26; auctions land/commercial only"
+      }
+    },
+    {
+      "id": "kolno",
+      "label": "Kolno",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-kolnenski",
+      "powiat_label": "powiat kolneński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/podlaskie/powiat-kolnenski/kolno.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Burmistrz Miasta ustny przetarg na lokale mieszkalne (2021, 2023x2); bip-umkolno.wrotapodlasia.pl static HTML + some scan PDFs; results same BIP; multi-round dedup needed; ~1-4/yr; analog Podlaskie wrotapodlasia"
+      }
+    },
+    {
       "id": "lomza",
       "label": "Łomża",
       "voivodeship": "podlaskie",
@@ -1179,6 +1739,22 @@
       }
     },
     {
+      "id": "bytow",
+      "label": "Bytów",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-bytowski",
+      "powiat_label": "powiat bytowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/pomorskie/powiat-bytowski/bytow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats sold bezprzetargowo to tenants (wykup); all ustny przetarg activity is undeveloped land plots (działki budowlane); 0 flat auctions 2021-26"
+      }
+    },
+    {
       "id": "chojnice",
       "label": "Chojnice",
       "voivodeship": "pomorskie",
@@ -1192,6 +1768,22 @@
         "effort": "Medium",
         "confidence": "LIVE",
         "note": "ustny przetarg na lokale mieszkalne; WordPress HTML listing + PDF attachments; achieved-price result board; no bot blocks"
+      }
+    },
+    {
+      "id": "czluchow",
+      "label": "Człuchów",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-czluchowski",
+      "powiat_label": "powiat człuchowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-czluchowski/czluchow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "City sells flats ustny przetarg (Zamkowej 15/8, results 2026-06-26); bip.czluchow.pl PDFs ALL scanned images → OCR (tesseract); ~1-2/yr; analog gizycko"
       }
     },
     {
@@ -1224,6 +1816,70 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "Residential flat sales suspended by council resolution since 2016 (through 2026); land-only; BIP is a JS SPA"
+      }
+    },
+    {
+      "id": "kartuzy",
+      "label": "Kartuzy",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-kartuski",
+      "powiat_label": "powiat kartuski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/pomorskie/powiat-kartuski/kartuzy.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (40-60% bonifikata, ~400 flats); BIP przetargi only land plots; 0 open flat auctions"
+      }
+    },
+    {
+      "id": "koscierzyna",
+      "label": "Kościerzyna",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-koscierski",
+      "powiat_label": "powiat kościerski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Gmina Miejska ustny przetarg na lokal mieszkalny (WGN/1,5/2024, 2,4/2026; Sikorskiego 6/7 re-auctioned 4x); bip.koscierzyna.gda.pl per-year HTML index + text PDF announcements + \"Wyniki przetargu\" PDFs; ~2-4/yr"
+      }
+    },
+    {
+      "id": "kwidzyn",
+      "label": "Kwidzyn",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-kwidzynski",
+      "powiat_label": "powiat kwidzyński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg na lokale mieszkalne (2022-26, multi-round); bip.kwidzyn.pl nv.pl year-indexed HTML + text PDFs (~48KB result); \"informacja o wyniku\" same BIP; ~2-5/yr"
+      }
+    },
+    {
+      "id": "lebork",
+      "label": "Lębork",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-leborski",
+      "powiat_label": "powiat lęborski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-leborski/lebork.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz I/II/III przetarg ustny na lokale mieszkalne (~5-15/yr good volume); bip.um.lebork.pl /strony/menu/38.dhtml + /artykul/ slug HTML; \"Informacja o wyniku\" separate articles same BIP; no SPA/PDF-only"
       }
     },
     {
@@ -1323,6 +1979,22 @@
       }
     },
     {
+      "id": "bedzin",
+      "label": "Będzin",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-bedzinski",
+      "powiat_label": "powiat bedzinski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/slaskie/powiat-bedzinski/bedzin.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Prezydent sells flats via ustny przetarg on bedzin.bip.info.pl (idmp=450/943 announcements, 484 archive results); plain HTML PHP ?iddok=; ~3-5/yr; analog Tarnowskie Góry"
+      }
+    },
+    {
       "id": "bielsko-biala",
       "label": "Bielsko-Biała",
       "voivodeship": "slaskie",
@@ -1331,6 +2003,22 @@
       "type": "city-county",
       "status": "built",
       "path": "spikes/slaskie/bielsko-biala/bielsko-biala.md"
+    },
+    {
+      "id": "bierun",
+      "label": "Bieruń",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-bierunsko-ledzinski",
+      "powiat_label": "powiat bierunsko-ledzinski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/slaskie/powiat-bierunsko-ledzinski/bierun.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "lokale-mieszkalne BIP section empty (0 records since 2023); auctions land/commercial only; flats bezprzetargowo"
+      }
     },
     {
       "id": "bytom",
@@ -1433,6 +2121,22 @@
       "type": "city-county",
       "status": "built",
       "path": "spikes/slaskie/katowice/katowice.md"
+    },
+    {
+      "id": "klobuck",
+      "label": "Kłobuck",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-klobucki",
+      "powiat_label": "powiat kłobucki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/slaskie/powiat-klobucki/klobuck.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg na lokale mieszkalne (Rómmla 4/42, I/II/III 2024); dual gminaklobuck.pl/ogloszenie + bip.gminaklobuck.pl IntraCOM HTML; results informacja-o-wyniku same CMS; plain HTML no PDF; low volume"
+      }
     },
     {
       "id": "myslowice",
@@ -1577,6 +2281,54 @@
       "path": "spikes/slaskie/zory/zory.md"
     },
     {
+      "id": "busko-zdroj",
+      "label": "Busko-Zdrój",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-buski",
+      "powiat_label": "powiat buski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Gmina sells flats ustny przetarg (Kościuszki 7/6, 190k, Aug 2025); umig.busko.pl/ogloszenia HTML + text PDFs; result PDFs linked back same page; ~1/yr"
+      }
+    },
+    {
+      "id": "jedrzejow",
+      "label": "Jędrzejów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-jedrzejowski",
+      "powiat_label": "powiat jędrzejowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg na lokale mieszkalne (2024-11, 2025-10, 2026-02); bip.jedrzejow.eu eBiuletyn /wiadomosci/3/lista/przetargi HTML; results same board; ignore old jedrzejow.eobip.pl (empty); ~4-8/yr"
+      }
+    },
+    {
+      "id": "kazimierza-wielka",
+      "label": "Kazimierza Wielka",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-kazimierski",
+      "powiat_label": "powiat kazimierski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/swietokrzyskie/powiat-kazimierski/kazimierza-wielka.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (currently frozen); all ustny przetarg = undeveloped land; tiny remaining stock; 0 flat volume"
+      }
+    },
+    {
       "id": "kielce",
       "label": "Kielce",
       "voivodeship": "swietokrzyskie",
@@ -1590,6 +2342,22 @@
         "effort": "Medium",
         "confidence": "LIVE",
         "note": "BUILT — pipeline/src/cities/kielce/ + parse-kielce.test.js (34 green), registered. SmartSite bipum.kielce.eu single board; DOCX achieved price; ~5-8/yr."
+      }
+    },
+    {
+      "id": "konskie",
+      "label": "Końskie",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-konecki",
+      "powiat_label": "powiat konecki",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/swietokrzyskie/powiat-konecki/konskie.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne (Warsztatowa 2B 2nd round, May 2026); dual bip.umkonskie.pl/wiadomosci/5027 + umkonskie.pl mirror; HTML + PDF attachments (text vs scan TBD); no dedicated results board; ~2-5/yr"
       }
     },
     {
@@ -1641,6 +2409,54 @@
       }
     },
     {
+      "id": "bartoszyce",
+      "label": "Bartoszyce",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-bartoszycki",
+      "powiat_label": "powiat bartoszycki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Gmina Miejska sells flats ustny przetarg nieograniczony; bip.bartoszyce.pl/160/; ~1-2/yr; scanned PDFs → OCR; achieved-price unconfirmed"
+      }
+    },
+    {
+      "id": "braniewo",
+      "label": "Braniewo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-braniewski",
+      "powiat_label": "powiat braniewski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "City sells flats ustny przetarg; bip.braniewo.pl/artykuly/120/ Logonet HTML stubs + text PDFs; announcements + achieved-price results; ~3-5/yr; Low effort"
+      }
+    },
+    {
+      "id": "dzialdowo",
+      "label": "Działdowo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-dzialdowski",
+      "powiat_label": "powiat działdowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/warminsko-mazurskie/powiat-dzialdowski/dzialdowo.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "bip.dzialdowo.eu runs 4-8 auctions/yr but exclusively land plots + built-up properties; 0 flat auctions 2024-26; flats bezprzetargowo"
+      }
+    },
+    {
       "id": "elblag",
       "label": "Elbląg",
       "voivodeship": "warminsko-mazurskie",
@@ -1689,6 +2505,70 @@
       }
     },
     {
+      "id": "goldap",
+      "label": "Gołdap",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-goldapski",
+      "powiat_label": "powiat gołdapski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/warminsko-mazurskie/powiat-goldapski/goldap.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to tenants (Zarz. 118/VIII/2024); all ustny przetarg activity is undeveloped land; 0 flat auctions 2023-26"
+      }
+    },
+    {
+      "id": "ilawa",
+      "label": "Iława",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-ilawski",
+      "powiat_label": "powiat iławski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Burmistrz ustny przetarg na lokale + budynki mieszkalne (Plażowej 5 III, Dąbrowskiego 17 II, 2025-26); bip.umilawa.pl/77 systemdobip.pl HTML + result text PDFs (~45KiB); ~2-4/yr"
+      }
+    },
+    {
+      "id": "ketrzyn",
+      "label": "Kętrzyn",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-ketrzynski",
+      "powiat_label": "powiat kętrzyński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Both Miasto bip.miastoketrzyn.pl + Gmina bip.gminaketrzyn.pl ustny przetarg na lokale mieszkalne (12-47m², 2021-26); /przetargi/NNNNN/status/ HTML tables + text PDFs; \"Informacja o wyniku\" PDFs; 429 rate-limit→retry/delay; ~4-7/yr; analog bartoszyce"
+      }
+    },
+    {
+      "id": "lidzbark-warminski",
+      "label": "Lidzbark Warmiński",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-lidzbarski",
+      "powiat_label": "powiat lidzbarski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "City ustny przetarg na lokale mieszkalne (Kopernika 10 IV, Dąbrowskiego 8/2 sold 29907); bip.lidzbarkw.pl /przetargi/10054/status HTML, achieved price in resolved board; multi-round dedup; ~3-8/yr"
+      }
+    },
+    {
       "id": "olsztyn",
       "label": "Olsztyn",
       "voivodeship": "warminsko-mazurskie",
@@ -1721,6 +2601,38 @@
       }
     },
     {
+      "id": "chodziez",
+      "label": "Chodzież",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-chodzieski",
+      "powiat_label": "powiat chodzieski",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Sells flats ustny przetarg (multi-year confirmed); bip.chodziez.pl JS-rendered (empty body w/o JS) → needs render.js; result-page URL pattern unconfirmed; ~1-4/yr"
+      }
+    },
+    {
+      "id": "czarnkow",
+      "label": "Czarnków",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-czarnkowsko-trzcianecki",
+      "powiat_label": "powiat czarnkowsko-trzcianecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-czarnkowsko-trzcianecki/czarnkow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Gmina Miejska sells flats bezprzetargowo na rzecz najemcy; city auctions only lokale użytkowe/land/garages; only powiat (Skarb Państwa) flats go to auction"
+      }
+    },
+    {
       "id": "gniezno",
       "label": "Gniezno",
       "voivodeship": "wielkopolskie",
@@ -1734,6 +2646,54 @@
         "effort": "Medium",
         "confidence": "LIVE",
         "note": "BUILT — pipeline/src/cities/gniezno/ + parse-gniezno.test.js (22 green, verified), registered. bip.gniezno.eu IDcom text-PDFs + gniezno.eu HTML results; ~3-6/yr."
+      }
+    },
+    {
+      "id": "gostyn",
+      "label": "Gostyń",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-gostynski",
+      "powiat_label": "powiat gostyński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz I/II/III przetarg ustny na lokale mieszkalne; biuletyn.gostyn.pl Logonet v2.9.0 /artykuly/280 + wyniki same section→text PDF; session-cookie soft gate (requests.Session); ~2-6/yr; analog tarnowskie-gory"
+      }
+    },
+    {
+      "id": "grodzisk-wielkopolski",
+      "label": "Grodzisk Wielkopolski",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-grodziski",
+      "powiat_label": "powiat grodziski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Burmistrz II przetarg ustny na 2 flats (May 2026, Kolejowa 9, 27 Stycznia); bip.grodzisk.wlkp.pl/m,512,przetargi.html SPA → render; adradar.pl mirror for announcement text; wyniki same section; ~4-6/yr"
+      }
+    },
+    {
+      "id": "jarocin",
+      "label": "Jarocin",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-jarocinski",
+      "powiat_label": "powiat jarociński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz I/II/III przetarg ustny na lokale mieszkalne (Konstytucji 3 Maja 20/17, 3 rounds 2024-25); bip2.wokiss.pl/jarocin year-indexed HTML + text PDFs; \"Informacja o wyniku\" same pages; ~1-4/yr; analog wokiss-family"
       }
     },
     {
@@ -1753,6 +2713,38 @@
       }
     },
     {
+      "id": "kepno",
+      "label": "Kępno",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-kepinski",
+      "powiat_label": "powiat kępiński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-kepinski/kepno.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (20-60% discount, bip.kepno.pl ?c=5870); ustny przetarg only land/commercial; 0 flat auctions"
+      }
+    },
+    {
+      "id": "kolo",
+      "label": "Koło",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-kolski",
+      "powiat_label": "powiat kolski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-kolski/kolo.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Flats bezprzetargowo to tenants (Uchwała XXV/243/2020, 40-60% bonifikata); all 9 BIP auction pages land/commercial; 0 flat auctions 2020-26"
+      }
+    },
+    {
       "id": "konin",
       "label": "Konin",
       "voivodeship": "wielkopolskie",
@@ -1766,6 +2758,22 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "No flat-auction stream; flats bezprzetargowo to tenants; only land/garages at auction"
+      }
+    },
+    {
+      "id": "koscian",
+      "label": "Kościan",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-koscianski",
+      "powiat_label": "powiat kościański",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-koscianski/koscian.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Miasto auctions land/built-up parcels only; flats bezprzetargowo to tenants / MZGMID rental; residential auctions in search are komornik not gmina"
       }
     },
     {
@@ -1865,6 +2873,118 @@
       }
     },
     {
+      "id": "bialogard",
+      "label": "Białogard",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-bialogardzki",
+      "powiat_label": "powiat bialogardzki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-bialogardzki/bialogard.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flat auctions ~3-5/yr but dominant bezprzetargowo + NO achieved-price stream (articles vanish post-auction); Logonet"
+      }
+    },
+    {
+      "id": "choszczno",
+      "label": "Choszczno",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-choszczenski",
+      "powiat_label": "powiat choszczeński",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Flats at ustny przetarg confirmed (Rycerska 2/4 rounds I-III 2024-25); bip.choszczno.pl fetch blocked (empty body) → Chrome/render; no results board found; ~1-3/yr"
+      }
+    },
+    {
+      "id": "drawsko-pomorskie",
+      "label": "Drawsko Pomorskie",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-drawski",
+      "powiat_label": "powiat drawski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Gmina sells flats ustny przetarg (5+ named); drawsko.pl HTML + JSON-LD articleBody; results w/ osiągnięta cena same section; 403 without Referer header (trivial); analog brzeg"
+      }
+    },
+    {
+      "id": "goleniow",
+      "label": "Goleniów",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-goleniowski",
+      "powiat_label": "powiat goleniowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-goleniowski/goleniow.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg incl. lokale mieszkalne (~10-20 lots/yr, bi-monthly); bip.goleniow.pl/artykul/przetargi-miasto-i-gmina alfatv SPA → render (empty body w/o JS); results same section; HTML text no PDFs"
+      }
+    },
+    {
+      "id": "gryfice",
+      "label": "Gryfice",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-gryficki",
+      "powiat_label": "powiat gryficki",
+      "type": "land-powiat-seat",
+      "status": "verify",
+      "path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Gmina ustny przetarg na lokale mieszkalne confirmed; bip.gminagryfice.pl SIDAS blocks ALL web_fetch (5/5 timeout) → must confirm Chrome MCP renders before BUILD; announcements /artykul/ogloszenia-burmistrza..., results /strony/11870.dhtml text PDFs; ~4-8/yr"
+      }
+    },
+    {
+      "id": "gryfino",
+      "label": "Gryfino",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-gryfinski",
+      "powiat_label": "powiat gryfiński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-gryfinski/gryfino.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Burmistrz trzeci przetarg ustny na nieruchomość lokalową mieszkalną (Feb 2026); bip.gryfino.pl ICOR chapter_56933.asp; index JS-rendered (stubs)→render, individual chapter_NNNNN.asp static HTML tables; results \"rozstrzygnięty\" same feed; ~1-4/yr"
+      }
+    },
+    {
+      "id": "kamien-pomorski",
+      "label": "Kamień Pomorski",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-kamienski",
+      "powiat_label": "powiat kamieński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-kamienski/kamien-pomorski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "—",
+        "confidence": "DESK",
+        "note": "Flats bezprzetargowo to tenants (Uchwała XL/549/13, 50-80% discount); all ustny przetarg = undeveloped land; the 1 flat auction was Uzdrowisko (separate spa company)"
+      }
+    },
+    {
       "id": "kolobrzeg",
       "label": "Kołobrzeg",
       "voivodeship": "zachodniopomorskie",
@@ -1942,6 +3062,54 @@
         "effort": "Medium",
         "confidence": "LIVE",
         "note": "BUILT — swinoujscie/ + parse-swinoujscie.test.js (51 green, verified), registered. bip.um.swinoujscie.pl Logonet HTML; resort pricing; result-doc parser stub (first-run)."
+      }
+    },
+    {
+      "id": "lipsko",
+      "label": "Lipsko",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-lipski",
+      "powiat_label": "powiat lipski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-lipski/lipsko.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Miasto i Gmina ustny przetarg flats+land (Sloneczna 21 49m2 120k 2020/21, multi-round); samorzad.gov.pl Liferay HTML /przetargi + lipsko2.bip.gmina.pl id=365; 'informacja o wyniku' inline HTML same Liferay host (land result 57 170 PLN confirmed); ~1-3 flats/yr; analog small Mazowieckie Liferay gmina"
+      }
+    },
+    {
+      "id": "luban",
+      "label": "Lubań",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-lubanski",
+      "powiat_label": "powiat lubański",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-lubanski/luban.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Medium",
+        "confidence": "DESK",
+        "note": "Burmistrz ustny przetarg na lokale mieszkalne (2024-26 I-IV rounds, multiple properties); luban.pl/1333 portal HTML + bip.um-luban.dolnyslask.pl; results inline in re-announcements, achieved-price on BIP (URL to confirm); ~4-8/yr; analog kamienna-gora; needs 1 live pass for DOM selectors + results URL"
+      }
+    },
+    {
+      "id": "lwowek-slaski",
+      "label": "Lwówek Śląski",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-lwowecki",
+      "powiat_label": "powiat lwówecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md",
+      "spike": {
+        "wave": "Q",
+        "effort": "Low",
+        "confidence": "DESK",
+        "note": "Burmistrz I/II/III przetarg ustny na lokale mieszkalne (Waska 15, Teczowa 1, Gryfowska 5 etc. 2024-25); bip.lwowekslaski.pl iBIP /wiadomosci/3/lista/przetargi HTML + 'informacja o wyniku' articles same BIP; ~several/yr; analog zlotoryja/small Dolnoslaskie iBIP; no blockers"
       }
     }
   ]

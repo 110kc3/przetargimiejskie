@@ -1,76 +1,76 @@
 {
-  "generated_at": "2026-06-29T13:15:20.412Z",
+  "generated_at": "2026-07-01T00:00:00.000Z",
   "source": "Wikipedia Lista powiatow w Polsce (fetched 2026-06-29)",
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "pending": 205,
-    "done": 175
+    "done": 248,
+    "pending": 132
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
-      "done": 7,
-      "pending": 16
+      "done": 14,
+      "pending": 9
     },
     "podlaskie": {
-      "done": 4,
-      "pending": 13
+      "done": 11,
+      "pending": 6
     },
     "warminsko-mazurskie": {
-      "done": 5,
-      "pending": 16
+      "done": 14,
+      "pending": 7
     },
     "lodzkie": {
-      "done": 10,
-      "pending": 14
-    },
-    "slaskie": {
-      "done": 23,
-      "pending": 13
-    },
-    "lubelskie": {
-      "done": 8,
-      "pending": 16
-    },
-    "mazowieckie": {
-      "done": 11,
-      "pending": 31
-    },
-    "zachodniopomorskie": {
-      "done": 5,
-      "pending": 16
-    },
-    "podkarpackie": {
-      "done": 9,
-      "pending": 16
-    },
-    "malopolskie": {
-      "done": 10,
-      "pending": 12
-    },
-    "dolnoslaskie": {
-      "done": 9,
-      "pending": 21
-    },
-    "opolskie": {
-      "done": 4,
-      "pending": 8
-    },
-    "swietokrzyskie": {
-      "done": 4,
+      "done": 14,
       "pending": 10
     },
-    "pomorskie": {
+    "slaskie": {
+      "done": 30,
+      "pending": 6
+    },
+    "lubelskie": {
+      "done": 15,
+      "pending": 9
+    },
+    "mazowieckie": {
+      "done": 23,
+      "pending": 19
+    },
+    "zachodniopomorskie": {
+      "done": 13,
+      "pending": 8
+    },
+    "podkarpackie": {
+      "done": 18,
+      "pending": 7
+    },
+    "malopolskie": {
+      "done": 16,
+      "pending": 6
+    },
+    "dolnoslaskie": {
+      "done": 20,
+      "pending": 10
+    },
+    "opolskie": {
+      "done": 8,
+      "pending": 4
+    },
+    "swietokrzyskie": {
       "done": 9,
-      "pending": 11
+      "pending": 5
+    },
+    "pomorskie": {
+      "done": 16,
+      "pending": 4
     },
     "wielkopolskie": {
-      "done": 9,
-      "pending": 26
+      "done": 21,
+      "pending": 14
     },
     "lubuskie": {
-      "done": 3,
-      "pending": 11
+      "done": 6,
+      "pending": 8
     }
   },
   "cities": [
@@ -81,7 +81,7 @@
       "powiat_slug": "powiat-aleksandrowski",
       "city_slug": "aleksandrow-kujawski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-aleksandrowski/aleksandrow-kujawski.md"
     },
     {
@@ -102,7 +102,7 @@
       "powiat_slug": "powiat-bartoszycki",
       "city_slug": "bartoszyce",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md"
     },
     {
@@ -123,7 +123,7 @@
       "powiat_slug": "powiat-bedzinski",
       "city_slug": "bedzin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-bedzinski/bedzin.md"
     },
     {
@@ -154,7 +154,7 @@
       "powiat_slug": "powiat-bialobrzeski",
       "city_slug": "bialobrzegi",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-bialobrzeski/bialobrzegi.md"
     },
     {
@@ -164,7 +164,7 @@
       "powiat_slug": "powiat-bialogardzki",
       "city_slug": "bialogard",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-bialogardzki/bialogard.md"
     },
     {
@@ -206,7 +206,7 @@
       "powiat_slug": "powiat-bielski",
       "city_slug": "bielsk-podlaski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-bielski/bielsk-podlaski.md"
     },
     {
@@ -226,7 +226,7 @@
       "powiat_slug": "powiat-bierunsko-ledzinski",
       "city_slug": "bierun",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-bierunsko-ledzinski/bierun.md"
     },
     {
@@ -279,7 +279,7 @@
       "powiat_slug": "powiat-braniewski",
       "city_slug": "braniewo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md"
     },
     {
@@ -300,7 +300,7 @@
       "powiat_slug": "powiat-brzeski",
       "city_slug": "brzesko",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-brzeski/brzesko.md"
     },
     {
@@ -321,7 +321,7 @@
       "powiat_slug": "powiat-brzezinski",
       "city_slug": "brzeziny",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-brzezinski/brzeziny.md"
     },
     {
@@ -331,7 +331,7 @@
       "powiat_slug": "powiat-brzozowski",
       "city_slug": "brzozow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-brzozowski/brzozow.md"
     },
     {
@@ -341,7 +341,7 @@
       "powiat_slug": "powiat-buski",
       "city_slug": "busko-zdroj",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md"
     },
     {
@@ -382,7 +382,7 @@
       "powiat_slug": "powiat-bytowski",
       "city_slug": "bytow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-bytowski/bytow.md"
     },
     {
@@ -402,7 +402,7 @@
       "powiat_slug": "powiat-chelminski",
       "city_slug": "chelmno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md"
     },
     {
@@ -423,7 +423,7 @@
       "powiat_slug": "powiat-chodzieski",
       "city_slug": "chodziez",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md"
     },
     {
@@ -454,7 +454,7 @@
       "powiat_slug": "powiat-choszczenski",
       "city_slug": "choszczno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md"
     },
     {
@@ -497,7 +497,7 @@
       "powiat_slug": "powiat-czarnkowsko-trzcianecki",
       "city_slug": "czarnkow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-czarnkowsko-trzcianecki/czarnkow.md"
     },
     {
@@ -528,7 +528,7 @@
       "powiat_slug": "powiat-czluchowski",
       "city_slug": "czluchow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-czluchowski/czluchow.md"
     },
     {
@@ -548,7 +548,7 @@
       "powiat_slug": "powiat-dabrowski",
       "city_slug": "dabrowa-tarnowska",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md"
     },
     {
@@ -569,7 +569,7 @@
       "powiat_slug": "powiat-drawski",
       "city_slug": "drawsko-pomorskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md"
     },
     {
@@ -579,7 +579,7 @@
       "powiat_slug": "powiat-dzialdowski",
       "city_slug": "dzialdowo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-dzialdowski/dzialdowo.md"
     },
     {
@@ -589,7 +589,7 @@
       "powiat_slug": "powiat-dzierzoniowski",
       "city_slug": "dzierzoniow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md"
     },
     {
@@ -631,7 +631,7 @@
       "powiat_slug": "powiat-garwolinski",
       "city_slug": "garwolin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-garwolinski/garwolin.md"
     },
     {
@@ -703,7 +703,7 @@
       "powiat_slug": "powiat-glogowski",
       "city_slug": "glogow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md"
     },
     {
@@ -713,7 +713,7 @@
       "powiat_slug": "powiat-glubczycki",
       "city_slug": "glubczyce",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md"
     },
     {
@@ -734,7 +734,7 @@
       "powiat_slug": "powiat-goleniowski",
       "city_slug": "goleniow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-goleniowski/goleniow.md"
     },
     {
@@ -744,7 +744,7 @@
       "powiat_slug": "powiat-golubsko-dobrzynski",
       "city_slug": "golub-dobrzyn",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md"
     },
     {
@@ -754,7 +754,7 @@
       "powiat_slug": "powiat-goldapski",
       "city_slug": "goldap",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-goldapski/goldap.md"
     },
     {
@@ -764,7 +764,7 @@
       "powiat_slug": "powiat-gorlicki",
       "city_slug": "gorlice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-gorlicki/gorlice.md"
     },
     {
@@ -795,7 +795,7 @@
       "powiat_slug": "powiat-gostyninski",
       "city_slug": "gostynin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md"
     },
     {
@@ -805,7 +805,7 @@
       "powiat_slug": "powiat-gostynski",
       "city_slug": "gostyn",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md"
     },
     {
@@ -815,7 +815,7 @@
       "powiat_slug": "powiat-gorowski",
       "city_slug": "gora",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md"
     },
     {
@@ -825,7 +825,7 @@
       "powiat_slug": "powiat-grajewski",
       "city_slug": "grajewo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-grajewski/grajewo.md"
     },
     {
@@ -835,7 +835,7 @@
       "powiat_slug": "powiat-grodziski",
       "city_slug": "grodzisk-mazowiecki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md"
     },
     {
@@ -845,7 +845,7 @@
       "powiat_slug": "powiat-grodziski",
       "city_slug": "grodzisk-wielkopolski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md"
     },
     {
@@ -855,7 +855,7 @@
       "powiat_slug": "powiat-grojecki",
       "city_slug": "grojec",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-grojecki/grojec.md"
     },
     {
@@ -886,7 +886,7 @@
       "powiat_slug": "powiat-gryficki",
       "city_slug": "gryfice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md"
     },
     {
@@ -896,7 +896,7 @@
       "powiat_slug": "powiat-gryfinski",
       "city_slug": "gryfino",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-gryfinski/gryfino.md"
     },
     {
@@ -906,7 +906,7 @@
       "powiat_slug": "powiat-hajnowski",
       "city_slug": "hajnowka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-hajnowski/hajnowka.md"
     },
     {
@@ -916,7 +916,7 @@
       "powiat_slug": "powiat-hrubieszowski",
       "city_slug": "hrubieszow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-hrubieszowski/hrubieszow.md"
     },
     {
@@ -926,7 +926,7 @@
       "powiat_slug": "powiat-ilawski",
       "city_slug": "ilawa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md"
     },
     {
@@ -947,7 +947,7 @@
       "powiat_slug": "powiat-janowski",
       "city_slug": "janow-lubelski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-janowski/janow-lubelski.md"
     },
     {
@@ -957,7 +957,7 @@
       "powiat_slug": "powiat-jarocinski",
       "city_slug": "jarocin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md"
     },
     {
@@ -978,7 +978,7 @@
       "powiat_slug": "powiat-jasielski",
       "city_slug": "jaslo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-jasielski/jaslo.md"
     },
     {
@@ -998,7 +998,7 @@
       "powiat_slug": "powiat-jaworski",
       "city_slug": "jawor",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-jaworski/jawor.md"
     },
     {
@@ -1028,7 +1028,7 @@
       "powiat_slug": "powiat-jedrzejowski",
       "city_slug": "jedrzejow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md"
     },
     {
@@ -1059,7 +1059,7 @@
       "powiat_slug": "powiat-kamiennogorski",
       "city_slug": "kamienna-gora",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md"
     },
     {
@@ -1069,7 +1069,7 @@
       "powiat_slug": "powiat-kamienski",
       "city_slug": "kamien-pomorski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-kamienski/kamien-pomorski.md"
     },
     {
@@ -1090,7 +1090,7 @@
       "powiat_slug": "powiat-kartuski",
       "city_slug": "kartuzy",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-kartuski/kartuzy.md"
     },
     {
@@ -1110,7 +1110,7 @@
       "powiat_slug": "powiat-kazimierski",
       "city_slug": "kazimierza-wielka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-kazimierski/kazimierza-wielka.md"
     },
     {
@@ -1131,7 +1131,7 @@
       "powiat_slug": "powiat-kepinski",
       "city_slug": "kepno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-kepinski/kepno.md"
     },
     {
@@ -1141,7 +1141,7 @@
       "powiat_slug": "powiat-ketrzynski",
       "city_slug": "ketrzyn",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md"
     },
     {
@@ -1172,7 +1172,7 @@
       "powiat_slug": "powiat-kluczborski",
       "city_slug": "kluczbork",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-kluczborski/kluczbork.md"
     },
     {
@@ -1182,7 +1182,7 @@
       "powiat_slug": "powiat-klobucki",
       "city_slug": "klobuck",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-klobucki/klobuck.md"
     },
     {
@@ -1203,7 +1203,7 @@
       "powiat_slug": "powiat-kolbuszowski",
       "city_slug": "kolbuszowa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md"
     },
     {
@@ -1213,7 +1213,7 @@
       "powiat_slug": "powiat-kolnenski",
       "city_slug": "kolno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-kolnenski/kolno.md"
     },
     {
@@ -1223,7 +1223,7 @@
       "powiat_slug": "powiat-kolski",
       "city_slug": "kolo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-kolski/kolo.md"
     },
     {
@@ -1244,7 +1244,7 @@
       "powiat_slug": "powiat-konecki",
       "city_slug": "konskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md"
     },
     {
@@ -1296,7 +1296,7 @@
       "powiat_slug": "powiat-koscianski",
       "city_slug": "koscian",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-koscianski/koscian.md"
     },
     {
@@ -1306,7 +1306,7 @@
       "powiat_slug": "powiat-koscierski",
       "city_slug": "koscierzyna",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md"
     },
     {
@@ -1316,7 +1316,7 @@
       "powiat_slug": "powiat-kozienicki",
       "city_slug": "kozienice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-kozienicki/kozienice.md"
     },
     {
@@ -1347,7 +1347,7 @@
       "powiat_slug": "powiat-krapkowicki",
       "city_slug": "krapkowice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md"
     },
     {
@@ -1357,7 +1357,7 @@
       "powiat_slug": "powiat-krasnostawski",
       "city_slug": "krasnystaw",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-krasnostawski/krasnystaw.md"
     },
     {
@@ -1399,7 +1399,7 @@
       "powiat_slug": "powiat-krosnienski",
       "city_slug": "krosno-odrzanskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md"
     },
     {
@@ -1431,7 +1431,7 @@
       "powiat_slug": "powiat-kwidzynski",
       "city_slug": "kwidzyn",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md"
     },
     {
@@ -1441,7 +1441,7 @@
       "powiat_slug": "powiat-legionowski",
       "city_slug": "legionowo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-legionowski/legionowo.md"
     },
     {
@@ -1472,7 +1472,7 @@
       "powiat_slug": "powiat-leski",
       "city_slug": "lesko",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-leski/lesko.md"
     },
     {
@@ -1503,7 +1503,7 @@
       "powiat_slug": "powiat-lezajski",
       "city_slug": "lezajsk",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-lezajski/lezajsk.md"
     },
     {
@@ -1513,7 +1513,7 @@
       "powiat_slug": "powiat-leborski",
       "city_slug": "lebork",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-leborski/lebork.md"
     },
     {
@@ -1523,7 +1523,7 @@
       "powiat_slug": "powiat-lidzbarski",
       "city_slug": "lidzbark-warminski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md"
     },
     {
@@ -1553,7 +1553,7 @@
       "powiat_slug": "powiat-lipski",
       "city_slug": "lipsko",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-lipski/lipsko.md"
     },
     {
@@ -1573,7 +1573,7 @@
       "powiat_slug": "powiat-lubanski",
       "city_slug": "luban",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md"
     },
     {
@@ -1635,7 +1635,7 @@
       "powiat_slug": "powiat-lwowecki",
       "city_slug": "lwowek-slaski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md"
     },
     {
