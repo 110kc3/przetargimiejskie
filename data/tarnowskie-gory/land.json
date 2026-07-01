@@ -3,6 +3,60 @@
   "city": "tarnowskie-gory",
   "plots": [
     {
+      "key": "dz|tarnowskie góry|1276/55, 1273/55",
+      "kind": "grunt",
+      "city": "tarnowskie-gory",
+      "dzialka_nr": "1276/55, 1273/55",
+      "obreb": "Tarnowskie Góry",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Towarowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201276%2F55%2C%201273%2F55%20ul.%20Towarowej%20Tarnowskie%20G%C3%B3ry%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki",
+      "area_m2": 815,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-13",
+          "round": 1,
+          "starting_price_pln": 123000,
+          "outcome": "archived",
+          "area_m2": 815,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,99954,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomos.html",
+          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121553"
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "starting_price_pln": 86000,
+          "outcome": "archived",
+          "area_m2": 815,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,101167,burmistrz-miasta-tarnowskie-gory-oglasza-drugi-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-.html",
+          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122565"
+        },
+        {
+          "date": "2026-06-30",
+          "round": 3,
+          "starting_price_pln": 66000,
+          "outcome": "archived",
+          "area_m2": 815,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,102014,burmistrz-miasta-tarnowskie-gory-oglasza-trzeci-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci.html",
+          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=123230"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1276/55",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201276%2F55%20Tarnowskie%20G%C3%B3ry%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "1273/55",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201273%2F55%20Tarnowskie%20G%C3%B3ry%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|bobrowniki śląskie|1118/153, 3817/153",
       "kind": "grunt",
       "city": "tarnowskie-gory",
@@ -35,51 +89,6 @@
         {
           "nr": "3817/153",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203817%2F153%20Bobrowniki%20%C5%9Al%C4%85skie%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|tarnowskie góry|1276/55, 1273/55",
-      "kind": "grunt",
-      "city": "tarnowskie-gory",
-      "dzialka_nr": "1276/55, 1273/55",
-      "obreb": "Tarnowskie Góry",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Towarowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201276%2F55%2C%201273%2F55%20ul.%20Towarowej%20Tarnowskie%20G%C3%B3ry%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki",
-      "area_m2": 815,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-13",
-          "round": 1,
-          "starting_price_pln": 123000,
-          "outcome": "archived",
-          "area_m2": 815,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,99954,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomos.html",
-          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=121553"
-        },
-        {
-          "date": "2026-04-15",
-          "round": 2,
-          "starting_price_pln": 86000,
-          "outcome": "archived",
-          "area_m2": 815,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,101167,burmistrz-miasta-tarnowskie-gory-oglasza-drugi-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-.html",
-          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122565"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1276/55",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201276%2F55%20Tarnowskie%20G%C3%B3ry%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki"
-        },
-        {
-          "nr": "1273/55",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201273%2F55%20Tarnowskie%20G%C3%B3ry%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
