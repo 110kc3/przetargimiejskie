@@ -3,6 +3,33 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|karbowska; warszawska; generała władysława andersa",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Karbowska; Warszawska; Generała Władysława Andersa",
+      "building": null,
+      "address_raw": "Karbowska; Warszawska; Generała Władysława Andersa",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858271212808077%2C50.35750264867635%2C18.861827075281656%2C50.35853732968069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.dd0ed598-53b3-4a66-b585-5b1a0dfc0772",
+      "area_m2": 11963,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-31",
+          "round": 2,
+          "starting_price_pln": 1950000,
+          "outcome": "active",
+          "area_m2": 11963,
+          "detail_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858271212808077%2C50.35750264867635%2C18.861827075281656%2C50.35853732968069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.dd0ed598-53b3-4a66-b585-5b1a0dfc0772",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|świętych cyryla i metodego",
       "kind": "grunt",
       "city": "bytom",
@@ -60,6 +87,33 @@
           "outcome": "active",
           "area_m2": 48423,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-al.-Jana-Pawla-II-i-Kedzierzynska,23861.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|tramwajarzy 8",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Tramwajarzy 8",
+      "building": null,
+      "address_raw": "Tramwajarzy 8",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.931474429214823%2C50.357542376852464%2C18.931758879286978%2C50.35781680459941&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.766eed9d-8a61-4280-853b-8d622f9f2ff1",
+      "area_m2": 398,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-27",
+          "round": 2,
+          "starting_price_pln": 87500,
+          "outcome": "active",
+          "area_m2": 398,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Tramwajarzy-8,24106.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
         }
       ],
@@ -254,7 +308,7 @@
           "date": "2026-06-30",
           "round": 2,
           "starting_price_pln": 80000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 144,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zeromskiego-266_33,23839.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
