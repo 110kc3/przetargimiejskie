@@ -3,6 +3,44 @@
   "city": "myslowice",
   "listings": [
     {
+      "kind": "zabudowana",
+      "address_raw": "Gwarków 7",
+      "address": {
+        "street": "Gwarków",
+        "street_norm": "gwarkow",
+        "building": "7",
+        "apt": null,
+        "key": "gwarkow|7|",
+        "warning": null
+      },
+      "auction_date": "2026-08-04",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 258.1,
+      "starting_price_pln": 400000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wla-1",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wielka Skotnica 5A/12",
+      "address": {
+        "street": "Wielka Skotnica",
+        "street_norm": "wielka skotnica",
+        "building": "5A",
+        "apt": "12",
+        "key": "wielka skotnica|5A|12",
+        "warning": null
+      },
+      "auction_date": "2026-08-04",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 48.86,
+      "starting_price_pln": 218000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a",
+      "share": null
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Wielka Skotnica 9A/17",
       "address": {
@@ -155,41 +193,41 @@
       "share": "4/6"
     },
     {
-      "kind": "zabudowana",
-      "address_raw": "Chrzanowskiej 60",
+      "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
       "address": {
-        "street": "Chrzanowskiej",
-        "street_norm": "chrzanowskiej",
-        "building": "60",
-        "apt": null,
-        "key": "chrzanowskiej|60|",
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
         "warning": null
       },
-      "auction_date": "2026-06-30",
+      "auction_date": "2026-06-23",
       "published_date": null,
-      "round": 1,
-      "area_m2": 128,
-      "starting_price_pln": 205000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
+      "round": 6,
+      "area_m2": 41.51,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
       "share": null
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Brzezińskiej 55A/6",
+      "address_raw": "Armii Krajowej 4/11",
       "address": {
-        "street": "Brzezińskiej",
-        "street_norm": "brzezinskiej",
-        "building": "55A",
-        "apt": "6",
-        "key": "brzezinskiej|55A|6",
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
         "warning": null
       },
-      "auction_date": "2026-06-30",
+      "auction_date": "2026-06-23",
       "published_date": null,
-      "round": 2,
-      "area_m2": 46.42,
-      "starting_price_pln": 175000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a",
+      "round": 5,
+      "area_m2": 37.49,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr",
       "share": null
     },
     {

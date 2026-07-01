@@ -69,6 +69,72 @@
       "area_m2": 35.73
     },
     {
+      "key": "wielka skotnica|5A|12",
+      "street": "Wielka Skotnica",
+      "street_norm": "wielka skotnica",
+      "building": "5A",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 218000,
+          "outcome": "archived",
+          "area_m2": 48.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 218000,
+          "outcome": "active",
+          "area_m2": 48.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.86
+    },
+    {
+      "key": "gwarkow|7|",
+      "street": "Gwarków",
+      "street_norm": "gwarkow",
+      "building": "7",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-05-26",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 420000,
+          "outcome": "archived",
+          "area_m2": 258.1,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wlas-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 400000,
+          "outcome": "active",
+          "area_m2": 258.1,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wla-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 258.1
+    },
+    {
       "key": "armii krajowej|24|5",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -270,7 +336,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 175000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 46.42,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a",
           "wadium_deadline": null,
@@ -292,7 +358,7 @@
           "round": 1,
           "kind": "zabudowana",
           "starting_price_pln": 205000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 128,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
           "wadium_deadline": null,
@@ -586,50 +652,6 @@
         }
       ],
       "area_m2": 30.55
-    },
-    {
-      "key": "wielka skotnica|5A|12",
-      "street": "Wielka Skotnica",
-      "street_norm": "wielka skotnica",
-      "building": "5A",
-      "apt": "12",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 218000,
-          "outcome": "archived",
-          "area_m2": 48.86,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 48.86
-    },
-    {
-      "key": "gwarkow|7|",
-      "street": "Gwarków",
-      "street_norm": "gwarkow",
-      "building": "7",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-05-26",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 420000,
-          "outcome": "archived",
-          "area_m2": 258.1,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wlas-1",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 258.1
     },
     {
       "key": "armii krajowej|1C|3",

@@ -321,6 +321,66 @@
       "parcels": []
     },
     {
+      "key": "dz|0003 dziećkowice|2003/52",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "2003/52",
+      "obreb": "0003 Dziećkowice",
+      "street": "Długiej",
+      "building": null,
+      "address_raw": "ul. Długiej",
+      "dzialka_id": "247001_1.0003.AR_1.2003/52",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52",
+      "area_m2": 847,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-21",
+          "round": 2,
+          "starting_price_pln": 106000,
+          "outcome": "archived",
+          "area_m2": 847,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
+        },
+        {
+          "date": "2026-01-20",
+          "round": 3,
+          "starting_price_pln": 106000,
+          "outcome": "archived",
+          "area_m2": 847,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
+        },
+        {
+          "date": "2026-04-28",
+          "round": 4,
+          "starting_price_pln": 106000,
+          "outcome": "archived",
+          "area_m2": 847,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
+        },
+        {
+          "date": "2026-06-23",
+          "round": 5,
+          "starting_price_pln": 106000,
+          "outcome": "archived",
+          "area_m2": 847,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2003/52",
+          "dzialka_id": "247001_1.0003.AR_1.2003/52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. harcerzy śląskich",
       "kind": "grunt",
       "city": "myslowice",
@@ -533,57 +593,6 @@
           "nr": "2057/21",
           "dzialka_id": "247001_1.0003.AR_2.2057/21",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.2057%2F21"
-        }
-      ]
-    },
-    {
-      "key": "dz|0003 dziećkowice|2003/52",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "2003/52",
-      "obreb": "0003 Dziećkowice",
-      "street": "Długiej",
-      "building": null,
-      "address_raw": "ul. Długiej",
-      "dzialka_id": "247001_1.0003.AR_1.2003/52",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52",
-      "area_m2": 847,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-21",
-          "round": 2,
-          "starting_price_pln": 106000,
-          "outcome": "archived",
-          "area_m2": 847,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
-        },
-        {
-          "date": "2026-01-20",
-          "round": 3,
-          "starting_price_pln": 106000,
-          "outcome": "archived",
-          "area_m2": 847,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
-        },
-        {
-          "date": "2026-04-28",
-          "round": 4,
-          "starting_price_pln": 106000,
-          "outcome": "archived",
-          "area_m2": 847,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dlugiej"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2003/52",
-          "dzialka_id": "247001_1.0003.AR_1.2003/52",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52"
         }
       ]
     },
