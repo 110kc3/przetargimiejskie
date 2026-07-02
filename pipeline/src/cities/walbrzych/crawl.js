@@ -83,13 +83,16 @@ export function parseBoardPage(html) {
   // We use a regex to capture each <article>…</article> block, then extract
   // the fields we need from it.
 
-  const articleRe = /<article[^>]*>([\s\S]*?)<\/article>/gi;
+  // Live markup (2026-07): no <article> wrapper — each card is a
+  // <table class="table table-borderless"> block with <th scope="row"> labels,
+  // and detail hrefs are ABSOLUTE (https://bip.um.walbrzych.pl/przetarg-...).
+  const articleRe = /<table[\s\S]*?<\/table>/gi;
   let m;
   while ((m = articleRe.exec(html)) !== null) {
-    const block = m[1];
+    const block = m[0];
 
-    // Detail URL
-    const hrefM = /href="(\/przetarg-nieruchomosci\/[^"]+)"/.exec(block);
+    // Detail URL — accept absolute or relative href.
+    const hrefM = /href="(?:https?:\/\/[^"\/]+)?(\/przetarg-nieruchomosci\/[^"]+)"/.exec(block);
     if (!hrefM) continue;
     const detailUrl = ORIGIN + hrefM[1];
 

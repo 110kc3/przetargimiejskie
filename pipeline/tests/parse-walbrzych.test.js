@@ -365,20 +365,21 @@ test('parseResultDoc: fallbackDate used when no date in title', () => {
 
 // parseBoardPage — minimal structural test (no network)
 test('parseBoardPage: filters for lokal mieszkalny only', () => {
-  // Minimal synthetic HTML with two cards (flat + land)
+  // Minimal synthetic HTML with two cards (flat + land), mirroring the live
+  // Logonet markup: <table> card blocks, <th scope="row"> labels, absolute hrefs.
   const html = `
-    <article class="przetarg-nieruchomosci-item">
-      <td>Adres nieruchomości</td><td><a href="/przetarg-nieruchomosci/12345/przy-ul-testowej">ul. Testowa 3/2</a></td>
-      <td>Rodzaj nieruchomości</td><td>lokal mieszkalny</td>
-      <td>Cena wywoławcza</td><td>80.000,00 zł</td>
-      <td>Data przetargu</td><td><strong>10.06.2026</strong> godz. 10:00</td>
-    </article>
-    <article class="przetarg-nieruchomosci-item">
-      <td>Adres nieruchomości</td><td><a href="/przetarg-nieruchomosci/12346/dzialka">działka 15/2</a></td>
-      <td>Rodzaj nieruchomości</td><td>nieruchomość niezabudowana</td>
-      <td>Cena wywoławcza</td><td>300.000,00 zł</td>
-      <td>Data przetargu</td><td><strong>10.06.2026</strong> godz. 11:00</td>
-    </article>`;
+    <table class="table table-borderless">
+      <tr><th scope="row">Adres nieruchomości</th><td class="normal"><a href="https://bip.um.walbrzych.pl/przetarg-nieruchomosci/12345/przy-ul-testowej">ul. Testowa 3/2</a></td></tr>
+      <tr><th scope="row">Rodzaj nieruchomości</th><td>lokal mieszkalny</td></tr>
+      <tr><th scope="row">Cena wywoławcza</th><td>80.000,00 zł</td></tr>
+      <tr><th scope="row">Data przetargu</th><td><strong>10.06.2026</strong> godz. 10:00</td></tr>
+    </table>
+    <table class="table table-borderless">
+      <tr><th scope="row">Adres nieruchomości</th><td class="normal"><a href="https://bip.um.walbrzych.pl/przetarg-nieruchomosci/12346/dzialka">działka 15/2</a></td></tr>
+      <tr><th scope="row">Rodzaj nieruchomości</th><td>nieruchomość niezabudowana</td></tr>
+      <tr><th scope="row">Cena wywoławcza</th><td>300.000,00 zł</td></tr>
+      <tr><th scope="row">Data przetargu</th><td><strong>10.06.2026</strong> godz. 11:00</td></tr>
+    </table>`;
   const cards = parseBoardPage(html);
   assert.equal(cards.length, 1, 'only the lokal mieszkalny card should be returned');
   assert.match(cards[0].detailUrl, /12345/);

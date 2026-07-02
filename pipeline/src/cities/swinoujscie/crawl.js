@@ -65,9 +65,11 @@ function stripTags(s) {
  */
 export function parseArticleList(html, boardId) {
   const out = [];
-  // Match each h2>a section that links to this board
+  // Match each h2>a section that links to this board.
+  // Live markup 2026-07 uses ABSOLUTE hrefs (https://bip.um.swinoujscie.pl/artykul/…);
+  // accept both absolute and the original relative form.
   const re = new RegExp(
-    `<h2[^>]*>\\s*<a[^>]+href="(/artykul/${boardId}/(\\d+)/[^"]*)"[^>]*>([\\s\\S]*?)</a>\\s*</h2>(?:\\s*<(?:p|div)[^>]*>([\\s\\S]*?)</(?:p|div)>)?`,
+    `<h2[^>]*>\\s*<a[^>]+href="(?:https?://[^"/]+)?(/artykul/${boardId}/(\\d+)/[^"]*)"[^>]*>([\\s\\S]*?)</a>\\s*</h2>(?:\\s*<(?:p|div)[^>]*>([\\s\\S]*?)</(?:p|div)>)?`,
     'gi',
   );
   let m;

@@ -136,7 +136,9 @@ export function parseListPage(html) {
     if (rodzaj !== 'lokal mieszkalny') continue;
 
     // Extract the detail URL from the "Adres nieruchomości" cell raw HTML.
-    const adresCellM = /Adres\s+nieruchomo[śs]ci[\s\S]*?<\/td>\s*<td[^>]*>([\s\S]*?)<\/td>/i.exec(tbl);
+    // Live Logonet markup renders the label as <th scope="row"> (not <td>),
+    // so accept either closing tag before the value cell.
+    const adresCellM = /Adres\s+nieruchomo[śs]ci\s*<\/t[dh]>\s*<td[^>]*>([\s\S]*?)<\/td>/i.exec(tbl);
     if (!adresCellM) continue;
     const adresCellHtml = adresCellM[1];
 

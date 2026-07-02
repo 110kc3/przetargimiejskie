@@ -81,7 +81,15 @@ export function parseListPage(html) {
   // We capture both the href and the title from the accessibility text.
   // Note: "przejsc" in Polish = przej + sc (two chars after przej).
   // The regex uses character classes to handle Polish diacritics on both chars.
-  const RE = /href="([^"]+\.html\??)"[^>]*>\s*Kliknij\s+aby\s+przej[sSśŚ][cCćĆ]\s+do\s+([\s\S]*?)\.\s*<\/a>/gi;
+  // Live markup 2026-07: the accessibility text moved from the link TEXT into
+  // the title ATTRIBUTE — <a href="slug.html?" title="Kliknij aby przejść do
+  // TITLE." class="registry__table_row_name…">TITLE</a>. Match both variants.
+  const RE_ATTR =
+    /href="([^"]+\.html\??)"[^>]*title="Kliknij\s+aby\s+przej[sSśŚ][cCćĆ]\s+do\s+([^"]*?)\.?\s*"[^>]*>([\s\S]*?)<\/a>/gi;
+  const RE_TEXT =
+    /href="([^"]+\.html\??)"[^>]*>\s*Kliknij\s+aby\s+przej[sSśŚ][cCćĆ]\s+do\s+([\s\S]*?)\.\s*<\/a>/gi;
+  const RE = RE_ATTR.test(html) ? RE_ATTR : RE_TEXT;
+  RE.lastIndex = 0;
   let m;
   while ((m = RE.exec(html)) !== null) {
     const rawHref = m[1].replace(/\?$/, ''); // strip trailing "?"
@@ -91,7 +99,7 @@ export function parseListPage(html) {
     if (!title) continue;
     // Find the nearest DATA DODANIA date after this link
     const afterPos = m.index + m[0].length;
-    const rest = html.slice(afterPos, afterPos + 400);
+    const rest = html.slice(afterPos, afterPos + 900);
     const dm = /(\d{4}-\d{2}-\d{2})/.exec(rest);
     out.push({
       href: rawHref,

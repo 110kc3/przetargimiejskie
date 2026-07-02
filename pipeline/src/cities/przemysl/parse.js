@@ -133,9 +133,15 @@ export function parseListPage(html, baseHost) {
   if (!html) return [];
   const out = [];
   const seen = new Set();
-  // Match <h2 ...><a href="URL">TITLE</a></h2> (skyCMS article-list markup).
-  // Also catches bare <a href> inside <li> headings.
-  const RE = /<(?:h2|h3)[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>\s*<\/(?:h2|h3)>/gi;
+  // skyCMS article-list markup. Two known variants:
+  //   old: <h2|h3><a href="URL">TITLE</a></h2|h3>
+  //   live 2026-07: <article class="post"><a href="URL" … class="post__link">
+  //                   … <h3 class="post__header">TITLE</h3> … </a></article>
+  //   (the link WRAPS the heading, so the old pattern never matches it)
+  const RE_OLD = /<(?:h2|h3)[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>\s*<\/(?:h2|h3)>/gi;
+  const RE_NEW = /<a[^>]+href="([^"]+)"[^>]*class="post__link"[^>]*>[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>/gi;
+  const RE = RE_NEW.test(html) ? RE_NEW : RE_OLD;
+  RE.lastIndex = 0;
   let m;
   while ((m = RE.exec(html)) !== null) {
     let url = m[1].replace(/&amp;/gi, '&').trim();
