@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
   "city": "pila",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 11 Listopada 39/8",
+      "address": {
+        "street": "11 Listopada",
+        "street_norm": "11 listopada",
+        "building": "39",
+        "apt": "8",
+        "key": "11 listopada|39|8",
+        "warning": null
+      },
+      "area_m2": 47.4,
+      "starting_price_pln": 167000,
+      "auction_date": "2026-07-17",
+      "round": 1,
+      "detail_url": "https://bip.pila.pl/prezydent-miasta-pily-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnoscinieruchomosci-lokalowej-lokalu-mieszkalnego-nr-8-polozonego-w-pile-przy-ul-11-listopada-39-termin-przetargu-17072026.html",
+      "source_url": "https://bip.pila.pl/files/file_add/download/11503_ogloszenieoprzetargulokalmieszkalny.pdf"
+    }
+  ],
   "wykaz": []
 }
