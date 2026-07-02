@@ -1,6 +1,493 @@
 {
   "schema_version": 1,
   "city": "pabianice",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Bolesława Nawrockiego 4A",
+      "address": {
+        "street": "Bolesława Nawrockiego",
+        "street_norm": "boleslawa nawrockiego",
+        "building": "4A",
+        "apt": "6",
+        "key": "boleslawa nawrockiego|4A|6",
+        "warning": null
+      },
+      "starting_price_pln": 53000,
+      "auction_date": "2026-08-06",
+      "round": 3,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/24337/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/24337/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 3 przy ul. Toruńskiej 29",
+      "address": {
+        "street": "Toruńskiej",
+        "street_norm": "torunskiej",
+        "building": "29",
+        "apt": "3",
+        "key": "torunskiej|29|3",
+        "warning": null
+      },
+      "starting_price_pln": 85000,
+      "auction_date": "2026-08-06",
+      "round": 1,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/24336/lokal-mieszkalny-nr-3-przy-ul-torunskiej-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/24336/lokal-mieszkalny-nr-3-przy-ul-torunskiej-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 64/65 przy ul. Stefana kard. Wyszyńskiego 3",
+      "address": {
+        "street": "Stefana kard. Wyszyńskiego",
+        "street_norm": "stefana kard wyszynskiego",
+        "building": "3",
+        "apt": "64",
+        "key": "stefana kard wyszynskiego|3|64",
+        "warning": null
+      },
+      "starting_price_pln": 240000,
+      "auction_date": "2026-06-03",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/24086/lokal-mieszkalny-nr-64-65-przy-ul-stefana-kard-wyszynskiego-3",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/24086/lokal-mieszkalny-nr-64-65-przy-ul-stefana-kard-wyszynskiego-3"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 7 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "7",
+        "key": "pomorskiej|20|7",
+        "warning": null
+      },
+      "starting_price_pln": 53000,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23966/lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23966/lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "6",
+        "key": "pomorskiej|20|6",
+        "warning": null
+      },
+      "starting_price_pln": 67000,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23965/lokal-mieszkalny-nr-6-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23965/lokal-mieszkalny-nr-6-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 4 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "4",
+        "key": "pomorskiej|20|4",
+        "warning": null
+      },
+      "starting_price_pln": 69000,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23964/lokal-mieszkalny-nr-4-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23964/lokal-mieszkalny-nr-4-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 9/10 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "9",
+        "key": "pomorskiej|20|9",
+        "warning": null
+      },
+      "starting_price_pln": 135000,
+      "auction_date": "2026-03-05",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23725/lokal-mieszkalny-nr-9-10-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23725/lokal-mieszkalny-nr-9-10-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 7 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "7",
+        "key": "pomorskiej|20|7",
+        "warning": null
+      },
+      "starting_price_pln": 69000,
+      "auction_date": "2026-03-05",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23724/lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23724/lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "6",
+        "key": "pomorskiej|20|6",
+        "warning": null
+      },
+      "starting_price_pln": 85000,
+      "auction_date": "2026-03-05",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23723/lokal-mieszkalny-nr-6-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23723/lokal-mieszkalny-nr-6-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 4 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "4",
+        "key": "pomorskiej|20|4",
+        "warning": null
+      },
+      "starting_price_pln": 87000,
+      "auction_date": "2026-03-05",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23722/lokal-mieszkalny-nr-4-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23722/lokal-mieszkalny-nr-4-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 1 przy ul. Toruńskiej 29",
+      "address": {
+        "street": "Toruńskiej",
+        "street_norm": "torunskiej",
+        "building": "29",
+        "apt": "1",
+        "key": "torunskiej|29|1",
+        "warning": null
+      },
+      "starting_price_pln": 105000,
+      "auction_date": "2026-03-05",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23721/lokal-mieszkalny-nr-1-przy-ul-torunskiej-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23721/lokal-mieszkalny-nr-1-przy-ul-torunskiej-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 9/10 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "9",
+        "key": "pomorskiej|20|9",
+        "warning": null
+      },
+      "starting_price_pln": 157000,
+      "auction_date": "2025-12-11",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23301/lokal-mieszkalny-nr-9-10-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23301/lokal-mieszkalny-nr-9-10-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 7 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "7",
+        "key": "pomorskiej|20|7",
+        "warning": null
+      },
+      "starting_price_pln": 75000,
+      "auction_date": "2025-12-11",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23300/lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23300/lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "6",
+        "key": "pomorskiej|20|6",
+        "warning": null
+      },
+      "starting_price_pln": 93000,
+      "auction_date": "2025-12-11",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23299/lokal-mieszkalny-nr-6-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23299/lokal-mieszkalny-nr-6-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 4 przy ul. Pomorskiej 20",
+      "address": {
+        "street": "Pomorskiej",
+        "street_norm": "pomorskiej",
+        "building": "20",
+        "apt": "4",
+        "key": "pomorskiej|20|4",
+        "warning": null
+      },
+      "starting_price_pln": 95000,
+      "auction_date": "2025-12-11",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23298/lokal-mieszkalny-nr-4-przy-ul-pomorskiej-20",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23298/lokal-mieszkalny-nr-4-przy-ul-pomorskiej-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 66 przy ul. Łaskiej 94",
+      "address": {
+        "street": "Łaskiej",
+        "street_norm": "laskiej",
+        "building": "94",
+        "apt": "66",
+        "key": "laskiej|94|66",
+        "warning": null
+      },
+      "starting_price_pln": 230000,
+      "auction_date": "2025-10-30",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23063/lokal-mieszkalny-nr-66-przy-ul-laskiej-94",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23063/lokal-mieszkalny-nr-66-przy-ul-laskiej-94"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 66 przy ul. Łaskiej 94",
+      "address": {
+        "street": "Łaskiej",
+        "street_norm": "laskiej",
+        "building": "94",
+        "apt": "66",
+        "key": "laskiej|94|66",
+        "warning": null
+      },
+      "starting_price_pln": 250000,
+      "auction_date": "2025-08-07",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22805/lokal-mieszkalny-nr-66-przy-ul-laskiej-94",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22805/lokal-mieszkalny-nr-66-przy-ul-laskiej-94"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Bolesława Nawrockiego 4A",
+      "address": {
+        "street": "Bolesława Nawrockiego",
+        "street_norm": "boleslawa nawrockiego",
+        "building": "4A",
+        "apt": "6",
+        "key": "boleslawa nawrockiego|4A|6",
+        "warning": null
+      },
+      "starting_price_pln": 51000,
+      "auction_date": "2025-06-26",
+      "round": 3,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22628/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22628/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 4 przy ul. Jana Matejki 29",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "29",
+        "apt": "4",
+        "key": "jana matejki|29|4",
+        "warning": null
+      },
+      "starting_price_pln": 59000,
+      "auction_date": "2025-05-15",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22452/lokal-mieszkalny-nr-4-przy-ul-jana-matejki-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22452/lokal-mieszkalny-nr-4-przy-ul-jana-matejki-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 3 przy ul. Jana Matejki 29",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "29",
+        "apt": "3",
+        "key": "jana matejki|29|3",
+        "warning": null
+      },
+      "starting_price_pln": 53000,
+      "auction_date": "2025-05-15",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22451/lokal-mieszkalny-nr-3-przy-ul-jana-matejki-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22451/lokal-mieszkalny-nr-3-przy-ul-jana-matejki-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 2 przy ul. Jana Matejki 29",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "29",
+        "apt": "2",
+        "key": "jana matejki|29|2",
+        "warning": null
+      },
+      "starting_price_pln": 85000,
+      "auction_date": "2025-05-15",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22450/lokal-mieszkalny-nr-2-przy-ul-jana-matejki-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22450/lokal-mieszkalny-nr-2-przy-ul-jana-matejki-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Bolesława Nawrockiego 4A",
+      "address": {
+        "street": "Bolesława Nawrockiego",
+        "street_norm": "boleslawa nawrockiego",
+        "building": "4A",
+        "apt": "6",
+        "key": "boleslawa nawrockiego|4A|6",
+        "warning": null
+      },
+      "starting_price_pln": 61000,
+      "auction_date": "2025-03-27",
+      "round": 3,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22205/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22205/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 4 przy ul. Jana Matejki 29",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "29",
+        "apt": "4",
+        "key": "jana matejki|29|4",
+        "warning": null
+      },
+      "starting_price_pln": 79000,
+      "auction_date": "2025-03-13",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22124/lokal-mieszkalny-nr-4-przy-ul-jana-matejki-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22124/lokal-mieszkalny-nr-4-przy-ul-jana-matejki-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 3 przy ul. Jana Matejki 29",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "29",
+        "apt": "3",
+        "key": "jana matejki|29|3",
+        "warning": null
+      },
+      "starting_price_pln": 68000,
+      "auction_date": "2025-03-13",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22123/lokal-mieszkalny-nr-3-przy-ul-jana-matejki-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22123/lokal-mieszkalny-nr-3-przy-ul-jana-matejki-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 2 przy ul. Jana Matejki 29",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "29",
+        "apt": "2",
+        "key": "jana matejki|29|2",
+        "warning": null
+      },
+      "starting_price_pln": 111000,
+      "auction_date": "2025-03-13",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22122/lokal-mieszkalny-nr-2-przy-ul-jana-matejki-29",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/22122/lokal-mieszkalny-nr-2-przy-ul-jana-matejki-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 7 przy ul. Odrodzenia 15",
+      "address": {
+        "street": "Odrodzenia",
+        "street_norm": "odrodzenia",
+        "building": "15",
+        "apt": "7",
+        "key": "odrodzenia|15|7",
+        "warning": null
+      },
+      "starting_price_pln": 240000,
+      "auction_date": "2024-12-05",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/21717/lokal-mieszkalny-nr-7-przy-ul-odrodzenia-15",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/21717/lokal-mieszkalny-nr-7-przy-ul-odrodzenia-15"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 7 przy ul. Odrodzenia 15",
+      "address": {
+        "street": "Odrodzenia",
+        "street_norm": "odrodzenia",
+        "building": "15",
+        "apt": "7",
+        "key": "odrodzenia|15|7",
+        "warning": null
+      },
+      "starting_price_pln": 270000,
+      "auction_date": "2024-10-17",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/21491/lokal-mieszkalny-nr-7-przy-ul-odrodzenia-15",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/21491/lokal-mieszkalny-nr-7-przy-ul-odrodzenia-15"
+    }
+  ],
   "wykaz": []
 }
