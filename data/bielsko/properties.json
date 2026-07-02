@@ -135,6 +135,50 @@
       ],
       "area_m2": null,
       "land_area_m2": 1465
+    },
+    {
+      "key": "11 listopada|23|12",
+      "street": "11 Listopada",
+      "street_norm": "11 listopada",
+      "building": "23",
+      "apt": "12",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 49000,
+          "outcome": "active",
+          "area_m2": 15.17,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-2312",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 15.17
+    },
+    {
+      "key": "stanislawa wyspianskiego|32|9",
+      "street": "Stanisława Wyspiańskiego",
+      "street_norm": "stanislawa wyspianskiego",
+      "building": "32",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75900,
+          "outcome": "active",
+          "area_m2": 17.75,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-stanislawa-wyspianskiego-329",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 17.75
     }
   ]
 }

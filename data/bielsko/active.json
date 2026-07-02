@@ -75,6 +75,24 @@
       "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-jana-sobieskiego-140"
     },
     {
+      "kind": "uzytkowy",
+      "address_raw": "ul. 11 Listopada 23/12",
+      "address": {
+        "street": "11 Listopada",
+        "street_norm": "11 listopada",
+        "building": "23",
+        "apt": "12",
+        "key": "11 listopada|23|12",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 15.17,
+      "starting_price_pln": 49000,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-11-listopada-2312"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "ul. Łukowa 15, Łukowa 17",
       "address": {
@@ -109,6 +127,24 @@
       "area_m2": 1465,
       "starting_price_pln": 1350000,
       "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gorska-94"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stanisława Wyspiańskiego 32/9",
+      "address": {
+        "street": "Stanisława Wyspiańskiego",
+        "street_norm": "stanislawa wyspianskiego",
+        "building": "32",
+        "apt": "9",
+        "key": "stanislawa wyspianskiego|32|9",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 2,
+      "area_m2": 17.75,
+      "starting_price_pln": 75900,
+      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-stanislawa-wyspianskiego-329"
     }
   ],
   "wykaz": []

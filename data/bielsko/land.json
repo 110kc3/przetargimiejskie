@@ -3,6 +3,39 @@
   "city": "bielsko",
   "plots": [
     {
+      "key": "dz|lipnik|3243/5",
+      "kind": "grunt",
+      "city": "bielsko",
+      "dzialka_nr": "3243/5",
+      "obreb": "Lipnik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wincentego Witosa Wysokość wadium / zaliczki: 357 000,00 zł",
+      "dzialka_id": "246101_1.0032.3243/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.3243%2F5",
+      "area_m2": 9793,
+      "zoning": "pod inwestycje",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 3,
+          "starting_price_pln": 3570000,
+          "outcome": "active",
+          "area_m2": 9793,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-wincentego-witosa",
+          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-wincentego-witosa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3243/5",
+          "dzialka_id": "246101_1.0032.3243/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.3243%2F5"
+        }
+      ]
+    },
+    {
       "key": "dz|stare bielsko|759/56, 759/45",
       "kind": "grunt",
       "city": "bielsko",
@@ -37,105 +70,6 @@
           "nr": "759/45",
           "dzialka_id": "246101_1.0038.759/45",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F45"
-        }
-      ]
-    },
-    {
-      "key": "dz|lipnik|290/96",
-      "kind": "grunt",
-      "city": "bielsko",
-      "dzialka_nr": "290/96",
-      "obreb": "Lipnik",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Helmuta Kajzara Wysokość wadium / zaliczki: 28 000,00 zł",
-      "dzialka_id": "246101_1.0032.290/96",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F96",
-      "area_m2": 493,
-      "zoning": "budowlana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-19",
-          "round": 1,
-          "starting_price_pln": 286807,
-          "outcome": "archived",
-          "area_m2": 493,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-helmuta-kajzara",
-          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-helmuta-kajzara"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "290/96",
-          "dzialka_id": "246101_1.0032.290/96",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F96"
-        }
-      ]
-    },
-    {
-      "key": "dz|lipnik|290/9",
-      "kind": "grunt",
-      "city": "bielsko",
-      "dzialka_nr": "290/9",
-      "obreb": "Lipnik",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Marii Skłodowskiej-Curie i Jana Lechonia Wysokość wadium / zaliczki: 265 000,00 zł",
-      "dzialka_id": "246101_1.0032.290/9",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9",
-      "area_m2": 4739,
-      "zoning": "budowlana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-18",
-          "round": 2,
-          "starting_price_pln": 2653840,
-          "outcome": "archived",
-          "area_m2": 4739,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia",
-          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "290/9",
-          "dzialka_id": "246101_1.0032.290/9",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9"
-        }
-      ]
-    },
-    {
-      "key": "dz|lipnik|3243/5",
-      "kind": "grunt",
-      "city": "bielsko",
-      "dzialka_nr": "3243/5",
-      "obreb": "Lipnik",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Wincentego Witosa",
-      "dzialka_id": "246101_1.0032.3243/5",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.3243%2F5",
-      "area_m2": 9793,
-      "zoning": "pod inwestycje",
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-20-02",
-          "round": 1,
-          "starting_price_pln": 3917200,
-          "outcome": "archived",
-          "area_m2": 9793,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-wincentego-witosa",
-          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-wincentego-witosa"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3243/5",
-          "dzialka_id": "246101_1.0032.3243/5",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.3243%2F5"
         }
       ]
     },
@@ -292,6 +226,39 @@
       ]
     },
     {
+      "key": "dz|lipnik|290/96",
+      "kind": "grunt",
+      "city": "bielsko",
+      "dzialka_nr": "290/96",
+      "obreb": "Lipnik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Helmuta Kajzara",
+      "dzialka_id": "246101_1.0032.290/96",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F96",
+      "area_m2": 493,
+      "zoning": "budowlana",
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 286807,
+          "outcome": "active",
+          "area_m2": 493,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-helmuta-kajzara",
+          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-helmuta-kajzara"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "290/96",
+          "dzialka_id": "246101_1.0032.290/96",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F96"
+        }
+      ]
+    },
+    {
       "key": "dz|stare bielsko|759/47",
       "kind": "grunt",
       "city": "bielsko",
@@ -354,6 +321,39 @@
           "nr": "3885/19",
           "dzialka_id": "246101_1.0032.3885/19",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.3885%2F19"
+        }
+      ]
+    },
+    {
+      "key": "dz|lipnik|290/9",
+      "kind": "grunt",
+      "city": "bielsko",
+      "dzialka_nr": "290/9",
+      "obreb": "Lipnik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Marii Skłodowskiej-Curie i Jana Lechonia",
+      "dzialka_id": "246101_1.0032.290/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9",
+      "area_m2": 4739,
+      "zoning": "budowlana",
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 2653840,
+          "outcome": "active",
+          "area_m2": 4739,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia",
+          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "290/9",
+          "dzialka_id": "246101_1.0032.290/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9"
         }
       ]
     }
