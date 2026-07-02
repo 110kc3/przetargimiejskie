@@ -1,5 +1,637 @@
 {
   "schema_version": 1,
   "city": "lodz",
-  "properties": []
+  "properties": [
+    {
+      "key": "pasjonistow|1|29",
+      "street": "Pasjonistów",
+      "street_norm": "pasjonistow",
+      "building": "1",
+      "apt": "29",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "traktorowa|74A|2",
+      "street": "Traktorowa",
+      "street_norm": "traktorowa",
+      "building": "74A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 636,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "traktorowa|74A|14",
+      "street": "Traktorowa",
+      "street_norm": "traktorowa",
+      "building": "74A",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "mokra|19A|17",
+      "street": "Mokra",
+      "street_norm": "mokra",
+      "building": "19A",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 994,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "odolanowska|40|57",
+      "street": "Odolanowska",
+      "street_norm": "odolanowska",
+      "building": "40",
+      "apt": "57",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lutomierska|69|36",
+      "street": "Lutomierska",
+      "street_norm": "lutomierska",
+      "building": "69",
+      "apt": "36",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "zawiszy czarnego|28|1A",
+      "street": "Zawiszy Czarnego",
+      "street_norm": "zawiszy czarnego",
+      "building": "28",
+      "apt": "1A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 4,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-parcelacyjnej-9b-al-pasjonistow-1-ul-traktorowej-74a-ul-mokrej-19a-ul-odolanowskiej-40-44-ul-lutomierskiej-69-ul-zawiszy-czarnego-28-id170168/2026/07/1/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "stefana jaracza|23|1",
+      "street": "Stefana Jaracza",
+      "street_norm": "stefana jaracza",
+      "building": "23",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-plockiej-16-ul-stefana-jaracza-23-ul-juliana-tuwima-6-id169352/2026/06/24/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "stefana jaracza|23|15",
+      "street": "Stefana Jaracza",
+      "street_norm": "stefana jaracza",
+      "building": "23",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-plockiej-16-ul-stefana-jaracza-23-ul-juliana-tuwima-6-id169352/2026/06/24/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "stefana jaracza|23|53",
+      "street": "Stefana Jaracza",
+      "street_norm": "stefana jaracza",
+      "building": "23",
+      "apt": "53",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-plockiej-16-ul-stefana-jaracza-23-ul-juliana-tuwima-6-id169352/2026/06/24/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "juliana tuwima|6|6U",
+      "street": "Juliana Tuwima",
+      "street_norm": "juliana tuwima",
+      "building": "6",
+      "apt": "6U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 155000,
+          "outcome": "active",
+          "area_m2": 74.75,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-plockiej-16-ul-stefana-jaracza-23-ul-juliana-tuwima-6-id169352/2026/06/24/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 74.75
+    },
+    {
+      "key": "grabowa|17|15",
+      "street": "Grabowa",
+      "street_norm": "grabowa",
+      "building": "17",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-felsztynskiego-37-lubelskiej-28-30-grabowej-17-budowlanej-2-4-piramowicza-7-polnocnej-5-11-rewolucji-1905-r-nr-58-tuwima-6-zbocze-15-oraz-al-kosciuszki-46-id167117/2026/06/3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "budowlana|2|1U",
+      "street": "Budowlana",
+      "street_norm": "budowlana",
+      "building": "2",
+      "apt": "1U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 2,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-felsztynskiego-37-lubelskiej-28-30-grabowej-17-budowlanej-2-4-piramowicza-7-polnocnej-5-11-rewolucji-1905-r-nr-58-tuwima-6-zbocze-15-oraz-al-kosciuszki-46-id167117/2026/06/3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "polnocna|5|44",
+      "street": "Północna",
+      "street_norm": "polnocna",
+      "building": "5",
+      "apt": "44",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-felsztynskiego-37-lubelskiej-28-30-grabowej-17-budowlanej-2-4-piramowicza-7-polnocnej-5-11-rewolucji-1905-r-nr-58-tuwima-6-zbocze-15-oraz-al-kosciuszki-46-id167117/2026/06/3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "zjednoczenia|7|6",
+      "street": "Zjednoczenia",
+      "street_norm": "zjednoczenia",
+      "building": "7",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-wschodniej-49-oraz-ul-zjednoczenia-7-id168644/2026/06/17/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "zjednoczenia|7|12A",
+      "street": "Zjednoczenia",
+      "street_norm": "zjednoczenia",
+      "building": "7",
+      "apt": "12A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-wschodniej-49-oraz-ul-zjednoczenia-7-id168644/2026/06/17/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "plk dr stanislawa wieckowskiego|74|18",
+      "street": "płk. dr. Stanisława Więckowskiego",
+      "street_norm": "plk dr stanislawa wieckowskiego",
+      "building": "74",
+      "apt": "18",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-srebrzynskiej-95-wieckowskiego-74-radwanskiej-24-pomorskiej-87-piotrkowskiej-141a-id167111/2026/06/3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "radwanska|24|4",
+      "street": "Radwańska",
+      "street_norm": "radwanska",
+      "building": "24",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 264,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-srebrzynskiej-95-wieckowskiego-74-radwanskiej-24-pomorskiej-87-piotrkowskiej-141a-id167111/2026/06/3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "piotrkowska|141A|38",
+      "street": "Piotrkowska",
+      "street_norm": "piotrkowska",
+      "building": "141A",
+      "apt": "38",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-srebrzynskiej-95-wieckowskiego-74-radwanskiej-24-pomorskiej-87-piotrkowskiej-141a-id167111/2026/06/3/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "hersza berlinskiego|24|12",
+      "street": "Hersza Berlińskiego",
+      "street_norm": "hersza berlinskiego",
+      "building": "24",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-hersza-berlinskiego-12a-hersza-berlinskiego-24-tokarskiej-2-6-sierpnia-28-wschodniej-27-organizacji-wolnosc-i-niezawislosc-54-58-wojska-polskiego-108-id166280/2026/05/27/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "tokarska|2|3",
+      "street": "Tokarska",
+      "street_norm": "tokarska",
+      "building": "2",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-hersza-berlinskiego-12a-hersza-berlinskiego-24-tokarskiej-2-6-sierpnia-28-wschodniej-27-organizacji-wolnosc-i-niezawislosc-54-58-wojska-polskiego-108-id166280/2026/05/27/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wojska polskiego|108|13",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "108",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 5,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-hersza-berlinskiego-12a-hersza-berlinskiego-24-tokarskiej-2-6-sierpnia-28-wschodniej-27-organizacji-wolnosc-i-niezawislosc-54-58-wojska-polskiego-108-id166280/2026/05/27/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lagiewnicka|25|9",
+      "street": "Łagiewnicka",
+      "street_norm": "lagiewnicka",
+      "building": "25",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lagiewnicka|25|12",
+      "street": "Łagiewnicka",
+      "street_norm": "lagiewnicka",
+      "building": "25",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lagiewnicka|25|17",
+      "street": "Łagiewnicka",
+      "street_norm": "lagiewnicka",
+      "building": "25",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "grabowa|2|28",
+      "street": "Grabowa",
+      "street_norm": "grabowa",
+      "building": "2",
+      "apt": "28",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "zielona|47|31",
+      "street": "Zielona",
+      "street_norm": "zielona",
+      "building": "47",
+      "apt": "31",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "karola anstadta|5|16",
+      "street": "Karola Anstadta",
+      "street_norm": "karola anstadta",
+      "building": "5",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "dr stefana kopcinskiego|26|13",
+      "street": "dr. Stefana Kopcińskiego",
+      "street_norm": "dr stefana kopcinskiego",
+      "building": "26",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 6,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-urzedniczej-5-ul-lagiewnickiej-25-ul-grabowej-2-ul-zielonej-47-ul-28-pulku-strzelcow-kaniowskich-22-ul-andrzeja-struga-31-ul-wolczanskiej-41-ul-rewolucji-1905-r-nr-25-al-karola-anstadta-5-ul-dr-stefana-kopcinskiego-26-28-ul-nawrot-59-id161339/2026/04/13/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "traktorowa|41|92",
+      "street": "Traktorowa",
+      "street_norm": "traktorowa",
+      "building": "41",
+      "apt": "92",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/aukcje-na-sprzedaz-przyslugujacych-miastu-lodz-spoldzielczych-wlasnosciowych-praw-do-lokali-mieszkalnych-znajdujacych-sie-w-budynkach-polozonych-w-lodzi-przy-ul-traktorowej-41-ul-beli-bartoka-43-ul-lnianej-28-id161633/2026/04/15/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
 }
