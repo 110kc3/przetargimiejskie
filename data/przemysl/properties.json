@@ -1,5 +1,38 @@
 {
   "schema_version": 1,
   "city": "przemysl",
-  "properties": []
+  "properties": [
+    {
+      "key": "franciszkanskiej|8|11",
+      "street": "Franciszkańskiej",
+      "street_norm": "franciszkanskiej",
+      "building": "8",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.przemysl.pl/82393/642/prezydent-miasta-przemysla-informuje-o-ogloszonym-na-dzien-29072026-r-przetargu-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-przy-ul-franciszkanskiej-811.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.przemysl.pl/82390/642/prezydent-miasta-przemysla-oglasza-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-franciszkanskiej-811-w-przemyslu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
 }
