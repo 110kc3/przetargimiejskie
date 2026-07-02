@@ -212,14 +212,6 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73378"
         },
         {
-          "date": "2026-05-05",
-          "round": 10,
-          "starting_price_pln": 2800000,
-          "outcome": "archived",
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29582/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/76085"
-        },
-        {
           "date": "2026-05-20",
           "round": 3,
           "starting_price_pln": 130000,
@@ -498,7 +490,7 @@
           "date": "2026-07-01",
           "round": 4,
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1336,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77830"
@@ -540,7 +532,7 @@
           "date": "2026-07-01",
           "round": 4,
           "starting_price_pln": 190000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 2159,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77831"
@@ -582,7 +574,7 @@
           "date": "2026-07-01",
           "round": 4,
           "starting_price_pln": 140000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1279,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77832"
@@ -624,7 +616,7 @@
           "date": "2026-07-01",
           "round": 4,
           "starting_price_pln": 210000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1841,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77833"
@@ -697,6 +689,64 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "addr|ul. krzysztofa pendereckiego",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzysztofa Pendereckiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Krzysztofa%20Pendereckiego%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1211,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 170000,
+          "outcome": "sold",
+          "final_price_pln": 171700,
+          "area_m2": 1211
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kłodnica|1143/12",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1143/12",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "160301_1.0046.1143/12",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F12",
+      "area_m2": 1059,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "sold",
+          "final_price_pln": 151500,
+          "area_m2": 1059
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1143/12",
+          "dzialka_id": "160301_1.0046.1143/12",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F12"
+        }
+      ]
     },
     {
       "key": "dz|kłodnica|1142/8",
@@ -2048,132 +2098,6 @@
       "parcels": []
     },
     {
-      "key": "addr|ul. elewatorowej zapewniony poprzez",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Elewatorowej zapewniony poprzez",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Elewatorowej%20zapewniony%20poprzez%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 23753,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-18",
-          "round": 5,
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 23753,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27667/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67784"
-        },
-        {
-          "date": "2025-05-13",
-          "round": 6,
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 23753,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28040/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69307"
-        },
-        {
-          "date": "2025-08-19",
-          "round": 7,
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 23753,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28442/ogloszenie-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71112"
-        },
-        {
-          "date": "2025-10-28",
-          "round": 8,
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 23753,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28733/ogloszenia-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72219"
-        },
-        {
-          "date": "2026-05-05",
-          "round": 10,
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 23753,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29582/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/76083"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|ul. spacerowa na której znajduje się schron jednoosobowy oraz",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Blachownia",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Spacerowa na której znajduje się schron jednoosobowy oraz",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Spacerowa%20na%20kt%C3%B3rej%20znajduje%20si%C4%99%20schron%20jednoosobowy%20oraz%20Blachownia%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 41768,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-20",
-          "round": 5,
-          "starting_price_pln": 1700000,
-          "outcome": "archived",
-          "area_m2": 41768,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27667/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67782"
-        },
-        {
-          "date": "2025-05-15",
-          "round": 6,
-          "starting_price_pln": 1700000,
-          "outcome": "archived",
-          "area_m2": 41768,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28040/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69306"
-        },
-        {
-          "date": "2025-08-19",
-          "round": 7,
-          "starting_price_pln": 1700000,
-          "outcome": "archived",
-          "area_m2": 41768,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28442/ogloszenie-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71111"
-        },
-        {
-          "date": "2025-10-28",
-          "round": 8,
-          "starting_price_pln": 1500000,
-          "outcome": "archived",
-          "area_m2": 41768,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28733/ogloszenia-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72220"
-        },
-        {
-          "date": "2026-05-05",
-          "round": 10,
-          "starting_price_pln": 1500000,
-          "outcome": "archived",
-          "area_m2": 41768,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29582/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/76081"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "addr|ul. wisławy szymborskiej",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -2898,6 +2822,114 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F21"
         }
       ]
+    },
+    {
+      "key": "addr|ul. elewatorowej zapewniony poprzez",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elewatorowej zapewniony poprzez",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Elewatorowej%20zapewniony%20poprzez%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 23753,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-18",
+          "round": 5,
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": 23753,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27667/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67784"
+        },
+        {
+          "date": "2025-05-13",
+          "round": 6,
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": 23753,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28040/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69307"
+        },
+        {
+          "date": "2025-08-19",
+          "round": 7,
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": 23753,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28442/ogloszenie-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71112"
+        },
+        {
+          "date": "2025-10-28",
+          "round": 8,
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": 23753,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28733/ogloszenia-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72219"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. spacerowa na której znajduje się schron jednoosobowy oraz",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Blachownia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spacerowa na której znajduje się schron jednoosobowy oraz",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Spacerowa%20na%20kt%C3%B3rej%20znajduje%20si%C4%99%20schron%20jednoosobowy%20oraz%20Blachownia%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41768,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-20",
+          "round": 5,
+          "starting_price_pln": 1700000,
+          "outcome": "archived",
+          "area_m2": 41768,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27667/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67782"
+        },
+        {
+          "date": "2025-05-15",
+          "round": 6,
+          "starting_price_pln": 1700000,
+          "outcome": "archived",
+          "area_m2": 41768,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28040/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69306"
+        },
+        {
+          "date": "2025-08-19",
+          "round": 7,
+          "starting_price_pln": 1700000,
+          "outcome": "archived",
+          "area_m2": 41768,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28442/ogloszenie-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71111"
+        },
+        {
+          "date": "2025-10-28",
+          "round": 8,
+          "starting_price_pln": 1500000,
+          "outcome": "archived",
+          "area_m2": 41768,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28733/ogloszenia-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72220"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|kędzierzyn|3417/31, 3420/49",
