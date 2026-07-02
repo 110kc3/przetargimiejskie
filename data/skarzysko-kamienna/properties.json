@@ -1,5 +1,128 @@
 {
   "schema_version": 1,
   "city": "skarzysko-kamienna",
-  "properties": []
+  "properties": [
+    {
+      "key": "konarskiego|35|",
+      "street": "Konarskiego",
+      "street_norm": "konarskiego",
+      "building": "35",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13680/26-110-skarzysko-kamienna-ul-konarskiego-35",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "krasinskiego|13|",
+      "street": "Krasińskiego",
+      "street_norm": "krasinskiego",
+      "building": "13",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 4.85,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13676/26-110-skarzysko-kamienna-ul-krasinskiego-13",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 4.85
+    },
+    {
+      "key": "sikorskiego|18|",
+      "street": "Sikorskiego",
+      "street_norm": "sikorskiego",
+      "building": "18",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-12-09",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 251200,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        },
+        {
+          "date": "2025-11-21",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 149600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12152/26-110-skarzysko-kamienna-ul-wiezowa"
+        }
+      ]
+    },
+    {
+      "key": "chalubinskiego|8|5",
+      "street": "Chałubińskiego",
+      "street_norm": "chalubinskiego",
+      "building": "8",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95800,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 33.6,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/10586/26-110-skarzysko-kamienna-ul-chalubinskiego-nr-8-lokal-nr-5"
+        }
+      ],
+      "area_m2": 33.6
+    },
+    {
+      "key": "staffa|21|",
+      "street": "Staffa",
+      "street_norm": "staffa",
+      "building": "21",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-12-09",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 251200,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/10537/26-110-skarzysko-kamienna-ul-staffa-21a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
 }
