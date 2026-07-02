@@ -5,6 +5,15 @@
 > extension v1.31.0.**
 >
 > **Recently shipped (removed from this list):**
+> - **P0-C — SEO site pages (2 July 2026):** `scripts/build-seo-pages.mjs` (called
+>   from `build-site.sh`) statically generates `/<miasto>/` per city, one page per
+>   property (full auction history), monthly "co miasto wystawiło" recaps (24 mo),
+>   the `/miasta/` hub, and `sitemap.xml` — 1 026 URLs over the Śląskie cities
+>   (mirrors the landing's public gate; widen via `PUBLIC_VOIVODESHIPS`). Plus
+>   `site/robots.txt` (excludes the `/archiwum-all` test view, points at the
+>   sitemap). Titles/meta target the GTM §3 queries; stale `active` listings
+>   render as "po terminie", so counts match `meta.json`. Site-only → no
+>   extension version bump.
 > - Houses/land kinds + the requested **kind & city filters** — extension popup
 >   (v1.31.0) and site archive/raporty — plus the deal-score badge, Google-Maps
 >   column, and land sources/prices.
@@ -67,8 +76,8 @@
   NO-BUILD (bezprzetargowo pattern) and small towns add a handful of auctions/yr
   but a permanent maintenance liability. Only worth it as a "complete Poland"
   marketing moat with revenue behind it.
-- **Distribution before more adapters:** P0-C SEO pages + the Web Store submit
-  (both below) convert the 46 built cities into users; more adapters multiply
+- **Distribution before more adapters:** the Web Store submit (below; SEO pages
+  shipped 2 July) converts the built cities into users; more adapters multiply
   inventory nobody sees. Per EXPANSION.md: let revenue, not the city list,
   decide.
 
@@ -213,17 +222,14 @@ upload via the developer dashboard. Listing copy is ready in
 review flag (the v1.21/v1.22 city hosts); no new permissions since. **This is the
 only remaining step and it's an account action — can't be automated.**
 
-### P0-C — Build the SEO site pages (per-city + per-listing)
+### P0-C follow-ups (SEO pages shipped 2 July 2026 — see Recently shipped)
 
-GTM.md §3/§7 makes indexable per-city and per-listing pages the **prerequisite
-for every revenue model** and the cheap demand test. Today `site/` is only
-`index.html` + `archiwum/` + `raporty/` + `privacy/`. All the JSON already
-exists. In `build-site.sh` (the canonical assembler the OVH deploy runs),
-generate at build time: one `/<miasto>/` page per city and one page per listing,
-with `<title>`/meta on the queries the doc lists (`przetarg mieszkania
-<miasto>`, `lokale ZGM <miasto>`), a `sitemap.xml`, and a monthly "co miasto
-wystawiło w <miesiąc>" recap per city. Mostly templating over existing data —
-the highest-impact unbuilt item in the repo.
+The generator is live in `build-site.sh`. Remaining from GTM week 1–2:
+privacy-friendly analytics (Plausible/Umami) to measure whether the pages pull
+traffic (the §6 kill criteria need data), submitting `sitemap.xml` to Google
+Search Console (account action), and widening `PUBLIC_VOIVODESHIPS` in
+`scripts/build-seo-pages.mjs` + a locative `CITY_LOC` entry per city when the
+public gate opens beyond Śląskie.
 
 ## Extension
 

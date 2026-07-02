@@ -23,6 +23,12 @@ cp -r site/. "$OUT"/            # landing + /archiwum + /raporty + /privacy (CNA
 cp -r "$OUT/archiwum" "$OUT/archiwum-all"
 cp -r data "$OUT"/data         # JSON the web pages fetch at /data/<city>/...
 
+# SEO pages (P0-C): /<miasto>/ + per-property + monthly recaps + /miasta/ +
+# sitemap.xml, generated statically from data/*.json (Śląskie cities only —
+# mirrors the landing's public gate; scope lives in the script). Plain Node,
+# no deps — the ubuntu-latest runner ships Node, no setup-node needed.
+node scripts/build-seo-pages.mjs "$OUT"
+
 # Note: we no longer publish /extension.zip — the site links to the Chrome Web
 # Store listing instead. (The extension/ source still lives in the repo.)
 
