@@ -1,5 +1,13 @@
 # Spike — coverage audit: are we missing listings the sources publish?
 
+> **STATUS (verified 2026-07-02): SHIPPED.** All fixes below are in the codebase —
+> the shared classify-on-title+body + `unknown`-routing (core/finn-bip.js
+> `resolveKind`, Świętochłowice/Sosnowiec/Rybnik/Bielsko crawl routing), Zabrze
+> boards 552+555, Rybnik `Page=339` repoint (ZGM `Page=214` documented dead),
+> Katowice multi-unit parsing, Gliwice BIP działka land, Bielsko `Rodzaj`
+> fallback + node-fetch retry — each with parser tests. This doc is kept as the
+> audit record; the table below describes the **pre-fix** state of 16 June 2026.
+
 > **Question:** for every city, does the adapter capture *everything* the source
 > publishes, or are sale auctions hiding on other pages / sibling boards / behind
 > a filter? **Method:** one investigation agent per city (9 total), each read its

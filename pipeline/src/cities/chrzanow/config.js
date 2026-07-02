@@ -30,4 +30,9 @@ export const config = {
   authority: 'Urząd Miejski w Chrzanowie',
   host: 'chrzanow.pl',
   source: 'html',
+  // This adapter resolves SPA BIP article bodies via core/render.js (headless
+  // Chromium). The CI refresh matrix reads this flag to install Playwright ONLY
+  // for cities that need it — set it on any future render.js-using adapter, or
+  // its refresh job will fail on a missing browser.
+  needsRender: true,
 };

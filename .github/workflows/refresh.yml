@@ -44,6 +44,10 @@ jobs:
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
+      # Cities whose adapter needs core/render.js (headless Chromium) — the
+      # matrix installs Playwright only for these (see `needsRender` in the
+      # city's config.js). Registry-driven so it can't drift.
+      render_cities: ${{ steps.registry.outputs.render_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -60,6 +64,7 @@ jobs:
         working-directory: pipeline
         run: |
           echo "cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+          echo "render_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsRender).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
 
   # One job per city, so a broken parser/source in one city can't block the
   # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
@@ -72,7 +77,12 @@ jobs:
     timeout-minutes: 25   # Zabrze alone needs ~113 throttled doc+attachment fetches
     strategy:
       fail-fast: false
-      max-parallel: 4     # be gentle: 9 jobs hammering GH + the BIPs at once is overkill
+      max-parallel: 10    # each job crawls a DIFFERENT city's BIP, so per-site
+                          # politeness is unaffected by parallelism — the crawl
+                          # throttle inside a job is what protects a BIP. 10 keeps
+                          # the 46-city run well under an hour (free-tier ceiling
+                          # is 20 concurrent jobs; was 4, which pushed wall time
+                          # toward 1h as cities grew).
       matrix:
         city: ${{ fromJSON(needs.setup.outputs.cities) }}
     steps:
@@ -94,9 +104,11 @@ jobs:
         run: npm ci || npm install
 
       # Headless Chromium for the OPTIONAL renderer (core/render.js), used only by
-      # JS-rendered BIPs. It's lazy-loaded, so the server-rendered cities never
-      # touch it — installing here just keeps a future JS-rendered city working.
+      # JS-rendered BIPs (config `needsRender: true` — currently just Chrzanów).
+      # render.js is lazy-loaded, so server-rendered cities never touch it;
+      # skipping the install here saves ~1–2 min × every non-render job.
       - name: Install Playwright Chromium
+        if: contains(fromJSON(needs.setup.outputs.render_cities), matrix.city)
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
 

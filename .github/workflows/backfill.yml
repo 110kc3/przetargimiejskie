@@ -29,6 +29,8 @@ jobs:
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
+      # Cities needing core/render.js (Playwright) — see refresh.yml.
+      render_cities: ${{ steps.registry.outputs.render_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -45,6 +47,7 @@ jobs:
         working-directory: pipeline
         run: |
           echo "cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+          echo "render_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsRender).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
 
   # One job per city, parallel, long timeout, crawlers un-bounded. A failure
   # blocks ONLY that city's commit; the others still backfill.
@@ -54,7 +57,8 @@ jobs:
     timeout-minutes: 350     # cold-cache full crawl per city (GitHub max is 360)
     strategy:
       fail-fast: false
-      max-parallel: 4        # be polite to the BIPs even on a one-off
+      max-parallel: 10       # each job crawls a DIFFERENT BIP; the in-job crawl
+                             # throttle is what protects a site (matches refresh.yml)
       matrix:
         city: ${{ fromJSON(needs.setup.outputs.cities) }}
     env:
@@ -81,6 +85,7 @@ jobs:
         run: npm ci || npm install
 
       - name: Install Playwright Chromium
+        if: contains(fromJSON(needs.setup.outputs.render_cities), matrix.city)
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
 

@@ -81,7 +81,10 @@ export default {
 `config`: `id` (slug), `label`, `voivodeship` (slug e.g. `malopolskie`),
 `authority`, `host`, `source` (`'html'` if the adapter extracts attachments
 itself; `'pdf'` only for the legacy OCR-dispatch path). Add `teryt` with a
-"confirm on first geoportal run" comment.
+"confirm on first geoportal run" comment. **If the adapter uses `core/render.js`
+(JS-SPA source), set `needsRender: true`** — the CI matrix installs Playwright
+Chromium only for flagged cities (see `refresh.yml`/`backfill.yml` setup
+outputs); forgetting the flag fails the city's refresh job on a missing browser.
 
 `refresh.js` loops the registry: `crawl → (OCR/extract) → parse →
 build-properties → merge-history → write data/<city>/*.json`.

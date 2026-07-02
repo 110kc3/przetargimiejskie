@@ -35,6 +35,59 @@
 >   (~1,200 -> 15 modified files); popup `mapsCell` now uses the structured
 >   `street`+`building` like the archive. Ext **v1.31.0 -> v1.31.1** (+ CHANGELOG).
 
+## Project review — CI capacity + expansion strategy (2 July 2026)
+
+**Findings (verified against live CI runs via the GitHub API):**
+
+- **There is no 1h GitHub limit.** Last 8 refresh runs: 36–56 min wall, all green.
+  Public repo → Actions minutes are free/unlimited; per-job cap is 6h. The wall
+  time was self-inflicted `max-parallel: 4`. A refresh costs ~130 runner-min
+  across 46 cities (~2.8 min/city, ≈half of it per-job setup).
+- **Shipped in this review:** `max-parallel` 4 → 10 in `refresh.yml` +
+  `backfill.yml` (each job crawls a *different* BIP — the in-job throttle is the
+  politeness layer, not job count); Playwright Chromium install now conditional
+  on the registry's `needsRender` flag (only Chrzanów; saves ~1–2 min × every
+  other job). SPIKE-COVERAGE verified **all fixes already shipped** — doc header
+  updated so it reads as the audit record it now is.
+- **Don't move the refresh to a local PC.** It would lose the 04:00 schedule,
+  per-city failure isolation, the health gate, and the rebase-retry commit flow;
+  Windows needs WSL for tesseract/catdoc anyway. If capacity ever matters, a
+  **self-hosted runner** keeps the workflows unchanged.
+
+**Deferred (from the review):**
+
+- **Shard small cities into grouped matrix jobs** (~4–5/job): most city jobs
+  finish in <2 min of which crawling is seconds — grouping amortizes the
+  apt-get/npm/checkout overhead and roughly halves total runner minutes. Do it
+  when the built-city count makes wall time creep again (~100+ cities).
+- **Build order: the Low-effort + big-city subset of the BUILD-ready queue
+  first** (Wrocław, Poznań, Bydgoszcz, Płock, Kalisz, Elbląg, Grudziądz,
+  Włocławek…) — high auction volume + completes the credible national claim.
+- **Demand-gate the ~900-town long tail.** ~40% of spiked cities are
+  NO-BUILD (bezprzetargowo pattern) and small towns add a handful of auctions/yr
+  but a permanent maintenance liability. Only worth it as a "complete Poland"
+  marketing moat with revenue behind it.
+- **Distribution before more adapters:** P0-C SEO pages + the Web Store submit
+  (both below) convert the 46 built cities into users; more adapters multiply
+  inventory nobody sees. Per EXPANSION.md: let revenue, not the city list,
+  decide.
+
+**Time to spike all of Poland + build (at demonstrated pace — 204 spikes in ~5
+days of batched agents; 7 adapters built+tested in a day):**
+
+| Work | Remaining | Estimate |
+|---|---|---|
+| Powiat-seat spikes | 132 of 380 | ~1 week |
+| Long-tail spikes (~900 towns) | ~700 | 2–4 weeks, low BUILD hit-rate |
+| Builds — BUILD-ready queue | 64 | 2–4 weeks incl. first-live-refresh fix cycle |
+| Builds — from pending spikes | est. +30–60 | +2–4 weeks |
+
+**Total "every city in Poland" ≈ 1.5–3 months** at current cadence; powiat
+seats only ≈ 3–4 weeks. The wrapper/pipeline itself is done — registry, matrix
+CI, health checks, backfill, three parser families; marginal cost is per-city
+only. CI scales to ~200 cities with the parallelism fix alone (+ sharding
+beyond that).
+
 ## All-Poland city spike + CI fixes (27 June 2026)
 
 **Spike every Polish city** — new `spikes/<woj>/<powiat>/<city>.md` tree grouped by
