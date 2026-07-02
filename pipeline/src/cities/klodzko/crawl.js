@@ -34,6 +34,20 @@ export function detailUrl(id) {
 }
 
 /**
+ * Classify a board headline as a flat announcement vs. a result notice.
+ * The board titles the flat as "…na sprzedaż lokalu mieszkalnego…" (genitive),
+ * so `lokal\w*` must absorb the case ending — a bare `lokal\s` skips these.
+ * @param {string} title  the anchor's visible headline text
+ * @returns {{ isFlat: boolean, isResult: boolean }}
+ */
+export function classifyBoardTitle(title) {
+  const t = (title || '').toLowerCase();
+  const isFlat = /lokal\w*\s+mieszkaln/.test(t) && /przetarg/.test(t);
+  const isResult = /informacja\s+burmistrza.*wyniku|wyniku\s+przetargu/i.test(title || '');
+  return { isFlat, isResult };
+}
+
+/**
  * Crawl the active listing board to collect item references.
  * Returns all items in the active board (flats + commercial + land —
  * the caller (crawlAll) classifies by title).
@@ -61,9 +75,7 @@ async function crawlAll() {
 
   for (const item of boardItems) {
     // Skip non-residential titles immediately (no network request needed).
-    const t = item.title.toLowerCase();
-    const isFlat = /lokal\s+mieszkaln/.test(t) && /przetarg/.test(t);
-    const isResult = /informacja\s+burmistrza.*wyniku|wyniku\s+przetargu/i.test(item.title);
+    const { isFlat, isResult } = classifyBoardTitle(item.title);
     if (!isFlat && !isResult) {
       console.error(`  klodzko: skip non-flat item id=${item.id} — "${item.title.slice(0, 60)}"`);
       continue;

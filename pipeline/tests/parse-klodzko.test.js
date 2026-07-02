@@ -37,6 +37,7 @@ import {
 } from '../src/cities/klodzko/parse.js';
 
 import { parseListingPage } from '../src/cities/klodzko/parse.js';
+import { classifyBoardTitle } from '../src/cities/klodzko/crawl.js';
 
 // ── REAL FIXTURES (condensed from live pages, 2026-06-27) ────────────────────
 
@@ -129,11 +130,8 @@ test('startingPriceFromText: null when missing', () => {
 // ── unitAreaFromText ──────────────────────────────────────────────────────────
 
 test('unitAreaFromText: picks flat area NOT cellar / działka', () => {
-  // Mickiewicza: "o powierzchni 44,90 m²" — first hit = flat
   assert.equal(unitAreaFromText(ANN_MICKIEWICZA), 44.9);
-  // Wojska Polskiego: "o powierzchni 76,95 m²"
   assert.equal(unitAreaFromText(ANN_WOJSKA), 76.95);
-  // Result notice: "o powierzchni 111,59 m²"
   assert.equal(unitAreaFromText(RESULT_TRAUGUTTA), 111.59);
 });
 
@@ -144,13 +142,11 @@ test('unitAreaFromText: null for missing area', () => {
 // ── addressFromText ───────────────────────────────────────────────────────────
 
 test('addressFromText: Mickiewicza 3/2 — address key and raw', () => {
-  // Title hint carries "/2" apartment
   const titleHint = 'ul. A. Mickiewicza 3/2, pow. 44,90 m2';
   const r = addressFromText(ANN_MICKIEWICZA, titleHint);
   assert.ok(r, 'address result should not be null');
   assert.ok(r.address_raw.includes('Mickiewicza'), 'raw address contains street name');
   assert.equal(r.address.building, '3');
-  // apt extracted from "lokal mieszkalny nr 2"
   assert.equal(r.address.apt, '2');
   assert.equal(r.address.key, 'adama mickiewicza|3|2', '← join key for build-properties');
 });
@@ -255,9 +251,6 @@ test('parseResultDoc: negative outcome when no achieved price and no nabywca', (
 
 // ── parseDetailPage (integration) ────────────────────────────────────────────
 
-// Minimal HTML wrapping used for the parseDetailPage integration tests.
-// Matches the real BIP CMS structure: body is between "Treść informacji" and
-// "Pliki powiązane".
 function wrapHtml(bodyText) {
   return `<html><body>
     <div id="tresc_main">
@@ -341,4 +334,38 @@ test('parseListingPage: deduplicates repeated item ids', () => {
 
 test('parseListingPage: empty html returns empty array', () => {
   assert.deepEqual(parseListingPage('<html><body>nic</body></html>'), []);
+});
+
+// ── classifyBoardTitle ────────────────────────────────────────────────────────
+// Regression: board headlines carry the GENITIVE "lokalu mieszkalnego", which a
+// bare /lokal\s+mieszkaln/ skips. These are the exact live titles for id=17391
+// and id=17390 (2 flat auctions that were being dropped before the fix).
+
+test('classifyBoardTitle: genitive "lokalu mieszkalnego" is a flat (not skipped)', () => {
+  const t1 =
+    'Burmistrz Miasta Kłodzka ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego zlokalizowanego w Kłodzku przy ul. A. Mickiewicza 3/2, pow. 44,90 m2';
+  const t2 =
+    'Burmistrz Miasta Kłodzka ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego zlokalizowanego w Kłodzku przy ul. Wojska Polskiego 8/1, pow. 76,95 m2';
+  assert.deepEqual(classifyBoardTitle(t1), { isFlat: true, isResult: false });
+  assert.deepEqual(classifyBoardTitle(t2), { isFlat: true, isResult: false });
+});
+
+test('classifyBoardTitle: nominative "lokal mieszkalny" is still a flat', () => {
+  const t = 'I przetarg ustny nieograniczony na sprzedaż lokal mieszkalny nr 2';
+  assert.equal(classifyBoardTitle(t).isFlat, true);
+});
+
+test('classifyBoardTitle: result notice is a result, not a flat', () => {
+  const t =
+    'INFORMACJA BURMISTRZA MIASTA KŁODZKA O WYNIKU PRZETARGU dot. dz. nr 30, ul. R.Traugutta 5/1, pow. 111,59 m2';
+  assert.deepEqual(classifyBoardTitle(t), { isFlat: false, isResult: true });
+});
+
+test('classifyBoardTitle: unrelated / empty titles classify as neither', () => {
+  assert.deepEqual(classifyBoardTitle('Ogłoszenie o sprzedaży działki gruntowej'), {
+    isFlat: false,
+    isResult: false,
+  });
+  assert.deepEqual(classifyBoardTitle(''), { isFlat: false, isResult: false });
+  assert.deepEqual(classifyBoardTitle(null), { isFlat: false, isResult: false });
 });

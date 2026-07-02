@@ -50,7 +50,6 @@ const EXEMPT_NEW = new Set([
   'lodz',               // fixed 2026-07-02 (PDF-label regex) — pending first live refresh
   'walbrzych',          // fixed 2026-07-02 (board + result-stream URLs) — pending first refresh
   'gdansk',             // announcement index legitimately empty between auction rounds
-  'klodzko',            // no flat auctions / result notices on the board right now
   'gniezno',            // fixed 2026-07-02 (insecureTLS for incomplete chain) — pending first refresh
   'skarzysko-kamienna', // fixed 2026-07-02 (body moved to div.wysiwyg) — pending first refresh
   'augustow',           // crawl OK (4 active listings); city publishes no result docs yet

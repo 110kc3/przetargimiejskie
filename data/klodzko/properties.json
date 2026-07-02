@@ -1,5 +1,50 @@
 {
   "schema_version": 1,
   "city": "klodzko",
-  "properties": []
+  "properties": [
+    {
+      "key": "adama mickiewicza|3|2",
+      "street": "Adama Mickiewicza",
+      "street_norm": "adama mickiewicza",
+      "building": "3",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "active",
+          "area_m2": 44.9,
+          "detail_url": "https://um.bip.klodzko.pl/index.php?n=i&id=17391&akcja=info&menu=346",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.9
+    },
+    {
+      "key": "wojska polskiego|8|1",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "8",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 76.95,
+          "detail_url": "https://um.bip.klodzko.pl/index.php?n=i&id=17390&akcja=info&menu=346",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 76.95
+    }
+  ]
 }
