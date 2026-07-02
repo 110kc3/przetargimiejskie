@@ -78,14 +78,20 @@ function parseArticleLinks(html) {
  * @returns {{ annPdfUrl: string|null, resultPdfUrl: string|null }}
  */
 export function parsePdfLinks(html) {
-  // Links are <a href="/files/bip/public/...pdf">Treść ogłoszenia [.pdf]</a>
-  const re = /href="([^"]*\.pdf)"[^>]*>([^<]+)</gi;
+  // Live TYPO3 markup nests the label in a <span> and repeats it in the
+  // title attribute:
+  //   <a href="/files/…ZNN_przetarg_….pdf" target="_blank"
+  //      title="Treść ogłoszenia [.pdf]">
+  //     <span class="ce-uploads-fileName">Treść ogłoszenia [.pdf]</span></a>
+  // The old ([^<]+) captured only the whitespace before <span>, so labels
+  // never matched. Read the attributes AND the tag-stripped inner HTML.
+  const re = /<a[^>]*href="([^"]*\.pdf)"([^>]*)>([\s\S]{0,300}?)<\/a>/gi;
   let annPdfUrl = null;
   let resultPdfUrl = null;
   let m;
   while ((m = re.exec(html)) !== null) {
     const href = m[1];
-    const label = m[2];
+    const label = `${m[2]} ${m[3].replace(/<[^>]+>/g, ' ')}`;
     const abs = href.startsWith('http') ? href : `${ORIGIN}${href}`;
     if (ANN_PDF_TITLE_RE.test(label) && !annPdfUrl) annPdfUrl = abs;
     if (RESULT_PDF_TITLE_RE.test(label) && !resultPdfUrl) resultPdfUrl = abs;

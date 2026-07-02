@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "city": "stargard",
+  "properties": [
+    {
+      "key": "aleja gryfa|15|1",
+      "street": "Aleja Gryfa",
+      "street_norm": "aleja gryfa",
+      "building": "15",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 221000,
+          "outcome": "active",
+          "area_m2": 52.83,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-aleja-gryfa-15-1-iii-przetarg-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.83
+    },
+    {
+      "key": "lechicka|1|4",
+      "street": "Lechicka",
+      "street_norm": "lechicka",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 246500,
+          "outcome": "active",
+          "area_m2": 53.99,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-lechicka-1-4-iii-przetarg-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 53.99
+    },
+    {
+      "key": "bydgoska|22|5",
+      "street": "Bydgoska",
+      "street_norm": "bydgoska",
+      "building": "22",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "active",
+          "area_m2": 18.44,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-bydgoska-22-5-iii-przetarg-ustny-nieograniczony/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 18.44
+    },
+    {
+      "key": "jugoslowianska|29|4",
+      "street": "Jugosłowiańska",
+      "street_norm": "jugoslowianska",
+      "building": "29",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 204000,
+          "outcome": "active",
+          "area_m2": 46,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-jugoslowianska-29-4-iii-przetarg-ustny-nieograniczony/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46
+    },
+    {
+      "key": "lokal niemieszkalny ul platnerzy|4B|15",
+      "street": "Lokal niemieszkalny ul. Płatnerzy",
+      "street_norm": "lokal niemieszkalny ul platnerzy",
+      "building": "4B",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 6880,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-platnerzy-4b-15-ii-przetarg-ograniczony-do-wlascicieli-lokali-mieszkalnych-w-klatce-b-budynku-przy-ulicy-platnerzy-4/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lokal niemieszkalny ul warszawska|8|3",
+      "street": "Lokal niemieszkalny ul. Warszawska",
+      "street_norm": "lokal niemieszkalny ul warszawska",
+      "building": "8",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32800,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-ii-przetarg-ograniczony-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "hugona kollataja|7|2",
+      "street": "Hugona Kołłątaja",
+      "street_norm": "hugona kollataja",
+      "building": "7",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 48.36,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-i-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.36
+    },
+    {
+      "key": "szczecinska|28B|11",
+      "street": "Szczecińska",
+      "street_norm": "szczecinska",
+      "building": "28B",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 33.99,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-szczecinska-28b-11-i-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.99
+    },
+    {
+      "key": "czarnieckiego|11|8",
+      "street": "Czarnieckiego",
+      "street_norm": "czarnieckiego",
+      "building": "11",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "active",
+          "area_m2": 26.54,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-i-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.54
+    },
+    {
+      "key": "ulicy jugoslowianskiej|25|1",
+      "street": "ulicy Jugosłowiańskiej",
+      "street_norm": "ulicy jugoslowianskiej",
+      "building": "25",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": null,
+          "notes": [],
+          "area_m2": 46.74
+        }
+      ],
+      "area_m2": 46.74
+    },
+    {
+      "key": "placu lubelskim|4|1",
+      "street": "Placu Lubelskim",
+      "street_norm": "placu lubelskim",
+      "building": "4",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": null,
+          "notes": [],
+          "area_m2": 54.04
+        }
+      ],
+      "area_m2": 54.04
+    },
+    {
+      "key": "ulicy tadeusza kosciuszki|37|2",
+      "street": "ulicy Tadeusza Kościuszki",
+      "street_norm": "ulicy tadeusza kosciuszki",
+      "building": "37",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": null,
+          "notes": [],
+          "area_m2": 45.79
+        }
+      ],
+      "area_m2": 45.79
+    },
+    {
+      "key": "ulicy tadeusza kosciuszki|60|5",
+      "street": "ulicy Tadeusza Kościuszki",
+      "street_norm": "ulicy tadeusza kosciuszki",
+      "building": "60",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": null,
+          "notes": [],
+          "area_m2": 24.63
+        }
+      ],
+      "area_m2": 24.63
+    },
+    {
+      "key": "mickiewicza|27|7",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "27",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 27.01,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-mickiewicza-27-7-i-rokowania-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 27.01
+    }
+  ]
+}

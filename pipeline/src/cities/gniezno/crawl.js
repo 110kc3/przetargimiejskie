@@ -28,6 +28,13 @@
 //   a second fetch.  Falls back to an empty array on failure.
 
 import { getText } from '../../core/fetch.js';
+
+// bip.gniezno.eu serves an INCOMPLETE TLS chain (missing intermediate), which
+// Node's fetch rejects with UNABLE_TO_VERIFY_LEAF_SIGNATURE while browsers
+// quietly repair it via AIA. Same situation and same fix as zabrze/crawl.js —
+// relax chain verification for this host only (or provide the intermediate
+// via NODE_EXTRA_CA_CERTS and drop this flag).
+const FETCH_OPTS = { insecureTLS: true };
 import { pdfText } from '../../core/pdf-text.js';
 import { parseBipList, pdfAttachmentUrlsFromDetail, parseAnnouncement } from './parse.js';
 
@@ -54,7 +61,7 @@ async function crawlBipYear(year) {
     const url = `${BIP_BASE}/${page}/${year}`;
     let html;
     try {
-      html = await getText(url);
+      html = await getText(url, FETCH_OPTS);
     } catch (err) {
       console.error(`  gniezno BIP ${year} page ${page} fetch failed: ${err.message}`);
       break;
@@ -80,7 +87,7 @@ async function crawlBipYear(year) {
 async function enrichFromDetailPage(stub) {
   let detailHtml;
   try {
-    detailHtml = await getText(stub.detail_url);
+    detailHtml = await getText(stub.detail_url, FETCH_OPTS);
   } catch (err) {
     console.error(`  gniezno detail fetch failed (${stub.title}): ${err.message}`);
     return stub;
@@ -169,7 +176,7 @@ async function fetchResultNoticeUrls() {
     const feedUrl = `https://www.gniezno.eu/wiadomosci/1/lista/${year}`;
     let html;
     try {
-      html = await getText(feedUrl);
+      html = await getText(feedUrl, FETCH_OPTS);
     } catch (err) {
       console.error(`  gniezno gniezno.eu feed ${year} failed: ${err.message}`);
       continue;
@@ -191,7 +198,7 @@ export async function crawlResultDocs() {
   const refs = [];
   for (const url of noticeUrls) {
     try {
-      const html = await getText(url);
+      const html = await getText(url, FETCH_OPTS);
       // Extract the article body text
       const articleM = /<article[^>]*>([\s\S]*?)<\/article>/i.exec(html);
       const rawText = articleM ? articleM[1] : html;

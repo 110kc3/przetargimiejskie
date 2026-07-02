@@ -219,15 +219,25 @@ export function parseResultDoc(text, date, url) {
   let auction_date = null;
   const dateM = /(?:w\s+dniu|dnia)\s+(\d{1,2})\s+([a-zÀ-ɏ]+)\s+(\d{4})/i.exec(text);
   if (dateM) auction_date = isoDate(dateM[1],dateM[2],dateM[3]);
+  // Record shape follows the adapter contract consumed by refresh.js /
+  // build-properties.js (notes, outcome, final_price_pln, source_pdf).
+  // Stargard's §12 notices publish only the summary paragraph — no achieved
+  // price and no negative-result sentence — so the concluded auction is
+  // recorded as 'archived' (same convention build-properties uses for
+  // past listings whose outcome the city doesn't publish).
   return [{
     kind,
     address_raw: addrResult.address_raw,
     address: addrResult.address,
     area_m2,
-    achieved_price_pln: null,
-    auction_date,
+    starting_price_pln: null,
+    final_price_pln: null,
+    outcome: 'archived',
+    unsold_reason: null,
+    buyer: null,
+    auction_date: auction_date || date || null,
     round: roundFromText(text),
-    result_date: date || null,
-    source_url: url || null,
+    source_pdf: url || null,
+    notes: [],
   }];
 }

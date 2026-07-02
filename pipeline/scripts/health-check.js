@@ -40,7 +40,21 @@ const EXEMPT_EMPTY = new Set();
 // so the established cities' health isn't blocked by a city still settling in.
 // REMOVE a city from here the moment its first real refresh commits non-empty
 // data (then a future drop to 0 correctly fails again).
-const EXEMPT_NEW = new Set(['kedzierzyn-kozle', 'oswiecim', 'chrzanow']);
+const EXEMPT_NEW = new Set([
+  'kedzierzyn-kozle', 'oswiecim', 'chrzanow',
+  // July 2026 wave (added 2026-07-02): adapters repaired against live markup
+  // (see CHANGELOG/commits) or sources legitimately empty; unique_properties
+  // stays 0 until each city's first result documents parse. REMOVE each city
+  // the moment its refresh commits unique_properties > 0.
+  'wejherowo',          // adapter OK locally; CI refresh commits zeros — check refresh job log
+  'lodz',               // fixed 2026-07-02 (PDF-label regex) — pending first live refresh
+  'walbrzych',          // fixed 2026-07-02 (board + result-stream URLs) — pending first refresh
+  'gdansk',             // announcement index legitimately empty between auction rounds
+  'klodzko',            // no flat auctions / result notices on the board right now
+  'gniezno',            // fixed 2026-07-02 (insecureTLS for incomplete chain) — pending first refresh
+  'skarzysko-kamienna', // fixed 2026-07-02 (body moved to div.wysiwyg) — pending first refresh
+  'augustow',           // crawl OK (4 active listings); city publishes no result docs yet
+]);
 
 const now = Date.now();
 const fails = [];

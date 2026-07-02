@@ -260,8 +260,12 @@ test('parseResultDoc: full integration on Wynik095 fixture', () => {
   assert.equal(doc.area_m2, 14.38);
   assert.equal(doc.auction_date, '2026-04-24');
   assert.equal(doc.round, 2);
-  assert.equal(doc.result_date, '2026-05-14');
-  assert.equal(doc.achieved_price_pln, null); // PDF-only — not yet parsed
+  // Contract fields (refresh.js/build-properties.js consume these; the old
+  // shape — result_date/achieved_price_pln, no notes — crashed refresh.js).
+  assert.equal(doc.outcome, 'archived'); // §12 notice carries no outcome/price
+  assert.equal(doc.final_price_pln, null);
+  assert.deepEqual(doc.notes, []);
+  assert.equal(doc.source_pdf, 'https://bip.stargard.eu/22358/dokument/72459');
   assert.ok(doc.address);
   assert.equal(doc.address.building, '35');
   assert.equal(doc.address.apt, '5');

@@ -183,7 +183,8 @@ export function parseMonthUrls(html) {
   // Match sidebar links that look like /artykuly/NNNN/<polish-month-name>
   // Polish months: styczen, luty, marzec, kwiecien, maj, czerwiec,
   //   lipiec, sierpien, wrzesien, pazdziernik, listopad, grudzien
-  const re = /href="(\/artykuly\/\d+\/(?:styczen|luty|marzec|kwiecien|maj|czerwiec|lipiec|sierpien|wrzesien|pazdziernik|listopad|grudzien))"/gi;
+  // Live markup 2026-07 uses ABSOLUTE hrefs; accept both forms.
+  const re = /href="(?:https?:\/\/[^"\/]+)?(\/artykuly\/\d+\/(?:styczen|luty|marzec|kwiecien|maj|czerwiec|lipiec|sierpien|wrzesien|pazdziernik|listopad|grudzien))"/gi;
   const seen = new Set();
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -200,7 +201,7 @@ export function parseMonthUrls(html) {
  */
 export function parseArticleUrls(html) {
   const urls = [];
-  const re = /href="(\/artykul\/\d+\/\d+\/[^"]+)"/gi;
+  const re = /href="(?:https?:\/\/[^"\/]+)?(\/artykul\/\d+\/\d+\/[^"]+)"/gi;
   const seen = new Set();
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -218,10 +219,10 @@ export function parseArticleUrls(html) {
  */
 export function parsePdfUrl(html) {
   // Primary: link followed by "pdf," mime hint
-  const m = /href="(\/attachments\/download\/\d+)"[^>]*>[^<]*<\/a>\s*pdf,/i.exec(html);
+  const m = /href="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"[^>]*>[^<]*<\/a>\s*pdf,/i.exec(html);
   if (m) return ORIGIN + m[1];
   // Fallback: any /attachments/download/ link
-  const fb = /href="(\/attachments\/download\/\d+)"/.exec(html);
+  const fb = /href="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"/.exec(html);
   return fb ? ORIGIN + fb[1] : null;
 }
 

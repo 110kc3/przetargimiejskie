@@ -230,9 +230,13 @@ export function extractBodyText(html) {
   if (!html) return '';
   // Strip \r for consistent matching
   const h = html.replace(/\r/g, '');
-  // Extract the first content_legal_autor div (the body; the second is metryczka)
+  // Live markup 2026-07: the announcement body sits in <div class="wysiwyg">
+  // (id="content_legal_autor" is now the Metryczka/author box, not the body).
+  // Capture the wysiwyg div up to the Metryczka section; fall back to the old
+  // content_legal_autor pattern for any cached/older page variants.
+  const wysM = /<div class="wysiwyg">([\s\S]*?)(?:<h2 id="contents_legal_title"|<div[^>]*class="author")/i.exec(h);
   const divM = /id="content_legal_autor"[^>]*>([\s\S]*?)<\/div>\s*(?:<section|<div[^>]*class="author")/i.exec(h);
-  const bodyHtml = divM ? divM[1] : '';
+  const bodyHtml = wysM ? wysM[1] : (divM ? divM[1] : '');
   // Also extract the detail table for fallback fields
   const tableM = /<table[^>]*class="[^"]*table-borderless[^"]*"[^>]*>([\s\S]*?)<\/table>/i.exec(h);
   const tableHtml = tableM ? tableM[1] : '';
