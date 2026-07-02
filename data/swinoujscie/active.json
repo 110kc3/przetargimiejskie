@@ -1,6 +1,835 @@
 {
   "schema_version": 1,
   "city": "swinoujscie",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7a/6",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7A",
+        "apt": "6",
+        "key": "armii krajowej|7A|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/40232/ogloszenie-nr-15-2024-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-armii-krajowej-7a-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/40232/ogloszenie-nr-15-2024-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-armii-krajowej-7a-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7a/6",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7A",
+        "apt": "6",
+        "key": "armii krajowej|7A|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/40165/ogloszenie-nr-13-2024-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-armii-krajowej-7a-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/40165/ogloszenie-nr-13-2024-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-armii-krajowej-7a-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skandynawskiej 3/1",
+      "address": {
+        "street": "Skandynawskiej",
+        "street_norm": "skandynawskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "skandynawskiej|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 6,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/40012/ogloszenie-nr-12-2024-s-szosty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/40012/ogloszenie-nr-12-2024-s-szosty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Konstytucji 3 Maja 4/4",
+      "address": {
+        "street": "Konstytucji 3 Maja",
+        "street_norm": "konstytucji 3 maja",
+        "building": "4",
+        "apt": "4",
+        "key": "konstytucji 3 maja|4|4",
+        "warning": null
+      },
+      "area_m2": 90.73,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/39127/ogloszenie-nr-6-2024-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m2-polozonego-przy-ul-konstytucji-3-maja-4-4-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/39127/ogloszenie-nr-6-2024-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m2-polozonego-przy-ul-konstytucji-3-maja-4-4-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skandynawskiej 3/1",
+      "address": {
+        "street": "Skandynawskiej",
+        "street_norm": "skandynawskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "skandynawskiej|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 5,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/39119/ogloszenie-nr-5-2024-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/39119/ogloszenie-nr-5-2024-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Paderewskiego 13/8",
+      "address": {
+        "street": "Paderewskiego",
+        "street_norm": "paderewskiego",
+        "building": "13",
+        "apt": "8",
+        "key": "paderewskiego|13|8",
+        "warning": null
+      },
+      "area_m2": 58.33,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/38380/ogloszenie-nr-2-2024-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-paderewskiego-13-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-8-o-pow-58-33-m2",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/38380/ogloszenie-nr-2-2024-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-paderewskiego-13-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-8-o-pow-58-33-m2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Konstytucji 3 Maja 4/4",
+      "address": {
+        "street": "Konstytucji 3 Maja",
+        "street_norm": "konstytucji 3 maja",
+        "building": "4",
+        "apt": "4",
+        "key": "konstytucji 3 maja|4|4",
+        "warning": null
+      },
+      "area_m2": 90.73,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/38378/ogloszenie-nr-1-2024-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m2-polozonej-przy-ul-konstytucji-3-maja-4-4-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/38378/ogloszenie-nr-1-2024-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m2-polozonej-przy-ul-konstytucji-3-maja-4-4-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7",
+        "apt": "11",
+        "key": "armii krajowej|7|11",
+        "warning": null
+      },
+      "area_m2": 68.09,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 5,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/36947/ogloszenie-nr-10-2023-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/36947/ogloszenie-nr-10-2023-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej nr 8",
+      "address": {
+        "street": "Armii Krajowej nr",
+        "street_norm": "armii krajowej nr",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej nr|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/36236/ogloszenie-nr-6-2023-s-osmy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-nr-8-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/36236/ogloszenie-nr-6-2023-s-osmy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-nr-8-w-swinoujsciu"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Monte Cassino 22A",
+      "address": {
+        "street": "Monte Cassino",
+        "street_norm": "monte cassino",
+        "building": "22A",
+        "apt": null,
+        "key": "monte cassino|22A|",
+        "warning": null
+      },
+      "area_m2": 69.76,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/35852/ogloszenie-nr-4-2023-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-69-76-m2-wraz-z-pomieszczeniem-przynaleznym-o-pow-13-44-m2-polozonego-przy-ul-monte-cassino-22a-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/35852/ogloszenie-nr-4-2023-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-69-76-m2-wraz-z-pomieszczeniem-przynaleznym-o-pow-13-44-m2-polozonego-przy-ul-monte-cassino-22a-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7",
+        "apt": "11",
+        "key": "armii krajowej|7|11",
+        "warning": null
+      },
+      "area_m2": 68.09,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/35844/ogloszenie-nr-3-2023-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-w-swinoujsciu-przy-ul-armii-krajowej-7",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/35844/ogloszenie-nr-3-2023-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-w-swinoujsciu-przy-ul-armii-krajowej-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skandynawskiej 3/1",
+      "address": {
+        "street": "Skandynawskiej",
+        "street_norm": "skandynawskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "skandynawskiej|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/35460/ogloszenie-nr-2-2023-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/35460/ogloszenie-nr-2-2023-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 4",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": null,
+        "key": "armii krajowej|4|",
+        "warning": null
+      },
+      "area_m2": 33.75,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/35427/ogloszenie-nr-1-2023-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-armii-krajowej-4-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-uzytkowego-o-pow-33-75-m2",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/35427/ogloszenie-nr-1-2023-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-armii-krajowej-4-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-uzytkowego-o-pow-33-75-m2"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/33813/ogloszenie-nr-2-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/33813/ogloszenie-nr-2-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Słowiańskim 13",
+      "address": {
+        "street": "Plac Słowiańskim",
+        "street_norm": "plac slowianskim",
+        "building": "13",
+        "apt": null,
+        "key": "plac slowianskim|13|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/33530/ogloszenie-nr-1-2022-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-nieruchomosci-polozonej-w-swinoujsciu-przy-placu-slowianskim-13",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/33530/ogloszenie-nr-1-2022-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-nieruchomosci-polozonej-w-swinoujsciu-przy-placu-slowianskim-13"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Słowiańskim 13",
+      "address": {
+        "street": "Plac Słowiańskim",
+        "street_norm": "plac slowianskim",
+        "building": "13",
+        "apt": null,
+        "key": "plac slowianskim|13|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/33290/ogloszenie-nr-3-2021-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-nieruchomosci-polozonej-w-swinoujsciu-przy-placu-slowianskim-13",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/33290/ogloszenie-nr-3-2021-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-nieruchomosci-polozonej-w-swinoujsciu-przy-placu-slowianskim-13"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Słowiańskim 13",
+      "address": {
+        "street": "Plac Słowiańskim",
+        "street_norm": "plac slowianskim",
+        "building": "13",
+        "apt": null,
+        "key": "plac slowianskim|13|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/32354/ogloszenie-nr-1-2021-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-nieruchomosci-polozonej-w-swinoujsciu-przy-placu-slowianskim-13",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/32354/ogloszenie-nr-1-2021-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-nieruchomosci-polozonej-w-swinoujsciu-przy-placu-slowianskim-13"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Niecałej 10/5",
+      "address": {
+        "street": "Niecałej",
+        "street_norm": "niecalej",
+        "building": "10",
+        "apt": "5",
+        "key": "niecalej|10|5",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 5,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/41960/ogloszenie-nr-3-2025-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/41960/ogloszenie-nr-3-2025-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Niecałej 10/5",
+      "address": {
+        "street": "Niecałej",
+        "street_norm": "niecalej",
+        "building": "10",
+        "apt": "5",
+        "key": "niecalej|10|5",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/41693/ogloszenie-nr-2-2025-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/41693/ogloszenie-nr-2-2025-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Niecałej 10",
+      "address": {
+        "street": "Niecałej",
+        "street_norm": "niecalej",
+        "building": "10",
+        "apt": null,
+        "key": "niecalej|10|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/40838/ogloszenie-nr-15-2024-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/40838/ogloszenie-nr-15-2024-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Niecałej 10/5",
+      "address": {
+        "street": "Niecałej",
+        "street_norm": "niecalej",
+        "building": "10",
+        "apt": "5",
+        "key": "niecalej|10|5",
+        "warning": null
+      },
+      "area_m2": 30.66,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/39874/ogloszenie-nr-10-2024-s-drugi-nieograniczony-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-powierzchni-30-66-m2",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/39874/ogloszenie-nr-10-2024-s-drugi-nieograniczony-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-powierzchni-30-66-m2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Konstytucji 3 Maja 4/4",
+      "address": {
+        "street": "Konstytucji 3 Maja",
+        "street_norm": "konstytucji 3 maja",
+        "building": "4",
+        "apt": "4",
+        "key": "konstytucji 3 maja|4|4",
+        "warning": null
+      },
+      "area_m2": 90.73,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/39872/ogloszenie-nr-9-2024-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m2-polozonej-przy-ul-konstytucji-3-maja-4-4-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/39872/ogloszenie-nr-9-2024-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m2-polozonej-przy-ul-konstytucji-3-maja-4-4-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Niecałej 10/5",
+      "address": {
+        "street": "Niecałej",
+        "street_norm": "niecalej",
+        "building": "10",
+        "apt": "5",
+        "key": "niecalej|10|5",
+        "warning": null
+      },
+      "area_m2": 30.66,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/39632/ogloszenie-nr-8-2024-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-powierzchni-30-66-m2",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/39632/ogloszenie-nr-8-2024-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-niecalej-10-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-powierzchni-30-66-m2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Konstytucji 3 Maja 44/4",
+      "address": {
+        "street": "Konstytucji 3 Maja",
+        "street_norm": "konstytucji 3 maja",
+        "building": "44",
+        "apt": "4",
+        "key": "konstytucji 3 maja|44|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/39630/ogloszenie-nr-7-2024-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m3-polozonego-przy-ul-konstytucji-3-maja-44-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/39630/ogloszenie-nr-7-2024-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-4-wraz-z-pomieszczeniem-przynaleznym-o-lacznej-powierzchni-90-73-m3-polozonego-przy-ul-konstytucji-3-maja-44-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skandynawskiej 3/1",
+      "address": {
+        "street": "Skandynawskiej",
+        "street_norm": "skandynawskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "skandynawskiej|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/35133/ogloszenie-nr-24-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/35133/ogloszenie-nr-24-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grudziądzkiej 3/5",
+      "address": {
+        "street": "Grudziądzkiej",
+        "street_norm": "grudziadzkiej",
+        "building": "3",
+        "apt": "5",
+        "key": "grudziadzkiej|3|5",
+        "warning": null
+      },
+      "area_m2": 66.37,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/35100/ogloszenie-nr-23-2022-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/35100/ogloszenie-nr-23-2022-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 6,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34927/ogloszenie-nr-22-2022-s-szosty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-w-swinoujsciu-przy-ul-armii-krajowej-8",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34927/ogloszenie-nr-22-2022-s-szosty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-w-swinoujsciu-przy-ul-armii-krajowej-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skandynawskiej 3/1",
+      "address": {
+        "street": "Skandynawskiej",
+        "street_norm": "skandynawskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "skandynawskiej|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34786/ogloszenie-nr-21-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosciach-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34786/ogloszenie-nr-21-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosciach-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 5,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34717/ogloszenie-nr-20-2022-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34717/ogloszenie-nr-20-2022-s-piaty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowskiej 2/5",
+      "address": {
+        "street": "Piastowskiej",
+        "street_norm": "piastowskiej",
+        "building": "2",
+        "apt": "5",
+        "key": "piastowskiej|2|5",
+        "warning": null
+      },
+      "area_m2": 31.56,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34563/ogloszenie-nr-19-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-piastowskiej-2-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-pow-31-56-m",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34563/ogloszenie-nr-19-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-piastowskiej-2-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-pow-31-56-m"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7",
+        "apt": "11",
+        "key": "armii krajowej|7|11",
+        "warning": null
+      },
+      "area_m2": 68.09,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34522/ogloszenie-nr-17-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34522/ogloszenie-nr-17-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grudziądzkiej 3/5",
+      "address": {
+        "street": "Grudziądzkiej",
+        "street_norm": "grudziadzkiej",
+        "building": "3",
+        "apt": "5",
+        "key": "grudziadzkiej|3|5",
+        "warning": null
+      },
+      "area_m2": 66.37,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34521/ogloszenie-nr-18-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34521/ogloszenie-nr-18-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skandynawskiej 3/1",
+      "address": {
+        "street": "Skandynawskiej",
+        "street_norm": "skandynawskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "skandynawskiej|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34483/ogloszenie-nr-15-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34483/ogloszenie-nr-15-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-skandynawskiej-3-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-1"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 4,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34337/ogloszenie-nr-16-2022-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34337/ogloszenie-nr-16-2022-s-czwarty-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowskiej 2/5",
+      "address": {
+        "street": "Piastowskiej",
+        "street_norm": "piastowskiej",
+        "building": "2",
+        "apt": "5",
+        "key": "piastowskiej|2|5",
+        "warning": null
+      },
+      "area_m2": 31.56,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34319/ogloszenie-nr-14-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-piastowskiej-2-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-pow-31-56-m",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34319/ogloszenie-nr-14-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-piastowskiej-2-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-5-o-pow-31-56-m"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Sosnowej 22-24 w Świnoujściu, w ramach którego przysługuje prawo do wyłącznego korzystania z lokalu użytkowego o pow. 68",
+      "address": {
+        "street": "Sosnowej 22-24 w Świnoujściu, w ramach którego przysługuje prawo do wyłącznego korzystania z lokalu użytkowego o pow.",
+        "street_norm": "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow",
+        "building": "68",
+        "apt": null,
+        "key": "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow|68|",
+        "warning": null
+      },
+      "area_m2": 68.57,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34262/ogloszenie-nr-13-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-sosnowej-22-24-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-uzytkowego-o-pow-68-57-m2",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34262/ogloszenie-nr-13-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-sosnowej-22-24-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-uzytkowego-o-pow-68-57-m2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7",
+        "apt": "11",
+        "key": "armii krajowej|7|11",
+        "warning": null
+      },
+      "area_m2": 68.09,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34255/ogloszenie-nr-12-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34255/ogloszenie-nr-12-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grudziądzkiej 3/5",
+      "address": {
+        "street": "Grudziądzkiej",
+        "street_norm": "grudziadzkiej",
+        "building": "3",
+        "apt": "5",
+        "key": "grudziadzkiej|3|5",
+        "warning": null
+      },
+      "area_m2": 66.37,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34254/ogloszenie-nr-11-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34254/ogloszenie-nr-11-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jana Matejki 14/6A",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "14",
+        "apt": "6A",
+        "key": "jana matejki|14|6A",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34184/ogloszenie-nr-10-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-jana-matejki-14-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6a",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34184/ogloszenie-nr-10-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-jana-matejki-14-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6a"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34183/ogloszenie-nr-9-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34183/ogloszenie-nr-9-2022-s-trzeci-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Sosnowej 22-24 w Świnoujściu, w ramach którego przysługuje prawo do wyłącznego korzystania z lokalu użytkowego o pow. 68",
+      "address": {
+        "street": "Sosnowej 22-24 w Świnoujściu, w ramach którego przysługuje prawo do wyłącznego korzystania z lokalu użytkowego o pow.",
+        "street_norm": "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow",
+        "building": "68",
+        "apt": null,
+        "key": "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow|68|",
+        "warning": null
+      },
+      "area_m2": 68.57,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34056/ogloszenie-nr-8-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-sosnowej-22-24-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-uzytkowego-o-pow-68-57-m2",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34056/ogloszenie-nr-8-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-sosnowej-22-24-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-uzytkowego-o-pow-68-57-m2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grudziądzkiej 3/5",
+      "address": {
+        "street": "Grudziądzkiej",
+        "street_norm": "grudziadzkiej",
+        "building": "3",
+        "apt": "5",
+        "key": "grudziadzkiej|3|5",
+        "warning": null
+      },
+      "area_m2": 66.37,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34036/ogloszenie-nr-6-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34036/ogloszenie-nr-6-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-5-o-pow-66-37-m2-polozonego-przy-ul-grudziadzkiej-3-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 7/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "7",
+        "apt": "11",
+        "key": "armii krajowej|7|11",
+        "warning": null
+      },
+      "area_m2": 68.09,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34030/ogloszenie-nr-7-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34030/ogloszenie-nr-7-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-11-o-pow-68-09-m2-polozonego-przy-ul-armii-krajowej-7-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jana Matejki 14/6A",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "14",
+        "apt": "6A",
+        "key": "jana matejki|14|6A",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/34017/ogloszenie-nr-5-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-jana-matejki-14-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6a",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/34017/ogloszenie-nr-5-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-jana-matejki-14-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6a"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Armii Krajowej 8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "8",
+        "apt": null,
+        "key": "armii krajowej|8|",
+        "warning": null
+      },
+      "area_m2": 206.21,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/33970/ogloszenie-nr-4-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/33970/ogloszenie-nr-4-2022-s-drugi-nieograniczony-ustny-przetarg-na-sprzedaz-lokalu-uzytkowego-o-pow-206-21-m2-polozonego-przy-ul-armii-krajowej-8-w-swinoujsciu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jana Matejki 14/6A",
+      "address": {
+        "street": "Jana Matejki",
+        "street_norm": "jana matejki",
+        "building": "14",
+        "apt": "6A",
+        "key": "jana matejki|14|6A",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.um.swinoujscie.pl/artykul/1718/33830/ogloszenie-nr-3-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-jana-matejki-14-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6a",
+      "source_url": "https://bip.um.swinoujscie.pl/artykul/1718/33830/ogloszenie-nr-3-2022-s-pierwszy-nieograniczony-ustny-przetarg-na-sprzedaz-udzialu-w-nieruchomosci-przy-ul-jana-matejki-14-w-swinoujsciu-w-ramach-ktorego-przysluguje-prawo-do-wylacznego-korzystania-z-lokalu-mieszkalnego-nr-6a"
+    }
+  ],
   "wykaz": []
 }
