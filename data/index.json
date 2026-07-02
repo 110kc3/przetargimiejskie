@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-02T08:20:11.455Z",
+  "generated_at": "2026-07-02T10:50:58.054Z",
   "cities": [
     {
       "id": "gliwice",
@@ -307,9 +307,9 @@
       "voivodeship": "lodzkie",
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 30,
+      "active_listings": 30,
+      "active_auctions": 30,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 17,
+      "active_listings": 16,
       "active_auctions": 13,
       "archived_auctions": 23,
       "wykaz_entries": 0,
@@ -437,10 +437,10 @@
       "voivodeship": "zachodniopomorskie",
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "unique_properties": 14,
+      "active_listings": 10,
+      "active_auctions": 10,
+      "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -477,7 +477,7 @@
       "authority": "Urząd Miasta Gniezna",
       "host": "bip.gniezno.eu",
       "unique_properties": 0,
-      "active_listings": 0,
+      "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
@@ -554,12 +554,12 @@
       "voivodeship": "swietokrzyskie",
       "authority": "Gmina Skarżysko-Kamienna",
       "host": "bip.skarzysko.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "unique_properties": 5,
+      "active_listings": 5,
+      "active_auctions": 2,
+      "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 5
     },
     {
       "id": "gizycko",
