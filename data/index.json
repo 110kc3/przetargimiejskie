@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-02T21:11:12.655Z",
+  "generated_at": "2026-07-03T07:19:43.216Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,10 +9,10 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 177,
-      "active_listings": 8,
-      "active_auctions": 7,
+      "active_listings": 9,
+      "active_auctions": 8,
       "archived_auctions": 248,
-      "wykaz_entries": 2,
+      "wykaz_entries": 1,
       "land_plots": 79
     },
     {
@@ -309,8 +309,8 @@
       "host": "bip.uml.lodz.pl",
       "unique_properties": 30,
       "active_listings": 30,
-      "active_auctions": 30,
-      "archived_auctions": 0,
+      "active_auctions": 23,
+      "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -333,10 +333,10 @@
       "voivodeship": "podlaskie",
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
-      "unique_properties": 112,
-      "active_listings": 14,
+      "unique_properties": 114,
+      "active_listings": 16,
       "active_auctions": 10,
-      "archived_auctions": 102,
+      "archived_auctions": 104,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -582,8 +582,8 @@
       "host": "nowasol.pl",
       "unique_properties": 6,
       "active_listings": 7,
-      "active_auctions": 3,
-      "archived_auctions": 4,
+      "active_auctions": 2,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
     },
