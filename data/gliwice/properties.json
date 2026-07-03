@@ -3,6 +3,41 @@
   "city": "gliwice",
   "properties": [
     {
+      "key": "chodkiewicza|12|11",
+      "street": "Chodkiewicza",
+      "street_norm": "chodkiewicza",
+      "building": "12",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180557,
+          "outcome": "archived",
+          "area_m2": 24.34,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1211wlasnosc-skarbu-panstwa",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        },
+        {
+          "date": "2026-08-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180557,
+          "outcome": "active",
+          "area_m2": 24.34,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1211-wlasnosc-skarbu-panstwa",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        }
+      ],
+      "area_m2": 24.34
+    },
+    {
       "key": "rybnicka|25|19",
       "street": "Rybnicka",
       "street_norm": "rybnicka",
@@ -690,29 +725,6 @@
         }
       ],
       "area_m2": 155.07
-    },
-    {
-      "key": "chodkiewicza|12|11",
-      "street": "Chodkiewicza",
-      "street_norm": "chodkiewicza",
-      "building": "12",
-      "apt": "11",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-22",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 180557,
-          "outcome": "archived",
-          "area_m2": 24.34,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1211wlasnosc-skarbu-panstwa",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "source": "bip"
-        }
-      ],
-      "area_m2": 24.34
     },
     {
       "key": "zawiszy czarnego|6|3",

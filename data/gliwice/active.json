@@ -142,6 +142,26 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "Chodkiewicza 12/11",
+      "address": {
+        "street": "Chodkiewicza",
+        "street_norm": "chodkiewicza",
+        "building": "12",
+        "apt": "11",
+        "key": "chodkiewicza|12|11",
+        "warning": null
+      },
+      "auction_date": "2026-08-24",
+      "area_m2": 24.34,
+      "starting_price_pln": 180557,
+      "round": 2,
+      "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1211-wlasnosc-skarbu-panstwa",
+      "source": "bip",
+      "wadium_deadline": null,
+      "viewing_date": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "KAROLA LIBELTA 10/1",
       "address": {
         "street": "KAROLA LIBELTA",
@@ -171,19 +191,6 @@
         "building": "11",
         "apt": "9",
         "key": "wielkiej niedzwiedzicy|11|9",
-        "warning": null
-      },
-      "published_date": null
-    },
-    {
-      "wykaz_no": "ZGM/DS/91/2026",
-      "address_raw": "Plebiscytowa garaż nr 11",
-      "address": {
-        "street": "Plebiscytowa",
-        "street_norm": "plebiscytowa",
-        "building": "0",
-        "apt": "garaz-11",
-        "key": "plebiscytowa|0|garaz-11",
         "warning": null
       },
       "published_date": null
