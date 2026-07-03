@@ -66,6 +66,48 @@
       ]
     },
     {
+      "key": "przedzalniana|4B|35",
+      "street": "Przędzalniana",
+      "street_norm": "przedzalniana",
+      "building": "4B",
+      "apt": "35",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179900,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przedzalniana-4b-m-35-36.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "hanki ordonowny|6|11",
+      "street": "Hanki Ordonówny",
+      "street_norm": "hanki ordonowny",
+      "building": "6",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 236000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-hanki-ordonowny-6-m-11-12.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "zagorna|4|34",
       "street": "Zagórna",
       "street_norm": "zagorna",
@@ -183,7 +225,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 328100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-54-1.html",
           "wadium_deadline": null,
@@ -204,7 +246,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 407100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-21-m-16-1.html",
           "wadium_deadline": null,

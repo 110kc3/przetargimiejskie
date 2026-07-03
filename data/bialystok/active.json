@@ -4,6 +4,40 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Przędzalniana 4B m 35",
+      "address": {
+        "street": "Przędzalniana",
+        "street_norm": "przedzalniana",
+        "building": "4B",
+        "apt": "35",
+        "key": "przedzalniana|4B|35",
+        "warning": null
+      },
+      "auction_date": "2026-08-14",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 179900,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przedzalniana-4b-m-35-36.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hanki Ordonówny 6 m 11",
+      "address": {
+        "street": "Hanki Ordonówny",
+        "street_norm": "hanki ordonowny",
+        "building": "6",
+        "apt": "11",
+        "key": "hanki ordonowny|6|11",
+        "warning": null
+      },
+      "auction_date": "2026-08-14",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 236000,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-hanki-ordonowny-6-m-11-12.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Wołodyjowskiego 8 m 6",
       "address": {
         "street": "Wołodyjowskiego",
