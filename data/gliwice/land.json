@@ -3,6 +3,64 @@
   "city": "gliwice",
   "plots": [
     {
+      "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "52, 53, 54, 56, 559, 560",
+      "obreb": "Ligota Zabrska",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Św. Jacka",
+      "dzialka_id": "246601_1.0030.52",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52",
+      "area_m2": 10099,
+      "zoning": "usługowe",
+      "status": "przetarg ogłoszony",
+      "listings": [
+        {
+          "date": "2026-08-31",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 10099,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-4",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "52",
+          "dzialka_id": "246601_1.0030.52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52"
+        },
+        {
+          "nr": "53",
+          "dzialka_id": "246601_1.0030.53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
+        },
+        {
+          "nr": "54",
+          "dzialka_id": "246601_1.0030.54",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
+        },
+        {
+          "nr": "56",
+          "dzialka_id": "246601_1.0030.56",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
+        },
+        {
+          "nr": "559",
+          "dzialka_id": "246601_1.0030.559",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
+        },
+        {
+          "nr": "560",
+          "dzialka_id": "246601_1.0030.560",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
+        }
+      ]
+    },
+    {
       "key": "dz|ligota zabrska|: 52, 53, 54, 559, 560, 56",
       "kind": "grunt",
       "city": "gliwice",
@@ -54,6 +112,44 @@
           "nr": "56",
           "dzialka_id": "246601_1.0030.56",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|828, 829",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "828, 829",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kotlarska",
+      "dzialka_id": "246601_1.0024.828",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828",
+      "area_m2": 1170,
+      "zoning": "mieszkaniowo-usługowe",
+      "status": "przetarg ogłoszony",
+      "listings": [
+        {
+          "date": "2026-08-18",
+          "round": 1,
+          "starting_price_pln": 478800,
+          "outcome": "active",
+          "area_m2": 1170,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-828-i-nr-829-obreb-klodnica-na-wsch-od-ul-j-sliwki-ul-kotlarska-1",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "828",
+          "dzialka_id": "246601_1.0024.828",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828"
+        },
+        {
+          "nr": "829",
+          "dzialka_id": "246601_1.0024.829",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.829"
         }
       ]
     },
@@ -218,39 +314,6 @@
           "nr": "72/2",
           "dzialka_id": "246601_1.0037.72/2",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2"
-        }
-      ]
-    },
-    {
-      "key": "dz|bojków|1312/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1312/2",
-      "obreb": "Bojków",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Chmielna",
-      "dzialka_id": "246601_1.0018.1312/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
-      "area_m2": 1097,
-      "zoning": "mieszkaniowe",
-      "status": "przetarg ogłoszony",
-      "listings": [
-        {
-          "date": "2026-06-16",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 1097,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-13122-obreb-bojkow-ul-chmielna-1",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1312/2",
-          "dzialka_id": "246601_1.0018.1312/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
@@ -994,51 +1057,6 @@
       ]
     },
     {
-      "key": "dz|kłodnica|828, 829",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "828, 829",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Kotlarska",
-      "dzialka_id": "246601_1.0024.828",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828",
-      "area_m2": 1170,
-      "zoning": "mieszkaniowo-usługowe",
-      "status": "oferta do wznowienia",
-      "listings": [
-        {
-          "date": "2026-08-18",
-          "round": 2,
-          "starting_price_pln": 478800,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-828-i-nr-829-obreb-klodnica-na-wsch-od-ul-j-sliwki-ul-kotlarska-1"
-        },
-        {
-          "date": null,
-          "round": 3,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 1170,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-828-i-nr-829-obreb-klodnica-na-wsch-od-ul-j-sliwki-ul-kotlarska",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "828",
-          "dzialka_id": "246601_1.0024.828",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.828"
-        },
-        {
-          "nr": "829",
-          "dzialka_id": "246601_1.0024.829",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0024.829"
-        }
-      ]
-    },
-    {
       "key": "dz|bojków|263/2",
       "kind": "grunt",
       "city": "gliwice",
@@ -1133,64 +1151,6 @@
         {
           "nr": "1055/3",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "52, 53, 54, 56, 559, 560",
-      "obreb": "Ligota Zabrska",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Św. Jacka",
-      "dzialka_id": "246601_1.0030.52",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52",
-      "area_m2": 10099,
-      "zoning": "usługowe",
-      "status": "oferta do wznowienia",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 10099,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-3",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "52",
-          "dzialka_id": "246601_1.0030.52",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52"
-        },
-        {
-          "nr": "53",
-          "dzialka_id": "246601_1.0030.53",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
-        },
-        {
-          "nr": "54",
-          "dzialka_id": "246601_1.0030.54",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
-        },
-        {
-          "nr": "56",
-          "dzialka_id": "246601_1.0030.56",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
-        },
-        {
-          "nr": "559",
-          "dzialka_id": "246601_1.0030.559",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
-        },
-        {
-          "nr": "560",
-          "dzialka_id": "246601_1.0030.560",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
         }
       ]
     },
@@ -1498,6 +1458,39 @@
           "nr": "41",
           "dzialka_id": "246601_1.0018.41",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.41"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|1312/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1312/2",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Chmielna",
+      "dzialka_id": "246601_1.0018.1312/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
+      "area_m2": 1097,
+      "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1097,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2795.pdf",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1312/2",
+          "dzialka_id": "246601_1.0018.1312/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
