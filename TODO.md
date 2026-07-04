@@ -129,6 +129,7 @@ step. Files map to the four branches below.
 - **Kędzierzyn-Koźle:** multi-flat table-announcement parsing + confirm Logonet
   discovery reaches every year.
 - **Verify TG fix landed** — the 40 prices + 26 areas populate on the next TG refresh.
+- **TG sanity allowlist (fixed 4 July, CI run #111):** the TG price+area fix correctly extracted a real nominal `2000 zł / 28,34 m²` (71 zł/m²) for `sienkiewicza|45|1A` — a derelict suterena flat — which tripped sanity's `insane-m2` 300 zł/m² floor and failed the refresh. Added a documented `tarnowskie-gory|sienkiewicza|45|1A` allowlist entry in `sanity-check.js` (not a parser change; the extraction is correct).
 - **Verify P2-D** — a live Katowice run should show the re-seeded junk key
   self-heal; then drop the sanity-check allowlist note (see *Katowice junk key* below).
 
@@ -376,7 +377,10 @@ so it can't be authored/verified fully offline.
 
 > **BUILT + tested in sandbox (3 July) — awaiting land + live re-crawl.** Parser
 > fix done (see 3 July handover block); expects 40 prices + 26 areas to populate
-> on the next TG refresh — verify then.
+> on the next TG refresh — verify then. **CI run #111 (4 July) surfaced one
+> GENUINE outlier now correctly extracted — `sienkiewicza|45|1A`, a derelict
+> suterena flat at a nominal `2000 zł / 28,34 m²` — allowlisted in
+> `sanity-check.js` (`insane-m2`); not a parser change.**
 
 15 active listings carry no starting price and 18 no `area_m2` — the worst of
 any city (audit 25 June 2026). The source is a React SPA with a clean JSON API

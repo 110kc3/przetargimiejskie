@@ -38,6 +38,13 @@ const ALLOWLIST = {
   // manual heal. Drop this once a Katowice CI run confirms the source no longer
   // emits it, or once the VERIFIED_JUNK folds run inside refresh. See TODO.md.
   'katowice|oddzialow mlodziezy i ustny|86|': 'junk-street',
+  // GENUINE outlier, NOT a parse bug (verified 2026-07-04 against source PDF
+  // id 95676): a derelict basement (suterena) flat the city listed at a nominal
+  // "Cena wywoławcza : 2000,- zł" for 28,34 m² (71 zł/m²) because it is "w złym
+  // stanie technicznym … nie nadaje się do zamieszkania". The TG price+area
+  // extraction fix now correctly reads both, so insane-m2's 300 zł/m² floor
+  // trips on real data. See TODO.md (Tarnowskie Góry price+area).
+  'tarnowskie-gory|sienkiewicza|45|1A': 'insane-m2',
 };
 
 const MAX_PLN = 50_000_000;
