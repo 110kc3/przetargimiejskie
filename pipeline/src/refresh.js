@@ -26,6 +26,7 @@ import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
 import { buildCityData, healStreetVariants, healKinds, todayWarsaw } from './core/build-properties.js';
+import { applyVerifiedRenames, applyVerifiedJunk, crossCityDisplay, buildGlobalStreetDisplay } from './core/verified-heals.js';
 import { buildLand } from './core/build-land.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archivePastActive } from './core/merge-history.js';
@@ -52,7 +53,7 @@ const PIPELINE_MIN_HISTORY_YEAR =
   Number(process.env.MIN_HISTORY_YEAR) || 2020;
 
 // Crawl, OCR/parse, enrich and write one city's three JSON files.
-async function refreshCity(city) {
+async function refreshCity(city, globalStreetDisplay = new Map()) {
   console.error(`\n=== ${city.label} (${city.id}) ===`);
 
   console.error('Crawling result documents ...');
@@ -251,11 +252,20 @@ async function refreshCity(city) {
     // after buildCityData coalesced the fresh copy into the nominative
     // ("sportowa|6|2") — duplicating the same auction in the archive. Fold
     // variants + dedupe per date on the POST-merge array.
+    // Verified re-keys BEFORE variant folding (a rename can produce a key the
+    // variant fold then coalesces); shared with scripts/heal-properties.js.
+    applyVerifiedRenames(properties, city.id);
     const beforeHeal = properties.length;
     properties = healStreetVariants(properties);
     if (properties.length !== beforeHeal) {
       console.error(`  healed ${beforeHeal - properties.length} street-variant zombie propert${beforeHeal - properties.length === 1 ? 'y' : 'ies'} post-merge.`);
     }
+    // Cross-city display flip (Xskiej → Xska when a nominative twin exists in
+    // ANOTHER city): applyDisplayStreets inside healStreetVariants only sees
+    // within-city twins, so these flips are otherwise reverted by the merge.
+    crossCityDisplay(properties, city.id, globalStreetDisplay);
+    // Fold verified junk keys the merge re-seeded from the committed file.
+    properties = applyVerifiedJunk(properties, city.id);
     // Coerce any non-canonical kind the merge re-seeded from the committed file
     // (e.g. a historical "zabudowa" → "zabudowana"); see build-properties' healKinds.
     const kindsHealed = healKinds(properties);
@@ -267,7 +277,10 @@ async function refreshCity(city) {
     // area from a parser reaches properties.json unhealed on exactly these paths
     // (the first-run gap in the kind/TYP guarantee). healStreetVariants also runs
     // healPlotAreas; buildCityData already coalesced fresh street variants.
+    applyVerifiedRenames(properties, city.id);
     properties = healStreetVariants(properties);
+    crossCityDisplay(properties, city.id, globalStreetDisplay);
+    properties = applyVerifiedJunk(properties, city.id);
     const kindsHealed = healKinds(properties);
     if (kindsHealed) console.error(`  healed ${kindsHealed} non-canonical kind value(s) (fresh build).`);
   }
@@ -397,6 +410,10 @@ const CITY_FILTER = (process.env.CITY || '')
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
 
+  // Cross-city street-display evidence for the post-merge heal, built ONCE from
+  // the committed corpus and passed to every city (see core/verified-heals.js).
+  const globalStreetDisplay = buildGlobalStreetDisplay(DATA_DIR);
+
   let selected = cities;
   if (CITY_FILTER.length) {
     const unknown = CITY_FILTER.filter((id) => !cities.some((c) => c.id === id));
@@ -418,7 +435,7 @@ async function main() {
     // it keeps showing its previously-committed listings; its data files on disk
     // are left untouched.
     try {
-      metas.push(await refreshCity(city));
+      metas.push(await refreshCity(city, globalStreetDisplay));
     } catch (err) {
       console.error(`\n!!! ${city.id}: refresh FAILED (${err?.message || err}) — keeping last-published data, continuing with other cities.`);
       try {

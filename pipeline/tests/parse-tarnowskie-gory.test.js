@@ -21,6 +21,8 @@ import {
   resultDateFromText,
   parseAnnouncement,
   parseResultDoc,
+  startingPriceFromText,
+  unitAreaFromText,
 } from '../src/cities/tarnowskie-gory/parse.js';
 
 // ---------------------------------------------------------------- title routing
@@ -250,4 +252,51 @@ test('parseResultDoc: UNSOLD — no achieved price → unsold, same property key
 test('parseResultDoc / isResultNotice: an announcement is not a result notice', () => {
   assert.equal(isResultNotice(ANN_FLAT), false);
   assert.deepEqual(parseResultDoc(ANN_FLAT, null, 'u'), []);
+});
+
+// --------------------------------------------------------------- price + area
+//
+// PDF field extraction for TG announcements — phrasings groundtruthed against
+// the cached announcement PDFs (pdf-text-cache/). A regression here silently
+// drops an active listing's starting price / usable area on the next crawl.
+
+test('startingPriceFromText: label + connector variants, dotted/dash grosze, bare amount', () => {
+  const nbsp = String.fromCharCode(0xA0);
+  // pre-existing forms still work (no regression)
+  assert.equal(startingPriceFromText('cena wywoławcza za lokal mieszkalny nr 5 wynosi 159 000,00 zł'), 159000);
+  assert.equal(startingPriceFromText('Cena wywoławcza: 176 900,00 złotych'), 176900);
+  assert.equal(startingPriceFromText('cena wywoławcza - 86 000,00 zł netto'), 86000);
+  // NBSP thousands separator (used in some PDFs)
+  assert.equal(startingPriceFromText('cena wywoławcza wynosi 159' + nbsp + '000,00 zł'), 159000);
+  // "wynosi ogółem" (extra word between "wynosi" and the amount)
+  assert.equal(startingPriceFromText('cena wywoławcza za lokal mieszkalny nr 2 przy ulicy Słoneczników 49 wynosi ogółem 168 300,00 zł'), 168300);
+  // "wynosi:" (colon), amount on the next line
+  assert.equal(startingPriceFromText('cena wywoławcza za przedmiotową nieruchomość zabudowaną wynosi:\n420 000,00 złotych'), 420000);
+  // amount runs straight into "(słownie …)" with no trailing zł
+  assert.equal(startingPriceFromText('cena wywoławcza wynosi 490 000,00 (słownie: czterysta dziewięćdziesiąt tysięcy złotych)'), 490000);
+  // older dotted thousands + dash grosze, both ",-" and ".-"
+  assert.equal(startingPriceFromText('Cena wywoławcza: 136.000,- zł'), 136000);
+  assert.equal(startingPriceFromText('Cena wywoławcza: 94.000.- zł'), 94000);
+  assert.equal(startingPriceFromText('cena wywoławcza wynosi 2.200.000,00 zł'), 2200000);
+  // "cena wywoławcza do przetargu …" (no "wynosi")
+  assert.equal(startingPriceFromText('Cena wywoławcza do przetargu 105.000,- zł'), 105000);
+
+  // must NOT fire on the genitive postąpienie boilerplate; null for a written
+  // tender that states an "oferowana cena" instead of a starting price
+  assert.equal(startingPriceFromText('Wysokość postąpienia nie może wynosić mniej niż 1% ceny wywoławczej.'), null);
+  assert.equal(startingPriceFromText('3. Oferowana cena: ...................... zł'), null);
+});
+
+test('unitAreaFromText: "o powierzchni użytkowej" + leading-label phrasings; excludes cellar/building/plot', () => {
+  // pre-existing "lokal nr N o powierzchni użytkowej X" form; attached cellar not taken
+  assert.equal(unitAreaFromText('Lokal mieszkalny nr 5 o powierzchni użytkowej 37,70 m2 wraz z piwnicą o powierzchni użytkowej 6,20 m2'), 37.7);
+  // leading label "Powierzchnia użytkowa lokalu … wynosi X m2"
+  assert.equal(unitAreaFromText('przy ulicy Górniczej 34 w Tarnowskich Górach. Powierzchnia użytkowa lokalu mieszkalnego wynosi 51,58 m2.'), 51.58);
+  // colon form, no "wynosi", no space before m2
+  assert.equal(unitAreaFromText('- powierzchnia użytkowa lokalu: 96,89m2'), 96.89);
+
+  // never take a cellar / whole-building / plot area as the unit floor area
+  assert.equal(unitAreaFromText('piwnicy o powierzchni użytkowej 6,20 m2'), null);
+  assert.equal(unitAreaFromText('Łączna powierzchnia użytkowa budynku głównego wraz z oficyną wynosi 405 m2'), null);
+  assert.equal(unitAreaFromText('działka numer 98 o powierzchni 0,0573 ha'), null);
 });

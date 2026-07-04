@@ -1,8 +1,8 @@
 # TODO
 
 > Open backlog only. Shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site). **Last refreshed: 23 June 2026 —
-> extension v1.31.0.**
+> (extension) and git history (pipeline/site). **Last refreshed: 4 July 2026
+> (3 July handover reconciled) — extension v1.31.0.**
 >
 > **Recently shipped (removed from this list):**
 > - **P0-C — SEO site pages (2 July 2026):** `scripts/build-seo-pages.mjs` (called
@@ -29,6 +29,7 @@
 > - Website **favicon** (all pages).
 >
 > **Uncommitted — 25 June 2026 session (needs commit/PR, then move to shipped):**
+> _(see the 3 July handover block below for the newer uncommitted batch)_
 > - **Pipeline now refreshes DAILY** — `refresh.yml` cron `0 4 * * *` (04:00 UTC
 >   ≈ 06:00 PL) instead of weekly Mondays. OVH deploy already chains off it via
 >   `workflow_run`; `health.yml` / `health-check.js` comments updated for daily.
@@ -43,6 +44,93 @@
 >   line-ending normalisation, which kills the CRLF `git status` noise
 >   (~1,200 -> 15 modified files); popup `mapsCell` now uses the structured
 >   `street`+`building` like the archive. Ext **v1.31.0 -> v1.31.1** (+ CHANGELOG).
+
+## Handover — 3 July 2026 session (4 pieces BUILT + tested, awaiting land)
+
+Four pieces are **built, unit-tested and green in the dev sandbox**. None can be
+finished from a sandbox — each needs a GitHub token, a live network run, a
+browser, or an account/business decision.
+
+### ✅ Repo file-state (paths fixed 4 July 2026 — ready to stage/commit)
+
+All handover files are now at their intended paths (moves were clean — each file's
+relative imports were already written for its target location, so no content
+rewriting was needed). The three affected test files pass. **Still uncommitted** —
+there's a `.git/index.lock` in the tree, so staging/committing/pushing is a manual
+step. Files map to the four branches below.
+
+| Intended path (handover) | State (4 July, after fix) |
+|---|---|
+| `.github/workflows/extension-ci.yml` | ✅ present (untracked) |
+| `pipeline/scripts/check-extension-lint.mjs` | ✅ present (pushed by Kamil) |
+| `pipeline/src/core/verified-heals.js` | ✅ present (untracked) |
+| `pipeline/scripts/heal-properties.js` | ✅ updated in place (modified) |
+| `pipeline/src/refresh.js` (edit) | ✅ P2-D additions merged in (modified) |
+| `pipeline/tests/verified-heals.test.js` | ✅ moved into place (untracked) |
+| `pipeline/src/cities/tarnowskie-gory/parse.js` (edit) | ✅ modified (tracked, uncommitted) |
+| `pipeline/tests/parse-tarnowskie-gory.test.js` | ✅ updated in place (modified) |
+| `pipeline/scripts/newsletter-digest.js` | ✅ present (untracked) |
+| `pipeline/tests/newsletter-digest.test.js` | ✅ moved into place (untracked) |
+| `.github/workflows/newsletter.yml` | ✅ moved into place (untracked) |
+
+### DONE (in sandbox) — the 4 pieces
+
+- **P1-A — Extension CI.** `.github/workflows/extension-ci.yml` +
+  `pipeline/scripts/check-extension-lint.mjs` (web-ext lint + manifest +
+  parity/version guards on PRs). Commit msg:
+  `ci: add Extension CI (web-ext lint + manifest + parity/version guards on PRs)`.
+- **P2-D — Durable heal folds in refresh.** `pipeline/src/core/verified-heals.js`,
+  `pipeline/scripts/heal-properties.js`, `pipeline/src/refresh.js`,
+  `pipeline/tests/verified-heals.test.js` — applies verified
+  rename/junk/cross-city-display heals post-merge (shared core + regression test).
+- **TG — Tarnowskie Góry PDF price+area extraction.**
+  `pipeline/src/cities/tarnowskie-gory/parse.js` +
+  `pipeline/tests/parse-tarnowskie-gory.test.js` — extracts price+area for missed
+  PDF phrasings (wynosi ogółem / colon / do przetargu / dash-grosze; powierzchnia
+  użytkowa lokalu). Should populate **40 prices + 26 areas** on next TG refresh.
+- **P1-D — Weekly newsletter digest generator.**
+  `pipeline/scripts/newsletter-digest.js`,
+  `pipeline/tests/newsletter-digest.test.js`, `.github/workflows/newsletter.yml` —
+  per-city digest (stored sent-list delta, Markdown/HTML), weekly Action.
+
+### PENDING — from YOU (Kamil): can't be automated in a sandbox
+
+1. **Land the 4 branches** (disjoint files → merge in any order; **NO extension
+   version bump**). Paths are now fixed (see table above) and tests pass, so the
+   files are staging-ready. Either provide a fine-grained PAT (Contents R/W + Pull
+   requests R/W) so it's pushed/PR'd/merged from the sandbox, **or** DIY per branch
+   `git checkout main && git checkout -b <branch> && git add <files> && git commit -m "<msg>" && git push -u origin <branch>`.
+   Branches: `ci/extension-lint`, `heal/durable-refresh`, `tg/pdf-price-area`,
+   `p1d/newsletter-digest`.
+2. **Run the first live refresh** (unlocks the next tier). Pushing triggers
+   `refresh.yml`, or local:
+   `cd pipeline && CITY=<city> npm run refresh && npm run build-index`
+   (needs `poppler-utils tesseract-ocr tesseract-ocr-pol`). Review each
+   `data/<city>/` delta before trusting it.
+3. **Decisions only you can make:** "Silesian" → multi-voivodeship copy
+   (README/PRIVACY/store); P2-E `schema_version: 2` + city-namespaced keys (bundle
+   with a needed schema bump); on-page overlays for the new cities (needs DOM
+   adapter + new `host_permissions` + Web Store resubmit); widen the public gate
+   beyond Śląskie (`PUBLIC_VOIVODESHIPS` + `CITY_LOC`).
+4. **Account actions:** Chrome Web Store submit (live v1.3.3, local v1.31.0 —
+   ~a month unpublished); submit `sitemap.xml` to Google Search Console; add
+   privacy-friendly analytics (Plausible/Umami); RODO/GDPR privacy update **before
+   the newsletter sends**.
+5. **Newsletter go-live (after P1-D merges):** weekly Action runs Mondays; first
+   run seeds a silent baseline (no listings), so the first real "new this week"
+   digest is the 2nd run. Each run writes `newsletter/<date>.md` + `.html` and
+   updates `newsletter/seen.json`. Sending still needs an ESP wired up **plus** the
+   RODO update. Manual preview any time via Actions → "Run workflow".
+
+### PENDING — from ME (code, unlocked once the live run's logs + deltas exist)
+
+- **Crawler hardening:** Chrzanów SPA body, Oświęcim OCR quality, Opole SISCO harvest.
+- **Result (achieved-price) streams:** Chrzanów, Oświęcim; confirm whether Opole posts any.
+- **Kędzierzyn-Koźle:** multi-flat table-announcement parsing + confirm Logonet
+  discovery reaches every year.
+- **Verify TG fix landed** — the 40 prices + 26 areas populate on the next TG refresh.
+- **Verify P2-D** — a live Katowice run should show the re-seeded junk key
+  self-heal; then drop the sanity-check allowlist note (see *Katowice junk key* below).
 
 ## Project review — CI capacity + expansion strategy (2 July 2026)
 
@@ -235,6 +323,10 @@ public gate opens beyond Śląskie.
 
 ### P1-A — Extension CI job (lint + manifest + parity)
 
+> **BUILT + tested in sandbox (3 July) — awaiting land.** See the 3 July handover
+> block above (`extension-ci.yml` + `check-extension-lint.mjs`; the latter is
+> currently missing from the tree and must be re-created before commit).
+
 The ~10.8k LOC of `extension/` + `site/` JS has no lint or manifest validation
 of its own. Add a CI job running `web-ext lint` (or eslint), `manifest.json`
 validation, and the existing normalize-parity test. Cheap insurance for the
@@ -261,6 +353,9 @@ page-host fetch permissions.
 
 ### P1-D — Weekly newsletter digest generator
 
+> **BUILT + tested in sandbox (3 July) — awaiting land + go-live.** Generator +
+> Action done (see 3 July handover block); send/ESP + RODO update still pending.
+
 GTM.md week-1 item and the vehicle for sponsorship + lead-gen. A GitHub Action
 renders a Markdown/HTML "new auctions this week per city" digest from the
 `data/*/properties.json` deltas. Build the generator now; the send/ESP
@@ -278,6 +373,10 @@ have area), run once under CI. Requires live network + mutates committed data,
 so it can't be authored/verified fully offline.
 
 ### Tarnowskie Góry — active listings missing price + area (PDF extraction)
+
+> **BUILT + tested in sandbox (3 July) — awaiting land + live re-crawl.** Parser
+> fix done (see 3 July handover block); expects 40 prices + 26 areas to populate
+> on the next TG refresh — verify then.
 
 15 active listings carry no starting price and 18 no `area_m2` — the worst of
 any city (audit 25 June 2026). The source is a React SPA with a clean JSON API
@@ -300,6 +399,10 @@ TG obręb name→number map); 12 of the 45 are addr-only (no parcel) and can't b
 precise at all.
 
 ### P2-D — Make `heal-properties.js` folds durable in refresh
+
+> **BUILT + tested in sandbox (3 July) — awaiting land + live verify.** Shared
+> `core/verified-heals.js` applied post-merge in `refresh.js` + regression test
+> (see 3 July handover block); confirm on a live Katowice run.
 
 `heal-properties.js` (VERIFIED_JUNK, VERIFIED_RENAMES, crossCityDisplay) is a
 MANUAL maintenance script whose output is committed, but `refresh.js` only runs

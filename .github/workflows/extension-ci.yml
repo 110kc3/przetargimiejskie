@@ -1,0 +1,65 @@
+name: Extension CI
+
+# Lint + manifest + parity gate for the user-facing artifact (extension/).
+#
+# refresh.yml already runs `npm test` (the full suite, incl. the two guards
+# below) — but only on push + the daily schedule, NEVER on pull_request, and it
+# does NO linting. So a bad extension edit (an invalid manifest, a normalize.js
+# drift vs the pipeline, a manifest<->popup version mismatch) can sail through a
+# PR uncaught until after merge. This job closes that gap: it runs on PRs that
+# touch the extension and adds the web-ext lint / manifest validation the suite
+# never had. Cheap insurance, no crawl, no network beyond the npm fetch.
+#
+# web-ext is a Mozilla tool and its linter targets Firefox / addons.mozilla.org
+# by default, so it emits two Firefox-only ERRORS that don't apply to a Chrome
+# MV3 extension (BACKGROUND_SERVICE_WORKER_NOFALLBACK, ADDON_ID_REQUIRED).
+# Rather than mutate the shipped manifest to please Firefox (which would force a
+# version bump on a Chrome-only product), scripts/check-extension-lint.mjs
+# allowlists exactly those two codes and fails only on a genuinely new error —
+# the same posture as health-check's EXEMPT_NEW and sanity-check's ALLOWLIST.
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - 'extension/**'
+      - 'pipeline/src/core/normalize.js'
+      - 'pipeline/tests/normalize-parity.test.js'
+      - 'pipeline/tests/extension-version.test.js'
+      - 'pipeline/scripts/check-extension-lint.mjs'
+      - '.github/workflows/extension-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: extension-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  extension-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Lint extension + validate manifest (web-ext)
+        # web-ext exits non-zero on its Firefox-only errors, so capture the JSON
+        # (progress goes to stderr; -o json goes to stdout) and let the checker
+        # own the verdict via the allowlist. Version pinned for reproducibility.
+        run: |
+          npx --yes web-ext@10.4.0 lint \
+            --source-dir extension \
+            --output json \
+            --self-hosted \
+            > web-ext-lint.json 2>/dev/null || true
+          node pipeline/scripts/check-extension-lint.mjs web-ext-lint.json
+
+      - name: Extension guards (normalize parity + version lockstep)
+        working-directory: pipeline
+        # Targeted: only the two test files that guard the extension artifact,
+        # not the global suite. dot reporter matches the repo's `npm test`.
+        run: node --test --test-reporter=dot tests/normalize-parity.test.js tests/extension-version.test.js

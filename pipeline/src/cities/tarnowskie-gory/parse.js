@@ -37,10 +37,11 @@ const PL_MONTH = {
 
 // "159 000,00" / "176 900,00 złotych" / "389000" -> integer PLN. Spaced
 // thousands (regular + non-breaking spaces are both used as the separator),
-// optional ",00" grosze tail.
+// grosze tail of ",00" or a dash ",-"/".-" (older dotted-thousands notices).
 function parsePLN(numStr) {
   if (!numStr) return null;
-  const cleaned = String(numStr).replace(/[\s .]/g, '').replace(/,\d{2}$/, '');
+  const cleaned = String(numStr).replace(/[\s .]/g, '').replace(/,\d{2}$/, '')
+    .replace(/,?-$/, '');
   const n = Number(cleaned.replace(/,/g, ''));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
@@ -195,21 +196,35 @@ export function addressRawFromText(text) {
 const UNIT_AREA_RE =
   /lokal\w*\s+(?:mieszkaln\w+|niemieszkaln\w+|u[żz]ytkow\w+)\s+nr\s+\d+[a-z]?\s+o\s+powierzchni\s+u[żz]ytkow\w+\s+([\d.,\s ]+?)\s*m\s*[²2](?!\d)/i;
 
+// Alternate unit-area phrasings that lead with the "powierzchnia użytkowa"
+// label instead of the "lokal nr N o powierzchni użytkowej" form above:
+//   "Powierzchnia użytkowa lokalu mieszkalnego wynosi 37,06 m2"
+//   "powierzchnia użytkowa lokalu: 96,89m2"  (colon, no space before m2)
+// Still anchored on "lokal", so a "piwnicy"/"budynku"/"działki" area is never
+// taken (\s already covers the non-breaking space some PDFs use).
+const UNIT_AREA_ALT_RE =
+  /powierzchni[ae]\s+u[żz]ytkow\w+\s+lokal\w*\s*(?:mieszkaln\w+|niemieszkaln\w+|u[żz]ytkow\w+)?\s*(?:wynosi|:)\s*([\d.,\s ]+?)\s*m\s*[²2](?!\d)/i;
+
 /** Usable floor area (m2) of a flat/unit, or null. */
 export function unitAreaFromText(text) {
-  const m = UNIT_AREA_RE.exec(text || '');
+  const t = text || '';
+  const m = UNIT_AREA_RE.exec(t) || UNIT_AREA_ALT_RE.exec(t);
   return m ? parseArea(m[1]) : null;
 }
 
-// Starting price: "cena wywoławcza … wynosi 159 000,00 zł" (announcement) or
-// "Cena wywoławcza: 176 900,00 złotych" / "cena wywoławcza - 86 000,00 zł netto"
-// (result notice). Try the "wynosi …" form first (the announcement separates
-// label and amount with a long clause), then the label-then-separator form
-// (":", "-" or en-dash).
+// Starting price. The label is the nominative "cena wywoławcza"; the amount can
+// follow it after any in-sentence connector — "wynosi[:]" / "wynosi ogółem" /
+// "do przetargu" / "za lokal … wynosi" / a bare ":" or "-" — and may run
+// straight into "(słownie …)" with no trailing "zł". Amount shapes seen:
+// "420 000,00" (spaced/NBSP), "136.000,-" or "94.000.-" (older dotted thousands,
+// dash grosze). Anchored on the label and bounded to its sentence ([^.]) so the
+// genitive "ceny wywoławczej" of the postąpienie boilerplate is never matched;
+// takes the first amount-shaped token. Falls back to a bare "wynosi … zł" when
+// the label is absent.
 export function startingPriceFromText(text) {
   const t = text || '';
-  let m = /wynosi\s+(\d[\d.,\s ]*?)\s*z[łl]/i.exec(t);
-  if (!m) m = /cena\s+wywo[łl]awcza\s*[:\-–]?\s*(\d[\d.,\s ]*?)\s*z[łl]/i.exec(t);
+  let m = /cena\s+wywo[łl]awcza\b[^.]*?(\d[\d.\u00A0 ]*(?:,\d{2}|[.,]-))/i.exec(t);
+  if (!m) m = /wynosi\s+(\d[\d.,\s ]*?)\s*z[łl]/i.exec(t);
   return m ? parsePLN(m[1]) : null;
 }
 
