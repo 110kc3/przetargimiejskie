@@ -106,6 +106,91 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Aleksandra Fredry 7/1",
+      "address": {
+        "street": "Aleksandra Fredry",
+        "street_norm": "aleksandra fredry",
+        "building": "7",
+        "apt": "1",
+        "key": "aleksandra fredry|7|1",
+        "warning": null
+      },
+      "auction_date": "2026-05-21",
+      "round": 2,
+      "area_m2": 45.3,
+      "starting_price_pln": 100000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25001"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bolesława Śmiałego 15/2",
+      "address": {
+        "street": "Bolesława Śmiałego",
+        "street_norm": "boleslawa smialego",
+        "building": "15",
+        "apt": "2",
+        "key": "boleslawa smialego|15|2",
+        "warning": null
+      },
+      "auction_date": "2026-05-21",
+      "round": 2,
+      "area_m2": 34.04,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25001"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marcina Lutra 3/1a",
+      "address": {
+        "street": "Marcina Lutra",
+        "street_norm": "marcina lutra",
+        "building": "3",
+        "apt": "1A",
+        "key": "marcina lutra|3|1A",
+        "warning": null
+      },
+      "auction_date": "2026-05-21",
+      "round": 2,
+      "area_m2": 46.8,
+      "starting_price_pln": 120000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25001"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Nawrata 6/5",
+      "address": {
+        "street": "Józefa Nawrata",
+        "street_norm": "jozefa nawrata",
+        "building": "6",
+        "apt": "5",
+        "key": "jozefa nawrata|6|5",
+        "warning": null
+      },
+      "auction_date": "2026-05-21",
+      "round": 2,
+      "area_m2": 22.71,
+      "starting_price_pln": 50000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25001"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Nawrata 6/7",
+      "address": {
+        "street": "Józefa Nawrata",
+        "street_norm": "jozefa nawrata",
+        "building": "6",
+        "apt": "7",
+        "key": "jozefa nawrata|6|7",
+        "warning": null
+      },
+      "auction_date": "2026-05-21",
+      "round": 2,
+      "area_m2": 34.11,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/25001"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Tadeusza Boya-Żeleńskiego 22/2",
       "address": {
         "street": "Tadeusza Boya-Żeleńskiego",
