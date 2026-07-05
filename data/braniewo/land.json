@@ -1,0 +1,1277 @@
+{
+  "schema_version": 1,
+  "city": "braniewo",
+  "plots": [
+    {
+      "key": "addr|ul. aleja wojska polskiego",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Aleja Wojska Polskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Aleja%20Wojska%20Polskiego%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-20",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2733/ogloszenie-o-trzecim-przetargu-dzialki-pod-zabudowe-mieszkaniowa-wielorodzinna-ul-aleja-wojska-polskiego",
+          "source_url": "http://bip.braniewo.pl/attachments/download/4613"
+        },
+        {
+          "date": "2026-05-25",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2828/ogloszenie-o-czwartym-przetargu-dzialki-pod-zabudowe-mieszkaniowa-wielorodzinna-ul-aleja-wojska-polskiego",
+          "source_url": "http://bip.braniewo.pl/attachments/download/4788"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 6|180/17, 180/18",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "180/17, 180/18",
+      "obreb": "nr 6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Aleja Wojska Polskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20180%2F17%2C%20180%2F18%20ul.%20Aleja%20Wojska%20Polskiego%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1887,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "area_m2": 1887
+        },
+        {
+          "date": "2025-09-22",
+          "round": 2,
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "area_m2": 1887
+        },
+        {
+          "date": "2026-03-20",
+          "round": 3,
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "area_m2": 1887
+        },
+        {
+          "date": "2026-05-25",
+          "round": 4,
+          "starting_price_pln": 280000,
+          "outcome": "sold",
+          "final_price_pln": 282810,
+          "area_m2": 1887
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "180/17",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20180%2F17%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "180/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20180%2F18%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. plac wolności 18",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Plac Wolności 18",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Plac%20Wolno%C5%9Bci%2018%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-04",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2387/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-na-lokal-nr-8-ul-plac-wolnosci-18",
+          "source_url": "http://bip.braniewo.pl/attachments/download/4044"
+        },
+        {
+          "date": "2026-03-04",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2723/ogloszenie-o-drugim-przetargu-ustnym-ograniczonym-na-lokal-nr-8-ul-plac-wolnosci-18",
+          "source_url": "http://bip.braniewo.pl/attachments/download/4600"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 5|202/23, 202/24, 202/25",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "202/23, 202/24, 202/25",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Maratońskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F23%2C%20202%2F24%2C%20202%2F25%20ul.%20Marato%C5%84skiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-03",
+          "round": 1,
+          "starting_price_pln": 59600,
+          "outcome": "sold",
+          "final_price_pln": 60200
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "202/23",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F23%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/24",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F24%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/25",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F25%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. aleja wojska 0",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Aleja Wojska 0",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Aleja%20Wojska%200%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2330/ogloszenie-o-przetargu-dzialki-pod-zabudowe-mieszkaniowa-wielorodzinna-ul-aleja-wojska-polskiego",
+          "source_url": "http://bip.braniewo.pl/attachments/download/3889"
+        },
+        {
+          "date": "2025-09-22",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2420/ogloszenie-o-drugim-przetargu-dzialki-pod-zabudowe-mieszkaniowa-wielorodzinna-ul-aleja-wojska-polskiego",
+          "source_url": "http://bip.braniewo.pl/attachments/download/4097"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. sprzedaż gruntu pod",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sprzedaż gruntu pod",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Sprzeda%C5%BC%20gruntu%20pod%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-09",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/260/ogloszenie-o-drugim-przetargu-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-maratonska",
+          "source_url": "http://bip.braniewo.pl/attachments/download/337"
+        },
+        {
+          "date": "2023-02-24",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/593/ogloszenie-o-trzecim-przetargu-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-maratonska",
+          "source_url": "http://bip.braniewo.pl/attachments/download/853"
+        },
+        {
+          "date": "2023-08-04",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/897/ogloszenie-o-czwartym-przetargu-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-maratonska",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1373"
+        },
+        {
+          "date": "2024-08-06",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1796/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-pilkarska-godz-9-00",
+          "source_url": "http://bip.braniewo.pl/attachments/download/2905"
+        },
+        {
+          "date": "2025-08-20",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2427/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-maratonska",
+          "source_url": "http://bip.braniewo.pl/attachments/download/4113"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. garażowa",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. garażowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20gara%C5%BCowa%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-07",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2317/ogloszenie-o-przetargu-dzialki-pod-zabudowe-szeregowa-garazowa-ul-stefczyka",
+          "source_url": "http://bip.braniewo.pl/attachments/download/3871"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 4|183/18, 4/5",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "183/18, 4/5",
+      "obreb": "nr 4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Morskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20183%2F18%2C%204%2F5%20ul.%20Morskiej%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 252,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-18",
+          "round": 1,
+          "starting_price_pln": 55800,
+          "outcome": "sold",
+          "final_price_pln": 56360,
+          "area_m2": 252
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "183/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20183%2F18%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "4/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204%2F5%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 5|213/25, 213/26, 213/27",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "213/25, 213/26, 213/27",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piłkarskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F25%2C%20213%2F26%2C%20213%2F27%20ul.%20Pi%C5%82karskiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3588,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 133300,
+          "outcome": "sold",
+          "final_price_pln": 134640,
+          "area_m2": 3588
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "213/25",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F25%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/26",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F26%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/27",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F27%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 5|213/19, 213/20, 213/21, 213/22",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "213/19, 213/20, 213/21, 213/22",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piłkarskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F19%2C%20213%2F20%2C%20213%2F21%2C%20213%2F22%20ul.%20Pi%C5%82karskiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4684,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 150300,
+          "outcome": "sold",
+          "final_price_pln": 151810,
+          "area_m2": 4684
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "213/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F19%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F20%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F21%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/22",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F22%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. sprzedaż gruntu z",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sprzedaż gruntu z",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Sprzeda%C5%BC%20gruntu%20z%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-12",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1855/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-sprzedaz-gruntu-z-przeznaczeniem-do-poboru-wody-z-ujec-glebinowych",
+          "source_url": "http://bip.braniewo.pl/attachments/download/3010"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. piłkarska",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piłkarska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Pi%C5%82karska%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-29",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1006/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-pilkarska",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1595"
+        },
+        {
+          "date": "2024-02-23",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1233/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-pilkarska",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1970"
+        },
+        {
+          "date": "2024-08-06",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1797/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-dzialki-pod-zabudowe-mieszkaniowa-jednorodzinna-ul-pilkarska-godz-13-00",
+          "source_url": "http://bip.braniewo.pl/attachments/download/2907"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 5|213/14, 213/17, 213/18, 213/23, 213/24",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "213/14, 213/17, 213/18, 213/23, 213/24",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piłkarskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F14%2C%20213%2F17%2C%20213%2F18%2C%20213%2F23%2C%20213%2F24%20ul.%20Pi%C5%82karskiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-23",
+          "round": 2,
+          "starting_price_pln": 140100,
+          "outcome": "sold",
+          "final_price_pln": 122000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "213/14",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F14%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/17",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F17%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F18%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/23",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F23%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/24",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F24%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|411, 259/73",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "411, 259/73",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elbląskiej 18B",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20411%2C%20259%2F73%20ul.%20Elbl%C4%85skiej%2018B%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-03-24",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/652/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-lokal-mieszkalny-nr-16-przy-ulicy-elblaskiej-18b",
+          "source_url": "http://bip.braniewo.pl/attachments/download/951"
+        },
+        {
+          "date": "2023-09-22",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/995/ogloszenie-o-trzecim-przetargu-ustnym-nieograniczonym-lokal-mieszkalny-nr-16-ulica-elblaska-18b",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1584"
+        },
+        {
+          "date": "2024-01-12",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1153/ogloszenie-o-czwartym-przetargu-ustnym-nieograniczonym-lokal-mieszkalny-nr-16-ulica-elblaska-18b",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1845"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "411"
+        },
+        {
+          "nr": "259/73"
+        }
+      ]
+    },
+    {
+      "key": "dz|16/22",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "16/22",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królewieckiej nieogrodzona o kształcie regularnym",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2016%2F22%20ul.%20Kr%C3%B3lewieckiej%20nieogrodzona%20o%20kszta%C5%82cie%20regularnym%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-08",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1068/ogloszenie-o-pierwszym-przetargu-sprzedaz-gruntu-na-cele-produkcyjno-uslugowo-handlowo-magazynowo-skladowe-ul-krolewiecka",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1683"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "16/22"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 1|16/22",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "16/22",
+      "obreb": "nr 1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królewieckiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2016%2F22%20ul.%20Kr%C3%B3lewieckiej%20nr%201%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-08",
+          "round": 1,
+          "starting_price_pln": 876000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "16/22",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2016%2F22%20nr%201%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 5|213/14, 213/16, 213/17, 213/18, 213/23, 213/24",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "213/14, 213/16, 213/17, 213/18, 213/23, 213/24",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piłkarskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F14%2C%20213%2F16%2C%20213%2F17%2C%20213%2F18%2C%20213%2F23%2C%20213%2F24%20ul.%20Pi%C5%82karskiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-29",
+          "round": 1,
+          "starting_price_pln": 140100,
+          "outcome": "sold",
+          "final_price_pln": 121710
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "213/14",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F14%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/16",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F16%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/17",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F17%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F18%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/23",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F23%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "213/24",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%2F24%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. stefczyka zlokalizowane są w strefie peryferyjnej miasta braniewa",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stefczyka zlokalizowane są w strefie peryferyjnej miasta Braniewa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Stefczyka%20zlokalizowane%20s%C4%85%20w%20strefie%20peryferyjnej%20miasta%20Braniewa%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-02",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/262/ogloszenie-o-przetargu-dzialki-pod-zabudowe-szeregowa-garazowa-ul-stefczyka",
+          "source_url": "http://bip.braniewo.pl/attachments/download/338"
+        },
+        {
+          "date": "2023-08-04",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/898/ogloszenie-o-trzecim-przetargu-dzialki-pod-zabudowe-szeregowa-garazowa-ul-stefczyka",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1375"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 5|202/3, 202/18, 202/19, 202/20",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "202/3, 202/18, 202/19, 202/20",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Maratońskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F3%2C%20202%2F18%2C%20202%2F19%2C%20202%2F20%20ul.%20Marato%C5%84skiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-08-04",
+          "round": 4,
+          "starting_price_pln": 140500,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "202/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F3%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F18%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F19%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F20%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 4|323/2",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "323/2",
+      "obreb": "nr 4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smutnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20323%2F2%20ul.%20Smutnej%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-12-09",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/454/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-grunt-pod-stacje-transformatorowa-ul-smutna",
+          "source_url": "http://bip.braniewo.pl/attachments/download/645"
+        },
+        {
+          "date": "2023-02-10",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/632/ogloszenie-o-drugim-przetargu-sprzedaz-gruntu-pod-stacje-transformatorowa-ul-smutna",
+          "source_url": "http://bip.braniewo.pl/attachments/download/923"
+        },
+        {
+          "date": "2023-07-28",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/927/ogloszenie-o-trzecim-przetargu-sprzedaz-gruntu-pod-stacje-transformatorowa-ul-smutna",
+          "source_url": "http://bip.braniewo.pl/attachments/download/1419"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "323/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20323%2F2%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. smutnej",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smutnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Smutnej%20nr%204%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-12-09",
+          "round": 1,
+          "starting_price_pln": 23000,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2023-07-28",
+          "round": 3,
+          "starting_price_pln": 23000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 9|29/18",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "29/18",
+      "obreb": "nr 9",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kościuszki 100G",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2029%2F18%20ul.%20Ko%C5%9Bciuszki%20100G%20nr%209%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 666,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-07",
+          "round": 3,
+          "starting_price_pln": 3800,
+          "outcome": "archived",
+          "area_m2": 666,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/345/ogloszenie-o-trzecim-przetargu-kosciuszki-100g-lokal-uzytkowy-nr-1",
+          "source_url": "http://bip.braniewo.pl/attachments/download/468"
+        },
+        {
+          "date": "2023-03-10",
+          "round": 4,
+          "starting_price_pln": 3800,
+          "outcome": "archived",
+          "area_m2": 666,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/646/ogloszenie-o-czwartym-przetargu-ustnym-nieograniczonym-lokal-nr-1-polozony-przy-ul-kosciuszki-100g",
+          "source_url": "http://bip.braniewo.pl/attachments/download/942"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "29/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2029%2F18%20nr%209%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 5|202/3, 202/17, 202/18, 202/19, 202/20",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "202/3, 202/17, 202/18, 202/19, 202/20",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Maratońskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F3%2C%20202%2F17%2C%20202%2F18%2C%20202%2F19%2C%20202%2F20%20ul.%20Marato%C5%84skiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-03",
+          "round": 1,
+          "starting_price_pln": 140500,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2022-09-09",
+          "round": 2,
+          "starting_price_pln": 140500,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2023-02-24",
+          "round": 3,
+          "starting_price_pln": 140500,
+          "outcome": "sold",
+          "final_price_pln": 168330
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "202/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F3%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/17",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F17%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F18%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F19%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F20%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 12|123/3",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "123/3",
+      "obreb": "nr 12",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stefczyka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F3%20ul.%20Stefczyka%20nr%2012%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 31632,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-27",
+          "round": 2,
+          "starting_price_pln": 2372400,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2022-07-05",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 31632,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/285/ogloszenie-o-przetargu-dzialki-pod-zabudowe-produkcyjno-uslugowo-skladowa-ul-stefczyka",
+          "source_url": "http://bip.braniewo.pl/attachments/download/371"
+        },
+        {
+          "date": "2022-09-16",
+          "round": 3,
+          "starting_price_pln": 2372400,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2022-12-12",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 31632,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/574/ogloszenie-o-czwartym-przetargu-sprzedaz-gruntu-na-cele-produkcyjno-uslugowo-skladowe-ul-stefczyka",
+          "source_url": "http://bip.braniewo.pl/attachments/download/831"
+        },
+        {
+          "date": "2023-02-17",
+          "round": 4,
+          "starting_price_pln": 2372400,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "123/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F3%20nr%2012%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. armii krajowej 44",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 3",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Armii Krajowej 44",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Armii%20Krajowej%2044%20nr%203%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/376/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-lokal-mieszkalny-nr-2-armii-krajowej-44",
+          "source_url": "http://bip.braniewo.pl/attachments/download/497"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. elbląskiej 24",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elbląskiej 24",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Elbl%C4%85skiej%2024%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/374/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-lokal-mieszkalny-nr-1-elblaska-24",
+          "source_url": "http://bip.braniewo.pl/attachments/download/490"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. armii krajowej",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": null,
+      "obreb": "nr 3",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Armii Krajowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Armii%20Krajowej%20nr%203%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-07",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/346/ogloszenie-o-przetargu-teren-handlowo-uslugowy-ul-armii-krajowej",
+          "source_url": "http://bip.braniewo.pl/attachments/download/470"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|nr 3|21/4",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "21/4",
+      "obreb": "nr 3",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Armii Krajowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%2F4%20ul.%20Armii%20Krajowej%20nr%203%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-07",
+          "round": 1,
+          "starting_price_pln": 29000,
+          "outcome": "sold",
+          "final_price_pln": 29300
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "21/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%2F4%20nr%203%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 7|8/2, 25/43",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "8/2, 25/43",
+      "obreb": "nr 7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Moniuszki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208%2F2%2C%2025%2F43%20ul.%20Moniuszki%20nr%207%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-23",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/309/ogloszenie-o-pierwszym-przetargu-infrastruktura-przeznaczona-do-obslugi-zabudowy-mieszkaniowej-ul-moniuszki",
+          "source_url": "http://bip.braniewo.pl/attachments/download/426"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "8/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208%2F2%20nr%207%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "25/43",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2025%2F43%20nr%207%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 7|25/43",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "25/43",
+      "obreb": "nr 7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Moniuszki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2025%2F43%20ul.%20Moniuszki%20nr%207%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-23",
+          "round": 1,
+          "starting_price_pln": 43800,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "25/43",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2025%2F43%20nr%207%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|419/10",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "419/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elizy Orzeszkowej zlokalizowane są w strefie pośredniej miasta Braniewa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F10%20ul.%20Elizy%20Orzeszkowej%20zlokalizowane%20s%C4%85%20w%20strefie%20po%C5%9Bredniej%20miasta%20Braniewa%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-07-08",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "http://bip.braniewo.pl/artykul/120/191/ogloszenie-o-przetargu-dzialki-pod-zabudowe-szeregowa-garazowa-ul-elizy-orzeszkowej",
+          "source_url": "http://bip.braniewo.pl/attachments/download/220"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "419/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 6|419/13, 419/15, 419/17, 419/19, 419/21, 419/23, 419/25, 419/27, 419/29",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "419/13, 419/15, 419/17, 419/19, 419/21, 419/23, 419/25, 419/27, 419/29",
+      "obreb": "nr 6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elizy Orzeszkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F13%2C%20419%2F15%2C%20419%2F17%2C%20419%2F19%2C%20419%2F21%2C%20419%2F23%2C%20419%2F25%2C%20419%2F27%2C%20419%2F29%20ul.%20Elizy%20Orzeszkowej%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-07-08",
+          "round": 1,
+          "starting_price_pln": 6922,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "419/13",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F13%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/15",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F15%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/17",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F17%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F19%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F21%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/23",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F23%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/25",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F25%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/27",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F27%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "419/29",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20419%2F29%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 6|420/7",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "420/7",
+      "obreb": "nr 6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elizy Orzeszkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20420%2F7%20ul.%20Elizy%20Orzeszkowej%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-10",
+          "round": 1,
+          "starting_price_pln": 201000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "420/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20420%2F7%20nr%206%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}

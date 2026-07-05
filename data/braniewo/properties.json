@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "city": "braniewo",
+  "properties": [
+    {
+      "key": "krasickiego|12|3",
+      "street": "Krasickiego",
+      "street_norm": "krasickiego",
+      "building": "12",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/5023",
+          "notes": [],
+          "area_m2": 48.73,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2833/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-na-lokal-mieszklany-nr-3-przy-ul-krasickiego-12"
+        },
+        {
+          "date": "2026-08-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 48.73,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2962/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-lokal-mieszklany-nr-3-przy-ul-krasickiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.73
+    },
+    {
+      "key": "kosciuszki|111|8",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "111",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 18000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 18190,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/4729",
+          "notes": [],
+          "area_m2": 16.25
+        }
+      ],
+      "area_m2": 16.25
+    },
+    {
+      "key": "hozjusza|5|9",
+      "street": "Hozjusza",
+      "street_norm": "hozjusza",
+      "building": "5",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/4251",
+          "notes": [],
+          "area_m2": 46.4,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2421/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-spoldzielcze-wlasnosciowe-prawo-do-lokalu-mieszkalnego-nr-9-ul-hozjusza-5"
+        },
+        {
+          "date": "2025-11-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/4426",
+          "notes": [],
+          "area_m2": 46.4,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2513/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-spoldzielcze-wlasnosciowe-prawo-do-lokalu-mieszkalnego-nr-9-ul-hozjusza-5"
+        },
+        {
+          "date": "2026-02-20",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 138500,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 192000,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/4681",
+          "notes": [],
+          "area_m2": 46.4,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/2657/ogloszenie-o-trzecim-przetargu-ustnym-nieograniczonym-spoldzielcze-wlasnosciowe-prawo-do-lokalu-mieszkalnego-nr-9-ul-hozjusza-5"
+        }
+      ],
+      "area_m2": 46.4
+    },
+    {
+      "key": "plac wolnosci|18|8",
+      "street": "Plac Wolności",
+      "street_norm": "plac wolnosci",
+      "building": "18",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/4209",
+          "notes": [],
+          "area_m2": 16.25
+        }
+      ],
+      "area_m2": 16.25
+    },
+    {
+      "key": "swietokrzyskiej|4|",
+      "street": "Świętokrzyskiej",
+      "street_norm": "swietokrzyskiej",
+      "building": "4",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 28080,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/3328",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 23.5
+        }
+      ],
+      "area_m2": 23.5
+    },
+    {
+      "key": "swietokrzyskiej|4|6",
+      "street": "Świętokrzyskiej",
+      "street_norm": "swietokrzyskiej",
+      "building": "4",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 23.5,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1909/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-na-pomieszczenie-mieszkalne-nr-5-ul-swietokrzyska-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 23.5
+    },
+    {
+      "key": "zielonej|32|2",
+      "street": "Zielona",
+      "street_norm": "zielonej",
+      "building": "32",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 33.87,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/935/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-lokal-mieszkalny-nr-2-zielona-32",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-09-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 33.87,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/1040/ogloszenie-o-drugim-przetargu-ustnym-ograniczonym-lokal-mieszkalny-nr-2-zielona-32",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-10-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 71100,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 71820,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/1760",
+          "notes": [],
+          "area_m2": 33.87
+        }
+      ],
+      "area_m2": 33.87
+    },
+    {
+      "key": "kosciuszki|100G|1",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "100G",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-10-07",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 278880,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/647",
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 324.6
+        },
+        {
+          "date": "2023-03-10",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 278880,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/1129",
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 324.6
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 324.6
+    },
+    {
+      "key": "krasickiego|24|",
+      "street": "Krasickiego",
+      "street_norm": "krasickiego",
+      "building": "24",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-02-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 14.72,
+          "detail_url": "http://bip.braniewo.pl/artykul/120/629/ogloszenie-o-pierwszym-ustnym-ograniczonym-przetargu-pomieszczenie-mieszkalne-nr-3-krasickiego-24",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 14.72
+    },
+    {
+      "key": "elblaskiej|24|1",
+      "street": "Elbląskiej",
+      "street_norm": "elblaskiej",
+      "building": "24",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 10000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 22000,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/694",
+          "notes": [],
+          "area_m2": 14.69
+        }
+      ],
+      "area_m2": 14.69
+    },
+    {
+      "key": "armii krajowej|44|2",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "44",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 8000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 12500,
+          "source_pdf": "http://bip.braniewo.pl/attachments/download/693",
+          "notes": [],
+          "area_m2": 17.49
+        }
+      ],
+      "area_m2": 17.49
+    }
+  ]
+}

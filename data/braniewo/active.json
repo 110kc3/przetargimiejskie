@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "city": "braniewo",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krasickiego 12/3",
+      "address": {
+        "street": "Krasickiego",
+        "street_norm": "krasickiego",
+        "building": "12",
+        "apt": "3",
+        "key": "krasickiego|12|3",
+        "warning": null
+      },
+      "area_m2": 48.73,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-08-21",
+      "round": 2,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/2962/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-lokal-mieszklany-nr-3-przy-ul-krasickiego-12",
+      "source_url": "http://bip.braniewo.pl/attachments/download/5089"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krasickiego 12/3",
+      "address": {
+        "street": "Krasickiego",
+        "street_norm": "krasickiego",
+        "building": "12",
+        "apt": "3",
+        "key": "krasickiego|12|3",
+        "warning": null
+      },
+      "area_m2": 48.73,
+      "starting_price_pln": 170000,
+      "auction_date": "2026-06-12",
+      "round": 1,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/2833/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-na-lokal-mieszklany-nr-3-przy-ul-krasickiego-12",
+      "source_url": "http://bip.braniewo.pl/attachments/download/4802"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hozjusza 5/9",
+      "address": {
+        "street": "Hozjusza",
+        "street_norm": "hozjusza",
+        "building": "5",
+        "apt": "9",
+        "key": "hozjusza|5|9",
+        "warning": null
+      },
+      "area_m2": 46.4,
+      "starting_price_pln": 138500,
+      "auction_date": "2026-02-20",
+      "round": 3,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/2657/ogloszenie-o-trzecim-przetargu-ustnym-nieograniczonym-spoldzielcze-wlasnosciowe-prawo-do-lokalu-mieszkalnego-nr-9-ul-hozjusza-5",
+      "source_url": "http://bip.braniewo.pl/attachments/download/4497"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hozjusza 5/9",
+      "address": {
+        "street": "Hozjusza",
+        "street_norm": "hozjusza",
+        "building": "5",
+        "apt": "9",
+        "key": "hozjusza|5|9",
+        "warning": null
+      },
+      "area_m2": 46.4,
+      "starting_price_pln": 175000,
+      "auction_date": "2025-11-21",
+      "round": 2,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/2513/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-spoldzielcze-wlasnosciowe-prawo-do-lokalu-mieszkalnego-nr-9-ul-hozjusza-5",
+      "source_url": "http://bip.braniewo.pl/attachments/download/4266"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hozjusza 5/9",
+      "address": {
+        "street": "Hozjusza",
+        "street_norm": "hozjusza",
+        "building": "5",
+        "apt": "9",
+        "key": "hozjusza|5|9",
+        "warning": null
+      },
+      "area_m2": 46.4,
+      "starting_price_pln": 175000,
+      "auction_date": "2025-09-22",
+      "round": 1,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/2421/ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-spoldzielcze-wlasnosciowe-prawo-do-lokalu-mieszkalnego-nr-9-ul-hozjusza-5",
+      "source_url": "http://bip.braniewo.pl/attachments/download/4099"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Świętokrzyskiej 4/6",
+      "address": {
+        "street": "Świętokrzyskiej",
+        "street_norm": "swietokrzyskiej",
+        "building": "4",
+        "apt": "6",
+        "key": "swietokrzyskiej|4|6",
+        "warning": null
+      },
+      "area_m2": 23.5,
+      "starting_price_pln": null,
+      "auction_date": "2024-10-23",
+      "round": 1,
+      "auction_date_estimated": true,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/1909/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-na-pomieszczenie-mieszkalne-nr-5-ul-swietokrzyska-4",
+      "source_url": "http://bip.braniewo.pl/attachments/download/3145"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zielonej 32/2",
+      "address": {
+        "street": "Zielonej",
+        "street_norm": "zielonej",
+        "building": "32",
+        "apt": "2",
+        "key": "zielonej|32|2",
+        "warning": null
+      },
+      "area_m2": 33.87,
+      "starting_price_pln": null,
+      "auction_date": "2023-09-05",
+      "round": 2,
+      "auction_date_estimated": true,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/1040/ogloszenie-o-drugim-przetargu-ustnym-ograniczonym-lokal-mieszkalny-nr-2-zielona-32",
+      "source_url": "http://bip.braniewo.pl/attachments/download/1634"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zielonej 32/2",
+      "address": {
+        "street": "Zielonej",
+        "street_norm": "zielonej",
+        "building": "32",
+        "apt": "2",
+        "key": "zielonej|32|2",
+        "warning": null
+      },
+      "area_m2": 33.87,
+      "starting_price_pln": null,
+      "auction_date": "2023-06-22",
+      "round": 1,
+      "auction_date_estimated": true,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/935/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-lokal-mieszkalny-nr-2-zielona-32",
+      "source_url": "http://bip.braniewo.pl/attachments/download/1431"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krasickiego 24",
+      "address": {
+        "street": "Krasickiego",
+        "street_norm": "krasickiego",
+        "building": "24",
+        "apt": null,
+        "key": "krasickiego|24|",
+        "warning": null
+      },
+      "area_m2": 14.72,
+      "starting_price_pln": null,
+      "auction_date": "2023-02-10",
+      "round": 1,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/629/ogloszenie-o-pierwszym-ustnym-ograniczonym-przetargu-pomieszczenie-mieszkalne-nr-3-krasickiego-24",
+      "source_url": "http://bip.braniewo.pl/attachments/download/918"
+    }
+  ],
+  "wykaz": []
+}
