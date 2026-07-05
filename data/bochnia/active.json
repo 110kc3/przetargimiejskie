@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "city": "bochnia",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Floris 3/2",
+      "address": {
+        "street": "Floris",
+        "street_norm": "floris",
+        "building": "3",
+        "apt": "2",
+        "key": "floris|3|2",
+        "warning": null
+      },
+      "area_m2": 44.84,
+      "starting_price_pln": 172000,
+      "auction_date": "2025-01-21",
+      "round": 1,
+      "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-polozonego-w-bochni-przy-ul-floris-3/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Achacego Kmity 4/2",
+      "address": {
+        "street": "Jana Achacego Kmity",
+        "street_norm": "jana achacego kmity",
+        "building": "4",
+        "apt": "2",
+        "key": "jana achacego kmity|4|2",
+        "warning": null
+      },
+      "area_m2": 27.14,
+      "starting_price_pln": 159000,
+      "auction_date": "2025-01-20",
+      "round": 1,
+      "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-polozonego-w-bochni-przy-ul-jana-achacego-kmity-4/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Floris 3/2",
+      "address": {
+        "street": "Floris",
+        "street_norm": "floris",
+        "building": "3",
+        "apt": "2",
+        "key": "floris|3|2",
+        "warning": null
+      },
+      "area_m2": 44.84,
+      "starting_price_pln": 180000,
+      "auction_date": "2024-09-04",
+      "round": 3,
+      "detail_url": "https://bochnia.eu/trzeci-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-floris-3/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Floris 3/2",
+      "address": {
+        "street": "Floris",
+        "street_norm": "floris",
+        "building": "3",
+        "apt": "2",
+        "key": "floris|3|2",
+        "warning": null
+      },
+      "area_m2": 44.84,
+      "starting_price_pln": 180000,
+      "auction_date": "2024-06-24",
+      "round": 2,
+      "detail_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-polozonego-przy-ul-floris-3-22-05-2024/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Floris 3/6",
+      "address": {
+        "street": "Floris",
+        "street_norm": "floris",
+        "building": "3",
+        "apt": "6",
+        "key": "floris|3|6",
+        "warning": null
+      },
+      "area_m2": 37.16,
+      "starting_price_pln": 160000,
+      "auction_date": "2024-04-24",
+      "round": 1,
+      "detail_url": "https://bochnia.eu/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-przy-ul-floris-3-w-bochni/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Floris 3/2",
+      "address": {
+        "street": "Floris",
+        "street_norm": "floris",
+        "building": "3",
+        "apt": "2",
+        "key": "floris|3|2",
+        "warning": null
+      },
+      "area_m2": 44.84,
+      "starting_price_pln": 180000,
+      "auction_date": "2024-04-24",
+      "round": 1,
+      "detail_url": "https://bochnia.eu/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-floris-3-w-bochni/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Floris 3/1",
+      "address": {
+        "street": "Floris",
+        "street_norm": "floris",
+        "building": "3",
+        "apt": "1",
+        "key": "floris|3|1",
+        "warning": null
+      },
+      "area_m2": 47.57,
+      "starting_price_pln": 190000,
+      "auction_date": "2024-04-24",
+      "round": 1,
+      "detail_url": "https://bochnia.eu/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-przy-ul-floris-3-w-bochni/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Murowianka 1/1",
+      "address": {
+        "street": "Murowianka",
+        "street_norm": "murowianka",
+        "building": "1",
+        "apt": "1",
+        "key": "murowianka|1|1",
+        "warning": null
+      },
+      "area_m2": 43.89,
+      "starting_price_pln": 119700,
+      "auction_date": "2024-03-18",
+      "round": 3,
+      "detail_url": "https://bochnia.eu/trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-murowianka-1-w-bochni/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Murowianka 1/1",
+      "address": {
+        "street": "Murowianka",
+        "street_norm": "murowianka",
+        "building": "1",
+        "apt": "1",
+        "key": "murowianka|1|1",
+        "warning": null
+      },
+      "area_m2": 43.89,
+      "starting_price_pln": 136800,
+      "auction_date": "2024-01-12",
+      "round": 2,
+      "detail_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-przy-ul-murowianka-1-w-bochni/"
+    }
+  ],
+  "wykaz": []
+}

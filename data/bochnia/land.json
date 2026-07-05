@@ -1,0 +1,919 @@
+{
+  "schema_version": 1,
+  "city": "bochnia",
+  "plots": [
+    {
+      "key": "dz|bochnia-1|1601/1",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1601/1",
+      "obreb": "Bochnia-1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gazowej",
+      "dzialka_id": "120101_1.0001.1601/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1601%2F1",
+      "area_m2": 2400,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-23",
+          "round": 1,
+          "starting_price_pln": 1500000,
+          "outcome": "active",
+          "area_m2": 2400,
+          "detail_url": "https://bochnia.eu/105996ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-gazowej-obreb-bochnia-1-oznaczonej-w-ewidencji-gruntow-i-b/",
+          "source_url": "https://bochnia.eu/105996ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-gazowej-obreb-bochnia-1-oznaczonej-w-ewidencji-gruntow-i-b/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1601/1",
+          "dzialka_id": "120101_1.0001.1601/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1601%2F1"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-4|1748/3",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1748/3",
+      "obreb": "Bochnia-4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Andrzeja Furdzika",
+      "dzialka_id": "120101_1.0004.1748/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1748%2F3",
+      "area_m2": 461,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-18",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 461,
+          "detail_url": "https://bochnia.eu/ogloszenie-pierwszego-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika-oznaczonej-w-ewidencji-gruntow-i-budynkow-jak/",
+          "source_url": "https://bochnia.eu/ogloszenie-pierwszego-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika-oznaczonej-w-ewidencji-gruntow-i-budynkow-jak/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1748/3",
+          "dzialka_id": "120101_1.0004.1748/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1748%2F3"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-2|1258/42",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1258/42",
+      "obreb": "Bochnia-2",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smyków",
+      "dzialka_id": "120101_1.0002.1258/42",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.1258%2F42",
+      "area_m2": 1059,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-13",
+          "round": 1,
+          "starting_price_pln": 188000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bochnia.eu/informacja-informacja-o-pierwszym-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-dz-ew-nr-1258-42/",
+          "source_url": "https://bochnia.eu/informacja-informacja-o-pierwszym-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-dz-ew-nr-1258-42/",
+          "final_price_pln": 189900
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1258/42",
+          "dzialka_id": "120101_1.0002.1258/42",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.1258%2F42"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-2|1258/43",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1258/43",
+      "obreb": "Bochnia-2",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smyków",
+      "dzialka_id": "120101_1.0002.1258/43",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.1258%2F43",
+      "area_m2": 1217,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-26",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "area_m2": 1217
+        },
+        {
+          "date": "2025-11-28",
+          "round": 2,
+          "starting_price_pln": 199500,
+          "outcome": "archived",
+          "area_m2": 1217,
+          "detail_url": "https://bochnia.eu/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-przy-ul-smykow-w-bochni/",
+          "source_url": "https://bochnia.eu/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-przy-ul-smykow-w-bochni/"
+        },
+        {
+          "date": "2026-04-13",
+          "round": 3,
+          "starting_price_pln": 199500,
+          "outcome": "archived",
+          "area_m2": 1217,
+          "detail_url": "https://bochnia.eu/informacja-o-trzecim-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni/",
+          "source_url": "https://bochnia.eu/informacja-o-trzecim-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni/",
+          "final_price_pln": 238000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1258/43",
+          "dzialka_id": "120101_1.0002.1258/43",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.1258%2F43"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia|1601/2",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1601/2",
+      "obreb": "Bochnia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gazowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201601%2F2%20ul.%20Gazowej%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2401,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-24",
+          "round": 1,
+          "starting_price_pln": 1500000,
+          "outcome": "archived",
+          "area_m2": 2401,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-gazowej/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-gazowej/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1601/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201601%2F2%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-1|1601/2",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1601/2",
+      "obreb": "Bochnia-1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gazowej",
+      "dzialka_id": "120101_1.0001.1601/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1601%2F2",
+      "area_m2": 2401,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-24",
+          "round": 1,
+          "starting_price_pln": 1500000,
+          "outcome": "sold",
+          "final_price_pln": 1665000,
+          "area_m2": 2401
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1601/2",
+          "dzialka_id": "120101_1.0001.1601/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1601%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia|1258/43",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1258/43",
+      "obreb": "Bochnia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smyków",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201258%2F43%20ul.%20Smyk%C3%B3w%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1217,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-26",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "archived",
+          "area_m2": 1217,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-smykow/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-smykow/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1258/43",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201258%2F43%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia|403/8",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "403/8",
+      "obreb": "Bochnia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smyków",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20403%2F8%20ul.%20Smyk%C3%B3w%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1288,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-19",
+          "round": 1,
+          "starting_price_pln": 109000,
+          "outcome": "archived",
+          "area_m2": 1288,
+          "detail_url": "https://bochnia.eu/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-smykow/",
+          "source_url": "https://bochnia.eu/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-smykow/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "403/8",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20403%2F8%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-2|403/8",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "403/8",
+      "obreb": "Bochnia-2",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smyków",
+      "dzialka_id": "120101_1.0002.403/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.403%2F8",
+      "area_m2": 1288,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-19",
+          "round": 1,
+          "starting_price_pln": 109000,
+          "outcome": "sold",
+          "final_price_pln": 168000,
+          "area_m2": 1288
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "403/8",
+          "dzialka_id": "120101_1.0002.403/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.403%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-5|3172/32",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "3172/32",
+      "obreb": "Bochnia-5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. S. Pachuty",
+      "dzialka_id": "120101_1.0005.3172/32",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0005.3172%2F32",
+      "area_m2": 218,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-19",
+          "round": 1,
+          "starting_price_pln": 20000,
+          "outcome": "archived",
+          "area_m2": 218,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-ograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-pachuty/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-ograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-pachuty/",
+          "final_price_pln": 20200
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3172/32",
+          "dzialka_id": "120101_1.0005.3172/32",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0005.3172%2F32"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-2|424/2",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "424/2",
+      "obreb": "Bochnia-2",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wygoda",
+      "dzialka_id": "120101_1.0002.424/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.424%2F2",
+      "area_m2": 2106,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-10",
+          "round": 1,
+          "starting_price_pln": 723000,
+          "outcome": "sold",
+          "final_price_pln": 730230,
+          "area_m2": 2106
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "424/2",
+          "dzialka_id": "120101_1.0002.424/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0002.424%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-4|1684/4",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1684/4",
+      "obreb": "Bochnia-4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Majora Bacy",
+      "dzialka_id": "120101_1.0004.1684/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1684%2F4",
+      "area_m2": 34,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-09",
+          "round": 1,
+          "starting_price_pln": 5000,
+          "outcome": "archived",
+          "area_m2": 34,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-ograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-rejonie-ul-majora-bacy-w-bochni/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-ograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-rejonie-ul-majora-bacy-w-bochni/",
+          "final_price_pln": 5050
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1684/4",
+          "dzialka_id": "120101_1.0004.1684/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1684%2F4"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. galasa",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Galasa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Galasa%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-07",
+          "round": 1,
+          "starting_price_pln": 4500,
+          "outcome": "archived",
+          "detail_url": "https://bochnia.eu/i-przetargi-ustne-nieograniczone-na-sprzedaz-2-kioskow-typu-ruch-stanowiacych-wlasnosc-gminy-miasta-bochnia/",
+          "source_url": "https://bochnia.eu/i-przetargi-ustne-nieograniczone-na-sprzedaz-2-kioskow-typu-ruch-stanowiacych-wlasnosc-gminy-miasta-bochnia/"
+        },
+        {
+          "date": "2025-06-03",
+          "round": 2,
+          "starting_price_pln": 4000,
+          "outcome": "archived",
+          "detail_url": "https://bochnia.eu/ii-przetargi-ustne-nieograniczone-na-sprzedaz-2-tymczasowych-obiektow-budowlanych-kioskow-typu-ruch/",
+          "source_url": "https://bochnia.eu/ii-przetargi-ustne-nieograniczone-na-sprzedaz-2-tymczasowych-obiektow-budowlanych-kioskow-typu-ruch/"
+        },
+        {
+          "date": "2025-06-24",
+          "round": 3,
+          "starting_price_pln": 3000,
+          "outcome": "archived",
+          "detail_url": "https://bochnia.eu/iii-przetargi-ustne-nieograniczone-na-sprzedaz-obiektow-budowlanych-kioskow-typu-ruch/",
+          "source_url": "https://bochnia.eu/iii-przetargi-ustne-nieograniczone-na-sprzedaz-obiektow-budowlanych-kioskow-typu-ruch/"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|bochnia-2|1258/24",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1258/24",
+      "obreb": "Bochnia-2",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Smyków",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201258%2F24%20ul.%20Smyk%C3%B3w%20Bochnia-2%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 34696,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-21",
+          "round": 1,
+          "starting_price_pln": 6939200,
+          "outcome": "archived",
+          "area_m2": 34696,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-smykow-dzialka-nr-1258-24/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-smykow-dzialka-nr-1258-24/"
+        },
+        {
+          "date": "2024-07-26",
+          "round": 2,
+          "starting_price_pln": 6939200,
+          "outcome": "archived",
+          "area_m2": 34696,
+          "detail_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-smykow-22-05-2024/",
+          "source_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-smykow-22-05-2024/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1258/24",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201258%2F24%20Bochnia-2%20Bochnia%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia|6236/1",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "6236/1",
+      "obreb": "Bochnia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sądeckiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206236%2F1%20ul.%20S%C4%85deckiej%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 43,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-06-25",
+          "round": 1,
+          "starting_price_pln": 7000,
+          "outcome": "archived",
+          "area_m2": 43,
+          "detail_url": "https://bochnia.eu/przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sadeckiej-23-05-2024/",
+          "source_url": "https://bochnia.eu/przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sadeckiej-23-05-2024/"
+        },
+        {
+          "date": "2024-07-10",
+          "round": 1,
+          "starting_price_pln": 7000,
+          "outcome": "archived",
+          "area_m2": 43,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sadeckiej/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sadeckiej/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6236/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206236%2F1%20Bochnia%20Bochnia%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-9|3698/3",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "3698/3",
+      "obreb": "Bochnia-9",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzyżaki",
+      "dzialka_id": "120101_1.0009.3698/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0009.3698%2F3",
+      "area_m2": 284,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-05",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "archived",
+          "area_m2": 284,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-krzyzaki-dzialka-nr-3698-3/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-krzyzaki-dzialka-nr-3698-3/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3698/3",
+          "dzialka_id": "120101_1.0009.3698/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0009.3698%2F3"
+        }
+      ]
+    },
+    {
+      "key": "dz|3698/3",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "3698/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203698%2F3%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 284,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-05",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "sold",
+          "final_price_pln": 30300,
+          "area_m2": 284
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3698/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-5|5074/8",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "5074/8",
+      "obreb": "Bochnia-5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Józefa Romana",
+      "dzialka_id": "120101_1.0005.5074/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0005.5074%2F8",
+      "area_m2": 14,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": 1,
+          "starting_price_pln": 3300,
+          "outcome": "archived",
+          "area_m2": 14,
+          "detail_url": "https://bochnia.eu/informacja-o-pierwszym-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-jozefa-romana/",
+          "source_url": "https://bochnia.eu/informacja-o-pierwszym-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-jozefa-romana/"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 3300,
+          "outcome": "active",
+          "area_m2": 14,
+          "detail_url": "https://bochnia.eu/wynik-i-przetargu-ustnego-ograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-jozefa-romana/",
+          "source_url": "https://bochnia.eu/wynik-i-przetargu-ustnego-ograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-jozefa-romana/"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 14,
+          "detail_url": "https://bochnia.eu/lista-osob-zakwalifikowanych-do-udzialu-w-i-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-jozefa-romana-obreb-bochnia-5-oznaczonej-w-e/",
+          "source_url": "https://bochnia.eu/lista-osob-zakwalifikowanych-do-udzialu-w-i-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-jozefa-romana-obreb-bochnia-5-oznaczonej-w-e/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5074/8",
+          "dzialka_id": "120101_1.0005.5074/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0005.5074%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-6|6331/1",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "6331/1",
+      "obreb": "Bochnia-6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konfederatów Barskich",
+      "dzialka_id": "120101_1.0006.6331/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0006.6331%2F1",
+      "area_m2": 114,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-15",
+          "round": 1,
+          "starting_price_pln": 20000,
+          "outcome": "archived",
+          "area_m2": 114,
+          "detail_url": "https://bochnia.eu/informacja-informacja-o-pierwszym-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-konfederatow-barskich/",
+          "source_url": "https://bochnia.eu/informacja-informacja-o-pierwszym-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-konfederatow-barskich/",
+          "final_price_pln": 20200
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 114,
+          "detail_url": "https://bochnia.eu/lista-osob-zakwalifikowanych-do-udzialu-w-i-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-konfederatow-barskich-obreb-bochnia-6-o/",
+          "source_url": "https://bochnia.eu/lista-osob-zakwalifikowanych-do-udzialu-w-i-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-w-rejonie-ul-konfederatow-barskich-obreb-bochnia-6-o/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6331/1",
+          "dzialka_id": "120101_1.0006.6331/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0006.6331%2F1"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-7|6533/1",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "6533/1",
+      "obreb": "Bochnia-7",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "120101_1.0007.6533/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0007.6533%2F1",
+      "area_m2": 6657,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-12",
+          "round": 3,
+          "starting_price_pln": 1080000,
+          "outcome": "archived",
+          "area_m2": 6657,
+          "detail_url": "https://bochnia.eu/iii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sw-urbana/",
+          "source_url": "https://bochnia.eu/iii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sw-urbana/"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 1191000,
+          "outcome": "archived",
+          "area_m2": 6657,
+          "detail_url": "https://bochnia.eu/przetarg-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sw-urbana-dzialka-nr-6533-1/",
+          "source_url": "https://bochnia.eu/przetarg-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sw-urbana-dzialka-nr-6533-1/"
+        },
+        {
+          "date": "2025-05-05",
+          "round": 2,
+          "starting_price_pln": 1070000,
+          "outcome": "archived",
+          "area_m2": 6657,
+          "detail_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-przy-ul-sw-urbana-w-bochni/",
+          "source_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-przy-ul-sw-urbana-w-bochni/"
+        },
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "starting_price_pln": 904500,
+          "outcome": "archived",
+          "area_m2": 6657,
+          "detail_url": "https://bochnia.eu/ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni/",
+          "source_url": "https://bochnia.eu/ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni/",
+          "final_price_pln": 913550
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 1191000,
+          "outcome": "active",
+          "area_m2": 6657,
+          "detail_url": "https://bochnia.eu/wynik-i-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sw-urbana/",
+          "source_url": "https://bochnia.eu/wynik-i-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-sw-urbana/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6533/1",
+          "dzialka_id": "120101_1.0007.6533/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0007.6533%2F1"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-5|7280/26",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "7280/26",
+      "obreb": "Bochnia-5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zalesie Dolne",
+      "dzialka_id": "120101_1.0005.7280/26",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0005.7280%2F26",
+      "area_m2": 167,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 17000,
+          "outcome": "archived",
+          "area_m2": 167,
+          "detail_url": "https://bochnia.eu/informacja-o-i-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-dzialka-nr-7280-26-w-bochni/",
+          "source_url": "https://bochnia.eu/informacja-o-i-przetargu-ustnym-ograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-dzialka-nr-7280-26-w-bochni/"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 17000,
+          "outcome": "active",
+          "area_m2": 167,
+          "detail_url": "https://bochnia.eu/wynik-i-przetargu-ustnego-ograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-rejonie-ul-zalesie-dolne-dzialka-7280-26/",
+          "source_url": "https://bochnia.eu/wynik-i-przetargu-ustnego-ograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-rejonie-ul-zalesie-dolne-dzialka-7280-26/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "7280/26",
+          "dzialka_id": "120101_1.0005.7280/26",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0005.7280%2F26"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-1|1930/7",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1930/7",
+      "obreb": "Bochnia-1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gazowej",
+      "dzialka_id": "120101_1.0001.1930/7",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1930%2F7",
+      "area_m2": 483,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-11",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 483,
+          "detail_url": "https://bochnia.eu/pierwszy-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-gazowej/",
+          "source_url": "https://bochnia.eu/pierwszy-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-gazowej/",
+          "final_price_pln": 121200
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 483,
+          "detail_url": "https://bochnia.eu/lista-osob-zakwalifikowanych-do-uczestnictwa-w-i-przetargu-ustnym-ograniczonym-na-sprzedaz-nieruchomosci-gruntowej-polozonej-przy-ul-gazowej-w-bochni/",
+          "source_url": "https://bochnia.eu/lista-osob-zakwalifikowanych-do-uczestnictwa-w-i-przetargu-ustnym-ograniczonym-na-sprzedaz-nieruchomosci-gruntowej-polozonej-przy-ul-gazowej-w-bochni/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1930/7",
+          "dzialka_id": "120101_1.0001.1930/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1930%2F7"
+        }
+      ]
+    },
+    {
+      "key": "dz|1386/48",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1386/48",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201386%2F48%20Bochnia%20geoportal%20dzia%C5%82ki",
+      "area_m2": 32492,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-22",
+          "round": 1,
+          "starting_price_pln": 5849000,
+          "outcome": "archived",
+          "area_m2": 32492,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny-dzialka-nr-1386-48/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny-dzialka-nr-1386-48/"
+        },
+        {
+          "date": "2024-06-07",
+          "round": 2,
+          "starting_price_pln": 5849000,
+          "outcome": "archived",
+          "area_m2": 32492,
+          "detail_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-specjalna-strefa-ekonomiczna-pod-nazwa-krakowski-park-technologiczny-05/",
+          "source_url": "https://bochnia.eu/ii-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-specjalna-strefa-ekonomiczna-pod-nazwa-krakowski-park-technologiczny-05/"
+        },
+        {
+          "date": "2024-09-03",
+          "round": 3,
+          "starting_price_pln": 5849000,
+          "outcome": "archived",
+          "area_m2": 32492,
+          "detail_url": "https://bochnia.eu/trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-specjalna-strefa-ekonomiczna/",
+          "source_url": "https://bochnia.eu/trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-specjalna-strefa-ekonomiczna/"
+        },
+        {
+          "date": "2025-02-21",
+          "round": 1,
+          "starting_price_pln": 6735000,
+          "outcome": "archived",
+          "area_m2": 32492,
+          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny/",
+          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny/"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 5849000,
+          "outcome": "active",
+          "area_m2": 32492,
+          "detail_url": "https://bochnia.eu/wynik-ii-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny/",
+          "source_url": "https://bochnia.eu/wynik-ii-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1386/48"
+        }
+      ]
+    }
+  ]
+}
