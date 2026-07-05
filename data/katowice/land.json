@@ -51,6 +51,15 @@
       "status": null,
       "listings": [
         {
+          "date": "2026-06-16",
+          "round": 1,
+          "starting_price_pln": 20000000,
+          "outcome": "archived",
+          "area_m2": 80702,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=558",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=558"
+        },
+        {
           "date": "2026-09-08",
           "round": 2,
           "starting_price_pln": 16000000,
@@ -65,6 +74,163 @@
           "nr": "811/69",
           "dzialka_id": "246901_1.0005.AR_1.811/69",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_1.811%2F69"
+        }
+      ]
+    },
+    {
+      "key": "dz|janów|3101/47",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "3101/47",
+      "obreb": "Janów",
+      "street": "Grodowej",
+      "building": null,
+      "address_raw": "Grodowej",
+      "dzialka_id": "246901_1.0009.AR_2.3101/47",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0009.AR_2.3101%2F47",
+      "area_m2": 556,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-20",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "archived",
+          "area_m2": 556,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=528",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=528"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3101/47",
+          "dzialka_id": "246901_1.0009.AR_2.3101/47",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0009.AR_2.3101%2F47"
+        }
+      ]
+    },
+    {
+      "key": "dz|bogucice - zawodzie|195/5",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "195/5",
+      "obreb": "Bogucice - Zawodzie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20195%2F5%20Bogucice%20-%20Zawodzie%20Katowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2489,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-20",
+          "round": 1,
+          "starting_price_pln": 750000,
+          "outcome": "archived",
+          "area_m2": 2489,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=529",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=529"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "195/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20195%2F5%20Bogucice%20-%20Zawodzie%20Katowice%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|dąbrówka mała|924",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "924",
+      "obreb": "Dąbrówka Mała",
+      "street": "Siemianowickiej",
+      "building": null,
+      "address_raw": "Siemianowickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20924%20Siemianowickiej%20D%C4%85br%C3%B3wka%20Ma%C5%82a%20Katowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 287,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-08",
+          "round": 3,
+          "starting_price_pln": 54000,
+          "outcome": "archived",
+          "area_m2": 287,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=510",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=510"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "924",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20924%20D%C4%85br%C3%B3wka%20Ma%C5%82a%20Katowice%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|kochłowickiej",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": null,
+      "obreb": "Ligota",
+      "street": "Kochłowickiej",
+      "building": null,
+      "address_raw": "Kochłowickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Koch%C5%82owickiej%20Ligota%20Katowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 14867,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 23138000,
+          "outcome": "active",
+          "area_m2": 14867,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|górne lasy pszczyńskie|790/36",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "790/36",
+      "obreb": "Górne Lasy Pszczyńskie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "246901_1.0013.AR_19.790/36",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.790%2F36",
+      "area_m2": 317,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 95000,
+          "outcome": "active",
+          "area_m2": 317,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "790/36",
+          "dzialka_id": "246901_1.0013.AR_19.790/36",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0013.AR_19.790%2F36"
         }
       ]
     }
