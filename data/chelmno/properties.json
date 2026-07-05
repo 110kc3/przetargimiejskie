@@ -1,0 +1,691 @@
+{
+  "schema_version": 1,
+  "city": "chelmno",
+  "properties": [
+    {
+      "key": "wodna|34|9",
+      "street": "Wodna",
+      "street_norm": "wodna",
+      "building": "34",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 70000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 25.89
+        },
+        {
+          "date": "2026-02-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 25.89
+        },
+        {
+          "date": "2026-04-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 25.89
+        }
+      ],
+      "area_m2": 25.89
+    },
+    {
+      "key": "kamionka|2|",
+      "street": "Kamionka",
+      "street_norm": "kamionka",
+      "building": "2",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-04-20",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 280000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2023-06-15",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 280000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2023-09-21",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2024-06-20",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2024-08-06",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2024-09-26",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 87000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2025-07-31",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2025-09-11",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 290000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        },
+        {
+          "date": "2025-10-28",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 147.1
+        }
+      ],
+      "area_m2": 147.1
+    },
+    {
+      "key": "wodna|32|",
+      "street": "Wodna",
+      "street_norm": "wodna",
+      "building": "32",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-07-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 13.1
+        },
+        {
+          "date": "2023-09-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 25000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 13.1
+        },
+        {
+          "date": "2023-12-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 25000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 13.1
+        },
+        {
+          "date": "2025-09-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 24000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 24240,
+          "notes": [],
+          "area_m2": 13.1
+        }
+      ],
+      "area_m2": 13.1
+    },
+    {
+      "key": "sw ducha|21|5",
+      "street": "Św.Ducha",
+      "street_norm": "sw ducha",
+      "building": "21",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 32.48
+        },
+        {
+          "date": "2024-01-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 32.48
+        },
+        {
+          "date": "2024-06-20",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 79000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 32.48
+        },
+        {
+          "date": "2024-10-17",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 32.48
+        },
+        {
+          "date": "2024-12-17",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 32.48
+        },
+        {
+          "date": "2025-04-17",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 59000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 66800,
+          "notes": [],
+          "area_m2": 32.48
+        }
+      ],
+      "area_m2": 32.48
+    },
+    {
+      "key": "torunska|8|7",
+      "street": "Toruńska",
+      "street_norm": "torunska",
+      "building": "8",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-03-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2023-04-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2023-06-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2023-09-21",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2023-12-21",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2024-03-07",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2024-06-20",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 27.67
+        },
+        {
+          "date": "2024-08-06",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 29000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 29290,
+          "notes": [],
+          "area_m2": 27.67
+        }
+      ],
+      "area_m2": 27.67
+    },
+    {
+      "key": "plac wolnosci|1|",
+      "street": "Plac Wolności",
+      "street_norm": "plac wolnosci",
+      "building": "1",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 16
+        },
+        {
+          "date": "2023-09-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 16
+        },
+        {
+          "date": "2023-11-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 16
+        }
+      ],
+      "area_m2": 16
+    },
+    {
+      "key": "obr 3 miasta przy ul ignacego danielewskiego|6|",
+      "street": "obr. 3 miasta przy ul. Ignacego Danielewskiego",
+      "street_norm": "obr 3 miasta przy ul ignacego danielewskiego",
+      "building": "6",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-11-03",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1500000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1515000,
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "podgorna|7|",
+      "street": "Podgórna",
+      "street_norm": "podgorna",
+      "building": "7",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2021-05-20",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": []
+        },
+        {
+          "date": "2022-09-08",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8907/podgorna-7-chelmno",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "okrezna|7|",
+      "street": "Okrężna",
+      "street_norm": "okrezna",
+      "building": "7",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": []
+        },
+        {
+          "date": "2022-06-23",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 59000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 59590,
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "powstancow wielkopolskich|2|7",
+      "street": "Powstańców Wielkopolskich",
+      "street_norm": "powstancow wielkopolskich",
+      "building": "2",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 88.93
+        },
+        {
+          "date": "2021-12-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 88.93
+        },
+        {
+          "date": "2022-03-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 88.93
+        },
+        {
+          "date": "2022-06-01",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 170000,
+          "notes": [],
+          "area_m2": 88.93
+        }
+      ],
+      "area_m2": 88.93
+    },
+    {
+      "key": "wodna|2|9",
+      "street": "Wodna",
+      "street_norm": "wodna",
+      "building": "2",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-12-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 29.51
+        },
+        {
+          "date": "2022-03-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 59000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 59590,
+          "notes": [],
+          "area_m2": 29.51
+        }
+      ],
+      "area_m2": 29.51
+    },
+    {
+      "key": "wodna|1A|",
+      "street": "Wodna",
+      "street_norm": "wodna",
+      "building": "1A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-01-13",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8490/ul-wodna-1a-chelmno",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "przy ul polnej|2|2",
+      "street": "przy ul. Polnej",
+      "street_norm": "przy ul polnej",
+      "building": "2",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-06-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 22.6
+        },
+        {
+          "date": "2021-08-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 22.6
+        },
+        {
+          "date": "2021-11-18",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 29000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 35500,
+          "notes": [],
+          "area_m2": 22.6
+        }
+      ],
+      "area_m2": 22.6
+    },
+    {
+      "key": "rynek|20|2",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "20",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 168500,
+          "notes": [],
+          "area_m2": 47.79
+        }
+      ],
+      "area_m2": 47.79
+    }
+  ]
+}

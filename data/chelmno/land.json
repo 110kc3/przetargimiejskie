@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "city": "chelmno",
+  "plots": [
+    {
+      "key": "dz|185/22, 372",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": "185/22, 372",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. 185/22 - ul. Przemysłowa; dz. 372 - przy drodze krajowej nr 91 i ul. Szosa Grudziądzka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20185%2F22%2C%20372%20dz.%20185%2F22%20-%20ul.%20Przemys%C5%82owa%3B%20dz.%20372%20-%20przy%20drodze%20krajowej%20nr%2091%20i%20ul.%20Szosa%20Grudzi%C4%85dzka%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3530,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-10",
+          "round": 1,
+          "starting_price_pln": 1000000,
+          "outcome": "active",
+          "area_m2": 3530,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11740/i-przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-gminnych",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11740/i-przetargi-ustne-nieograniczone-na-sprzedaz-nieruchomosci-gminnych"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "185/22"
+        },
+        {
+          "nr": "372"
+        }
+      ]
+    },
+    {
+      "key": "dz|70/3, 167/2, 65/4",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": "70/3, 167/2, 65/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. 70/3 - ul. Żytnia; dz. 167/2 - ul. Podgórna; dz. 65/4 - ul. Nad Groblą",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2070%2F3%2C%20167%2F2%2C%2065%2F4%20dz.%2070%2F3%20-%20ul.%20%C5%BBytnia%3B%20dz.%20167%2F2%20-%20ul.%20Podg%C3%B3rna%3B%20dz.%2065%2F4%20-%20ul.%20Nad%20Grobl%C4%85%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2582,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-21",
+          "round": 2,
+          "starting_price_pln": 45000,
+          "outcome": "archived",
+          "area_m2": 2582,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/9626/ii-przetarg-ustny-nieograniczony",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/9626/ii-przetarg-ustny-nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "70/3"
+        },
+        {
+          "nr": "167/2"
+        },
+        {
+          "nr": "65/4"
+        }
+      ]
+    },
+    {
+      "key": "addr|obr. 3 miasta przy ul. grzegorza gorczyckiego",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obr. 3 miasta przy ul. Grzegorza Gorczyckiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20obr.%203%20miasta%20przy%20ul.%20Grzegorza%20Gorczyckiego%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1247,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-21",
+          "round": 5,
+          "starting_price_pln": 89000,
+          "outcome": "sold",
+          "final_price_pln": 89900,
+          "area_m2": 1247
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. grzegorza gorczyckiego",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Grzegorza Gorczyckiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Grzegorza%20Gorczyckiego%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1741,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-22",
+          "round": 1,
+          "starting_price_pln": 155000,
+          "outcome": "sold",
+          "final_price_pln": 156550,
+          "area_m2": 1741
+        },
+        {
+          "date": "2022-11-17",
+          "round": 2,
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "area_m2": 1247
+        },
+        {
+          "date": "2023-03-23",
+          "round": 3,
+          "starting_price_pln": 125000,
+          "outcome": "archived",
+          "area_m2": 1247,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/9319/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-polozonej-przy-ul-grzegorza-gorczyckiego-w-chelmnie",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/9319/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-polozonej-przy-ul-grzegorza-gorczyckiego-w-chelmnie"
+        },
+        {
+          "date": "2023-05-25",
+          "round": 4,
+          "starting_price_pln": 125000,
+          "outcome": "archived",
+          "area_m2": 1247,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/9433/ogloszenie-o-iv-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-przy-ul-grzegorza-gorczyckiego-w-chelmnie",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/9433/ogloszenie-o-iv-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-przy-ul-grzegorza-gorczyckiego-w-chelmnie"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. stroma, obr. 8 m",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stroma, obr. 8 m",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Stroma%2C%20obr.%208%20m%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1319,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-08",
+          "round": 5,
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "area_m2": 1319
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|obr. 8 m. , przy ul. stromej",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obr. 8 m. , przy ul. Stromej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20obr.%208%20m.%20%2C%20przy%20ul.%20Stromej%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1319,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-10-14",
+          "round": 1,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 1319
+        },
+        {
+          "date": "2021-11-25",
+          "round": 2,
+          "starting_price_pln": 75000,
+          "outcome": "archived",
+          "area_m2": 1319,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8416/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-przy-ul-stromej-w-chelmnie",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8416/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-przy-ul-stromej-w-chelmnie"
+        },
+        {
+          "date": "2022-01-13",
+          "round": 3,
+          "starting_price_pln": 75000,
+          "outcome": "archived",
+          "area_m2": 1319,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8488/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-przy-ul-stromej-w-chelmnie",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8488/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-przy-ul-stromej-w-chelmnie"
+        },
+        {
+          "date": "2022-03-10",
+          "round": 4,
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "area_m2": 1319
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|obręb 8 miasta przy drodze krajowej nr 91",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 8 miasta przy drodze krajowej nr 91",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20obr%C4%99b%208%20miasta%20przy%20drodze%20krajowej%20nr%2091%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7115,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-10-29",
+          "round": 1,
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "area_m2": 7115
+        },
+        {
+          "date": "2020-12-15",
+          "round": 2,
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "area_m2": 7115
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|przy ul. biskupiej",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "przy ul. Biskupiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20przy%20ul.%20Biskupiej%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1739,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-15",
+          "round": 1,
+          "starting_price_pln": 450000,
+          "outcome": "sold",
+          "final_price_pln": 454500,
+          "area_m2": 1739
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|przy ul. grzegorza gorczyckiego",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "przy ul. Grzegorza Gorczyckiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20przy%20ul.%20Grzegorza%20Gorczyckiego%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1419,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-15",
+          "round": 1,
+          "starting_price_pln": 270000,
+          "outcome": "sold",
+          "final_price_pln": 272700,
+          "area_m2": 1419
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|przy ul. wiklinowej 15 i ul. portowej",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "przy ul. Wiklinowej 15 i ul. Portowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20przy%20ul.%20Wiklinowej%2015%20i%20ul.%20Portowej%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-10-20",
+          "round": 1,
+          "starting_price_pln": 112000,
+          "outcome": "sold",
+          "final_price_pln": 113120
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|przy ul. szarej",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "przy ul. Szarej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20przy%20ul.%20Szarej%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1091,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-08-13",
+          "round": 2,
+          "starting_price_pln": 59000,
+          "outcome": "unsold",
+          "area_m2": 1091
+        },
+        {
+          "date": "2020-10-20",
+          "round": 3,
+          "starting_price_pln": 50000,
+          "outcome": "sold",
+          "final_price_pln": 50500,
+          "area_m2": 1091
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|przy ul. osnowskiej",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "przy ul. Osnowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20przy%20ul.%20Osnowskiej%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-08-13",
+          "round": 1,
+          "starting_price_pln": 40000,
+          "outcome": "sold",
+          "final_price_pln": 40400
+        },
+        {
+          "date": "2020-10-20",
+          "round": 2,
+          "starting_price_pln": 45000,
+          "outcome": "sold",
+          "final_price_pln": 50500
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

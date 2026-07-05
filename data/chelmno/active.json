@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "city": "chelmno",
+  "listings": [
+    {
+      "kind": "zabudowana",
+      "address_raw": "Podgórna 7",
+      "address": {
+        "street": "Podgórna",
+        "street_norm": "podgorna",
+        "building": "7",
+        "apt": null,
+        "key": "podgorna|7|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 59000,
+      "auction_date": "2022-09-08",
+      "round": 1,
+      "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8907/podgorna-7-chelmno",
+      "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8907/podgorna-7-chelmno"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Wodna 1a",
+      "address": {
+        "street": "Wodna",
+        "street_norm": "wodna",
+        "building": "1A",
+        "apt": null,
+        "key": "wodna|1A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 200000,
+      "auction_date": "2022-01-13",
+      "round": 1,
+      "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8490/ul-wodna-1a-chelmno",
+      "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/8490/ul-wodna-1a-chelmno"
+    }
+  ],
+  "wykaz": []
+}
