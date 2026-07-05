@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "city": "ostroleka",
+  "properties": [
+    {
+      "key": "stefana zeromskiego|29|4",
+      "street": "Stefana Żeromskiego",
+      "street_norm": "stefana zeromskiego",
+      "building": "29",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125400,
+          "outcome": "unsold",
+          "unsold_reason": "brak wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.ostroleka.pl/attachments/download/28040",
+          "notes": [],
+          "area_m2": 54.6
+        },
+        {
+          "date": "2025-12-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125400,
+          "outcome": "unsold",
+          "unsold_reason": "brak wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.ostroleka.pl/attachments/download/28374",
+          "notes": [],
+          "area_m2": 54.6
+        },
+        {
+          "date": "2026-02-11",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 102600,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 122500,
+          "source_pdf": "https://bip.um.ostroleka.pl/attachments/download/28668",
+          "notes": [],
+          "area_m2": 54.6
+        }
+      ],
+      "area_m2": 54.6
+    },
+    {
+      "key": "warszawskiej|25B|2",
+      "street": "Warszawska",
+      "street_norm": "warszawskiej",
+      "building": "25B",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 63800,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 64400,
+          "source_pdf": "https://bip.um.ostroleka.pl/attachments/download/28147",
+          "notes": [],
+          "area_m2": 35.7
+        }
+      ],
+      "area_m2": 35.7
+    }
+  ]
+}
