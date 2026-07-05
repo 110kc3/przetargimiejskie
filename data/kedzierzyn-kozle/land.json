@@ -273,6 +273,15 @@
       "status": null,
       "listings": [
         {
+          "date": "2026-05-12",
+          "round": 1,
+          "starting_price_pln": 450000,
+          "outcome": "archived",
+          "area_m2": 42632,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29637/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/76300"
+        },
+        {
           "date": "2026-07-21",
           "round": 2,
           "starting_price_pln": 450000,
@@ -1791,6 +1800,15 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73823"
         },
         {
+          "date": "2026-04-15",
+          "round": 2,
+          "starting_price_pln": 64000,
+          "outcome": "archived",
+          "area_m2": 1369,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29636/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/76297"
+        },
+        {
           "date": "2026-05-27",
           "round": 3,
           "starting_price_pln": 50000,
@@ -1850,6 +1868,13 @@
           "starting_price_pln": 11000,
           "outcome": "sold",
           "final_price_pln": 64000,
+          "area_m2": 1369
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
           "area_m2": 1369
         },
         {
@@ -2046,6 +2071,31 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F20"
         }
       ]
+    },
+    {
+      "key": "addr|ul. bukowej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bukowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Bukowej%20Ko%C5%BAle%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 42632,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "starting_price_pln": 450000,
+          "outcome": "unsold",
+          "area_m2": 42632
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "addr|ul. wisławy szymborskiej",
