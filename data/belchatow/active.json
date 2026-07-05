@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "city": "belchatow",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "title": "Miasto wystawia mieszkanie na sprzedaż. Sprawdź ofertę",
+      "address_raw": "os. Dolnośląskim 306",
+      "address": {
+        "street": "Dolnośląskim",
+        "street_norm": "dolnoslaskim",
+        "building": "306",
+        "apt": null,
+        "key": "dolnoslaskim|306|",
+        "warning": null
+      },
+      "area_m2": 52.83,
+      "round": 1,
+      "starting_price_pln": 276724,
+      "final_price_pln": null,
+      "auction_date": "2026-06-30",
+      "published_date": "2026-05-27",
+      "detail_url": "https://belchatow.pl/miasto-wystawia-mieszkanie-na-sprzedaz-sprawdz-oferte/",
+      "bip_url": "https://belchatow.bip.gov.pl/przetargi/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-zbycie-lokalu-mieszkalnego-wraz-z-ulamkowa-czescia-gruntu-stanowiacej-wlasnosc-miasta-belchatowa.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "title": "Miasto wystawiło na sprzedaż mieszkanie",
+      "address_raw": "os. Dolnośląskim 225",
+      "address": {
+        "street": "Dolnośląskim",
+        "street_norm": "dolnoslaskim",
+        "building": "225",
+        "apt": null,
+        "key": "dolnoslaskim|225|",
+        "warning": null
+      },
+      "area_m2": 36.72,
+      "round": 1,
+      "starting_price_pln": 192340,
+      "final_price_pln": null,
+      "auction_date": "2025-07-04",
+      "published_date": "2025-06-12",
+      "detail_url": "https://belchatow.pl/miasto-wystawilo-na-sprzedaz-mieszkanie/",
+      "bip_url": "https://belchatow.bip.gov.pl/przetargi/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-zbycie-lokalu-mieszkalnego-wraz-z-ulamkowa-czescia-gruntu-stanowiacego-wlasnosc-miasta-belchatowa.html"
+    }
+  ],
+  "wykaz": []
+}

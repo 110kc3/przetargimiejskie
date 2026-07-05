@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "city": "belchatow",
+  "properties": [
+    {
+      "key": "dolnoslaskim|306|",
+      "street": "Dolnośląskim",
+      "street_norm": "dolnoslaskim",
+      "building": "306",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 276724,
+          "outcome": "archived",
+          "area_m2": 52.83,
+          "detail_url": "https://belchatow.pl/miasto-wystawia-mieszkanie-na-sprzedaz-sprawdz-oferte/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "bip_url": "https://belchatow.bip.gov.pl/przetargi/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-zbycie-lokalu-mieszkalnego-wraz-z-ulamkowa-czescia-gruntu-stanowiacej-wlasnosc-miasta-belchatowa.html"
+        }
+      ],
+      "area_m2": 52.83
+    },
+    {
+      "key": "dolnoslaskim|225|",
+      "street": "Dolnośląskim",
+      "street_norm": "dolnoslaskim",
+      "building": "225",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 192340,
+          "outcome": "archived",
+          "area_m2": 36.72,
+          "detail_url": "https://belchatow.pl/miasto-wystawilo-na-sprzedaz-mieszkanie/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "bip_url": "https://belchatow.bip.gov.pl/przetargi/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-zbycie-lokalu-mieszkalnego-wraz-z-ulamkowa-czescia-gruntu-stanowiacego-wlasnosc-miasta-belchatowa.html"
+        }
+      ],
+      "area_m2": 36.72
+    }
+  ]
+}
