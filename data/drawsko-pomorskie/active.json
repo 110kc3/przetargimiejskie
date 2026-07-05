@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "city": "drawsko-pomorskie",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Wł. Sikorskiego 31/9",
+      "address": {
+        "street": "Gen. Wł. Sikorskiego",
+        "street_norm": "gen wl sikorskiego",
+        "building": "31",
+        "apt": "9",
+        "key": "gen wl sikorskiego|31|9",
+        "warning": null
+      },
+      "area_m2": 26.7,
+      "starting_price_pln": 42000,
+      "auction_date": "2025-07-10",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-sikorskiego-319.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Wł. Sikorskiego 21/4",
+      "address": {
+        "street": "Gen. Wł. Sikorskiego",
+        "street_norm": "gen wl sikorskiego",
+        "building": "21",
+        "apt": "4",
+        "key": "gen wl sikorskiego|21|4",
+        "warning": null
+      },
+      "area_m2": 11.6,
+      "starting_price_pln": 24400,
+      "auction_date": "2025-07-10",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-sikorskiego-214.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pl. Konstytucji 14/1",
+      "address": {
+        "street": "Konstytucji",
+        "street_norm": "konstytucji",
+        "building": "14",
+        "apt": "1",
+        "key": "konstytucji|14|1",
+        "warning": null
+      },
+      "area_m2": 53.2,
+      "starting_price_pln": 150000,
+      "auction_date": "2025-07-10",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-pl-konstytucji-141.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ratuszowa 7/2",
+      "address": {
+        "street": "Ratuszowa",
+        "street_norm": "ratuszowa",
+        "building": "7",
+        "apt": "2",
+        "key": "ratuszowa|7|2",
+        "warning": null
+      },
+      "area_m2": 47.3,
+      "starting_price_pln": 75900,
+      "auction_date": "2025-07-10",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-ratuszowa-72.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jankowo 27/2",
+      "address": {
+        "street": "Jankowo",
+        "street_norm": "jankowo",
+        "building": "27",
+        "apt": "2",
+        "key": "jankowo|27|2",
+        "warning": null
+      },
+      "area_m2": 55.9,
+      "starting_price_pln": 83000,
+      "auction_date": "2025-01-23",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-jankowo-272.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jankowo 21/1",
+      "address": {
+        "street": "Jankowo",
+        "street_norm": "jankowo",
+        "building": "21",
+        "apt": "1",
+        "key": "jankowo|21|1",
+        "warning": null
+      },
+      "area_m2": 17,
+      "starting_price_pln": 30000,
+      "auction_date": "2025-01-23",
+      "round": 4,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/iv-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-jankowo-211.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 1/8",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "1",
+        "apt": "8",
+        "key": "warszawska|1|8",
+        "warning": null
+      },
+      "area_m2": 53.5,
+      "starting_price_pln": 110400,
+      "auction_date": "2025-01-23",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-ul-warszawska-18.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sikorskiego 4/4",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "4",
+        "apt": "4",
+        "key": "sikorskiego|4|4",
+        "warning": null
+      },
+      "area_m2": 44.4,
+      "starting_price_pln": 79000,
+      "auction_date": "2025-01-23",
+      "round": 2,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-ul-sikorskiego-44.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jankowo 21/1",
+      "address": {
+        "street": "Jankowo",
+        "street_norm": "jankowo",
+        "building": "21",
+        "apt": "1",
+        "key": "jankowo|21|1",
+        "warning": null
+      },
+      "area_m2": 17,
+      "starting_price_pln": 41000,
+      "auction_date": "2024-03-28",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-jankowo-211.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Lp. Adres nieruchomości Oznaczenie geodezyjne Pow. działki w ha Nr księgi Wieczystej Opis nieruchomości Cena wywoławcza Uwagi 1. ul. 11 Pułku Piechoty 59/1",
+      "address": {
+        "street": "Lp. Adres nieruchomości Oznaczenie geodezyjne Pow. działki w ha Nr księgi Wieczystej Opis nieruchomości Cena wywoławcza Uwagi 1. ul. 11 Pułku Piechoty",
+        "street_norm": "lp adres nieruchomosci oznaczenie geodezyjne pow dzialki w ha nr ksiegi wieczystej opis nieruchomosci cena wywolawcza uwagi 1 ul 11 pulku piechoty",
+        "building": "59",
+        "apt": "1",
+        "key": "lp adres nieruchomosci oznaczenie geodezyjne pow dzialki w ha nr ksiegi wieczystej opis nieruchomosci cena wywolawcza uwagi 1 ul 11 pulku piechoty|59|1",
+        "warning": null
+      },
+      "area_m2": 32.1,
+      "starting_price_pln": 55000,
+      "auction_date": "2023-11-23",
+      "round": 3,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/iii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-11-pulk-piechoty-591.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pl. E. Orzeszkowej 4/3",
+      "address": {
+        "street": "E. Orzeszkowej",
+        "street_norm": "e orzeszkowej",
+        "building": "4",
+        "apt": "3",
+        "key": "e orzeszkowej|4|3",
+        "warning": null
+      },
+      "area_m2": 24.9,
+      "starting_price_pln": 58000,
+      "auction_date": "2023-09-07",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-pl-orzeszkowej-43.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. J. Sobieskiego 7/9",
+      "address": {
+        "street": "J. Sobieskiego",
+        "street_norm": "j sobieskiego",
+        "building": "7",
+        "apt": "9",
+        "key": "j sobieskiego|7|9",
+        "warning": null
+      },
+      "area_m2": 64.8,
+      "starting_price_pln": 109000,
+      "auction_date": "2023-03-30",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-j-sobieskiego-79.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pl. E. Orzeszkowej 4/2",
+      "address": {
+        "street": "E. Orzeszkowej",
+        "street_norm": "e orzeszkowej",
+        "building": "4",
+        "apt": "2",
+        "key": "e orzeszkowej|4|2",
+        "warning": null
+      },
+      "area_m2": 75.2,
+      "starting_price_pln": 155000,
+      "auction_date": "2023-03-30",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-pl-e-orzeszkowej-42.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przytoń 19/2",
+      "address": {
+        "street": "Przytoń",
+        "street_norm": "przyton",
+        "building": "19",
+        "apt": "2",
+        "key": "przyton|19|2",
+        "warning": null
+      },
+      "area_m2": 24.2,
+      "starting_price_pln": 15500,
+      "auction_date": "2022-05-12",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-przyton-192.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jelenino 6C/1",
+      "address": {
+        "street": "Jelenino",
+        "street_norm": "jelenino",
+        "building": "6C",
+        "apt": "1",
+        "key": "jelenino|6C|1",
+        "warning": null
+      },
+      "area_m2": 34.2,
+      "starting_price_pln": 26000,
+      "auction_date": "2022-02-17",
+      "round": 1,
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-na-terenie-gminy-drawsko-pomorskie-lokal-mieszkalny-jelenino-6c1.html"
+    }
+  ],
+  "wykaz": []
+}
