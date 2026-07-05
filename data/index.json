@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-05T07:44:09.997Z",
+  "generated_at": "2026-07-05T09:50:22.667Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 3,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 104
+      "land_plots": 105
     },
     {
       "id": "trzebinia",
@@ -597,6 +597,97 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "busko-zdroj",
+      "label": "Busko-Zdrój",
+      "voivodeship": "swietokrzyskie",
+      "authority": "Miasto i Gmina Busko-Zdrój",
+      "host": "umig.busko.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "braniewo",
+      "label": "Braniewo",
+      "voivodeship": "warminsko-mazurskie",
+      "authority": "Gmina Miasta Braniewa",
+      "host": "bip.braniewo.pl",
+      "unique_properties": 11,
+      "active_listings": 9,
+      "active_auctions": 1,
+      "archived_auctions": 16,
+      "wykaz_entries": 0,
+      "land_plots": 33
+    },
+    {
+      "id": "belchatow",
+      "label": "Bełchatów",
+      "voivodeship": "lodzkie",
+      "authority": "Urząd Miasta Bełchatowa",
+      "host": "belchatow.pl",
+      "unique_properties": 2,
+      "active_listings": 2,
+      "active_auctions": 0,
+      "archived_auctions": 2,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "bochnia",
+      "label": "Bochnia",
+      "voivodeship": "malopolskie",
+      "authority": "Urząd Miasta Bochnia",
+      "host": "bochnia.eu",
+      "unique_properties": 6,
+      "active_listings": 9,
+      "active_auctions": 0,
+      "archived_auctions": 10,
+      "wykaz_entries": 0,
+      "land_plots": 23
+    },
+    {
+      "id": "drawsko-pomorskie",
+      "label": "Drawsko Pomorskie",
+      "voivodeship": "zachodniopomorskie",
+      "authority": "Urząd Miejski w Drawsku Pomorskim",
+      "host": "drawsko.pl",
+      "unique_properties": 19,
+      "active_listings": 15,
+      "active_auctions": 0,
+      "archived_auctions": 20,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "chelmno",
+      "label": "Chełmno",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Gmina Miasto Chełmno",
+      "host": "bip.chelmno.pl",
+      "unique_properties": 14,
+      "active_listings": 2,
+      "active_auctions": 0,
+      "archived_auctions": 49,
+      "wykaz_entries": 0,
+      "land_plots": 12
+    },
+    {
+      "id": "ostroleka",
+      "label": "Ostrołęka",
+      "voivodeship": "mazowieckie",
+      "authority": "Miasto Ostrołęka",
+      "host": "bip.um.ostroleka.pl",
+      "unique_properties": 2,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 0
     }
