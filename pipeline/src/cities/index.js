@@ -50,6 +50,13 @@ import skarzysko from './skarzysko-kamienna/index.js';
 import gizycko from './gizycko/index.js';
 import nowaSol from './nowa-sol/index.js';
 import augustow from './augustow/index.js';
+import buskoZdroj from './busko-zdroj/index.js';
+import braniewo from './braniewo/index.js';
+import belchatow from './belchatow/index.js';
+import bochnia from './bochnia/index.js';
+import drawskoPomorskie from './drawsko-pomorskie/index.js';
+import chelmno from './chelmno/index.js';
+import ostroleka from './ostroleka/index.js';
 
 export const cities = [
   gliwice,
@@ -98,6 +105,13 @@ export const cities = [
   gizycko,
   nowaSol,
   augustow,
+  buskoZdroj,
+  braniewo,
+  belchatow,
+  bochnia,
+  drawskoPomorskie,
+  chelmno,
+  ostroleka,
 ];
 
 /** @param {string} id @returns {object|null} */

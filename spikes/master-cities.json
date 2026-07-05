@@ -283,13 +283,13 @@
       "powiat_slug": "powiat-chelminski",
       "powiat_label": "powiat chełmiński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Gmina Miasto sells flats przetarg ustny (Wodna 34/9, Toruńska 8/7); bip.chelmno.pl/przetargi-nieruchomosci/781 Logonet ~110 records; achieved price inline in Rozstrzygnięcie field; analog tarnowskie-gory"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/chelmno/ + parse-chelmno.test.js (13 green). Logonet eUrząd XML feed (bip.chelmno.pl); skarzysko-kamienna clone. No separate result pages — inline <rozstrzygniecie> field routes concluded vs pending. Live crawl: 2 active, 6 land, 66 results (18 sold incl. Toruńska 8/7 → 29290, Pow. Wielkopolskich 2/7 → 170000). Skips dzierżawa/najem lokal-użytkowy."
       }
     },
     {
@@ -395,13 +395,13 @@
       "powiat_slug": "powiat-belchatowski",
       "powiat_label": "powiat belchatowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-belchatowski/belchatow.md",
       "spike": {
         "wave": "B",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "City hall publishes flat przetargi on belchatow.pl/category/przetargi/mieszkania + BIP; clean HTML; ~1-2/yr"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/belchatow/ + parse-belchatow.test.js (34 green). belchatow.pl WordPress REST API (cat 215 prose); brzeg/nowa-sol clone. Correction: spike URLs 404 (posts re-slug) — crawler uses REST API. Achieved-price notices only on belchatow.bip.gov.pl (not belchatow.pl); parseResultDoc groundtruthed vs standard template, validate on first live result. ~1-2 flats/yr."
       }
     },
     {
@@ -811,13 +811,13 @@
       "powiat_slug": "powiat-bochenski",
       "powiat_label": "powiat bochenski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/malopolskie/powiat-bochenski/bochnia.md",
       "spike": {
         "wave": "F",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "City sells flats via ustny nieograniczony; bochnia.eu WordPress HTML (107-page archive), results in same feed; ~3/yr (several negative)"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/bochnia/ + parse-bochnia.test.js (5 green). bochnia.eu WordPress; trzebinia clone. Sold price phrased 'Wylicytowana cena … netto'; fixed result-date extraction (anchor on '…przeprowadzonego'). ~3 flats/yr, many negative — land is the richer sold stream. Archive bounded MAX_PAGES=40 + wall-clock budget."
       }
     },
     {
@@ -1149,13 +1149,13 @@
       "powiat_slug": "ostroleka",
       "powiat_label": "Ostrołęka (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/ostroleka/ostroleka.md",
       "spike": {
         "wave": "A",
-        "effort": "Low",
+        "effort": "Medium (OCR)",
         "confidence": "LIVE",
-        "note": "City BIP lokal mieszkalny przetargi (Logonet HTML); result PDFs per listing; ~2-4/yr"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/ostroleka/ + parse-ostroleka.test.js (9 green). OCR city (scanned PDFs, spike 'text-based' was WRONG): result notices OCR cleanly via core/ocr-pdf.js tesseract -l pol. Phrasings: 'Najwyższa cena … wyniosła' (achieved), 'oznaczonej numerem N' (unit), 'Nikt nie wpłacił wadium' (unsold). Sold fixtures: Żeromskiego 29/4 r3 → 122500, Warszawska 25B/2 → 64400. Active-listing area best-effort (announcement OCR table messy)."
       }
     },
     {
@@ -2287,13 +2287,13 @@
       "powiat_slug": "powiat-buski",
       "powiat_label": "powiat buski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Gmina sells flats ustny przetarg (Kościuszki 7/6, 190k, Aug 2025); umig.busko.pl/ogloszenia HTML + text PDFs; result PDFs linked back same page; ~1/yr"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/busko-zdroj/ + parse-busko-zdroj.test.js (38 green). umig.busko.pl/ogloszenia HTML + born-digital result PDFs; brzeg/nowa-sol clone. Correction: Kościuszki 7/6 (190k wywoławcza) was UNSOLD (wynik negatywny), not sold; sold/final_price path not yet groundtruthed. pdftotext drops diacritics on this host (join still works via building+apt)."
       }
     },
     {
@@ -2431,13 +2431,13 @@
       "powiat_slug": "powiat-braniewski",
       "powiat_label": "powiat braniewski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "City sells flats ustny przetarg; bip.braniewo.pl/artykuly/120/ Logonet HTML stubs + text PDFs; announcements + achieved-price results; ~3-5/yr; Low effort"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/braniewo/ + parse-braniewo.test.js (12 green). Older Logonet /artykuly/ board + /attachments/download PDFs; tarnowskie-gory/skarzysko clone. Sold fixtures groundtruthed: Plac Wolności 18/8 → 18190, Hozjusza 5/9 → 192000. Local xpdf 4.06 drops diacritics; fixtures groundtruthed vs poppler/CI UTF-8 output."
       }
     },
     {
@@ -2911,13 +2911,13 @@
       "powiat_slug": "powiat-drawski",
       "powiat_label": "powiat drawski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Gmina sells flats ustny przetarg (5+ named); drawsko.pl HTML + JSON-LD articleBody; results w/ osiągnięta cena same section; 403 without Referer header (trivial); analog brzeg"
+        "note": "BUILT 2026-07-05 — pipeline/src/cities/drawsko-pomorskie/ + parse-drawsko-pomorskie.test.js (11 green). drawsko.pl HTML (brzeg clone); 403 is UA-gated → reuse core/fetch.js browser UA. Live smoke: 15 active + 10 result records. Sold fixture Sikorskiego 4/4 → 79790. Bounded 40 pages."
       }
     },
     {

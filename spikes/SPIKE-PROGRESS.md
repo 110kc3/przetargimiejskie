@@ -13,7 +13,7 @@
 | ❌ Dropped | 6 |
 | ⏸️ Deferred | 3 |
 
-**Convention:** only BUILD/verify/built cities get a per-city `.md`; NO-BUILD verdicts live in [NO-BUILD.md](./NO-BUILD.md) + master.
+**Convention:** every spiked city has a per-city `.md` at its `master-cities.json` path (all 204 paths resolve as of 2026-07-05); NO-BUILD verdicts are additionally consolidated in [NO-BUILD.md](./NO-BUILD.md), with the machine-readable status in master.
 
 ## Built adapters (46)
 

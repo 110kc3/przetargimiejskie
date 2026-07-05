@@ -50,7 +50,7 @@ No second board (platformazakupowa.pl is used for procurement contracts ≥ 130 
 - Pagination: `/przetargi-nieruchomosci/{page}/{per_page}` — 12 pages at 10/page as of 2026-06-27 (~119 total records going back to 2015).
 - Filter parameters in query form: typ przetargu, rodzaj nieruchomości, rok publikacji, status — these are GET-form filters; filterable by `lokal mieszkalny` to isolate flats.
 - XML per-listing at `/przetarg-nieruchomosci/xml/{ID}/1` — machine-readable alternative, not tested for completeness.
-- Announcement PDFs and result PDFs are at `/attachments/download/{ID}` — named PDF, text-based (not scanned), ~32–366 kB; no OCR needed.
+- Announcement PDFs and result PDFs are at `/attachments/download/{ID}` — named PDF, ~32–366 kB. **CORRECTION (2026-07-05, build-time live re-check): these PDFs are SCANNED images (0 fonts, `/DCTDecode` JPEG), NOT born-digital — `pdftotext` returns empty; they require OCR (`core/ocr-pdf.js`, tesseract `-l pol`).** The HTML detail page metadata table yields address-title, kind, cena wywoławcza and auction date; area_m2, unit number, round and achieved price live only inside the scanned PDFs.
 - **No auth, no login wall, no Cloudflare, no bot block observed** across three live fetches. Cookies banner only (cosmetic).
 - RSS available at https://bip.um.ostroleka.pl/rss (scope unknown — may cover all BIP content).
 
@@ -61,7 +61,7 @@ No second board (platformazakupowa.pl is used for procurement contracts ≥ 130 
 - **Total records:** ~119 auctions spanning 2015–2026 (12 pages × 10/page, last page has 1 record from Oct 2015).
 - **Flat auctions (lokal mieszkalny):** Low volume — confirmed at least 3 listings for a single address (Żeromskiego 29), across multiple rounds (first, second, third przetarg). Rough estimate: 2–4 flat auctions per year, occasionally the same flat repeated when prior rounds fail.
 - **Mix:** Predominantly nieruchomość niezabudowana (undeveloped plots) and nieruchomość zabudowana (built properties). Flat auctions are a minority but definitively present.
-- **Achieved-price stream:** CONFIRMED. Each flat listing includes a "Wyniki przetargu" or "Informacja o wyniku przetargu" PDF attachment posted ~1–2 weeks after auction date. These PDFs are text-based and parseable. Example: Żeromskiego 29 (2025) — result PDF at https://bip.um.ostroleka.pl/attachments/download/28040 (127 kB, published 23.10.2025). Example: Żeromskiego 29 (2026) — result PDF at https://bip.um.ostroleka.pl/attachments/download/28668 (109 kB, published 20.02.2026).
+- **Achieved-price stream:** CONFIRMED. Each flat listing includes a "Wyniki przetargu" or "Informacja o wyniku przetargu" PDF attachment posted ~1–2 weeks after auction date. These PDFs are **scanned images requiring OCR** (see 2026-07-05 correction above), but the achieved-price stream itself is confirmed present. Example: Żeromskiego 29 (2025) — result PDF at https://bip.um.ostroleka.pl/attachments/download/28040 (127 kB, published 23.10.2025). Example: Żeromskiego 29 (2026) — result PDF at https://bip.um.ostroleka.pl/attachments/download/28668 (109 kB, published 20.02.2026).
 
 ---
 
@@ -69,7 +69,7 @@ No second board (platformazakupowa.pl is used for procurement contracts ≥ 130 
 
 **Closest analog: Tarnowskie Góry** — single BIP host, Logonet CMS HTML listings, low-volume flat auctions (~2–4/year), PDF result attachments on the detail page.
 
-**Effort: Low.** The BIP is clean server-rendered HTML, pagination is predictable, filter by `rodzaj nieruchomości=lokal mieszkalny` isolates flats, and result PDFs are text-based. The only non-trivial step is parsing the result PDF to extract achieved price (pdftotext should suffice — files are 100–400 kB text PDFs, not scans).
+**Effort: Medium (OCR).** *(Corrected 2026-07-05 from "Low" — the result/announcement PDFs are scanned, not text.)* The BIP is clean server-rendered HTML, pagination is predictable, filter by `rodzaj nieruchomości=lokal mieszkalny` isolates flats. The non-trivial step is OCR: the announcement + result PDFs are scanned images, so achieved price / usable area / unit no. / round must be extracted via `core/ocr-pdf.js` (tesseract `-l pol`), not `pdftotext`. Analog: the OCR-dispatch path (Gliwice OCR result-PDFs), not the born-digital Skarżysko/Tarnowskie Góry clone.
 
 **Blockers:** None identified. No SPA rendering, no auth, no CAPTCHA.
 
