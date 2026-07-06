@@ -135,7 +135,8 @@ site / docs changes do **not** bump the extension version.
 - **`health.yml`** — `scripts/health-check.js`: FAILs if a city's `meta.json` is
   missing/stale or `unique_properties === 0` (silent-breakage guard).
 - **`ovh-deploy.yml`** — chains off refresh, runs `build-site.sh`, SFTP-mirrors
-  `_site/` to OVH. `pages.yml` is a GitHub Pages fallback.
+  `_site/` to OVH (the only deploy; the Pages fallback was removed July 2026).
+  Full workflow catalog: `.github/workflows/README.md`.
 
 ### 2.6 Site & monetization
 

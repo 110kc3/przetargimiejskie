@@ -159,7 +159,7 @@ Lives in [`site/`](./site) — fully static, no build step. [`build-site.sh`](./
 
 **Hosting: the live host is OVH.** The domain's DNS A/AAAA records point at OVH shared hosting, and [`.github/workflows/ovh-deploy.yml`](./.github/workflows/ovh-deploy.yml) is the canonical deploy: on every push to `main` touching `site/`/`data/`/`extension/`, **and** after each data-refresh run, it runs `build-site.sh` and mirrors `_site/` to OVH over SFTP (requires the `OVH_FTP_*` repo secrets documented in that workflow).
 
-[`.github/workflows/pages.yml`](./.github/workflows/pages.yml) is a **manual-only GitHub Pages fallback** (run by hand from the Actions tab) for when OVH is unavailable; making it the live host would require repointing DNS to GitHub Pages. Only one host can own the `przetargimiejskie.pl` custom domain at a time.
+OVH is the **only** deploy path (the former GitHub Pages fallback, `pages.yml`, was removed July 2026 — recover it from git history and repoint DNS if ever needed). All workflows are documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
 
 ## Current coverage (data quality notes)
 

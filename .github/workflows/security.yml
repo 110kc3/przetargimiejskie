@@ -12,7 +12,7 @@
 # All third-party actions are pinned to a full commit SHA (with the human tag
 # in a trailing comment) so a moved tag can't silently change what runs — this
 # repo's refresh.yml holds `contents: write`, so supply-chain hygiene matters.
-name: Security
+name: 6. Security
 
 on:
   push:

@@ -2,8 +2,8 @@
 # Assembles the published website (przetargimiejskie.pl) into a single output
 # directory for a static host. The LIVE host is OVH — .github/workflows/ovh-deploy.yml
 # runs this (`bash build-site.sh _site`) then mirrors _site/ to OVH over SFTP. The
-# output is host-agnostic, so the GitHub Pages fallback (pages.yml) or a local
-# preview can consume the same _site/ too.
+# output is host-agnostic, so a local preview (or any future host) can consume
+# the same _site/ too.
 #
 # The published site = site/ (landing + /archiwum + /raporty + /privacy) + the
 # data/ JSON the web pages fetch at /data/... . (The extension is NOT bundled here
