@@ -1,44 +1,56 @@
-// Gorzów Wielkopolski crawler — two BIP boards, both returning HTML tables with
-// PDF attachments (born-digital, pdftotext -layout extracts clean text):
+// Gorzów Wielkopolski crawler — two boards on bip.um.gorzow.pl, live-verified
+// 2026-07-06:
 //
-//   ANNOUNCEMENTS board: https://bip.um.gorzow.pl/przetargi/320/status/
-//     • Table of active auctions; rows carry detail URL + PDF attachment.
-//     • Pagination: /przetargi/320/status/ (active, ~4 rows), no sub-pages needed
-//       for active-only. For history: /przetargi/320/status/0/, /status/0/2/ etc.
-//     • Each row: date-1 (ogłoszenia), date-2 (przetargu), title+detail-href, attachments.
-//     • Flat-batch PDFs: "sprzedaż … lokali mieszkalnych" — one PDF lists all flats.
-//     • Filter: keep only "sprzedaż" + "lokal" titles; skip najem/dzierżawa/rokowania.
+//   ANNOUNCEMENTS  /przetargi/320/status/0/   (active)
+//                  /przetargi/320/status/1/   (resolved / past)
+//     • HTML table; rows are <tr class="odd|even"> with cells
+//       td-date-1 (data ogłoszenia), td-date-2 (data i godzina przetargu),
+//       td-title-1 (title + detail href), td-attachments-1 (PDF links at
+//       /system/pobierz.php?plik=…pdf&id=…).
+//     • Pagination puts the page number BEFORE the status segment:
+//       /przetargi/320/2/status/1/, /przetargi/320/3/status/1/, …
+//     • Flat batches: title contains "sprzedaż … lokali mieszkalnych";
+//       one PDF lists 4-12 flats (parseAnnouncement splits them).
 //
-//   RESULTS board: https://bip.um.gorzow.pl/509/1/archiwum/…/ (paginated)
-//     • Each entry: title + PDF attachment. Flat results: "lokali mieszkalnych" in title.
-//     • Pagination: /509/1/archiwum/Informacje_o_wynikach_przetargow__2F_rokowan/N/
+//   RESULTS        /509/  (newest) + /509/1/archiwum/Informacje_o_wynikach_…/N/
+//     • Items are <div class="information"> blocks: <p class="phx ph3"> title +
+//       an attachments list with the result PDF. ~10 items/page, 19 pages.
+//     • Titles carry the auction date ("przeprowadzonych w dniu 5 lutego
+//       2026r.") — extracted here because scanned PDFs have no text date.
 //
-// The crawl is split: crawlActive() reads the announcements board; crawlResultDocs()
-// reads the results archive. Because PDFs are text-based, pdfText() is used inline
-// (source:'html' → refresh.js hands each result ref's .text to parseResultDoc).
+// PDF text: announcements and results are born-digital PDFs EXCEPT recent
+// EZD-printed scans (e.g. Ogłoszenie 34/2026, wynik 26.03.2026) whose text
+// layer only holds the print footer. pdfText() is tried first; when it yields
+// no usable content the crawler falls back to ocrPdf() (tesseract, cached).
 //
-// Live-verified 2026-06-27:
-//   Announcement PDF: bip.um.gorzow.pl/system/obj/59130_Ogloszenie_nr_61-2025.pdf
-//   Result PDF:       pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56…
+// CI budget: crawlResultDocs uses known-URL skipping (data/…/properties.json)
+// plus a wall-clock budget + page cap, so a cold first run cannot blow the
+// 25-min job even if many scans need OCR — the rest backfills next run.
+//
+// See spike: spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
-import { parseAnnouncement, parseResultDoc, isResultNotice } from './parse.js';
+import { ocrPdf } from '../../core/ocr-pdf.js';
+import { loadKnownSourceUrls } from '../../core/known-urls.js';
+import { parseAnnouncement, isResultNotice, resultDateFromText } from './parse.js';
 
 const ORIGIN = 'https://bip.um.gorzow.pl';
+// The BIP intermittently 403s/empties on bot UAs (observed in the spike);
+// a browser UA is reliable.
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-// Announcements board: status/0/ = active (current), status/1/ = resolved (past)
-const ANN_BOARD_ACTIVE = `${ORIGIN}/przetargi/320/status/0/`;
-const ANN_BOARD_RESOLVED = `${ORIGIN}/przetargi/320/status/1/`;
-// Results archive root
 const RESULTS_ARCHIVE = `${ORIGIN}/509/1/archiwum/Informacje_o_wynikach_przetargow__2F_rokowan/`;
 
-const MAX_ANN_PAGES = 20;
-const MAX_RESULT_PAGES = 30;
+// Page caps (env-overridable for backfills). Boards hold ~10 rows/page.
+const MAX_ACTIVE_PAGES = Number(process.env.GORZOW_MAX_ACTIVE_PAGES) || 3;
+const MAX_RESOLVED_PAGES = Number(process.env.GORZOW_MAX_RESOLVED_PAGES) || 6;
+const MAX_RESULT_PAGES = Number(process.env.GORZOW_MAX_RESULT_PAGES) || 20;
+// Wall-clock budget for the result-PDF fetch/extract loop.
+const CRAWL_BUDGET_MS = Number(process.env.GORZOW_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 
-// ── HTML helpers ──────────────────────────────────────────────────────────────
+// ── HTML helpers ─────────────────────────────────────────────────────────────
 
 function stripTags(s) {
   return (s || '')
@@ -46,114 +58,101 @@ function stripTags(s) {
     .replace(/&amp;/gi, '&')
     .replace(/&quot;/gi, '"')
     .replace(/&nbsp;/gi, ' ')
-    .replace(/&rsaquo;/gi, '›')
-    .replace(/&#\d+;/gi, ' ')
+    .replace(/&#\d+;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-// "2026-05-25 09:35:00" → "2026-05-25"
-function isoDate(s) {
-  const m = /(\d{4}-\d{2}-\d{2})/.exec(s || '');
-  return m ? m[1] : null;
+const deamp = (u) => (u || '').replace(/&amp;/g, '&');
+
+// ── Announcements board ──────────────────────────────────────────────────────
+
+/** Board URL for a given status (0 = active, 1 = resolved) and 1-based page. */
+export function boardUrl(status, page) {
+  return page <= 1
+    ? `${ORIGIN}/przetargi/320/status/${status}/`
+    : `${ORIGIN}/przetargi/320/${page}/status/${status}/`;
 }
 
-// ── Board row parser ──────────────────────────────────────────────────────────
-
 /**
- * Parse one HTML board page (announcements list) into row objects.
- * Each row: { detailUrl, title, announcedDate, auctionDateRaw, pdfUrl }
+ * Parse one announcements board page into row objects.
  * @param {string} html
- * @returns {Array<object>}
+ * @returns {Array<{detailUrl:string|null, title:string, announcedDate:string|null,
+ *                  auctionDateRaw:string|null, pdfUrl:string|null}>}
  */
 export function parseBoardPage(html) {
   const out = [];
-  // Each row is <tr class="odd|even">…</tr>
-  const rowRe = /<tr\s+class="(?:odd|even)">([\s\S]*?)<\/tr>/gi;
+  const rowRe = /<tr class="(?:odd|even)">([\s\S]*?)<\/tr>/gi;
   let rm;
-  while ((rm = rowRe.exec(html)) !== null) {
+  while ((rm = rowRe.exec(html || '')) !== null) {
     const row = rm[1];
 
-    // date-1: announcement date
-    const d1m = /<td class="td-date-1">.*?(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/.exec(row);
-    const announcedDate = d1m ? d1m[1].slice(0, 10) : null;
+    const d1 = /td-date-1"[^>]*>[\s\S]*?(\d{4}-\d{2}-\d{2})/.exec(row);
+    const d2 = /td-date-2"[^>]*>[\s\S]*?(\d{4}-\d{2}-\d{2})/.exec(row);
 
-    // date-2: auction date
-    const d2m = /<td class="td-date-2">.*?(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/.exec(row);
-    const auctionDateRaw = d2m ? d2m[1].slice(0, 10) : null;
-
-    // detail URL + title from td-title-1 <a href="…">title</a>
-    const linkM = /<td class="td-title-1">.*?<a\s+href="([^"]+)"[^>]*>([^<]+)<\/a>/s.exec(row);
+    const linkM = /td-title-1"[^>]*>[\s\S]*?<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/.exec(row);
     if (!linkM) continue;
-    const detailUrl = linkM[1];
-    const title = stripTags(linkM[2]);
 
-    // PDF attachment: first .pdf href in td-attachments-1
-    const attM = /href="(https:\/\/bip\.um\.gorzow\.pl\/system\/(?:pobierz\.php|obj\/)[^"]+\.pdf[^"]*)"/i.exec(row);
-    const pdfUrl = attM ? attM[1].replace(/&amp;/g, '&') : null;
+    // First PDF attachment = the main ogłoszenie (map annexes come after it).
+    const attM = /<ul class="attachments">[\s\S]*?href="([^"]+?\.pdf[^"]*)"/i.exec(row);
 
-    out.push({ detailUrl, title, announcedDate, auctionDateRaw, pdfUrl });
+    out.push({
+      detailUrl: deamp(linkM[1]),
+      title: stripTags(linkM[2]),
+      announcedDate: d1 ? d1[1] : null,
+      auctionDateRaw: d2 ? d2[1] : null,
+      pdfUrl: attM ? deamp(attM[1]) : null,
+    });
   }
   return out;
 }
 
 /**
- * Classify an announcement board row as a flat-sale row we should fetch.
- * Returns true when the title signals a residential flat sale (*przetarg* + *sprzedaż* +
- * *lokal*); false for rentals, commercial-only, land, najem, dzierżawa, rokowania,
- * sprostowania, and cancelled auctions.
+ * Keep only flat-SALE auction announcements: "przetarg… na sprzedaż … lokali
+ * mieszkalnych". Rentals, land-only, corrections, cancellations and rokowania
+ * are skipped.
  * @param {string} title
  * @returns {boolean}
  */
 export function isFlatSaleRow(title) {
   const t = (title || '').toLowerCase();
-  // Skip rentals, withdrawals, corrections, negotiations, licence sales
-  if (/\bnajem\b|dzier[zż]aw|sprostowanie|odwo[łl]anie|uniewa[zż]ni|rokowania/.test(t)) return false;
-  // Skip rows that are land/niezabudowane only (no lokal) or purely commercial (lokali użytkowych)
-  if (/nieruchomo[śs]ci niezabudowan/.test(t) && !/lokal/.test(t)) return false;
-  if (/lokal[ai]\s+u[żz]ytkow/.test(t) && !/lokal[ai]\s+mieszk/.test(t)) return false;
-  // Include: sprzedaż + lokal + przetarg
-  return /sprzeda[zż]/.test(t) && /lokal/.test(t) && /przetarg/.test(t);
+  if (/najem|dzier[żz]aw|rokowa[ńn]|rokowania|sprostowani|odwo[łl]a|uniewa[żz]n/.test(t)) return false;
+  return /przetarg/.test(t) && /sprzeda[żz]/.test(t) && /lokal/.test(t) && /mieszkaln/.test(t);
 }
 
-// ── Result-archive page parser ─────────────────────────────────────────────
+// ── Results board ────────────────────────────────────────────────────────────
 
 /**
- * Parse one results-archive page into { title, pdfUrl } objects.
+ * Parse a /509/ page (root or archive) into { title, pdfUrl } items.
  * @param {string} html
  * @returns {Array<{title:string, pdfUrl:string|null}>}
  */
 export function parseResultsPage(html) {
   const out = [];
-  // Split on opening <div class="information"> — handles arbitrary nested content
-  // and does not require a trailing terminator (lookahead approach missed last block).
-  const blocks = html.split(/<div\s+class="information">/i);
+  const blocks = (html || '').split(/<div class="information">/i);
   for (const block of blocks.slice(1)) {
     const titleM = /<p class="phx ph3">([\s\S]*?)<\/p>/i.exec(block);
     const title = titleM ? stripTags(titleM[1]) : '';
-    // PDF attachment
-    const pdfM = /href="(https:\/\/bip\.um\.gorzow\.pl\/system\/pobierz\.php[^"]+\.pdf[^"]*)"/i.exec(block);
-    const pdfUrl = pdfM ? pdfM[1].replace(/&amp;/g, '&') : null;
+    const pdfM = /href="(https:\/\/bip\.um\.gorzow\.pl\/system\/pobierz\.php[^"]+?\.pdf[^"]*)"/i.exec(block);
+    const pdfUrl = pdfM ? deamp(pdfM[1]) : null;
     if (title || pdfUrl) out.push({ title, pdfUrl });
   }
   return out;
 }
 
 /**
- * True when a results-board title looks like a flat-sale result notice.
- * Accepts "sprzedaż lokali mieszkalnych" and the generic "sprzedaż nieruchomości"
- * (since the flat batch may use the generic wording — we parse the PDF body to
- * confirm). Excludes dzierżawa/najem/rokowania.
+ * Keep result notices for SALES (przetargi and rokowania both sell flats);
+ * skip dzierżawa/najem results.
  * @param {string} title
  * @returns {boolean}
  */
-export function isResultFlatRow(title) {
+export function isSaleResultRow(title) {
   const t = (title || '').toLowerCase();
-  if (/dzier[zż]aw|najem|rokowania/.test(t)) return false;
-  return /wynik.*przetarg|przetarg.*wynik/.test(t) && /sprzeda[zż]/.test(t);
+  if (/dzier[żz]aw|najem/.test(t)) return false;
+  return /wynik/.test(t) && /sprzeda[żz]/.test(t);
 }
 
-// ── Fetchers ───────────────────────────────────────────────────────────────
+// ── Fetchers ─────────────────────────────────────────────────────────────────
 
 async function fetchPage(url) {
   try {
@@ -164,59 +163,77 @@ async function fetchPage(url) {
   }
 }
 
-async function fetchPdfText(pdfUrl) {
+/**
+ * Extract a PDF's text: pdftotext first, OCR fallback for EZD scans whose
+ * text layer holds only the print footer. `usable` decides when to fall back.
+ * @param {string} pdfUrl
+ * @param {(text:string) => boolean} usable
+ * @returns {Promise<string|null>}
+ */
+async function extractPdf(pdfUrl, usable) {
+  let text = null;
   try {
-    return await pdfText(pdfUrl, { userAgent: BROWSER_UA });
+    text = await pdfText(pdfUrl, { userAgent: BROWSER_UA });
   } catch (err) {
-    console.error(`  gorzow-wielkopolski: PDF extract failed (${pdfUrl}): ${err.message}`);
-    return null;
+    console.error(`  gorzow-wielkopolski: pdftotext failed (${pdfUrl}): ${err.message}`);
   }
+  if (text && usable(text)) return text;
+  try {
+    // psm 1 (auto + orientation detection): Gorzów's EZD scans arrive rotated
+    // (OSD reports 270°) — the default psm 3 OCRs them to garbage.
+    const ocr = await ocrPdf(pdfUrl, { userAgent: BROWSER_UA, psm: 1 });
+    if (ocr && usable(ocr)) return ocr;
+  } catch (err) {
+    console.error(`  gorzow-wielkopolski: OCR fallback failed (${pdfUrl}): ${err.message}`);
+  }
+  return null;
 }
 
-// ── crawlActive ────────────────────────────────────────────────────────────
+// ── crawlActive ──────────────────────────────────────────────────────────────
 
 /**
- * Crawl the active + resolved announcement boards, filter flat-sale rows, parse
- * each batch PDF and return individual flat listing records.
+ * Crawl the active + resolved announcement boards, parse each flat-batch PDF
+ * into per-flat listing records.
  * @returns {Promise<{ listings: object[], wykaz: [], land: [] }>}
  */
 export async function crawlActive() {
   const listings = [];
   const seenPdfs = new Set();
+  const seenDetails = new Set();
 
-  // Crawl both active (status/0/) and resolved (status/1/) boards — the resolved
-  // board still has announcements whose outcome is not yet in the results stream.
-  for (const boardBase of [ANN_BOARD_ACTIVE, ANN_BOARD_RESOLVED]) {
-    for (let page = 0; page < MAX_ANN_PAGES; page++) {
-      const url = page === 0 ? boardBase : `${boardBase}${page + 1}/`;
-      const html = await fetchPage(url);
+  for (const [status, maxPages] of [[0, MAX_ACTIVE_PAGES], [1, MAX_RESOLVED_PAGES]]) {
+    for (let page = 1; page <= maxPages; page++) {
+      const html = await fetchPage(boardUrl(status, page));
       if (!html) break;
-
       const rows = parseBoardPage(html);
       if (rows.length === 0) break;
 
-      for (const row of rows) {
+      // Overflowing the page range makes some BIPs re-serve the last page —
+      // stop when a page brings nothing new.
+      const fresh = rows.filter((r) => r.detailUrl && !seenDetails.has(r.detailUrl));
+      if (fresh.length === 0) break;
+      for (const r of fresh) seenDetails.add(r.detailUrl);
+
+      for (const row of fresh) {
         if (!isFlatSaleRow(row.title)) continue;
         if (!row.pdfUrl || seenPdfs.has(row.pdfUrl)) continue;
         seenPdfs.add(row.pdfUrl);
 
-        const text = await fetchPdfText(row.pdfUrl);
-        if (!text) continue;
-
-        // Each batch PDF has a table with multiple flats — parse them all
-        const recs = parseAnnouncement(text, {
-          pdfUrl: row.pdfUrl,
-          detailUrl: row.detailUrl,
-          announcedDate: row.announcedDate,
-          fallbackAuctionDate: row.auctionDateRaw,
-        });
-        for (const r of recs) {
-          listings.push(r);
+        const text = await extractPdf(row.pdfUrl, (s) => /lokal\w*\s+mieszkaln/i.test(s));
+        if (!text) {
+          console.error(`  gorzow-wielkopolski: no usable text for ${row.pdfUrl} — skipped`);
+          continue;
         }
+        listings.push(
+          ...parseAnnouncement(text, {
+            pdfUrl: row.pdfUrl,
+            detailUrl: row.detailUrl,
+            fallbackAuctionDate: row.auctionDateRaw,
+          }),
+        );
       }
 
-      // Stop when fewer rows than expected (last page) or no next-page hint
-      if (rows.length < 10 || !html.includes(`${boardBase}${page + 2}/`)) break;
+      if (rows.length < 10) break; // short page = last page
     }
   }
 
@@ -224,66 +241,58 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// ── crawlResultDocs ────────────────────────────────────────────────────────
+// ── crawlResultDocs ──────────────────────────────────────────────────────────
 
 /**
- * Crawl the results archive (/509/1/archiwum/…/), fetch each result PDF, and
- * return refs with the extracted text so refresh.js can call parseResultDoc.
- * source:'html' → refs carry .text (already extracted here).
+ * Crawl /509/ (newest) + its archive pages, fetch each sale-result PDF and
+ * return refs with `.text` extracted (source:'html' → refresh.js hands each
+ * ref's text straight to parseResultDoc).
  * @returns {Promise<Array<{text:string, pdf_url:string, detail_url:string, auction_date:string|null}>>}
  */
 export async function crawlResultDocs() {
   const refs = [];
   const seenPdfs = new Set();
+  const known = await loadKnownSourceUrls('gorzow-wielkopolski');
+  const deadline = Date.now() + CRAWL_BUDGET_MS;
+  let skippedKnown = 0;
 
-  for (let page = 1; page <= MAX_RESULT_PAGES; page++) {
-    const url = page === 1
-      ? RESULTS_ARCHIVE
-      : `${RESULTS_ARCHIVE}${page}/`;
+  // Page 0 = /509/ root (holds the newest, not-yet-archived notice).
+  for (let page = 0; page <= MAX_RESULT_PAGES; page++) {
+    if (Date.now() > deadline) {
+      console.error('  gorzow-wielkopolski: result-crawl budget exhausted — stopping early');
+      break;
+    }
+    const url = page === 0 ? `${ORIGIN}/509/` : page === 1 ? RESULTS_ARCHIVE : `${RESULTS_ARCHIVE}${page}/`;
     const html = await fetchPage(url);
     if (!html) break;
-
     const items = parseResultsPage(html);
     if (items.length === 0) break;
 
     for (const item of items) {
-      if (!isResultFlatRow(item.title)) continue;
+      if (Date.now() > deadline) break;
+      if (!isSaleResultRow(item.title)) continue;
       if (!item.pdfUrl || seenPdfs.has(item.pdfUrl)) continue;
       seenPdfs.add(item.pdfUrl);
-
-      const text = await fetchPdfText(item.pdfUrl);
-      if (!text) continue;
-      if (!isResultNotice(text)) continue;
-
-      // Extract auction date from the PDF text (format: "dnia DD ... YYYY r.")
-      const dateM = /przeprowadzonych?\s+dnia\s+(\d{1,2})\s+([^\s]+)\s+(\d{4})r?\.?/i.exec(text);
-      let auction_date = null;
-      if (dateM) {
-        const PL = {
-          stycznia: '01', lutego: '02', marca: '03', kwietnia: '04', maja: '05', czerwca: '06',
-          lipca: '07', sierpnia: '08, września': '09', wrzesnia: '09', 'września': '09',
-          'października': '10', pazdziernika: '10', listopada: '11', grudnia: '12',
-        };
-        const mo = PL[dateM[2].toLowerCase()];
-        if (mo) auction_date = `${dateM[3]}-${mo}-${String(dateM[1]).padStart(2, '0')}`;
+      if (known.has(item.pdfUrl)) {
+        skippedKnown++;
+        continue;
       }
 
+      const text = await extractPdf(item.pdfUrl, isResultNotice);
+      if (!text) {
+        console.error(`  gorzow-wielkopolski: no usable text for result ${item.pdfUrl} — skipped`);
+        continue;
+      }
+
+      // Prefer the HTML title's auction date — scanned PDFs have no text date.
+      const auction_date = resultDateFromText(item.title) || resultDateFromText(text) || null;
       refs.push({ text, pdf_url: item.pdfUrl, detail_url: item.pdfUrl, auction_date });
     }
-
-    // Stop when there's no link to the next page
-    const nextUrl = `${RESULTS_ARCHIVE}${page + 1}/`;
-    if (!html.includes(nextUrl)) break;
   }
 
+  if (skippedKnown) {
+    console.error(`  gorzow-wielkopolski: skipped ${skippedKnown} already-known result PDF(s)`);
+  }
   console.error(`  gorzow-wielkopolski crawlResultDocs: ${refs.length} result PDF(s)`);
   return refs;
-}
-
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const { listings } = await crawlActive();
-  const results = await crawlResultDocs();
-  process.stdout.write(
-    JSON.stringify({ listings: listings.length, results: results.length, sampleListing: listings[0] }, null, 2) + '\n',
-  );
 }

@@ -1,6 +1,6 @@
 # Spike — Gostynin (Mazowieckie · powiat gostyniński)
 
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Low-Medium effort).
+> **Status:** re-spiked LIVE — 2026-07-06. VERDICT: **NO-BUILD** (no recurring open flat-auction stream — one flat total in 2024–2026, twice negative; result publication inconsistent; see Re-verify below).
 
 ## TL;DR
 
@@ -112,7 +112,39 @@ Pattern: **2–5 flat-auction lots per year**, with batches when a set of units 
 - **Total: ~2–2.5 days (Low-Medium effort)** — assuming HTML result notices. +1 day if OCR needed.
 
 ### Verdict
-**NEEDS-LIVE-VERIFY** — The gmina Miasto Gostynin demonstrably runs *przetarg ustny nieograniczony na sprzedaż lokali mieszkalnych* (Q1 confirmed). The BIP is a standard open-access bip.org.pl CMS (Q3 confirmed: HTML, no auth). Volume is low but real and ongoing. The single unresolved question is whether the property-auction result notices (with achieved prices) are in HTML body or scanned PDFs. If HTML: BUILD at Low effort. If scan PDF: BUILD at Medium effort (+OCR). One live session navigating to id/4667 sub-entries will resolve this in ~15 minutes.
+**NO-BUILD** (changed from NEEDS-LIVE-VERIFY on 2026-07-06 live re-spike — see `## Re-verify 2026-07-06` below). The format question resolved *in favour* (result notices are server-rendered HTML), but the volume question resolved *against*: exactly one flat offered at open auction across 2024–2026 (twice negative, third result never published), zero flat auctions in 2025 and H1 2026, and all ongoing flat disposals run through the bezprzetargowa tenant-buyout track which never produces public auctions or achieved prices. There is also no stable auction board — the BIP przetargi module is abandoned and announcements live only in the city's chronological news feed.
+
+---
+
+## Re-verify 2026-07-06 (LIVE)
+
+Live session (curl full-HTML fetches of BIP boards + gostynin.pl quarterly news archives 2024-Q1 through 2026-Q2, plus web search). All three desk-open items resolved:
+
+### 1. Recurring flat-auction volume 2024–2026 — **effectively ZERO**
+
+- **2024**: ONE flat — spółdzielcze własnościowe prawo do lokalu nr 83, ul. Wojska Polskiego 28B (37,84 m² + piwnica 3,6 m², III piętro). Auctioned three times:
+  - I przetarg 26.06.2024, cena wywoławcza 150 000 zł (announced Q2 2024 news, wykaz on BIP);
+  - II przetarg 19.11.2024, cena 180 000 zł → **wynik negatywny** (one wadium payer, no-show; §12 result notice published as HTML news item, Q4 2024);
+  - III przetarg 09.01.2025 (announced Q4 2024) → **result never published** in the news stream (checked all of Q1 2025 — no mention of Wojska Polskiego 28B or any flat result).
+- **2025**: zero open flat auctions. Land-only przetargi (Kraśnica, Dybanka — mostly negative). Flat activity is exclusively bezprzetargowa tenant buyouts (wykazy: Kościuszki 6 lokale 6/11/19, July 2025).
+- **2026 (H1)**: zero open flat auctions. More bezprzetargowa wykazy (Wojska Polskiego 10/8; Kościuszki 6/4).
+- Desk estimate of "~2–5 flat lots/yr" was wrong — the BIP archive's 2021-09-10 entries are re-dated imports of 2004–2006 auctions, not 2021 activity. Real rate: ≤1 lot per multi-year period, and the one recent lot failed to sell twice.
+
+### 2. Exact announcement + result boards — **desk-note URLs were wrong**
+
+- `umgostynin.bip.org.pl/index//id/4667` is an **empty stub** (last updated 2021-01-14; no child entries, no board listing).
+- The BIP Przetargi module (`/przetargi/index` = ogłoszone, `/przetargi/index/id/2` = rozstrzygnięte, `/przetargi/index/id/3` = unieważnione, `/przetargi/index/id/4` = archiwum) is **abandoned**: ogłoszone/rozstrzygnięte/unieważnione all have empty tables; archiwum's newest entries are dated 2021-09-10 but contain 2003–2006 content.
+- **Actual live channel**: the city news feed on `gostynin.pl`, archived quarterly (`/788,i-kwartal-2024`, `/790,ii-kwartal-2024`, … `/911,ii-kwartal-2026-r`, `/918,ii-kwartal-2026-r-cz-2`; full list in `sitemap.xml`). Auction announcements, wykaz notices AND §12 result notices appear there as ordinary news items interleaved with weather alerts, concerts and school news — no dedicated property board, no structured index.
+- BIP wykazy board (`/id/2294`) holds only *currently posted* wykazy (2 items as of today, neither a flat auction); items are removed after the statutory posting window, so no history survives on BIP. BIP's site search is non-functional (OR-matches ~2,421 results for any query).
+
+### 3. Result-notice format — **server-rendered HTML (resolved), but stream unreliable**
+
+- §12 result notices ("Informacja dotycząca wyniku przetargu") are plain HTML text inside gostynin.pl news items — not scans, no OCR needed. Confirmed live: 23.10.2024 (Dybanka, negative), 19.11.2024 (lokal 83 WP 28B, negative), 28.11.2024 (Kowalska, negative), 10.06.2025 (Kraśnica, negative), 24.06.2025 (Dybanka, negative); a positive one (16.10.2024, lokal użytkowy rent) does include the achieved price in HTML.
+- However publication is **inconsistent** — the 09.01.2025 third flat auction produced no published result at all, and BIP copies are taken down after ~7 days.
+
+### Conclusion
+
+Q3 (format) resolved BUILD-favourable, but Q1/Q2 resolved fatal: no recurring open flat-auction stream (municipal flats go to sitting tenants bezprzetargowo), no stable machine-readable board (chronological mixed news feed only), and no dependable achieved-price stream. **NO-BUILD.** Re-check trigger: if Gostynin revives its BIP Przetargi module or batches vacant-flat auctions (as in 2004/2024), reassess — the scrape itself would be Low effort (static HTML, no auth).
 
 ---
 

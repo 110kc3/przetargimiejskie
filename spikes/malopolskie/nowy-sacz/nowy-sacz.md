@@ -1,6 +1,6 @@
 # Spike — Nowy Sącz (Małopolskie · miasto na prawach powiatu)
 
-> **Status:** spike DESK — 2026-06-27. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** re-verified LIVE — 2026-07-06. VERDICT: NO-BUILD (one flat-auction event ever on the board, Apr 2024; zero in the 26 months since).
 
 ## TL;DR
 
@@ -105,8 +105,30 @@ Nowy Sącz (pop. ~80 k, miasto na prawach powiatu in Małopolskie) does publish 
 - Municipal policy may shift: the upcoming end of 90% bonifikaty (nationwide reform 2026/2027) may push more tenants to buy now bezprzetargowo, temporarily flooding the bezprzetargowy channel rather than opening more auction slots.
 - bip.malopolska.pl is a shared regional platform — any platform-wide change affects all Małopolskie cities simultaneously.
 
-### Verdict: NEEDS-LIVE-VERIFY
+### Verdict: NO-BUILD (superseded 2026-07-06 — see "Re-verify 2026-07-06" below; desk text kept for history)
 
 Nowy Sącz is a **borderline case**. It runs occasional flat auctions (confirmed at least 1 in 2024) via bip.malopolska.pl/nowysacz, the same platform as the already-built Kraków adapter. If Kraków's renderer handles bip.malopolska.pl, the marginal cost of adding Nowy Sącz is low (platform reuse, city-specific URL config only). However, the flat-auction volume is low and unquantified — a live BIP crawl is needed to determine whether the archive contains meaningful residential auction history (>10 entries) to justify the addition.
 
 **Recommended next step:** Use Chrome MCP / Playwright to render bip.malopolska.pl/nowysacz,m,288947 and count flat-auction vs land-auction entries in the past 2 years. If ≥5 flat auctions found: BUILD (Low effort, platform already solved by Kraków). If <5: park as low-priority.
+
+## Re-verify 2026-07-06
+
+**Method:** the bip.malopolska.pl AngularJS SPA (Madkom SIDAS) exposes a **public JSON API** — no browser needed. `app-conf.js` gives `ApiUrl: https://bip.malopolska.pl/api/`. Working endpoints, verified live:
+
+- Article body (full HTML content in JSON): `https://bip.malopolska.pl/api/articles/{id}` — e.g. `/api/articles/2416030` returns title + 6.4 kB `content` for the garage auction. **This makes the whole regional platform scrapable without Playwright** (relevant to Chrzanów/`needsRender: true` and any future Małopolska city).
+- Board listing (with pagination + archive): `https://bip.malopolska.pl/api/menu/{menuId}/articles?limit=100&offset=0[&archived=true]`.
+- Menu tree: `/api/menu/{id}`, context: `/api/contexts/nowysacz`.
+
+**Correct board found:** menu **285761 "Gospodarka mieniem"** (Tablica ogłoszeń → Gospodarka mieniem) — NOT the 288947 "Ogłoszenia o zamówieniach" board from the desk spike (that is procurement; 979 articles of supplies/services tenders). Full crawl of 285761: **508 articles, 2021-12-03 → 2026-07-03** (303 active + 205 archived), 251 mentioning "przetarg".
+
+**Flat-auction volume (the gate): FAIL.** Title scan of all 508 articles for `lokal* mieszkal*` / `mieszka*`:
+
+- **Exactly one flat-auction event in ~4.5 years of board history**: 2024-03-21, *I przetarg ustny nieograniczony* for **three flats in one building** at ul. Kochanowskiego (dz. 277/1 obr. 20) — lokal nr 2 (46,07 m², a,2429189), nr 3 (33,16 m², a,2429191), nr 4 (24,88 m², a,2429200 — the desk spike's "one confirmed" flat). Auction 25 Apr 2024.
+- **Result notices exist and are parseable**: 2024-05-06 — a,2448379 (nr 2), a,2448397 (nr 3), a,2448405 (nr 4). So the achieved-price stream works — but only for this one event.
+- **Zero flat auctions since May 2024** (26 months) and zero in 2023/2025/2026. The desk spike's "II/III przetarg ustny" examples (a,2378993 area / a,2416030) turn out to be a **garage** (lokal użytkowy G12, ul. Pijarska), not residential.
+- Yearly *przetarg ustny … sprzedaż* announcement counts (all asset types): 2023: 2, 2024: 12, 2025: 6, 2026: 5 — dominated by land (działki) plus the garage rounds.
+- City portal cross-check (nowysacz.pl/gospodarka-mieniem, server-rendered, ~10 most-recent items): current entries are land wykazy, land auctions and **rental** przetargi for lokale użytkowe; zero flat sales. Tenant-sale (bezprzetargowy, Art. 34) remains the flat-disposal channel, as desk-profiled.
+
+**Verdict: NO-BUILD.** The desk spike's own gate was "≥5 flat auctions in past 2 years → BUILD; <5 → park". Live count: **0 in the past 2 years** (3 lifetime, all one building in one month). No recurring residential stream exists to scrape. Park; revisit only if the 2026/2027 bonifikata reform visibly shifts disposals from tenant sales to open auctions — the JSON-API crawl above makes any future re-check a five-minute job (`/api/menu/285761/articles`, title-grep `lokal.*mieszkal`).
+
+**Side finding for the pipeline (do not lose):** bip.malopolska.pl needs **no headless renderer** — `/api/articles/{id}` + `/api/menu/{id}/articles` return everything as JSON. The Chrzanów adapter's Playwright path (`pipeline/src/cities/chrzanow/crawl.js`, `needsRender: true`) could be replaced with plain fetches, and any future Małopolska-platform city (Kraków, Tarnów, Bochnia, Olkusz…) should use the API directly.

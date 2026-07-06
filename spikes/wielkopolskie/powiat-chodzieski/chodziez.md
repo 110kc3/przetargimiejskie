@@ -1,5 +1,5 @@
 # Spike — Chodzież (Wielkopolskie · powiat chodzieski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Low effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: BUILD (Low effort, plain fetch — needsRender: false).
 
 ## TL;DR
 Miasto Chodzież (Gmina Miejska) does sell municipal **lokale mieszkalne** at **ustny przetarg nieograniczony**, confirmed by multiple independent sources (BIP wykaz, e-przetargi.pl, listaprzetargow.pl). Volume is low (small city, ~46 k residents) — sparse single-flat announcements, not a continuous stream. Primary BIP host is `bip.chodziez.pl`, which serves dynamic content that returns empty to plain HTTP fetch; live browser verification needed to confirm 2024–2026 announcement and result pages are crawlable.
@@ -53,4 +53,50 @@ The gov.pl procedure page explicitly states: *"Sprzedaż następuje w przetargu 
 
 **Effort estimate:** Low — standard dynamic-BIP adapter, no OCR, no auth, no SPA with bot blocks detected beyond JS rendering. One headless render to `/zamowienia-publiczne-i-ogloszenia/YYYY.html` should yield parseable HTML.
 
-**VERDICT: NEEDS-LIVE-VERIFY** — confirm (a) the year-page renders correctly in headless browser, (b) result sub-page URL pattern, (c) volume count for 2023–2025.
+**VERDICT: NEEDS-LIVE-VERIFY** — confirm (a) the year-page renders correctly in headless browser, (b) result sub-page URL pattern, (c) volume count for 2023–2025. *(superseded — see Re-verify below)*
+
+## Re-verify 2026-07-06
+
+Live probe of `bip.chodziez.pl` (plain `curl`/WebFetch, no JS, no headless):
+
+### 1. "JS-rendered" does NOT reproduce — plain fetch works
+The desk finding "empty body without JS" is **wrong as of 2026-07-06**. The whole site
+(WOKISS-family CMS) is **server-rendered HTML**: homepage, section hubs, year boards,
+and full announcement detail pages all return complete markup to a plain HTTP GET.
+**`needsRender: false`** — this is a plain-fetch city, no render.js, no headless CI cost.
+
+### 2. Board structure confirmed (live URLs, all plain-fetch)
+Canonical per-year boards under `obrot-nieruchomosciami` (note: live hrefs contain the
+diacritic form `obrot-nieruchomościami`; both resolve):
+
+- Announcements: `https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomosciami/<YYYY>/ogloszenia-o-przetargach.html`
+- **Results (pattern confirmed):** `.../obrot-nieruchomosciami/<YYYY>/wyniki-przetargow.html`
+- Wykazy (incl. bezprzetargowa tenant sales): `.../obrot-nieruchomosciami/<YYYY>/wykazy.html`
+- Site-wide RSS (plain XML, includes obrót-nieruchomościami items): `https://bip.chodziez.pl/chodziezm/kanal-rss.xml`
+
+### 3. Live flat-auction volume (2026)
+`2026/ogloszenia-o-przetargach.html` currently lists (fetched raw, verbatim titles):
+
+1. **III przetarg ustny nieograniczony — lokale mieszkalne ul. Adama Mickiewicza 4/3 oraz 4/6** (2 flats, 65.50 m² + 67.64 m², HTML prose with full terms; states *"Terminy poprzednich przetargów: 11.02.2026 r., 29.04.2026 r."*)
+2. I przetarg ustny nieograniczony — działka nr 917/1 ul. Kwiatowa (land, out of scope)
+3. **I przetarg ustny nieograniczony — lokal mieszkalny nr 8, ul. Ignacego Daszyńskiego 12**
+
+→ **3 flat lots at open auction live in 2026 alone** — consistent with the ~1–4/yr estimate.
+2026 wykazy board also lists ~7 lokale mieszkalne (bezprzetargowa/tenant sales) — extra context signal.
+
+### 4. Caveats found live
+- **Boards are "current-only":** the I and II Mickiewicza announcements (Feb/Apr 2026) are
+  already gone from the 2026 board — items are removed after the auction date. The
+  2024/2025 year boards are empty hubs (either zero auctions those years or content not
+  migrated to the new CMS; no Wayback snapshot exists). **Adapter must persist snapshots.**
+- **Result notices are short-lived:** `wyniki-przetargow` boards for 2024–2026 are all empty
+  right now despite two completed (failed) Mickiewicza rounds — consistent with the statutory
+  7-day posting window then removal. **Poll weekly** (RSS is the cheap change-detector);
+  monthly polling WILL miss results.
+- Achieved-price capture therefore depends on catching the 7-day window; announcement +
+  wykaz capture is robust.
+
+### Verdict
+**BUILD** — Low effort. Plain-fetch WOKISS-style year-board adapter (closest analogs:
+other small-Wielkopolska WOKISS BIPs). No OCR, no auth, no JS. `needsRender: false`.
+Weekly poll of `ogloszenia-o-przetargach` + `wyniki-przetargow` (current year) + RSS feed.

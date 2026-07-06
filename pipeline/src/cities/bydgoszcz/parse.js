@@ -1,33 +1,50 @@
-// Bydgoszcz parsers — groundtruthed against live attachments fetched 2026-06-27.
+// Bydgoszcz parsers — groundtruthed against LIVE attachments fetched 2026-07-06:
 //
-// ANNOUNCEMENT DOC (download/32143, catdoc text, Sienkiewicza 37 lokal nr 2, VII przetarg):
-//   "PREZYDENT MIASTA BYDGOSZCZY"
-//   "ogłasza VII przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego …"
-//   "lokal mieszkalny nr 2 … ul. Henryka Sienkiewicza 37 …"
-//   "94,29 m2"
-//   "299 000,-" (price has ",-" suffix, not "zł" in the table cell)
-//   "Przetarg odbędzie się … w dniu 09 lipca 2026 r."
+// ANNOUNCEMENT DOC (attachments/download/32143, catdoc, ul. Henryka Sienkiewicza 37
+// lokal nr 2, VII przetarg 09.07.2026):
+//   "ogłasza VII przetarg ustny nieograniczony na sprzedaż lokalu\nmieszkalnego …"
+//   "lokal mieszkalny nr 2 … budynku położonym\nprzy\n\nul. Henryka Sienkiewicza 37 w Bydgoszczy"
+//   plot: "pow.778 m 2" (INTEGER, with a space inside "m 2") · flat: "94,29 m2"
+//   piwnica: "P.12- piwnica:  6,27m2"
+//   price cell: "299\n000,-" — catdoc WRAPS the amount across a line break!
+//   wadium cell follows: "30 000,-"
+//   "Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy przy ul.\nJezuickiej 2
+//    w Sali Łochowskiego (parter) w dniu 09 lipca 2026 r." — ~84 chars between
+//   "odbędzie się" and "w dniu" (the VENUE ul. Jezuickiej 2 sits in between).
 //
-// RESULT DOCX (download/32448, unzip word/document.xml, Wyszogrodzka land, unsold):
-//   "PREZYDENT MIASTA BYDGOSZCZY"
-//   "informację o wynikach przeprowadzonych w dniu 18.06.2026 r."
-//   "II przetargach ustnych nieograniczonych na sprzedaż nieruchomości gruntowych"
-//   "Cena wywoławcza nieruchomości: dz. nr 156/3 o pow.0,1025 ha - 450 000,00 zł"
-//   "Najwyższa cena osiągnięta w przetargach – brak"
-//   "ww. przetargi zakończyły się wynikiem negatywnym."
+// ANNOUNCEMENT DOC (attachments/download/32401, ul. Grunwaldzkiej 90 lokal nr 3,
+// I przetarg 31.07.2026): "38,04m2" (no space before m2), "250 000,-", genitive
+// street kept as-is per normalize.js policy.
 //
-// Flat SOLD result pattern (inferred from standard WMG practice + similar Logonet cities):
-//   "Najwyższa cena osiągnięta w przetargu – NNN NNN,00 zł"
-//   "Nabywca nieruchomości – <name>"
+// RESULT DOCX (attachments/download/32667, ul. Chodkiewicza 2 lokal nr 1, VI
+// przetarg 26.06.2026, unsold):
+//   "informację o wyniku przeprowadzonego w dniu 26.06.2026r. w siedzibie Urzędu
+//    Miasta Bydgoszczy przy ul. Jezuickiej 2 …"   ← venue address FIRST (trap)
+//   "VI przetargu ustnego nieograniczonego na sprzedaż lokalu mieszkalnego nr 1,
+//    … położonego w Bydgoszczy przy ul. Chodkiewicza 2, o pow. 53,27m2 …"
+//   "Cena wywoławcza nieruchomości: 135.000,- zł"   ← DOT thousands + ",-"
+//   "Najwyższa cena osiągnięta w przetargu – brak"
+//   "Nabywca nieruchomości – VI przetarg zakończył się wynikiem negatywnym"
 //
-// Key Bydgoszcz-specific notes:
-//   * Round: Roman numeral before "przetarg ustny" ("VII przetarg", "II przetarg")
-//   * Prices: space-thousands "299 000,-" OR "450 000,00 zł" — both formats seen
-//   * Announcement DOC lists area in table: "94,29 m2" (comma decimal)
-//   * Date in announcement: "w dniu 09 lipca 2026 r." (spelled month, genitive)
-//   * Date in result DOCX: "w dniu 18.06.2026 r." (numeric DD.MM.YYYY)
-//   * Unsold signals: "wynikiem negatywnym" OR "Najwyższa cena ... – brak"
-//   * Nabywca: "Nabywca nieruchomości –" (result DOCX)
+// RESULT DOCX (attachments/download/32640, land, ul. ks. Augusta Szamarzewskiego
+// dz. 9/6, trzeci przetarg 25.06.2026): "przeprowadzonego w dniu  25 czerwca
+// 2026 r." (SPELLED month, doubled spaces), "Cena wywoławcza nieruchomości:
+// 340.000,- zł netto*" — kind grunt → parseResultDoc returns [].
+//
+// Key Bydgoszcz-specific rules:
+//   * Address must be anchored on "położon…" — the venue "przy ul. Jezuickiej 2"
+//     and the office "ul. Grudziądzka 9-15" appear in EVERY document and must
+//     never be taken as the property street.
+//   * Prices: "299\n000,-" (space/newline thousands + ",-") and "135.000,- zł"
+//     (dot thousands) both occur; grosze form "450 000,00 zł" seen on land.
+//   * Announcement table: the "Cena wywoławcza w zł" header is ~1.5 kB away from
+//     its value cell, so the announcement price is the FIRST ",-"-suffixed
+//     amount in the document (price column precedes the wadium column).
+//   * Round: Roman numeral before "przetarg…" ("VII przetarg", "VI przetargu").
+//     Case-sensitive so "i przetarg" (conjunction) never matches. Land results
+//     sometimes spell it out ("trzecim przetargu") — round null is acceptable.
+//   * Unsold signals: "wynikiem negatywnym", "Najwyższa cena … – brak",
+//     "brak wpłaconego wadium".
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -42,20 +59,23 @@ const PL_MONTH = {
 
 // ---------------------------------------------------------------- helpers
 
-/** "299 000,-" / "450 000,00 zł" / "299000" → integer PLN or null. */
+/**
+ * "299\n000" / "135.000" / "450 000,00" / "299 000,-" → integer PLN or null.
+ * Handles space/NBSP/newline thousands (catdoc wraps table cells), dot
+ * thousands, a ",-" suffix, and a ",NN" grosze tail.
+ */
 export function parsePLN(numStr) {
   if (!numStr) return null;
-  // Strip thousands separators (space or non-breaking space), grosze tail
   const s = String(numStr)
-    .replace(/ /g, ' ')
-    .replace(/\s/g, '')
+    .replace(/[\s ]/g, '')  // space/NBSP/newline thousands
     .replace(/,-$/, '')          // "299000,-" suffix
-    .replace(/,\d{2}$/, '');    // "450000,00" grosze tail
-  const n = Number(s.replace(/\./g, ''));
+    .replace(/,\d{2}$/, '')      // "450000,00" grosze tail
+    .replace(/\./g, '');         // "135.000" dot thousands
+  const n = Number(s);
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** "94,29" / "94.29" → float or null. */
+/** "94,29" / "53.27" → float or null. */
 function parseNum(s) {
   if (s == null) return null;
   const n = Number(String(s).replace(/\s/g, '').replace(',', '.'));
@@ -66,7 +86,7 @@ function parseNum(s) {
 
 const ROMAN = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
 
-/** "VII" → 7, "II" → 2. Returns null on unknown token. */
+/** "VII" → 7, "II" → 2. Returns null on a non-Roman token. */
 export function romanToInt(s) {
   if (!s || !/^[IVXLCDM]+$/.test(s)) return null;
   let total = 0;
@@ -79,60 +99,60 @@ export function romanToInt(s) {
 }
 
 /**
- * Round from "VII przetarg ustny nieograniczony" pattern. Roman numerals only
- * (case-sensitive so conjunction "i" and ordinals "in" are never mis-matched).
- * The first occurrence wins (the stated round, before any history recaps).
+ * Round from "VII przetarg ustny…" / "VI przetargu ustnego…". CASE-SENSITIVE
+ * (uppercase Roman only) so the conjunction "i przetarg" and spelled-out
+ * ordinals never match. First occurrence wins — in both document types the
+ * stated round precedes any prior-round recap ("Pierwszy przetarg … odbył się").
  */
 export function roundFromText(text) {
-  const m = /\b([IVXLCDM]{1,6})\s+przetarg\w*/i.exec(text || '');
-  if (!m) return null;
-  // Reject if the matched token is all-lower (not a real Roman numeral heading)
-  if (m[1] !== m[1].toUpperCase()) return null;
-  return romanToInt(m[1]);
+  const m = /(?:^|[\s(,–—-])([IVXLCDM]{1,7})\s+przetarg/.exec(text || '');
+  return m ? romanToInt(m[1]) : null;
 }
 
 // ---------------------------------------------------------------- doc-type gate
 
 /**
- * Result notice gate. Bydgoszcz result DOCXes open with:
- * "podaje do publicznej wiadomości informację o wynikach przeprowadzonych przetargów"
- * or the shorter inline variant:
- * "informację o wyniku … przetargu"
+ * Result-notice gate. Bydgoszcz result DOCXes read:
+ *   "podaje do publicznej wiadomości informację o wyniku przeprowadzonego …"
+ * (occasionally "o wynikach przeprowadzonych"). Announcements say "ogłasza …
+ * przetarg" and never contain the phrase.
  */
 export function isResultNotice(text) {
-  return /informacj[ęą]?\s+o\s+wynik(?:u|ach)/i.test(text || '');
+  return /informacj[ęea]*\s+o\s+wynik(?:u|ach)/i.test(text || '');
 }
 
 // ---------------------------------------------------------------- dates
 
 /**
- * Announcement auction date: "Przetarg odbędzie się … w dniu 09 lipca 2026 r."
- * Anchored on future-tense "odbędzie się" so prior-round recap dates are skipped.
+ * Announcement auction date: "Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy
+ * przy ul. Jezuickiej 2 w Sali Łochowskiego (parter) w dniu 09 lipca 2026 r."
+ * The venue clause between "odbędzie się" and "w dniu" is ~84 chars → window 160.
+ * Future-tense anchor skips the prior-round recap ("odbył się w dniu 28.02.2025").
  */
 export function auctionDateFromAnn(text) {
   const t = text || '';
-  // Future-tense anchor
-  let m = /odb[ęe]dzie\s+si[ęe][\s\S]{0,60}?w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
+  // Spelled-out month (the live format)
+  let m = /odb[ęe]dzie\s+si[ęe][\s\S]{0,160}?w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (m) {
     const mo = PL_MONTH[m[2].toLowerCase()];
     if (mo) return `${m[3]}-${String(mo).padStart(2, '0')}-${String(m[1]).padStart(2, '0')}`;
   }
-  // Fallback: numeric date in future-tense context
-  m = /odb[ęe]dzie\s+si[ęe][\s\S]{0,60}?(\d{1,2})\.(\d{2})\.(\d{4})/i.exec(t);
+  // Numeric fallback
+  m = /odb[ęe]dzie\s+si[ęe][\s\S]{0,160}?w\s+dniu\s+(\d{1,2})\.(\d{2})\.(\d{4})/i.exec(t);
   if (m) return `${m[3]}-${m[2]}-${String(m[1]).padStart(2, '0')}`;
   return null;
 }
 
 /**
- * Result notice date: "przeprowadzonych w dniu 18.06.2026 r." (numeric)
- * or rarely spelled-out "przeprowadzonego w dniu 18 czerwca 2026 r."
+ * Result-notice auction date:
+ *   "informację o wyniku przeprowadzonego w dniu 26.06.2026r. …"   (numeric,
+ *    often NO space before "r.") or
+ *   "przeprowadzonego w dniu  25 czerwca  2026 r." (spelled month, doubled spaces).
  */
 export function resultDateFromText(text) {
   const t = text || '';
-  // Numeric: DD.MM.YYYY
   let m = /przeprowadzon\w+\s+w\s+dniu\s+(\d{1,2})\.(\d{2})\.(\d{4})/i.exec(t);
   if (m) return `${m[3]}-${m[2]}-${String(m[1]).padStart(2, '0')}`;
-  // Spelled-out month
   m = /przeprowadzon\w+\s+w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (m) {
     const mo = PL_MONTH[m[2].toLowerCase()];
@@ -143,119 +163,108 @@ export function resultDateFromText(text) {
 
 // ---------------------------------------------------------------- prices
 
+const AMOUNT = '(\\d(?:[\\d\\s\\u00a0.]*\\d)?)'; // digits with space/NBSP/newline/dot separators
+
 /**
- * Starting price from announcement DOC table or result DOCX body.
- * Patterns seen:
- *   "Cena wywoławcza w zł … 299 000,-"  (table, after header)
- *   "Cena wywoławcza nieruchomości: … 450 000,00 zł"
- *   "cena wywoławcza … wynosiła NNN zł"
- * Scans a generous window after the "cena wywoławcza" label.
+ * Starting price.
+ *   Result DOCX:      "Cena wywoławcza nieruchomości: 135.000,- zł"
+ *   Land result:      "… o pow.0,1025 ha - 450 000,00 zł" after the label
+ *   Announcement DOC: table — the "Cena wywoławcza w zł" HEADER is far (~1.5 kB)
+ *     from the value cell, so fall back to the FIRST ",-"-suffixed amount in the
+ *     whole text ("299\n000,-" precedes the wadium "30 000,-": the price column
+ *     comes first). Verified: no earlier ",-" token exists in the live DOCs.
  */
 export function startingPriceFromText(text) {
   const t = text || '';
-  // Try label + amount in bounded window (300 chars covers multi-line table)
-  const m = /cena\s+wywo[łl]awcza[\s\S]{0,300}?(\d[\d  .]*(?:,\d{2})?)\s*(?:zł|,-)/i.exec(t);
+  // 1) Labelled with colon (result notices)
+  let m = new RegExp(`cena\\s+wywo[łl]awcza\\s+nieruchomo[śs]ci\\s*:\\s*${AMOUNT}(?:,(?:\\d{2}|-))?\\s*z[łl]`, 'i').exec(t);
+  if (m) return parsePLN(m[1]);
+  // 2) Labelled, amount within a bounded window ending in zł/,- (land results)
+  m = new RegExp(`cena\\s+wywo[łl]awcza[\\s\\S]{0,300}?${AMOUNT}(?:,(?:\\d{2}|-))?\\s*z[łl]`, 'i').exec(t);
+  if (m) return parsePLN(m[1]);
+  // 3) Announcement table: first ",-"-suffixed amount in the document
+  m = new RegExp(`${AMOUNT},-`).exec(t);
   return m ? parsePLN(m[1]) : null;
 }
 
 /**
- * Achieved price from result DOCX:
- *   "Najwyższa cena osiągnięta w przetargu – NNN NNN,00 zł"
- *   "Najwyższa cena osiągnięta w przetargach – NNN NNN,00 zł"
- * Returns null when "– brak" (unsold).
+ * Achieved price from a result DOCX:
+ *   "Najwyższa cena osiągnięta w przetargu – 142.000,- zł"  (sold)
+ *   "Najwyższa cena osiągnięta w przetargu – brak"          (unsold → null)
  */
 export function achievedPriceFromText(text) {
   const t = text || '';
-  const m = /[Nn]ajwy[żz]sza\s+cena\s+osi[ąa]gni[ęe]ta\s+w\s+przetarg\w*\s*[–—-]\s*(\d[\d  .]*(?:,\d{2})?)\s*zł/i.exec(t);
+  const m = new RegExp(
+    `najwy[żz]sza\\s+cena\\s+osi[ąa]gni[ęe]ta\\s+w\\s+przetarg\\w*\\s*[–—:-]\\s*${AMOUNT}(?:,(?:\\d{2}|-))?\\s*z[łl]`,
+    'i',
+  ).exec(t);
   return m ? parsePLN(m[1]) : null;
 }
 
-/** True when the DOCX explicitly says the auction produced no buyer. */
+/** True when the notice explicitly states the auction found no buyer. */
 function isUnsold(text) {
   const t = text || '';
   return /wynikiem\s+negatywnym/i.test(t) ||
-    /[Nn]ajwy[żz]sza\s+cena[\s\S]{0,40}–\s*brak/i.test(t) ||
-    /[Nn]abywc\w+[\s\S]{0,20}–\s*brak/i.test(t) ||
-    /brak\s+(?:wp[łl]aconych\s+)?wadi[óo]w/i.test(t);
+    /najwy[żz]sza\s+cena[\s\S]{0,60}?[–—-]\s*brak/i.test(t) ||
+    /brak\s+wp[łl]acon\w+\s+wadi/i.test(t) ||
+    /nie\s+odnotowano\s+wp[łl]at/i.test(t);
 }
 
 // ---------------------------------------------------------------- area
 
 /**
- * Usable floor area of a flat from the announcement DOC table cell.
- * Bydgoszcz uses comma-decimal: "94,29 m2" or "94,29 m²".
- * Anchored on "powierzchni użytkow" to skip the piwnica/plot area.
+ * Usable floor area of the flat. Live formats: "94,29 m2" · "38,04m2" ·
+ * "o pow. 53,27m2". The flat area is the FIRST decimal-comma m² amount — plot
+ * areas are integers ("pow.778 m 2", "322m2") and never match the decimal
+ * requirement; piwnica/przynależne areas come after the flat area, and the
+ * context guard skips them defensively if a document ever reorders.
  */
 export function unitAreaFromText(text) {
   const t = text || '';
-  // Labelled "powierzchni użytkowej/użytkowa … N m2"
-  let m = /powierzchni\w*\s+u[żz]ytkow\w*[^0-9]{0,30}?(\d+[.,]\d+|\d+)\s*m\s*[²2]/i.exec(t);
-  if (m) return parseNum(m[1]);
-  // Standalone "94,29 m2" in the table — pick the FIRST occurrence that isn't
-  // a plot area (plot has "ha" before or "działka" context)
-  const re = /(\d{1,3}[.,]\d{1,2})\s*m\s*2(?!\d)/g;
-  let best = null;
-  let n;
-  while ((n = re.exec(t)) !== null) {
-    const before = t.slice(Math.max(0, n.index - 50), n.index);
-    if (/ha\b|dzia[łl]k|grunt|przynale[żz]/i.test(before)) continue;
-    const v = parseNum(n[1]);
-    if (v && v > 0) { best = v; break; }
+  const re = /(\d{1,3}[.,]\d{1,2})\s*m\s*[²2](?!\d)/g;
+  let m;
+  while ((m = re.exec(t)) !== null) {
+    const before = t.slice(Math.max(0, m.index - 22), m.index);
+    if (/piwnic|przynale[żz]|kom[óo]rk|\bwc\b|\bha\b/i.test(before)) continue;
+    const v = parseNum(m[1]);
+    if (v) return v;
   }
-  return best;
+  return null;
 }
 
 // ---------------------------------------------------------------- address
 
 /**
- * Property address from the announcement DOC.
- * Bydgoszcz uses two patterns:
- *   "lokal mieszkalny nr 2 … przy ul. Henryka Sienkiewicza 37"
- *   "ul. <street> <num>" (header line in the table)
- *
- * Strategy: look for "przy ul." first (most reliable for flat announcements),
- * then fall back to the opening "ul." line. The table header "lokal … nr N"
- * gives the apartment number.
+ * Property address. MUST be anchored on "położon…" — the auction venue
+ * ("… w Urzędzie Miasta Bydgoszczy przy ul. Jezuickiej 2 …") and the WMG office
+ * ("ul. Grudziądzka 9-15") appear in every document. Live property patterns:
+ *   announcement: "budynku położonym przy\n\nul. Henryka Sienkiewicza 37 w Bydgoszczy"
+ *   result:       "położonego w Bydgoszczy przy ul. Chodkiewicza 2, o pow. …"
+ * The unit number comes from "lokal mieszkalny nr 2" / "lokalu mieszkalnego nr 1".
  */
 export function addressRawFromText(text) {
   const t = (text || '').replace(/\r/g, '');
 
-  // Unit number: "lokal mieszkalny nr N" / "nr N" standalone in table context
-  const unitM = /lokal\w*\s+(?:mieszkaln\w+|u[żz]ytkow\w+|niemieszkalnw+)?\s*nr\s+(\d+[A-Za-z]?)/i.exec(t);
+  const unitM = /lokal\w*\s+(?:mieszkaln\w+|u[żz]ytkow\w+|niemieszkaln\w+)\s+nr\s+(\d+[A-Za-z]?)/i.exec(t);
   const unit = unitM ? unitM[1] : null;
 
-  // 1) "przy ul. <street> <num>" pattern (announcement body)
-  const byulRe = /przy\s+ul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.''\- ]+?)\s+(\d+[A-Za-z]?)\b/;
-  const bm = byulRe.exec(t);
-  if (bm) {
-    const street = bm[1].replace(/\s+/g, ' ').trim();
-    const bldg = bm[2];
-    return unit ? `ul. ${street} ${bldg}/${unit}` : `ul. ${street} ${bldg}`;
-  }
-
-  // 2) Opening "ul. <street> <num>" line (announcement heading / table row)
-  const ulRe = /\bul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.''\- ]+?)\s+(\d+[A-Za-z]?)\b/;
-  const um = ulRe.exec(t);
-  if (um) {
-    const street = um[1].replace(/\s+/g, ' ').trim();
-    const bldg = um[2];
-    return unit ? `ul. ${street} ${bldg}/${unit}` : `ul. ${street} ${bldg}`;
-  }
-
-  return null;
+  const m = /po[łl]o[żz]on\w+[\s\S]{0,40}?\bul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'\- ]+?)\s+(\d+[A-Za-z]?)\b/.exec(t);
+  if (!m) return null;
+  const street = m[1].replace(/\s+/g, ' ').trim();
+  const bldg = m[2];
+  return unit ? `ul. ${street} ${bldg}/${unit}` : `ul. ${street} ${bldg}`;
 }
 
-/** Kind from a bounded slice of the announcement text. */
+/** Kind from a bounded slice (headers + the object clause come first). */
 function kindFromText(text) {
-  return classifyKind((text || '').slice(0, 1200));
+  return classifyKind((text || '').slice(0, 1500));
 }
 
 // ---------------------------------------------------------------- announcement parse
 
 /**
- * Parse one announcement DOC (converted by doc-text.js catdoc/unzip branch).
- * Single flat/land per DOC. Returns a record or null.
- * @param {string} text  catdoc or OOXML-unzip extracted text
+ * Parse one announcement DOC (doc-text.js catdoc output). One flat per DOC.
+ * @param {string} text
  * @returns {object|null}
  */
 export function parseAnnouncement(text) {
@@ -267,7 +276,7 @@ export function parseAnnouncement(text) {
   const starting_price_pln = startingPriceFromText(t);
 
   if (kind === 'grunt') {
-    // Land / nieruchomość gruntowa — address keyed differently; return minimal record
+    // Land announcements are crawled but not wired into the flat stream.
     return { kind: 'grunt', starting_price_pln, auction_date, round };
   }
 
@@ -275,12 +284,11 @@ export function parseAnnouncement(text) {
   if (!address_raw) return null;
   const address = parseAddress(address_raw);
   if (!address) return null;
-  const area_m2 = unitAreaFromText(t);
   return {
     kind: kind === 'unknown' ? 'mieszkalny' : kind,
     address_raw,
     address,
-    area_m2,
+    area_m2: unitAreaFromText(t),
     starting_price_pln,
     auction_date,
     round,
@@ -290,11 +298,11 @@ export function parseAnnouncement(text) {
 // ---------------------------------------------------------------- result parse
 
 /**
- * Parse one result DOCX body (extracted by doc-text.js unzip branch).
- * The achieved price and outcome live in the DOCX (NOT in the HTML body).
- * Single property per DOCX (one flat or land parcel-set).
- * @param {string} text  OOXML-extracted text
- * @param {string|null} fallbackDate
+ * Parse one result DOCX body (doc-text.js unzip branch). The achieved price
+ * lives ONLY in the DOCX — never in the article HTML. One property per DOCX.
+ * Registry contract: parseResultDoc(text, fallbackDate, sourceUrl).
+ * @param {string} text
+ * @param {string|null} fallbackDate  article publication date (crawl fallback)
  * @param {string} sourceUrl  DOCX download URL
  * @returns {Array<object>}  0 or 1 record
  */
@@ -303,6 +311,11 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const t = (text || '').replace(/\r/g, '');
   const notes = [];
 
+  const kind = kindFromText(t);
+  // Land results are crawled (crawlResultDocs includes them) but are
+  // parcel-keyed — out of scope for the address-keyed property stream.
+  if (kind === 'grunt') return [];
+
   const auction_date = resultDateFromText(t) || fallbackDate || null;
   const round = roundFromText(t);
   const starting_price_pln = startingPriceFromText(t);
@@ -310,25 +323,8 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const sold = achieved != null;
   const negativeStated = isUnsold(t);
 
-  const kind = kindFromText(t);
-
-  // Land result: no address key, skip for property stream
-  // (land results are logged but don't produce address-keyed records)
-  if (kind === 'grunt') {
-    if (starting_price_pln == null) notes.push('parse: missing starting price (grunt)');
-    if (!sold && !negativeStated) notes.push('parse: no achieved price and no explicit negative outcome');
-    // Land results are out-of-scope for the flat-auction stream; return []
-    // so refresh.js does not add them to properties.json. They are still
-    // crawled (crawlResultDocs includes them) — a future land.json stream
-    // can be wired up. For now: log and skip.
-    return [];
-  }
-
   const address_raw = addressRawFromText(t);
-  if (!address_raw) {
-    notes.push('parse: could not extract address from result DOCX');
-    return [];
-  }
+  if (!address_raw) return [];
   const address = parseAddress(address_raw);
   if (!address) return [];
   if (address.warning) notes.push(address.warning);

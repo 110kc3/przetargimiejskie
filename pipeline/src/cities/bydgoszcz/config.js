@@ -6,11 +6,13 @@
 // Board URL: https://bip.um.bydgoszcz.pl/artykuly/1208/
 // Pagination:  /artykuly/1208/{page}/{per_page}/ogloszenia-o-przetargach-na-zbycie-nieruchomosci
 //
-// Article attachment layout (groundtruthed 2026-06-27):
+// Article attachment layout (groundtruthed live 2026-07-06):
 //   Announcement article: PDF (scanned/image — pdftotext yields empty) + DOC (born-digital
 //     OLE Word; catdoc extracts text cleanly) + optional rzut/floor-plan PDF.
-//   Result article:  DOCX only (20-50 kB, born-digital OOXML); achieved price is
+//   Result article:  PDF + DOCX (15-20 kB, born-digital OOXML); achieved price is
 //     inside the DOCX, NOT in the HTML body — this is the key structural wrinkle.
+//   Word attachments are selected by the `class="files textWord"` span (the
+//     extension label text is unreliable — seen empty on live result articles).
 //
 // `source: 'html'` — the adapter downloads and parses its own attachments (DOC via
 // catdoc/doc-text.js; DOCX via unzip — both handled transparently by doc-text.js).

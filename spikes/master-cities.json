@@ -267,13 +267,13 @@
       "powiat_slug": "bydgoszcz",
       "powiat_label": "Bydgoszcz (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "BUILD-ready — adapter generated 2026-06-27 was CORRUPTED by sandbox mount-sync (truncated parse.js → 3 failing announcement tests). UNREGISTERED + test stubbed; needs a CLEAN REBUILD. Logonet bip.um.bydgoszcz.pl/artykuly/1208, DOCX achieved price."
+        "note": "BUILT (clean rebuild 2026-07-06 after June mount-corruption): crawl+parse rewritten against live Logonet board bip.um.bydgoszcz.pl/artykuly/1208 (absolute hrefs, textWord attachment class), 18 groundtruthed tests; live smoke: 3 active flats + 4 result docs. DOCX/DOC achieved price."
       }
     },
     {
@@ -747,13 +747,13 @@
       "powiat_slug": "gorzow-wielkopolski",
       "powiat_label": "Gorzów Wielkopolski (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
       "spike": {
         "wave": "A",
         "effort": "Medium",
         "confidence": "LIVE",
-        "note": "BUILD-ready — adapter generated 2026-06-27 was CORRUPTED by sandbox mount-sync (test file failed to load). Not registered + test stubbed; needs a CLEAN REBUILD. bip.um.gorzow.pl born-digital PDFs both streams."
+        "note": "BUILT (clean rebuild 2026-07-06 after June mount-corruption): crawl+parse rewritten against bip.um.gorzow.pl (pagination /320/{page}/status/{s}); batch-table PDF parser + OCR fallback (psm 1 for rotated EZD scans), 33 groundtruthed tests; live smoke: 25 active. Broken-font PDFs drop diacritic streets (rows skipped by design)."
       }
     },
     {
@@ -853,13 +853,13 @@
       "powiat_slug": "powiat-dabrowski",
       "powiat_label": "powiat dąbrowski",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md",
       "spike": {
         "wave": "Q",
-        "effort": "Low",
-        "confidence": "DESK",
-        "note": "Flats at ustny przetarg (Lwowska 65/10, III przetarg Dec 2025); dabrowatar.pl WordPress REST API + bip.malopolska.pl (JS); no wyniki article found yet; ~1/yr"
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: dabrowatar.pl (WP, REST API now 401) + bip.malopolska.pl (JS-only skeleton via fetch); 1 flat total 2024-26 (Lwowska 65/10, 3 rounds 2025), no wyniki stream 7mo post-auction — fails volume heuristic."
       }
     },
     {
@@ -895,13 +895,13 @@
       "powiat_slug": "nowy-sacz",
       "powiat_label": "Nowy Sącz (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md",
       "spike": {
         "wave": "A",
         "effort": "—",
-        "confidence": "DESK",
-        "note": "Occasional flat auctions (1 confirmed Apr 2024, WGN); low volume, tenant-sale dominant; bip.malopolska SPA render to confirm live"
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: JSON-API crawl of full BIP board (508 arts, 2021-2026) — 1 flat-auction event ever (3 flats, Apr 2024), 0 since; tenant-sale dominant. SIDAS JSON API documented in spike for platform reuse."
       }
     },
     {
@@ -1053,13 +1053,13 @@
       "powiat_slug": "powiat-gostyninski",
       "powiat_label": "powiat gostyniński",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md",
       "spike": {
         "wave": "Q",
-        "effort": "Low",
-        "confidence": "DESK",
-        "note": "Burmistrz ustny przetarg na lokal mieszkalny (Wojska Polskiego 28B/83, 2024) alongside bezprzetargowo; umgostynin.bip.org.pl/index//id/4667 HTML + text PDF wykazy; result-notice format (HTML vs scan) unconfirmed — 1 live session resolves; ~2-5/yr"
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: 1 flat total 2024-26 (WP 28B/83, 2x negative, 3rd result unpublished); BIP przetargi module dead; announcements + HTML §12 results only in gostynin.pl mixed news feed; flats bezprzetargowo to tenants."
       }
     },
     {
@@ -1335,13 +1335,13 @@
       "powiat_slug": "powiat-kluczborski",
       "powiat_label": "powiat kluczborski",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "build",
       "path": "spikes/opolskie/powiat-kluczborski/kluczbork.md",
       "spike": {
         "wave": "Q",
         "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Gmina ustny przetarg na lokale mieszkalne (Zamkowa 15/14 Nov 2025, Curie 3 Jan 2026); bip.kluczbork.eu/452 announcements + /690 results + /453 wykazy HTML; achieved-price HTML-vs-PDF unconfirmed (rate-limited); ~3-6/yr"
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: all 3 boards live (bip.kluczbork.eu /452 /690 /453); flats recur 2024-26 (~1-3/yr, re-listed 06.2026); PDF-attachment-only but text-layer (pdftotext OK, diacritics lossy)."
       }
     },
     {
@@ -1351,13 +1351,13 @@
       "powiat_slug": "powiat-krapkowicki",
       "powiat_label": "powiat krapkowicki",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md",
       "spike": {
         "wave": "Q",
-        "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Gmina ustny przetarg na lokale mieszkalne (~325-unit stock); bip.krapkowice.pl/2571 announcements + /16579 results board HTML + text PDFs; unknowns: achieved-price inline vs PDF, 2025-26 board active?; ~2-6/yr"
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: boards active + prices inline HTML, but land-only — zero lokal-mieszkalny auctions 2023–2026; flats go bezprzetargowo to tenants."
       }
     },
     {
@@ -1441,13 +1441,13 @@
       "powiat_slug": "powiat-jasielski",
       "powiat_label": "powiat jasielski",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/podkarpackie/powiat-jasielski/jaslo.md",
       "spike": {
         "wave": "Q",
-        "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Borderline: 1 flat auction was pisemny (sealed) not ustny; dominant mode bezprzetargowo to tenants (1998 resolution); ≤1 flat auction/yr; um.jaslo.pl + um_jaslo.bip.gov.pl clean HTML; needs 3-yr BIP audit to confirm ustny flat volume"
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: 3-yr audit — 0 flat auctions 2023–2026 (only ever one, pisemny, 2020); flats bezprzetargowo to tenants; ustny stream is land/shares only."
       }
     },
     {
@@ -1489,13 +1489,13 @@
       "powiat_slug": "powiat-leski",
       "powiat_label": "powiat leski",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/podkarpackie/powiat-leski/lesko.md",
       "spike": {
         "wave": "Q",
-        "effort": "Low",
-        "confidence": "DESK",
-        "note": "Gmina ustny przetarg na lokale mieszkalne (Smolki 7/91 4th round 2024-25); bip.lesko.pl dobrybip /lista/gospodarka-nieruchomosciami HTML; result/wynik board needs 1 live visit; ~1-3/yr"
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: 20-month board walk — zero wynik posts on bip.lesko.pl (legacy result module dead), ~1-2 distinct flats/yr mostly unsold re-lists; no achieved-price stream."
       }
     },
     {
@@ -1553,13 +1553,13 @@
       "powiat_slug": "rzeszow",
       "powiat_label": "Rzeszów (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/podkarpackie/rzeszow/rzeszow.md",
       "spike": {
         "wave": "A",
         "effort": "—",
-        "confidence": "LIVE/DESK",
-        "note": "BGM active land auctions (results inline); flat auctions historical (2017) but absent 2024-26 — page archive to count first"
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: full 28-page BGM archive crawl — 2 flat auctions in 140 entries (2023+2024), 0 in 2025-26; tenant sales halted by resolution 2022; land-only stream."
       }
     },
     {
@@ -2351,13 +2351,13 @@
       "powiat_slug": "powiat-konecki",
       "powiat_label": "powiat konecki",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "build",
       "path": "spikes/swietokrzyskie/powiat-konecki/konskie.md",
       "spike": {
         "wave": "Q",
-        "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Gmina ustny przetarg na lokale mieszkalne (Warsztatowa 2B 2nd round, May 2026); dual bip.umkonskie.pl/wiadomosci/5027 + umkonskie.pl mirror; HTML + PDF attachments (text vs scan TBD); no dedicated results board; ~2-5/yr"
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: idcom-jst BIP (Giżycko/Tczew clone), born-digital text PDFs, results as titled entries on same board 5027; recurring since 2016 but lowest-volume tier (0 events 2024)."
       }
     },
     {
@@ -2607,13 +2607,13 @@
       "powiat_slug": "powiat-chodzieski",
       "powiat_label": "powiat chodzieski",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "build",
       "path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md",
       "spike": {
         "wave": "Q",
-        "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Sells flats ustny przetarg (multi-year confirmed); bip.chodziez.pl JS-rendered (empty body w/o JS) → needs render.js; result-page URL pattern unconfirmed; ~1-4/yr"
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: plain-fetch WOKISS boards (needsRender:false — desk \"JS-rendered\" false); 3 flats live 2026; wyniki at /<YYYY>/wyniki-przetargow.html but 7-day-lived — poll weekly (RSS available)."
       }
     },
     {
@@ -2895,13 +2895,13 @@
       "powiat_slug": "powiat-choszczenski",
       "powiat_label": "powiat choszczeński",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "build",
       "path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md",
       "spike": {
         "wave": "Q",
-        "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Flats at ustny przetarg confirmed (Rycerska 2/4 rounds I-III 2024-25); bip.choszczno.pl fetch blocked (empty body) → Chrome/render; no results board found; ~1-3/yr"
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: not blocked — desk failure was an unfollowed 301; plain-HTTP year-board scrape, OCR-layer PDFs, results PDF in same article (Rycerska 2/4 sold 236 900 zł 2026-03); ~1 flat/1-2yrs."
       }
     },
     {
@@ -2943,13 +2943,13 @@
       "powiat_slug": "powiat-gryficki",
       "powiat_label": "powiat gryficki",
       "type": "land-powiat-seat",
-      "status": "verify",
+      "status": "no-build",
       "path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md",
       "spike": {
         "wave": "Q",
-        "effort": "Medium",
-        "confidence": "DESK",
-        "note": "Gmina ustny przetarg na lokale mieszkalne confirmed; bip.gminagryfice.pl SIDAS blocks ALL web_fetch (5/5 timeout) → must confirm Chrome MCP renders before BUILD; announcements /artykul/ogloszenia-burmistrza..., results /strony/11870.dhtml text PDFs; ~4-8/yr"
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Re-verified 2026-07-06: no open flat-auction stream — flats bezprzetargowo to tenants; 2024-26 auctions land+commercial; BIP 403 anti-bot but gryfice.eu mirror plain-fetchable, moot."
       }
     },
     {

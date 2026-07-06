@@ -23,9 +23,16 @@ const TESS_ENV = process.env.TESSDATA_PREFIX
  * Returns the OCR text for a result PDF, hitting cache when possible.
  * Cache file lives at pipeline/ocr-cache/<filename>.<hash>.txt and is committed.
  * @param {string} pdfUrl
- * @param {{ userAgent?: string, insecureTLS?: boolean }} [opts]  optional
- *        browser-like UA / relaxed TLS for hosts that gate the bot UA
- *        (e.g. bip.swietochlowice.pl) — forwarded to getBytes.
+ * @param {{ userAgent?: string, insecureTLS?: boolean, psm?: number }} [opts]
+ *        userAgent/insecureTLS: browser-like UA / relaxed TLS for hosts that
+ *        gate the bot UA (e.g. bip.swietochlowice.pl) — forwarded to getBytes.
+ *        psm: tesseract page-segmentation mode. Default 3 (fully automatic, no
+ *        orientation detection). Cities whose scans arrive ROTATED (e.g. Gorzów
+ *        EZD prints, OSD reports 270°) must pass 1 (auto + OSD) or the OCR
+ *        returns garbage; psm 1 needs osd.traineddata (present in CI's
+ *        tesseract-ocr package). Not flipped globally: psm 3 output for the
+ *        upright-scan cities is already committed in ocr-cache and revalidating
+ *        all of them for a no-op is not worth it.
  * @returns {Promise<string>}
  */
 export async function ocrPdf(pdfUrl, opts = {}) {
@@ -64,7 +71,7 @@ async function ocrPdfFresh(pdfUrl, opts = {}) {
       const out = join(work, png.replace(/\.png$/, ''));
       execFileSync(
         'tesseract',
-        [join(work, png), out, '-l', 'pol', '--psm', '3'],
+        [join(work, png), out, '-l', 'pol', '--psm', String(opts.psm || 3)],
         { stdio: ['ignore', 'ignore', 'pipe'], env: TESS_ENV },
       );
       pages.push(await readFile(out + '.txt', 'utf8'));
