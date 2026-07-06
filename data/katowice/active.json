@@ -3,6 +3,64 @@
   "city": "katowice",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Gliwickiej 6/7",
+      "address": {
+        "street": "Gliwickiej",
+        "street_norm": "gliwickiej",
+        "building": "6",
+        "apt": "7",
+        "key": "gliwickiej|6|7",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "area_m2": 67.52,
+      "starting_price_pln": 440000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152830&menu=679",
+      "wadium_deadline": "2026-09-07",
+      "viewing_date": "2026-09-07"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Skłodowskiej - Curie 21/1",
+      "address": {
+        "street": "Skłodowskiej - Curie",
+        "street_norm": "sklodowskiej curie",
+        "building": "21",
+        "apt": "1",
+        "key": "sklodowskiej curie|21|1",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "area_m2": 64.21,
+      "starting_price_pln": 600000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152831&menu=679",
+      "wadium_deadline": "2026-09-07",
+      "viewing_date": "2026-09-07"
+    },
+    {
+      "kind": "zabudowana",
+      "round": 1,
+      "address_raw": "Grottgera 39",
+      "address": {
+        "street": "Grottgera",
+        "street_norm": "grottgera",
+        "building": "39",
+        "apt": null,
+        "key": "grottgera|39|",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "area_m2": null,
+      "land_area_m2": 156.99,
+      "starting_price_pln": 700000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152832&menu=679",
+      "wadium_deadline": "2026-09-07",
+      "viewing_date": "2026-09-07"
+    },
+    {
       "kind": "zabudowana",
       "round": 3,
       "address_raw": "Borowej 30",
