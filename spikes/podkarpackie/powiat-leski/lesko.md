@@ -1,5 +1,5 @@
 # Spike — Lesko (Podkarpackie · powiat leski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Low effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: NO-BUILD (no achieved-price stream; ~1-2 distinct flats/yr, mostly unsold repeat rounds).
 
 ## TL;DR
 Gmina Lesko sells municipal flats via *ustny przetarg nieograniczony na sprzedaż* — confirmed by a residential unit (ul. Smolki 7/91) that went through at least 4 auction rounds in 2024–2025, with a starting price of 210,000 PLN. Published on the standard dobrybip.pl BIP at `bip.lesko.pl`. Volume is low (small town, ~5,500 residents, ~1–3 flat auctions/year). Achieved-price result posts not confirmed in search — live check of the BIP result board needed before committing the adapter.
@@ -39,4 +39,24 @@ Gmina Lesko sells municipal flats via *ustny przetarg nieograniczony na sprzeda�
 - **Blockers:**
   1. Achieved-price result posts not confirmed — need one live BIP visit to `/lista/gospodarka-nieruchomościami` to confirm wynik entries exist with final prices before building the result-harvesting half of the adapter.
   2. Volume is low; may not justify a standalone adapter unless bundled with other powiat-leski gminas.
-- **Verdict: NEEDS-LIVE-VERIFY** — flat auctions are real and the BIP is scrape-friendly, but the result/price stream requires one live confirmation before BUILD.
+- **Verdict: NEEDS-LIVE-VERIFY** — flat auctions are real and the BIP is scrape-friendly, but the result/price stream requires one live confirmation before BUILD. *(superseded — see Re-verify 2026-07-06 below)*
+
+## Re-verify 2026-07-06 (LIVE)
+
+Live checks against `bip.lesko.pl` resolved all three open items:
+
+**1. List URL works, server-rendered.** `https://bip.lesko.pl/lista/gospodarka-nieruchomosciami` renders as plain HTML (dobrybip.pl), 10 entries/page, 7 pages. Pagination is path-based: `/lista/gospodarka-nieruchomosciami/2` … `/7` (a `?page=N` query param is ignored). Detail pages are inline HTML with the terms in a table + PDF attachments (e.g. Waryńskiego 17 building: cena wywoławcza 190 000 PLN, wadium 19 000 PLN, auction 2026-06-12) — format confirmed scrape-friendly.
+
+**2. Result/wynik board: DOES NOT EXIST.** Walked board pages 1–3 covering **Sep 2024 → May 2026 (~20 months)**: every entry is an "ogłasza … przetarg ustny nieograniczony" announcement (or one odwołanie/cancellation) — **zero "informacja o wyniku przetargu" posts**. BIP label search for `wynik` / `wynik przetargu` returns "Nie znaleziono dokumentów". No `/lista/przetargi` board (404); `/lista/ogloszenia` carries only obwieszczenia (building-condition decisions), no results. A legacy result-module URL surfaced by Google (`/?c=mdPrzetargi-cmPokazWynik-375-1020`) just falls through to the BIP homepage — dead old-CMS module. Result info evidently stays on the physical office notice board only. **No achieved-price stream on this BIP.**
+
+**3. Recurring flat volume 2024–2026: very low, mostly the same unsold objects re-listed.** Distinct residential objects seen across the 20-month window:
+- **Smolki 7/91 flat** — rounds II (2025-03-18), ~III (2025-06-27), IV (2025-09-24), V (2025-12-01), still re-listed 2026-03-30: one flat cycling unsold for over a year.
+- **Bieszczadzka 6 multi-family building** — 2024-09-20, 2024-11-29 (repeat rounds), 2025-03-28 (second auction).
+- **Waryńskiego 17 residential building (poor condition)** — drugi przetarg 2026-05-12.
+- One mixed "lokale użytkowe i mieszkalne" announcement 2024-12-20.
+
+Net: ~1–2 *distinct* residential objects per year, high re-list ratio, low sale completion — and even completed sales leave no published hammer price.
+
+**Conclusion:** the announcement stream is real and technically trivial to scrape (dobrybip analog), but the project's core deliverable — achieved/hammer prices — cannot be harvested here, and the flat volume is marginal even for announcements. **NO-BUILD.** Revisit only if bundling all powiat-leski gminas into one dobrybip adapter, or if the gmina starts posting wynik entries.
+
+- **Verdict: NO-BUILD** — no achieved-price (wynik) stream anywhere on bip.lesko.pl over 20 months of board history; ~1–2 distinct flats/yr dominated by repeat rounds of the same unsold unit.

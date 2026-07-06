@@ -57,6 +57,9 @@ import bochnia from './bochnia/index.js';
 import drawskoPomorskie from './drawsko-pomorskie/index.js';
 import chelmno from './chelmno/index.js';
 import ostroleka from './ostroleka/index.js';
+// Rebuilt 2026-07-06 (clean rebuild after the June mount-corruption; live-groundtruthed).
+import bydgoszcz from './bydgoszcz/index.js';
+import gorzowWielkopolski from './gorzow-wielkopolski/index.js';
 
 export const cities = [
   gliwice,
@@ -112,6 +115,8 @@ export const cities = [
   drawskoPomorskie,
   chelmno,
   ostroleka,
+  bydgoszcz,
+  gorzowWielkopolski,
 ];
 
 /** @param {string} id @returns {object|null} */

@@ -1,6 +1,6 @@
 # Spike — Rzeszów (Podkarpackie · miasto na prawach powiatu)
 
-> **Status:** spike LIVE-VERIFIED — 2026-06-27. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** re-verified LIVE — 2026-07-06. VERDICT: NO-BUILD (land-only; 2 flat auctions in 7 years, 0 since mid-2024).
 
 ## TL;DR
 
@@ -72,8 +72,28 @@ Rzeszów BGM (Biuro Gospodarki Mieniem Miasta Rzeszowa) runs active *przetarg us
 
 **Adapter effort:** Medium (HTML paginator + PDF parser + OCR fallback). Similar to Bytom or Tarnowskie Góry in complexity.
 
-**VERDICT: NEEDS-LIVE-VERIFY**
+**VERDICT: NO-BUILD** — land-only stream. Full-archive scan (2026-07-06, all 28 pages / 140 entries) found exactly 2 flat auctions since 2019 and 0 in 2025–2026 — inside the 0–2 NO-BUILD threshold set above. See "Re-verify 2026-07-06" below.
 
-Do not proceed to BUILD until pages 2–28 of the BGM Sprzedaż Nieruchomości archive are scanned to count "lokal mieszkalny" / "nieruchomość lokalowa" entries from 2020 onward. If ≥ 5 flat auctions are found in the last 3 years → BUILD (Medium effort). If 0–2 → NO-BUILD (land-only stream, poor fit).
+**Confidence: LIVE-VERIFIED** for format, URL structure, auction cadence, and (as of 2026-07-06) flat-auction volume across the entire archive.
 
-**Confidence: LIVE-VERIFIED** for format, URL structure, and auction cadence. **DESK** for flat-auction volume in 2020–2026 (PDF content not opened, archive pages 2–28 not paged through).
+---
+
+## Re-verify 2026-07-06
+
+**Method:** Crawled ALL 28 pages of the BGM Sprzedaż Nieruchomości archive (`/115-.../6701-sprzedaz-nieruchomosci.html`) live via curl, chaining the `?strona=N&hash=…` pagination links (mechanics note below). Collected 140 unique entry slugs spanning 2019 → 2026, then opened both "lokal" hits (HTML detail page + announcement PDF + result DOCX).
+
+**Flat (lokal mieszkalny / nieruchomość lokalowa) tally — entire archive:**
+
+| Year | Total entries | Flat auctions | Detail |
+|---|---|---|---|
+| 2019–2022 | ~96 | **0** | all gruntowa/niezabudowana/zabudowana parcels + 2 stage-roof-structure sales + 1 użytkowanie wieczyste |
+| 2023 | 20 | **1** | ul. Króla Augusta 10/3, 30.05.2023 — 36,50 m², wywoławcza 135 010 zł; announcement PDF confirms *lokal mieszkalny* (pokój, kuchnia, łazienka; "do kapitalnego remontu"); no result notice on the page |
+| 2024 | 23 | **1** | ul. Słowackiego 22/5, 19.06.2024 — 16,08 m² (1 pokój, WC poza lokalem), wywoławcza 117 135 zł, **achieved 151 000 zł** (Informacja o wyniku inline, DOCX+PDF); page text confirms *lokal mieszkalny* |
+| 2025 | 5 | **0** | all land (Sanocka, Żołnierzy 9 DP/Paderewskiego, …) |
+| 2026 YTD | 8 | **0** | all land (Lenartowicza 1, Mikołajczyka, Spółdzielcza, Obrońców Poczty Gdańskiej, Żołnierzy 9 DP, Wąwozowa, Fredry) |
+
+**Gate applied:** prior verdict set "≥ 5 flat auctions in the last 3 years → BUILD; 0–2 → NO-BUILD." Result: **2 flat auctions in 2023–2026, 0 since June 2024** → **NO-BUILD**.
+
+**Corroborating signal:** per City Council Resolution LXIII/1342/2022 (24.05.2022), bezprzetargowa sale of municipal flats to sitting tenants was also halted — Rzeszów has effectively stopped disposing of flats altogether; the residual auction stream is land parcels (~5–23 entries/yr). The 2017 W. Pola 12 flat auction cited above predates this archive window (oldest crawled entries are 2019) — consistent with a flat stream already near-dead by 2019.
+
+**Pagination mechanics (for the record, if ever revisited):** the `hash` per page is deterministic (identical across fresh sessions — NOT rotating as previously suspected), but requests succeed only with a session cookie + Referer + browser UA; bare `?strona=N` (no hash) and cold hash requests return HTTP 200 with an empty body. A chained crawl (extract next-page hash from the current page, 1 s delay, same cookie jar) covered all 28 pages without errors.

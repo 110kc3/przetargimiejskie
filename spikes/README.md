@@ -39,9 +39,10 @@ re-spike, re-build, or duplicate work:
 **Rule:** `built`/`no-build`/`dropped`/`deferred` → leave alone. `build` → build it
 (see the guide below). `pending` → spike it.
 
-> Every batch, after spiking/building, UPDATE `master-cities.json` + regenerate
-> `SPIKE-PROGRESS.md` so status stays current, and re-run the integrity check
-> (every master entry must have its spike `.md`).
+> Every batch, after spiking/building, UPDATE `master-cities.json` (the source
+> of truth), then regenerate the roll-up with `node spikes/build-progress.mjs`
+> (SPIKE-PROGRESS.md is GENERATED — never hand-edit it), and re-run the
+> integrity check (every master entry must have its spike `.md`).
 
 ## How to build (extract data)
 

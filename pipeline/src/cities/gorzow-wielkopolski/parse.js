@@ -1,396 +1,363 @@
+// Gorzów Wielkopolski parsers — announcement batch PDFs + result-notice PDFs.
+//
+// Both streams are PDFs attached to BIP stub pages (bip.um.gorzow.pl).
+// Groundtruthed 2026-07-06 against live documents:
+//
+//   Announcement (born-digital, 12 flats):
+//     https://bip.um.gorzow.pl/system/obj/59130_Ogloszenie_nr_61-2025.pdf
+//   Result — flats, achieved prices inline (born-digital):
+//     https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56a4144b2940d40da90ac2b872c22&stats=true
+//   Result — land, wynik negatywny (born-digital):
+//     https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargow_9-2026_z_16.04.2026.pdf&id=2cf2aa3fcd59798adbf4d77a4ec84cdc&stats=true
+//
+// Layout reality (why the strategies below):
+//
+//   * ANNOUNCEMENTS render as a 12-row table whose columns pdftotext interleaves
+//     vertically: the address, the description (area), and the price+wadium pair
+//     each appear ONCE PER ROW and IN ROW ORDER, but not on predictable lines.
+//     So parseAnnouncement collects each field sequence independently and zips
+//     them by index, validating counts + the cena/wadium ratio before trusting
+//     the price column. Verified for both poppler (CI) and xpdf output.
+//
+//   * RESULT notices are one-row-per-lot tables where every row has an "N."
+//     anchor line carrying the prices, with the address 1-2 lines above it.
+//     parseResultDoc splits the text into (prevAnchor, anchor] blocks and reads
+//     each block positionally: first big price = cena wywoławcza, second =
+//     cena osiągnięta.
+//
+//   * Some EZD-printed PDFs embed a diacritic font WITHOUT a ToUnicode map:
+//     whole words containing ą/ę/ł/ś/ż/ź/ć/ń are silently dropped by every
+//     extractor (poppler, xpdf, pypdf — verified). Keywords used here are
+//     chosen ASCII-safe ("przeprowadzon", "lokal mieszkaln", "wynikiem
+//     negatywnym") and month matching is prefix-based + diacritic-tolerant.
+//     Rows whose street name is dropped entirely (e.g. "     19/7") cannot be
+//     address-keyed and are skipped.
+//
+// See spike: spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md
+
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ── Shared helpers ─────────────────────────────────────────────────────────
+// ── Small shared helpers ─────────────────────────────────────────────────────
 
-const PL_MONTH = {
-  stycznia: '01', lutego: '02', marca: '03', kwietnia: '04',
-  maja: '05', czerwca: '06', lipca: '07', sierpnia: '08',
-  'września': '09', wrzesnia: '09',
-  'października': '10', pazdziernika: '10', listopada: '11', grudnia: '12',
-};
-
-// "39.000" / "39 000" / "215.000" → integer PLN
-// Gorzów uses dot-thousands in announcements ("39.000") and spaces in results.
-function parsePLN(s) {
-  if (!s) return null;
-  const cleaned = String(s).replace(/\s| /g, '').replace(/\.(?=\d{3}(?:[.,]|$))/g, '').replace(/,\d{2}$/, '');
-  const n = Number(cleaned.replace(/,/g, ''));
-  return Number.isFinite(n) && n > 0 ? n : null;
-}
-
-// "19,43" / "19.43" → 19.43
-function parseArea(s) {
-  if (s == null) return null;
-  const n = Number(String(s).replace(/\s| /g, '').replace(',', '.'));
-  return Number.isFinite(n) && n > 0 ? n : null;
-}
-
-// Matches an address at the start of a trimmed line, followed by 2+ spaces or EOL.
-// Handles both standalone ("Grobla 22/12") and inline layout ("Fabryczna 53/9   budynku…").
-const ADDRESS_START_RE = /^([A-ZĄĘÓŚŻŹĆŁŃ][a-zA-ZĄĘÓŚŻŹĆŁŃąęóśżźćłń .''\-]+?\d+(?:\/\d+)?)(?:\s{2,}|$)/;
-
-// Row-opener in announcement PDFs: "  N.  drugi …"
-const ROW_START_RE = /^\s{0,10}(\d{1,2})\.\s+(pierwsz|drug|trzeci|czwart|pi[ąa]t|sz[óo]st)\w*/im;
-
-// Lines to skip when parsing announcement text
-const ANN_SKIP_RE =
-  /^(terminy|po[łl]o[żz]enie|przeprowadzenia|lp\.\s+przetarg|poprzednich|ksi[ęe]ga|przetarg[óo]w|opis i prze|PREZYDENT|Miasta Gor|Og[łl]oszenie|Prezydenta|z dnia|Og[łl]aszam|stanowi|udzia[łl]|cena|wadium|nieruchomo[śs]ci,|numer [śs]wiad)/i;
-
-// Dot-thousands price, excluding fraction denominators preceded by /
-const DOT_PRICE_RE = /(?<!\/)\b(\d{2,3}\.\d{3})\b(?!\/\d)/g;
-
-// Space-thousands price e.g. "162 000"
-const SPC_PRICE_RE = /(?<![\d.])(\d{3})\s(\d{3})(?!\d)/g;
-
-const AREA_RE = /lokal\w*\s+mieszkaln\w*\s+o\s+pow\.\s*([\d,]+)\s*m\s*[²2]/i;
-
-/** First big dot-thousands price in text; falls back to space-thousands */
-function firstBigPrice(text) {
-  DOT_PRICE_RE.lastIndex = 0;
-  const m = DOT_PRICE_RE.exec(text);
-  if (m) return parsePLN(m[1]);
-  SPC_PRICE_RE.lastIndex = 0;
-  const m2 = SPC_PRICE_RE.exec(text);
-  if (m2) return parsePLN(m2[1] + m2[2]);
-  return null;
-}
-
-// ── Round ──────────────────────────────────────────────────────────────────
-
-function stemToRound(s) {
-  if (!s) return null;
-  const n = s.toLowerCase().replace(/ą/g, 'a').replace(/ó/g, 'o');
-  if (n.startsWith('pierwsz')) return 1;
-  if (n.startsWith('drug')) return 2;
-  if (n.startsWith('trzeci')) return 3;
-  if (n.startsWith('czwart')) return 4;
-  if (n.startsWith('piat') || n.startsWith('pi')) return 5;
-  if (n.startsWith('szost') || n.startsWith('sz')) return 6;
-  if (n.startsWith('siodm') || n.startsWith('si')) return 7;
-  return null;
+/** Diacritic-fold + lowercase (xpdf drops some diacritics, poppler keeps them). */
+function fold(s) {
+  return (s || '')
+    .toLowerCase()
+    .replace(/[ąà]/g, 'a').replace(/ć/g, 'c').replace(/ę/g, 'e')
+    .replace(/ł/g, 'l').replace(/ń/g, 'n').replace(/ó/g, 'o')
+    .replace(/ś/g, 's').replace(/[żź]/g, 'z');
 }
 
 /**
- * Round number from Polish ordinal word preceding "przetarg".
- * @param {string} text
- * @returns {number|null}
+ * Polish month token → 'MM', tolerant of missing diacritics
+ * ("października" / xpdf "padziernika" both → '10').
+ * @param {string} token
+ * @returns {string|null}
  */
-export function roundFromText(text) {
-  if (!text) return null;
-  const m = /\b(pierwsz|drug|trzeci|czwart|pi[ąa]t|sz[óo]st|si[óo]dm)\w*\s+przetarg/i.exec(text);
-  if (!m) return null;
-  return stemToRound(m[1]);
+export function monthNum(token) {
+  const t = fold(token);
+  if (/^sty/.test(t)) return '01';
+  if (/^lut/.test(t)) return '02';
+  if (/^mar/.test(t)) return '03';
+  if (/^kwi/.test(t)) return '04';
+  if (/^maj/.test(t)) return '05';
+  if (/^cze/.test(t)) return '06';
+  if (/^lip/.test(t)) return '07';
+  if (/^sie/.test(t)) return '08';
+  if (/^wrz/.test(t)) return '09';
+  if (/^pa[zd]/.test(t)) return '10';
+  if (/^lis/.test(t)) return '11';
+  if (/^gru/.test(t)) return '12';
+  return null;
 }
 
-// ── Auction date (announcement body) ──────────────────────────────────────
+// "39.000" / "1.100.000" → integer PLN (dot-thousands, no groszy in Gorzów docs)
+function plnFromDotted(s) {
+  const n = Number(String(s).replace(/\./g, ''));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+// "19,43" → 19.43
+function parseArea(s) {
+  const n = Number(String(s).replace(',', '.'));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+// Dot-thousands money ("39.000", "1.100.000"). Guards exclude:
+//   * udział fractions — "5.126/124.339" (slash-adjacent),
+//   * EZD ids — "351904.1032173.1205423" (digit/dot-adjacent),
+//   * dates — "12.02.2026" (needs exactly 3-digit groups).
+const MONEY_RE = /(?<![\d.,\/])(\d{1,3}(?:\.\d{3})+)(?![\d.\/])/g;
+
+// "lokal mieszkalny o pow. 19,43m2" — the per-row unit area phrase.
+const AREA_RE = /lokal\w*\s+mieszkaln\w*\s+o\s+pow\.?\s*(\d+(?:[.,]\d+)?)\s*m/gi;
+
+// Street + building/apt address candidate: "Fabryczna 53/9", "Armii Polskiej 17/4",
+// "ul. Grobla 22/12". Requires a capitalised street word directly before the
+// slashed number, so parcel ids ("10-719/1"), KW numbers ("GW1G/00047313/2"),
+// udział fractions ("5.126/124.339") and SCHE ids never match.
+const ADDR_RE =
+  /(?:^|[\s(>])((?:ul\.\s*)?\p{Lu}[\p{Ll}'.]+(?:\s+\p{Lu}[\p{Ll}'.]+){0,3})\s+(\d{1,3}[A-Za-z]?\/\d{1,3}[A-Za-z]?)(?![\d\/])/gmu;
+
+// Reject pseudo-streets whose last word is a document keyword ("Ogłoszenie Nr
+// 61/2025" → street candidate "Ogłoszenie Nr").
+const STREET_STOPWORDS = new Set([
+  'nr', 'lp', 'kw', 'dz', 'obr', 'poz', 'ust', 'pkt', 'art', 'godz', 'pok',
+  'tel', 'ul', 'ogloszenie', 'ogloszeniu', 'informacja', 'wlkp', 'ezd', 'sche',
+]);
 
 /**
- * Batch auction date from announcement body.
- * Phrase: "Przetargi odbędą się 9 października 2025r."
+ * All flat-address candidates in text, in document order.
+ * @param {string} text
+ * @returns {Array<{raw:string, street:string, num:string}>}
+ */
+export function extractFlatAddresses(text) {
+  const out = [];
+  ADDR_RE.lastIndex = 0;
+  let m;
+  while ((m = ADDR_RE.exec(text || '')) !== null) {
+    const street = m[1].replace(/^ul\.\s*/i, '').trim();
+    const words = fold(street).split(/\s+/);
+    if (words.some((w) => STREET_STOPWORDS.has(w.replace(/\W/g, '')))) continue;
+    if (street.length < 3) continue;
+    out.push({ raw: `ul. ${street} ${m[2]}`, street, num: m[2] });
+  }
+  return out;
+}
+
+// ── Round (Polish ordinal word → number) ─────────────────────────────────────
+
+function stemToRound(word) {
+  const w = fold(word);
+  if (w.startsWith('pierwsz')) return 1;
+  if (w.startsWith('drug')) return 2;
+  if (w.startsWith('trzeci')) return 3;
+  if (w.startsWith('czwart')) return 4;
+  if (/^pia?t/.test(w)) return 5;
+  if (/^szo?st/.test(w)) return 6;
+  if (/^sio?dm/.test(w)) return 7;
+  if (/^o?sm/.test(w)) return 8;
+  return null;
+}
+
+// ── Dates ────────────────────────────────────────────────────────────────────
+
+/**
+ * Batch auction date from an announcement body.
+ * "Przetargi odbędą się 9 października 2025r." (xpdf: "Przetargi odbd si 9
+ * padziernika 2025r." — hence the \S* tolerance).
  * @param {string} text
  * @returns {string|null} ISO date
  */
 export function auctionDateFromText(text) {
-  if (!text) return null;
-  const m =
-    /(?:przetargi?\s+odb[ęe]d[ąa]\s+si[ęe]|przetarg\w*\s+odb[ęe]dzie\s+si[ęe])[^.]*?(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(text);
+  const m = /przetargi?\s+odb\S*\s+si\S*\s+(\d{1,2})\s+(\S+)\s+(\d{4})/i.exec(text || '');
   if (!m) return null;
-  const mo = PL_MONTH[m[2].toLowerCase()];
-  if (!mo) return null;
-  return `${m[3]}-${mo}-${String(m[1]).padStart(2, '0')}`;
-}
-
-// ── Previous-round dates (announcement) ───────────────────────────────────
-
-/**
- * Extract previous-round dates from the "terminy poprzednich przetargów" column.
- * "I – 21.08.2025r." → { round:1, date:'2025-08-21' }
- * @param {string} cell
- * @returns {Array<{round:number, date:string}>}
- */
-export function prevRoundsFromCell(cell) {
-  if (!cell) return [];
-  const re = /([IVX]+)\s*[-–]\s*(\d{1,2})\.(\d{2})\.(\d{4})r?\.?/gi;
-  const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
-  const out = [];
-  let m;
-  while ((m = re.exec(cell)) !== null) {
-    const round = ROMAN[m[1].toUpperCase()] ?? null;
-    if (round == null) continue;
-    const date = `${m[4]}-${m[3]}-${String(m[2]).padStart(2, '0')}`;
-    out.push({ round, date });
-  }
-  return out;
-}
-
-// ── Address from announcement table cell ──────────────────────────────────
-
-/**
- * Extract street address from the "położenie" cell (first non-empty line).
- * @param {string} cell
- * @returns {string|null}
- */
-export function addressFromPozycjaCell(cell) {
-  if (!cell) return null;
-  const lines = cell.split(/\n|\r|\s{2,}/).map((l) => l.trim()).filter(Boolean);
-  if (!lines.length) return null;
-  const raw = lines[0].replace(/^ul\.\s*/i, '').trim();
-  return raw ? `ul. ${raw}` : null;
-}
-
-// ── Area from opis cell ───────────────────────────────────────────────────
-
-export function areaFromOpis(opis) {
-  if (!opis) return null;
-  const m = AREA_RE.exec(opis);
-  return m ? parseArea(m[1]) : null;
-}
-
-// ── Announcement parser ───────────────────────────────────────────────────
-//
-// pdftotext -layout renders the batch table as fixed-width columns.
-// In Gorzów PDFs, the address line often appears BEFORE its row-number line because
-// the address column is to the right of the round-ordinal column. Strategy:
-//
-//   Pass 1: Collect all address-line positions (ADDRESS_START_RE).
-//   Pass 2: For each address, build a block spanning from it to the next address,
-//           PLUS up to 5 pre-lines (stopping at a ROW_START or prior address)
-//           to capture the area description which precedes the address in the layout.
-
-/**
- * Parse a Gorzów batch announcement PDF into individual flat records.
- * @param {string} text  pdftotext -layout output
- * @param {{ pdfUrl?: string, detailUrl?: string, fallbackAuctionDate?: string }} [ctx]
- * @returns {Array<object>}
- */
-export function parseAnnouncement(text, ctx = {}) {
-  if (!text) return [];
-  const t = text.replace(/\r/g, '');
-  const auction_date = auctionDateFromText(t) || ctx.fallbackAuctionDate || null;
-
-  const lines = t.split('\n');
-
-  // Pass 1: find all address line positions
-  const addrPositions = [];
-  for (let i = 0; i < lines.length; i++) {
-    const l = lines[i].trim();
-    if (!l || ANN_SKIP_RE.test(l)) continue;
-    if (/^GW\d/i.test(l) || /^SCHE\//i.test(l)) continue;
-    const addrM = ADDRESS_START_RE.exec(l);
-    if (addrM) addrPositions.push({ i, addr: addrM[1] });
-  }
-
-  const out = [];
-  for (let bi = 0; bi < addrPositions.length; bi++) {
-    const { i: addrI, addr } = addrPositions[bi];
-    const nextAddrI =
-      bi + 1 < addrPositions.length ? addrPositions[bi + 1].i : lines.length;
-
-    // Pre-lines: scan backward from addrI-1, stop at ROW_START or another address
-    const preLines = [];
-    for (let j = addrI - 1; j >= Math.max(0, addrI - 5); j--) {
-      const l = lines[j].trim();
-      if (!l) continue;
-      if (/^GW\d/i.test(l) || /^SCHE\//i.test(l)) continue;
-      if (ANN_SKIP_RE.test(l)) break;
-      if (ROW_START_RE.test(lines[j])) break;
-      if (ADDRESS_START_RE.exec(l)) break;
-      preLines.unshift(lines[j]);
-    }
-
-    const blockLines = [...preLines, ...lines.slice(addrI, nextAddrI)];
-    const blockText = blockLines.join('\n');
-
-    // Round: extracted directly from ROW_START ordinal word ("drugi" → 2)
-    const rowStartM = ROW_START_RE.exec(blockText);
-    const round = rowStartM ? stemToRound(rowStartM[2]) : (roundFromText(blockText) ?? null);
-
-    const area_m2 = areaFromOpis(blockText);
-
-    // Starting price: first dot-thousands number not part of a fraction (e.g. not "5.126/124.339")
-    const starting_price_pln = firstBigPrice(blockText);
-
-    const address_raw = `ul. ${addr.replace(/^ul\.\s*/i, '').trim()}`;
-    const address = parseAddress(address_raw);
-    if (!address) continue;
-
-    const kind = classifyKind(blockText.slice(0, 300)) || 'mieszkalny';
-
-    out.push({
-      kind: kind === 'unknown' ? 'mieszkalny' : kind,
-      address_raw,
-      address,
-      area_m2,
-      starting_price_pln,
-      auction_date,
-      round,
-      detail_url: ctx.detailUrl || null,
-      source_url: ctx.pdfUrl || null,
-    });
-  }
-
-  return out;
-}
-
-// ── Result PDF helpers ─────────────────────────────────────────────────────
-
-/**
- * Guard: is this PDF text a Gorzów result notice?
- * @param {string} text
- * @returns {boolean}
- */
-export function isResultNotice(text) {
-  return /Informacja\s+o\s+wynik(?:u|ach)\s+przetarg/i.test(text || '');
+  const mo = monthNum(m[2]);
+  return mo ? `${m[3]}-${mo}-${String(m[1]).padStart(2, '0')}` : null;
 }
 
 /**
- * Auction date from result body text.
- * "przeprowadzonych dnia 5 lutego 2026 r." (plural) or
- * "przeprowadzonego dnia 12 września 2024r." (singular genitive)
+ * Auction date from a result body or a result-notice TITLE.
+ * Body:  "przeprowadzonych dnia 5 lutego 2026 r."
+ * Title: "przeprowadzonych w dniu 5 lutego 2026r. o godz.10 …"
  * @param {string} text
  * @returns {string|null} ISO date
  */
 export function resultDateFromText(text) {
-  if (!text) return null;
-  const m = /przeprowadzon\w*\s+dnia\s+(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(text);
+  const m =
+    /przeprowadzon\w*(?:\s+w)?\s+dni[au]\s+(\d{1,2})\s+(\S+)\s+(\d{4})/i.exec(text || '');
   if (!m) return null;
-  const mo = PL_MONTH[m[2].toLowerCase()];
-  if (!mo) return null;
-  return `${m[3]}-${mo}-${String(m[1]).padStart(2, '0')}`;
+  const mo = monthNum(m[2]);
+  return mo ? `${m[3]}-${mo}-${String(m[1]).padStart(2, '0')}` : null;
 }
 
+// ── Announcement parser ──────────────────────────────────────────────────────
+
+// End of the lot table / start of the boilerplate: "Lokale będące przedmiotem
+// przetargu przeznaczone są…" — ASCII-safe middle words used as the cutoff.
+const TABLE_END_RE = /przedmiotem\s+przetargu\s+przeznaczone/i;
+
+// Row anchor with the round-ordinal word: "1.   drugi   I – 21.08.2025r. …"
+const ANCHOR_ROUND_RE = /^\s{0,12}(\d{1,2})\.\s+(\S+)/gm;
+
 /**
- * Starting price from a result row block.
- * Tries keyword match first; falls back to first big number.
+ * Parse a Gorzów batch flat-sale announcement PDF (pdftotext -layout output)
+ * into one record per flat.
+ *
+ * Strategy: addresses, unit areas ("lokal mieszkalny o pow. X,XXm2") and
+ * cena/wadium pairs each occur exactly once per row and in row order in the
+ * extracted text (verified for poppler and xpdf), so they are collected as
+ * independent sequences and zipped by index. Areas/prices are only attached
+ * when their counts match the address count AND every cena/wadium pair has a
+ * plausible ratio (wadium 2–30% of cena) — otherwise they degrade to null
+ * rather than risk cross-row misattribution.
+ *
  * @param {string} text
- * @returns {number|null}
+ * @param {{ pdfUrl?: string, detailUrl?: string, fallbackAuctionDate?: string|null }} [ctx]
+ * @returns {Array<object>}
  */
-export function startingPriceFromResult(text) {
-  if (!text) return null;
-  const kw = /cena\s+(?:netto\s+)?wywo[łl]awcza[^0-9]{0,30}([\d][.\d\s]*)/i.exec(text);
-  if (kw) return parsePLN(kw[1].trim().split(/\s/)[0]);
-  return firstBigPrice(text);
+export function parseAnnouncement(text, ctx = {}) {
+  if (!text || !/lokal\w*\s+mieszkaln/i.test(text)) return [];
+  const t = text.replace(/\r/g, '');
+
+  // Board date-2 ("Data i godzina przetargu") is authoritative when supplied;
+  // the body phrase is the fallback (useful for direct-PDF parses).
+  const auction_date = ctx.fallbackAuctionDate || auctionDateFromText(t) || null;
+
+  // Restrict table-field scans to the lot table (before the boilerplate).
+  const endM = TABLE_END_RE.exec(t);
+  const table = endM ? t.slice(0, endM.index) : t;
+
+  const addresses = extractFlatAddresses(table);
+  const n = addresses.length;
+  if (!n) return [];
+
+  const areas = [...table.matchAll(AREA_RE)].map((m) => parseArea(m[1]));
+
+  // Money sequence must be exactly n (cena, wadium) pairs to be trusted.
+  const moneys = [...table.matchAll(MONEY_RE)].map((m) => plnFromDotted(m[1]));
+  let prices = null;
+  if (moneys.length === 2 * n) {
+    const cands = [];
+    let ok = true;
+    for (let i = 0; i < n; i++) {
+      const p = moneys[2 * i];
+      const w = moneys[2 * i + 1];
+      if (p == null || w == null || !(w < p && w >= p * 0.02 && w <= p * 0.3)) {
+        ok = false;
+        break;
+      }
+      cands.push(p);
+    }
+    if (ok) prices = cands;
+  }
+
+  // Rounds from the "N. <ordinal>" anchor lines, positioned by lp number.
+  const rounds = [];
+  ANCHOR_ROUND_RE.lastIndex = 0;
+  let am;
+  while ((am = ANCHOR_ROUND_RE.exec(table)) !== null) {
+    const lp = Number(am[1]);
+    const r = stemToRound(am[2]);
+    if (lp >= 1 && lp <= n && r != null) rounds[lp - 1] = r;
+  }
+
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const address = parseAddress(addresses[i].raw);
+    if (!address) continue;
+    out.push({
+      kind: 'mieszkalny',
+      address_raw: addresses[i].raw,
+      address,
+      area_m2: areas.length === n ? areas[i] : null,
+      starting_price_pln: prices ? prices[i] : null,
+      auction_date,
+      round: rounds[i] ?? null,
+      detail_url: ctx.detailUrl || null,
+      source_url: ctx.pdfUrl || null,
+    });
+  }
+  return out;
 }
 
-/**
- * Achieved price from a result row block.
- * Tries keyword match first; falls back to second big dot-thousands number
- * (first = starting price, second = achieved price in the table layout).
- * @param {string} text
- * @returns {number|null}
- */
-export function achievedPriceFromResult(text) {
-  if (!text) return null;
-  const kw =
-    /osi[ąa]gni[ęe]ta\s+w\s+(?:przetargu|rokowaniach)[^\d]{0,50}([\d][.\d\s]*)/i.exec(text);
-  if (kw) return parsePLN(kw[1].trim().split(/\s/)[0]);
-  // Positional: second distinct dot-thousands price in the block
-  DOT_PRICE_RE.lastIndex = 0;
-  const prices = [];
-  let m;
-  while ((m = DOT_PRICE_RE.exec(text)) !== null) {
-    const n = parsePLN(m[1]);
-    if (n != null) prices.push(n);
-  }
-  if (prices.length >= 2) return prices[1];
-  // If only one dot-thousands found, check for space-thousands as second
-  SPC_PRICE_RE.lastIndex = 0;
-  const spcPrices = [];
-  while ((m = SPC_PRICE_RE.exec(text)) !== null) {
-    const n = parsePLN(m[1] + m[2]);
-    if (n != null) spcPrices.push(n);
-  }
-  if (prices.length === 1 && spcPrices.length >= 1) return spcPrices[0];
-  return null;
-}
+// ── Result parser ────────────────────────────────────────────────────────────
 
 /**
- * Detect "przetarg zakończył się wynikiem negatywnym" in a row block.
+ * Guard: is this text a Gorzów result notice? ASCII-safe — survives both the
+ * dropped-diacritics text layer and OCR output.
  * @param {string} text
  * @returns {boolean}
  */
-export function isNegative(text) {
-  return /wynikiem\s+negatywnym|przetarg\s+zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem/i.test(text || '');
+export function isResultNotice(text) {
+  return /informacja\s+o\s+wynik/i.test(text || '') && /przetarg|rokowa/i.test(text || '');
 }
 
-// Boilerplate lines to skip in result PDFs
-const RES_SKIP_RE =
-  /^(lp\.|Informacja|Na podstawie|Przedmiotem|Wyniki\s+przetarg|opis i prze|nr i pow|w\s+cz[ęe][śs]ciach|udzia[łl]|przetargu|Gorzów|Kierownik|Dyrektor|Referatu|Obrotu|Wioleta|podpisano|Potwierdzam|Identyfikator|Nazwa|Tytu[łl]|Sygnatura|Data|Skr[óo]t|Wersja|Rodzaj|Autor|EZD|zbycie)/i;
+/** "przetarg zakończył się wynikiem negatywnym" (also with dropped diacritics). */
+export function isNegative(text) {
+  return /wynikiem\s+negatywnym|nie\s+odnotowano\s+wp[łl]at/i.test(text || '');
+}
+
+// Result row anchor: "1. …" at line start (lp column).
+const RESULT_ANCHOR_RE = /^\s{0,12}\d{1,2}\.\s/;
 
 /**
- * Parse a Gorzów result PDF into concluded auction records (one per flat).
+ * Parse a Gorzów result-notice PDF into concluded flat-auction records.
  *
- * @param {string} text           pdftotext -layout output
- * @param {string|null} fallbackDate  ISO date (from crawl ref, used if body has no date)
+ * Rows are anchored by "N." lines that carry the prices; the address sits 1-2
+ * lines above its anchor. Blocks span (previous anchor, own anchor]. Only
+ * blocks that contain BOTH a parseable street address with an apartment part
+ * AND the phrase "lokal mieszkaln…" become records — land/commercial rows and
+ * rows whose street name was dropped by the broken PDF font are skipped.
+ *
+ * Positional prices: first dot-thousands number in the block = cena
+ * wywoławcza, second = cena osiągnięta (verified against the 05.02.2026
+ * flats result: 181.000→215.000, 162.000→198.000).
+ *
+ * @param {string} text           pdftotext/OCR output
+ * @param {string|null} fallbackDate  ISO date from the crawl ref (board title)
  * @param {string} sourceUrl      PDF URL (provenance)
  * @returns {Array<object>}
  */
-export function parseResultDoc(text, fallbackDate, sourceUrl) {
-  if (!isResultNotice(text)) return [];
-  const t = (text || '').replace(/\r/g, '');
+export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
+  if (!text || !isResultNotice(text)) return [];
+  const t = text.replace(/\r/g, '');
   const auction_date = resultDateFromText(t) || fallbackDate || null;
 
   const lines = t.split('\n');
-  const rowBlocks = [];
-  let current = null;
-
-  for (const line of lines) {
-    const l = line.trim();
-    if (!l) continue;
-    if (RES_SKIP_RE.test(l)) continue;
-    if (/^\d{4}-\d{2}-\d{2}/.test(l)) continue;
-    if (/\[zł\]|\[m2\]|\[\s*\]|łącznie|wspólnych|wieczysta|dopuszczonych|budynku i gruncie/i.test(l)) continue;
-
-    const addrM = ADDRESS_START_RE.exec(l);
-    if (addrM) {
-      if (current) rowBlocks.push(current);
-      current = { addressLine: addrM[1].trim(), lines: [l] };
-    } else if (current) {
-      current.lines.push(l);
-    }
+  const anchors = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (RESULT_ANCHOR_RE.test(lines[i])) anchors.push(i);
   }
-  if (current) rowBlocks.push(current);
 
   const out = [];
-  for (const block of rowBlocks) {
-    const blockText = block.lines.join('\n');
-    const notes = [];
+  let prev = -1;
+  for (const a of anchors) {
+    const block = lines.slice(prev + 1, a + 1).join('\n');
+    prev = a;
 
-    const address_raw = `ul. ${block.addressLine.replace(/^ul\.\s*/i, '').trim()}`;
+    // Flats only (walbrzych convention): need the phrase AND a street/apt address.
+    if (!/lokal\w*\s+mieszkaln/i.test(block)) continue;
+    const addrs = extractFlatAddresses(block);
+    if (!addrs.length) continue; // street glyphs dropped → cannot key the row
+    const address_raw = addrs[0].raw;
     const address = parseAddress(address_raw);
-    if (!address) {
-      notes.push(`parse: could not parse address from '${address_raw}'`);
-      continue;
-    }
+    if (!address) continue;
+
+    const notes = [];
     if (address.warning) notes.push(address.warning);
 
-    const kind = classifyKind(blockText.slice(0, 400));
-    const area_m2 = areaFromOpis(blockText);
-    const starting_price_pln = startingPriceFromResult(blockText);
+    const areaM = new RegExp(AREA_RE.source, 'i').exec(block);
+    const area_m2 = areaM ? parseArea(areaM[1]) : null;
+
+    const moneys = [...block.matchAll(MONEY_RE)].map((m) => plnFromDotted(m[1]));
+    const starting_price_pln = moneys[0] ?? null;
     if (starting_price_pln == null) notes.push('parse: missing starting price');
+    const achieved = moneys[1] ?? null;
 
-    const final_price_pln = achievedPriceFromResult(blockText);
-    const negative = isNegative(blockText);
-    const sold = !negative && final_price_pln != null;
-
+    const negative = isNegative(block);
+    const sold = !negative && achieved != null;
     if (!sold && !negative) notes.push('parse: no achieved price and no explicit negative outcome');
+    if (sold && starting_price_pln != null && achieved < starting_price_pln) {
+      notes.push('parse: achieved price below starting price — verify row');
+    }
 
+    const kind = classifyKind(block.slice(0, 400));
     out.push({
       auction_date,
       source_pdf: sourceUrl,
       kind: kind === 'unknown' ? 'mieszkalny' : kind,
       address_raw,
       address,
-      round: null,
+      round: null, // result notices reference the announcement, not the round
       starting_price_pln,
-      final_price_pln: sold ? final_price_pln : null,
+      final_price_pln: sold ? achieved : null,
       outcome: sold ? 'sold' : 'unsold',
       unsold_reason: sold ? null : 'unknown',
       area_m2,
       notes,
     });
   }
-
   return out;
 }

@@ -1,5 +1,5 @@
 # Spike — Jasło (Podkarpackie · powiat jasielski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: NO-BUILD (volume: 0 flat auctions 2023–2026; bezprzetargowo-dominant).
 
 ## TL;DR
 Jasło (Miasto Jasło, ~36 k residents) does occasionally auction residential flats at *przetarg pisemny nieograniczony*, but the dominant disposal mode for municipal flats is *tryb bezprzetargowy* (direct sale to sitting tenants under 1998 City Council resolution). Only one flat auction was confirmed across all searches; land/commercial parcels dominate the przetarg stream. Volume needs on-site manual count before committing to BUILD.
@@ -53,3 +53,15 @@ Physical board: Tablica ogłoszeń Urzędu Miasta Jasła, ul. Rynek 12 (contact:
 **Effort if built:** Medium — two HTML sources (um.jaslo.pl + BIP), clean HTML, no auth. But volume likely does not justify build.
 
 **Recommended next step:** Manual audit of um_jaslo.bip.gov.pl/ogloszenia/ going back 3 years to count flat auction notices. If ≥3 flat auctions/year confirmed → BUILD (Low-Medium effort). If <3 → NO-BUILD (bezprzetargowy city).
+
+## Re-verify 2026-07-06
+
+**Live 3-year audit (2023 → 2026-07) done via WebFetch/WebSearch. Result: 0 flat auctions in the window → NO-BUILD on volume.**
+
+Method + evidence:
+- **BIP retention too short for audit:** um_jaslo.bip.gov.pl/ogloszenia/ (pagination `articles/index/ogloszenia/page:N/`) holds only 9 pages spanning ~25.03.2026 → 02.07.2026 (~3 months, mostly obwieszczenia/elections). No flat auction in it. The audit therefore ran on um.jaslo.pl site search (WordPress, 154-page ogłoszenia category; search index reaches back to 2017).
+- **Full sweep of `um.jaslo.pl/pl/?s=lokal+mieszkalny+przetarg` (all 6 result pages):** ~25 lokal-mieszkalny items, **every one a "wykaz … przeznaczonych do sprzedaży" (tenant sale), zero "ogłoszenie o przetargu" for a flat**. Sampled Kościuszki 20/5 (publ. 27.08.2025): "sprzedaży w drodze bezprzetargowej na rzecz najemcy", 75 300 zł after 70% bonifikata — classic sitting-tenant sale. Addresses cycling 2023–2026: Kościuszki 20/x, Kraszewskiego 1/x, 3 Maja 14/x + 35/x, Baczyńskiego 4/x, Asnyka 10/25, Kadyiego 14/7, Słowackiego 7/15, Kazimierza Wielkiego 5/4.
+- **The one known flat auction is OUTSIDE the window and pisemny:** um.jaslo.pl/pl/ogloszenie-o-przetargu-3/ = *przetarg pisemny nieograniczony*, lokal mieszkalny 56.10 m² Ulaszowice, 55 000 zł — **published 2020** (Informacja Burmistrza o przetargu dated 10.06.2020 refers to the same lot). Search `?s="przetarg ustny"+lokal+mieszkalny` on um.jaslo.pl: no flat hits, land only.
+- **Current ustny stream is land + restricted shares:** June 2026 ustny auctions are gruntowe parcels (Podzamcze, PGR, Warzyce); the 29.06.2026 "Wykaz udziałów … przetargu ustnego ograniczonego" is co-ownership shares (ograniczony, pre-emption/co-owner restricted, details in PDF) — not an open flat stream. Aggregator cross-check (otoprzetargi/gctrader, 2024–2025): land + lokal użytkowy notices only.
+
+**Count: ustny flat auctions 2023–2026 = 0; pisemny flat auctions 2023–2026 = 0; flat disposals in window = bezprzetargowa to tenants (1998 resolution practice confirmed still active through 2025).** Per heuristic (bezprzetargowo-dominant + ≤1 flat auction/yr — here 0/yr) → **NO-BUILD**.

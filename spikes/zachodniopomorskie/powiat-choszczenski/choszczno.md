@@ -1,5 +1,5 @@
 # Spike — Choszczno (Zachodniopomorskie · powiat choszczeński)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** spike LIVE — 2026-07-06. VERDICT: BUILD (Low effort, needsRender: false, low volume).
 
 ## TL;DR
 Gmina Choszczno does sell **lokale mieszkalne** via *ustny przetarg nieograniczony* — confirmed from BIP search snippets (ul. Wolności 58 lokal nr 2, Piasecznik lokal nr 3, ul. Rycerska 2/4 rounds I–III). Volume is LOW (small gmina, ~15 000 residents; 1–3 flat auctions/year, often recycled through multiple rounds). The BIP at `bip.choszczno.pl` times out on direct HTTP fetch — live verification of page structure and any results/achieved-price board is still needed before committing to an adapter.
@@ -54,4 +54,38 @@ Flat auctions are run by the Burmistrz Choszczna per art. 37 ugn. Sales also occ
 
 **Effort**: Medium — HTML scraping is straightforward once fetch blocker is resolved, but the results stream is unconfirmed and volume is low.
 
-**Verdict**: NEEDS-LIVE-VERIFY — open Chrome MCP session against `bip.choszczno.pl/dokumenty/8021` (or `/artykul/przetargi-14`) to (a) confirm page renders and identify article list structure, (b) check whether post-auction "informacja o wyniku" notices exist on the BIP.
+**Verdict**: ~~NEEDS-LIVE-VERIFY~~ → **BUILD** — resolved live 2026-07-06, see below.
+
+## Re-verify 2026-07-06 (LIVE)
+
+All three blockers resolved with live evidence; verdict flips to **BUILD**.
+
+### Access: NOT bot-blocked, NOT JS-rendered — the desk "empty body" was an unfollowed 301
+
+- Every `/dokumenty/<id>` URL returns **301 → `/artykul/<slug>`** with an empty redirect body; the desk spike read that empty body as a block. Following redirects, plain `curl` (even default curl UA, no cookies) gets **HTTP 200 with full server-rendered HTML** (~850 KB/page, huge inline CSS): `/dokumenty/8021` → `/artykul/przetargi-13` (2012 board), `/dokumenty/1039415660` → `/artykul/przetargi-4` (2021 board), `/dokumenty/12932` → the Wyzwolenia 3/1 flat article.
+- Caveat: the WebFetch cloud tool gets **403** (its infra IP/UA is blocked), but direct requests from a normal client succeed with any UA tested. Adapter needs only `follow_redirects` + a browser-ish UA to be safe. **needsRender: false** — no Chrome/headless required.
+
+### Board structure (announcements): year tree, one przetargi table per year
+
+`/artykul/ogloszenia` → `/artykul/ogloszenia-<YYYY>-r` (2003–2026) → sub-board "Przetargi" (arbitrary slug — resolve it from the year page's table each run):
+- 2026: `/artykul/przetargi-2008` (9 rows as of 2026-07)
+- 2025: `/artykul/przetargi-2007` (9 rows)
+- 2024: `/artykul/przetargi-14` (20 rows)
+
+Rows are `<tbody><tr><td><a href="/artykul/…">TITLE</td><td>YYYY-MM-DD hh:mm:ss</td>` (note: `</a>` is often missing — parse title up to `</td>`). Article pages are server-rendered HTML with title, attachment list, and full BIP metryka (data wytworzenia/publikacji, osoby). Announcement body is a **PDF attachment** under `/pliki/choszczno/zalaczniki/<id>/…pdf` — scanned with an OCR text layer; `pdftotext` extracts usable text (prices clean, e.g. "230.000,00 zl"; diacritics degraded, e.g. "pizy"/"poloony"). Correction to the desk note: content is NOT inline HTML — recent titles are generic ("…sprzedaż nieruchomości … - Choszczno, ul. X"), so flat-vs-land classification needs the PDF text, not just the title.
+
+### Results board: FOUND — "Informacja o wyborze nabywcy" PDF attached to the same article
+
+No separate results section exists, but achieved prices ARE published: the Rycerska 2/4 V-przetarg article (published 2026-02-04, `/artykul/burmistrz-choszczna-oglasza-piaty-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-stano`) gained a second attachment `informacja-o-wyborze-nabywcy.pdf` on 2026-03-13: auction held 2026-03-06, cena wywoławcza 230 000 zł, wadium 46 000 zł, **achieved price 236 900 zł**, named buyers (znak WNA.6840.17.13.2024.NSz). Achieved-price stream = re-poll recent auction articles for a result attachment (~1 week post-auction). Older articles (e.g. Wyzwolenia 3/1, 2015) lack result attachments — history is thin, but current practice publishes results.
+
+### Flat volume 2024–2026 (live-counted from year boards)
+
+- 2024: 20 auction announcements, flat thread = Rycerska 2/4 (round II 2024-11-14; round I earlier in 2024).
+- 2025: 9 announcements, 2 flat rounds — Rycerska 2/4 III (2025-01-31) and IV (2025-04-11); rest is land (obr. Stary Klukom, Korytowo, działki).
+- 2026 (to July): 9 announcements, 1 flat round — Rycerska 2/4 V (2026-02-04), **sold 2026-03-06 for 236 900 zł** (lokal nr 4, 53.73 m², 3 rooms, 1st floor — "lokal mieszkalny" confirmed in the announcement PDF text).
+
+Real volume = **~1 distinct flat per 1–2 years** (one flat generated 5 announcements over 18 months); prior flats were 2018 (Wolności 58/2) and 2015 (Wyzwolenia 3/1). Lower than the desk 1–3/yr estimate.
+
+### Verdict: BUILD (Low effort, needsRender: false)
+
+Flat auctions, announcement board, and achieved-price stream all confirmed live; access is plain HTTP for a normal client — the only trap is following the 301s (and WebFetch-style cloud fetchers being 403'd). Adapter = year-tree HTML index + PDF-attachment text extraction; closest analog: other small-gmina BIP year-board scrapers. Accept the volume caveat (very low, ~1 flat/1–2 yrs) — cheap to run, worth bundling with other powiat-choszczeński gminy.

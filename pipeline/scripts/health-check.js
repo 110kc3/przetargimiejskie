@@ -67,6 +67,10 @@ const EXEMPT_NEW = new Map([
   ['gniezno', { since: '2026-07-02', reason: 'insecureTLS for incomplete chain — pending first refresh' }],
   ['skarzysko-kamienna', { since: '2026-07-02', reason: 'body moved to div.wysiwyg — pending first refresh' }],
   ['augustow', { since: '2026-07-02', reason: 'crawl OK (4 active listings); city publishes no result docs yet' }],
+  // Rebuilt 2026-07-06 after the June mount-corruption (parsers live-groundtruthed,
+  // 18+33 tests green) — pending their first CI refresh.
+  ['bydgoszcz', { since: '2026-07-06', reason: 'clean rebuild registered 2026-07-06 — pending first live refresh (live smoke: 3 active flats)' }],
+  ['gorzow-wielkopolski', { since: '2026-07-06', reason: 'clean rebuild registered 2026-07-06 — pending first live refresh (live smoke: 25 active)' }],
 ]);
 
 const now = Date.now();

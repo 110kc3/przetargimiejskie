@@ -1,5 +1,5 @@
 # Spike — Gryfice (Zachodniopomorskie · powiat gryficki)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: NO-BUILD (no open flat-auction stream; flats go bezprzetargowo to tenants).
 
 ## TL;DR
 
@@ -64,3 +64,23 @@ Achieved prices: published as "Informacja Burmistrza Gryfic o wynikach przetarg�
 | Deduplication | Flats appear in both gryfice.eu news and BIP — must deduplicate on canonical BIP URL |
 
 **VERDICT: NEEDS-LIVE-VERIFY** — confirm Chrome MCP can successfully render `bip.gminagryfice.pl` pages before committing. If Chrome MCP works → BUILD (Medium effort). If blocked there too → NO-BUILD (insufficient data access).
+
+## Re-verify 2026-07-06
+
+Live re-check via WebFetch + WebSearch (2 fetch attempts on BIP host, per polite-retry rule).
+
+**1. Fetch blocker re-tested — anti-bot, not total.**
+- `bip.gminagryfice.pl` now returns **HTTP 403 Forbidden** on both the announcements index (`/artykul/ogloszenia-burmistrza-gryfic-o-przetargach-na-zbycie-nieruchomosci`) and the results page (`/strony/11870.dhtml`) — changed from the 2026-06-30 timeouts, so the SIDAS block is anti-bot/UA-based, not a network outage. Search engines index the BIP fully (article + `/strony/*.dhtml` pages surface in results), so the block is not total; a browser-mode/UA fetch (core/fetch.js browserMode, Zabrze-WAF precedent) or render.js would likely pass.
+- **`gryfice.eu` mirror is plain-fetchable** (200, full article HTML) and mirrors every auction announcement — the fetch path is NOT the blocker anymore.
+
+**2. Volume re-checked — the 4–8 flats/yr estimate does NOT hold for *open* auctions.** Concrete 2024–2026 evidence:
+- **22 May 2024 batch** (BIP `/artykul/...-41`): land plots (Spacerowa, Wierzbowa, Niepodległości, Nadrzeczna, Rotnowo, Rzęskowo) + **udział 447/1000 w budynku mieszkalnym, Armii Krajowej 11** + lokal użytkowy Niechorska 19A. One residential *building share*, no self-contained flats.
+- **25 Nov 2025 batch** (gryfice.eu, pub. 2025-10-24): the **same** land plots + the **same unsold Armii Krajowej 11 share** + the same Niechorska 19A lokal użytkowy — the sole residential item is a re-listed leftover, not new supply.
+- **Oct 2025 wykaz** (gryfice.eu "Lokale mieszkalne i niemieszkalne na sprzedaż"): **1 lokal mieszkalny — bezprzetargowo na rzecz najemcy**; 2 lokale niemieszkalne — przetarg *ograniczony*. Flats route to sitting tenants, not open auction.
+- **9 Apr 2026 batch** (gryfice.eu, pub. 2026-03-06, full prices): 6 land plots (86k–173k PLN) + Niechorska 19A lokal użytkowy (95k PLN). **Zero residential items** (the AK 11 share no longer listed).
+- **Jun 2026 batch**: land only per search index.
+- Aggregator check (listaprzetargow.pl, Gryfice mieszkania): **0 municipal flat auctions 2024–2026**; only a 2019 housing-co-op sale.
+
+**3. Conclusion.** Realized open flat-auction volume is ~0–1 residential item/yr, and that one item was a fractional building share re-auctioned across 18 months. Gmina Gryfice's flats are disposed bezprzetargowo to tenants; the open-auction stream is land + commercial. This is exactly the README heuristic's "generic city-BIP property section skewing to land + tenant sales" profile. The desk TL;DR's "4–8 flats/yr to open auction" conflated wykaz/bezprzetargowy items with auction lots.
+
+**VERDICT: NO-BUILD** — no usable open flat-auction stream; volume ≈0 regardless of fetch strategy. Revisit only if a future batch shows self-contained lokale mieszkalne at przetarg ustny nieograniczony (if so: gryfice.eu mirror is plain-fetchable, BIP needs browser-mode fetch; effort would be Low–Medium).

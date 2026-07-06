@@ -1,5 +1,5 @@
 # Spike — Kluczbork (Opolskie · powiat kluczborski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: BUILD (Medium effort).
 
 ## TL;DR
 Gmina Kluczbork does conduct *ustny przetarg nieograniczony na sprzedaż* for municipal **lokale mieszkalne**. Confirmed auctions: ul. Zamkowa 15/14 (25.11.2025), ul. Zamkowa + ul. Curie-Skłodowskiej batch (announced 22.10.2025, auction date 30.01.2026). A dedicated results board (`/690,informacje-o-wynikach-przetargow`) exists and appears to contain achieved-price documents. BIP is on the standard `bip.kluczbork.eu` host (nowoczesnagmina/dedicated BIP). Format is likely HTML listing + attached PDFs — needs live page inspection to confirm scrape path and PDF vs inline text.
@@ -50,6 +50,29 @@ No evidence of auth wall or bot-block. Standard BIP HTML navigation pattern.
 3. If PDFs: use pdftotext / pdfplumber; watch for scanned-PDF fallback (OCR needed in worst case)
 
 **Blockers / open questions:**
-- Are result PDFs text-based or scanned? (Most likely text-based post-2020 but unconfirmed)
-- Does `/452` paginate or use a flat list? (Needs live check)
+- ~~Are result PDFs text-based or scanned?~~ RESOLVED 2026-07-06: text-based (see Re-verify below)
+- ~~Does `/452` paginate or use a flat list?~~ RESOLVED: flat list back to 2013, no pagination
 - The 30.01.2026 auction was partly cancelled (residential portion) — need to understand cancellation notice pattern for de-duplication logic
+
+## Re-verify 2026-07-06
+
+Live re-check (WebFetch against bip.kluczbork.eu + local pdftotext on downloaded PDFs). No rate-limiting encountered this time. All three questions resolved:
+
+**(1) Boards live.** All three confirmed reachable and current:
+- `/452,przetargi-na-sprzedaz-i-dzierzawe-nieruchomosci` — flat list back to 2013, no pagination, newest-first. Article links are `redir,452?tresc=NNNNN` sub-pages.
+- `/690,informacje-o-wynikach-przetargow` — results board live, entries 2016→2026, `redir,690?tresc=NNNNN` pattern, no pagination.
+- `/453,informacja-o-wykazach-nieruchomosci` — live and **active in 2026**: 29.06.2026 wykazy "nieruchomości lokalowej przeznaczonej do sprzedaży w drodze przetargu" for ul. Zamkowa 15 and Bogdańczowice 2D → new flat-auction rounds incoming H2 2026.
+
+**(2) Flat volume 2024–2026 confirmed, but LOW (~1–3 lots/yr, not 3–6):**
+- 2024: GNP.6840.34.2024.JK — lokal ul. Drzymały 8/1 (auction 18.10.2024)
+- 2025: GNP.6840.39.2025.JK — lokal ul. Zamkowa 15/14 (25.11.2025) — **wynik negatywny** (no bidders; cena wywoławcza 187 400,00 zł, achieved: n/a)
+- 2026: GNP.6840.46.2025.JK batch (Zamkowa + Curie-Skłodowskiej, 30.01.2026) — residential portion **cancelled** 30.12.2025; NEW wykazy 29.06.2026 re-listing Zamkowa 15 + Bogdańczowice 2D for przetarg
+- Stream is recurring (failed lots get re-listed) but recent rounds ended negative/cancelled, so achieved-price yield will be thin.
+
+**(3) Format resolved: PDF-attachment-only, text layer present (no OCR needed).**
+- Announcement articles (`/452` sub-pages) carry NO inline body — just title + attachments. Main doc e.g. `plik,22249,gnp-6840-39-2025-jk-ogloszenie-przetargu-pdf.pdf`; pdftotext extracts cleanly ("Cena wywolawcza - 187 400,00 zl. brutto wadium - 18 740,00 zl", address, area 139,03 m², auction date).
+- Result articles (`/690` sub-pages) same pattern: metadata page + single PDF (e.g. `plik,22458,informacja-o-wyniku-przetargu-...pdf`). pdftotext extracts the standard §12 rozporządzenie result template incl. "cena wywolawcza", "najwysza cena osignita w przetargu", nabywca fields.
+- Note: extracted text has degraded Polish diacritics (ą/ę/ł dropped by font encoding) — regexes must be diacritic-insensitive (`wywo.awcza`, `osi.gni.ta`).
+- Boilerplate PDFs (oświadczenia, regulamin) attached alongside — filter by filename (`ogloszenie-przetargu` / `informacja-o-wyniku`).
+
+**Verdict: BUILD — Medium effort.** Standard BIP (redir/tresc + plik URL scheme), text-PDF extraction for both announcements and results, closest analog Olesno/Brzeg. Effort drivers: PDF-only content (no inline HTML), diacritic-lossy text layer, cancellation/negative-result handling and re-list de-duplication. Low volume means low payoff per year but near-zero ongoing maintenance.

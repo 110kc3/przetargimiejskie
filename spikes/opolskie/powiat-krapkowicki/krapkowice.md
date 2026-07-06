@@ -1,5 +1,5 @@
 # Spike — Krapkowice (Opolskie · powiat krapkowicki)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** spike LIVE — 2026-07-06. VERDICT: NO-BUILD (no live flat-auction stream; land-only board).
 
 ## TL;DR
 Gmina Krapkowice does sell municipal flats at ustny przetarg nieograniczony — confirmed by BIP auction announcements and a dedicated results board. Volume is low (a handful of units per year), with some flats going bezprzetargowo to sitting tenants and others going to open auction. The BIP is a standard self-hosted Polish municipal BIP (HTML index pages + individual announcement sub-pages, some with attached PDFs). Achieved-price data has its own board. Live verification needed to confirm current 2025–2026 cadence and exact HTML structure of results entries before committing to an adapter.
@@ -52,4 +52,13 @@ Primary scrape target: `bip.krapkowice.pl` — the BIP is the authoritative sour
 2. Confirm results board format — inline HTML price vs. PDF protocol attachment.
 3. Check whether year-based sub-pages require navigating an index or if the main `/2571/` board aggregates all years.
 
-**Verdict**: NEEDS-LIVE-VERIFY (Medium effort). The gmina clearly runs flat auctions and publishes results on BIP, but annual volume is low and the exact results format is unconfirmed from DESK research alone. Worth building if aggregating Opolskie broadly; low standalone ROI.
+**Verdict**: NO-BUILD (live-verified 2026-07-06). The BIP boards are active and technically trivial to scrape (results with achieved price inline in HTML), but the flat-auction stream is dormant: zero `lokal mieszkalny` auctions in announcement titles 2023–2026 and zero in the 2025 results (all 20 entries are undeveloped plots). Flats go bezprzetargowo to sitting tenants; last confirmed flat auctions date to the 2016–2017 boards. Revisit only if aggregating Opolskie land sales or if a flat auction reappears on the /2571 year boards.
+
+## Re-verify 2026-07-06
+Live check via WebFetch/WebSearch. All three desk blockers resolved:
+
+1. **Board ACTIVE in 2025–26?** YES — technically. `/2571` index links year sub-pages incl. **2026** (`https://bip.krapkowice.pl/18027/...-2026-rok.html`, 10 entries Jan–Jun 2026, latest 2026-06-03) and **2025** (`https://bip.krapkowice.pl/16455/...-2025-rok.html`, 23+ entries, paginated). Results 2025 board has 20 entries (Jan/May/Jul/Oct 2025 auction rounds). No 2026 results page yet (no 2026 auctions concluded at check time).
+2. **URLs confirmed.** `/2571/ogloszenia-o-przetargach-i-wykazach-nieruchomosci.html` = index of year sub-pages (2026→/18027, 2025→/16455, 2024→/14593, 2023→/12980, 2022→/11504, 2021→/9984, archive→/18232). Results 2025 = `/16579/wyniki-przetargow-na-zbycie-nieruchomosci-2025.html` — a list of links to per-result HTML sub-pages (e.g. `/17717/informacja-z-przeprowadzonego-w-dniu-17-pazdziernika-2025-...-dz-nr-1731.html`).
+3. **Achieved price: INLINE HTML** (unknown resolved). Sample from /17717: "Cena wywoławcza - 109.700,00 zł"; achieved "za cenę netto 110.800,00 zł ... + 23% podatek VAT tj. 25.484,00 zł = cena brutto – 136.284,00 zł"; bidder count ("trzy uczestników") and winner name inline. No PDF needed.
+
+**Deal-breaker found**: content is land-only. 2025 results — all 20 entries "sprzedaż działki niezabudowanej"; 2026 announcements — działki / użytkowanie wieczyste / dzierżawa / bezprzetargowo, no lokale; 2024 (30 titles) and 2023 (22 titles) — no `lokal mieszkalny` in any title. Site-search hits for flat auctions land on the 2016/2017 boards (`/3718`, `/3080`). The desk estimate of ~2–6 flat auctions/yr is NOT supported live; the ~325-unit gmina stock is disposed bezprzetargowo to tenants (generic wykazy). No usable flat-auction stream → **NO-BUILD**.

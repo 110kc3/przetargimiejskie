@@ -1,5 +1,5 @@
 # Spike — Końskie (Świętokrzyskie · powiat konecki)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Medium effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: BUILD (Low effort; low-volume batch module).
 
 ## TL;DR
 Gmina Końskie does sell *lokale mieszkalne* at *ustny przetarg nieograniczony* — confirmed via multiple 2025–2026 announcement slugs on umkonskie.pl and BIP hits. Announcements are PDF attachments on a simple HTML BIP board. Achieved-price results appear to be posted in the same BIP section (5027) but were not directly fetched. Volume is low (single-digit active units, often requiring 2nd/3rd repeat auctions). One atypical cooperative-share auction noted. Effort is Medium: PDF parsing required; achieved-price posting pattern needs live verification.
@@ -48,4 +48,32 @@ No dedicated "wyniki nieruchomości" subsection found — achieved-price results
 - Results detection: needs heuristic to separate "ogłoszenie" vs. "wynik/informacja" entries in same board
 - Total estimate: 2–3 days if text-PDF; 4–5 days if scanned
 
-**VERDICT: NEEDS-LIVE-VERIFY** — flat auctions confirmed, but achieved-price parsability and result-post pattern unconfirmed. One focused live session (fetch 2–3 PDF announcements + 1–2 result PDFs) will resolve to BUILD or NO-BUILD.
+**VERDICT (superseded 2026-07-06, see Re-verify below): BUILD** — all four desk blockers resolved live; text-PDFs, results on same board, no PGM stream, platform = idcom-jst (clone Giżycko/Tczew).
+
+## Re-verify 2026-07-06 (LIVE)
+
+All four desk blockers resolved with live fetches; verdict flips to **BUILD (Low effort)** with a low-volume caveat.
+
+**1. PDFs are born-digital text — no OCR needed.** Fetched and ran `pdftotext` on both document types:
+- Announcement `ogloszenie-udzial-lokal-mieszka-i-20260511.pdf` (umkonskie.pl WP uploads) → 7.2 KB clean text: address (ul. Mieszka I 3 lok. 43), 46,94 m², cena wywoławcza 105.500,00 zł, wadium, auction date 23.06.2026, KW number — all parseable.
+- Result `informacja_o_wynikach_przetargu_z_2026_06_23.pdf` (hosted on `bip-v1-files.idcom-jst.pl/sites/46779/wiadomosci/<id>/files/`) → 1.8 KB clean text with the standard § 12 rozporządzenie template: przedmiot, cena wywoławcza, wadium count, osoby dopuszczone/niedopuszczone, outcome (this one: "wynik negatywny" — no bidders). Achieved price (najwyższa cena osiągnięta) appears in this same template when positive.
+
+**2. Results posting pattern confirmed.** No dedicated results board exists and none is needed: results are posted as separate titled entries **"Informacja o wynikach przetargu – <location>"** on the *same* BIP board 5027, ~1–2 weeks after the auction (Mieszka I: auction 23.06, result posted 02.07.2026). Page 1 of the board (July 2026) showed 4 such "Informacja o wynikach" entries alongside wykazy/ogłoszenia — title-prefix heuristic (`ogłoszenie|wykaz|informacja o wynikach`) cleanly separates entry types. HTML entry pages are cover sheets only (title + date + PDF attachment); all substance is in the PDF.
+
+**3. Canonical crawl target: `bip.umkonskie.pl` board 5027** (`/wiadomosci/5027/lista/N/nieruchomosci`, 99 pages deep, ~10 entries/page). Platform is **IDcom.pl bip-v1** — identical to already-built Giżycko and Tczew adapters (`pipeline/src/cities/gizycko`, `pipeline/src/cities/tczew`); attachments on `bip-v1-files.idcom-jst.pl`. The umkonskie.pl WordPress site is a mirror/subset but has a bonus: open WP REST API (`/wp-json/wp/v2/posts?search=…`) — useful for verification/backfill, not the primary target. Old `umkonskie.bipgmina.pl` redirects to current BIP.
+
+**4. PGM Końskie ruled out.** `pgmkonskie.pl/przetargi/` carries only lease/procurement notices (parking-lot dzierżawa etc.); zero flat-sale notices. No parallel stream.
+
+**Volume 2016–2026 (via WP REST enumeration, cross-checked on BIP):** open flat auctions recur but are VERY low volume — essentially one flat cycle at a time:
+- 2016–2017: one flat, rounds 1→3 (+ Piłsudskiego pair 2017)
+- 2022: Piłsudskiego 44H (1st, later "wyniki" entry), Warsztatowa 2B 1st
+- 2023: Warsztatowa 2B 2nd + 3rd (unsold)
+- **2024: zero open flat auctions** (only bezprzetargowe tenant-sale wykazy)
+- 2025: Warsztatowa 2B re-listed (wykaz Aug, 1st przetarg Sep)
+- 2026: Warsztatowa 2B 2nd (Feb), Mieszka I 3 coop-share 1st (May → negative result Jul)
+
+≈ 2–3 auction events/yr in active years, ~1–2 unique flats per cycle, several rounds end negative. Achieved-price yield is thin (a few sales per decade) but the stream is real, recurring, and parseable.
+
+**Effort re-estimate: LOW** (down from Medium) — clone the Giżycko/Tczew idcom-jst crawl, add title-prefix filter for `lokal mieszkalny|nieruchomości lokalowej|prawie do lokalu mieszkalnego`, pdftotext-based field extraction on born-digital PDFs. ~1 day. Build as part of the Świętokrzyskie batch, not standalone priority.
+
+**VERDICT: BUILD (Low effort, LIVE confidence).** Caveat: lowest-volume tier — expect long idle stretches (e.g. all of 2024).

@@ -1,8 +1,8 @@
 # Spike — Dąbrowa Tarnowska (Małopolskie · powiat dąbrowski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: NEEDS-LIVE-VERIFY (Low effort).
+> **Status:** spike LIVE — re-verified 2026-07-06. VERDICT: **NO-BUILD** (volume + no results stream).
 
 ## TL;DR
-Gmina Dąbrowa Tarnowska DOES sell municipal flats (lokale mieszkalne) at *ustny przetarg nieograniczony na sprzedaż*. Confirmed by a live III przetarg announcement (November 2025) on both the official portal dabrowatar.pl and BIP at bip.malopolska.pl. Format is rendered HTML on the main portal + BIP HTML pages (BIP direct fetches time out in automation — likely JS-blocked or rate-limited). Volume is very low (~1 flat per cycle, sold across multiple auction rounds). No separate achieved-price board found on BIP; result notices likely published as HTML articles on the same BIP host. DESK verdict because BIP direct fetch failed; live browser verification of the result/wyniki page needed before building.
+Gmina Dąbrowa Tarnowska DOES sell municipal flats (lokale mieszkalne) at *ustny przetarg nieograniczony na sprzedaż*. Confirmed by a live III przetarg announcement (November 2025) on both the official portal dabrowatar.pl and BIP at bip.malopolska.pl. Format is rendered HTML on the main portal + BIP HTML pages (BIP direct fetches time out in automation — likely JS-blocked or rate-limited). Volume is very low (~1 flat per cycle, sold across multiple auction rounds). No separate achieved-price board found on BIP; result notices likely published as HTML articles on the same BIP host. **Re-verified live 2026-07-06 (see "Re-verify" section): no wyniki stream exists 7 months post-auction, volume is one flat total across 2024–2026, and the WP REST API is now 401-blocked → NO-BUILD.**
 
 ## 1. Sells municipal property at auction?
 
@@ -56,4 +56,36 @@ Note: the flat being auctioned is located in Tarnów (not within Dąbrowa Tarnow
 
 **Effort**: Low. WordPress feed scrape is trivial; BIP parse reuses the shared bip.malopolska.pl adapter pattern already needed for other Małopolska cities. No PDF OCR, no auth, no SPA complexity.
 
-**Verdict**: NEEDS-LIVE-VERIFY — confirm that (a) bip.malopolska.pl renders correctly in Chrome MCP, and (b) a "wyniki przetargu" article exists/is published after auction completion for this gmina.
+**Verdict**: ~~NEEDS-LIVE-VERIFY~~ → **NO-BUILD** (re-verified live 2026-07-06, see below). Volume is ~1 flat per multi-round cycle (one flat total across 2024–2026) and no achieved-price/results stream exists — fails the <1–2 flat auctions/yr + no results stream heuristic.
+
+## Re-verify 2026-07-06
+
+Live checks (WebFetch + WebSearch), resolving the two open items from the desk spike:
+
+**(a) bip.malopolska.pl accessibility** — CONFIRMED BLOCKED for plain fetch. Both the index
+(`https://bip.malopolska.pl/umdabrowatarnowska,m,138772,zamowienia-publiczne-i-ogloszenia.html`)
+and the direct article (`https://bip.malopolska.pl/umdabrowatarnowska,a,2759478,.html`) return only the
+page skeleton/nav with an empty content area — JS rendering required (browser/Playwright only).
+
+**(b) Results/achieved-price stream** — NOT FOUND. Seven months after the III przetarg
+(4 Dec 2025, Lwowska 65/10, 279 000 zł), no "informacja o wyniku przetargu" for it exists on
+dabrowatar.pl (site search `?s=przetarg+lokal` and `?s=lokal+mieszkalny` show zero wyniki posts)
+and none is indexed from the gmina's BIP. The only "INFORMACJA o wyniku przetargu pisemnego"
+hit (`bip.malopolska.pl/pobierz/1257503.html`) belongs to the powiat starostwo (spdabrowatarnowska),
+a przetarg pisemny — different entity, out of scope.
+
+**(c) Volume 2024–2026** — ~1 flat total, not per year:
+- dabrowatar.pl full-site search: exactly one flat-sale cycle — I przetarg 2025-07-11
+  (`/burmistrz-dabrowy-tarnowskiej-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-mienia-komunalnego/`)
+  and III przetarg 2025-11-20 (`/ii-przetarg-nowa-nizsza-cena/`), both the same unit (Lwowska 65/10, 47.90 m²).
+  Zero flat auction announcements in 2024 or 2026; the only 2026 property post is a dzierżawa (lease), 2026-03-06.
+- Aggregator cross-check (adradar, Dąbrowa Tarnowska archive Jun 2024–Jun 2026): 1 flat auction listed,
+  seller = komornik (bailiff), **zero gmina flat auctions**.
+
+**(d) New blocker found** — the WordPress REST API (`dabrowatar.pl/wp-json/wp/v2/posts`) now returns
+**HTTP 401** — the desk spike's "zero-friction WP API" adapter path is gone; only HTML search
+(`dabrowatar.pl/?s=...`) works, and BIP needs a headless browser.
+
+**Conclusion**: no recurring flat-auction stream (~0.3 flats/yr), no results/achieved-price publication
+at all, and both the easy ingestion path (WP API) and the statutory source (BIP) are hardened.
+**NO-BUILD on volume.** Revisit only if the gmina starts publishing wyniki articles or auctions >=2 flats/yr.
