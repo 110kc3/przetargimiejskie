@@ -56,6 +56,13 @@ const PIPELINE_MIN_HISTORY_YEAR =
 async function refreshCity(city, globalStreetDisplay = new Map()) {
   console.error(`\n=== ${city.label} (${city.id}) ===`);
 
+  // Triage E2E hook: lets a workflow_dispatch run exercise the whole
+  // failure→issue path without breaking a real crawl. Throws exactly like a
+  // crawler would, so the per-city catch + preserve logic is what's tested.
+  if (process.env.FORCE_FAIL === city.id) {
+    throw new Error('forced failure (triage E2E test)');
+  }
+
   console.error('Crawling result documents ...');
   const docRefs = await city.crawlResultDocs();
   console.error(`Found ${docRefs.length} result documents.\n`);
@@ -161,6 +168,12 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     console.error(
       `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data.`,
     );
+    // Machine-readable twin of the line above for scripts/triage-report.js —
+    // CI classifies this as source-outage vs layout-change from the log.
+    console.error('TRIAGE ' + JSON.stringify({
+      city: city.id, kind: 'empty-crawl', message: 'crawl returned empty',
+      prev_properties: prevProperties.length,
+    }));
     let prevMeta = null;
     try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
 
@@ -438,6 +451,10 @@ async function main() {
       metas.push(await refreshCity(city, globalStreetDisplay));
     } catch (err) {
       console.error(`\n!!! ${city.id}: refresh FAILED (${err?.message || err}) — keeping last-published data, continuing with other cities.`);
+      // Machine-readable twin for scripts/triage-report.js (CI failure triage).
+      console.error('TRIAGE ' + JSON.stringify({
+        city: city.id, kind: 'throw', message: String(err?.message || err),
+      }));
       try {
         const prevMeta = JSON.parse(await readFile(join(DATA_DIR, city.id, 'meta.json'), 'utf8'));
         metas.push({ ...prevMeta, city: city.id, stale: true });

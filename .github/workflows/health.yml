@@ -2,16 +2,27 @@ name: Data health check
 
 # Silent-breakage guard. refresh.yml proves the crawl RAN; this proves it
 # produced fresh, non-empty data for every city. Runs daily on the committed
-# data (no crawl, no network) so a stalled adapter is caught within a day. On
-# failure the job fails and GitHub emails the maintainer — the same
-# failure-visibility mechanism refresh.yml already relies on. (To also open a
-# tracking issue, add an `if: failure()` step calling a pinned github-script /
-# gh issue create — left out here to avoid an extra action + write permission.)
+# data (no crawl, no network) so a stalled adapter is caught within a day.
+# Every FAIL also opens/updates a per-city `[city-broken]` issue via
+# scripts/issue-sync.js (classifications: stale-data, empty-data, meta-missing,
+# exempt-expired) — the issue body is a paste-into-Claude-Code triage prompt,
+# and GitHub's issue notifications deliver the email. The health-side sync only
+# closes issues it opened (label `health-check`) — see the scope rule in
+# issue-sync.js.
 
 on:
   schedule:
     - cron: '0 7 * * *'      # 07:00 UTC daily - a few hours after the daily 04:00 refresh.
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      stale_days:
+        description: 'Override STALE_DAYS (set 0 to force-fail every city — dry-run testing)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'true = print planned issue ops without executing'
+        required: false
+        default: ''
   # Also gate PRs that touch data so a bad hand-edit is caught before merge.
   pull_request:
     paths:
@@ -29,6 +40,9 @@ jobs:
   health:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write   # per-city [city-broken] issues (skipped on pull_request)
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -43,5 +57,28 @@ jobs:
         # two. It only emails the maintainer, never blocks a deploy, so raise it
         # again only if a legitimately-static source ever trips it.
         env:
-          STALE_DAYS: '3'
+          STALE_DAYS: ${{ inputs.stale_days || '3' }}
+          HEALTH_JSON_OUT: ${{ github.workspace }}/health-failures.json
         run: node scripts/health-check.js
+
+      # Turn the FAILs into per-city issues + close recovered health-owned ones.
+      # always(): the sync must run precisely when the step above exited 1.
+      # Skipped on pull_request (fork tokens are read-only; PR runs are a merge
+      # gate, not a monitor).
+      - name: Sync city-broken issues
+        if: always() && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # Recovered universe from the committed index (no npm ci needed here —
+          # importing the live registry would pull in the adapter modules).
+          ALL_CITIES=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).cities.map(c=>c.id).join(','))")
+          mkdir -p health-triage
+          node pipeline/scripts/issue-sync.js \
+            --failures-dir health-triage \
+            --health-json health-failures.json \
+            --recovered "$ALL_CITIES" \
+            --run-url "$RUN_URL" \
+            --source health \
+            $([ "${{ inputs.dry_run || '' }}" = "true" ] && echo --dry-run)

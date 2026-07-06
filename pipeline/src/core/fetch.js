@@ -5,6 +5,8 @@
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import https from 'node:https';
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 const USER_AGENT =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
@@ -14,6 +16,35 @@ const USER_AGENT =
 // verified to tolerate it - CI never sets it.
 const MIN_INTERVAL_MS = Number(process.env.FETCH_MIN_INTERVAL_MS) || 1000;
 let lastFetchAt = 0;
+
+// ---- failure-snapshot hook (CI triage) -------------------------------------
+//
+// When DEBUG_FETCH_DIR is set (refresh.yml sets it for every matrix job), each
+// fetched body is also written to that dir so a breaking run preserves the
+// EXACT bytes the crawler saw — the evidence a layout-change fix needs, without
+// re-hitting a flaky municipal server later. Capped to the first 25 fetches /
+// ~15 MB: board/index pages come first in every adapter and are what matter;
+// the caps keep PDF-heavy cities (Zabrze: ~113 docs) from bloating artifacts.
+const SNAPSHOT_DIR = process.env.DEBUG_FETCH_DIR || '';
+const SNAPSHOT_MAX_FILES = 25;
+const SNAPSHOT_MAX_BYTES = 15 * 1024 * 1024;
+let snapshotCount = 0;
+let snapshotBytes = 0;
+
+function snapshot(url, body, isText) {
+  if (!SNAPSHOT_DIR) return;
+  if (snapshotCount >= SNAPSHOT_MAX_FILES || snapshotBytes >= SNAPSHOT_MAX_BYTES) return;
+  try {
+    const buf = Buffer.isBuffer(body) ? body : Buffer.from(body, 'utf8');
+    const name = `${String(snapshotCount).padStart(3, '0')}-` +
+      url.replace(/^https?:\/\//, '').replace(/[^a-zA-Z0-9._-]+/g, '_').slice(0, 150) +
+      (isText ? '.html' : '.bin');
+    mkdirSync(SNAPSHOT_DIR, { recursive: true });
+    writeFileSync(join(SNAPSHOT_DIR, name), buf);
+    snapshotCount++;
+    snapshotBytes += buf.length;
+  } catch { /* snapshots are best-effort observability — never fail a crawl */ }
+}
 
 async function throttle() {
   const now = Date.now();
@@ -166,7 +197,9 @@ export async function getText(url, opts = {}) {
       accept: 'text/html,application/xhtml+xml',
       retries: opts.retries,
     });
-    return buf.toString('utf8');
+    const text = buf.toString('utf8');
+    snapshot(url, text, true);
+    return text;
   }
   const res = await politeGet(url, {
     accept: 'text/html,application/xhtml+xml',
@@ -174,16 +207,20 @@ export async function getText(url, opts = {}) {
     retries: opts.retries,
   });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
-  return res.text();
+  const text = await res.text();
+  snapshot(url, text, true);
+  return text;
 }
 
 /** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean }} [opts] */
 export async function getBytes(url, opts = {}) {
   if (opts.insecureTLS) {
-    return getBufferInsecure(url, {
+    const buf = await getBufferInsecure(url, {
       userAgent: opts.userAgent,
       accept: 'application/pdf,*/*',
     });
+    snapshot(url, buf, false);
+    return buf;
   }
   const res = await politeGet(url, {
     accept: 'application/pdf,*/*',
@@ -191,5 +228,7 @@ export async function getBytes(url, opts = {}) {
   });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
   const ab = await res.arrayBuffer();
-  return Buffer.from(ab);
+  const buf = Buffer.from(ab);
+  snapshot(url, buf, false);
+  return buf;
 }

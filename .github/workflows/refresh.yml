@@ -25,7 +25,16 @@ on:
     - cron: '0 4 * * *'      # Daily 04:00 UTC (approx 06:00 Polish time, CEST).
                              # cron is UTC-only and can't follow DST, so in winter
                              # (CET) it fires 05:00 local. health.yml runs at 07:00 UTC.
-  workflow_dispatch: {}      # adds a "Run workflow" button in the Actions UI
+  workflow_dispatch:         # adds a "Run workflow" button in the Actions UI
+    inputs:
+      only_city:
+        description: 'Run a single city id (empty = all cities)'
+        required: false
+        default: ''
+      force_fail:
+        description: 'City id to force-fail (triage E2E test — see scripts/triage-report.js)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -62,8 +71,12 @@ jobs:
       - name: Read city registry
         id: registry
         working-directory: pipeline
+        env:
+          # workflow_dispatch only — restricts the matrix to one city (used by
+          # the triage E2E test so a test run can't touch other cities).
+          ONLY_CITY: ${{ inputs.only_city || '' }}
         run: |
-          echo "cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+          echo "cities=$(node -e "import('./src/cities/index.js').then(m=>{const only=process.env.ONLY_CITY;const ids=m.cities.map(c=>c.id).filter(id=>!only||id===only);console.log(JSON.stringify(ids))})")" >> "$GITHUB_OUTPUT"
           echo "render_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsRender).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
 
   # One job per city, so a broken parser/source in one city can't block the
@@ -112,16 +125,35 @@ jobs:
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
 
+      # Refresh with the triage instrumentation around it: the pre-run meta is
+      # snapshotted (the commit step moves HEAD, so it can't be recovered
+      # later), all output is teed to a log the classify step reads, and
+      # DEBUG_FETCH_DIR preserves the first ~25 fetched bodies as layout-change
+      # evidence. Step-level timeout (< the job's 25) so a hung crawl still
+      # reaches the always() classify + upload steps instead of being
+      # hard-killed with nothing to show.
       - name: Run pipeline for ${{ matrix.city }}
+        id: refresh
+        timeout-minutes: 20
         working-directory: pipeline
-        run: CITY=${{ matrix.city }} npm run refresh
+        run: |
+          set -o pipefail
+          mkdir -p "$GITHUB_WORKSPACE/triage/snapshots"
+          cp "$GITHUB_WORKSPACE/data/${{ matrix.city }}/meta.json" "$GITHUB_WORKSPACE/triage/prev-meta.json" 2>/dev/null || true
+          CITY=${{ matrix.city }} \
+            FORCE_FAIL="${{ inputs.force_fail || '' }}" \
+            DEBUG_FETCH_DIR="$GITHUB_WORKSPACE/triage/snapshots" \
+            npm run refresh 2>&1 | tee "$GITHUB_WORKSPACE/triage/refresh.log"
 
       # Data sanity gate — glued prices, cellar/plot areas, junk streets,
       # genitive zombie duplicates (the June 2026 bug classes). A failure
       # blocks ONLY this city's commit; its last-good data stays published.
       - name: Sanity-check ${{ matrix.city }} data
+        id: sanity
         working-directory: pipeline
-        run: node scripts/sanity-check.js ${{ matrix.city }}
+        run: |
+          set -o pipefail
+          node scripts/sanity-check.js ${{ matrix.city }} 2>&1 | tee "$GITHUB_WORKSPACE/triage/sanity.log"
 
       # Upgrade land plots' geoportal links to PRECISE national-geoportal
       # identifyParcel deep-links (resolves obręb + parcel → TERYT id via ULDK).
@@ -163,6 +195,95 @@ jobs:
             echo "could not push after 6 attempts" >&2
             exit 1
           fi
+
+      # Failure triage — decides from the teed logs + meta counts whether this
+      # city is BROKEN (a green job proves nothing: refresh.js swallows per-city
+      # throws and preserve-on-empty exits 0 by design). Writes
+      # triage/failure.json + issue-body.md only when broken; always exits 0 so
+      # it can never affect the data commit above. The triage job turns the
+      # uploaded artifact into a GitHub issue.
+      - name: Triage classify
+        if: always()
+        working-directory: pipeline
+        run: |
+          node scripts/triage-report.js classify \
+            --city ${{ matrix.city }} \
+            --refresh-outcome "${{ steps.refresh.outcome }}" \
+            --sanity-outcome  "${{ steps.sanity.outcome }}" \
+            --refresh-log "$GITHUB_WORKSPACE/triage/refresh.log" \
+            --sanity-log  "$GITHUB_WORKSPACE/triage/sanity.log" \
+            --prev-meta   "$GITHUB_WORKSPACE/triage/prev-meta.json" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --run-id "${{ github.run_id }}" \
+            --out-dir "$GITHUB_WORKSPACE/triage"
+
+      # Only uploads when classify found a failure — a healthy day produces
+      # zero triage artifacts, so "green + no artifact" is the recovery signal.
+      - name: Upload triage artifact
+        if: always() && hashFiles('triage/failure.json') != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: triage-${{ matrix.city }}
+          path: triage/
+          retention-days: 14
+
+  # Turn the per-city triage artifacts into GitHub issues: one open issue per
+  # broken city ([city-broken] <id>: <why>, body = a paste-into-Claude-Code
+  # triage prompt), a "still failing" comment on repeats, auto-close on
+  # recovery. GitHub's native issue notifications deliver the email.
+  triage:
+    needs: [setup, refresh]
+    if: ${{ always() && needs.setup.result == 'success' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      issues: write
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+      # triage-report.js / issue-sync.js are dependency-free — no npm ci needed.
+      - name: Download triage artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: 'triage-*'
+          path: triage-artifacts
+      # A job the runner hard-killed (job-level timeout, runner loss) never ran
+      # its classify step, so it has no artifact — synthesize a timeout entry
+      # from the Actions API so it still gets an issue.
+      - name: Synthesize entries for hard-killed jobs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          mkdir -p triage-artifacts
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" --paginate \
+            --jq '.jobs[] | select(.name | startswith("refresh (")) | select(.conclusion=="failure" or .conclusion=="cancelled") | .name' |
+          sed 's/^refresh (\(.*\))$/\1/' | while read -r city; do
+            [ -n "$city" ] || continue
+            [ -d "triage-artifacts/triage-$city" ] || \
+              node pipeline/scripts/triage-report.js synthesize --city "$city" \
+                --classification timeout --run-url "$RUN_URL" \
+                --out-dir "triage-artifacts/triage-$city"
+          done
+      - name: Sync issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # The recovered universe = the cities THIS run refreshed (the whole
+          # registry normally; just the one city on an only_city dispatch, so a
+          # single-city test run can never mass-close other cities' issues).
+          CITIES_JSON: ${{ needs.setup.outputs.cities }}
+        run: |
+          RECOVERED=$(echo "$CITIES_JSON" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).join(',')))")
+          node pipeline/scripts/issue-sync.js \
+            --failures-dir triage-artifacts \
+            --recovered "$RECOVERED" \
+            --run-url "$RUN_URL" \
+            --source refresh
 
   # Rebuild data/index.json once, after every city job has finished (also when
   # some failed — their last-published meta.json keeps them in the index).
