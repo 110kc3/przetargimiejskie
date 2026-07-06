@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "city": "gorzow-wielkopolski",
+  "plots": [
+    {
+      "key": "gwiazdzista|5|111",
+      "kind": "grunt",
+      "city": "gorzow-wielkopolski",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Gwiaździsta",
+      "building": "5",
+      "address_raw": "ul. Gwiaździsta 5/111",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Gwia%C5%BAdzista%20Gorz%C3%B3w%20Wielkopolski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 47.2,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 1000000000,
+          "outcome": "sold",
+          "final_price_pln": 250000,
+          "area_m2": 47.2
+        },
+        {
+          "date": "2024-11-28",
+          "round": 2,
+          "starting_price_pln": 1000000000,
+          "outcome": "sold",
+          "final_price_pln": 235000,
+          "area_m2": 47.2
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "drzymaly|40|4",
+      "kind": "grunt",
+      "city": "gorzow-wielkopolski",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Drzymały",
+      "building": "40",
+      "address_raw": "ul. Drzymały 40/4",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Drzyma%C5%82y%20Gorz%C3%B3w%20Wielkopolski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 128.75,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-01-25",
+          "round": 1,
+          "starting_price_pln": 1000000000,
+          "outcome": "sold",
+          "final_price_pln": 550000,
+          "area_m2": 128.75
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

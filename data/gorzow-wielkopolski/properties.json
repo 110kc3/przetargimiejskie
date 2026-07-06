@@ -1,0 +1,1677 @@
+{
+  "schema_version": 1,
+  "city": "gorzow-wielkopolski",
+  "properties": [
+    {
+      "key": "armii polskiej|18|13",
+      "street": "Armii Polskiej",
+      "street_norm": "armii polskiej",
+      "building": "18",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 34.53,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 34.53,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/782/Ogloszenie_Nr_34_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_27_maja_2026r__o_przetargach/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 34.53
+    },
+    {
+      "key": "gdynskich|61|11",
+      "street": "Gdyńskich",
+      "street_norm": "gdynskich",
+      "building": "61",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 58.37,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/782/Ogloszenie_Nr_34_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_27_maja_2026r__o_przetargach/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 58.37
+    },
+    {
+      "key": "roza najdek towarowa|19|5",
+      "street": "Róża Najdek Towarowa",
+      "street_norm": "roza najdek towarowa",
+      "building": "19",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 80000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu.pdf&id=6d68721468d78269ef8e26cf5dd86922&stats=true",
+          "notes": [],
+          "area_m2": 30.7
+        }
+      ],
+      "area_m2": 30.7
+    },
+    {
+      "key": "kosynierow gdynskich|61|11",
+      "street": "Kosynierów Gdyńskich",
+      "street_norm": "kosynierow gdynskich",
+      "building": "61",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_26.03.2026r..pdf&id=af92967bc069322f1dac98af51615f5a&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 58.37,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/"
+        },
+        {
+          "date": "2026-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu.pdf&id=6d68721468d78269ef8e26cf5dd86922&stats=true",
+          "notes": [],
+          "area_m2": 58.37
+        }
+      ],
+      "area_m2": 58.37
+    },
+    {
+      "key": "lokietka|11B|8",
+      "street": "Łokietka",
+      "street_norm": "lokietka",
+      "building": "11B",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_26.03.2026r..pdf&id=af92967bc069322f1dac98af51615f5a&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 30.7,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/"
+        },
+        {
+          "date": "2026-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 30.7,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.7
+    },
+    {
+      "key": "stycznia|6|7",
+      "street": "Stycznia",
+      "street_norm": "stycznia",
+      "building": "6",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 189000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_26.03.2026r..pdf&id=af92967bc069322f1dac98af51615f5a&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 36.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/"
+        },
+        {
+          "date": "2026-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 36.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.43
+    },
+    {
+      "key": "towarowa|19|5",
+      "street": "Towarowa",
+      "street_norm": "towarowa",
+      "building": "19",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 156000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_26.03.2026r..pdf&id=af92967bc069322f1dac98af51615f5a&stats=true",
+          "notes": [],
+          "area_m2": 39.06,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/"
+        },
+        {
+          "date": "2026-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 39.06,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 39.06
+    },
+    {
+      "key": "slaska|81|1",
+      "street": "Śląska",
+      "street_norm": "slaska",
+      "building": "81",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 156000,
+          "outcome": "archived",
+          "area_m2": 39.06,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 39.06,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 39.06
+    },
+    {
+      "key": "armii polskiej|17|4",
+      "street": "Armii Polskiej",
+      "street_norm": "armii polskiej",
+      "building": "17",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 362000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_podpisem.pdf&id=b98204385b21e0bbeb5669c32f970f04&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 93.64
+        },
+        {
+          "date": "2026-02-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 181000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 215000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56a4144b2940d40da90ac2b872c22&stats=true",
+          "notes": [],
+          "area_m2": 93.64,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/759/Ogloszenie_Nr_77_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_15_grudnia_2025r__o_przetarga/"
+        }
+      ],
+      "area_m2": 93.64
+    },
+    {
+      "key": "armii polskiej|17|9",
+      "street": "Armii Polskiej",
+      "street_norm": "armii polskiej",
+      "building": "17",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 324000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_podpisem.pdf&id=b98204385b21e0bbeb5669c32f970f04&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 85.4
+        },
+        {
+          "date": "2026-02-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 162000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 198000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56a4144b2940d40da90ac2b872c22&stats=true",
+          "notes": [],
+          "area_m2": 85.4,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/759/Ogloszenie_Nr_77_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_15_grudnia_2025r__o_przetarga/"
+        }
+      ],
+      "area_m2": 85.4
+    },
+    {
+      "key": "kosynierow|71A|6",
+      "street": "Kosynierów",
+      "street_norm": "kosynierow",
+      "building": "71A",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 88000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 105000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_z_podpisem.pdf&id=b98204385b21e0bbeb5669c32f970f04&stats=true",
+          "notes": [],
+          "area_m2": 23.67
+        }
+      ],
+      "area_m2": 23.67
+    },
+    {
+      "key": "fabryczna|53|9",
+      "street": "Fabryczna",
+      "street_norm": "fabryczna",
+      "building": "53",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 19.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 39000,
+          "outcome": "archived",
+          "area_m2": 19.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 19.43
+    },
+    {
+      "key": "fabryczna|57|8",
+      "street": "Fabryczna",
+      "street_norm": "fabryczna",
+      "building": "57",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 42000,
+          "outcome": "archived",
+          "area_m2": 20.94,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 20.94
+    },
+    {
+      "key": "grobla|22|12",
+      "street": "Grobla",
+      "street_norm": "grobla",
+      "building": "22",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 46.96,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 46.96,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.96
+    },
+    {
+      "key": "kobylogorska|105|8",
+      "street": "Kobylogórska",
+      "street_norm": "kobylogorska",
+      "building": "105",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 29.73,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 54000,
+          "outcome": "archived",
+          "area_m2": 29.73,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29.73
+    },
+    {
+      "key": "kolejowa|6|10",
+      "street": "Kolejowa",
+      "street_norm": "kolejowa",
+      "building": "6",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 33.57,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 62000,
+          "outcome": "archived",
+          "area_m2": 33.57,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.57
+    },
+    {
+      "key": "kolejowa|10|10",
+      "street": "Kolejowa",
+      "street_norm": "kolejowa",
+      "building": "10",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "archived",
+          "area_m2": 41.19,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.19
+    },
+    {
+      "key": "ogrodowa|4|10",
+      "street": "Ogrodowa",
+      "street_norm": "ogrodowa",
+      "building": "4",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 17.21,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 37000,
+          "outcome": "archived",
+          "area_m2": 17.21,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 17.21
+    },
+    {
+      "key": "sikorskiego|88|5",
+      "street": "Sikorskiego",
+      "street_norm": "sikorskiego",
+      "building": "88",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 38.79,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 38.79,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.79
+    },
+    {
+      "key": "sloneczna|42|4",
+      "street": "Słoneczna",
+      "street_norm": "sloneczna",
+      "building": "42",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 32.45,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 66000,
+          "outcome": "archived",
+          "area_m2": 32.45,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.45
+    },
+    {
+      "key": "szkolna|3|9",
+      "street": "Szkolna",
+      "street_norm": "szkolna",
+      "building": "3",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 18.37,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 39000,
+          "outcome": "archived",
+          "area_m2": 18.37,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 18.37
+    },
+    {
+      "key": "warszawska|40|13",
+      "street": "Warszawska",
+      "street_norm": "warszawska",
+      "building": "40",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 22.2,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 44000,
+          "outcome": "archived",
+          "area_m2": 22.2,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 22.2
+    },
+    {
+      "key": "waska|4|7",
+      "street": "Wąska",
+      "street_norm": "waska",
+      "building": "4",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 35.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.43
+    },
+    {
+      "key": "dabrowskiego|7A|4A",
+      "street": "Dąbrowskiego",
+      "street_norm": "dabrowskiego",
+      "building": "7A",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "zabytkowa|9|7",
+      "street": "Zabytkowa",
+      "street_norm": "zabytkowa",
+      "building": "9",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "walczaka|13|82",
+      "street": "Walczaka",
+      "street_norm": "walczaka",
+      "building": "13",
+      "apt": "82",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2504,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 230000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_5_grudnia.pdf&id=eb0e2c63259878fcd81d6aef6265f276&stats=true",
+          "notes": [],
+          "area_m2": 37.3
+        },
+        {
+          "date": "2025-01-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2504,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 140000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_30_stycznia.pdf&id=ee1b200ec4825185c394670fb9da9246&stats=true",
+          "notes": [],
+          "area_m2": 37.3
+        }
+      ],
+      "area_m2": 37.3
+    },
+    {
+      "key": "gwiazdzista|5|107",
+      "street": "Gwiaździsta",
+      "street_norm": "gwiazdzista",
+      "building": "5",
+      "apt": "107",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 11086,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 270000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_19_wrzesnia.pdf&id=986ddceb824adbc51cbca72a824f4a40&stats=true",
+          "notes": [],
+          "area_m2": 47.5
+        },
+        {
+          "date": "2024-11-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 11086,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 249000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_28_listopada.pdf&id=d466b52d19c7c42c6d3a2d3492c60347&stats=true",
+          "notes": [],
+          "area_m2": 47.5
+        },
+        {
+          "date": "2025-01-30",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 11086,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 205000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_30_stycznia.pdf&id=ee1b200ec4825185c394670fb9da9246&stats=true",
+          "notes": [],
+          "area_m2": 47.5
+        }
+      ],
+      "area_m2": 47.5
+    },
+    {
+      "key": "gwiazdzista|5|111",
+      "street": "Gwiaździsta",
+      "street_norm": "gwiazdzista",
+      "building": "5",
+      "apt": "111",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 180790,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_30_stycznia.pdf&id=ee1b200ec4825185c394670fb9da9246&stats=true",
+          "notes": [],
+          "area_m2": 47.2
+        }
+      ],
+      "area_m2": 47.2
+    },
+    {
+      "key": "dabrowskiego|29|4",
+      "street": "Dąbrowskiego",
+      "street_norm": "dabrowskiego",
+      "building": "29",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 99.31
+        }
+      ],
+      "area_m2": 99.31
+    },
+    {
+      "key": "kolejowa|1|5",
+      "street": "Kolejowa",
+      "street_norm": "kolejowa",
+      "building": "1",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 25.34
+        }
+      ],
+      "area_m2": 25.34
+    },
+    {
+      "key": "maja|25|1",
+      "street": "Maja",
+      "street_norm": "maja",
+      "building": "25",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 189000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 42.05
+        },
+        {
+          "date": "2024-11-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_14_listopada.pdf&id=858427cebf29e6afee857cc67f1d382d&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 42.05
+        },
+        {
+          "date": "2025-01-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 42.05
+        }
+      ],
+      "area_m2": 42.05
+    },
+    {
+      "key": "maja|25|6",
+      "street": "Maja",
+      "street_norm": "maja",
+      "building": "25",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 42.18
+        },
+        {
+          "date": "2024-11-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_14_listopada.pdf&id=858427cebf29e6afee857cc67f1d382d&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 42.18
+        },
+        {
+          "date": "2025-01-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 42.18
+        }
+      ],
+      "area_m2": 42.18
+    },
+    {
+      "key": "drzymaly|38|2A",
+      "street": "Drzymały",
+      "street_norm": "drzymaly",
+      "building": "38",
+      "apt": "2A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 84.76
+        },
+        {
+          "date": "2024-11-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 320000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_14_listopada.pdf&id=858427cebf29e6afee857cc67f1d382d&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 84.76
+        },
+        {
+          "date": "2025-01-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 285000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 84.76
+        }
+      ],
+      "area_m2": 84.76
+    },
+    {
+      "key": "grottgera|37A|6",
+      "street": "Grottgera",
+      "street_norm": "grottgera",
+      "building": "37A",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 159000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 28.85
+        },
+        {
+          "date": "2024-11-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 139000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_14_listopada.pdf&id=858427cebf29e6afee857cc67f1d382d&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 28.85
+        },
+        {
+          "date": "2025-01-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 126250,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [],
+          "area_m2": 28.85
+        }
+      ],
+      "area_m2": 28.85
+    },
+    {
+      "key": "lokietka|21|9",
+      "street": "Łokietka",
+      "street_norm": "lokietka",
+      "building": "21",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 100.75
+        },
+        {
+          "date": "2024-11-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_14_listopada.pdf&id=858427cebf29e6afee857cc67f1d382d&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 100.75
+        },
+        {
+          "date": "2025-01-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 100.75
+        }
+      ],
+      "area_m2": 100.75
+    },
+    {
+      "key": "krzywoustego|15|7",
+      "street": "Krzywoustego",
+      "street_norm": "krzywoustego",
+      "building": "15",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 249000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=373b000380154cb159e155600882890f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 57.76
+        },
+        {
+          "date": "2024-09-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 57.76
+        },
+        {
+          "date": "2024-11-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_14_listopada.pdf&id=858427cebf29e6afee857cc67f1d382d&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 57.76
+        },
+        {
+          "date": "2025-01-23",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 171600,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_23_stycznia.pdf&id=2a323496dd5d62867b444cc895fc8d36&stats=true",
+          "notes": [],
+          "area_m2": 57.76
+        }
+      ],
+      "area_m2": 57.76
+    },
+    {
+      "key": "marcinkowskiego|7C|14",
+      "street": "Marcinkowskiego",
+      "street_norm": "marcinkowskiego",
+      "building": "7C",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 262600,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_19_wrzesnia.pdf&id=986ddceb824adbc51cbca72a824f4a40&stats=true",
+          "notes": [],
+          "area_m2": 52.48
+        }
+      ],
+      "area_m2": 52.48
+    },
+    {
+      "key": "miedzychodzka|6|1",
+      "street": "Międzychodzka",
+      "street_norm": "miedzychodzka",
+      "building": "6",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=373b000380154cb159e155600882890f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 35.47
+        },
+        {
+          "date": "2024-06-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=4fc65293acb299f7d0e5d9b540a3b8fe&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 35.47
+        },
+        {
+          "date": "2024-09-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 130000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [],
+          "area_m2": 35.47
+        }
+      ],
+      "area_m2": 35.47
+    },
+    {
+      "key": "rzeznicka|1|4",
+      "street": "Rzeźnicka",
+      "street_norm": "rzeznicka",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=373b000380154cb159e155600882890f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 45.5
+        },
+        {
+          "date": "2024-06-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=4fc65293acb299f7d0e5d9b540a3b8fe&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 45.5
+        },
+        {
+          "date": "2024-09-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 161600,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_5_wrzesnia.pdf&id=d1b70b39ca5c7745d8ad35972eb61d6f&stats=true",
+          "notes": [],
+          "area_m2": 45.5
+        }
+      ],
+      "area_m2": 45.5
+    },
+    {
+      "key": "drzymaly|40|4",
+      "street": "Drzymały",
+      "street_norm": "drzymaly",
+      "building": "40",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 525000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=373b000380154cb159e155600882890f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 128.75
+        },
+        {
+          "date": "2024-06-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=4fc65293acb299f7d0e5d9b540a3b8fe&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 57.76
+        }
+      ],
+      "area_m2": 57.76
+    },
+    {
+      "key": "wyszynskiego|82|4",
+      "street": "Wyszyńskiego",
+      "street_norm": "wyszynskiego",
+      "building": "82",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=373b000380154cb159e155600882890f&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 31.11
+        },
+        {
+          "date": "2024-06-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 121200,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow.pdf&id=4fc65293acb299f7d0e5d9b540a3b8fe&stats=true",
+          "notes": [],
+          "area_m2": 31.11
+        }
+      ],
+      "area_m2": 31.11
+    },
+    {
+      "key": "maja|29|87",
+      "street": "Maja",
+      "street_norm": "maja",
+      "building": "29",
+      "apt": "87",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-01-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3551,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 150000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wynikach_przetargow_na_sprzedaz_nieruchomosci_objetych_ogloszeniem_nr_62.2023.pdf&id=3b751d3cfa5a12b92544421c198a4824&stats=true",
+          "notes": [],
+          "area_m2": 29.3
+        }
+      ],
+      "area_m2": 29.3
+    },
+    {
+      "key": "korczaka|5A|2",
+      "street": "Korczaka",
+      "street_norm": "korczaka",
+      "building": "5A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2117,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 170000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_16_II_2023_z_dnia_11.04.2023r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=4310ab5748fc691220cc0809fb6ed381&stats=true",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|28|12",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "28",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-03-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_5_II_2023_z_dnia_20.01.2023r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=088ea552425bb85893e976ba268a379a&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 31.49
+        }
+      ],
+      "area_m2": 31.49
+    },
+    {
+      "key": "wawrzyniaka|76|4A",
+      "street": "Wawrzyniaka",
+      "street_norm": "wawrzyniaka",
+      "building": "76",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-03-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 139000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_5_II_2023_z_dnia_20.01.2023r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=088ea552425bb85893e976ba268a379a&stats=true",
+          "notes": [],
+          "area_m2": 32.98
+        }
+      ],
+      "area_m2": 32.98
+    },
+    {
+      "key": "marcinkowskiego|10G|13",
+      "street": "Marcinkowskiego",
+      "street_norm": "marcinkowskiego",
+      "building": "10G",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-03-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 188000,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_5_II_2023_z_dnia_20.01.2023r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=088ea552425bb85893e976ba268a379a&stats=true",
+          "notes": [],
+          "area_m2": 3
+        }
+      ],
+      "area_m2": 3
+    },
+    {
+      "key": "marcinkowskiego|109|13",
+      "street": "Marcinkowskiego",
+      "street_norm": "marcinkowskiego",
+      "building": "109",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-12-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 69206,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_56_II_2022_z_dnia_24.10.2022r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=9b1493d7d32635c7fe80a7a03bbc74d7&stats=true",
+          "notes": [
+            "parse: achieved price below starting price — verify row"
+          ],
+          "area_m2": 47.8
+        }
+      ],
+      "area_m2": 47.8
+    },
+    {
+      "key": "mickiewicza|32|9",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "32",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_22_II_2022_z_dnia_23.05.2022r._-_informacja_o_wyniku_przetargu_ustnego_nieograniczonego_na_sprzedaz_lokali_mieszkalnych.pdf&id=acaaa567fb06db768243cf476be6ae16&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 43.45
+        }
+      ],
+      "area_m2": 43.45
+    },
+    {
+      "key": "slaska|66|9",
+      "street": "Sląska",
+      "street_norm": "slaska",
+      "building": "66",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-04-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_12_II_2022_z_dnia_04.03.2022r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=a8f8a1c6adc53e77a94872ca697d506e&stats=true",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 39.56
+        },
+        {
+          "date": "2022-06-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 96800,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_22_II_2022_z_dnia_23.05.2022r._-_informacja_o_wyniku_przetargu_ustnego_nieograniczonego_na_sprzedaz_lokali_mieszkalnych.pdf&id=acaaa567fb06db768243cf476be6ae16&stats=true",
+          "notes": [],
+          "area_m2": 39.58
+        }
+      ],
+      "area_m2": 39.58
+    },
+    {
+      "key": "listopada|93|9",
+      "street": "Listopada",
+      "street_norm": "listopada",
+      "building": "93",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-04-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 103000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 104030,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_12_II_2022_z_dnia_04.03.2022r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=a8f8a1c6adc53e77a94872ca697d506e&stats=true",
+          "notes": [],
+          "area_m2": 34.52
+        }
+      ],
+      "area_m2": 34.52
+    }
+  ]
+}

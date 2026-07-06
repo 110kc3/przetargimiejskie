@@ -1,0 +1,673 @@
+{
+  "schema_version": 1,
+  "city": "gorzow-wielkopolski",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Polskiej 18/13",
+      "address": {
+        "street": "Armii Polskiej",
+        "street_norm": "armii polskiej",
+        "building": "18",
+        "apt": "13",
+        "key": "armii polskiej|18|13",
+        "warning": null
+      },
+      "area_m2": 34.53,
+      "starting_price_pln": null,
+      "auction_date": "2026-07-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/782/Ogloszenie_Nr_34_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_27_maja_2026r__o_przetargach/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetartgu_na_dzien_09.07.2026r..pdf&id=ce3dfd0954ac875953a9e77f5d0a450a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gdyńskich 61/11",
+      "address": {
+        "street": "Gdyńskich",
+        "street_norm": "gdynskich",
+        "building": "61",
+        "apt": "11",
+        "key": "gdynskich|61|11",
+        "warning": null
+      },
+      "area_m2": 58.37,
+      "starting_price_pln": null,
+      "auction_date": "2026-07-09",
+      "round": 1,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/782/Ogloszenie_Nr_34_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_27_maja_2026r__o_przetargach/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetartgu_na_dzien_09.07.2026r..pdf&id=ce3dfd0954ac875953a9e77f5d0a450a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Polskiej 18/13",
+      "address": {
+        "street": "Armii Polskiej",
+        "street_norm": "armii polskiej",
+        "building": "18",
+        "apt": "13",
+        "key": "armii polskiej|18|13",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-05-14",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu.pdf&id=9485b103c9a923f28872436a0fb8f359"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Łokietka 11B/8",
+      "address": {
+        "street": "Łokietka",
+        "street_norm": "lokietka",
+        "building": "11B",
+        "apt": "8",
+        "key": "lokietka|11B|8",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu.pdf&id=9485b103c9a923f28872436a0fb8f359"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stycznia 6/7",
+      "address": {
+        "street": "Stycznia",
+        "street_norm": "stycznia",
+        "building": "6",
+        "apt": "7",
+        "key": "stycznia|6|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu.pdf&id=9485b103c9a923f28872436a0fb8f359"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Śląska 81/1",
+      "address": {
+        "street": "Śląska",
+        "street_norm": "slaska",
+        "building": "81",
+        "apt": "1",
+        "key": "slaska|81|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu.pdf&id=9485b103c9a923f28872436a0fb8f359"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Towarowa 19/5",
+      "address": {
+        "street": "Towarowa",
+        "street_norm": "towarowa",
+        "building": "19",
+        "apt": "5",
+        "key": "towarowa|19|5",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-05-14",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu.pdf&id=9485b103c9a923f28872436a0fb8f359"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kosynierów Gdyńskich 61/11",
+      "address": {
+        "street": "Kosynierów Gdyńskich",
+        "street_norm": "kosynierow gdynskich",
+        "building": "61",
+        "apt": "11",
+        "key": "kosynierow gdynskich|61|11",
+        "warning": null
+      },
+      "area_m2": 58.37,
+      "starting_price_pln": 260000,
+      "auction_date": "2026-03-26",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_7_2026_o_przetargu_na_sprzedaz_lokali_mieszkalnych.pdf&id=3820fc9a8c9890797b9c814b8f5c30d1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Łokietka 11B/8",
+      "address": {
+        "street": "Łokietka",
+        "street_norm": "lokietka",
+        "building": "11B",
+        "apt": "8",
+        "key": "lokietka|11B|8",
+        "warning": null
+      },
+      "area_m2": 30.7,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-03-26",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_7_2026_o_przetargu_na_sprzedaz_lokali_mieszkalnych.pdf&id=3820fc9a8c9890797b9c814b8f5c30d1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stycznia 6/7",
+      "address": {
+        "street": "Stycznia",
+        "street_norm": "stycznia",
+        "building": "6",
+        "apt": "7",
+        "key": "stycznia|6|7",
+        "warning": null
+      },
+      "area_m2": 36.43,
+      "starting_price_pln": 189000,
+      "auction_date": "2026-03-26",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_7_2026_o_przetargu_na_sprzedaz_lokali_mieszkalnych.pdf&id=3820fc9a8c9890797b9c814b8f5c30d1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Śląska 81/1",
+      "address": {
+        "street": "Śląska",
+        "street_norm": "slaska",
+        "building": "81",
+        "apt": "1",
+        "key": "slaska|81|1",
+        "warning": null
+      },
+      "area_m2": 39.06,
+      "starting_price_pln": 156000,
+      "auction_date": "2026-03-26",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_7_2026_o_przetargu_na_sprzedaz_lokali_mieszkalnych.pdf&id=3820fc9a8c9890797b9c814b8f5c30d1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Towarowa 19/5",
+      "address": {
+        "street": "Towarowa",
+        "street_norm": "towarowa",
+        "building": "19",
+        "apt": "5",
+        "key": "towarowa|19|5",
+        "warning": null
+      },
+      "area_m2": 37.87,
+      "starting_price_pln": 183000,
+      "auction_date": "2026-03-26",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_7_2026_o_przetargu_na_sprzedaz_lokali_mieszkalnych.pdf&id=3820fc9a8c9890797b9c814b8f5c30d1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Polskiej 17/4",
+      "address": {
+        "street": "Armii Polskiej",
+        "street_norm": "armii polskiej",
+        "building": "17",
+        "apt": "4",
+        "key": "armii polskiej|17|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-02-05",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/759/Ogloszenie_Nr_77_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_15_grudnia_2025r__o_przetarga/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_nr_77_2025_o_przetargu_na_sprzedaz_nieruchomosci.pdf&id=99db92222bcb88b185d5f003930916c5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Polskiej 17/9",
+      "address": {
+        "street": "Armii Polskiej",
+        "street_norm": "armii polskiej",
+        "building": "17",
+        "apt": "9",
+        "key": "armii polskiej|17|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-02-05",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/759/Ogloszenie_Nr_77_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_15_grudnia_2025r__o_przetarga/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_nr_77_2025_o_przetargu_na_sprzedaz_nieruchomosci.pdf&id=99db92222bcb88b185d5f003930916c5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Fabryczna 53/9",
+      "address": {
+        "street": "Fabryczna",
+        "street_norm": "fabryczna",
+        "building": "53",
+        "apt": "9",
+        "key": "fabryczna|53|9",
+        "warning": null
+      },
+      "area_m2": 19.43,
+      "starting_price_pln": 39000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Fabryczna 57/8",
+      "address": {
+        "street": "Fabryczna",
+        "street_norm": "fabryczna",
+        "building": "57",
+        "apt": "8",
+        "key": "fabryczna|57|8",
+        "warning": null
+      },
+      "area_m2": 20.94,
+      "starting_price_pln": 42000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grobla 22/12",
+      "address": {
+        "street": "Grobla",
+        "street_norm": "grobla",
+        "building": "22",
+        "apt": "12",
+        "key": "grobla|22|12",
+        "warning": null
+      },
+      "area_m2": 46.96,
+      "starting_price_pln": 85000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kobylogórska 105/8",
+      "address": {
+        "street": "Kobylogórska",
+        "street_norm": "kobylogorska",
+        "building": "105",
+        "apt": "8",
+        "key": "kobylogorska|105|8",
+        "warning": null
+      },
+      "area_m2": 29.73,
+      "starting_price_pln": 54000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kolejowa 6/10",
+      "address": {
+        "street": "Kolejowa",
+        "street_norm": "kolejowa",
+        "building": "6",
+        "apt": "10",
+        "key": "kolejowa|6|10",
+        "warning": null
+      },
+      "area_m2": 33.57,
+      "starting_price_pln": 62000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kolejowa 10/10",
+      "address": {
+        "street": "Kolejowa",
+        "street_norm": "kolejowa",
+        "building": "10",
+        "apt": "10",
+        "key": "kolejowa|10|10",
+        "warning": null
+      },
+      "area_m2": 41.19,
+      "starting_price_pln": 75000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ogrodowa 4/10",
+      "address": {
+        "street": "Ogrodowa",
+        "street_norm": "ogrodowa",
+        "building": "4",
+        "apt": "10",
+        "key": "ogrodowa|4|10",
+        "warning": null
+      },
+      "area_m2": 17.21,
+      "starting_price_pln": 37000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sikorskiego 88/5",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "88",
+        "apt": "5",
+        "key": "sikorskiego|88|5",
+        "warning": null
+      },
+      "area_m2": 38.79,
+      "starting_price_pln": 85000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczna 42/4",
+      "address": {
+        "street": "Słoneczna",
+        "street_norm": "sloneczna",
+        "building": "42",
+        "apt": "4",
+        "key": "sloneczna|42|4",
+        "warning": null
+      },
+      "area_m2": 32.45,
+      "starting_price_pln": 66000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Szkolna 3/9",
+      "address": {
+        "street": "Szkolna",
+        "street_norm": "szkolna",
+        "building": "3",
+        "apt": "9",
+        "key": "szkolna|3|9",
+        "warning": null
+      },
+      "area_m2": 18.37,
+      "starting_price_pln": 39000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 40/13",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "40",
+        "apt": "13",
+        "key": "warszawska|40|13",
+        "warning": null
+      },
+      "area_m2": 22.2,
+      "starting_price_pln": 44000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wąska 4/7",
+      "address": {
+        "street": "Wąska",
+        "street_norm": "waska",
+        "building": "4",
+        "apt": "7",
+        "key": "waska|4|7",
+        "warning": null
+      },
+      "area_m2": 35.43,
+      "starting_price_pln": 59000,
+      "auction_date": "2025-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/748/Ogloszenie_Nr_61_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_5_wrzesnia_2025_r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_nr_61-2025.pdf&id=5464edb2e1779d63741f87bea5610f3c"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Dąbrowskiego 7a/4a",
+      "address": {
+        "street": "Dąbrowskiego",
+        "street_norm": "dabrowskiego",
+        "building": "7A",
+        "apt": "4A",
+        "key": "dabrowskiego|7A|4A",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Fabryczna 53/9",
+      "address": {
+        "street": "Fabryczna",
+        "street_norm": "fabryczna",
+        "building": "53",
+        "apt": "9",
+        "key": "fabryczna|53|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grobla 22/12",
+      "address": {
+        "street": "Grobla",
+        "street_norm": "grobla",
+        "building": "22",
+        "apt": "12",
+        "key": "grobla|22|12",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kobylogórska 105/8",
+      "address": {
+        "street": "Kobylogórska",
+        "street_norm": "kobylogorska",
+        "building": "105",
+        "apt": "8",
+        "key": "kobylogorska|105|8",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kolejowa 6/10",
+      "address": {
+        "street": "Kolejowa",
+        "street_norm": "kolejowa",
+        "building": "6",
+        "apt": "10",
+        "key": "kolejowa|6|10",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ogrodowa 4/10",
+      "address": {
+        "street": "Ogrodowa",
+        "street_norm": "ogrodowa",
+        "building": "4",
+        "apt": "10",
+        "key": "ogrodowa|4|10",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sikorskiego 88/5",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "88",
+        "apt": "5",
+        "key": "sikorskiego|88|5",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczna 42/4",
+      "address": {
+        "street": "Słoneczna",
+        "street_norm": "sloneczna",
+        "building": "42",
+        "apt": "4",
+        "key": "sloneczna|42|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Szkolna 3/9",
+      "address": {
+        "street": "Szkolna",
+        "street_norm": "szkolna",
+        "building": "3",
+        "apt": "9",
+        "key": "szkolna|3|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 40/13",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "40",
+        "apt": "13",
+        "key": "warszawska|40|13",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zabytkowa 9/7",
+      "address": {
+        "street": "Zabytkowa",
+        "street_norm": "zabytkowa",
+        "building": "9",
+        "apt": "7",
+        "key": "zabytkowa|9|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-21",
+      "round": null,
+      "detail_url": "https://bip.um.gorzow.pl/przetargi/320/744/Ogloszenie_Nr_51_2F2025_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_21_lipca_2025r/",
+      "source_url": "https://bip.um.gorzow.pl/system/pobierz.php?plik=ogloszenie_o_przetargu_z_podpisem.pdf&id=8abbaeca02ee71e394f121f4ff31c75d"
+    }
+  ],
+  "wykaz": []
+}
