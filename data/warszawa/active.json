@@ -104,11 +104,18 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Śródmieście. ul. S. Noakowskiego 4 - przetargi ustne nieograniczone na sprzedaż lokali mieszkalnych nr 17 i nr 18",
-      "address": null,
-      "auction_date": null,
+      "address_raw": "ul. S. Noakowskiego 4/17",
+      "address": {
+        "street": "S. Noakowskiego",
+        "street_norm": "s noakowskiego",
+        "building": "4",
+        "apt": "17",
+        "key": "s noakowskiego|4|17",
+        "warning": null
+      },
+      "auction_date": "2026-07-09",
       "published_date": "2026-04-22",
-      "round": null,
+      "round": 1,
       "area_m2": null,
       "starting_price_pln": null,
       "detail_url": "https://srodmiescie.um.warszawa.pl/-/ul-noakowskiego-4-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalnych-nr-17-i-18",
