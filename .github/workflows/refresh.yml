@@ -1,4 +1,6 @@
-name: Refresh auction data
+# Workflow catalog: see .github/workflows/README.md (names are numbered so the
+# Actions sidebar sorts in pipeline order).
+name: 1. Refresh auction data
 
 on:
   push:

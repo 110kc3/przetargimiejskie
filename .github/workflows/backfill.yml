@@ -1,4 +1,4 @@
-name: Backfill (full refresh — parallel matrix, long timeout)
+name: 7. Backfill (manual — full refresh, long timeout)
 
 # One-off "prime the cache" run, triggered MANUALLY (Actions → this workflow →
 # Run workflow). Same pipeline as the daily refresh.yml, but:

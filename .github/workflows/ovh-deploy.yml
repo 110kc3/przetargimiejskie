@@ -1,9 +1,10 @@
 # Publishes przetargimiejskie.pl to OVH shared web hosting via SFTP.
 #
-# ★ THIS IS THE CANONICAL / LIVE DEPLOY. ★ The domain's DNS A/AAAA records point
-# at OVH; this workflow is the only one that deploys automatically. The GitHub
-# Pages workflow (pages.yml) is a manual-only fallback, and there is no Cloudflare
-# deploy (the old wrangler.jsonc was removed once DNS confirmed OVH is live).
+# ★ THIS IS THE CANONICAL / LIVE DEPLOY — and the ONLY deploy. ★ The domain's
+# DNS A/AAAA records point at OVH. (A manual GitHub Pages fallback, pages.yml,
+# existed until July 2026; recover it from git history if ever needed. There is
+# no Cloudflare deploy — the old wrangler.jsonc was removed once DNS confirmed
+# OVH is live.)
 #
 # The site is fully static (HTML + JSON in /data). This assembles
 # _site (build-site.sh) and mirrors it to the hosting's document root over SFTP
@@ -19,7 +20,7 @@
 #
 # Target: the OVH "Multi-site" tab roots przetargimiejskie.pl (and www.) at the
 # `www` folder under the home dir (/home/przetaa), so we mirror into `www/`.
-name: Deploy site to OVH (przetargimiejskie.pl)
+name: 3. Deploy site to OVH (przetargimiejskie.pl)
 
 on:
   push:
@@ -36,7 +37,9 @@ on:
   # the site would never update after a scheduled crawl. workflow_run fires
   # regardless of who pushed and checks out the (freshly committed) default branch.
   workflow_run:
-    workflows: ["Refresh auction data"]
+    # MUST match refresh.yml's `name:` exactly — workflow_run resolves by
+    # display name, so renaming one side silently breaks the deploy chain.
+    workflows: ["1. Refresh auction data"]
     types: [completed]
   workflow_dispatch:
 

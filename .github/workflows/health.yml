@@ -1,4 +1,4 @@
-name: Data health check
+name: 2. Data health check
 
 # Silent-breakage guard. refresh.yml proves the crawl RAN; this proves it
 # produced fresh, non-empty data for every city. Runs daily on the committed
