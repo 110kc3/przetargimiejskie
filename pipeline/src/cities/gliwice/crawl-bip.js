@@ -30,6 +30,7 @@
 // Output shape matches the ZGM `crawlActive().listings` contract so the two
 // streams merge transparently in buildCityData (see ../../core/build-properties.js).
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseAddress } from '../../core/normalize.js';
 
@@ -305,7 +306,7 @@ export async function crawlBipSales() {
   return { listings, land };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlBipSales();
   process.stdout.write(JSON.stringify({ listings, land }, null, 2) + '\n');
   console.error(`Total: ${listings.length} BIP lokale + ${land.length} BIP land record(s)`);

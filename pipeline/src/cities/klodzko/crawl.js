@@ -20,6 +20,7 @@
 //   - Skip: commercial ("innym przeznaczeniu niż mieszkalny"), land (nieruchomości
 //     zabudowanej / gruntowej) — these are not flats.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseDetailPage, parseListingPage } from './parse.js';
 
@@ -130,7 +131,7 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

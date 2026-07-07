@@ -16,6 +16,7 @@
 // .doc attachment (if present on the detail page) and parse the starting price.
 // Silently skip on fetch/parse failures.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import {
@@ -226,7 +227,7 @@ export async function crawlResultDocs() {
   return [];
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(
     JSON.stringify({ listings: listings.length, sample: listings[0] }, null, 2) + '\n',

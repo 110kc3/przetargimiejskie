@@ -20,6 +20,7 @@
 //
 // Volume: ~1–2 municipal flat auctions/year — low-frequency polling.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncementPost, stripTags, isFlatSaleAnnouncement } from './parse.js';
 
@@ -145,7 +146,7 @@ export async function crawlResultDocs() {
 // CLI smoke test
 // ---------------------------------------------------------------------------
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total active: ${listings.length}`);

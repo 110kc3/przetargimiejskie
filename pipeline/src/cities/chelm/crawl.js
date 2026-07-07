@@ -23,6 +23,7 @@
 // source:'html' means crawlResultDocs() returns refs already carrying `.text`,
 // so refresh.js bypasses the generic PDF-OCR dispatch.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import {
@@ -183,7 +184,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

@@ -5,6 +5,7 @@
 // date. The *auction* date sits inside the PDF filename — we extract it here so
 // downstream code never has to parse Polish month names.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
 const BASE = 'https://zgm-gliwice.pl/wyniki-przetargow';
@@ -81,7 +82,7 @@ export async function crawlAllResultPdfs() {
   return [...found.values()].sort((a, b) => b.auction_date.localeCompare(a.auction_date));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const refs = await crawlAllResultPdfs();
   process.stdout.write(JSON.stringify(refs, null, 2) + '\n');
   console.error(`Total: ${refs.length} result PDF(s)`);

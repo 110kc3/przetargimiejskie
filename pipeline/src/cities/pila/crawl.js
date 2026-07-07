@@ -27,6 +27,7 @@
 // (unlike Tarnowskie Gory, which downloads the PDF here and carries .text).
 // This keeps crawl.js light; pdfText is invoked by refresh.js.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAnnouncementPdf, parseResultDoc, isSkippableTitle, isFlatAnnouncementTitle } from './parse.js';
@@ -261,7 +262,7 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

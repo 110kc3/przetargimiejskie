@@ -19,6 +19,7 @@
 // server-rendered ASP.NET; older batches hung off `&Archive=<id>` links.
 // crawlResultDocs() is [] (no achieved-price stream wired).
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { rtfText } from '../../core/rtf-text.js';
 import { parseAnnouncement } from './parse.js';
@@ -131,7 +132,7 @@ export async function crawlResultDocs() {
   return [];
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} flat listing(s)`);

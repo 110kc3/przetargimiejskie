@@ -10,7 +10,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { getText } from '../../core/fetch.js';
 import { urlCacheKey } from '../../core/hash.js';
@@ -155,7 +155,7 @@ export async function crawlDetailAreas() {
   return keyToArea;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const map = await crawlDetailAreas();
   process.stdout.write(
     JSON.stringify(Object.fromEntries(map.entries()), null, 2) + '\n',

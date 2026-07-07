@@ -15,6 +15,7 @@
 // `source: 'html'` means crawlResultDocs() returns refs with `.text` already extracted,
 // so refresh.js hands them directly to parseResultDoc without going through the OCR path.
 
+import { pathToFileURL } from 'node:url';
 import { getText, getBytes } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAnnouncement, isResultNotice, isSkippableTitle, isResultTitle, isAnnouncementTitle } from './parse.js';
@@ -186,7 +187,7 @@ export async function crawlResultDocs() {
   return crawlResultsPromise;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

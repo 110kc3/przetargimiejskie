@@ -23,6 +23,7 @@
 // ⚠️ Unverified pending the first CI run: the attachment is assumed a text PDF
 // (pdfText/pdftotext) — see config.js. If it's scanned/DOC, swap the extractor.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { docText } from '../../core/doc-text.js';
@@ -191,7 +192,7 @@ export async function crawlActive() {
   return { listings, wykaz };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
 }

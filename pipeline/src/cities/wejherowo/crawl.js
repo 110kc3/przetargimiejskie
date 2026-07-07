@@ -25,6 +25,7 @@
 //   - DataTables row selectors (role="row"/role="gridcell") still apply
 //   - Result PDF naming ("wyniki" substring in filename) is consistent
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncement, parseResultDoc as _parseResultDoc } from './parse.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -349,7 +350,7 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} active listing(s)`);

@@ -27,6 +27,7 @@
 //   already set so refresh.js passes the text straight to parseResultDoc without
 //   a second fetch.  Falls back to an empty array on failure.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
 // bip.gniezno.eu serves an INCOMPLETE TLS chain (missing intermediate), which
@@ -220,7 +221,7 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} active listing(s)`);

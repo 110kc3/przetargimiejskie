@@ -45,32 +45,31 @@ const EXEMPT_MAX_DAYS = Number(process.env.EXEMPT_MAX_DAYS || 21);
 const EXEMPT_EMPTY = new Set();
 
 // Cities pending their FIRST successful live refresh — newly-built adapters
-// being validated against the live BIP (June 2026: Oświęcim REKORD relative-href
-// fix, Chrzanów stub-depth fix, Kędzierzyn-Koźle crawl bound). For these, a
-// missing meta.json or unique_properties=0 is a WARN, not a build-failing FAIL,
-// so the established cities' health isn't blocked by a city still settling in.
+// being validated against the live BIP (June 2026: Oświęcim REKORD
+// relative-href fix, Chrzanów stub-depth fix). For these, a missing meta.json
+// or unique_properties=0 is a WARN, not a build-failing FAIL, so the
+// established cities' health isn't blocked by a city still settling in.
 // REMOVE a city from here the moment its first real refresh commits non-empty
 // data (then a future drop to 0 correctly fails again). Every entry carries
 // its `since` date: past EXEMPT_MAX_DAYS the exemption ESCALATES to a FAIL
 // (class exempt-expired) so a forgotten entry can't mask real breakage forever.
+// (Removed 2026-07-07 after their first non-empty CI refresh: kedzierzyn-kozle,
+// lodz, skarzysko-kamienna, bydgoszcz, gorzow-wielkopolski.)
 const EXEMPT_NEW = new Map([
-  ['kedzierzyn-kozle', { since: '2026-06-27', reason: 'crawl bounded 27 June — pending first full refresh' }],
   ['oswiecim', { since: '2026-06-27', reason: 'REKORD relative-href fix — pending first live refresh' }],
   ['chrzanow', { since: '2026-06-27', reason: 'stub→BIP harvest fix — pending first live refresh' }],
   // July 2026 wave: adapters repaired against live markup (see CHANGELOG) or
   // sources legitimately empty; unique_properties stays 0 until each city's
   // first result documents parse.
   ['wejherowo', { since: '2026-07-02', reason: 'adapter OK locally; CI refresh commits zeros — check refresh job log' }],
-  ['lodz', { since: '2026-07-02', reason: 'PDF-label regex fix — pending first live refresh' }],
   ['walbrzych', { since: '2026-07-02', reason: 'board + result-stream URL fix — pending first refresh' }],
   ['gdansk', { since: '2026-07-02', reason: 'announcement index legitimately empty between auction rounds' }],
   ['gniezno', { since: '2026-07-02', reason: 'insecureTLS for incomplete chain — pending first refresh' }],
-  ['skarzysko-kamienna', { since: '2026-07-02', reason: 'body moved to div.wysiwyg — pending first refresh' }],
   ['augustow', { since: '2026-07-02', reason: 'crawl OK (4 active listings); city publishes no result docs yet' }],
-  // Rebuilt 2026-07-06 after the June mount-corruption (parsers live-groundtruthed,
-  // 18+33 tests green) — pending their first CI refresh.
-  ['bydgoszcz', { since: '2026-07-06', reason: 'clean rebuild registered 2026-07-06 — pending first live refresh (live smoke: 3 active flats)' }],
-  ['gorzow-wielkopolski', { since: '2026-07-06', reason: 'clean rebuild registered 2026-07-06 — pending first live refresh (live smoke: 25 active)' }],
+  // New adapter, first meta committed 2026-07-05: the crawl fetches its single
+  // source PDF but has NEVER parsed a record from it — parse.js needs a parse
+  // investigation against the live PDF before this can leave the list.
+  ['busko-zdroj', { since: '2026-07-05', reason: 'new adapter — fetches 1 source PDF, parses 0 records; parse investigation needed' }],
 ]);
 
 const now = Date.now();

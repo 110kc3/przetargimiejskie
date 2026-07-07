@@ -37,6 +37,7 @@
 // (index.js crawlActive) catches this and the ZGM flat/commercial/garage crawl
 // is not affected.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
 export const MSIP_JSON_URL =
@@ -243,7 +244,7 @@ export async function crawlMsipLand() {
   return land;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const land = await crawlMsipLand();
   process.stdout.write(JSON.stringify(land, null, 2) + '\n');
   console.error(`Total: ${land.length} land plot(s)`);

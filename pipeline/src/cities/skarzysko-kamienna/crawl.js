@@ -15,6 +15,7 @@
 //
 // source:'html' ⇒ result refs already carry `.text`.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import {
   parseAnnouncement,
@@ -168,7 +169,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

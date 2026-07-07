@@ -35,6 +35,7 @@
 // confirmed on 2026-06-27 but should be re-verified on first CI run —
 // BIP-E.PL occasionally reorganises board IDs.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -311,7 +312,7 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
 }

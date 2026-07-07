@@ -30,6 +30,7 @@
 //   - Result notice: lokal nr 1 at Rynku Zygmunta Augusta 16, published 2024-09-17
 //     PDF: /resource/26697/Infromacja+o+wynikach+-+lokal+Nr+1.pdf
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import {
@@ -207,7 +208,7 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resolvedRefs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} active flat listing(s)`);

@@ -20,6 +20,7 @@
 // MAX_PAGES: routine CI cap (~60 most-recent listings).
 // Full backfill: set env PABIANICE_MAX_PAGES=48.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
@@ -290,7 +291,7 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

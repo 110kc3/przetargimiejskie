@@ -19,6 +19,7 @@
 // No auth, no JS SPA, no TLS issues observed. Standard browser UA used to
 // avoid any WAF rejecting the default bot UA.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import {
@@ -165,7 +166,7 @@ export async function crawlResultDocs() {
   return newRefs.map((r) => ({ ...r, auction_date: null }));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
 }

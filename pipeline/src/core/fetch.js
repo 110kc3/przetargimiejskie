@@ -2,11 +2,50 @@
 //
 // All HTTP traffic to zgm-gliwice.pl flows through here so we have one
 // consistent place to enforce rate limits and user-agent.
+//
+// FETCH_PROXY_URL (optional): http(s)://[user:pass@]host:port — routes the
+// requests made THROUGH THIS MODULE (politeGet / getText / getBytes) through
+// that proxy (undici ProxyAgent). Why: some Polish municipal hosts firewall
+// GitHub Actions' Azure IP ranges outright — bip2.finn.pl (194.24.181.47, the
+// shared FINN server behind www.bipraciborz.pl and bip.swietochlowice.pl)
+// silently drops runner connections while answering in under a second from
+// Polish IPs. Pointing FETCH_PROXY_URL at a PL/non-Azure exit restores those
+// cities in CI. When UNSET the behavior is byte-identical to before (undici is
+// not even imported; the plain global fetch is used).
+//
+// Known UN-proxied paths: the insecureTLS path (getBufferInsecure, node:https);
+// any city-local direct fetch() calls that bypass this module (compose with the
+// exported proxyFetch instead); and the playwright renderer (core/render.js),
+// which drives its own browser network stack.
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import https from 'node:https';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
+
+// ---- optional proxy egress (FETCH_PROXY_URL — see header comment) ----------
+//
+// Uses undici's own fetch with a per-request ProxyAgent dispatcher rather than
+// setGlobalDispatcher: mixing an npm-undici dispatcher into Node's built-in
+// fetch is version-sensitive, while undici fetch + undici agent always agree.
+const PROXY_URL = process.env.FETCH_PROXY_URL || '';
+let proxiedFetch = null;
+if (PROXY_URL) {
+  const { fetch: undiciFetch, ProxyAgent } = await import('undici');
+  const proxyDispatcher = new ProxyAgent(PROXY_URL);
+  proxiedFetch = (url, opts = {}) => undiciFetch(url, { ...opts, dispatcher: proxyDispatcher });
+  console.error(`  fetch: egress via proxy ${PROXY_URL.replace(/\/\/[^@/]*@/, '//***@')}`);
+}
+
+/**
+ * Proxy-aware fetch handle: the FETCH_PROXY_URL-backed fetch when the proxy is
+ * configured, otherwise the plain global fetch. Lets city-local code that must
+ * build its own requests (e.g. brzeg's waiting-room retry loop, which needs a
+ * Cookie header politeGet can't send) use the same egress as this module.
+ */
+export function proxyFetch(...args) {
+  return (proxiedFetch || fetch)(...args);
+}
 
 const USER_AGENT =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
@@ -31,7 +70,7 @@ const SNAPSHOT_MAX_BYTES = 15 * 1024 * 1024;
 let snapshotCount = 0;
 let snapshotBytes = 0;
 
-function snapshot(url, body, isText) {
+export function snapshot(url, body, isText) {
   if (!SNAPSHOT_DIR) return;
   if (snapshotCount >= SNAPSHOT_MAX_FILES || snapshotBytes >= SNAPSHOT_MAX_BYTES) return;
   try {
@@ -166,7 +205,7 @@ export async function politeGet(url, opts = {}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       await throttle();
-      const res = await fetch(url, { headers, redirect: 'follow' });
+      const res = await (proxiedFetch || fetch)(url, { headers, redirect: 'follow' });
       if (res.status >= 500 || res.status === 429) {
         throw new Error(`http ${res.status} on ${url}`);
       }

@@ -28,6 +28,7 @@
 // crawlActive pass. The result pass looks back further to capture recent
 // completed auctions (RESULT_LOOKBACK_DAYS).
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import {
   isAnnouncementTitle,
@@ -190,7 +191,7 @@ export async function crawlActive() {
  */
 export { parseResultDoc } from './parse.js';
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
 }

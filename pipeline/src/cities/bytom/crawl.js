@@ -22,6 +22,7 @@
 // catalog via parseCatalogLand(). crawlActive() returns { listings, wykaz, land }
 // so refresh.js partitions grunt records into data/bytom/land.json.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { parseAddress } from '../../core/normalize.js';
@@ -478,7 +479,7 @@ export async function crawlResultDocs() {
   return [];
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} active listing(s)`);
