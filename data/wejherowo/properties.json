@@ -1,5 +1,182 @@
 {
   "schema_version": 1,
   "city": "wejherowo",
-  "properties": []
+  "properties": [
+    {
+      "key": "sw jana|7|8",
+      "street": "św. Jana",
+      "street_norm": "sw jana",
+      "building": "7",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "area_m2": 34.83,
+          "detail_url": "https://bip.wejherowo.pl/artykul/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-8-polozonego-w-budynku-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 34.83
+    },
+    {
+      "key": "sobieskiego|326|9",
+      "street": "Sobieskiego",
+      "street_norm": "sobieskiego",
+      "building": "326",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 236000,
+          "outcome": "active",
+          "area_m2": 71.73,
+          "detail_url": "https://bip.wejherowo.pl/artykul/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-p-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 71.73
+    },
+    {
+      "key": "3 maja|20|9",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "20",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 223000,
+          "outcome": "active",
+          "area_m2": 30.53,
+          "detail_url": "https://bip.wejherowo.pl/artykul/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.53
+    },
+    {
+      "key": "wniebowstapienia|1A|12",
+      "street": "Wniebowstąpienia",
+      "street_norm": "wniebowstapienia",
+      "building": "1A",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 30.72,
+          "detail_url": "https://bip.wejherowo.pl/artykul/czwarty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-12-polozonego-w-budynk",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.72
+    },
+    {
+      "key": "wniebowstapienia|1A|1",
+      "street": "Wniebowstąpienia",
+      "street_norm": "wniebowstapienia",
+      "building": "1A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 252000,
+          "outcome": "active",
+          "area_m2": 59.98,
+          "detail_url": "https://bip.wejherowo.pl/artykul/czwarty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego-w-budynku",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.98
+    },
+    {
+      "key": "wniebowstapienia|1|6",
+      "street": "Wniebowstąpienia",
+      "street_norm": "wniebowstapienia",
+      "building": "1",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 217000,
+          "outcome": "active",
+          "area_m2": 51.52,
+          "detail_url": "https://bip.wejherowo.pl/artykul/czwarty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-w-budynku-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 51.52
+    },
+    {
+      "key": "wniebowstapienia|22A|7",
+      "street": "Wniebowstąpienia",
+      "street_norm": "wniebowstapienia",
+      "building": "22A",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 141000,
+          "outcome": "active",
+          "area_m2": 35.21,
+          "detail_url": "https://bip.wejherowo.pl/artykul/czwarty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-7-polozonego-w-budynku-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.21
+    },
+    {
+      "key": "wniebowstapienia|1A|7",
+      "street": "Wniebowstąpienia",
+      "street_norm": "wniebowstapienia",
+      "building": "1A",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "active",
+          "area_m2": 45.53,
+          "detail_url": "https://bip.wejherowo.pl/artykul/czwarty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-7-polozonego-w-budynku-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.53
+    }
+  ]
 }
