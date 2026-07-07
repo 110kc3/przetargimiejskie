@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Sienkiewicza 18 m 13",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "18",
+        "apt": "13",
+        "key": "sienkiewicza|18|13",
+        "warning": null
+      },
+      "auction_date": "2026-09-16",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 604100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-1.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Przędzalniana 4B m 35",
       "address": {
         "street": "Przędzalniana",

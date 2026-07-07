@@ -3,6 +3,38 @@
   "city": "bialystok",
   "properties": [
     {
+      "key": "sienkiewicza|18|13",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "18",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 604100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 604100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "wolodyjowskiego|8|6",
       "street": "Wołodyjowskiego",
       "street_norm": "wolodyjowskiego",
@@ -291,27 +323,6 @@
           "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
-      "key": "sienkiewicza|18|13",
-      "street": "Sienkiewicza",
-      "street_norm": "sienkiewicza",
-      "building": "18",
-      "apt": "13",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-30",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 604100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
