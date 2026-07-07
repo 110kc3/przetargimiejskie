@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Czeladzkiej 37/185",
+      "address": {
+        "street": "Czeladzkiej",
+        "street_norm": "czeladzkiej",
+        "building": "37",
+        "apt": "185",
+        "key": "czeladzkiej|37|185",
+        "warning": null
+      },
+      "auction_date": "2026-09-11",
+      "published_date": "2026-07-06",
+      "round": 1,
+      "area_m2": 30,
+      "starting_price_pln": 150000,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564009,przetarg-ustny-nieograniczony-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Witkiewicza 24/33",
       "address": {
         "street": "Witkiewicza",
