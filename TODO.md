@@ -39,8 +39,11 @@
 > REMOTE.md, or a PL proxy as `FETCH_PROXY_URL`) — a Kamil/infra action. The
 > ops-hygiene fixes this session removed the *surrounding* noise (auto-close
 > flap, title churn, the ~07-23 gdansk/augustow false-cliff) but cannot clear
-> the stale trio. **DECISION FOR KAMIL:** stand up the RPi5 runner, or provision
-> a PL proxy endpoint as a repo secret?
+> the stale trio. **DECISION:** Kamil deferred the egress unblock on 2026-07-07
+> ("leave red for now") — health stays chronically red on the stale trio until
+> an RPi5 self-hosted runner or a PL `FETCH_PROXY_URL` proxy is stood up. Don't
+> re-ask; revisit when Kamil raises it. Caveat: chronic red masks new
+> breakages — the ops-hygiene fixes reduce, but don't eliminate, that risk.
 
 ### Broken cities — FINN/Azure egress block: Racibórz + Świętochłowice (one incident) [RPI5]
 
