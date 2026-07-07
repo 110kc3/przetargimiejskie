@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-07T20:17:02.261Z",
+  "generated_at": "2026-07-07T20:51:35.429Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 99
+      "land_plots": 105
     },
     {
       "id": "trzebinia",
@@ -320,10 +320,10 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski w Wałbrzychu",
       "host": "bip.um.walbrzych.pl",
-      "unique_properties": 0,
+      "unique_properties": 12,
       "active_listings": 12,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "active_auctions": 1,
+      "archived_auctions": 11,
       "wykaz_entries": 0,
       "land_plots": 0
     },
