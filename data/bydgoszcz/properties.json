@@ -69,6 +69,52 @@
       "area_m2": 33.43
     },
     {
+      "key": "garbary|9|4",
+      "street": "Garbary",
+      "street_norm": "garbary",
+      "building": "9",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 590000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/32748",
+          "notes": [],
+          "area_m2": 120.9
+        }
+      ],
+      "area_m2": 120.9
+    },
+    {
+      "key": "brzozowej|8A|2",
+      "street": "Brzozowa",
+      "street_norm": "brzozowej",
+      "building": "8A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/32745",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        }
+      ]
+    },
+    {
       "key": "chodkiewicza|2|1",
       "street": "Chodkiewicza",
       "street_norm": "chodkiewicza",
