@@ -68,6 +68,10 @@ const LEGIT_EMPTY_RECHECK_DAYS = Number(process.env.LEGIT_EMPTY_RECHECK_DAYS || 
 const LEGIT_EMPTY = new Map([
   ['gdansk', { since: '2026-07-07', reason: 'announcement index empty between auction rounds' }],
   ['augustow', { since: '2026-07-07', reason: 'publishes active listings but no result/concluded docs yet' }],
+  // Sells ~1 flat/year; the current board (GNWR.6840.1.2026) is land-only
+  // (3 działki, no lokal mieszkalny), so the flat-only adapter correctly parses
+  // 0. Verified live 2026-07-07 — adapter works, source has no flats now.
+  ['busko-zdroj', { since: '2026-07-07', reason: 'sells ~1 flat/year; board currently land-only (verified live 2026-07-07)' }],
 ]);
 
 // Cities pending their FIRST successful live refresh — newly-built adapters
@@ -82,8 +86,17 @@ const LEGIT_EMPTY = new Map([
 // (Removed 2026-07-07 after their first non-empty CI refresh: kedzierzyn-kozle,
 // lodz, skarzysko-kamienna, bydgoszcz, gorzow-wielkopolski.)
 const EXEMPT_NEW = new Map([
-  ['oswiecim', { since: '2026-06-27', reason: 'REKORD relative-href fix — pending first live refresh' }],
-  ['chrzanow', { since: '2026-06-27', reason: 'stub→BIP harvest fix — pending first live refresh' }],
+  // Both live-verified 2026-07-07 (since RESET, backed by that investigation —
+  // not a forgotten park): the adapters are NOT broken. unique=0 because the
+  // current boards carry NO active residential-flat auction — only land
+  // (działka/niezabudowana), leases, non-residential premises, cancellations,
+  // and result notices. Infra works: oswiecim's scanned PDFs OCR cleanly
+  // (tesseract 5.3+pol), chrzanow's harvest+CI Chromium render both run. They
+  // stay in EXEMPT_NEW (not LEGIT_EMPTY) because the end-to-end active-FLAT
+  // parse is UNVALIDATED — no live flat exists on either board to test it
+  // against yet. See TODO §1.
+  ['oswiecim', { since: '2026-07-07', reason: 'live-verified: OCR works, board has no active flats now (land/results only); flat-parse unvalidated' }],
+  ['chrzanow', { since: '2026-07-07', reason: 'live-verified: harvest+render OK, board has no active flats now (lease/land/non-residential); flat-parse unvalidated' }],
   // July 2026 wave: adapters repaired against live markup (see CHANGELOG) or
   // sources legitimately empty; unique_properties stays 0 until each city's
   // first result documents parse.
@@ -93,10 +106,10 @@ const EXEMPT_NEW = new Map([
   // empty-by-design, not settling-in adapters, so an expiring exemption was the
   // wrong tool (would false-FAIL them at the ~07-23 cliff).
   ['gniezno', { since: '2026-07-02', reason: 'insecureTLS for incomplete chain — pending first refresh' }],
-  // New adapter, first meta committed 2026-07-05: the crawl fetches its single
-  // source PDF but has NEVER parsed a record from it — parse.js needs a parse
-  // investigation against the live PDF before this can leave the list.
-  ['busko-zdroj', { since: '2026-07-05', reason: 'new adapter — fetches 1 source PDF, parses 0 records; parse investigation needed' }],
+  // busko-zdroj moved to LEGIT_EMPTY (2026-07-07): live-verified the adapter
+  // parses correctly — the current board is a land-only auction (no flat), so
+  // 0 flat records is right, not a broken parser. It's empty-between-flats, not
+  // settling-in.
 ]);
 
 const now = Date.now();

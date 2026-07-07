@@ -22,7 +22,11 @@
 > `LEGIT_EMPTY` slow-recheck allowlist for gdansk/augustow, P2-D Katowice junk
 > allowlist dropped (fold now runs inside refresh), and a `todayWarsaw`
 > small-ICU fix (was returning `MM/DD/YYYY` on the RPi5's small-ICU Node —
-> matters for the self-hosted-runner path).
+> matters for the self-hosted-runner path); 2026-07-07 zero-data investigation
+> (live-crawled from the Pi) — busko-zdrój/oswiecim/chrzanow are NOT broken,
+> their boards just have no active flats right now; busko→LEGIT_EMPTY,
+> oswiecim/chrzanow reasons corrected + clocks reset (OCR verified excellent, CI
+> Chromium present — the "OCR quality"/"SPA" worries were misdiagnoses).
 >
 > **Env tags** (ROADMAP legend): **[RPI5]** headless-ok · **[GUI]** needs
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
@@ -93,29 +97,47 @@ republication — optionally add it as a secondary wykaz board now.
 ### Zero-data cities + the EXEMPT_NEW expiry cliff [RPI5]
 
 `EXEMPT_NEW` (`pipeline/scripts/health-check.js`) escalates to FAIL after 21
-days. Still `unique_properties=0` under daily refreshes:
+days. **Live investigation 2026-07-07 (from the Pi's Polish IP) reframes this
+whole bucket:** oswiecim, chrzanow and busko-zdroj are **NOT broken** — every
+one of their current boards simply has **no active residential-flat auction**.
+The boards carry land (działka/niezabudowana), leases (dzierżawa), non-
+residential premises (lokal *nie*mieszkalny), cancellations (odwołania), and
+result notices. The infrastructure all works:
 
-- **expire ~2026-07-18** (since 06-27): **oswiecim** (REKORD OCR quality),
-  **chrzanow** (SPA body via render.js) — investigate crawlers against live
-  refresh logs before the cliff.
-- **expire ~2026-07-23** (since 07-02): **wejherowo, walbrzych, gniezno**
-  (first-refresh fixes) — investigate before the cliff.
-- **busko-zdroj** — EXEMPT_NEW since 2026-07-05 (expires ~07-26): the new
-  adapter fetches its 1 source PDF but parses 0 records. Residual: investigate
-  parse.js against the live source PDF before the entry expires.
-- **gdansk + augustow — RESOLVED 2026-07-07:** moved out of `EXEMPT_NEW` into the
-  new `LEGIT_EMPTY` allowlist (health-check.js) — documented empty-by-design
-  sources now WARN on unique=0 instead of false-FAILing at the 21-day cliff.
-  `LEGIT_EMPTY` carries a slow **45-day recheck** so it never becomes a permanent
-  monitoring blind spot (a genuinely-empty source is indistinguishable from a
-  silent parse-break, and a never-held-data city writes fresh meta on an empty
-  crawl, so stale-data/meta.stale can't catch it). **Residual (deferred):** a
-  fully-robust fix keys WARN-vs-FAIL on a positive fetch-reachability signal
-  emitted by refresh.js (e.g. "index page fetched OK, parsed 0") so a broken
-  selector is distinguishable from a legitimately-empty round — see the
-  blind-spot note in health-check.js.
+- **busko-zdroj — RESOLVED, moved to `LEGIT_EMPTY`:** the one current auction
+  (GNWR.6840.1.2026) is land-only (3 działki). Flat-only adapter correctly
+  parses 0. Sells ~1 flat/year; its flat parser was groundtruthed at build, so
+  it's a proven adapter that's legitimately empty of flats now.
+- **oswiecim — verified working, stays `EXEMPT_NEW` (since reset 07-07):** its
+  scanned PDFs **OCR cleanly** (tesseract 5.3+pol — the "REKORD OCR quality"
+  worry was WRONG; OCR is excellent). Of 12 recent sale dokuments, 11 are land/
+  cancellations and the 1 flat mention (dokument **52545**) is a *result notice*
+  the crawler doesn't ingest yet. **Real residuals:** (a) build scanned-result-
+  notice ingestion (captures concluded flats like 52545); (b) VALIDATE the
+  active-flat parse against OCR text when a live flat auction appears (none to
+  test against now); (c) optional: track active LAND auctions (adapter has a
+  `land` path but currently extracts 0 even for land).
+- **chrzanow — verified working, stays `EXEMPT_NEW` (since reset 07-07):** the
+  board→stub→article harvest runs and **CI installs the Chromium renderer**
+  (refresh.yml:125). Its 5 current articles are all non-flat (lease, niezabudowana
+  land ×2, a whistleblower page, one lokal *nie*mieszkalny). **Real residual:**
+  VALIDATE the active-flat parse against the rendered SPA body when a live flat
+  appears (none now); (optional) BIP-article-JSON path to drop the Chromium dep.
+- **still un-investigated (expire ~2026-07-23, since 07-02): wejherowo,
+  walbrzych, gniezno** — same live-crawl investigation before the cliff.
+- **gdansk + augustow — `LEGIT_EMPTY` (2026-07-07):** documented empty-by-design;
+  WARN on unique=0 with a **45-day recheck** backstop. **Residual (deferred):** a
+  fully-robust guard keys WARN-vs-FAIL on a positive fetch-reachability signal
+  from refresh.js (e.g. "index fetched OK, parsed 0") so a broken selector is
+  distinguishable from a legitimately-empty round — see health-check.js.
 
-**Owner:** agent · **Blockers:** none.
+**Bigger question for Kamil (EXPANSION scope):** oswiecim/chrzanow/busko look
+like *rare-flat* cities (flats appear ~yearly, boards are mostly land/lease).
+Were they worth building as flat-only trackers, or should the flat-only adapters
+also ingest land? Deferred — revisit under the EXPANSION "let revenue decide".
+
+**Owner:** agent · **Blockers:** none (validation waits on a live flat auction
+appearing on each board).
 
 ### Triage-bot gaps: auto-close flap + challenge-page misclassification — SHIPPED 2026-07-07 [RPI5]
 
