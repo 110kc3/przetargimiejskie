@@ -105,6 +105,12 @@ jobs:
 
       - name: Install OCR toolchain
         run: |
+          # GH-hosted runners preconfigure packages.microsoft.com / azure-cli apt
+          # repos that intermittently serve a broken InRelease ("NOSPLIT" / "no
+          # longer signed"), making `apt-get update` exit 100 and fail this step —
+          # though we only need packages from the standard Ubuntu repos. Drop any
+          # Microsoft-repo source first so that recurring flake can't break CI.
+          sudo grep -rlZ packages.microsoft.com /etc/apt/sources.list.d/ 2>/dev/null | sudo xargs -0r rm -f || true
           sudo apt-get update -qq
           # poppler-utils: pdftotext (text PDFs) · tesseract: OCR (scanned PDFs)
           # catdoc: legacy .doc → text (Bytom announcement attachments)

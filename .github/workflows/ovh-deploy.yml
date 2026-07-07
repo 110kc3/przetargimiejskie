@@ -57,7 +57,12 @@ jobs:
         run: bash build-site.sh _site
 
       - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+        run: |
+          # Drop the flaky preconfigured packages.microsoft.com apt repo (serves a
+          # broken InRelease intermittently → `apt-get update` exit 100); we only
+          # need lftp from the standard Ubuntu repos.
+          sudo grep -rlZ packages.microsoft.com /etc/apt/sources.list.d/ 2>/dev/null | sudo xargs -0r rm -f || true
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
       - name: Mirror _site/ to OVH over SFTP
         env:
