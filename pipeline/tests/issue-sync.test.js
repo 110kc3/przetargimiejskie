@@ -75,11 +75,51 @@ test('health sync cannot close a refresh-owned issue (anti-flap scope rule)', ()
   assert.deepEqual(ops.map((o) => `${o.op}:${o.city}`), ['skip-close:gdansk', 'close:lodz']);
 });
 
-test('refresh sync MAY close a health-owned issue (green refresh resolves staleness)', () => {
+test('refresh sync MAY close a health-owned issue once the city has data (unique ≥ 1)', () => {
   const healthOwned = { number: 5, title: 't', labels: [{ name: 'health-check' }] };
   const { run } = fakeGh({ lodz: [healthOwned] });
-  const ops = syncIssues(new Map(), ['lodz'], { source: 'refresh', runUrl: RUN_URL, run });
+  const ops = syncIssues(new Map(), ['lodz'],
+    { source: 'refresh', runUrl: RUN_URL, run, uniqueForCity: () => 42 });
   assert.deepEqual(ops.map((o) => o.op), ['close']);
+});
+
+test('refresh sync SKIPS closing a health-owned issue while the city is still empty (anti-flap)', () => {
+  const healthOwned = { number: 5, title: 't', labels: [{ name: 'city-broken' }, { name: 'health-check' }] };
+  const { run } = fakeGh({ 'busko-zdroj': [healthOwned] });
+  const ops = syncIssues(new Map(), ['busko-zdroj'],
+    { source: 'refresh', runUrl: RUN_URL, run, uniqueForCity: () => 0 });
+  assert.deepEqual(ops.map((o) => `${o.op}:${o.city}`), ['skip-close:busko-zdroj']);
+  // a missing/unreadable meta (null) is treated as still-empty → also skipped
+  const gh2 = fakeGh({ 'busko-zdroj': [healthOwned] });
+  const ops2 = syncIssues(new Map(), ['busko-zdroj'],
+    { source: 'refresh', runUrl: RUN_URL, run: gh2.run, uniqueForCity: () => null });
+  assert.deepEqual(ops2.map((o) => o.op), ['skip-close']);
+});
+
+test('refresh sync still closes a refresh-owned issue regardless of unique count', () => {
+  const refreshOwned = { number: 6, title: 't', labels: [{ name: 'city-broken' }] };
+  const { run } = fakeGh({ raciborz: [refreshOwned] });
+  const ops = syncIssues(new Map(), ['raciborz'],
+    { source: 'refresh', runUrl: RUN_URL, run, uniqueForCity: () => 0 });
+  assert.deepEqual(ops.map((o) => o.op), ['close']);
+});
+
+test('title ownership: health does NOT re-title a refresh-owned issue (dual-failing churn guard)', () => {
+  // refresh-owned issue (no health-check label) with a stale title; health is
+  // now also failing the city. Health may comment but must not flip the title.
+  const refreshOwned = { number: 9, title: '[city-broken] gdansk: old refresh headline', labels: [{ name: 'city-broken' }] };
+  const { run, calls } = fakeGh({ gdansk: [refreshOwned] });
+  const ops = syncIssues(failuresMap('gdansk'), [], { source: 'health', runUrl: RUN_URL, run });
+  assert.deepEqual(ops.map((o) => o.op), ['comment']);
+  assert.ok(!calls.some((c) => c[0] === 'issue' && c[1] === 'edit'));
+});
+
+test('title ownership: health DOES re-title an issue it owns when the mode changed', () => {
+  const healthOwned = { number: 10, title: '[city-broken] gdansk: old health headline', labels: [{ name: 'city-broken' }, { name: 'health-check' }] };
+  const { run, calls } = fakeGh({ gdansk: [healthOwned] });
+  const ops = syncIssues(failuresMap('gdansk'), [], { source: 'health', runUrl: RUN_URL, run });
+  assert.deepEqual(ops.map((o) => o.op), ['comment', 'edit']);
+  assert.ok(calls.some((c) => c[0] === 'issue' && c[1] === 'edit'));
 });
 
 test('loadFailures reads artifact dirs and skips incomplete ones', () => {

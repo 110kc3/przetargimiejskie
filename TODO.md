@@ -14,12 +14,33 @@
 > refresh + failure-triage issues live; Bydgoszcz/Gorzów rebuilt 2026-07-06;
 > 2026-07-07 session — brzeg waiting-room handling, FETCH_PROXY_URL egress
 > hook, EXEMPT_NEW cleanup + busko-zdrój entry, docs truth pass
-> (ROADMAP/REMOTE/TODO/README).
+> (ROADMAP/REMOTE/TODO/README); 2026-07-07 ops-hygiene pass — issue-sync
+> anti-flap close guard + title-ownership guard (kills the busko-zdrój
+> open/close flap and dual-failing title churn), generalized challenge-page
+> detector (`pipeline/src/core/challenge-page.js` wired into `getText` so any
+> future anti-bot/waiting-room page auto-classifies source-unreachable),
+> `LEGIT_EMPTY` slow-recheck allowlist for gdansk/augustow, P2-D Katowice junk
+> allowlist dropped (fold now runs inside refresh), and a `todayWarsaw`
+> small-ICU fix (was returning `MM/DD/YYYY` on the RPi5's small-ICU Node —
+> matters for the self-hosted-runner path).
 >
 > **Env tags** (ROADMAP legend): **[RPI5]** headless-ok · **[GUI]** needs
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
 
 ## 1 · Ops / health (health.yml red since 4 July)
+
+> **Why health is red (confirmed 2026-07-07):** health.yml runs health-check.js
+> with **`STALE_DAYS=3`** (health.yml:60, tighter than the local default 14), so
+> the three externally-broken cities below trip **stale-data FAIL** —
+> swietochlowice (7d), raciborz (6d), tczew (4d). Per policy *stale-data FAILs
+> cannot be allowlisted; only a green crawl clears them* — so **no code change
+> can green health** while those sources are unreachable from CI's Azure IPs.
+> **The single unblock is non-Azure egress** (RPi5 self-hosted runner per
+> REMOTE.md, or a PL proxy as `FETCH_PROXY_URL`) — a Kamil/infra action. The
+> ops-hygiene fixes this session removed the *surrounding* noise (auto-close
+> flap, title churn, the ~07-23 gdansk/augustow false-cliff) but cannot clear
+> the stale trio. **DECISION FOR KAMIL:** stand up the RPi5 runner, or provision
+> a PL proxy endpoint as a repo secret?
 
 ### Broken cities — FINN/Azure egress block: Racibórz + Świętochłowice (one incident) [RPI5]
 
@@ -69,38 +90,44 @@ republication — optionally add it as a secondary wykaz board now.
 ### Zero-data cities + the EXEMPT_NEW expiry cliff [RPI5]
 
 `EXEMPT_NEW` (`pipeline/scripts/health-check.js`) escalates to FAIL after 21
-days. Seven cities are still `unique_properties=0` under daily refreshes:
+days. Still `unique_properties=0` under daily refreshes:
 
 - **expire ~2026-07-18** (since 06-27): **oswiecim** (REKORD OCR quality),
   **chrzanow** (SPA body via render.js) — investigate crawlers against live
   refresh logs before the cliff.
 - **expire ~2026-07-23** (since 07-02): **wejherowo, walbrzych, gniezno**
-  (first-refresh fixes) + **gdansk, augustow** — the latter two are documented
-  as *legitimately empty* sources, for which an expiring exemption is the wrong
-  tool: either renew the entries on a schedule or add a small non-expiring
-  legitimately-empty allowlist for the unique=0 FAIL to health-check.js.
-- **busko-zdroj** — EXEMPT_NEW entry exists since 2026-07-05 (added this
-  session, expires ~07-26), so once landed the city is a WARN, not a FAIL; the
-  new adapter (first meta commit 07-05) still parses 0 records from its 1
-  source PDF. Residual: investigate parse.js against the live source PDF before
-  the entry expires. Health re-opened its issue as #12 after the #7 flap.
+  (first-refresh fixes) — investigate before the cliff.
+- **busko-zdroj** — EXEMPT_NEW since 2026-07-05 (expires ~07-26): the new
+  adapter fetches its 1 source PDF but parses 0 records. Residual: investigate
+  parse.js against the live source PDF before the entry expires.
+- **gdansk + augustow — RESOLVED 2026-07-07:** moved out of `EXEMPT_NEW` into the
+  new `LEGIT_EMPTY` allowlist (health-check.js) — documented empty-by-design
+  sources now WARN on unique=0 instead of false-FAILing at the 21-day cliff.
+  `LEGIT_EMPTY` carries a slow **45-day recheck** so it never becomes a permanent
+  monitoring blind spot (a genuinely-empty source is indistinguishable from a
+  silent parse-break, and a never-held-data city writes fresh meta on an empty
+  crawl, so stale-data/meta.stale can't catch it). **Residual (deferred):** a
+  fully-robust fix keys WARN-vs-FAIL on a positive fetch-reachability signal
+  emitted by refresh.js (e.g. "index page fetched OK, parsed 0") so a broken
+  selector is distinguishable from a legitimately-empty round — see the
+  blind-spot note in health-check.js.
 
 **Owner:** agent · **Blockers:** none.
 
-### Triage-bot gaps: auto-close flap + challenge-page misclassification [RPI5]
+### Triage-bot gaps: auto-close flap + challenge-page misclassification — SHIPPED 2026-07-07 [RPI5]
 
-(1) Refresh's triage closes **health-owned** issues on 0→0 because
-`triage-report.js` classifies prev=0→cur=0 as *healthy* (rule 4 only fires on a
-drop) — observed: refresh closed busko-zdroj issue #7 on 07-06 while the city
-still had 0 records; health reopens it next morning → daily flap. Fix: the
-refresh-side close should respect the health-check label while the city's meta
-has `unique_properties=0`. (2) A fetched-OK-but-known-challenge-page (brzeg's
-waiting room) was classified *layout-change* — brzeg-specific detection shipped
-07-07; residual: generalize challenge-page detection into `triage-report.js` /
-core fetch so future cities' challenge pages triage as source-unreachable
-without per-city code. Nit: for dual-failing cities health's sync
-re-titles the refresh-owned issue every run (title churn).
-**Owner:** agent · **Blockers:** none.
+All three sub-items landed this session (see git history):
+(1) **auto-close flap** — `issue-sync.js` now refuses to close a `health-check`-
+owned issue from a green *refresh* while the city still has `unique < MIN_UNIQUE`
+tracked properties (only health's own green run closes it). (2) **challenge-page
+generalization** — `pipeline/src/core/challenge-page.js` (`isChallengePage`) is
+wired into `getText`, which throws a `fetch failed: …` error on any anti-bot /
+waiting-room interstitial, so future cities' challenge pages classify
+source-unreachable via the existing `NETWORK_RE` path with no per-city code
+(brzeg's cookie-forwarding retry loop stays — the passive detector can't
+forward a cookie). (3) **title churn** — a source now only re-titles issues it
+owns (health owns `health-check`-labelled, refresh owns the rest), so a
+dual-failing city stops ping-ponging its title.
 
 ## 2 · Data quality [RPI5]
 
@@ -131,10 +158,13 @@ re-titles the refresh-owned issue every run (title churn).
 - **Bytom `.doc` retention spot-check:** confirm concluded auctions sourced from
   .doc files persist in `data/bytom/properties.json` across several daily crawls
   (doc-text-cache doubles as the retention store — verify it actually does).
-- **P2-D close-out:** verify the re-seeded Katowice junk key self-heals on a
-  live refresh (verified-heals.js is wired in), then drop the
-  `katowice|oddzialow mlodziezy i ustny|86|` allowlist line at
-  `pipeline/scripts/sanity-check.js:40`.
+- **P2-D close-out — SHIPPED 2026-07-07:** dropped the
+  `katowice|oddzialow mlodziezy i ustny|86|` allowlist line from sanity-check.js.
+  Confirmed `applyVerifiedJunk()` (src/core/verified-heals.js) is called on every
+  refresh path that writes Katowice data (refresh.js:281/296, before the commit +
+  gate) and folds that bled key into `powstanczej|5|8`; the key is absent from
+  committed data. The stale "heal runs manually" comment was the reason the
+  allowlist lingered — now corrected in-file.
 - **P2-E — `schema_version: 2` (city-namespaced keys) — POLICY:** do NOT do
   standalone. Execute only as the first task of a schema bump that is needed
   anyway (EXPANSION §1.5; dual-read rollout in background/content/watchlist —

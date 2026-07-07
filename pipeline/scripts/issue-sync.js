@@ -16,10 +16,18 @@
 //   before syncing. Implies nothing about closing — see the scope rule.
 //
 // SCOPE RULE (anti-flap): the refresh-side sync may close any `city-broken`
-// issue — a green refresh genuinely resolves staleness too. The health-side
-// sync only closes issues it created (labelled `health-check`): the 07:00
-// health run sees preserved last-good data as "healthy" and must NOT close a
-// layout-change issue the 04:30 refresh triage just opened.
+// issue — a green refresh genuinely resolves staleness too — EXCEPT a
+// `health-check`-owned issue for a city that still has 0 tracked properties: a
+// crawl can "succeed" empty (preserve-on-empty, or a first-run adapter that
+// parses nothing), so refresh sees no drop and calls the city healthy, but the
+// daily health check FAILs it on unique_properties=0 and reopens the issue —
+// closing it here just starts an open/close flap (observed on busko-zdroj #7).
+// The health-side sync only closes issues it created (labelled `health-check`):
+// the 07:00 health run sees preserved last-good data as "healthy" and must NOT
+// close a layout-change issue the 04:30 refresh triage just opened. TITLE
+// OWNERSHIP: only the owning source re-titles an issue (health owns its
+// health-check-labelled issues, refresh owns the rest) so a city failing BOTH
+// sources doesn't ping-pong its title every run.
 //
 // Testable: pass a custom runner to syncIssues(); the CLI uses execFileSync.
 // --dry-run prints every gh command instead of executing.
@@ -27,10 +35,30 @@
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, fileURLToPath } from 'node:url';
 
 const LABEL_BROKEN = 'city-broken';
 const LABEL_HEALTH = 'health-check';
+
+const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
+
+// Match health-check.js's empty-data threshold so the anti-flap guard's "city
+// still empty" test tracks exactly what health FAILs on. Nothing overrides
+// MIN_UNIQUE today (both default 1), but keeping them coupled means the guard
+// can't drift out of sync with health's fail condition if it ever is.
+const MIN_UNIQUE = Number(process.env.MIN_UNIQUE || 1);
+
+/**
+ * unique_properties from a city's committed meta.json, or null if it can't be
+ * read. Lets the refresh-side close respect a city that is technically "green"
+ * (crawl didn't throw) but still has no tracked data — see the anti-flap rule.
+ */
+function uniqueForCityFs(city) {
+  try {
+    const meta = JSON.parse(readFileSync(join(DATA_DIR, city, 'meta.json'), 'utf8'));
+    return meta.unique_properties ?? null;
+  } catch { return null; }
+}
 
 function realRunner(dryRun) {
   return (args) => {
@@ -73,9 +101,12 @@ function renderStillFailingComment(failure, runUrl) {
  * Reconcile open issues with this run's failures/recoveries.
  * @param {Map<string,{failure:object,bodyPath:string}>} failures
  * @param {string[]} recovered  healthy-this-run city ids (failed ones removed here)
- * @param {{source:'refresh'|'health', runUrl:string, run:(args:string[])=>string}} opts
+ * @param {{source:'refresh'|'health', runUrl:string, run:(args:string[])=>string,
+ *          uniqueForCity?:(city:string)=>(number|null)}} opts
+ *   uniqueForCity — committed unique_properties lookup; when provided, a refresh
+ *   run won't close a health-owned issue for a city still at 0 (anti-flap).
  */
-export function syncIssues(failures, recovered, { source, runUrl, run }) {
+export function syncIssues(failures, recovered, { source, runUrl, run, uniqueForCity }) {
   const ops = []; // recorded for tests + the summary line
 
   const findOpen = (city) => {
@@ -108,9 +139,14 @@ export function syncIssues(failures, recovered, { source, runUrl, run }) {
       run(['issue', 'comment', String(existing.number), '--body',
         renderStillFailingComment(failure, runUrl)]);
       ops.push({ op: 'comment', city, number: existing.number });
-      // Re-title/body only when the failure mode changed — a fresh
-      // classification is new information; identical repeats are just noise.
-      if (existing.title !== title) {
+      // Re-title/body only when the failure mode changed AND this source owns
+      // the title. Ownership follows the label: health owns the issues it
+      // opened (health-check label), refresh owns the rest. Without this, a
+      // city failing BOTH sources ping-pongs its title every run (refresh
+      // headline → health headline → refresh headline …) — pure churn.
+      const isHealthOwned = (existing.labels || []).some((l) => l.name === LABEL_HEALTH);
+      const ownsTitle = source === 'health' ? isHealthOwned : !isHealthOwned;
+      if (existing.title !== title && ownsTitle) {
         run(['issue', 'edit', String(existing.number), '--title', title, '--body-file', bodyPath]);
         ops.push({ op: 'edit', city, number: existing.number });
       }
@@ -121,9 +157,21 @@ export function syncIssues(failures, recovered, { source, runUrl, run }) {
     if (failures.has(city)) continue; // failed this run — obviously not recovered
     const existing = findOpen(city);
     if (!existing) continue;
+    const isHealthOwned = (existing.labels || []).some((l) => l.name === LABEL_HEALTH);
     // Scope rule: health may only close issues it opened (health-check label).
-    if (source === 'health' && !(existing.labels || []).some((l) => l.name === LABEL_HEALTH)) {
+    if (source === 'health' && !isHealthOwned) {
       ops.push({ op: 'skip-close', city, number: existing.number, reason: 'refresh-owned issue' });
+      continue;
+    }
+    // Anti-flap: a green REFRESH must NOT close a HEALTH-owned issue while the
+    // city still has 0 tracked properties. The crawl "succeeded" but produced
+    // no data, so classify reports the city healthy — yet the daily health
+    // check FAILs it on unique_properties=0 and reopens the issue next morning.
+    // Closing it here just starts a daily flap (busko-zdroj #7). Only health's
+    // own green run (unique ≥ 1) may close it.
+    if (source === 'refresh' && isHealthOwned && uniqueForCity && !(uniqueForCity(city) >= MIN_UNIQUE)) {
+      ops.push({ op: 'skip-close', city, number: existing.number,
+        reason: 'health-owned issue; city still has 0 tracked properties' });
       continue;
     }
     run(['issue', 'close', String(existing.number), '--comment',
@@ -179,7 +227,8 @@ async function main() {
     ? readFileSync(recoveredRaw, 'utf8') : recoveredRaw)
     .split(/[,\s]+/).map((s) => s.trim()).filter(Boolean);
 
-  const ops = syncIssues(failures, recovered, { source, runUrl, run: realRunner(dryRun) });
+  const ops = syncIssues(failures, recovered,
+    { source, runUrl, run: realRunner(dryRun), uniqueForCity: uniqueForCityFs });
   console.error(`issue-sync (${source}${dryRun ? ', dry-run' : ''}): ` +
     `${failures.size} failing, ${ops.filter((o) => o.op === 'create').length} created, ` +
     `${ops.filter((o) => o.op === 'comment').length} commented, ` +

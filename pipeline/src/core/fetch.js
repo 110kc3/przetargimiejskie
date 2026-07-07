@@ -22,6 +22,7 @@ import { setTimeout as sleep } from 'node:timers/promises';
 import https from 'node:https';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { isChallengePage, challengeSignature } from './challenge-page.js';
 
 // ---- optional proxy egress (FETCH_PROXY_URL — see header comment) ----------
 //
@@ -228,6 +229,22 @@ export async function politeGet(url, opts = {}) {
   throw lastErr;
 }
 
+// A fetched-OK anti-bot / challenge / waiting-room interstitial is NOT the real
+// page — treat it like an outage. Throwing a "fetch failed: …" error (matches
+// triage-report.js NETWORK_RE) makes any city's challenge page classify as
+// source-unreachable instead of layout-change, and lets refresh.js preserve
+// last-good data. The body is snapshot()ted BEFORE we throw, so the challenge
+// bytes are still captured in the DEBUG_FETCH_DIR artifact.
+function assertNotChallenge(url, text) {
+  if (!isChallengePage(text)) return text;
+  const sig = challengeSignature(text) || 'challenge page';
+  const msg = `fetch failed: anti-bot/challenge page (${sig}) served on ${url}`;
+  console.error(`  ${msg}`);
+  const err = new Error(msg);
+  err.challengePage = true;
+  throw err;
+}
+
 /** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean, retries?: number }} [opts] */
 export async function getText(url, opts = {}) {
   if (opts.insecureTLS) {
@@ -238,7 +255,7 @@ export async function getText(url, opts = {}) {
     });
     const text = buf.toString('utf8');
     snapshot(url, text, true);
-    return text;
+    return assertNotChallenge(url, text);
   }
   const res = await politeGet(url, {
     accept: 'text/html,application/xhtml+xml',
@@ -248,7 +265,7 @@ export async function getText(url, opts = {}) {
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
   const text = await res.text();
   snapshot(url, text, true);
-  return text;
+  return assertNotChallenge(url, text);
 }
 
 /** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean }} [opts] */

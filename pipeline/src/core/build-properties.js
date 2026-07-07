@@ -241,13 +241,21 @@ export function applyDisplayStreets(properties) {
  * Today's date in Europe/Warsaw as "YYYY-MM-DD". The UTC-based
  * `toISOString().slice(0,10)` lags the Polish civil date by 1-2 hours around
  * midnight, keeping yesterday's auctions 'active' one extra cycle.
- * (en-CA locale formats as YYYY-MM-DD.)
+ *
+ * Assembled from formatToParts rather than an `en-CA` format string: on a
+ * small-ICU Node build (e.g. Debian/apt Node on the RPi5 self-hosted runner)
+ * only `en-US` locale data ships, so `en-CA` silently falls back to US
+ * "MM/DD/YYYY" and this returned garbage. The timezone conversion still works
+ * (tz data is bundled independently of locale data), so reading numeric parts
+ * and formatting them ourselves is locale-independent and correct everywhere.
  */
 export function todayWarsaw() {
-  return new Intl.DateTimeFormat('en-CA', {
+  const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Europe/Warsaw',
     year: 'numeric', month: '2-digit', day: '2-digit',
-  }).format(new Date());
+  }).formatToParts(new Date());
+  const get = (type) => parts.find((p) => p.type === type)?.value;
+  return `${get('year')}-${get('month')}-${get('day')}`;
 }
 
 /**

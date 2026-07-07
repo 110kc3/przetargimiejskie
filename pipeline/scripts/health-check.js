@@ -17,9 +17,11 @@
 //   - active_auctions === 0 (no current auctions on the board right now)
 //   - active_listings === 0
 //
-// Tunables: STALE_DAYS, MIN_UNIQUE, EXEMPT_MAX_DAYS (env). A brand-new city
-// with a deliberately tiny dataset can be exempted by adding it to
-// EXEMPT_EMPTY below.
+// Tunables: STALE_DAYS, MIN_UNIQUE, EXEMPT_MAX_DAYS, LEGIT_EMPTY_RECHECK_DAYS
+// (env). A brand-new city still settling in goes in EXEMPT_NEW (fast expiry); a
+// source that is empty BY DESIGN goes in LEGIT_EMPTY (slow-recheck expiry,
+// unique=0 → WARN not FAIL); a city with deliberately 0 active auctions goes in
+// EXEMPT_EMPTY — all below.
 //
 // When HEALTH_JSON_OUT=<path> is set (health.yml sets it), every FAIL is also
 // written as [{city, classification, message, meta}] so issue-sync.js can turn
@@ -44,6 +46,30 @@ const EXEMPT_MAX_DAYS = Number(process.env.EXEMPT_MAX_DAYS || 21);
 // reason, like sanity-check.js's allowlist.
 const EXEMPT_EMPTY = new Set();
 
+// How long a LEGIT_EMPTY entry is trusted before it must be re-confirmed. Much
+// slower than EXEMPT_NEW's 21-day settling cliff (these sources are stable, not
+// settling), but NOT infinite — see the blind-spot note below.
+const LEGIT_EMPTY_RECHECK_DAYS = Number(process.env.LEGIT_EMPTY_RECHECK_DAYS || 45);
+
+// Cities whose source is LEGITIMATELY empty of tracked (concluded) properties —
+// not broken, just nothing to track. unique_properties=0 is downgraded to a
+// WARN instead of an empty-data FAIL.
+//
+// WHY it still expires (do not make this non-expiring): a genuinely-empty
+// source is indistinguishable from a silently-broken parser — both yield 0
+// records on an HTTP 200 — and for a city that has never held data, refresh.js
+// writes a FRESH meta (new generated_at, no stale flag) on an empty crawl, so
+// NEITHER the stale-data FAIL nor the meta.stale WARN would ever catch a break.
+// A permanent exemption is therefore a permanent monitoring blind spot. Each
+// entry carries a `since`; past LEGIT_EMPTY_RECHECK_DAYS the exemption escalates
+// to a FAIL asking a human to reconfirm the source is still empty-by-design and
+// bump `since` (the "renew on a schedule" option from TODO). Keep SHORT and
+// reason-tagged; only add sources verified empty-by-design.
+const LEGIT_EMPTY = new Map([
+  ['gdansk', { since: '2026-07-07', reason: 'announcement index empty between auction rounds' }],
+  ['augustow', { since: '2026-07-07', reason: 'publishes active listings but no result/concluded docs yet' }],
+]);
+
 // Cities pending their FIRST successful live refresh — newly-built adapters
 // being validated against the live BIP (June 2026: Oświęcim REKORD
 // relative-href fix, Chrzanów stub-depth fix). For these, a missing meta.json
@@ -63,9 +89,10 @@ const EXEMPT_NEW = new Map([
   // first result documents parse.
   ['wejherowo', { since: '2026-07-02', reason: 'adapter OK locally; CI refresh commits zeros — check refresh job log' }],
   ['walbrzych', { since: '2026-07-02', reason: 'board + result-stream URL fix — pending first refresh' }],
-  ['gdansk', { since: '2026-07-02', reason: 'announcement index legitimately empty between auction rounds' }],
+  // gdansk + augustow moved to LEGIT_EMPTY (2026-07-07): their sources are
+  // empty-by-design, not settling-in adapters, so an expiring exemption was the
+  // wrong tool (would false-FAIL them at the ~07-23 cliff).
   ['gniezno', { since: '2026-07-02', reason: 'insecureTLS for incomplete chain — pending first refresh' }],
-  ['augustow', { since: '2026-07-02', reason: 'crawl OK (4 active listings); city publishes no result docs yet' }],
   // New adapter, first meta committed 2026-07-05: the crawl fetches its single
   // source PDF but has NEVER parsed a record from it — parse.js needs a parse
   // investigation against the live PDF before this can leave the list.
@@ -136,8 +163,20 @@ for (const c of index.cities || []) {
   const age = daysSince(meta.generated_at);
 
   if (unique < MIN_UNIQUE) {
-    if (ex.active) warns.push(`${c.id}: unique_properties=${unique} (< ${MIN_UNIQUE}) — new adapter, pending first live refresh`);
-    else fail(c.id, 'empty-data', `unique_properties=${unique} (< ${MIN_UNIQUE}) — adapter likely broke`, meta);
+    const le = LEGIT_EMPTY.get(c.id);
+    const leAge = le ? daysSince(le.since) : Infinity;
+    if (ex.active) {
+      warns.push(`${c.id}: unique_properties=${unique} (< ${MIN_UNIQUE}) — new adapter, pending first live refresh`);
+    } else if (le && leAge <= LEGIT_EMPTY_RECHECK_DAYS) {
+      const soon = leAge > LEGIT_EMPTY_RECHECK_DAYS * 0.8 ? ` — recheck due in ${(LEGIT_EMPTY_RECHECK_DAYS - leAge).toFixed(0)}d` : '';
+      warns.push(`${c.id}: unique_properties=${unique} — source legitimately empty (${le.reason})${soon}`);
+    } else if (le) {
+      fail(c.id, 'legit-empty-recheck',
+        `LEGIT_EMPTY since ${le.since} (${leAge.toFixed(0)}d > ${LEGIT_EMPTY_RECHECK_DAYS}d) — reconfirm the ` +
+        `source is still empty-by-design (${le.reason}) and bump its \`since\`, or remove it if it now has data`, meta);
+    } else {
+      fail(c.id, 'empty-data', `unique_properties=${unique} (< ${MIN_UNIQUE}) — adapter likely broke`, meta);
+    }
   }
   if (age > STALE_DAYS) {
     const ageStr = age === Infinity ? 'no/invalid generated_at' : `${age.toFixed(1)} days old`;

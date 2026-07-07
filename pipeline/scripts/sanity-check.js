@@ -29,15 +29,14 @@ import { fileURLToPath } from 'node:url';
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
 // key → reason. Keep this SHORT — every entry must reference a TODO item.
+// (Removed 2026-07-07, P2-D close-out: `katowice|oddzialow mlodziezy i ustny|86|`
+// no longer needs an allowlist. The VERIFIED_JUNK fold now runs INSIDE refresh —
+// applyVerifiedJunk() in src/core/verified-heals.js, called at
+// refresh.js:281/296 BEFORE the data commit and this gate — folding that bled
+// key into `powstanczej|5|8`, so it can never reach the committed
+// properties.json. Confirmed absent from data. If the 2025 BIP yearly summary
+// ever re-emits the bleed, the in-refresh fold catches it in the same run.)
 const ALLOWLIST = {
-  // RESOLVED in committed data: heal-properties.js now folds this bled key
-  // (2025-02-24 / 450 000 → 517 500 zł sale) into powstanczej|5|8 (area 86,38).
-  // This entry stays ONLY as a re-derivation guard: heal runs manually, not in
-  // refresh.yml, so if the 2025 BIP yearly-summary crawl still re-emits the
-  // bleed, mergeProperties re-adds the junk key between refresh and the next
-  // manual heal. Drop this once a Katowice CI run confirms the source no longer
-  // emits it, or once the VERIFIED_JUNK folds run inside refresh. See TODO.md.
-  'katowice|oddzialow mlodziezy i ustny|86|': 'junk-street',
   // GENUINE outlier, NOT a parse bug (verified 2026-07-04 against source PDF
   // id 95676): a derelict basement (suterena) flat the city listed at a nominal
   // "Cena wywoławcza : 2000,- zł" for 28,34 m² (71 zł/m²) because it is "w złym
