@@ -631,39 +631,6 @@
       ]
     },
     {
-      "key": "dz|kłodnica|1143/11",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "1143/11",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Krzysztofa kształcie",
-      "dzialka_id": "160301_1.0046.1143/11",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F11",
-      "area_m2": 1016,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-24",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 1016,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77671"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1143/11",
-          "dzialka_id": "160301_1.0046.1143/11",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F11"
-        }
-      ]
-    },
-    {
       "key": "addr|ul. krzysztofa",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -1798,15 +1765,6 @@
           "area_m2": 1369,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29095/ogloszenie-o-przetargu-ustnym-nieograniczonym",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73823"
-        },
-        {
-          "date": "2026-04-15",
-          "round": 2,
-          "starting_price_pln": 64000,
-          "outcome": "archived",
-          "area_m2": 1369,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29636/ogloszenie-o-przetargu-ustnym-nieograniczonym",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/76297"
         },
         {
           "date": "2026-05-27",
@@ -4786,6 +4744,48 @@
           "nr": "1384/4",
           "dzialka_id": "160301_1.0046.1384/4",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1384%2F4"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1143/11",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1143/11",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzysztofa kształcie",
+      "dzialka_id": "160301_1.0046.1143/11",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F11",
+      "area_m2": 1016,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 1016,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77671"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1016,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30132/uniewaznienie-i-przetargu-ustnego-nieograniczonego-dz-1143-11-o-klodnica-ul-krzysztofa-pendereckiego-ul-blonie",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78564"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1143/11",
+          "dzialka_id": "160301_1.0046.1143/11",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F11"
         }
       ]
     }
