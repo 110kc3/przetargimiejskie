@@ -67,7 +67,9 @@ const LEGIT_EMPTY_RECHECK_DAYS = Number(process.env.LEGIT_EMPTY_RECHECK_DAYS || 
 // reason-tagged; only add sources verified empty-by-design.
 const LEGIT_EMPTY = new Map([
   ['gdansk', { since: '2026-07-07', reason: 'announcement index empty between auction rounds' }],
-  ['augustow', { since: '2026-07-07', reason: 'publishes active listings but no result/concluded docs yet' }],
+  // augustow was MIS-CLASSIFIED here 2026-07-07 → moved to EXEMPT_NEW: it's not
+  // empty, it crawls 4 flat stubs but never enriches them from their detail
+  // pages, so all-null listings drop in the build. Real bug, see TODO §1.
   // Sells ~1 flat/year; the current board (GNWR.6840.1.2026) is land-only
   // (3 działki, no lokal mieszkalny), so the flat-only adapter correctly parses
   // 0. Verified live 2026-07-07 — adapter works, source has no flats now.
@@ -108,6 +110,11 @@ const EXEMPT_NEW = new Map([
   // empty-by-design, not settling-in adapters, so an expiring exemption was the
   // wrong tool (would false-FAIL them at the ~07-23 cliff).
   ['gniezno', { since: '2026-07-07', reason: 'FIXED 07-07: attach .address from the PDF/title (was hardcoded null) — verified 4 properties locally' }],
+  // Real bug (not empty): crawls 4 flat stubs but the detail-page enrichment the
+  // crawl comments promise ("parsed from detail page body on first CI run") was
+  // never implemented — every listing is all-null and drops. Detail pages DO
+  // carry address + cena wywoławcza (verified live 07-07). Needs a body parser.
+  ['augustow', { since: '2026-07-07', reason: 'BUG: 4 flat stubs, detail-page enrichment never implemented → all-null listings dropped; needs a detail-body parser (data present on detail pages)' }],
   // busko-zdroj moved to LEGIT_EMPTY (2026-07-07): live-verified the adapter
   // parses correctly — the current board is a land-only auction (no flat), so
   // 0 flat records is right, not a broken parser. It's empty-between-flats, not

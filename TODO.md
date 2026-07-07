@@ -148,6 +148,19 @@ result notices. The infrastructure all works:
   - **Data lands on the next CI refresh** (all three verified live end-to-end);
     EXEMPT_NEW reasons updated + `since` reset until committed data is non-empty,
     then remove the entries.
+- **augustow — real bug, NOT LEGIT_EMPTY (corrected 2026-07-07):** the proactive
+  scan (unique=0 with active_listings>0) caught it — last session it was wrongly
+  parked in `LEGIT_EMPTY`. `crawlActive` collects 4 flat stubs but the detail-
+  page enrichment its own comments promise ("parsed from detail page body on
+  first CI run", `augustow/crawl.js:94-99`) was **never implemented**, so every
+  listing is all-null (no address/price/area) and drops in the build. The detail
+  pages DO carry the data — verified live 07-07 (e.g. *Rynek Zygmunta Augusta 16,
+  lokal mieszkalny nr 1 & 3*, with "cena wywoławcza" + street). **Fix:** add an
+  `enrichFromDetailPage` step (fetch each `detail_url`, parse the body for
+  address/price/area/auction_date, `parseAddress()` the address) — MUST handle
+  multi-flat announcement pages (nr 1 & nr 3 → two records). Moved to EXEMPT_NEW
+  meanwhile. Est. medium (needs a new augustow detail-body parser + a fixture
+  test).
 - **gdansk + augustow — `LEGIT_EMPTY` (2026-07-07):** documented empty-by-design;
   WARN on unique=0 with a **45-day recheck** backstop. **Residual (deferred):** a
   fully-robust guard keys WARN-vs-FAIL on a positive fetch-reachability signal
