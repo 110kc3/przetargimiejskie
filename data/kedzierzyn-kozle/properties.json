@@ -1352,6 +1352,70 @@
         }
       ],
       "area_m2": 10.32
+    },
+    {
+      "key": "grzegorza piramowicza|32|",
+      "street": "Grzegorza Piramowicza",
+      "street_norm": "grzegorza piramowicza",
+      "building": "32",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1600000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30143/ogloszenie-o-przetargu-pisemnym-ograniczonym",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "pocztowej|7|",
+      "street": "Pocztowa",
+      "street_norm": "pocztowej",
+      "building": "7",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1600000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30143/ogloszenie-o-przetargu-pisemnym-ograniczonym",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30143/ogloszenie-o-przetargu-pisemnym-ograniczonym",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 3000000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30143/ogloszenie-o-przetargu-pisemnym-ograniczonym",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     }
   ]
 }
