@@ -86,7 +86,8 @@ const LEGIT_EMPTY = new Map([
 // its `since` date: past EXEMPT_MAX_DAYS the exemption ESCALATES to a FAIL
 // (class exempt-expired) so a forgotten entry can't mask real breakage forever.
 // (Removed 2026-07-07 after their first non-empty CI refresh: kedzierzyn-kozle,
-// lodz, skarzysko-kamienna, bydgoszcz, gorzow-wielkopolski.)
+// lodz, skarzysko-kamienna, bydgoszcz, gorzow-wielkopolski; and the 07-07
+// crawler-bug fixes walbrzych→12, gniezno→4, wejherowo→8, confirmed committed.)
 const EXEMPT_NEW = new Map([
   // Both live-verified 2026-07-07 (since RESET, backed by that investigation —
   // not a forgotten park): the adapters are NOT broken. unique=0 because the
@@ -99,17 +100,11 @@ const EXEMPT_NEW = new Map([
   // against yet. See TODO §1.
   ['oswiecim', { since: '2026-07-07', reason: 'live-verified: OCR works, board has no active flats now (land/results only); flat-parse unvalidated' }],
   ['chrzanow', { since: '2026-07-07', reason: 'live-verified: harvest+render OK, board has no active flats now (lease/land/non-residential); flat-parse unvalidated' }],
-  // July 2026 wave: adapters repaired against live markup (see CHANGELOG) or
-  // sources legitimately empty; unique_properties stays 0 until each city's
-  // first result documents parse.
-  // FIXED 2026-07-07 (real crawler bugs, live-verified — data lands on the next
-  // CI refresh; entries kept only until committed data is non-empty, then remove):
-  ['wejherowo', { since: '2026-07-07', reason: 'FIXED 07-07: list-page regex now handles unclosed grid anchors — verified 8 active flats locally' }],
-  ['walbrzych', { since: '2026-07-07', reason: 'FIXED 07-07: board cards now attach parsed .address — verified 12 properties locally' }],
-  // gdansk + augustow moved to LEGIT_EMPTY (2026-07-07): their sources are
-  // empty-by-design, not settling-in adapters, so an expiring exemption was the
-  // wrong tool (would false-FAIL them at the ~07-23 cliff).
-  ['gniezno', { since: '2026-07-07', reason: 'FIXED 07-07: attach .address from the PDF/title (was hardcoded null) — verified 4 properties locally' }],
+  // walbrzych / gniezno / wejherowo: crawler bugs fixed 2026-07-07 and REMOVED
+  // from this list — their first non-empty CI refresh committed 12 / 4 / 8
+  // properties (see the header note; a future drop to 0 now correctly FAILs).
+  // gdansk moved to LEGIT_EMPTY (2026-07-07): empty-by-design, not a settling
+  // adapter, so an expiring exemption would false-FAIL it at the ~07-23 cliff.
   // Real bug (not empty): crawls 4 flat stubs but the detail-page enrichment the
   // crawl comments promise ("parsed from detail page body on first CI run") was
   // never implemented — every listing is all-null and drops. Detail pages DO
