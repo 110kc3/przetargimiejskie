@@ -1,5 +1,246 @@
 {
   "schema_version": 1,
   "city": "walbrzych",
-  "properties": []
+  "properties": [
+    {
+      "key": "przy ul harcerskiej|7|2",
+      "street": "przy ul. Harcerskiej",
+      "street_norm": "przy ul harcerskiej",
+      "building": "7",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-07-27",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 175000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51204/przy-ul-harcerskiej-7-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "joachima lelewela|5|10",
+      "street": "Joachima Lelewela",
+      "street_norm": "joachima lelewela",
+      "building": "5",
+      "apt": "10",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51006/walbrzych-przy-ul-joachima-lelewela-5-10",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "piotra skargi|26|18",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "26",
+      "apt": "18",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 26000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51005/walbrzych-przy-ul-piotra-skargi-26-18",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "piotra skargi|26|14",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "26",
+      "apt": "14",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 32000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51004/walbrzych-przy-ul-piotra-skargi-26-14",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "11 listopada|188|16",
+      "street": "11 Listopada",
+      "street_norm": "11 listopada",
+      "building": "188",
+      "apt": "16",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 68000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51003/walbrzych-przy-ul-11-listopada-188-16",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wroclawskiej|56|6",
+      "street": "Wrocławska",
+      "street_norm": "wroclawskiej",
+      "building": "56",
+      "apt": "6",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 88000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50690/walbrzych-przy-ul-wroclawskiej-56-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "walbrzych ul gen w andersa|131|1",
+      "street": "Wałbrzych, ul. gen. W. Andersa",
+      "street_norm": "walbrzych ul gen w andersa",
+      "building": "131",
+      "apt": "1",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50689/walbrzych-ul-gen-w-andersa-131-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "slowackiego|26A|3",
+      "street": "Słowackiego",
+      "street_norm": "slowackiego",
+      "building": "26A",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50688/walbrzych-przy-ul-slowackiego-26a-3",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "11 listopada|150|7",
+      "street": "11 Listopada",
+      "street_norm": "11 listopada",
+      "building": "150",
+      "apt": "7",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 76000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50686/walbrzych-przy-ul-11-listopada-150-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "armii krajowej|39A|6",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "39A",
+      "apt": "6",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 40000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50685/walbrzych-przy-ul-armii-krajowej-39a-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "lubelskiej|26|12",
+      "street": "Lubelskiej",
+      "street_norm": "lubelskiej",
+      "building": "26",
+      "apt": "12",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 47000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50684/walbrzych-przy-ul-lubelskiej-26-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "armii krajowej|14|2",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "14",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 55000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50683/walbrzych-przy-ul-armii-krajowej-14-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
 }
