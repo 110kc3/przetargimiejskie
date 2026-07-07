@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-06T12:05:21.425Z",
+  "generated_at": "2026-07-07T07:55:37.970Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,9 +9,9 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 177,
-      "active_listings": 9,
-      "active_auctions": 8,
-      "archived_auctions": 248,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 255,
       "wykaz_entries": 1,
       "land_plots": 79
     },
@@ -60,9 +60,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 49,
-      "active_listings": 91,
-      "active_auctions": 4,
+      "unique_properties": 50,
+      "active_listings": 92,
+      "active_auctions": 5,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -138,12 +138,12 @@
       "voivodeship": "opolskie",
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
-      "unique_properties": 16,
-      "active_listings": 83,
-      "active_auctions": 3,
+      "unique_properties": 18,
+      "active_listings": 89,
+      "active_auctions": 7,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 104
+      "land_plots": 105
     },
     {
       "id": "trzebinia",
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 16,
+      "active_listings": 15,
       "active_auctions": 13,
       "archived_auctions": 23,
       "wykaz_entries": 0,
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 9,
+      "active_listings": 10,
       "active_auctions": 10,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -697,10 +697,10 @@
       "voivodeship": "kujawsko-pomorskie",
       "authority": "Urząd Miasta Bydgoszczy",
       "host": "bip.um.bydgoszcz.pl",
-      "unique_properties": 5,
+      "unique_properties": 7,
       "active_listings": 3,
       "active_auctions": 3,
-      "archived_auctions": 2,
+      "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -710,10 +710,10 @@
       "voivodeship": "lubuskie",
       "authority": "Urząd Miasta Gorzowa Wielkopolskiego",
       "host": "bip.um.gorzow.pl",
-      "unique_properties": 50,
+      "unique_properties": 57,
       "active_listings": 37,
       "active_auctions": 2,
-      "archived_auctions": 88,
+      "archived_auctions": 100,
       "wykaz_entries": 0,
       "land_plots": 2
     }
