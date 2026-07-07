@@ -75,7 +75,7 @@ pipeline/src/
 │   ├── geoportal.js, uldk.js  # precise parcel geoportal deep-links
 │   └── hash.js
 ├── cities/
-│   ├── index.js               # the REGISTRY: exports [gliwice, …, legnica]
+│   ├── index.js               # the REGISTRY: exports the 55-city registry [gliwice, …, gorzow-wielkopolski]
 │   └── <city>/ { config, crawl, parse, index }.js   # one folder per built city
 └── refresh.js                 # thin loop over the registry → data/<city>/*.json
 ```
@@ -130,13 +130,19 @@ site / docs changes do **not** bump the extension version.
 
 - **`refresh.yml`** — daily `0 4 * * *`. `setup` job emits the registry + runs
   parser tests once; a **matrix** runs one `refresh (city)` job per city
-  (`fail-fast: false`, `max-parallel: 4`, `timeout-minutes: 25`), each committing
-  only its own `data/<city>/`; an `index` job rebuilds `data/index.json`.
+  (`fail-fast: false`, `max-parallel: 10`, `timeout-minutes: 25`), each committing
+  only its own `data/<city>/`; an `index` job rebuilds `data/index.json`. A
+  `triage` job auto-opens one `[city-broken]` issue per broken city (comments on
+  repeats, auto-closes on recovery) — the failure-alert channel.
 - **`health.yml`** — `scripts/health-check.js`: FAILs if a city's `meta.json` is
-  missing/stale or `unique_properties === 0` (silent-breakage guard).
+  missing/stale or `unique_properties === 0` (silent-breakage guard); failures
+  feed the same `[city-broken]` issue pipeline.
 - **`ovh-deploy.yml`** — chains off refresh, runs `build-site.sh`, SFTP-mirrors
   `_site/` to OVH (the only deploy; the Pages fallback was removed July 2026).
-  Full workflow catalog: `.github/workflows/README.md`.
+
+These are 3 of **7 numbered workflows** (1 refresh · 2 health · 3 OVH deploy ·
+4 newsletter · 5 extension CI · 6 security · 7 backfill) — full catalog:
+`.github/workflows/README.md`.
 
 ### 2.6 Site & monetization
 

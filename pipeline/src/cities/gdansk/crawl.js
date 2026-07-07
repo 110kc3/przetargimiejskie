@@ -17,6 +17,7 @@
 // not paginated on the same URL. If the index ever goes empty between auction
 // rounds, crawlActive() returns [] gracefully (no error).
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAnnouncementPdf } from './parse.js';
@@ -144,7 +145,7 @@ export async function crawlResultDocs() {
   return [];
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
 }

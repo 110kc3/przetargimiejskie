@@ -18,6 +18,7 @@
 // reads ref.text directly and calls parseResultDoc(text, ref.auction_date,
 // ref.pdf_url). No OCR/PDF.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import {
   extractArticleBody,
@@ -137,7 +138,7 @@ export async function crawlResultDocs() {
 // Re-export so refresh.js / the registry can reach the pure parser.
 export { parseResultDoc };
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

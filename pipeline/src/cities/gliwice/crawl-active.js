@@ -8,6 +8,7 @@
 //   "<address> - <DD.MM.YYYY> r. <area> m2 - <price> zł"
 // The wykaz page uses a different template — short entries with "wykaz nr X address".
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseAddress } from '../../core/normalize.js';
 
@@ -151,7 +152,7 @@ export async function crawlActive() {
   return { listings, wykaz };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, wykaz } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings, wykaz }, null, 2) + '\n');
   console.error(`Total: ${listings.length} active listing(s), ${wykaz.length} wykaz entries`);

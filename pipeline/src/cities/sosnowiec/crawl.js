@@ -1,4 +1,5 @@
 // Sosnowiec crawler
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import {
@@ -269,7 +270,7 @@ export async function crawlResultDocs() {
   return out;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} flat listing(s)`);

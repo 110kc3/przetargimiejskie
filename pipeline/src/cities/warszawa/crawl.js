@@ -33,6 +33,7 @@
 //     Requires Polish tessdata (pol.traineddata) in the OCR environment.
 //   - Per-dzielnica spot-check completed 2026-06-29 -- see warszawa.md.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
@@ -213,7 +214,7 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-if (import.meta.url === 'file://' + process.argv[1]) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
   console.error('Total: ' + listings.length + ' active listing(s)');

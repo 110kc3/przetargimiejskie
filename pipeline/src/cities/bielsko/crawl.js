@@ -21,6 +21,7 @@
 // pager loop are written to the documented structure. VALIDATE on first refresh.
 
 import { setTimeout as sleep } from 'node:timers/promises';
+import { pathToFileURL } from 'node:url';
 
 import { getText } from '../../core/fetch.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -253,7 +254,7 @@ export async function crawlResultDocs() {
   return [];
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings, land }, null, 2) + '\n');
   console.error(`Total: ${listings.length} listing(s), ${land.length} land plot(s)`);

@@ -1,8 +1,8 @@
 # przetargimiejskie
 
-A pipeline that scrapes municipal property auctions from Polish cities (the Silesian / Górnośląsko-Zagłębiowska cluster, now expanding into the neighbouring Małopolskie and Opolskie voivodeships), parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
+A pipeline that scrapes municipal property auctions from Polish cities (nationwide coverage that began with the Silesian / Górnośląsko-Zagłębiowska cluster), parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
 
-**Cities covered:** Gliwice (ZGM — full sold-price history via OCR'd result PDFs), Katowice (BIP + SharePoint — yearly result summaries + announcements), Bytom (`www.bytom.pl/bip` sales list + i-BIIP catalog + `.doc` announcements), Zabrze (`bip.miastozabrze.pl` document board + attachment PDFs), Sosnowiec (`bip.um.sosnowiec.pl` JSON API — open flat auctions, filtered out of the city's land/commercial + tenant bezprzetargowe sales), Rybnik (ZGM `bip.zgm.rybnik.pl` — flat auctions as RTF announcements, decoded by a pure-JS RTF reader) — plus Bielsko-Biała, Mysłowice, Świętochłowice and Tarnowskie Góry. **Plus the first seven non-Śląskie cities** (neighbouring-voivodeship expansion — adapters built + parser-tested + registered, crawlers validated on first live refresh): Kędzierzyn-Koźle & Opole (Opolskie), and Kraków, Trzebinia, Chrzanów, Olkusz & Oświęcim (Małopolskie). See the *Neighbouring-voivodeship expansion* section in [TODO.md](./TODO.md) and the source profiles in [SPIKE-NEIGHBORS.md](./SPIKE-NEIGHBORS.md). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
+**Cities covered:** **55 built city adapters spanning 16 voivodeships** — national coverage including Warszawa, Kraków, Łódź, Gdańsk, Szczecin, Katowice, Gliwice, Bydgoszcz, Białystok and dozens more. The live generated ledger of what's built / spiked / queued is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); per-city counts and source hosts are in [`data/index.json`](./data/index.json). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
 
 The architecture is deliberately simple: **local pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No server, no paid service, no hosted database. See [PLAN.md](./PLAN.md) for the why.
 
@@ -13,15 +13,16 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | [`pipeline/`](./pipeline) | Node.js scraper + OCR/text/`.doc` extractors + per-city parsers. Builds `data/<city>/*.json`. |
 | [`pipeline/src/cities/<city>/`](./pipeline/src/cities) | One adapter per city (crawl + parse), registered in `cities/index.js`. |
 | [`pipeline/ocr-cache/`](./pipeline/ocr-cache) | Committed OCR text per scanned PDF (each OCR'd once). |
-| [`pipeline/pdf-text-cache/`](./pipeline/pdf-text-cache) | Committed `pdftotext` output for text PDFs (Katowice, Zabrze). |
-| [`pipeline/doc-text-cache/`](./pipeline/doc-text-cache) | Committed `catdoc` output for legacy `.doc` announcements (Bytom). Doubles as a retention store if a source later removes the file. |
+| [`pipeline/pdf-text-cache/`](./pipeline/pdf-text-cache) | Committed `pdftotext` output for text PDFs (many cities). |
+| [`pipeline/doc-text-cache/`](./pipeline/doc-text-cache) | Committed `catdoc` output for legacy `.doc` announcements (Bytom, Legnica, …). Doubles as a retention store if a source later removes the file. |
 | [`pipeline/uldk-cache/`](./pipeline/uldk-cache) | Committed ULDK lookups (obręb + parcel → TERYT parcel id) so each land plot gets a precise geoportal `identifyParcel` deep-link, resolved once per parcel. |
 | `data/<city>/properties.json` | One record per unique `(street, building, apt)` with the full chronological listings history. **The file the Chrome extension consumes.** |
 | `data/<city>/active.json` | Currently-active auctions and "wykaz" pre-announcements. |
 | `data/<city>/meta.json` | Provenance: when generated, schema/parser versions, counts. |
 | [`data/index.json`](./data/index.json) | Per-city summary (label, authority, host, counts). |
-| [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | GitHub Actions: re-runs the pipeline weekly **and on push to `main`**, commits any deltas. |
-| [`.github/workflows/health.yml`](./.github/workflows/health.yml) | Daily source-health check (`pipeline/scripts/health-check.js`): fails (→ email) if any city's data is empty or stale. |
+| [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | GitHub Actions: re-runs the pipeline daily at 04:00 UTC **and on push to `main`** — a per-city matrix (`max-parallel: 10`) with a data-sanity gate, committing each city's delta separately. |
+| [`.github/workflows/health.yml`](./.github/workflows/health.yml) | Daily source-health check (`pipeline/scripts/health-check.js`): fails if any city's data is empty or stale — failures feed the per-city `[city-broken]` triage issues. |
+| [`.github/workflows/README.md`](./.github/workflows/README.md) | The workflow catalog — all 7 numbered workflows (refresh · health · OVH deploy · newsletter · extension CI · security · backfill). |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
 | [`PRIVACY.md`](./PRIVACY.md) | Privacy policy for the Chrome extension (required for Web Store). |
@@ -47,6 +48,9 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 The diagram above is the **Gliwice** flow (OCR'd result PDFs). Other cities plug into the same orchestrator via their adapter but use different source types: Katowice mixes text-PDF yearly summaries (`pdftotext`) with BIP/SharePoint announcements; Bytom crawls the server-rendered BIP sales list and enriches from the i-BIIP catalog + `.doc` announcements (`catdoc`); Zabrze pulls a JSON document board and parses attachment PDFs. Each adapter implements the same contract (`crawlResultDocs` / `parseResultDoc` / `crawlActive`, optional `enrichActive`).
 
 ## Running locally
+
+> Headless Linux box (RPi5 / ARM64, Polish residential IP)? Follow
+> [REMOTE.md](./REMOTE.md) — setup, task matrix, and the PR-only push flow.
 
 ```bash
 # one-time setup
@@ -102,12 +106,14 @@ A brand-new city adapter's crawler is therefore **first validated on its first C
 
 ## Running on GitHub Actions
 
-The included workflow `.github/workflows/refresh.yml` runs every Monday at 06:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). It:
+The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). A `setup` job runs the parser test suite once (must pass — fail-fast against parser regressions), then a **per-city matrix** (`fail-fast: false`, `max-parallel: 10`) runs one job per registered city, each of which:
 
 1. Installs `poppler-utils`, `tesseract-ocr-pol`, and `catdoc` (legacy `.doc` → text, for Bytom) (~5 s).
-2. Runs the parser test suite (must pass — fail-fast against parser regressions).
-3. Runs `npm run refresh`.
-4. Commits and pushes `data/` + the caches (`ocr-cache/`, `pdf-text-cache/`, `doc-text-cache/`, `detail-cache/`) if any changed.
+2. Runs `CITY=<city> npm run refresh` for its one city.
+3. Gates the fresh data on `pipeline/scripts/sanity-check.js` — a failure blocks only that city's commit, so its last-good data stays published — then enriches land geoportal links (best-effort, never blocks).
+4. Commits and pushes `data/<city>/` + the caches (`ocr-cache/`, `pdf-text-cache/`, `doc-text-cache/`, `detail-cache/`) if any changed.
+
+Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
 
 The auto-provided `GITHUB_TOKEN` with `permissions: contents: write` is enough; no secrets needed.
 
@@ -119,11 +125,11 @@ Lives in [`extension/`](./extension). MV3, no build step, no dependencies. Load 
 
 1. Open `chrome://extensions`, toggle **Developer mode** on (top right).
 2. Click **Load unpacked**, point it at this repo's `extension/` directory.
-3. Visit any covered site: `zgm-gliwice.pl`, `bip.katowice.eu`, `www.bytom.pl`, `i-biip.um.bytom.pl`.
+3. Visit any of the 8 overlay-covered hosts, e.g. `zgm-gliwice.pl`, `bip.katowice.eu`, `bip.zgm.rybnik.pl` (full list: `manifest.json` `content_scripts`).
 
 What it does:
 
-- **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL.
+- **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL. Note: the extension currently surfaces 9 Śląskie cities — the data-driven all-55 rework is the top [ROADMAP.md](./ROADMAP.md) T1 item; the website archive already covers all 55.
 - **Content script** (`content.js` + per-site adapters in `sites/`) runs on each covered host:
   - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², a **deal score** (`▼ N% below median` / `▲ N% above median` vs the city's median zł/m²), auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
   - On property-detail pages: injects a sidebar with a chronological history table and a price-delta summary versus the first historical attempt.
@@ -138,11 +144,11 @@ What it does:
 
 ### Privacy policy
 
-See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer. The extension fetches three public JSON files from GitHub and reads pages you're already viewing on `zgm-gliwice.pl` — that's the entire network footprint. No analytics, no tracking, no third-party services. For Chrome Web Store submission, link to the GitHub-hosted raw URL: `https://github.com/110kc3/przetargimiejskie/blob/main/PRIVACY.md`.
+See [PRIVACY.md](./PRIVACY.md). The short version: nothing leaves your computer. The extension fetches each covered city's public JSON files from GitHub and reads pages you're already viewing on the covered municipal sites — that's the entire network footprint. No analytics, no tracking, no third-party services. For Chrome Web Store submission, link to the GitHub-hosted raw URL: `https://github.com/110kc3/przetargimiejskie/blob/main/PRIVACY.md`.
 
 ### Roadmap
 
-See [TODO.md](./TODO.md) for the live backlog (sold-price streams for Bytom/Zabrze, per-city CI matrix, Katowice land-parcel coverage, monetization MVP, and remaining edge cases).
+See [ROADMAP.md](./ROADMAP.md) for tiers/gates and [TODO.md](./TODO.md) for the live backlog.
 
 ## Website (przetargimiejskie.pl)
 
@@ -163,7 +169,7 @@ OVH is the **only** deploy path (the former GitHub Pages fallback, `pages.yml`, 
 
 ## Current coverage (data quality notes)
 
-Counts per city live in `data/<city>/meta.json` and `data/index.json`. Gliwice is the only city with achieved sold-price history; Katowice has yearly result summaries plus active announcements; Bytom and Zabrze are active-listing adapters (no published achieved-price stream yet — see TODO.md).
+Counts per city live in `data/<city>/meta.json` and `data/index.json`. Achieved sold-price history is no longer Gliwice-only — most adapters (~45 of 55) parse achieved-price result streams; Gliwice's OCR'd result PDFs remain the deepest history. A handful of cities (Bytom, Bielsko-Biała, Rybnik, Świnoujście, Nowa Sól, Gdańsk) publish no usable result stream and stay active-only.
 
 ### Gliwice
 
@@ -179,4 +185,4 @@ Counts per city live in `data/<city>/meta.json` and `data/index.json`. Gliwice i
 
 ## Attribution
 
-All scraped data originates from the public municipal sources of each covered city: [zgm-gliwice.pl](https://zgm-gliwice.pl/) (ZGM Gliwice), [bip.katowice.eu](https://bip.katowice.eu/) (UM Katowice), [www.bytom.pl/bip](https://www.bytom.pl/bip) + [i-biip.um.bytom.pl](https://i-biip.um.bytom.pl/) (UM Bytom), and [bip.miastozabrze.pl](https://bip.miastozabrze.pl/) (UM Zabrze). This repository is a read-only mirror with a derived view; canonical sources for any data point are linked from each listing's `source_pdf` / `detail_url` field.
+All scraped data originates from each covered city's public BIP / municipal source (city-hall bulletin boards, housing-authority sites, municipal catalogs). This repository is a read-only mirror with a derived view; the canonical source for any data point is linked from each listing's `source_pdf` / `detail_url` field, and the full list of covered cities with their source hosts lives in [`data/index.json`](./data/index.json).

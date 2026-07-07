@@ -24,6 +24,7 @@
 // Bot-blocking note: the BIP server returned empty responses to curl (bare UA)
 // during spike research. A browser UA (see BROWSER_UA below) resolves this.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseResultDoc } from './parse.js';
@@ -315,7 +316,7 @@ export async function crawlActive() {
  */
 export { crawlResultDocs };
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

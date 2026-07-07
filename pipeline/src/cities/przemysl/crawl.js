@@ -22,6 +22,7 @@
 // Connection to invest.przemysl.eu may be slow (~30s TLS); getText uses default
 // 30s timeout + 2 retries.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import {
   parseListPage,
@@ -221,7 +222,7 @@ export async function crawlResultDocs() {
 // ---------------------------------------------------------------------------
 // CLI harness (manual testing: node crawl.js)
 // ---------------------------------------------------------------------------
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {
     const refs = await crawlResultDocs();

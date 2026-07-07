@@ -21,6 +21,7 @@
 // memoised crawl, so each page/detail is fetched (and each announcement OCR'd)
 // exactly once per run.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
 import {
@@ -146,7 +147,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const results = await crawlResultDocs();
   const { listings } = await crawlActive();
   process.stdout.write(

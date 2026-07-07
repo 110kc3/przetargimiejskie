@@ -1,490 +1,269 @@
 # TODO
 
-> Open backlog only. Shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site). **Last refreshed: 4 July 2026
-> (3 July handover reconciled) — extension v1.31.0.**
+> **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
+> (extension) and git history (pipeline/site/data). **Last refreshed: 7 July
+> 2026 — extension v1.32.0.** Structure/tiers/gates live in
+> [ROADMAP.md](./ROADMAP.md); headless RPi5 execution is specified in
+> [REMOTE.md](./REMOTE.md); city coverage is the generated ledger
+> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 55 · BUILD-ready
+> 59 · 204 spiked).
 >
-> **Recently shipped (removed from this list):**
-> - **P0-C — SEO site pages (2 July 2026):** `scripts/build-seo-pages.mjs` (called
->   from `build-site.sh`) statically generates `/<miasto>/` per city, one page per
->   property (full auction history), monthly "co miasto wystawiło" recaps (24 mo),
->   the `/miasta/` hub, and `sitemap.xml` — 1 026 URLs over the Śląskie cities
->   (mirrors the landing's public gate; widen via `PUBLIC_VOIVODESHIPS`). Plus
->   `site/robots.txt` (excludes the `/archiwum-all` test view, points at the
->   sitemap). Titles/meta target the GTM §3 queries; stale `active` listings
->   render as "po terminie", so counts match `meta.json`. Site-only → no
->   extension version bump.
-> - Houses/land kinds + the requested **kind & city filters** — extension popup
->   (v1.31.0) and site archive/raporty — plus the deal-score badge, Google-Maps
->   column, and land sources/prices.
-> - **23 June bug sweep (ext v1.30.2):** watchlist-scan abort that silenced all
->   notifications, notification-click registry race, wadium urgency on non-ISO
->   dates, `zabudowa`/`zabudowy` → *dom* alias (extension i18n **and** pipeline
->   `KIND_ALIASES`), first-attempt discount baseline, archive null-row sort.
->   Pipeline: kind heal now runs on the first-run / `MERGE_HISTORY=0` paths,
->   dateless-listing dedupe, property-kind reconciliation from listings, a
->   discriminating dateless merge fingerprint, malformed `auction_date` kept
->   (not dropped), zero-count index placeholder on first-run failure. Site:
->   kind-alias normalisation on load + cities-stat default.
-> - Website **favicon** (all pages).
+> Recently shipped (see git log, not re-listed here): the entire 3-July handover
+> landed in `45dcb09` (extension CI, P2-D verified-heals in refresh, TG PDF
+> price/area fix, newsletter generator + first seeded run 2026-07-06); daily
+> refresh + failure-triage issues live; Bydgoszcz/Gorzów rebuilt 2026-07-06;
+> 2026-07-07 session — brzeg waiting-room handling, FETCH_PROXY_URL egress
+> hook, EXEMPT_NEW cleanup + busko-zdrój entry, docs truth pass
+> (ROADMAP/REMOTE/TODO/README).
 >
-> **Uncommitted — 25 June 2026 session (needs commit/PR, then move to shipped):**
-> _(see the 3 July handover block below for the newer uncommitted batch)_
-> - **Pipeline now refreshes DAILY** — `refresh.yml` cron `0 4 * * *` (04:00 UTC
->   ≈ 06:00 PL) instead of weekly Mondays. OVH deploy already chains off it via
->   `workflow_run`; `health.yml` / `health-check.js` comments updated for daily.
-> - **Geoportal/ULDK fixes:** `geoportal.js` fallback now keeps the street for
->   addr-only plots; `uldk.js` gained a *construct-and-verify* path (build
->   `gmina.OOOO.parcel`, confirm via ULDK `GetParcelById`) that bypasses
->   placeholder obręb names. Applied to Sosnowiec land data: **63 → 157 precise
->   geoportal links** (+94). New `uldk`/`geoportal` unit tests. Full write-up in
->   `BUGCHECK-2026-06-25.md`.
-> - **Quick-win chores (done):** health `STALE_DAYS` 14 -> 3 (safe under the
->   daily cadence — `generated_at` is rewritten every run); `.gitattributes`
->   line-ending normalisation, which kills the CRLF `git status` noise
->   (~1,200 -> 15 modified files); popup `mapsCell` now uses the structured
->   `street`+`building` like the archive. Ext **v1.31.0 -> v1.31.1** (+ CHANGELOG).
-
-## Handover — 3 July 2026 session (4 pieces BUILT + tested, awaiting land)
-
-Four pieces are **built, unit-tested and green in the dev sandbox**. None can be
-finished from a sandbox — each needs a GitHub token, a live network run, a
-browser, or an account/business decision.
-
-### ✅ Repo file-state (paths fixed 4 July 2026 — ready to stage/commit)
-
-All handover files are now at their intended paths (moves were clean — each file's
-relative imports were already written for its target location, so no content
-rewriting was needed). The three affected test files pass. **Still uncommitted** —
-there's a `.git/index.lock` in the tree, so staging/committing/pushing is a manual
-step. Files map to the four branches below.
-
-| Intended path (handover) | State (4 July, after fix) |
-|---|---|
-| `.github/workflows/extension-ci.yml` | ✅ present (untracked) |
-| `pipeline/scripts/check-extension-lint.mjs` | ✅ present (pushed by Kamil) |
-| `pipeline/src/core/verified-heals.js` | ✅ present (untracked) |
-| `pipeline/scripts/heal-properties.js` | ✅ updated in place (modified) |
-| `pipeline/src/refresh.js` (edit) | ✅ P2-D additions merged in (modified) |
-| `pipeline/tests/verified-heals.test.js` | ✅ moved into place (untracked) |
-| `pipeline/src/cities/tarnowskie-gory/parse.js` (edit) | ✅ modified (tracked, uncommitted) |
-| `pipeline/tests/parse-tarnowskie-gory.test.js` | ✅ updated in place (modified) |
-| `pipeline/scripts/newsletter-digest.js` | ✅ present (untracked) |
-| `pipeline/tests/newsletter-digest.test.js` | ✅ moved into place (untracked) |
-| `.github/workflows/newsletter.yml` | ✅ moved into place (untracked) |
-
-### DONE (in sandbox) — the 4 pieces
-
-- **P1-A — Extension CI.** `.github/workflows/extension-ci.yml` +
-  `pipeline/scripts/check-extension-lint.mjs` (web-ext lint + manifest +
-  parity/version guards on PRs). Commit msg:
-  `ci: add Extension CI (web-ext lint + manifest + parity/version guards on PRs)`.
-- **P2-D — Durable heal folds in refresh.** `pipeline/src/core/verified-heals.js`,
-  `pipeline/scripts/heal-properties.js`, `pipeline/src/refresh.js`,
-  `pipeline/tests/verified-heals.test.js` — applies verified
-  rename/junk/cross-city-display heals post-merge (shared core + regression test).
-- **TG — Tarnowskie Góry PDF price+area extraction.**
-  `pipeline/src/cities/tarnowskie-gory/parse.js` +
-  `pipeline/tests/parse-tarnowskie-gory.test.js` — extracts price+area for missed
-  PDF phrasings (wynosi ogółem / colon / do przetargu / dash-grosze; powierzchnia
-  użytkowa lokalu). Should populate **40 prices + 26 areas** on next TG refresh.
-- **P1-D — Weekly newsletter digest generator.**
-  `pipeline/scripts/newsletter-digest.js`,
-  `pipeline/tests/newsletter-digest.test.js`, `.github/workflows/newsletter.yml` —
-  per-city digest (stored sent-list delta, Markdown/HTML), weekly Action.
-
-### PENDING — from YOU (Kamil): can't be automated in a sandbox
-
-1. **Land the 4 branches** (disjoint files → merge in any order; **NO extension
-   version bump**). Paths are now fixed (see table above) and tests pass, so the
-   files are staging-ready. Either provide a fine-grained PAT (Contents R/W + Pull
-   requests R/W) so it's pushed/PR'd/merged from the sandbox, **or** DIY per branch
-   `git checkout main && git checkout -b <branch> && git add <files> && git commit -m "<msg>" && git push -u origin <branch>`.
-   Branches: `ci/extension-lint`, `heal/durable-refresh`, `tg/pdf-price-area`,
-   `p1d/newsletter-digest`.
-2. **Run the first live refresh** (unlocks the next tier). Pushing triggers
-   `refresh.yml`, or local:
-   `cd pipeline && CITY=<city> npm run refresh && npm run build-index`
-   (needs `poppler-utils tesseract-ocr tesseract-ocr-pol`). Review each
-   `data/<city>/` delta before trusting it.
-3. **Decisions only you can make:** "Silesian" → multi-voivodeship copy
-   (README/PRIVACY/store); P2-E `schema_version: 2` + city-namespaced keys (bundle
-   with a needed schema bump); on-page overlays for the new cities (needs DOM
-   adapter + new `host_permissions` + Web Store resubmit); widen the public gate
-   beyond Śląskie (`PUBLIC_VOIVODESHIPS` + `CITY_LOC`).
-4. **Account actions:** Chrome Web Store submit (live v1.3.3, local v1.31.0 —
-   ~a month unpublished); submit `sitemap.xml` to Google Search Console; add
-   privacy-friendly analytics (Plausible/Umami); RODO/GDPR privacy update **before
-   the newsletter sends**.
-5. **Newsletter go-live (after P1-D merges):** weekly Action runs Mondays; first
-   run seeds a silent baseline (no listings), so the first real "new this week"
-   digest is the 2nd run. Each run writes `newsletter/<date>.md` + `.html` and
-   updates `newsletter/seen.json`. Sending still needs an ESP wired up **plus** the
-   RODO update. Manual preview any time via Actions → "Run workflow".
-
-### PENDING — from ME (code, unlocked once the live run's logs + deltas exist)
-
-- **Crawler hardening:** Chrzanów SPA body, Oświęcim OCR quality, Opole SISCO harvest.
-- **Result (achieved-price) streams:** Chrzanów, Oświęcim; confirm whether Opole posts any.
-- **Kędzierzyn-Koźle:** multi-flat table-announcement parsing + confirm Logonet
-  discovery reaches every year.
-- **Verify TG fix landed** — the 40 prices + 26 areas populate on the next TG refresh.
-- **TG sanity allowlist (fixed 4 July, CI run #111):** the TG price+area fix correctly extracted a real nominal `2000 zł / 28,34 m²` (71 zł/m²) for `sienkiewicza|45|1A` — a derelict suterena flat — which tripped sanity's `insane-m2` 300 zł/m² floor and failed the refresh. Added a documented `tarnowskie-gory|sienkiewicza|45|1A` allowlist entry in `sanity-check.js` (not a parser change; the extraction is correct).
-- **Verify P2-D** — a live Katowice run should show the re-seeded junk key
-  self-heal; then drop the sanity-check allowlist note (see *Katowice junk key* below).
-
-## Project review — CI capacity + expansion strategy (2 July 2026)
-
-**Findings (verified against live CI runs via the GitHub API):**
-
-- **There is no 1h GitHub limit.** Last 8 refresh runs: 36–56 min wall, all green.
-  Public repo → Actions minutes are free/unlimited; per-job cap is 6h. The wall
-  time was self-inflicted `max-parallel: 4`. A refresh costs ~130 runner-min
-  across 46 cities (~2.8 min/city, ≈half of it per-job setup).
-- **Shipped in this review:** `max-parallel` 4 → 10 in `refresh.yml` +
-  `backfill.yml` (each job crawls a *different* BIP — the in-job throttle is the
-  politeness layer, not job count); Playwright Chromium install now conditional
-  on the registry's `needsRender` flag (only Chrzanów; saves ~1–2 min × every
-  other job). SPIKE-COVERAGE verified **all fixes already shipped** — doc header
-  updated so it reads as the audit record it now is.
-- **Don't move the refresh to a local PC.** It would lose the 04:00 schedule,
-  per-city failure isolation, the health gate, and the rebase-retry commit flow;
-  Windows needs WSL for tesseract/catdoc anyway. If capacity ever matters, a
-  **self-hosted runner** keeps the workflows unchanged.
-
-**Deferred (from the review):**
-
-- **Shard small cities into grouped matrix jobs** (~4–5/job): most city jobs
-  finish in <2 min of which crawling is seconds — grouping amortizes the
-  apt-get/npm/checkout overhead and roughly halves total runner minutes. Do it
-  when the built-city count makes wall time creep again (~100+ cities).
-- **Build order: the Low-effort + big-city subset of the BUILD-ready queue
-  first** (Wrocław, Poznań, Bydgoszcz, Płock, Kalisz, Elbląg, Grudziądz,
-  Włocławek…) — high auction volume + completes the credible national claim.
-- **Demand-gate the ~900-town long tail.** ~40% of spiked cities are
-  NO-BUILD (bezprzetargowo pattern) and small towns add a handful of auctions/yr
-  but a permanent maintenance liability. Only worth it as a "complete Poland"
-  marketing moat with revenue behind it.
-- **Distribution before more adapters:** the Web Store submit (below; SEO pages
-  shipped 2 July) converts the built cities into users; more adapters multiply
-  inventory nobody sees. Per EXPANSION.md: let revenue, not the city list,
-  decide.
-
-**Time to spike all of Poland + build (at demonstrated pace — 204 spikes in ~5
-days of batched agents; 7 adapters built+tested in a day):**
-
-| Work | Remaining | Estimate |
-|---|---|---|
-| Powiat-seat spikes | 132 of 380 | ~1 week |
-| Long-tail spikes (~900 towns) | ~700 | 2–4 weeks, low BUILD hit-rate |
-| Builds — BUILD-ready queue | 64 | 2–4 weeks incl. first-live-refresh fix cycle |
-| Builds — from pending spikes | est. +30–60 | +2–4 weeks |
-
-**Total "every city in Poland" ≈ 1.5–3 months** at current cadence; powiat
-seats only ≈ 3–4 weeks. The wrapper/pipeline itself is done — registry, matrix
-CI, health checks, backfill, three parser families; marginal cost is per-city
-only. CI scales to ~200 cities with the parallelism fix alone (+ sharding
-beyond that).
-
-## All-Poland city spike + CI fixes (27 June 2026)
-
-**Spike every Polish city** — new `spikes/<woj>/<powiat>/<city>.md` tree grouped by
-district (powiat), with a resume ledger
-([spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md)) +
-[spikes/master-cities.json](./spikes/master-cities.json). **All 66 *miasta na
-prawach powiatu* spiked** (one live-verified agent per city), plus a first batch of
-land-powiat seats. Full architecture writeup in
-[PROJECT-OVERVIEW.md](./PROJECT-OVERVIEW.md).
-
-- **First build of the wave shipped:** `pipeline/src/cities/legnica/` (+
-  `pipeline/tests/parse-legnica.test.js`, registered in `cities/index.js`).
-- **TODO — build the BUILD-verdict cities** (clone the closest analog adapter,
-  groundtruth a parser test, register). BUILD list is in SPIKE-PROGRESS (e.g.
-  Łódź, Wrocław, Wałbrzych, Olsztyn, Toruń, Białystok, Szczecin, Gdańsk,
-  Bydgoszcz, Kielce, Gorzów Wlkp., Nysa, Piła, Stargard…).
-- **TODO — continue spiking** the remaining land-powiat seats, then the town long
-  tail per voivodeship (resume protocol in SPIKE-PROGRESS).
-
-**CI fixes — refresh #88 (cancelled) + health (failed):**
-
-- **Kędzierzyn-Koźle** crawler **bounded** (current+prev-year master-table filter +
-  12-min wall-clock budget + 150-article cap) so it can't exceed the 25-min matrix
-  job timeout that cancelled the run.
-- **Oświęcim** crawler fixed — REKORD CMS now emits **relative** hrefs
-  (`5987/dokument/…`) → optional-slash regexes; pagination is **1-indexed**
-  (`strona/0` 404s). **Chrzanów** crawler fixed — board pages list only local
-  article stubs; added the stub→`bip.malopolska.pl` fetch level. Both root causes
-  **LIVE-VERIFIED** (27 June).
-- `scripts/health-check.js` gained a documented **`EXEMPT_NEW`** set
-  (kedzierzyn-kozle, oswiecim, chrzanow): a first-run adapter with missing meta /
-  `unique=0` now WARNs instead of failing the build. **➡ Remove each from
-  `EXEMPT_NEW` once its first live refresh commits non-empty data** (then a real
-  future drop to 0 fails again).
-- All four pipeline edits verified by direct read; they get their runtime
-  validation on the next live refresh. Pipeline-only → no extension version bump.
-
-## Neighbouring-voivodeship expansion (IN PROGRESS — 26 June 2026)
-
-First push **outside Śląskie**, into the two adjacent voivodeships that hug the
-existing cluster. Seven candidate gminas were live-spiked in parallel (full
-per-city source profiles in [SPIKE-NEIGHBORS.md](./SPIKE-NEIGHBORS.md)): **5 BUILD,
-2 NEEDS-LIVE-VERIFY, zero dead ends — and all 7 adapters are now built, parser-
-tested and registered** (16 → 17 cities in `cities/index.js`; full suite 352/352).
-
-**Build status — all 7 BUILT + parser-tested + registered (26 June 2026)**
-
-| City | Voivodeship | Source profile (closest analog) | Parser test | Streams |
-|---|---|---|---|---|
-| Kędzierzyn-Koźle | Opolskie | Logonet eUrząd, text PDFs (Tarnowskie Góry) | ✅ green | announcements + **results** |
-| Trzebinia | Małopolskie | Joomla HTML + price table (Bytom) | ✅ green | announcements + **results** |
-| Kraków | Małopolskie | bespoke BIP, multi-property HTML (Tarn. Góry) | ✅ green | announcements + **results** |
-| Olkusz | Małopolskie | WordPress HTML (FINN family) | ✅ green | announcements (offer-side) |
-| Opole | Opolskie | SISCO, SSR articles | ✅ green | announcements only |
-| Oświęcim | Małopolskie | REKORD list + PDF→OCR, multi-property | ✅ green | announcements (results scanned) |
-| Chrzanów | Małopolskie | city-portal index + SPA BIP (render.js), land table | ✅ green | announcements (results pending) |
-
-Each parser is groundtruthed against real fetched documents and unit-tested. The
-**crawlers** (live BIP fetch) are validated on the first real refresh — see the
-per-`config.js` "confirm on first CI refresh" notes (the SPA/OCR/SISCO-list/PDF
-body paths especially).
-
-### Pending — from YOU (Kamil): manual / account / review
-
-Cannot be automated from inside a session:
-
-1. **Run the first live refresh & review the data.** Parsers are unit-tested
-   offline, but each *crawler* is only validated against the live BIP on a real
-   run. Either push (CI `refresh.yml` runs it automatically) or run locally —
-   `cd pipeline && CITY=kedzierzyn-kozle npm run refresh && npm run build-index`
-   (needs `poppler-utils tesseract-ocr tesseract-ocr-pol`) — then **review the
-   committed `data/kedzierzyn-kozle/` delta** before trusting it. Repeat per city
-   as each lands.
-2. **Decide on on-page overlays for the new cities.** Today they work **data-only**
-   (popup + archive + website, fed from `data/<city>/*.json`) with **no extension
-   change and no Web Store resubmit** — same posture as Zabrze/Sosnowiec. Adding
-   the in-page badge overlay for a new host needs a `extension/sites/<city>.js` DOM
-   adapter **+** new `host_permissions` in `manifest.json` **+ a Chrome Web Store
-   resubmit** (account action, new-host-permissions review). Tell me if you want
-   overlays; otherwise they stay data-only.
-3. **Rebrand "Silesian" copy + `schema_version: 2` call.** README/PRIVACY/store
-   copy still say "Silesian"; the data is now multi-voivodeship. Decide when to
-   update the copy and whether to bundle the city-namespaced-key schema bump
-   (P2-E) — both are user-facing calls.
-
-### Pending — from ME (code, automatable next session)
-
-1. ✅ **DONE — all 7 adapters built, parser-tested, registered.** Each has a
-   groundtruthed `pipeline/tests/parse-<city>.test.js` and a `cities/index.js`
-   entry; full suite 352/352.
-2. **Crawler hardening after the first live refresh** (the body-fetch paths that
-   can't be verified offline — flagged per-`config.js`): **Chrzanów** SPA body via
-   `render.js` vs. BIP article JSON vs. text-PDF; **Oświęcim** scanned-PDF OCR
-   output quality (REKORD `api/download/file`); **Opole** SISCO SPA list →
-   `?news_id` harvest (AJAX endpoint / id-probing); the Małopolskie WordPress/Joomla
-   index harvests + pagination depth. Tune against the first run's logs/deltas.
-3. **Result (achieved-price) streams still to add:** **Chrzanów** "Wyniki
-   przetargów" board; **Oświęcim** result notices (scanned → OCR); confirm whether
-   **Opole** posts any result notice at all. (Kędzierzyn-Koźle, Trzebinia, Kraków
-   already parse results.)
-4. **Kędzierzyn-Koźle refinements** (low risk, after first run): flat-*announcement*
-   table parsing (upcoming flat auctions as active listings) + genitive↔nominative
-   announcement↔result join key; confirm the Logonet `/api/menu/<id>/articles` JSON
-   and board-85 master-table auto-discovery reaches every year.
-5. **README "Cities covered" / attribution** refresh (done for the 7) and (optional)
-   the **per-city CI matrix** in `refresh.yml` (EXPANSION §1.6) so one new city's
-   break is isolated.
-
-> This expansion is **pipeline-only** → **no extension version bump** (per
-> CLAUDE.md): the new cities surface through the existing `data/<city>/*.json`
-> path that the popup, archive and website already read.
-
-## Highest leverage
-
-### Publish to the Chrome Web Store — SUBMIT (account action)
-
-The live store build is **v1.3.3** (29 May) — local is **v1.31.0**, so roughly a
-month of features and fixes is unpublished (houses/land + filters, deal score,
-maps column, popup city/kind filters, the v1.30.2 bug sweep). Rebuild the zip
-from `extension/` (verify `manifest.json` at the zip root; it's gitignored),
-upload via the developer dashboard. Listing copy is ready in
-[WEB_STORE_LISTING.md](./WEB_STORE_LISTING.md). Expect a new-host-permissions
-review flag (the v1.21/v1.22 city hosts); no new permissions since. **This is the
-only remaining step and it's an account action — can't be automated.**
-
-### P0-C follow-ups (SEO pages shipped 2 July 2026 — see Recently shipped)
-
-The generator is live in `build-site.sh`. Remaining from GTM week 1–2:
-privacy-friendly analytics (Plausible/Umami) to measure whether the pages pull
-traffic (the §6 kill criteria need data), submitting `sitemap.xml` to Google
-Search Console (account action), and widening `PUBLIC_VOIVODESHIPS` in
-`scripts/build-seo-pages.mjs` + a locative `CITY_LOC` entry per city when the
-public gate opens beyond Śląskie.
-
-## Extension
-
-### P1-A — Extension CI job (lint + manifest + parity)
-
-> **BUILT + tested in sandbox (3 July) — awaiting land.** See the 3 July handover
-> block above (`extension-ci.yml` + `check-extension-lint.mjs`; the latter is
-> currently missing from the tree and must be re-created before commit).
-
-The ~10.8k LOC of `extension/` + `site/` JS has no lint or manifest validation
-of its own. Add a CI job running `web-ext lint` (or eslint), `manifest.json`
-validation, and the existing normalize-parity test. Cheap insurance for the
-user-facing artifact. (The manifest↔popup↔changelog version lockstep is already
-enforced by `pipeline/tests/extension-version.test.js`.)
-
-### Content-script adapters — Zabrze + Sosnowiec (deferred)
-
-7/9 cities have on-page overlays. Zabrze (Vue SPA; address lives in a downloaded
-attachment, no DOM key) and Sosnowiec (React SPA, JSON-backed; content.js runs
-once at document_idle before hydration) stay popup/archive-only. Revisit only if
-either gains a server-rendered surface or content.js is reworked to observe SPA
-navigation.
-
-### Manifest host-list alignment (cosmetic)
-
-`content_scripts.matches` includes `katowice.eu` and `bytom.pl` (no-www) that
-aren't in `host_permissions`. No functional impact (the SW only fetches
-raw.githubusercontent.com; content scripts inject off `matches` alone). Align
-the two lists, or add a consistency test, only if a future change needs
-page-host fetch permissions.
-
-## Pipeline
-
-### P1-D — Weekly newsletter digest generator
-
-> **BUILT + tested in sandbox (3 July) — awaiting land + go-live.** Generator +
-> Action done (see 3 July handover block); send/ESP + RODO update still pending.
-
-GTM.md week-1 item and the vehicle for sponsorship + lead-gen. A GitHub Action
-renders a Markdown/HTML "new auctions this week per city" digest from the
-`data/*/properties.json` deltas. Build the generator now; the send/ESP
-integration (and the RODO privacy update, see Chores) can follow.
-
-### P2-B — Gliwice/Katowice area backfill (network-gated)
-
-~37 Gliwice + ~40 Katowice concluded listings have no `area_m2` (result
-PDFs/yearly-summaries carry no area; detail-page enrichment only covered
-listings active at crawl time). A one-off crawl of archived detail slugs still
-resolvable on `zgm-gliwice.pl` (and Katowice DispForm pages) fills the gap and
-makes the zł/m² deal score far more complete. Write as
-`pipeline/scripts/backfill-areas-<city>.js`, idempotent (skip rows that already
-have area), run once under CI. Requires live network + mutates committed data,
-so it can't be authored/verified fully offline.
-
-### Tarnowskie Góry — active listings missing price + area (PDF extraction)
-
-> **BUILT + tested in sandbox (3 July) — awaiting land + live re-crawl.** Parser
-> fix done (see 3 July handover block); expects 40 prices + 26 areas to populate
-> on the next TG refresh — verify then. **CI run #111 (4 July) surfaced one
-> GENUINE outlier now correctly extracted — `sienkiewicza|45|1A`, a derelict
-> suterena flat at a nominal `2000 zł / 28,34 m²` — allowlisted in
-> `sanity-check.js` (`insane-m2`); not a parser change.**
-
-15 active listings carry no starting price and 18 no `area_m2` — the worst of
-any city (audit 25 June 2026). The source is a React SPA with a clean JSON API
-where each announcement carries ONE text PDF holding address / parcel / area /
-starting price / auction date — so the data exists; the gap is the PDF
-field-extraction not pulling price + area for these announcements. Fix the
-parser's PDF field parsing, then re-crawl. Network-gated (needs the
-announcement PDFs): author against the cached PDFs in `pipeline/pdf-text-cache/`
-and verify before shipping.
-
-### Tarnowskie Góry — geoportal links don't resolve (name-only obręby)
-
-~45 land plots fall back to a Google search instead of a precise geoportal
-deep-link. Unlike Sosnowiec (fixed 25 June via the obręb-number construct
-path), TG's weak plots have NAME-ONLY obręby — no numeric code, so
-construct-and-verify can't help — and several parcels don't resolve in ULDK by
-name even after stripping the `" arkusz"` suffix (e.g. `Strzybnica arkusz
-2476/3` → `brak wyników`). Needs deeper obręb/parcel normalisation (likely a
-TG obręb name→number map); 12 of the 45 are addr-only (no parcel) and can't be
-precise at all.
-
-### P2-D — Make `heal-properties.js` folds durable in refresh
-
-> **BUILT + tested in sandbox (3 July) — awaiting land + live verify.** Shared
-> `core/verified-heals.js` applied post-merge in `refresh.js` + regression test
-> (see 3 July handover block); confirm on a live Katowice run.
-
-`heal-properties.js` (VERIFIED_JUNK, VERIFIED_RENAMES, crossCityDisplay) is a
-MANUAL maintenance script whose output is committed, but `refresh.js` only runs
-the street-variant + kind heals post-merge — so a bled junk key a fresh crawl
-re-emits survives until a human runs heal again (and genitive→nominative display
-fixes get reverted by the next refresh's `old.street = fp.street`). Export the
-heal maps from a module and apply them inside `refresh.js` post-merge so every CI
-run self-heals. (Partly related: as of 23 June the *kind* heal already runs on
-all refresh paths; this item is the junk/rename maps.) Touches the shared build
-path — verify against all 9 cities before shipping.
-
-### P2-E — `schema_version: 2` with city-namespaced keys at the pipeline layer
-
-EXPANSION §1.5: move the `city|street|building|apt` namespacing from the
-extension's `background.js` into the pipeline, bump `schema_version` to 2, add a
-`city` field per record. Cross-cutting across all 9 cities' data plus
-`background.js`, `content.js` and `watchlist.js`, verifiable only in a real
-browser — do it ONLY bundled with a schema bump that's needed anyway, as the
-first task of that bump (not a standalone blind refactor).
-
-### Verify Bytom `.doc` history retention over time
-
-Confirm the Bytom `.doc` result-history is retained across refreshes (was a
-watch-item from the results-stream work). Spot-check that old concluded auctions
-persist after several crawl cycles.
-
-### Katowice junk key — drop the P2-C allowlist once source is confirmed clean
-
-The `oddzialow mlodziezy i ustny|86|` column-bleed fold is shipped, but the
-sanity-check allowlist entry was kept as a re-derivation guard (heal runs
-manually, and `mergeProperties` re-adds fresh-crawl-only keys). Drop it once a
-Katowice CI run confirms the source no longer emits the bleed, or once the folds
-are wired into refresh (P2-D).
-
-### Katowice historical result PDFs — WON'T FIX (city policy)
-
-The ~269 pre-2025 individual result PDFs return 404 **by design**: UM Katowice
-removes individual wykazy after the required publication period (sensitive data),
-keeping only the annual summaries (*"Informacja w sprawie zbywania
-nieruchomości… za rok…"*). Confirmed by the Referat Obrotu Nieruchomościami
-Miasta (reply received 23 June 2026). The pipeline already relies on the annual
-summaries — nothing to recover; closing this out.
-
-## Monetization
-
-### Alert + saved-search MVP
-
-[EXPANSION.md §4.6](./EXPANSION.md) — the smallest paid slice over the published
-data: email alerts off a saved search ("new active listing in district X under N
-zł/m²"). Needs a tiny hosted layer (Vercel + Supabase + Resend), independent of
-the extension. Not started; decide whether to do this before adding more cities.
-A RODO/privacy policy split is a prerequisite (see Chores).
-
-## Chores (quick wins)
-
-- **RODO/privacy split:** `PRIVACY.md` only covers the zero-data extension. The
-  day a newsletter (P1-D) or lead form ships, a separate policy is needed
-  (consent, lawful basis, deletion/export). Draft it alongside P1-D.
-
-## Reference — city coverage
-
-Nine cities built and published: Gliwice, Katowice, Bytom, Zabrze, Sosnowiec,
-Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice (+ Tarnowskie Góry data). The
-Silesian field is fully spiked; everything not built is deferred on flat-auction
-volume, not mechanics. Full status + drop rationale in
-[SPIKE-WAVE2.md](./SPIKE-WAVE2.md); per-adapter notes in each
-`pipeline/src/cities/<id>/config.js`.
-
-- **Deferred (revisit on volume):** Jaworzno, Żory, Ruda Śląska.
-- **Dropped (no open flat-auction stream):** Chorzów, Tychy, Dąbrowa Górnicza,
-  Częstochowa, Siemianowice, Piekary, Wodzisław — flats go bezprzetargowo to
-  tenants; auctions there are land/commercial.
-- **Now the active expansion (no longer "out of region"):** the Małopolskie +
-  Opolskie neighbours — Kędzierzyn-Koźle (built), Kraków, Trzebinia, Chrzanów,
-  Olkusz, Oświęcim, Opole. See the *Neighbouring-voivodeship expansion* section at
-  the top of this file and [SPIKE-NEIGHBORS.md](./SPIKE-NEIGHBORS.md).
-- **Out of region / demand-gated:** Warszawa (~18 district BIPs).
-- **Heuristic for any future spike:** a dedicated municipal housing manager
-  (ZGM/ZBM/MZBM/ZGL) publishing "przetarg ustny … na sprzedaż lokali
-  mieszkalnych" = build candidate; generic city-BIP property sections skew to
-  land + tenant sales. Confirm open flat-auction volume EARLY.
+> **Env tags** (ROADMAP legend): **[RPI5]** headless-ok · **[GUI]** needs
+> desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
+
+## 1 · Ops / health (health.yml red since 4 July)
+
+### Broken cities — FINN/Azure egress block: Racibórz + Świętochłowice (one incident) [RPI5]
+
+Both BIPs resolve to the same shared FINN server — `www.bipraciborz.pl` and
+`www.bip.swietochlowice.pl` are CNAMEs to **`bip2.finn.pl` (194.24.181.47)** —
+which silently drops TCP from GitHub-Actions/Azure IP ranges:
+`UND_ERR_CONNECT_TIMEOUT` on every CI fetch since ~04 July (fresh Azure IPs each
+run), while both sources returned HTTP 200 in 0.3–1.7 s from a Polish IP on
+2026-07-07. **Sources are up and parseable — no adapter change needed.** Treat
+as ONE provider incident (issues #2 + #3). Fix is egress, not code: the
+`FETCH_PROXY_URL` hook in `pipeline/src/core/fetch.js` (undici ProxyAgent) is
+**shipped** — residual work is provisioning actual non-Azure egress (the RPi5
+self-hosted runner per REMOTE.md, or a PL proxy endpoint as a repo secret) and
+wiring it into refresh.yml for FINN-hosted cities; note the insecureTLS path is
+not proxied. Preserve-on-empty holds 9 (raciborz) + 91 (swietochlowice) properties
+meanwhile; but stale-data FAILs cannot be allowlisted — only a green crawl
+clears them. Optionally tag FINN-hosted cities in config so simultaneous
+194.24.181.47 failures triage as one incident, not N issues.
+**Owner:** agent · **Blockers:** non-Azure egress (RPi5/proxy).
+
+### Broken city — Brzeg anti-DDoS waiting room [RPI5]
+
+`brzeg.pl` serves CI an 11,968-byte **"Proszę czekać…"** spinner page
+(`setTimeout(reload, 5000)`) instead of the real ~726 KB listing page — the
+parser is fine: run against the live page (same browser UA) it returns exactly
+the 3 expected ul. 3 Maja 1 listings. Detection + cookie-retry +
+source-unreachable throw **shipped this session** in
+`pipeline/src/cities/brzeg/crawl.js` (+ `tests/brzeg-waiting-room.test.js`).
+Residual: verify on the next CI refresh whether the cookie-retry passes the gate
+from Azure; if not, fall back to the same non-Azure egress as the FINN pair
+(`FETCH_PROXY_URL`/RPi5); confirm issue #11 reclassifies/closes after the next
+green run.
+**Owner:** agent · **Blockers:** none (egress fallback shared with FINN item).
+
+### Broken city — Tczew: Przetargi category emptied server-side [RPI5]
+
+Between 03–06 July `bip.tczew.pl` emptied the whole Przetargi category (board 3)
+server-side: list shows "Brak wiadomości", the category XML feed returns "Brak
+danych", the stored detail URL soft-404s, site search finds zero przetargi.
+Parser verified good — its regex still matches the platform markup on the
+sibling board. **Nothing to fix in code today**; reclassify issue #4 from
+layout-change to source-content-removed, keep preserve-on-empty, and **watch
+`/wiadomosci/1157/sprzedaz`** (Nieruchomości → Sprzedaż, same markup) for
+republication — optionally add it as a secondary wykaz board now.
+**Owner:** agent · **Blockers:** city republishing content.
+
+### Zero-data cities + the EXEMPT_NEW expiry cliff [RPI5]
+
+`EXEMPT_NEW` (`pipeline/scripts/health-check.js`) escalates to FAIL after 21
+days. Seven cities are still `unique_properties=0` under daily refreshes:
+
+- **expire ~2026-07-18** (since 06-27): **oswiecim** (REKORD OCR quality),
+  **chrzanow** (SPA body via render.js) — investigate crawlers against live
+  refresh logs before the cliff.
+- **expire ~2026-07-23** (since 07-02): **wejherowo, walbrzych, gniezno**
+  (first-refresh fixes) + **gdansk, augustow** — the latter two are documented
+  as *legitimately empty* sources, for which an expiring exemption is the wrong
+  tool: either renew the entries on a schedule or add a small non-expiring
+  legitimately-empty allowlist for the unique=0 FAIL to health-check.js.
+- **busko-zdroj** — EXEMPT_NEW entry exists since 2026-07-05 (added this
+  session, expires ~07-26), so once landed the city is a WARN, not a FAIL; the
+  new adapter (first meta commit 07-05) still parses 0 records from its 1
+  source PDF. Residual: investigate parse.js against the live source PDF before
+  the entry expires. Health re-opened its issue as #12 after the #7 flap.
+
+**Owner:** agent · **Blockers:** none.
+
+### Triage-bot gaps: auto-close flap + challenge-page misclassification [RPI5]
+
+(1) Refresh's triage closes **health-owned** issues on 0→0 because
+`triage-report.js` classifies prev=0→cur=0 as *healthy* (rule 4 only fires on a
+drop) — observed: refresh closed busko-zdroj issue #7 on 07-06 while the city
+still had 0 records; health reopens it next morning → daily flap. Fix: the
+refresh-side close should respect the health-check label while the city's meta
+has `unique_properties=0`. (2) A fetched-OK-but-known-challenge-page (brzeg's
+waiting room) was classified *layout-change* — brzeg-specific detection shipped
+07-07; residual: generalize challenge-page detection into `triage-report.js` /
+core fetch so future cities' challenge pages triage as source-unreachable
+without per-city code. Nit: for dual-failing cities health's sync
+re-titles the refresh-owned issue every run (title churn).
+**Owner:** agent · **Blockers:** none.
+
+## 2 · Data quality [RPI5]
+
+- **Result (achieved-price) streams:** Chrzanów "Wyniki przetargów" board;
+  Oświęcim scanned result notices (OCR); confirm whether Opole posts any at all
+  and close out. (Kędzierzyn-Koźle/Trzebinia/Kraków already parse results.)
+  **Blockers:** chrzanow/oswiecim zero-data fix first (announcement crawls must
+  work).
+- **Kędzierzyn-Koźle refinements:** parse upcoming flat auctions from
+  table-announcements as active listings; genitive↔nominative
+  announcement↔result join key; confirm `/api/menu/<id>/articles` + board-85
+  auto-discovery reaches every year. City has live data — tuning, not repair.
+- **Racibórz parser coverage (watch):** live smoke 2026-07-07 parsed 10/12
+  announcements — komunikaty 43526954 + 43523904 were rejected ("announcement
+  not parsed" WARNs) and ul. Katowickiej 15/20 came back with
+  `starting_price_pln: null` — check whether `parseAnnouncement` should handle
+  them.
+- **Tarnowskie Góry:** ~45 land plots (meta `land_plots: 45`) fall back to
+  Google search because TG obręby are name-only — build a **TG obręb
+  name→number map** for precise geoportal links (12 addr-only plots can never be
+  precise). Also confirm the residual gaps — 5 of 64 listings missing
+  `starting_price_pln`, 21 missing `area_m2` (verified in data 07-07) — are
+  genuinely absent from the source PDFs.
+- **P2-B — area backfill:** ~37 Gliwice + ~40 Katowice concluded listings lack
+  `area_m2`. One-off idempotent crawl of archived zgm-gliwice.pl detail slugs +
+  Katowice DispForm pages (`pipeline/scripts/backfill-areas-<city>.js` — does
+  not exist yet), run once under CI. Completes the zł/m² deal score for history.
+- **Bytom `.doc` retention spot-check:** confirm concluded auctions sourced from
+  .doc files persist in `data/bytom/properties.json` across several daily crawls
+  (doc-text-cache doubles as the retention store — verify it actually does).
+- **P2-D close-out:** verify the re-seeded Katowice junk key self-heals on a
+  live refresh (verified-heals.js is wired in), then drop the
+  `katowice|oddzialow mlodziezy i ustny|86|` allowlist line at
+  `pipeline/scripts/sanity-check.js:40`.
+- **P2-E — `schema_version: 2` (city-namespaced keys) — POLICY:** do NOT do
+  standalone. Execute only as the first task of a schema bump that is needed
+  anyway (EXPANSION §1.5; dual-read rollout in background/content/watchlist —
+  [GUI] to verify). schema_version is still 1.
+- **Katowice pre-2025 result PDFs — WON'T FIX (keep this closure note):** the
+  ~269 individual wykazy 404 **by design** — UM Katowice removes them after the
+  publication period, keeping only annual summaries (confirmed by the Referat
+  Obrotu Nieruchomościami, 23 June 2026). Pipeline already uses the summaries.
+
+## 3 · Extension
+
+### T1 — surface all 55 built cities (data-driven CITIES) [GUI]
+
+`extension/background.js:22` still hardcodes `CITIES` = 9 Śląskie cities — the
+other 46 built cities are invisible to popup/watchlist/notifications (the site
+archive already reads `data/index.json` dynamically). Implement EXPANSION §1.6:
+lazy per-city fetch keyed off `data/index.json`, extend `i18n.js` labels +
+voivodeship map, keep popup filters scalable. Minor version bump; verify in a
+real browser. **This is the main technical blocker to an honest store
+resubmit.** **Owner:** agent · **Blockers:** none.
+
+### Riding the same version bump [GUI]
+
+- **Manifest host-list alignment (cosmetic):** `content_scripts.matches`
+  includes several hosts absent from `host_permissions` (8 patterns:
+  `katowice.eu` and `bytom.pl` variants, plus rybnik / myslowice /
+  swietochlowice / bielsko hosts; no functional impact) — align or add a
+  consistency test.
+- **"powered by przetargimiejskie.pl" badge link** in content.js overlays (GTM
+  week-3 item, verified missing).
+
+**Owner:** agent · **Blockers:** bundled with the CITIES rework (one store
+review).
+
+### Overlays — deferred/conditional
+
+Zabrze (Vue SPA) + Sosnowiec (React SPA) stay popup/archive-only unless the
+sites gain server-rendered surfaces or content.js learns SPA navigation. Broader
+call — overlays for any new city (= `sites/<city>.js` DOM adapter + new
+`host_permissions` + store re-review each time) — is Kamil's; default posture:
+data-only. **Owner:** Kamil (scope) / agent (build).
+
+## 4 · Distribution / copy (decision-gated)
+
+- **DECISION — rebrand "Silesian" → national copy.** Kamil decides positioning
+  (55 cities across 16 voivodeships are live); agent then rewrites README,
+  PRIVACY, WEB_STORE_LISTING, site hero. Blocks the two refreshes below.
+  **[ACCOUNT]**
+- **PRIVACY.md refresh [RPI5]:** still titled "ZGM Gliwice — auction history",
+  network section lists only `data/gliwice/*.json` + zgm-gliwice.pl. Must
+  enumerate current hosts/paths/cities before a store resubmit. Agent drafts,
+  Kamil approves (published legal doc). **Blockers:** rebrand decision.
+- **WEB_STORE_LISTING.md refresh [RPI5]:** copy still claims 9 Śląskie cities.
+  Rewrite PL+EN for current coverage + v1.32.0 features. **Blockers:** rebrand
+  decision.
+- **Chrome Web Store submit [ACCOUNT]:** live is **v1.3.3** (29 May) vs local
+  **v1.32.0** — ~5 weeks of features unpublished. Rebuild zip from `extension/`
+  (manifest.json at zip root, gitignored), upload, paste refreshed listing +
+  privacy link; expect new-host-permissions review. **Recommended: bundle with
+  the 55-city CITIES rework — one review cycle.** THE distribution unlock.
+- **Widen `PUBLIC_VOIVODESHIPS` + `CITY_LOC` [RPI5]:**
+  `scripts/build-seo-pages.mjs:31` is still `new Set(['slaskie'])`; `CITY_LOC`
+  has 12 entries. Kamil decides how wide the public SEO gate opens; agent adds
+  voivodeships + locative entries for the remaining cities, rebuilds (sitemap
+  grows well past 1,026 URLs). Cheap, high-leverage. **Owner:** Kamil
+  (decision) / agent (execution).
+- **Google Search Console [ACCOUNT]:** verify przetargimiejskie.pl (DNS TXT via
+  OVH), submit sitemap.xml — best after the gate widening so the full sitemap
+  indexes once. Also feeds the GTM §6 kill criteria.
+- **Analytics [ACCOUNT]:** site has none (verified). Kamil picks a
+  privacy-friendly, cookie-free tool (Plausible/Umami/self-host) + account;
+  agent wires the snippet into build-site templates. Without it the 6-week GTM
+  kill gate can't be evaluated.
+- **B2G outreach [RPI5]:** clone the `outreach/gliwice/` pitch for 2–3 more
+  cities with each city's own unsold stats from `data/`; Kamil sends.
+
+## 5 · Newsletter / monetization
+
+- **Newsletter go-live [ACCOUNT]:** generator is live — `newsletter.yml` runs
+  Mondays 06:00 UTC, baseline seeded 2026-07-06; **first real digest generates
+  Mon 2026-07-13** — but nothing sends it and the site has no signup form.
+  Kamil: pick ESP (Resend/Buttondown/MailerLite), account + API key as repo
+  secret. Agent: send step in newsletter.yml + **double-opt-in signup form** on
+  site/index.html. **HARD-BLOCKED by the RODO policy.**
+- **RODO/GDPR policy draft [RPI5]:** PRIVACY.md covers only the zero-data
+  extension. Needs consent checkbox, lawful basis, deletion/export, partner
+  hand-off language (separate controller). Agent drafts; the legal call +
+  publication is Kamil's. Blocks newsletter send AND any lead capture.
+- **FUNDING.yml + tip jar [ACCOUNT]:** no `.github/FUNDING.yml` exists. Kamil
+  creates GitHub Sponsors + PL tip jar (BuyCoffee/BLIK); agent commits
+  FUNDING.yml + a discreet "wesprzyj" footer link. Zero gating.
+- **Partner demand test [ACCOUNT] — the decisive gate:** ~10 honest calls (5–8
+  mortgage brokers + 3–4 renovation firms in covered cities) for one verbal
+  CPL/flat-fee quote + soft pilot yes. **Zero interest after ~10 calls = park
+  monetization** (donations + sponsor only) and the lead form never gets built.
+- **Lead form + labeled partner CTA [RPI5]:** build only after the demand test
+  passes — labeled współpraca CTA at high-intent moments, concierge-routed form,
+  no trackers. **Blockers:** demand-test pass + RODO policy.
+- **FB seeding [ACCOUNT]:** value-first weekly roundups in 3–5 PL real-estate
+  groups; agent pre-drafts from `newsletter/latest.md`. **Blockers:** first real
+  digest (2026-07-13).
+- **Sponsor pitch [ACCOUNT]:** one tasteful labeled sponsor slot, priced against
+  reach. **Blockers:** analytics live + traffic/subscriber numbers to quote.
+- **JDG [ACCOUNT]:** register before income crosses the działalność
+  nierejestrowana quarterly cap (10 813,50 zł as of 2026); confirm ryczałt/VAT
+  with an accountant then. **Blockers:** first real revenue — no action until
+  money is real.
+
+## 6 · Expansion queues [RPI5]
+
+- **Build the 59-city BUILD-ready queue** (15 Low + 44 Medium, ledger in
+  SPIKE-PROGRESS): dispatch per `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md`
+  via the `przetargi-city-triage` skill; demonstrated pace ~7 adapters/day.
+  Priority: **big-city + Low first** (Wrocław, Poznań, Elbląg, Grudziądz,
+  Włocławek, Kalisz, Płock, Jelenia Góra, Sopot…). Each build adds an
+  EXEMPT_NEW settling window — budget the first-refresh fix cycle; update
+  master-cities.json + regenerate the ledger per batch. **Blockers:**
+  recommended after health is green so new-city noise is distinguishable.
+- **Spike the remaining 132 of 380 powiat seats** (`spikes/backlog.json`: 132
+  pending / 248 done), then build the resulting BUILD verdicts (historical
+  hit-rate ~40–45% → est. +30–60 adapters). Completes the "every powiat seat"
+  claim.
+- **CI matrix sharding at ~100+ cities:** group small cities ~4–5/job in
+  refresh.yml + backfill.yml — most city jobs finish <2 min of mostly setup
+  overhead; grouping roughly halves runner minutes. **Blockers:** built-city
+  count reaching ~100.
+- **DEMAND-GATED long tail (~700 towns in land powiats):** low BUILD hit-rate,
+  permanent maintenance liability — only worth it as a "complete Poland" moat
+  with revenue behind it. Kamil makes the go/no-go per EXPANSION ("let revenue
+  decide"). **Blockers:** powiat seats complete + traffic/revenue signal.
+- **Deferred revisits:** Jaworzno, Żory, Ruda Śląska (deferred on flat-auction
+  volume — re-spike if volume appears).

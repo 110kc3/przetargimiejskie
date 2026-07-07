@@ -20,6 +20,7 @@
 // Both streams are flat-only (lokal mieszkalny). The crawl skips land/ground
 // articles by title filter to avoid fetching large PDFs for non-flats.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import {
@@ -211,7 +212,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   const results = await crawlResultDocs();
   process.stdout.write(

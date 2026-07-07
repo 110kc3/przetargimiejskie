@@ -18,6 +18,7 @@
 // fetch is logged and skipped; crawlCommercial() returns [] rather than throwing,
 // so a commercial outage never affects the flats stream (index.js wraps it too).
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { docText } from '../../core/doc-text.js';
@@ -119,7 +120,7 @@ export async function crawlCommercial() {
   return out;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const recs = await crawlCommercial();
   process.stdout.write(JSON.stringify({ count: recs.length, recs }, null, 2) + '\n');
 }

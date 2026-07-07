@@ -1,6 +1,6 @@
 // Swietochlowice crawler.
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { config } from './config.js';
 import { getText } from '../../core/fetch.js';
@@ -269,7 +269,7 @@ export async function crawlResultDocs() {
   return out;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings, land }, null, 2) + '\n');
   console.error(`Total: ${listings.length} listing(s); ${land.length} land plot(s)`);

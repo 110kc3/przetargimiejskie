@@ -19,6 +19,7 @@
 //
 // Volume: ~1–2 lokal mieszkalny announcements/month — very low traffic.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseIndexPage, parseDetailPage } from './parse.js';
 
@@ -109,7 +110,7 @@ export async function crawlResultDocs() {
 // CLI smoke test
 // ---------------------------------------------------------------------------
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ listings }, null, 2) + '\n');
   console.error(`Total active: ${listings.length}`);

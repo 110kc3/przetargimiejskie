@@ -21,6 +21,7 @@
 // Volume: ~5-8 flat auctions/year; ~8 pages total as of 2026.
 // No bot-block, no CAPTCHA, plain HTTPS, no auth.
 
+import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -204,7 +205,7 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resolvedRefs;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();
   process.stdout.write(JSON.stringify({ count: listings.length, listings }, null, 2) + '\n');
   console.error(`Total: ${listings.length} active flat listing(s)`);
