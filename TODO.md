@@ -26,7 +26,11 @@
 > (live-crawled from the Pi) — busko-zdrój/oswiecim/chrzanow are NOT broken,
 > their boards just have no active flats right now; busko→LEGIT_EMPTY,
 > oswiecim/chrzanow reasons corrected + clocks reset (OCR verified excellent, CI
-> Chromium present — the "OCR quality"/"SPA" worries were misdiagnoses).
+> Chromium present — the "OCR quality"/"SPA" worries were misdiagnoses);
+> 2026-07-07 zero-data batch 2 — **3 real crawler bugs found + fixed**:
+> walbrzych (0→12) + gniezno (0→4) both dropped every listing for a missing
+> parsed `.address`, wejherowo (0→8 active) mis-parsed an unclosed-anchor grid;
+> added a `buildCityData` guard + regression tests (verified live end-to-end).
 >
 > **Env tags** (ROADMAP legend): **[RPI5]** headless-ok · **[GUI]** needs
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
@@ -123,8 +127,27 @@ result notices. The infrastructure all works:
   land ×2, a whistleblower page, one lokal *nie*mieszkalny). **Real residual:**
   VALIDATE the active-flat parse against the rendered SPA body when a live flat
   appears (none now); (optional) BIP-article-JSON path to drop the Chromium dep.
-- **still un-investigated (expire ~2026-07-23, since 07-02): wejherowo,
-  walbrzych, gniezno** — same live-crawl investigation before the cliff.
+- **wejherowo + walbrzych + gniezno — FIXED 2026-07-07 (real crawler bugs, NOT
+  "no data"):** all three crawled listings fine but built 0 properties. Shared
+  root class: their `crawlActive` listings lacked the parsed `.address` object
+  `buildCityData` keys on, so every listing was silently dropped.
+  - **walbrzych 0→12:** board cards carried only `address_raw` + `detailUrl` —
+    now attach `parseAddress()` + `detail_url` (highest-volume Dolnośląskie flat
+    city was publishing zero).
+  - **gniezno 0→4:** `crawlActive` hardcoded `address: null` — now derives the
+    key from the ogłoszenie PDF / BIP title (prefers the candidate that yields an
+    apt so two flats in one building don't collide).
+  - **wejherowo 0→8 active:** a *different* bug — the BIP grid rows are UNCLOSED
+    `<a>` anchors and the list regex's `([\s\S]*?)</a>` spanned an unclosed nav
+    anchor across all 54 auction rows to a distant `</a>`, capturing only 1.
+    Fixed to require `<a`, bound the title with `[^<]*`, drop the `</a>` need, +
+    filter stubs to auction hrefs (was fetching ~150 nav pages).
+  - **Guard added:** `buildCityData` now WARNs when active listings are dropped
+    for a missing `.address` (the silent drop that hid all three). Regression
+    tests added (walbrzych board attaches `.address`; wejherowo unclosed anchor).
+  - **Data lands on the next CI refresh** (all three verified live end-to-end);
+    EXEMPT_NEW reasons updated + `since` reset until committed data is non-empty,
+    then remove the entries.
 - **gdansk + augustow — `LEGIT_EMPTY` (2026-07-07):** documented empty-by-design;
   WARN on unique=0 with a **45-day recheck** backstop. **Residual (deferred):** a
   fully-robust guard keys WARN-vs-FAIL on a positive fetch-reachability signal

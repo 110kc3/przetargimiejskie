@@ -64,7 +64,15 @@ function annualPageUrl(year) {
 // scan the next 500 chars of raw HTML for the first YYYY-MM-DD date string.
 // This is robust to any nesting depth.
 
-const ARTYKUL_LINK_RE = /href="(\/artykul\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
+// The BIP grid renders each row as an UNCLOSED anchor —
+// `<td><a href="/artykul/…">Full title</td>` with NO `</a>` (the page carries
+// ~70 more `<a` than `</a>`). The old `href="…"…>([\s\S]*?)<\/a>` therefore
+// matched an unclosed nav anchor and let `[\s\S]*?` run across ALL the auction
+// rows to a distant `</a>`, swallowing 54 of 55 flat links (only 1 survived →
+// 0 active listings). Fix: require the match to START at `<a`, and bound the
+// title with `[^<]*` (stops at the next tag) so every anchor is captured
+// independently whether or not it is closed.
+const ARTYKUL_LINK_RE = /<a\s[^>]*?href="(\/artykul\/[^"]+)"[^>]*>([^<]*)/gi;
 const DATE_AFTER_RE = /(\d{4}-\d{2}-\d{2})/;
 
 /**
@@ -238,7 +246,10 @@ async function fetchAnnualPage(year) {
     return [];
   }
   const stubs = parseListPage(html);
-  const flat = stubs.filter(s => !isSkippableTitle(s.title));
+  // Keep only auction-article stubs — the slug carries "przetarg" — then drop
+  // land/lease by title. Without the href filter we'd fetch ~150 nav-menu
+  // /artykul/ links (KSeF, Harmonogram, …) every run.
+  const flat = stubs.filter(s => /przetarg/i.test(s.href) && !isSkippableTitle(s.title));
   console.error(`  wejherowo: ${year} page — ${stubs.length} total, ${flat.length} after filter`);
   return flat;
 }

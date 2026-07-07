@@ -382,10 +382,14 @@ test('parseBoardPage: filters for lokal mieszkalny only', () => {
     </table>`;
   const cards = parseBoardPage(html);
   assert.equal(cards.length, 1, 'only the lokal mieszkalny card should be returned');
-  assert.match(cards[0].detailUrl, /12345/);
+  assert.match(cards[0].detail_url, /12345/);
   assert.equal(cards[0].kind, 'lokal mieszkalny');
   assert.equal(cards[0].starting_price_pln, 80000);
   assert.equal(cards[0].auction_date, '2026-06-10');
+  // Regression: the card MUST carry a parsed `address` (the key buildCityData
+  // needs) and expose it as `detail_url` — without these every card was
+  // silently dropped in the build (0 unique_properties despite N active cards).
+  assert.equal(cards[0].address.key, 'testowa|3|2');
 });
 
 test('parseBoardPage: empty HTML returns empty array', () => {

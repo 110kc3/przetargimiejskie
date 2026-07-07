@@ -128,6 +128,23 @@ test('parseListPage: empty HTML returns empty array', () => {
   assert.deepEqual(parseListPage('<html><body></body></html>'), []);
 });
 
+test('parseListPage: recovers UNCLOSED grid anchors (real BIP markup — 54→1 swallow regression)', () => {
+  // The live grid rows OMIT </a> (`<td><a href="…">title</td>`) and the page
+  // carries unclosed nav anchors before them. The old `([\s\S]*?)</a>` matched a
+  // nav anchor and ran across every auction row to a distant </a>, returning
+  // just 1 of 54 flats (→ 0 active listings). Assert all rows are recovered.
+  const html = `
+    <a href="/artykul/menu-nav">Menu
+    <table>
+      <tr><td><a href="/artykul/pierwszy-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-1">Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 1</td><td>2026-05-01 09:00:00</td></tr>
+      <tr><td><a href="/artykul/drugi-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-2">Drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 2</td><td>2026-05-02 09:00:00</td></tr>
+      <tr><td><a href="/artykul/trzeci-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-3">Trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 3</td><td>2026-05-03 09:00:00</td></tr>
+    </table>`;
+  const flats = parseListPage(html).filter(r => /sprzedaz-lokalu-mieszkalnego/.test(r.href));
+  assert.equal(flats.length, 3, 'all three unclosed flat-auction rows must be recovered');
+  assert.ok(/lokal\w*.*mieszkaln/i.test(flats[0].title), 'title captured from an unclosed anchor');
+});
+
 // ── resultPdfUrlFromArticle ───────────────────────────────────────────────────
 //
 // Real article HTML (confirmed 2026-06-27, Harcerska 11/28):

@@ -100,12 +100,14 @@ const EXEMPT_NEW = new Map([
   // July 2026 wave: adapters repaired against live markup (see CHANGELOG) or
   // sources legitimately empty; unique_properties stays 0 until each city's
   // first result documents parse.
-  ['wejherowo', { since: '2026-07-02', reason: 'adapter OK locally; CI refresh commits zeros — check refresh job log' }],
-  ['walbrzych', { since: '2026-07-02', reason: 'board + result-stream URL fix — pending first refresh' }],
+  // FIXED 2026-07-07 (real crawler bugs, live-verified — data lands on the next
+  // CI refresh; entries kept only until committed data is non-empty, then remove):
+  ['wejherowo', { since: '2026-07-07', reason: 'FIXED 07-07: list-page regex now handles unclosed grid anchors — verified 8 active flats locally' }],
+  ['walbrzych', { since: '2026-07-07', reason: 'FIXED 07-07: board cards now attach parsed .address — verified 12 properties locally' }],
   // gdansk + augustow moved to LEGIT_EMPTY (2026-07-07): their sources are
   // empty-by-design, not settling-in adapters, so an expiring exemption was the
   // wrong tool (would false-FAIL them at the ~07-23 cliff).
-  ['gniezno', { since: '2026-07-02', reason: 'insecureTLS for incomplete chain — pending first refresh' }],
+  ['gniezno', { since: '2026-07-07', reason: 'FIXED 07-07: attach .address from the PDF/title (was hardcoded null) — verified 4 properties locally' }],
   // busko-zdroj moved to LEGIT_EMPTY (2026-07-07): live-verified the adapter
   // parses correctly — the current board is a land-only auction (no flat), so
   // 0 flat records is right, not a broken parser. It's empty-between-flats, not

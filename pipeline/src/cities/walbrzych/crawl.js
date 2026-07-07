@@ -27,6 +27,7 @@
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
+import { parseAddress } from '../../core/normalize.js';
 import { parseResultDoc } from './parse.js';
 
 const ORIGIN = 'https://bip.um.walbrzych.pl';
@@ -118,7 +119,12 @@ export function parseBoardPage(html) {
     const dateM = /Data przetargu[\s\S]{0,200}?<strong>(\d{2})\.(\d{2})\.(\d{4})<\/strong>/.exec(block);
     const auction_date = dateM ? `${dateM[3]}-${dateM[2]}-${dateM[1]}` : null;
 
-    results.push({ detailUrl, address_raw: addrRaw, kind, starting_price_pln, auction_date });
+    // buildCityData keys properties off the PARSED `address` object and reads
+    // `detail_url` — a board card that only carried `address_raw`/`detailUrl`
+    // was silently dropped (0 unique_properties despite N active cards). Attach
+    // both here. A card whose address won't parse (null) is correctly skipped.
+    const address = parseAddress(addrRaw);
+    results.push({ detail_url: detailUrl, address, address_raw: addrRaw, kind, starting_price_pln, auction_date });
   }
 
   return results;

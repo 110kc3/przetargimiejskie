@@ -37,6 +37,7 @@ import { getText } from '../../core/fetch.js';
 // via NODE_EXTRA_CA_CERTS and drop this flag).
 const FETCH_OPTS = { insecureTLS: true };
 import { pdfText } from '../../core/pdf-text.js';
+import { parseAddress } from '../../core/normalize.js';
 import { parseBipList, pdfAttachmentUrlsFromDetail, parseAnnouncement } from './parse.js';
 
 const BIP_BASE = 'https://bip.gniezno.eu/wiadomosci/11287/lista';
@@ -115,6 +116,9 @@ async function enrichFromDetailPage(stub) {
 
   return {
     ...stub,
+    // The ogłoszenie PDF carries the clean "ul. Street N/M" — keep it so
+    // crawlActive can build the join key (the BIP title alone is noisy).
+    pdf_address_raw: pdfInfo.address_raw ?? null,
     area_m2: pdfInfo.area_m2 ?? null,
     starting_price_pln: pdfInfo.starting_price_pln ?? null,
     auction_date: pdfInfo.auction_date ?? null,
@@ -148,10 +152,30 @@ export async function crawlActive() {
       console.error(`  gniezno: skipped empty stub (${enriched.title})`);
       continue;
     }
+    // Build the parsed `address` buildCityData keys on — WITHOUT it every
+    // listing was silently dropped (0 unique_properties despite N stubs).
+    // Candidates: the PDF's clean "ul. Street N/M", and the BIP title with its
+    // "Sprzedaż - " prefix + " (WM.6840…)" sygnatura stripped. Take the first
+    // that parses, preferring one that yields an apt — the PDF address sometimes
+    // omits the "/apt" the title carries, and without it two flats in one
+    // building would collide into a single property.
+    const titleAddr = (enriched.title || '')
+      .replace(/^\s*sprzeda[żz]\s*[-–—]\s*/i, '')
+      .replace(/\s*\([^)]*\)\s*$/, '')
+      .trim();
+    let addrRaw = null;
+    let address = null;
+    for (const cand of [enriched.pdf_address_raw, titleAddr].filter(Boolean)) {
+      const a = parseAddress(cand);
+      if (!a) continue;
+      if (!address) { address = a; addrRaw = cand; }              // first parseable wins by default
+      else if (a.apt && !address.apt) { address = a; addrRaw = cand; } // upgrade ONLY if it adds the missing apt
+      if (address.apt) break;                                     // complete key — stop
+    }
     listings.push({
       kind: 'mieszkalny',
-      address_raw: enriched.title,
-      address: null, // address comes from the PDF parse via parseAnnouncement
+      address_raw: addrRaw,
+      address,
       auction_date: enriched.auction_date,
       published_date: null,
       round: enriched.round,

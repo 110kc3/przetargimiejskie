@@ -319,8 +319,9 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
   // rather than 'active'. This keeps the popup's active view current and lets
   // past auctions populate the archive. A dateless listing stays 'active'.
   const TODAY = todayWarsaw();
+  let activeDroppedNoAddress = 0;
   for (const a of active) {
-    if (!a.address) continue;
+    if (!a.address) { activeDroppedNoAddress++; continue; }
     const p = ensureProperty(a.address, a.kind);
     if (!p) continue;
     const isPast = a.auction_date && a.auction_date < TODAY;
@@ -341,6 +342,14 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       ...(a.source ? { source: a.source } : {}),
       ...(a.share ? { share: a.share } : {}),
     });
+  }
+  // A crawled active listing with no parsed `.address` can't be keyed, so it's
+  // silently dropped above — which is exactly how an adapter that forgets to
+  // attach parseAddress() lands 0 unique_properties despite N active cards
+  // (walbrzych + gniezno, 2026-07). An occasional unparseable address is fine;
+  // ALL of them dropping means the adapter is broken — so surface the count.
+  if (activeDroppedNoAddress) {
+    console.error(`  WARN: buildCityData dropped ${activeDroppedNoAddress}/${active.length} active listing(s) with no parsed .address — adapter should attach parseAddress()`);
   }
   for (const w of wykaz) {
     if (!w.address) continue;
