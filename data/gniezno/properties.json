@@ -1,5 +1,90 @@
 {
   "schema_version": 1,
   "city": "gniezno",
-  "properties": []
+  "properties": [
+    {
+      "key": "cierpiegi|18|9A",
+      "street": "Cierpięgi",
+      "street_norm": "cierpiegi",
+      "building": "18",
+      "apt": "9A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 54000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/856735/sprzedaz___ul_cierpiegi_189a_wm6840182025",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wyszynskiego|18|14",
+      "street": "Wyszyńskiego",
+      "street_norm": "wyszynskiego",
+      "building": "18",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-22",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 37570,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/805965/sprzedaz__ul_wyszynskiego_1814_wm6840212024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "sienkiewicza|10|",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "10",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 38000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/845161/ogloszenie_o_pierwszym_przetargu_ustnym_nieograniczonym_na_sprze",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "chrobrego|11|5A",
+      "street": "Chrobrego",
+      "street_norm": "chrobrego",
+      "building": "11",
+      "apt": "5A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 126300,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/777722/sprzedaz__ul_chrobrego_115a_wm6840222024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
 }

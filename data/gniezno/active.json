@@ -4,8 +4,15 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "Sprzedaż - ul. Cierpięgi 18/9a (WM.6840.18.2025)",
-      "address": null,
+      "address_raw": "ul. Cierpięgi 18/9a",
+      "address": {
+        "street": "Cierpięgi",
+        "street_norm": "cierpiegi",
+        "building": "18",
+        "apt": "9A",
+        "key": "cierpiegi|18|9A",
+        "warning": null
+      },
       "auction_date": "2026-01-29",
       "published_date": null,
       "round": 1,
@@ -15,8 +22,15 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Sprzedaż - ul. Wyszyńskiego 18/14 (WM.6840.21.2024)",
-      "address": null,
+      "address_raw": "ul. Wyszyńskiego 18/14",
+      "address": {
+        "street": "Wyszyńskiego",
+        "street_norm": "wyszynskiego",
+        "building": "18",
+        "apt": "14",
+        "key": "wyszynskiego|18|14",
+        "warning": null
+      },
       "auction_date": "2026-01-22",
       "published_date": null,
       "round": 4,
@@ -26,8 +40,15 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Sprzedaż - ul. Chrobrego 11/5A (WM.6840.22.2024)",
-      "address": null,
+      "address_raw": "ul. Chrobrego 11/5A",
+      "address": {
+        "street": "Chrobrego",
+        "street_norm": "chrobrego",
+        "building": "11",
+        "apt": "5A",
+        "key": "chrobrego|11|5A",
+        "warning": null
+      },
       "auction_date": "2024-10-29",
       "published_date": null,
       "round": 1,
@@ -37,8 +58,15 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Ogłoszenie o pierwszym przetargu ustnym nieograniczonym na sprzedaż lokalu stanowiącego własność Miasta Gniezna - niewyodrębniony lokal mieszkalny nr 9 usytuowany w budynku położonym w Gnieźnie przy ul. Sienkiewicza 10 (WM.6840.26.2024)",
-      "address": null,
+      "address_raw": "ul. Sienkiewicza 10",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "10",
+        "apt": null,
+        "key": "sienkiewicza|10|",
+        "warning": null
+      },
       "auction_date": "2026-01-15",
       "published_date": null,
       "round": 1,
