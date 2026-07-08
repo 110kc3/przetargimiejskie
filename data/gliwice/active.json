@@ -4,6 +4,120 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Staszica 13/1",
+      "address": {
+        "street": "Staszica",
+        "street_norm": "staszica",
+        "building": "13",
+        "apt": "1",
+        "key": "staszica|13|1",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 37.99,
+      "starting_price_pln": 201000,
+      "detail_url": "https://zgm-gliwice.pl/staszica-13-1-10-08-2026-r/",
+      "wadium_deadline": "2026-08-04",
+      "viewing_date": "2026-07-28",
+      "round": 1
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Gałczyńskiego 11/1",
+      "address": {
+        "street": "Gałczyńskiego",
+        "street_norm": "galczynskiego",
+        "building": "11",
+        "apt": "1",
+        "key": "galczynskiego|11|1",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 52.1,
+      "starting_price_pln": 296600,
+      "detail_url": "https://zgm-gliwice.pl/galczynskiego-11-1-10-08-2026-r/",
+      "wadium_deadline": null,
+      "viewing_date": "2026-07-27",
+      "round": 1
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Styczyńskiego 14/13",
+      "address": {
+        "street": "Styczyńskiego",
+        "street_norm": "styczynskiego",
+        "building": "14",
+        "apt": "13",
+        "key": "styczynskiego|14|13",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 36.73,
+      "starting_price_pln": 236700,
+      "detail_url": "https://zgm-gliwice.pl/elementor-42275/",
+      "wadium_deadline": "2026-08-04",
+      "viewing_date": "2026-07-29",
+      "round": 1
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zygmunta Starego 29/4",
+      "address": {
+        "street": "Zygmunta Starego",
+        "street_norm": "zygmunta starego",
+        "building": "29",
+        "apt": "4",
+        "key": "zygmunta starego|29|4",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 86.79,
+      "starting_price_pln": 410160,
+      "detail_url": "https://zgm-gliwice.pl/zygmunta-starego-29-4-23-03-2026-r/",
+      "wadium_deadline": "2026-06-16",
+      "viewing_date": "2026-05-06",
+      "round": 3
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "Kozielska 13 garaz nr 1",
+      "address": {
+        "street": "Kozielska",
+        "street_norm": "kozielska",
+        "building": "13",
+        "apt": "garaz-1",
+        "key": "kozielska|13|garaz-1",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 16.92,
+      "starting_price_pln": 39840,
+      "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
+      "wadium_deadline": "2026-06-23",
+      "viewing_date": "2026-06-16",
+      "round": 1
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Zwycięstwa 34/9a",
+      "address": {
+        "street": "Zwycięstwa",
+        "street_norm": "zwyciestwa",
+        "building": "34",
+        "apt": "9A",
+        "key": "zwyciestwa|34|9A",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 18.06,
+      "starting_price_pln": 89900,
+      "detail_url": "https://zgm-gliwice.pl/zwyciestwa-34-9a-10-08-2026r/",
+      "wadium_deadline": "2026-08-04",
+      "viewing_date": "2026-07-29",
+      "round": 1
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Chodkiewicza 12/11",
       "address": {
         "street": "Chodkiewicza",
