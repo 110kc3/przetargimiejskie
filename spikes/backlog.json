@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 271,
-    "pending": 109
+    "done": 289,
+    "pending": 91
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -13,60 +13,60 @@
       "pending": 6
     },
     "podlaskie": {
-      "done": 11,
-      "pending": 6
+      "done": 12,
+      "pending": 5
     },
     "warminsko-mazurskie": {
-      "done": 14,
-      "pending": 7
+      "done": 18,
+      "pending": 3
     },
     "lodzkie": {
       "done": 17,
       "pending": 7
     },
     "slaskie": {
-      "done": 31,
-      "pending": 5
+      "done": 33,
+      "pending": 3
     },
     "lubelskie": {
       "done": 18,
       "pending": 6
     },
     "mazowieckie": {
-      "done": 25,
-      "pending": 17
+      "done": 27,
+      "pending": 15
     },
     "zachodniopomorskie": {
-      "done": 14,
-      "pending": 7
+      "done": 15,
+      "pending": 6
     },
     "podkarpackie": {
-      "done": 21,
-      "pending": 4
+      "done": 22,
+      "pending": 3
     },
     "malopolskie": {
-      "done": 18,
-      "pending": 4
+      "done": 19,
+      "pending": 3
     },
     "dolnoslaskie": {
-      "done": 22,
-      "pending": 8
+      "done": 23,
+      "pending": 7
     },
     "opolskie": {
-      "done": 8,
-      "pending": 4
+      "done": 10,
+      "pending": 2
     },
     "swietokrzyskie": {
       "done": 9,
       "pending": 5
     },
     "pomorskie": {
-      "done": 17,
-      "pending": 3
+      "done": 18,
+      "pending": 2
     },
     "wielkopolskie": {
-      "done": 22,
-      "pending": 13
+      "done": 24,
+      "pending": 11
     },
     "lubuskie": {
       "done": 7,
@@ -1829,7 +1829,7 @@
       "powiat_slug": "powiat-mikolowski",
       "city_slug": "mikolow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-mikolowski/mikolow.md"
     },
     {
@@ -1839,7 +1839,7 @@
       "powiat_slug": "powiat-milicki",
       "city_slug": "milicz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-milicki/milicz.md"
     },
     {
@@ -1860,7 +1860,7 @@
       "powiat_slug": "powiat-mlawski",
       "city_slug": "mlawa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-mlawski/mlawa.md"
     },
     {
@@ -1880,7 +1880,7 @@
       "powiat_slug": "powiat-moniecki",
       "city_slug": "monki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-moniecki/monki.md"
     },
     {
@@ -1890,7 +1890,7 @@
       "powiat_slug": "powiat-mragowski",
       "city_slug": "mragowo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md"
     },
     {
@@ -1910,7 +1910,7 @@
       "powiat_slug": "powiat-myszkowski",
       "city_slug": "myszkow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-myszkowski/myszkow.md"
     },
     {
@@ -1920,7 +1920,7 @@
       "powiat_slug": "powiat-myslenicki",
       "city_slug": "myslenice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-myslenicki/myslenice.md"
     },
     {
@@ -1930,7 +1930,7 @@
       "powiat_slug": "powiat-mysliborski",
       "city_slug": "mysliborz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-mysliborski/mysliborz.md"
     },
     {
@@ -1950,7 +1950,7 @@
       "powiat_slug": "powiat-namyslowski",
       "city_slug": "namyslow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-namyslowski/namyslow.md"
     },
     {
@@ -1960,7 +1960,7 @@
       "powiat_slug": "powiat-nidzicki",
       "city_slug": "nidzica",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md"
     },
     {
@@ -1970,7 +1970,7 @@
       "powiat_slug": "powiat-nizanski",
       "city_slug": "nisko",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-nizanski/nisko.md"
     },
     {
@@ -1980,7 +1980,7 @@
       "powiat_slug": "powiat-nowodworski",
       "city_slug": "nowy-dwor-gdanski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-nowodworski/nowy-dwor-gdanski.md"
     },
     {
@@ -1990,7 +1990,7 @@
       "powiat_slug": "powiat-nowodworski",
       "city_slug": "nowy-dwor-mazowiecki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-nowodworski/nowy-dwor-mazowiecki.md"
     },
     {
@@ -2000,7 +2000,7 @@
       "powiat_slug": "powiat-nowomiejski",
       "city_slug": "nowe-miasto-lubawskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-nowomiejski/nowe-miasto-lubawskie.md"
     },
     {
@@ -2043,7 +2043,7 @@
       "powiat_slug": "powiat-nowotomyski",
       "city_slug": "nowy-tomysl",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-nowotomyski/nowy-tomysl.md"
     },
     {
@@ -2074,7 +2074,7 @@
       "powiat_slug": "powiat-obornicki",
       "city_slug": "oborniki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-obornicki/oborniki.md"
     },
     {
@@ -2084,7 +2084,7 @@
       "powiat_slug": "powiat-olecki",
       "city_slug": "olecko",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-olecki/olecko.md"
     },
     {
@@ -2094,7 +2094,7 @@
       "powiat_slug": "powiat-oleski",
       "city_slug": "olesno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-oleski/olesno.md"
     },
     {

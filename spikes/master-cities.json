@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 227,
+  "total": 245,
   "cities": [
     {
       "id": "boleslawiec",
@@ -3478,6 +3478,294 @@
         "effort": "Low",
         "confidence": "LIVE",
         "note": "UM Wydz. Gosp. Mieniem + MTBS sell flats at przetarg ustny nieograniczony on Wrota Lubuskie eBIP; /przetargi/0/status/{0,1,2}/ engine w/ achieved prices (Mieszka I 88/5→115k, Kursko 28a/1 76k, ~16/30 resolved are flats); near-clone of gorzow-wielkopolski adapter; ZGL lease-only skip"
+      }
+    },
+    {
+      "id": "mlawa",
+      "label": "Mława",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-mlawski",
+      "powiat_label": "powiat mławski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-mlawski/mlawa.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "flats sold bezprzetargowo na rzecz najemcy (Uchwała XVI/160/2012); open ustny przetarg land-only; ZBM I/II TBS does mgmt+procurement not sales; no flat-auction volume, no achieved-price results board; Drupal server-HTML BIP"
+      }
+    },
+    {
+      "id": "mragowo",
+      "label": "Mrągowo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-mragowski",
+      "powiat_label": "powiat mrągowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Burmistrz runs recurring przetarg ustny nieogr. na sprzedaż lokalu mieszkalnego (Mrongowiusza 31/5, Wolności 20D/12, Mrongowiusza 75/1, Królewiecka 16/5, rounds I-IV); warmia.mazury.pl CNT BIP board /kategoria/1050/, server-HTML inline, results 'informacja o wyniku' cena osiągnięta/negatywny; low-modest volume; near-clone of BUILT Braniewo"
+      }
+    },
+    {
+      "id": "mikolow",
+      "label": "Mikołów",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-mikolowski",
+      "powiat_label": "powiat mikołowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/slaskie/powiat-mikolowski/mikolow.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Nefeni city-BIP bip.mikolow.eu; sale board land+garage-dominated, 0 flats on 2024 & 2025 boards; only incidental gmina flat auction (Osiedle Przy Plantach 6/5, 140k, 2025); ZGL housing mgr does lease+wykup bezprzetargowo, no flat auctions; no results/achieved-price board; analog mogilno"
+      }
+    },
+    {
+      "id": "monki",
+      "label": "Mońki",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-moniecki",
+      "powiat_label": "powiat moniecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-moniecki/monki.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "manager ZGKiM Mońki (rental only); flats sold ONLY bezprzetargowo na rzecz najemcy (wykaz, ~0 open flat auctions); open auctions=land+buildings+firewood+leases; primary BIP bip-ummonki.wrotapodlasia.pl NXDOMAIN (whole wrotapodlasia.pl DNS-dead); fallback WordPress um-monki.pl notices are scanned SKM_ PDFs→OCR"
+      }
+    },
+    {
+      "id": "milicz",
+      "label": "Milicz",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-milicki",
+      "powiat_label": "powiat milicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/dolnoslaskie/powiat-milicki/milicz.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Urząd Miejski (no ZGM/housing mgr); MADKOM eBIP React JS-SPA w/ clean JSON API (/api/menu/{id}/articles, /api/articles/{id}); terms in .doc attachments; board 472=1047 notices, 936 land vs ~9 unique OPEN flats over ~10yr; wyniki board 765 only 1 flat, many negatywny; land-dominated"
+      }
+    },
+    {
+      "id": "myszkow",
+      "label": "Myszków",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-myszkowski",
+      "powiat_label": "powiat myszkowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/slaskie/powiat-myszkowski/myszkow.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "KZGM housing mgr exists but BIP stub managing RENTAL stock (raport o najem); only auctions = car sales + garage-box LEASE (dzierżawa); sales are undeveloped land via wykaz (ul. Piękna); ZERO open flat auctions; bip.net.pl v2 (BIPv2) analog"
+      }
+    },
+    {
+      "id": "myslenice",
+      "label": "Myślenice",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-myslenicki",
+      "powiat_label": "powiat myślenicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/malopolskie/powiat-myslenicki/myslenice.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager (only RPGK utilities); BIP bip.malopolska.pl JS-SPA (chrzanow render.js analog) + server-HTML myslenice.pl WP mirror; Nieruchomosci m,380123 + Wyniki m,80937 boards; land only (dz.602/1 1.99M, dz.910/15 ograniczony) + dzierzawa/bezprzetargowo wykazy, ~0 open flat auctions; only flats SM ZORZA coop + US licytacja (out of scope)"
+      }
+    },
+    {
+      "id": "nisko",
+      "label": "Nisko",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-nizanski",
+      "powiat_label": "powiat niżański",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-nizanski/nisko.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "ZBKiZM manager but lease-only; IDcom CMS server-HTML+text-PDF; sale board struktura/2/1064 + land results board with hammer prices; disposal 100% buildable land (działki), ZERO open flat auctions; analog tczew/gniezno/gizycko shape but off-thesis"
+      }
+    },
+    {
+      "id": "nidzica",
+      "label": "Nidzica",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-nidzicki",
+      "powiat_label": "powiat nidzicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Gmina sells lokale mieszkalne via przetarg ustny nieograniczony; no ZGM (direct, symbol GMKR); SystemDoBIP server-HTML BIP; structured tender module /przetargi/257/status/ (Ogloszone/Rozstrzygniete tabs) + article board /258 inline HTML; LOW but recurring flat volume (Dobrzyn/Zagrzewo/Brzozowa, I-IV rounds), binary Wynik, hammer price in .DOC/.DOCX; analog zgorzelec/zlotoryja server-HTML gmina"
+      }
+    },
+    {
+      "id": "namyslow",
+      "label": "Namysłów",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-namyslowski",
+      "powiat_label": "powiat namysłowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-namyslowski/namyslow.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Housing manager ZAN Sp. z o.o. (ex-ADM-TBS) on WordPress zan-namyslow.pl/przetargi/ runs recurring open flat auctions (3 live, rounds III/IV; Jana Pawla II 5a/2 160k/60,12m2); detail inline born-digital HTML+PDF; no dedicated flat results board (prices inferred). Gmina BIP bip.namyslow.eu land+wykaz only; county bip.namyslow.pl out of scope. Analog brzeg/nowa-sol WordPress"
+      }
+    },
+    {
+      "id": "nowy-dwor-gdanski",
+      "label": "Nowy Dwór Gdański",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-nowodworski",
+      "powiat_label": "powiat nowodworski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/pomorskie/powiat-nowodworski/nowy-dwor-gdanski.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager; 2ClickPortal (łobez analog) server-HTML at bip.miastonowydwor.pl 191-aktualne board; open flat auctions exist (Jazowa 36/6 I→VIII, Kopernika 10/2) but ~1 recurring unsold flat, 16:1 land skew, no property results/achieved-price board (only procurement)"
+      }
+    },
+    {
+      "id": "mysliborz",
+      "label": "Myślibórz",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-mysliborski",
+      "powiat_label": "powiat myśliborski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-mysliborski/mysliborz.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No housing manager; alfatv.pl server-HTML BIP (bip.mysliborz.pl, table.lista_artykuly + PDF attachments); sale-auction board /artykul/przetargi-2 has results stream but 2025-26 = 15 items all LAND/kompleks, ZERO flats (only 1 flat auction ever, 2015 PDF); flats disposed bezprzetargowo/wykaz"
+      }
+    },
+    {
+      "id": "oborniki",
+      "label": "Oborniki",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-obornicki",
+      "powiat_label": "powiat obornicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-obornicki/oborniki.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "PGKiM manages housing but gmina auctions only land+lokale użytkowe; flats leave stock bezprzetargowo (najemca/UW); ~0 open flat auctions; board on WordPress oborniki.pl/nieruchomosci (18pp) + nv.pl BIP, server-HTML+born-digital PDF; no flat results board"
+      }
+    },
+    {
+      "id": "olecko",
+      "label": "Olecko",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-olecki",
+      "powiat_label": "powiat olecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/warminsko-mazurskie/powiat-olecki/olecko.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No housing manager; self-hosted Bootstrap/Laravel server-HTML BIP (bip.olecko.pl /id/cat/slug.html + ?Page=N); one consolidated sale board (184 items) with inline text + DOC/PDF and a real wynik/hammer stream, BUT land/building-plot dominated — open lokal mieszkalny nieograniczony ~0 recurring (few IV-attempt re-runs or ograniczony/uzytkowy)"
+      }
+    },
+    {
+      "id": "olesno",
+      "label": "Olesno",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-oleski",
+      "powiat_label": "powiat oleski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-oleski/olesno.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "gmina sells flats via przetarg ustny nieograniczony (Małe Przedmieście 1/2, Świercz); no ZGM urząd sells direct; skyCMS v4 server-HTML, per-year sale boards separate from lease, inline wynik/hammer prices; LOW land-skewed flat volume but recurring; in-repo analog=przemysl (identical skyCMS v4)"
+      }
+    },
+    {
+      "id": "nowy-dwor-mazowiecki",
+      "label": "Nowy Dwór Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-nowodworski",
+      "powiat_label": "powiat nowodworski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-nowodworski/nowy-dwor-mazowiecki.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "ZBK housing co sells nothing (lease/maintenance only); flats disposed bezprzetargowo na rzecz najemcy at -90%; przetarg stream land-only; bip.net/extranet server-HTML+text-PDF; ~0 open flat auctions"
+      }
+    },
+    {
+      "id": "nowe-miasto-lubawskie",
+      "label": "Nowe Miasto Lubawskie",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-nowomiejski",
+      "powiat_label": "powiat nowomiejski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/warminsko-mazurskie/powiat-nowomiejski/nowe-miasto-lubawskie.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager (MPGK utilities/SIM KZN new-build); flats sold bezprzetargowo na rzecz najemcy; auction stream = land (dz. 479.x ul. Tysiaclecia, Swierkowa, Kolejowa) + garage + lokal uzytkowy najem; 0 open flat auctions 2020-2026; custom server-HTML BIP /artykul/+/pliki/ PDF"
+      }
+    },
+    {
+      "id": "nowy-tomysl",
+      "label": "Nowy Tomyśl",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-nowotomyski",
+      "powiat_label": "powiat nowotomyski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-nowotomyski/nowy-tomysl.md",
+      "spike": {
+        "wave": "GS2",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "ZGM manager but only lokal-użytkowy NAJEM+renovation; sale board 1103 = 27 active + 51 archived (2008-2026) all LAND, only ~2 flat auctions ever (2009-2010), 0 on 2021-26 board; MADKOM eBIP React+JSON API, born-digital PDFs; analog milicz"
       }
     }
   ]
