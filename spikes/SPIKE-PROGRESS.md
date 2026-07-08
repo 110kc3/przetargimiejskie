@@ -2,16 +2,16 @@
 
 > **GENERATED FILE — do not hand-edit.** Regenerate with `node spikes/build-progress.mjs` after updating [master-cities.json](./master-cities.json) (the source of truth).
 >
-> Updated 2026-07-08. Queue: [backlog.json](./backlog.json) (127 pending / 253 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
+> Updated 2026-07-08. Queue: [backlog.json](./backlog.json) (109 pending / 271 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
 
-## Roll-up (209 spiked)
+## Roll-up (227 spiked)
 
 | Status | Count |
 |---|---|
 | ✅ BUILT | 55 |
-| 🟢 BUILD | 63 |
+| 🟢 BUILD | 67 |
 | 🟡 VERIFY | 0 |
-| 🔴 NO-BUILD | 82 |
+| 🔴 NO-BUILD | 96 |
 | ❌ Dropped | 6 |
 | ⏸️ Deferred | 3 |
 
@@ -21,9 +21,9 @@
 
 Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Kraków, Legnica, Łódź, Mysłowice, Nowa Sól, Nysa, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Piła, Przemyśl, Racibórz, Rybnik, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Szczecin, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Wałbrzych, Warszawa, Wejherowo, Zabrze.
 
-## BUILD-ready queue (63, by effort)
+## BUILD-ready queue (67, by effort)
 
-Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Końskie (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Nakło nad Notecią (Low), Zgorzelec (Low), Złotoryja (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Malbork (Medium), Mogilno (Medium), Płock (Medium), Poznań (Medium), Siedlce (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Włocławek (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Żyrardów (Medium).
+Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Końskie (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lubliniec (Low), Lwówek Śląski (Low), Międzyrzecz (Low), Nakło nad Notecią (Low), Zgorzelec (Low), Złotoryja (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Płock (Medium), Poznań (Medium), Siedlce (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Włocławek (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
@@ -68,7 +68,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Toruń | Toruń (m.n.p.p.) | ✅ BUILT | Low · LIVE |
 | Włocławek | Włocławek (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 
-### Lubelskie (11)
+### Lubelskie (14)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -79,27 +79,34 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Janów Lubelski | powiat janowski | 🔴 NO-BUILD | — · DESK |
 | Krasnystaw | powiat krasnostawski | 🔴 NO-BUILD | — · LIVE |
 | Kraśnik | powiat krasnicki | 🔴 NO-BUILD | — · LIVE |
+| Lubartów | powiat lubartowski | 🔴 NO-BUILD | — · LIVE |
 | Lublin | Lublin (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
+| Łęczna | powiat łęczyński | 🔴 NO-BUILD | — · LIVE |
+| Łuków | powiat łukowski | 🔴 NO-BUILD | — · LIVE |
 | Puławy | powiat pulawski | 🔴 NO-BUILD | — · LIVE |
 | Świdnik | powiat swidnicki | 🔴 NO-BUILD | — · LIVE |
 | Zamość | Zamość (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 
-### Lubuskie (4)
+### Lubuskie (5)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
 | Gorzów Wielkopolski | Gorzów Wielkopolski (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Krosno Odrzańskie | powiat krośnieński | 🟢 BUILD | Low · DESK |
+| Międzyrzecz | powiat międzyrzecki | 🟢 BUILD | Low · LIVE |
 | Nowa Sól | powiat nowosolski | ✅ BUILT | Low · LIVE |
 | Zielona Góra | Zielona Góra (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 
-### Łódzkie (11)
+### Łódzkie (14)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
 | Bełchatów | powiat belchatowski | ✅ BUILT | Low · LIVE |
 | Brzeziny | powiat brzezinski | 🔴 NO-BUILD | — · DESK |
 | Kutno | powiat kutnowski | 🔴 NO-BUILD | — · LIVE |
+| Łask | powiat łaski | 🔴 NO-BUILD | — · LIVE |
+| Łęczyca | powiat łęczycki | 🟢 BUILD | Medium · LIVE |
+| Łowicz | powiat łowicki | 🔴 NO-BUILD | — · LIVE |
 | Łódź | Łódź (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Pabianice | powiat pabianicki | ✅ BUILT | Low–Medium · LIVE |
 | Piotrków Trybunalski | Piotrków Trybunalski (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
@@ -109,7 +116,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Tomaszów Mazowiecki | powiat tomaszowski | 🟢 BUILD | Medium · LIVE |
 | Zgierz | powiat zgierski | 🟢 BUILD | Medium · LIVE |
 
-### Małopolskie (14)
+### Małopolskie (16)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -119,6 +126,8 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Dąbrowa Tarnowska | powiat dąbrowski | 🔴 NO-BUILD | — · LIVE |
 | Gorlice | powiat gorlicki | 🔴 NO-BUILD | — · DESK |
 | Kraków | Kraków (m.n.p.p.) | ✅ BUILT | — · — |
+| Limanowa | powiat limanowski | 🔴 NO-BUILD | — · LIVE |
+| Miechów | powiat miechowski | 🔴 NO-BUILD | — · LIVE |
 | Nowy Sącz | Nowy Sącz (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Nowy Targ | powiat nowotarski | 🔴 NO-BUILD | — · LIVE |
 | Olkusz | powiat olkuski | ✅ BUILT | — · — |
@@ -128,7 +137,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Wadowice | powiat wadowicki | 🔴 NO-BUILD | — · LIVE |
 | Zakopane | powiat tatrzanski | 🟢 BUILD | Medium · LIVE |
 
-### Mazowieckie (19)
+### Mazowieckie (21)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -141,6 +150,8 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Kozienice | powiat kozienicki | 🔴 NO-BUILD | — · DESK |
 | Legionowo | powiat legionowski | 🔴 NO-BUILD | — · LIVE |
 | Lipsko | powiat lipski | 🟢 BUILD | Low · DESK |
+| Łosice | powiat łosicki | 🔴 NO-BUILD | — · LIVE |
+| Maków Mazowiecki | powiat makowski | 🔴 NO-BUILD | — · LIVE |
 | Mińsk Mazowiecki | powiat minski | 🔴 NO-BUILD | — · LIVE |
 | Ostrołęka | Ostrołęka (m.n.p.p.) | ✅ BUILT | Medium (OCR) · LIVE |
 | Piaseczno | powiat piaseczynski | 🔴 NO-BUILD | — · LIVE |
@@ -164,7 +175,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Nysa | powiat nyski | ✅ BUILT | Low · LIVE |
 | Opole | Opole (m.n.p.p.) | ✅ BUILT | — · — |
 
-### Podkarpackie (14)
+### Podkarpackie (17)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -176,12 +187,15 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Krosno | Krosno (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Lesko | powiat leski | 🔴 NO-BUILD | — · LIVE |
 | Leżajsk | powiat leżajski | 🔴 NO-BUILD | — · LIVE |
+| Lubaczów | powiat lubaczowski | 🔴 NO-BUILD | — · LIVE |
+| Łańcut | powiat łańcucki | 🔴 NO-BUILD | — · LIVE |
 | Mielec | powiat mielecki | 🔴 NO-BUILD | — · LIVE |
 | Przemyśl | Przemyśl (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Rzeszów | Rzeszów (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Sanok | powiat sanocki | 🔴 NO-BUILD | — · LIVE |
 | Stalowa Wola | powiat stalowowolski | 🔴 NO-BUILD | — · DESK |
 | Tarnobrzeg | Tarnobrzeg (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
+| Ustrzyki Dolne | powiat bieszczadzki | 🔴 NO-BUILD | — · LIVE |
 
 ### Podlaskie (8)
 
@@ -196,7 +210,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Łomża | Łomża (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Suwałki | Suwałki (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 
-### Pomorskie (15)
+### Pomorskie (16)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -210,13 +224,14 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Kwidzyn | powiat kwidzyński | 🟢 BUILD | Low · DESK |
 | Lębork | powiat lęborski | 🟢 BUILD | Low · DESK |
 | Malbork | powiat malborski | 🟢 BUILD | Medium · LIVE |
+| Pruszcz Gdański | powiat gdański | 🔴 NO-BUILD | — · LIVE |
 | Słupsk | Słupsk (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Sopot | Sopot (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 | Starogard Gdański | powiat starogardzki | 🟢 BUILD | Medium · LIVE |
 | Tczew | powiat tczewski | ✅ BUILT | Medium · LIVE |
 | Wejherowo | powiat wejherowski | ✅ BUILT | Medium · LIVE |
 
-### Śląskie (26)
+### Śląskie (27)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -233,6 +248,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Jaworzno | Jaworzno (m.n.p.p.) | ⏸️ Deferred | — · — |
 | Katowice | Katowice (m.n.p.p.) | ✅ BUILT | — · — |
 | Kłobuck | powiat kłobucki | 🟢 BUILD | Low · DESK |
+| Lubliniec | powiat lubliniecki | 🟢 BUILD | Low · LIVE |
 | Mysłowice | Mysłowice (m.n.p.p.) | ✅ BUILT | — · — |
 | Piekary Śląskie | Piekary Śląskie (m.n.p.p.) | ❌ Dropped | — · — |
 | Racibórz | powiat raciborski | ✅ BUILT | Low · LIVE |
@@ -277,7 +293,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Olsztyn | Olsztyn (m.n.p.p.) | ✅ BUILT | Low · LIVE |
 | Ostróda | powiat ostrodzki | 🔴 NO-BUILD | — · LIVE |
 
-### Wielkopolskie (17)
+### Wielkopolskie (18)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -294,12 +310,13 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Kościan | powiat kościański | 🔴 NO-BUILD | — · DESK |
 | Krotoszyn | powiat krotoszynski | 🔴 NO-BUILD | — · LIVE |
 | Leszno | Leszno (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
+| Międzychód | powiat międzychodzki | 🔴 NO-BUILD | — · LIVE |
 | Ostrów Wielkopolski | powiat ostrowski | 🔴 NO-BUILD | — · LIVE |
 | Piła | powiat pilski | ✅ BUILT | Low–Medium · LIVE |
 | Poznań | Poznań (m.n.p.p.) | 🟢 BUILD | Medium · LIVE/DESK |
 | Września | powiat wrzesinski | 🟢 BUILD | Medium · LIVE |
 
-### Zachodniopomorskie (12)
+### Zachodniopomorskie (13)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -312,6 +329,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Kamień Pomorski | powiat kamieński | 🔴 NO-BUILD | — · DESK |
 | Kołobrzeg | powiat kolobrzeski | 🟢 BUILD | Medium · LIVE |
 | Koszalin | Koszalin (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
+| Łobez | powiat łobeski | 🟢 BUILD | Medium · LIVE |
 | Stargard | powiat stargardzki | ✅ BUILT | Medium · LIVE |
 | Szczecin | Szczecin (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Świnoujście | Świnoujście (m.n.p.p.) | ✅ BUILT | Medium · LIVE |

@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 209,
+  "total": 227,
   "cities": [
     {
       "id": "boleslawiec",
@@ -3190,6 +3190,294 @@
         "effort": "Low",
         "confidence": "LIVE",
         "note": "Logonet eUrząd v2.9.0; identical URL scheme + metadata/Rozstrzygnięcie layout to Chełmno; strong open flat pipeline (≥5 lokale mieszkalne); near-zero marginal work cloning chelmno"
+      }
+    },
+    {
+      "id": "ustrzyki-dolne",
+      "label": "Ustrzyki Dolne",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-bieszczadzki",
+      "powiat_label": "powiat bieszczadzki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-bieszczadzki/ustrzyki-dolne.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "UM sells mostly land at przetarg ustny; flats only bundled/rural/unsold-repeat (Ustjanowa Górna, Równia); ZGM leases-only, no flat sales; SAM3/CONCEPT-Intermedia HTML BIP; results only as per-doc PDF; no recurring open flat-auction stream"
+      }
+    },
+    {
+      "id": "lubliniec",
+      "label": "Lubliniec",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-lubliniecki",
+      "powiat_label": "powiat lubliniecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "No ZGM (UM Wydz. Nieruchomości handles sales); bip.info.pl CMS; announcements idmp,93 + results idmp,94 (hammer price+nabywca confirmed, iddok 27200); land-heavy w/ recurring flat sub-stream (II/III/IV rounds); analog Zgorzelec/Złotoryja"
+      }
+    },
+    {
+      "id": "lubaczow",
+      "label": "Lubaczów",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-lubaczowski",
+      "powiat_label": "powiat lubaczowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-lubaczowski/lubaczow.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Miasto Lubaczów UM; CMS bip.net 7.33 (extranet.pl), server-HTML + born-digital text-PDFs; single board /275 land-only open auctions + dzierżawa wykaz; MZGKiM housing mgr sells nothing; flats go bezprzetargowo na rzecz najemcy; ~0 open flat auctions"
+      }
+    },
+    {
+      "id": "lubartow",
+      "label": "Lubartów",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-lubartowski",
+      "powiat_label": "powiat lubartowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-lubartowski/lubartow.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "UM Lubartow on bip.lubelskie.pl (DataTables list-ajax JSON); przetarg board id=96 = 169 recs 2012-2025, 0 open flat auctions (land+garage-lease only); all 89 flats on id=99 are bezprzetargowo na rzecz najemcy wykazy; real flat auctions only from Spoldzielnia (out of scope)"
+      }
+    },
+    {
+      "id": "limanowa",
+      "label": "Limanowa",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-limanowski",
+      "powiat_label": "powiat limanowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/malopolskie/powiat-limanowski/limanowa.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Burmistrz sale-by-auction only land+1 distressed building (Kościuszki 558/1 demolition-order); residential stream all najem/dzierżawa+bezprzetargowo, 0 flat auctions; MZGKiM manages not sells; official bip.malopolska.pl SPA + WP mirror miastolimanowa.pl cat77; analog bochnia/chrzanow"
+      }
+    },
+    {
+      "id": "pruszcz-gdanski",
+      "label": "Pruszcz Gdański",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-gdanski",
+      "powiat_label": "powiat gdański",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/pomorskie/powiat-gdanski/pruszcz-gdanski.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No ZGM; Logonet eUrząd BIP (bip.pruszcz-gdanski.pl /przetargi-nieruchomosci/510 + XML export); town auctions LAND only, flats sold bezprzetargowo na rzecz najemcy; open flat-auction volume ~0; analog chelmno/golub-dobrzyn if it were a fit"
+      }
+    },
+    {
+      "id": "leczna",
+      "label": "Łęczna",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-leczynski",
+      "powiat_label": "powiat łęczyński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-leczynski/leczna.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "gmina auctions LAND only (Chełmska/Polna/JPII/Cichy Zakątek 2018-2025); 0 open flat auctions; flats bezprzetargowo na rzecz najemcy; housing co PGKiM (nowybip) runs no flat sales; notices on leczna.pl/aktualnosci serwis + umleczna.bip.lubelskie.pl"
+      }
+    },
+    {
+      "id": "lask",
+      "label": "Łask",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-laski",
+      "powiat_label": "powiat łaski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-laski/lask.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager; land-only open auctions 2023-25 (0 flat auctions); flats sold bezprzetargowo na rzecz najemcy via wykaz; only lokal uzytkowy najem; no wyniki/hammer-price board; server-HTML bip_v4 CMS"
+      }
+    },
+    {
+      "id": "losice",
+      "label": "Łosice",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-losicki",
+      "powiat_label": "powiat łosicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-losicki/losice.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager; SmartSite/BIT server-HTML; single combined board (?page=1..5); ONE open flat auction in 2023-2025 (Międzyrzecka 5A/2 112420 zł); rest residential = bezprzetargowo na rzecz najemcy; open auctions land+dzierżawa; analog Kielce/Augustów but ~0 flat volume"
+      }
+    },
+    {
+      "id": "lobez",
+      "label": "Łobez",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-lobeski",
+      "powiat_label": "powiat łobeski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-lobeski/lobez.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "no ZGM (in-house RiGN); CMS 2ClickPortal server-HTML .html slugs + year subcats (342-zbycie); real przetarg ustny nieograniczony on niewyodrebniony lokal mieszkalny (Niepodleglosci 26/2, Kraszewskiego 28/5) w/ I+II rounds + informacja o wyniku; ~2-4 flats/yr land-dominated; prices in e-signed -sig.pdf (pdfText); analog bip.net text-PDF / WP HTML"
+      }
+    },
+    {
+      "id": "lancut",
+      "label": "Łańcut",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-lancucki",
+      "powiat_label": "powiat łańcucki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-lancucki/lancut.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Miasto Łańcut biuletyn.net (INTERmedi@ CMS-BIP 3.0); Sprzedaż board cid=101 reviewed 2022-25: ALL open auctions LAND (Polnej/Przemysłowej/W.Rutkiewicz)+1 ex-police building; flats only bezprzetargowo na rzecz najemcy; MZB manager does najem not sales; clean text-PDF wyniki but land-only; ZERO flat auctions"
+      }
+    },
+    {
+      "id": "leczyca",
+      "label": "Łęczyca",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-leczycki",
+      "powiat_label": "powiat łęczycki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-leczycki/leczyca.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "No ZGM/ZBM; Burmistrz sells flats via przetarg ustny nieograniczony. Dual source: BIP bip.leczyca.info.pl (Nefeni BIPv2/Next.js, text in scanned Zarządzenie PDFs) + city site leczyca.info.pl WordPress 6.5.8 REST API full-text = target. Flats ~few/yr standalone+batches (2025 Zachodnia 19/11; 2023 Zachodnia 21/21, Szkolna 1/14). Weak wyniki stream. Analog Brzeg/Nowa-Sol (WP REST)/Mogilno (Nefeni)."
+      }
+    },
+    {
+      "id": "makow-mazowiecki",
+      "label": "Maków Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-makowski",
+      "powiat_label": "powiat makowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-makowski/makow-mazowiecki.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No open flat auctions; przetargi board=procurement only (JUMA coal/catering), property disposal=sprzedaż bezprzetargowa + dzierżawa/najem wykazy (PDF); only flat 'auction' is Spółdzielnia Jubilatka (co-op, not gmina); no results/hammer board; CMS bip.net/extranet server-HTML+text-PDF"
+      }
+    },
+    {
+      "id": "miechow",
+      "label": "Miechów",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-miechowski",
+      "powiat_label": "powiat miechowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/malopolskie/powiat-miechowski/miechow.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager (only coop SM Przyszłość); official BIP = bip.malopolska.pl JS-SPA (chrzanow/render.js); WP mirror miechow.eu server-HTML but land+lease+wykaz dominated, ~0 open flat auctions, no hammer prices on wyniki board"
+      }
+    },
+    {
+      "id": "miedzychod",
+      "label": "Międzychód",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-miedzychodzki",
+      "powiat_label": "powiat międzychodzki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-miedzychodzki/miedzychod.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager (in-house); BIP Alfa TV CMS (bip.miedzychod.pl→miedzychod.bip2.alfatv.pl) server-HTML /dokumenty/NNNN; flats sold na rzecz najemcy bezprzetargowo via wykazy, open auctions LAND; only flat auctions sporadic AQUALIFT utility-spolka assets; no flat results board; ~0 open flat volume"
+      }
+    },
+    {
+      "id": "lukow",
+      "label": "Łuków",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-lukowski",
+      "powiat_label": "powiat łukowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-lukowski/lukow.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Burmistrz sells LAND via przetarg ustny nieogr.; only 1 flat (Klimeckiego 6/23, 3rd round); board 100% building plots; ZGL=najem manager in liquidation 2025, no flat-sale pipeline; no per-notice results/hammer board; notices on Joomla www.lukow.pl + bip.lubelskie.pl DataTables"
+      }
+    },
+    {
+      "id": "lowicz",
+      "label": "Łowicz",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-lowicki",
+      "powiat_label": "powiat łowicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-lowicki/lowicz.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "ZGM does only procurement/lease/tenant-buyout; city BIP fast4net (lowicz.eu/bip) single aggregated sale board + born-digital PDFs; auctions land-skewed, flats bezprzetargowo na rzecz najemcy; only ~4 open flat auctions 2010-2026, no flat price stream"
+      }
+    },
+    {
+      "id": "miedzyrzecz",
+      "label": "Międzyrzecz",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-miedzyrzecki",
+      "powiat_label": "powiat międzyrzecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "UM Wydz. Gosp. Mieniem + MTBS sell flats at przetarg ustny nieograniczony on Wrota Lubuskie eBIP; /przetargi/0/status/{0,1,2}/ engine w/ achieved prices (Mieszka I 88/5→115k, Kursko 28a/1 76k, ~16/30 resolved are flats); near-clone of gorzow-wielkopolski adapter; ZGL lease-only skip"
       }
     }
   ]

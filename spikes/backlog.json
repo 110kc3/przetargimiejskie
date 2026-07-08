@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 253,
-    "pending": 127
+    "done": 271,
+    "pending": 109
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -21,32 +21,32 @@
       "pending": 7
     },
     "lodzkie": {
-      "done": 14,
-      "pending": 10
-    },
-    "slaskie": {
-      "done": 30,
-      "pending": 6
-    },
-    "lubelskie": {
-      "done": 15,
-      "pending": 9
-    },
-    "mazowieckie": {
-      "done": 23,
-      "pending": 19
-    },
-    "zachodniopomorskie": {
-      "done": 13,
-      "pending": 8
-    },
-    "podkarpackie": {
-      "done": 18,
+      "done": 17,
       "pending": 7
     },
-    "malopolskie": {
-      "done": 16,
+    "slaskie": {
+      "done": 31,
+      "pending": 5
+    },
+    "lubelskie": {
+      "done": 18,
       "pending": 6
+    },
+    "mazowieckie": {
+      "done": 25,
+      "pending": 17
+    },
+    "zachodniopomorskie": {
+      "done": 14,
+      "pending": 7
+    },
+    "podkarpackie": {
+      "done": 21,
+      "pending": 4
+    },
+    "malopolskie": {
+      "done": 18,
+      "pending": 4
     },
     "dolnoslaskie": {
       "done": 22,
@@ -61,16 +61,16 @@
       "pending": 5
     },
     "pomorskie": {
-      "done": 16,
-      "pending": 4
+      "done": 17,
+      "pending": 3
     },
     "wielkopolskie": {
-      "done": 21,
-      "pending": 14
+      "done": 22,
+      "pending": 13
     },
     "lubuskie": {
-      "done": 6,
-      "pending": 8
+      "done": 7,
+      "pending": 7
     }
   },
   "cities": [
@@ -236,7 +236,7 @@
       "powiat_slug": "powiat-bieszczadzki",
       "city_slug": "ustrzyki-dolne",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-bieszczadzki/ustrzyki-dolne.md"
     },
     {
@@ -651,7 +651,7 @@
       "powiat_slug": "powiat-gdanski",
       "city_slug": "pruszcz-gdanski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-gdanski/pruszcz-gdanski.md"
     },
     {
@@ -1533,7 +1533,7 @@
       "powiat_slug": "powiat-limanowski",
       "city_slug": "limanowa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-limanowski/limanowa.md"
     },
     {
@@ -1563,7 +1563,7 @@
       "powiat_slug": "powiat-lubaczowski",
       "city_slug": "lubaczow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-lubaczowski/lubaczow.md"
     },
     {
@@ -1583,7 +1583,7 @@
       "powiat_slug": "powiat-lubartowski",
       "city_slug": "lubartow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-lubartowski/lubartow.md"
     },
     {
@@ -1625,7 +1625,7 @@
       "powiat_slug": "powiat-lubliniecki",
       "city_slug": "lubliniec",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md"
     },
     {
@@ -1645,7 +1645,7 @@
       "powiat_slug": "powiat-lancucki",
       "city_slug": "lancut",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-lancucki/lancut.md"
     },
     {
@@ -1655,7 +1655,7 @@
       "powiat_slug": "powiat-laski",
       "city_slug": "lask",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-laski/lask.md"
     },
     {
@@ -1665,7 +1665,7 @@
       "powiat_slug": "powiat-leczycki",
       "city_slug": "leczyca",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-leczycki/leczyca.md"
     },
     {
@@ -1675,7 +1675,7 @@
       "powiat_slug": "powiat-leczynski",
       "city_slug": "leczna",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-leczynski/leczna.md"
     },
     {
@@ -1685,7 +1685,7 @@
       "powiat_slug": "powiat-lobeski",
       "city_slug": "lobez",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-lobeski/lobez.md"
     },
     {
@@ -1716,7 +1716,7 @@
       "powiat_slug": "powiat-losicki",
       "city_slug": "losice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-losicki/losice.md"
     },
     {
@@ -1726,7 +1726,7 @@
       "powiat_slug": "powiat-lowicki",
       "city_slug": "lowicz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-lowicki/lowicz.md"
     },
     {
@@ -1757,7 +1757,7 @@
       "powiat_slug": "powiat-lukowski",
       "city_slug": "lukow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-lukowski/lukow.md"
     },
     {
@@ -1767,7 +1767,7 @@
       "powiat_slug": "powiat-makowski",
       "city_slug": "makow-mazowiecki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-makowski/makow-mazowiecki.md"
     },
     {
@@ -1788,7 +1788,7 @@
       "powiat_slug": "powiat-miechowski",
       "city_slug": "miechow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-miechowski/miechow.md"
     },
     {
@@ -1809,7 +1809,7 @@
       "powiat_slug": "powiat-miedzychodzki",
       "city_slug": "miedzychod",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-miedzychodzki/miedzychod.md"
     },
     {
@@ -1819,7 +1819,7 @@
       "powiat_slug": "powiat-miedzyrzecki",
       "city_slug": "miedzyrzecz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md"
     },
     {
