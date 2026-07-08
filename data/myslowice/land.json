@@ -3,6 +3,39 @@
   "city": "myslowice",
   "plots": [
     {
+      "key": "dz|0001 brzezinka.|2702/231",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "2702/231",
+      "obreb": "0001 Brzezinka.",
+      "street": "Niepodległości",
+      "building": null,
+      "address_raw": "ul. Niepodległości",
+      "dzialka_id": "247001_1.0001.AR_4.2702/231",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231",
+      "area_m2": 439,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 2,
+          "starting_price_pln": 95000,
+          "outcome": "active",
+          "area_m2": 439,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2702/231",
+          "dzialka_id": "247001_1.0001.AR_4.2702/231",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231"
+        }
+      ]
+    },
+    {
       "key": "dz|0001 brzezinka|3420/174",
       "kind": "grunt",
       "city": "myslowice",
