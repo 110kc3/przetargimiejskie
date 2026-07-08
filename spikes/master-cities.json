@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 251,
+  "total": 257,
   "cities": [
     {
       "id": "boleslawiec",
@@ -3862,6 +3862,102 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "Gmina Miejska (no housing manager); bespoke single-city PHP BIP www.bip.ostrowmaz.pl (?id=NNNN, broken TLS needs curl -k); flats via 'sprzedaż na rzecz najemcy' bezprzetargowo (?id=789); open auctions land-only + ustny ograniczony; concluded przetarg articles get unpublished (302 to home, no durable archive); ~0 open flat auctions"
+      }
+    },
+    {
+      "id": "parczew",
+      "label": "Parczew",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-parczewski",
+      "powiat_label": "powiat parczewski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-parczewski/parczew.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager; gmina auctions ~all land (działki Jasionka/Kolejowa/Przewłoka); only flats are bailiff licytacje komornicze; lease/wykaz residential; no results board; BIP DataTables empty-over-HTTP"
+      }
+    },
+    {
+      "id": "pajeczno",
+      "label": "Pajęczno",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-pajeczanski",
+      "powiat_label": "powiat pajęczański",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "no dedicated housing mgr; Sulimo city portal (www.pajeczno.pl /informator, /n,ID,slug.html full-text HTML) + e-bip.pl/ABC-PRO BIP with dedicated lokale-mieszkalne category; 3 live open flat auctions + wykaz + 6 archived flats, small but recurring; start-price solid, hammer-price board not confirmed; analog brzeg/nowa-sol custom server-HTML"
+      }
+    },
+    {
+      "id": "otwock",
+      "label": "Otwock",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-otwocki",
+      "powiat_label": "powiat otwocki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-otwocki/otwock.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Prezydent Otwocka sells lokale mieszkalne via ustny przetarg nieograniczony; announcements menu 1018 (44pp) + results board menu 1039 (52pp) 'Wynik...sprzedaż lokalu mieszkalnego'; INTERmedi@ CMS-BIP server-HTML but ogloszenia are SCANNED PDFs (JPEG 200dpi) -> OCR required; ZGM mgr runs only lease/repair, sales city-run"
+      }
+    },
+    {
+      "id": "pinczow",
+      "label": "Pińczów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-pinczowski",
+      "powiat_label": "powiat pińczowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/swietokrzyskie/powiat-pinczowski/pinczow.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "No housing manager (Referat inside UM); gmina open auctions land-only; flats sold bezprzetargowo to tenants (Uchwała XXXVI/386/2021); only flat auction = Spółdzielnia (out of scope); 2ClickPortal board mixes procurement/electoral/land, body in .docx; ~0 open flat auctions"
+      }
+    },
+    {
+      "id": "pleszew",
+      "label": "Pleszew",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-pleszewski",
+      "powiat_label": "powiat pleszewski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "No housing mgr (PTBS=social rental); WOKISS CMS server-HTML year boards + born-digital text PDFs; consolidated Ogloszenia-nieruchomosci board mixes land/lease/uzyczenie — must classify; open flat auctions thin but recurring (Zachodnia 1 I→II 2024-25, hist. Rynek 10/Daszynskiego/Poznanska); wynik/hammer-price PDFs exist; analog=Jarocin/Kalisz wokiss-family"
+      }
+    },
+    {
+      "id": "pisz",
+      "label": "Pisz",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-piski",
+      "powiat_label": "powiat piski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "UM Pisz sells flats via przetarg ustny nieograniczony (Klementowskiego 6/3 330k'23, 6/4 235k'25, 15/28 86k'17, Rybacka 6); inline wynik-przetargu results; server-HTML bip.pisz.hi.pl ?wiad=/?k=84; land-heavy + big lease-wykaz noise needs classification; no housing co; analog Zgorzelec/WordPress-HTML"
       }
     }
   ]

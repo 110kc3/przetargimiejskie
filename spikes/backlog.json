@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 295,
-    "pending": 85
+    "done": 301,
+    "pending": 79
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -17,24 +17,24 @@
       "pending": 5
     },
     "warminsko-mazurskie": {
-      "done": 18,
-      "pending": 3
+      "done": 19,
+      "pending": 2
     },
     "lodzkie": {
-      "done": 18,
-      "pending": 6
+      "done": 19,
+      "pending": 5
     },
     "slaskie": {
       "done": 33,
       "pending": 3
     },
     "lubelskie": {
-      "done": 19,
-      "pending": 5
+      "done": 20,
+      "pending": 4
     },
     "mazowieckie": {
-      "done": 28,
-      "pending": 14
+      "done": 29,
+      "pending": 13
     },
     "zachodniopomorskie": {
       "done": 15,
@@ -57,16 +57,16 @@
       "pending": 2
     },
     "swietokrzyskie": {
-      "done": 10,
-      "pending": 4
+      "done": 11,
+      "pending": 3
     },
     "pomorskie": {
       "done": 18,
       "pending": 2
     },
     "wielkopolskie": {
-      "done": 25,
-      "pending": 10
+      "done": 26,
+      "pending": 9
     },
     "lubuskie": {
       "done": 7,
@@ -2293,7 +2293,7 @@
       "powiat_slug": "powiat-otwocki",
       "city_slug": "otwock",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-otwocki/otwock.md"
     },
     {
@@ -2314,7 +2314,7 @@
       "powiat_slug": "powiat-pajeczanski",
       "city_slug": "pajeczno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md"
     },
     {
@@ -2324,7 +2324,7 @@
       "powiat_slug": "powiat-parczewski",
       "city_slug": "parczew",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-parczewski/parczew.md"
     },
     {
@@ -2366,7 +2366,7 @@
       "powiat_slug": "powiat-pinczowski",
       "city_slug": "pinczow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-pinczowski/pinczow.md"
     },
     {
@@ -2397,7 +2397,7 @@
       "powiat_slug": "powiat-piski",
       "city_slug": "pisz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md"
     },
     {
@@ -2407,7 +2407,7 @@
       "powiat_slug": "powiat-pleszewski",
       "city_slug": "pleszew",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md"
     },
     {
