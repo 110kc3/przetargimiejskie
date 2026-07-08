@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 301,
-    "pending": 79
+    "done": 313,
+    "pending": 67
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -21,48 +21,48 @@
       "pending": 2
     },
     "lodzkie": {
-      "done": 19,
-      "pending": 5
+      "done": 20,
+      "pending": 4
     },
     "slaskie": {
-      "done": 33,
-      "pending": 3
+      "done": 34,
+      "pending": 2
     },
     "lubelskie": {
       "done": 20,
       "pending": 4
     },
     "mazowieckie": {
-      "done": 29,
-      "pending": 13
+      "done": 33,
+      "pending": 9
     },
     "zachodniopomorskie": {
-      "done": 15,
-      "pending": 6
+      "done": 16,
+      "pending": 5
     },
     "podkarpackie": {
-      "done": 22,
-      "pending": 3
+      "done": 23,
+      "pending": 2
     },
     "malopolskie": {
-      "done": 19,
-      "pending": 3
+      "done": 20,
+      "pending": 2
     },
     "dolnoslaskie": {
-      "done": 24,
-      "pending": 6
+      "done": 25,
+      "pending": 5
     },
     "opolskie": {
-      "done": 10,
-      "pending": 2
+      "done": 11,
+      "pending": 1
     },
     "swietokrzyskie": {
       "done": 11,
       "pending": 3
     },
     "pomorskie": {
-      "done": 18,
-      "pending": 2
+      "done": 19,
+      "pending": 1
     },
     "wielkopolskie": {
       "done": 26,
@@ -2438,7 +2438,7 @@
       "powiat_slug": "powiat-plonski",
       "city_slug": "plonsk",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-plonski/plonsk.md"
     },
     {
@@ -2448,7 +2448,7 @@
       "powiat_slug": "powiat-poddebicki",
       "city_slug": "poddebice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md"
     },
     {
@@ -2458,7 +2458,7 @@
       "powiat_slug": "powiat-policki",
       "city_slug": "police",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-policki/police.md"
     },
     {
@@ -2468,7 +2468,7 @@
       "powiat_slug": "powiat-polkowicki",
       "city_slug": "polkowice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-polkowicki/polkowice.md"
     },
     {
@@ -2499,7 +2499,7 @@
       "powiat_slug": "powiat-proszowicki",
       "city_slug": "proszowice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md"
     },
     {
@@ -2509,7 +2509,7 @@
       "powiat_slug": "powiat-prudnicki",
       "city_slug": "prudnik",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-prudnicki/prudnik.md"
     },
     {
@@ -2530,7 +2530,7 @@
       "powiat_slug": "powiat-przasnyski",
       "city_slug": "przasnysz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-przasnyski/przasnysz.md"
     },
     {
@@ -2561,7 +2561,7 @@
       "powiat_slug": "powiat-przeworski",
       "city_slug": "przeworsk",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-przeworski/przeworsk.md"
     },
     {
@@ -2571,7 +2571,7 @@
       "powiat_slug": "powiat-przysuski",
       "city_slug": "przysucha",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-przysuski/przysucha.md"
     },
     {
@@ -2581,7 +2581,7 @@
       "powiat_slug": "powiat-pszczynski",
       "city_slug": "pszczyna",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md"
     },
     {
@@ -2591,7 +2591,7 @@
       "powiat_slug": "powiat-pucki",
       "city_slug": "puck",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-pucki/puck.md"
     },
     {
@@ -2612,7 +2612,7 @@
       "powiat_slug": "powiat-pultuski",
       "city_slug": "pultusk",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md"
     },
     {

@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 257,
+  "total": 269,
   "cities": [
     {
       "id": "boleslawiec",
@@ -3958,6 +3958,198 @@
         "effort": "Low",
         "confidence": "LIVE",
         "note": "UM Pisz sells flats via przetarg ustny nieograniczony (Klementowskiego 6/3 330k'23, 6/4 235k'25, 15/28 86k'17, Rybacka 6); inline wynik-przetargu results; server-HTML bip.pisz.hi.pl ?wiad=/?k=84; land-heavy + big lease-wykaz noise needs classification; no housing co; analog Zgorzelec/WordPress-HTML"
+      }
+    },
+    {
+      "id": "poddebice",
+      "label": "Poddębice",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-poddebicki",
+      "powiat_label": "powiat poddębicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-poddebicki/poddebice.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "devcomm bipv45 JSON+text-PDF BIP; recurring active open flat auctions but NO achieved-price stream, thin land-dominated volume — marginal low-priority build"
+      }
+    },
+    {
+      "id": "proszowice",
+      "label": "Proszowice",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-proszowicki",
+      "powiat_label": "powiat proszowicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/malopolskie/powiat-proszowicki/proszowice.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "ASP custom-HTML city portal; single property board w/ announcements + named-buyer results; recurring open flat auctions, no blockers"
+      }
+    },
+    {
+      "id": "plonsk",
+      "label": "Płońsk",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-plonski",
+      "powiat_label": "powiat płoński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-plonski/plonsk.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "bip.org.pl-network server-HTML BIP; recurring OPEN flat auctions + informacja-o-wyniku achieved-price stream + ZGM housing mgr; mixed docx/pdf attachments; template reusable"
+      }
+    },
+    {
+      "id": "pultusk",
+      "label": "Pułtusk",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-pultuski",
+      "powiat_label": "powiat pułtuski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-pultuski/pultusk.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "WordPress wp-json portal; recurring open oral flat auctions (Na Skarpie 3 lok.25 I/II/III + Warsaw flats), inline-HTML + born-digital PDF mirrors; no hammer board, mixed land/flat feed"
+      }
+    },
+    {
+      "id": "prudnik",
+      "label": "Prudnik",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-prudnicki",
+      "powiat_label": "powiat prudnicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-prudnicki/prudnik.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Joomla server-HTML board; born-digital text-PDF ogłoszenia + real Informacja-o-wynikach achieved-price stream; separate lease board keeps sale crawl clean; multi-lot PDF parsing = Medium"
+      }
+    },
+    {
+      "id": "pszczyna",
+      "label": "Pszczyna",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-pszczynski",
+      "powiat_label": "powiat pszczyński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/slaskie/powiat-pszczynski/pszczyna.md",
+      "spike": {
+        "wave": "D",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "ESC S.A./VelaBIP server-HTML BIP; recurring OPEN flat auctions w/ inline structured achieved-price results (Korfantego 27/1 sold 273k); custom-HTML analog + bip.info.pl legacy fallback"
+      }
+    },
+    {
+      "id": "polkowice",
+      "label": "Polkowice",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-polkowicki",
+      "powiat_label": "powiat polkowicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/dolnoslaskie/powiat-polkowicki/polkowice.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "MADKOM eBIP JSON API but flats sold to sitting tenants via wykaz/bezprzetargowo (~1 open flat auction ever); auction stream is land+dzierżawa+lokale użytkowe"
+      }
+    },
+    {
+      "id": "przasnysz",
+      "label": "Przasnysz",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-przasnyski",
+      "powiat_label": "powiat przasnyski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-przasnyski/przasnysz.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "biuletyn.net; only land sales + cemetery/land leases + 1 commercial lease at auction; zero gmina flat auctions (recurring flats belong to private ZWAREK co-op); residential moves bezprzetargowo"
+      }
+    },
+    {
+      "id": "przysucha",
+      "label": "Przysucha",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-przysuski",
+      "powiat_label": "powiat przysuski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-przysuski/przysucha.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "MADKOM SPA; sells ~1 municipal flat/yr at open auction on land-dominated generic city-BIP, no housing mgr, no hammer board; Medium adapter effort not justified by flat volume"
+      }
+    },
+    {
+      "id": "przeworsk",
+      "label": "Przeworsk",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-przeworski",
+      "powiat_label": "powiat przeworski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-przeworski/przeworsk.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "bip.info.pl server-HTML; residential disposal = tenant pre-emption + land auctions + lease lists; ~0 open lokal-mieszkalny auctions; Podkarpackie seat pattern"
+      }
+    },
+    {
+      "id": "puck",
+      "label": "Puck",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-pucki",
+      "powiat_label": "powiat pucki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/pomorskie/powiat-pucki/puck.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Alfa/alfatv server-HTML BIP; busy OPEN land-auction program but flats near-zero (3 historical/1 active), residential otherwise bezprzetargowo; przetargi board all lease"
+      }
+    },
+    {
+      "id": "police",
+      "label": "Police",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-policki",
+      "powiat_label": "powiat policki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-policki/police.md",
+      "spike": {
+        "wave": "D",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Logonet server-HTML BIP w/ real housing mgr, but residential disposal bezprzetargowo-na-najemcy + land/lease; open flat auctions ≈0, no flat hammer stream"
       }
     }
   ]
