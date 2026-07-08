@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Mostowa 22 / ul. Podmurna 21",
+      "address": {
+        "street": "Mostowa 22 / ul. Podmurna",
+        "street_norm": "mostowa 22 ul podmurna",
+        "building": "21",
+        "apt": null,
+        "key": "mostowa 22 ul podmurna|21|",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 250000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-ul-podmurna-21"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Ślusarska 5 m. 5a",
       "address": {
         "street": "Ślusarska",

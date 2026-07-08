@@ -3,6 +3,28 @@
   "city": "torun",
   "properties": [
     {
+      "key": "mostowa 22 ul podmurna|21|",
+      "street": "Mostowa 22 / ul. Podmurna",
+      "street_norm": "mostowa 22 ul podmurna",
+      "building": "21",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 27.47,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-ul-podmurna-21",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 27.47
+    },
+    {
       "key": "slusarska|5|5A",
       "street": "Ślusarska",
       "street_norm": "slusarska",
