@@ -1,8 +1,8 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-07-08",
+  "generated_at": "2026-07-09",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 281,
+  "total": 293,
   "cities": [
     {
       "id": "boleslawiec",
@@ -4342,6 +4342,198 @@
         "effort": "Low",
         "confidence": "LIVE",
         "note": "Extranet 'BIP w JST' server-HTML CMS at bip.gmina-sepolno.pl; open oral flat auctions (lokal mieszkalny) confirmed (Hallera 9/4 98900 zl, Plac Wolnosci 14/x, Osiedle Slowackiego). Board /657/405 paginated; per-notice INLINE metadata block (Rodzaj nieruchomosci/Cena wywolawcza/Data) parseable from HTML; born-digital ogloszenie + informacja-o-wyniku PDFs at /download/attachment/. Low volume ~1-3 flats/yr. brzeg/nowa-sol analog. Caveat: incomplete TLS chain -> lenient/browser-UA fetch."
+      }
+    },
+    {
+      "id": "sierpc",
+      "label": "Sierpc",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-sierpecki",
+      "powiat_label": "powiat sierpecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-sierpecki/sierpc.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Hosted BIP (bip.sierpc.pl, bipkod/NNNNN HTML boards + born-digital PDF). Scrapeable but flats sold bezprzetargowo na rzecz najemcy (Uchwala 406/LIII/2021); open ustny auctions 2021/2023/2025 are land + najem only (verified Zeromskiego 'flat' PDF = undeveloped land). ~0 open flat-sale auctions/yr; no ZGM. New housing = SIM Polnocne Mazowsze rental."
+      }
+    },
+    {
+      "id": "slupca",
+      "label": "Słupca",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-slupecki",
+      "powiat_label": "powiat słupecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-slupecki/slupca.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "FINN eBIP (bip.umslupca.finn.pl, same platform as Sieradz NO-BUILD). Flats sold bezprzetargowo na rzecz najemcy under 80% bonifikata; only 1 open flat auction in ~3yr (Orzeszkowej 3A 2023). Recurring auction stream is land only; no wyniki/achieved-price board; default board is JS-shell (server-HTML only via ?showArchive=true)."
+      }
+    },
+    {
+      "id": "slubice",
+      "label": "Słubice",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-slubicki",
+      "powiat_label": "powiat słubicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-slubicki/slubice.md",
+      "spike": {
+        "wave": "F",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Bespoke Next.js SSR BIP (bip.slubice.pl, category 193 'Sprzedaz mienia - przetargi', bip-api/bip-docrepo-api backend). Recurring OPEN flat auctions in batches — 6 lokale mieszkalne live in a 'drugi przetarg' cycle (2026-06-11). Board+titles server-HTML (address+round free); auction terms in scanned-PDF attachments (Develop ineo, pdftotext=0) -> OCR required, tesseract -l pol clean (Zeromskiego 18/8: 43,68 m2, 165000 zl). Attachment /api/attachments/<id> 302->bip-docrepo-api. Analog: IDcom scanned-PDF+OCR (tczew/gniezno/gizycko). No separate results board; disambiguate from Mazowieckie Gmina Slubice."
+      }
+    },
+    {
+      "id": "sochaczew",
+      "label": "Sochaczew",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-sochaczewski",
+      "powiat_label": "powiat sochaczewski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-sochaczewski/sochaczew.md",
+      "spike": {
+        "wave": "F",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "2ClickPortal server-HTML BIP (bip.sochaczew.pl/aktualnosci/, born-digital PDF attachments). Recurring Burmistrz ustny przetarg nieograniczony flat sales confirmed 2025 (al.600-lecia 23A/11, Grunwaldzka 8/20, Senatorska 16/9, Koscinskiego 13C/1&13B/1) + land. No dedicated property board -> classify mixed aktualnosci firehose by title regex; results (informacja o wyniku) in same feed. Expired-article 404 churn, modest ~5 flats/yr. Analog: nowa-sol/brzeg/bochnia HTML-list+PDF. Disambiguated from rural Gmina (bip.sochaczew.org.pl) and Starostwo; ZGK/ZISM = rentals only."
+      }
+    },
+    {
+      "id": "slawno",
+      "label": "Sławno",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-slawienski",
+      "powiat_label": "powiat sławieński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-slawienski/slawno.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Logonet BIP (bip.slawno.pl) with clean structured przetarg-nieruchomosci registry, but 55/57 auctions are land (2023-2026); only 1 lokal mieszkalny ever, no cena-osiagnieta stream, flats sold bezprzetargowo. Old ibip.pl host decommissioned. Best-case scrapeable source but fails flat criterion."
+      }
+    },
+    {
+      "id": "sokolow-podlaski",
+      "label": "Sokołów Podlaski",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-sokolowski",
+      "powiat_label": "powiat sokołowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-sokolowski/sokolow-podlaski.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "nv.pl React SPA with clean public JSON API (/api/menu/739/articles) + born-digital PDFs — technically Low-effort. But flats sold only via wykaz->bezprzetargowo na rzecz najemcy (art. 34 pierwszenstwo); all open oral przetargi are land (dzialki) or commercial lease. ~0 open flat auctions in 51-article 2023-2026 board. HTTP-only (HTTPS cert is *.nv.pl mismatch)."
+      }
+    },
+    {
+      "id": "staszow",
+      "label": "Staszów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-staszowski",
+      "powiat_label": "powiat staszowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/swietokrzyskie/powiat-staszowski/staszow.md",
+      "spike": {
+        "wave": "F",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Joomla (com_content) city BIP www.bip.staszow.pl; per-year 'Przetargi na nieruchomosci' categories (2025 id=1261) with HTML article list + born-digital LibreOffice PDF bodies (pdftotext-clean); confirmed open lokal-mieszkalny auction Opatowska 20/3 (98757 zl); in-stream 'informacja o wyniku' achieved-price feed; flats low-volume in land-heavy mixed stream; analog bochnia/olkusz HTML+PDF"
+      }
+    },
+    {
+      "id": "strzelce-opolskie",
+      "label": "Strzelce Opolskie",
+      "voivodeship": "opolskie",
+      "powiat_slug": "powiat-strzelecki",
+      "powiat_label": "powiat strzelecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md",
+      "spike": {
+        "wave": "F",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Dedicated manager GZMK on bespoke fast4net server-HTML BIP (gzmk.pl); single board 'Przetargi na sprzedaz nieruchomosci,14' with inline HTML + born-digital PDF and INLINE results (rozstrzygniety / wynik negatywny / cena osiagnieta). Confirmed open oral flat sale (Krakowska 13/6, I+II ustny 2023). Flat volume low but recurring; mixed with in-scope land/buildings. No SPA/auth/CAPTCHA. Analog: brzeg/nowa-sol custom-HTML."
+      }
+    },
+    {
+      "id": "strzelce-krajenskie",
+      "label": "Strzelce Krajeńskie",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-strzelecko-drezdenecki",
+      "powiat_label": "powiat strzelecko-drezdenecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md",
+      "spike": {
+        "wave": "F",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "SYSTEMDOBIP.PL/E-LINE CMS on bip.strzelce.pl — identical to same-voivodeship gorzow-wielkopolski adapter (same /przetargi/29/status/ boards + /system/pobierz.php PDF endpoint). Open flat auctions confirmed (Gilow 20/1, Bobrowko 21/3, 2026). Born-digital PDF attachments; modest rural volume; weak achieved-price stream (Brak wyniku). Near drop-in clone of gorzow-wielkopolski."
+      }
+    },
+    {
+      "id": "strzyzow",
+      "label": "Strzyżów",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-strzyzowski",
+      "powiat_label": "powiat strzyżowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-strzyzowski/strzyzow.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "BUK Softres BIP (bip.strzyzow.pl) + strzyzow.pl/aktualnosci mirror. Open oral auctions 2023-2026 are LAND plots + lokal uzytkowy najem only; zero municipal flat-sale auctions (flats go bezprzetargowo na rzecz najemcy). Sole flat auction (Grunwaldzka 15, rekojmia) is a komornik/court licytacja, out of scope. No wyniki/achieved-price board."
+      }
+    },
+    {
+      "id": "sokolka",
+      "label": "Sokółka",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-sokolski",
+      "powiat_label": "powiat sokólski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-sokolski/sokolka.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Podlasia/podlaskie.eu BIP (bip-umsokolka.podlaskie.eu/przet_zam/) — clean server-HTML .html-per-notice + born-digital PDFs incl. colocated -wynik.pdf achieved-price. Real recurring open-auction stream but land/commercial-dominated: 2024-2025 = 0 standalone lokale mieszkalne; ZGKiM does najem only, flats sold bezprzetargowo. Trivially scrapeable (Low) IF scope broadens to land, else NO-BUILD."
+      }
+    },
+    {
+      "id": "strzelin",
+      "label": "Strzelin",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-strzelinski",
+      "powiat_label": "powiat strzeliński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/dolnoslaskie/powiat-strzelinski/strzelin.md",
+      "spike": {
+        "wave": "F",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "FINN eBIP (bip.gmstrzelin.finn.pl) — clean per-year Ogloszenia boards + born-digital PDF results stream, but auction stream is 100% land (verified 2024/2025/2026, 0 flat auctions); flats sold bezprzetargowo na rzecz najemcy (8 lokale / 119784 zl tranche). Great source, wrong asset class."
       }
     }
   ]

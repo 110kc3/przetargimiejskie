@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-08",
+  "generated_at": "2026-07-09",
   "source": "Wikipedia Lista powiatow w Polsce (fetched 2026-06-29)",
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 325,
-    "pending": 55
+    "done": 337,
+    "pending": 43
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -13,8 +13,8 @@
       "pending": 3
     },
     "podlaskie": {
-      "done": 14,
-      "pending": 3
+      "done": 15,
+      "pending": 2
     },
     "warminsko-mazurskie": {
       "done": 19,
@@ -33,44 +33,44 @@
       "pending": 2
     },
     "mazowieckie": {
-      "done": 33,
-      "pending": 9
+      "done": 36,
+      "pending": 6
     },
     "zachodniopomorskie": {
-      "done": 17,
-      "pending": 4
+      "done": 18,
+      "pending": 3
     },
     "podkarpackie": {
-      "done": 24,
-      "pending": 1
+      "done": 25,
+      "pending": 0
     },
     "malopolskie": {
       "done": 20,
       "pending": 2
     },
     "dolnoslaskie": {
-      "done": 25,
-      "pending": 5
+      "done": 26,
+      "pending": 4
     },
     "opolskie": {
-      "done": 11,
-      "pending": 1
+      "done": 12,
+      "pending": 0
     },
     "swietokrzyskie": {
-      "done": 12,
-      "pending": 2
+      "done": 13,
+      "pending": 1
     },
     "pomorskie": {
       "done": 19,
       "pending": 1
     },
     "wielkopolskie": {
-      "done": 27,
-      "pending": 8
+      "done": 28,
+      "pending": 7
     },
     "lubuskie": {
-      "done": 7,
-      "pending": 7
+      "done": 9,
+      "pending": 5
     }
   },
   "cities": [
@@ -2890,7 +2890,7 @@
       "powiat_slug": "powiat-sierpecki",
       "city_slug": "sierpc",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-sierpecki/sierpc.md"
     },
     {
@@ -2932,7 +2932,7 @@
       "powiat_slug": "powiat-slawienski",
       "city_slug": "slawno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-slawienski/slawno.md"
     },
     {
@@ -2942,7 +2942,7 @@
       "powiat_slug": "powiat-slubicki",
       "city_slug": "slubice",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-slubicki/slubice.md"
     },
     {
@@ -2952,7 +2952,7 @@
       "powiat_slug": "powiat-slupecki",
       "city_slug": "slupca",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-slupecki/slupca.md"
     },
     {
@@ -2983,7 +2983,7 @@
       "powiat_slug": "powiat-sochaczewski",
       "city_slug": "sochaczew",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-sochaczewski/sochaczew.md"
     },
     {
@@ -2993,7 +2993,7 @@
       "powiat_slug": "powiat-sokolowski",
       "city_slug": "sokolow-podlaski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-sokolowski/sokolow-podlaski.md"
     },
     {
@@ -3003,7 +3003,7 @@
       "powiat_slug": "powiat-sokolski",
       "city_slug": "sokolka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-sokolski/sokolka.md"
     },
     {
@@ -3077,7 +3077,7 @@
       "powiat_slug": "powiat-staszowski",
       "city_slug": "staszow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-staszowski/staszow.md"
     },
     {
@@ -3087,7 +3087,7 @@
       "powiat_slug": "powiat-strzelecki",
       "city_slug": "strzelce-opolskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md"
     },
     {
@@ -3097,7 +3097,7 @@
       "powiat_slug": "powiat-strzelecko-drezdenecki",
       "city_slug": "strzelce-krajenskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md"
     },
     {
@@ -3107,7 +3107,7 @@
       "powiat_slug": "powiat-strzelinski",
       "city_slug": "strzelin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-strzelinski/strzelin.md"
     },
     {
@@ -3117,7 +3117,7 @@
       "powiat_slug": "powiat-strzyzowski",
       "city_slug": "strzyzow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-strzyzowski/strzyzow.md"
     },
     {
