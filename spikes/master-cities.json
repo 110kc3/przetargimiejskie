@@ -1,8 +1,8 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-07-01T00:00:00.000Z",
+  "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 204,
+  "total": 209,
   "cities": [
     {
       "id": "boleslawiec",
@@ -3110,6 +3110,86 @@
         "effort": "Low",
         "confidence": "DESK",
         "note": "Burmistrz I/II/III przetarg ustny na lokale mieszkalne (Waska 15, Teczowa 1, Gryfowska 5 etc. 2024-25); bip.lwowekslaski.pl iBIP /wiadomosci/3/lista/przetargi HTML + 'informacja o wyniku' articles same BIP; ~several/yr; analog zlotoryja/small Dolnoslaskie iBIP; no blockers"
+      }
+    },
+    {
+      "id": "zgorzelec",
+      "label": "Zgorzelec",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-zgorzelecki",
+      "powiat_label": "powiat zgorzelecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "bip.info.pl server-HTML BIP; dedicated Przetargi board + separate Rozstrzygnięcia results board; low-modest flat volume mixed w/ land; comma-path doc URLs; analog Złotoryja/Lwówek Śląski"
+      }
+    },
+    {
+      "id": "zlotoryja",
+      "label": "Złotoryja",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-zlotoryjski",
+      "powiat_label": "powiat złotoryjski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "bip.info.pl server-HTML; Przetargi board (idmp,74) + Zakończone results (idmp,1); live 2025 flat auction confirmed; needs browser UA in getText (bot-UA 404 quirk); analog Zgorzelec/Lwówek Śląski"
+      }
+    },
+    {
+      "id": "lipno",
+      "label": "Lipno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-lipnowski",
+      "powiat_label": "powiat lipnowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/kujawsko-pomorskie/powiat-lipnowski/lipno.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "bipgov.net/Samba-AnaCom BIP; only dzierżawa/najem lease auctions + wykaz sale-designations + bezprzetargowo tenant sales; no open flat-sale auction stream (fails Q1)"
+      }
+    },
+    {
+      "id": "mogilno",
+      "label": "Mogilno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-mogilenski",
+      "powiat_label": "powiat mogileński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Nefeni server-HTML; Zbycie(98)/Dzierżawa(99)/Przetargi(94)/Rozstrzygnięte(265) boards; thin open flat volume on mixed board (needs classifyKind) + PDF attachments; analog tczew/gniezno or brzeg/nowa-sol"
+      }
+    },
+    {
+      "id": "naklo-nad-notecia",
+      "label": "Nakło nad Notecią",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-nakielski",
+      "powiat_label": "powiat nakielski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md",
+      "spike": {
+        "wave": "GS1",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Logonet eUrząd v2.9.0; identical URL scheme + metadata/Rozstrzygnięcie layout to Chełmno; strong open flat pipeline (≥5 lokale mieszkalne); near-zero marginal work cloning chelmno"
       }
     }
   ]

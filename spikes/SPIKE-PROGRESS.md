@@ -2,16 +2,16 @@
 
 > **GENERATED FILE — do not hand-edit.** Regenerate with `node spikes/build-progress.mjs` after updating [master-cities.json](./master-cities.json) (the source of truth).
 >
-> Updated 2026-07-06. Queue: [backlog.json](./backlog.json) (132 pending / 248 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
+> Updated 2026-07-08. Queue: [backlog.json](./backlog.json) (127 pending / 253 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
 
-## Roll-up (204 spiked)
+## Roll-up (209 spiked)
 
 | Status | Count |
 |---|---|
 | ✅ BUILT | 55 |
-| 🟢 BUILD | 59 |
+| 🟢 BUILD | 63 |
 | 🟡 VERIFY | 0 |
-| 🔴 NO-BUILD | 81 |
+| 🔴 NO-BUILD | 82 |
 | ❌ Dropped | 6 |
 | ⏸️ Deferred | 3 |
 
@@ -21,13 +21,13 @@
 
 Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Kraków, Legnica, Łódź, Mysłowice, Nowa Sól, Nysa, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Piła, Przemyśl, Racibórz, Rybnik, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Szczecin, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Wałbrzych, Warszawa, Wejherowo, Zabrze.
 
-## BUILD-ready queue (59, by effort)
+## BUILD-ready queue (63, by effort)
 
-Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Końskie (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Malbork (Medium), Płock (Medium), Poznań (Medium), Siedlce (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Włocławek (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Żyrardów (Medium).
+Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Końskie (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Nakło nad Notecią (Low), Zgorzelec (Low), Złotoryja (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Malbork (Medium), Mogilno (Medium), Płock (Medium), Poznań (Medium), Siedlce (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Włocławek (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
-### Dolnośląskie (16)
+### Dolnośląskie (18)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -47,8 +47,10 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Świdnica | powiat swidnicki | 🟢 BUILD | Medium · LIVE |
 | Wałbrzych | Wałbrzych (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Wrocław | Wrocław (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
+| Zgorzelec | powiat zgorzelecki | 🟢 BUILD | Low · LIVE |
+| Złotoryja | powiat złotoryjski | 🟢 BUILD | Low · LIVE |
 
-### Kujawsko-Pomorskie (10)
+### Kujawsko-Pomorskie (13)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -59,6 +61,9 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Golub-Dobrzyń | powiat golubsko-dobrzyński | 🟢 BUILD | Medium · LIVE |
 | Grudziądz | Grudziądz (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 | Inowrocław | powiat inowroclawski | 🔴 NO-BUILD | — · LIVE |
+| Lipno | powiat lipnowski | 🔴 NO-BUILD | — · LIVE |
+| Mogilno | powiat mogileński | 🟢 BUILD | Medium · LIVE |
+| Nakło nad Notecią | powiat nakielski | 🟢 BUILD | Low · LIVE |
 | Świecie | powiat swiecki | 🔴 NO-BUILD | — · LIVE |
 | Toruń | Toruń (m.n.p.p.) | ✅ BUILT | Low · LIVE |
 | Włocławek | Włocławek (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |

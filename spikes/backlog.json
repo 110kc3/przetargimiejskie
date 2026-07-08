@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-07-01T00:00:00.000Z",
+  "generated_at": "2026-07-08",
   "source": "Wikipedia Lista powiatow w Polsce (fetched 2026-06-29)",
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 248,
-    "pending": 132
+    "done": 253,
+    "pending": 127
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
-      "done": 14,
-      "pending": 9
+      "done": 17,
+      "pending": 6
     },
     "podlaskie": {
       "done": 11,
@@ -49,8 +49,8 @@
       "pending": 6
     },
     "dolnoslaskie": {
-      "done": 20,
-      "pending": 10
+      "done": 22,
+      "pending": 8
     },
     "opolskie": {
       "done": 8,
@@ -1543,7 +1543,7 @@
       "powiat_slug": "powiat-lipnowski",
       "city_slug": "lipno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-lipnowski/lipno.md"
     },
     {
@@ -1870,7 +1870,7 @@
       "powiat_slug": "powiat-mogilenski",
       "city_slug": "mogilno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md"
     },
     {
@@ -1940,7 +1940,7 @@
       "powiat_slug": "powiat-nakielski",
       "city_slug": "naklo-nad-notecia",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md"
     },
     {
@@ -3858,7 +3858,7 @@
       "powiat_slug": "powiat-zgorzelecki",
       "city_slug": "zgorzelec",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md"
     },
     {
@@ -3889,7 +3889,7 @@
       "powiat_slug": "powiat-zlotoryjski",
       "city_slug": "zlotoryja",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md"
     },
     {
