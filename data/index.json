@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-08T06:44:48.479Z",
+  "generated_at": "2026-07-08T13:04:50.156Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,8 +9,8 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 177,
-      "active_listings": 1,
-      "active_auctions": 1,
+      "active_listings": 7,
+      "active_auctions": 7,
       "archived_auctions": 255,
       "wykaz_entries": 1,
       "land_plots": 79
@@ -60,9 +60,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 50,
-      "active_listings": 92,
-      "active_auctions": 5,
+      "unique_properties": 51,
+      "active_listings": 93,
+      "active_auctions": 6,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -104,7 +104,7 @@
       "active_auctions": 12,
       "archived_auctions": 54,
       "wykaz_entries": 0,
-      "land_plots": 48
+      "land_plots": 49
     },
     {
       "id": "swietochlowice",
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 102
+      "land_plots": 105
     },
     {
       "id": "trzebinia",
@@ -307,9 +307,9 @@
       "voivodeship": "lodzkie",
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
-      "unique_properties": 30,
-      "active_listings": 30,
-      "active_auctions": 23,
+      "unique_properties": 37,
+      "active_listings": 37,
+      "active_auctions": 30,
       "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -334,7 +334,7 @@
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
       "unique_properties": 114,
-      "active_listings": 17,
+      "active_listings": 16,
       "active_auctions": 11,
       "archived_auctions": 104,
       "wykaz_entries": 0,
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 15,
+      "active_listings": 14,
       "active_auctions": 13,
       "archived_auctions": 23,
       "wykaz_entries": 0,
