@@ -3,6 +3,28 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "zaglebiowskiej|70|17",
+      "street": "Zagłębiowskiej",
+      "street_norm": "zaglebiowskiej",
+      "building": "70",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179000,
+          "outcome": "active",
+          "area_m2": 35.73,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564028,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.73
+    },
+    {
       "key": "swobodnej|8|",
       "street": "Swobodna",
       "street_norm": "swobodnej",

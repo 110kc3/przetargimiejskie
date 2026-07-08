@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Zagłębiowskiej 70/17",
+      "address": {
+        "street": "Zagłębiowskiej",
+        "street_norm": "zaglebiowskiej",
+        "building": "70",
+        "apt": "17",
+        "key": "zaglebiowskiej|70|17",
+        "warning": null
+      },
+      "auction_date": "2026-09-18",
+      "published_date": "2026-07-08",
+      "round": 1,
+      "area_m2": 35.73,
+      "starting_price_pln": 179000,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564028,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-polozonego-w-sosnowcu-.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Czeladzkiej 37/185",
       "address": {
         "street": "Czeladzkiej",
