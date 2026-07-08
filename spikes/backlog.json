@@ -4,45 +4,45 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 313,
-    "pending": 67
+    "done": 325,
+    "pending": 55
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
-      "done": 17,
-      "pending": 6
+      "done": 20,
+      "pending": 3
     },
     "podlaskie": {
-      "done": 12,
-      "pending": 5
+      "done": 14,
+      "pending": 3
     },
     "warminsko-mazurskie": {
       "done": 19,
       "pending": 2
     },
     "lodzkie": {
-      "done": 20,
-      "pending": 4
+      "done": 21,
+      "pending": 3
     },
     "slaskie": {
       "done": 34,
       "pending": 2
     },
     "lubelskie": {
-      "done": 20,
-      "pending": 4
+      "done": 22,
+      "pending": 2
     },
     "mazowieckie": {
       "done": 33,
       "pending": 9
     },
     "zachodniopomorskie": {
-      "done": 16,
-      "pending": 5
+      "done": 17,
+      "pending": 4
     },
     "podkarpackie": {
-      "done": 23,
-      "pending": 2
+      "done": 24,
+      "pending": 1
     },
     "malopolskie": {
       "done": 20,
@@ -57,16 +57,16 @@
       "pending": 1
     },
     "swietokrzyskie": {
-      "done": 11,
-      "pending": 3
+      "done": 12,
+      "pending": 2
     },
     "pomorskie": {
       "done": 19,
       "pending": 1
     },
     "wielkopolskie": {
-      "done": 26,
-      "pending": 9
+      "done": 27,
+      "pending": 8
     },
     "lubuskie": {
       "done": 7,
@@ -2622,7 +2622,7 @@
       "powiat_slug": "powiat-pyrzycki",
       "city_slug": "pyrzyce",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-pyrzycki/pyrzyce.md"
     },
     {
@@ -2675,7 +2675,7 @@
       "powiat_slug": "powiat-radziejowski",
       "city_slug": "radziejow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-radziejowski/radziejow.md"
     },
     {
@@ -2685,7 +2685,7 @@
       "powiat_slug": "powiat-radzynski",
       "city_slug": "radzyn-podlaski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-radzynski/radzyn-podlaski.md"
     },
     {
@@ -2695,7 +2695,7 @@
       "powiat_slug": "powiat-rawicki",
       "city_slug": "rawicz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-rawicki/rawicz.md"
     },
     {
@@ -2705,7 +2705,7 @@
       "powiat_slug": "powiat-rawski",
       "city_slug": "rawa-mazowiecka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md"
     },
     {
@@ -2715,7 +2715,7 @@
       "powiat_slug": "powiat-ropczycko-sedziszowski",
       "city_slug": "ropczyce",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-ropczycko-sedziszowski/ropczyce.md"
     },
     {
@@ -2756,7 +2756,7 @@
       "powiat_slug": "powiat-rycki",
       "city_slug": "ryki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-rycki/ryki.md"
     },
     {
@@ -2766,7 +2766,7 @@
       "powiat_slug": "powiat-rypinski",
       "city_slug": "rypin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-rypinski/rypin.md"
     },
     {
@@ -2797,7 +2797,7 @@
       "powiat_slug": "powiat-sandomierski",
       "city_slug": "sandomierz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md"
     },
     {
@@ -2818,7 +2818,7 @@
       "powiat_slug": "powiat-sejnenski",
       "city_slug": "sejny",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-sejnenski/sejny.md"
     },
     {
@@ -2828,7 +2828,7 @@
       "powiat_slug": "powiat-sepolenski",
       "city_slug": "sepolno-krajenskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md"
     },
     {
@@ -2869,7 +2869,7 @@
       "powiat_slug": "powiat-siemiatycki",
       "city_slug": "siemiatycze",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-siemiatycki/siemiatycze.md"
     },
     {

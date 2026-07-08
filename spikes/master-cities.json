@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 269,
+  "total": 281,
   "cities": [
     {
       "id": "boleslawiec",
@@ -4150,6 +4150,198 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "Logonet server-HTML BIP w/ real housing mgr, but residential disposal bezprzetargowo-na-najemcy + land/lease; open flat auctions ≈0, no flat hammer stream"
+      }
+    },
+    {
+      "id": "radziejow",
+      "label": "Radziejów",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-radziejowski",
+      "powiat_label": "powiat radziejowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/kujawsko-pomorskie/powiat-radziejowski/radziejow.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "SISCO BIP (bip.umradziejow.pl). Tiny town ~5.3k, powiat seat. Przetargi board 2023-2026 = only najem/dzierżawa lease, geodetic surveys, fixed-asset + boiler-room disposals; zero open oral flat-sale auctions, no ZGM housing manager. Disambiguated from rural Gmina Radziejów (bip.ugradziejow.pl)."
+      }
+    },
+    {
+      "id": "rawa-mazowiecka",
+      "label": "Rawa Mazowiecka",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-rawski",
+      "powiat_label": "powiat rawski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md",
+      "spike": {
+        "wave": "E",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "bip.net 7.32 (Extranet) server-HTML BIP bip.rawamazowiecka.pl; confirmed open oral flat auctions (3 lokale mieszkalne Reymonta dz.308/13 obr.4, 22.10.2024) + informacja o wyniku results stream; year boards 3648/3496 + results 3477; born-digital PDF attachments; analog Golub-Dobrzyn; disambiguated from rural gmina bip.rawam.ug.gov.pl, starostwo, Rawskie TBS"
+      }
+    },
+    {
+      "id": "rawicz",
+      "label": "Rawicz",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-rawicki",
+      "powiat_label": "powiat rawicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-rawicki/rawicz.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Logonet eUrząd BIP (bip.rawicz.pl), clean server-HTML board 786 with achieved-price stream — but municipal flats sold bezprzetargowo na rzecz najemcy; open oral flat auctions sporadic (~0-1/yr, only Wojska Polskiego 31 confirmed); open auctions are land/działki/rolne/dzierżawa. Below flat BUILD bar; would be Low-effort land source if scope expands."
+      }
+    },
+    {
+      "id": "pyrzyce",
+      "label": "Pyrzyce",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-pyrzycki",
+      "powiat_label": "powiat pyrzycki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-pyrzycki/pyrzyce.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "bip.pyrzyce.um.gov.pl (bespoke *.um.gov.pl govt BIP, UA-gated); 2024+2025 boards show only land działki + a fire truck, zero lokal mieszkalny auctions; flats sold bezprzetargowo to sitting tenants (Wykaz 18/2026)"
+      }
+    },
+    {
+      "id": "ropczyce",
+      "label": "Ropczyce",
+      "voivodeship": "podkarpackie",
+      "powiat_slug": "powiat-ropczycko-sedziszowski",
+      "powiat_label": "powiat ropczycko-sędziszowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podkarpackie/powiat-ropczycko-sedziszowski/ropczyce.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Nefeni/bip.net.pl CMS (clean 2-board /kategorie 143 ogloszenia + 142 wyniki, stubs+born-digital PDFs). Flats TBS-managed, sold bezprzetargowo na rzecz najemcy (2009 uchwala bonifikaty); live board 100% land (dzialki via rokowania). Historical flat auctions (Grunwaldzka 1/9,1/4,2/22 I+II; Kosciuszki 1/14) only in Google cache of RETIRED bip.ropczyce.eu — legacy ?c= deep-links dead on new CMS. Podkarpackie NO-BUILD pattern; re-check if flat cluster reappears on /kategorie/143."
+      }
+    },
+    {
+      "id": "radzyn-podlaski",
+      "label": "Radzyń Podlaski",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-radzynski",
+      "powiat_label": "powiat radzyński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-radzynski/radzyn-podlaski.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Lubelszczyzny regional BIP (umradzynpodlaski.bip.lubelskie.pl), clean JSON action=list-ajax document tables. But zero open flat auctions 2023-2026 — Przetargi board is only land/dzierżawa-stoisk/wynajem; flats sold bezprzetargowo na rzecz najemcy (confirmed 'wykup lokalu komunalnego przez głównego najemcę' form). No-build on scope, not tech."
+      }
+    },
+    {
+      "id": "sejny",
+      "label": "Sejny",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-sejnenski",
+      "powiat_label": "powiat sejneński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-sejnenski/sejny.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Podlasia / podlaskie.eu regional BIP (server-HTML list board + born-digital PDF detail, cleanly scrapeable). But auction stream is land-only across 2020-2026 (działki, repeat rounds to VI przetarg); only open flat auction found is Parkowa 5/23 from 2019, predating board window. ~5k town, no ZGM/TBS. ~0 recurring open flat auctions → below BUILD threshold."
+      }
+    },
+    {
+      "id": "sandomierz",
+      "label": "Sandomierz",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-sandomierski",
+      "powiat_label": "powiat sandomierski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md",
+      "spike": {
+        "wave": "E",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Server-rendered HTML city BIP (bip.um.sandomierz.pl, WordPress/custom-HTML family, /NNNN/132/slug.html + ?Page=N, .eu mirror shares IDs). Confirmed OPEN oral flat auctions (Portowa 18/16, Baczyńskiego, Por. T. Króla) with cena wywoławcza + inline-HTML wynik stream (cena osiągnięta 92000 zł + nabywca). Single mixed board — classify przetarg vs bezprzetargowo/najemca/land. Analog: Bochnia/Olkusz."
+      }
+    },
+    {
+      "id": "ryki",
+      "label": "Ryki",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-rycki",
+      "powiat_label": "powiat rycki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-rycki/ryki.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Lubelszczyzny (bip.lubelskie.pl) JS/AJAX registry at umryki.bip.lubelskie.pl. 2024 Raport o stanie gminy confirms flats sold ONLY bezprzetargowo na rzecz najemców; open oral tenders are land-only (0.7546 ha in 2024). ~0 open flat auctions/year, no flat achieved-price stream, hostile no-JS-empty CMS. Classic Lubelskie-seat NO-BUILD."
+      }
+    },
+    {
+      "id": "rypin",
+      "label": "Rypin",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-rypinski",
+      "powiat_label": "powiat rypiński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/kujawsko-pomorskie/powiat-rypinski/rypin.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Alfa TV/alfatv.pl BIP (server-HTML, /artykul/slug, bot-UA 403) on bip.rypin.eu; clean single property board but open auctions are land + lokale uzytkowe only. Zero lokal mieszkalny open auctions in 15mo (2025-2026); flats sold bezprzetargowo to tenants (one isolated 2019 flat auction). Town Gmina Miasta Rypin disambiguated from rural Gmina Rypin (www.bip.rypin.pl)."
+      }
+    },
+    {
+      "id": "siemiatycze",
+      "label": "Siemiatycze",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-siemiatycki",
+      "powiat_label": "powiat siemiatycki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-siemiatycki/siemiatycze.md",
+      "spike": {
+        "wave": "E",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Podlaskie regional BIP (wrotapodlasia.pl->podlaskie.eu, bip-umsiemiatycze.podlaskie.eu). Miasto sells flats only bezprzetargowo na rzecz najemcy; open auctions are land-only + very low volume; notices are born-digital PDFs, no achieved-price board. Recurring lokal-mieszkalny open auctions in the area are the POWIAT/Starostwo (separate JST), out of scope. ~0 miasto open flat auctions."
+      }
+    },
+    {
+      "id": "sepolno-krajenskie",
+      "label": "Sępólno Krajeńskie",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-sepolenski",
+      "powiat_label": "powiat sępoleński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md",
+      "spike": {
+        "wave": "E",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Extranet 'BIP w JST' server-HTML CMS at bip.gmina-sepolno.pl; open oral flat auctions (lokal mieszkalny) confirmed (Hallera 9/4 98900 zl, Plac Wolnosci 14/x, Osiedle Slowackiego). Board /657/405 paginated; per-notice INLINE metadata block (Rodzaj nieruchomosci/Cena wywolawcza/Data) parseable from HTML; born-digital ogloszenie + informacja-o-wyniku PDFs at /download/attachment/. Low volume ~1-3 flats/yr. brzeg/nowa-sol analog. Caveat: incomplete TLS chain -> lenient/browser-UA fetch."
       }
     }
   ]
