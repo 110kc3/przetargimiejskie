@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-08",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 245,
+  "total": 251,
   "cities": [
     {
       "id": "boleslawiec",
@@ -3766,6 +3766,102 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "ZGM manager but only lokal-użytkowy NAJEM+renovation; sale board 1103 = 27 active + 51 archived (2008-2026) all LAND, only ~2 flat auctions ever (2009-2010), 0 on 2021-26 board; MADKOM eBIP React+JSON API, born-digital PDFs; analog milicz"
+      }
+    },
+    {
+      "id": "opole-lubelskie",
+      "label": "Opole Lubelskie",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-opolski",
+      "powiat_label": "powiat opolski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-opolski/opole-lubelskie.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "no housing manager; Wrota Lubelszczyzny bip.lubelskie.pl DataTables board id=326/id=83 + born-digital PDF; ~1 open flat auction (Stare Komaszyce 38) in years, stream land+KOWR+lokal uzytkowy; generic lubelskie NO-BUILD"
+      }
+    },
+    {
+      "id": "opoczno",
+      "label": "Opoczno",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-opoczynski",
+      "powiat_label": "powiat opoczyński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-opoczynski/opoczno.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "ZGM housing mgr exists but rents only (no flat sales); open auctions land-only, 9/9 results boards land; flats sold bezprzetargowo na rzecz najemcy via wykaz; NowyBIP/ZETO server-HTML + born-digital text-PDF on fs.siteor.com; zero open flat volume"
+      }
+    },
+    {
+      "id": "ostrzeszow",
+      "label": "Ostrzeszów",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-ostrzeszowski",
+      "powiat_label": "powiat ostrzeszowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "housing manager ZGM Z.G.M. Sp. z o.o. runs open flat auctions (live 2026: 21 Stycznia 1a, Szklarka Przygodzicka 89) + Burmistrz/WGN flats (Poprzeczna 1/4, Olszyna 74) on city BIP; two hosts, flat prices/results text-PDF only, no inline hammer board, low volume; analog nowoczesnagmina city-BIP + PAD-CMS manager"
+      }
+    },
+    {
+      "id": "opatow",
+      "label": "Opatów",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-opatowski",
+      "powiat_label": "powiat opatowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/swietokrzyskie/powiat-opatowski/opatow.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Miasto i Gmina Opatów on bip.umopatow.pl (akcessnet System BIP, server-HTML Win-1250); PGKiM only administers/rents; sale board 2007-2026 holds a single 2024 LIMITED LAND auction, 0 open flat auctions; results board 2003-2022 empty; no hammer-price stream"
+      }
+    },
+    {
+      "id": "olawa",
+      "label": "Oława",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-olawski",
+      "powiat_label": "powiat oławski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-olawski/olawa.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Burmistrz Miasta Oława flat auctions (przetarg ustny nieograniczony na lokal mieszkalny); MADKOM eBIP React SPA + JSON API /api/menu/258/articles + /api/articles/{id}; board Zbywanie nieruchomosci (m,258), archive 570; born-digital PDF oglosz+informacja o wyniku (cena osiagnieta+nabywca); 3 concurrent flat auctions live; analog Milicz"
+      }
+    },
+    {
+      "id": "ostrow-mazowiecka",
+      "label": "Ostrów Mazowiecka",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-ostrowski",
+      "powiat_label": "powiat ostrowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-ostrowski/ostrow-mazowiecka.md",
+      "spike": {
+        "wave": "GS3",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Gmina Miejska (no housing manager); bespoke single-city PHP BIP www.bip.ostrowmaz.pl (?id=NNNN, broken TLS needs curl -k); flats via 'sprzedaż na rzecz najemcy' bezprzetargowo (?id=789); open auctions land-only + ustny ograniczony; concluded przetarg articles get unpublished (302 to home, no durable archive); ~0 open flat auctions"
       }
     }
   ]

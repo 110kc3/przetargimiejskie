@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 289,
-    "pending": 91
+    "done": 295,
+    "pending": 85
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -21,20 +21,20 @@
       "pending": 3
     },
     "lodzkie": {
-      "done": 17,
-      "pending": 7
+      "done": 18,
+      "pending": 6
     },
     "slaskie": {
       "done": 33,
       "pending": 3
     },
     "lubelskie": {
-      "done": 18,
-      "pending": 6
+      "done": 19,
+      "pending": 5
     },
     "mazowieckie": {
-      "done": 27,
-      "pending": 15
+      "done": 28,
+      "pending": 14
     },
     "zachodniopomorskie": {
       "done": 15,
@@ -49,24 +49,24 @@
       "pending": 3
     },
     "dolnoslaskie": {
-      "done": 23,
-      "pending": 7
+      "done": 24,
+      "pending": 6
     },
     "opolskie": {
       "done": 10,
       "pending": 2
     },
     "swietokrzyskie": {
-      "done": 9,
-      "pending": 5
+      "done": 10,
+      "pending": 4
     },
     "pomorskie": {
       "done": 18,
       "pending": 2
     },
     "wielkopolskie": {
-      "done": 24,
-      "pending": 11
+      "done": 25,
+      "pending": 10
     },
     "lubuskie": {
       "done": 7,
@@ -2147,7 +2147,7 @@
       "powiat_slug": "powiat-olawski",
       "city_slug": "olawa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-olawski/olawa.md"
     },
     {
@@ -2157,7 +2157,7 @@
       "powiat_slug": "powiat-opatowski",
       "city_slug": "opatow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-opatowski/opatow.md"
     },
     {
@@ -2167,7 +2167,7 @@
       "powiat_slug": "powiat-opoczynski",
       "city_slug": "opoczno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-opoczynski/opoczno.md"
     },
     {
@@ -2187,7 +2187,7 @@
       "powiat_slug": "powiat-opolski",
       "city_slug": "opole-lubelskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-opolski/opole-lubelskie.md"
     },
     {
@@ -2251,7 +2251,7 @@
       "powiat_slug": "powiat-ostrowski",
       "city_slug": "ostrow-mazowiecka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-ostrowski/ostrow-mazowiecka.md"
     },
     {
@@ -2272,7 +2272,7 @@
       "powiat_slug": "powiat-ostrzeszowski",
       "city_slug": "ostrzeszow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md"
     },
     {
