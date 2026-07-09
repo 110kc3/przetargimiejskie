@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 361,
-    "pending": 19
+    "done": 373,
+    "pending": 7
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -13,28 +13,28 @@
       "pending": 1
     },
     "podlaskie": {
-      "done": 15,
-      "pending": 2
+      "done": 17,
+      "pending": 0
     },
     "warminsko-mazurskie": {
       "done": 21,
       "pending": 0
     },
     "lodzkie": {
-      "done": 22,
-      "pending": 2
+      "done": 24,
+      "pending": 0
     },
     "slaskie": {
-      "done": 34,
-      "pending": 2
-    },
-    "lubelskie": {
-      "done": 23,
+      "done": 35,
       "pending": 1
     },
+    "lubelskie": {
+      "done": 24,
+      "pending": 0
+    },
     "mazowieckie": {
-      "done": 39,
-      "pending": 3
+      "done": 40,
+      "pending": 2
     },
     "zachodniopomorskie": {
       "done": 21,
@@ -49,28 +49,28 @@
       "pending": 0
     },
     "dolnoslaskie": {
-      "done": 28,
-      "pending": 2
+      "done": 30,
+      "pending": 0
     },
     "opolskie": {
       "done": 12,
       "pending": 0
     },
     "swietokrzyskie": {
-      "done": 13,
-      "pending": 1
+      "done": 14,
+      "pending": 0
     },
     "pomorskie": {
       "done": 20,
       "pending": 0
     },
     "wielkopolskie": {
-      "done": 33,
-      "pending": 2
+      "done": 34,
+      "pending": 1
     },
     "lubuskie": {
-      "done": 11,
-      "pending": 3
+      "done": 12,
+      "pending": 2
     }
   },
   "cities": [
@@ -3621,7 +3621,7 @@
       "powiat_slug": "powiat-wieruszowski",
       "city_slug": "wieruszow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-wieruszowski/wieruszow.md"
     },
     {
@@ -3652,7 +3652,7 @@
       "powiat_slug": "powiat-wlodawski",
       "city_slug": "wlodawa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-wlodawski/wlodawa.md"
     },
     {
@@ -3662,7 +3662,7 @@
       "powiat_slug": "powiat-wloszczowski",
       "city_slug": "wloszczowa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-wloszczowski/wloszczowa.md"
     },
     {
@@ -3672,7 +3672,7 @@
       "powiat_slug": "powiat-wodzislawski",
       "city_slug": "wodzislaw-slaski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md"
     },
     {
@@ -3682,7 +3682,7 @@
       "powiat_slug": "powiat-wolsztynski",
       "city_slug": "wolsztyn",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-wolsztynski/wolsztyn.md"
     },
     {
@@ -3703,7 +3703,7 @@
       "powiat_slug": "powiat-wolowski",
       "city_slug": "wolow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md"
     },
     {
@@ -3745,7 +3745,7 @@
       "powiat_slug": "powiat-wschowski",
       "city_slug": "wschowa",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-wschowski/wschowa.md"
     },
     {
@@ -3755,7 +3755,7 @@
       "powiat_slug": "powiat-wysokomazowiecki",
       "city_slug": "wysokie-mazowieckie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-wysokomazowiecki/wysokie-mazowieckie.md"
     },
     {
@@ -3765,7 +3765,7 @@
       "powiat_slug": "powiat-wyszkowski",
       "city_slug": "wyszkow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-wyszkowski/wyszkow.md"
     },
     {
@@ -3785,7 +3785,7 @@
       "powiat_slug": "powiat-zambrowski",
       "city_slug": "zambrow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/podlaskie/powiat-zambrowski/zambrow.md"
     },
     {
@@ -3827,7 +3827,7 @@
       "powiat_slug": "powiat-zabkowicki",
       "city_slug": "zabkowice-slaskie",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md"
     },
     {
@@ -3837,7 +3837,7 @@
       "powiat_slug": "powiat-zdunskowolski",
       "city_slug": "zdunska-wola",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md"
     },
     {

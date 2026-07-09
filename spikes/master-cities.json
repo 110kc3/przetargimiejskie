@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-09",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 317,
+  "total": 329,
   "cities": [
     {
       "id": "boleslawiec",
@@ -4918,6 +4918,198 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "Bespoke server-HTML BIP (bip.um.wielun.pl, /bipkod/NNN boards, /res/serwisy/pliki attachments). Property stream land-only (dzialki przetarg ustny + dzierzawa wykazy) on Komunikaty board; flats sold bezprzetargowo na rzecz najemcy (tenant wykup/bonifikata DOC form, no open auction). No ZGM/ZBM/TBS. 'Przetargi' board is procurement (ezamowienia.gov.pl). Zero open flat-auction volume."
+      }
+    },
+    {
+      "id": "wolow",
+      "label": "Wołów",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-wolowski",
+      "powiat_label": "powiat wołowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md",
+      "spike": {
+        "wave": "I",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "SkyCMS/netkoncept city portal wolow.pl (server-rendered HTML, /idart/idcat/slug.html, inline cena wywolawcza+wadium) — clone Olesno/Prudnik analog. Recurring flat auctions (Wojska Polskiego 17/2, Komuny Paryskiej 41 30.06.2026, Lubiaz) + published achieved prices (Prawikow 84200 zl). Scrape wolow.pl not JS-gated bip.wolow.pl mirror; classify mixed flat/land stream."
+      }
+    },
+    {
+      "id": "wieruszow",
+      "label": "Wieruszów",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-wieruszowski",
+      "powiat_label": "powiat wieruszowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-wieruszowski/wieruszow.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "WOKISS regional BIP (bip3.wokiss.pl/wieruszowm) — flats sold bezprzetargowo to tenants (wykaz Dabrowskiego 1-7 z bonifikata), open auctions land-only; no dedicated property/results board (loose PDF items on mixed yearly ogloszenia pages), very low volume ~9k town; housing mgr PK S.A. runs installment program. No flat-auction stream."
+      }
+    },
+    {
+      "id": "wloszczowa",
+      "label": "Włoszczowa",
+      "voivodeship": "swietokrzyskie",
+      "powiat_slug": "powiat-wloszczowski",
+      "powiat_label": "powiat włoszczowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/swietokrzyskie/powiat-wloszczowski/wloszczowa.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Legacy eobip.pl BIP (DNS-unreachable from Pi) + current wloszczowa.pl 2ClickPortal (stub-HTML + PDF wykaz attachments). Open przetarg ustny nieograniczony is LAND-only (Motyczno/Konieczno/Wola Wisniowa dzialki — no flats); municipal flats sold bezprzetargowo na rzecz najemcy (2023 wykaz), only open flat auction is from 2008. No ZGM/TBS; tiny gmina. No flat-auction stream."
+      }
+    },
+    {
+      "id": "wlodawa",
+      "label": "Włodawa",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-wlodawski",
+      "powiat_label": "powiat włodawski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-wlodawski/wlodawa.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Lubelszczyzny (bip.lubelskie.pl) DataTables JSON registry at umwlodawa.bip.lubelskie.pl (?id=99&action=list-ajax, fetchable — no Playwright). Confirmed 1 live open oral flat auction (Zeromskiego 20/25, 185k zl, 14.07.2026) but in-scope volume thin (~3 in 2025, 1 in 2026); 394 records dominated by 274 dzierzawa/najem + 94 land + bezprzetargowo tenant wykazy. NO achieved-price/wynik stream. Low yield -> no-build."
+      }
+    },
+    {
+      "id": "wolsztyn",
+      "label": "Wolsztyn",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-wolsztynski",
+      "powiat_label": "powiat wolsztyński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-wolsztynski/wolsztyn.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Nefeni 'layout-default' React SPA with clean JSON API (/api/menu/<id>/articles + /api/articles/<id>) — technically Low but wrong data: municipal auction stream is land + whole-building sales only; flats sold bezprzetargowo na rzecz najemcy (auction only after tenant declines + Council resolution). No ZGM/TBS; new housing via SIM KZN Wielkopolska. m,115 Przetargi board is procurement. No lokal-mieszkalny volume."
+      }
+    },
+    {
+      "id": "wodzislaw-slaski",
+      "label": "Wodzisław Śląski",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-wodzislawski",
+      "powiat_label": "powiat wodzisławski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md",
+      "spike": {
+        "wave": "I",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "FINN.pl eUrzad JS SPA (eurzad.finn.pl/gmwodzislawsl, #!/rejestry/) iframed by Liferay BIP; city-site ogloszenia list also JS-loaded. Confirmed open ustny przetarg on flats (spoldz. prawo lokalu 26/14) + dedicated wyniki board. No server-HTML list -> needs render.js (chrzanow analog) + pdfText for born-digital PDFs (server/pobierz_rejestry_zalacznik/<id>). Housing in-house Biuro Gospodarki Lokalowej, no ZGM. Broken TLS chain (curl -k). Not swietokrzyskie Wodzislaw."
+      }
+    },
+    {
+      "id": "wysokie-mazowieckie",
+      "label": "Wysokie Mazowieckie",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-wysokomazowiecki",
+      "powiat_label": "powiat wysokomazowiecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-wysokomazowiecki/wysokie-mazowieckie.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Podlasia/podlaskie.eu hosted BIP (bip-umwysokiemaz.podlaskie.eu). Land-only oral auctions; flats sold bezprzetargowo na rzecz najemcy (wykaz, no hammer price); no ZGM/TBS (only a cooperative). Clean server HTML but no in-scope flat-auction stream. Disambiguated town from rural Gmina ugwm.biuletyn.net."
+      }
+    },
+    {
+      "id": "wschowa",
+      "label": "Wschowa",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-wschowski",
+      "powiat_label": "powiat wschowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-wschowski/wschowa.md",
+      "spike": {
+        "wave": "I",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "SystemDoBIP.pl (E-LINE) server-HTML BIP on bip.gminawschowa.pl; przetargi module /przetargi/29/ with native Ogloszone/Rozstrzygniete/Uniewaznione tabs = built-in results stream. Open oral flat auctions confirmed (Dworcowa 1/5 60.88m2 144000zl; Kilinskiego 3/2 55.45m2 88418zl). SystemDoBIP family (see sulecin/strzelce-krajenskie/gorzow-wielkopolski). NOT bip.wschowa.info (that is the powiat)."
+      }
+    },
+    {
+      "id": "wyszkow",
+      "label": "Wyszków",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-wyszkowski",
+      "powiat_label": "powiat wyszkowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-wyszkowski/wyszkow.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Custom query-string PHP BIP (bip.wyszkow.pl, index.php?cmd=zawartosc&opt=pokaz&id=NNNN) — clean server HTML with working 'Informacja o wyniku przetargu' stream, technically Low. But disposal land-only (nieruchomosci gruntowe niezabudowane at przetarg ustny + bezprzetargowo tenant/lot sales); standing wykaz id=21707 is 100% land, no flats board, no ZGM/TBS, zero lokal mieszkalny open auctions. Out of scope."
+      }
+    },
+    {
+      "id": "zdunska-wola",
+      "label": "Zduńska Wola",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-zdunskowolski",
+      "powiat_label": "powiat zduńskowolski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md",
+      "spike": {
+        "wave": "I",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Logonet eUrzad 2.9.0 (bip.zdunskawola.pl) — dedicated property board /przetargi-nieruchomosci/439, detail /przetarg-nieruchomosci/<id>/<slug>, server HTML with INLINE achieved price+nabywca (Torowa 324k zl). Open oral flat auctions confirmed (1 Maja 10/18 185k, Baczynskiego 11, Karsznice); mixed with land. Exclude TBS Zlotnicki najem + 75%-bonifikata tenant sales. Analog Pabianice/Lask. Rural Gmina zdunskawola.bip.net.pl disambiguated out."
+      }
+    },
+    {
+      "id": "zabkowice-slaskie",
+      "label": "Ząbkowice Śląskie",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-zabkowicki",
+      "powiat_label": "powiat ząbkowicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md",
+      "spike": {
+        "wave": "I",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Logonet eUrzad ('Logonet Sp. z o.o. Bydgoszcz, Wersja 2.9.0') — structured real-estate module at bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/<id>/<slug>, filterable by year/type/status, 154 board pages. Open oral flat auctions confirmed (Sulislawice 52B lokal mieszkalny 50k zl, Klodzka 6/5 76.85m2). Achieved prices in born-digital 'Informacja o wyniku przetargu' PDFs. Direct analog tarnowskie-gory. Mixed land-heavy stream; no auth/CAPTCHA."
+      }
+    },
+    {
+      "id": "zambrow",
+      "label": "Zambrów",
+      "voivodeship": "podlaskie",
+      "powiat_slug": "powiat-zambrowski",
+      "powiat_label": "powiat zambrowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/podlaskie/powiat-zambrowski/zambrow.md",
+      "spike": {
+        "wave": "I",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "bip.zambrow.pl — HTML /artykul/<slug> board (Wrota Podlasia family, Bootstrap/DataTables) + born-digital PDF attachments; UA-gated. Sells municipal property at open oral auction but stream is land-only (dzialki niezabudowane, MSP-limited, car, coal). Only 1 residential item in ~2yr, a one-off spoldzielcze wlasnosciowe prawo (Bialostocka 31/113, 198073 zl, 2025). No ZGM/TBS flat board. Negligible flat volume."
       }
     }
   ]
