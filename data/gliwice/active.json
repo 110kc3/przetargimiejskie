@@ -83,8 +83,28 @@
       "round": 3
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "Błogosławionego Czesława 48/3",
+      "address": {
+        "street": "Błogosławionego Czesława",
+        "street_norm": "blogoslawionego czeslawa",
+        "building": "48",
+        "apt": "3",
+        "key": "blogoslawionego czeslawa|48|3",
+        "warning": null
+      },
+      "auction_date": "2026-08-10",
+      "area_m2": 31.44,
+      "starting_price_pln": 146100,
+      "detail_url": "https://zgm-gliwice.pl/blogoslawionego-czeslawa-48-3-10-08-2026-r/",
+      "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-10082026-ul-galczynskiego-111-ul-staszica-131-ul-styczynskiego-1413-ul-zygmunta-starego-294-ul-stalmacha-73-ul-bl-czeslawa-483-lokale-mieszkalne-ul-kozielska-13-garaz-nr-1-ul-zwyciestwa-349a-lokal-uzytkowy",
+      "wadium_deadline": "2026-08-04",
+      "viewing_date": "2026-07-28",
+      "round": 1
+    },
+    {
       "kind": "garaz",
-      "address_raw": "Kozielska 13 garaz nr 1",
+      "address_raw": "Kozielska 13 garaż nr 1",
       "address": {
         "street": "Kozielska",
         "street_norm": "kozielska",
@@ -136,26 +156,6 @@
       "auction_date": "2026-08-10",
       "area_m2": 29.07,
       "starting_price_pln": 167500,
-      "round": 1,
-      "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-10082026-ul-galczynskiego-111-ul-staszica-131-ul-styczynskiego-1413-ul-zygmunta-starego-294-ul-stalmacha-73-ul-bl-czeslawa-483-lokale-mieszkalne-ul-kozielska-13-garaz-nr-1-ul-zwyciestwa-349a-lokal-uzytkowy",
-      "source": "bip",
-      "wadium_deadline": null,
-      "viewing_date": null
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "BŁOGOSŁAWIONEGO CZESŁAWA 48/3",
-      "address": {
-        "street": "BŁOGOSŁAWIONEGO CZESŁAWA",
-        "street_norm": "blogoslawionego czeslawa",
-        "building": "48",
-        "apt": "3",
-        "key": "blogoslawionego czeslawa|48|3",
-        "warning": null
-      },
-      "auction_date": "2026-08-10",
-      "area_m2": 31.44,
-      "starting_price_pln": 146100,
       "round": 1,
       "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-10082026-ul-galczynskiego-111-ul-staszica-131-ul-styczynskiego-1413-ul-zygmunta-starego-294-ul-stalmacha-73-ul-bl-czeslawa-483-lokale-mieszkalne-ul-kozielska-13-garaz-nr-1-ul-zwyciestwa-349a-lokal-uzytkowy",
       "source": "bip",
