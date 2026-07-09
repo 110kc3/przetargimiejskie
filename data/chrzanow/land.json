@@ -3,66 +3,98 @@
   "city": "chrzanow",
   "plots": [
     {
-      "key": "dz|balin|64/2",
+      "key": "dz|pogorzyce|49/283",
       "kind": "grunt",
       "city": "chrzanow",
-      "dzialka_nr": "64/2",
-      "obreb": "Balin",
+      "dzialka_nr": "49/283",
+      "obreb": "Pogorzyce",
       "street": null,
       "building": null,
-      "address_raw": null,
+      "address_raw": "ul. Borowcowej",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2064%2F2%20Balin%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 2257,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F283%20ul.%20Borowcowej%20Pogorzyce%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 912,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-06-24",
+          "date": "2026-10-01",
           "round": 1,
-          "starting_price_pln": 260000,
-          "outcome": "archived",
-          "area_m2": 2257,
-          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2872353,przetarg-ustny-na-sprzedaz-nieruchomosci-obejmujacej-dzialke-nr-642-obr-balin-ograniczony-do-wlascic.html",
-          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2872353,przetarg-ustny-na-sprzedaz-nieruchomosci-obejmujacej-dzialke-nr-642-obr-balin-ograniczony-do-wlascic.html"
+          "starting_price_pln": 135000,
+          "outcome": "active",
+          "area_m2": 912,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2904444,przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanych-nieruchomosci-polozonych-w-rejonie-ul-boro.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2904444,przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanych-nieruchomosci-polozonych-w-rejonie-ul-boro.html"
         }
       ],
       "parcels": [
         {
-          "nr": "64/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2064%2F2%20Balin%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+          "nr": "49/283",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F283%20Pogorzyce%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
     {
-      "key": "dz|chrzanów|3546/492",
+      "key": "dz|pogorzyce|49/284",
       "kind": "grunt",
       "city": "chrzanow",
-      "dzialka_nr": "3546/492",
-      "obreb": "Chrzanów",
+      "dzialka_nr": "49/284",
+      "obreb": "Pogorzyce",
       "street": null,
       "building": null,
-      "address_raw": "ul. Oświęcimskiej",
+      "address_raw": "ul. Borowcowej",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203546%2F492%20ul.%20O%C5%9Bwi%C4%99cimskiej%20Chrzan%C3%B3w%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 441,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F284%20ul.%20Borowcowej%20Pogorzyce%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 972,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-06-24",
+          "date": "2026-10-01",
           "round": 1,
-          "starting_price_pln": 160000,
-          "outcome": "archived",
-          "area_m2": 441,
-          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2872372,przetarg-na-sprzedaz-lokalu-mieszkalnego-ul-oswiecimska-153-w-chrzanowie.html",
-          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2872372,przetarg-na-sprzedaz-lokalu-mieszkalnego-ul-oswiecimska-153-w-chrzanowie.html"
+          "starting_price_pln": 145000,
+          "outcome": "active",
+          "area_m2": 972,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2904444,przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanych-nieruchomosci-polozonych-w-rejonie-ul-boro.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2904444,przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanych-nieruchomosci-polozonych-w-rejonie-ul-boro.html"
         }
       ],
       "parcels": [
         {
-          "nr": "3546/492",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203546%2F492%20Chrzan%C3%B3w%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+          "nr": "49/284",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F284%20Pogorzyce%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|pogorzyce|138/321",
+      "kind": "grunt",
+      "city": "chrzanow",
+      "dzialka_nr": "138/321",
+      "obreb": "Pogorzyce",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Borowcowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%2F321%20ul.%20Borowcowej%20Pogorzyce%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1769,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-01",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1769,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2904478,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-przy-ul-borowcowej-w-chrzanowie-dz.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2904478,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-przy-ul-borowcowej-w-chrzanowie-dz.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "138/321",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%2F321%20Pogorzyce%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
         }
       ]
     }
