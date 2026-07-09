@@ -30,6 +30,99 @@
       "parcels": []
     },
     {
+      "key": "dz|1921/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1921/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1921/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.796805126171652%2C50.39492170492029%2C18.797414489146103%2C50.39533813473651&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.310dba7b-b0f5-402e-9ed8-3b1f91d82226",
+      "area_m2": 1067,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 2,
+          "starting_price_pln": 99000,
+          "outcome": "active",
+          "area_m2": 1067,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1921_182,24239.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1921/182"
+        }
+      ]
+    },
+    {
+      "key": "dz|1927/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1927/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1927/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.79675561497683%2C50.39451717210785%2C18.79730209367603%2C50.39483128934408&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.3934f128-5b18-4dd6-a940-9cf7f0ec27f1",
+      "area_m2": 826,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 2,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 826,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1927_182,24238.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1927/182"
+        }
+      ]
+    },
+    {
+      "key": "dz|1920/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1920/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1920/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.796359255985383%2C50.39483417496175%2C18.797063754367183%2C50.395216663297624&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.8d137941-a0e6-42d5-a839-ae879d8f781b",
+      "area_m2": 1133,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-06",
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1133,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1920_182,24240.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1920/182"
+        }
+      ]
+    },
+    {
       "key": "addr|świętych cyryla i metodego",
       "kind": "grunt",
       "city": "bytom",
@@ -120,60 +213,6 @@
       "parcels": []
     },
     {
-      "key": "addr|juliana fałata",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Juliana Fałata",
-      "building": null,
-      "address_raw": "Juliana Fałata",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.91549142477644%2C50.35493201883463%2C18.916050435049907%2C50.35532967043941&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.39a00940-8876-4221-9722-0ddcfc09449e",
-      "area_m2": 525,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-08",
-          "round": 3,
-          "starting_price_pln": 61500,
-          "outcome": "archived",
-          "area_m2": 525,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Falata-dz.-60-565-568-5,22793.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|zabrzańska 91",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Zabrzańska 91",
-      "building": null,
-      "address_raw": "Zabrzańska 91",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.88902445199216%2C50.33735940402824%2C18.889538320623796%2C50.337692571962826&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.ed07b6c0-dd06-4ca5-b5a1-ad582079de32",
-      "area_m2": 1148,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-07",
-          "round": 1,
-          "starting_price_pln": 1000000,
-          "outcome": "archived",
-          "area_m2": 1148,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zabrzanska-91,23508.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "addr|bolesława prusa 31a",
       "kind": "grunt",
       "city": "bytom",
@@ -199,126 +238,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "addr|kędzierzyńska",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Kędzierzyńska",
-      "building": null,
-      "address_raw": "Kędzierzyńska",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.942820541971013%2C50.35863193906746%2C18.94396718208241%2C50.35944627571556&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.7861e383-4737-45e6-ac52-24825a5486f1",
-      "area_m2": 2671,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-06",
-          "round": 1,
-          "starting_price_pln": 830000,
-          "outcome": "archived",
-          "area_m2": 2671,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Kedzierzynska,23537.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|1922/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1922/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1922/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.797145280757114%2C50.395019996992374%2C18.797878982905313%2C50.39548421775014&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.e8be8caa-aac7-4778-9ae3-4b50ec294e67",
-      "area_m2": 1451,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-02",
-          "round": 2,
-          "starting_price_pln": 134000,
-          "outcome": "archived",
-          "area_m2": 1451,
-          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-nieruchomosci-niezabudowane/ul.-Zgrzebnioka-dzialka-nr-1922182/idn:13423",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1922/182"
-        }
-      ]
-    },
-    {
-      "key": "dz|1923/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1923/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1923/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.797554205263193%2C50.39515023393747%2C18.798165224183325%2C50.39560921724589&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.8f5db924-7b96-436e-88db-f66801d8930d",
-      "area_m2": 1208,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-02",
-          "round": 2,
-          "starting_price_pln": 96500,
-          "outcome": "archived",
-          "area_m2": 1208,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1923_182,23843.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1923/182"
-        }
-      ]
-    },
-    {
-      "key": "dz|266/33",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "266/33",
-      "obreb": null,
-      "street": "Stefana Żeromskiego",
-      "building": null,
-      "address_raw": "Stefana Żeromskiego dz. 266/33",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.921817263390796%2C50.35198959261786%2C18.921985716438662%2C50.35218638314303&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.214bea01-2a70-412a-a281-d29d0bdf17b3",
-      "area_m2": 144,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-30",
-          "round": 2,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 144,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zeromskiego-266_33,23839.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "266/33"
-        }
-      ]
     }
   ]
 }
