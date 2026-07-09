@@ -4,8 +4,8 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 337,
-    "pending": 43
+    "done": 349,
+    "pending": 31
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
@@ -17,8 +17,8 @@
       "pending": 2
     },
     "warminsko-mazurskie": {
-      "done": 19,
-      "pending": 2
+      "done": 20,
+      "pending": 1
     },
     "lodzkie": {
       "done": 21,
@@ -33,24 +33,24 @@
       "pending": 2
     },
     "mazowieckie": {
-      "done": 36,
-      "pending": 6
+      "done": 37,
+      "pending": 5
     },
     "zachodniopomorskie": {
-      "done": 18,
-      "pending": 3
+      "done": 20,
+      "pending": 1
     },
     "podkarpackie": {
       "done": 25,
       "pending": 0
     },
     "malopolskie": {
-      "done": 20,
-      "pending": 2
+      "done": 21,
+      "pending": 1
     },
     "dolnoslaskie": {
-      "done": 26,
-      "pending": 4
+      "done": 27,
+      "pending": 3
     },
     "opolskie": {
       "done": 12,
@@ -61,16 +61,16 @@
       "pending": 1
     },
     "pomorskie": {
-      "done": 19,
-      "pending": 1
+      "done": 20,
+      "pending": 0
     },
     "wielkopolskie": {
-      "done": 28,
-      "pending": 7
+      "done": 31,
+      "pending": 4
     },
     "lubuskie": {
-      "done": 9,
-      "pending": 5
+      "done": 11,
+      "pending": 3
     }
   },
   "cities": [
@@ -3127,7 +3127,7 @@
       "powiat_slug": "powiat-sulecinski",
       "city_slug": "sulecin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md"
     },
     {
@@ -3137,7 +3137,7 @@
       "powiat_slug": "powiat-suski",
       "city_slug": "sucha-beskidzka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md"
     },
     {
@@ -3168,7 +3168,7 @@
       "powiat_slug": "powiat-szamotulski",
       "city_slug": "szamotuly",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md"
     },
     {
@@ -3188,7 +3188,7 @@
       "powiat_slug": "powiat-szczecinecki",
       "city_slug": "szczecinek",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md"
     },
     {
@@ -3198,7 +3198,7 @@
       "powiat_slug": "powiat-szczycienski",
       "city_slug": "szczytno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md"
     },
     {
@@ -3208,7 +3208,7 @@
       "powiat_slug": "powiat-sztumski",
       "city_slug": "sztum",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/pomorskie/powiat-sztumski/sztum.md"
     },
     {
@@ -3218,7 +3218,7 @@
       "powiat_slug": "powiat-szydlowiecki",
       "city_slug": "szydlowiec",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-szydlowiecki/szydlowiec.md"
     },
     {
@@ -3228,7 +3228,7 @@
       "powiat_slug": "powiat-sredzki",
       "city_slug": "sroda-wielkopolska",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md"
     },
     {
@@ -3238,7 +3238,7 @@
       "powiat_slug": "powiat-sredzki",
       "city_slug": "sroda-slaska",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-sredzki/sroda-slaska.md"
     },
     {
@@ -3248,7 +3248,7 @@
       "powiat_slug": "powiat-sremski",
       "city_slug": "srem",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-sremski/srem.md"
     },
     {
@@ -3280,7 +3280,7 @@
       "powiat_slug": "powiat-swidwinski",
       "city_slug": "swidwin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-swidwinski/swidwin.md"
     },
     {
@@ -3290,7 +3290,7 @@
       "powiat_slug": "powiat-swiebodzinski",
       "city_slug": "swiebodzin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-swiebodzinski/swiebodzin.md"
     },
     {

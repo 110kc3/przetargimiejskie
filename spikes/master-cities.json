@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-09",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 293,
+  "total": 305,
   "cities": [
     {
       "id": "boleslawiec",
@@ -4534,6 +4534,198 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "FINN eBIP (bip.gmstrzelin.finn.pl) — clean per-year Ogloszenia boards + born-digital PDF results stream, but auction stream is 100% land (verified 2024/2025/2026, 0 flat auctions); flats sold bezprzetargowo na rzecz najemcy (8 lokale / 119784 zl tranche). Great source, wrong asset class."
+      }
+    },
+    {
+      "id": "sucha-beskidzka",
+      "label": "Sucha Beskidzka",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-suski",
+      "powiat_label": "powiat suski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Interaktywna Polska server-HTML board (bip.malopolska/suchabeskidzka mirror) + born-digital PDF notices; recurring open oral flat auction os. Beskidzkie 1/9 cycling I->II->III. Achieved-price stream on bip.malopolska JS-SPA (optional render pass). Low volume. Analog: bochnia/olkusz custom-HTML PDF-attachment."
+      }
+    },
+    {
+      "id": "szczecinek",
+      "label": "Szczecinek",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-szczecinecki",
+      "powiat_label": "powiat szczecinecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Logonet hosted-BIP CMS (v2.9.0) on bip.szczecinek.pl — same family as tarnowskie-gory/kedzierzyn-kozle/skarzysko-kamienna. Open oral flat auctions confirmed (Narutowicza 3E/9 160k zl, Koszalinska 58/2, IV/II-round wolny lokal mieszkalny, spoldzielcze prawo) in land-dominated mixed stream ~2-3 flats/yr; zbycie board id336 (years 645/595/547) + dedicated results board id338 with achieved prices; inline HTML + born-digital PDF. Town disambiguated from rural bip.gminaszczecinek.pl."
+      }
+    },
+    {
+      "id": "sulecin",
+      "label": "Sulęcin",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-sulecinski",
+      "powiat_label": "powiat sulęciński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-sulecinski/sulecin.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "bip.sulecin.pl runs SYSTEMDOBIP.PL (E-LINE) — same CMS family as built gorzow-wielkopolski adapter (numeric-id boards /481,/461 + HTML stub + born-digital PDF attachments). Flat auctions confirmed but sporadic (Rychlik 16B I/II, Zubrowo 2025, 2026-06-17 designation); 2024 land-only. Notices PDF (pdfText). Caveat: no confirmed wyniki/achieved-price board (announcements + cena wywolawcza only). Clone gorzow = Low effort; low-priority coverage build."
+      }
+    },
+    {
+      "id": "sztum",
+      "label": "Sztum",
+      "voivodeship": "pomorskie",
+      "powiat_slug": "powiat-sztumski",
+      "powiat_label": "powiat sztumski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/pomorskie/powiat-sztumski/sztum.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Numeric-page-id server-HTML BIP (bip.sztum.pl, template4 family, NNNN.html?file=NNNN born-digital PDFs; same platform as bip.malbork.pl). Confirmed OPEN oral flat auctions: Nowowiejskiego 18/1A I+II przetarg (result PDF file=19550: Cena wywolawcza 271000 zl, Najwyzsza cena osiagnieta, wynikiem negatywnym), plus Jagielly 6/6, Zeromskiego 24A/3. Clean born-digital text PDFs w/ structured achieved-price via pdfText. Single MIXED land-dominated board needs classify/route; flats low-volume; incomplete TLS needs tolerant fetch. New CMS family -> Medium; handling analog slupsk/zgorzelec. NOT bip.powiatsztumski.pl (Starostwo)."
+      }
+    },
+    {
+      "id": "szczytno",
+      "label": "Szczytno",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-szczycienski",
+      "powiat_label": "powiat szczycieński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Town BIP bip.um.szczytno.pl (vendor server-rendered CMS: Bootstrap+DataTables+reCAPTCHA, /artykul/slug boards + Lista artykulow table + Zalaczniki DOC/PDF). Flats reach OPEN przetarg ustny nieograniczony (Zeromskiego 3/4, Dabrowskiego 4/4a; Odrodzenia 36 sold-result) alongside larger land stream + working informacja-o-wyniku price board. Medium: notice body always in .doc/.pdf attachment (docText/pdfText) + host 403s bot UA (browser UA needed). Low flat volume. Analog: IDcom board crawl + attachment extraction. Disambiguated from rural bip.ug.szczytno.pl + Szczytna dolnoslaskie."
+      }
+    },
+    {
+      "id": "szamotuly",
+      "label": "Szamotuły",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-szamotulski",
+      "powiat_label": "powiat szamotulski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "React SPA + Symfony JSON API (eBIP-style, Wielkopolska); bypass SPA via /api/menu/{id}/articles?archived=1 + /api/articles/{id} (inline HTML, no Playwright). Single mixed board 1247 (470 archived) = announcements + Informacja o wyniku results. Confirmed open oral FLAT auctions (spoldzielcze wl. prawo, Kolarska 9/25 56,50m2, I-IV rounds) but low ~1-2/yr; land-dominated + few lokale uzytkowe. Analog: Logonet menu/articles crawl (tarnowskie-gory) minus PDF. No blockers."
+      }
+    },
+    {
+      "id": "sroda-wielkopolska",
+      "label": "Środa Wielkopolska",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-sredzki",
+      "powiat_label": "powiat średzki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "IDcom.pl BIP (bip.umsroda.pl) — clean server-rendered HTML; dedicated Ogloszenia o przetargach board + separate Wyniki przetargow board (cena osiagnieta) + Wykazy. Flat auctions confirmed (Gorki 7/2 36.10m2 80k zl; Westerplatte 9/13 I+II Jan 2026; Daszynskiego 20/14; Brzeziak Debicz) but minority in land-heavy stream — classify/filter. Analog: Gniezno (same woj, same IDcom CMS). No auth/CAPTCHA. Effort Low-Medium."
+      }
+    },
+    {
+      "id": "sroda-slaska",
+      "label": "Środa Śląska",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-sredzki",
+      "powiat_label": "powiat średzki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-sredzki/sroda-slaska.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "e-bip.eu hosted PHP CMS (bip.srodaslaska.pl, mirror umsrodaslaska.e-bip.eu); property board id=173 with HTML metadata pages + born-digital PDF attachments. Confirmed open oral flat auction pl. Wolnosci 10 lokal nr 4 86.31m2 (II round) + land. No ZGM — UM sells directly; wynik stream on same board. Medium: id=173 renders as search form (enumerate via ostatnio_dodane feed + direct p2 IDs), terms in PDFs. Analog: IDcom tczew/gniezno."
+      }
+    },
+    {
+      "id": "szydlowiec",
+      "label": "Szydłowiec",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-szydlowiecki",
+      "powiat_label": "powiat szydłowiecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-szydlowiecki/szydlowiec.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "SystemDoBIP (E-LINE) server-HTML BIP bip.szydlowiec.pl — same CMS family as BUILD analogs nidzica/ilawa/krosno-odrzanskie. OPEN flat auctions confirmed (Staszica 13 & 15/2 przetarg ustny nieograniczony na lokal mieszkalny). Board menu 44 /Komunikaty_i_ogloszenia/, detail /44/<id>/<slug>/; announcements inline HTML + PDF, wynik przetargu born-digital PDF (pdfText). Mixed general board + low ~2-5/yr volume; no ZGM; no blockers."
+      }
+    },
+    {
+      "id": "swiebodzin",
+      "label": "Świebodzin",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-swiebodzinski",
+      "powiat_label": "powiat świebodziński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubuskie/powiat-swiebodzinski/swiebodzin.md",
+      "spike": {
+        "wave": "G",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "SystemDoBIP.pl CMS (clean server-HTML, easy) but wrong dataset: recent przetargi land/written-tender dominated, flat auctions only historical (~2017-18) and flats go bezprzetargowo to tenants; NO achieved-price stream (rozstrzygniete board republishes only announcement, no cena osiagnieta/nabywca — verified przetarg 192 & 318). STBS exists but not an open-flat-auction publisher."
+      }
+    },
+    {
+      "id": "srem",
+      "label": "Śrem",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-sremski",
+      "powiat_label": "powiat śremski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-sremski/srem.md",
+      "spike": {
+        "wave": "G",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "iBIP CMS (bip.eur.pl/bip6.ibip.pl, /public/?id=NNNN) on bip.srem.pl — new-to-fleet CMS shape. Recurring OPEN oral flat auctions by Burmistrz Sremu (Ogrodowa 31/16, Grota Roweckiego 4/61, Mickiewicza 29/4 & 71/6, Modrzewskiego 4/10), wykaz + informacja o wyniku przetargu on one board id=1162. Medium: no clone analog + shared-hosting TLS cert mismatch (cert=bip6.ibip.pl) needs per-host fetch tweak. Not powiat Starostwo bip.powiat-srem.pl."
+      }
+    },
+    {
+      "id": "swidwin",
+      "label": "Świdwin",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-swidwinski",
+      "powiat_label": "powiat świdwiński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/zachodniopomorskie/powiat-swidwinski/swidwin.md",
+      "spike": {
+        "wave": "G",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "biuletyn.net (INTERmedi@ CMS-BIP 3.0), town swidwin.biuletyn.net cid=1191. Open oral auctions exist (Nr 3-9/2026) but both sampled OCR'd notices are 100% LAND (dzialki budowlane 'dla mlodych', obreb 012); zero flat auctions. Notices scanned-image PDFs (pdftotext=2 bytes, OCR-only); no wynik board. No town ZGM/TBS; flats bezprzetargowo na rzecz najemcy. Double blocker; matches Lancut/Sanok land-only biuletyn.net NO-BUILDs."
       }
     }
   ]
