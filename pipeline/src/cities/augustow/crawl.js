@@ -37,6 +37,7 @@ import {
   parseListPage,
   isResultNoticeTitle,
   attachmentUrlFromDetail,
+  parseAnnouncementDetail,
 } from './parse.js';
 
 const ORIGIN = 'https://bip.um.augustow.pl';
@@ -88,15 +89,19 @@ async function crawlBoard(base, maxPages, label) {
       const key = it.detail_url;
       if (seenKeys.has(key)) continue;
       seenKeys.add(key);
+      // Placeholder: address/area/price/date are filled by the detail-page
+      // enrichment pass in crawlAll() (parseAnnouncementDetail). If enrichment
+      // fails for a listing this null-filled object is kept as-is so the drop is
+      // visible in buildCityData's WARN rather than silently vanishing.
       listings.push({
         kind: it.kind,
-        address_raw: null,   // not in list title for Augustów multi-flat announcements
-        address: null,       // parsed from detail page body on first CI run
-        auction_date: null,  // in detail page body text
+        address_raw: null,
+        address: null,
+        auction_date: null,
         published_date: it.published_date,
         round: it.round,
-        area_m2: null,       // in detail page body text
-        starting_price_pln: null, // in detail page body text
+        area_m2: null,
+        starting_price_pln: null,
         detail_url: it.detail_url,
       });
       newFlats++;
@@ -153,6 +158,30 @@ async function crawlAll() {
     resultRefs.push(r);
   }
 
+  // ---- enrich flat announcements from their detail pages ---------------------
+  // The list title carries no address/area/price — those live in the detail body.
+  // Each announcement expands into N per-lokal records (see parseAnnouncementDetail).
+  // On fetch/parse failure we keep the original null-filled listing so the
+  // buildCityData "dropped … no parsed .address" WARN reflects the real gap.
+  const enrichedListings = [];
+  for (const l of listings) {
+    let detailHtml;
+    try {
+      detailHtml = await getText(l.detail_url);
+    } catch (err) {
+      console.error(`  augustow detail fetch failed (${l.detail_url}): ${err.message}`);
+      enrichedListings.push(l);
+      continue;
+    }
+    const recs = parseAnnouncementDetail(detailHtml, l);
+    if (recs.length === 0) {
+      console.error(`  augustow: detail parse yielded 0 flat records (${l.detail_url})`);
+      enrichedListings.push(l);
+      continue;
+    }
+    enrichedListings.push(...recs);
+  }
+
   // ---- fetch result notice PDFs (second pass) --------------------------------
   const resolvedRefs = [];
   for (const ref of resultRefs) {
@@ -186,10 +215,10 @@ async function crawlAll() {
   }
 
   console.error(
-    `  augustow: ${listings.length} flat listing(s) total, ` +
+    `  augustow: ${enrichedListings.length} flat record(s) from ${listings.length} announcement(s), ` +
     `${resolvedRefs.length} result PDF(s) resolved`,
   );
-  return { listings, resolvedRefs };
+  return { listings: enrichedListings, resolvedRefs };
 }
 
 /** Active flat auction listings. */

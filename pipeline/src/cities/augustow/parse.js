@@ -190,6 +190,130 @@ export function isResultNoticeTitle(title) {
   return /informacja\s+o\s+wynikach/i.test(title || '');
 }
 
+// ---- announcement detail-page parser ----------------------------------------
+//
+// The list title carries NO address/area/price for Augustów flat announcements —
+// those live in the detail page BODY (server-rendered HTML, no PDF needed). The
+// body follows a numbered per-lokal template:
+//
+//   BURMISTRZ MIASTA AUGUSTOWA ogłasza [ordinal] przetarg ustny nieograniczony
+//   na sprzedaż nieruchomości położonych w Augustowie, przy Rynku Zygmunta Augusta 16:
+//     1) lokal mieszkalny Nr 1 [o|o pow.] 62,87 m kw, … Cena wywoławcza 280 700,00 zł. …
+//     2) lokal mieszkalny Nr 3 [o|o pow.] 46,05 m kw, … Cena wywoławcza 217 500,00 zł. …
+//   Przetarg odbędzie się dnia 09 września 2024 r. …
+//
+// So ONE announcement expands into N flat records (one per lokal), each keyed to a
+// distinct apt (Nr) so two flats in one building never collide. Groundtruthed on
+// four live fixtures (2017/2023/2024, 2–3 lokale each) 2026-07-09.
+
+function htmlToText(html) {
+  return (html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&oacute;/gi, 'ó')
+    .replace(/&amp;/gi, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Base street + building from the announcement header
+ * "…na sprzedaż nieruchomości położonych w Augustowie, przy Rynku Zygmunta Augusta 16:".
+ * Handles "przy Rynku <Name> <bldg>" (Rynek genitive → nominative) and
+ * "przy [ul.] <Street> <bldg>". Returns { streetPrefix, building } or null.
+ */
+export function announcementBaseAddress(text) {
+  if (!text) return null;
+  const m = /przy\s+(Rynku?\s+[A-ZŻŹĆŁŚĄĘÓŃ][^\n,:(]{2,50}?|(?:ul\.?\s+)?[A-ZŻŹĆŁŚĄĘÓŃ][^\n,:(]{2,50}?)\s+(\d+[A-Za-z]?)\s*[:(,]/i.exec(text);
+  if (!m) return null;
+  let street = m[1].trim().replace(/^Rynku\b/i, 'Rynek');
+  if (!/^(rynek|ul\.|al\.|pl\.|os\.|plac|rynek)/i.test(street)) street = 'ul. ' + street;
+  return { streetPrefix: street, building: m[2] };
+}
+
+/** Auction date from "Przetarg odbędzie się dnia DD <month> YYYY r." (spelled-out
+ *  or numeric "DD.MM.YYYY"). */
+export function auctionDateFromAnnouncementText(text) {
+  if (!text) return null;
+  const numM = /przetarg\s+odb[ęe]dzie\s+si[ęe]\s+(?:w\s+dniu\s+|dnia\s+)?(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  if (numM) return iso(numM[3], numM[2], numM[1]);
+  const wordM = /przetarg\s+odb[ęe]dzie\s+si[ęe]\s+(?:w\s+dniu\s+|dnia\s+)?(\d{1,2})\s+([a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)\s+(\d{4})/i.exec(text);
+  if (wordM) {
+    const mo = PL_MONTHS[normPL(wordM[2])];
+    if (mo) return iso(wordM[3], mo, wordM[1]);
+  }
+  return null;
+}
+
+/**
+ * Parse an announcement detail page into per-lokal flat records.
+ * @param {string} html   raw detail-page HTML
+ * @param {{detail_url?:string, published_date?:string, round?:number|null, kind?:string}} [ctx]
+ *   context carried from the list page (round/date fall back to body-parsed values)
+ * @returns {Array<{kind,address,address_raw,auction_date,published_date,round,area_m2,starting_price_pln,detail_url}>}
+ */
+export function parseAnnouncementDetail(html, ctx = {}) {
+  const text = htmlToText(html);
+  const base = announcementBaseAddress(text);
+  if (!base) return [];
+
+  const auction_date = auctionDateFromAnnouncementText(text);
+  const round = ctx.round ?? roundFromText(text);
+  const kind = ctx.kind || 'mieszkalny';
+  const detail_url = ctx.detail_url || null;
+  const published_date = ctx.published_date || null;
+
+  const out = [];
+  // Per-lokal block: "lokal mieszkalny Nr N [o|o pow.] AREA m kw". The piwnica
+  // ("piwnicą Nr N o pow. 3,87 m kw") does NOT start with "lokal mieszkaln", so it
+  // is never captured as a flat.
+  const blockRe = /lokal\s+mieszkaln\w*\s+Nr\s+(\d+[A-Za-z]?)\s+o\s+(?:pow\.?\s*)?(\d+[,.]\d+)\s*m\s*(?:kw|[²2])/gi;
+  const hits = [];
+  let m;
+  while ((m = blockRe.exec(text)) !== null) {
+    hits.push({ apt: m[1], area: m[2], idx: m.index });
+  }
+  for (let i = 0; i < hits.length; i++) {
+    const end = i + 1 < hits.length ? hits[i + 1].idx : hits[i].idx + 600;
+    const seg = text.slice(hits[i].idx, end);
+    const pm = /cena\s+wywo[łl]awcza\s*:?\s*([\d\s.,]+)\s*z[łl]/i.exec(seg);
+    const address = parseAddress(`${base.streetPrefix} ${base.building}/${hits[i].apt}`);
+    if (!address) continue;
+    out.push({
+      kind,
+      address,
+      address_raw: `${address.street} ${address.building}${address.apt ? '/' + address.apt : ''}`,
+      auction_date,
+      published_date,
+      round: round ?? null,
+      area_m2: parseArea(hits[i].area),
+      starting_price_pln: pm ? parsePLN(pm[1]) : null,
+      detail_url,
+    });
+  }
+
+  // Single-flat announcement with no numbered list → one record from the body.
+  if (out.length === 0) {
+    const address = parseAddress(`${base.streetPrefix} ${base.building}`);
+    if (address) {
+      out.push({
+        kind,
+        address,
+        address_raw: `${address.street} ${address.building}`,
+        auction_date,
+        published_date,
+        round: round ?? null,
+        area_m2: areaFromResultText(text),
+        starting_price_pln: startingPriceFromResultText(text),
+        detail_url,
+      });
+    }
+  }
+  return out;
+}
+
 // ---- attachment URL extraction from a detail page --------------------------
 
 /**

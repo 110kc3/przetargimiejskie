@@ -12,6 +12,8 @@ import {
   roundFromText, isResultNotice, auctionDateFromResultText,
   startingPriceFromResultText, achievedPriceFromResultText,
   addressFromResultText, areaFromResultText, parseResultDoc,
+  parseAnnouncementDetail, announcementBaseAddress,
+  auctionDateFromAnnouncementText,
 } from '../src/cities/augustow/parse.js';
 
 // SmartSite Augustow list-item shape (groundtruthed 2026-06-29)
@@ -326,4 +328,59 @@ test('parseResultDoc: non-result text returns []', function() {
     parseResultDoc('Ogloszenie o przetargu na sprzedaz lokalu mieszkalnego', null, SRC),
     []
   );
+});
+
+// --- announcement detail-page parser (multi-flat expansion) ------------------
+// Detail body carries address/area/price/date the list title lacks. Groundtruthed
+// on live fixtures 2026-07-09: Rynek Zygmunta Augusta 16 → lokal 1 (62.87m2,
+// 280700) + lokal 3 (46.05m2, 217500), auction 2024-09-09. The piwnica line
+// ("piwnicą Nr 1 o pow. 3,87 m kw") must NOT be captured as a flat.
+const DETAIL_2FLAT =
+  '<html><head><script>var x=1;</script></head><body>' +
+  '<h1>Ogłoszenie</h1>' +
+  '<div class="content"><p>BURMISTRZ MIASTA AUGUSTOWA ogłasza pierwszy przetarg ustny ' +
+  'nieograniczony na sprzedaż nieruchomości położonych w Augustowie, przy Rynku Zygmunta Augusta 16:</p>' +
+  '<p>1) lokal mieszkalny Nr 1 o 62,87 m kw, położony na I piętrze, wraz z przynależnym ' +
+  'do tego lokalu pomieszczeniem – piwnicą Nr 1 o pow. 3,87 m kw, wraz z udziałem. ' +
+  'Cena wywoławcza 280 700,00 zł. Wadium 30 000,00 zł.</p>' +
+  '<p>2) lokal mieszkalny Nr 3 o pow. 46,05 m kw, położony na II piętrze, wraz z przynależnym ' +
+  'do tego lokalu pomieszczeniem – piwnicą Nr 3 o pow. 4,70 m kw. ' +
+  'Cena wywoławcza 217 500,00 zł. Wadium 20 000,00 zł.</p>' +
+  '<p>Przetarg odbędzie się dnia 09 września 2024 r. o godz. 10:00.</p></div></body></html>';
+
+test('parseAnnouncementDetail: expands a 2-flat announcement into 2 keyed records', function() {
+  const recs = parseAnnouncementDetail(DETAIL_2FLAT, {
+    detail_url: 'https://bip.um.augustow.pl/x/flat.html',
+    published_date: '2024-08-08',
+    round: 1,
+  });
+  assert.equal(recs.length, 2);
+  const byApt = Object.fromEntries(recs.map((r) => [r.address.apt, r]));
+
+  assert.equal(byApt['1'].address.key, 'rynek zygmunta augusta|16|1');
+  assert.equal(byApt['1'].area_m2, 62.87);
+  assert.equal(byApt['1'].starting_price_pln, 280700);
+  assert.equal(byApt['1'].auction_date, '2024-09-09');
+  assert.equal(byApt['1'].round, 1);
+  assert.equal(byApt['1'].published_date, '2024-08-08');
+  assert.equal(byApt['1'].detail_url, 'https://bip.um.augustow.pl/x/flat.html');
+
+  assert.equal(byApt['3'].address.key, 'rynek zygmunta augusta|16|3');
+  assert.equal(byApt['3'].area_m2, 46.05);        // NOT the 4.70 piwnica area
+  assert.equal(byApt['3'].starting_price_pln, 217500);
+});
+
+test('parseAnnouncementDetail: no address in body → []', function() {
+  assert.deepEqual(parseAnnouncementDetail('<p>Brak treści ogłoszenia.</p>', {}), []);
+});
+
+test('announcementBaseAddress: normalizes "przy Rynku …" to nominative Rynek', function() {
+  const b = announcementBaseAddress('… przy Rynku Zygmunta Augusta 16: 1) lokal');
+  assert.equal(b.streetPrefix, 'Rynek Zygmunta Augusta');
+  assert.equal(b.building, '16');
+});
+
+test('auctionDateFromAnnouncementText: spelled-out and numeric', function() {
+  assert.equal(auctionDateFromAnnouncementText('Przetarg odbędzie się dnia 09 września 2024 r.'), '2024-09-09');
+  assert.equal(auctionDateFromAnnouncementText('Przetarg odbędzie się w dniu 12.09.2017 r.'), '2017-09-12');
 });

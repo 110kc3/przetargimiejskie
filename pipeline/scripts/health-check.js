@@ -105,11 +105,10 @@ const EXEMPT_NEW = new Map([
   // properties (see the header note; a future drop to 0 now correctly FAILs).
   // gdansk moved to LEGIT_EMPTY (2026-07-07): empty-by-design, not a settling
   // adapter, so an expiring exemption would false-FAIL it at the ~07-23 cliff.
-  // Real bug (not empty): crawls 4 flat stubs but the detail-page enrichment the
-  // crawl comments promise ("parsed from detail page body on first CI run") was
-  // never implemented — every listing is all-null and drops. Detail pages DO
-  // carry address + cena wywoławcza (verified live 07-07). Needs a body parser.
-  ['augustow', { since: '2026-07-07', reason: 'BUG: 4 flat stubs, detail-page enrichment never implemented → all-null listings dropped; needs a detail-body parser (data present on detail pages)' }],
+  // augustow FIXED + REMOVED 2026-07-09: the missing detail-page enrichment now
+  // exists (parseAnnouncementDetail + crawlAll enrichment pass) — the 4 stubs
+  // expand into 9 flat records → 3 unique properties committed, so no exemption
+  // is needed. Adapter stands on its own data now.
   // busko-zdroj moved to LEGIT_EMPTY (2026-07-07): live-verified the adapter
   // parses correctly — the current board is a land-only auction (no flat), so
   // 0 flat records is right, not a broken parser. It's empty-between-flats, not

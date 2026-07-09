@@ -148,19 +148,19 @@ result notices. The infrastructure all works:
   - **Data lands on the next CI refresh** (all three verified live end-to-end);
     EXEMPT_NEW reasons updated + `since` reset until committed data is non-empty,
     then remove the entries.
-- **augustow — real bug, NOT LEGIT_EMPTY (corrected 2026-07-07):** the proactive
-  scan (unique=0 with active_listings>0) caught it — last session it was wrongly
-  parked in `LEGIT_EMPTY`. `crawlActive` collects 4 flat stubs but the detail-
-  page enrichment its own comments promise ("parsed from detail page body on
-  first CI run", `augustow/crawl.js:94-99`) was **never implemented**, so every
-  listing is all-null (no address/price/area) and drops in the build. The detail
-  pages DO carry the data — verified live 07-07 (e.g. *Rynek Zygmunta Augusta 16,
-  lokal mieszkalny nr 1 & 3*, with "cena wywoławcza" + street). **Fix:** add an
-  `enrichFromDetailPage` step (fetch each `detail_url`, parse the body for
-  address/price/area/auction_date, `parseAddress()` the address) — MUST handle
-  multi-flat announcement pages (nr 1 & nr 3 → two records). Moved to EXEMPT_NEW
-  meanwhile. Est. medium (needs a new augustow detail-body parser + a fixture
-  test).
+- **augustow — FIXED 2026-07-09 (0→3 unique properties):** the missing detail-page
+  enrichment now exists. `parse.js` gained `parseAnnouncementDetail` (per-lokal
+  address/area/price/auction-date from the detail BODY — no PDF needed) + helpers
+  `announcementBaseAddress` / `auctionDateFromAnnouncementText`; `crawl.js`'s
+  `crawlAll` now runs a detail-fetch enrichment pass that expands each multi-flat
+  announcement into N keyed records (handles the "Nr 1 i Nr 3" case, and the
+  `o pow.` vs bare `o` area phrasing across 2017/2023/2024 pages, and skips the
+  piwnica line). Groundtruthed live on 4 fixtures from the Pi: 4 stubs → 9 flat
+  records → **3 unique properties** (Rynek Zygmunta Augusta 16 lok.1/2/3) with
+  multi-year price history; all past-dated so they land as `archived` (no live
+  auction open now — honest). EXEMPT_NEW entry removed (data non-empty). 4
+  regression tests added (multi-flat expansion, base-address genitive→nominative,
+  date parse). Verified end-to-end `CITY=augustow node src/refresh.js`.
 - **gdansk + augustow — `LEGIT_EMPTY` (2026-07-07):** documented empty-by-design;
   WARN on unique=0 with a **45-day recheck** backstop. **Residual (deferred):** a
   fully-robust guard keys WARN-vs-FAIL on a positive fetch-reachability signal
