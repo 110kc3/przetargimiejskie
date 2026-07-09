@@ -212,6 +212,15 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73378"
         },
         {
+          "date": "2026-05-27",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "archived",
+          "area_m2": 165,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29826/ogloszenie-o-przetargu-ustnym-ograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77101"
+        },
+        {
           "date": "2026-06-24",
           "round": 1,
           "starting_price_pln": 170000,
@@ -996,6 +1005,150 @@
       ]
     },
     {
+      "key": "dz|kłodnica|2683/14",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "2683/14",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pocztowej",
+      "dzialka_id": "160301_1.0046.2683/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14",
+      "area_m2": 1069,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2025-08-20",
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2025-10-02",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2026-06-18",
+          "round": 7,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2683/14",
+          "dzialka_id": "160301_1.0046.2683/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|450/8",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "450/8",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta Kocha",
+      "dzialka_id": "160301_1.0091.450/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8",
+      "area_m2": 267,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 25000,
+          "outcome": "unsold",
+          "area_m2": 267
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 25000,
+          "outcome": "unsold",
+          "area_m2": 267
+        },
+        {
+          "date": "2026-06-18",
+          "round": 6,
+          "starting_price_pln": 12000,
+          "outcome": "sold",
+          "final_price_pln": 12120,
+          "area_m2": 267
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "450/8",
+          "dzialka_id": "160301_1.0091.450/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|450/9",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "450/9",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta Kocha",
+      "dzialka_id": "160301_1.0091.450/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9",
+      "area_m2": 330,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "unsold",
+          "area_m2": 330
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 30000,
+          "outcome": "unsold",
+          "area_m2": 330
+        },
+        {
+          "date": "2026-06-18",
+          "round": 6,
+          "starting_price_pln": 15000,
+          "outcome": "sold",
+          "final_price_pln": 15150,
+          "area_m2": 330
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "450/9",
+          "dzialka_id": "160301_1.0091.450/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. szantowa deszczowej oraz sanitarnej",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -1422,6 +1575,108 @@
       ]
     },
     {
+      "key": "dz|koźle|274/3",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "274/3",
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lasoki",
+      "dzialka_id": "160301_1.0014.274/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3",
+      "area_m2": 1369,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "starting_price_pln": 11000,
+          "outcome": "sold",
+          "final_price_pln": 64000,
+          "area_m2": 1369
+        },
+        {
+          "date": "2026-05-27",
+          "round": 3,
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "area_m2": 1369
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "274/3",
+          "dzialka_id": "160301_1.0014.274/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|515/2",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "515/2",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gliwickiej",
+      "dzialka_id": "160301_1.0044.515/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.515%2F2",
+      "area_m2": 165,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "sold",
+          "final_price_pln": 30300,
+          "area_m2": 165
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "515/2",
+          "dzialka_id": "160301_1.0044.515/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.515%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1153/9",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1153/9",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Błonie",
+      "dzialka_id": "160301_1.0046.1153/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1153%2F9",
+      "area_m2": 3934,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 2,
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "area_m2": 3934
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1153/9",
+          "dzialka_id": "160301_1.0046.1153/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1153%2F9"
+        }
+      ]
+    },
+    {
       "key": "dz|kłodnica|744/20",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -1714,38 +1969,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "dz|koźle|274/3",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "274/3",
-      "obreb": "Koźle",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Lasoki",
-      "dzialka_id": "160301_1.0014.274/3",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3",
-      "area_m2": 1369,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-10",
-          "round": 1,
-          "starting_price_pln": 11000,
-          "outcome": "sold",
-          "final_price_pln": 64000,
-          "area_m2": 1369
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "274/3",
-          "dzialka_id": "160301_1.0014.274/3",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3"
-        }
-      ]
     },
     {
       "key": "dz|sławięcice|727/53",
@@ -2078,82 +2301,6 @@
           "nr": "450/5",
           "dzialka_id": "160301_1.0091.450/5",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F5"
-        }
-      ]
-    },
-    {
-      "key": "dz|sławięcice|450/8",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "450/8",
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta Kocha",
-      "dzialka_id": "160301_1.0091.450/8",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8",
-      "area_m2": 267,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 25000,
-          "outcome": "unsold",
-          "area_m2": 267
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 25000,
-          "outcome": "unsold",
-          "area_m2": 267
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "450/8",
-          "dzialka_id": "160301_1.0091.450/8",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8"
-        }
-      ]
-    },
-    {
-      "key": "dz|sławięcice|450/9",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "450/9",
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta Kocha",
-      "dzialka_id": "160301_1.0091.450/9",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9",
-      "area_m2": 330,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 30000,
-          "outcome": "unsold",
-          "area_m2": 330
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 30000,
-          "outcome": "unsold",
-          "area_m2": 330
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "450/9",
-          "dzialka_id": "160301_1.0091.450/9",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9"
         }
       ]
     },
@@ -2546,51 +2693,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "dz|kłodnica|2683/14",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "2683/14",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Pocztowej",
-      "dzialka_id": "160301_1.0046.2683/14",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14",
-      "area_m2": 1069,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-06-17",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        },
-        {
-          "date": "2025-08-20",
-          "round": 2,
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        },
-        {
-          "date": "2025-10-02",
-          "round": 3,
-          "starting_price_pln": 100000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2683/14",
-          "dzialka_id": "160301_1.0046.2683/14",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14"
-        }
-      ]
     },
     {
       "key": "addr|ul. aroniowej",
