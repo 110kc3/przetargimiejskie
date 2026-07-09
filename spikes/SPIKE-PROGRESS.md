@@ -2,16 +2,16 @@
 
 > **GENERATED FILE — do not hand-edit.** Regenerate with `node spikes/build-progress.mjs` after updating [master-cities.json](./master-cities.json) (the source of truth).
 >
-> Updated 2026-07-09. Queue: [backlog.json](./backlog.json) (31 pending / 349 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
+> Updated 2026-07-09. Queue: [backlog.json](./backlog.json) (19 pending / 361 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
 
-## Roll-up (305 spiked)
+## Roll-up (317 spiked)
 
 | Status | Count |
 |---|---|
 | ✅ BUILT | 55 |
-| 🟢 BUILD | 101 |
+| 🟢 BUILD | 107 |
 | 🟡 VERIFY | 0 |
-| 🔴 NO-BUILD | 140 |
+| 🔴 NO-BUILD | 146 |
 | ❌ Dropped | 6 |
 | ⏸️ Deferred | 3 |
 
@@ -21,13 +21,13 @@
 
 Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Kraków, Legnica, Łódź, Mysłowice, Nowa Sól, Nysa, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Piła, Przemyśl, Racibórz, Rybnik, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Szczecin, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Wałbrzych, Warszawa, Wejherowo, Zabrze.
 
-## BUILD-ready queue (101, by effort)
+## BUILD-ready queue (107, by effort)
 
-Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Końskie (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lubliniec (Low), Lwówek Śląski (Low), Międzyrzecz (Low), Mrągowo (Low), Nakło nad Notecią (Low), Namysłów (Low), Olesno (Low), Pajęczno (Low), Pisz (Low), Pleszew (Low), Poddębice (Low), Proszowice (Low), Pszczyna (Low), Pułtusk (Low), Rawa Mazowiecka (Low), Sandomierz (Low), Sępólno Krajeńskie (Low), Strzelce Krajeńskie (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Sulęcin (Low), Szczecinek (Low), Środa Wielkopolska (Low), Zgorzelec (Low), Złotoryja (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Włocławek (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Żyrardów (Medium).
+Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Końskie (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lubliniec (Low), Lwówek Śląski (Low), Międzyrzecz (Low), Mrągowo (Low), Nakło nad Notecią (Low), Namysłów (Low), Olesno (Low), Pajęczno (Low), Pisz (Low), Pleszew (Low), Poddębice (Low), Proszowice (Low), Pszczyna (Low), Pułtusk (Low), Rawa Mazowiecka (Low), Sandomierz (Low), Sępólno Krajeńskie (Low), Strzelce Krajeńskie (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Sulęcin (Low), Szczecinek (Low), Środa Wielkopolska (Low), Trzebnica (Low), Wąbrzeźno (Low), Węgorzewo (Low), Węgrów (Low), Zgorzelec (Low), Złotoryja (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
-### Dolnośląskie (23)
+### Dolnośląskie (24)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -50,12 +50,13 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Strzelin | powiat strzeliński | 🔴 NO-BUILD | — · LIVE |
 | Środa Śląska | powiat średzki | 🟢 BUILD | Medium · LIVE |
 | Świdnica | powiat swidnicki | 🟢 BUILD | Medium · LIVE |
+| Trzebnica | powiat trzebnicki | 🟢 BUILD | Low · LIVE |
 | Wałbrzych | Wałbrzych (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Wrocław | Wrocław (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 | Zgorzelec | powiat zgorzelecki | 🟢 BUILD | Low · LIVE |
 | Złotoryja | powiat złotoryjski | 🟢 BUILD | Low · LIVE |
 
-### Kujawsko-Pomorskie (16)
+### Kujawsko-Pomorskie (18)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -74,9 +75,11 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Sępólno Krajeńskie | powiat sępoleński | 🟢 BUILD | Low · LIVE |
 | Świecie | powiat swiecki | 🔴 NO-BUILD | — · LIVE |
 | Toruń | Toruń (m.n.p.p.) | ✅ BUILT | Low · LIVE |
+| Tuchola | powiat tucholski | 🔴 NO-BUILD | — · LIVE |
+| Wąbrzeźno | powiat wąbrzeski | 🟢 BUILD | Low · LIVE |
 | Włocławek | Włocławek (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 
-### Lubelskie (18)
+### Lubelskie (19)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -97,6 +100,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Radzyń Podlaski | powiat radzyński | 🔴 NO-BUILD | — · LIVE |
 | Ryki | powiat rycki | 🔴 NO-BUILD | — · LIVE |
 | Świdnik | powiat swidnicki | 🔴 NO-BUILD | — · LIVE |
+| Tomaszów Lubelski | powiat tomaszowski | 🔴 NO-BUILD | — · LIVE |
 | Zamość | Zamość (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 
 ### Lubuskie (9)
@@ -113,7 +117,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Świebodzin | powiat świebodziński | 🔴 NO-BUILD | — · LIVE |
 | Zielona Góra | Zielona Góra (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 
-### Łódzkie (18)
+### Łódzkie (19)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -134,9 +138,10 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Sieradz | powiat sieradzki | 🔴 NO-BUILD | — · DESK |
 | Skierniewice | Skierniewice (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Tomaszów Mazowiecki | powiat tomaszowski | 🟢 BUILD | Medium · LIVE |
+| Wieluń | powiat wieluński | 🔴 NO-BUILD | — · LIVE |
 | Zgierz | powiat zgierski | 🟢 BUILD | Medium · LIVE |
 
-### Małopolskie (19)
+### Małopolskie (20)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -158,9 +163,10 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Tarnów | Tarnów (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE/DESK |
 | Trzebinia | powiat chrzanowski | ✅ BUILT | — · — |
 | Wadowice | powiat wadowicki | 🔴 NO-BUILD | — · LIVE |
+| Wieliczka | powiat wielicki | 🔴 NO-BUILD | — · LIVE |
 | Zakopane | powiat tatrzanski | 🟢 BUILD | Medium · LIVE |
 
-### Mazowieckie (33)
+### Mazowieckie (35)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -181,6 +187,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Ostrołęka | Ostrołęka (m.n.p.p.) | ✅ BUILT | Medium (OCR) · LIVE |
 | Ostrów Mazowiecka | powiat ostrowski | 🔴 NO-BUILD | — · LIVE |
 | Otwock | powiat otwocki | 🟢 BUILD | Medium · LIVE |
+| Ożarów Mazowiecki | powiat warszawski zachodni | 🟢 BUILD | Medium · LIVE |
 | Piaseczno | powiat piaseczynski | 🔴 NO-BUILD | — · LIVE |
 | Płock | Płock (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 | Płońsk | powiat płoński | 🟢 BUILD | Medium · LIVE |
@@ -195,6 +202,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Sokołów Podlaski | powiat sokołowski | 🔴 NO-BUILD | — · LIVE |
 | Szydłowiec | powiat szydłowiecki | 🟢 BUILD | Medium · LIVE |
 | Warszawa | Warszawa (m.n.p.p.) | ✅ BUILT | High · LIVE |
+| Węgrów | powiat węgrowski | 🟢 BUILD | Low · LIVE |
 | Wołomin | powiat wolominski | 🔴 NO-BUILD | — · LIVE |
 | Żyrardów | powiat zyrardowski | 🟢 BUILD | Medium · LIVE |
 
@@ -333,7 +341,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Starachowice | powiat starachowicki | 🟢 BUILD | Medium · LIVE |
 | Staszów | powiat staszowski | 🟢 BUILD | Medium · LIVE |
 
-### Warmińsko-Mazurskie (18)
+### Warmińsko-Mazurskie (19)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -355,8 +363,9 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Ostróda | powiat ostrodzki | 🔴 NO-BUILD | — · LIVE |
 | Pisz | powiat piski | 🟢 BUILD | Low · LIVE |
 | Szczytno | powiat szczycieński | 🟢 BUILD | Medium · LIVE |
+| Węgorzewo | powiat węgorzewski | 🟢 BUILD | Low · LIVE |
 
-### Wielkopolskie (27)
+### Wielkopolskie (29)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -386,9 +395,11 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Szamotuły | powiat szamotulski | 🟢 BUILD | Medium · LIVE |
 | Śrem | powiat śremski | 🟢 BUILD | Medium · LIVE |
 | Środa Wielkopolska | powiat średzki | 🟢 BUILD | Low · LIVE |
+| Turek | powiat turecki | 🔴 NO-BUILD | — · LIVE |
+| Wągrowiec | powiat wągrowiecki | 🔴 NO-BUILD | — · LIVE |
 | Września | powiat wrzesinski | 🟢 BUILD | Medium · LIVE |
 
-### Zachodniopomorskie (19)
+### Zachodniopomorskie (20)
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
@@ -411,6 +422,7 @@ Chodzież (Low), Choszczno (Low), Głubczyce (Low), Gostyń (Low), Jarocin (Low)
 | Szczecinek | powiat szczecinecki | 🟢 BUILD | Low · LIVE |
 | Świdwin | powiat świdwiński | 🔴 NO-BUILD | — · LIVE |
 | Świnoujście | Świnoujście (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
+| Wałcz | powiat wałecki | 🟢 BUILD | Medium · LIVE |
 
 ---
 

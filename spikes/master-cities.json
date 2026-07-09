@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-09",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 305,
+  "total": 317,
   "cities": [
     {
       "id": "boleslawiec",
@@ -4726,6 +4726,198 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "biuletyn.net (INTERmedi@ CMS-BIP 3.0), town swidwin.biuletyn.net cid=1191. Open oral auctions exist (Nr 3-9/2026) but both sampled OCR'd notices are 100% LAND (dzialki budowlane 'dla mlodych', obreb 012); zero flat auctions. Notices scanned-image PDFs (pdftotext=2 bytes, OCR-only); no wynik board. No town ZGM/TBS; flats bezprzetargowo na rzecz najemcy. Double blocker; matches Lancut/Sanok land-only biuletyn.net NO-BUILDs."
+      }
+    },
+    {
+      "id": "trzebnica",
+      "label": "Trzebnica",
+      "voivodeship": "dolnoslaskie",
+      "powiat_slug": "powiat-trzebnicki",
+      "powiat_label": "powiat trzebnicki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md",
+      "spike": {
+        "wave": "H",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Logonet eUrzad CMS (v2.9.0) on bip.trzebnica.pl — direct tarnowskie-gory analog. Dedicated 37-page przetargi-nieruchomosci board, server HTML notices + .doc/.docx attachments, results as 'informacja o wyniku' docs keyed by GGN P/NN. Recurring flat auctions confirmed (Rynek 12, Bochenka 22/1, Witosa 12). Wrinkle: deep fields in Word attachments need doc extraction."
+      }
+    },
+    {
+      "id": "tomaszow-lubelski",
+      "label": "Tomaszów Lubelski",
+      "voivodeship": "lubelskie",
+      "powiat_slug": "powiat-tomaszowski",
+      "powiat_label": "powiat tomaszowski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lubelskie/powiat-tomaszowski/tomaszow-lubelski.md",
+      "spike": {
+        "wave": "H",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Wrota Lubelszczyzny (bip.lubelskie.pl) CMS. Open flat auctions DO exist (Rejtana 3/5 cycling I/II/III przetarg ustny 2025-2026), not just bezprzetargowo — but ~1 flat/yr cycling, board dominated by land. Registry list tables AJAX/DB-populated (empty on static fetch); wyniki board inactive → no achieved-price stream; no ZGM. Low volume + AJAX registry → NO-BUILD."
+      }
+    },
+    {
+      "id": "tuchola",
+      "label": "Tuchola",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-tucholski",
+      "powiat_label": "powiat tucholski",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/kujawsko-pomorskie/powiat-tucholski/tuchola.md",
+      "spike": {
+        "wave": "H",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "extranet.pl/eBIP comma-path server-HTML BIP (bip.tuchola.pl; m,ID,slug.html boards + e,pobierz,get.html PDFs) — scrapeable but land-only. Auction stream entirely building plots; municipal flats sold ~1/yr bezprzetargowo to sitting tenants, one auctioned flat unsold (per gmina Program gospodarowania mieszkaniowym zasobem); no ZGM/TBS. No flat volume or flat achieved-price stream."
+      }
+    },
+    {
+      "id": "ozarow-mazowiecki",
+      "label": "Ożarów Mazowiecki",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-warszawski-zachodni",
+      "powiat_label": "powiat warszawski zachodni",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md",
+      "spike": {
+        "wave": "H",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "WordPress serwis (ozarow-mazowiecki.pl /nieruchomosci-przeznaczone-do-zbycia/, dated permalinks) + born-digital Ogloszenie-o-przetargu PDFs; analog olkusz/bochnia WordPress+PDF, pdfText for cena wywolawcza/wadium/date. Recurring open oral flat auctions from ex-SHR Plochocin municipal stock (Floriana/Umiastowska/Kasztanowa/Fabryczna/Poznanska 2025, incl II/III rounds). BIP bip.ozarow-mazowiecki.pl is JS-shell — backfill only. Wynik stream unconfirmed → confirm at build. Disambiguate from swietokrzyskie Ozarow."
+      }
+    },
+    {
+      "id": "walcz",
+      "label": "Wałcz",
+      "voivodeship": "zachodniopomorskie",
+      "powiat_slug": "powiat-walecki",
+      "powiat_label": "powiat wałecki",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md",
+      "spike": {
+        "wave": "H",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Joomla!/GovArticle BIP (bip.walcz.pl); 6 live OPEN oral flat auctions at spike + land; dedicated przetargi-aktualne + przetargi-zakonczone (Informacja o wyniku) boards; notice body in born-digital PDF attachment (pdfText), incomplete TLS chain needs browser UA/-k; analog tczew/gniezno; rural Gmina Walcz at bip.gminawalcz.pl excluded"
+      }
+    },
+    {
+      "id": "turek",
+      "label": "Turek",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-turecki",
+      "powiat_label": "powiat turecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-turecki/turek.md",
+      "spike": {
+        "wave": "H",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "AlfaTV CMS (bip.miastoturek.pl, /artykul/slug, server-rendered DataTables board, browser-UA needed). Real przetarg+wyniki stream but LAND/garages/firewood/rentals only — ZERO open flat auctions 2023-2026; municipal flats sold bezprzetargowo na rzecz najemcy via wykaz (no przetarg follows). Notices expire to 404. No flat-auction signal. Disambiguated from rural Gmina Turek bip.gmina.turek.pl."
+      }
+    },
+    {
+      "id": "wabrzezno",
+      "label": "Wąbrzeźno",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-wabrzeski",
+      "powiat_label": "powiat wąbrzeski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md",
+      "spike": {
+        "wave": "H",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "rbip.mojregion.info regional BIP CMS (server-rendered HTML, notices /<id>/<slug>.html, full ogloszenie text inline). Confirmed OPEN oral flat auctions 'nieograniczony przetarg ustny na sprzedaz prawa wlasnosci do lokali mieszkalnych' (Mickiewicza 19, Niedzialkowskiego 1, Matejki 20A; cena wywolawcza+wadium+date inline). Board /330/przetargi.html carries announcements + inline Informacja o wynikach. No ZGM/TBS, UM sells directly. Analog: Zgorzelec server-HTML board. No blockers."
+      }
+    },
+    {
+      "id": "wagrowiec",
+      "label": "Wągrowiec",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-wagrowiecki",
+      "powiat_label": "powiat wągrowiecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/wielkopolskie/powiat-wagrowiecki/wagrowiec.md",
+      "spike": {
+        "wave": "H",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "WOKISS/Nefeni server-HTML BIP (bip.wagrowiec.eu/wagrowiecm). Town auctions land-only (building plots: ul. Debinska, Kaliska); municipal flats go bezprzetargowo na rzecz najemcy via WTBS. Only flat-at-auction hits are private Spoldzielnia Mieszkaniowa (out of scope). No achieved-price/results board — no flat-auction volume. Disambiguated from rural bip.gminawagrowiec.pl + powiat."
+      }
+    },
+    {
+      "id": "wegorzewo",
+      "label": "Węgorzewo",
+      "voivodeship": "warminsko-mazurskie",
+      "powiat_slug": "powiat-wegorzewski",
+      "powiat_label": "powiat węgorzewski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md",
+      "spike": {
+        "wave": "H",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "IDcom CMS (bip.wegorzewo.pl /wiadomosci/3/wiadomosc/<id>) — exact gizycko clone (same woj, neighbour powiat, BUILT). Confirmed OPEN oral flat auctions (Wegielsztyn 37/4, Kal 38/2, Pniewo 4) + second CEM property-manager stream (cem.wegorzewo.pl, Jasna 4/5). Inline wynik results; scanned result PDFs->OCR like gizycko; incomplete TLS chain to tolerate. ~few flats/yr."
+      }
+    },
+    {
+      "id": "wieliczka",
+      "label": "Wieliczka",
+      "voivodeship": "malopolskie",
+      "powiat_slug": "powiat-wielicki",
+      "powiat_label": "powiat wielicki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/malopolskie/powiat-wielicki/wieliczka.md",
+      "spike": {
+        "wave": "H",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "IDcom-family server-HTML city portal wieliczka.eu (clean boards 49954 announcements / 64244 results; bip.malopolska.pl SPA mirror avoidable). Sells only land + lokal uzytkowy + garaze + rolna at przetarg ustny — NO lokal mieszkalny auctions on live or completed-results board (back to Jan 2025). Housing manager ZBK Wieliczka is rent/management only. Affluent Krakow-suburb land-only profile → no flat-auction stream."
+      }
+    },
+    {
+      "id": "wegrow",
+      "label": "Węgrów",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-wegrowski",
+      "powiat_label": "powiat węgrowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md",
+      "spike": {
+        "wave": "H",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Logonet eUrzad 2.9.0 (analog tarnowskie-gory/skarzysko-kamienna). Open oral flat auctions confirmed (Nowa 3 lokal mieszkalny nr 19 + wynik). Target = dedicated 'Ogloszenia sprzedazy' board /artykul/345/<id> (mixed open flat+land auctions, tenant bezprzetargowo wykazy, informacja o wyniku in-band). /przetargi/ board is procurement — NOT property. Low volume; achieved-price present. /api/menu/345/articles."
+      }
+    },
+    {
+      "id": "wielun",
+      "label": "Wieluń",
+      "voivodeship": "lodzkie",
+      "powiat_slug": "powiat-wielunski",
+      "powiat_label": "powiat wieluński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/lodzkie/powiat-wielunski/wielun.md",
+      "spike": {
+        "wave": "H",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Bespoke server-HTML BIP (bip.um.wielun.pl, /bipkod/NNN boards, /res/serwisy/pliki attachments). Property stream land-only (dzialki przetarg ustny + dzierzawa wykazy) on Komunikaty board; flats sold bezprzetargowo na rzecz najemcy (tenant wykup/bonifikata DOC form, no open auction). No ZGM/ZBM/TBS. 'Przetargi' board is procurement (ezamowienia.gov.pl). Zero open flat-auction volume."
       }
     }
   ]

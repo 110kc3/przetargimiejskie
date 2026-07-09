@@ -4,53 +4,53 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 349,
-    "pending": 31
+    "done": 361,
+    "pending": 19
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
-      "done": 20,
-      "pending": 3
+      "done": 22,
+      "pending": 1
     },
     "podlaskie": {
       "done": 15,
       "pending": 2
     },
     "warminsko-mazurskie": {
-      "done": 20,
-      "pending": 1
+      "done": 21,
+      "pending": 0
     },
     "lodzkie": {
-      "done": 21,
-      "pending": 3
+      "done": 22,
+      "pending": 2
     },
     "slaskie": {
       "done": 34,
       "pending": 2
     },
     "lubelskie": {
-      "done": 22,
-      "pending": 2
+      "done": 23,
+      "pending": 1
     },
     "mazowieckie": {
-      "done": 37,
-      "pending": 5
+      "done": 39,
+      "pending": 3
     },
     "zachodniopomorskie": {
-      "done": 20,
-      "pending": 1
+      "done": 21,
+      "pending": 0
     },
     "podkarpackie": {
       "done": 25,
       "pending": 0
     },
     "malopolskie": {
-      "done": 21,
-      "pending": 1
+      "done": 22,
+      "pending": 0
     },
     "dolnoslaskie": {
-      "done": 27,
-      "pending": 3
+      "done": 28,
+      "pending": 2
     },
     "opolskie": {
       "done": 12,
@@ -65,8 +65,8 @@
       "pending": 0
     },
     "wielkopolskie": {
-      "done": 31,
-      "pending": 4
+      "done": 33,
+      "pending": 2
     },
     "lubuskie": {
       "done": 11,
@@ -3417,7 +3417,7 @@
       "powiat_slug": "powiat-tomaszowski",
       "city_slug": "tomaszow-lubelski",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubelskie/powiat-tomaszowski/tomaszow-lubelski.md"
     },
     {
@@ -3448,7 +3448,7 @@
       "powiat_slug": "powiat-trzebnicki",
       "city_slug": "trzebnica",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md"
     },
     {
@@ -3458,7 +3458,7 @@
       "powiat_slug": "powiat-tucholski",
       "city_slug": "tuchola",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-tucholski/tuchola.md"
     },
     {
@@ -3468,7 +3468,7 @@
       "powiat_slug": "powiat-turecki",
       "city_slug": "turek",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-turecki/turek.md"
     },
     {
@@ -3520,7 +3520,7 @@
       "powiat_slug": "powiat-walecki",
       "city_slug": "walcz",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md"
     },
     {
@@ -3540,7 +3540,7 @@
       "powiat_slug": "powiat-warszawski-zachodni",
       "city_slug": "ozarow-mazowiecki",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md"
     },
     {
@@ -3550,7 +3550,7 @@
       "powiat_slug": "powiat-wabrzeski",
       "city_slug": "wabrzezno",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md"
     },
     {
@@ -3560,7 +3560,7 @@
       "powiat_slug": "powiat-wagrowiecki",
       "city_slug": "wagrowiec",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-wagrowiecki/wagrowiec.md"
     },
     {
@@ -3581,7 +3581,7 @@
       "powiat_slug": "powiat-wegorzewski",
       "city_slug": "wegorzewo",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md"
     },
     {
@@ -3591,7 +3591,7 @@
       "powiat_slug": "powiat-wegrowski",
       "city_slug": "wegrow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md"
     },
     {
@@ -3601,7 +3601,7 @@
       "powiat_slug": "powiat-wielicki",
       "city_slug": "wieliczka",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/malopolskie/powiat-wielicki/wieliczka.md"
     },
     {
@@ -3611,7 +3611,7 @@
       "powiat_slug": "powiat-wielunski",
       "city_slug": "wielun",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lodzkie/powiat-wielunski/wielun.md"
     },
     {
