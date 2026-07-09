@@ -35,6 +35,70 @@
       ]
     },
     {
+      "key": "wladyslawa broniewskiego|10|54",
+      "street": "Władysława Broniewskiego",
+      "street_norm": "wladyslawa broniewskiego",
+      "building": "10",
+      "apt": "54",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 328100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-54-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 278900,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-54-55.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wierzbowa|21|16",
+      "street": "Wierzbowa",
+      "street_norm": "wierzbowa",
+      "building": "21",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 407100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-21-m-16-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 346100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-21-m-16-17.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "wolodyjowskiego|8|6",
       "street": "Wołodyjowskiego",
       "street_norm": "wolodyjowskiego",
@@ -50,6 +114,48 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wolodyjowskiego-8-m-6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "bohaterow getta|7|15",
+      "street": "Bohaterów Getta",
+      "street_norm": "bohaterow getta",
+      "building": "7",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 343100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-bohaterow-getta-7-m-15.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wladyslawa broniewskiego|13|4",
+      "street": "Władysława Broniewskiego",
+      "street_norm": "wladyslawa broniewskiego",
+      "building": "13",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 407100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-13-m-4.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -92,6 +198,38 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-29a-m-55-57.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "juliana tuwima|9|11",
+      "street": "Juliana Tuwima",
+      "street_norm": "juliana tuwima",
+      "building": "9",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 324900,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 363100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-13.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -239,48 +377,6 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89a-m-60-1.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
-      "key": "wladyslawa broniewskiego|10|54",
-      "street": "Władysława Broniewskiego",
-      "street_norm": "wladyslawa broniewskiego",
-      "building": "10",
-      "apt": "54",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 328100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-54-1.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
-      "key": "wierzbowa|21|16",
-      "street": "Wierzbowa",
-      "street_norm": "wierzbowa",
-      "building": "21",
-      "apt": "16",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 407100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-21-m-16-1.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -640,27 +736,6 @@
           "final_price_pln": 256340,
           "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-malmeda-icchoka-31-m-46-47.html",
           "notes": []
-        }
-      ]
-    },
-    {
-      "key": "juliana tuwima|9|11",
-      "street": "Juliana Tuwima",
-      "street_norm": "juliana tuwima",
-      "building": "9",
-      "apt": "11",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-09-17",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 324900,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-1.html",
-          "wadium_deadline": null,
-          "viewing_date": null
         }
       ]
     },
