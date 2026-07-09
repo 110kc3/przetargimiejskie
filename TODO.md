@@ -206,6 +206,15 @@ dual-failing city stops ping-ponging its title.
   not parsed" WARNs) and ul. Katowickiej 15/20 came back with
   `starting_price_pln: null` — check whether `parseAnnouncement` should handle
   them.
+- **Chełm parser coverage (found 2026-07-09):** live build throws **10
+  `announcement not parsed` WARNs** — I/II/III przetarg ustny nieograniczony na
+  sprzedaż docs (2311599, 2311597, 2311594, 2311593, 2311592, 2292846, 2273991,
+  2273986, 2273985, 2270819) are rejected by `parseAnnouncement`. Not a silent
+  drop (city still builds 17 unique / 33 listings, rebuild is byte-identical) —
+  a bounded coverage gap, same family as the Racibórz watch above. First check
+  whether the 10 docs are flats (valuable) or land (defer), then extend
+  `parseAnnouncement` to the missing layout(s). Est. small–medium. **Owner:**
+  agent · **Blockers:** none.
 - **Tarnowskie Góry:** ~45 land plots (meta `land_plots: 45`) fall back to
   Google search because TG obręby are name-only — build a **TG obręb
   name→number map** for precise geoportal links (12 addr-only plots can never be
