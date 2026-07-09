@@ -2,7 +2,7 @@
   "schema": "spike-master/1",
   "generated_at": "2026-07-09",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
-  "total": 329,
+  "total": 336,
   "cities": [
     {
       "id": "boleslawiec",
@@ -5110,6 +5110,118 @@
         "effort": "—",
         "confidence": "LIVE",
         "note": "bip.zambrow.pl — HTML /artykul/<slug> board (Wrota Podlasia family, Bootstrap/DataTables) + born-digital PDF attachments; UA-gated. Sells municipal property at open oral auction but stream is land-only (dzialki niezabudowane, MSP-limited, car, coal). Only 1 residential item in ~2yr, a one-off spoldzielcze wlasnosciowe prawo (Bialostocka 31/113, 198073 zl, 2025). No ZGM/TBS flat board. Negligible flat volume."
+      }
+    },
+    {
+      "id": "zagan",
+      "label": "Żagań",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-zaganski",
+      "powiat_label": "powiat żagański",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-zaganski/zagan.md",
+      "spike": {
+        "wave": "J",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "SystemDoBIP.pl / E-LINE CMS on bip.zagan.pl (town gmina miejska; disambiguated from rural bip.gminazagan.pl + powiat). Server-rendered HTML, /przetargi/344/status/ board + /przetargi/344/<id>/<slug>/ notices; wynik prices in /152/ + /203/ Nieruchomosci. Confirmed live flat auction Zelazna 16/3 (30m2, 135k zl, III przetarg 12/2025). Analog already BUILT: Gorzow Wielkopolski (same woj, same CMS). Land-heavy mixed stream, flats periodic. No blockers."
+      }
+    },
+    {
+      "id": "zuromin",
+      "label": "Żuromin",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-zurominski",
+      "powiat_label": "powiat żuromiński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-zurominski/zuromin.md",
+      "spike": {
+        "wave": "J",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "NowyBIP + fs.siteor.com PDFs (zuromin.ibip.net.pl). Flats sold 100% bezprzetargowo na rzecz najemcy (tenant sales) 2020-2026; land sold via przetarg PISEMNY (written), not oral. No open oral flat auctions, no ZGM/TBS, tiny volume. Land-only 'Informacja o wyniku przetargu' stream. Scrapeable but no in-scope flat data."
+      }
+    },
+    {
+      "id": "zywiec",
+      "label": "Żywiec",
+      "voivodeship": "slaskie",
+      "powiat_slug": "powiat-zywiecki",
+      "powiat_label": "powiat żywiecki",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/slaskie/powiat-zywiecki/zywiec.md",
+      "spike": {
+        "wave": "J",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Custom bespoke server-HTML BIP (bip.zywiec.pl, /item/NNNN + /print + /category boards). Clean and scrapeable, but auction stream is land-only (przetarg ustny for dzialki, some online) + occasional lokal uzytkowy; flats sold bezprzetargowo na rzecz najemcy via Wydzial Geodezji. No dedicated ZGM/ZBM/MZGM (rentals via Zywieckie TBS). No open flat-auction stream, no flat achieved-price results."
+      }
+    },
+    {
+      "id": "zwolen",
+      "label": "Zwoleń",
+      "voivodeship": "mazowieckie",
+      "powiat_slug": "powiat-zwolenski",
+      "powiat_label": "powiat zwoleński",
+      "type": "land-powiat-seat",
+      "status": "no-build",
+      "path": "spikes/mazowieckie/powiat-zwolenski/zwolen.md",
+      "spike": {
+        "wave": "J",
+        "effort": "—",
+        "confidence": "LIVE",
+        "note": "Live BIP = gov.pl Samorzad (mc.gov.pl/Liferay JS register, needs render); archival source = FINN.pl e-urzad (frozen 2023). Land-only auctions (building plots, e.g. Wolka Szelezna 0.5ha 25k zl Apr-2025); no lokal-mieszkalny auction, no ZGM/TBS housing manager — flats sold bezprzetargowo. No municipal flat-auction stream."
+      }
+    },
+    {
+      "id": "zary",
+      "label": "Żary",
+      "voivodeship": "lubuskie",
+      "powiat_slug": "powiat-zarski",
+      "powiat_label": "powiat żarski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/lubuskie/powiat-zarski/zary.md",
+      "spike": {
+        "wave": "J",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "SystemDoBIP.pl (E-LINE) city BIP bip.zary.pl; 3 boards — announcements /312/, wykaz /313/, dedicated results /837/; monthly przetarg ustny na sprzedaz lokali mieszkalnych as born-digital zarzadzenie PDFs on HTML stubs; achieved-price results board confirmed. Near-exact clone of built gorzow-wielkopolski (same woj, same /system/pobierz.php two-board born-digital-PDF shape, ZGM=rental). Medium for PDF extraction + possible OCR on results PDFs."
+      }
+    },
+    {
+      "id": "znin",
+      "label": "Żnin",
+      "voivodeship": "kujawsko-pomorskie",
+      "powiat_slug": "powiat-zninski",
+      "powiat_label": "powiat żniński",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md",
+      "spike": {
+        "wave": "J",
+        "effort": "Low",
+        "confidence": "LIVE",
+        "note": "Bespoke server-rendered HTML BIP (Bootstrap/DataTables + eSesja 'System Rada') at bip.gminaznin.pl; dedicated /nieruchomosci board, per-notice /nieruchomosc/<slug> inline HTML + born-digital PDF, 'Inne wyniki' results board. Open przetarg ustny nieograniczony confirmed incl. 1 lokal mieszkalny (Jadowniki Ryc. 27/4); land/commercial-dominated (34 notices, ~1 flat). Browser-UA required (bot UA -> 403); no render.js. Analog nowa-sol/brzeg custom-HTML. Caveat: low flat volume."
+      }
+    },
+    {
+      "id": "zlotow",
+      "label": "Złotów",
+      "voivodeship": "wielkopolskie",
+      "powiat_slug": "powiat-zlotowski",
+      "powiat_label": "powiat złotowski",
+      "type": "land-powiat-seat",
+      "status": "build",
+      "path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md",
+      "spike": {
+        "wave": "J",
+        "effort": "Medium",
+        "confidence": "LIVE",
+        "note": "Nefeni BIPv2 (Next.js App Router SPA, footer 'Nefeni Sp. z o.o.', /_next/, lists render 'Wczytywanie...') with REST backend bip-api.zlotow.pl and /api/attachments/<id> downloads; article RSC flight payload embeds attachment JSON (curl-able), auction details born-digital PDFs (pdfText). Confirmed open flat auctions (Aleja Piasta 3/2, Domanskiego 16/3) + Informacja o wyniku results stream. Town Gmina Miasto Zlotow, distinct from rural gminazlotow.pl. Medium: JS-gated listing + PDF notices; clone Wolsztyn Nefeni-JSON + puck/tczew PDF path."
       }
     }
   ]

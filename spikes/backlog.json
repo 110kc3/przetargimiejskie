@@ -4,13 +4,12 @@
   "note": "Trzebinia appears in master-cities.json as land-powiat-seat but is NOT a powiat seat per Wikipedia; excluded from this backlog.",
   "total": 380,
   "by_status": {
-    "done": 373,
-    "pending": 7
+    "done": 380
   },
   "by_voivodeship": {
     "kujawsko-pomorskie": {
-      "done": 22,
-      "pending": 1
+      "done": 23,
+      "pending": 0
     },
     "podlaskie": {
       "done": 17,
@@ -25,16 +24,16 @@
       "pending": 0
     },
     "slaskie": {
-      "done": 35,
-      "pending": 1
+      "done": 36,
+      "pending": 0
     },
     "lubelskie": {
       "done": 24,
       "pending": 0
     },
     "mazowieckie": {
-      "done": 40,
-      "pending": 2
+      "done": 42,
+      "pending": 0
     },
     "zachodniopomorskie": {
       "done": 21,
@@ -65,12 +64,12 @@
       "pending": 0
     },
     "wielkopolskie": {
-      "done": 34,
-      "pending": 1
+      "done": 35,
+      "pending": 0
     },
     "lubuskie": {
-      "done": 12,
-      "pending": 2
+      "done": 14,
+      "pending": 0
     }
   },
   "cities": [
@@ -3899,7 +3898,7 @@
       "powiat_slug": "powiat-zlotowski",
       "city_slug": "zlotow",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md"
     },
     {
@@ -3909,7 +3908,7 @@
       "powiat_slug": "powiat-zwolenski",
       "city_slug": "zwolen",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-zwolenski/zwolen.md"
     },
     {
@@ -3919,7 +3918,7 @@
       "powiat_slug": "powiat-zaganski",
       "city_slug": "zagan",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-zaganski/zagan.md"
     },
     {
@@ -3929,7 +3928,7 @@
       "powiat_slug": "powiat-zarski",
       "city_slug": "zary",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/lubuskie/powiat-zarski/zary.md"
     },
     {
@@ -3939,7 +3938,7 @@
       "powiat_slug": "powiat-zninski",
       "city_slug": "znin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md"
     },
     {
@@ -3959,7 +3958,7 @@
       "powiat_slug": "powiat-zurominski",
       "city_slug": "zuromin",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-zurominski/zuromin.md"
     },
     {
@@ -3980,7 +3979,7 @@
       "powiat_slug": "powiat-zywiecki",
       "city_slug": "zywiec",
       "tier": "powiat-seat",
-      "status": "pending",
+      "status": "done",
       "spike_path": "spikes/slaskie/powiat-zywiecki/zywiec.md"
     }
   ]
