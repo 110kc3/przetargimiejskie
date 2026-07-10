@@ -11,8 +11,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Pisankowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20242%2F2%2C%20243%2F2%2C%20244%2F3%2C%20245%2F2%2C%20246%2F2%2C%20259%2F1%2C%20261%2F2%20ul.%20Pisankowej%20Bierkowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0005.242/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.242%2F2",
       "area_m2": 35263,
       "zoning": null,
       "status": null,
@@ -38,25 +38,39 @@
       ],
       "parcels": [
         {
-          "nr": "242/2"
+          "nr": "242/2",
+          "dzialka_id": "166101_1.0005.242/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.242%2F2"
         },
         {
-          "nr": "243/2"
+          "nr": "243/2",
+          "dzialka_id": "166101_1.0005.243/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.243%2F2"
         },
         {
-          "nr": "244/3"
+          "nr": "244/3",
+          "dzialka_id": "166101_1.0005.244/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.244%2F3"
         },
         {
-          "nr": "245/2"
+          "nr": "245/2",
+          "dzialka_id": "166101_1.0005.245/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.245%2F2"
         },
         {
-          "nr": "246/2"
+          "nr": "246/2",
+          "dzialka_id": "166101_1.0005.246/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.246%2F2"
         },
         {
-          "nr": "259/1"
+          "nr": "259/1",
+          "dzialka_id": "166101_1.0005.259/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.259%2F1"
         },
         {
-          "nr": "261/2"
+          "nr": "261/2",
+          "dzialka_id": "166101_1.0005.261/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0005.261%2F2"
         }
       ]
     },
@@ -69,8 +83,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Podbornej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201842%20ul.%20Podbornej%20Groszowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0058.1842",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.1842",
       "area_m2": 67,
       "zoning": null,
       "status": null,
@@ -87,7 +101,9 @@
       ],
       "parcels": [
         {
-          "nr": "1842"
+          "nr": "1842",
+          "dzialka_id": "166101_1.0058.1842",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.1842"
         }
       ]
     },
@@ -127,8 +143,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Leona Wyczółkowskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201161%20ul.%20Leona%20Wycz%C3%B3%C5%82kowskiego%20Szczepanowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0128.1161",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0128.1161",
       "area_m2": 921,
       "zoning": null,
       "status": null,
@@ -145,7 +161,9 @@
       ],
       "parcels": [
         {
-          "nr": "1161"
+          "nr": "1161",
+          "dzialka_id": "166101_1.0128.1161",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0128.1161"
         }
       ]
     },
@@ -158,8 +176,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Promiennej Przetarg ogranicza się do właścicieli działek sąsiednich",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201462%2F3%20ul.%20Promiennej%20Przetarg%20ogranicza%20si%C4%99%20do%20w%C5%82a%C5%9Bcicieli%20dzia%C5%82ek%20s%C4%85siednich%20Chmielowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0150.1462/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F3",
       "area_m2": 94,
       "zoning": null,
       "status": null,
@@ -176,7 +194,9 @@
       ],
       "parcels": [
         {
-          "nr": "1462/3"
+          "nr": "1462/3",
+          "dzialka_id": "166101_1.0150.1462/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F3"
         }
       ]
     },
@@ -189,8 +209,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Promiennej Przetarg ogranicza się do właścicieli działek sąsiednich",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201462%2F1%20ul.%20Promiennej%20Przetarg%20ogranicza%20si%C4%99%20do%20w%C5%82a%C5%9Bcicieli%20dzia%C5%82ek%20s%C4%85siednich%20Chmielowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0150.1462/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F1",
       "area_m2": 99,
       "zoning": null,
       "status": null,
@@ -207,7 +227,9 @@
       ],
       "parcels": [
         {
-          "nr": "1462/1"
+          "nr": "1462/1",
+          "dzialka_id": "166101_1.0150.1462/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0150.1462%2F1"
         }
       ]
     },
@@ -247,8 +269,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Inwestycyjnej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20622%2F1%2C%20623%2F7%2C%20624%2F3%2C%20624%2F5%20ul.%20Inwestycyjnej%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0147.622/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.622%2F1",
       "area_m2": 84468,
       "zoning": null,
       "status": null,
@@ -265,16 +287,24 @@
       ],
       "parcels": [
         {
-          "nr": "622/1"
+          "nr": "622/1",
+          "dzialka_id": "166101_1.0147.622/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.622%2F1"
         },
         {
-          "nr": "623/7"
+          "nr": "623/7",
+          "dzialka_id": "166101_1.0147.623/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.623%2F7"
         },
         {
-          "nr": "624/3"
+          "nr": "624/3",
+          "dzialka_id": "166101_1.0147.624/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.624%2F3"
         },
         {
-          "nr": "624/5"
+          "nr": "624/5",
+          "dzialka_id": "166101_1.0147.624/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0147.624%2F5"
         }
       ]
     },
@@ -350,7 +380,8 @@
       ],
       "parcels": [
         {
-          "nr": "203"
+          "nr": "203",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20203%20Kolonia%20Gos%C5%82awicka%20Opole%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -390,8 +421,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202271%20P%C3%B3%C5%82wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0061.2271",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2271",
       "area_m2": 557,
       "zoning": null,
       "status": null,
@@ -408,7 +439,9 @@
       ],
       "parcels": [
         {
-          "nr": "2271"
+          "nr": "2271",
+          "dzialka_id": "166101_1.0061.2271",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2271"
         }
       ]
     },
@@ -421,8 +454,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202933%2C%202224%20P%C3%B3%C5%82wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0061.2933",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2933",
       "area_m2": 639,
       "zoning": null,
       "status": null,
@@ -439,10 +472,14 @@
       ],
       "parcels": [
         {
-          "nr": "2933"
+          "nr": "2933",
+          "dzialka_id": "166101_1.0061.2933",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2933"
         },
         {
-          "nr": "2224"
+          "nr": "2224",
+          "dzialka_id": "166101_1.0061.2224",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0061.2224"
         }
       ]
     },
@@ -563,7 +600,8 @@
       ],
       "parcels": [
         {
-          "nr": "1/23"
+          "nr": "1/23",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F23%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -594,25 +632,32 @@
       ],
       "parcels": [
         {
-          "nr": "718"
+          "nr": "718",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "715"
+          "nr": "715",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20715%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "714"
+          "nr": "714",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20714%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "713"
+          "nr": "713",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20713%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "712"
+          "nr": "712",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20712%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "711"
+          "nr": "711",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20711%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "710"
+          "nr": "710",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20710%20Wrzoski%20Opole%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -652,7 +697,8 @@
       ],
       "parcels": [
         {
-          "nr": "17/1"
+          "nr": "17/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20Szczepanowice%20Opole%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -665,8 +711,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20287%2F5%20Grotowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0057.287/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0057.287%2F5",
       "area_m2": 5243,
       "zoning": null,
       "status": null,
@@ -692,7 +738,9 @@
       ],
       "parcels": [
         {
-          "nr": "287/5"
+          "nr": "287/5",
+          "dzialka_id": "166101_1.0057.287/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0057.287%2F5"
         }
       ]
     },
@@ -705,8 +753,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Wincentego Hlouszka - Prószkowskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201419%2C%201420%2C%201422%2C%201423%20ul.%20Wincentego%20Hlouszka%20-%20Pr%C3%B3szkowskiej%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0139.1419",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1419",
       "area_m2": 3770,
       "zoning": null,
       "status": null,
@@ -723,16 +771,24 @@
       ],
       "parcels": [
         {
-          "nr": "1419"
+          "nr": "1419",
+          "dzialka_id": "166101_1.0139.1419",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1419"
         },
         {
-          "nr": "1420"
+          "nr": "1420",
+          "dzialka_id": "166101_1.0139.1420",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1420"
         },
         {
-          "nr": "1422"
+          "nr": "1422",
+          "dzialka_id": "166101_1.0139.1422",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1422"
         },
         {
-          "nr": "1423"
+          "nr": "1423",
+          "dzialka_id": "166101_1.0139.1423",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0139.1423"
         }
       ]
     },
@@ -745,8 +801,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202323%20Groszowice%20Opole%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "166101_1.0058.2323",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.2323",
       "area_m2": 5025,
       "zoning": null,
       "status": null,
@@ -763,7 +819,9 @@
       ],
       "parcels": [
         {
-          "nr": "2323"
+          "nr": "2323",
+          "dzialka_id": "166101_1.0058.2323",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0058.2323"
         }
       ]
     },
@@ -821,16 +879,20 @@
       ],
       "parcels": [
         {
-          "nr": "55/3"
+          "nr": "55/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F3%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "55/4"
+          "nr": "55/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F4%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "55/6"
+          "nr": "55/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F6%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "55/7"
+          "nr": "55/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%2F7%20W%C3%B3jtowa%20Wie%C5%9B%20Opole%20geoportal%20dzia%C5%82ki"
         }
       ]
     }
