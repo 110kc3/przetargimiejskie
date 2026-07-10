@@ -111,10 +111,15 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-/** Starting price from "Cena wywolawcza nieruchomosci:\n    281 000,00 zl". */
+/** Starting price from the section-6 label. Two live forms:
+ *  - Przetarg:  "Cena wywolawcza nieruchomosci:\n    281 000,00 zl"
+ *  - Rokowania: "Cena wywolawcza do rokowan:\n    nie nizsza niz 130 000 zl" (floor price). */
 export function startingPriceFromText(text) {
   const s = text || '';
   let m = /cena\s+wywo[łl]awcza\s+nieruchomo[śs]ci\s*[:\n\r\s]+(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
+  if (m) return parsePLN(m[1]);
+  // Rokowania (negotiations): "Cena wywoławcza do rokowań:\n  nie niższa niż 130 000 zł".
+  m = /cena\s+wywo[łl]awcza\s+do\s+rokowa[ńn]\s*[:\n\r\s]+(?:nie\s+ni[żz]sza\s+ni[żz]\s+)?(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
   if (m) return parsePLN(m[1]);
   m = /wynosi\s+(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
   if (m) return parsePLN(m[1]);

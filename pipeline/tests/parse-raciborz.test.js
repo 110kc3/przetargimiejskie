@@ -96,6 +96,12 @@ test('startingPriceFromText: "281 000,00 zł" (Racibórz section 6 format)', () 
   assert.equal(startingPriceFromText(body), 281000);
 });
 
+test('startingPriceFromText: rokowania floor price "nie niższa niż 130 000 zł"', () => {
+  // Verbatim section-6 line from live rokowania PDF pliki/43849103 (Wileńska 15/16).
+  const body = 'Cena wywoławcza do rokowań:\n     nie niższa niż 130 000 zł, z czego 5,2 % stanowi cena składnika gruntowego .';
+  assert.equal(startingPriceFromText(body), 130000);
+});
+
 test('startingPriceFromText: null when absent', () => {
   assert.equal(startingPriceFromText('brak ceny'), null);
   assert.equal(startingPriceFromText(null), null);
@@ -312,6 +318,47 @@ test('parseAnnouncement: rokowania — round=2, kind=mieszkalny, address key set
   assert.equal(r.address.key, 'mickiewicza|13|15');
   assert.equal(r.starting_price_pln, 115000);
   assert.equal(r.area_m2, 23.4);
+});
+
+// REAL rokowania announcement — verbatim pdftotext -layout of live PDF
+//   https://www.bipraciborz.pl/res/serwisy/pliki/43849103?version=1.0  (Wileńska 15/16)
+// Fetched 2026-07-10. Groundtruth: mieszkalny, round 2 (rokowania), 35,05 m²,
+// floor price 130 000 zł, rokowania 29 lipca 2026. Regression for the null-price gap
+// the 2026-07-07 live smoke flagged: this doc uses the "Cena wywoławcza do rokowań:
+// nie niższa niż X zł" label the earlier price regexes missed (→ starting_price_pln null).
+const ANN_ROKOWANIA_WILENSKA = `                                                   PREZYDENT MIASTA RACIBÓRZ
+                                    działając na podstawie art. 39 ust. 2 ustawy z dnia 21 sierpnia 1997 r.
+                                       o gospodarce nieruchomościami (t.j. Dz.U. z 2026 r., poz. 399)
+
+                                       zaprasza do rokowań podmioty zainteresowane nabyciem
+                                        wolnego lokalu mieszkalnego, położonego w Raciborzu
+                                                    przy ul. Wileńskiej nr 15/16
+
+
+1. Lokalizacja: 47-400 Racibórz, ul. Wileńska nr 15/16
+2. Oznaczenie nieruchomości wg danych z ewidencji gruntów:
+     nieruchomość zabudowana budynkiem wielomieszkaniowym, stanowiąca działkę gruntu oznaczoną nr 561/155
+     k. m. 11 Racibórz o powierzchni 0,0697 ha, uregulowana w księdze wieczystej numer GL1R/00032999/9 Sądu
+     Rejonowego w Raciborzu.
+3. Opis nieruchomości:
+3.1.Lokal mieszkalny nr 16, usytuowany na czwartej kondygnacji (III pietrze) budynku wielomieszkaniowego,
+  położonego w Raciborzu przy ul. Wileńskiej nr 15; składa się z jednego pokoju, kuchni, przedpokoju i łazienki
+    o powierzchni użytkowej 35,05 m2; do lokalu przynależy piwnica o powierzchni 6,53 m 2.
+6. Cena wywoławcza do rokowań:
+     nie niższa niż 130 000 zł, z czego 5,2 % stanowi cena składnika gruntowego .
+7. Termin i miejsce rokowań:
+    Rokowania odbędą się w dniu 29 lipca 2026r. o godzinie 1200, w sali nr 125 na I piętrze Urzędu Miasta
+    Racibórz przy ul. Króla Stefana Batorego 6.`;
+
+test('parseAnnouncement: rokowania Wileńska 15/16 (real PDF) — floor price 130 000 zł parses', () => {
+  const r = parseAnnouncement(ANN_ROKOWANIA_WILENSKA);
+  assert.ok(r, 'record returned');
+  assert.equal(r.kind, 'mieszkalny');
+  assert.equal(r.round, 2);
+  assert.equal(r.address.key, 'wilenskiej|15|16');
+  assert.equal(r.area_m2, 35.05);
+  assert.equal(r.starting_price_pln, 130000); // ← was null before the rokowania price clause
+  assert.equal(r.auction_date, '2026-07-29');
 });
 
 // ---------------------------------------------------------------- parseResultDoc (REAL fixture — land)
