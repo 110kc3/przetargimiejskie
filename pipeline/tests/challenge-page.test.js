@@ -44,3 +44,18 @@ test('a large real page is not misclassified even if it carries a wait cue', () 
   assert.equal(isChallengePage(big), false);
   assert.equal(challengeSignature(big), '');
 });
+
+test('SISCO content page (benign spinner + noscript refresh + real links) is NOT a challenge page', () => {
+  // Shape of Opole's real SISCO board page (bip.um.opole.pl, ~30 KB, 47 anchors):
+  // a genuine <title>, a hidden "Proszę czekać" eDcProgress AJAX spinner, and a
+  // <noscript> meta-refresh fallback to /error_js — all benign template markup
+  // that co-occurs with dozens of real content links. Before the link-sparseness
+  // gate this tripped the generic heuristic and threw Opole's whole harvest away.
+  const links = Array.from({ length: 15 }, (_, i) => `<a href="/przetargi,9_2026-6_${400 + i}">Przetarg ${i}</a>`).join('');
+  const html = `<html><head><title>Urząd Miasta Opola - Przetargi</title>
+    <noscript><meta http-equiv="refresh" content="0; url=http://bip.um.opole.pl/error_js"/></noscript></head>
+    <body><div class="eDcmsPopUpTmp"><div id="eDcProgress" class="eDcProgress"><div>Proszę czekać</div></div></div>
+    <div id="content">${links}</div></body></html>`;
+  assert.equal(isChallengePage(html), false);
+  assert.equal(challengeSignature(html), '');
+});

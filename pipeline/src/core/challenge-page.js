@@ -37,6 +37,22 @@ const RELOAD_RE = /location\s*\.\s*reload|http-equiv\s*=\s*["']?\s*refresh|setTi
 
 const GENERIC_MAX_BYTES = 64 * 1024; // real listing pages are far larger
 
+// Link-sparseness gate for the GENERIC heuristic. Some CMSes — notably SISCO,
+// which many Polish municipal BIPs run (Opole, …) — ship a benign AJAX
+// loading-spinner ("Proszę czekać", in a hidden eDcProgress div) plus a
+// <noscript> meta-refresh fallback (to /error_js) on EVERY page, including real
+// listing/board pages carrying dozens of content links. Both innocently match
+// WAIT_CUE_RE + RELOAD_RE, so the generic heuristic must also require the page
+// to be link-poor: a genuine waiting room is a bare holding page (≈0 anchors),
+// whereas a real page carries site-nav + content links. (Vendor interstitials
+// above are matched regardless of link count.)
+const CONTENT_ANCHOR_MIN = 10;
+
+function anchorCount(html) {
+  const m = html.match(/<a\s/gi);
+  return m ? m.length : 0;
+}
+
 /**
  * True when `html` looks like an anti-bot / challenge / waiting-room
  * interstitial rather than real page content.
@@ -49,13 +65,13 @@ export function isChallengePage(html) {
   // The generic wait-cue+reload heuristic is only trusted on a small body — a
   // real (large) listing page that happens to say "proszę czekać" must not trip.
   if (html.length > GENERIC_MAX_BYTES) return false;
-  return WAIT_CUE_RE.test(html) && RELOAD_RE.test(html);
+  return WAIT_CUE_RE.test(html) && RELOAD_RE.test(html) && anchorCount(html) < CONTENT_ANCHOR_MIN;
 }
 
 /** Short label naming which signature matched, for logs. '' when none. */
 export function challengeSignature(html) {
   if (!html || typeof html !== 'string') return '';
   for (const re of VENDOR_RE) if (re.test(html)) return re.source.split('|')[0].replace(/\\/g, '').slice(0, 40);
-  if (html.length <= GENERIC_MAX_BYTES && WAIT_CUE_RE.test(html) && RELOAD_RE.test(html)) return 'wait-cue+auto-reload';
+  if (html.length <= GENERIC_MAX_BYTES && WAIT_CUE_RE.test(html) && RELOAD_RE.test(html) && anchorCount(html) < CONTENT_ANCHOR_MIN) return 'wait-cue+auto-reload';
   return '';
 }
