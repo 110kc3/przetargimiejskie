@@ -90,11 +90,13 @@ flat traffic → fix funnel first.
 
 ## Parallel data-quality track (non-blocking, all [RPI5])
 
-Result streams for Chrzanów/Oświęcim (+ confirm Opole posts any) · Kędzierzyn-
-Koźle table-announcement parsing + Logonet discovery depth · TG obręb
+Result streams for Chrzanów/Oświęcim (Opole confirmed to post none, closed
+2026-07-10; Bełchatów achieved prices need a BIP-attachment fetch — TODO §2) ·
+Kędzierzyn-Koźle table-announcement parsing + Logonet discovery depth · TG obręb
 name→number map for geoportal links · P2-B Gliwice/Katowice area backfill ·
-Bytom `.doc` retention spot-check · P2-D live self-heal verify on Katowice →
-drop sanity allowlist · P2-E schema v2 only bundled with a needed bump.
+Bytom `.doc` retention verified 2026-07-10 (0 dropped/6 refreshes) · P2-D live
+self-heal verify on Katowice → drop sanity allowlist · P2-E schema v2 only
+bundled with a needed bump.
 
 ## Critical path, plainly
 

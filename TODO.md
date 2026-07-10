@@ -1,7 +1,7 @@
 # TODO
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site/data). **Last refreshed: 7 July
+> (extension) and git history (pipeline/site/data). **Last refreshed: 10 July
 > 2026 — extension v1.32.0.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); headless RPi5 execution is specified in
 > [REMOTE.md](./REMOTE.md); city coverage is the generated ledger
@@ -30,7 +30,20 @@
 > 2026-07-07 zero-data batch 2 — **3 real crawler bugs found + fixed**:
 > walbrzych (0→12) + gniezno (0→4) both dropped every listing for a missing
 > parsed `.address`, wejherowo (0→8 active) mis-parsed an unclosed-anchor grid;
-> added a `buildCityData` guard + regression tests (verified live end-to-end).
+> added a `buildCityData` guard + regression tests (verified live end-to-end);
+> 2026-07-10 session — **belchatów #28 crash fixed** (its first live result
+> post tripped `r.notes.length` in refresh.js → whole-city TypeError since
+> 07-08; refresh.js accumulation now defensive `?.length ?? 0`, belchatów emits
+> `notes:[]` and skips price-less result stubs, canonical ref fields); **opole
+> #14 un-broken 0→45 unique / 93 active** — the 07-07 challenge-page detector
+> false-positived on SISCO's benign "Proszę czekać" spinner + `<noscript>`
+> meta-refresh and threw opole's whole harvest; added a link-sparseness gate
+> (`anchorCount < 10`) that hardens all 12 `bip.um.*` SISCO cities; **raciborz
+> rokowania price** fixed (3 flats `null`→130k/90k/105k via "Cena wywoławcza do
+> rokowań" label); **bytom .doc retention VERIFIED** (0 concluded dropped over 6
+> refreshes/3 wk); **chełm 10-doc gap investigated → all land, deferred** (zero
+> flats lost); **RODO site-policy draft** written (`RODO-DRAFT.md`, awaiting
+> Kamil + lawyer before the newsletter/lead launch).
 >
 > **Env tags** (ROADMAP legend): **[RPI5]** headless-ok · **[GUI]** needs
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
@@ -193,28 +206,53 @@ dual-failing city stops ping-ponging its title.
 ## 2 · Data quality [RPI5]
 
 - **Result (achieved-price) streams:** Chrzanów "Wyniki przetargów" board;
-  Oświęcim scanned result notices (OCR); confirm whether Opole posts any at all
-  and close out. (Kędzierzyn-Koźle/Trzebinia/Kraków already parse results.)
-  **Blockers:** chrzanow/oswiecim zero-data fix first (announcement crawls must
-  work).
+  Oświęcim scanned result notices (OCR). (Kędzierzyn-Koźle/Trzebinia/Kraków
+  already parse results.) **Blockers:** chrzanow/oswiecim zero-data fix first
+  (announcement crawls must work).
+  - **Opole — CLOSED OUT 2026-07-10:** its BIP publishes **no** "informacja o
+    wyniku przetargu" with an achieved price (only the monument-discount
+    "Cena osiągnięta … może zostać obniżona o 30%" boilerplate, which is NOT a
+    result). Opole is announcement-only by design — no result stream to build.
+  - **Bełchatów BIP-attachment results (new 2026-07-10, est. S–M):** belchatow.pl
+    result posts are STUBS (property description only). The achieved price +
+    sold/unsold outcome live in an attachment behind the belchatow.bip.gov.pl
+    "Pobierz" link. To capture belchatów's achieved prices, extend
+    `crawlResultDocs`/`parseResultDoc` to follow that link (fetch the BIP page →
+    extract the attachment URL → download → parse/OCR). `parseResultDoc` already
+    skips the price-less stubs, so nothing wrong lands meanwhile. **Owner:**
+    agent · **Blockers:** none.
 - **Kędzierzyn-Koźle refinements:** parse upcoming flat auctions from
   table-announcements as active listings; genitive↔nominative
   announcement↔result join key; confirm `/api/menu/<id>/articles` + board-85
   auto-discovery reaches every year. City has live data — tuning, not repair.
-- **Racibórz parser coverage (watch):** live smoke 2026-07-07 parsed 10/12
-  announcements — komunikaty 43526954 + 43523904 were rejected ("announcement
-  not parsed" WARNs) and ul. Katowickiej 15/20 came back with
-  `starting_price_pln: null` — check whether `parseAnnouncement` should handle
-  them.
-- **Chełm parser coverage (found 2026-07-09):** live build throws **10
-  `announcement not parsed` WARNs** — I/II/III przetarg ustny nieograniczony na
-  sprzedaż docs (2311599, 2311597, 2311594, 2311593, 2311592, 2292846, 2273991,
-  2273986, 2273985, 2270819) are rejected by `parseAnnouncement`. Not a silent
-  drop (city still builds 17 unique / 33 listings, rebuild is byte-identical) —
-  a bounded coverage gap, same family as the Racibórz watch above. First check
-  whether the 10 docs are flats (valuable) or land (defer), then extend
-  `parseAnnouncement` to the missing layout(s). Est. small–medium. **Owner:**
-  agent · **Blockers:** none.
+- **Racibórz parser coverage — rokowania price FIXED 2026-07-10 (`eb8287f2`):**
+  rokowania (negotiation-sale) flats state the price as "Cena wywoławcza do
+  rokowań: nie niższa niż X zł" — a label form no price regex covered, so 3
+  genuine flats (Wileńska 15/16, Staszica 23/1, Mickiewicza 13/15) came through
+  with `starting_price_pln: null`. `startingPriceFromText` now handles it
+  (null→130000/90000/105000); real-PDF fixture added; unique(13)/active(10)
+  unchanged. Katowickiej 15/20's earlier null self-resolved (source rotated).
+  **Residual (deferred):** the 3 remaining "announcement not parsed" WARNs
+  (43526954, 43523904, 43976343) are LAND (niezabudowane działki — no house
+  number, so the address gate rejects them) + one whole mixed-use kamienica;
+  raciborz has no land.json scope, out of scope.
+- **Chełm parser coverage — INVESTIGATED 2026-07-10, DEFER (all land):** all 10
+  named "announcement not parsed" docs (2311599, 2311597, 2311594, 2311593,
+  2311592, 2292846, 2273991, 2273986, 2273985, 2270819) are **niezabudowane
+  nieruchomości / działki (raw land), zero flats** (fetched + hand-classified;
+  `classifyKind` returns `grunt` for 9/10). Land is already out of scope —
+  `crawl.js` skips `kind==='grunt'` (no land.json support). These trip the
+  *address gate* (`ADDR_RE` needs a house number; land parcels carry a
+  działka/obręb number instead) *before* reaching the grunt-skip branch, so they
+  log as the noisier "announcement not parsed" rather than "land record skipped".
+  **Cosmetic mislabel — zero flats lost**; 17 unique / 33 listings unchanged.
+  **No code change made.** Residual (cosmetic, optional, if WARN noise ever
+  matters): a full-history reprocess emits ≥59 such WARNs — ~38 land-class + ~17
+  wykaz-class (genitive "wykazu"/"podaniu … wykazu" that escape `isSkippableTitle`
+  whose `\bwykaz\b` matches only nominative). Extending `isSkippableTitle` to
+  `wykaz\w*` silences the ~17 wykaz WARNs; moving the grunt check before the
+  address gate reclassifies the land WARNs. Both are log-noise only.
+  **Owner:** agent (only if noise matters) · **Blockers:** none.
 - **Tarnowskie Góry:** ~45 land plots (meta `land_plots: 45`) fall back to
   Google search because TG obręby are name-only — build a **TG obręb
   name→number map** for precise geoportal links (12 addr-only plots can never be
@@ -225,9 +263,14 @@ dual-failing city stops ping-ponging its title.
   `area_m2`. One-off idempotent crawl of archived zgm-gliwice.pl detail slugs +
   Katowice DispForm pages (`pipeline/scripts/backfill-areas-<city>.js` — does
   not exist yet), run once under CI. Completes the zł/m² deal score for history.
-- **Bytom `.doc` retention spot-check:** confirm concluded auctions sourced from
-  .doc files persist in `data/bytom/properties.json` across several daily crawls
-  (doc-text-cache doubles as the retention store — verify it actually does).
+- **Bytom `.doc` retention spot-check — VERIFIED 2026-07-10:** retention works.
+  Committed `data/bytom/properties.json` at 06-17 (20 unique) vs current (21
+  unique) across 6 daily refreshes over 3 weeks → **0 concluded auctions dropped**
+  (18/21 listings are archived). Mechanism confirmed: `bytom/crawl.js` imports
+  `docText` (core/doc-text.js), fetches `.doc` announcements, and the
+  doc-text-cache persists their parsed text so listings survive board rotation
+  (.doc provenance is carried in `doc_url`/`detail_url`, not `source_pdf` — why a
+  naïve `source_pdf` scan shows 0). No code change needed.
 - **P2-D close-out — SHIPPED 2026-07-07:** dropped the
   `katowice|oddzialow mlodziezy i ustny|86|` allowlist line from sanity-check.js.
   Confirmed `applyVerifiedJunk()` (src/core/verified-heals.js) is called on every
@@ -319,10 +362,16 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   Kamil: pick ESP (Resend/Buttondown/MailerLite), account + API key as repo
   secret. Agent: send step in newsletter.yml + **double-opt-in signup form** on
   site/index.html. **HARD-BLOCKED by the RODO policy.**
-- **RODO/GDPR policy draft [RPI5]:** PRIVACY.md covers only the zero-data
-  extension. Needs consent checkbox, lawful basis, deletion/export, partner
-  hand-off language (separate controller). Agent drafts; the legal call +
-  publication is Kamil's. Blocks newsletter send AND any lead capture.
+- **RODO/GDPR policy — DRAFT WRITTEN 2026-07-10 (`RODO-DRAFT.md`) [RPI5]:** a full
+  Polish site-policy draft covering the newsletter (double-opt-in, consent basis
+  art. 6(1)(a) + UŚUDE/PT, ESP as processor), the partner lead form (consent;
+  partner = **separate controller** hand-off), server logs, cookieless analytics,
+  data-subject rights + UODO complaint. The extension stays zero-data (PRIVACY.md
+  unchanged). **Needs Kamil (deferred):** legal review (+ ideally a lawyer) and
+  filling the «placeholders» — controller legal identity/JDG, chosen ESP + its
+  DPA/EEA location, partner name(s), analytics tool. Publish only the sections
+  whose flow is live, then port into `site/privacy/index.html`. Still the hard
+  blocker for newsletter send AND any lead capture until published.
 - **FUNDING.yml + tip jar [ACCOUNT]:** no `.github/FUNDING.yml` exists. Kamil
   creates GitHub Sponsors + PL tip jar (BuyCoffee/BLIK); agent commits
   FUNDING.yml + a discreet "wesprzyj" footer link. Zero gating.
