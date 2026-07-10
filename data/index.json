@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-09T07:54:46.760Z",
+  "generated_at": "2026-07-10T07:51:50.379Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,8 +9,8 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 178,
-      "active_listings": 9,
-      "active_auctions": 9,
+      "active_listings": 10,
+      "active_auctions": 10,
       "archived_auctions": 255,
       "wykaz_entries": 1,
       "land_plots": 79
@@ -60,9 +60,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
-      "unique_properties": 51,
-      "active_listings": 93,
-      "active_auctions": 6,
+      "unique_properties": 52,
+      "active_listings": 94,
+      "active_auctions": 7,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 102
+      "land_plots": 104
     },
     {
       "id": "trzebinia",
@@ -153,8 +153,8 @@
       "host": "trzebinia.pl",
       "unique_properties": 2,
       "active_listings": 2,
-      "active_auctions": 2,
-      "archived_auctions": 0,
+      "active_auctions": 0,
+      "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -309,8 +309,8 @@
       "host": "bip.uml.lodz.pl",
       "unique_properties": 37,
       "active_listings": 37,
-      "active_auctions": 30,
-      "archived_auctions": 7,
+      "active_auctions": 27,
+      "archived_auctions": 10,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -334,9 +334,9 @@
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
       "unique_properties": 116,
-      "active_listings": 21,
-      "active_auctions": 16,
-      "archived_auctions": 104,
+      "active_listings": 19,
+      "active_auctions": 14,
+      "archived_auctions": 106,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -400,8 +400,8 @@
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
       "active_listings": 14,
-      "active_auctions": 11,
-      "archived_auctions": 25,
+      "active_auctions": 9,
+      "archived_auctions": 27,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -451,9 +451,9 @@
       "authority": "Urząd Miejski w Słupsku",
       "host": "bip.um.slupsk.pl",
       "unique_properties": 5,
-      "active_listings": 4,
-      "active_auctions": 4,
-      "archived_auctions": 1,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -542,9 +542,9 @@
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
       "unique_properties": 12,
-      "active_listings": 6,
-      "active_auctions": 12,
-      "archived_auctions": 0,
+      "active_listings": 5,
+      "active_auctions": 11,
+      "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -697,10 +697,10 @@
       "voivodeship": "kujawsko-pomorskie",
       "authority": "Urząd Miasta Bydgoszczy",
       "host": "bip.um.bydgoszcz.pl",
-      "unique_properties": 7,
-      "active_listings": 3,
-      "active_auctions": 3,
-      "archived_auctions": 4,
+      "unique_properties": 8,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -712,8 +712,8 @@
       "host": "bip.um.gorzow.pl",
       "unique_properties": 57,
       "active_listings": 37,
-      "active_auctions": 2,
-      "archived_auctions": 100,
+      "active_auctions": 0,
+      "archived_auctions": 102,
       "wykaz_entries": 0,
       "land_plots": 2
     }
