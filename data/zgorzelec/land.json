@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "city": "zgorzelec",
+  "plots": [
+    {
+      "key": "dz|20/4",
+      "kind": "grunt",
+      "city": "zgorzelec",
+      "dzialka_nr": "20/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Francuskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2020%2F4%20Francuskiej%20Zgorzelec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3933,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 3,
+          "starting_price_pln": 270850,
+          "outcome": "active",
+          "area_m2": 3933,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18166&idmp=32&r=r",
+          "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18166&idmp=32&r=r"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "20/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|11/3",
+      "kind": "grunt",
+      "city": "zgorzelec",
+      "dzialka_nr": "11/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Migdałowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%2F3%20Migda%C5%82owej%20Zgorzelec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1437,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "starting_price_pln": 215000,
+          "outcome": "sold",
+          "final_price_pln": 217150,
+          "area_m2": 1437
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "11/3"
+        }
+      ]
+    }
+  ]
+}

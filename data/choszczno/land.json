@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "city": "choszczno",
+  "plots": [
+    {
+      "key": "dz|121/1",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": "121/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ogrodowa działka 121/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20121%2F1%20ul.%20Ogrodowa%20dzia%C5%82ka%20121%2F1%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-18",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-ogrodo",
+          "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-ogrodo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "121/1"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. pogodna działka 1361",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pogodna działka 1361",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Pogodna%20dzia%C5%82ka%201361%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-14",
+          "round": 1,
+          "starting_price_pln": 222000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|1403",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": "1403",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wolności",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201403%20ul.%20Wolno%C5%9Bci%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-25",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.choszczno.pl/artykul/ogloszenie-o-przetargu-choszczno-ul-wolnosci",
+          "source_url": "https://bip.choszczno.pl/artykul/ogloszenie-o-przetargu-choszczno-ul-wolnosci"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1403"
+        }
+      ]
+    },
+    {
+      "key": "dz|1361",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": "1361",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pogodna działka nr 1361",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201361%20ul.%20Pogodna%20dzia%C5%82ka%20nr%201361%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-iii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-pogo",
+          "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-iii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-pogo"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-pogod",
+          "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-pogod"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1361"
+        }
+      ]
+    },
+    {
+      "key": "dz|1382/2",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": "1382/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pogodna działki 1381/2 i 1382/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201382%2F2%20ul.%20Pogodna%20dzia%C5%82ki%201381%2F2%20i%201382%2F2%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-pogodn-1",
+          "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-pogodn-1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1382/2"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. staszica działka 213/5",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Staszica działka 213/5",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Staszica%20dzia%C5%82ka%20213%2F5%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-dzialka-2",
+          "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-dzialka-2"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. artylerzystów działki 7/6 i 8/4",
+      "kind": "grunt",
+      "city": "choszczno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Artylerzystów działki 7/6 i 8/4",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Artylerzyst%C3%B3w%20dzia%C5%82ki%207%2F6%20i%208%2F4%20Choszczno%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-artyle-1",
+          "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-ul-artyle-1"
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

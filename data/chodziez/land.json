@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "city": "chodziez",
+  "plots": [
+    {
+      "key": "dz|chodzież|917/1",
+      "kind": "grunt",
+      "city": "chodziez",
+      "dzialka_nr": "917/1",
+      "obreb": "Chodzież",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kwiatowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20917%2F1%20ul.%20Kwiatowej%20Chodzie%C5%BC%20Chodzie%C5%BC%20geoportal%20dzia%C5%82ki",
+      "area_m2": 37,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-05",
+          "round": 1,
+          "starting_price_pln": 10500,
+          "outcome": "archived",
+          "area_m2": 37,
+          "detail_url": "https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomościami/2026/ogloszenia-o-przetargach/ogloszenie-i-przetargu-ustnego-nieograniczonego-na-sprzedaz-dzialki-nr-917/1-polozonej-w-chodziezy-przy-ul.-kwiatowej.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "917/1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "city": "mragowo",
+  "properties": [
+    {
+      "key": "mrongowiusza|31|5",
+      "street": "Mrongowiusza",
+      "street_norm": "mrongowiusza",
+      "building": "31",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-26",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bipmragowo.warmia.mazury.pl/8499/informacja-o-wyniku-przetargu.html",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,733 @@
+{
+  "schema_version": 1,
+  "city": "zlotoryja",
+  "plots": [
+    {
+      "key": "dz|207/5, 94/1",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "207/5, 94/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Górniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20207%2F5%2C%2094%2F1%20G%C3%B3rniczej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 164,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "starting_price_pln": 24698,
+          "outcome": "active",
+          "area_m2": 164,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-gorniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-gorniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "207/5"
+        },
+        {
+          "nr": "94/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|116/10",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "116/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Rzemieślniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20116%2F10%20Rzemie%C5%9Blniczej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 305,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "starting_price_pln": 35221,
+          "outcome": "active",
+          "area_m2": 305,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-rzemieslniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-rzemieslniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "116/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|11/16",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "11/16",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Sprzymierzeńców",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%2F16%20Sprzymierze%C5%84c%C3%B3w%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 620,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "starting_price_pln": 66805,
+          "outcome": "active",
+          "area_m2": 620,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-pl-sprzymierzencow-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-pl-sprzymierzencow-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "11/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|412/22",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "412/22",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Krakowskiej INFORMACJA O WYNIKU PRZETARGU Nieograniczony przetarg ustny na sprzedaż nieruchomości gruntowej niezabudowanej oznaczonej geodezyjnie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20412%2F22%20Krakowskiej%20INFORMACJA%20O%20WYNIKU%20PRZETARGU%20Nieograniczony%20przetarg%20ustny%20na%20sprzeda%C5%BC%20nieruchomo%C5%9Bci%20gruntowej%20niezabudowanej%20oznaczonej%20geodezyjnie%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 838,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "starting_price_pln": 122000,
+          "outcome": "unsold",
+          "area_m2": 838
+        },
+        {
+          "date": "2026-05-21",
+          "round": 2,
+          "starting_price_pln": 122000,
+          "outcome": "unsold",
+          "area_m2": 838
+        },
+        {
+          "date": "2026-07-30",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 838,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-w-rejonie-ul-krakowskiej-w-zlotoryi",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-w-rejonie-ul-krakowskiej-w-zlotoryi"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "412/22"
+        }
+      ]
+    },
+    {
+      "key": "dz|156/9",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "156/9",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Piastowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20156%2F9%20Piastowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 755,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "starting_price_pln": 82869,
+          "outcome": "unsold",
+          "area_m2": 755
+        },
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "starting_price_pln": 82869,
+          "outcome": "active",
+          "area_m2": 755,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-ii-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-piastowej-w-zlotoryi",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-ii-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-piastowej-w-zlotoryi"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "156/9"
+        }
+      ]
+    },
+    {
+      "key": "dz|166/27",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "166/27",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Jeżynowej i ul",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20166%2F27%20Je%C5%BCynowej%20i%20ul%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1325,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-16",
+          "round": 1,
+          "starting_price_pln": 204275,
+          "outcome": "unsold",
+          "area_m2": 1325
+        },
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "starting_price_pln": 204275,
+          "outcome": "unsold",
+          "area_m2": 1325
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "166/27"
+        }
+      ]
+    },
+    {
+      "key": "dz|166/29",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "166/29",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Miodowej INFORMACJA O WYNIKU PRZETARGU II nieograniczony przetarg ustny na sprzedaż nieruchomości gruntowej niezabudowanej oznaczonej geodezyjnie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20166%2F29%20Miodowej%20INFORMACJA%20O%20WYNIKU%20PRZETARGU%20II%20nieograniczony%20przetarg%20ustny%20na%20sprzeda%C5%BC%20nieruchomo%C5%9Bci%20gruntowej%20niezabudowanej%20oznaczonej%20geodezyjnie%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1309,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-16",
+          "round": 1,
+          "starting_price_pln": 207922,
+          "outcome": "unsold",
+          "area_m2": 1309
+        },
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "starting_price_pln": 207922,
+          "outcome": "unsold",
+          "area_m2": 1309
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "166/29"
+        }
+      ]
+    },
+    {
+      "key": "dz|166/28",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "166/28",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Jeżynowej i Miodowej INFORMACJA O WYNIKU PRZETARGU II nieograniczony przetarg ustny na sprzedaż nieruchomości gruntowej niezabudowanej oznaczonej geodezyjnie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20166%2F28%20Je%C5%BCynowej%20i%20Miodowej%20INFORMACJA%20O%20WYNIKU%20PRZETARGU%20II%20nieograniczony%20przetarg%20ustny%20na%20sprzeda%C5%BC%20nieruchomo%C5%9Bci%20gruntowej%20niezabudowanej%20oznaczonej%20geodezyjnie%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1261,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-16",
+          "round": 1,
+          "starting_price_pln": 194408,
+          "outcome": "unsold",
+          "area_m2": 1261
+        },
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "starting_price_pln": 194408,
+          "outcome": "unsold",
+          "area_m2": 1261
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "166/28"
+        }
+      ]
+    },
+    {
+      "key": "dz|166/26",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "166/26",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Jeżynowej INFORMACJA O WYNIKU PRZETARGU II nieograniczony przetarg ustny na sprzedaż nieruchomości gruntowej niezabudowanej oznaczonej geodezyjnie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20166%2F26%20Je%C5%BCynowej%20INFORMACJA%20O%20WYNIKU%20PRZETARGU%20II%20nieograniczony%20przetarg%20ustny%20na%20sprzeda%C5%BC%20nieruchomo%C5%9Bci%20gruntowej%20niezabudowanej%20oznaczonej%20geodezyjnie%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1479,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-16",
+          "round": 1,
+          "starting_price_pln": 228017,
+          "outcome": "unsold",
+          "area_m2": 1479
+        },
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "starting_price_pln": 228017,
+          "outcome": "unsold",
+          "area_m2": 1479
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "166/26"
+        }
+      ]
+    },
+    {
+      "key": "dz|166/25",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "166/25",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Jeżynowej i Makowej INFORMACJA O WYNIKU PRZETARGU II nieograniczony przetarg ustny na sprzedaż nieruchomości gruntowej niezabudowanej oznaczonej geodezyjnie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20166%2F25%20Je%C5%BCynowej%20i%20Makowej%20INFORMACJA%20O%20WYNIKU%20PRZETARGU%20II%20nieograniczony%20przetarg%20ustny%20na%20sprzeda%C5%BC%20nieruchomo%C5%9Bci%20gruntowej%20niezabudowanej%20oznaczonej%20geodezyjnie%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1377,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-16",
+          "round": 1,
+          "starting_price_pln": 212457,
+          "outcome": "unsold",
+          "area_m2": 1377
+        },
+        {
+          "date": "2026-06-18",
+          "round": 2,
+          "starting_price_pln": 212457,
+          "outcome": "unsold",
+          "area_m2": 1377
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "166/25"
+        }
+      ]
+    },
+    {
+      "key": "dz|15/6",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "15/6",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F6%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 973,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 2,
+          "starting_price_pln": 62963,
+          "outcome": "unsold",
+          "area_m2": 973
+        },
+        {
+          "date": "2026-05-21",
+          "round": 3,
+          "starting_price_pln": 62963,
+          "outcome": "unsold",
+          "area_m2": 973
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/6"
+        }
+      ]
+    },
+    {
+      "key": "dz|156/16",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "156/16",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Piastowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20156%2F16%20Piastowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 705,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "starting_price_pln": 72841,
+          "outcome": "sold",
+          "final_price_pln": 73571,
+          "area_m2": 705
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "156/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|156/15",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "156/15",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Piastowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20156%2F15%20Piastowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 715,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "starting_price_pln": 76948,
+          "outcome": "sold",
+          "final_price_pln": 77718,
+          "area_m2": 715
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "156/15"
+        }
+      ]
+    },
+    {
+      "key": "dz|15/3",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "15/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F3%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1022,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 2,
+          "starting_price_pln": 236044,
+          "outcome": "unsold",
+          "area_m2": 1022
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/47",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "173/47",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Diamentowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F47%20Diamentowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 940,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 201320,
+          "outcome": "sold",
+          "final_price_pln": 210000,
+          "area_m2": 940
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/47"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/43, 173/45",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "173/43, 173/45",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Diamentowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F43%2C%20173%2F45%20Diamentowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 885,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 189969,
+          "outcome": "sold",
+          "final_price_pln": 191869,
+          "area_m2": 885
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/43"
+        },
+        {
+          "nr": "173/45"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/43",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "173/43",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Diamentowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F43%20Diamentowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 885,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 196665,
+          "outcome": "sold",
+          "final_price_pln": 198635,
+          "area_m2": 885
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/43"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/41",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "173/41",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Diamentowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F41%20Diamentowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 885,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 212303,
+          "outcome": "sold",
+          "final_price_pln": 222953,
+          "area_m2": 885
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/41"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/39",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "173/39",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Diamentowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F39%20Diamentowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 829,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 192361,
+          "outcome": "sold",
+          "final_price_pln": 194291,
+          "area_m2": 829
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/39"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/45",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "173/45",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Diamentowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F45%20Diamentowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 887,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 189969,
+          "outcome": "sold",
+          "final_price_pln": 191869,
+          "area_m2": 887
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/45"
+        }
+      ]
+    },
+    {
+      "key": "dz|545/13",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "545/13",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Zimowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20545%2F13%20Zimowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 28,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-16",
+          "round": 2,
+          "starting_price_pln": 72717,
+          "outcome": "sold",
+          "final_price_pln": 73447,
+          "area_m2": 28
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "545/13"
+        }
+      ]
+    },
+    {
+      "key": "dz|178/20",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "178/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Jerzmanickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20178%2F20%20Jerzmanickiej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 25,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-16",
+          "round": 1,
+          "starting_price_pln": 53250,
+          "outcome": "sold",
+          "final_price_pln": 90000,
+          "area_m2": 25
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "178/20"
+        }
+      ]
+    }
+  ]
+}

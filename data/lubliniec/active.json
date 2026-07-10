@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "city": "lubliniec",
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Mickiewicza 9/6",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "9",
+        "apt": "6",
+        "key": "mickiewicza|9|6",
+        "warning": null
+      },
+      "area_m2": 25.91,
+      "starting_price_pln": 32000,
+      "auction_date": "2026-04-29",
+      "round": 4,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26798&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26798&idmp=93&r=r"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Mickiewicza 9/6",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "9",
+        "apt": "6",
+        "key": "mickiewicza|9|6",
+        "warning": null
+      },
+      "area_m2": 25.91,
+      "starting_price_pln": 32000,
+      "auction_date": "2026-03-11",
+      "round": 3,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26562&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26562&idmp=93&r=r"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Mickiewicza 9/6",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "9",
+        "apt": "6",
+        "key": "mickiewicza|9|6",
+        "warning": null
+      },
+      "area_m2": 25.91,
+      "starting_price_pln": 40000,
+      "auction_date": "2026-01-08",
+      "round": 2,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26300&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26300&idmp=93&r=r"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Mickiewicza 9/6",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "9",
+        "apt": "6",
+        "key": "mickiewicza|9|6",
+        "warning": null
+      },
+      "area_m2": 25.91,
+      "starting_price_pln": 40000,
+      "auction_date": "2025-10-08",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25872&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25872&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Paderewskiego 12/16",
+      "address": {
+        "street": "Paderewskiego",
+        "street_norm": "paderewskiego",
+        "building": "12",
+        "apt": "16",
+        "key": "paderewskiego|12|16",
+        "warning": null
+      },
+      "area_m2": 29.4,
+      "starting_price_pln": 140000,
+      "auction_date": "2024-11-27",
+      "round": 3,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24601&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24601&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Oświęcimskiej 19/12",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "19",
+        "apt": "12",
+        "key": "oswiecimskiej|19|12",
+        "warning": null
+      },
+      "area_m2": 51.4,
+      "starting_price_pln": 75000,
+      "auction_date": "2024-11-27",
+      "round": 3,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24600&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24600&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Oświęcimskiej 19/12",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "19",
+        "apt": "12",
+        "key": "oswiecimskiej|19|12",
+        "warning": null
+      },
+      "area_m2": 51.4,
+      "starting_price_pln": 90000,
+      "auction_date": "2024-10-09",
+      "round": 2,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24302&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24302&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Paderewskiego 12/16",
+      "address": {
+        "street": "Paderewskiego",
+        "street_norm": "paderewskiego",
+        "building": "12",
+        "apt": "16",
+        "key": "paderewskiego|12|16",
+        "warning": null
+      },
+      "area_m2": 29.4,
+      "starting_price_pln": 140000,
+      "auction_date": "2024-10-09",
+      "round": 2,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24298&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24298&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Oświęcimskiej 19/12",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "19",
+        "apt": "12",
+        "key": "oswiecimskiej|19|12",
+        "warning": null
+      },
+      "area_m2": 51.4,
+      "starting_price_pln": 124000,
+      "auction_date": "2024-07-17",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24016&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24016&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Paderewskiego 12/16",
+      "address": {
+        "street": "Paderewskiego",
+        "street_norm": "paderewskiego",
+        "building": "12",
+        "apt": "16",
+        "key": "paderewskiego|12|16",
+        "warning": null
+      },
+      "area_m2": 29.4,
+      "starting_price_pln": 140000,
+      "auction_date": "2024-07-17",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24008&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24008&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Częstochowskiej 34/2",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "34",
+        "apt": "2",
+        "key": "czestochowskiej|34|2",
+        "warning": null
+      },
+      "area_m2": 52.2,
+      "starting_price_pln": 130000,
+      "auction_date": "2023-12-13",
+      "round": 3,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22983&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22983&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Częstochowskiej 34/2",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "34",
+        "apt": "2",
+        "key": "czestochowskiej|34|2",
+        "warning": null
+      },
+      "area_m2": 52.2,
+      "starting_price_pln": 150000,
+      "auction_date": "2023-10-04",
+      "round": 2,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22638&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22638&idmp=93&r=r"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ZHP 27",
+      "address": {
+        "street": "ZHP",
+        "street_norm": "zhp",
+        "building": "27",
+        "apt": null,
+        "key": "zhp|27|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 27000,
+      "auction_date": "2023-09-06",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22527&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22527&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Częstochowskiej 6/34",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "6",
+        "apt": "34",
+        "key": "czestochowskiej|6|34",
+        "warning": null
+      },
+      "area_m2": 46.2,
+      "starting_price_pln": 250000,
+      "auction_date": "2023-09-06",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22526&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22526&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Częstochowskiej 34/2",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "34",
+        "apt": "2",
+        "key": "czestochowskiej|34|2",
+        "warning": null
+      },
+      "area_m2": 52.2,
+      "starting_price_pln": 150000,
+      "auction_date": "2023-07-26",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22384&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22384&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Damrota 1/1",
+      "address": {
+        "street": "Damrota",
+        "street_norm": "damrota",
+        "building": "1",
+        "apt": "1",
+        "key": "damrota|1|1",
+        "warning": null
+      },
+      "area_m2": 21.1,
+      "starting_price_pln": 70000,
+      "auction_date": "2022-10-19",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21187&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21187&idmp=93&r=r"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Sądowej 10",
+      "address": {
+        "street": "Sądowej",
+        "street_norm": "sadowej",
+        "building": "10",
+        "apt": null,
+        "key": "sadowej|10|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 920000,
+      "auction_date": "2022-09-28",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20975&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20975&idmp=93&r=r"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Mickiewicza 19/8",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "19",
+        "apt": "8",
+        "key": "mickiewicza|19|8",
+        "warning": null
+      },
+      "area_m2": 103.13,
+      "starting_price_pln": 270000,
+      "auction_date": "2022-07-27",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20907&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20907&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wojska Polskiego 3/22",
+      "address": {
+        "street": "Wojska Polskiego",
+        "street_norm": "wojska polskiego",
+        "building": "3",
+        "apt": "22",
+        "key": "wojska polskiego|3|22",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18991&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18991&idmp=93&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wojska Polskiego 3/22",
+      "address": {
+        "street": "Wojska Polskiego",
+        "street_norm": "wojska polskiego",
+        "building": "3",
+        "apt": "22",
+        "key": "wojska polskiego|3|22",
+        "warning": null
+      },
+      "area_m2": 46.8,
+      "starting_price_pln": 132000,
+      "auction_date": "2021-04-14",
+      "round": 1,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18811&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18811&idmp=93&r=r"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Mickiewicza 19/8",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "19",
+        "apt": "8",
+        "key": "mickiewicza|19|8",
+        "warning": null
+      },
+      "area_m2": 103.13,
+      "starting_price_pln": 220000,
+      "auction_date": "2021-02-24",
+      "round": 2,
+      "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18683&idmp=93&r=r",
+      "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18683&idmp=93&r=r"
+    }
+  ],
+  "wykaz": []
+}

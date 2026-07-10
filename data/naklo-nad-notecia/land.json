@@ -1,0 +1,793 @@
+{
+  "schema_version": 1,
+  "city": "naklo-nad-notecia",
+  "plots": [
+    {
+      "key": "dz|2564/17",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "2564/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 2564/17, ul. Młyńska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202564%2F17%20dz.%20ewid.%20nr%202564%2F17%2C%20ul.%20M%C5%82y%C5%84ska%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7683,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": 731800,
+          "outcome": "active",
+          "area_m2": 7683,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7789/dz-ewid-nr-2564-17-ul-mlynska-naklo-nad-notecia",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7789/dz-ewid-nr-2564-17-ul-mlynska-naklo-nad-notecia"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2564/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|363",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "363",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 363",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20363%20dz.%20ewid.%20nr%20363%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 606,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-12",
+          "round": 1,
+          "starting_price_pln": 9000,
+          "outcome": "sold",
+          "final_price_pln": 9100,
+          "area_m2": 606,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7650/dz-ewid-nr-363-obreb-lubaszcz"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "363"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/5",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/5, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F5%20dz.%20ewid.%20nr%20478%2F5%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1601,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 182615,
+          "outcome": "unsold",
+          "area_m2": 1601,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5085/dz-ewid-nr-478-5-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2024-12-11",
+          "round": 2,
+          "starting_price_pln": 182615,
+          "outcome": "unsold",
+          "area_m2": 1601,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5412/dz-ewid-nr-478-5-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "starting_price_pln": 182615,
+          "outcome": "unsold",
+          "area_m2": 1601,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6929/dz-ewid-nr-478-5-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 2,
+          "starting_price_pln": 182615,
+          "outcome": "unsold",
+          "area_m2": 1601,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7336/ogloszenie-burmistrza-miasta-i-gminy-naklo-nad-notecia-z-dnia-9-lutego-2026-roku"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/4",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/4, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F4%20dz.%20ewid.%20nr%20478%2F4%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1529,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 175358,
+          "outcome": "unsold",
+          "area_m2": 1529,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5084/dz-ewid-nr-478-4-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2024-12-11",
+          "round": 2,
+          "starting_price_pln": 175358,
+          "outcome": "unsold",
+          "area_m2": 1529,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5411/dz-ewid-nr-478-4-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "starting_price_pln": 175358,
+          "outcome": "unsold",
+          "area_m2": 1529,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6928/dz-ewid-nr-478-4-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 2,
+          "starting_price_pln": 175358,
+          "outcome": "unsold",
+          "area_m2": 1529,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7335/ogloszenie-burmistrza-miasta-i-gminy-naklo-nad-notecia-z-dnia-9-lutego-2026-roku"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/3",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/3, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F3%20dz.%20ewid.%20nr%20478%2F3%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1285,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 150512,
+          "outcome": "unsold",
+          "area_m2": 1285,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5083/dz-ewid-nr-478-3-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2024-12-11",
+          "round": 2,
+          "starting_price_pln": 150512,
+          "outcome": "unsold",
+          "area_m2": 1285,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5410/dz-ewid-nr-478-3-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "starting_price_pln": 150512,
+          "outcome": "unsold",
+          "area_m2": 1285,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6927/dz-ewid-nr-478-3-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 2,
+          "starting_price_pln": 150512,
+          "outcome": "unsold",
+          "area_m2": 1285,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7334/ogloszenie-burmistrza-miasta-i-gminy-naklo-nad-notecia-z-dnia-9-lutego-2026-roku"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|95/54",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "95/54",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Gorzeń",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2095%2F54%20Gorze%C5%84%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1115,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-22",
+          "round": 1,
+          "starting_price_pln": 149030,
+          "outcome": "archived",
+          "area_m2": 1115,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6625/gorzen-dz-ewid-nr-95-54",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6625/gorzen-dz-ewid-nr-95-54"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "95/54"
+        }
+      ]
+    },
+    {
+      "key": "dz|384",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "384",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Lubaszcz",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20384%20Lubaszcz%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1349,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "starting_price_pln": 9028,
+          "outcome": "archived",
+          "area_m2": 1349,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6607/lubaszcz-czesc-dz-ewid-nr-384",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6607/lubaszcz-czesc-dz-ewid-nr-384"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "384"
+        }
+      ]
+    },
+    {
+      "key": "dz|97/18",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "97/18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 97/18, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2097%2F18%20dz.%20ewid.%20nr%2097%2F18%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-28",
+          "round": 1,
+          "starting_price_pln": 199930,
+          "outcome": "sold",
+          "final_price_pln": 202000,
+          "area_m2": 3000,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6116/dz-ewid-nr-97-18-paterek-ul-nadnotecki-park-przemyslowy"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "97/18"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/10",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/10, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F10%20dz.%20ewid.%20nr%20478%2F10%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1026,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 125543,
+          "outcome": "unsold",
+          "area_m2": 1026,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5088/dz-ewid-nr-478-10-paterek-ul-rubinowa"
+        },
+        {
+          "date": "2024-12-11",
+          "round": 2,
+          "starting_price_pln": 125543,
+          "outcome": "sold",
+          "final_price_pln": 136260,
+          "area_m2": 1026,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5413/dz-ewid-nr-478-10-paterek-ul-rubinowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|97/20",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "97/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 97/20 obręb Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2097%2F20%20dz.%20nr%2097%2F20%20obr%C4%99b%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-07",
+          "round": 1,
+          "starting_price_pln": 202550,
+          "outcome": "sold",
+          "final_price_pln": 205000,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5290/dz-nr-97-20-obreb-paterek"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "97/20"
+        }
+      ]
+    },
+    {
+      "key": "dz|97/19",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "97/19",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 97/19 obręb Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2097%2F19%20dz.%20nr%2097%2F19%20obr%C4%99b%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-07",
+          "round": 1,
+          "starting_price_pln": 202550,
+          "outcome": "sold",
+          "final_price_pln": 205000,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5289/dz-nr-97-19-obreb-paterek"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "97/19"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/11",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/11",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/11, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F11%20dz.%20ewid.%20nr%20478%2F11%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1023,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 125174,
+          "outcome": "archived",
+          "area_m2": 1023,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5089/dz-ewid-nr-478-11-paterek-ul-rubinowa",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5089/dz-ewid-nr-478-11-paterek-ul-rubinowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/9",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/9",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/9, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F9%20dz.%20ewid.%20nr%20478%2F9%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1011,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 124928,
+          "outcome": "archived",
+          "area_m2": 1011,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5087/dz-ewid-nr-478-9-paterek-ul-rubinowa",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5087/dz-ewid-nr-478-9-paterek-ul-rubinowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/9"
+        }
+      ]
+    },
+    {
+      "key": "dz|478/8",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "478/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 478/8, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20478%2F8%20dz.%20ewid.%20nr%20478%2F8%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1009,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 124436,
+          "outcome": "archived",
+          "area_m2": 1009,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5086/dz-ewid-nr-478-8-paterek-ul-rubinowa",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5086/dz-ewid-nr-478-8-paterek-ul-rubinowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478/8"
+        }
+      ]
+    },
+    {
+      "key": "dz|544/11",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "544/11",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 544/11, Paterek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20544%2F11%20dz.%20ewid.%20nr%20544%2F11%2C%20Paterek%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1513,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-10-06",
+          "round": 1,
+          "starting_price_pln": 153000,
+          "outcome": "unsold",
+          "area_m2": 1513,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/1429/dzialka-nr-544-11-polozona-w-obrebie-paterek-przy-ulicy-lakowej"
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
+          "starting_price_pln": 153000,
+          "outcome": "unsold",
+          "area_m2": 1513,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/2101/dzialka-nr-544-11-polozona-w-obrebie-paterek-przy-ulicy-lakowej"
+        },
+        {
+          "date": "2023-09-20",
+          "round": 1,
+          "starting_price_pln": 131900,
+          "outcome": "unsold",
+          "area_m2": 1513,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/3740/dz-544-11-paterek-ul-lakowa"
+        },
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "starting_price_pln": 131900,
+          "outcome": "sold",
+          "final_price_pln": 160000,
+          "area_m2": 1513,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/5090/dz-ewid-nr-544-11-paterek-ul-lakowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "544/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|225/1",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "225/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 225/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20225%2F1%20dz.%20ewid.%20nr%20225%2F1%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8800,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-01",
+          "round": 1,
+          "starting_price_pln": 202788,
+          "outcome": "sold",
+          "final_price_pln": 205000,
+          "area_m2": 8800,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/4903/dz-ewid-nr-225-1-wystep"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "225/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|98/28",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "98/28",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 98/28",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2098%2F28%20dz.%20ewid.%20nr%2098%2F28%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 10000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-07-23",
+          "round": 1,
+          "starting_price_pln": 458180,
+          "outcome": "sold",
+          "final_price_pln": 464000,
+          "area_m2": 10000,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/4779/dz-ewid-nr-98-28-paterek"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "98/28"
+        }
+      ]
+    },
+    {
+      "key": "dz|98/27",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "98/27",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 98/27",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2098%2F27%20dz.%20ewid.%20nr%2098%2F27%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 10000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-07-23",
+          "round": 1,
+          "starting_price_pln": 458180,
+          "outcome": "sold",
+          "final_price_pln": 464000,
+          "area_m2": 10000,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/4778/dz-ewid-nr-98-27-paterek"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "98/27"
+        }
+      ]
+    },
+    {
+      "key": "dz|535/9, 535/11, 535/19",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "535/9, 535/11, 535/19",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 535/9, dz. nr 535/11, dz. nr 535/19",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20535%2F9%2C%20535%2F11%2C%20535%2F19%20dz.%20nr%20535%2F9%2C%20dz.%20nr%20535%2F11%2C%20dz.%20nr%20535%2F19%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1015,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-20",
+          "round": 1,
+          "starting_price_pln": 277894,
+          "outcome": "sold",
+          "final_price_pln": 900000,
+          "area_m2": 1015,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/3744/dz-nr-535-9-dz-nr-535-11-dz-nr-535-19-paterek"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "535/9"
+        },
+        {
+          "nr": "535/11"
+        },
+        {
+          "nr": "535/19"
+        }
+      ]
+    },
+    {
+      "key": "dz|382",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "382",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 382",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20382%20dz.%20nr%20382%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 533,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-12",
+          "round": 1,
+          "starting_price_pln": 6838,
+          "outcome": "sold",
+          "final_price_pln": 6908,
+          "area_m2": 533,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/3497/dz-nr-382-lubaszcz"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "382"
+        }
+      ]
+    },
+    {
+      "key": "dz|1154/14",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "1154/14",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Działki nr 1154/14, nr 1554/19, nr 98/25",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201154%2F14%20Dzia%C5%82ki%20nr%201154%2F14%2C%20nr%201554%2F19%2C%20nr%2098%2F25%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7890,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-12-01",
+          "round": 1,
+          "starting_price_pln": 708450,
+          "outcome": "sold",
+          "final_price_pln": 716450,
+          "area_m2": 7890,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/1574/dzialki-nr-1554-14-nr-1554-19-nr-98-25-pow-98-26-polozone-w-obrebie-paterek-przy-ulicy-nadnotecki-park-przemyslowy"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1154/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|1554/5",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "1554/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Działki nr 1554/5, nr 1554/16, nr 1554/17, nr 1554/6, nr 98/22, nr 98/20",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201554%2F5%20Dzia%C5%82ki%20nr%201554%2F5%2C%20nr%201554%2F16%2C%20nr%201554%2F17%2C%20nr%201554%2F6%2C%20nr%2098%2F22%2C%20nr%2098%2F20%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3501,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-11-26",
+          "round": 1,
+          "starting_price_pln": 2302240,
+          "outcome": "sold",
+          "final_price_pln": 2326240,
+          "area_m2": 3501,
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/1570/dzialki-nr-1554-5-nr-1554-16-nr-1554-17-nr-1554-6-nr-98-22-nr-98-20-nr-98-11-polozone-w-obrebie-paterek-przy-ulicy-nadnotecki-park-przemyslowy"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1554/5"
+        }
+      ]
+    }
+  ]
+}

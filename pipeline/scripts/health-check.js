@@ -113,6 +113,12 @@ const EXEMPT_NEW = new Map([
   // parses correctly — the current board is a land-only auction (no flat), so
   // 0 flat records is right, not a broken parser. It's empty-between-flats, not
   // settling-in.
+  // Batch-1 powiat-seat expansion (registered 2026-07-10, live-groundtruthed).
+  // Only the two that first-refreshed with 0 active listings + unique=1 are
+  // parked here (a settling-window drop to 0 unique would else FAIL); the other
+  // 10 committed unique>=2 on first refresh and stand on their own data.
+  ['olesno', { since: '2026-07-10', reason: 'live-verified: skyCMS board has no active flats now (year-board results only, 2 archived → unique 1); active-flat parse unvalidated until one appears' }],
+  ['mragowo', { since: '2026-07-10', reason: 'live-verified: CNT board has active land (7 plots) but no active flats now (unique 1); active-flat parse unvalidated until one appears' }],
 ]);
 
 const now = Date.now();

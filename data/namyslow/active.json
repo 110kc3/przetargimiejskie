@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "city": "namyslow",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Pawła II 5A/2",
+      "address": {
+        "street": "Jana Pawła II",
+        "street_norm": "jana pawla ii",
+        "building": "5A",
+        "apt": "2",
+        "key": "jana pawla ii|5A|2",
+        "warning": null
+      },
+      "area_m2": 60.12,
+      "starting_price_pln": 160000,
+      "auction_date": "2026-07-30",
+      "round": 4,
+      "kw_nr": "OP1U/00069839/1",
+      "detail_url": "https://zan-namyslow.pl/iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-jana-pawla-ii-5a-2-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/06/Przetarg-Jana-Pawla-II.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Warszawy 7/8",
+      "address": {
+        "street": "Bohaterów Warszawy",
+        "street_norm": "bohaterow warszawy",
+        "building": "7",
+        "apt": "8",
+        "key": "bohaterow warszawy|7|8",
+        "warning": null
+      },
+      "area_m2": 38.11,
+      "starting_price_pln": 105000,
+      "auction_date": "2026-07-30",
+      "round": 3,
+      "kw_nr": "OP1U/00086457/4",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-boh-warszawy-7-8-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/06/Przetarg-Boh.-Warszawy-7.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Pawła II 5A/2",
+      "address": {
+        "street": "Jana Pawła II",
+        "street_norm": "jana pawla ii",
+        "building": "5A",
+        "apt": "2",
+        "key": "jana pawla ii|5A|2",
+        "warning": null
+      },
+      "area_m2": 60.12,
+      "starting_price_pln": 160000,
+      "auction_date": "2026-06-12",
+      "round": 3,
+      "kw_nr": "OP1U/00069839/1",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/04/Przetarg-Czerwiec-2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Warszawy 7/8",
+      "address": {
+        "street": "Bohaterów Warszawy",
+        "street_norm": "bohaterow warszawy",
+        "building": "7",
+        "apt": "8",
+        "key": "bohaterow warszawy|7|8",
+        "warning": null
+      },
+      "area_m2": 38.11,
+      "starting_price_pln": 105000,
+      "auction_date": "2026-04-17",
+      "round": 1,
+      "kw_nr": "OP1U/00086457/4",
+      "detail_url": "https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-8-przy-ul-boh-warszawy-7-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/02/I-przetarg-Boh.-Warszawy-7-m8.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obrońców Pokoju 20/5",
+      "address": {
+        "street": "Obrońców Pokoju",
+        "street_norm": "obroncow pokoju",
+        "building": "20",
+        "apt": "5",
+        "key": "obroncow pokoju|20|5",
+        "warning": null
+      },
+      "area_m2": 120.29,
+      "starting_price_pln": 199000,
+      "auction_date": "2026-03-06",
+      "round": 5,
+      "kw_nr": "OP1U/00070382/2",
+      "detail_url": "https://zan-namyslow.pl/v-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/01/V-przetarg-Obr.-Pokoju-20-m5.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Pawła II 5A/2",
+      "address": {
+        "street": "Jana Pawła II",
+        "street_norm": "jana pawla ii",
+        "building": "5A",
+        "apt": "2",
+        "key": "jana pawla ii|5A|2",
+        "warning": null
+      },
+      "area_m2": 60.12,
+      "starting_price_pln": 183000,
+      "auction_date": "2026-03-06",
+      "round": 2,
+      "kw_nr": "OP1U/00069839/1",
+      "detail_url": "https://zan-namyslow.pl/ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/01/II-przetarg-Jana-Pawla-5-m2.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/9",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "9",
+        "key": "armii krajowej|4|9",
+        "warning": null
+      },
+      "area_m2": 19.25,
+      "starting_price_pln": 49000,
+      "auction_date": "2026-03-06",
+      "round": 2,
+      "kw_nr": "OP1U/00069968/4",
+      "detail_url": "https://zan-namyslow.pl/ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-przy-ul-armii-krajowej-4-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/01/II-przetarg-A.-Krajowej-4-m9.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obrońców Pokoju 20/5",
+      "address": {
+        "street": "Obrońców Pokoju",
+        "street_norm": "obroncow pokoju",
+        "building": "20",
+        "apt": "5",
+        "key": "obroncow pokoju|20|5",
+        "warning": null
+      },
+      "area_m2": 120.29,
+      "starting_price_pln": 216000,
+      "auction_date": "2026-01-09",
+      "round": 4,
+      "kw_nr": "OP1U/00070382/2",
+      "detail_url": "https://zan-namyslow.pl/iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-5-przy-ul-obr-pokoju-20-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/11/Obr.-Pokoju-20-m5-IV-przetarg.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Adama Mickiewicza 11/2",
+      "address": {
+        "street": "Adama Mickiewicza",
+        "street_norm": "adama mickiewicza",
+        "building": "11",
+        "apt": "2",
+        "key": "adama mickiewicza|11|2",
+        "warning": null
+      },
+      "area_m2": 52.92,
+      "starting_price_pln": 159000,
+      "auction_date": "2026-01-09",
+      "round": 3,
+      "kw_nr": "OP1U/00070170/3",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-mickiewicza-11-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/11/Mickiewicza-11-m2-III-przetarg.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Warszawy 7/9",
+      "address": {
+        "street": "Bohaterów Warszawy",
+        "street_norm": "bohaterow warszawy",
+        "building": "7",
+        "apt": "9",
+        "key": "bohaterow warszawy|7|9",
+        "warning": null
+      },
+      "area_m2": 35.78,
+      "starting_price_pln": 53000,
+      "auction_date": "2026-01-09",
+      "round": 4,
+      "kw_nr": "OP1U/00086458/1",
+      "detail_url": "https://zan-namyslow.pl/iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-przy-ul-boh-warszawy-7-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/11/IV-Boh.-Warszawy-7-m9-IV-przetarg.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Pawła II 5A/2",
+      "address": {
+        "street": "Jana Pawła II",
+        "street_norm": "jana pawla ii",
+        "building": "5A",
+        "apt": "2",
+        "key": "jana pawla ii|5A|2",
+        "warning": null
+      },
+      "area_m2": 60.12,
+      "starting_price_pln": 193000,
+      "auction_date": "2025-12-10",
+      "round": 1,
+      "kw_nr": "OP1U/00069839/1",
+      "detail_url": "https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5a-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/10/I-przetarg-Jana-Pawla-5a.2.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/9",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "9",
+        "key": "armii krajowej|4|9",
+        "warning": null
+      },
+      "area_m2": 19.25,
+      "starting_price_pln": 53000,
+      "auction_date": "2025-12-10",
+      "round": 1,
+      "kw_nr": "OP1U/00069968/4",
+      "detail_url": "https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-przy-ul-armii-krajowej-4-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/10/I-przetarg-Armii-Krajowej-4.9.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Warszawy 7/7",
+      "address": {
+        "street": "Bohaterów Warszawy",
+        "street_norm": "bohaterow warszawy",
+        "building": "7",
+        "apt": "7",
+        "key": "bohaterow warszawy|7|7",
+        "warning": null
+      },
+      "area_m2": 97.18,
+      "starting_price_pln": 194360,
+      "auction_date": "2025-12-11",
+      "round": 4,
+      "kw_nr": "OP1U/00086456/7",
+      "detail_url": "https://zan-namyslow.pl/iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-7-przy-ul-boh-warszawy-7-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/10/IV-przetarg-Boh.-Warszawy-7.7.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Warszawy 7/9",
+      "address": {
+        "street": "Bohaterów Warszawy",
+        "street_norm": "bohaterow warszawy",
+        "building": "7",
+        "apt": "9",
+        "key": "bohaterow warszawy|7|9",
+        "warning": null
+      },
+      "area_m2": 35.78,
+      "starting_price_pln": 53000,
+      "auction_date": "2025-11-07",
+      "round": 3,
+      "kw_nr": "OP1U/00086458/1",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-przy-ul-boh-warszawy-7-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/09/III-przetarg-Boh.-Warszawy-7.9.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Obrońców Pokoju 20/5",
+      "address": {
+        "street": "Obrońców Pokoju",
+        "street_norm": "obroncow pokoju",
+        "building": "20",
+        "apt": "5",
+        "key": "obroncow pokoju|20|5",
+        "warning": null
+      },
+      "area_m2": 120.29,
+      "starting_price_pln": 216000,
+      "auction_date": "2025-11-07",
+      "round": 3,
+      "kw_nr": "OP1U/00070382/2",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-5-przy-ul-obr-pokoju-20-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/09/III-przetarg-Obr.-Pokoju-20.5.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Adama Mickiewicza 11/2",
+      "address": {
+        "street": "Adama Mickiewicza",
+        "street_norm": "adama mickiewicza",
+        "building": "11",
+        "apt": "2",
+        "key": "adama mickiewicza|11|2",
+        "warning": null
+      },
+      "area_m2": 52.92,
+      "starting_price_pln": 159000,
+      "auction_date": "2025-11-07",
+      "round": 2,
+      "kw_nr": "OP1U/00070170/3",
+      "detail_url": "https://zan-namyslow.pl/ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-adama-mickiewicza-11-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/09/II-przetarg-Mickiewicza-11.2.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Warszawy 7/7",
+      "address": {
+        "street": "Bohaterów Warszawy",
+        "street_norm": "bohaterow warszawy",
+        "building": "7",
+        "apt": "7",
+        "key": "bohaterow warszawy|7|7",
+        "warning": null
+      },
+      "area_m2": 97.18,
+      "starting_price_pln": 194360,
+      "auction_date": "2025-10-10",
+      "round": 3,
+      "kw_nr": "OP1U/00086456/7",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-7-przy-ul-boh-warszawy-7-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/08/III-przetarg-Boh.-Warszawy-7.7.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bolesława Chrobrego 18/3",
+      "address": {
+        "street": "Bolesława Chrobrego",
+        "street_norm": "boleslawa chrobrego",
+        "building": "18",
+        "apt": "3",
+        "key": "boleslawa chrobrego|18|3",
+        "warning": null
+      },
+      "area_m2": 32.22,
+      "starting_price_pln": 81000,
+      "auction_date": "2025-10-10",
+      "round": 3,
+      "kw_nr": "OP1U/00070313/8",
+      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-przy-ul-boleslawa-chrobrego-18/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/08/III-przetarg-B.-Chrobrego-18.3.pdf"
+    }
+  ],
+  "wykaz": []
+}

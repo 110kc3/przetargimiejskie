@@ -2351,13 +2351,13 @@
       "powiat_slug": "powiat-konecki",
       "powiat_label": "powiat konecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/swietokrzyskie/powiat-konecki/konskie.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Re-verified 2026-07-06: idcom-jst BIP (Giżycko/Tczew clone), born-digital text PDFs, results as titled entries on same board 5027; recurring since 2016 but lowest-volume tier (0 events 2024)."
+        "note": "BUILT — pipeline/src/cities/konskie/ + parse-konskie.test.js (27 green), registered 2026-07-10. IDcom BIP; fixed date-regex + Polish-diacritic bugs during build. First refresh: 3 listing/0 land/2 uniq/3 arch. teryt provisional."
       }
     },
     {
@@ -2607,13 +2607,13 @@
       "powiat_slug": "powiat-chodzieski",
       "powiat_label": "powiat chodzieski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Re-verified 2026-07-06: plain-fetch WOKISS boards (needsRender:false — desk \"JS-rendered\" false); 3 flats live 2026; wyniki at /<YYYY>/wyniki-przetargow.html but 7-day-lived — poll weekly (RSS available)."
+        "note": "BUILT — pipeline/src/cities/chodziez/ + parse-chodziez.test.js (21 green), registered 2026-07-10. WOKISS CMS (bochnia-like). First refresh: 3 listing/1 land/3 uniq/0 arch. teryt provisional."
       }
     },
     {
@@ -2895,13 +2895,13 @@
       "powiat_slug": "powiat-choszczenski",
       "powiat_label": "powiat choszczeński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md",
       "spike": {
         "wave": "Q",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Re-verified 2026-07-06: not blocked — desk failure was an unfollowed 301; plain-HTTP year-board scrape, OCR-layer PDFs, results PDF in same article (Rycerska 2/4 sold 236 900 zł 2026-03); ~1 flat/1-2yrs."
+        "note": "BUILT — pipeline/src/cities/choszczno/ + parse-choszczno.test.js (38 green), registered 2026-07-10. Custom BIP; 3 real parser bugs fixed during build. First refresh: 2 listing/7 land/4 uniq/8 arch. teryt provisional."
       }
     },
     {
@@ -3119,13 +3119,13 @@
       "powiat_slug": "powiat-zgorzelecki",
       "powiat_label": "powiat zgorzelecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md",
       "spike": {
         "wave": "GS1",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "bip.info.pl server-HTML BIP; dedicated Przetargi board + separate Rozstrzygnięcia results board; low-modest flat volume mixed w/ land; comma-path doc URLs; analog Złotoryja/Lwówek Śląski"
+        "note": "BUILT — pipeline/src/cities/zgorzelec/ + parse-zgorzelec.test.js (14 green), registered 2026-07-10. zgorzelec.bip.info.pl server-HTML (idmp=32 announce / idmp=34 results). Two bugs fixed while groundtruthing: LAND_STREET_RE title over-capture + isLease() false-positive on lease-encumbered land SALE. First refresh: 2 listing/2 land/2 uniq/0 arch. teryt provisional."
       }
     },
     {
@@ -3135,13 +3135,13 @@
       "powiat_slug": "powiat-zlotoryjski",
       "powiat_label": "powiat złotoryjski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md",
       "spike": {
         "wave": "GS1",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "bip.info.pl server-HTML; Przetargi board (idmp,74) + Zakończone results (idmp,1); live 2025 flat auction confirmed; needs browser UA in getText (bot-UA 404 quirk); analog Zgorzelec/Lwówek Śląski"
+        "note": "BUILT — pipeline/src/cities/zlotoryja/ + parse-zlotoryja.test.js (18 green), registered 2026-07-10. bip.zlotoryja.pl Angular JSON-API (/api/fo/articles, insecureTLS:true — self-signed chain); NOTE: original spike host was dead, rebuilt against the live BIP. First refresh: 0 listing/22 land/3 uniq/3 arch (land-heavy, no active flats now). teryt provisional."
       }
     },
     {
@@ -3183,13 +3183,13 @@
       "powiat_slug": "powiat-nakielski",
       "powiat_label": "powiat nakielski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md",
       "spike": {
         "wave": "GS1",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Logonet eUrząd v2.9.0; identical URL scheme + metadata/Rozstrzygnięcie layout to Chełmno; strong open flat pipeline (≥5 lokale mieszkalne); near-zero marginal work cloning chelmno"
+        "note": "BUILT — pipeline/src/cities/naklo-nad-notecia/ + parse-naklo-nad-notecia.test.js (17 green), registered 2026-07-10. bip.gmina-naklo.pl XML feed (chelmno-family clone); wynik .docx/.pdf result stream (rokowania + plain przetarg). First live refresh: 11 listing/22 land/7 uniq/19 arch. teryt provisional."
       }
     },
     {
@@ -3215,13 +3215,13 @@
       "powiat_slug": "powiat-lubliniecki",
       "powiat_label": "powiat lubliniecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md",
       "spike": {
         "wave": "GS1",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "No ZGM (UM Wydz. Nieruchomości handles sales); bip.info.pl CMS; announcements idmp,93 + results idmp,94 (hammer price+nabywca confirmed, iddok 27200); land-heavy w/ recurring flat sub-stream (II/III/IV rounds); analog Zgorzelec/Złotoryja"
+        "note": "BUILT — pipeline/src/cities/lubliniec/ + parse-lubliniec.test.js (30 green), registered 2026-07-10. lubliniec.bip.info.pl server-HTML (zgorzelec-family, idmp=93 announce / idmp=94 results); ŚLĄSKIE = public-tier. First refresh: 21 listing/78 land/19 uniq/32 arch. teryt 240901_1."
       }
     },
     {
@@ -3471,13 +3471,13 @@
       "powiat_slug": "powiat-miedzyrzecki",
       "powiat_label": "powiat międzyrzecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md",
       "spike": {
         "wave": "GS1",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "UM Wydz. Gosp. Mieniem + MTBS sell flats at przetarg ustny nieograniczony on Wrota Lubuskie eBIP; /przetargi/0/status/{0,1,2}/ engine w/ achieved prices (Mieszka I 88/5→115k, Kursko 28a/1 76k, ~16/30 resolved are flats); near-clone of gorzow-wielkopolski adapter; ZGL lease-only skip"
+        "note": "BUILT — pipeline/src/cities/miedzyrzecz/ + parse-miedzyrzecz.test.js (25 green), registered 2026-07-10. Wrota Lubuskie eBIP (gorzow-family); results-heavy. First refresh: 0 listing/0 land/16 uniq/36 arch (result-stream city, 0 active by design now). teryt provisional."
       }
     },
     {
@@ -3503,13 +3503,13 @@
       "powiat_slug": "powiat-mragowski",
       "powiat_label": "powiat mrągowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md",
       "spike": {
         "wave": "GS2",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Burmistrz runs recurring przetarg ustny nieogr. na sprzedaż lokalu mieszkalnego (Mrongowiusza 31/5, Wolności 20D/12, Mrongowiusza 75/1, Królewiecka 16/5, rounds I-IV); warmia.mazury.pl CNT BIP board /kategoria/1050/, server-HTML inline, results 'informacja o wyniku' cena osiągnięta/negatywny; low-modest volume; near-clone of BUILT Braniewo"
+        "note": "BUILT — pipeline/src/cities/mragowo/ + parse-mragowo.test.js (44 green), registered 2026-07-10. CNT/warmia (olsztyn-family, NOT braniewo). First refresh: 0 listing/7 land/1 uniq/1 arch (active land, no active flats now → EXEMPT_NEW settling). teryt provisional."
       }
     },
     {
@@ -3631,13 +3631,13 @@
       "powiat_slug": "powiat-namyslowski",
       "powiat_label": "powiat namysłowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/opolskie/powiat-namyslowski/namyslow.md",
       "spike": {
         "wave": "GS2",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Housing manager ZAN Sp. z o.o. (ex-ADM-TBS) on WordPress zan-namyslow.pl/przetargi/ runs recurring open flat auctions (3 live, rounds III/IV; Jana Pawla II 5a/2 160k/60,12m2); detail inline born-digital HTML+PDF; no dedicated flat results board (prices inferred). Gmina BIP bip.namyslow.eu land+wykaz only; county bip.namyslow.pl out of scope. Analog brzeg/nowa-sol WordPress"
+        "note": "BUILT — pipeline/src/cities/namyslow/ + parse-namyslow.test.js (32 green), registered 2026-07-10. ZAN WordPress (nowa-sol-family). First refresh: 18 listing/0 land/8 uniq/16 arch. teryt provisional."
       }
     },
     {
@@ -3711,13 +3711,13 @@
       "powiat_slug": "powiat-oleski",
       "powiat_label": "powiat oleski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/opolskie/powiat-oleski/olesno.md",
       "spike": {
         "wave": "GS2",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "gmina sells flats via przetarg ustny nieograniczony (Małe Przedmieście 1/2, Świercz); no ZGM urząd sells direct; skyCMS v4 server-HTML, per-year sale boards separate from lease, inline wynik/hammer prices; LOW land-skewed flat volume but recurring; in-repo analog=przemysl (identical skyCMS v4)"
+        "note": "BUILT — pipeline/src/cities/olesno/ + parse-olesno.test.js (15 green), registered 2026-07-10. skyCMS (przemysl-family); hardcoded year result-boards. First refresh: 0 listing/0 land/1 uniq/2 arch (no active flats now → EXEMPT_NEW settling). teryt provisional."
       }
     },
     {
@@ -3887,13 +3887,13 @@
       "powiat_slug": "powiat-pajeczanski",
       "powiat_label": "powiat pajęczański",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md",
       "spike": {
         "wave": "GS3",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "no dedicated housing mgr; Sulimo city portal (www.pajeczno.pl /informator, /n,ID,slug.html full-text HTML) + e-bip.pl/ABC-PRO BIP with dedicated lokale-mieszkalne category; 3 live open flat auctions + wykaz + 6 archived flats, small but recurring; start-price solid, hammer-price board not confirmed; analog brzeg/nowa-sol custom server-HTML"
+        "note": "BUILT — pipeline/src/cities/pajeczno/ + parse-pajeczno.test.js (38 green), registered 2026-07-10. Sulimo WordPress (brzeg-family). First refresh: 3 listing/9 land/3 uniq/3 arch. teryt provisional."
       }
     },
     {

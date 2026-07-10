@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "city": "choszczno",
+  "properties": [
+    {
+      "key": "fabryczna|5|",
+      "street": "Fabryczna",
+      "street_norm": "fabryczna",
+      "building": "5",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 177000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 178770,
+          "source_pdf": "https://bip.choszczno.pl/pliki/choszczno/zalaczniki/379346/informacja-o-wylonionym-nabywcy.pdf",
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 460.89
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 460.89
+    },
+    {
+      "key": "rycerska|2|4",
+      "street": "Rycerska",
+      "street_norm": "rycerska",
+      "building": "2",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 53.73,
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-chosz",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-03-03",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.choszczno.pl/pliki/choszczno/zalaczniki/377981/informacja-o-wyniku-iii-przetargu-ustnego-nieograniczonego-w-dniu-3-marca-2025-r.pdf",
+          "notes": [],
+          "area_m2": 53.73
+        },
+        {
+          "date": "2025-05-12",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.choszczno.pl/pliki/choszczno/zalaczniki/378253/informacja-o-wyniku-iv-przetargu-ustnego.pdf",
+          "notes": [],
+          "area_m2": 53.73
+        },
+        {
+          "date": "2026-03-06",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 236900,
+          "source_pdf": "https://bip.choszczno.pl/pliki/choszczno/zalaczniki/379333/informacja-o-wyborze-nabywcy.pdf",
+          "notes": [],
+          "area_m2": 53.73
+        }
+      ],
+      "area_m2": 53.73
+    },
+    {
+      "key": "poziomkowa|4|",
+      "street": "Poziomkowa",
+      "street_norm": "poziomkowa",
+      "building": "4",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 141400,
+          "source_pdf": "https://bip.choszczno.pl/pliki/choszczno/zalaczniki/375806/informacja.pdf",
+          "notes": [],
+          "area_m2": 126.87
+        }
+      ],
+      "area_m2": 126.87
+    },
+    {
+      "key": "wolnosci|58|",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "58",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2021-10-21",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 16.4,
+          "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-przetarg-ustny-nieograniczony-na-zbycie-prawa-wlasnosci-pomieszczen-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2022-01-28",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 25000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 25250,
+          "source_pdf": "https://bip.choszczno.pl/pliki/choszczno/zalaczniki/370515/informacja_o_wyniku_przetargu_lok.uzytk._ul._wolnosci_58-4.pdf",
+          "notes": [],
+          "area_m2": 16.4
+        }
+      ],
+      "area_m2": 16.4
+    }
+  ]
+}

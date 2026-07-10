@@ -60,6 +60,20 @@ import ostroleka from './ostroleka/index.js';
 // Rebuilt 2026-07-06 (clean rebuild after the June mount-corruption; live-groundtruthed).
 import bydgoszcz from './bydgoszcz/index.js';
 import gorzowWielkopolski from './gorzow-wielkopolski/index.js';
+// Batch 1 of the BUILD-ready powiat-seat expansion (2026-07-10; each live-
+// groundtruthed with a passing parse test). All test-tier except lubliniec (Śląskie).
+import nakloNadNotecia from './naklo-nad-notecia/index.js';
+import zgorzelec from './zgorzelec/index.js';
+import konskie from './konskie/index.js';
+import zlotoryja from './zlotoryja/index.js';
+import choszczno from './choszczno/index.js';
+import chodziez from './chodziez/index.js';
+import namyslow from './namyslow/index.js';
+import olesno from './olesno/index.js';
+import mragowo from './mragowo/index.js';
+import miedzyrzecz from './miedzyrzecz/index.js';
+import pajeczno from './pajeczno/index.js';
+import lubliniec from './lubliniec/index.js';
 
 export const cities = [
   gliwice,
@@ -117,6 +131,18 @@ export const cities = [
   ostroleka,
   bydgoszcz,
   gorzowWielkopolski,
+  nakloNadNotecia,
+  zgorzelec,
+  konskie,
+  zlotoryja,
+  choszczno,
+  chodziez,
+  namyslow,
+  olesno,
+  mragowo,
+  miedzyrzecz,
+  pajeczno,
+  lubliniec,
 ];
 
 /** @param {string} id @returns {object|null} */

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "city": "chodziez",
+  "properties": [
+    {
+      "key": "adama mickiewicza|4|3",
+      "street": "Adama Mickiewicza",
+      "street_norm": "adama mickiewicza",
+      "building": "4",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "active",
+          "area_m2": 65.5,
+          "detail_url": "https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomościami/2026/ogloszenia-o-przetargach/ogloszenie-iii-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokali-mieszkalnych-polozonych-w-chodziezy-przy-ul.adama-mickiewicza-4/3-oraz-4/6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 65.5
+    },
+    {
+      "key": "adama mickiewicza|4|6",
+      "street": "Adama Mickiewicza",
+      "street_norm": "adama mickiewicza",
+      "building": "4",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "active",
+          "area_m2": 67.64,
+          "detail_url": "https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomościami/2026/ogloszenia-o-przetargach/ogloszenie-iii-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokali-mieszkalnych-polozonych-w-chodziezy-przy-ul.adama-mickiewicza-4/3-oraz-4/6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 67.64
+    },
+    {
+      "key": "ignacego daszynskiego|12|8",
+      "street": "Ignacego Daszyńskiego",
+      "street_norm": "ignacego daszynskiego",
+      "building": "12",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 49000,
+          "outcome": "active",
+          "area_m2": 21.03,
+          "detail_url": "https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomościami/2026/ogloszenia-o-przetargach/ogloszenie-i-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-nr-8-polozonego-w-chodziezy-przy-ul.-ignacego-daszynskiego-12.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 21.03
+    }
+  ]
+}

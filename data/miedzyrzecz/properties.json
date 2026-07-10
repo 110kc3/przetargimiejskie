@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "city": "miedzyrzecz",
+  "properties": [
+    {
+      "key": "marcinkowskiego|28|7",
+      "street": "Marcinkowskiego",
+      "street_norm": "marcinkowskiego",
+      "building": "28",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/344/338_/",
+          "notes": [],
+          "area_m2": 51.99
+        },
+        {
+          "date": "2025-01-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/347/341_/",
+          "notes": [],
+          "area_m2": 51.99
+        },
+        {
+          "date": "2025-10-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/355/349_/",
+          "notes": [],
+          "area_m2": 51.99
+        },
+        {
+          "date": "2026-02-03",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/358/352_/",
+          "notes": [],
+          "area_m2": 51.99
+        },
+        {
+          "date": "2026-05-13",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 158000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/366/360_/",
+          "notes": [],
+          "area_m2": 51.99
+        }
+      ],
+      "area_m2": 51.99
+    },
+    {
+      "key": "keszyca lesna|74C|8",
+      "street": "Kęszyca Leśna",
+      "street_norm": "keszyca lesna",
+      "building": "74C",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 178000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/357/351_/",
+          "notes": [],
+          "area_m2": 53.93
+        },
+        {
+          "date": "2026-02-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 178000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/359/353_/",
+          "notes": [],
+          "area_m2": 53.93
+        },
+        {
+          "date": "2026-05-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 148000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/365/359_/",
+          "notes": [],
+          "area_m2": 53.93
+        }
+      ],
+      "area_m2": 53.93
+    },
+    {
+      "key": "jagielnik|25|3",
+      "street": "Jagielnik",
+      "street_norm": "jagielnik",
+      "building": "25",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/356/350_/",
+          "notes": [],
+          "area_m2": 29.62
+        },
+        {
+          "date": "2026-05-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/364/358_/",
+          "notes": [],
+          "area_m2": 29.62
+        }
+      ],
+      "area_m2": 29.62
+    },
+    {
+      "key": "jagielniku|25|3",
+      "street": "Jagielniku",
+      "street_norm": "jagielniku",
+      "building": "25",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/360/354_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mieszka i|88B|5",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "88B",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 116150,
+          "source_pdf": "https://bip.miedzyrzecz.pl/system/pobierz.php?plik=INFORMACJA_O_WYNIKU_PRZETARGU_-_MIESZKA_I_88.B.5.pdf&id=fa3c2ed0ee6d637ae66edf47526a4b15",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mieszka i|88B|2",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "88B",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/353/347_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "rynek|11|5",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "11",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 202000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/348/342_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wyszanowo|67|4",
+      "street": "Wyszanowo",
+      "street_norm": "wyszanowo",
+      "building": "67",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-02-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/297/291_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "bukowiec|124C|3",
+      "street": "Bukowiec",
+      "street_norm": "bukowiec",
+      "building": "124C",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-07-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/287/282_/",
+          "notes": []
+        },
+        {
+          "date": "2022-09-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/288/283_/",
+          "notes": []
+        },
+        {
+          "date": "2022-11-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 136000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/291/285_/",
+          "notes": []
+        },
+        {
+          "date": "2023-02-15",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 136000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 158000,
+          "source_pdf": "https://bip.miedzyrzecz.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=c0d105c576bb78223e51ccd1df9b17bc",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "bukowiec|124A|2",
+      "street": "Bukowiec",
+      "street_norm": "bukowiec",
+      "building": "124A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-11-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/270/265_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kursko|28A|1",
+      "street": "Kursko",
+      "street_norm": "kursko",
+      "building": "28A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-06-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/263/258_/",
+          "notes": [],
+          "area_m2": 66.86
+        },
+        {
+          "date": "2021-09-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 76800,
+          "source_pdf": "https://bip.miedzyrzecz.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu.docx&id=9b49f5e78d06b9430e31361d95f26462",
+          "notes": [],
+          "area_m2": 66.86
+        }
+      ],
+      "area_m2": 66.86
+    },
+    {
+      "key": "mlynskiej|5|6",
+      "street": "Młyńska",
+      "street_norm": "mlynskiej",
+      "building": "5",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-01-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 53000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/246/241_/",
+          "notes": []
+        },
+        {
+          "date": "2021-03-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 53000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/253/248_/",
+          "notes": []
+        },
+        {
+          "date": "2021-04-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/262/257_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mlynskiej|5|3",
+      "street": "Młyńska",
+      "street_norm": "mlynskiej",
+      "building": "5",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-01-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 83000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/245/240_/",
+          "notes": []
+        },
+        {
+          "date": "2021-03-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 83000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/252/247_/",
+          "notes": []
+        },
+        {
+          "date": "2021-04-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 66000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/261/256_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mlynskiej|5|2",
+      "street": "Młyńska",
+      "street_norm": "mlynskiej",
+      "building": "5",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-01-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 94000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/244/239_/",
+          "notes": []
+        },
+        {
+          "date": "2021-03-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 94000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/251/246_/",
+          "notes": []
+        },
+        {
+          "date": "2021-04-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/260/255_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mieszka i|7|4",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "7",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/209/204_/",
+          "notes": []
+        },
+        {
+          "date": "2020-04-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/217/212_/",
+          "notes": []
+        },
+        {
+          "date": "2020-06-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/224/219_/",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mieszka i|7|3",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "7",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/208/203_/",
+          "notes": []
+        },
+        {
+          "date": "2020-04-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/216/211_/",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "city": "konskie",
+  "properties": [
+    {
+      "key": "mieszka i|3|43",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "3",
+      "apt": "43",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105500,
+          "outcome": "unsold",
+          "unsold_reason": "no_buyer",
+          "final_price_pln": null,
+          "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/46779/wiadomosci/891845/files/informacja_o_wynikach_przetargu_z_2026_06_23.pdf",
+          "notes": [],
+          "area_m2": 46.94,
+          "share": "1/2",
+          "detail_url": "https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/882606/ogloszenie__pierwszy_przetarg_ustny_nieograniczony_na_sprzedaz_u"
+        }
+      ],
+      "area_m2": 46.94
+    },
+    {
+      "key": "warsztatowej|2B|4",
+      "street": "Warsztatowa",
+      "street_norm": "warsztatowej",
+      "building": "2B",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 109000,
+          "outcome": "unsold",
+          "unsold_reason": "no_buyer",
+          "final_price_pln": null,
+          "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/46779/wiadomosci/849424/files/informacja_o_wynikach_przetargu_z_2025_10_29.pdf",
+          "notes": [],
+          "area_m2": 53,
+          "detail_url": "https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/841419/ogloszenie__pierwszy_przetarg_ustny_nieograniczony_na_zbycie_nie"
+        },
+        {
+          "date": "2026-03-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "no_buyer",
+          "final_price_pln": null,
+          "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/46779/wiadomosci/875621/files/informacja_o_wynikach_przetargu_z_2026_03_25.pdf",
+          "notes": [],
+          "area_m2": 53,
+          "detail_url": "https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/868285/ogloszenie__drugi_przetarg_ustny_nieograniczony_na_zbycie_nieruc"
+        }
+      ],
+      "area_m2": 53
+    }
+  ]
+}

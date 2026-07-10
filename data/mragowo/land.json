@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "city": "mragowo",
+  "plots": [
+    {
+      "key": "dz|nr 1|208, 1",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "208, 1",
+      "obreb": "nr 1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Widok",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%2C%201%20ul.%20Widok%20nr%201%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "starting_price_pln": 20000,
+          "outcome": "active",
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8532/i-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-polozonej-w-mragowie-przy-ulicy-widok-dz.-nr-1-208-1-146-127.html",
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8532/i-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-polozonej-w-mragowie-przy-ulicy-widok-dz.-nr-1-208-1-146-127.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "208"
+        },
+        {
+          "nr": "1"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 10|40/10",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "40/10",
+      "obreb": "nr 10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niedźwiedziej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F10%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1001,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-17",
+          "round": 1,
+          "starting_price_pln": 185000,
+          "outcome": "active",
+          "area_m2": 1001,
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8512/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-10.html",
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8512/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-10.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 10|40/11",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "40/11",
+      "obreb": "nr 10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niedźwiedziej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F11%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-17",
+          "round": 1,
+          "starting_price_pln": 185000,
+          "outcome": "active",
+          "area_m2": 1000,
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8510/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-11.html",
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8510/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-11.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 10|40/26",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "40/26",
+      "obreb": "nr 10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niedźwiedziej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F26%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1008,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 1,
+          "starting_price_pln": 185000,
+          "outcome": "sold",
+          "final_price_pln": 187000,
+          "area_m2": 1008
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40/26"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 10|40/25",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "40/25",
+      "obreb": "nr 10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niedźwiedziej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F25%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1007,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 1,
+          "starting_price_pln": 185000,
+          "outcome": "unsold",
+          "area_m2": 1007
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40/25"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 10|40/27",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "40/27",
+      "obreb": "nr 10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niedźwiedziej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F27%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1003,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 185000,
+          "outcome": "sold",
+          "final_price_pln": 199800,
+          "area_m2": 1003
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40/27"
+        }
+      ]
+    },
+    {
+      "key": "dz|nr 4|158/2",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "158/2",
+      "obreb": "nr 4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bohaterów Warszawy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20158%2F2%20ul.%20Bohater%C3%B3w%20Warszawy%20nr%204%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 106,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 3,
+          "starting_price_pln": 17000,
+          "outcome": "unsold",
+          "area_m2": 106
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "158/2"
+        }
+      ]
+    }
+  ]
+}

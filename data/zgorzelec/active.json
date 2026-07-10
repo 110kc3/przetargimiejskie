@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "city": "zgorzelec",
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Warszawskiej 12/6A",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "12",
+        "apt": "6A",
+        "key": "warszawskiej|12|6A",
+        "warning": null
+      },
+      "area_m2": 28.6,
+      "starting_price_pln": 88950,
+      "auction_date": "2026-08-13",
+      "round": 1,
+      "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18255&idmp=32&r=r",
+      "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18255&idmp=32&r=r"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Reymonta 32/1",
+      "address": {
+        "street": "Reymonta",
+        "street_norm": "reymonta",
+        "building": "32",
+        "apt": "1",
+        "key": "reymonta|32|1",
+        "warning": null
+      },
+      "area_m2": 57.61,
+      "starting_price_pln": 180000,
+      "auction_date": "2026-08-26",
+      "round": 1,
+      "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18253&idmp=32&r=r",
+      "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18253&idmp=32&r=r"
+    }
+  ],
+  "wykaz": []
+}

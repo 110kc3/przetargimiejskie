@@ -1,0 +1,621 @@
+{
+  "schema_version": 1,
+  "city": "lubliniec",
+  "properties": [
+    {
+      "key": "mickiewicza|9|6",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "9",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 25.91,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25872&idmp=93&r=r"
+        },
+        {
+          "date": "2026-01-08",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 25.91,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26300&idmp=93&r=r"
+        },
+        {
+          "date": "2026-03-11",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 25.91,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26562&idmp=93&r=r"
+        },
+        {
+          "date": "2026-04-29",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 25.91,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26798&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 25.91
+    },
+    {
+      "key": "targowej rozpatrzonego w dniu|8|",
+      "street": "Targowej rozpatrzonego w dniu",
+      "street_norm": "targowej rozpatrzonego w dniu",
+      "building": "8",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-04-08",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 48100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "robotniczej rozpatrzonego w dniu|8|",
+      "street": "ROBOTNICZEJ rozpatrzonego w dniu",
+      "street_norm": "robotniczej rozpatrzonego w dniu",
+      "building": "8",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-04-08",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "targowej w lublincu informacja zgodnie z wymogami|12|",
+      "street": "Targowej w Lublińcu INFORMACJA Zgodnie z wymogami",
+      "street_norm": "targowej w lublincu informacja zgodnie z wymogami",
+      "building": "12",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2025-09-24",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "paderewskiego|12|16",
+      "street": "Paderewskiego",
+      "street_norm": "paderewskiego",
+      "building": "12",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 29.4,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24008&idmp=93&r=r"
+        },
+        {
+          "date": "2024-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 29.4,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24298&idmp=93&r=r"
+        },
+        {
+          "date": "2024-11-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 141400,
+          "notes": [],
+          "area_m2": 29.4,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24601&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 29.4
+    },
+    {
+      "key": "oswiecimskiej|19|12",
+      "street": "Oświęcimska",
+      "street_norm": "oswiecimskiej",
+      "building": "19",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 124000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 51.4,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24016&idmp=93&r=r"
+        },
+        {
+          "date": "2024-10-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 51.4,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24302&idmp=93&r=r"
+        },
+        {
+          "date": "2024-11-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 75750,
+          "notes": [],
+          "area_m2": 51.4,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24600&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 51.4
+    },
+    {
+      "key": "czestochowskiej|34|2",
+      "street": "Częstochowska",
+      "street_norm": "czestochowskiej",
+      "building": "34",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-07-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 52.2,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22384&idmp=93&r=r"
+        },
+        {
+          "date": "2023-10-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 52.2,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22638&idmp=93&r=r"
+        },
+        {
+          "date": "2023-12-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 131300,
+          "notes": [],
+          "area_m2": 52.2,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22983&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 52.2
+    },
+    {
+      "key": "czestochowskiej|6|34",
+      "street": "Częstochowska",
+      "street_norm": "czestochowskiej",
+      "building": "6",
+      "apt": "34",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-09-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 252500,
+          "notes": [],
+          "area_m2": 46.2,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22526&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 46.2
+    },
+    {
+      "key": "zhp w lublincu informacja zgodnie z wymogami|12|",
+      "street": "ZHP w Lublińcu INFORMACJA Zgodnie z wymogami",
+      "street_norm": "zhp w lublincu informacja zgodnie z wymogami",
+      "building": "12",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-09-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 27000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 41400,
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "zhp|27|",
+      "street": "ZHP",
+      "street_norm": "zhp",
+      "building": "27",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-09-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 27000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22527&idmp=93&r=r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "podgorskiej|25A|",
+      "street": "Podgórskiej",
+      "street_norm": "podgorskiej",
+      "building": "25A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-06-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "damrota|1|1",
+      "street": "Damrota",
+      "street_norm": "damrota",
+      "building": "1",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-10-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 70000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 70700,
+          "notes": [],
+          "area_m2": 21.1,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21187&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 21.1
+    },
+    {
+      "key": "sadowej|10|",
+      "street": "Sądowa",
+      "street_norm": "sadowej",
+      "building": "10",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-09-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 920000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20975&idmp=93&r=r"
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|19|8",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "19",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-02-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 103.13,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18683&idmp=93&r=r"
+        },
+        {
+          "date": "2022-07-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 272700,
+          "notes": [],
+          "area_m2": 103.13,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20907&idmp=93&r=r"
+        }
+      ],
+      "area_m2": 103.13
+    },
+    {
+      "key": "mickiewicza|19|",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "19",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "oswiecimskiej|19|",
+      "street": "Oświęcimska",
+      "street_norm": "oswiecimskiej",
+      "building": "19",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-10-28",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|36|",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "36",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2021-09-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-20",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-21",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wojska polskiego|3|22",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "3",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-04-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 132000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 172000,
+          "notes": [],
+          "area_m2": 46.8,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18811&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 46.8,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=18991&idmp=93&r=r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.8
+    },
+    {
+      "key": "osiedle posmyk|43|",
+      "street": "Osiedle Posmyk",
+      "street_norm": "osiedle posmyk",
+      "building": "43",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ]
+    }
+  ]
+}

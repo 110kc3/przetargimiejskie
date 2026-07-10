@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "city": "konskie",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Mieszka I 3/43",
+      "address": {
+        "street": "Mieszka I",
+        "street_norm": "mieszka i",
+        "building": "3",
+        "apt": "43",
+        "key": "mieszka i|3|43",
+        "warning": null
+      },
+      "area_m2": 46.94,
+      "starting_price_pln": 105500,
+      "auction_date": "2026-06-23",
+      "round": 1,
+      "detail_url": "https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/882606/ogloszenie__pierwszy_przetarg_ustny_nieograniczony_na_sprzedaz_u",
+      "published_date": "2026-05-11",
+      "share": "1/2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Warsztatowej 2B/4",
+      "address": {
+        "street": "Warsztatowej",
+        "street_norm": "warsztatowej",
+        "building": "2B",
+        "apt": "4",
+        "key": "warsztatowej|2B|4",
+        "warning": null
+      },
+      "area_m2": 53,
+      "starting_price_pln": 85000,
+      "auction_date": "2026-03-25",
+      "round": 2,
+      "detail_url": "https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/868285/ogloszenie__drugi_przetarg_ustny_nieograniczony_na_zbycie_nieruc",
+      "published_date": "2026-02-20"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Warsztatowej 2B/4",
+      "address": {
+        "street": "Warsztatowej",
+        "street_norm": "warsztatowej",
+        "building": "2B",
+        "apt": "4",
+        "key": "warsztatowej|2B|4",
+        "warning": null
+      },
+      "area_m2": 53,
+      "starting_price_pln": 109000,
+      "auction_date": "2025-10-29",
+      "round": 1,
+      "detail_url": "https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/841419/ogloszenie__pierwszy_przetarg_ustny_nieograniczony_na_zbycie_nie",
+      "published_date": "2025-09-24"
+    }
+  ],
+  "wykaz": []
+}

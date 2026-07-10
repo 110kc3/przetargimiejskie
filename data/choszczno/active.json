@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "city": "choszczno",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rycerska 2/4",
+      "address": {
+        "street": "Rycerska",
+        "street_norm": "rycerska",
+        "building": "2",
+        "apt": "4",
+        "key": "rycerska|2|4",
+        "warning": null
+      },
+      "area_m2": 53.73,
+      "starting_price_pln": 250000,
+      "auction_date": "2024-12-19",
+      "round": 2,
+      "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-chosz",
+      "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-chosz"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Wolności 58",
+      "address": {
+        "street": "Wolności",
+        "street_norm": "wolnosci",
+        "building": "58",
+        "apt": null,
+        "key": "wolnosci|58|",
+        "warning": null
+      },
+      "area_m2": 16.4,
+      "starting_price_pln": null,
+      "auction_date": "2021-10-21",
+      "round": null,
+      "detail_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-przetarg-ustny-nieograniczony-na-zbycie-prawa-wlasnosci-pomieszczen-1",
+      "source_url": "https://bip.choszczno.pl/artykul/burmistrz-choszczna-oglasza-przetarg-ustny-nieograniczony-na-zbycie-prawa-wlasnosci-pomieszczen-1"
+    }
+  ],
+  "wykaz": []
+}

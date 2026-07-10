@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "city": "zgorzelec",
+  "properties": [
+    {
+      "key": "reymonta|32|1",
+      "street": "Reymonta",
+      "street_norm": "reymonta",
+      "building": "32",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 57.61,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18253&idmp=32&r=r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 57.61
+    },
+    {
+      "key": "warszawskiej|12|6A",
+      "street": "Warszawska",
+      "street_norm": "warszawskiej",
+      "building": "12",
+      "apt": "6A",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 88950,
+          "outcome": "active",
+          "area_m2": 28.6,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18255&idmp=32&r=r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 28.6
+    }
+  ]
+}

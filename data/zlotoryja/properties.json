@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "city": "zlotoryja",
+  "properties": [
+    {
+      "key": "marszalka jozefa pilsudskiego|26|1",
+      "street": "Marszałka Józefa Piłsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "26",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 254237,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 89.9
+        }
+      ],
+      "area_m2": 89.9
+    },
+    {
+      "key": "legnickiej|32|2",
+      "street": "Legnickiej",
+      "street_norm": "legnickiej",
+      "building": "32",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 58597,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 20.46
+        }
+      ],
+      "area_m2": 20.46
+    },
+    {
+      "key": "garbarskiej|14|2",
+      "street": "Garbarskiej",
+      "street_norm": "garbarskiej",
+      "building": "14",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 217695,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 65.63
+        }
+      ],
+      "area_m2": 65.63
+    }
+  ]
+}

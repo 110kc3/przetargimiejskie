@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "city": "pajeczno",
+  "properties": [
+    {
+      "key": "malej|1|18",
+      "street": "Małej",
+      "street_norm": "malej",
+      "building": "1",
+      "apt": "18",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 228000,
+          "outcome": "archived",
+          "area_m2": 32.8,
+          "detail_url": "https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/n,410662,pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-18-polozonego-w-pajecznie-przy-ul-malej-1-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-wspolwlasnosci-gruntu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.8
+    },
+    {
+      "key": "rekreacyjnej|3|10",
+      "street": "Rekreacyjna",
+      "street_norm": "rekreacyjnej",
+      "building": "3",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 189000,
+          "outcome": "archived",
+          "area_m2": 25.8,
+          "detail_url": "https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/n,410661,pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-10-polozonego-w-pajecznie-przy-ul-rekreacyjnej-3-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-wspolwlasnosci-gruntu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 25.8
+    },
+    {
+      "key": "rekreacyjnej|7|20",
+      "street": "Rekreacyjna",
+      "street_norm": "rekreacyjnej",
+      "building": "7",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "area_m2": 30,
+          "detail_url": "https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/n,410660,pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-20-polozonego-w-pajecznie-przy-ul-rekreacyjnej-7-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-wspolwlasnosci-gruntu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30
+    }
+  ]
+}
