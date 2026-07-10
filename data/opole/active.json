@@ -4,6 +4,210 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Rynek 3/2",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "3",
+        "apt": "2",
+        "key": "rynek|3|2",
+        "warning": null
+      },
+      "area_m2": 68.38,
+      "starting_price_pln": 624000,
+      "auction_date": "2026-01-28",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-1_390"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Cementowej 4/6",
+      "address": {
+        "street": "Cementowej",
+        "street_norm": "cementowej",
+        "building": "4",
+        "apt": "6",
+        "key": "cementowej|4|6",
+        "warning": null
+      },
+      "area_m2": 96.66,
+      "starting_price_pln": 680000,
+      "auction_date": "2026-02-24",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-2_397"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 177/2",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "177",
+        "apt": "2",
+        "key": "ozimskiej|177|2",
+        "warning": null
+      },
+      "area_m2": 43.05,
+      "starting_price_pln": 230000,
+      "auction_date": "2026-03-11",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-3_412"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krupniczej 4",
+      "address": {
+        "street": "Krupniczej",
+        "street_norm": "krupniczej",
+        "building": "4",
+        "apt": null,
+        "key": "krupniczej|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 65000,
+      "auction_date": "2026-04-21",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-4_429"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Plebiscytowej 36/1",
+      "address": {
+        "street": "Plebiscytowej",
+        "street_norm": "plebiscytowej",
+        "building": "36",
+        "apt": "1",
+        "key": "plebiscytowej|36|1",
+        "warning": null
+      },
+      "area_m2": 95.38,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-04-28",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-4_417"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 177/2",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "177",
+        "apt": "2",
+        "key": "ozimskiej|177|2",
+        "warning": null
+      },
+      "area_m2": 43.05,
+      "starting_price_pln": 207000,
+      "auction_date": "2026-05-12",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-5_440"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Oświęcimskiej 12/3",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "12",
+        "apt": "3",
+        "key": "oswiecimskiej|12|3",
+        "warning": null
+      },
+      "area_m2": 41.63,
+      "starting_price_pln": 199000,
+      "auction_date": "2026-05-12",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-5_439"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Oświęcimskiej 12/3",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "12",
+        "apt": "3",
+        "key": "oswiecimskiej|12|3",
+        "warning": null
+      },
+      "area_m2": 41.63,
+      "starting_price_pln": 179100,
+      "auction_date": "2026-06-30",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_461"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zofii Nałkowskiej 10/6",
+      "address": {
+        "street": "Zofii Nałkowskiej",
+        "street_norm": "zofii nalkowskiej",
+        "building": "10",
+        "apt": "6",
+        "key": "zofii nalkowskiej|10|6",
+        "warning": null
+      },
+      "area_m2": 68.61,
+      "starting_price_pln": 410000,
+      "auction_date": "2026-06-30",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_455"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krupniczej 4",
+      "address": {
+        "street": "Krupniczej",
+        "street_norm": "krupniczej",
+        "building": "4",
+        "apt": null,
+        "key": "krupniczej|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 58500,
+      "auction_date": "2026-06-23",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_453"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nysy Łużyckiej 8/2",
+      "address": {
+        "street": "Nysy Łużyckiej",
+        "street_norm": "nysy luzyckiej",
+        "building": "8",
+        "apt": "2",
+        "key": "nysy luzyckiej|8|2",
+        "warning": null
+      },
+      "area_m2": 73.11,
+      "starting_price_pln": 360000,
+      "auction_date": "2026-06-23",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_452"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 61/3",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "61",
+        "apt": "3",
+        "key": "ozimskiej|61|3",
+        "warning": null
+      },
+      "area_m2": 104.65,
+      "starting_price_pln": 670000,
+      "auction_date": "2026-06-09",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_434"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Jagiellonów 4/5",
       "address": {
         "street": "Jagiellonów",
@@ -35,6 +239,23 @@
       "auction_date": "2026-07-14",
       "round": 1,
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_467"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 177/2",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "177",
+        "apt": "2",
+        "key": "ozimskiej|177|2",
+        "warning": null
+      },
+      "area_m2": 43.05,
+      "starting_price_pln": 186300,
+      "auction_date": "2026-07-07",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_463"
     },
     {
       "kind": "mieszkalny",
@@ -88,6 +309,176 @@
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-8_464"
     },
     {
+      "kind": "zabudowana",
+      "address_raw": "ul. Mieczysława Niedziałkowskiego 9",
+      "address": {
+        "street": "Mieczysława Niedziałkowskiego",
+        "street_norm": "mieczyslawa niedzialkowskiego",
+        "building": "9",
+        "apt": null,
+        "key": "mieczyslawa niedzialkowskiego|9|",
+        "warning": null
+      },
+      "area_m2": 368,
+      "starting_price_pln": 4310000,
+      "auction_date": "2026-09-23",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-9_474"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Oświęcimskiej 46",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "46",
+        "apt": null,
+        "key": "oswiecimskiej|46|",
+        "warning": null
+      },
+      "area_m2": 98,
+      "starting_price_pln": 170000,
+      "auction_date": "2025-01-15",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-1_224"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Młodej Polski 5",
+      "address": {
+        "street": "Młodej Polski",
+        "street_norm": "mlodej polski",
+        "building": "5",
+        "apt": null,
+        "key": "mlodej polski|5|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 60000,
+      "auction_date": "2025-01-15",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-1_223"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Walerego Wróblewskiego 47/4",
+      "address": {
+        "street": "Walerego Wróblewskiego",
+        "street_norm": "walerego wroblewskiego",
+        "building": "47",
+        "apt": "4",
+        "key": "walerego wroblewskiego|47|4",
+        "warning": null
+      },
+      "area_m2": 74.77,
+      "starting_price_pln": 366300,
+      "auction_date": "2025-01-15",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-1_222"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rynek 3/2",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "3",
+        "apt": "2",
+        "key": "rynek|3|2",
+        "warning": null
+      },
+      "area_m2": 68.38,
+      "starting_price_pln": 620000,
+      "auction_date": "2025-01-21",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-1_216"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rynek 32a/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "32A",
+        "apt": "6",
+        "key": "rynek|32A|6",
+        "warning": null
+      },
+      "area_m2": 46.71,
+      "starting_price_pln": 440000,
+      "auction_date": "2025-01-14",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-1_207"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Podhalańskiej 16/3",
+      "address": {
+        "street": "Podhalańskiej",
+        "street_norm": "podhalanskiej",
+        "building": "16",
+        "apt": "3",
+        "key": "podhalanskiej|16|3",
+        "warning": null
+      },
+      "area_m2": 40.78,
+      "starting_price_pln": 250000,
+      "auction_date": "2025-04-14",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-4_256"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 177/2",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "177",
+        "apt": "2",
+        "key": "ozimskiej|177|2",
+        "warning": null
+      },
+      "area_m2": 43.05,
+      "starting_price_pln": 230000,
+      "auction_date": "2025-04-14",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-4_255"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Staromiejskiej 2/6A",
+      "address": {
+        "street": "Staromiejskiej",
+        "street_norm": "staromiejskiej",
+        "building": "2",
+        "apt": "6A",
+        "key": "staromiejskiej|2|6A",
+        "warning": null
+      },
+      "area_m2": 41.33,
+      "starting_price_pln": 320000,
+      "auction_date": "2025-04-07",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-4_246"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Walerego Wróblewskiego 47/4",
+      "address": {
+        "street": "Walerego Wróblewskiego",
+        "street_norm": "walerego wroblewskiego",
+        "building": "47",
+        "apt": "4",
+        "key": "walerego wroblewskiego|47|4",
+        "warning": null
+      },
+      "area_m2": 74.77,
+      "starting_price_pln": 329670,
+      "auction_date": "2025-04-01",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-4_243"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Zofii Nałkowskiej 10/6",
       "address": {
@@ -103,6 +494,618 @@
       "auction_date": null,
       "round": 1,
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-5_271"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 51/9",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "51",
+        "apt": "9",
+        "key": "ozimskiej|51|9",
+        "warning": null
+      },
+      "area_m2": 27.36,
+      "starting_price_pln": 185000,
+      "auction_date": "2025-05-06",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-5_261"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Plebiscytowej 36/1",
+      "address": {
+        "street": "Plebiscytowej",
+        "street_norm": "plebiscytowej",
+        "building": "36",
+        "apt": "1",
+        "key": "plebiscytowej|36|1",
+        "warning": null
+      },
+      "area_m2": 95.38,
+      "starting_price_pln": 555000,
+      "auction_date": "2025-05-26",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-5_259"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Krystiana Minkusa 10",
+      "address": {
+        "street": "Krystiana Minkusa",
+        "street_norm": "krystiana minkusa",
+        "building": "10",
+        "apt": null,
+        "key": "krystiana minkusa|10|",
+        "warning": null
+      },
+      "area_m2": 136.43,
+      "starting_price_pln": 440000,
+      "auction_date": "2025-05-12",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-5_258"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jagiellonów 4/5",
+      "address": {
+        "street": "Jagiellonów",
+        "street_norm": "jagiellonow",
+        "building": "4",
+        "apt": "5",
+        "key": "jagiellonow|4|5",
+        "warning": null
+      },
+      "area_m2": 74.44,
+      "starting_price_pln": 420000,
+      "auction_date": "2025-06-10",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_283"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ozimskiej 177/2",
+      "address": {
+        "street": "Ozimskiej",
+        "street_norm": "ozimskiej",
+        "building": "177",
+        "apt": "2",
+        "key": "ozimskiej|177|2",
+        "warning": null
+      },
+      "area_m2": 43.05,
+      "starting_price_pln": 207000,
+      "auction_date": "2025-06-04",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_277"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Staromiejskiej 2/6A",
+      "address": {
+        "street": "Staromiejskiej",
+        "street_norm": "staromiejskiej",
+        "building": "2",
+        "apt": "6A",
+        "key": "staromiejskiej|2|6A",
+        "warning": null
+      },
+      "area_m2": 41.33,
+      "starting_price_pln": 288000,
+      "auction_date": "2025-06-04",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_275"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 3/6",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "3",
+        "apt": "6",
+        "key": "wladyslawa reymonta|3|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 770000,
+      "auction_date": "2025-06-10",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_270"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Oleskiej 69/9",
+      "address": {
+        "street": "Oleskiej",
+        "street_norm": "oleskiej",
+        "building": "69",
+        "apt": "9",
+        "key": "oleskiej|69|9",
+        "warning": null
+      },
+      "area_m2": 28.62,
+      "starting_price_pln": 160000,
+      "auction_date": "2025-07-02",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_289"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Augustyna Kośnego 26/9",
+      "address": {
+        "street": "Augustyna Kośnego",
+        "street_norm": "augustyna kosnego",
+        "building": "26",
+        "apt": "9",
+        "key": "augustyna kosnego|26|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 270000,
+      "auction_date": "2025-07-08",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_288"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wojciecha Drzymały 6/6",
+      "address": {
+        "street": "Wojciecha Drzymały",
+        "street_norm": "wojciecha drzymaly",
+        "building": "6",
+        "apt": "6",
+        "key": "wojciecha drzymaly|6|6",
+        "warning": null
+      },
+      "area_m2": 122.42,
+      "starting_price_pln": 740000,
+      "auction_date": "2025-07-29",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_287"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Ignacego Kraszewskiego 29/2",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "29",
+        "apt": "2",
+        "key": "jozefa ignacego kraszewskiego|29|2",
+        "warning": null
+      },
+      "area_m2": 74.36,
+      "starting_price_pln": 490000,
+      "auction_date": "2025-07-08",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_282"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Prudnickiej 11",
+      "address": {
+        "street": "Prudnickiej",
+        "street_norm": "prudnickiej",
+        "building": "11",
+        "apt": null,
+        "key": "prudnickiej|11|",
+        "warning": null
+      },
+      "area_m2": 42.14,
+      "starting_price_pln": 290000,
+      "auction_date": "2025-08-19",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_314"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zofii Nałkowskiej 10/6",
+      "address": {
+        "street": "Zofii Nałkowskiej",
+        "street_norm": "zofii nalkowskiej",
+        "building": "10",
+        "apt": "6",
+        "key": "zofii nalkowskiej|10|6",
+        "warning": null
+      },
+      "area_m2": 68.61,
+      "starting_price_pln": 324000,
+      "auction_date": "2025-08-19",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_313"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jagiellonów 4/5",
+      "address": {
+        "street": "Jagiellonów",
+        "street_norm": "jagiellonow",
+        "building": "4",
+        "apt": "5",
+        "key": "jagiellonow|4|5",
+        "warning": null
+      },
+      "area_m2": 74.44,
+      "starting_price_pln": 378000,
+      "auction_date": "2025-08-12",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_309"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Plebiscytowej 36/1",
+      "address": {
+        "street": "Plebiscytowej",
+        "street_norm": "plebiscytowej",
+        "building": "36",
+        "apt": "1",
+        "key": "plebiscytowej|36|1",
+        "warning": null
+      },
+      "area_m2": 95.38,
+      "starting_price_pln": 499500,
+      "auction_date": "2025-08-12",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_304"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pawła Stalmacha 1/4",
+      "address": {
+        "street": "Pawła Stalmacha",
+        "street_norm": "pawla stalmacha",
+        "building": "1",
+        "apt": "4",
+        "key": "pawla stalmacha|1|4",
+        "warning": null
+      },
+      "area_m2": 67.5,
+      "starting_price_pln": 480000,
+      "auction_date": "2025-08-05",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_293"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Ignacego Kraszewskiego 29/2",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "29",
+        "apt": "2",
+        "key": "jozefa ignacego kraszewskiego|29|2",
+        "warning": null
+      },
+      "area_m2": 74.36,
+      "starting_price_pln": 441000,
+      "auction_date": "2025-09-30",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_328"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jerzego i Ryszarda Kowalczyków 12/2",
+      "address": {
+        "street": "Jerzego i Ryszarda Kowalczyków",
+        "street_norm": "jerzego i ryszarda kowalczykow",
+        "building": "12",
+        "apt": "2",
+        "key": "jerzego i ryszarda kowalczykow|12|2",
+        "warning": null
+      },
+      "area_m2": 90.75,
+      "starting_price_pln": 450000,
+      "auction_date": "2025-09-09",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_322"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Księdza Jana Dzierżona 9/7",
+      "address": {
+        "street": "Księdza Jana Dzierżona",
+        "street_norm": "ksiedza jana dzierzona",
+        "building": "9",
+        "apt": "7",
+        "key": "ksiedza jana dzierzona|9|7",
+        "warning": null
+      },
+      "area_m2": 121.3,
+      "starting_price_pln": 810000,
+      "auction_date": "2025-09-03",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_311"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 3/6",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "3",
+        "apt": "6",
+        "key": "wladyslawa reymonta|3|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 693000,
+      "auction_date": "2025-09-03",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_310"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pawła Stalmacha 1/4",
+      "address": {
+        "street": "Pawła Stalmacha",
+        "street_norm": "pawla stalmacha",
+        "building": "1",
+        "apt": "4",
+        "key": "pawla stalmacha|1|4",
+        "warning": null
+      },
+      "area_m2": 67.5,
+      "starting_price_pln": 432000,
+      "auction_date": "2025-10-21",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_340"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 10/2A",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "10",
+        "apt": "2A",
+        "key": "wladyslawa reymonta|10|2A",
+        "warning": null
+      },
+      "area_m2": 95.13,
+      "starting_price_pln": 599000,
+      "auction_date": "2025-10-14",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_336"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wojciecha Drzymały 6/6",
+      "address": {
+        "street": "Wojciecha Drzymały",
+        "street_norm": "wojciecha drzymaly",
+        "building": "6",
+        "apt": "6",
+        "key": "wojciecha drzymaly|6|6",
+        "warning": null
+      },
+      "area_m2": 122.42,
+      "starting_price_pln": 666000,
+      "auction_date": "2025-10-14",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_335"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wrocławskiej 52/4",
+      "address": {
+        "street": "Wrocławskiej",
+        "street_norm": "wroclawskiej",
+        "building": "52",
+        "apt": "4",
+        "key": "wroclawskiej|52|4",
+        "warning": null
+      },
+      "area_m2": 59.8,
+      "starting_price_pln": 310000,
+      "auction_date": "2025-11-19",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-11_366"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Oleskiej 91/6",
+      "address": {
+        "street": "Oleskiej",
+        "street_norm": "oleskiej",
+        "building": "91",
+        "apt": "6",
+        "key": "oleskiej|91|6",
+        "warning": null
+      },
+      "area_m2": 34.44,
+      "starting_price_pln": 202000,
+      "auction_date": "2025-11-25",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-11_364"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Prudnickiej 11",
+      "address": {
+        "street": "Prudnickiej",
+        "street_norm": "prudnickiej",
+        "building": "11",
+        "apt": null,
+        "key": "prudnickiej|11|",
+        "warning": null
+      },
+      "area_m2": 42.14,
+      "starting_price_pln": 261000,
+      "auction_date": "2025-11-19",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-11_362"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Henryka Sienkiewicza 18",
+      "address": {
+        "street": "Henryka Sienkiewicza",
+        "street_norm": "henryka sienkiewicza",
+        "building": "18",
+        "apt": null,
+        "key": "henryka sienkiewicza|18|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 40000,
+      "auction_date": "2025-12-02",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-12_370"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kardynała Bolesława Kominka 10/2",
+      "address": {
+        "street": "Kardynała Bolesława Kominka",
+        "street_norm": "kardynala boleslawa kominka",
+        "building": "10",
+        "apt": "2",
+        "key": "kardynala boleslawa kominka|10|2",
+        "warning": null
+      },
+      "area_m2": 62.92,
+      "starting_price_pln": 450000,
+      "auction_date": "2025-12-17",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-12_369"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Orląt Lwowskich 13/5",
+      "address": {
+        "street": "Orląt Lwowskich",
+        "street_norm": "orlat lwowskich",
+        "building": "13",
+        "apt": "5",
+        "key": "orlat lwowskich|13|5",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 342000,
+      "auction_date": "2024-01-30",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-1_128"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Walerego Wróblewskiego 47/2",
+      "address": {
+        "street": "Walerego Wróblewskiego",
+        "street_norm": "walerego wroblewskiego",
+        "building": "47",
+        "apt": "2",
+        "key": "walerego wroblewskiego|47|2",
+        "warning": null
+      },
+      "area_m2": 48.9,
+      "starting_price_pln": 300000,
+      "auction_date": "2024-03-27",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-3_146"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Kościuszki 18/7",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "18",
+        "apt": "7",
+        "key": "tadeusza kosciuszki|18|7",
+        "warning": null
+      },
+      "area_m2": 28.39,
+      "starting_price_pln": 200000,
+      "auction_date": "2024-03-26",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-3_144"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Niemodlińskiej 64a/2",
+      "address": {
+        "street": "Niemodlińskiej",
+        "street_norm": "niemodlinskiej",
+        "building": "64A",
+        "apt": "2",
+        "key": "niemodlinskiej|64A|2",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 324000,
+      "auction_date": "2024-03-26",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-3_143"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Henryka Sienkiewicza 32/3",
+      "address": {
+        "street": "Henryka Sienkiewicza",
+        "street_norm": "henryka sienkiewicza",
+        "building": "32",
+        "apt": "3",
+        "key": "henryka sienkiewicza|32|3",
+        "warning": null
+      },
+      "area_m2": 82.01,
+      "starting_price_pln": 560000,
+      "auction_date": "2024-03-06",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-3_130"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Ignacego Kraszewskiego 27/2",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "27",
+        "apt": "2",
+        "key": "jozefa ignacego kraszewskiego|27|2",
+        "warning": null
+      },
+      "area_m2": 90.75,
+      "starting_price_pln": 520000,
+      "auction_date": "2024-04-24",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_145"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wojciecha Drzymały 6/6",
+      "address": {
+        "street": "Wojciecha Drzymały",
+        "street_norm": "wojciecha drzymaly",
+        "building": "6",
+        "apt": "6",
+        "key": "wojciecha drzymaly|6|6",
+        "warning": null
+      },
+      "area_m2": 122.42,
+      "starting_price_pln": 648000,
+      "auction_date": "2024-04-23",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_142"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 3/6",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "3",
+        "apt": "6",
+        "key": "wladyslawa reymonta|3|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 702000,
+      "auction_date": "2024-04-23",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_141"
     },
     {
       "kind": "zabudowana",
@@ -140,6 +1143,295 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Niemodlińskiej 64a/2",
+      "address": {
+        "street": "Niemodlińskiej",
+        "street_norm": "niemodlinskiej",
+        "building": "64A",
+        "apt": "2",
+        "key": "niemodlinskiej|64A|2",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 291600,
+      "auction_date": "2024-05-22",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_157"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Księdza Jana Dzierżona 9/7",
+      "address": {
+        "street": "Księdza Jana Dzierżona",
+        "street_norm": "ksiedza jana dzierzona",
+        "building": "9",
+        "apt": "7",
+        "key": "ksiedza jana dzierzona|9|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 850000,
+      "auction_date": "2024-05-28",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_150"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pawła Stalmacha 1/4",
+      "address": {
+        "street": "Pawła Stalmacha",
+        "street_norm": "pawla stalmacha",
+        "building": "1",
+        "apt": "4",
+        "key": "pawla stalmacha|1|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 480000,
+      "auction_date": "2024-05-21",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_148"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 6/4",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "6",
+        "apt": "4",
+        "key": "armii krajowej|6|4",
+        "warning": null
+      },
+      "area_m2": 45.83,
+      "starting_price_pln": 360000,
+      "auction_date": "2024-06-04",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-6_165"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Krystiana Minkusa 10",
+      "address": {
+        "street": "Krystiana Minkusa",
+        "street_norm": "krystiana minkusa",
+        "building": "10",
+        "apt": null,
+        "key": "krystiana minkusa|10|",
+        "warning": null
+      },
+      "area_m2": 136.43,
+      "starting_price_pln": 450000,
+      "auction_date": "2024-06-26",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-6_164"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 10/2A",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "10",
+        "apt": "2A",
+        "key": "wladyslawa reymonta|10|2A",
+        "warning": null
+      },
+      "area_m2": 95.13,
+      "starting_price_pln": 526500,
+      "auction_date": "2024-06-26",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-6_163"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Walerego Wróblewskiego 47/2",
+      "address": {
+        "street": "Walerego Wróblewskiego",
+        "street_norm": "walerego wroblewskiego",
+        "building": "47",
+        "apt": "2",
+        "key": "walerego wroblewskiego|47|2",
+        "warning": null
+      },
+      "area_m2": 48.9,
+      "starting_price_pln": 270000,
+      "auction_date": "2024-06-04",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-6_162"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rynek 3/2",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "3",
+        "apt": "2",
+        "key": "rynek|3|2",
+        "warning": null
+      },
+      "area_m2": 68.38,
+      "starting_price_pln": 607000,
+      "auction_date": "2024-06-18",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-6_159"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Henryka Sienkiewicza 32/3",
+      "address": {
+        "street": "Henryka Sienkiewicza",
+        "street_norm": "henryka sienkiewicza",
+        "building": "32",
+        "apt": "3",
+        "key": "henryka sienkiewicza|32|3",
+        "warning": null
+      },
+      "area_m2": 82.01,
+      "starting_price_pln": 504000,
+      "auction_date": "2024-06-18",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-6_158"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Walerego Wróblewskiego 47/2",
+      "address": {
+        "street": "Walerego Wróblewskiego",
+        "street_norm": "walerego wroblewskiego",
+        "building": "47",
+        "apt": "2",
+        "key": "walerego wroblewskiego|47|2",
+        "warning": null
+      },
+      "area_m2": 48.9,
+      "starting_price_pln": 243000,
+      "auction_date": "2024-07-17",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_180"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zofii Nałkowskiej 10/6",
+      "address": {
+        "street": "Zofii Nałkowskiej",
+        "street_norm": "zofii nalkowskiej",
+        "building": "10",
+        "apt": "6",
+        "key": "zofii nalkowskiej|10|6",
+        "warning": null
+      },
+      "area_m2": 68.61,
+      "starting_price_pln": 400000,
+      "auction_date": "2024-07-17",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_179"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Armii Krajowej 6/4",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "6",
+        "apt": "4",
+        "key": "armii krajowej|6|4",
+        "warning": null
+      },
+      "area_m2": 45.83,
+      "starting_price_pln": 324000,
+      "auction_date": "2024-07-17",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_178"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pawła Stalmacha 1/4",
+      "address": {
+        "street": "Pawła Stalmacha",
+        "street_norm": "pawla stalmacha",
+        "building": "1",
+        "apt": "4",
+        "key": "pawla stalmacha|1|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 432000,
+      "auction_date": "2024-07-24",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_175"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 3/6",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "3",
+        "apt": "6",
+        "key": "wladyslawa reymonta|3|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 631800,
+      "auction_date": "2024-07-10",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_172"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Ignacego Kraszewskiego 27/2",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "27",
+        "apt": "2",
+        "key": "jozefa ignacego kraszewskiego|27|2",
+        "warning": null
+      },
+      "area_m2": 90.75,
+      "starting_price_pln": 468000,
+      "auction_date": "2024-07-10",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_171"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wojciecha Drzymały 6/6",
+      "address": {
+        "street": "Wojciecha Drzymały",
+        "street_norm": "wojciecha drzymaly",
+        "building": "6",
+        "apt": "6",
+        "key": "wojciecha drzymaly|6|6",
+        "warning": null
+      },
+      "area_m2": 122.42,
+      "starting_price_pln": 583200,
+      "auction_date": "2024-07-09",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_170"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jagiellonów 4/7",
+      "address": {
+        "street": "Jagiellonów",
+        "street_norm": "jagiellonow",
+        "building": "4",
+        "apt": "7",
+        "key": "jagiellonow|4|7",
+        "warning": null
+      },
+      "area_m2": 74.44,
+      "starting_price_pln": 570000,
+      "auction_date": "2024-07-09",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_169"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Tadeusza Kościuszki 27/3",
       "address": {
         "street": "Tadeusza Kościuszki",
@@ -154,6 +1446,125 @@
       "auction_date": null,
       "round": 1,
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-8_188"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Henryka Sienkiewicza 32/3",
+      "address": {
+        "street": "Henryka Sienkiewicza",
+        "street_norm": "henryka sienkiewicza",
+        "building": "32",
+        "apt": "3",
+        "key": "henryka sienkiewicza|32|3",
+        "warning": null
+      },
+      "area_m2": 82.01,
+      "starting_price_pln": 453600,
+      "auction_date": "2024-08-27",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-8_186"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Księdza Jana Dzierżona 9/7",
+      "address": {
+        "street": "Księdza Jana Dzierżona",
+        "street_norm": "ksiedza jana dzierzona",
+        "building": "9",
+        "apt": "7",
+        "key": "ksiedza jana dzierzona|9|7",
+        "warning": null
+      },
+      "area_m2": 121.3,
+      "starting_price_pln": 765000,
+      "auction_date": "2024-08-13",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-8_177"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Opolskiej 40",
+      "address": {
+        "street": "Opolskiej",
+        "street_norm": "opolskiej",
+        "building": "40",
+        "apt": null,
+        "key": "opolskiej|40|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 110000,
+      "auction_date": "2024-09-04",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-9_184"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jagiellonów 4/7",
+      "address": {
+        "street": "Jagiellonów",
+        "street_norm": "jagiellonow",
+        "building": "4",
+        "apt": "7",
+        "key": "jagiellonow|4|7",
+        "warning": null
+      },
+      "area_m2": 74.44,
+      "starting_price_pln": 513000,
+      "auction_date": "2024-10-09",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-10_192"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jerzego i Ryszarda Kowalczyków 12/2",
+      "address": {
+        "street": "Jerzego i Ryszarda Kowalczyków",
+        "street_norm": "jerzego i ryszarda kowalczykow",
+        "building": "12",
+        "apt": "2",
+        "key": "jerzego i ryszarda kowalczykow|12|2",
+        "warning": null
+      },
+      "area_m2": 90.75,
+      "starting_price_pln": 413100,
+      "auction_date": "2024-10-02",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-10_191"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jerzego i Ryszarda Kowalczyków 38",
+      "address": {
+        "street": "Jerzego i Ryszarda Kowalczyków",
+        "street_norm": "jerzego i ryszarda kowalczykow",
+        "building": "38",
+        "apt": null,
+        "key": "jerzego i ryszarda kowalczykow|38|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 47000,
+      "auction_date": "2024-11-26",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-11_201"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Walerego Wróblewskiego 47/4",
+      "address": {
+        "street": "Walerego Wróblewskiego",
+        "street_norm": "walerego wroblewskiego",
+        "building": "47",
+        "apt": "4",
+        "key": "walerego wroblewskiego|47|4",
+        "warning": null
+      },
+      "area_m2": 74.77,
+      "starting_price_pln": 407000,
+      "auction_date": "2024-12-04",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-12_206"
     },
     {
       "kind": "zabudowana",
