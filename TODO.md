@@ -221,6 +221,16 @@ dual-failing city stops ping-ponging its title.
     extract the attachment URL → download → parse/OCR). `parseResultDoc` already
     skips the price-less stubs, so nothing wrong lands meanwhile. **Owner:**
     agent · **Blockers:** none.
+- **Result-ref field-name mismatch — chodziez + chelmno (found 2026-07-10, S)** [RPI5]:
+  a latent bug class where a city's `crawlResultDocs()` pushes result refs keyed
+  `{date, url}` / `source_url`, but `refresh.js` reads `ref.pdf_url` /
+  `ref.auction_date` → committed result records get `source_pdf: undefined` /
+  missing date. **chodziez** (`crawl.js` pushes `{date, url}`) and **chelmno**
+  (pushes `source_url`) both affected; both currently LATENT (chodziez's result
+  board is empty, so it shipped clean with 0 archived) but will silently produce
+  undefined source/date once a result lands. Fix: rename to `pdf_url` /
+  `auction_date` in each city's `crawl.js`. Same class as the belchatów ref-field
+  fix (`b78b5f17`). **Owner:** agent · **Blockers:** none.
 - **Kędzierzyn-Koźle refinements:** parse upcoming flat auctions from
   table-announcements as active listings; genitive↔nominative
   announcement↔result join key; confirm `/api/menu/<id>/articles` + board-85
@@ -394,14 +404,27 @@ data-only. **Owner:** Kamil (scope) / agent (build).
 
 ## 6 · Expansion queues [RPI5]
 
-- **Build the 59-city BUILD-ready queue** (15 Low + 44 Medium, ledger in
-  SPIKE-PROGRESS): dispatch per `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md`
-  via the `przetargi-city-triage` skill; demonstrated pace ~7 adapters/day.
-  Priority: **big-city + Low first** (Wrocław, Poznań, Elbląg, Grudziądz,
-  Włocławek, Kalisz, Płock, Jelenia Góra, Sopot…). Each build adds an
-  EXEMPT_NEW settling window — budget the first-refresh fix cycle; update
-  master-cities.json + regenerate the ledger per batch. **Blockers:**
-  recommended after health is green so new-city noise is distinguishable.
+- **Build the 59-city BUILD-ready queue** (ledger in SPIKE-PROGRESS): dispatch per
+  `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md` via the `przetargi-city-triage`
+  skill. **PROGRESS 2026-07-10: 19 built + pushed this session** (batch 1 = 12,
+  CI-verified; batch 2 = 7) via parallel Sonnet build-agents (clone closest
+  CMS-family analog → live-groundtruth a parse test → verify-before-register →
+  refresh → register). Built: naklo-nad-notecia, zgorzelec, konskie, zlotoryja,
+  choszczno, chodziez, namyslow, olesno, mragowo, miedzyrzecz, pajeczno, lubliniec,
+  pultusk, sandomierz, poddebice, proszowice, pleszew, pisz, rawa-mazowiecka.
+  **~40 remain** (built 74 / build 97 in the ledger). Priority: **big-city + Low
+  first** (Wrocław, Poznań, Elbląg, Grudziądz, Włocławek, Kalisz, Płock, Jelenia
+  Góra, Sopot…). Each build adds an EXEMPT_NEW settling window; update
+  master-cities.json + regenerate the ledger per batch.
+- **pszczyna — DEFERRED, needs crawl-budget tuning before registering** [RPI5]:
+  built + 25 tests green (`cities/pszczyna/` + `tests/parse-pszczyna.test.js`, on
+  disk, unregistered), but its crawl budgets (`INDEX_BUDGET_MS` 5min/query +
+  `ARTICLE_BUDGET_MS` 15min over 472 candidate articles at ~7s/page) are too slow
+  to baseline on the Pi and risk CI's 20-min step timeout on the first full crawl.
+  It's Śląskie = **public-tier** (a blocking-sanity/timeout failure would break the
+  main site's CI). Fix: lower `PSZCZYNA_MAX_PAGES_PER_QUERY` (30→~8), `MAX_ARTICLES`
+  (320→~120), `ARTICLE_BUDGET_MS` (15→~8min) as new defaults in `crawl.js`, relying
+  on the built-in incremental backfill; run a CI-timed refresh; then register.
 - **Spike the remaining 132 of 380 powiat seats** (`spikes/backlog.json`: 132
   pending / 248 done), then build the resulting BUILD verdicts (historical
   hit-rate ~40–45% → est. +30–60 adapters). Completes the "every powiat seat"
