@@ -37,7 +37,7 @@
           "round": 7,
           "kind": "mieszkalny",
           "starting_price_pln": 299000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 94.29,
           "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10271/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-09-07-2026-r-ul-h-sienkiewicza-37m2",
           "wadium_deadline": null,
@@ -59,7 +59,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 33.43,
           "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10270/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-09-07-2026-r-ul-piotrowskiego-5m9",
           "wadium_deadline": null,
@@ -67,6 +67,27 @@
         }
       ],
       "area_m2": 33.43
+    },
+    {
+      "key": "jana zamoyskiego|10|",
+      "street": "Jana Zamoyskiego",
+      "street_norm": "jana zamoyskiego",
+      "building": "10",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 6885000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/32756",
+          "notes": []
+        }
+      ]
     },
     {
       "key": "garbary|9|4",
