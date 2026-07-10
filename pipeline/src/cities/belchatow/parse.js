@@ -333,6 +333,16 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     ? (/wadium/i.test(t) ? 'brak wpłaty wadium' : 'wynik negatywny')
     : null;
 
+  // belchatow.pl publishes "informacja o wyniku" notices as STUBS: the post
+  // carries the property description (address/area/date) but the achieved price
+  // and sold/unsold outcome live in an attachment behind the
+  // belchatow.bip.gov.pl "Pobierz" link (not fetched here — see TODO §2 result
+  // stream). Without any outcome signal (an achieved price or an explicit
+  // negative result) there is no result to report, so skip the stub rather than
+  // emit a misleading price-less "open" record for an auction that has already
+  // concluded. A future BIP-attachment fetch would let these yield real results.
+  if (!unsold && final_price_pln == null) return [];
+
   return [{
     kind: 'mieszkalny',
     address_raw: address.street + ' ' + address.building + (address.apt ? '/' + address.apt : ''),
@@ -343,5 +353,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     outcome,
     unsold_reason,
     source_pdf: sourceUrl,
+    notes: [],
   }];
 }

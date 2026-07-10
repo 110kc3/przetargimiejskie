@@ -16,10 +16,12 @@
 //   so parsed values are identical to the live posts). crawlActive parsed both
 //   correctly end-to-end against the live REST API on 2026-07-05.
 //
-//   RESULT NOTICE: Bełchatów publishes flat result notices only on
-//   belchatow.bip.gov.pl (none on belchatow.pl to date), so parseResultDoc is
-//   groundtruthed against the standard Polish "Informacja o wyniku …" template.
-//   VALIDATE on the first live result.
+//   RESULT NOTICE: validated live 2026-07-10 — belchatow.pl publishes result
+//   notices as STUBS (RESULT_TEXT_STUB below is the verbatim live text): the
+//   post carries the property description but the achieved price + outcome live
+//   in an attachment behind the belchatow.bip.gov.pl "Pobierz" link. So a stub
+//   with no price/outcome must yield [] (never a misleading price-less "open"
+//   record). Full sold/unsold templates still parse (groundtruthed synthetics).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -314,4 +316,23 @@ test('parseResultDoc: non-result text → empty array', () => {
 test('parseResultDoc: empty/null → empty array', () => {
   assert.deepEqual(parseResultDoc('', null, RESULT_URL), []);
   assert.deepEqual(parseResultDoc(null, null, RESULT_URL), []);
+});
+
+// Crash-prevention contract: every emitted result record must carry a `notes`
+// array. refresh.js accumulates `r.notes.length` across records; a record
+// missing the field crashed the whole city refresh on belchatow's first live
+// result (2026-07-08). Guard the field here and defensively in refresh.js.
+test('parseResultDoc (sold): record carries notes: [] (crash-prevention contract)', () => {
+  const r = parseResultDoc(RESULT_TEXT_SOLD, '2025-07-04', RESULT_URL)[0];
+  assert.deepEqual(r.notes, []);
+});
+
+// Real live stub (verbatim from belchatow.pl 2026-07-10): "informacja o wyniku"
+// framing + flat + address, but NO achieved price and NO negative outcome —
+// the actual result is in the belchatow.bip.gov.pl attachment. Must yield []
+// rather than a price-less "open" record misrepresenting a concluded auction.
+const RESULT_TEXT_STUB = `Informacja o wyniku przetargu W dniu 30.06.2026 r. w gmachu Urzędu Miasta w Bełchatowie przy ul. Kościuszki 1 został przeprowadzony ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego wraz z ułamkową częścią gruntu, położonego w Bełchatowie: lokal mieszkalny nr 55 położony w budynku na os. Dolnośląskim 306 o powierzchni użytkowej 52,83 m 2 wraz z pomieszczeniem przynależnym o powierzchni 3,52 m 2 oraz zabudową kuchenną i meblami, usytuowanym na działce nr 435/2 o pow. 1,0407 ha.`;
+
+test('parseResultDoc: live belchatow.pl stub (no price/outcome) → empty array', () => {
+  assert.deepEqual(parseResultDoc(RESULT_TEXT_STUB, '2026-07-08', RESULT_URL), []);
 });

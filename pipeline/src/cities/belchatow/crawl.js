@@ -135,7 +135,10 @@ export async function crawlResultDocs() {
     if (/dzier[żz]aw|najem|wynaj|dzia[łl]k|lokal\w*\s+u[żz]ytkow/.test(t)) continue;
     if (seen.has(p.id)) continue;
     seen.add(p.id);
-    docs.push({ text: body, date: (p.date || '').slice(0, 10) || null, url: p.link || null });
+    // Registry contract: refresh.js reads ref.auction_date + ref.pdf_url (not
+    // date/url) — use the canonical field names so the source link is wired
+    // through to the record and diagnostics, matching the other result cities.
+    docs.push({ text: body, auction_date: (p.date || '').slice(0, 10) || null, pdf_url: p.link || null });
   }
 
   console.error(`  belchatow crawlResultDocs: ${docs.length} result doc(s)`);

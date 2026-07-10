@@ -84,7 +84,10 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     if (recs.length === 0) {
       console.error(`  WARN ${ref.auction_date}: parser returned 0 records from ${ref.pdf_url}`);
     }
-    for (const r of recs) parsedNoteCount += r.notes.length;
+    // Defensive: an adapter's result records may omit `notes` (it's optional in
+    // the record contract). Guard so a missing field can never crash the whole
+    // city refresh (see belchatow, whose first-ever result post tripped this).
+    for (const r of recs) parsedNoteCount += r.notes?.length ?? 0;
     allRecords.push(...recs);
   }
   const beforeFloor = allRecords.length;
