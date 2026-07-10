@@ -1269,13 +1269,6 @@
           "area_m2": 1069
         },
         {
-          "date": "2026-04-29",
-          "round": 6,
-          "starting_price_pln": 80000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        },
-        {
           "date": "2026-06-18",
           "round": 7,
           "starting_price_pln": 80000,
@@ -1317,13 +1310,6 @@
           "date": "2025-11-20",
           "round": 2,
           "starting_price_pln": 25000,
-          "outcome": "unsold",
-          "area_m2": 267
-        },
-        {
-          "date": "2026-04-29",
-          "round": 5,
-          "starting_price_pln": 15000,
           "outcome": "unsold",
           "area_m2": 267
         },
@@ -1370,13 +1356,6 @@
           "date": "2025-11-20",
           "round": 2,
           "starting_price_pln": 30000,
-          "outcome": "unsold",
-          "area_m2": 330
-        },
-        {
-          "date": "2026-04-29",
-          "round": 5,
-          "starting_price_pln": 20000,
           "outcome": "unsold",
           "area_m2": 330
         },
@@ -2037,59 +2016,6 @@
       ]
     },
     {
-      "key": "addr|ul. wisławy szymborskiej",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Wisławy Szymborskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wis%C5%82awy%20Szymborskiej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3828,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-10-01",
-          "round": 1,
-          "starting_price_pln": 160000,
-          "outcome": "archived",
-          "area_m2": 1164,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72291"
-        },
-        {
-          "date": "2024-11-20",
-          "round": 2,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 1164,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73373"
-        },
-        {
-          "date": "2026-03-18",
-          "round": 4,
-          "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 1164,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75531"
-        },
-        {
-          "date": "2026-04-29",
-          "round": 5,
-          "starting_price_pln": 270000,
-          "outcome": "sold",
-          "final_price_pln": 272700,
-          "area_m2": 3828
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "dz|kłodnica|1379/2, 1392",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -2179,6 +2105,51 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F12"
         }
       ]
+    },
+    {
+      "key": "addr|ul. wisławy szymborskiej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wisławy Szymborskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wis%C5%82awy%20Szymborskiej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1164,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-01",
+          "round": 1,
+          "starting_price_pln": 160000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72291"
+        },
+        {
+          "date": "2024-11-20",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73373"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75531"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "addr|ul. wisławy wodociągowa",
