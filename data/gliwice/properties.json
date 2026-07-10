@@ -3,6 +3,52 @@
   "city": "gliwice",
   "properties": [
     {
+      "key": "lompy|7|7",
+      "street": "Lompy",
+      "street_norm": "lompy",
+      "building": "7",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 969800,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 155.07
+        },
+        {
+          "date": "2026-06-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 872820,
+          "outcome": "archived",
+          "area_m2": 155.07,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-22062026-ul-zygmunta-starego-294-ul-czarnieckiego-251-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        },
+        {
+          "date": "2026-09-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 775840,
+          "outcome": "active",
+          "area_m2": 155.07,
+          "detail_url": "https://zgm-gliwice.pl/lompy-7-7-23-03-2026-r/",
+          "wadium_deadline": "2026-09-08",
+          "viewing_date": "2026-08-13"
+        }
+      ],
+      "area_m2": 155.07
+    },
+    {
       "key": "chodkiewicza|12|11",
       "street": "Chodkiewicza",
       "street_norm": "chodkiewicza",
@@ -737,41 +783,6 @@
         }
       ],
       "area_m2": 134.17
-    },
-    {
-      "key": "lompy|7|7",
-      "street": "Lompy",
-      "street_norm": "lompy",
-      "building": "7",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-03-23",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 969800,
-          "outcome": "unsold",
-          "unsold_reason": "no_deposits",
-          "final_price_pln": null,
-          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/04/23.03.2026-r.-wyniki-przetargow.pdf",
-          "notes": [],
-          "area_m2": 155.07
-        },
-        {
-          "date": "2026-06-22",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 872820,
-          "outcome": "archived",
-          "area_m2": 155.07,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-22062026-ul-zygmunta-starego-294-ul-czarnieckiego-251-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "source": "bip"
-        }
-      ],
-      "area_m2": 155.07
     },
     {
       "key": "zawiszy czarnego|6|3",

@@ -103,6 +103,25 @@
       "round": 1
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "Lompy 7/7",
+      "address": {
+        "street": "Lompy",
+        "street_norm": "lompy",
+        "building": "7",
+        "apt": "7",
+        "key": "lompy|7|7",
+        "warning": null
+      },
+      "auction_date": "2026-09-14",
+      "area_m2": 155.07,
+      "starting_price_pln": 775840,
+      "detail_url": "https://zgm-gliwice.pl/lompy-7-7-23-03-2026-r/",
+      "wadium_deadline": "2026-09-08",
+      "viewing_date": "2026-08-13",
+      "round": 2
+    },
+    {
       "kind": "garaz",
       "address_raw": "Kozielska 13 garaż nr 1",
       "address": {
