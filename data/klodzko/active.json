@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Czeskiej 38/3",
+      "address": {
+        "street": "Czeskiej",
+        "street_norm": "czeskiej",
+        "building": "38",
+        "apt": "3",
+        "key": "czeskiej|38|3",
+        "warning": null
+      },
+      "area_m2": 61.54,
+      "starting_price_pln": 230000,
+      "auction_date": "2026-08-12",
+      "round": 1,
+      "detail_url": "https://um.bip.klodzko.pl/index.php?n=i&id=17521&akcja=info&menu=346"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Adama Mickiewicza 3/2",
       "address": {
         "street": "Adama Mickiewicza",
