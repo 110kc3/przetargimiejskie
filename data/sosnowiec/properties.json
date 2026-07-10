@@ -3,6 +3,28 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "rodakowskiego|12|130",
+      "street": "Rodakowskiego",
+      "street_norm": "rodakowskiego",
+      "building": "12",
+      "apt": "130",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 318000,
+          "outcome": "active",
+          "area_m2": 61.75,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564037,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-130-ul-rodakowskiego-12.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 61.75
+    },
+    {
       "key": "zaglebiowskiej|70|17",
       "street": "Zagłębiowskiej",
       "street_norm": "zaglebiowskiej",
