@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "city": "poddebice",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przejazd 18/28",
+      "address": {
+        "street": "Przejazd",
+        "street_norm": "przejazd",
+        "building": "18",
+        "apt": "28",
+        "key": "przejazd|18|28",
+        "warning": null
+      },
+      "area_m2": 43.54,
+      "starting_price_pln": 285000,
+      "auction_date": "2026-07-07",
+      "round": null,
+      "detail_url": "https://bip.poddebice.pl/upload/pliki/OGLOSZENIE_o_przetargu_na_lokale.pdf"
+    }
+  ],
+  "wykaz": []
+}

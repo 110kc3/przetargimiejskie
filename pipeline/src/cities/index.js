@@ -74,6 +74,21 @@ import mragowo from './mragowo/index.js';
 import miedzyrzecz from './miedzyrzecz/index.js';
 import pajeczno from './pajeczno/index.js';
 import lubliniec from './lubliniec/index.js';
+// Batch 2 of the BUILD-ready powiat-seat expansion (2026-07-10; each live-
+// groundtruthed with a passing parse test). All test-tier (pszczyna deferred — see below).
+import pultusk from './pultusk/index.js';
+import sandomierz from './sandomierz/index.js';
+import poddebice from './poddebice/index.js';
+import proszowice from './proszowice/index.js';
+import pleszew from './pleszew/index.js';
+import pisz from './pisz/index.js';
+import rawaMazowiecka from './rawa-mazowiecka/index.js';
+// pszczyna: built (25 tests green) but DEFERRED from registration — its crawl
+// budgets (INDEX 5min/query + ARTICLE 15min over 472 candidate articles) are too
+// slow to baseline on the Pi and risk CI's 20-min step timeout on the first full
+// crawl. Needs budget tuning (lower MAX_PAGES_PER_QUERY/MAX_ARTICLES + rely on
+// incremental backfill) + a CI-timed run before registering (it's Śląskie =
+// public-tier). Files live in cities/pszczyna/ + tests/parse-pszczyna.test.js.
 
 export const cities = [
   gliwice,
@@ -143,6 +158,13 @@ export const cities = [
   miedzyrzecz,
   pajeczno,
   lubliniec,
+  pultusk,
+  sandomierz,
+  poddebice,
+  proszowice,
+  pleszew,
+  pisz,
+  rawaMazowiecka,
 ];
 
 /** @param {string} id @returns {object|null} */

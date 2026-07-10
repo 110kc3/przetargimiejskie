@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "city": "pultusk",
+  "plots": [
+    {
+      "key": "dz|122/6, 121/5",
+      "kind": "grunt",
+      "city": "pultusk",
+      "dzialka_nr": "122/6, 121/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 28 m. Pułtusk",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20122%2F6%2C%20121%2F5%20obr%C4%99b%2028%20m.%20Pu%C5%82tusk%20Pu%C5%82tusk%20geoportal%20dzia%C5%82ki",
+      "area_m2": 953,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 3,
+          "starting_price_pln": 105000,
+          "outcome": "active",
+          "area_m2": 953,
+          "detail_url": "https://pultusk.pl/ogloszenie-o-iii-przetargach/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "122/6"
+        },
+        {
+          "nr": "121/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|122/7, 120/5",
+      "kind": "grunt",
+      "city": "pultusk",
+      "dzialka_nr": "122/7, 120/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 28 m. Pułtusk",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20122%2F7%2C%20120%2F5%20obr%C4%99b%2028%20m.%20Pu%C5%82tusk%20Pu%C5%82tusk%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1366,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 3,
+          "starting_price_pln": 205000,
+          "outcome": "active",
+          "area_m2": 1366,
+          "detail_url": "https://pultusk.pl/ogloszenie-o-iii-przetargach/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "122/7"
+        },
+        {
+          "nr": "120/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|58/18",
+      "kind": "grunt",
+      "city": "pultusk",
+      "dzialka_nr": "58/18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 20 m. Pułtusk",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2058%2F18%20obr%C4%99b%2020%20m.%20Pu%C5%82tusk%20Pu%C5%82tusk%20geoportal%20dzia%C5%82ki",
+      "area_m2": 709,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 262000,
+          "outcome": "active",
+          "area_m2": 709,
+          "detail_url": "https://pultusk.pl/ogloszenie-o-i-przetargu/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "58/18"
+        }
+      ]
+    },
+    {
+      "key": "dz|58/19",
+      "kind": "grunt",
+      "city": "pultusk",
+      "dzialka_nr": "58/19",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 20 m. Pułtusk",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2058%2F19%20obr%C4%99b%2020%20m.%20Pu%C5%82tusk%20Pu%C5%82tusk%20geoportal%20dzia%C5%82ki",
+      "area_m2": 725,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 268000,
+          "outcome": "active",
+          "area_m2": 725,
+          "detail_url": "https://pultusk.pl/ogloszenie-o-i-przetargu/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "58/19"
+        }
+      ]
+    },
+    {
+      "key": "dz|58/20",
+      "kind": "grunt",
+      "city": "pultusk",
+      "dzialka_nr": "58/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 20 m. Pułtusk",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2058%2F20%20obr%C4%99b%2020%20m.%20Pu%C5%82tusk%20Pu%C5%82tusk%20geoportal%20dzia%C5%82ki",
+      "area_m2": 727,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 268500,
+          "outcome": "active",
+          "area_m2": 727,
+          "detail_url": "https://pultusk.pl/ogloszenie-o-i-przetargu/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "58/20"
+        }
+      ]
+    }
+  ]
+}

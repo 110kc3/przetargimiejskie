@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "city": "pisz",
+  "properties": [
+    {
+      "key": "klementowskiego|6|4",
+      "street": "Klementowskiego",
+      "street_norm": "klementowskiego",
+      "building": "6",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-10",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "area_m2": 91.35
+        },
+        {
+          "date": "2025-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 261000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 91.35,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=28934"
+        },
+        {
+          "date": "2025-10-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 235000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 91.35,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=29472"
+        }
+      ],
+      "area_m2": 91.35
+    },
+    {
+      "key": "klementowskiego|6|3",
+      "street": "Klementowskiego",
+      "street_norm": "klementowskiego",
+      "building": "6",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-10",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "area_m2": 109.83
+        },
+        {
+          "date": "2025-06-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 314000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 109.83,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=28933"
+        },
+        {
+          "date": "2025-10-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 283000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 109.83,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=29471"
+        }
+      ],
+      "area_m2": 109.83
+    }
+  ]
+}

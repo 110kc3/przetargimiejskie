@@ -1,0 +1,785 @@
+{
+  "schema_version": 1,
+  "city": "proszowice",
+  "plots": [
+    {
+      "key": "dz|18/3",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "18/3",
+      "obreb": null,
+      "street": "Wolwanowicach",
+      "building": "33A",
+      "address_raw": "Wolwanowicach 33A",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F3%20Wolwanowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 343,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-16",
+          "round": 1,
+          "starting_price_pln": 96200,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-9682-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9682-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-07-11",
+          "round": 2,
+          "starting_price_pln": 77000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-9843-ogloszenie_drugiego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9843-ogloszenie_drugiego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-08-29",
+          "round": 3,
+          "starting_price_pln": 69000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-9937-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9937-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-12-05",
+          "round": 4,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10196-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10196-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-01-16",
+          "round": 5,
+          "starting_price_pln": 49000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10348-ogloszenie_piatego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10348-ogloszenie_piatego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-03-06",
+          "round": 6,
+          "starting_price_pln": 44000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10525-ogloszenie_szostego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10525-ogloszenie_szostego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-07-10",
+          "round": 8,
+          "starting_price_pln": 35700,
+          "outcome": "active",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10882-ogloszenie_osmego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10882-ogloszenie_osmego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 9,
+          "starting_price_pln": 35700,
+          "outcome": "active",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-11006-ogloszenie_dziewiatego_przetargu.html",
+          "source_url": "https://proszowice.pl/aktualnosc-11006-ogloszenie_dziewiatego_przetargu.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "18/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|2274/2",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "2274/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Proszowicach",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202274%2F2%20Proszowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1566,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-07",
+          "round": 1,
+          "starting_price_pln": 163500,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-6701-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6701-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2022-12-08",
+          "round": 2,
+          "starting_price_pln": 147200,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2023-03-03",
+          "round": 3,
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-7297-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7297-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-07-07",
+          "round": 4,
+          "starting_price_pln": 126000,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-7784-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7784-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2024-05-17",
+          "round": 1,
+          "starting_price_pln": 188000,
+          "outcome": "unsold",
+          "area_m2": 1566
+        },
+        {
+          "date": "2024-08-29",
+          "round": 2,
+          "starting_price_pln": 169000,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-8981-ogloszenie_drugiego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8981-ogloszenie_drugiego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2024-10-11",
+          "round": 3,
+          "starting_price_pln": 169000,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-9071-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9071-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2024-12-13",
+          "round": 4,
+          "starting_price_pln": 152100,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-9266-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9266-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-01-24",
+          "round": 5,
+          "starting_price_pln": 136800,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-9404-ogloszenie_piatego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9404-ogloszenie_piatego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-03-28",
+          "round": 6,
+          "starting_price_pln": 123200,
+          "outcome": "archived",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-9555-ogloszenie_o_szostym_przetargu_ustnym.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9555-ogloszenie_o_szostym_przetargu_ustnym.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2274/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|393",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "393",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Żębocinie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20393%20%C5%BB%C4%99bocinie%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4516,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-20",
+          "round": 1,
+          "starting_price_pln": 215250,
+          "outcome": "archived",
+          "area_m2": 4516,
+          "detail_url": "https://proszowice.pl/aktualnosc-8253-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8253-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2024-02-22",
+          "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "archived",
+          "area_m2": 4516,
+          "detail_url": "https://proszowice.pl/aktualnosc-8417-ogloszenie_drugiego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8417-ogloszenie_drugiego_przetargu_ustnego.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "393"
+        }
+      ]
+    },
+    {
+      "key": "dz|544/41",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "544/41",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Klimontowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20544%2F41%20Klimontowie%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4669,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-03-18",
+          "round": 5,
+          "starting_price_pln": 270000,
+          "outcome": "archived",
+          "area_m2": 4669,
+          "detail_url": "https://proszowice.pl/aktualnosc-5985-ogloszenie_o_przetargu_klimontow.html",
+          "source_url": "https://proszowice.pl/aktualnosc-5985-ogloszenie_o_przetargu_klimontow.html"
+        },
+        {
+          "date": "2022-05-20",
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 4669
+        },
+        {
+          "date": "2022-09-02",
+          "round": 1,
+          "starting_price_pln": 408900,
+          "outcome": "archived",
+          "area_m2": 4669,
+          "detail_url": "https://proszowice.pl/aktualnosc-6612-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6612-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2022-12-09",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 4669
+        },
+        {
+          "date": "2023-02-24",
+          "round": 3,
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 4669,
+          "detail_url": "https://proszowice.pl/aktualnosc-7234-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7234-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-07-14",
+          "round": 4,
+          "starting_price_pln": 315000,
+          "outcome": "archived",
+          "area_m2": 4669,
+          "detail_url": "https://proszowice.pl/aktualnosc-7813-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7813-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-09-29",
+          "round": 5,
+          "starting_price_pln": 283500,
+          "outcome": "archived",
+          "area_m2": 4669,
+          "detail_url": "https://proszowice.pl/aktualnosc-8007-ogloszenie_piatego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8007-ogloszenie_piatego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2024-01-12",
+          "round": 6,
+          "starting_price_pln": 270000,
+          "outcome": "archived",
+          "area_m2": 4669,
+          "detail_url": "https://proszowice.pl/aktualnosc-8280-ogloszenie_szostego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8280-ogloszenie_szostego_przetargu_ustnego.html",
+          "final_price_pln": 275000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "544/41"
+        }
+      ]
+    },
+    {
+      "key": "dz|544/12",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "544/12",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Klimontowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20544%2F12%20Klimontowie%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8879,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-23",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 8879
+        },
+        {
+          "date": "2022-03-21",
+          "round": 5,
+          "starting_price_pln": 370000,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-5986-ogloszenie_o_przetargu_klimontow.html",
+          "source_url": "https://proszowice.pl/aktualnosc-5986-ogloszenie_o_przetargu_klimontow.html"
+        },
+        {
+          "date": "2022-05-20",
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 8879
+        },
+        {
+          "date": "2022-09-30",
+          "round": 1,
+          "starting_price_pln": 628350,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-6614-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6614-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2022-12-19",
+          "round": 2,
+          "starting_price_pln": 566000,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-6839-ogloszenie_drugiego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6839-ogloszenie_drugiego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-03-20",
+          "round": 3,
+          "starting_price_pln": 537000,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-7235-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7235-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-07-14",
+          "round": 4,
+          "starting_price_pln": 450000,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-7812-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7812-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-09-29",
+          "round": 5,
+          "starting_price_pln": 405000,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-8009-ogloszenie_piatego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8009-ogloszenie_piatego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2024-01-12",
+          "round": 6,
+          "starting_price_pln": 365000,
+          "outcome": "archived",
+          "area_m2": 8879,
+          "detail_url": "https://proszowice.pl/aktualnosc-8279-ogloszenie_szostego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8279-ogloszenie_szostego_przetargu_ustnego.html",
+          "final_price_pln": 370000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "544/12"
+        }
+      ]
+    },
+    {
+      "key": "dz|544/39",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "544/39",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Klimontowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20544%2F39%20Klimontowie%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5733,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-03-18",
+          "round": 5,
+          "starting_price_pln": 328000,
+          "outcome": "archived",
+          "area_m2": 5733,
+          "detail_url": "https://proszowice.pl/aktualnosc-5987-ogloszenie_o_przetargu_klimontow.html",
+          "source_url": "https://proszowice.pl/aktualnosc-5987-ogloszenie_o_przetargu_klimontow.html"
+        },
+        {
+          "date": "2022-05-20",
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 5733
+        },
+        {
+          "date": "2022-09-30",
+          "round": 1,
+          "starting_price_pln": 502100,
+          "outcome": "archived",
+          "area_m2": 5733,
+          "detail_url": "https://proszowice.pl/aktualnosc-6613-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6613-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2022-12-09",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 5733
+        },
+        {
+          "date": "2023-02-24",
+          "round": 3,
+          "starting_price_pln": 429000,
+          "outcome": "archived",
+          "area_m2": 5733,
+          "detail_url": "https://proszowice.pl/aktualnosc-7233-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7233-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-07-14",
+          "round": 4,
+          "starting_price_pln": 386000,
+          "outcome": "archived",
+          "area_m2": 5733,
+          "detail_url": "https://proszowice.pl/aktualnosc-7811-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7811-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-09-29",
+          "round": 5,
+          "starting_price_pln": 347400,
+          "outcome": "archived",
+          "area_m2": 5733,
+          "detail_url": "https://proszowice.pl/aktualnosc-8008-ogloszenie_piatego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-8008-ogloszenie_piatego_przetargu_ustnego.html",
+          "final_price_pln": 351000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "544/39"
+        }
+      ]
+    },
+    {
+      "key": "dz|2734",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "2734",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Proszowicach",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202734%20Proszowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 378,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-22",
+          "round": 1,
+          "starting_price_pln": 36500,
+          "outcome": "archived",
+          "area_m2": 378,
+          "detail_url": "https://proszowice.pl/aktualnosc-7995-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7995-ogloszenie_przetargu_ustnego.html",
+          "final_price_pln": 36500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2734"
+        }
+      ]
+    },
+    {
+      "key": "dz|2737",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "2737",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Proszowicach",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202737%20Proszowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 948,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-22",
+          "round": 1,
+          "starting_price_pln": 96000,
+          "outcome": "archived",
+          "area_m2": 948,
+          "detail_url": "https://proszowice.pl/aktualnosc-7994-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7994-ogloszenie_przetargu_ustnego.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2737"
+        }
+      ]
+    },
+    {
+      "key": "dz|2736",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "2736",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Proszowicach",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202736%20Proszowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 176,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-22",
+          "round": 1,
+          "starting_price_pln": 18500,
+          "outcome": "archived",
+          "area_m2": 176,
+          "detail_url": "https://proszowice.pl/aktualnosc-7993-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7993-ogloszenie_przetargu_ustnego.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2736"
+        }
+      ]
+    },
+    {
+      "key": "dz|81/2",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "81/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Kościelcu",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2081%2F2%20Ko%C5%9Bcielcu%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2800,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-12-14",
+          "round": 1,
+          "starting_price_pln": 92100,
+          "outcome": "unsold",
+          "area_m2": 2800
+        },
+        {
+          "date": "2023-03-03",
+          "round": 2,
+          "starting_price_pln": 82900,
+          "outcome": "archived",
+          "area_m2": 2800,
+          "detail_url": "https://proszowice.pl/aktualnosc-7295-ogloszenie_drugiego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7295-ogloszenie_drugiego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2023-07-07",
+          "round": 3,
+          "starting_price_pln": 74600,
+          "outcome": "archived",
+          "area_m2": 2800,
+          "detail_url": "https://proszowice.pl/aktualnosc-7783-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7783-ogloszenie_trzeciego_przetargu_ustnego.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "81/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|274/10",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "274/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Bobinie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20274%2F10%20Bobinie%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 736,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-07-08",
+          "round": 3,
+          "starting_price_pln": 43400,
+          "outcome": "archived",
+          "area_m2": 736,
+          "detail_url": "https://proszowice.pl/aktualnosc-6475-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6475-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2022-10-14",
+          "round": 4,
+          "starting_price_pln": 39000,
+          "outcome": "archived",
+          "area_m2": 736,
+          "detail_url": "https://proszowice.pl/aktualnosc-6702-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6702-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2022-12-14",
+          "round": 5,
+          "starting_price_pln": 37000,
+          "outcome": "unsold",
+          "area_m2": 736
+        },
+        {
+          "date": "2023-03-03",
+          "round": 6,
+          "starting_price_pln": 35150,
+          "outcome": "archived",
+          "area_m2": 736,
+          "detail_url": "https://proszowice.pl/aktualnosc-7296-ogloszenie_szostego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-7296-ogloszenie_szostego_przetargu_ustnego.html",
+          "final_price_pln": 35600
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "274/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|42, 43",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "42, 43",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Proszowicach",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2042%2C%2043%20Proszowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4393,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-07",
+          "round": 1,
+          "starting_price_pln": 251200,
+          "outcome": "archived",
+          "area_m2": 4393,
+          "detail_url": "https://proszowice.pl/aktualnosc-6672-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6672-ogloszenie_przetargu_ustnego.html",
+          "final_price_pln": 251200
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "42"
+        },
+        {
+          "nr": "43"
+        }
+      ]
+    },
+    {
+      "key": "dz|423",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "423",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Ostrowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20423%20Ostrowie%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 680,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-30",
+          "round": 1,
+          "starting_price_pln": 52500,
+          "outcome": "archived",
+          "area_m2": 680,
+          "detail_url": "https://proszowice.pl/aktualnosc-6445-ogloszenie_o_przetargu_ustnym.html",
+          "source_url": "https://proszowice.pl/aktualnosc-6445-ogloszenie_o_przetargu_ustnym.html",
+          "final_price_pln": 52500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "423"
+        }
+      ]
+    }
+  ]
+}

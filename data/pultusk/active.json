@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "city": "pultusk",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Na Skarpie 3/25",
+      "address": {
+        "street": "Na Skarpie",
+        "street_norm": "na skarpie",
+        "building": "3",
+        "apt": "25",
+        "key": "na skarpie|3|25",
+        "warning": null
+      },
+      "area_m2": 73,
+      "starting_price_pln": 300000,
+      "wadium_pln": 30000,
+      "auction_date": "2026-05-05",
+      "round": 3,
+      "kw_nr": "OS1U/00044602/6",
+      "published_date": "2026-03-31",
+      "detail_url": "https://pultusk.pl/ogloszenie-z-dnia-26-03-2026-r/",
+      "detail_pdf": "https://pultusk.pl/wp-content/uploads/2026/03/UMPultusk__20260331_120645.pdf"
+    }
+  ],
+  "wykaz": []
+}

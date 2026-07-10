@@ -1,0 +1,769 @@
+{
+  "schema_version": 1,
+  "city": "sandomierz",
+  "plots": [
+    {
+      "key": "dz|prawobrzeżny|816/5",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "816/5",
+      "obreb": "Prawobrzeżny",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zaleśnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20816%2F5%20ul.%20Zale%C5%9Bnej%20Prawobrze%C5%BCny%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2648,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-04",
+          "round": 2,
+          "starting_price_pln": 199260,
+          "outcome": "archived",
+          "area_m2": 2648,
+          "detail_url": "https://bip.um.sandomierz.pl/16013/132/oglaszenie-o-ii-przetargu-ustnym-ograniczonym-do-wlascicieli-nieruchomosci-przyleglych-na-sprzedaz-nieruchomosci-gruntowej.html",
+          "source_url": "https://bip.um.sandomierz.pl/16013/132/oglaszenie-o-ii-przetargu-ustnym-ograniczonym-do-wlascicieli-nieruchomosci-przyleglych-na-sprzedaz-nieruchomosci-gruntowej.html"
+        },
+        {
+          "date": "2025-12-30",
+          "round": 3,
+          "starting_price_pln": 199260,
+          "outcome": "archived",
+          "area_m2": 2648,
+          "detail_url": "https://bip.um.sandomierz.pl/17770/132/ogloszenie-o-iii-przetargu-ustnym-ograniczonym.html",
+          "source_url": "https://bip.um.sandomierz.pl/17770/132/ogloszenie-o-iii-przetargu-ustnym-ograniczonym.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "816/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|816/5",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "816/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zaleśnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20816%2F5%20ul.%20Zale%C5%9Bnej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2648,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-04-03",
+          "round": 1,
+          "starting_price_pln": 199260,
+          "outcome": "unsold",
+          "area_m2": 2648
+        },
+        {
+          "date": "2025-07-04",
+          "round": 2,
+          "starting_price_pln": 199260,
+          "outcome": "unsold",
+          "area_m2": 2648
+        },
+        {
+          "date": "2025-12-30",
+          "round": 3,
+          "starting_price_pln": 199260,
+          "outcome": "unsold",
+          "area_m2": 2648
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "816/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/10",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F10%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1403,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-03-11",
+          "round": 1,
+          "starting_price_pln": 37000,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/350/132/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html",
+          "source_url": "https://bip.um.sandomierz.pl/350/132/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html"
+        },
+        {
+          "date": "2023-06-22",
+          "round": 1,
+          "starting_price_pln": 60400,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/8336/132/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html",
+          "source_url": "https://bip.um.sandomierz.pl/8336/132/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html"
+        },
+        {
+          "date": "2024-07-19",
+          "round": 2,
+          "starting_price_pln": 69100,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/12298/132/burmistrz-miasta-sandomierza-oglasza-ii-przetargi-ustne-nieograniczone.html",
+          "source_url": "https://bip.um.sandomierz.pl/12298/132/burmistrz-miasta-sandomierza-oglasza-ii-przetargi-ustne-nieograniczone.html"
+        },
+        {
+          "date": "2025-09-26",
+          "round": 1,
+          "starting_price_pln": 67650,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/16714/132/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html",
+          "source_url": "https://bip.um.sandomierz.pl/16714/132/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html"
+        },
+        {
+          "date": "2025-12-04",
+          "round": 2,
+          "starting_price_pln": 67650,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/17543/132/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym.html",
+          "source_url": "https://bip.um.sandomierz.pl/17543/132/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/24",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/24",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F24%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1036,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-19",
+          "round": 1,
+          "starting_price_pln": 57400,
+          "outcome": "unsold",
+          "area_m2": 1036
+        },
+        {
+          "date": "2024-07-19",
+          "round": 2,
+          "starting_price_pln": 57400,
+          "outcome": "unsold",
+          "area_m2": 1036
+        },
+        {
+          "date": "2025-09-26",
+          "round": 1,
+          "starting_price_pln": 66420,
+          "outcome": "unsold",
+          "area_m2": 1036
+        },
+        {
+          "date": "2025-12-04",
+          "round": 2,
+          "starting_price_pln": 66420,
+          "outcome": "unsold",
+          "area_m2": 1036
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/24"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. długiej",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Długiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20D%C5%82ugiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 21375,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-27",
+          "round": 1,
+          "starting_price_pln": 843600,
+          "outcome": "archived",
+          "area_m2": 21375,
+          "detail_url": "https://bip.um.sandomierz.pl/14657/132/ogloszenie-o-i-przetargu-ustnym-nieograniczonym.html",
+          "source_url": "https://bip.um.sandomierz.pl/14657/132/ogloszenie-o-i-przetargu-ustnym-nieograniczonym.html",
+          "final_price_pln": 1050000
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|lewobrzeżny|1335/3",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1335/3",
+      "obreb": "Lewobrzeżny",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201335%2F3%20Lewobrze%C5%BCny%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2557,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-13",
+          "round": 1,
+          "starting_price_pln": 215250,
+          "outcome": "archived",
+          "area_m2": 2557,
+          "detail_url": "https://bip.um.sandomierz.pl/13866/132/ogloszenie-o-i-przetargu-ustnym-ograniczonym.html",
+          "source_url": "https://bip.um.sandomierz.pl/13866/132/ogloszenie-o-i-przetargu-ustnym-ograniczonym.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1335/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|1335/3",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1335/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Błonie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201335%2F3%20ul.%20B%C5%82onie%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2557,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-13",
+          "round": 1,
+          "starting_price_pln": 215250,
+          "outcome": "sold",
+          "final_price_pln": 217450,
+          "area_m2": 2557
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1335/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/18",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F18%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1197,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-19",
+          "round": 1,
+          "starting_price_pln": 58900,
+          "outcome": "unsold",
+          "area_m2": 1197
+        },
+        {
+          "date": "2024-07-19",
+          "round": 2,
+          "starting_price_pln": 58900,
+          "outcome": "unsold",
+          "area_m2": 1197
+        },
+        {
+          "date": "2024-11-08",
+          "round": 3,
+          "starting_price_pln": 58900,
+          "outcome": "sold",
+          "final_price_pln": 59490,
+          "area_m2": 1197
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/18"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/20",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F20%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1072,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-19",
+          "round": 1,
+          "starting_price_pln": 52800,
+          "outcome": "unsold",
+          "area_m2": 1072
+        },
+        {
+          "date": "2024-07-19",
+          "round": 2,
+          "starting_price_pln": 52800,
+          "outcome": "sold",
+          "final_price_pln": 53330,
+          "area_m2": 1072
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/20"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/19",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/19",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F19%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1058,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-19",
+          "round": 1,
+          "starting_price_pln": 57300,
+          "outcome": "sold",
+          "final_price_pln": 57880,
+          "area_m2": 1058
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/19"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/16",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/16",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F16%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 998,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-18",
+          "round": 1,
+          "starting_price_pln": 49200,
+          "outcome": "sold",
+          "final_price_pln": 49700,
+          "area_m2": 998
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/15",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/15",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F15%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1037,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-18",
+          "round": 1,
+          "starting_price_pln": 56200,
+          "outcome": "sold",
+          "final_price_pln": 56770,
+          "area_m2": 1037
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/15"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/14",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/14",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F14%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 952,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-18",
+          "round": 1,
+          "starting_price_pln": 46900,
+          "outcome": "sold",
+          "final_price_pln": 47370,
+          "area_m2": 952
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|2133/17",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F17%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1083,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-03-12",
+          "round": 1,
+          "starting_price_pln": 32000,
+          "outcome": "archived",
+          "area_m2": 1083,
+          "detail_url": "https://bip.um.sandomierz.pl/352/132/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html",
+          "source_url": "https://bip.um.sandomierz.pl/352/132/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html"
+        },
+        {
+          "date": "2023-06-23",
+          "round": 1,
+          "starting_price_pln": 53300,
+          "outcome": "archived",
+          "area_m2": 1083,
+          "detail_url": "https://bip.um.sandomierz.pl/8334/132/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html",
+          "source_url": "https://bip.um.sandomierz.pl/8334/132/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|1027/20",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1027/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krukowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201027%2F20%20ul.%20Krukowskiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 602,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-11-18",
+          "round": 1,
+          "starting_price_pln": 72100,
+          "outcome": "unsold",
+          "area_m2": 602
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1027/20"
+        }
+      ]
+    },
+    {
+      "key": "dz|76/7",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "76/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Polskiej Organizacji Wojskowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2076%2F7%20ul.%20Polskiej%20Organizacji%20Wojskowej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1968,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-12-07",
+          "round": 1,
+          "starting_price_pln": 580000,
+          "outcome": "archived",
+          "area_m2": 1968,
+          "detail_url": "https://bip.um.sandomierz.pl/3734/132/informacja-o-wyniku-przetargu.html",
+          "source_url": "https://bip.um.sandomierz.pl/3734/132/informacja-o-wyniku-przetargu.html"
+        },
+        {
+          "date": "2022-06-06",
+          "round": 1,
+          "starting_price_pln": 580000,
+          "outcome": "archived",
+          "area_m2": 1968,
+          "detail_url": "https://bip.um.sandomierz.pl/5344/132/informacja-o-wyniku-przetargu.html",
+          "source_url": "https://bip.um.sandomierz.pl/5344/132/informacja-o-wyniku-przetargu.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "76/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|76/5",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "76/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Polskiej Organizacji Wojskowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2076%2F5%20ul.%20Polskiej%20Organizacji%20Wojskowej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1968,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-12-07",
+          "round": 1,
+          "starting_price_pln": 580000,
+          "outcome": "archived",
+          "area_m2": 1968,
+          "detail_url": "https://bip.um.sandomierz.pl/3119/132/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-gruntowej.html",
+          "source_url": "https://bip.um.sandomierz.pl/3119/132/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-gruntowej.html"
+        },
+        {
+          "date": "2022-06-06",
+          "round": 1,
+          "starting_price_pln": 580000,
+          "outcome": "archived",
+          "area_m2": 1968,
+          "detail_url": "https://bip.um.sandomierz.pl/4737/132/ogloszenie-o-i-przetargu-ustnym-nieograniczonym.html",
+          "source_url": "https://bip.um.sandomierz.pl/4737/132/ogloszenie-o-i-przetargu-ustnym-nieograniczonym.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "76/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|1027/17",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1027/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krukowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201027%2F17%20ul.%20Krukowskiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1840,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-06-18",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1840,
+          "detail_url": "https://bip.um.sandomierz.pl/2177/132/informacja-o-wyniku-przetargu.html",
+          "source_url": "https://bip.um.sandomierz.pl/2177/132/informacja-o-wyniku-przetargu.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1027/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|1027/14",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1027/14",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krukowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201027%2F14%20ul.%20Krukowskiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 560,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-05-14",
+          "round": 1,
+          "starting_price_pln": 43000,
+          "outcome": "archived",
+          "area_m2": 560,
+          "detail_url": "https://bip.um.sandomierz.pl/1436/132/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html",
+          "source_url": "https://bip.um.sandomierz.pl/1436/132/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1027/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|1027/10",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1027/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krukowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201027%2F10%20ul.%20Krukowskiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 650,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-05-13",
+          "round": 1,
+          "starting_price_pln": 58500,
+          "outcome": "archived",
+          "area_m2": 650,
+          "detail_url": "https://bip.um.sandomierz.pl/1906/132/informacja-o-wyniku-przetargu.html",
+          "source_url": "https://bip.um.sandomierz.pl/1906/132/informacja-o-wyniku-przetargu.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1027/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|209/5",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "209/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Błonie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20209%2F5%20ul.%20B%C5%82onie%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 860,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-03-18",
+          "round": 1,
+          "starting_price_pln": 53000,
+          "outcome": "archived",
+          "area_m2": 860,
+          "detail_url": "https://bip.um.sandomierz.pl/544/132/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-blonie-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html",
+          "source_url": "https://bip.um.sandomierz.pl/544/132/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-blonie-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "209/5"
+        }
+      ]
+    }
+  ]
+}

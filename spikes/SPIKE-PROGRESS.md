@@ -8,8 +8,8 @@
 
 | Status | Count |
 |---|---|
-| ✅ BUILT | 67 |
-| 🟢 BUILD | 104 |
+| ✅ BUILT | 74 |
+| 🟢 BUILD | 97 |
 | 🟡 VERIFY | 0 |
 | 🔴 NO-BUILD | 156 |
 | ❌ Dropped | 6 |
@@ -17,13 +17,13 @@
 
 **Convention:** every spiked city has a per-city `.md` at its `master-cities.json` path; NO-BUILD verdicts are additionally consolidated in [NO-BUILD.md](./NO-BUILD.md).
 
-## Built adapters (67)
+## Built adapters (74)
 
-Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Końskie, Kraków, Legnica, Lubliniec, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Przemyśl, Racibórz, Rybnik, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Szczecin, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Wałbrzych, Warszawa, Wejherowo, Zabrze, Zgorzelec, Złotoryja.
+Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Końskie, Kraków, Legnica, Lubliniec, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Poddębice, Proszowice, Przemyśl, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Szczecin, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Wałbrzych, Warszawa, Wejherowo, Zabrze, Zgorzelec, Złotoryja.
 
-## BUILD-ready queue (104, by effort)
+## BUILD-ready queue (97, by effort)
 
-Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Pisz (Low), Pleszew (Low), Poddębice (Low), Proszowice (Low), Pszczyna (Low), Pułtusk (Low), Rawa Mazowiecka (Low), Sandomierz (Low), Sępólno Krajeńskie (Low), Strzelce Krajeńskie (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Sulęcin (Low), Szczecinek (Low), Środa Wielkopolska (Low), Trzebnica (Low), Wąbrzeźno (Low), Węgorzewo (Low), Węgrów (Low), Wołów (Low), Wschowa (Low), Ząbkowice Śląskie (Low), Zduńska Wola (Low), Żagań (Low), Żnin (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wodzisław Śląski (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
+Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Pszczyna (Low), Sępólno Krajeńskie (Low), Strzelce Krajeńskie (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Sulęcin (Low), Szczecinek (Low), Środa Wielkopolska (Low), Trzebnica (Low), Wąbrzeźno (Low), Węgorzewo (Low), Węgrów (Low), Wołów (Low), Wschowa (Low), Ząbkowice Śląskie (Low), Zduńska Wola (Low), Żagań (Low), Żnin (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wodzisław Śląski (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
@@ -139,9 +139,9 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Pabianice | powiat pabianicki | ✅ BUILT | Low–Medium · LIVE |
 | Pajęczno | powiat pajęczański | ✅ BUILT | Low · LIVE |
 | Piotrków Trybunalski | Piotrków Trybunalski (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
-| Poddębice | powiat poddębicki | 🟢 BUILD | Low · LIVE |
+| Poddębice | powiat poddębicki | ✅ BUILT | Low · LIVE |
 | Radomsko | powiat radomszczanski | 🔴 NO-BUILD | — · LIVE |
-| Rawa Mazowiecka | powiat rawski | 🟢 BUILD | Low · LIVE |
+| Rawa Mazowiecka | powiat rawski | ✅ BUILT | Low · LIVE |
 | Sieradz | powiat sieradzki | 🔴 NO-BUILD | — · DESK |
 | Skierniewice | Skierniewice (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Tomaszów Mazowiecki | powiat tomaszowski | 🟢 BUILD | Medium · LIVE |
@@ -167,7 +167,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Nowy Targ | powiat nowotarski | 🔴 NO-BUILD | — · LIVE |
 | Olkusz | powiat olkuski | ✅ BUILT | — · — |
 | Oświęcim | powiat oświęcimski | ✅ BUILT | — · — |
-| Proszowice | powiat proszowicki | 🟢 BUILD | Low · LIVE |
+| Proszowice | powiat proszowicki | ✅ BUILT | Low · LIVE |
 | Sucha Beskidzka | powiat suski | 🟢 BUILD | Low · LIVE |
 | Tarnów | Tarnów (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE/DESK |
 | Trzebinia | powiat chrzanowski | ✅ BUILT | — · — |
@@ -203,7 +203,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Pruszków | powiat pruszkowski | 🔴 NO-BUILD | — · LIVE |
 | Przasnysz | powiat przasnyski | 🔴 NO-BUILD | — · LIVE |
 | Przysucha | powiat przysuski | 🔴 NO-BUILD | — · LIVE |
-| Pułtusk | powiat pułtuski | 🟢 BUILD | Low · LIVE |
+| Pułtusk | powiat pułtuski | ✅ BUILT | Low · LIVE |
 | Radom | Radom (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Siedlce | Siedlce (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 | Sierpc | powiat sierpecki | 🔴 NO-BUILD | — · LIVE |
@@ -352,7 +352,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Opatów | powiat opatowski | 🔴 NO-BUILD | — · LIVE |
 | Ostrowiec Świętokrzyski | powiat ostrowiecki | 🔴 NO-BUILD | — · LIVE |
 | Pińczów | powiat pińczowski | 🔴 NO-BUILD | — · LIVE |
-| Sandomierz | powiat sandomierski | 🟢 BUILD | Low · LIVE |
+| Sandomierz | powiat sandomierski | ✅ BUILT | Low · LIVE |
 | Skarżysko-Kamienna | powiat skarzyski | ✅ BUILT | Low–Medium · LIVE |
 | Starachowice | powiat starachowicki | 🟢 BUILD | Medium · LIVE |
 | Staszów | powiat staszowski | 🟢 BUILD | Medium · LIVE |
@@ -378,7 +378,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Olecko | powiat olecki | 🔴 NO-BUILD | — · LIVE |
 | Olsztyn | Olsztyn (m.n.p.p.) | ✅ BUILT | Low · LIVE |
 | Ostróda | powiat ostrodzki | 🔴 NO-BUILD | — · LIVE |
-| Pisz | powiat piski | 🟢 BUILD | Low · LIVE |
+| Pisz | powiat piski | ✅ BUILT | Low · LIVE |
 | Szczytno | powiat szczycieński | 🟢 BUILD | Medium · LIVE |
 | Węgorzewo | powiat węgorzewski | 🟢 BUILD | Low · LIVE |
 
@@ -405,7 +405,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Ostrów Wielkopolski | powiat ostrowski | 🔴 NO-BUILD | — · LIVE |
 | Ostrzeszów | powiat ostrzeszowski | 🟢 BUILD | Medium · LIVE |
 | Piła | powiat pilski | ✅ BUILT | Low–Medium · LIVE |
-| Pleszew | powiat pleszewski | 🟢 BUILD | Low · LIVE |
+| Pleszew | powiat pleszewski | ✅ BUILT | Low · LIVE |
 | Poznań | Poznań (m.n.p.p.) | 🟢 BUILD | Medium · LIVE/DESK |
 | Rawicz | powiat rawicki | 🔴 NO-BUILD | — · LIVE |
 | Słupca | powiat słupecki | 🔴 NO-BUILD | — · LIVE |

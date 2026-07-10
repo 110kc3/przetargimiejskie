@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "city": "pisz",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Klementowskiego 6/4",
+      "address": {
+        "street": "Klementowskiego",
+        "street_norm": "klementowskiego",
+        "building": "6",
+        "apt": "4",
+        "key": "klementowskiego|6|4",
+        "warning": null
+      },
+      "area_m2": 91.35,
+      "starting_price_pln": 235000,
+      "auction_date": "2025-10-14",
+      "round": 2,
+      "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=29472",
+      "source_url": "https://bip.pisz.hi.pl/index.php?wiad=29472"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Klementowskiego 6/3",
+      "address": {
+        "street": "Klementowskiego",
+        "street_norm": "klementowskiego",
+        "building": "6",
+        "apt": "3",
+        "key": "klementowskiego|6|3",
+        "warning": null
+      },
+      "area_m2": 109.83,
+      "starting_price_pln": 283000,
+      "auction_date": "2025-10-14",
+      "round": 2,
+      "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=29471",
+      "source_url": "https://bip.pisz.hi.pl/index.php?wiad=29471"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Klementowskiego 6/4",
+      "address": {
+        "street": "Klementowskiego",
+        "street_norm": "klementowskiego",
+        "building": "6",
+        "apt": "4",
+        "key": "klementowskiego|6|4",
+        "warning": null
+      },
+      "area_m2": 91.35,
+      "starting_price_pln": 261000,
+      "auction_date": "2025-06-16",
+      "round": 1,
+      "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=28934",
+      "source_url": "https://bip.pisz.hi.pl/index.php?wiad=28934"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Klementowskiego 6/3",
+      "address": {
+        "street": "Klementowskiego",
+        "street_norm": "klementowskiego",
+        "building": "6",
+        "apt": "3",
+        "key": "klementowskiego|6|3",
+        "warning": null
+      },
+      "area_m2": 109.83,
+      "starting_price_pln": 314000,
+      "auction_date": "2025-06-16",
+      "round": 1,
+      "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=28933",
+      "source_url": "https://bip.pisz.hi.pl/index.php?wiad=28933"
+    }
+  ],
+  "wykaz": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Klementowskiego 6/4",
+      "address": {
+        "street": "Klementowskiego",
+        "street_norm": "klementowskiego",
+        "building": "6",
+        "apt": "4",
+        "key": "klementowskiego|6|4",
+        "warning": null
+      },
+      "published_date": "2025-01-10",
+      "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=28369"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Klementowskiego 6/3",
+      "address": {
+        "street": "Klementowskiego",
+        "street_norm": "klementowskiego",
+        "building": "6",
+        "apt": "3",
+        "key": "klementowskiego|6|3",
+        "warning": null
+      },
+      "published_date": "2025-01-10",
+      "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=28368"
+    }
+  ]
+}

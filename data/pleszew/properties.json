@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "city": "pleszew",
+  "properties": [
+    {
+      "key": "zachodniej|1|2",
+      "street": "Zachodnia",
+      "street_norm": "zachodniej",
+      "building": "1",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pleszew.pl/pleszewm/zasoby/files/nieruchomosci/2025/gp-wyn-26022025-2.pdf"
+        }
+      ]
+    },
+    {
+      "key": "zachodniej|1|1",
+      "street": "Zachodnia",
+      "street_norm": "zachodniej",
+      "building": "1",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pleszew.pl/pleszewm/zasoby/files/nieruchomosci/2025/gp-wyn-26022025-1.pdf"
+        }
+      ]
+    }
+  ]
+}

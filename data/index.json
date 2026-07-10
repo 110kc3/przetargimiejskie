@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-10T19:43:29.534Z",
+  "generated_at": "2026-07-10T20:33:56.064Z",
   "cities": [
     {
       "id": "gliwice",
@@ -872,6 +872,97 @@
       "archived_auctions": 32,
       "wykaz_entries": 0,
       "land_plots": 78
+    },
+    {
+      "id": "pultusk",
+      "label": "Pułtusk",
+      "voivodeship": "mazowieckie",
+      "authority": "Burmistrz Miasta Pułtusk, Wydział Gospodarki Gruntami i Architektury",
+      "host": "pultusk.pl",
+      "unique_properties": 1,
+      "active_listings": 1,
+      "active_auctions": 0,
+      "archived_auctions": 1,
+      "wykaz_entries": 0,
+      "land_plots": 5
+    },
+    {
+      "id": "sandomierz",
+      "label": "Sandomierz",
+      "voivodeship": "swietokrzyskie",
+      "authority": "Urząd Miejski w Sandomierzu",
+      "host": "bip.um.sandomierz.pl",
+      "unique_properties": 12,
+      "active_listings": 7,
+      "active_auctions": 0,
+      "archived_auctions": 12,
+      "wykaz_entries": 0,
+      "land_plots": 21
+    },
+    {
+      "id": "poddebice",
+      "label": "Poddębice",
+      "voivodeship": "lodzkie",
+      "authority": "Urząd Miejski w Poddębicach",
+      "host": "bip.poddebice.pl",
+      "unique_properties": 1,
+      "active_listings": 1,
+      "active_auctions": 0,
+      "archived_auctions": 1,
+      "wykaz_entries": 0,
+      "land_plots": 14
+    },
+    {
+      "id": "proszowice",
+      "label": "Proszowice",
+      "voivodeship": "malopolskie",
+      "authority": "Urząd Gminy i Miasta Proszowice",
+      "host": "proszowice.pl",
+      "unique_properties": 9,
+      "active_listings": 9,
+      "active_auctions": 0,
+      "archived_auctions": 10,
+      "wykaz_entries": 0,
+      "land_plots": 13
+    },
+    {
+      "id": "pleszew",
+      "label": "Pleszew",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miasta i Gminy w Pleszewie",
+      "host": "bip.pleszew.pl",
+      "unique_properties": 2,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 2,
+      "wykaz_entries": 14,
+      "land_plots": 21
+    },
+    {
+      "id": "pisz",
+      "label": "Pisz",
+      "voivodeship": "warminsko-mazurskie",
+      "authority": "Gmina Pisz",
+      "host": "bip.pisz.hi.pl",
+      "unique_properties": 2,
+      "active_listings": 4,
+      "active_auctions": 0,
+      "archived_auctions": 4,
+      "wykaz_entries": 2,
+      "land_plots": 32
+    },
+    {
+      "id": "rawa-mazowiecka",
+      "label": "Rawa Mazowiecka",
+      "voivodeship": "lodzkie",
+      "authority": "Gmina Miasto Rawa Mazowiecka",
+      "host": "bip.rawamazowiecka.pl",
+      "unique_properties": 4,
+      "active_listings": 4,
+      "active_auctions": 0,
+      "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 12
     }
   ]
 }

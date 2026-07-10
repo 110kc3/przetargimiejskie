@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "city": "sandomierz",
+  "properties": [
+    {
+      "key": "por t krola|8|94",
+      "street": "Por. T. Króla",
+      "street_norm": "por t krola",
+      "building": "8",
+      "apt": "94",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 132500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.sandomierz.pl/13725/132/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "por t krola|8|24",
+      "street": "Por. T. Króla",
+      "street_norm": "por t krola",
+      "building": "8",
+      "apt": "24",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.sandomierz.pl/13724/132/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "por t krola|8|124",
+      "street": "Por. T. Króla",
+      "street_norm": "por t krola",
+      "building": "8",
+      "apt": "124",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.sandomierz.pl/13722/132/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "por t krola|8|",
+      "street": "Por.T.Króla",
+      "street_norm": "por t krola",
+      "building": "8",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 26.17,
+          "detail_url": "https://bip.um.sandomierz.pl/13386/132/ogloszenie-o-i-przetargach-ustnych-nieograniczonym.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.17
+    },
+    {
+      "key": "portowa|18|16",
+      "street": "Portowa",
+      "street_norm": "portowa",
+      "building": "18",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76500,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 92000,
+          "source_pdf": "https://bip.um.sandomierz.pl/13746/132/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html",
+          "notes": [],
+          "area_m2": 17.08,
+          "detail_url": "https://bip.um.sandomierz.pl/13385/132/ogloszenie-o-i-przetargu-ustnym-nieograniczonym.html"
+        }
+      ],
+      "area_m2": 17.08
+    },
+    {
+      "key": "k k baczynskiego|9|14",
+      "street": "K.K.Baczyńskiego",
+      "street_norm": "k k baczynskiego",
+      "building": "9",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-07-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99698,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 100698,
+          "source_pdf": "https://bip.um.sandomierz.pl/8935/132/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego.html",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "zydowskiej|6C|",
+      "street": "Żydowskiej",
+      "street_norm": "zydowskiej",
+      "building": "6C",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-12-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 830000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 840000,
+          "source_pdf": "https://bip.um.sandomierz.pl/7148/132/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci-zabudowanej.html",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "polskiej organizacji wojskowej i przetarg ustny nieograniczony przeprowadzono w dniu|26|",
+      "street": "Polskiej Organizacji Wojskowej . I przetarg ustny nieograniczony przeprowadzono w dniu",
+      "street_norm": "polskiej organizacji wojskowej i przetarg ustny nieograniczony przeprowadzono w dniu",
+      "building": "26",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2021-02-26",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 21000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.sandomierz.pl/697/132/informacja-o-wyniku-przetargu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "polskiej organizacji wojskowej w sandomierzu zalacznik nr|1|",
+      "street": "Polskiej Organizacji Wojskowej w Sandomierzu Załącznik nr",
+      "street_norm": "polskiej organizacji wojskowej w sandomierzu zalacznik nr",
+      "building": "1",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2021-02-26",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 21000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.sandomierz.pl/317/132/przetarg-na-sprzedaz-spoldzielczego-prawa-do-garazu-polozonego-przy-ul-polskiej-organizacji-wojskowej-w-sandomierzu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "maciejowskiego|11|8",
+      "street": "Maciejowskiego",
+      "street_norm": "maciejowskiego",
+      "building": "11",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 148000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.sandomierz.pl/686/132/informacja-o-wyniku-przetargu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "maciejowskiego|8|15",
+      "street": "Maciejowskiego",
+      "street_norm": "maciejowskiego",
+      "building": "8",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 143000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.sandomierz.pl/685/132/informacja-o-wyniku-przetargu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "maciejowskiego|8|",
+      "street": "Maciejowskiego",
+      "street_norm": "maciejowskiego",
+      "building": "8",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 148000,
+          "outcome": "archived",
+          "area_m2": 43.1,
+          "detail_url": "https://bip.um.sandomierz.pl/276/132/przetarg-na-sprzedaz-spoldzielczego-prawa-do-dwoch-lokali-mieszkalnych-w-budynkach-przy-ul-maciejowskiego-8-i-11-w-sandomierzu.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.1
+    }
+  ]
+}

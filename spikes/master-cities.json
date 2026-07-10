@@ -3935,13 +3935,13 @@
       "powiat_slug": "powiat-pleszewski",
       "powiat_label": "powiat pleszewski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md",
       "spike": {
         "wave": "GS3",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "No housing mgr (PTBS=social rental); WOKISS CMS server-HTML year boards + born-digital text PDFs; consolidated Ogloszenia-nieruchomosci board mixes land/lease/uzyczenie — must classify; open flat auctions thin but recurring (Zachodnia 1 I→II 2024-25, hist. Rynek 10/Daszynskiego/Poznanska); wynik/hammer-price PDFs exist; analog=Jarocin/Kalisz wokiss-family"
+        "note": "BUILT — pipeline/src/cities/pleszew/ + parse-pleszew.test.js (39 green), registered 2026-07-10. bip.pleszew.pl WOKISS (single consolidated year-board + born-digital PDFs). Fixed 6 bugs (diacritic-accusative \\w, locality /i flag, 'sprzedać' infinitive, classifyKind lokalowej, PDF-anchor leak, parcel-price false-match). First refresh: 0 listing/21 land/2 uniq/2 arch (Zachodnia 1 dormant → 0 active flats now → EXEMPT_NEW). teryt 302006_4 MED-HIGH."
       }
     },
     {
@@ -3951,13 +3951,13 @@
       "powiat_slug": "powiat-piski",
       "powiat_label": "powiat piski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md",
       "spike": {
         "wave": "GS3",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "UM Pisz sells flats via przetarg ustny nieograniczony (Klementowskiego 6/3 330k'23, 6/4 235k'25, 15/28 86k'17, Rybacka 6); inline wynik-przetargu results; server-HTML bip.pisz.hi.pl ?wiad=/?k=84; land-heavy + big lease-wykaz noise needs classification; no housing co; analog Zgorzelec/WordPress-HTML"
+        "note": "BUILT — pipeline/src/cities/pisz/ + parse-pisz.test.js (30 green), registered 2026-07-10. bip.pisz.hi.pl hi.pl-PUBLIKATOR server-HTML (zgorzelec-analog). Sale-vs-lease-vs-bezprzetargowo cascade live-audited (0 leakage). Fixed 6 bugs (ASCII \\w vs 'ł', parcel comma-absorption, restricted-tender co-owner parcel, bare 'nr działki', LAND_RE 'działek' genitive, obreb terminator). First refresh: 4 listing/32 land/2 uniq/4 arch. teryt 281603_4 MED."
       }
     },
     {
@@ -3967,13 +3967,13 @@
       "powiat_slug": "powiat-poddebicki",
       "powiat_label": "powiat poddębicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-poddebicki/poddebice.md",
       "spike": {
         "wave": "D",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "devcomm bipv45 JSON+text-PDF BIP; recurring active open flat auctions but NO achieved-price stream, thin land-dominated volume — marginal low-priority build"
+        "note": "BUILT — pipeline/src/cities/poddebice/ + parse-poddebice.test.js (26 green), registered 2026-07-10. bip.poddebice.pl devcomm bipv45 (DataTables JSON + text-PDF). Marginal/land-dominated, NO result stream (0 by design). Fixed 2 bugs (FLAT_RE 'nieruchomości lokalowej' misroute, wadium obręb-bullet variant). First refresh: 1 listing/14 land/1 uniq/1 arch. teryt 101103_3 HIGH (GUS-verified)."
       }
     },
     {
@@ -3983,13 +3983,13 @@
       "powiat_slug": "powiat-proszowicki",
       "powiat_label": "powiat proszowicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/malopolskie/powiat-proszowicki/proszowice.md",
       "spike": {
         "wave": "D",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "ASP custom-HTML city portal; single property board w/ announcements + named-buyer results; recurring open flat auctions, no blockers"
+        "note": "BUILT — pipeline/src/cities/proszowice/ + parse-proszowice.test.js (20 green), registered 2026-07-10. proszowice.pl bespoke ASP CMS (bochnia-family, ?page=N pagination). Fixed 6 bugs (pagination, 'zbycie' not 'sprzedaż', ordinal 'dziesiąty' collision, price-table digit-bridge, result-doc kind, 'ul. 3 Maja' numbered street). First refresh: 9 listing/13 land/9 uniq/10 arch. teryt 121101_4 LOW/provisional."
       }
     },
     {
@@ -4015,13 +4015,13 @@
       "powiat_slug": "powiat-pultuski",
       "powiat_label": "powiat pułtuski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/powiat-pultuski/pultusk.md",
       "spike": {
         "wave": "D",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "WordPress wp-json portal; recurring open oral flat auctions (Na Skarpie 3 lok.25 I/II/III + Warsaw flats), inline-HTML + born-digital PDF mirrors; no hammer board, mixed land/flat feed"
+        "note": "BUILT — pipeline/src/cities/pultusk/ + parse-pultusk.test.js (39 green), registered 2026-07-10. pultusk.pl WordPress wp-json (list endpoint embeds content.rendered → one request/term, no detail fetch). Fixed Polish-diacritic \\w + date-first template bugs. First refresh: 1 listing/5 land/1 uniq/1 arch. teryt 142404_3 MED (GUS-corrected)."
       }
     },
     {
@@ -4175,13 +4175,13 @@
       "powiat_slug": "powiat-rawski",
       "powiat_label": "powiat rawski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md",
       "spike": {
         "wave": "E",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "bip.net 7.32 (Extranet) server-HTML BIP bip.rawamazowiecka.pl; confirmed open oral flat auctions (3 lokale mieszkalne Reymonta dz.308/13 obr.4, 22.10.2024) + informacja o wyniku results stream; year boards 3648/3496 + results 3477; born-digital PDF attachments; analog Golub-Dobrzyn; disambiguated from rural gmina bip.rawam.ug.gov.pl, starostwo, Rawskie TBS"
+        "note": "BUILT — pipeline/src/cities/rawa-mazowiecka/ + parse-rawa-mazowiecka.test.js (26 green), registered 2026-07-10. bip.rawamazowiecka.pl bip.net 7.32 (zgorzelec-family; year-partitioned boards auto-discovered from menu; 0..N records/doc). Fixed 7 bugs (price digit-gap, dedup doubling, body-cutoff mid-tag, street over-capture x2, parsePLN '53.197.50' typo→100x, restricted-tender land routing). First refresh: 4 listing/12 land/4 uniq/4 arch. teryt 101301_1 HIGH."
       }
     },
     {
@@ -4271,13 +4271,13 @@
       "powiat_slug": "powiat-sandomierski",
       "powiat_label": "powiat sandomierski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md",
       "spike": {
         "wave": "E",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Server-rendered HTML city BIP (bip.um.sandomierz.pl, WordPress/custom-HTML family, /NNNN/132/slug.html + ?Page=N, .eu mirror shares IDs). Confirmed OPEN oral flat auctions (Portowa 18/16, Baczyńskiego, Por. T. Króla) with cena wywoławcza + inline-HTML wynik stream (cena osiągnięta 92000 zł + nabywca). Single mixed board — classify przetarg vs bezprzetargowo/najemca/land. Analog: Bochnia/Olkusz."
+        "note": "BUILT — pipeline/src/cities/sandomierz/ + parse-sandomierz.test.js (20 green), registered 2026-07-10. bip.um.sandomierz.pl SkyCMS (bochnia-family custom-HTML); inline wynik stream. Fixed 3 bugs (price-gap cap, GARAGE_RE zoning false-pos, articleBody boundary) + title/body sale-vs-rent authority. Multi-parcel land keeps 1st parcel (flats fully covered). First refresh: 7 listing/21 land/12 uniq/12 arch. teryt 260901_1 MED-HIGH."
       }
     },
     {

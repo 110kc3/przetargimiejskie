@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "city": "rawa-mazowiecka",
+  "plots": [
+    {
+      "key": "dz|167, 166",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "167, 166",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Mszczonowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20167%2C%20166%20Mszczonowskiej%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2561,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "starting_price_pln": 815000,
+          "outcome": "archived",
+          "area_m2": 2561,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3648?tresc=33629",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3648?tresc=33629"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "167"
+        },
+        {
+          "nr": "166"
+        }
+      ]
+    },
+    {
+      "key": "dz|205/11, 206/12, 706/5",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "205/11, 206/12, 706/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20205%2F11%2C%20206%2F12%2C%20706%2F5%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 830,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-10",
+          "round": 1,
+          "starting_price_pln": 273900,
+          "outcome": "archived",
+          "area_m2": 830,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3648?tresc=33622",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3648?tresc=33622",
+          "final_price_pln": 276900
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "205/11"
+        },
+        {
+          "nr": "206/12"
+        },
+        {
+          "nr": "706/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|246/4",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "246/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Zamkowa Wola",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20246%2F4%20Zamkowa%20Wola%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 21,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-21",
+          "round": 1,
+          "starting_price_pln": 15000,
+          "outcome": "sold",
+          "final_price_pln": 15200,
+          "area_m2": 21
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "246/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|322/5",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "322/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Łąkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20322%2F5%20%C5%81%C4%85kowej%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 215,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-15",
+          "round": 1,
+          "starting_price_pln": 79335,
+          "outcome": "archived",
+          "area_m2": 215,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32389",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32389",
+          "final_price_pln": 80335
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "322/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|265",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "265",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Bolesława Prusa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20265%20Boles%C5%82awa%20Prusa%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 98,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-08",
+          "round": 1,
+          "starting_price_pln": 20000,
+          "outcome": "archived",
+          "area_m2": 98,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32314",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32314",
+          "final_price_pln": 20300
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "265"
+        }
+      ]
+    },
+    {
+      "key": "dz|138/1",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "138/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%2F1%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 549,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-06-06",
+          "round": 1,
+          "starting_price_pln": 86100,
+          "outcome": "archived",
+          "area_m2": 549,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=30282",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=30282"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "138/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|38/1",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "38/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Jeziorańskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2038%2F1%20Jeziora%C5%84skiego%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1927,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-06-06",
+          "round": 1,
+          "starting_price_pln": 237021,
+          "outcome": "archived",
+          "area_m2": 1927,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=30279",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=30279",
+          "final_price_pln": 239521
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "38/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|319",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "319",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Słonecznej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20319%20S%C5%82onecznej%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 173,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-03-29",
+          "round": 1,
+          "starting_price_pln": 53197,
+          "outcome": "archived",
+          "area_m2": 173,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=29982",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=29982",
+          "final_price_pln": 53797
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "319"
+        }
+      ]
+    },
+    {
+      "key": "dz|558",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "558",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20558%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7330,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-04",
+          "round": 1,
+          "starting_price_pln": 146600,
+          "outcome": "unsold",
+          "area_m2": 7330
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "558"
+        }
+      ]
+    },
+    {
+      "key": "dz|109/18",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "109/18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20109%2F18%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1241,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-17",
+          "round": 1,
+          "starting_price_pln": 173000,
+          "outcome": "archived",
+          "area_m2": 1241,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3249?tresc=28182",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3249?tresc=28182",
+          "final_price_pln": 214920
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "109/18"
+        }
+      ]
+    },
+    {
+      "key": "dz|343/20",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "343/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20343%2F20%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 767,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-12-21",
+          "round": 1,
+          "starting_price_pln": 57000,
+          "outcome": "archived",
+          "area_m2": 767,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3137?tresc=27319",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3137?tresc=27319"
+        },
+        {
+          "date": "2022-01-24",
+          "round": 2,
+          "starting_price_pln": 57000,
+          "outcome": "archived",
+          "area_m2": 767,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3137?tresc=27538",
+          "source_url": "https://bip.rawamazowiecka.pl/redir,3137?tresc=27538",
+          "final_price_pln": 70820
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "343/20"
+        }
+      ]
+    },
+    {
+      "key": "dz|780/2",
+      "kind": "grunt",
+      "city": "rawa-mazowiecka",
+      "dzialka_nr": "780/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20780%2F2%20Rawa%20Mazowiecka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 20600,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-30",
+          "round": 1,
+          "starting_price_pln": 2800000,
+          "outcome": "unsold",
+          "area_m2": 20600
+        },
+        {
+          "date": "2022-01-12",
+          "round": 2,
+          "starting_price_pln": 3000000,
+          "outcome": "sold",
+          "final_price_pln": 3727000,
+          "area_m2": 20600
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "780/2"
+        }
+      ]
+    }
+  ]
+}

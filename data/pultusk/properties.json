@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "city": "pultusk",
+  "properties": [
+    {
+      "key": "na skarpie|3|25",
+      "street": "Na Skarpie",
+      "street_norm": "na skarpie",
+      "building": "3",
+      "apt": "25",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 73,
+          "detail_url": "https://pultusk.pl/ogloszenie-z-dnia-26-03-2026-r/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 73
+    }
+  ]
+}

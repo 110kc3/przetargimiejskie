@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "city": "rawa-mazowiecka",
+  "properties": [
+    {
+      "key": "reymonta|11|1",
+      "street": "Reymonta",
+      "street_norm": "reymonta",
+      "building": "11",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 111500,
+          "notes": [],
+          "area_m2": 40,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411"
+        }
+      ],
+      "area_m2": 40
+    },
+    {
+      "key": "reymonta|11|4",
+      "street": "Reymonta",
+      "street_norm": "reymonta",
+      "building": "11",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 87000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 88000,
+          "notes": [],
+          "area_m2": 31.28,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411"
+        }
+      ],
+      "area_m2": 31.28
+    },
+    {
+      "key": "reymonta|11|5",
+      "street": "Reymonta",
+      "street_norm": "reymonta",
+      "building": "11",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 53000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 53700,
+          "notes": [],
+          "area_m2": 31.88,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411"
+        }
+      ],
+      "area_m2": 31.88
+    },
+    {
+      "key": "murarskiej|1|",
+      "street": "Murarskiej",
+      "street_norm": "murarskiej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-01-16",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 240000,
+          "outcome": "archived",
+          "area_m2": 118,
+          "detail_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=31181",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 118
+    }
+  ]
+}

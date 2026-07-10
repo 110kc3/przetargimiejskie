@@ -119,6 +119,8 @@ const EXEMPT_NEW = new Map([
   // 10 committed unique>=2 on first refresh and stand on their own data.
   ['olesno', { since: '2026-07-10', reason: 'live-verified: skyCMS board has no active flats now (year-board results only, 2 archived → unique 1); active-flat parse unvalidated until one appears' }],
   ['mragowo', { since: '2026-07-10', reason: 'live-verified: CNT board has active land (7 plots) but no active flats now (unique 1); active-flat parse unvalidated until one appears' }],
+  // Batch 2 (registered 2026-07-10).
+  ['pleszew', { since: '2026-07-10', reason: 'live-verified: WOKISS board has active land (21 plots) but the sole flat asset (Zachodnia 1) is dormant since Feb 2025 (I→II unsold, no III posted) → 0 active flats now; active-flat parse unvalidated until one appears' }],
 ]);
 
 const now = Date.now();

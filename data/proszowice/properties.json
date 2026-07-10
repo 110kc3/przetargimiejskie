@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "city": "proszowice",
+  "properties": [
+    {
+      "key": "krolewskiej|72|4",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "72",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "archived",
+          "area_m2": 43.34,
+          "detail_url": "https://proszowice.pl/aktualnosc-10773-ogloszenie_pierwszego_przetargu_ustnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 280000,
+          "source_pdf": "https://proszowice.pl/aktualnosc-10934-informacja_o_pierwszym_przetargu_ustnym.html",
+          "notes": [
+            "parse: achieved price not stated; using cena wywoławcza (no postąpienie recorded)"
+          ],
+          "area_m2": 43.34,
+          "detail_url": "https://proszowice.pl/aktualnosc-10833-ogloszenie_o_pierwszym_przetargu_ustnym.html"
+        }
+      ],
+      "area_m2": 43.34
+    },
+    {
+      "key": "krolewskiej|60|12",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "60",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 250000,
+          "source_pdf": "https://proszowice.pl/aktualnosc-10035-informacja_o_pierwszych_przetargach.html",
+          "notes": [
+            "parse: achieved price not stated; using cena wywoławcza (no postąpienie recorded)"
+          ],
+          "area_m2": 46.53
+        }
+      ],
+      "area_m2": 46.53
+    },
+    {
+      "key": "krolewskiej|60|43",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "60",
+      "apt": "43",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "archived",
+          "area_m2": 42.71,
+          "detail_url": "https://proszowice.pl/aktualnosc-9962-ogloszenie_pierwszego_przetargu_ustnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.71
+    },
+    {
+      "key": "krolewskiej|24B|12",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "24B",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 46.53,
+          "detail_url": "https://proszowice.pl/aktualnosc-9961-ogloszenie_pierwszego_przetargu_ustnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.53
+    },
+    {
+      "key": "krolewskiej|70|53",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "70",
+      "apt": "53",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 212100,
+          "source_pdf": "https://proszowice.pl/aktualnosc-8924-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [],
+          "area_m2": 34.05,
+          "detail_url": "https://proszowice.pl/aktualnosc-8766-ogloszenie_przetargu_lokal_mieszkalny.html"
+        }
+      ],
+      "area_m2": 34.05
+    },
+    {
+      "key": "krolewskiej|24B|1",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "24B",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 290000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 370000,
+          "source_pdf": "https://proszowice.pl/aktualnosc-8922-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [],
+          "area_m2": 47.15,
+          "detail_url": "https://proszowice.pl/aktualnosc-8768-ogloszenie_przetargu_lokal_mieszkalny.html"
+        }
+      ],
+      "area_m2": 47.15
+    },
+    {
+      "key": "kosciuszki|2|7",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "2",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 110000,
+          "source_pdf": "https://proszowice.pl/aktualnosc-7879-informacja_o_pierwszych_przetargach.html",
+          "notes": [
+            "parse: achieved price not stated; using cena wywoławcza (no postąpienie recorded)"
+          ],
+          "area_m2": 23.09,
+          "detail_url": "https://proszowice.pl/aktualnosc-7731-ogloszenie_pierwszego_przetargu_ustnego.html"
+        }
+      ],
+      "area_m2": 23.09
+    },
+    {
+      "key": "3 maja|61|8",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "61",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "archived",
+          "area_m2": 37.43,
+          "detail_url": "https://proszowice.pl/aktualnosc-7730-ogloszenie_pierwszego_przetargu_ustnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 37.43
+    },
+    {
+      "key": "krolewskiej|70|57",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "70",
+      "apt": "57",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 33.65,
+          "detail_url": "https://proszowice.pl/aktualnosc-7729-ogloszenie_pierwszego_przetargu_ustnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.65
+    }
+  ]
+}

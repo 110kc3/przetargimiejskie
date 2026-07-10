@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "city": "rawa-mazowiecka",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Reymonta 11/1",
+      "address": {
+        "street": "Reymonta",
+        "street_norm": "reymonta",
+        "building": "11",
+        "apt": "1",
+        "key": "reymonta|11|1",
+        "warning": null
+      },
+      "area_m2": 40,
+      "starting_price_pln": 110000,
+      "auction_date": "2024-10-22",
+      "round": null,
+      "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411",
+      "source_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Reymonta 11/4",
+      "address": {
+        "street": "Reymonta",
+        "street_norm": "reymonta",
+        "building": "11",
+        "apt": "4",
+        "key": "reymonta|11|4",
+        "warning": null
+      },
+      "area_m2": 31.28,
+      "starting_price_pln": 87000,
+      "auction_date": "2024-10-22",
+      "round": null,
+      "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411",
+      "source_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Reymonta 11/5",
+      "address": {
+        "street": "Reymonta",
+        "street_norm": "reymonta",
+        "building": "11",
+        "apt": "5",
+        "key": "reymonta|11|5",
+        "warning": null
+      },
+      "area_m2": 31.88,
+      "starting_price_pln": 53000,
+      "auction_date": "2024-10-22",
+      "round": null,
+      "detail_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411",
+      "source_url": "https://bip.rawamazowiecka.pl/redir,3496?tresc=32411"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Murarskiej 1",
+      "address": {
+        "street": "Murarskiej",
+        "street_norm": "murarskiej",
+        "building": "1",
+        "apt": null,
+        "key": "murarskiej|1|",
+        "warning": null
+      },
+      "area_m2": 118,
+      "starting_price_pln": 240000,
+      "auction_date": "2024-01-16",
+      "round": 2,
+      "detail_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=31181",
+      "source_url": "https://bip.rawamazowiecka.pl/redir,3380?tresc=31181"
+    }
+  ],
+  "wykaz": []
+}
