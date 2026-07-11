@@ -1,5 +1,1429 @@
 {
   "schema_version": 1,
   "city": "wegorzewo",
-  "plots": []
+  "plots": [
+    {
+      "key": "dz|węgorzewo2|636/36",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "636/36",
+      "obreb": "Węgorzewo2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20636%2F36%20W%C4%99gorzewo2%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 23,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "starting_price_pln": 12000,
+          "outcome": "archived",
+          "area_m2": 23,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/886596/burmistrz_wegorzewa_oglasza_pierwszy_ustny_przetarg_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/886596/burmistrz_wegorzewa_oglasza_pierwszy_ustny_przetarg_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "636/36",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20636%2F36%20W%C4%99gorzewo2%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|węgorzewo2|636/35",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "636/35",
+      "obreb": "Węgorzewo2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20636%2F35%20W%C4%99gorzewo2%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 23,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "starting_price_pln": 12000,
+          "outcome": "archived",
+          "area_m2": 23,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/886587/burmistrz_wegorzewa_oglasza_pierwszy_ustny_przetarg_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/886587/burmistrz_wegorzewa_oglasza_pierwszy_ustny_przetarg_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "636/35",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20636%2F35%20W%C4%99gorzewo2%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|radzieje|138",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "138",
+      "obreb": "Radzieje",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%20Radzieje%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 27802,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 1,
+          "starting_price_pln": 114000,
+          "outcome": "archived",
+          "area_m2": 27802,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/885336/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/885336/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "final_price_pln": 115140
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "138",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%20Radzieje%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|u|1066/3",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1066/3",
+      "obreb": "u",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F3%20u%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1150,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-18",
+          "round": 1,
+          "starting_price_pln": 85000,
+          "outcome": "archived",
+          "area_m2": 1150,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/882783/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/882783/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1066/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F3%20u%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1066/3",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1066/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F3%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1150,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-18",
+          "round": 1,
+          "starting_price_pln": 85000,
+          "outcome": "sold",
+          "final_price_pln": 147050,
+          "area_m2": 1150,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/890605/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1066/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|zakrzaczeń|1061/18",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1061/18",
+      "obreb": "zakrzaczeń",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201061%2F18%20zakrzacze%C5%84%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1553,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-17",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 1553,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/882789/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/882789/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1061/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201061%2F18%20zakrzacze%C5%84%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1061/18",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1061/18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201061%2F18%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1553,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-17",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "final_price_pln": 141400,
+          "area_m2": 1553,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/890325/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1061/18"
+        }
+      ]
+    },
+    {
+      "key": "dz|miasta|1100",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1100",
+      "obreb": "miasta",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201100%20miasta%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-22",
+          "round": 1,
+          "starting_price_pln": 9300,
+          "outcome": "archived",
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/857579/burmistrz_wegorzewa_oglasza_drugi_przetarg_ustny_nieograniczony_",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/857579/burmistrz_wegorzewa_oglasza_drugi_przetarg_ustny_nieograniczony_"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1100",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201100%20miasta%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|działki|1066/5",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1066/5",
+      "obreb": "działki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F5%20dzia%C5%82ki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1188,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-15",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 1188,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/856202/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/856202/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1066/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F5%20dzia%C5%82ki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|węgorzewo|1066/5",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1066/5",
+      "obreb": "Węgorzewo",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F5%20W%C4%99gorzewo%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1188,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-15",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "final_price_pln": 80800,
+          "area_m2": 1188,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/863524/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1066/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201066%2F5%20W%C4%99gorzewo%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|925/2",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "925/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20925%2F2%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1300,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-01-16",
+          "round": 1,
+          "starting_price_pln": 95000,
+          "outcome": "unsold",
+          "area_m2": 1300,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/670407/informacja_o_wyniku_przetargu_ustnego_na_zbycie_niezabudowanej_d"
+        },
+        {
+          "date": "2023-03-28",
+          "round": 2,
+          "starting_price_pln": 95000,
+          "outcome": "unsold",
+          "area_m2": 1300,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/681404/informacja_o_wyniku_drugiego_przetargu_ustnego_na_zbycie_niezabu"
+        },
+        {
+          "date": "2025-11-24",
+          "round": 1,
+          "starting_price_pln": 122000,
+          "outcome": "archived",
+          "area_m2": 1300,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/845925/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/845925/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "final_price_pln": 123220
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "925/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|miasta|1099",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1099",
+      "obreb": "miasta",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201099%20miasta%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-23",
+          "round": 1,
+          "starting_price_pln": 9300,
+          "outcome": "archived",
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/840236/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/840236/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1099",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201099%20miasta%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|miasta|1096",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "1096",
+      "obreb": "miasta",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201096%20miasta%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-22",
+          "round": 1,
+          "starting_price_pln": 9300,
+          "outcome": "archived",
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/840235/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/840235/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1096",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201096%20miasta%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|437/4",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "437/4",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F4%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1406,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-04-14",
+          "round": 1,
+          "starting_price_pln": 126624,
+          "outcome": "archived",
+          "area_m2": 1406,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/809101/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/809101/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "final_price_pln": 127894
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "437/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F4%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|437/5",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "437/5",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F5%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1316,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-04-14",
+          "round": 1,
+          "starting_price_pln": 130600,
+          "outcome": "sold",
+          "final_price_pln": 131910,
+          "area_m2": 1316,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/816358/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "437/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F5%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trygort|240/42",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "240/42",
+      "obreb": "Trygort",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240%2F42%20Trygort%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1861,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-26",
+          "round": 1,
+          "starting_price_pln": 328000,
+          "outcome": "unsold",
+          "area_m2": 1861,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/715027/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        },
+        {
+          "date": "2024-07-22",
+          "round": 1,
+          "starting_price_pln": 328000,
+          "outcome": "unsold",
+          "area_m2": 1861,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/769267/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        },
+        {
+          "date": "2024-10-25",
+          "round": 2,
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "area_m2": 1861,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/783652/informacja_o_wyniku__drugiego__przetargu_ustnego__nieograniczone"
+        },
+        {
+          "date": "2025-03-11",
+          "round": 3,
+          "starting_price_pln": 290000,
+          "outcome": "unsold",
+          "area_m2": 1861,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/808674/informacja_o_wyniku__trzeciego__przetargu_ustnego__nieograniczon"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "240/42",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240%2F42%20Trygort%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kal|132/45",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "132/45",
+      "obreb": "Kal",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F45%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1850,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-05",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/697550/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        },
+        {
+          "date": "2023-08-30",
+          "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/704370/informacja_o_wyniku_drugiego_przetargu_ustnego_nieograniczonego_"
+        },
+        {
+          "date": "2024-02-28",
+          "round": 3,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/738095/informacja_o_wyniku_trzeciego_przetargu_ustnego_nieograniczonego"
+        },
+        {
+          "date": "2024-07-17",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/768343/informacja_o_wyniku__czwartego_przetargu_ustnego__nieograniczone"
+        },
+        {
+          "date": "2024-10-23",
+          "round": 5,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/783284/informacja_o_wyniku__piatego_przetargu_ustnego__nieograniczonego"
+        },
+        {
+          "date": "2025-02-19",
+          "round": 6,
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 1850,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799144/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799144/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "132/45",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F45%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kal|132/41",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "132/41",
+      "obreb": "Kal",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F41%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1850,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-04",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/697253/informacja_o_wynikupierwszegoprzetargu_ustnego_nieograniczonegon"
+        },
+        {
+          "date": "2023-08-29",
+          "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/704092/informacja_o_wyniku_drugiego_przetargu_ustnego_nieograniczonego_"
+        },
+        {
+          "date": "2024-02-27",
+          "round": 3,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/737809/informacja_o_wynikutrzeciegoprzetargu_ustnegonieograniczonegona_"
+        },
+        {
+          "date": "2024-07-16",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/768212/informacja_o_wyniku__czwartego__przetargu_ustnego__nieograniczon"
+        },
+        {
+          "date": "2024-10-22",
+          "round": 5,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/782977/informacja_o_wyniku__piatego__przetargu_ustnego__nieograniczoneg"
+        },
+        {
+          "date": "2025-02-18",
+          "round": 6,
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 1850,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799141/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799141/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "132/41",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F41%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kal|132/37",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "132/37",
+      "obreb": "Kal",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F37%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1930,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-03",
+          "round": 1,
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "area_m2": 1930,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/697039/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        },
+        {
+          "date": "2023-08-28",
+          "round": 2,
+          "starting_price_pln": 203000,
+          "outcome": "unsold",
+          "area_m2": 1930,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/704093/informacja_o_wyniku_drugiego_przetargu_ustnego_nieograniczonego_"
+        },
+        {
+          "date": "2024-02-26",
+          "round": 3,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1930,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/737319/informacja_o_wyniku_trzeciegoprzetargu_ustnegonieograniczonegona"
+        },
+        {
+          "date": "2024-07-15",
+          "round": 4,
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "area_m2": 1930,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/767946/informacja_o_wyniku__czwartego__przetargu_ustnego__nieograniczon"
+        },
+        {
+          "date": "2024-10-21",
+          "round": 5,
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "area_m2": 1930,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/782743/informacja_o_wyniku__piatego__przetargu_ustnego__nieograniczoneg"
+        },
+        {
+          "date": "2025-02-17",
+          "round": 6,
+          "starting_price_pln": 135000,
+          "outcome": "archived",
+          "area_m2": 1930,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799135/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799135/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "132/37",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F37%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|964/46",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "964/46",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20964%2F46%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1473,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-02",
+          "round": 1,
+          "starting_price_pln": 129600,
+          "outcome": "unsold",
+          "area_m2": 1473,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/780006/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 2,
+          "starting_price_pln": 129600,
+          "outcome": "sold",
+          "final_price_pln": 130896,
+          "area_m2": 1473,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/793677/informacja_o_wyniku__drugiego__przetargu_ustnego__nieograniczone"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "964/46"
+        }
+      ]
+    },
+    {
+      "key": "dz|964/45",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "964/45",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20964%2F45%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1484,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-03",
+          "round": 1,
+          "starting_price_pln": 130600,
+          "outcome": "unsold",
+          "area_m2": 1484,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/780183/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        },
+        {
+          "date": "2024-12-05",
+          "round": 2,
+          "starting_price_pln": 130600,
+          "outcome": "sold",
+          "final_price_pln": 131906,
+          "area_m2": 1484,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/793615/informacja_o_wyniku_drugiego_przetargu_ustnego_nieograniczonego_"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "964/45"
+        }
+      ]
+    },
+    {
+      "key": "dz|964/44",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "964/44",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20964%2F44%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1482,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-04",
+          "round": 1,
+          "starting_price_pln": 130400,
+          "outcome": "sold",
+          "final_price_pln": 131704,
+          "area_m2": 1482,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/781690/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "964/44"
+        }
+      ]
+    },
+    {
+      "key": "dz|kal|132/51",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "132/51",
+      "obreb": "Kal",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F51%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1850,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-06",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/697766/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        },
+        {
+          "date": "2023-08-31",
+          "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/704636/informacja_o_wyniku_drugiego_przetargu_ustnego_nieograniczonego_"
+        },
+        {
+          "date": "2024-02-29",
+          "round": 3,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/738478/informacja_o_wynikutrzeciegoprzetargu_ustnegonieograniczonego_na"
+        },
+        {
+          "date": "2024-07-18",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "final_price_pln": 141400,
+          "area_m2": 1850,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/770014/informacja_o_wyniku__czwartego__przetargu_ustnego__nieograniczon"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "132/51",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F51%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|493",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "493",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20493%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1508,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-06-21",
+          "round": 1,
+          "starting_price_pln": 104000,
+          "outcome": "sold",
+          "final_price_pln": 105040,
+          "area_m2": 1508,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/763240/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "493",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20493%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|494",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "494",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20494%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1482,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-06-20",
+          "round": 1,
+          "starting_price_pln": 144000,
+          "outcome": "unsold",
+          "area_m2": 1482,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/762849/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "494",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20494%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|495",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "495",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1097,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-06-19",
+          "round": 1,
+          "starting_price_pln": 106000,
+          "outcome": "unsold",
+          "area_m2": 1097,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/762474/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "495",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|359/4",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "359/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20359%2F4%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 18,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-06-11",
+          "round": 1,
+          "starting_price_pln": 8000,
+          "outcome": "sold",
+          "final_price_pln": 8080,
+          "area_m2": 18,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/760920/informacja_o_wyniku_pierwszego_przetargu_ustnego_ograniczonego_n"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "359/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|m|200",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "200",
+      "obreb": "m",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20200%20m%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 635,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-01",
+          "round": 1,
+          "starting_price_pln": 50200,
+          "outcome": "sold",
+          "final_price_pln": 50702,
+          "area_m2": 635,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/723463/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "200",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20200%20m%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trygort|240/41",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "240/41",
+      "obreb": "Trygort",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240%2F41%20Trygort%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2595,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-11-16",
+          "round": 1,
+          "starting_price_pln": 465000,
+          "outcome": "sold",
+          "final_price_pln": 469650,
+          "area_m2": 2595,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/720267/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "240/41",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240%2F41%20Trygort%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trygort|240/40",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "240/40",
+      "obreb": "Trygort",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240%2F40%20Trygort%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1919,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-25",
+          "round": 1,
+          "starting_price_pln": 349000,
+          "outcome": "sold",
+          "final_price_pln": 352490,
+          "area_m2": 1919,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/716255/informacja_o_wynikupierwszegoprzetargu_ustnegonieograniczonego_n"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "240/40",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240%2F40%20Trygort%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|964/47",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "964/47",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20964%2F47%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1401,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-06-15",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 1401,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/693703/informacja_o_wyniku_pierwszegoprzetargu_ustnego_nieograniczonego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "964/47"
+        }
+      ]
+    },
+    {
+      "key": "dz|897/3",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "897/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20897%2F3%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1879,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-04-27",
+          "round": 1,
+          "starting_price_pln": 136000,
+          "outcome": "sold",
+          "final_price_pln": 137360,
+          "area_m2": 1879,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/685807/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "897/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|383/2",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "383/2",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20383%2F2%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 886,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-09",
+          "round": 1,
+          "starting_price_pln": 91000,
+          "outcome": "archived",
+          "area_m2": 886,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/876638/burmistrz_wegorzewa_oglasza__drugi_przetarg_ustny_nieograniczony",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/876638/burmistrz_wegorzewa_oglasza__drugi_przetarg_ustny_nieograniczony"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 2,
+          "starting_price_pln": 91000,
+          "outcome": "sold",
+          "final_price_pln": 91910,
+          "area_m2": 886,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/884544/informacja_o_wyniku__drugiego__przetargu_ustnego__nieograniczone"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 91000,
+          "outcome": "active",
+          "area_m2": 886,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/853287/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/853287/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "383/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20383%2F2%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|383/1",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "383/1",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20383%2F1%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 808,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "starting_price_pln": 83000,
+          "outcome": "sold",
+          "final_price_pln": 83830,
+          "area_m2": 808,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/862064/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 83000,
+          "outcome": "active",
+          "area_m2": 808,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/853291/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/853291/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "383/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20383%2F1%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ogonki|393",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "393",
+      "obreb": "Ogonki",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20393%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 358,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-27",
+          "round": 1,
+          "starting_price_pln": 26000,
+          "outcome": "sold",
+          "final_price_pln": 46260,
+          "area_m2": 358,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/824384/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 26000,
+          "outcome": "active",
+          "area_m2": 358,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/815824/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/815824/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "393",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20393%20Ogonki%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kal|132/52",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "132/52",
+      "obreb": "Kal",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F52%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1961,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-07",
+          "round": 1,
+          "starting_price_pln": 201000,
+          "outcome": "unsold",
+          "area_m2": 1961,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/697903/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        },
+        {
+          "date": "2023-09-01",
+          "round": 2,
+          "starting_price_pln": 196000,
+          "outcome": "unsold",
+          "area_m2": 1961,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/705961/informacja_o_wynikudrugiegoprzetargu_ustnegonieograniczonegona_z"
+        },
+        {
+          "date": "2024-03-01",
+          "round": 3,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1961,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/738691/informacja_o_wyniku_trzeciego_przetargu_ustnegonieograniczonego_"
+        },
+        {
+          "date": "2024-07-19",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1961,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/768810/informacja_o_wyniku__czwartego__przetargu_ustnego__nieograniczon"
+        },
+        {
+          "date": "2024-10-24",
+          "round": 5,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1961,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/783394/informacja_o_wyniku__piatego__przetargu_ustnego__nieograniczoneg"
+        },
+        {
+          "date": "2025-02-20",
+          "round": 6,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 1961,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/805375/informacja_o_wyniku__szostego__przetargu_ustnego__nieograniczone"
+        },
+        {
+          "date": null,
+          "round": 6,
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 1961,
+          "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799150/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony",
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/799150/burmistrz_wegorzewa_oglasza_szosty_przetarg_ustny_nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "132/52",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F52%20Kal%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
 }

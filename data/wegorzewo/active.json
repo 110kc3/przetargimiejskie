@@ -1,6 +1,115 @@
 {
   "schema_version": 1,
   "city": "wegorzewo",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Węgorzewskiej 25/5",
+      "address": {
+        "street": "Węgorzewskiej",
+        "street_norm": "wegorzewskiej",
+        "building": "25",
+        "apt": "5",
+        "key": "wegorzewskiej|25|5",
+        "warning": null
+      },
+      "area_m2": 97.43,
+      "starting_price_pln": 33000,
+      "auction_date": "2026-08-06",
+      "round": 3,
+      "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/891843/burmistrz_wegorzewa_oglasza_czwarty_przetarg_ustny_nieograniczon",
+      "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/891843/burmistrz_wegorzewa_oglasza_czwarty_przetarg_ustny_nieograniczon"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Węgorzewskiej 25/5",
+      "address": {
+        "street": "Węgorzewskiej",
+        "street_norm": "wegorzewskiej",
+        "building": "25",
+        "apt": "5",
+        "key": "wegorzewskiej|25|5",
+        "warning": null
+      },
+      "area_m2": 97.43,
+      "starting_price_pln": 33000,
+      "auction_date": "2026-05-08",
+      "round": 2,
+      "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/875654/burmistrz_wegorzewa_oglasza_trzeci_przetarg_ustny_nieograniczony",
+      "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/875654/burmistrz_wegorzewa_oglasza_trzeci_przetarg_ustny_nieograniczony"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Węgorzewskiej 25/5",
+      "address": {
+        "street": "Węgorzewskiej",
+        "street_norm": "wegorzewskiej",
+        "building": "25",
+        "apt": "5",
+        "key": "wegorzewskiej|25|5",
+        "warning": null
+      },
+      "area_m2": 97.43,
+      "starting_price_pln": 45000,
+      "auction_date": "2026-01-23",
+      "round": 1,
+      "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/857584/burmistrz_wegorzewa_oglasza_drugi_przetarg_ustny_nieograniczony_",
+      "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/857584/burmistrz_wegorzewa_oglasza_drugi_przetarg_ustny_nieograniczony_"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Węgorzewskiej 25/5",
+      "address": {
+        "street": "Węgorzewskiej",
+        "street_norm": "wegorzewskiej",
+        "building": "25",
+        "apt": "5",
+        "key": "wegorzewskiej|25|5",
+        "warning": null
+      },
+      "area_m2": 97.43,
+      "starting_price_pln": 66000,
+      "auction_date": "2025-10-30",
+      "round": 1,
+      "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/841166/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+      "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/841166/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pniewo 5/4",
+      "address": {
+        "street": "Pniewo",
+        "street_norm": "pniewo",
+        "building": "5",
+        "apt": "4",
+        "key": "pniewo|5|4",
+        "warning": null
+      },
+      "area_m2": 33.2,
+      "starting_price_pln": 40300,
+      "auction_date": "2025-06-26",
+      "round": null,
+      "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/822001/ogloszenie_burmistrza_wegorzewa_o_przetargu_ustnym_nieograniczon",
+      "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/822001/ogloszenie_burmistrza_wegorzewa_o_przetargu_ustnym_nieograniczon"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 42/3",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "42",
+        "apt": "3",
+        "key": "armii krajowej|42|3",
+        "warning": null
+      },
+      "area_m2": 14.3,
+      "starting_price_pln": 39400,
+      "auction_date": "2025-03-06",
+      "round": 1,
+      "detail_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/801593/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo",
+      "source_url": "https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/801593/burmistrz_wegorzewa_oglasza_pierwszy_przetarg_ustny_nieograniczo"
+    }
+  ],
   "wykaz": []
 }
