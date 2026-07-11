@@ -1,0 +1,421 @@
+{
+  "schema_version": 1,
+  "city": "wolow",
+  "properties": [
+    {
+      "key": "willmanna|39|4",
+      "street": "Willmanna",
+      "street_norm": "willmanna",
+      "building": "39",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "unsold_reason": "superseded_by_next_round",
+          "final_price_pln": null,
+          "source_pdf": "https://wolow.pl/3333/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lubiazu-dzialka-nr-2111-am-1.html",
+          "notes": [
+            "parse: no achieved-price document exists on this source (see parse.js header) — outcome inferred from the next round being published, not a source-stated result"
+          ],
+          "area_m2": null,
+          "land_area_m2": 800
+        },
+        {
+          "date": "2026-01-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 47500,
+          "outcome": "unsold",
+          "unsold_reason": "superseded_by_next_round",
+          "final_price_pln": null,
+          "source_pdf": "https://wolow.pl/3474/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lubiazu-dzialka-nr-2111-am-1.html",
+          "notes": [
+            "parse: no achieved-price document exists on this source (see parse.js header) — outcome inferred from the next round being published, not a source-stated result"
+          ],
+          "area_m2": null,
+          "land_area_m2": 800
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 800
+    },
+    {
+      "key": "pelczyn|26|2",
+      "street": "Pełczyn",
+      "street_norm": "pelczyn",
+      "building": "26",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "superseded_by_next_round",
+          "final_price_pln": null,
+          "source_pdf": "https://wolow.pl/3475/i-ustny-przetarg-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-pelczynie-pelczyn-26.html",
+          "notes": [
+            "parse: no achieved-price document exists on this source (see parse.js header) — outcome inferred from the next round being published, not a source-stated result"
+          ],
+          "area_m2": 61.25
+        }
+      ],
+      "area_m2": 61.25
+    },
+    {
+      "key": "moczydlnica dworska|22|",
+      "street": "Moczydlnica Dworska",
+      "street_norm": "moczydlnica dworska",
+      "building": "22",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-02-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 151000,
+          "outcome": "unsold",
+          "unsold_reason": "superseded_by_next_round",
+          "final_price_pln": null,
+          "source_pdf": "https://wolow.pl/2546/i-ustny-przetarg-nieograniczony-na-sprzedaz-udzialu-czesci-w-nieruchomosci-polozonej-w-moczydlnicy-dworskiej-22-dz-nr-337-am-1.html",
+          "notes": [
+            "parse: no achieved-price document exists on this source (see parse.js header) — outcome inferred from the next round being published, not a source-stated result"
+          ],
+          "area_m2": null,
+          "land_area_m2": 8900
+        },
+        {
+          "date": "2024-04-19",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 120800,
+          "outcome": "unsold",
+          "unsold_reason": "superseded_by_next_round",
+          "final_price_pln": null,
+          "source_pdf": "https://wolow.pl/2602/ii-ustny-przetarg-nieograniczony-na-sprzedaz-udzialu-czesci-w-nieruchomosci-polozonej-w-moczydlnicy-dworskiej-22-dz-nr-337-am-1.html",
+          "notes": [
+            "parse: no achieved-price document exists on this source (see parse.js header) — outcome inferred from the next round being published, not a source-stated result"
+          ],
+          "area_m2": null,
+          "land_area_m2": 8900
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 8900
+    },
+    {
+      "key": "inwalidow wojennych|3|7",
+      "street": "Inwalidów Wojennych",
+      "street_norm": "inwalidow wojennych",
+      "building": "3",
+      "apt": "7",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2024-04-05",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "trzebnicka|25|6",
+      "street": "Trzebnicka",
+      "street_norm": "trzebnicka",
+      "building": "25",
+      "apt": "6",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-06-21",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "poznanska|17|2",
+      "street": "Poznańska",
+      "street_norm": "poznanska",
+      "building": "17",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-03-17",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "powstancow slaskich|15|2",
+      "street": "Powstańców Śląskich",
+      "street_norm": "powstancow slaskich",
+      "building": "15",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-01-24",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "piastow slaskich|6|1",
+      "street": "Piastów Śląskich",
+      "street_norm": "piastow slaskich",
+      "building": "6",
+      "apt": "1",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-01-20",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "korzeniowskiego|16|14",
+      "street": "Korzeniowskiego",
+      "street_norm": "korzeniowskiego",
+      "building": "16",
+      "apt": "14",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-01-20",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "zwyciestwa|9|6",
+      "street": "Zwycięstwa",
+      "street_norm": "zwyciestwa",
+      "building": "9",
+      "apt": "6",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-07-27",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "marsz j pilsudskiego|17|",
+      "street": "Marsz. J. Piłsudskiego",
+      "street_norm": "marsz j pilsudskiego",
+      "building": "17",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-06-28",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "ksiecia boleslawa wysokiego|1|3",
+      "street": "Księcia Bolesława Wysokiego",
+      "street_norm": "ksiecia boleslawa wysokiego",
+      "building": "1",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-04-29",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "kosciuszki|13F|3",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "13F",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-04-27",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "korzeniowskiego|2|14",
+      "street": "Korzeniowskiego",
+      "street_norm": "korzeniowskiego",
+      "building": "2",
+      "apt": "14",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-04-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "zwyciestwa|9|11",
+      "street": "Zwycięstwa",
+      "street_norm": "zwyciestwa",
+      "building": "9",
+      "apt": "11",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2022-04-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "ksiecia boleslawa wysokiego|3|3",
+      "street": "Księcia Bolesława Wysokiego",
+      "street_norm": "ksiecia boleslawa wysokiego",
+      "building": "3",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2021-02-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "ogrodowa|2|9",
+      "street": "Ogrodowa",
+      "street_norm": "ogrodowa",
+      "building": "2",
+      "apt": "9",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2021-02-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "zaulek zielony|14|8",
+      "street": "Zaułek Zielony",
+      "street_norm": "zaulek zielony",
+      "building": "14",
+      "apt": "8",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2021-02-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "zielona gora|4|7",
+      "street": "Zielona Góra",
+      "street_norm": "zielona gora",
+      "building": "4",
+      "apt": "7",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": null,
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "wojska polskiego|16|2",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "16",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": null,
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    },
+    {
+      "key": "t kosciuszki|13A|3",
+      "street": "T. Kościuszki",
+      "street_norm": "t kosciuszki",
+      "building": "13A",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": null,
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null
+        }
+      ]
+    }
+  ]
+}
