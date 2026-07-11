@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "city": "sepolno-krajenskie",
+  "listings": [
+    {
+      "kind": "garaz",
+      "address_raw": "Osiedle Słowackiego",
+      "address": null,
+      "round": 1,
+      "starting_price_pln": 29670,
+      "auction_date": "2024-09-13",
+      "area_m2": null,
+      "published_year": 2024,
+      "detail_url": "https://bip.gmina-sepolno.pl/5307/405/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-prawa-wlasnosci-zabudowanej-nieruchomosci-garazem-polozonej-przy-ul-osiedle-slowackiego-w-sepolnie-krajenskim.html"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Plac Wolności 14/2",
+      "address": {
+        "street": "Plac Wolności",
+        "street_norm": "plac wolnosci",
+        "building": "14",
+        "apt": "2",
+        "key": "plac wolnosci|14|2",
+        "warning": null
+      },
+      "round": 2,
+      "starting_price_pln": 70000,
+      "auction_date": "2024-09-12",
+      "area_m2": 28.5,
+      "published_year": 2024,
+      "detail_url": "https://bip.gmina-sepolno.pl/5301/405/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-lokalowej-przy-ul-plac-wolnosci-142-w-sepolnie-krajenskim.html"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Plac Wolności 14/2",
+      "address": {
+        "street": "Plac Wolności",
+        "street_norm": "plac wolnosci",
+        "building": "14",
+        "apt": "2",
+        "key": "plac wolnosci|14|2",
+        "warning": null
+      },
+      "round": 1,
+      "starting_price_pln": 78100,
+      "auction_date": "2024-03-26",
+      "area_m2": 28.5,
+      "published_year": 2024,
+      "detail_url": "https://bip.gmina-sepolno.pl/3642/405/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-lokalowej-przy-ul-plac-wolnosci-142-w-sepolnie-krajenskim.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Wolności 14/1",
+      "address": {
+        "street": "Plac Wolności",
+        "street_norm": "plac wolnosci",
+        "building": "14",
+        "apt": "1",
+        "key": "plac wolnosci|14|1",
+        "warning": null
+      },
+      "round": 2,
+      "starting_price_pln": 69300,
+      "auction_date": "2024-03-26",
+      "area_m2": 23.53,
+      "published_year": 2024,
+      "detail_url": "https://bip.gmina-sepolno.pl/3639/405/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-lokalowej-przy-ul-plac-wolnosci-141-w-sepolnie-krajenskim.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Wolności 14/1",
+      "address": {
+        "street": "Plac Wolności",
+        "street_norm": "plac wolnosci",
+        "building": "14",
+        "apt": "1",
+        "key": "plac wolnosci|14|1",
+        "warning": null
+      },
+      "round": 1,
+      "starting_price_pln": 69300,
+      "auction_date": "2023-10-11",
+      "area_m2": 23.53,
+      "published_year": 2023,
+      "detail_url": "https://bip.gmina-sepolno.pl/2565/405/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-lokalowej-przy-ul-plac-wolnosci-141-w-sepolnie-krajenskim.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Hallera 9/4",
+      "address": {
+        "street": "Hallera",
+        "street_norm": "hallera",
+        "building": "9",
+        "apt": "4",
+        "key": "hallera|9|4",
+        "warning": null
+      },
+      "round": 1,
+      "starting_price_pln": 98900,
+      "auction_date": "2023-10-11",
+      "area_m2": 34.3,
+      "published_year": 2023,
+      "detail_url": "https://bip.gmina-sepolno.pl/2562/405/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-prawa-wlasnosci-nieruchomosci-lokalowej-przy-ul-hallera-94-w-sepolnie-krajenskim.html"
+    }
+  ],
+  "wykaz": []
+}
