@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "city": "kwidzyn",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Hallera 15",
+      "address": {
+        "street": "Hallera",
+        "street_norm": "hallera",
+        "building": "15",
+        "apt": null,
+        "key": "hallera|15|",
+        "warning": null
+      },
+      "dzialka_nr": null,
+      "obreb": null,
+      "area_m2": 22.1,
+      "starting_price_pln": 41108,
+      "auction_date": "2026-08-21",
+      "round": 1,
+      "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=130681",
+      "notes": []
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Chopina 34/8",
+      "address": {
+        "street": "Chopina",
+        "street_norm": "chopina",
+        "building": "34",
+        "apt": "8",
+        "key": "chopina|34|8",
+        "warning": null
+      },
+      "dzialka_nr": null,
+      "obreb": null,
+      "area_m2": 116.7,
+      "starting_price_pln": 350000,
+      "auction_date": "2026-08-21",
+      "round": 3,
+      "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=130680",
+      "notes": []
+    }
+  ],
+  "wykaz": []
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "city": "kwidzyn",
+  "plots": [
+    {
+      "key": "dz|5/19",
+      "kind": "grunt",
+      "city": "kwidzyn",
+      "dzialka_nr": "5/19",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 5/19",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F19%20dz.%20nr%205%2F19%20Kwidzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=130652"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5/19"
+        }
+      ]
+    }
+  ]
+}
