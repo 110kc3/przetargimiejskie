@@ -1,0 +1,604 @@
+{
+  "schema_version": 1,
+  "city": "lwowek-slaski",
+  "plots": [
+    {
+      "key": "dz|1|35/1",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "35/1",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2035%2F1%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3617,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-26",
+          "round": 1,
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "area_m2": 3617,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/857523/i_przetarg_ustny_nieograniczony_na_sprzedaz_nieruchomosci_niezab"
+        },
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 270000,
+          "outcome": "unsold",
+          "area_m2": 3617,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/865408/przetarg_dz_nr_351_obreb_1_miasta_lwowek_slaski"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 3,
+          "starting_price_pln": 240000,
+          "outcome": "archived",
+          "area_m2": 3617,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876254/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876254/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni"
+        },
+        {
+          "date": "2026-07-03",
+          "round": 4,
+          "starting_price_pln": 225000,
+          "outcome": "archived",
+          "area_m2": 3617,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884419/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884419/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "35/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2035%2F1%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|36",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "36",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2036%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4238,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-26",
+          "round": 1,
+          "starting_price_pln": 385000,
+          "outcome": "unsold",
+          "area_m2": 4238,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/857526/i_przetarg_ustny_nieograniczony_na_sprzedaz_nieruchomosci_niezab"
+        },
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 346000,
+          "outcome": "unsold",
+          "area_m2": 4238,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/865409/przetarg_dz_nr_36_obreb_1_miasta_lwowek_slaski"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 3,
+          "starting_price_pln": 310000,
+          "outcome": "archived",
+          "area_m2": 4238,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876257/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876257/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni"
+        },
+        {
+          "date": "2026-07-03",
+          "round": 4,
+          "starting_price_pln": 290000,
+          "outcome": "archived",
+          "area_m2": 4238,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884417/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884417/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "36",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2036%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|718/2, 718/5",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "718/2, 718/5",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F2%2C%20718%2F5%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1609,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "area_m2": 1609,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/865144/przetarg_dzialka_nr_7182_obreb_2"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 3,
+          "starting_price_pln": 187000,
+          "outcome": "archived",
+          "area_m2": 1609,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876250/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876250/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni"
+        },
+        {
+          "date": "2026-07-03",
+          "round": 4,
+          "starting_price_pln": 175000,
+          "outcome": "archived",
+          "area_m2": 1609,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884414/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884414/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F2%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "718/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F5%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|718/1, 718/5",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "718/1, 718/5",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F1%2C%20718%2F5%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1323,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-16",
+          "round": 1,
+          "starting_price_pln": 174000,
+          "outcome": "unsold",
+          "area_m2": 1323,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/852817/informacja_o_przetargach_sprzedazy_dzialek_nr__7181_7182_7183_71"
+        },
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 174000,
+          "outcome": "unsold",
+          "area_m2": 1323,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/865142/przetarg_dz_nr_7181_obreb_2"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 3,
+          "starting_price_pln": 156000,
+          "outcome": "archived",
+          "area_m2": 1323,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876258/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876258/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni"
+        },
+        {
+          "date": "2026-07-03",
+          "round": 4,
+          "starting_price_pln": 145000,
+          "outcome": "archived",
+          "area_m2": 1323,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884411/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/884411/ogloszenie_o_iv_przetargu_ustnym_nieograniczonym_na_sprzedaz_nie"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F1%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "718/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F5%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|718/3",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "718/3",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F3%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 867,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 107000,
+          "outcome": "unsold",
+          "area_m2": 867,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/865147/przterag_dzialka_nr_7183_obreb_2"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 3,
+          "starting_price_pln": 96000,
+          "outcome": "archived",
+          "area_m2": 867,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876253/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/876253/ogloszenie_o_iii_przetargu_ustnym_nieograniczonym_na_sprzedaz_ni",
+          "final_price_pln": 97000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F3%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|507",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "507",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20507%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 380,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-10",
+          "round": 1,
+          "starting_price_pln": 43000,
+          "outcome": "archived",
+          "area_m2": 380,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/869072/ogloszenie_o_przetargu_dz_507_obreb_1_m_lwowek_slaski",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/869072/ogloszenie_o_przetargu_dz_507_obreb_1_m_lwowek_slaski",
+          "final_price_pln": 43500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "507",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20507%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|718/6",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "718/6",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F6%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1133,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 135000,
+          "outcome": "sold",
+          "final_price_pln": 136350,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/873410/informacja_o_nabywcy_dzialka_nr_7186_obreb_2anonymised",
+          "area_m2": 1133
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F6%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|718/7",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "718/7",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F7%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1328,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 2,
+          "starting_price_pln": 163000,
+          "outcome": "sold",
+          "final_price_pln": 164630,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/873408/informacja_o_nabywcy_dzialka_nr_7187_obreb_2",
+          "area_m2": 1328
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F7%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|718/4",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "718/4",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F4%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-16",
+          "round": 1,
+          "starting_price_pln": 128000,
+          "outcome": "sold",
+          "final_price_pln": 129300,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/864193/informacja_o_nabywcy_dz_nr_7184_obreb_2_miasta_lwowek_sl"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "718/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20718%2F4%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|dłużec|495/2",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "495/2",
+      "obreb": "Dłużec",
+      "street": null,
+      "building": null,
+      "address_raw": "Dłużec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%2F2%20D%C5%82u%C5%BCec%20D%C5%82u%C5%BCec%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2900,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-16",
+          "round": 2,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 2900,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/852818/ii_przetarg_ustny_nieograniczony_na_sprzedaz_nieruchomosci_nieza"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "495/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%2F2%20D%C5%82u%C5%BCec%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nagórze|52",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "52",
+      "obreb": "Nagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "Nagórze",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2052%20Nag%C3%B3rze%20Nag%C3%B3rze%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5500,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-12",
+          "round": 1,
+          "starting_price_pln": 106000,
+          "outcome": "archived",
+          "area_m2": 5500,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/848585/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_dzialka_e",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/848585/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_dzialka_e"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "52",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2052%20Nag%C3%B3rze%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|dłużec|495, 495/2",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "495, 495/2",
+      "obreb": "Dłużec",
+      "street": null,
+      "building": null,
+      "address_raw": "Dłużec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%2C%20495%2F2%20D%C5%82u%C5%BCec%20D%C5%82u%C5%BCec%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2900,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-14",
+          "round": 1,
+          "starting_price_pln": 145000,
+          "outcome": "archived",
+          "area_m2": 2900,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/840565/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_na_sprzed",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/840565/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_na_sprzed"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "495",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%20D%C5%82u%C5%BCec%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "495/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20495%2F2%20D%C5%82u%C5%BCec%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|2|438",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "438",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20438%202%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 145,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-17",
+          "round": 1,
+          "starting_price_pln": 1500,
+          "outcome": "unsold",
+          "area_m2": 145,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/838384/i_przetarg_ustny_ograniczony_do_wlascicieli_nieruchomosci_sasied"
+        },
+        {
+          "date": "2025-10-27",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/846729/informacja_o_wyniku_przetargu__na_sprzedaz_niezabudowanej_dzialk"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "438",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20438%202%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|rakowice|328/1",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "328/1",
+      "obreb": "Rakowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Rakowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20328%2F1%20Rakowice%20Rakowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4324,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-17",
+          "round": 1,
+          "starting_price_pln": 15000,
+          "outcome": "unsold",
+          "area_m2": 4324,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/838782/i_przetarg_ustny_ograniczony__do_wlascicieli_nieruchomosci_sasie"
+        },
+        {
+          "date": "2025-10-27",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/846727/informacja_o_wyniku_przetargu_na_sprzedaz_niezabudowanej_dzialki"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "328/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20328%2F1%20Rakowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|rakowice",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": null,
+      "obreb": "Rakowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Rakowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Rakowice%20Rakowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-14",
+          "round": 8,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827669/ogloszenie_o_przetargu_viii_przetarg_ustny_nieograniczony_rakowi",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827669/ogloszenie_o_przetargu_viii_przetarg_ustny_nieograniczony_rakowi"
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

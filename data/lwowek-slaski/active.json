@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "city": "lwowek-slaski",
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Krótkiej 1",
+      "address": {
+        "street": "Krótkiej",
+        "street_norm": "krotkiej",
+        "building": "1",
+        "apt": null,
+        "key": "krotkiej|1|",
+        "warning": null
+      },
+      "area_m2": 45.9,
+      "starting_price_pln": 140000,
+      "auction_date": "2025-12-12",
+      "round": 2,
+      "published_date": "2025-11-03",
+      "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/848589/ogloszenie_o_przetargu_ii_przetarg_ustny_nieograniczonylokal_uzy",
+      "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/848589/ogloszenie_o_przetargu_ii_przetarg_ustny_nieograniczonylokal_uzy"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wąskiej 15/5",
+      "address": {
+        "street": "Wąskiej",
+        "street_norm": "waskiej",
+        "building": "15",
+        "apt": "5",
+        "key": "waskiej|15|5",
+        "warning": null
+      },
+      "area_m2": 52.3,
+      "starting_price_pln": 56000,
+      "auction_date": "2025-08-14",
+      "round": 5,
+      "published_date": "2025-06-24",
+      "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827667/ogloszenie_o_przetargu_v_przetarg_ustny_nieograniczony_ul_waska_",
+      "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827667/ogloszenie_o_przetargu_v_przetarg_ustny_nieograniczony_ul_waska_"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wąskiej 15/2",
+      "address": {
+        "street": "Wąskiej",
+        "street_norm": "waskiej",
+        "building": "15",
+        "apt": "2",
+        "key": "waskiej|15|2",
+        "warning": null
+      },
+      "area_m2": 20.8,
+      "starting_price_pln": 24000,
+      "auction_date": "2025-08-14",
+      "round": 5,
+      "published_date": "2025-06-24",
+      "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827666/ogloszenie_o_przetargu_v_przetarg_ustny_nieograniczony_ul_waska_",
+      "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827666/ogloszenie_o_przetargu_v_przetarg_ustny_nieograniczony_ul_waska_"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "J. Jaśkiewicza 25/7",
+      "address": {
+        "street": "J. Jaśkiewicza",
+        "street_norm": "j jaskiewicza",
+        "building": "25",
+        "apt": "7",
+        "key": "j jaskiewicza|25|7",
+        "warning": null
+      },
+      "area_m2": 11.1,
+      "starting_price_pln": 15000,
+      "auction_date": "2025-08-14",
+      "round": 1,
+      "published_date": "2025-06-24",
+      "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827663/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_uljaskiew",
+      "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827663/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_uljaskiew"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Zbylutów 43",
+      "address": {
+        "street": "Zbylutów",
+        "street_norm": "zbylutow",
+        "building": "43",
+        "apt": null,
+        "key": "zbylutow|43|",
+        "warning": null
+      },
+      "area_m2": 41.1,
+      "starting_price_pln": 29000,
+      "auction_date": "2025-08-14",
+      "round": 1,
+      "published_date": "2025-06-24",
+      "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827661/ogloszenie_o_przetargu_i_przetarg__ustny__nieograniczony_zbyluto",
+      "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827661/ogloszenie_o_przetargu_i_przetarg__ustny__nieograniczony_zbyluto"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Murarskiej 15",
+      "address": {
+        "street": "Murarskiej",
+        "street_norm": "murarskiej",
+        "building": "15",
+        "apt": null,
+        "key": "murarskiej|15|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 50000,
+      "auction_date": "2025-04-25",
+      "round": 5,
+      "published_date": "2025-05-06",
+      "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/819325/ogloszenie_o_wyniku_przetargu_v_przetarg_ustny_nieograniczony_na",
+      "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/819325/ogloszenie_o_wyniku_przetargu_v_przetarg_ustny_nieograniczony_na"
+    }
+  ],
+  "wykaz": []
+}

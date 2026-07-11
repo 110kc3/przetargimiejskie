@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "city": "lwowek-slaski",
+  "properties": [
+    {
+      "key": "krotkiej|1|",
+      "street": "Krótkiej",
+      "street_norm": "krotkiej",
+      "building": "1",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-09-12",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 45.9
+        },
+        {
+          "date": "2025-12-12",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 45.9,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/848589/ogloszenie_o_przetargu_ii_przetarg_ustny_nieograniczonylokal_uzy",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.9
+    },
+    {
+      "key": "orzeszkowej|32-36|1",
+      "street": "Orzeszkowa",
+      "street_norm": "orzeszkowej",
+      "building": "32-36",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gaszow|30|3",
+      "street": "Gaszów",
+      "street_norm": "gaszow",
+      "building": "30",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 27.8
+        },
+        {
+          "date": "2025-09-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 27.8
+        }
+      ],
+      "area_m2": 27.8
+    },
+    {
+      "key": "e orzeszkowej|32-36|1",
+      "street": "E. Orzeszkowej",
+      "street_norm": "e orzeszkowej",
+      "building": "32-36",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 20.6
+        }
+      ],
+      "area_m2": 20.6
+    },
+    {
+      "key": "waskiej|15|5",
+      "street": "Wąska",
+      "street_norm": "waskiej",
+      "building": "15",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-14",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 56000,
+          "outcome": "archived",
+          "area_m2": 52.3,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827667/ogloszenie_o_przetargu_v_przetarg_ustny_nieograniczony_ul_waska_",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.3
+    },
+    {
+      "key": "waskiej|15|2",
+      "street": "Wąska",
+      "street_norm": "waskiej",
+      "building": "15",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-14",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 24000,
+          "outcome": "archived",
+          "area_m2": 20.8,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827666/ogloszenie_o_przetargu_v_przetarg_ustny_nieograniczony_ul_waska_",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 20.8
+    },
+    {
+      "key": "j jaskiewicza|25|7",
+      "street": "J. Jaśkiewicza",
+      "street_norm": "j jaskiewicza",
+      "building": "25",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 15000,
+          "outcome": "archived",
+          "area_m2": 11.1,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827663/ogloszenie_o_przetargu_i_przetarg_ustny_nieograniczony_uljaskiew",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 11.1
+    },
+    {
+      "key": "zbylutow|43|",
+      "street": "Zbylutów",
+      "street_norm": "zbylutow",
+      "building": "43",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-08-14",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 29000,
+          "outcome": "archived",
+          "area_m2": 41.1,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/827661/ogloszenie_o_przetargu_i_przetarg__ustny__nieograniczony_zbyluto",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.1
+    },
+    {
+      "key": "murarskiej|15|",
+      "street": "Murarskiej",
+      "street_norm": "murarskiej",
+      "building": "15",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-04-25",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": 50000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/819325/ogloszenie_o_wyniku_przetargu_v_przetarg_ustny_nieograniczony_na",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}
