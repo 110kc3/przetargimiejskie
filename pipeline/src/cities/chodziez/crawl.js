@@ -156,7 +156,10 @@ export async function crawlResultDocs() {
         console.error(`  chodziez: result fetch failed (${link.url}): ${err.message}`);
         continue;
       }
-      resultRefs.push({ text: html, date: null, url: link.url });
+      // refresh.js reads `ref.pdf_url` (source URL → parseResultDoc's sourceUrl)
+      // and `ref.auction_date` (fallback date); the parser derives the real date
+      // from the doc text. (Was {date,url} → both silently undefined downstream.)
+      resultRefs.push({ text: html, auction_date: null, pdf_url: link.url });
     }
   }
   console.error(`  chodziez crawlResultDocs: ${resultRefs.length} result doc(s)`);

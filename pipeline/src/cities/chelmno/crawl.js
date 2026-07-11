@@ -136,7 +136,10 @@ async function crawlAll() {
     if (isLease(text)) continue; // dzierżawa / najem — not a sale
 
     if (hasResolution(text)) {
-      resultRefs.push({ text, source_url: ref.url, auction_date: auctionDateFromText(text) });
+      // refresh.js reads `ref.pdf_url` as the source URL (passed to parseResultDoc
+      // as sourceUrl). Was `source_url`, which refresh never reads → result records
+      // got source_url:undefined. `auction_date` is read correctly.
+      resultRefs.push({ text, pdf_url: ref.url, auction_date: auctionDateFromText(text) });
       continue;
     }
 
