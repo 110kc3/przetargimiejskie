@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-11T19:14:42.747Z",
+  "generated_at": "2026-07-11T22:30:35.460Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 104
+      "land_plots": 103
     },
     {
       "id": "trzebinia",
@@ -1165,12 +1165,51 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski w Ząbkowicach Śląskich",
       "host": "bip.zabkowiceslaskie.pl",
-      "unique_properties": 6,
+      "unique_properties": 8,
       "active_listings": 2,
       "active_auctions": 2,
-      "archived_auctions": 10,
+      "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 50
+      "land_plots": 34
+    },
+    {
+      "id": "jarocin",
+      "label": "Jarocin",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miejski w Jarocinie (Burmistrz Jarocina)",
+      "host": "bip2.wokiss.pl",
+      "unique_properties": 1,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 2,
+      "wykaz_entries": 0,
+      "land_plots": 24
+    },
+    {
+      "id": "glubczyce",
+      "label": "Głubczyce",
+      "voivodeship": "opolskie",
+      "authority": "Urząd Miejski w Głubczycach",
+      "host": "bip.glubczyce.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "gostyn",
+      "label": "Gostyń",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miejski w Gostyniu",
+      "host": "biuletyn.gostyn.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }
