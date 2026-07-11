@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "city": "ketrzyn",
+  "plots": [
+    {
+      "key": "dz|kętrzyn|12/47",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/47",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F47%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 941,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 1,
+          "starting_price_pln": 123700,
+          "outcome": "active",
+          "area_m2": 941,
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-nr-1247-polozonej-przy-ul-chabrowej-w-ketrzynie",
+          "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-nr-1247-polozonej-przy-ul-chabrowej-w-ketrzynie/ogloszenie-przetargu-dz.-12.47,-ul.-chabrowa.pdf"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/47",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F47%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|142, 143/2",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "142, 143/2",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20142%2C%20143%2F2%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5336,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "starting_price_pln": 640000,
+          "outcome": "unsold",
+          "area_m2": 5336
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "142",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20142%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "143/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F2%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|12/62",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/62",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F62%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3326,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-20",
+          "round": 1,
+          "starting_price_pln": 281200,
+          "outcome": "unsold",
+          "area_m2": 3326
+        },
+        {
+          "date": "2026-03-19",
+          "round": 2,
+          "starting_price_pln": 225000,
+          "outcome": "unsold",
+          "area_m2": 3326
+        },
+        {
+          "date": "2026-06-12",
+          "round": 3,
+          "starting_price_pln": 225000,
+          "outcome": "unsold",
+          "area_m2": 3326
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/62",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F62%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|12/63",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/63",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3185,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-21",
+          "round": 1,
+          "starting_price_pln": 269400,
+          "outcome": "unsold",
+          "area_m2": 3185
+        },
+        {
+          "date": "2026-03-20",
+          "round": 2,
+          "starting_price_pln": 215500,
+          "outcome": "unsold",
+          "area_m2": 3185
+        },
+        {
+          "date": "2026-06-12",
+          "round": 3,
+          "starting_price_pln": 215500,
+          "outcome": "unsold",
+          "area_m2": 3185
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/63",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|12/61",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/61",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F61%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3032,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-19",
+          "round": 2,
+          "starting_price_pln": 205200,
+          "outcome": "unsold",
+          "area_m2": 3032
+        },
+        {
+          "date": "2026-06-11",
+          "round": 3,
+          "starting_price_pln": 205200,
+          "outcome": "unsold",
+          "area_m2": 3032
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/61",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F61%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|12/60",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/60",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F60%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2420,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-17",
+          "round": 1,
+          "starting_price_pln": 223900,
+          "outcome": "unsold",
+          "area_m2": 2420
+        },
+        {
+          "date": "2026-03-17",
+          "round": 2,
+          "starting_price_pln": 179100,
+          "outcome": "unsold",
+          "area_m2": 2420
+        },
+        {
+          "date": "2026-06-11",
+          "round": 3,
+          "starting_price_pln": 179100,
+          "outcome": "unsold",
+          "area_m2": 2420
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/60",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F60%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nowa różanka|248/21",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "248/21",
+      "obreb": "Nowa Różanka",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F21%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1542,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 1,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2026-05-28",
+          "round": 2,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "248/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F21%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nowa różanka|248/20",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "248/20",
+      "obreb": "Nowa Różanka",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F20%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1542,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-05",
+          "round": 1,
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2026-03-17",
+          "round": 2,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2026-05-26",
+          "round": 3,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "248/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F20%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|12/58",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/58",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F58%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 735,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-25",
+          "round": 1,
+          "starting_price_pln": 74500,
+          "outcome": "sold",
+          "final_price_pln": 75300,
+          "area_m2": 735
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/58",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F58%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}

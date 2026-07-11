@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "city": "ketrzyn",
+  "properties": [
+    {
+      "key": "gen wladyslawa sikorskiego|72A|1",
+      "street": "Gen. Władysława Sikorskiego",
+      "street_norm": "gen wladyslawa sikorskiego",
+      "building": "72A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50400,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20251013/informacja-o-wyniku-przetargu.pdf",
+          "notes": [],
+          "area_m2": 33.2
+        },
+        {
+          "date": "2026-05-28",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50400,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 51000,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-lokalu-mieszkalnego-nr-1-polozonego-w-budynku-przy-ul-gen-wladyslawa-sikorskiego-72a-w-ketrzynie/informacja-o-wyniku-przetargu-sikorskiego-72a-lok.-1.pdf",
+          "notes": [
+            "nabywca: Pan Ireneusz Bladowski"
+          ],
+          "area_m2": 33.2
+        }
+      ],
+      "area_m2": 33.2
+    },
+    {
+      "key": "boleslawa chrobrego|6|38",
+      "street": "Bolesława Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "6",
+      "apt": "38",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-12-05",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20251023-3/informacja-o-wyniku-przetargu-chrobrego-6-lok.-38.pdf",
+          "notes": [],
+          "area_m2": 24.6
+        },
+        {
+          "date": "2026-03-12",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/informacja-o-wyniku-przetargu-lokal-mieszkalny-nr-38-ul-boleslawa-chrobrego-6-w-ketrzynie",
+          "notes": [],
+          "area_m2": 24.6
+        },
+        {
+          "date": "2026-05-26",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie/informacja-o-wyniku-przetargu-chrobrego-6-lok.-38.pdf",
+          "notes": [],
+          "area_m2": 24.6
+        }
+      ],
+      "area_m2": 24.6
+    },
+    {
+      "key": "fryderyka chopina|7|3",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "7",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 16000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20251103/informacja-o-wyniku-przetargu.pdf",
+          "notes": [],
+          "area_m2": 12.6
+        }
+      ],
+      "area_m2": 12.6
+    },
+    {
+      "key": "kasztanowej|4|6",
+      "street": "Kasztanowa",
+      "street_norm": "kasztanowej",
+      "building": "4",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 156600,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20251006-6/informacja-o-wyniku-przetargu---kasztanowa-4-lok.-6.pdf",
+          "notes": [
+            "nabywca: Pan Tomasz Grabowski"
+          ],
+          "area_m2": 44.3
+        }
+      ],
+      "area_m2": 44.3
+    }
+  ]
+}
