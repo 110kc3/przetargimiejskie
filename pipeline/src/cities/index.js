@@ -109,6 +109,16 @@ import sulecin from './sulecin/index.js';
 // prices published — see spikes/dolnoslaskie/powiat-wolowski/wolow.md §4).
 import boleslawiec from './boleslawiec/index.js';
 import wolow from './wolow/index.js';
+// Next wave — Low-effort powiat seats (2026-07-11; each live-groundtruthed with a
+// passing parse test; all source:'html', none Śląskie). Live verification
+// corrected each spike: lwowek-slaski = IDcom server-HTML + born-digital PDFs
+// (land-dominated, not the inline-HTML/flat stream the spike assumed);
+// sepolno-krajenskie = "BIP w JST" HTML + born-digital PDFs (incomplete TLS chain
+// → insecureTLS + browser UA); zabkowice-slaskie = Logonet HTML announcements but
+// SCANNED result PDFs (OCR via core/ocr-pdf.js, not pdfText — backfills over runs).
+import lwowekSlaski from './lwowek-slaski/index.js';
+import sepolnoKrajenskie from './sepolno-krajenskie/index.js';
+import zabkowiceSlaskie from './zabkowice-slaskie/index.js';
 
 export const cities = [
   gliwice,
@@ -198,6 +208,9 @@ export const cities = [
   sulecin,
   boleslawiec,
   wolow,
+  lwowekSlaski,
+  sepolnoKrajenskie,
+  zabkowiceSlaskie,
 ];
 
 /** @param {string} id @returns {object|null} */

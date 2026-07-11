@@ -1,5 +1,5 @@
 # Spike — Lwówek Śląski (Dolnośląskie · powiat lwówecki)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (18/18 parse test, live-groundtruthed). ⚠️ DESK assumptions corrected live: the source is **IDcom.pl `bip-v1` server-HTML + born-digital PDF attachments** (not the inline-HTML this spike assumed), and the board is **land-dominated** (flats a minority). Analog is a hybrid — **tczew** IDcom crawl (HTML board → detail → `pdfText`) + **zlotoryja** blob parse — not a plain zlotoryja clone.
 
 ## TL;DR
 Gmina i Miasto Lwówek Śląski regularly sells municipal flats via *I/II/III przetarg ustny nieograniczony na sprzedaż*. Announcements and result notices (with achieved price) are published on the municipal BIP at `bip.lwowekslaski.pl` as standard HTML pages under a paginated `/wiadomosci/3/lista/przetargi` board. Format is plain HTML — no SPA, no auth, no scanned PDFs observed. Volume is low-to-medium (several flats per year). Closest analog to other small Dolnośląskie gmina BIPs already built (e.g. Złotoryja pattern). No blockers.
