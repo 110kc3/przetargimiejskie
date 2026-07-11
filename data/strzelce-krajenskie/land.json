@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "city": "strzelce-krajenskie",
+  "plots": [
+    {
+      "key": "dz|306/17",
+      "kind": "grunt",
+      "city": "strzelce-krajenskie",
+      "dzialka_nr": "306/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Długie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20306%2F17%20D%C5%82ugie%20Strzelce%20Kraje%C5%84skie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 415,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 4,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "area_m2": 415,
+          "detail_url": "https://bip.strzelce.pl/przetargi/29/136/OGLOSZENIE_GPM_25_2F2026/",
+          "source_url": "https://bip.strzelce.pl/system/pobierz.php?plik=GPM_25_2026.pdf&id=74b446f53fd27791e51e87040a2d8518"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "306/17"
+        }
+      ]
+    }
+  ]
+}
