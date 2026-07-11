@@ -11,8 +11,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Trzesieckiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2088%2F9%20ul.%20Trzesieckiej%2028%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0028.88/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0028.88%2F9",
       "area_m2": 7064,
       "zoning": null,
       "status": null,
@@ -29,7 +29,9 @@
       ],
       "parcels": [
         {
-          "nr": "88/9"
+          "nr": "88/9",
+          "dzialka_id": "321501_1.0028.88/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0028.88%2F9"
         }
       ]
     },
@@ -42,8 +44,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F13%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/13",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13",
       "area_m2": 1066,
       "zoning": null,
       "status": null,
@@ -65,7 +67,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/13"
+          "nr": "454/13",
+          "dzialka_id": "321501_1.0018.454/13",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13"
         }
       ]
     },
@@ -78,8 +82,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F14%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14",
       "area_m2": 1069,
       "zoning": null,
       "status": null,
@@ -101,7 +105,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/14"
+          "nr": "454/14",
+          "dzialka_id": "321501_1.0018.454/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14"
         }
       ]
     },
@@ -114,8 +120,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kołobrzeskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20466%2F2%2C%20465%2F3%2C%20465%2F4%20ul.%20Ko%C5%82obrzeskiej%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0007.466/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.466%2F2",
       "area_m2": 10698,
       "zoning": null,
       "status": null,
@@ -133,13 +139,19 @@
       ],
       "parcels": [
         {
-          "nr": "466/2"
+          "nr": "466/2",
+          "dzialka_id": "321501_1.0007.466/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.466%2F2"
         },
         {
-          "nr": "465/3"
+          "nr": "465/3",
+          "dzialka_id": "321501_1.0007.465/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.465%2F3"
         },
         {
-          "nr": "465/4"
+          "nr": "465/4",
+          "dzialka_id": "321501_1.0007.465/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.465%2F4"
         }
       ]
     },
@@ -152,8 +164,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F11%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0009.1448/11",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F11",
       "area_m2": 858,
       "zoning": null,
       "status": null,
@@ -176,7 +188,9 @@
       ],
       "parcels": [
         {
-          "nr": "1448/11"
+          "nr": "1448/11",
+          "dzialka_id": "321501_1.0009.1448/11",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F11"
         }
       ]
     },
@@ -189,8 +203,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F15%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/15",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F15",
       "area_m2": 1067,
       "zoning": null,
       "status": null,
@@ -206,7 +220,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/15"
+          "nr": "454/15",
+          "dzialka_id": "321501_1.0018.454/15",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F15"
         }
       ]
     },
@@ -219,8 +235,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Fabrycznej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%2F18%20ul.%20Fabrycznej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0021.31/18",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.31%2F18",
       "area_m2": 2388,
       "zoning": null,
       "status": null,
@@ -236,7 +252,9 @@
       ],
       "parcels": [
         {
-          "nr": "31/18"
+          "nr": "31/18",
+          "dzialka_id": "321501_1.0021.31/18",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.31%2F18"
         }
       ]
     },
@@ -322,8 +340,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Pilskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2038%2F9%20ul.%20Pilskiej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0021.38/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.38%2F9",
       "area_m2": 5802,
       "zoning": null,
       "status": null,
@@ -338,7 +356,9 @@
       ],
       "parcels": [
         {
-          "nr": "38/9"
+          "nr": "38/9",
+          "dzialka_id": "321501_1.0021.38/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.38%2F9"
         }
       ]
     },
@@ -351,8 +371,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F6%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0009.1448/6",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F6",
       "area_m2": 716,
       "zoning": null,
       "status": null,
@@ -368,7 +388,9 @@
       ],
       "parcels": [
         {
-          "nr": "1448/6"
+          "nr": "1448/6",
+          "dzialka_id": "321501_1.0009.1448/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F6"
         }
       ]
     },
@@ -381,8 +403,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kościuszki",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20279%20ul.%20Ko%C5%9Bciuszki%2028%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0028.279",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0028.279",
       "area_m2": 539,
       "zoning": null,
       "status": null,
@@ -399,7 +421,9 @@
       ],
       "parcels": [
         {
-          "nr": "279"
+          "nr": "279",
+          "dzialka_id": "321501_1.0028.279",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0028.279"
         }
       ]
     },
@@ -412,8 +436,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F21%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.341/21",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F21",
       "area_m2": 581,
       "zoning": null,
       "status": null,
@@ -450,7 +474,9 @@
       ],
       "parcels": [
         {
-          "nr": "341/21"
+          "nr": "341/21",
+          "dzialka_id": "321501_1.0015.341/21",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F21"
         }
       ]
     },
@@ -463,8 +489,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20100%2F14%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0009.100/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.100%2F14",
       "area_m2": 1246,
       "zoning": null,
       "status": null,
@@ -487,7 +513,9 @@
       ],
       "parcels": [
         {
-          "nr": "100/14"
+          "nr": "100/14",
+          "dzialka_id": "321501_1.0009.100/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.100%2F14"
         }
       ]
     },
@@ -549,8 +577,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Bolesława Prusa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20330%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.330",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.330",
       "area_m2": 665,
       "zoning": null,
       "status": null,
@@ -565,7 +593,9 @@
       ],
       "parcels": [
         {
-          "nr": "330"
+          "nr": "330",
+          "dzialka_id": "321501_1.0015.330",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.330"
         }
       ]
     },
@@ -578,8 +608,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F2%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F2",
       "area_m2": 1307,
       "zoning": null,
       "status": null,
@@ -594,7 +624,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/2"
+          "nr": "454/2",
+          "dzialka_id": "321501_1.0018.454/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F2"
         }
       ]
     },
@@ -607,8 +639,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F6%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/6",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F6",
       "area_m2": 1347,
       "zoning": null,
       "status": null,
@@ -624,7 +656,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/6"
+          "nr": "454/6",
+          "dzialka_id": "321501_1.0018.454/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F6"
         }
       ]
     },
@@ -637,8 +671,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F8%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F8",
       "area_m2": 1007,
       "zoning": null,
       "status": null,
@@ -653,7 +687,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/8"
+          "nr": "454/8",
+          "dzialka_id": "321501_1.0018.454/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F8"
         }
       ]
     },
@@ -696,8 +732,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Derdowskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2072%2F19%20ul.%20Derdowskiego%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0007.72/19",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.72%2F19",
       "area_m2": 2,
       "zoning": null,
       "status": null,
@@ -721,7 +757,9 @@
       ],
       "parcels": [
         {
-          "nr": "72/19"
+          "nr": "72/19",
+          "dzialka_id": "321501_1.0007.72/19",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.72%2F19"
         }
       ]
     },
@@ -734,8 +772,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F22%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.341/22",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F22",
       "area_m2": 654,
       "zoning": null,
       "status": null,
@@ -764,7 +802,9 @@
       ],
       "parcels": [
         {
-          "nr": "341/22"
+          "nr": "341/22",
+          "dzialka_id": "321501_1.0015.341/22",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F22"
         }
       ]
     },
@@ -777,8 +817,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F25%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.341/25",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F25",
       "area_m2": 752,
       "zoning": null,
       "status": null,
@@ -808,7 +848,9 @@
       ],
       "parcels": [
         {
-          "nr": "341/25"
+          "nr": "341/25",
+          "dzialka_id": "321501_1.0015.341/25",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F25"
         }
       ]
     },
@@ -821,8 +863,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Bolesława Prusa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20325%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.325",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.325",
       "area_m2": 644,
       "zoning": null,
       "status": null,
@@ -838,7 +880,9 @@
       ],
       "parcels": [
         {
-          "nr": "325"
+          "nr": "325",
+          "dzialka_id": "321501_1.0015.325",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.325"
         }
       ]
     },
@@ -851,8 +895,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Bolesława Prusa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20326%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.326",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.326",
       "area_m2": 648,
       "zoning": null,
       "status": null,
@@ -868,7 +912,9 @@
       ],
       "parcels": [
         {
-          "nr": "326"
+          "nr": "326",
+          "dzialka_id": "321501_1.0015.326",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.326"
         }
       ]
     },
@@ -881,8 +927,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F24%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.341/24",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F24",
       "area_m2": 681,
       "zoning": null,
       "status": null,
@@ -905,7 +951,9 @@
       ],
       "parcels": [
         {
-          "nr": "341/24"
+          "nr": "341/24",
+          "dzialka_id": "321501_1.0015.341/24",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F24"
         }
       ]
     },
@@ -918,8 +966,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.347",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.347",
       "area_m2": 1055,
       "zoning": null,
       "status": null,
@@ -942,7 +990,9 @@
       ],
       "parcels": [
         {
-          "nr": "347"
+          "nr": "347",
+          "dzialka_id": "321501_1.0015.347",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.347"
         }
       ]
     },
@@ -955,8 +1005,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F38%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.341/38",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F38",
       "area_m2": 728,
       "zoning": null,
       "status": null,
@@ -972,7 +1022,9 @@
       ],
       "parcels": [
         {
-          "nr": "341/38"
+          "nr": "341/38",
+          "dzialka_id": "321501_1.0015.341/38",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F38"
         }
       ]
     },
@@ -1009,8 +1061,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F20%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0015.341/20",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F20",
       "area_m2": 863,
       "zoning": null,
       "status": null,
@@ -1026,7 +1078,9 @@
       ],
       "parcels": [
         {
-          "nr": "341/20"
+          "nr": "341/20",
+          "dzialka_id": "321501_1.0015.341/20",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0015.341%2F20"
         }
       ]
     },
@@ -1089,8 +1143,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Harcerskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%2F22%20ul.%20Harcerskiej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0021.31/22",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.31%2F22",
       "area_m2": 890,
       "zoning": null,
       "status": null,
@@ -1106,7 +1160,9 @@
       ],
       "parcels": [
         {
-          "nr": "31/22"
+          "nr": "31/22",
+          "dzialka_id": "321501_1.0021.31/22",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.31%2F22"
         }
       ]
     },
@@ -1119,8 +1175,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Pilskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20103%2F1%20ul.%20Pilskiej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0013.103/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.103%2F1",
       "area_m2": 1446,
       "zoning": null,
       "status": null,
@@ -1144,7 +1200,9 @@
       ],
       "parcels": [
         {
-          "nr": "103/1"
+          "nr": "103/1",
+          "dzialka_id": "321501_1.0013.103/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.103%2F1"
         }
       ]
     },
@@ -1157,8 +1215,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F12%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.454/12",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F12",
       "area_m2": 866,
       "zoning": null,
       "status": null,
@@ -1189,7 +1247,9 @@
       ],
       "parcels": [
         {
-          "nr": "454/12"
+          "nr": "454/12",
+          "dzialka_id": "321501_1.0018.454/12",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F12"
         }
       ]
     },
@@ -1202,8 +1262,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F7%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0009.1448/7",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F7",
       "area_m2": 757,
       "zoning": null,
       "status": null,
@@ -1236,7 +1296,9 @@
       ],
       "parcels": [
         {
-          "nr": "1448/7"
+          "nr": "1448/7",
+          "dzialka_id": "321501_1.0009.1448/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F7"
         }
       ]
     },
@@ -1249,8 +1311,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Lipowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20103%2F1%2C%205%2F30%2C%205%2F75%20ul.%20Lipowej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0013.103/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.103%2F1",
       "area_m2": 13619,
       "zoning": null,
       "status": null,
@@ -1276,13 +1338,17 @@
       ],
       "parcels": [
         {
-          "nr": "103/1"
+          "nr": "103/1",
+          "dzialka_id": "321501_1.0013.103/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.103%2F1"
         },
         {
-          "nr": "5/30"
+          "nr": "5/30",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F30%2013%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "5/75"
+          "nr": "5/75",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F75%2013%20Szczecinek%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1313,19 +1379,24 @@
       ],
       "parcels": [
         {
-          "nr": "34/37"
+          "nr": "34/37",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2034%2F37%2009%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "103"
+          "nr": "103",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20103%2009%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "104/3"
+          "nr": "104/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20104%2F3%2009%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "105"
+          "nr": "105",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20105%2009%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "106/2"
+          "nr": "106/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20106%2F2%2009%20Szczecinek%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1379,7 +1450,8 @@
       ],
       "parcels": [
         {
-          "nr": "341/17"
+          "nr": "341/17",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F17%2015%20Szczecinek%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1392,8 +1464,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Słowiańskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20685%20ul.%20S%C5%82owia%C5%84skiej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0013.685",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.685",
       "area_m2": 1827,
       "zoning": null,
       "status": null,
@@ -1444,7 +1516,9 @@
       ],
       "parcels": [
         {
-          "nr": "685"
+          "nr": "685",
+          "dzialka_id": "321501_1.0013.685",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.685"
         }
       ]
     },
@@ -1457,8 +1531,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Pilskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2083%2C%205%2F30%2C%205%2F75%20ul.%20Pilskiej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0018.83",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.83",
       "area_m2": 13619,
       "zoning": null,
       "status": null,
@@ -1475,13 +1549,17 @@
       ],
       "parcels": [
         {
-          "nr": "83"
+          "nr": "83",
+          "dzialka_id": "321501_1.0018.83",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.83"
         },
         {
-          "nr": "5/30"
+          "nr": "5/30",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F30%2018%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "5/75"
+          "nr": "5/75",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F75%2018%20Szczecinek%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1494,8 +1572,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Sikorskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F69%20ul.%20Sikorskiego%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0007.5/69",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.5%2F69",
       "area_m2": 1108,
       "zoning": null,
       "status": null,
@@ -1512,7 +1590,9 @@
       ],
       "parcels": [
         {
-          "nr": "5/69"
+          "nr": "5/69",
+          "dzialka_id": "321501_1.0007.5/69",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0007.5%2F69"
         }
       ]
     },
@@ -1543,7 +1623,8 @@
       ],
       "parcels": [
         {
-          "nr": "338"
+          "nr": "338",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20338%2019%20Szczecinek%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1556,8 +1637,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Ignacego Łukasiewicza oznaczonej jako działka nr 49",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%20ul.%20Ignacego%20%C5%81ukasiewicza%20oznaczonej%20jako%20dzia%C5%82ka%20nr%2049%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0021.49",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.49",
       "area_m2": 1,
       "zoning": null,
       "status": null,
@@ -1574,7 +1655,9 @@
       ],
       "parcels": [
         {
-          "nr": "49"
+          "nr": "49",
+          "dzialka_id": "321501_1.0021.49",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0021.49"
         }
       ]
     },
@@ -1587,8 +1670,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej oznaczonej jako działka nr 292",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20292%2F4%2C%205%2F30%2C%205%2F75%20ul.%20Kaszubskiej%20oznaczonej%20jako%20dzia%C5%82ka%20nr%20292%2008%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0008.292/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0008.292%2F4",
       "area_m2": 13619,
       "zoning": null,
       "status": null,
@@ -1614,13 +1697,17 @@
       ],
       "parcels": [
         {
-          "nr": "292/4"
+          "nr": "292/4",
+          "dzialka_id": "321501_1.0008.292/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0008.292%2F4"
         },
         {
-          "nr": "5/30"
+          "nr": "5/30",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F30%2008%20Szczecinek%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "5/75"
+          "nr": "5/75",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F75%2008%20Szczecinek%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1633,8 +1720,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Mariackiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20338%20ul.%20Mariackiej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0013.338",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.338",
       "area_m2": 396,
       "zoning": null,
       "status": null,
@@ -1674,7 +1761,9 @@
       ],
       "parcels": [
         {
-          "nr": "338"
+          "nr": "338",
+          "dzialka_id": "321501_1.0013.338",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0013.338"
         }
       ]
     },
@@ -1687,8 +1776,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F5%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0009.1448/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F5",
       "area_m2": 660,
       "zoning": null,
       "status": null,
@@ -1705,7 +1794,9 @@
       ],
       "parcels": [
         {
-          "nr": "1448/5"
+          "nr": "1448/5",
+          "dzialka_id": "321501_1.0009.1448/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F5"
         }
       ]
     },
@@ -1718,8 +1809,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%2012%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0012.138",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0012.138",
       "area_m2": 665,
       "zoning": null,
       "status": null,
@@ -1736,7 +1827,9 @@
       ],
       "parcels": [
         {
-          "nr": "138"
+          "nr": "138",
+          "dzialka_id": "321501_1.0012.138",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0012.138"
         }
       ]
     },
@@ -1749,8 +1842,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Mariackiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20104%20ul.%20Mariackiej%2022%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0022.104",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0022.104",
       "area_m2": 983,
       "zoning": null,
       "status": null,
@@ -1767,7 +1860,9 @@
       ],
       "parcels": [
         {
-          "nr": "104"
+          "nr": "104",
+          "dzialka_id": "321501_1.0022.104",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0022.104"
         }
       ]
     },
@@ -1780,8 +1875,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Kaszubskiej 3",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20292%2F4%20ul.%20Kaszubskiej%203%2008%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "321501_1.0008.292/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0008.292%2F4",
       "area_m2": 6405,
       "zoning": null,
       "status": null,
@@ -1805,7 +1900,9 @@
       ],
       "parcels": [
         {
-          "nr": "292/4"
+          "nr": "292/4",
+          "dzialka_id": "321501_1.0008.292/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0008.292%2F4"
         }
       ]
     }
