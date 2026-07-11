@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-11T13:03:54.173Z",
+  "generated_at": "2026-07-11T18:02:09.920Z",
   "cities": [
     {
       "id": "gliwice",
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 0,
+      "active_listings": 10,
       "active_auctions": 10,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1106,6 +1106,32 @@
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 6
+    },
+    {
+      "id": "boleslawiec",
+      "label": "Bolesławiec",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Prezydent Miasta Bolesławiec (Wydział Mienia i Gospodarki Nieruchomościami)",
+      "host": "xn--bolesawiec-e0b.pl",
+      "unique_properties": 12,
+      "active_listings": 4,
+      "active_auctions": 3,
+      "archived_auctions": 2,
+      "wykaz_entries": 13,
+      "land_plots": 5
+    },
+    {
+      "id": "wolow",
+      "label": "Wołów",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Urząd Miejski w Wołowie (Burmistrz Gminy Wołów)",
+      "host": "wolow.pl",
+      "unique_properties": 21,
+      "active_listings": 2,
+      "active_auctions": 0,
+      "archived_auctions": 5,
+      "wykaz_entries": 18,
+      "land_plots": 50
     }
   ]
 }
