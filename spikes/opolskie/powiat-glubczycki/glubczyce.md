@@ -1,5 +1,5 @@
 # Spike — Głubczyce (Opolskie · powiat głubczycki)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (14/14 parse test). Corrections: CMS is eSoteka/**FINN** (docs hung as attachments on boards /144+/145, not inline); primary format is legacy **.doc** via catdoc (spike said "text-PDF" — only half right; born-digital .pdf used for land). Analog kedzierzyn-kozle (structure) + finn-bip leaf helpers. teryt 160203_3 best-effort.
 
 ## TL;DR
 Gmina Głubczyce regularly sells municipal flats (*lokale mieszkalne*) via **ustny przetarg nieograniczony na sprzedaż** on its own BIP. Both an announcement board and a results/achieved-price board are present and URL-stable. Announcements are HTML pages with PDF attachments (text PDF, not scanned). Volume is modest but consistent — roughly 3–6 flat auctions per year. Closest analog: a small-gmina BIP adapter with PDF detail fetch. No auth/bot blocks detected.

@@ -1,5 +1,5 @@
 # Spike — Gostyń (Wielkopolskie · powiat gostyński)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (17/17 parse test). Corrections: **NO session-cookie gate** (the "Problem z wyświetleniem" page is just a wrong-board/not-found id). .docx announcements (docText) + **SCANNED** .pdf results (OCR via core/ocr-pdf.js). ⚠️ **Thin live volume** — board 280 held ~one 2022 LAND notice, no live flats (spike's "2–6 flats/yr" over-counted); the flat path is ported + unit-tested, not live-groundtruthed. teryt 300403_3 best-effort (GMI 02 vs 03 unconfirmed).
 
 ## TL;DR
 Gmina Gostyń (Burmistrz Gostynia) does sell municipal flats at *ustny przetarg nieograniczony na sprzedaż*. Announcements and result notices are published on the custom Logonet BIP at `biuletyn.gostyn.pl` under "Oferty miasta" and "Tablica ogłoszeń". Pages render as plain HTML with PDF attachments for the result/wynik notice. No auth wall, no SPA, no bot blocks observed. Volume is low (a handful of lokale per year). Achieved-price stream is via a downloadable PDF per lot.

@@ -119,11 +119,14 @@ import wolow from './wolow/index.js';
 import lwowekSlaski from './lwowek-slaski/index.js';
 import sepolnoKrajenskie from './sepolno-krajenskie/index.js';
 import zabkowiceSlaskie from './zabkowice-slaskie/index.js';
-// Low-effort wave (2026-07-11). jarocin: WOKISS bip2.wokiss.pl HTML year-index +
-// born-digital text PDFs; brzeg analog (no WOKISS adapter existed); land-dominated,
-// flats rare; TERYT ULDK-confirmed. (glubczyce/gostyn from the same wave deferred —
-// their build agents hit the API session limit mid-build; re-run after reset.)
+// Low-effort wave (2026-07-11), all source:'html'. jarocin: WOKISS HTML year-index
+// + born-digital text PDFs (brzeg analog; land-dominated). glubczyce: eSoteka/FINN
+// boards /144+/145 hanging legacy .doc (catdoc) announcements + born-digital .pdf
+// land (kedzierzyn-kozle analog). gostyn: Logonet .docx announcements + SCANNED .pdf
+// results (OCR) — thin live volume (mostly one 2022 land notice; spike over-counted).
 import jarocin from './jarocin/index.js';
+import glubczyce from './glubczyce/index.js';
+import gostyn from './gostyn/index.js';
 
 export const cities = [
   gliwice,
@@ -217,6 +220,8 @@ export const cities = [
   sepolnoKrajenskie,
   zabkowiceSlaskie,
   jarocin,
+  glubczyce,
+  gostyn,
 ];
 
 /** @param {string} id @returns {object|null} */
