@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "city": "glubczyce",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bolesława Chrobrego 2/4",
+      "address": {
+        "street": "Bolesława Chrobrego",
+        "street_norm": "boleslawa chrobrego",
+        "building": "2",
+        "apt": "4",
+        "key": "boleslawa chrobrego|2|4",
+        "warning": null
+      },
+      "area_m2": 88.87,
+      "starting_price_pln": 86838,
+      "auction_date": "2026-06-30",
+      "round": 2,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/28744/12-bchrobrego-2_4.doc?v=1780468189",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/28744/12-bchrobrego-2_4.doc?v=1780468189"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bolesława Chrobrego 2/4",
+      "address": {
+        "street": "Bolesława Chrobrego",
+        "street_norm": "boleslawa chrobrego",
+        "building": "2",
+        "apt": "4",
+        "key": "boleslawa chrobrego|2|4",
+        "warning": null
+      },
+      "area_m2": 88.87,
+      "starting_price_pln": 86838,
+      "auction_date": "2026-05-28",
+      "round": 1,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/28475/9-bchrobrego-2_4.doc?v=1776861460",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/28475/9-bchrobrego-2_4.doc?v=1776861460"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bolesława Chrobrego 10/8",
+      "address": {
+        "street": "Bolesława Chrobrego",
+        "street_norm": "boleslawa chrobrego",
+        "building": "10",
+        "apt": "8",
+        "key": "boleslawa chrobrego|10|8",
+        "warning": null
+      },
+      "area_m2": 49.7,
+      "starting_price_pln": 91620,
+      "auction_date": "2026-01-16",
+      "round": 1,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/27635/21-chrobrego-10_8.doc?v=1765460148",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/27635/21-chrobrego-10_8.doc?v=1765460148"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gdańska 24/7",
+      "address": {
+        "street": "Gdańska",
+        "street_norm": "gdanska",
+        "building": "24",
+        "apt": "7",
+        "key": "gdanska|24|7",
+        "warning": null
+      },
+      "area_m2": 42.1,
+      "starting_price_pln": 53906,
+      "auction_date": "2026-01-16",
+      "round": 1,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/27630/20-gdanska-24_7.doc?v=1765374779",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/27630/20-gdanska-24_7.doc?v=1765374779"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Nowym Targu 82",
+      "address": {
+        "street": "Nowym Targu",
+        "street_norm": "nowym targu",
+        "building": "82",
+        "apt": null,
+        "key": "nowym targu|82|",
+        "warning": null
+      },
+      "area_m2": 70.45,
+      "starting_price_pln": 27460,
+      "auction_date": "2025-09-16",
+      "round": null,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/26926/14-nowy-targ-82.doc?v=1755075370",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/26926/14-nowy-targ-82.doc?v=1755075370"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Nowym Targu 82",
+      "address": {
+        "street": "Nowym Targu",
+        "street_norm": "nowym targu",
+        "building": "82",
+        "apt": null,
+        "key": "nowym targu|82|",
+        "warning": null
+      },
+      "area_m2": 70.45,
+      "starting_price_pln": 52460,
+      "auction_date": "2025-08-12",
+      "round": null,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/26803/13-nowy-targ-82.doc?v=1752565402",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/26803/13-nowy-targ-82.doc?v=1752565402"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Nowym Targu 82",
+      "address": {
+        "street": "Nowym Targu",
+        "street_norm": "nowym targu",
+        "building": "82",
+        "apt": null,
+        "key": "nowym targu|82|",
+        "warning": null
+      },
+      "area_m2": 70.45,
+      "starting_price_pln": 53476,
+      "auction_date": "2024-10-08",
+      "round": null,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/25058/40.doc?v=1725520130",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/25058/40.doc?v=1725520130"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Nowym Targu 82",
+      "address": {
+        "street": "Nowym Targu",
+        "street_norm": "nowym targu",
+        "building": "82",
+        "apt": null,
+        "key": "nowym targu|82|",
+        "warning": null
+      },
+      "area_m2": 70.45,
+      "starting_price_pln": 105476,
+      "auction_date": "2024-08-30",
+      "round": null,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/24577/38.doc?v=1722329172",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/24577/38.doc?v=1722329172"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Nakielska 11",
+      "address": {
+        "street": "Nakielska",
+        "street_norm": "nakielska",
+        "building": "11",
+        "apt": null,
+        "key": "nakielska|11|",
+        "warning": null
+      },
+      "area_m2": 108,
+      "starting_price_pln": 200000,
+      "auction_date": "2024-08-30",
+      "round": 3,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/24536/37.doc?v=1720511156",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/24536/37.doc?v=1720511156"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Nakielska 11",
+      "address": {
+        "street": "Nakielska",
+        "street_norm": "nakielska",
+        "building": "11",
+        "apt": null,
+        "key": "nakielska|11|",
+        "warning": null
+      },
+      "area_m2": 108,
+      "starting_price_pln": 225000,
+      "auction_date": "2024-07-02",
+      "round": 2,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Kochanowskiego nr 17",
+      "address": {
+        "street": "Jana Kochanowskiego nr",
+        "street_norm": "jana kochanowskiego nr",
+        "building": "17",
+        "apt": null,
+        "key": "jana kochanowskiego nr|17|",
+        "warning": null
+      },
+      "area_m2": 24.39,
+      "starting_price_pln": 51156,
+      "auction_date": "2024-05-21",
+      "round": 3,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/24208/33-kochanowskiego-17_5.doc?v=1713781863",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/24208/33-kochanowskiego-17_5.doc?v=1713781863"
+    }
+  ],
+  "wykaz": []
+}

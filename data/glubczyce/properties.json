@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "city": "glubczyce",
+  "properties": [
+    {
+      "key": "boleslawa chrobrego|2|4",
+      "street": "Bolesława Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "2",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 86838,
+          "outcome": "archived",
+          "area_m2": 88.87,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/28475/9-bchrobrego-2_4.doc?v=1776861460",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 86838,
+          "outcome": "archived",
+          "area_m2": 88.87,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/28744/12-bchrobrego-2_4.doc?v=1780468189",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 88.87
+    },
+    {
+      "key": "braciszowie|34|",
+      "street": "Braciszowie",
+      "street_norm": "braciszowie",
+      "building": "34",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-04-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/28452/braciszow-225_1-1p-2026-04-21.doc?v=1776767320",
+          "notes": [],
+          "area_m2": 92.13
+        },
+        {
+          "date": "2026-05-26",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/28783/braciszow-225_1-2p-2026-05-27.doc?v=1781167099",
+          "notes": [],
+          "area_m2": 92.13
+        }
+      ],
+      "area_m2": 92.13
+    },
+    {
+      "key": "gdanska|24|7",
+      "street": "Gdanska",
+      "street_norm": "gdanska",
+      "building": "24",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 53906,
+          "outcome": "archived",
+          "area_m2": 42.1,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/27630/20-gdanska-24_7.doc?v=1765374779",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-01-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 53906,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 106000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27990/gdanska-24_7-1p-2026-01-28.doc?v=1770126586",
+          "notes": [],
+          "area_m2": 42.1
+        }
+      ],
+      "area_m2": 42.1
+    },
+    {
+      "key": "boleslawa chrobrego|10|8",
+      "street": "Boleslawa Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "10",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 91620,
+          "outcome": "archived",
+          "area_m2": 49.7,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/27635/21-chrobrego-10_8.doc?v=1765460148",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-01-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 92540,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27989/boleslawa-chrobrego-10_8-1p-2026-01-28.doc?v=1770126585",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ],
+          "area_m2": 49.7
+        }
+      ],
+      "area_m2": 49.7
+    },
+    {
+      "key": "braciszow 144_3 i|144|6",
+      "street": "Braciszow 144_3 I",
+      "street_norm": "braciszow 144_3 i",
+      "building": "144",
+      "apt": "6",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 82333,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27279/braciszow-144_3-i-144_6-1p-2025-10-13.doc?v=1760354240",
+          "notes": []
+        },
+        {
+          "date": "2025-11-18",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 63263,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27575/braciszow-144_3-i-144_6-2p-2025-11-26.doc?v=1764154189",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "debrzyca|431|10",
+      "street": "Debrzyca",
+      "street_norm": "debrzyca",
+      "building": "431",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27429/debrzyca-431_10.doc?v=1761815321",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "glubczyce ulgarbarska cz dz|380|",
+      "street": "Glubczyce Ulgarbarska Cz Dz",
+      "street_norm": "glubczyce ulgarbarska cz dz",
+      "building": "380",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27370/glubczyce-ulgarbarska-cz-dz-380.doc?v=1761050920",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nowy trag|82|",
+      "street": "Nowy Trag",
+      "street_norm": "nowy trag",
+      "building": "82",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 105476,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24983/nowy-trag-82-1p.doc?v=1725449448",
+          "notes": [],
+          "area_m2": 70.45
+        },
+        {
+          "date": "2024-10-08",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 53476,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25542/nowy-trag-82-2p.doc?v=1728641880",
+          "notes": [],
+          "area_m2": 70.45
+        },
+        {
+          "date": "2025-08-12",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 52460,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/26925/nowy-trag-82-1p-2025-08-12.doc?v=1755075194",
+          "notes": [],
+          "area_m2": 70.45
+        },
+        {
+          "date": "2025-09-16",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 27460,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27184/nowy-trag-82-2p_2025.doc?v=1759134840",
+          "notes": [],
+          "area_m2": 70.45
+        }
+      ],
+      "area_m2": 70.45
+    },
+    {
+      "key": "nowym targu|82|",
+      "street": "Nowym Targu",
+      "street_norm": "nowym targu",
+      "building": "82",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-08-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 105476,
+          "outcome": "archived",
+          "area_m2": 70.45,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/24577/38.doc?v=1722329172",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-10-08",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 53476,
+          "outcome": "archived",
+          "area_m2": 70.45,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/25058/40.doc?v=1725520130",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-08-12",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 52460,
+          "outcome": "archived",
+          "area_m2": 70.45,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/26803/13-nowy-targ-82.doc?v=1752565402",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-16",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 27460,
+          "outcome": "archived",
+          "area_m2": 70.45,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/26926/14-nowy-targ-82.doc?v=1755075370",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 70.45
+    },
+    {
+      "key": "mokre|52|1",
+      "street": "Mokre",
+      "street_norm": "mokre",
+      "building": "52",
+      "apt": "1",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-03-11",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 39683,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/26232/mokre-52_1-1p-2025-03-19.doc?v=1743070026",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "klisino 624|2025|",
+      "street": "Klisino 624",
+      "street_norm": "klisino 624",
+      "building": "2025",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/26122/klisino-624-2025.doc?v=1741691256",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "boleslawa chrobrego|1|2",
+      "street": "Boleslawa Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "1",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 36134,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 110000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25783/boleslawa-chrobrego-1_2-1p-2024-11-21.doc?v=1733312730",
+          "notes": [],
+          "area_m2": 25.5
+        }
+      ],
+      "area_m2": 25.5
+    },
+    {
+      "key": "fabryczna|1|1",
+      "street": "Fabryczna",
+      "street_norm": "fabryczna",
+      "building": "1",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 33334,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 85000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25782/fabryczna-1_1-1p-2024-11-18.doc?v=1733312660",
+          "notes": [],
+          "area_m2": 26.5
+        }
+      ],
+      "area_m2": 26.5
+    },
+    {
+      "key": "raciborska 1382 1383 i|1384|",
+      "street": "Raciborska 1382 1383 I",
+      "street_norm": "raciborska 1382 1383 i",
+      "building": "1384",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-26",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3686626,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24127/raciborska-1382-1383-i-1384-4p-2024-03-26.doc?v=1712214038",
+          "notes": []
+        },
+        {
+          "date": "2024-11-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 4000000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25781/raciborska-1382-1383-i-1384-1p-2024-11-05.doc?v=1733312560",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "nakielska|11|",
+      "street": "Nakielska",
+      "street_norm": "nakielska",
+      "building": "11",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-07-02",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 225000,
+          "outcome": "archived",
+          "area_m2": 108,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-08-30",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 108,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/24536/37.doc?v=1720511156",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 108
+    },
+    {
+      "key": "tarnow opolski nakielska|11|",
+      "street": "Tarnow Opolski Nakielska",
+      "street_norm": "tarnow opolski nakielska",
+      "building": "11",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2024-05-24",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24302/tarnow-opolski-nakielska-11.doc?v=1716818570",
+          "notes": []
+        },
+        {
+          "date": "2024-07-02",
+          "round": 3,
+          "kind": "garaz",
+          "starting_price_pln": 0,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 202000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25249/tarnow-opolski-nakielska-11-3p.doc?v=1725964031",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kochanowskiego|17|5",
+      "street": "Kochanowskiego",
+      "street_norm": "kochanowskiego",
+      "building": "17",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 57456,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24179/kochanowskiego-17_5-2p.doc?v=1713357164",
+          "notes": []
+        },
+        {
+          "date": "2024-05-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 51156,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 51676,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24473/kochanowskiego-17_5-3p-2024-06-06.doc?v=1719571307",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "jana kochanowskiego nr|17|",
+      "street": "Jana Kochanowskiego nr",
+      "street_norm": "jana kochanowskiego nr",
+      "building": "17",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 51156,
+          "outcome": "archived",
+          "area_m2": 24.39,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/24208/33-kochanowskiego-17_5.doc?v=1713781863",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 24.39
+    },
+    {
+      "key": "jesionowa|1346|17",
+      "street": "Jesionowa",
+      "street_norm": "jesionowa",
+      "building": "1346",
+      "apt": "17",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-03-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 73717,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 116000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24098/jesionowa-1346_17-1p-2024-03-20.doc?v=1711435821",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "jesionowa|1346|16",
+      "street": "Jesionowa",
+      "street_norm": "jesionowa",
+      "building": "1346",
+      "apt": "16",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-03-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 81817,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 131000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24097/jesionowa-1346_16-1p-2024-03-20.doc?v=1711435809",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}
