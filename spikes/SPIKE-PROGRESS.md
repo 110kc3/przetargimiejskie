@@ -8,8 +8,8 @@
 
 | Status | Count |
 |---|---|
-| ✅ BUILT | 93 |
-| 🟢 BUILD | 78 |
+| ✅ BUILT | 95 |
+| 🟢 BUILD | 76 |
 | 🟡 VERIFY | 0 |
 | 🔴 NO-BUILD | 156 |
 | ❌ Dropped | 6 |
@@ -17,13 +17,13 @@
 
 **Convention:** every spiked city has a per-city `.md` at its `master-cities.json` path; NO-BUILD verdicts are additionally consolidated in [NO-BUILD.md](./NO-BUILD.md).
 
-## Built adapters (93)
+## Built adapters (95)
 
-Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Głubczyce, Gniezno, Gorzów Wielkopolski, Gostyń, Jarocin, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Końskie, Kraków, Legnica, Lubliniec, Lwówek Śląski, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Poddębice, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Strzelce Krajeńskie, Sulęcin, Szczecin, Szczecinek, Środa Wielkopolska, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wejherowo, Węgorzewo, Węgrów, Wołów, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań.
+Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Głubczyce, Gniezno, Gorzów Wielkopolski, Gostyń, Jarocin, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kłodzko, Końskie, Kraków, Kwidzyn, Legnica, Lubliniec, Lwówek Śląski, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Poddębice, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Strzelce Krajeńskie, Sulęcin, Szczecin, Szczecinek, Środa Wielkopolska, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wejherowo, Węgorzewo, Węgrów, Wołów, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań.
 
-## BUILD-ready queue (78, by effort)
+## BUILD-ready queue (76, by effort)
 
-Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Wąbrzeźno (Low), Żnin (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wodzisław Śląski (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
+Kamienna Góra (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno Odrzańskie (Low), Lębork (Low), Lipsko (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Wąbrzeźno (Low), Żnin (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wodzisław Śląski (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
@@ -290,7 +290,7 @@ Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno O
 | Gdynia | Gdynia (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
 | Kartuzy | powiat kartuski | 🔴 NO-BUILD | — · DESK |
 | Kościerzyna | powiat kościerski | 🟢 BUILD | Medium · LIVE |
-| Kwidzyn | powiat kwidzyński | 🟢 BUILD | Low · DESK |
+| Kwidzyn | powiat kwidzyński | ✅ BUILT | Low · DESK |
 | Lębork | powiat lęborski | 🟢 BUILD | Low · DESK |
 | Malbork | powiat malborski | 🟢 BUILD | Medium · LIVE |
 | Nowy Dwór Gdański | powiat nowodworski | 🔴 NO-BUILD | — · LIVE |
@@ -370,7 +370,7 @@ Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno O
 | Giżycko | powiat gizycki | ✅ BUILT | Low–Medium · LIVE |
 | Gołdap | powiat gołdapski | 🔴 NO-BUILD | — · LIVE |
 | Iława | powiat iławski | 🟢 BUILD | Medium · LIVE |
-| Kętrzyn | powiat kętrzyński | 🟢 BUILD | Low · DESK |
+| Kętrzyn | powiat kętrzyński | ✅ BUILT | Low · DESK |
 | Lidzbark Warmiński | powiat lidzbarski | 🟢 BUILD | Medium · DESK |
 | Mrągowo | powiat mrągowski | ✅ BUILT | Low · LIVE |
 | Nidzica | powiat nidzicki | 🟢 BUILD | Medium · LIVE |

@@ -127,6 +127,14 @@ import zabkowiceSlaskie from './zabkowice-slaskie/index.js';
 import jarocin from './jarocin/index.js';
 import glubczyce from './glubczyce/index.js';
 import gostyn from './gostyn/index.js';
+// Low-effort wave cont. (2026-07-11), source:'html', both spikes materially
+// corrected live. kwidzyn: React SPA backed by a Logonet/Madkom JSON API (crawl
+// drives the API directly — no render.js) + SCANNED result PDFs (OCR); real board
+// is "Gospodarka Nieruchomościami" (spike pointed at the procurement board).
+// ketrzyn (miasto): old eSesja board was retired → now a gov.pl card board
+// (bialystok analog) + born-digital result PDFs; 429 handled by core throttle.
+import kwidzyn from './kwidzyn/index.js';
+import ketrzyn from './ketrzyn/index.js';
 
 export const cities = [
   gliwice,
@@ -222,6 +230,8 @@ export const cities = [
   jarocin,
   glubczyce,
   gostyn,
+  kwidzyn,
+  ketrzyn,
 ];
 
 /** @param {string} id @returns {object|null} */

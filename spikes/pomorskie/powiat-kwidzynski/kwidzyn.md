@@ -1,5 +1,5 @@
 # Spike — Kwidzyn (Pomorskie · powiat kwidzyński)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (12/12 parse test). ⚠️ 3 spike errors corrected live: (1) result PDFs are **SCANNED** → OCR, not born-digital text; (2) site IS a React **SPA** but backed by a clean Logonet/Madkom **JSON API** the crawler drives directly (no render.js/Playwright); (3) real property board is **"Gospodarka Nieruchomościami" (menu 13536)**, not the procurement board the spike cited. Land is OCR-mangled (flats are the reliable stream). teryt 220501_1 best-effort.
 
 ## TL;DR
 Miasto Kwidzyn (Burmistrz) runs a continuous programme of *ustny przetarg nieograniczony na sprzedaż* of **lokale mieszkalne** from the communal stock. Announcements and "informacja o wyniku przetargu" PDFs are published on BIP at `bip.kwidzyn.pl`, cross-posted on the city news portal `kwidzyn.pl`. Volume is low-to-medium (~2–6 flat auctions per year across multiple rounds). Closest analog: standard small-city BIP pattern (HTML index + PDF attachments). No auth/SPA block detected. Low build effort.

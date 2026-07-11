@@ -1,5 +1,5 @@
 # Spike — Kętrzyn (Warmińsko-Mazurskie · powiat kętrzyński)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (17/17 parse test). ⚠️ Correction: the eSesja `/przetargi/NNNNN/status` board was **retired since the spike** (now 404; survives only on archiwum.*) → `bip.miastoketrzyn.pl` is a **gov.pl/Tailwind card board** (bialystok analog); born-digital result PDFs (no OCR) + some inline-HTML results; 429 handled by core throttle. Land-dominated, built multi-kind. Miasto only (gmina wiejska = separate JST, out of scope). teryt 280801_1 best-effort.
 
 ## TL;DR
 Both Miasto Kętrzyn and Gmina Kętrzyn run *ustny przetarg nieograniczony na sprzedaż* for **lokale mieszkalne**. Two separate BIP hosts each publish a structured table of announcements + result PDFs. Format is HTML index + typed (non-scanned) PDF attachments. Volume is modest (~2–4 flat auctions/year per entity, ~4–8 combined). Achieved prices are available via "Informacja o wyniku przetargu" PDF attached to each entry. No auth/SPA blocks observed.
