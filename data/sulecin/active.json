@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "city": "sulecin",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rychlik 16B/3",
+      "address": {
+        "street": "Rychlik",
+        "street_norm": "rychlik",
+        "building": "16B",
+        "apt": "3",
+        "key": "rychlik|16B|3",
+        "warning": null
+      },
+      "area_m2": 26.9,
+      "starting_price_pln": 73100,
+      "auction_date": "2025-07-10",
+      "round": 2,
+      "detail_url": "https://bip.sulecin.pl/481/2454/Ogloszenie_o_II_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu_mieszkalnego_polozonego_w_budynku_nr_16B_w_Rychliku/",
+      "source_url": "https://bip.sulecin.pl/system/pobierz.php?plik=Ogloszenie_o_II_przetargu_-_lokal_Rychlik.pdf&id=ce084c265e69c8e60952ea2e9111350d&stats=true"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rychlik 16B/3",
+      "address": {
+        "street": "Rychlik",
+        "street_norm": "rychlik",
+        "building": "16B",
+        "apt": "3",
+        "key": "rychlik|16B|3",
+        "warning": null
+      },
+      "area_m2": 26.9,
+      "starting_price_pln": 73100,
+      "auction_date": "2025-05-13",
+      "round": 1,
+      "detail_url": "https://bip.sulecin.pl/481/2419/ogloszenie_o__I__przetargu__ustnym__nieograniczonym__na__sprzedaz__lokalu_mieszkalnego_polozonego__w_budynku_nr_16B_w_Rychliku/",
+      "source_url": "https://bip.sulecin.pl/system/pobierz.php?plik=PRZETARG_RYCHLIK.pdf&id=4a2b87e845a87dd6d288667a50d68427&stats=true"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żubrów 23/1",
+      "address": {
+        "street": "Żubrów",
+        "street_norm": "zubrow",
+        "building": "23",
+        "apt": "1",
+        "key": "zubrow|23|1",
+        "warning": null
+      },
+      "area_m2": 70.3,
+      "starting_price_pln": 97200,
+      "auction_date": "2025-03-10",
+      "round": 1,
+      "detail_url": "https://bip.sulecin.pl/481/2403/ogloszenie_Burmistrza_Sulecina_o_pierwszym_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu_mieszkalnego__polozonego_w_Zubrowie/",
+      "source_url": "https://bip.sulecin.pl/system/pobierz.php?plik=PRZETARG_ZUBROW_na_BIP.pdf&id=cbf0fe7f38b40e966a2cb71fafc43751&stats=true"
+    }
+  ],
+  "wykaz": []
+}
