@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "city": "zabkowice-slaskie",
+  "properties": [
+    {
+      "key": "sulislawice|52B|2",
+      "street": "Sulisławice",
+      "street_norm": "sulislawice",
+      "building": "52B",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-01-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6339/sulislawice-52b-lokal-mieszkalny-nr-2-wraz-z-udzialem-wynoszacym-192-1000-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-215-32-am-2-obreb-sulislawice-o-pow-0-0277-ha",
+          "notes": [],
+          "land_area_m2": 277
+        },
+        {
+          "date": "2022-06-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6731/sulislawice-52b-lokal-mieszkalny-nr-2-wraz-z-udzialem-wynoszacym-192-1000-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-215-32-am-2-o-pow-0-0277-ha",
+          "notes": [],
+          "land_area_m2": 277
+        },
+        {
+          "date": "2022-08-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6878/zabkowice-slaskie-dzialka-nr-8-2-am-9-obreb-osiedle-wschod-o-pow-0-0859-ha",
+          "notes": [],
+          "land_area_m2": 277
+        },
+        {
+          "date": "2022-08-11",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6877/sulislawice-52b-lokal-mieszkalny-nr-2-wraz-z-udzialem-wynoszacym-192-1000-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-215-32-am-2-o-pow-0-0277-ha",
+          "notes": [],
+          "land_area_m2": 277
+        },
+        {
+          "date": "2026-08-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 277,
+          "detail_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/10794/sulislawice-52b-lokal-mieszkalny-nr-2-am-2-obreb-sulislawice",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "ziebickiej|21|",
+      "street": "Ziębickiej",
+      "street_norm": "ziebickiej",
+      "building": "21",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 85000,
+          "outcome": "active",
+          "area_m2": 29.56,
+          "detail_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/10793/zabkowice-slaskie-lokal-polozony-przy-ul-ziebickiej-21-o-pow-29-56-m2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29.56
+    },
+    {
+      "key": "rynek|55|",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "55",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2022-07-07",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6788/zabkowice-slaskie-rynek-55-lokal-uzytkowy-o-pow-55-84-m2-wraz-z-udzialem-wynoszacym-9-100-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-63-5-am-12-obreb-centrum-o-pow-0-0248-ha",
+          "notes": [],
+          "land_area_m2": 248
+        },
+        {
+          "date": "2022-10-04",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/7036/zabkowice-slaskie-rynek-55-lokal-uzytkowy-o-pow-55-84-m2-wraz-z-udzialem-wynoszacym-9-100-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-63-5-am-12-obreb-centrum-o-pow-0-0248-ha",
+          "notes": [],
+          "land_area_m2": 248
+        },
+        {
+          "date": "2023-01-10",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/7262/zabkowice-slaskie-rynek-55-lokal-uzytkowy-o-pow-55-84-m2-wraz-z-udzialem-wynoszacym-9-100-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-63-5-am-12-obreb-centrum-o-pow-0-0248-ha",
+          "notes": [],
+          "land_area_m2": 248
+        }
+      ]
+    },
+    {
+      "key": "i maja|15|",
+      "street": "I Maja",
+      "street_norm": "i maja",
+      "building": "15",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2022-11-22",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/7126/zabkowice-slaskie-rynek-55-lokal-uzytkowy-o-pow-55-84-m2-wraz-z-udzialem-wynoszacym-9-100-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-63-5-am-12-obreb-centrum-o-pow-0-0248-ha",
+          "notes": [],
+          "land_area_m2": 248
+        }
+      ]
+    },
+    {
+      "key": "bohaterow getta|5|",
+      "street": "Bohaterów Getta",
+      "street_norm": "bohaterow getta",
+      "building": "5",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-03-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 130000,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6469/zabkowice-slaskie-ul-bohaterow-getta-5-o-pow-69-44-m2-wraz-z-udzialem-wynoszacym-22-100-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-dzialki-nr-34-20-am-12-obreb-centrum",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "bohaterow getta|21|8",
+      "street": "Bohaterów Getta",
+      "street_norm": "bohaterow getta",
+      "building": "21",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-06-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 11000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 11110,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/5721/zabkowice-slaskie-ul-bohaterow-getta-21-w-zabkowicach-slaskich-wraz-z-udzialem-wynoszacym-4-100-w-czesciach-wspolnych-budynku",
+          "notes": [],
+          "land_area_m2": 195
+        }
+      ]
+    }
+  ]
+}
