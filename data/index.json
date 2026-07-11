@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-11T18:02:09.920Z",
+  "generated_at": "2026-07-11T19:14:42.747Z",
   "cities": [
     {
       "id": "gliwice",
@@ -594,7 +594,7 @@
       "authority": "Urząd Miejski w Augustowie",
       "host": "bip.um.augustow.pl",
       "unique_properties": 3,
-      "active_listings": 9,
+      "active_listings": 2,
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1131,6 +1131,45 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
+      "land_plots": 50
+    },
+    {
+      "id": "lwowek-slaski",
+      "label": "Lwówek Śląski",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Gmina i Miasto Lwówek Śląski",
+      "host": "bip.lwowekslaski.pl",
+      "unique_properties": 9,
+      "active_listings": 6,
+      "active_auctions": 0,
+      "archived_auctions": 11,
+      "wykaz_entries": 0,
+      "land_plots": 15
+    },
+    {
+      "id": "sepolno-krajenskie",
+      "label": "Sępólno Krajeńskie",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Urząd Miejski w Sępólnie Krajeńskim",
+      "host": "bip.gmina-sepolno.pl",
+      "unique_properties": 3,
+      "active_listings": 6,
+      "active_auctions": 0,
+      "archived_auctions": 5,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "zabkowice-slaskie",
+      "label": "Ząbkowice Śląskie",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Urząd Miejski w Ząbkowicach Śląskich",
+      "host": "bip.zabkowiceslaskie.pl",
+      "unique_properties": 6,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 10,
+      "wykaz_entries": 0,
       "land_plots": 50
     }
   ]
