@@ -124,6 +124,8 @@ const EXEMPT_NEW = new Map([
   // Batch 3 (registered 2026-07-11).
   ['zdunska-wola', { since: '2026-07-11', reason: 'live-verified: Logonet board has active land but no active flats now, and its rolling board ages sold results out (unique 0); active-flat parse unvalidated until one appears' }],
   ['wegorzewo', { since: '2026-07-11', reason: 'first Pi refresh blocked by the host anti-abuse rate-limit (build agent made ~150 research reqs) → 0 records; adapter live-verified 2 listings/10 land during build; CI runner-IP refresh will populate' }],
+  // Batch 4 (registered 2026-07-11).
+  ['strzelce-krajenskie', { since: '2026-07-11', reason: 'live-verified: SystemDoBIP board has 0 active flats (cyclical) / 1 land / weak results → unique may be <1; active-flat parse via miedzyrzecz+gorzow analog, unvalidated live until a flat appears' }],
 ]);
 
 const now = Date.now();

@@ -4479,13 +4479,13 @@
       "powiat_slug": "powiat-strzelecko-drezdenecki",
       "powiat_label": "powiat strzelecko-drezdenecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md",
       "spike": {
         "wave": "F",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "SYSTEMDOBIP.PL/E-LINE CMS on bip.strzelce.pl — identical to same-voivodeship gorzow-wielkopolski adapter (same /przetargi/29/status/ boards + /system/pobierz.php PDF endpoint). Open flat auctions confirmed (Gilow 20/1, Bobrowko 21/3, 2026). Born-digital PDF attachments; modest rural volume; weak achieved-price stream (Brak wyniku). Near drop-in clone of gorzow-wielkopolski."
+        "note": "BUILT — pipeline/src/cities/strzelce-krajenskie/ + parse-strzelce-krajenskie.test.js (27 green), registered 2026-07-11 (batch 4). bip.strzelce.pl SystemDoBIP/E-LINE (lubuskie family); live-shape check: board mechanics=miedzyrzecz, PDF-driven prices=gorzow-wielkopolski (\"informacja w załączniku\" + uniform \"Brak wyniku\"). 0 flat (cyclical)/1 land (Długie 306/17)/weak results. Fixed niemieszkalny⊃mieszkalny substring bug via classifyKind. First refresh: (no data yet — CI will populate). teryt 080604_3 MED. → EXEMPT_NEW (0 active flats)."
       }
     },
     {
@@ -4575,13 +4575,13 @@
       "powiat_slug": "powiat-sulecinski",
       "powiat_label": "powiat sulęciński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/powiat-sulecinski/sulecin.md",
       "spike": {
         "wave": "G",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "bip.sulecin.pl runs SYSTEMDOBIP.PL (E-LINE) — same CMS family as built gorzow-wielkopolski adapter (numeric-id boards /481,/461 + HTML stub + born-digital PDF attachments). Flat auctions confirmed but sporadic (Rychlik 16B I/II, Zubrowo 2025, 2026-06-17 designation); 2024 land-only. Notices PDF (pdfText). Caveat: no confirmed wyniki/achieved-price board (announcements + cena wywolawcza only). Clone gorzow = Low effort; low-priority coverage build."
+        "note": "BUILT — pipeline/src/cities/sulecin/ + parse-sulecin.test.js (13 green), registered 2026-07-11 (batch 4). bip.sulecin.pl SystemDoBIP (lubuskie family; gorzow/miedzyrzecz hybrid — announcement + result PDFs as attachments on the same entry stub). Parse GROUNDTRUTHED against SIX real live-fetched doc pairs (Rychlik 16B/3 rounds I+II, Żubrów 23/1, dz.437/1 land [OCR], dz.231/17 land) — all prices/addresses/outcomes hand-verified. Handles Roman-numeral (flat) vs ordinal-word (land) rounds, osiągnięta/uzyskana price-verb split, locative→nominative village lookup, born-digital + scanned/OCR. Test written by orchestrator from cached fixtures (agent stalled before writing it). First refresh: (no data yet — CI will populate). teryt 080704_3 lubuskie."
       }
     },
     {
@@ -4895,13 +4895,13 @@
       "powiat_slug": "powiat-wegrowski",
       "powiat_label": "powiat węgrowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md",
       "spike": {
         "wave": "H",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Logonet eUrzad 2.9.0 (analog tarnowskie-gory/skarzysko-kamienna). Open oral flat auctions confirmed (Nowa 3 lokal mieszkalny nr 19 + wynik). Target = dedicated 'Ogloszenia sprzedazy' board /artykul/345/<id> (mixed open flat+land auctions, tenant bezprzetargowo wykazy, informacja o wyniku in-band). /przetargi/ board is procurement — NOT property. Low volume; achieved-price present. /api/menu/345/articles."
+        "note": "BUILT — pipeline/src/cities/wegrow/ + parse-wegrow.test.js (26 green), registered 2026-07-11 (batch 4). bip.wegrow.com.pl Logonet eUrząd — XML-FEED shape (/artykuly/xml/345/{page}/1; the spike's /api/menu/345/articles 404s). Article + attachment download endpoints; pdfText + ocrPdf fallback. First refresh: (no data yet — CI will populate). teryt 143301_1 (stated verbatim in BIP footer \"Kod teryt: 1433011\"). mazowieckie."
       }
     },
     {
@@ -5039,13 +5039,13 @@
       "powiat_slug": "powiat-wschowski",
       "powiat_label": "powiat wschowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/powiat-wschowski/wschowa.md",
       "spike": {
         "wave": "I",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "SystemDoBIP.pl (E-LINE) server-HTML BIP on bip.gminawschowa.pl; przetargi module /przetargi/29/ with native Ogloszone/Rozstrzygniete/Uniewaznione tabs = built-in results stream. Open oral flat auctions confirmed (Dworcowa 1/5 60.88m2 144000zl; Kilinskiego 3/2 55.45m2 88418zl). SystemDoBIP family (see sulecin/strzelce-krajenskie/gorzow-wielkopolski). NOT bip.wschowa.info (that is the powiat)."
+        "note": "BUILT — pipeline/src/cities/wschowa/ + parse-wschowa.test.js (18 green), registered 2026-07-11 (batch 4). bip.wschowa.pl SystemDoBIP; live-shape check matched miedzyrzecz INLINE-COLUMN shape (cloned it + added splitNumberedItems for 9-lot bundles). 0 flat (cyclical)/9 land (bundle)/9 results (7 parse). Fixed 3 bugs (venue-addr over flat, money-regex separator optional, wynik-label glued). bot-UA gated → browser UA. First refresh: (no data yet — CI will populate). teryt 0812033. → EXEMPT_NEW (0 active flats)."
       }
     },
     {
@@ -5119,13 +5119,13 @@
       "powiat_slug": "powiat-zaganski",
       "powiat_label": "powiat żagański",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/powiat-zaganski/zagan.md",
       "spike": {
         "wave": "J",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "SystemDoBIP.pl / E-LINE CMS on bip.zagan.pl (town gmina miejska; disambiguated from rural bip.gminazagan.pl + powiat). Server-rendered HTML, /przetargi/344/status/ board + /przetargi/344/<id>/<slug>/ notices; wynik prices in /152/ + /203/ Nieruchomosci. Confirmed live flat auction Zelazna 16/3 (30m2, 135k zl, III przetarg 12/2025). Analog already BUILT: Gorzow Wielkopolski (same woj, same CMS). Land-heavy mixed stream, flats periodic. No blockers."
+        "note": "BUILT — pipeline/src/cities/zagan/ + parse-zagan.test.js (21 green), registered 2026-07-11 (batch 4). bip.zagan.pl SystemDoBIP; cloned miedzyrzecz inline-column (live-verified NOT gorzow). 0 flat (cyclical)/12 land/**169 results all parsing** (144 unsold/25 sold). Fixed 8 bugs (achieved-price-never-published note, parcel spacing, multi-parcel complexes, abbrev nr, missing zł, doubled-slash, bare parcel, KW-prefix false-match). First refresh: (no data yet — CI will populate). teryt 081101_1 LOW-MED. → EXEMPT_NEW (0 active flats)."
       }
     },
     {

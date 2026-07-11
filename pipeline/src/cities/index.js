@@ -95,6 +95,13 @@ import trzebnica from './trzebnica/index.js';
 import srodaWielkopolska from './sroda-wielkopolska/index.js';
 import szczecinek from './szczecinek/index.js';
 import wegorzewo from './wegorzewo/index.js';
+// Batch 4 of the BUILD-ready expansion (2026-07-11; each live-groundtruthed with
+// a passing parse test). All test-tier (none Śląskie).
+import strzelceKrajenskie from './strzelce-krajenskie/index.js';
+import wschowa from './wschowa/index.js';
+import zagan from './zagan/index.js';
+import wegrow from './wegrow/index.js';
+import sulecin from './sulecin/index.js';
 
 export const cities = [
   gliwice,
@@ -177,6 +184,11 @@ export const cities = [
   srodaWielkopolska,
   szczecinek,
   wegorzewo,
+  strzelceKrajenskie,
+  wschowa,
+  zagan,
+  wegrow,
+  sulecin,
 ];
 
 /** @param {string} id @returns {object|null} */
