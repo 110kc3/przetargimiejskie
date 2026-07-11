@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "city": "jarocin",
+  "properties": [
+    {
+      "key": "konstytucji 3 maja|20|17",
+      "street": "Konstytucji 3 Maja",
+      "street_norm": "konstytucji 3 maja",
+      "building": "20",
+      "apt": "17",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2024-10-24",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 320800,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-1-przetargu-lokal-konstytucji-20.pdf",
+          "notes": []
+        },
+        {
+          "date": "2024-12-19",
+          "round": 2,
+          "kind": "unknown",
+          "starting_price_pln": 320800,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/wynik-2-przetargu-konstytucji.pdf",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}
