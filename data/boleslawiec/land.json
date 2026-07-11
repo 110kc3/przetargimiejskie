@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "city": "boleslawiec",
+  "plots": [
+    {
+      "key": "dz|23/1",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "23/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Tadeusza Kościuszki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2023%2F1%20ul.%20Tadeusza%20Ko%C5%9Bciuszki%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5540,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "starting_price_pln": 440000,
+          "outcome": "active",
+          "area_m2": 5540,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-us%C5%82ugowe-przemys%C5%82owe/6916-dzia%C5%82ka-nr-23-1-o-pow-0%2C5540-ha%2C-po%C5%82o%C5%BCona-przy-ul-tadeusza-ko%C5%9Bciuszki-ii-przetarg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "23/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|41, 54/4",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "41, 54/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Widok",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2041%2C%2054%2F4%20ul.%20Widok%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5590,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-10",
+          "round": 4,
+          "starting_price_pln": 1080000,
+          "outcome": "active",
+          "area_m2": 5590,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-mieszkaniowe/6914-dzia%C5%82ka-nr-41-o-pow-0%2C4498-ha-oraz-dzia%C5%82ka-nr-54-4-0%2C1092-ha%2C-po%C5%82o%C5%BCone-przy-ul-widok-iv-przetarg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "41"
+        },
+        {
+          "nr": "54/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|567",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "567",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ekonomicznej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20567%20ul.%20Ekonomicznej%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 25126,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "starting_price_pln": 3600000,
+          "outcome": "active",
+          "area_m2": 25126,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-us%C5%82ugowe-przemys%C5%82owe/6789-dzia%C5%82ka-nr-567-o-pow-2%2C5126-ha%2C-po%C5%82o%C5%BCona-przy-ul-ekonomicznej-i-przetarg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "567"
+        }
+      ]
+    },
+    {
+      "key": "dz|0008|478",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "478",
+      "obreb": "0008",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Plac Piastowski",
+      "dzialka_id": "020101_1.0008.478",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0008.478",
+      "area_m2": 703,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 1,
+          "starting_price_pln": 499000,
+          "outcome": "unsold",
+          "area_m2": 703
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "478",
+          "dzialka_id": "020101_1.0008.478",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0008.478"
+        }
+      ]
+    },
+    {
+      "key": "dz|0001|23/1",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "23/1",
+      "obreb": "0001",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Tadeusza Kościuszki",
+      "dzialka_id": "020101_1.0001.23/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1",
+      "area_m2": 5540,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 570000,
+          "outcome": "unsold",
+          "area_m2": 5540
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "23/1",
+          "dzialka_id": "020101_1.0001.23/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1"
+        }
+      ]
+    }
+  ]
+}

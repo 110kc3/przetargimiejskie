@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "city": "boleslawiec",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Karola Miarki 3/5",
+      "address": {
+        "street": "Karola Miarki",
+        "street_norm": "karola miarki",
+        "building": "3",
+        "apt": "5",
+        "key": "karola miarki|3|5",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "round": 2,
+      "area_m2": 26.21,
+      "starting_price_pln": 94500,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6862-lokal-mieszkalny-nr-5%2C-po%C5%82o%C5%BCony-przy-ul-karola-miarki-nr-3-powierzchnia-u%C5%BCytkowa-mieszkania-26%2C21-m2-ii-przetarg"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Karola Miarki 3/6",
+      "address": {
+        "street": "Karola Miarki",
+        "street_norm": "karola miarki",
+        "building": "3",
+        "apt": "6",
+        "key": "karola miarki|3|6",
+        "warning": null
+      },
+      "auction_date": "2026-07-16",
+      "round": 2,
+      "area_m2": 47.15,
+      "starting_price_pln": 161000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6863-lokal-mieszkalny-nr-6%2C-po%C5%82o%C5%BCony-przy-ul-karola-miarki-nr-3-powierzchnia-u%C5%BCytkowa-mieszkania-47%2C15-m2-ii-przetarg"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ogrodowej 4/2",
+      "address": {
+        "street": "Ogrodowej",
+        "street_norm": "ogrodowej",
+        "building": "4",
+        "apt": "2",
+        "key": "ogrodowej|4|2",
+        "warning": null
+      },
+      "auction_date": "2026-07-28",
+      "round": 6,
+      "area_m2": 84.94,
+      "starting_price_pln": 323000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6890-lokal-mieszkalny-nr-2%2C-po%C5%82o%C5%BCony-przy-ul-ogrodowej-nr-4-powierzchnia-u%C5%BCytkowa-mieszkania-84%2C94-m2-vi-przetarg"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Plac Piastowski 16",
+      "address": {
+        "street": "Plac Piastowski",
+        "street_norm": "plac piastowski",
+        "building": "16",
+        "apt": null,
+        "key": "plac piastowski|16|",
+        "warning": null
+      },
+      "auction_date": "2026-06-25",
+      "round": 1,
+      "area_m2": null,
+      "land_area_m2": 703,
+      "starting_price_pln": 499000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-budynki-u%C5%BCytkowe/6743-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-i-przetarg"
+    }
+  ],
+  "wykaz": [
+    {
+      "address": {
+        "street": "Komuny Paryskiej",
+        "street_norm": "komuny paryskiej",
+        "building": "8",
+        "apt": "1",
+        "key": "komuny paryskiej|8|1",
+        "warning": null
+      },
+      "address_raw": "Komuny Paryskiej 8/1",
+      "kind": "mieszkalny",
+      "area_m2": 82.92,
+      "published_date": "2026-04-07",
+      "wykaz_no": "77/2026"
+    },
+    {
+      "address": {
+        "street": "Plac Piastowski",
+        "street_norm": "plac piastowski",
+        "building": "16",
+        "apt": null,
+        "key": "plac piastowski|16|",
+        "warning": null
+      },
+      "address_raw": "Plac Piastowski 16",
+      "kind": "zabudowana",
+      "area_m2": null,
+      "published_date": "2026-04-15",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Marcina Opitza",
+        "street_norm": "marcina opitza",
+        "building": "20",
+        "apt": "3",
+        "key": "marcina opitza|20|3",
+        "warning": null
+      },
+      "address_raw": "Marcina Opitza 20/3",
+      "kind": "mieszkalny",
+      "area_m2": 94.98,
+      "published_date": "2026-02-03",
+      "wykaz_no": "35/2026"
+    },
+    {
+      "address": {
+        "street": "Wesołej",
+        "street_norm": "wesolej",
+        "building": "8",
+        "apt": "3",
+        "key": "wesolej|8|3",
+        "warning": null
+      },
+      "address_raw": "Wesołej 8/3",
+      "kind": "mieszkalny",
+      "area_m2": 42.8,
+      "published_date": "2025-11-25",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Karola Miarki",
+        "street_norm": "karola miarki",
+        "building": "3",
+        "apt": "5",
+        "key": "karola miarki|3|5",
+        "warning": null
+      },
+      "address_raw": "Karola Miarki 3/5",
+      "kind": "mieszkalny",
+      "area_m2": 26.21,
+      "published_date": "2026-06-09",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Karola Miarki",
+        "street_norm": "karola miarki",
+        "building": "3",
+        "apt": "6",
+        "key": "karola miarki|3|6",
+        "warning": null
+      },
+      "address_raw": "Karola Miarki 3/6",
+      "kind": "mieszkalny",
+      "area_m2": 47.15,
+      "published_date": "2026-06-09",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "29-30",
+        "apt": "9",
+        "key": "rynek|29-30|9",
+        "warning": null
+      },
+      "address_raw": "Rynek 29-30/9",
+      "kind": "mieszkalny",
+      "area_m2": 48.52,
+      "published_date": "2026-03-06",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "1",
+        "apt": "10",
+        "key": "warszawskiej|1|10",
+        "warning": null
+      },
+      "address_raw": "Warszawskiej 1/10",
+      "kind": "mieszkalny",
+      "area_m2": 97.1,
+      "published_date": "2026-05-08",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Ogrodowej",
+        "street_norm": "ogrodowej",
+        "building": "4",
+        "apt": "2",
+        "key": "ogrodowej|4|2",
+        "warning": null
+      },
+      "address_raw": "Ogrodowej 4/2",
+      "kind": "mieszkalny",
+      "area_m2": 84.94,
+      "published_date": "2026-06-19",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Kościelnej",
+        "street_norm": "koscielnej",
+        "building": "6",
+        "apt": "3",
+        "key": "koscielnej|6|3",
+        "warning": null
+      },
+      "address_raw": "Kościelnej 6/3",
+      "kind": "uzytkowy",
+      "area_m2": null,
+      "published_date": "2026-05-29",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Kościelnej",
+        "street_norm": "koscielnej",
+        "building": "4-5",
+        "apt": "4",
+        "key": "koscielnej|4-5|4",
+        "warning": null
+      },
+      "address_raw": "Kościelnej 4-5/4",
+      "kind": "uzytkowy",
+      "area_m2": null,
+      "published_date": "2026-05-29",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Adama Mickiewicza",
+        "street_norm": "adama mickiewicza",
+        "building": "3",
+        "apt": "2",
+        "key": "adama mickiewicza|3|2",
+        "warning": null
+      },
+      "address_raw": "Adama Mickiewicza 3/2",
+      "kind": "uzytkowy",
+      "area_m2": null,
+      "published_date": "2026-05-29",
+      "wykaz_no": null
+    },
+    {
+      "address": {
+        "street": "Plac Piastowski",
+        "street_norm": "plac piastowski",
+        "building": "16",
+        "apt": null,
+        "key": "plac piastowski|16|",
+        "warning": null
+      },
+      "address_raw": "Plac Piastowski 16",
+      "kind": "zabudowana",
+      "area_m2": null,
+      "published_date": "2026-04-15",
+      "wykaz_no": null
+    }
+  ]
+}
