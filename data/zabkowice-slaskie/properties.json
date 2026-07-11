@@ -60,7 +60,7 @@
         },
         {
           "date": "2026-08-12",
-          "round": 3,
+          "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 50000,
           "outcome": "active",
@@ -202,6 +202,62 @@
           "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/5721/zabkowice-slaskie-ul-bohaterow-getta-21-w-zabkowicach-slaskich-wraz-z-udzialem-wynoszacym-4-100-w-czesciach-wspolnych-budynku",
           "notes": [],
           "land_area_m2": 195
+        }
+      ]
+    },
+    {
+      "key": "plac jana pawla ii|1-3|",
+      "street": "Plac Jana Pawła II",
+      "street_norm": "plac jana pawla ii",
+      "building": "1-3",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-12-08",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 142000,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/5179/zabkowice-slaskie-pl-jana-pawla-ii-1-3-3-dzialka-nr-56-16-am-12-obreb-centrum-o-pow-0-0201-ha-wraz-z-udzialem-25-100",
+          "notes": [],
+          "land_area_m2": 201
+        }
+      ]
+    },
+    {
+      "key": "plac jana pawla ii|1|",
+      "street": "Plac Jana Pawła II",
+      "street_norm": "plac jana pawla ii",
+      "building": "1",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/4896/zabkowice-slaskie-pl-jana-pawla-ii-1-3-3-dzialka-nr-56-16-am-12-obreb-centrum-o-pow-0-0201-ha-wraz-z-udzialem-25-100",
+          "notes": [],
+          "land_area_m2": 201
+        },
+        {
+          "date": "2020-10-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/5022/zabkowice-slaskie-pl-jana-pawla-ii-1-3-3-dzialka-nr-56-16-am-12-obreb-centrum-o-pow-0-0201-ha-wraz-z-udzialem-25-100",
+          "notes": [],
+          "land_area_m2": 201
         }
       ]
     }
