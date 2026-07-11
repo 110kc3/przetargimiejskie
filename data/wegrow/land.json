@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "city": "wegrow",
+  "plots": [
+    {
+      "key": "dz|3286/2, 5742/2, 5773/7",
+      "kind": "grunt",
+      "city": "wegrow",
+      "dzialka_nr": "3286/2, 5742/2, 5773/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ks. Kazimierza Czarkowskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203286%2F2%2C%205742%2F2%2C%205773%2F7%20ul.%20Ks.%20Kazimierza%20Czarkowskiego%20W%C4%99gr%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1282,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 1282,
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/12186/ogloszenie-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-wegrowie-przy-ul-ks-kazimierza-czarkowskiego",
+          "source_url": "https://bip.wegrow.com.pl/artykul/345/12186/ogloszenie-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-wegrowie-przy-ul-ks-kazimierza-czarkowskiego",
+          "final_price_pln": 605000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3286/2"
+        },
+        {
+          "nr": "5742/2"
+        },
+        {
+          "nr": "5773/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|3975/2",
+      "kind": "grunt",
+      "city": "wegrow",
+      "dzialka_nr": "3975/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wyszyńskiego 1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203975%2F2%20ul.%20Wyszy%C5%84skiego%201%20W%C4%99gr%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 47,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 6524,
+          "outcome": "archived",
+          "area_m2": 47,
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/11860/ogloszenie-przetargu-ustnego-ograniczonego-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-polozonej-w-wegrowie-przy-ul-al-siedleckiej",
+          "source_url": "https://bip.wegrow.com.pl/artykul/345/11860/ogloszenie-przetargu-ustnego-ograniczonego-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-polozonej-w-wegrowie-przy-ul-al-siedleckiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3975/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|825/1, 825/2, 3520",
+      "kind": "grunt",
+      "city": "wegrow",
+      "dzialka_nr": "825/1, 825/2, 3520",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lazurowej oraz ul. Narutowicza",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20825%2F1%2C%20825%2F2%2C%203520%20ul.%20Lazurowej%20oraz%20ul.%20Narutowicza%20W%C4%99gr%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12555,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-11-07",
+          "round": 1,
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 12555,
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/10730/ogloszenie-przetargow-na-sprzedaz-nieruchomosci-przy-ul-lazurowej-oraz-narutowicza",
+          "source_url": "https://bip.wegrow.com.pl/artykul/345/10730/ogloszenie-przetargow-na-sprzedaz-nieruchomosci-przy-ul-lazurowej-oraz-narutowicza"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "825/1"
+        },
+        {
+          "nr": "825/2"
+        },
+        {
+          "nr": "3520"
+        }
+      ]
+    },
+    {
+      "key": "dz|825",
+      "kind": "grunt",
+      "city": "wegrow",
+      "dzialka_nr": "825",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lazurowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20825%20ul.%20Lazurowej%20W%C4%99gr%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12369,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-13",
+          "round": 1,
+          "starting_price_pln": 1000000,
+          "outcome": "archived",
+          "area_m2": 12369,
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/10056/przetarg-na-sprzedaz-nieruchomosci",
+          "source_url": "https://bip.wegrow.com.pl/artykul/345/10056/przetarg-na-sprzedaz-nieruchomosci"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "825"
+        }
+      ]
+    },
+    {
+      "key": "dz|5807/2, 5807/1",
+      "kind": "grunt",
+      "city": "wegrow",
+      "dzialka_nr": "5807/2, 5807/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Rynkowej 7",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205807%2F2%2C%205807%2F1%20ul.%20Rynkowej%207%20W%C4%99gr%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 449,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-04-07",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 449,
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/8800/ogloszenie-przetargu-na-sprzedaz-nieruchomosci-przy-ul-zwyciestwa-3",
+          "source_url": "https://bip.wegrow.com.pl/artykul/345/8800/ogloszenie-przetargu-na-sprzedaz-nieruchomosci-przy-ul-zwyciestwa-3"
+        },
+        {
+          "date": "2020-06-23",
+          "round": 2,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 449,
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/8879/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-polozonej-przy-ul-zwyciestwa-3",
+          "source_url": "https://bip.wegrow.com.pl/artykul/345/8879/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-polozonej-przy-ul-zwyciestwa-3"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5807/2"
+        },
+        {
+          "nr": "5807/1"
+        }
+      ]
+    }
+  ]
+}

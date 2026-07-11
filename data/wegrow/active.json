@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "city": "wegrow",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowej 3/19",
+      "address": {
+        "street": "Nowej",
+        "street_norm": "nowej",
+        "building": "3",
+        "apt": "19",
+        "key": "nowej|3|19",
+        "warning": null
+      },
+      "area_m2": 52.7,
+      "starting_price_pln": 160000,
+      "auction_date": "2026-04-28",
+      "round": null,
+      "detail_url": "https://bip.wegrow.com.pl/artykul/345/12148/ogloszenie-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-stanowiacej-lokal-mieszkalny-nr-19-przy-ul-nowej-3-w-wegrowie",
+      "source_url": "https://bip.wegrow.com.pl/artykul/345/12148/ogloszenie-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-stanowiacej-lokal-mieszkalny-nr-19-przy-ul-nowej-3-w-wegrowie"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Narutowicza 7",
+      "address": {
+        "street": "Narutowicza",
+        "street_norm": "narutowicza",
+        "building": "7",
+        "apt": null,
+        "key": "narutowicza|7|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 397,
+      "starting_price_pln": 500000,
+      "auction_date": "2024-03-26",
+      "round": 2,
+      "detail_url": "https://bip.wegrow.com.pl/artykul/345/10953/ogloszenie-o-drugim-przetargu-na-sprzedaz-nieruchomosci-przy-ul-narutowicza-7",
+      "source_url": "https://bip.wegrow.com.pl/artykul/345/10953/ogloszenie-o-drugim-przetargu-na-sprzedaz-nieruchomosci-przy-ul-narutowicza-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowej 5/19",
+      "address": {
+        "street": "Nowej",
+        "street_norm": "nowej",
+        "building": "5",
+        "apt": "19",
+        "key": "nowej|5|19",
+        "warning": null
+      },
+      "area_m2": 48.3,
+      "starting_price_pln": null,
+      "auction_date": "2023-02-21",
+      "round": null,
+      "detail_url": "https://bip.wegrow.com.pl/artykul/345/10357/przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-19-przy-ul-nowej-5",
+      "source_url": "https://bip.wegrow.com.pl/artykul/345/10357/przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-19-przy-ul-nowej-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piłsudskiego 7",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "7",
+        "apt": null,
+        "key": "pilsudskiego|7|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2023-02-21",
+      "round": null,
+      "detail_url": "https://bip.wegrow.com.pl/artykul/345/10356/przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-15-przy-ul-pilsudskiego-7",
+      "source_url": "https://bip.wegrow.com.pl/artykul/345/10356/przetarg-na-sprzedaz-lokalu-mieszkalnego-nr-15-przy-ul-pilsudskiego-7"
+    }
+  ],
+  "wykaz": []
+}
