@@ -102,6 +102,13 @@ import wschowa from './wschowa/index.js';
 import zagan from './zagan/index.js';
 import wegrow from './wegrow/index.js';
 import sulecin from './sulecin/index.js';
+// Dolnośląskie powiat-seat builds (2026-07-11; each live-groundtruthed with a
+// passing parse test). Both test-tier (dolnoslaskie, none Śląskie). boleslawiec
+// = two-source (Joomla-RSS announcements + BIP born-digital result PDFs); wolow
+// = SkyCMS city portal (wolow.pl), unsold-only outcome stream (no gmina hammer
+// prices published — see spikes/dolnoslaskie/powiat-wolowski/wolow.md §4).
+import boleslawiec from './boleslawiec/index.js';
+import wolow from './wolow/index.js';
 
 export const cities = [
   gliwice,
@@ -189,6 +196,8 @@ export const cities = [
   zagan,
   wegrow,
   sulecin,
+  boleslawiec,
+  wolow,
 ];
 
 /** @param {string} id @returns {object|null} */

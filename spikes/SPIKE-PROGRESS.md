@@ -8,8 +8,8 @@
 
 | Status | Count |
 |---|---|
-| ✅ BUILT | 80 |
-| 🟢 BUILD | 91 |
+| ✅ BUILT | 87 |
+| 🟢 BUILD | 84 |
 | 🟡 VERIFY | 0 |
 | 🔴 NO-BUILD | 156 |
 | ❌ Dropped | 6 |
@@ -17,13 +17,13 @@
 
 **Convention:** every spiked city has a per-city `.md` at its `master-cities.json` path; NO-BUILD verdicts are additionally consolidated in [NO-BUILD.md](./NO-BUILD.md).
 
-## Built adapters (80)
+## Built adapters (87)
 
-Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Końskie, Kraków, Legnica, Lubliniec, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Poddębice, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Szczecin, Szczecinek, Środa Wielkopolska, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wejherowo, Węgorzewo, Zabrze, Zduńska Wola, Zgorzelec, Złotoryja.
+Augustów, Bełchatów, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Gdańsk, Giżycko, Gliwice, Gniezno, Gorzów Wielkopolski, Katowice, Kędzierzyn-Koźle, Kielce, Kłodzko, Końskie, Kraków, Legnica, Lubliniec, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Poddębice, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Skarżysko-Kamienna, Słupsk, Sosnowiec, Stargard, Strzelce Krajeńskie, Sulęcin, Szczecin, Szczecinek, Środa Wielkopolska, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wejherowo, Węgorzewo, Węgrów, Wołów, Wschowa, Zabrze, Zduńska Wola, Zgorzelec, Złotoryja, Żagań.
 
-## BUILD-ready queue (91, by effort)
+## BUILD-ready queue (84, by effort)
 
-Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Sępólno Krajeńskie (Low), Strzelce Krajeńskie (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Sulęcin (Low), Wąbrzeźno (Low), Węgrów (Low), Wołów (Low), Wschowa (Low), Ząbkowice Śląskie (Low), Żagań (Low), Żnin (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Bolesławiec (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wodzisław Śląski (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
+Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (Low), Kłobuck (Low), Kolbuszowa (Low), Krosno Odrzańskie (Low), Kwidzyn (Low), Lębork (Low), Lipsko (Low), Lwówek Śląski (Low), Sępólno Krajeńskie (Low), Strzelce Opolskie (Low), Sucha Beskidzka (Low), Wąbrzeźno (Low), Ząbkowice Śląskie (Low), Żnin (Low), Bartoszyce (Medium), Będzin (Medium), Biała Podlaska (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Elbląg (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Grudziądz (Medium), Gryfino (Medium), Iława (Medium), Jelenia Góra (Medium), Jędrzejów (Medium), Kalisz (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Lubin (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płock (Medium), Płońsk (Medium), Poznań (Medium), Prudnik (Medium), Siedlce (Medium), Słubice (Medium), Sochaczew (Medium), Sopot (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Włocławek (Medium), Wodzisław Śląski (Medium), Wrocław (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
@@ -31,7 +31,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 
 | City | District | Status | Effort·conf |
 |---|---|---|---|
-| Bolesławiec | powiat boleslawiecki | 🟢 BUILD | Medium · LIVE |
+| Bolesławiec | powiat boleslawiecki | ✅ BUILT | Medium · LIVE |
 | Dzierżoniów | powiat dzierżoniowski | 🟢 BUILD | Medium · LIVE |
 | Głogów | powiat głogowski | 🟢 BUILD | Medium · LIVE |
 | Góra | powiat górowski | 🟢 BUILD | Medium · LIVE |
@@ -52,7 +52,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Świdnica | powiat swidnicki | 🟢 BUILD | Medium · LIVE |
 | Trzebnica | powiat trzebnicki | ✅ BUILT | Low · LIVE |
 | Wałbrzych | Wałbrzych (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
-| Wołów | powiat wołowski | 🟢 BUILD | Low · LIVE |
+| Wołów | powiat wołowski | ✅ BUILT | Low · LIVE |
 | Wrocław | Wrocław (m.n.p.p.) | 🟢 BUILD | Medium · LIVE |
 | Ząbkowice Śląskie | powiat ząbkowicki | 🟢 BUILD | Low · LIVE |
 | Zgorzelec | powiat zgorzelecki | ✅ BUILT | Low · LIVE |
@@ -116,12 +116,12 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Międzyrzecz | powiat międzyrzecki | ✅ BUILT | Low · LIVE |
 | Nowa Sól | powiat nowosolski | ✅ BUILT | Low · LIVE |
 | Słubice | powiat słubicki | 🟢 BUILD | Medium · LIVE |
-| Strzelce Krajeńskie | powiat strzelecko-drezdenecki | 🟢 BUILD | Low · LIVE |
-| Sulęcin | powiat sulęciński | 🟢 BUILD | Low · LIVE |
+| Strzelce Krajeńskie | powiat strzelecko-drezdenecki | ✅ BUILT | Low · LIVE |
+| Sulęcin | powiat sulęciński | ✅ BUILT | Low · LIVE |
 | Świebodzin | powiat świebodziński | 🔴 NO-BUILD | — · LIVE |
-| Wschowa | powiat wschowski | 🟢 BUILD | Low · LIVE |
+| Wschowa | powiat wschowski | ✅ BUILT | Low · LIVE |
 | Zielona Góra | Zielona Góra (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
-| Żagań | powiat żagański | 🟢 BUILD | Low · LIVE |
+| Żagań | powiat żagański | ✅ BUILT | Low · LIVE |
 | Żary | powiat żarski | 🟢 BUILD | Medium · LIVE |
 
 ### Łódzkie (21)
@@ -211,7 +211,7 @@ Głubczyce (Low), Gostyń (Low), Jarocin (Low), Kamienna Góra (Low), Kętrzyn (
 | Sokołów Podlaski | powiat sokołowski | 🔴 NO-BUILD | — · LIVE |
 | Szydłowiec | powiat szydłowiecki | 🟢 BUILD | Medium · LIVE |
 | Warszawa | Warszawa (m.n.p.p.) | ✅ BUILT | High · LIVE |
-| Węgrów | powiat węgrowski | 🟢 BUILD | Low · LIVE |
+| Węgrów | powiat węgrowski | ✅ BUILT | Low · LIVE |
 | Wołomin | powiat wolominski | 🔴 NO-BUILD | — · LIVE |
 | Wyszków | powiat wyszkowski | 🔴 NO-BUILD | — · LIVE |
 | Zwoleń | powiat zwoleński | 🔴 NO-BUILD | — · LIVE |
