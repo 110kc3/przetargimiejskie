@@ -1,5 +1,5 @@
 # Spike — Jarocin (Wielkopolskie · powiat jarociński)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (10/10 parse test; TERYT ULDK-confirmed 300602). Analog **brzeg** (no WOKISS adapter existed); source is WOKISS `bip2.wokiss.pl` server-HTML year-index + born-digital text PDFs (handles ordinal-word rounds pierwszy/drugi/trzeci + word-month dates). Board is **land-dominated** — flats rare (the one 2025 flat, Konstytucji 3 Maja 20/17, was odwołany).
 
 ## TL;DR
 Gmina Jarocin (Urząd Miejski) actively sells municipal flats at *ustny przetarg nieograniczony na sprzedaż*. BIP is on the wokiss.pl platform (same as Kalisz, Ostrów Wlkp., Konin etc.) — HTML, year-indexed sub-pages, no auth. Volume is low (1–3 flats/year, often same unit recycled through 1st→2nd→3rd przetarg rounds). Achieved-price stream exists as HTML "Informacja o wyniku" entries on the same BIP pages. Adapter effort is minimal: direct wokiss-family scraper re-use.
