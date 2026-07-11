@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-11T01:22:54.854Z",
+  "generated_at": "2026-07-11T01:57:41.295Z",
   "cities": [
     {
       "id": "gliwice",
@@ -36,8 +36,8 @@
       "host": "www.bytom.pl",
       "unique_properties": 21,
       "active_listings": 14,
-      "active_auctions": 3,
-      "archived_auctions": 18,
+      "active_auctions": 1,
+      "archived_auctions": 20,
       "wykaz_entries": 0,
       "land_plots": 8
     },
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 100
+      "land_plots": 104
     },
     {
       "id": "trzebinia",
@@ -569,7 +569,7 @@
       "host": "bip.gizycko.pl",
       "unique_properties": 2,
       "active_listings": 5,
-      "active_auctions": 1,
+      "active_auctions": 2,
       "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -832,7 +832,7 @@
       "active_auctions": 0,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 10
     },
     {
       "id": "miedzyrzecz",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 39
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -996,12 +996,12 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Gmina Trzebnica",
       "host": "bip.trzebnica.pl",
-      "unique_properties": 3,
-      "active_listings": 3,
+      "unique_properties": 13,
+      "active_listings": 24,
       "active_auctions": 1,
-      "archived_auctions": 2,
+      "archived_auctions": 25,
       "wykaz_entries": 0,
-      "land_plots": 16
+      "land_plots": 41
     },
     {
       "id": "sroda-wielkopolska",
