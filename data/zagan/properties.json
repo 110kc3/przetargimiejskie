@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "city": "zagan",
+  "properties": [
+    {
+      "key": "zelaznej|16|3",
+      "street": "Żelazna",
+      "street_norm": "zelaznej",
+      "building": "16",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/583/1_/",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2025-10-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/589/2_/",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2025-12-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/599/3_/",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2026-03-12",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/634/4_/",
+          "notes": [],
+          "area_m2": 30
+        }
+      ],
+      "area_m2": 30
+    },
+    {
+      "key": "armii krajowej|13|6",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "13",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/580/1_/",
+          "notes": [],
+          "area_m2": 17.82
+        },
+        {
+          "date": "2025-10-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/596/2_/",
+          "notes": [],
+          "area_m2": 17.82
+        },
+        {
+          "date": "2025-12-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/606/3_/",
+          "notes": [],
+          "area_m2": 17.82
+        },
+        {
+          "date": "2026-02-12",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/631/4_/",
+          "notes": [],
+          "area_m2": 17.82
+        }
+      ],
+      "area_m2": 17.82
+    },
+    {
+      "key": "bema|8|3",
+      "street": "Bema",
+      "street_norm": "bema",
+      "building": "8",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/549/9_/",
+          "notes": [],
+          "area_m2": 30.4
+        },
+        {
+          "date": "2025-05-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/561/9_/",
+          "notes": [],
+          "area_m2": 30.4
+        },
+        {
+          "date": "2025-07-22",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/573/3_/",
+          "notes": [],
+          "area_m2": 30.4
+        },
+        {
+          "date": "2026-01-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/620/1_/",
+          "notes": [],
+          "area_m2": 30.4
+        }
+      ],
+      "area_m2": 30.4
+    },
+    {
+      "key": "brodatego|12|2",
+      "street": "Brodatego",
+      "street_norm": "brodatego",
+      "building": "12",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 299000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/454/8_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2024-02-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 299000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/477/10_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2024-04-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 299000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/503/7_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2024-12-18",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 398000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/536/8_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2025-03-03",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 398000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/544/4_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2025-05-15",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/562/10_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2025-07-22",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/574/4_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2025-10-07",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/590/5_/",
+          "notes": [],
+          "area_m2": 115.54
+        },
+        {
+          "date": "2025-12-16",
+          "round": 9,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/600/6_/",
+          "notes": [
+            "achieved price not published by this city's BIP for Pozytywny outcomes"
+          ],
+          "area_m2": 115.54
+        }
+      ],
+      "area_m2": 115.54
+    },
+    {
+      "key": "wiejskiej|41A|1",
+      "street": "Wiejska",
+      "street_norm": "wiejskiej",
+      "building": "41A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/537/9_/",
+          "notes": [],
+          "area_m2": 42
+        },
+        {
+          "date": "2025-03-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/546/6_/",
+          "notes": [],
+          "area_m2": 42
+        },
+        {
+          "date": "2025-05-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/568/16_/",
+          "notes": [
+            "achieved price not published by this city's BIP for Pozytywny outcomes"
+          ],
+          "area_m2": 42
+        }
+      ],
+      "area_m2": 42
+    },
+    {
+      "key": "szprotawskiej|9|3",
+      "street": "Szprotawskiej",
+      "street_norm": "szprotawskiej",
+      "building": "9",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 159000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/525/5_/",
+          "notes": [],
+          "area_m2": 49.06
+        }
+      ],
+      "area_m2": 49.06
+    },
+    {
+      "key": "pilsudskiego|3|6",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "3",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/494/27_/",
+          "notes": [],
+          "area_m2": 36.27
+        },
+        {
+          "date": "2024-04-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 97000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/518/22_/",
+          "notes": [],
+          "area_m2": 36.27
+        }
+      ],
+      "area_m2": 36.27
+    },
+    {
+      "key": "walowej|8|6",
+      "street": "Wałowa",
+      "street_norm": "walowej",
+      "building": "8",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/493/26_/",
+          "notes": [],
+          "area_m2": 46.3
+        },
+        {
+          "date": "2024-04-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/517/21_/",
+          "notes": [],
+          "area_m2": 46.3
+        }
+      ],
+      "area_m2": 46.3
+    },
+    {
+      "key": "lubuskiej|16A|4",
+      "street": "Lubuskiej",
+      "street_norm": "lubuskiej",
+      "building": "16A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 161000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/492/25_/",
+          "notes": [],
+          "area_m2": 48.8
+        },
+        {
+          "date": "2024-04-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 161000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/516/20_/",
+          "notes": [],
+          "area_m2": 48.8
+        }
+      ],
+      "area_m2": 48.8
+    },
+    {
+      "key": "brodatego|10|3",
+      "street": "Brodatego",
+      "street_norm": "brodatego",
+      "building": "10",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/485/18_/",
+          "notes": [],
+          "area_m2": 31.66
+        },
+        {
+          "date": "2024-04-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/509/13_/",
+          "notes": [],
+          "area_m2": 31.66
+        }
+      ],
+      "area_m2": 31.66
+    },
+    {
+      "key": "tartakowej|7|1",
+      "street": "Tartakowa",
+      "street_norm": "tartakowej",
+      "building": "7",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 77600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/458/12_/",
+          "notes": [],
+          "area_m2": 31.84
+        },
+        {
+          "date": "2024-02-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 77600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/480/13_/",
+          "notes": [],
+          "area_m2": 31.84
+        },
+        {
+          "date": "2024-04-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 77600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/505/9_/",
+          "notes": [],
+          "area_m2": 31.84
+        }
+      ],
+      "area_m2": 31.84
+    },
+    {
+      "key": "okrzei|2|4",
+      "street": "Okrzei",
+      "street_norm": "okrzei",
+      "building": "2",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 96300,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/452/6_/",
+          "notes": [],
+          "area_m2": 30.25
+        },
+        {
+          "date": "2024-02-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 96300,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/475/8_/",
+          "notes": [],
+          "area_m2": 30.25
+        },
+        {
+          "date": "2024-04-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 96300,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.zagan.pl/przetargi/344/501/5_/",
+          "notes": [],
+          "area_m2": 30.25
+        }
+      ],
+      "area_m2": 30.25
+    }
+  ]
+}
