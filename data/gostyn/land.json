@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "city": "gostyn",
+  "plots": [
+    {
+      "key": "dz|sikorzynie|107/2",
+      "kind": "grunt",
+      "city": "gostyn",
+      "dzialka_nr": "107/2",
+      "obreb": "Sikorzynie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2F2%20Sikorzynie%20Gosty%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1010,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-22",
+          "round": 2,
+          "starting_price_pln": 52000,
+          "outcome": "sold",
+          "final_price_pln": 55000,
+          "area_m2": 1010
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "107/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2F2%20Sikorzynie%20Gosty%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|sikorzynie|107/7",
+      "kind": "grunt",
+      "city": "gostyn",
+      "dzialka_nr": "107/7",
+      "obreb": "Sikorzynie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2F7%20Sikorzynie%20Gosty%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 975,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-22",
+          "round": 2,
+          "starting_price_pln": 50000,
+          "outcome": "sold",
+          "final_price_pln": 57200,
+          "area_m2": 975
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "107/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2F7%20Sikorzynie%20Gosty%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|sikorzynie|107/5",
+      "kind": "grunt",
+      "city": "gostyn",
+      "dzialka_nr": "107/5",
+      "obreb": "Sikorzynie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2F5%20Sikorzynie%20Gosty%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1002,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-22",
+          "round": 2,
+          "starting_price_pln": 51000,
+          "outcome": "sold",
+          "final_price_pln": 51600,
+          "area_m2": 1002
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "107/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2F5%20Sikorzynie%20Gosty%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}
