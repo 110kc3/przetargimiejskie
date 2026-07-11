@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "city": "sroda-wielkopolska",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Westerplatte 9/13",
+      "address": {
+        "street": "Westerplatte",
+        "street_norm": "westerplatte",
+        "building": "9",
+        "apt": "13",
+        "key": "westerplatte|9|13",
+        "warning": null
+      },
+      "area_m2": 29.36,
+      "starting_price_pln": 200000,
+      "auction_date": "2026-03-06",
+      "round": 2,
+      "published_date": "2026-01-29",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/864347/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Westerplatte 9/13",
+      "address": {
+        "street": "Westerplatte",
+        "street_norm": "westerplatte",
+        "building": "9",
+        "apt": "13",
+        "key": "westerplatte|9|13",
+        "warning": null
+      },
+      "area_m2": 29.36,
+      "starting_price_pln": 200000,
+      "auction_date": "2025-12-19",
+      "round": 1,
+      "published_date": null,
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/849538/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kilińskiego 20/7",
+      "address": {
+        "street": "Kilińskiego",
+        "street_norm": "kilinskiego",
+        "building": "20",
+        "apt": "7",
+        "key": "kilinskiego|20|7",
+        "warning": null
+      },
+      "area_m2": 26.62,
+      "starting_price_pln": 100000,
+      "auction_date": "2024-08-23",
+      "round": 1,
+      "published_date": null,
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/768668/ogloszenie_burmistrza_miasta_o_przetargu_ustnym_nieograniczonym_"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sejmikowej 2/5",
+      "address": {
+        "street": "Sejmikowej",
+        "street_norm": "sejmikowej",
+        "building": "2",
+        "apt": "5",
+        "key": "sejmikowej|2|5",
+        "warning": null
+      },
+      "area_m2": 28.35,
+      "starting_price_pln": 108000,
+      "auction_date": "2023-01-27",
+      "round": 2,
+      "published_date": "2022-12-22",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/664556/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sejmikowej 2/5",
+      "address": {
+        "street": "Sejmikowej",
+        "street_norm": "sejmikowej",
+        "building": "2",
+        "apt": "5",
+        "key": "sejmikowej|2|5",
+        "warning": null
+      },
+      "area_m2": 28.35,
+      "starting_price_pln": 108000,
+      "auction_date": "2022-10-07",
+      "round": 1,
+      "published_date": "2022-08-29",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/645471/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 20 Października 42/22",
+      "address": {
+        "street": "20 Października",
+        "street_norm": "20 pazdziernika",
+        "building": "42",
+        "apt": "22",
+        "key": "20 pazdziernika|42|22",
+        "warning": null
+      },
+      "area_m2": 30,
+      "starting_price_pln": 145000,
+      "auction_date": "2022-09-16",
+      "round": 1,
+      "published_date": "2022-11-11",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/643581/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Daszyńskiego 20/14",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "20",
+        "apt": "14",
+        "key": "daszynskiego|20|14",
+        "warning": null
+      },
+      "area_m2": 36.8,
+      "starting_price_pln": 60000,
+      "auction_date": "2022-08-08",
+      "round": 3,
+      "published_date": "2022-06-30",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/637833/ogloszenie_o_trzecim_przetargu_ustnym_nieograniczonym_na_sprzeda"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Daszyńskiego 20/14",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "20",
+        "apt": "14",
+        "key": "daszynskiego|20|14",
+        "warning": null
+      },
+      "area_m2": 36.8,
+      "starting_price_pln": 60000,
+      "auction_date": "2022-05-06",
+      "round": 2,
+      "published_date": "2022-03-31",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/621956/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górki 7/2",
+      "address": {
+        "street": "Górki",
+        "street_norm": "gorki",
+        "building": "7",
+        "apt": "2",
+        "key": "gorki|7|2",
+        "warning": null
+      },
+      "area_m2": 36.1,
+      "starting_price_pln": 80000,
+      "auction_date": "2022-01-14",
+      "round": 1,
+      "published_date": "2021-12-01",
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/601223/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Daszyńskiego 20/14",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "20",
+        "apt": "14",
+        "key": "daszynskiego|20|14",
+        "warning": null
+      },
+      "area_m2": 36.8,
+      "starting_price_pln": 60000,
+      "auction_date": "2022-01-14",
+      "round": 1,
+      "published_date": null,
+      "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/601200/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu"
+    }
+  ],
+  "wykaz": []
+}

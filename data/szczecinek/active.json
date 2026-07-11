@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "city": "szczecinek",
+  "listings": [
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2026-08-06",
+      "round": 5,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7418/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7418/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Kościuszki 22",
+      "address": {
+        "street": "Kościuszki",
+        "street_norm": "kosciuszki",
+        "building": "22",
+        "apt": null,
+        "key": "kosciuszki|22|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 3500000,
+      "auction_date": "2026-07-14",
+      "round": 1,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7373/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7373/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Narutowicza 3E/9",
+      "address": {
+        "street": "Narutowicza",
+        "street_norm": "narutowicza",
+        "building": "3E",
+        "apt": "9",
+        "key": "narutowicza|3E|9",
+        "warning": null
+      },
+      "area_m2": 29.49,
+      "starting_price_pln": 130000,
+      "auction_date": "2026-04-28",
+      "round": 3,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7273/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7273/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 280000,
+      "auction_date": "2026-03-26",
+      "round": 4,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7223/ogloszenia-o-przetargu-na-zbycie-lokalu-przy-ulicu-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7223/ogloszenia-o-przetargu-na-zbycie-lokalu-przy-ulicu-koszalinskiej-58-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2026-04-16",
+      "round": 4,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7164/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ulicy-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7164/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ulicy-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Narutowicza 3E/9",
+      "address": {
+        "street": "Narutowicza",
+        "street_norm": "narutowicza",
+        "building": "3E",
+        "apt": "9",
+        "key": "narutowicza|3E|9",
+        "warning": null
+      },
+      "area_m2": 29.49,
+      "starting_price_pln": 140000,
+      "auction_date": "2026-02-19",
+      "round": 2,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7140/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7140/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Narutowicza 3E/9",
+      "address": {
+        "street": "Narutowicza",
+        "street_norm": "narutowicza",
+        "building": "3E",
+        "apt": "9",
+        "key": "narutowicza|3E|9",
+        "warning": null
+      },
+      "area_m2": 29.49,
+      "starting_price_pln": 160000,
+      "auction_date": "2025-11-20",
+      "round": null,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/6904/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/6904/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2025-12-11",
+      "round": 3,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/6884/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/6884/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 350000,
+      "auction_date": "2025-10-09",
+      "round": 3,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/6819/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/6819/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 350000,
+      "auction_date": "2025-07-31",
+      "round": 2,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/6694/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/6694/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2700000,
+      "auction_date": "2025-09-04",
+      "round": 2,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/6693/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/6693/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mierosławskiego 1a/6",
+      "address": {
+        "street": "Mierosławskiego",
+        "street_norm": "mieroslawskiego",
+        "building": "1A",
+        "apt": "6",
+        "key": "mieroslawskiego|1A|6",
+        "warning": null
+      },
+      "area_m2": 45.04,
+      "starting_price_pln": 180000,
+      "auction_date": "2025-06-12",
+      "round": null,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/5916/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-mieroslawskiego-1a-6",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/5916/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-mieroslawskiego-1a-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 420000,
+      "auction_date": "2025-05-15",
+      "round": null,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/5843/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/5843/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 3300000,
+      "auction_date": "2025-05-08",
+      "round": 5,
+      "detail_url": "https://bip.szczecinek.pl/artykul/595/5306/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/595/5306/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 350000,
+      "auction_date": "2025-01-14",
+      "round": 6,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/5115/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/5115/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 380000,
+      "auction_date": "2024-10-23",
+      "round": 5,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/4954/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/4954/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2024-11-14",
+      "round": 5,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/4953/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/4953/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 390000,
+      "auction_date": "2024-08-01",
+      "round": 4,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/4854/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/4854/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2024-07-31",
+      "round": 4,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/4672/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/4672/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 420000,
+      "auction_date": "2024-05-23",
+      "round": 3,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/3322/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/3322/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2024-04-24",
+      "round": 3,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/2692/ogloszenie-o-przetargu-na-zbycie-nieruchomosci",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/2692/ogloszenie-o-przetargu-na-zbycie-nieruchomosci"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Koszalińskiej 58/2",
+      "address": {
+        "street": "Koszalińskiej",
+        "street_norm": "koszalinskiej",
+        "building": "58",
+        "apt": "2",
+        "key": "koszalinskiej|58|2",
+        "warning": null
+      },
+      "area_m2": 127.6,
+      "starting_price_pln": 435000,
+      "auction_date": "2024-02-29",
+      "round": 2,
+      "detail_url": "https://bip.szczecinek.pl/artykul/547/2661/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+      "source_url": "https://bip.szczecinek.pl/artykul/547/2661/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2"
+    }
+  ],
+  "wykaz": []
+}

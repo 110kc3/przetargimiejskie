@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-10T20:59:44.194Z",
+  "generated_at": "2026-07-11T01:22:54.854Z",
   "cities": [
     {
       "id": "gliwice",
@@ -963,6 +963,84 @@
       "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 12
+    },
+    {
+      "id": "pszczyna",
+      "label": "Pszczyna",
+      "voivodeship": "slaskie",
+      "authority": "Burmistrz Pszczyny (Urząd Miejski w Pszczynie)",
+      "host": "bip.pszczyna.pl",
+      "unique_properties": 18,
+      "active_listings": 36,
+      "active_auctions": 0,
+      "archived_auctions": 42,
+      "wykaz_entries": 0,
+      "land_plots": 39
+    },
+    {
+      "id": "zdunska-wola",
+      "label": "Zduńska Wola",
+      "voivodeship": "lodzkie",
+      "authority": "Prezydent Miasta Zduńska Wola",
+      "host": "bip.zdunskawola.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 2
+    },
+    {
+      "id": "trzebnica",
+      "label": "Trzebnica",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Gmina Trzebnica",
+      "host": "bip.trzebnica.pl",
+      "unique_properties": 3,
+      "active_listings": 3,
+      "active_auctions": 1,
+      "archived_auctions": 2,
+      "wykaz_entries": 0,
+      "land_plots": 16
+    },
+    {
+      "id": "sroda-wielkopolska",
+      "label": "Środa Wielkopolska",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miejski w Środzie Wielkopolskiej",
+      "host": "bip.umsroda.pl",
+      "unique_properties": 6,
+      "active_listings": 10,
+      "active_auctions": 0,
+      "archived_auctions": 10,
+      "wykaz_entries": 0,
+      "land_plots": 27
+    },
+    {
+      "id": "szczecinek",
+      "label": "Szczecinek",
+      "voivodeship": "zachodniopomorskie",
+      "authority": "Urząd Miasta Szczecinek",
+      "host": "bip.szczecinek.pl",
+      "unique_properties": 6,
+      "active_listings": 22,
+      "active_auctions": 2,
+      "archived_auctions": 22,
+      "wykaz_entries": 0,
+      "land_plots": 52
+    },
+    {
+      "id": "wegorzewo",
+      "label": "Węgorzewo",
+      "voivodeship": "warminsko-mazurskie",
+      "authority": "Gmina Węgorzewo",
+      "host": "bip.wegorzewo.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }

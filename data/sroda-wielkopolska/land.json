@@ -1,0 +1,941 @@
+{
+  "schema_version": 1,
+  "city": "sroda-wielkopolska",
+  "plots": [
+    {
+      "key": "dz|437/82",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "437/82",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F82%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2907,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-31",
+          "round": 1,
+          "starting_price_pln": 697680,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/688898/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2023-11-06",
+          "round": 2,
+          "starting_price_pln": 697680,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/704374/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-11-15",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/775852/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        },
+        {
+          "date": "2026-07-17",
+          "round": 1,
+          "starting_price_pln": 1017450,
+          "outcome": "active",
+          "area_m2": 2907,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/881592/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "437/82"
+        }
+      ]
+    },
+    {
+      "key": "dz|953/44",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "953/44",
+      "obreb": null,
+      "street": "Strzeleckiej",
+      "building": null,
+      "address_raw": "ul. Strzeleckiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20953%2F44%20Strzeleckiej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 647,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-29",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 647,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/783352/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        },
+        {
+          "date": "2026-07-10",
+          "round": 1,
+          "starting_price_pln": 284680,
+          "outcome": "archived",
+          "area_m2": 647,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/885397/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "953/44"
+        }
+      ]
+    },
+    {
+      "key": "dz|3654/3",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3654/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203654%2F3%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-10",
+          "round": 1,
+          "starting_price_pln": 40000,
+          "outcome": "archived",
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/885329/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3654/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|265",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "265",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "wieś Chocicza",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20265%20wie%C5%9B%20Chocicza%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4400,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-19",
+          "round": 1,
+          "starting_price_pln": 10000,
+          "outcome": "archived",
+          "area_m2": 4400,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/849551/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_nieruchom",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "265"
+        }
+      ]
+    },
+    {
+      "key": "dz|3737",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3737",
+      "obreb": null,
+      "street": "Niedziałkowskiego",
+      "building": null,
+      "address_raw": "ul. Niedziałkowskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203737%20Niedzia%C5%82kowskiego%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 494,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-13",
+          "round": 1,
+          "starting_price_pln": 50000,
+          "outcome": "archived",
+          "area_m2": 494,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/838036/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_udzialu_w",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        },
+        {
+          "date": "2025-11-21",
+          "round": 1,
+          "starting_price_pln": 50000,
+          "outcome": "archived",
+          "area_m2": 494,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/843407/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_udzialu_w",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3737"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/11",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/11",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F11%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 692,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 124560,
+          "outcome": "archived",
+          "area_m2": 692,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/14",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/14",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F14%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 391,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 70380,
+          "outcome": "archived",
+          "area_m2": 391,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/15",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/15",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F15%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 392,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 70560,
+          "outcome": "archived",
+          "area_m2": 392,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/15"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/16",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/16",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F16%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 391,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 70380,
+          "outcome": "archived",
+          "area_m2": 391,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/18",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/18",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F18%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 391,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 70380,
+          "outcome": "archived",
+          "area_m2": 391,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/18"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/19",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/19",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F19%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 574,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 103320,
+          "outcome": "archived",
+          "area_m2": 574,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/19"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/23",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/23",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F23%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 567,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 90720,
+          "outcome": "archived",
+          "area_m2": 567,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 102060,
+          "outcome": "archived",
+          "area_m2": 567,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/23"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/26",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/26",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F26%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 569,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 91040,
+          "outcome": "archived",
+          "area_m2": 569,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 102420,
+          "outcome": "archived",
+          "area_m2": 569,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/26"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/27",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/27",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F27%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 570,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 91200,
+          "outcome": "archived",
+          "area_m2": 570,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 102600,
+          "outcome": "archived",
+          "area_m2": 570,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/27"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/28",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/28",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F28%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 571,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 91360,
+          "outcome": "archived",
+          "area_m2": 571,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 102780,
+          "outcome": "archived",
+          "area_m2": 571,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/28"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/29",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/29",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F29%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1123,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 179680,
+          "outcome": "archived",
+          "area_m2": 1123,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 202140,
+          "outcome": "archived",
+          "area_m2": 1123,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/29"
+        }
+      ]
+    },
+    {
+      "key": "dz|3689/43",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3689/43",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203689%2F43%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 496,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 89280,
+          "outcome": "archived",
+          "area_m2": 496,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3689/43"
+        }
+      ]
+    },
+    {
+      "key": "dz|3689/44",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3689/44",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203689%2F44%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 449,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 80820,
+          "outcome": "archived",
+          "area_m2": 449,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3689/44"
+        }
+      ]
+    },
+    {
+      "key": "dz|3689/83",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3689/83",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203689%2F83%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 343,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 61740,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3689/83"
+        }
+      ]
+    },
+    {
+      "key": "dz|3689/93",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3689/93",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203689%2F93%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 346,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 62280,
+          "outcome": "archived",
+          "area_m2": 346,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3689/93"
+        }
+      ]
+    },
+    {
+      "key": "dz|3689/99",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3689/99",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203689%2F99%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 461,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 82980,
+          "outcome": "archived",
+          "area_m2": 461,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3689/99"
+        }
+      ]
+    },
+    {
+      "key": "dz|28/118",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "28/118",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2028%2F118%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 691,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-29",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 691,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/783349/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "28/118"
+        }
+      ]
+    },
+    {
+      "key": "dz|552/137",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "552/137",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20552%2F137%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 174,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-11-10",
+          "round": 1,
+          "starting_price_pln": 35000,
+          "outcome": "archived",
+          "area_m2": 174,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/711204/ogloszenie_o_przetargu_usntym_ograniczonym_na_sprzedaz_nieruchom",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "552/137"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/24",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/24",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F24%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 567,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 90720,
+          "outcome": "archived",
+          "area_m2": 567,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/24"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/25",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/25",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F25%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 569,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-13",
+          "round": 1,
+          "starting_price_pln": 91040,
+          "outcome": "archived",
+          "area_m2": 569,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/705908/ogloszenie_o_przetargach_na_sprzedaz_nieruchomosci_niezabudowany",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/25"
+        }
+      ]
+    },
+    {
+      "key": "dz|1689/1",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "1689/1",
+      "obreb": null,
+      "street": "Krótkiej",
+      "building": null,
+      "address_raw": "rejon ul. Krótkiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201689%2F1%20Kr%C3%B3tkiej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 17,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-28",
+          "round": 1,
+          "starting_price_pln": 3400,
+          "outcome": "archived",
+          "area_m2": 17,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/693966/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_nieruchom",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1689/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|3688/17",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3688/17",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203688%2F17%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 392,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-06",
+          "round": 1,
+          "starting_price_pln": 70560,
+          "outcome": "archived",
+          "area_m2": 392,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 50960,
+          "outcome": "active",
+          "area_m2": 392,
+          "detail_url": "http://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/591416/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/5"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3688/17"
+        }
+      ]
+    }
+  ]
+}

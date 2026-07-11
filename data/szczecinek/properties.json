@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "city": "szczecinek",
+  "properties": [
+    {
+      "key": "wladyslawa bartoszewskiego|12|",
+      "street": "Władysława Bartoszewskiego",
+      "street_norm": "wladyslawa bartoszewskiego",
+      "building": "12",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-04-24",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/2692/ogloszenie-o-przetargu-na-zbycie-nieruchomosci",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-07-31",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4672/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-11-14",
+          "round": 5,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4953/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-08",
+          "round": 6,
+          "kind": "zabudowana",
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/attachments/download/12742",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5306/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 2700000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6693/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-12-11",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/attachments/download/13677",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6884/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+        },
+        {
+          "date": "2026-04-16",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7164/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ulicy-w-bartoszewskiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-06",
+          "round": 5,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7418/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "kosciuszki|22|",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "22",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 3500000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7373/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "narutowicza|3E|9",
+      "street": "Narutowicza",
+      "street_norm": "narutowicza",
+      "building": "3E",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7035/informacja-o-wyniku-przetargu-z-dnia-20-11-2025r-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-przy-ul-narutowicza-3e",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 29.49,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6904/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9"
+        },
+        {
+          "date": "2026-02-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7239/informacja-o-wyniku-przetargu-z-dnia-19-02-2026r-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-przy-ul-narutowicza-3e",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 29.49,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7140/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9"
+        },
+        {
+          "date": "2026-04-28",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7368/informacja-o-wyniku-przetargu-z-dnia-28-04-2026r-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-przy-ul-narutowicza-3e",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 29.49,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7273/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9"
+        }
+      ],
+      "area_m2": 29.49
+    },
+    {
+      "key": "w bartoszewskiego|12|",
+      "street": "W. Bartoszewskiego",
+      "street_norm": "w bartoszewskiego",
+      "building": "12",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/6837/informacja-o-wyniku-przetargu-z-dnia-04-09-2025r-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        },
+        {
+          "date": "2026-04-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7351/informacja-o-wyniku-przetargu-z-dnia-16-04-2026-r-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-w-bartoszewskiego-12",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "koszalinskiej|58|2",
+      "street": "Koszalińska",
+      "street_norm": "koszalinskiej",
+      "building": "58",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 435000,
+          "outcome": "archived",
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/2661/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-05-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "archived",
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/3322/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-08-01",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 390000,
+          "outcome": "archived",
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4854/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-10-23",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "archived",
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4954/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-01-14",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/5115/ogloszenie-o-przetargu-na-sprzedaz-nieruchomosci-przy-ul-koszalinskiej-58-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-15",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "archived",
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5843/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-07-31",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/6797/informacja-o-wyniku-przetargu-z-dnia-31-07-2025r-na-sprzedaz-lokalu-mieszkalnego-nr-2-polozonego-w-budynku-przy-ul-koszalinskiej-58",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6694/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2"
+        },
+        {
+          "date": "2025-10-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/6905/informacja-o-wyniku-przetargu-z-dnia-09-10-2025r-na-sprzedaz-lokalu-mieszkalnego-nr-2-polozonego-w-budynku-przy-ul-koszalinskiej-58",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6819/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-koszalinskiej-58-2"
+        },
+        {
+          "date": "2026-03-26",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7310/informacja-o-wyniku-przetargu-z-dnia-26-03-2026r-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-koszalinskiej-58",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 127.6,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7223/ogloszenia-o-przetargu-na-zbycie-lokalu-przy-ulicu-koszalinskiej-58-2"
+        }
+      ],
+      "area_m2": 127.6
+    },
+    {
+      "key": "mieroslawskiego|1A|6",
+      "street": "Mierosławskiego",
+      "street_norm": "mieroslawskiego",
+      "building": "1A",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 45.04,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5916/ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-mieroslawskiego-1a-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.04
+    }
+  ]
+}

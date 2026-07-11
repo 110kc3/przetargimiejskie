@@ -121,6 +121,9 @@ const EXEMPT_NEW = new Map([
   ['mragowo', { since: '2026-07-10', reason: 'live-verified: CNT board has active land (7 plots) but no active flats now (unique 1); active-flat parse unvalidated until one appears' }],
   // Batch 2 (registered 2026-07-10).
   ['pleszew', { since: '2026-07-10', reason: 'live-verified: WOKISS board has active land (21 plots) but the sole flat asset (Zachodnia 1) is dormant since Feb 2025 (I→II unsold, no III posted) → 0 active flats now; active-flat parse unvalidated until one appears' }],
+  // Batch 3 (registered 2026-07-11).
+  ['zdunska-wola', { since: '2026-07-11', reason: 'live-verified: Logonet board has active land but no active flats now, and its rolling board ages sold results out (unique 0); active-flat parse unvalidated until one appears' }],
+  ['wegorzewo', { since: '2026-07-11', reason: 'first Pi refresh blocked by the host anti-abuse rate-limit (build agent made ~150 research reqs) → 0 records; adapter live-verified 2 listings/10 land during build; CI runner-IP refresh will populate' }],
 ]);
 
 const now = Date.now();

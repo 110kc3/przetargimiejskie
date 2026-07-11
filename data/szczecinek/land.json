@@ -1,0 +1,1813 @@
+{
+  "schema_version": 1,
+  "city": "szczecinek",
+  "plots": [
+    {
+      "key": "dz|28|88/9",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "88/9",
+      "obreb": "28",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Trzesieckiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2088%2F9%20ul.%20Trzesieckiej%2028%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7064,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "starting_price_pln": 1700000,
+          "outcome": "active",
+          "area_m2": 7064,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7415/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-trzesieckiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7415/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-trzesieckiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "88/9"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/13",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/13",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F13%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1066,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1066
+        },
+        {
+          "date": "2026-06-23",
+          "round": 3,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1066
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/13"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/14",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/14",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F14%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1069,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2026-06-23",
+          "round": 3,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|07|466/2, 465/3, 465/4",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "466/2, 465/3, 465/4",
+      "obreb": "07",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kołobrzeskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20466%2F2%2C%20465%2F3%2C%20465%2F4%20ul.%20Ko%C5%82obrzeskiej%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 10698,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-03",
+          "round": 1,
+          "starting_price_pln": 2700000,
+          "outcome": "archived",
+          "area_m2": 10698,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7276/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-kolobrzeskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7276/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-kolobrzeskiej",
+          "final_price_pln": 3590000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "466/2"
+        },
+        {
+          "nr": "465/3"
+        },
+        {
+          "nr": "465/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|1448/11",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/11",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F11%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 858,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-08",
+          "round": 3,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 858
+        },
+        {
+          "date": "2026-01-21",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "final_price_pln": 121200,
+          "area_m2": 858
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/15",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/15",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F15%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1067,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "final_price_pln": 129600,
+          "area_m2": 1067
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/15"
+        }
+      ]
+    },
+    {
+      "key": "dz|21|31/18",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "31/18",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Fabrycznej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%2F18%20ul.%20Fabrycznej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2388,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "sold",
+          "final_price_pln": 202000,
+          "area_m2": 2388
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "31/18"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. kaszubskiej",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "08",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Kaszubskiej%2008%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-09",
+          "round": 2,
+          "starting_price_pln": 1400000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. kołorzeskiej",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "07",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kołorzeskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Ko%C5%82orzeskiej%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 13619,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-09",
+          "round": 2,
+          "starting_price_pln": 4300000,
+          "outcome": "unsold",
+          "area_m2": 13619
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. sikorskiego",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "19",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sikorskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Sikorskiego%2019%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-08",
+          "round": 1,
+          "starting_price_pln": 390000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|21|38/9",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "38/9",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pilskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2038%2F9%20ul.%20Pilskiej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 5802,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-08",
+          "round": 2,
+          "starting_price_pln": 400000,
+          "outcome": "unsold",
+          "area_m2": 5802
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "38/9"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|1448/6",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/6",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F6%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 716,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-08",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "sold",
+          "final_price_pln": 141000,
+          "area_m2": 716
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/6"
+        }
+      ]
+    },
+    {
+      "key": "dz|28|279",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "279",
+      "obreb": "28",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kościuszki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20279%20ul.%20Ko%C5%9Bciuszki%2028%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 539,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-18",
+          "round": 1,
+          "starting_price_pln": 72600,
+          "outcome": "archived",
+          "area_m2": 539,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/2746/przetarg-ustny-na-sprzedaz-nieruchomosci-przy-ul-kosciuszki-ograniczonym-do-osob-wladajacych-nieruchomosciami-przyleglymi-w-celu-poprawy-warunkow-zagospodarowania-nieruchomosci-przyleglych",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/2746/przetarg-ustny-na-sprzedaz-nieruchomosci-przy-ul-kosciuszki-ograniczonym-do-osob-wladajacych-nieruchomosciami-przyleglymi-w-celu-poprawy-warunkow-zagospodarowania-nieruchomosci-przyleglych"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "279"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|341/21",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/21",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F21%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 581,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "area_m2": 581
+        },
+        {
+          "date": "2021-09-16",
+          "round": 4,
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "area_m2": 581
+        },
+        {
+          "date": "2021-12-01",
+          "round": 2,
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "area_m2": 581
+        },
+        {
+          "date": "2022-10-21",
+          "round": 3,
+          "starting_price_pln": 55000,
+          "outcome": "sold",
+          "final_price_pln": 74100,
+          "area_m2": 581
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/21"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|100/14",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "100/14",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20100%2F14%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1246,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-07-06",
+          "round": 2,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 1246
+        },
+        {
+          "date": "2022-02-23",
+          "round": 3,
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "final_price_pln": 111100,
+          "area_m2": 1246
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "100/14"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. juliana tuwima",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Juliana Tuwima",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Juliana%20Tuwima%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-02-23",
+          "round": 1,
+          "starting_price_pln": 50000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. bolesława prusa",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bolesława Prusa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-02-23",
+          "round": 1,
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "final_price_pln": 60600
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|15|330",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "330",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bolesława Prusa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20330%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 665,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-02-23",
+          "round": 1,
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "area_m2": 665
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "330"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/2",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/2",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F2%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1307,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-02-23",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 1307
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/6",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/6",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F6%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1347,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-02-23",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "final_price_pln": 80800,
+          "area_m2": 1347
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/6"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/8",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/8",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F8%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1007,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-02-23",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "unsold",
+          "area_m2": 1007
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/8"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. pilskiej",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pilskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Pilskiej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-07-06",
+          "round": 1,
+          "starting_price_pln": 280000,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2022-02-23",
+          "round": 2,
+          "starting_price_pln": 400000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|07|72/19",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "72/19",
+      "obreb": "07",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Derdowskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2072%2F19%20ul.%20Derdowskiego%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-16",
+          "round": 1,
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "final_price_pln": 2037,
+          "area_m2": 2
+        },
+        {
+          "date": "2021-12-01",
+          "round": 2,
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "final_price_pln": 2037,
+          "area_m2": 2
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "72/19"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|341/22",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/22",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F22%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 654,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "area_m2": 654
+        },
+        {
+          "date": "2021-09-16",
+          "round": 4,
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "area_m2": 654
+        },
+        {
+          "date": "2021-12-01",
+          "round": 2,
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "area_m2": 654
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/22"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|341/25",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/25",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F25%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 752,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 56000,
+          "outcome": "unsold",
+          "area_m2": 752
+        },
+        {
+          "date": "2021-09-16",
+          "round": 4,
+          "starting_price_pln": 65000,
+          "outcome": "unsold",
+          "area_m2": 752
+        },
+        {
+          "date": "2021-12-01",
+          "round": 2,
+          "starting_price_pln": 65000,
+          "outcome": "sold",
+          "final_price_pln": 65650,
+          "area_m2": 752
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/25"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|325",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "325",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bolesława Prusa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20325%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 644,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-16",
+          "round": 1,
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "final_price_pln": 66000,
+          "area_m2": 644
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "325"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|326",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "326",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bolesława Prusa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20326%20ul.%20Boles%C5%82awa%20Prusa%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 648,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-16",
+          "round": 1,
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "final_price_pln": 72600,
+          "area_m2": 648
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "326"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|341/24",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/24",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F24%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 681,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 51000,
+          "outcome": "unsold",
+          "area_m2": 681
+        },
+        {
+          "date": "2021-09-16",
+          "round": 4,
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "final_price_pln": 60600,
+          "area_m2": 681
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/24"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|347",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "347",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1055,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 78000,
+          "outcome": "unsold",
+          "area_m2": 1055
+        },
+        {
+          "date": "2021-09-16",
+          "round": 4,
+          "starting_price_pln": 85000,
+          "outcome": "sold",
+          "final_price_pln": 85850,
+          "area_m2": 1055
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "347"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|341/38",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/38",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F38%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 728,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-07-06",
+          "round": 3,
+          "starting_price_pln": 58500,
+          "outcome": "sold",
+          "final_price_pln": 59090,
+          "area_m2": 728
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/38"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. fabrycznej",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Fabrycznej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Fabrycznej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-07-06",
+          "round": 3,
+          "starting_price_pln": 380000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|15|341/20",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/20",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa Gałczyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F20%20ul.%20Konstantego%20Ildefonsa%20Ga%C5%82czy%C5%84skiego%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 863,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 65000,
+          "outcome": "sold",
+          "final_price_pln": 65650,
+          "area_m2": 863
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/20"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. orzechowej",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Orzechowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Orzechowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 35000,
+          "outcome": "sold",
+          "final_price_pln": 35350
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. modrzewiowej",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": null,
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 50000,
+          "outcome": "sold",
+          "final_price_pln": 50500
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|21|31/22",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "31/22",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Harcerskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%2F22%20ul.%20Harcerskiej%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 890,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-12-18",
+          "round": 3,
+          "starting_price_pln": 180000,
+          "outcome": "sold",
+          "final_price_pln": 181800,
+          "area_m2": 890
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "31/22"
+        }
+      ]
+    },
+    {
+      "key": "dz|13|103/1",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "103/1",
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pilskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20103%2F1%20ul.%20Pilskiej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1446,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-16",
+          "round": 1,
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "area_m2": 1446
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 830000,
+          "outcome": "active",
+          "area_m2": 1446,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7440/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7440/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "103/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/12",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/12",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20454%2F12%20ul.%20Modrzewiowej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 866,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 866
+        },
+        {
+          "date": "2026-06-23",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 866
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 866,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7394/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-modrzewiowej-k-i-galczynskiego-os-marcelin",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7394/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-modrzewiowej-k-i-galczynskiego-os-marcelin"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/12"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|1448/7",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/7",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F7%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 757,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 757
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 757,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7253/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-modrzewiowej-k-i-galczynskiego-os-marcelin-slowianskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7253/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-modrzewiowej-k-i-galczynskiego-os-marcelin-slowianskiej"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 757,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/7080/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-modrzewiowej-fabrycznej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/7080/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-modrzewiowej-fabrycznej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|13|103/1, 5/30, 5/75",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "103/1, 5/30, 5/75",
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lipowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20103%2F1%2C%205%2F30%2C%205%2F75%20ul.%20Lipowej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 13619,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 850000,
+          "outcome": "active",
+          "area_m2": 13619,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7252/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej-kolobrzeskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7252/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej-kolobrzeskiej"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 900000,
+          "outcome": "active",
+          "area_m2": 13619,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6983/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej-kolobrzeskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/6983/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej-kolobrzeskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "103/1"
+        },
+        {
+          "nr": "5/30"
+        },
+        {
+          "nr": "5/75"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|34/37, 103, 104/3, 105, 106/2",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "34/37, 103, 104/3, 105, 106/2",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2034%2F37%2C%20103%2C%20104%2F3%2C%20105%2C%20106%2F2%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 87132,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 490000,
+          "outcome": "active",
+          "area_m2": 87132,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7185/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-g-narutowicza-trzesieckiej-polozonych-w-obrebie-15",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7185/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-g-narutowicza-trzesieckiej-polozonych-w-obrebie-15"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "34/37"
+        },
+        {
+          "nr": "103"
+        },
+        {
+          "nr": "104/3"
+        },
+        {
+          "nr": "105"
+        },
+        {
+          "nr": "106/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|15|341/17",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "341/17",
+      "obreb": "15",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ildefonsa 110",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F17%20ul.%20Konstantego%20Ildefonsa%20110%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1001,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-08",
+          "round": 3,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 1001
+        },
+        {
+          "date": "2026-06-23",
+          "round": 4,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 1001
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1001,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/7092/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-k-i-galczynskiego-os-marcelin-slowianskiej-bukowej-modrzewiowej-fabrycznej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/7092/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-k-i-galczynskiego-os-marcelin-slowianskiej-bukowej-modrzewiowej-fabrycznej"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 1001,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6891/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-k-i-galczynskiego-os-marcelin-slowianskiej-kaszubskiej-bukowej-modrzewiowej-fabrycznej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/6891/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-k-i-galczynskiego-os-marcelin-slowianskiej-kaszubskiej-bukowej-modrzewiowej-fabrycznej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "341/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|13|685",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "685",
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Słowiańskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20685%20ul.%20S%C5%82owia%C5%84skiej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1827,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-16",
+          "round": 1,
+          "starting_price_pln": 365000,
+          "outcome": "sold",
+          "final_price_pln": 1827,
+          "area_m2": 2
+        },
+        {
+          "date": "2021-12-01",
+          "round": 2,
+          "starting_price_pln": 365000,
+          "outcome": "sold",
+          "final_price_pln": 1827,
+          "area_m2": 2
+        },
+        {
+          "date": "2024-10-17",
+          "round": 3,
+          "starting_price_pln": 340000,
+          "outcome": "archived",
+          "area_m2": 1827,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4926/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-slowianskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/4926/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-slowianskiej"
+        },
+        {
+          "date": "2024-11-19",
+          "round": 4,
+          "starting_price_pln": 430000,
+          "outcome": "archived",
+          "area_m2": 1827,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4965/przetarg-na-sprzedaz-nieruchomosci-przy-ul-slowianskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/4965/przetarg-na-sprzedaz-nieruchomosci-przy-ul-slowianskiej"
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": 390000,
+          "outcome": "active",
+          "area_m2": 1827,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6795/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-slowianskiej-kaszubskiej-bukowej-modrzewiowej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/6795/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-slowianskiej-kaszubskiej-bukowej-modrzewiowej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "685"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|83, 5/30, 5/75",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "83, 5/30, 5/75",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pilskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2083%2C%205%2F30%2C%205%2F75%20ul.%20Pilskiej%2018%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 13619,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 13619,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6710/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-pilskiej-kaszubskiej-kolobrzeskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/6710/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-pilskiej-kaszubskiej-kolobrzeskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "83"
+        },
+        {
+          "nr": "5/30"
+        },
+        {
+          "nr": "5/75"
+        }
+      ]
+    },
+    {
+      "key": "dz|07|5/69",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "5/69",
+      "obreb": "07",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sikorskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205%2F69%20ul.%20Sikorskiego%2007%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1108,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 390000,
+          "outcome": "active",
+          "area_m2": 1108,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/6682/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kolobrzeskiej-fabrycznej-sikorskiego-mariackiej-pilskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/6682/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kolobrzeskiej-fabrycznej-sikorskiego-mariackiej-pilskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5/69"
+        }
+      ]
+    },
+    {
+      "key": "dz|19|338",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "338",
+      "obreb": "19",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mariackiej oznaczonej jako działka nr 338",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20338%20ul.%20Mariackiej%20oznaczonej%20jako%20dzia%C5%82ka%20nr%20338%2019%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 396,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 396,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5838/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-sikorskiego-mariackiej-pilskiej-kaszubskiej-k-i-galczynskiego",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/5838/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-sikorskiego-mariackiej-pilskiej-kaszubskiej-k-i-galczynskiego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "338"
+        }
+      ]
+    },
+    {
+      "key": "dz|21|49",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "49",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ignacego Łukasiewicza oznaczonej jako działka nr 49",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%20ul.%20Ignacego%20%C5%81ukasiewicza%20oznaczonej%20jako%20dzia%C5%82ka%20nr%2049%2021%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5749/przetargi-na-sprzedaz-nieruchomosci-wlaczonych-do-slupskiej-specjalnej-strefy-ekonomicznej-polozonych-przy-ulicach-ignacego-lukasiewicza-harcerskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/5749/przetargi-na-sprzedaz-nieruchomosci-wlaczonych-do-slupskiej-specjalnej-strefy-ekonomicznej-polozonych-przy-ulicach-ignacego-lukasiewicza-harcerskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "49"
+        }
+      ]
+    },
+    {
+      "key": "dz|08|292/4, 5/30, 5/75",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "292/4, 5/30, 5/75",
+      "obreb": "08",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej oznaczonej jako działka nr 292",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20292%2F4%2C%205%2F30%2C%205%2F75%20ul.%20Kaszubskiej%20oznaczonej%20jako%20dzia%C5%82ka%20nr%20292%2008%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 13619,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 13619,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5737/ii-przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-kolobrzeskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/5737/ii-przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-kolobrzeskiej"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 13619,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/5089/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-kolobrzeskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/5089/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-kolobrzeskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "292/4"
+        },
+        {
+          "nr": "5/30"
+        },
+        {
+          "nr": "5/75"
+        }
+      ]
+    },
+    {
+      "key": "dz|13|338",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "338",
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mariackiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20338%20ul.%20Mariackiej%2013%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 396,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-21",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 396
+        },
+        {
+          "date": "2025-05-08",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 396
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 396,
+          "detail_url": "https://bip.szczecinek.pl/artykul/595/5194/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-mariackiej-pilskiej-kaszubskiej-k-i-galczynskiego-szczecinskiej",
+          "source_url": "https://bip.szczecinek.pl/artykul/595/5194/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-mariackiej-pilskiej-kaszubskiej-k-i-galczynskiego-szczecinskiej"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 396,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/2669/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-mariackiej-pilskiej-konstantego-ildefonsa-galczynskiego-os-marcelin-wichrowe-wzgorze",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/2669/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-mariackiej-pilskiej-konstantego-ildefonsa-galczynskiego-os-marcelin-wichrowe-wzgorze"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "338"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|1448/5",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/5",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201448%2F5%20ul.%20Kaszubskiej%2009%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 660,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 660,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/5035/przetargi-na-sprzedaz-nieruchomosci-polozonych-prz-ulicach-kaszubskiej-k-i-galczynskiego-szczecinskiej-szarych-szeregow-fabrycznej",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/5035/przetargi-na-sprzedaz-nieruchomosci-polozonych-prz-ulicach-kaszubskiej-k-i-galczynskiego-szczecinskiej-szarych-szeregow-fabrycznej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|12|138",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "138",
+      "obreb": "12",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20138%2012%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 665,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 665,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/4904/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-szczecinskiej-szarych-szeregow-fabrycznej",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/4904/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-szczecinskiej-szarych-szeregow-fabrycznej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "138"
+        }
+      ]
+    },
+    {
+      "key": "dz|22|104",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "104",
+      "obreb": "22",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mariackiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20104%20ul.%20Mariackiej%2022%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 983,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 983,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/3487/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-szarych-szeregow-fabrycznej-mariackiej-pilskiej-galczynskiego",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/3487/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-szarych-szeregow-fabrycznej-mariackiej-pilskiej-galczynskiego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "104"
+        }
+      ]
+    },
+    {
+      "key": "dz|08|292/4",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "292/4",
+      "obreb": "08",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej 3",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20292%2F4%20ul.%20Kaszubskiej%203%2008%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "area_m2": 6405,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-11-17",
+          "round": 1,
+          "starting_price_pln": 1350000,
+          "outcome": "unsold",
+          "area_m2": 6405
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 1400000,
+          "outcome": "active",
+          "area_m2": 6405,
+          "detail_url": "https://bip.szczecinek.pl/artykul/547/2670/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-fabrycznej",
+          "source_url": "https://bip.szczecinek.pl/artykul/547/2670/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-fabrycznej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "292/4"
+        }
+      ]
+    }
+  ]
+}

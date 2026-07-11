@@ -83,12 +83,18 @@ import proszowice from './proszowice/index.js';
 import pleszew from './pleszew/index.js';
 import pisz from './pisz/index.js';
 import rawaMazowiecka from './rawa-mazowiecka/index.js';
-// pszczyna: built (25 tests green) but DEFERRED from registration — its crawl
-// budgets (INDEX 5min/query + ARTICLE 15min over 472 candidate articles) are too
-// slow to baseline on the Pi and risk CI's 20-min step timeout on the first full
-// crawl. Needs budget tuning (lower MAX_PAGES_PER_QUERY/MAX_ARTICLES + rely on
-// incremental backfill) + a CI-timed run before registering (it's Śląskie =
-// public-tier). Files live in cities/pszczyna/ + tests/parse-pszczyna.test.js.
+// pszczyna (Śląskie = public-tier): crawl budgets tuned 2026-07-11 (MAX_PAGES
+// 30→8, ARTICLE_BUDGET 15→8min, MAX_ARTICLES 320→150) to fit CI's 20-min step
+// timeout, with the adapter's incremental backfill filling the archive over
+// subsequent runs. See crawl.js header.
+import pszczyna from './pszczyna/index.js';
+// Batch 3 of the BUILD-ready powiat-seat expansion (2026-07-11; each live-
+// groundtruthed with a passing parse test). All test-tier (none Śląskie).
+import zdunskaWola from './zdunska-wola/index.js';
+import trzebnica from './trzebnica/index.js';
+import srodaWielkopolska from './sroda-wielkopolska/index.js';
+import szczecinek from './szczecinek/index.js';
+import wegorzewo from './wegorzewo/index.js';
 
 export const cities = [
   gliwice,
@@ -165,6 +171,12 @@ export const cities = [
   pleszew,
   pisz,
   rawaMazowiecka,
+  pszczyna,
+  zdunskaWola,
+  trzebnica,
+  srodaWielkopolska,
+  szczecinek,
+  wegorzewo,
 ];
 
 /** @param {string} id @returns {object|null} */

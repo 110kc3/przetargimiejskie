@@ -4047,13 +4047,13 @@
       "powiat_slug": "powiat-pszczynski",
       "powiat_label": "powiat pszczyński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/slaskie/powiat-pszczynski/pszczyna.md",
       "spike": {
         "wave": "D",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "ESC S.A./VelaBIP server-HTML BIP; recurring OPEN flat auctions w/ inline structured achieved-price results (Korfantego 27/1 sold 273k); custom-HTML analog + bip.info.pl legacy fallback"
+        "note": "BUILT — pipeline/src/cities/pszczyna/ + parse-pszczyna.test.js (25 green), registered 2026-07-11. bip.pszczyna.pl ESC S.A./VelaBIP (bochnia-family; hybrid inline+PDF-fallback). ŚLĄSKIE = public-tier. Crawl BUDGET-TUNED (MAX_PAGES 30→8, ARTICLE 15→8min, MAX_ARTICLES 320→150) to fit CI's 20-min timeout + incremental backfill. Fixed 5 bugs incl. 2 silent-data-loss (GARAGE-before-LAND, per-query index-budget starvation). First refresh: 36 listing/39 land/18 uniq/42 arch. teryt 241005_4 LOW-MED."
       }
     },
     {
@@ -4559,13 +4559,13 @@
       "powiat_slug": "powiat-szczecinecki",
       "powiat_label": "powiat szczecinecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md",
       "spike": {
         "wave": "G",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Logonet hosted-BIP CMS (v2.9.0) on bip.szczecinek.pl — same family as tarnowskie-gory/kedzierzyn-kozle/skarzysko-kamienna. Open oral flat auctions confirmed (Narutowicza 3E/9 160k zl, Koszalinska 58/2, IV/II-round wolny lokal mieszkalny, spoldzielcze prawo) in land-dominated mixed stream ~2-3 flats/yr; zbycie board id336 (years 645/595/547) + dedicated results board id338 with achieved prices; inline HTML + born-digital PDF. Town disambiguated from rural bip.gminaszczecinek.pl."
+        "note": "BUILT — pipeline/src/cities/szczecinek/ + parse-szczecinek.test.js (22 green), registered 2026-07-11. bip.szczecinek.pl Logonet eUrząd 2.9.0 (tarnowskie-gory family); zbycie board id336 + results id338. Fixed 4 bugs (ASCII \\w vs accusative \"wyniku\", date-as-amount misread, streetFromHeader terminator, działek genitive). First refresh: 22 listing/52 land/6 uniq/22 arch. teryt 321501_1 HIGH (ULDK-confirmed)."
       }
     },
     {
@@ -4639,13 +4639,13 @@
       "powiat_slug": "powiat-sredzki",
       "powiat_label": "powiat średzki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md",
       "spike": {
         "wave": "G",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "IDcom.pl BIP (bip.umsroda.pl) — clean server-rendered HTML; dedicated Ogloszenia o przetargach board + separate Wyniki przetargow board (cena osiagnieta) + Wykazy. Flat auctions confirmed (Gorki 7/2 36.10m2 80k zl; Westerplatte 9/13 I+II Jan 2026; Daszynskiego 20/14; Brzeziak Debicz) but minority in land-heavy stream — classify/filter. Analog: Gniezno (same woj, same IDcom CMS). No auth/CAPTCHA. Effort Low-Medium."
+        "note": "BUILT — pipeline/src/cities/sroda-wielkopolska/ + parse-sroda-wielkopolska.test.js (29 green), registered 2026-07-11. bip.umsroda.pl IDcom (gniezno-family); Ogłoszenia board 2905/dokumenty/14926 + Wyniki 14925. Fixed 5 bugs (spike board URL wrong, wadium-bank-addr false-capture on digit streets, en-dash price, cellar-vs-flat area, sold-infer from numeric price). First refresh: 10 listing/27 land/6 uniq/10 arch. teryt 302504_3 LOW."
       }
     },
     {
@@ -4735,13 +4735,13 @@
       "powiat_slug": "powiat-trzebnicki",
       "powiat_label": "powiat trzebnicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md",
       "spike": {
         "wave": "H",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Logonet eUrzad CMS (v2.9.0) on bip.trzebnica.pl — direct tarnowskie-gory analog. Dedicated 37-page przetargi-nieruchomosci board, server HTML notices + .doc/.docx attachments, results as 'informacja o wyniku' docs keyed by GGN P/NN. Recurring flat auctions confirmed (Rynek 12, Bochenka 22/1, Witosa 12). Wrinkle: deep fields in Word attachments need doc extraction."
+        "note": "BUILT — pipeline/src/cities/trzebnica/ + parse-trzebnica.test.js (21 green), registered 2026-07-11. bip.trzebnica.pl Logonet eUrząd 2.9.0 XML-feed (naklo-family; tarnowskie-gory JSON-API 404s). Sparse results (2/366 records). Fixed 3 bugs (analog correction, mislabeled-attachment result via body-header not <nazwa>, hectare comma-only). First refresh: 3 listing/16 land/3 uniq/2 arch. teryt 022003_3 provisional."
       }
     },
     {
@@ -4863,13 +4863,13 @@
       "powiat_slug": "powiat-wegorzewski",
       "powiat_label": "powiat węgorzewski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md",
       "spike": {
         "wave": "H",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "IDcom CMS (bip.wegorzewo.pl /wiadomosci/3/wiadomosc/<id>) — exact gizycko clone (same woj, neighbour powiat, BUILT). Confirmed OPEN oral flat auctions (Wegielsztyn 37/4, Kal 38/2, Pniewo 4) + second CEM property-manager stream (cem.wegorzewo.pl, Jasna 4/5). Inline wynik results; scanned result PDFs->OCR like gizycko; incomplete TLS chain to tolerate. ~few flats/yr."
+        "note": "BUILT — pipeline/src/cities/wegorzewo/ + parse-wegorzewo.test.js (66 green), registered 2026-07-11. bip.wegorzewo.pl IDcom (gizycko host shape; results on SEPARATE category 14619, insecureTLS). Results inline HTML (not PDF). Fixed 3 bugs (GARAGE_RE-before-LAND misclassification, address commercial-unit broadening, pow.-period in address gap). First refresh: 0 listing/0 land/0 uniq/0 arch. teryt 281903_4 provisional. CEM stream empty/404 (gap)."
       }
     },
     {
@@ -5071,13 +5071,13 @@
       "powiat_slug": "powiat-zdunskowolski",
       "powiat_label": "powiat zduńskowolski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md",
       "spike": {
         "wave": "I",
         "effort": "Low",
         "confidence": "LIVE",
-        "note": "Logonet eUrzad 2.9.0 (bip.zdunskawola.pl) — dedicated property board /przetargi-nieruchomosci/439, detail /przetarg-nieruchomosci/<id>/<slug>, server HTML with INLINE achieved price+nabywca (Torowa 324k zl). Open oral flat auctions confirmed (1 Maja 10/18 185k, Baczynskiego 11, Karsznice); mixed with land. Exclude TBS Zlotnicki najem + 75%-bonifikata tenant sales. Analog Pabianice/Lask. Rural Gmina zdunskawola.bip.net.pl disambiguated out."
+        "note": "BUILT — pipeline/src/cities/zdunska-wola/ + parse-zdunska-wola.test.js (27 green), registered 2026-07-11. bip.zdunskawola.pl Logonet eUrząd 2.9.0 — XML-FEED shape (chełmno-family, NOT tarnowskie-gory's JSON-API). Inline achieved price+nabywca. Fixed 6 bugs (działek genitive, Złotnicki venue-addr false-skip, no-\"nabywca\" wording, \"w treści ogłoszenia\" price=null, \"Nieruchomość lokalowa\" 5th kind, bare-m² land). First refresh: 0 listing/2 land/0 uniq/0 arch. teryt 101901_1 HIGH."
       }
     },
     {

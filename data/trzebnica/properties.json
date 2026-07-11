@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "city": "trzebnica",
+  "properties": [
+    {
+      "key": "bolescin|0|2",
+      "street": "Boleścin",
+      "street_norm": "bolescin",
+      "building": "0",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 149450,
+          "outcome": "active",
+          "area_m2": 93.4,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3445/przetargggnp142026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 93.4
+    },
+    {
+      "key": "rynek|12|",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "12",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 118900,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3111/przetarg-ggn-p-6-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "ujezdziec wielki|26|",
+      "street": "Ujeżdziec Wielki",
+      "street_norm": "ujezdziec wielki",
+      "building": "26",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-10-10",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 289800,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2900/przetargggnp392025",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}

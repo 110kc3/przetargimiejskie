@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "city": "trzebnica",
+  "plots": [
+    {
+      "key": "dz|kobylice|1/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "1/2",
+      "obreb": "Kobylice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kobylice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3873,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-11",
+          "round": 3,
+          "starting_price_pln": 215700,
+          "outcome": "active",
+          "area_m2": 3873,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3446/przetargggnp152026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7072"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|szczytkowice|285",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "285",
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1636,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-17",
+          "round": 2,
+          "starting_price_pln": 158700,
+          "outcome": "active",
+          "area_m2": 1636,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3382/przetarg-ggnp132026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6927"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "285"
+        }
+      ]
+    },
+    {
+      "key": "addr|kobylice",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Kobylice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kobylice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-20",
+          "round": 3,
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2809/przetargggnp272025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5557"
+        },
+        {
+          "date": "2025-09-29",
+          "round": 4,
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2890/przetargggnp352025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5675"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 1,
+          "starting_price_pln": 215700,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3217/przetarg-nr-ggn-p-9-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6511"
+        },
+        {
+          "date": "2026-07-03",
+          "round": 2,
+          "starting_price_pln": 215700,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3273/przetarg-ggnp112026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6687"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|szczytkowice|49/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "49/2",
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F2%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "starting_price_pln": 188400,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6930"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "49/2"
+        }
+      ]
+    },
+    {
+      "key": "addr|biedaszków wielki",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Biedaszków Wielki",
+      "street": null,
+      "building": null,
+      "address_raw": "Biedaszków Wielki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Biedaszk%C3%B3w%20Wielki%20Biedaszk%C3%B3w%20Wielki%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-05",
+          "round": 1,
+          "starting_price_pln": 950000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2893/przetargggnp362025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5690"
+        },
+        {
+          "date": "2026-01-26",
+          "round": 2,
+          "starting_price_pln": 850000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3009/przetargggnp512025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5903"
+        },
+        {
+          "date": "2026-04-13",
+          "round": 3,
+          "starting_price_pln": 750000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3120/przetarg-ggnp-7-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6156"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|boleścin",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Boleścin",
+      "street": null,
+      "building": null,
+      "address_raw": "Boleścin",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Bole%C5%9Bcin%20Bole%C5%9Bcin%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 1,
+          "starting_price_pln": 230100,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2960/przetargggnp442025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5778"
+        },
+        {
+          "date": "2025-12-22",
+          "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3008/przetargggnp522025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5902"
+        },
+        {
+          "date": "2026-02-27",
+          "round": 3,
+          "starting_price_pln": 195000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3108/przetarg-ggn-p-3-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6110"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|koniowo",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Koniowo",
+      "street": null,
+      "building": null,
+      "address_raw": "Koniowo",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Koniowo%20Koniowo%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-20",
+          "round": 4,
+          "starting_price_pln": 201000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2810/przetargggnp282025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5558"
+        },
+        {
+          "date": "2026-02-27",
+          "round": 1,
+          "starting_price_pln": 29300,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3107/przetarg-ggn-p-2-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6109"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|szczytkowice dz. nr 49",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice dz. nr 49",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczytkowice%20dz.%20nr%2049%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-01",
+          "round": 5,
+          "starting_price_pln": 290000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2975/przetargggnp502025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5821"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|sulisławice dz. nr 285/13 obręb geodezyjny księginice",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Sulisławice",
+      "street": null,
+      "building": null,
+      "address_raw": "Sulisławice dz. nr 285/13 obręb Geodezyjny Księginice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sulis%C5%82awice%20dz.%20nr%20285%2F13%20obr%C4%99b%20Geodezyjny%20Ksi%C4%99ginice%20Sulis%C5%82awice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-01",
+          "round": 5,
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2974/przetargggnp492025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5820"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|kobylice dz. nr 1/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Kobylice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kobylice dz. nr 1/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Kobylice%20dz.%20nr%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-01",
+          "round": 5,
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2973/przetargggnp482025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5819"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|szczytkowice, dz. nr 49",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice, dz. nr 49",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczytkowice%2C%20dz.%20nr%2049%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-27",
+          "round": 4,
+          "starting_price_pln": 290000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2932/przetarg-ggn-p-43-2025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5735"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|sulisławice, dz. nr 285/10 (obręb geodezyjny księginice)",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Sulisławice",
+      "street": null,
+      "building": null,
+      "address_raw": "Sulisławice, dz. nr 285/10 (obręb geodezyjny Księginice)",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sulis%C5%82awice%2C%20dz.%20nr%20285%2F10%20(obr%C4%99b%20geodezyjny%20Ksi%C4%99ginice)%20Sulis%C5%82awice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-27",
+          "round": 4,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2931/przetarg-ggn-p-42-2025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5734"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|sulisławice, dz. nr 285/12 i 285/13 (obręb geodezyjny księginice)",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Sulisławice",
+      "street": null,
+      "building": null,
+      "address_raw": "Sulisławice, dz. nr 285/12 i 285/13 (obręb geodezyjny Księginice)",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sulis%C5%82awice%2C%20dz.%20nr%20285%2F12%20i%20285%2F13%20(obr%C4%99b%20geodezyjny%20Ksi%C4%99ginice)%20Sulis%C5%82awice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-27",
+          "round": 4,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2930/przetarg-ggn-p-41-2025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5733"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ujeżdziec wielki",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Ujeździec Wielki",
+      "street": null,
+      "building": null,
+      "address_raw": "Ujeżdziec Wielki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Uje%C5%BCdziec%20Wielki%20Uje%C5%BAdziec%20Wielki%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-10",
+          "round": 1,
+          "starting_price_pln": 49000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2901/przetargggnp402025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5703"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|szczytkowice",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-08",
+          "round": 3,
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2848/przetargnrggnp332025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5618"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|sulisławice obręb geodezyjny księginice",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Sulisławice",
+      "street": null,
+      "building": null,
+      "address_raw": "Sulisławice obręb geodezyjny Księginice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sulis%C5%82awice%20obr%C4%99b%20geodezyjny%20Ksi%C4%99ginice%20Sulis%C5%82awice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-08",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2844/przetargnrggnp312025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5613"
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

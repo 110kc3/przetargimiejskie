@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "city": "trzebnica",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Boleścin 0/2",
+      "address": {
+        "street": "Boleścin",
+        "street_norm": "bolescin",
+        "building": "0",
+        "apt": "2",
+        "key": "bolescin|0|2",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": 149450,
+      "auction_date": "2026-08-10",
+      "round": 1,
+      "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3445/przetargggnp142026",
+      "source_url": "https://bip.trzebnica.pl/attachments/download/7071"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rynek 12",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "12",
+        "apt": null,
+        "key": "rynek|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 118900,
+      "auction_date": "2026-02-27",
+      "round": 1,
+      "auction_date_estimated": true,
+      "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3111/przetarg-ggn-p-6-2026",
+      "source_url": "https://bip.trzebnica.pl/attachments/download/6112"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Ujeżdziec Wielki 26",
+      "address": {
+        "street": "Ujeżdziec Wielki",
+        "street_norm": "ujezdziec wielki",
+        "building": "26",
+        "apt": null,
+        "key": "ujezdziec wielki|26|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 289800,
+      "auction_date": "2025-10-10",
+      "round": 1,
+      "auction_date_estimated": true,
+      "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2900/przetargggnp392025",
+      "source_url": "https://bip.trzebnica.pl/attachments/download/5702"
+    }
+  ],
+  "wykaz": []
+}

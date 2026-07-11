@@ -1,0 +1,784 @@
+{
+  "schema_version": 1,
+  "city": "pszczyna",
+  "properties": [
+    {
+      "key": "sznelowiec|14|3",
+      "street": "Sznelowiec",
+      "street_norm": "sznelowiec",
+      "building": "14",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 363000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-polozonej-w-lace-przy-ul-sznelowiec-14-3-dz-154-34",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 62.83,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-14-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-lace-przy-ul-sznelowiec-14-16-18"
+        }
+      ],
+      "area_m2": 62.83
+    },
+    {
+      "key": "karola szymanowskiego|22|5",
+      "street": "Karola Szymanowskiego",
+      "street_norm": "karola szymanowskiego",
+      "building": "22",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-22-5-w-budynku-polozonym-w-pszczynie-przy-ul-karola-szymanowskiego-20-22-24",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 53.3
+        },
+        {
+          "date": "2025-07-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 252500,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-22-5-w-budynku-polozonym-w-pszczynie-przy-ul-karola-szymanowskiego-20-22-24",
+          "notes": [],
+          "area_m2": 53.3,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-22-5-planowanego-do-wyodrebnienia-w-budynku-polozonych-w-pszczynie-przy-ul-karola-szymanowskiego-20-22-24"
+        }
+      ],
+      "area_m2": 53.3
+    },
+    {
+      "key": "bednarskiej|21|4",
+      "street": "Bednarska",
+      "street_norm": "bednarskiej",
+      "building": "21",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 28.97,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-05-22",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75500,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 28.97,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iv-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3-1"
+        },
+        {
+          "date": "2024-07-24",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 28.97,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-v-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-10-23",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 57000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 28.97,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vi-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-03-05",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 47000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 28.97,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-07-09",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 47000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 47470,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-viii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3-1",
+          "notes": [],
+          "area_m2": 28.97,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-viii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-4-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        }
+      ],
+      "area_m2": 28.97
+    },
+    {
+      "key": "bednarskiej|21|3",
+      "street": "Bednarska",
+      "street_norm": "bednarskiej",
+      "building": "21",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 41.15,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-05-22",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 98200,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 41.15,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iv-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-07-24",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 41.15,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-v-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-10-23",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 74000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 41.15,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vi-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-03-05",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 41.15,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-07-09",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 60600,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-viii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3-1",
+          "notes": [],
+          "area_m2": 41.15,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-viii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-3-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        }
+      ],
+      "area_m2": 41.15
+    },
+    {
+      "key": "bednarskiej|21|2",
+      "street": "Bednarska",
+      "street_norm": "bednarskiej",
+      "building": "21",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3-1",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 32.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-05-22",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 84000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 32.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iv-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-07-24",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 32.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-v-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-10-23",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 63000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 32.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vi-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-03-05",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 52000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 32.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-07-09",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 52000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 52520,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-viii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [],
+          "area_m2": 32.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-viii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-2-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        }
+      ],
+      "area_m2": 32.23
+    },
+    {
+      "key": "bednarskiej|21|1",
+      "street": "Bednarska",
+      "street_norm": "bednarskiej",
+      "building": "21",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 27.63
+        },
+        {
+          "date": "2024-04-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3-1",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 27.63,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-05-22",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 27.63,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-iv-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-07-24",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 27.63,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-v-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2024-10-23",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 54000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 27.63,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vi-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-03-05",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 27.63,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-vii-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-21-1-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3"
+        },
+        {
+          "date": "2025-07-09",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 45450,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-viii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3",
+          "notes": [],
+          "area_m2": 27.63,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-viii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-21-1-planowanego-do-wyodrebnienia-w-budynkach-polozonych-w-pszczynie-przy-ul-bednarskiej-21-i-ul-rynek-3-1"
+        }
+      ],
+      "area_m2": 27.63
+    },
+    {
+      "key": "wojciecha korfantego|43|8",
+      "street": "Wojciecha Korfantego",
+      "street_norm": "wojciecha korfantego",
+      "building": "43",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 252000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 254520,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-43-8-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-39-41-43",
+          "notes": [],
+          "area_m2": 44.92,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-43-8-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-39-41-43"
+        }
+      ],
+      "area_m2": 44.92
+    },
+    {
+      "key": "wojciecha korfantego|29|2",
+      "street": "Wojciecha Korfantego",
+      "street_norm": "wojciecha korfantego",
+      "building": "29",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 182000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 195000,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-29-2-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-19-35",
+          "notes": [],
+          "area_m2": 35.89,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-29-2-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-19-35"
+        }
+      ],
+      "area_m2": 35.89
+    },
+    {
+      "key": "sznelowiec|20|15",
+      "street": "Sznelowiec",
+      "street_norm": "sznelowiec",
+      "building": "20",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 282000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-15-w-budynku-polozonym-w-lace-przy-ul-sznelowiec-20-22",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 50.67,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-20-15-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-lace-przy-ul-sznelowiec-20-22-1"
+        },
+        {
+          "date": "2025-02-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 255000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 265550,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-15-w-budynku-polozonym-w-lace-przy-ul-sznelowiec-20-22-1",
+          "notes": [],
+          "area_m2": 50.67,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-20-15-planowanego-do-wyodrebnienia-w-budynku-polozonych-w-lace-przy-ul-sznelowiec-20-22"
+        }
+      ],
+      "area_m2": 50.67
+    },
+    {
+      "key": "cieszynskiej|26|18",
+      "street": "Cieszyńska",
+      "street_norm": "cieszynskiej",
+      "building": "26",
+      "apt": "18",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 235000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-26-18-w-budynku-polozonym-w-lace-przy-ul-cieszynskiej-26",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 42.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-26-18-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-lace-przy-ul-cieszynskiej-26"
+        },
+        {
+          "date": "2025-02-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 212100,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-26-18-w-budynku-polozonym-w-lace-przy-ul-cieszynskiej-26-1",
+          "notes": [],
+          "area_m2": 42.23,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-26-18-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-lace-przy-ul-cieszynskiej-26"
+        }
+      ],
+      "area_m2": 42.23
+    },
+    {
+      "key": "szymanowskiego|22|5",
+      "street": "Szymanowskiego",
+      "street_norm": "szymanowskiego",
+      "building": "22",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 279000,
+          "outcome": "archived",
+          "area_m2": 53.3,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-22-5-planowanego-do-wyodrebnienia-w-budynku-polozonych-w-pszczynie-przy-ul-szymanowskiego-20-22-24",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 53.3
+    },
+    {
+      "key": "wojciecha korfantego|43|9",
+      "street": "Wojciecha Korfantego",
+      "street_norm": "wojciecha korfantego",
+      "building": "43",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 253000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 255600,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-43-9-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-39-41-43",
+          "notes": [],
+          "area_m2": 45.3,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-43-9-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-39-41-43-1"
+        }
+      ],
+      "area_m2": 45.3
+    },
+    {
+      "key": "rynek|22|6",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "22",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 237000,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-w-budynku-polozonym-w-pszczynie-przy-ul-rynek-22",
+          "notes": [],
+          "area_m2": 24.72,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-samodzielnego-lokalu-mieszkalnego-nr-6-planowanego-do-wyodrebnienia-w-budynku-polozonym-w-pszczynie-przy-ul-rynek-22-1"
+        }
+      ],
+      "area_m2": 24.72
+    },
+    {
+      "key": "dworcowej|5|3",
+      "street": "Dworcowa",
+      "street_norm": "dworcowej",
+      "building": "5",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 126250,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-niemieszkalnego-nr-3-w-budynku-polozonym-w-pszczynie-przy-ul-dworcowej-5",
+          "notes": [],
+          "area_m2": 35.36,
+          "detail_url": "https://bip.pszczyna.pl/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-3-w-budynku-polozonym-w-pszczynie-przy-ul-dworcowej-5"
+        }
+      ],
+      "area_m2": 35.36
+    },
+    {
+      "key": "warownej|41|2",
+      "street": "Warowna",
+      "street_norm": "warownej",
+      "building": "41",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 131300,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-41-2-w-budynku-polozonym-w-pszczynie-przy-ul-warownej-41",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wojciecha korfantego|35|6",
+      "street": "Wojciecha Korfantego",
+      "street_norm": "wojciecha korfantego",
+      "building": "35",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 188000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 210000,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-35-6-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-19-35",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wojciecha korfantego|41|1",
+      "street": "Wojciecha Korfantego",
+      "street_norm": "wojciecha korfantego",
+      "building": "41",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 172000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 208000,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-41-1-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-39-41-43",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wojciecha korfantego|27|1",
+      "street": "Wojciecha Korfantego",
+      "street_norm": "wojciecha korfantego",
+      "building": "27",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 258000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 273000,
+          "source_pdf": "https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-27-1-w-budynku-polozonym-w-pszczynie-przy-ul-wojciecha-korfantego-19-35",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}
