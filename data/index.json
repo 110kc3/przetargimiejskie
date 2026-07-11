@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-11T06:40:42.726Z",
+  "generated_at": "2026-07-11T13:03:54.173Z",
   "cities": [
     {
       "id": "gliwice",
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 10,
+      "active_listings": 0,
       "active_auctions": 10,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1035,12 +1035,77 @@
       "voivodeship": "warminsko-mazurskie",
       "authority": "Gmina Węgorzewo",
       "host": "bip.wegorzewo.pl",
+      "unique_properties": 3,
+      "active_listings": 6,
+      "active_auctions": 1,
+      "archived_auctions": 5,
+      "wykaz_entries": 0,
+      "land_plots": 36
+    },
+    {
+      "id": "strzelce-krajenskie",
+      "label": "Strzelce Krajeńskie",
+      "voivodeship": "lubuskie",
+      "authority": "Urząd Miejski w Strzelcach Krajeńskich",
+      "host": "bip.strzelce.pl",
       "unique_properties": 0,
       "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 1
+    },
+    {
+      "id": "wschowa",
+      "label": "Wschowa",
+      "voivodeship": "lubuskie",
+      "authority": "Urząd Miasta i Gminy Wschowa",
+      "host": "bip.gminawschowa.pl",
+      "unique_properties": 5,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 7,
+      "wykaz_entries": 0,
+      "land_plots": 9
+    },
+    {
+      "id": "zagan",
+      "label": "Żagań",
+      "voivodeship": "lubuskie",
+      "authority": "Urząd Miasta Żagań",
+      "host": "bip.zagan.pl",
+      "unique_properties": 12,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 39,
+      "wykaz_entries": 0,
+      "land_plots": 59
+    },
+    {
+      "id": "wegrow",
+      "label": "Węgrów",
+      "voivodeship": "mazowieckie",
+      "authority": "Urząd Miejski w Węgrowie",
+      "host": "bip.wegrow.com.pl",
+      "unique_properties": 4,
+      "active_listings": 4,
+      "active_auctions": 0,
+      "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 5
+    },
+    {
+      "id": "sulecin",
+      "label": "Sulęcin",
+      "voivodeship": "lubuskie",
+      "authority": "Urząd Miejski w Sulęcinie",
+      "host": "bip.sulecin.pl",
+      "unique_properties": 2,
+      "active_listings": 3,
+      "active_auctions": 0,
+      "archived_auctions": 3,
+      "wykaz_entries": 0,
+      "land_plots": 6
     }
   ]
 }
