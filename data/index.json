@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-11T23:30:11.808Z",
+  "generated_at": "2026-07-12T04:59:23.125Z",
   "cities": [
     {
       "id": "gliwice",
@@ -594,7 +594,7 @@
       "authority": "Urząd Miejski w Augustowie",
       "host": "bip.um.augustow.pl",
       "unique_properties": 3,
-      "active_listings": 2,
+      "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1218,11 +1218,11 @@
       "authority": "Urząd Miejski w Kwidzynie (Burmistrz Miasta Kwidzyna)",
       "host": "bip.kwidzyn.pl",
       "unique_properties": 3,
-      "active_listings": 2,
+      "active_listings": 0,
       "active_auctions": 2,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 1
+      "land_plots": 3
     },
     {
       "id": "ketrzyn",
@@ -1236,6 +1236,45 @@
       "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 9
+    },
+    {
+      "id": "kamienna-gora",
+      "label": "Kamienna Góra",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Urząd Miasta Kamienna Góra (Burmistrz Miasta Kamienna Góra)",
+      "host": "bip.kamiennagora.pl",
+      "unique_properties": 32,
+      "active_listings": 4,
+      "active_auctions": 4,
+      "archived_auctions": 106,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "krosno-odrzanskie",
+      "label": "Krosno Odrzańskie",
+      "voivodeship": "lubuskie",
+      "authority": "Urząd Miasta w Krośnie Odrzańskim",
+      "host": "bip.krosnoodrzanskie.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "lipsko",
+      "label": "Lipsko",
+      "voivodeship": "mazowieckie",
+      "authority": "Urząd Miasta i Gminy Lipsko (Burmistrz Miasta i Gminy Lipsko)",
+      "host": "samorzad.gov.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }
