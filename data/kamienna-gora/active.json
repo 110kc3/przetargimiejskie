@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "city": "kamienna-gora",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piotra Ściegiennego 20/8",
+      "address": {
+        "street": "Piotra Ściegiennego",
+        "street_norm": "piotra sciegiennego",
+        "building": "20",
+        "apt": "8",
+        "key": "piotra sciegiennego|20|8",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": null,
+      "starting_price_pln": 78000,
+      "auction_date": "2026-08-05",
+      "round": 4,
+      "detail_url": "https://bip.kamiennagora.pl/iv-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-8-polozonego-w-kamiennej-gorze-przy-ul-piotra-sciegiennego-20.html",
+      "published_date": "2026-06-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wiejskiej 25/2",
+      "address": {
+        "street": "Wiejskiej",
+        "street_norm": "wiejskiej",
+        "building": "25",
+        "apt": "2",
+        "key": "wiejskiej|25|2",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": null,
+      "starting_price_pln": 75000,
+      "auction_date": "2026-08-05",
+      "round": 4,
+      "detail_url": "https://bip.kamiennagora.pl/iv-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-2-polozonego-w-kamiennej-gorze-przy-ul-wiejskiej-25.html",
+      "published_date": "2026-06-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Papieża Jana Pawła II 22/5",
+      "address": {
+        "street": "Papieża Jana Pawła II",
+        "street_norm": "papieza jana pawla ii",
+        "building": "22",
+        "apt": "5",
+        "key": "papieza jana pawla ii|22|5",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": null,
+      "starting_price_pln": 83000,
+      "auction_date": "2026-08-05",
+      "round": 4,
+      "detail_url": "https://bip.kamiennagora.pl/iv-przetarg-ustny-nieograniczony-na-zbycie-lokali-mieszkalnych-nr-5-i-7-polozonych-w-kamiennej-gorze-przy-ul-papieza-jana-pawla-ii-22.html",
+      "published_date": "2026-06-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jeleniogórskiej 53/9",
+      "address": {
+        "street": "Jeleniogórskiej",
+        "street_norm": "jeleniogorskiej",
+        "building": "53",
+        "apt": "9",
+        "key": "jeleniogorskiej|53|9",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": 39.92,
+      "starting_price_pln": 89000,
+      "auction_date": "2026-08-25",
+      "round": 3,
+      "detail_url": "https://bip.kamiennagora.pl/iii-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-9-polozonego-w-kamiennej-gorze-przy-ul-jeleniogorskiej-53.html",
+      "published_date": "2026-06-30"
+    }
+  ],
+  "wykaz": []
+}
