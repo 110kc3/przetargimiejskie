@@ -153,6 +153,14 @@ import lipsko from './lipsko/index.js';
 // stream under 3669-sprzedaz-nieruchomości (spike cited procurement cat); ~1
 // flat/yr all SOLD, board ~99% land (land achieved-prices out of scope).
 import kolbuszowa from './kolbuszowa/index.js';
+// kujawsko-pomorskie server-HTML pair (2026-07-12), TERYT confirmed. wabrzezno:
+// rbip.mojregion.info XML feed (/xml/330/przetargi.html, no pagination) + inline
+// <tresc>/PDF/DOCX notices, multi-lokal split (zgorzelec analog). znin:
+// bip.gminaznin.pl System-Rada board, browser-UA required, SCANNED PDFs (OCR),
+// unsold-only via superseded rounds (no results board; nowa-sol analog). Both
+// land-dominated, ~1 flat each.
+import wabrzezno from './wabrzezno/index.js';
+import znin from './znin/index.js';
 
 export const cities = [
   gliwice,
@@ -254,6 +262,8 @@ export const cities = [
   krosnoOdrzanskie,
   lipsko,
   kolbuszowa,
+  wabrzezno,
+  znin,
 ];
 
 /** @param {string} id @returns {object|null} */
