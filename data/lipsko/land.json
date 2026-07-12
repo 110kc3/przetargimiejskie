@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "city": "lipsko",
+  "plots": [
+    {
+      "key": "dz|lipsko|1332/1",
+      "kind": "grunt",
+      "city": "lipsko",
+      "dzialka_nr": "1332/1",
+      "obreb": "Lipsko",
+      "street": null,
+      "building": null,
+      "address_raw": "Lipsko, dz. nr 1332/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201332%2F1%20Lipsko%2C%20dz.%20nr%201332%2F1%20Lipsko%20Lipsko%20geoportal%20dzia%C5%82ki",
+      "area_m2": 18,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-04",
+          "round": 2,
+          "starting_price_pln": 4200,
+          "outcome": "sold",
+          "final_price_pln": 4250,
+          "area_m2": 18
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1332/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201332%2F1%20Lipsko%20Lipsko%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|wola solecka wólka|392/3",
+      "kind": "grunt",
+      "city": "lipsko",
+      "dzialka_nr": "392/3",
+      "obreb": "Wola Solecka Wólka",
+      "street": null,
+      "building": null,
+      "address_raw": "Wola Solecka Wólka, dz. nr 392/3",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20392%2F3%20Wola%20Solecka%20W%C3%B3lka%2C%20dz.%20nr%20392%2F3%20Wola%20Solecka%20W%C3%B3lka%20Lipsko%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1723,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-07-16",
+          "round": 1,
+          "starting_price_pln": 56600,
+          "outcome": "sold",
+          "final_price_pln": 57170,
+          "area_m2": 1723
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "392/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20392%2F3%20Wola%20Solecka%20W%C3%B3lka%20Lipsko%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}
