@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-12T04:59:23.125Z",
+  "generated_at": "2026-07-12T05:27:43.052Z",
   "cities": [
     {
       "id": "gliwice",
@@ -594,7 +594,7 @@
       "authority": "Urząd Miejski w Augustowie",
       "host": "bip.um.augustow.pl",
       "unique_properties": 3,
-      "active_listings": 4,
+      "active_listings": 2,
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
@@ -1256,10 +1256,10 @@
       "voivodeship": "lubuskie",
       "authority": "Urząd Miasta w Krośnie Odrzańskim",
       "host": "bip.krosnoodrzanskie.pl",
-      "unique_properties": 0,
+      "unique_properties": 9,
       "active_listings": 0,
       "active_auctions": 0,
-      "archived_auctions": 0,
+      "archived_auctions": 22,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -1269,6 +1269,19 @@
       "voivodeship": "mazowieckie",
       "authority": "Urząd Miasta i Gminy Lipsko (Burmistrz Miasta i Gminy Lipsko)",
       "host": "samorzad.gov.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 2
+    },
+    {
+      "id": "kolbuszowa",
+      "label": "Kolbuszowa",
+      "voivodeship": "podkarpackie",
+      "authority": "Urząd Miejski w Kolbuszowej (Burmistrz Kolbuszowej)",
+      "host": "bip.kolbuszowa.pl",
       "unique_properties": 0,
       "active_listings": 0,
       "active_auctions": 0,
