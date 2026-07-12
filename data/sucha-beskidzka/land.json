@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "city": "sucha-beskidzka",
+  "plots": [
+    {
+      "key": "dz|6900/7",
+      "kind": "grunt",
+      "city": "sucha-beskidzka",
+      "dzialka_nr": "6900/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spółdzielców",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206900%2F7%20ul.%20Sp%C3%B3%C5%82dzielc%C3%B3w%20Sucha%20Beskidzka%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-08-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Przetarg_S.pdf",
+          "source_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Przetarg_S.pdf"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6900/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|9911/1",
+      "kind": "grunt",
+      "city": "sucha-beskidzka",
+      "dzialka_nr": "9911/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. J. Piłsudskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%209911%2F1%20ul.%20J.%20Pi%C5%82sudskiego%20Sucha%20Beskidzka%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1356,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2016-12-15",
+          "round": 1,
+          "starting_price_pln": 240000,
+          "outcome": "archived",
+          "area_m2": 1356,
+          "detail_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Przetarg_nieograniczony_ul_Pilsudskiego.pdf",
+          "source_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Przetarg_nieograniczony_ul_Pilsudskiego.pdf"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "9911/1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "city": "sucha-beskidzka",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "os. Beskidzkie 1/9",
+      "address": {
+        "street": "Beskidzkie",
+        "street_norm": "beskidzkie",
+        "building": "1",
+        "apt": "9",
+        "key": "beskidzkie|1|9",
+        "warning": null
+      },
+      "area_m2": 51.52,
+      "starting_price_pln": 155000,
+      "auction_date": "2016-05-16",
+      "round": 3,
+      "detail_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Ogloszenie-przetarg_III.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "os. Beskidzkie 1/9",
+      "address": {
+        "street": "Beskidzkie",
+        "street_norm": "beskidzkie",
+        "building": "1",
+        "apt": "9",
+        "key": "beskidzkie|1|9",
+        "warning": null
+      },
+      "area_m2": 51.52,
+      "starting_price_pln": 155000,
+      "auction_date": "2016-03-01",
+      "round": 2,
+      "detail_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Ogloszenie_przetargu-1.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "os. Beskidzkie 1/9",
+      "address": {
+        "street": "Beskidzkie",
+        "street_norm": "beskidzkie",
+        "building": "1",
+        "apt": "9",
+        "key": "beskidzkie|1|9",
+        "warning": null
+      },
+      "area_m2": 51.52,
+      "starting_price_pln": 155000,
+      "auction_date": "2015-10-26",
+      "round": 1,
+      "detail_url": "https://sucha-beskidzka.pl/mfiles/879/28/0/z/Ogloszenie_przetargu_.pdf"
+    }
+  ],
+  "wykaz": []
+}
