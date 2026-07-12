@@ -135,6 +135,12 @@ import gostyn from './gostyn/index.js';
 // (bialystok analog) + born-digital result PDFs; 429 handled by core throttle.
 import kwidzyn from './kwidzyn/index.js';
 import ketrzyn from './ketrzyn/index.js';
+// kamienna-gora (miasto): bip.kamiennagora.pl born-digital PDF notices behind a
+// browser-UA gate; discovery via sitemap.xml (year-index URLs unstable); walbrzych
+// × wolow analog. Real flat stream with sold+unsold achieved prices. TERYT
+// 020701_1 geoportal-CONFIRMED. (Aside: klodzko/config.js teryt 0207 is mis-coded
+// — 0207 is powiat kamiennogórski; Kłodzko is 0208. Left untouched — separate fix.)
+import kamiennaGora from './kamienna-gora/index.js';
 
 export const cities = [
   gliwice,
@@ -232,6 +238,7 @@ export const cities = [
   gostyn,
   kwidzyn,
   ketrzyn,
+  kamiennaGora,
 ];
 
 /** @param {string} id @returns {object|null} */

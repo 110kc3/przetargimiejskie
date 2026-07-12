@@ -1,5 +1,5 @@
 # Spike — Kamienna Góra (Dolnośląskie · powiat kamiennogórski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-11** (19/19 parse test; **TERYT 020701_1 geoportal-CONFIRMED**, not best-effort). Analog walbrzych (born-digital PDF + browser-UA gate) × wolow (slug discovery, classify-on-body). Corrections: bot UA returns an empty body → needs browser UA; discovery via sitemap.xml (year-index URLs are context-unstable). Real flat stream with sold+unsold achieved prices. NB: the repo's own klodzko/config.js teryt (0207) is mis-coded — 0207 is powiat kamiennogórski; Kłodzko is 0208 (left untouched — separate fix).
 
 ## TL;DR
 Gmina Kamienna Góra (UM) actively auctions municipal flats at *ustny przetarg nieograniczony na zbycie lokalu mieszkalnego*. Announcements and result notices are published as individual HTML pages on bip.kamiennagora.pl under clean, crawlable slug URLs. Volume is solid — 10+ flat wykazs and multiple przetarg rounds indexed for 2024–2025 alone. Achieved-price stream confirmed via *informacja o wyniku* pages. No auth/bot block detected; web_fetch timed out (likely rate-limit on lightweight fetch), but Google indexes the pages cleanly.
