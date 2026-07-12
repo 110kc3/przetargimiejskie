@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-12T06:58:43.240Z",
+  "generated_at": "2026-07-12T20:55:39.789Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 104
+      "land_plots": 100
     },
     {
       "id": "trzebinia",
@@ -594,7 +594,7 @@
       "authority": "Urząd Miejski w Augustowie",
       "host": "bip.um.augustow.pl",
       "unique_properties": 3,
-      "active_listings": 2,
+      "active_listings": 9,
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1217,10 +1217,10 @@
       "voivodeship": "pomorskie",
       "authority": "Urząd Miejski w Kwidzynie (Burmistrz Miasta Kwidzyna)",
       "host": "bip.kwidzyn.pl",
-      "unique_properties": 3,
+      "unique_properties": 5,
       "active_listings": 0,
       "active_auctions": 2,
-      "archived_auctions": 3,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 8
     },
@@ -1314,6 +1314,32 @@
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 13
+    },
+    {
+      "id": "strzelce-opolskie",
+      "label": "Strzelce Opolskie",
+      "voivodeship": "opolskie",
+      "authority": "GZMK (Gminny Zarząd Mienia Komunalnego) — Gmina Strzelce Opolskie",
+      "host": "gzmk.pl",
+      "unique_properties": 1,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 1,
+      "wykaz_entries": 0,
+      "land_plots": 5
+    },
+    {
+      "id": "sucha-beskidzka",
+      "label": "Sucha Beskidzka",
+      "voivodeship": "malopolskie",
+      "authority": "Urząd Miasta Sucha Beskidzka",
+      "host": "sucha-beskidzka.pl",
+      "unique_properties": 1,
+      "active_listings": 3,
+      "active_auctions": 0,
+      "archived_auctions": 3,
+      "wykaz_entries": 0,
+      "land_plots": 2
     }
   ]
 }
