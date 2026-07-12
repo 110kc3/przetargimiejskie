@@ -148,6 +148,11 @@ import kamiennaGora from './kamienna-gora/index.js';
 // notices; land-dominated with real achieved prices; sitemap discovery.
 import krosnoOdrzanskie from './krosno-odrzanskie/index.js';
 import lipsko from './lipsko/index.js';
+// kolbuszowa: Pro3W CMS bip.kolbuszowa.pl — inline-HTML announcements (wolow
+// analog) + SCANNED "Informacja o wyniku" result PDFs (OCR; brzeg-style). Flat
+// stream under 3669-sprzedaz-nieruchomości (spike cited procurement cat); ~1
+// flat/yr all SOLD, board ~99% land (land achieved-prices out of scope).
+import kolbuszowa from './kolbuszowa/index.js';
 
 export const cities = [
   gliwice,
@@ -248,6 +253,7 @@ export const cities = [
   kamiennaGora,
   krosnoOdrzanskie,
   lipsko,
+  kolbuszowa,
 ];
 
 /** @param {string} id @returns {object|null} */

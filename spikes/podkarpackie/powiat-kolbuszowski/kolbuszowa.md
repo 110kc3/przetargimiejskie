@@ -1,5 +1,5 @@
 # Spike — Kolbuszowa (Podkarpackie · powiat kolbuszowski)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-12** (21/21 parse test). Analog wolow (inline-HTML announcements) + brzeg (result PDFs). Corrections: Pro3W CMS — results are **SCANNED** "Informacja o wyniku" PDFs (OCR via core/ocr-pdf.js, not the plain HTML the spike assumed); the real flat stream is under `3669-sprzedaz-nieruchomości` (spike cited the procurement category /16338). ~1 flat/yr, all SOLD; board ~99% land (land achieved-prices out of scope). teryt 180703_3 best-effort.
 
 ## TL;DR
 Gmina Kolbuszowa (Burmistrz) runs *ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych* at a steady cadence — confirmed in 2022, 2024, 2025, and 2026. Announcements and results are published as plain HTML on a standard JO-CMS BIP at `bip.kolbuszowa.pl`. Volume is low (1–3 flats/year) but the pipeline is live and repeating. Achieved-price results exist under a separate "Informacje" board. No auth/bot blocks detected. Closest analog: other small-gmina JO-CMS BIP adapters (e.g. Dębica, Ropczyce pattern).
