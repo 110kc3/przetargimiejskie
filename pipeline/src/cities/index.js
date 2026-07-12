@@ -161,6 +161,16 @@ import kolbuszowa from './kolbuszowa/index.js';
 // land-dominated, ~1 flat each.
 import wabrzezno from './wabrzezno/index.js';
 import znin from './znin/index.js';
+// Low-effort wave cont. (2026-07-12), server-HTML (no render). strzelce-opolskie:
+// GZMK/fast4net gzmk.pl server-HTML board 'Przetargi na sprzedaż nieruchomości,14'
+// — inline-HTML announcements + born-digital PDF + inline ZAWIADOMIENIE results
+// (brzeg/nowa-sol analog, wolow-shaped single MIXED flats+land board, body-driven
+// classifyKind). sucha-beskidzka: Interaktywna Polska server-HTML (sucha-beskidzka.pl)
+// + born-digital PDF notices (bochnia analog); achieved prices live only on the
+// bip.malopolska JS-SPA (out of scope → final_price_pln residual-null, wolow-style
+// round-supersession for unsold).
+import strzelceOpolskie from './strzelce-opolskie/index.js';
+import suchaBeskidzka from './sucha-beskidzka/index.js';
 
 export const cities = [
   gliwice,
@@ -264,6 +274,8 @@ export const cities = [
   kolbuszowa,
   wabrzezno,
   znin,
+  strzelceOpolskie,
+  suchaBeskidzka,
 ];
 
 /** @param {string} id @returns {object|null} */
