@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-12T05:56:24.901Z",
+  "generated_at": "2026-07-12T06:27:13.330Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 89,
+      "active_listings": 49,
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 104
+      "land_plots": 71
     },
     {
       "id": "trzebinia",
@@ -594,7 +594,7 @@
       "authority": "Urząd Miejski w Augustowie",
       "host": "bip.um.augustow.pl",
       "unique_properties": 3,
-      "active_listings": 9,
+      "active_listings": 8,
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
@@ -1295,12 +1295,12 @@
       "voivodeship": "kujawsko-pomorskie",
       "authority": "Gmina Miasto Wąbrzeźno",
       "host": "mst-wabrzezno.rbip.mojregion.info",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
-      "archived_auctions": 0,
+      "unique_properties": 4,
+      "active_listings": 13,
+      "active_auctions": 2,
+      "archived_auctions": 11,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 9
     },
     {
       "id": "znin",
@@ -1308,12 +1308,12 @@
       "voivodeship": "kujawsko-pomorskie",
       "authority": "Urząd Miejski w Żninie (Burmistrz Żnina)",
       "host": "bip.gminaznin.pl",
-      "unique_properties": 0,
-      "active_listings": 0,
+      "unique_properties": 2,
+      "active_listings": 3,
       "active_auctions": 0,
-      "archived_auctions": 0,
+      "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 13
     }
   ]
 }
