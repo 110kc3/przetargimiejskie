@@ -30,6 +30,62 @@
           "nr": "5/19"
         }
       ]
+    },
+    {
+      "key": "dz|4/77",
+      "kind": "grunt",
+      "city": "kwidzyn",
+      "dzialka_nr": "4/77",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 4/77",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204%2F77%20dz.%20nr%204%2F77%20Kwidzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-27",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4/77"
+        }
+      ]
+    },
+    {
+      "key": "dz|30/8",
+      "kind": "grunt",
+      "city": "kwidzyn",
+      "dzialka_nr": "30/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 30/8",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2030%2F8%20dz.%20nr%2030%2F8%20Kwidzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-02-06",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "30/8"
+        }
+      ]
     }
   ]
 }
