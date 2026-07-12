@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-12T05:27:43.052Z",
+  "generated_at": "2026-07-12T05:56:24.901Z",
   "cities": [
     {
       "id": "gliwice",
@@ -594,7 +594,7 @@
       "authority": "Urząd Miejski w Augustowie",
       "host": "bip.um.augustow.pl",
       "unique_properties": 3,
-      "active_listings": 2,
+      "active_listings": 9,
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1222,7 +1222,7 @@
       "active_auctions": 2,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 6
     },
     {
       "id": "ketrzyn",
@@ -1282,6 +1282,32 @@
       "voivodeship": "podkarpackie",
       "authority": "Urząd Miejski w Kolbuszowej (Burmistrz Kolbuszowej)",
       "host": "bip.kolbuszowa.pl",
+      "unique_properties": 3,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 3,
+      "wykaz_entries": 0,
+      "land_plots": 3
+    },
+    {
+      "id": "wabrzezno",
+      "label": "Wąbrzeźno",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Gmina Miasto Wąbrzeźno",
+      "host": "mst-wabrzezno.rbip.mojregion.info",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "znin",
+      "label": "Żnin",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Urząd Miejski w Żninie (Burmistrz Żnina)",
+      "host": "bip.gminaznin.pl",
       "unique_properties": 0,
       "active_listings": 0,
       "active_auctions": 0,
