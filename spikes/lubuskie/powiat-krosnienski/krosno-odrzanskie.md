@@ -1,5 +1,5 @@
 # Spike — Krosno Odrzańskie (Lubuskie · powiat krośnieński)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-12** (16/16 parse test). Analog **wschowa** (SYSTEMDOBIP `/przetargi/202/status` — same td-title row engine, inline Cena+Wynik + born-digital result PDFs). Flats-only; every live flat 2024–26 closed Negatywny/brak oferentów (matches spike's "keeps failing to sell"). browser-UA required (bot UA 403). Result PDFs mislabel kind ("lokal użytkowy") → anchored on the board "Dotyczy" not the doc. teryt 080206_3 high-confidence.
 
 ## TL;DR
 Gmina Krosno Odrzańskie runs *pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego* — residential flat auctions confirmed active in 2025 and 2026. BIP on SYSTEMDOBIP platform at `bip.krosnoodrzanskie.pl`. Structured HTML pages with predictable URLs; separate result-announcement board includes achieved prices. Low adapter effort — same SYSTEMDOBIP engine used by other Lubuskie gminas already spiked.

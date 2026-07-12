@@ -141,6 +141,13 @@ import ketrzyn from './ketrzyn/index.js';
 // 020701_1 geoportal-CONFIRMED. (Aside: klodzko/config.js teryt 0207 is mis-coded
 // — 0207 is powiat kamiennogórski; Kłodzko is 0208. Left untouched — separate fix.)
 import kamiennaGora from './kamienna-gora/index.js';
+// Low-effort wave cont. (2026-07-12), server-HTML (no render). krosno-odrzanskie:
+// SYSTEMDOBIP board /przetargi/202/status (wschowa analog) — inline Cena+Wynik +
+// born-digital result PDFs; flats-only, all currently unsold; browser-UA required.
+// lipsko: govpl/Liferay samorzad.gov.pl, mixed inline-HTML + SCANNED-PDF (OCR)
+// notices; land-dominated with real achieved prices; sitemap discovery.
+import krosnoOdrzanskie from './krosno-odrzanskie/index.js';
+import lipsko from './lipsko/index.js';
 
 export const cities = [
   gliwice,
@@ -239,6 +246,8 @@ export const cities = [
   kwidzyn,
   ketrzyn,
   kamiennaGora,
+  krosnoOdrzanskie,
+  lipsko,
 ];
 
 /** @param {string} id @returns {object|null} */
