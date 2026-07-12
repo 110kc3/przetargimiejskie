@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "city": "kolbuszowa",
+  "properties": [
+    {
+      "key": "kolejowej|12|17",
+      "street": "Kolejowa",
+      "street_norm": "kolejowej",
+      "building": "12",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130439,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 131749,
+          "source_pdf": "https://bip.kolbuszowa.pl/static/img/k05/2025/przetargi/rolnictwo/wynik_przetargu_23_07_2025.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "targowej|8|2",
+      "street": "Targowa",
+      "street_norm": "targowej",
+      "building": "8",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-12-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 102990,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 172000,
+          "source_pdf": "https://bip.kolbuszowa.pl/static/img/k05/2022/SPRZEDAZ_NIERUCHOMOSCI/20_12_Informacja_o_wyniku_przetargu_lokal_Kolbuszowa.pdf",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "pilsudskiego|6|21",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "6",
+      "apt": "21",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-05-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 106985,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 146000,
+          "source_pdf": "https://bip.kolbuszowa.pl/static/img/k05/2021/przetargi/rolnictwo/informacja_przetarg_pilsudskiego_02_06_21.pdf",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}
