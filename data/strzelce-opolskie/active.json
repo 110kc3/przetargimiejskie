@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "city": "strzelce-opolskie",
+  "listings": [
+    {
+      "kind": "zabudowana",
+      "address_raw": "Strzelecka 33",
+      "address": {
+        "street": "Strzelecka",
+        "street_norm": "strzelecka",
+        "building": "33",
+        "apt": null,
+        "key": "strzelecka|33|",
+        "warning": null
+      },
+      "dzialka_nr": "102/4",
+      "obreb": null,
+      "area_m2": 467,
+      "starting_price_pln": 265000,
+      "auction_date": "2026-07-29",
+      "round": 2,
+      "detail_url": "https://gzmk.pl/bw/Przetarg_nieograniczony_na_sprzedaz_nieruchomosci_zabudowanej_polozonej_w__Rozmierce_przy_ul_Strzeleckiej_33_dawne_przedszkole_,14,993",
+      "published_date": "2026-06-16"
+    }
+  ],
+  "wykaz": []
+}

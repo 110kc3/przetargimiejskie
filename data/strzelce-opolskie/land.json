@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "city": "strzelce-opolskie",
+  "plots": [
+    {
+      "key": "dz|kalinowice|294/7",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "294/7",
+      "obreb": "Kalinowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kalinowice, dz. nr 294/7",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%2C%20dz.%20nr%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1660,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1660,
+          "detail_url": "https://gzmk.pl/bw/I_ustny_przetarg_nieograniczony_na_sprzedaz_dzialki_budowlanej_polozonej_w_Kalinowicach_,14,1000"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "294/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|strzelce opolskie|2223/1",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "2223/1",
+      "obreb": "Strzelce Opolskie",
+      "street": null,
+      "building": null,
+      "address_raw": "Strzelce Opolskie, dz. nr 2223/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202223%2F1%20Strzelce%20Opolskie%2C%20dz.%20nr%202223%2F1%20Strzelce%20Opolskie%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1479,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 1479,
+          "detail_url": "https://gzmk.pl/bw/Przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnej_polozonej_w_Strzelcach_Op_przy_ul_Wawrzynca_Swierzego_,14,996"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2223/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202223%2F1%20Strzelce%20Opolskie%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|szymiszów|693/9",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "693/9",
+      "obreb": "Szymiszów",
+      "street": null,
+      "building": null,
+      "address_raw": "Szymiszów, dz. nr 693/9",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%2C%20dz.%20nr%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 818,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 818,
+          "detail_url": "https://gzmk.pl/bw/Przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnych_polozonych_w_Szymiszowie_przy_ul_Franciszka_Mysliwca_,14,995"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "693/9",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|szymiszów|861/1",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "861/1",
+      "obreb": "Szymiszów",
+      "street": null,
+      "building": null,
+      "address_raw": "Szymiszów, dz. nr 861/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20861%2F1%20Szymisz%C3%B3w%2C%20dz.%20nr%20861%2F1%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 902,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-15",
+          "round": 1,
+          "starting_price_pln": 85000,
+          "outcome": "sold",
+          "final_price_pln": 90000,
+          "area_m2": 902
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "861/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20861%2F1%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|grodzisko|174/2",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "174/2",
+      "obreb": "Grodzisko",
+      "street": null,
+      "building": null,
+      "address_raw": "Grodzisko, dz. nr 174/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20174%2F2%20Grodzisko%2C%20dz.%20nr%20174%2F2%20Grodzisko%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 48,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 3000,
+          "outcome": "sold",
+          "final_price_pln": 3300,
+          "area_m2": 48
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "174/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20174%2F2%20Grodzisko%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}
