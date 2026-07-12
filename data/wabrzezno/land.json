@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "city": "wabrzezno",
+  "plots": [
+    {
+      "key": "dz|725, 726, 727/4, 52/4",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "725, 726, 727/4, 52/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Gruszkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20725%2C%20726%2C%20727%2F4%2C%2052%2F4%20Gruszkowej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1604,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 4,
+          "starting_price_pln": 212667,
+          "outcome": "active",
+          "area_m2": 1604,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1869/iv-przetarg-nieograniczony-na-zbycie-nieruchomosci-ul-gruszkowa-truskawkowa-i-okrezna.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1869/iv-przetarg-nieograniczony-na-zbycie-nieruchomosci-ul-gruszkowa-truskawkowa-i-okrezna.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "725"
+        },
+        {
+          "nr": "726"
+        },
+        {
+          "nr": "727/4"
+        },
+        {
+          "nr": "52/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|725, 726, 52/4, 727/4",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "725, 726, 52/4, 727/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Gruszkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20725%2C%20726%2C%2052%2F4%2C%20727%2F4%20Gruszkowej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1604,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-05",
+          "round": 3,
+          "starting_price_pln": 212667,
+          "outcome": "archived",
+          "area_m2": 1604,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1707/iii-przetarg-nieograniczony-na-zbycie-nieruchomosci-gruntowych.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1707/iii-przetarg-nieograniczony-na-zbycie-nieruchomosci-gruntowych.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "725"
+        },
+        {
+          "nr": "726"
+        },
+        {
+          "nr": "52/4"
+        },
+        {
+          "nr": "727/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|725, 726, 727/2, 727/3, 727/4, 52/4",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "725, 726, 727/2, 727/3, 727/4, 52/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Gruszkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20725%2C%20726%2C%20727%2F2%2C%20727%2F3%2C%20727%2F4%2C%2052%2F4%20Gruszkowej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1604,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-15",
+          "round": 2,
+          "starting_price_pln": 243048,
+          "outcome": "archived",
+          "area_m2": 1604,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1554/ogloszenie-ii-przetarg-na-zbycie-nieruchomosci-gruntowych.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1554/ogloszenie-ii-przetarg-na-zbycie-nieruchomosci-gruntowych.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "725"
+        },
+        {
+          "nr": "726"
+        },
+        {
+          "nr": "727/2"
+        },
+        {
+          "nr": "727/3"
+        },
+        {
+          "nr": "727/4"
+        },
+        {
+          "nr": "52/4"
+        }
+      ]
+    },
+    {
+      "key": "addr|kukułczej ig",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Kukułczej IG",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Kuku%C5%82czej%20IG%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 653,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-04-01",
+          "round": 1,
+          "starting_price_pln": 98000,
+          "outcome": "archived",
+          "area_m2": 653,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1209/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-bedacej-wlasnoscia-gminy-miasto-wabrzezno-polozonej-w-obrebie-2-miasta-wabrzezno-przy-ulicy-kukulczej.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1209/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-bedacej-wlasnoscia-gminy-miasto-wabrzezno-polozonej-w-obrebie-2-miasta-wabrzezno-przy-ulicy-kukulczej.html"
+        },
+        {
+          "date": "2025-07-02",
+          "round": 2,
+          "starting_price_pln": 68000,
+          "outcome": "archived",
+          "area_m2": 653,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1371/drugi-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-kukulczej.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1371/drugi-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-kukulczej.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|555/5, 555/26, 555/27",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "555/5, 555/26, 555/27",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Kukułczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20555%2F5%2C%20555%2F26%2C%20555%2F27%20Kuku%C5%82czej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 653,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-04-01",
+          "round": 1,
+          "starting_price_pln": 98000,
+          "outcome": "unsold",
+          "area_m2": 653
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "555/5"
+        },
+        {
+          "nr": "555/26"
+        },
+        {
+          "nr": "555/27"
+        }
+      ]
+    },
+    {
+      "key": "dz|392/8",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "392/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Wspólnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20392%2F8%20Wsp%C3%B3lnej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3066,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 2,
+          "starting_price_pln": 267300,
+          "outcome": "archived",
+          "area_m2": 3066,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/336/drugi-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-gruntu-komunalnego-o-powierzchni-03066-ha-okreslonego-dzialka-ewidencyjna-nr-3928.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/336/drugi-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-gruntu-komunalnego-o-powierzchni-03066-ha-okreslonego-dzialka-ewidencyjna-nr-3928.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "392/8"
+        }
+      ]
+    },
+    {
+      "key": "dz|607/3",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "607/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Legionistów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20607%2F3%20Legionist%C3%B3w%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 114,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 114,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1659/ogloszenie-drugi-przetarg-legionistow.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1659/ogloszenie-drugi-przetarg-legionistow.html"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 114,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1455/przetarg-ograniczony-chelminska-legionistow.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1455/przetarg-ograniczony-chelminska-legionistow.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "607/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|727/2",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "727/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Truskawkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20727%2F2%20Truskawkowej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1021,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1021,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1485/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanych-nieruchomosci-gruntowych-bedacych-wlasnoscia-gminy-miasto-wabrzezno.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1485/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanych-nieruchomosci-gruntowych-bedacych-wlasnoscia-gminy-miasto-wabrzezno.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "727/2"
+        }
+      ]
+    },
+    {
+      "key": "addr|chełmińskiej",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Chełmińskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Che%C5%82mi%C5%84skiej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 319,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 319,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1374/pierwszy-ograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-chelminskiej.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1374/pierwszy-ograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-chelminskiej.html"
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

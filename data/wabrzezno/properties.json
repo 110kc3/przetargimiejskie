@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "city": "wabrzezno",
+  "properties": [
+    {
+      "key": "mickiewicza|19|2",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "19",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 114000,
+          "outcome": "archived",
+          "area_m2": 33.25,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/615/przetarg-mickiewicza-19-i-niedzialkowskiego-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 114000,
+          "outcome": "archived",
+          "area_m2": 33.25,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1023/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-mickiewicza-niedzialkowskiego-matejki.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 107000,
+          "outcome": "archived",
+          "area_m2": 33.25,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1278/ogloszenie-pierwszego-nieograniczonego-przetargu-ustnego-na-sprzedaz-prawa-wlasnosci.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 33.25,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1461/przetarg-mickiewicza-19-niedzialkowskiego-1-matejki-20a.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115670,
+          "outcome": "active",
+          "area_m2": 33.25,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1866/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-lokali-mieszkalnych.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.25
+    },
+    {
+      "key": "niedzialkowskiego|1|68",
+      "street": "Niedziałkowskiego",
+      "street_norm": "niedzialkowskiego",
+      "building": "1",
+      "apt": "68",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89241,
+          "outcome": "active",
+          "area_m2": 24.38,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1866/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-lokali-mieszkalnych.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 24.38
+    },
+    {
+      "key": "niedzialkowskiego|1|74",
+      "street": "Niedziałkowskiego",
+      "street_norm": "niedzialkowskiego",
+      "building": "1",
+      "apt": "74",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120202,
+          "outcome": "archived",
+          "area_m2": 37.89,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/615/przetarg-mickiewicza-19-i-niedzialkowskiego-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120202,
+          "outcome": "archived",
+          "area_m2": 37.89,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1023/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-mickiewicza-niedzialkowskiego-matejki.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 118000,
+          "outcome": "archived",
+          "area_m2": 37.89,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1278/ogloszenie-pierwszego-nieograniczonego-przetargu-ustnego-na-sprzedaz-prawa-wlasnosci.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "archived",
+          "area_m2": 37.89,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1461/przetarg-mickiewicza-19-niedzialkowskiego-1-matejki-20a.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 37.89
+    },
+    {
+      "key": "matejki|20A|7",
+      "street": "Matejki",
+      "street_norm": "matejki",
+      "building": "20A",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 212000,
+          "outcome": "archived",
+          "area_m2": 50.7,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1023/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-mickiewicza-niedzialkowskiego-matejki.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 212000,
+          "outcome": "archived",
+          "area_m2": 50.7,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1278/ogloszenie-pierwszego-nieograniczonego-przetargu-ustnego-na-sprzedaz-prawa-wlasnosci.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 50.7,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1461/przetarg-mickiewicza-19-niedzialkowskiego-1-matejki-20a.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.7
+    }
+  ]
+}
