@@ -47,6 +47,12 @@
       "status": null,
       "listings": [
         {
+          "date": "2025-09-26",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        },
+        {
           "date": "2025-11-28",
           "round": 2,
           "starting_price_pln": null,
@@ -128,34 +134,6 @@
       ]
     },
     {
-      "key": "dz|45/3",
-      "kind": "grunt",
-      "city": "kwidzyn",
-      "dzialka_nr": "45/3",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "dz. nr 45/3",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2045%2F3%20dz.%20nr%2045%2F3%20Kwidzyn%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-28",
-          "round": 3,
-          "starting_price_pln": null,
-          "outcome": "unsold"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "45/3"
-        }
-      ]
-    },
-    {
       "key": "dz|1",
       "kind": "grunt",
       "city": "kwidzyn",
@@ -180,6 +158,102 @@
       "parcels": [
         {
           "nr": "1"
+        }
+      ]
+    },
+    {
+      "key": "dz|31/5",
+      "kind": "grunt",
+      "city": "kwidzyn",
+      "dzialka_nr": "31/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 31/5",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%2F5%20dz.%20nr%2031%2F5%20Kwidzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-19",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "31/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|45/3",
+      "kind": "grunt",
+      "city": "kwidzyn",
+      "dzialka_nr": "45/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 45/3",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2045%2F3%20dz.%20nr%2045%2F3%20Kwidzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-26",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2025-11-28",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "45/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|14717",
+      "kind": "grunt",
+      "city": "kwidzyn",
+      "dzialka_nr": "14717",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 14717",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014717%20dz.%20nr%2014717%20Kwidzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 1500000,
+          "outcome": "open"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "14717"
         }
       ]
     }
