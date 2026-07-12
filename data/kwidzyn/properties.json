@@ -92,6 +92,54 @@
         }
       ],
       "area_m2": 32.1
+    },
+    {
+      "key": "gornej|5|4",
+      "street": "Górna",
+      "street_norm": "gornej",
+      "building": "5",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-04",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89000,
+          "outcome": "unsold",
+          "unsold_reason": "brak chętnych",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=127118",
+          "notes": [],
+          "area_m2": 0.0206
+        }
+      ],
+      "area_m2": 0.0206
+    },
+    {
+      "key": "grudziadzkiej|13|5",
+      "street": "Grudziądzkiej",
+      "street_norm": "grudziadzkiej",
+      "building": "13",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-04",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "brak chętnych",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=127119",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 0.0236
+        }
+      ],
+      "area_m2": 0.0236
     }
   ]
 }
