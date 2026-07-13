@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-12T20:55:39.789Z",
+  "generated_at": "2026-07-13T07:14:06.972Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,11 +8,11 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 178,
+      "unique_properties": 180,
       "active_listings": 10,
       "active_auctions": 10,
       "archived_auctions": 255,
-      "wykaz_entries": 1,
+      "wykaz_entries": 3,
       "land_plots": 79
     },
     {
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 100
+      "land_plots": 104
     },
     {
       "id": "trzebinia",
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 14,
+      "active_listings": 13,
       "active_auctions": 7,
       "archived_auctions": 29,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
