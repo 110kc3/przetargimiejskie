@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "city": "klobuck",
+  "plots": [
+    {
+      "key": "dz|kłobuck|5500/21",
+      "kind": "grunt",
+      "city": "klobuck",
+      "dzialka_nr": "5500/21",
+      "obreb": "Kłobuck",
+      "street": null,
+      "building": null,
+      "address_raw": "Kłobuck, dz. nr 5500/21",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205500%2F21%20K%C5%82obuck%2C%20dz.%20nr%205500%2F21%20K%C5%82obuck%20K%C5%82obuck%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1525,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1525
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5500/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205500%2F21%20K%C5%82obuck%20K%C5%82obuck%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "city": "klobuck",
+  "properties": [
+    {
+      "key": "wielunskiej|15|",
+      "street": "Wieluńskiej",
+      "street_norm": "wielunskiej",
+      "building": "15",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-11-20",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 400000,
+          "outcome": "open",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-130",
+          "notes": [
+            "parse: result notice with neither an achieved price nor an unsold marker"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "pokrzynskiego|80|",
+      "street": "Pokrzyńskiego",
+      "street_norm": "pokrzynskiego",
+      "building": "80",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-08-31",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-zorganizowanego-przez-burmistrza-klobucka-dnia-31082023-r-w-urzedzie-miejskim-w-klobucku-przy-ul-11-listopada-6-na-sprzedaz-nieruchomosci-stanowiacej-wlasnosc-gminy-klobuck-44",
+          "notes": []
+        },
+        {
+          "date": "2023-11-08",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-ii-przetargu-ustnego-nieograniczonego-zorganizowanego-przez-burmistrza-klobucka-dnia-08112023-r-w-urzedzie-miejskim-w-klobucku-przy-ul-11-listopada-6-na-sprzedaz-nieruchomosci-stanowiacej-wlasnosc-gminy-klobuck-56",
+          "notes": []
+        },
+        {
+          "date": "2024-01-17",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-iii-przetargu-ustnego-nieograniczonego-zorganizowanego-przez-burmistrza-klobucka-dnia-17012024-r-w-urzedzie-miejskim-w-klobucku-przy-ul-11-listopada-6-na-sprzedaz-nieruchomosci-stanowiacej-wlasnosc-gminy-klobuck-87",
+          "notes": []
+        },
+        {
+          "date": "2024-03-27",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-iv-przetargu-ustnego-nieograniczonego-101",
+          "notes": []
+        },
+        {
+          "date": "2024-07-16",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-i-rokowan-zorganizowanych-przez-burmistrza-klobucka-dnia-16072024-r-w-urzedzie-miejskim-w-klobucku-przy-ul-11-listopada-6-na-sprzedaz-nieruchomosci-stanowiacej-wlasnosc-gminy-klobuck-114",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "rommla|4|42",
+      "street": "Rómmla",
+      "street_norm": "rommla",
+      "building": "4",
+      "apt": "42",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-76",
+          "notes": [],
+          "area_m2": 45.64
+        },
+        {
+          "date": "2024-03-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-przetargu-99",
+          "notes": [],
+          "area_m2": 45.64
+        },
+        {
+          "date": "2024-06-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 222200,
+          "source_pdf": "https://gminaklobuck.pl/ogloszenie/informacja-o-wyniku-iii-przetargu-ustnego-nieograniczonego-zorganizowanego-przez-burmistrza-klobucka-w-dniu-04062024-r-110",
+          "notes": [],
+          "area_m2": 45.64
+        }
+      ],
+      "area_m2": 45.64
+    }
+  ]
+}
