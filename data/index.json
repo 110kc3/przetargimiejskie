@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-13T07:14:06.972Z",
+  "generated_at": "2026-07-13T12:12:38.965Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,11 +8,11 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 180,
+      "unique_properties": 181,
       "active_listings": 10,
       "active_auctions": 10,
       "archived_auctions": 255,
-      "wykaz_entries": 3,
+      "wykaz_entries": 4,
       "land_plots": 79
     },
     {
@@ -151,9 +151,9 @@
       "voivodeship": "malopolskie",
       "authority": "Urząd Miasta w Trzebini",
       "host": "trzebinia.pl",
-      "unique_properties": 2,
-      "active_listings": 2,
-      "active_auctions": 0,
+      "unique_properties": 4,
+      "active_listings": 4,
+      "active_auctions": 2,
       "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -242,9 +242,9 @@
       "voivodeship": "slaskie",
       "authority": "Prezydent Miasta Racibórz",
       "host": "bipraciborz.pl",
-      "unique_properties": 9,
-      "active_listings": 9,
-      "active_auctions": 6,
+      "unique_properties": 13,
+      "active_listings": 10,
+      "active_auctions": 10,
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 1
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 13,
+      "active_listings": 12,
       "active_auctions": 7,
       "archived_auctions": 29,
       "wykaz_entries": 0,
@@ -542,7 +542,7 @@
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
       "unique_properties": 12,
-      "active_listings": 5,
+      "active_listings": 7,
       "active_auctions": 11,
       "archived_auctions": 1,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1194,7 +1194,7 @@
       "unique_properties": 20,
       "active_listings": 11,
       "active_auctions": 0,
-      "archived_auctions": 35,
+      "archived_auctions": 36,
       "wykaz_entries": 0,
       "land_plots": 23
     },
@@ -1340,6 +1340,32 @@
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 2
+    },
+    {
+      "id": "lebork",
+      "label": "Lębork",
+      "voivodeship": "pomorskie",
+      "authority": "Gmina Miasto Lębork",
+      "host": "bip.um.lebork.pl",
+      "unique_properties": 21,
+      "active_listings": 6,
+      "active_auctions": 6,
+      "archived_auctions": 23,
+      "wykaz_entries": 0,
+      "land_plots": 10
+    },
+    {
+      "id": "klobuck",
+      "label": "Kłobuck",
+      "voivodeship": "slaskie",
+      "authority": "Gmina Kłobuck",
+      "host": "gminaklobuck.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }
