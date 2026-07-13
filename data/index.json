@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-13T12:50:19.770Z",
+  "generated_at": "2026-07-13T15:40:18.245Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,8 +9,8 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 181,
-      "active_listings": 10,
-      "active_auctions": 10,
+      "active_listings": 12,
+      "active_auctions": 12,
       "archived_auctions": 255,
       "wykaz_entries": 4,
       "land_plots": 79
@@ -39,7 +39,7 @@
       "active_auctions": 1,
       "archived_auctions": 20,
       "wykaz_entries": 0,
-      "land_plots": 8
+      "land_plots": 7
     },
     {
       "id": "zabrze",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
