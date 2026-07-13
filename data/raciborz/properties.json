@@ -3,8 +3,96 @@
   "city": "raciborz",
   "properties": [
     {
+      "key": "katowickiej|15|20",
+      "street": "Katowicka",
+      "street_norm": "katowickiej",
+      "building": "15",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 41.23,
+          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955976",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.23
+    },
+    {
+      "key": "bosackiej|12|12",
+      "street": "Bosackiej",
+      "street_norm": "bosackiej",
+      "building": "12",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245000,
+          "outcome": "active",
+          "area_m2": 49.72,
+          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955433",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 49.72
+    },
+    {
+      "key": "bonczyka|20|5",
+      "street": "Bończyka",
+      "street_norm": "bonczyka",
+      "building": "20",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 285000,
+          "outcome": "active",
+          "area_m2": 59.53,
+          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955090",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.53
+    },
+    {
+      "key": "solnej|13|3",
+      "street": "Solna",
+      "street_norm": "solnej",
+      "building": "13",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 50.15,
+          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43951818",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.15
+    },
+    {
       "key": "wilenskiej|15|16",
-      "street": "Wileńskiej",
+      "street": "Wileńska",
       "street_norm": "wilenskiej",
       "building": "15",
       "apt": "16",
@@ -14,7 +102,7 @@
           "date": "2026-07-29",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 130000,
           "outcome": "active",
           "area_m2": 35.05,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43849017",
@@ -36,7 +124,7 @@
           "date": "2026-07-29",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 90000,
           "outcome": "active",
           "area_m2": 23.14,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43848747",
@@ -58,7 +146,7 @@
           "date": "2026-07-29",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 105000,
           "outcome": "active",
           "area_m2": 23.4,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43848027",
@@ -70,7 +158,7 @@
     },
     {
       "key": "opawskiej|93|2",
-      "street": "Opawskiej",
+      "street": "Opawska",
       "street_norm": "opawskiej",
       "building": "93",
       "apt": "2",

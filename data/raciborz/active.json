@@ -4,6 +4,78 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Katowickiej 15/20",
+      "address": {
+        "street": "Katowickiej",
+        "street_norm": "katowickiej",
+        "building": "15",
+        "apt": "20",
+        "key": "katowickiej|15|20",
+        "warning": null
+      },
+      "area_m2": 41.23,
+      "starting_price_pln": 190000,
+      "auction_date": "2026-08-05",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955976",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43956121?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bosackiej 12/12",
+      "address": {
+        "street": "Bosackiej",
+        "street_norm": "bosackiej",
+        "building": "12",
+        "apt": "12",
+        "key": "bosackiej|12|12",
+        "warning": null
+      },
+      "area_m2": 49.72,
+      "starting_price_pln": 245000,
+      "auction_date": "2026-08-05",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955433",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43955454?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bończyka 20/5",
+      "address": {
+        "street": "Bończyka",
+        "street_norm": "bonczyka",
+        "building": "20",
+        "apt": "5",
+        "key": "bonczyka|20|5",
+        "warning": null
+      },
+      "area_m2": 59.53,
+      "starting_price_pln": 285000,
+      "auction_date": "2026-08-05",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955090",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43955117?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Solnej 13/3",
+      "address": {
+        "street": "Solnej",
+        "street_norm": "solnej",
+        "building": "13",
+        "apt": "3",
+        "key": "solnej|13|3",
+        "warning": null
+      },
+      "area_m2": 50.15,
+      "starting_price_pln": 270000,
+      "auction_date": "2026-08-05",
+      "round": 1,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43951818",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43951848?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Wileńskiej 15/16",
       "address": {
         "street": "Wileńskiej",
@@ -14,7 +86,7 @@
         "warning": null
       },
       "area_m2": 35.05,
-      "starting_price_pln": null,
+      "starting_price_pln": 130000,
       "auction_date": "2026-07-29",
       "round": 2,
       "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43849017",
@@ -32,7 +104,7 @@
         "warning": null
       },
       "area_m2": 23.14,
-      "starting_price_pln": null,
+      "starting_price_pln": 90000,
       "auction_date": "2026-07-29",
       "round": 2,
       "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43848747",
@@ -50,7 +122,7 @@
         "warning": null
       },
       "area_m2": 23.4,
-      "starting_price_pln": null,
+      "starting_price_pln": 105000,
       "auction_date": "2026-07-29",
       "round": 2,
       "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43848027",
@@ -76,21 +148,21 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Stalmacha 7a/10",
+      "address_raw": "ul. Winnej 10/5",
       "address": {
-        "street": "Stalmacha",
-        "street_norm": "stalmacha",
-        "building": "7A",
-        "apt": "10",
-        "key": "stalmacha|7A|10",
+        "street": "Winnej",
+        "street_norm": "winnej",
+        "building": "10",
+        "apt": "5",
+        "key": "winnej|10|5",
         "warning": null
       },
-      "area_m2": 58.25,
-      "starting_price_pln": 281000,
-      "auction_date": "2026-07-15",
+      "area_m2": 40.17,
+      "starting_price_pln": 200000,
+      "auction_date": "2026-06-30",
       "round": 1,
-      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43779639",
-      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43779983?version=1.0"
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43658310",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43658331?version=1.0"
     },
     {
       "kind": "mieszkalny",
