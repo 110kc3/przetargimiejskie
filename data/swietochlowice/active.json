@@ -23,25 +23,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Hutniczej 11a/2",
-      "address": {
-        "street": "Hutniczej",
-        "street_norm": "hutniczej",
-        "building": "11A",
-        "apt": "2",
-        "key": "hutniczej|11A|2",
-        "warning": null
-      },
-      "auction_date": null,
-      "published_date": null,
-      "round": 1,
-      "area_m2": 82.61,
-      "starting_price_pln": 330000,
-      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-      "share": null
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Dmowskiego 16/5",
       "address": {
         "street": "Dmowskiego",
@@ -56,6 +37,25 @@
       "round": 1,
       "area_m2": 36.51,
       "starting_price_pln": 210000,
+      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Hutniczej 11a/2",
+      "address": {
+        "street": "Hutniczej",
+        "street_norm": "hutniczej",
+        "building": "11A",
+        "apt": "2",
+        "key": "hutniczej|11A|2",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 82.61,
+      "starting_price_pln": 330000,
       "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
       "share": null
     },
@@ -3742,25 +3742,6 @@
       "round": 2,
       "area_m2": 284.28,
       "starting_price_pln": 600000,
-      "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
-      "share": null
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "Szkolnej 13",
-      "address": {
-        "street": "Szkolnej",
-        "street_norm": "szkolnej",
-        "building": "13",
-        "apt": null,
-        "key": "szkolnej|13|",
-        "warning": null
-      },
-      "auction_date": "2021-11-26",
-      "published_date": null,
-      "round": 6,
-      "area_m2": 461.12,
-      "starting_price_pln": 690000,
       "detail_url": "https://www.bip.swietochlowice.pl/bipkod/003/010/003",
       "share": null
     },
