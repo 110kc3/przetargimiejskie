@@ -4,6 +4,40 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Kościuszki 24/1",
+      "address": {
+        "street": "Kościuszki",
+        "street_norm": "kosciuszki",
+        "building": "24",
+        "apt": "1",
+        "key": "kosciuszki|24|1",
+        "warning": null
+      },
+      "area_m2": 54.86,
+      "starting_price_pln": 141000,
+      "auction_date": "2026-09-04",
+      "round": 2,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12309-lokal-24-1-kosciuszki-do-04-09-2026"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Matejki 1/17",
+      "address": {
+        "street": "Matejki",
+        "street_norm": "matejki",
+        "building": "1",
+        "apt": "17",
+        "key": "matejki|1|17",
+        "warning": null
+      },
+      "area_m2": 32.16,
+      "starting_price_pln": 124200,
+      "auction_date": "2026-09-04",
+      "round": 3,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12308-lokal-22-17-gaj-do-11-09-2026"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Świętego Stanisława 13/2",
       "address": {
         "street": "Świętego Stanisława",
