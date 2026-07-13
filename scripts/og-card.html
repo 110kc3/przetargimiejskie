@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- Source of site/og-image.png (1200x630 social/share card). Regenerate after
+     edits by screenshotting this file at a 1200x630 viewport, e.g.:
+     npx playwright screenshot --viewport-size=1200,630 scripts/og-card.html site/og-image.png -->
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<style>
+:root{
+  --bg:#0d1117; --bg-grad:#131a26; --surface:#161b22; --border:#272e3a;
+  --fg:#e6edf3; --fg-strong:#f4f8fc; --muted:#8b97a8; --faint:#646f80;
+  --accent:#2f81f7; --accent-hi:#5fa0ff; --ok:#45b97c;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:1200px;height:630px;font-family:var(--font);color:var(--fg);
+  background:radial-gradient(1400px 700px at 80% -20%,var(--bg-grad) 0%,transparent 62%),var(--bg);
+  display:flex;flex-direction:column;justify-content:center;padding:0 84px;
+  font-variant-numeric:tabular-nums;
+}
+.brand{font-size:40px;font-weight:700;color:var(--fg-strong);letter-spacing:-.5px}
+.brand b{color:var(--accent-hi)}
+.brand .sep{color:var(--faint);font-weight:500;margin:0 14px}
+.brand .region{color:var(--muted);font-weight:500}
+h1{font-size:64px;line-height:1.12;font-weight:800;letter-spacing:-1.5px;color:var(--fg-strong);margin:26px 0 20px;max-width:20ch}
+.lead{font-size:27px;color:var(--muted);max-width:44ch;line-height:1.45}
+.stat-row{display:flex;gap:1px;margin-top:44px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;width:fit-content}
+.stat{background:var(--surface);padding:20px 34px}
+.stat-value{font-size:38px;font-weight:800;color:var(--fg-strong)}
+.stat-value.ok{color:var(--ok)}
+.stat-value.accent{color:var(--accent-hi)}
+.stat-label{color:var(--muted);font-size:18px;margin-top:3px}
+</style>
+</head>
+<body>
+  <div class="brand">przetargi<b>miejskie</b><span class="sep">·</span><span class="region">przetargimiejskie.pl</span></div>
+  <h1>Miejskie przetargi na mieszkania</h1>
+  <p class="lead">Ceny wywoławcze, zł/m², rundy i wyniki licytacji — prosto z miejskich BIP-ów, aktualizowane codziennie.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-value accent">ceny</div><div class="stat-label">wywoławcze i końcowe</div></div>
+    <div class="stat"><div class="stat-value">zł/m²</div><div class="stat-label">dla każdej nieruchomości</div></div>
+    <div class="stat"><div class="stat-value ok">rundy</div><div class="stat-label">i wyniki przetargów</div></div>
+  </div>
+</body>
+</html>
