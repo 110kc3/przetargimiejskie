@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "city": "lebork",
+  "properties": [
+    {
+      "key": "lokietka|24|3",
+      "street": "Łokietka",
+      "street_norm": "lokietka",
+      "building": "24",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 42.25
+        },
+        {
+          "date": "2026-08-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 42.25,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalne-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.25
+    },
+    {
+      "key": "armii krajowej|55|5",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "55",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 249000,
+          "outcome": "active",
+          "area_m2": 60.16,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 60.16
+    },
+    {
+      "key": "wojska polskiego|39|9",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "39",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 287000,
+          "outcome": "active",
+          "area_m2": 62.72,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.72
+    },
+    {
+      "key": "sklodowskiej|22|5",
+      "street": "Skłodowskiej",
+      "street_norm": "sklodowskiej",
+      "building": "22",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 113000,
+          "outcome": "active",
+          "area_m2": 29.31,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29.31
+    },
+    {
+      "key": "sklodowskiej|22|17",
+      "street": "Skłodowskiej",
+      "street_norm": "sklodowskiej",
+      "building": "22",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "active",
+          "area_m2": 21.46,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 21.46
+    },
+    {
+      "key": "m reja|26|2",
+      "street": "M. Reja",
+      "street_norm": "m reja",
+      "building": "26",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 158000,
+          "outcome": "active",
+          "area_m2": 41.82,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.82
+    },
+    {
+      "key": "aleja wolnosci|34|2",
+      "street": "Aleja Wolności",
+      "street_norm": "aleja wolnosci",
+      "building": "34",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 149000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 40.55
+        }
+      ],
+      "area_m2": 40.55
+    },
+    {
+      "key": "stryjewskiego|10|7",
+      "street": "Stryjewskiego",
+      "street_norm": "stryjewskiego",
+      "building": "10",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 174000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 39.27
+        }
+      ],
+      "area_m2": 39.27
+    },
+    {
+      "key": "staromiejskiej|33|4",
+      "street": "Staromiejska",
+      "street_norm": "staromiejskiej",
+      "building": "33",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 139000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 31.82
+        }
+      ],
+      "area_m2": 31.82
+    },
+    {
+      "key": "orlinskiego|1A|11",
+      "street": "Orlińskiego",
+      "street_norm": "orlinskiego",
+      "building": "1A",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 84000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 20.13
+        }
+      ],
+      "area_m2": 20.13
+    },
+    {
+      "key": "malczewskiego|30|9",
+      "street": "Malczewskiego",
+      "street_norm": "malczewskiego",
+      "building": "30",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 32.52
+        }
+      ],
+      "area_m2": 32.52
+    },
+    {
+      "key": "stryjewskiego|10|10",
+      "street": "Stryjewskiego",
+      "street_norm": "stryjewskiego",
+      "building": "10",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 161000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 33.02
+        },
+        {
+          "date": "2026-03-11",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 33.02
+        },
+        {
+          "date": "2026-05-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 33.02
+        }
+      ],
+      "area_m2": 33.02
+    },
+    {
+      "key": "armii krajowej|12|4",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "12",
+      "apt": "4",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 267000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 50.64
+        },
+        {
+          "date": "2026-03-11",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 50.64
+        }
+      ],
+      "area_m2": 50.64
+    },
+    {
+      "key": "mieszka i|14B|3",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "14B",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 137000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 30.78
+        }
+      ],
+      "area_m2": 30.78
+    },
+    {
+      "key": "syrokomli|1|2",
+      "street": "Syrokomli",
+      "street_norm": "syrokomli",
+      "building": "1",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 35.93
+        },
+        {
+          "date": "2026-01-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 35.93
+        }
+      ],
+      "area_m2": 35.93
+    },
+    {
+      "key": "wojska polskiego|42|5",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "42",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 188000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 44.61
+        },
+        {
+          "date": "2026-01-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 158000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 44.61
+        }
+      ],
+      "area_m2": 44.61
+    },
+    {
+      "key": "e plater|9|6",
+      "street": "E. Plater",
+      "street_norm": "e plater",
+      "building": "9",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 186000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 49.87
+        },
+        {
+          "date": "2026-01-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 156000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 49.87
+        }
+      ],
+      "area_m2": 49.87
+    },
+    {
+      "key": "mieszka i|13B|10",
+      "street": "Mieszka I",
+      "street_norm": "mieszka i",
+      "building": "13B",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 52.3
+        }
+      ],
+      "area_m2": 52.3
+    },
+    {
+      "key": "czolgistow|4|3",
+      "street": "Czołgistów",
+      "street_norm": "czolgistow",
+      "building": "4",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 449000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 120.45
+        },
+        {
+          "date": "2025-06-17",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 349000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 120.45
+        }
+      ],
+      "area_m2": 120.45
+    },
+    {
+      "key": "msciwoja ii|12|4",
+      "street": "Mściwoja II",
+      "street_norm": "msciwoja ii",
+      "building": "12",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 149000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 56.18
+        }
+      ],
+      "area_m2": 56.18
+    },
+    {
+      "key": "wita stwosza|6|2",
+      "street": "Wita Stwosza",
+      "street_norm": "wita stwosza",
+      "building": "6",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 163000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 47.26
+        }
+      ],
+      "area_m2": 47.26
+    }
+  ]
+}

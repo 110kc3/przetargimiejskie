@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "city": "lebork",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Łokietka 24/3",
+      "address": {
+        "street": "Łokietka",
+        "street_norm": "lokietka",
+        "building": "24",
+        "apt": "3",
+        "key": "lokietka|24|3",
+        "warning": null
+      },
+      "area_m2": 42.25,
+      "starting_price_pln": 120000,
+      "wadium_pln": 12000,
+      "auction_date": "2026-08-12",
+      "round": 2,
+      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalne-1",
+      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalne-1",
+      "published_date": "2026-07-09"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 55/5",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "55",
+        "apt": "5",
+        "key": "armii krajowej|55|5",
+        "warning": null
+      },
+      "area_m2": 60.16,
+      "starting_price_pln": 249000,
+      "wadium_pln": 25000,
+      "auction_date": "2026-08-12",
+      "round": 1,
+      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
+      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
+      "published_date": "2026-07-09"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Wojska Polskiego 39/9",
+      "address": {
+        "street": "Wojska Polskiego",
+        "street_norm": "wojska polskiego",
+        "building": "39",
+        "apt": "9",
+        "key": "wojska polskiego|39|9",
+        "warning": null
+      },
+      "area_m2": 62.72,
+      "starting_price_pln": 287000,
+      "wadium_pln": 29000,
+      "auction_date": "2026-08-12",
+      "round": 1,
+      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
+      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
+      "published_date": "2026-07-09"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Skłodowskiej 22/5",
+      "address": {
+        "street": "Skłodowskiej",
+        "street_norm": "sklodowskiej",
+        "building": "22",
+        "apt": "5",
+        "key": "sklodowskiej|22|5",
+        "warning": null
+      },
+      "area_m2": 29.31,
+      "starting_price_pln": 113000,
+      "wadium_pln": 12000,
+      "auction_date": "2026-08-12",
+      "round": 1,
+      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+      "published_date": "2026-07-09"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Skłodowskiej 22/17",
+      "address": {
+        "street": "Skłodowskiej",
+        "street_norm": "sklodowskiej",
+        "building": "22",
+        "apt": "17",
+        "key": "sklodowskiej|22|17",
+        "warning": null
+      },
+      "area_m2": 21.46,
+      "starting_price_pln": 72000,
+      "wadium_pln": 8000,
+      "auction_date": "2026-08-12",
+      "round": 1,
+      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+      "published_date": "2026-07-09"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "M. Reja 26/2",
+      "address": {
+        "street": "M. Reja",
+        "street_norm": "m reja",
+        "building": "26",
+        "apt": "2",
+        "key": "m reja|26|2",
+        "warning": null
+      },
+      "area_m2": 41.82,
+      "starting_price_pln": 158000,
+      "wadium_pln": 16000,
+      "auction_date": "2026-08-12",
+      "round": 1,
+      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
+      "published_date": "2026-07-09"
+    }
+  ],
+  "wykaz": []
+}
