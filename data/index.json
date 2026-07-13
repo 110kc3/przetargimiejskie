@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-13T12:12:38.965Z",
+  "generated_at": "2026-07-13T12:50:19.770Z",
   "cities": [
     {
       "id": "gliwice",
@@ -112,10 +112,10 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 91,
-      "active_listings": 199,
+      "unique_properties": 92,
+      "active_listings": 198,
       "active_auctions": 4,
-      "archived_auctions": 201,
+      "archived_auctions": 202,
       "wykaz_entries": 0,
       "land_plots": 21
     },
@@ -1360,12 +1360,12 @@
       "voivodeship": "slaskie",
       "authority": "Gmina Kłobuck",
       "host": "gminaklobuck.pl",
-      "unique_properties": 0,
+      "unique_properties": 3,
       "active_listings": 0,
       "active_auctions": 0,
-      "archived_auctions": 0,
+      "archived_auctions": 8,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 1
     }
   ]
 }
