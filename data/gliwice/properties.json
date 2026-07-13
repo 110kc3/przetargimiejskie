@@ -5176,6 +5176,40 @@
           "wykaz_no": "ZGM/DS/104/2026"
         }
       ]
+    },
+    {
+      "key": "ziemowita|6|garaz-2",
+      "street": "Ziemowita",
+      "street_norm": "ziemowita",
+      "building": "6",
+      "apt": "garaz-2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": null,
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "ZGM/DS/112/2026"
+        }
+      ]
+    },
+    {
+      "key": "ziemowita|8|9",
+      "street": "Ziemowita",
+      "street_norm": "ziemowita",
+      "building": "8",
+      "apt": "9",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": null,
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "ZGM/DS/113/2026"
+        }
+      ]
     }
   ]
 }
