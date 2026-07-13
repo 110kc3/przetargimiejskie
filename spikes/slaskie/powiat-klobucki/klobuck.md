@@ -1,5 +1,5 @@
 # Spike — Kłobuck (Śląskie · powiat kłobucki)
-> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort).
+> **Status:** spike DESK — 2026-06-30. VERDICT: BUILD (Low effort). **Built + registered 2026-07-13** (8/8 parse test; TERYT 240405_3 best-effort). ⚠️ PUBLIC-TIER (Śląskie, blocks CI) → crawl.js triple-bounded (MAX_PAGES/DETAILS/FETCHES), never throws; live smoke = 47 fetches, 10/10 results parse cleanly. Analog wolow/kolbuszowa. Live corrections to DESK: (1) the `bip.gminaklobuck.pl` IntraCOM mirror serves a **BROKEN TLS cert** (hostname mismatch) → the town portal **gminaklobuck.pl** is the source of record, discovered off `/ogloszenia?page=N`; (2) the detail-page `<h1>` is a **useless generic "Ogłoszenie"** → routing keys on the URL SLUG (only sale + result pages fetched); (3) two parse bugs fixed — the flat address grabbed the "Nr" label into the street ("Rómmla Nr" → "Rómmla"), and the buyer regex died on the Polish "Nabywcą" (ASCII \w → Polish class). Low flat volume (one recurring ul. Rómmla unit, unsold I/II → SOLD III at 222 200 zł) + repeat-round land (Pokrzyńskiego 80 Libidza I→IV, Srebrne). source:'html', browser UA, no PDF/OCR.
 
 ## TL;DR
 Gmina Kłobuck runs *ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych* — confirmed

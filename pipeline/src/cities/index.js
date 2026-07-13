@@ -184,6 +184,18 @@ import suchaBeskidzka from './sucha-beskidzka/index.js';
 // multi-lokal middle unit can read "nr 17 oficyna o pow" so the lokal anchor
 // tolerates that qualifier.
 import lebork from './lebork/index.js';
+// klobuck (Śląskie/powiat kłobucki, 2026-07-13) — ⚠️ PUBLIC-TIER (blocks CI), so
+// crawl.js is triple-bounded (MAX_PAGES/DETAILS/FETCHES) and never throws.
+// gminaklobuck.pl bespoke PHP portal, server-HTML (browser UA, no PDF/OCR). Live
+// verification corrected the DESK spike: the bip.gminaklobuck.pl IntraCOM mirror
+// serves a BROKEN TLS cert → the town portal is the source of record; the
+// `/ogloszenia?page=N` board's detail <h1> is a useless generic "Ogłoszenie", so
+// routing keys on the URL SLUG (fetch only sale + result pages). Two parse bugs the
+// resumed agent flagged were fixed here: the flat address grabbed the "Nr" label
+// into the street ("Rómmla Nr" → "Rómmla"), and the buyer regex died on the Polish
+// "Nabywcą" (ASCII \w) → now a Polish-letter class. Low flat volume (one recurring
+// Rómmla unit, sold on round III) + repeat-round land; wolow/kolbuszowa analog. 8/8.
+import klobuck from './klobuck/index.js';
 
 export const cities = [
   gliwice,
@@ -290,6 +302,7 @@ export const cities = [
   strzelceOpolskie,
   suchaBeskidzka,
   lebork,
+  klobuck,
 ];
 
 /** @param {string} id @returns {object|null} */
