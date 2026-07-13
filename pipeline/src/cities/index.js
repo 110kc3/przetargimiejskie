@@ -171,6 +171,19 @@ import znin from './znin/index.js';
 // round-supersession for unsold).
 import strzelceOpolskie from './strzelce-opolskie/index.js';
 import suchaBeskidzka from './sucha-beskidzka/index.js';
+// lebork (Pomorskie/powiat lęborski, 2026-07-13): bip.um.lebork.pl bespoke BIP,
+// server-HTML (browser UA), no PDF/OCR. ONE recursive "Lista artykułów" tree
+// (board → year → month → leaf; decorative slugs — crawl follows the row href,
+// classifies by BODY). Multi-lokal notices split one record per lokal; land →
+// land.json; "Informacja … o wyniku" → result stream. Analogs: wabrzezno (multi-
+// lokal parser + content-routed announce/result split) × zgorzelec (html board →
+// article → inline text). Live-groundtruthed 2026-07-13, which corrected three
+// parser assumptions: flat RESULTS drop "ul." ("przy Łokietka 24") so the address
+// anchor made "ul." optional/uppercase-initial; tabular LAND rows abut a bare area
+// to the price (2392 210.000,00) so the amount regex got a (?<!\d) guard; and a
+// multi-lokal middle unit can read "nr 17 oficyna o pow" so the lokal anchor
+// tolerates that qualifier.
+import lebork from './lebork/index.js';
 
 export const cities = [
   gliwice,
@@ -276,6 +289,7 @@ export const cities = [
   znin,
   strzelceOpolskie,
   suchaBeskidzka,
+  lebork,
 ];
 
 /** @param {string} id @returns {object|null} */
