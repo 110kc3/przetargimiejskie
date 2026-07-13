@@ -8,6 +8,9 @@
 # Serve index.html for directory requests (/archiwum/, /privacy/, /).
 DirectoryIndex index.html
 
+# Branded 404 (site/404.html) instead of Apache's default error page.
+ErrorDocument 404 /404.html
+
 # Treat text responses as UTF-8 (Polish diacritics in the HTML and JSON).
 AddDefaultCharset utf-8
 <IfModule mod_mime.c>

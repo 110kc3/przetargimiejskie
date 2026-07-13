@@ -153,6 +153,13 @@ function page({ path: pagePath, title, description, h1, crumbs, body, jsonLd }) 
 <meta property="og:description" content="${esc(description)}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="${canonical}" />
+<meta property="og:site_name" content="przetargimiejskie" />
+<meta property="og:locale" content="pl_PL" />
+<meta property="og:image" content="${SITE}/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="${esc(title)}" />
+<meta name="twitter:description" content="${esc(description)}" />
+<meta name="twitter:image" content="${SITE}/og-image.png" />
 ${ld}<style>${CSS}</style>
 </head>
 <body>
@@ -299,6 +306,20 @@ ${monthChips ? `<section class="section"><h2 class="section-title">Miesięczne p
     description: `Przetargi na mieszkania ${inCity(city)}: ${activeRows.length ? `${activeRows.length} aktualnych licytacji, ` : ''}ceny wywoławcze, zł/m², rundy i wyniki sprzedaży. Lokale ${city.authority || 'miasta'} — dane z BIP, aktualizowane codziennie.`,
     h1: `Przetargi na mieszkania — ${esc(city.label)}`,
     crumbs: [{ label: 'Strona główna', href: '/' }, { label: 'Miasta', href: '/miasta/' }, { label: city.label }],
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'Dataset',
+      name: `Przetargi na mieszkania — ${city.label}`,
+      description: `Historia miejskich przetargów na nieruchomości ${inCity(city)}: ceny wywoławcze, rundy, wyniki. Dane z BIP ${city.authority || 'urzędu miasta'}, aktualizowane codziennie.`,
+      url: `${SITE}/${city.id}/`,
+      inLanguage: 'pl',
+      dateModified: generated,
+      creator: { '@type': 'Organization', name: 'przetargimiejskie', url: `${SITE}/` },
+      distribution: [{
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${SITE}/data/${city.id}/properties.json`,
+      }],
+    },
     body: cityBody,
   }));
   addUrl(`/${city.id}/`, generated);
@@ -330,14 +351,35 @@ ${monthChips ? `<section class="section"><h2 class="section-title">Miesięczne p
       description: desc,
       h1: `${esc(p._addr)}, ${esc(city.label)}`,
       crumbs: [{ label: 'Strona główna', href: '/' }, { label: city.label, href: `/${city.id}/` }, { label: p._addr }],
-      jsonLd: {
-        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'przetargimiejskie', item: `${SITE}/` },
-          { '@type': 'ListItem', position: 2, name: city.label, item: `${SITE}/${city.id}/` },
-          { '@type': 'ListItem', position: 3, name: `${p._addr}, ${city.label}` },
-        ],
-      },
+      jsonLd: [
+        {
+          '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'przetargimiejskie', item: `${SITE}/` },
+            { '@type': 'ListItem', position: 2, name: city.label, item: `${SITE}/${city.id}/` },
+            { '@type': 'ListItem', position: 3, name: `${p._addr}, ${city.label}` },
+          ],
+        },
+        // Product/Offer only while an auction is genuinely upcoming — a sold or
+        // stale listing must not advertise a live price to crawlers.
+        {
+          '@context': 'https://schema.org', '@type': 'Product',
+          name: `${p._addr}, ${city.label}`,
+          category: KIND_LABEL[p.kind] || 'nieruchomość',
+          description: desc,
+          url: `${SITE}/${city.id}/${p._slug}/`,
+          ...(live && live.starting_price_pln ? {
+            offers: {
+              '@type': 'Offer',
+              price: live.starting_price_pln,
+              priceCurrency: 'PLN',
+              availability: 'https://schema.org/InStock',
+              url: `${SITE}/${city.id}/${p._slug}/`,
+              ...(live.date ? { validThrough: live.date } : {}),
+            },
+          } : {}),
+        },
+      ],
       body: `
 <p class="lead">${KIND_LABEL[p.kind] || 'Nieruchomość'}${p.area_m2 ? `, ${fmtArea(p.area_m2)}` : ''} —
 ${live ? 'najbliższy przetarg poniżej, pod spodem' : ''} pełna historia licytacji ${esc(city.authority || 'miasta')}
@@ -411,3 +453,95 @@ ${sitemap.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><
 writeFileSync(join(OUT, 'sitemap.xml'), xml);
 
 console.error(`  seo: wrote ${sitemap.length} URLs to sitemap.xml (${cityHub.length} cities)`);
+
+// ---------- llms.txt + llms-full.txt ----------
+// Agent-discovery files (https://llmstxt.org): what the site is, where the
+// static pages are, and where the raw JSON lives. Generated so the city list
+// and counts never go stale.
+
+const activeOf = (c) => c.active_auctions ?? c.active_listings ?? 0;
+const cityLine = (c) => `- ${c.label}: ${SITE}/${c.id}/ (${fmtInt(activeOf(c))} aktywnych · ${fmtInt(c.archived_auctions || 0)} w archiwum)`;
+
+const llms = `# przetargimiejskie
+
+> Historia miejskich przetargów na mieszkania w Polsce — municipal property-auction
+> history for Poland. Starting prices, PLN/m², auction rounds and sale outcomes,
+> scraped daily from official BIP bulletins. Public scope: Śląskie voivodeship
+> (${cities.length} cities). Page content is in Polish.
+
+## Pages (fully static, no JavaScript needed)
+
+- ${SITE}/miasta/ — city hub, links every city page
+- ${SITE}/<city>/ — per city: live auctions, recent results, every tracked property
+- ${SITE}/<city>/<address-slug>/ — one property's full auction history (rounds, prices, outcomes)
+- ${SITE}/<city>/<YYYY-MM>/ — monthly recap of what the city put up for auction
+
+## Pages that need JavaScript
+
+- ${SITE}/archiwum — searchable all-auction archive (same records as the JSON below)
+- ${SITE}/raporty — market reports
+
+## Machine-readable data (JSON, updated daily)
+
+- ${SITE}/data/index.json — every monitored city with per-city counts
+- ${SITE}/data/<city>/properties.json — all properties + full listing history for one city
+- ${SITE}/data/<city>/land.json — municipal land plots (where available)
+- ${SITE}/data/<city>/meta.json — per-city freshness metadata
+- Sitemap: ${SITE}/sitemap.xml
+
+## Cities
+
+${cityHub.map(({ city }) => cityLine(city)).join('\n')}
+
+## Contact
+
+- kontakt@przetargimiejskie.pl · source: https://github.com/110kc3/przetargimiejskie
+`;
+writeFileSync(join(OUT, 'llms.txt'), llms);
+
+const llmsFull = `${llms}
+## Per-city data endpoints
+
+${cityHub.map(({ city }) => `- ${SITE}/data/${city.id}/properties.json`).join('\n')}
+
+## Notes
+
+- Data source: public Biuletyn Informacji Publicznej (BIP) pages of city offices and
+  municipal housing authorities. Prices and dates are informational; only the office's
+  source documents are binding. Unofficial tool, not affiliated with any city office.
+- A free Chrome extension overlays the same history directly on BIP listing pages:
+  https://chromewebstore.google.com/detail/przetargi-miejskie/jcbkaleamaoknicmilbjibgebmdloken
+`;
+writeFileSync(join(OUT, 'llms-full.txt'), llmsFull);
+console.error('  seo: wrote llms.txt + llms-full.txt');
+
+// ---------- landing: bake stats + city chips into the static HTML ----------
+// The landing's own <script> fetches /data/index.json and paints the same
+// values — this injection makes them present in the raw HTML too, so no-JS
+// crawlers see real numbers instead of "—" and an empty #cities container.
+
+const landingPath = join(OUT, 'index.html');
+let landing = readFileSync(landingPath, 'utf8');
+
+const statProps = cities.reduce((s, c) => s + (c.unique_properties || 0), 0);
+const statActive = cities.reduce((s, c) => s + activeOf(c), 0);
+const statArchived = cities.reduce((s, c) => s + (c.archived_auctions || 0), 0);
+const plural = (n) => (n === 1 ? 'aukcja' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 'aukcje' : 'aukcji');
+const chipHtml = (c) => {
+  const a = activeOf(c);
+  const meta = `${a} ${plural(a)}` + (c.archived_auctions ? ` · ${fmtInt(c.archived_auctions)} w archiwum` : '');
+  return `<span class="city-chip"><span class="city-dot dot-${c.id}"></span><span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></span>`;
+};
+const chipsHtml = `<div class="city-group"><div class="city-group-title">Śląskie</div><div class="city-row">${cities.map(chipHtml).join('')}</div></div>`;
+
+const inject = (marker, replacement) => {
+  if (!landing.includes(marker)) throw new Error(`landing injection marker not found: ${marker}`);
+  landing = landing.replace(marker, replacement);
+};
+inject('<div class="stat-value" id="stat-cities">—</div>', `<div class="stat-value" id="stat-cities">${fmtInt(cities.length)}</div>`);
+inject('<div class="stat-value" id="stat-props">—</div>', `<div class="stat-value" id="stat-props">${fmtInt(statProps)}</div>`);
+inject('<div class="stat-value" id="stat-active">—</div>', `<div class="stat-value" id="stat-active">${fmtInt(statActive)}</div>`);
+inject('<div class="stat-value" id="stat-archived">—</div>', `<div class="stat-value" id="stat-archived">${fmtInt(statArchived)}</div>`);
+inject('<div class="city-groups" id="cities"></div>', `<div class="city-groups" id="cities">${chipsHtml}</div>`);
+writeFileSync(landingPath, landing);
+console.error('  seo: baked landing stats + city chips into index.html');
