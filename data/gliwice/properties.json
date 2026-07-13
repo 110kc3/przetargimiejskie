@@ -84,6 +84,98 @@
       "area_m2": 24.34
     },
     {
+      "key": "swietojanska|39|3",
+      "street": "Świętojańska",
+      "street_norm": "swietojanska",
+      "building": "39",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 264000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 47.5
+        },
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 264000,
+          "outcome": "archived",
+          "area_m2": 47.5,
+          "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-25",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
+        },
+        {
+          "date": "2026-08-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 237600,
+          "outcome": "active",
+          "area_m2": 47.5,
+          "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-25"
+        }
+      ],
+      "area_m2": 47.5
+    },
+    {
+      "key": "chorzowska|40|12",
+      "street": "Chorzowska",
+      "street_norm": "chorzowska",
+      "building": "40",
+      "apt": "12",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-05-04",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 146500,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 49
+        },
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 131850,
+          "outcome": "archived",
+          "area_m2": 49,
+          "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-24",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
+        },
+        {
+          "date": "2026-08-17",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 117200,
+          "outcome": "active",
+          "area_m2": 49,
+          "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
+          "wadium_deadline": "2026-06-30",
+          "viewing_date": "2026-06-24"
+        }
+      ],
+      "area_m2": 49
+    },
+    {
       "key": "kozielska|13|garaz-1",
       "street": "Kozielska",
       "street_norm": "kozielska",
@@ -245,76 +337,6 @@
         }
       ],
       "area_m2": 68.14
-    },
-    {
-      "key": "swietojanska|39|3",
-      "street": "Świętojańska",
-      "street_norm": "swietojanska",
-      "building": "39",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-04",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 264000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
-          "notes": [],
-          "area_m2": 47.5
-        },
-        {
-          "date": "2026-07-06",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 264000,
-          "outcome": "archived",
-          "area_m2": 47.5,
-          "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
-          "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-25",
-          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
-        }
-      ],
-      "area_m2": 47.5
-    },
-    {
-      "key": "chorzowska|40|12",
-      "street": "Chorzowska",
-      "street_norm": "chorzowska",
-      "building": "40",
-      "apt": "12",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-05-04",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 146500,
-          "outcome": "unsold",
-          "unsold_reason": "no_deposits",
-          "final_price_pln": null,
-          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/05/04.05.2026-r.-wyniki-przetargow.pdf",
-          "notes": [],
-          "area_m2": 49
-        },
-        {
-          "date": "2026-07-06",
-          "round": 2,
-          "kind": "uzytkowy",
-          "starting_price_pln": 131850,
-          "outcome": "archived",
-          "area_m2": 49,
-          "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
-          "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-24",
-          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-6072026-ul-ignacego-daszynskiego-6510-ul-zwyciestwa-116c-ul-karola-libelta-101-ul-swietojanska-393-ul-rybnicka-2519-ul-rybitwy-1317-lokale-mieszkalne-ul-chorzowska-4012-lokal-uzytkowy"
-        }
-      ],
-      "area_m2": 49
     },
     {
       "key": "zwyciestwa|11|6C",

@@ -104,6 +104,25 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "Świętojańska 39/3",
+      "address": {
+        "street": "Świętojańska",
+        "street_norm": "swietojanska",
+        "building": "39",
+        "apt": "3",
+        "key": "swietojanska|39|3",
+        "warning": null
+      },
+      "auction_date": "2026-08-17",
+      "area_m2": 47.5,
+      "starting_price_pln": 237600,
+      "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
+      "wadium_deadline": "2026-06-30",
+      "viewing_date": "2026-06-25",
+      "round": 2
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Lompy 7/7",
       "address": {
         "street": "Lompy",
@@ -160,6 +179,25 @@
       "wadium_deadline": "2026-08-04",
       "viewing_date": "2026-07-29",
       "round": 1
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Chorzowska 40/12",
+      "address": {
+        "street": "Chorzowska",
+        "street_norm": "chorzowska",
+        "building": "40",
+        "apt": "12",
+        "key": "chorzowska|40|12",
+        "warning": null
+      },
+      "auction_date": "2026-08-17",
+      "area_m2": 49,
+      "starting_price_pln": 117200,
+      "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
+      "wadium_deadline": "2026-06-30",
+      "viewing_date": "2026-06-24",
+      "round": 2
     },
     {
       "kind": "mieszkalny",
