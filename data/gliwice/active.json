@@ -119,7 +119,7 @@
       "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
       "wadium_deadline": "2026-06-30",
       "viewing_date": "2026-06-25",
-      "round": 2
+      "round": 3
     },
     {
       "kind": "mieszkalny",
@@ -136,6 +136,7 @@
       "area_m2": 155.07,
       "starting_price_pln": 775840,
       "detail_url": "https://zgm-gliwice.pl/lompy-7-7-23-03-2026-r/",
+      "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-14092026-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne",
       "wadium_deadline": "2026-09-08",
       "viewing_date": "2026-08-13",
       "round": 2
@@ -198,6 +199,26 @@
       "wadium_deadline": "2026-06-30",
       "viewing_date": "2026-06-24",
       "round": 2
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PRZYJAŹNI 9/5",
+      "address": {
+        "street": "PRZYJAŹNI",
+        "street_norm": "przyjazni",
+        "building": "9",
+        "apt": "5",
+        "key": "przyjazni|9|5",
+        "warning": null
+      },
+      "auction_date": "2026-09-14",
+      "area_m2": 134.17,
+      "starting_price_pln": 707840,
+      "round": 3,
+      "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-14092026-ul-lompy-77-al-przyjazni-95-lokale-mieszkalne",
+      "source": "bip",
+      "wadium_deadline": null,
+      "viewing_date": null
     },
     {
       "kind": "mieszkalny",
