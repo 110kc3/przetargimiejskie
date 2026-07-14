@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-13T15:40:18.245Z",
+  "generated_at": "2026-07-14T06:33:09.352Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,8 +9,8 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 181,
-      "active_listings": 12,
-      "active_auctions": 12,
+      "active_listings": 13,
+      "active_auctions": 13,
       "archived_auctions": 255,
       "wykaz_entries": 4,
       "land_plots": 79
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 89,
+      "active_listings": 72,
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 104
+      "land_plots": 84
     },
     {
       "id": "trzebinia",
@@ -832,7 +832,7 @@
       "active_auctions": 0,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 10
+      "land_plots": 9
     },
     {
       "id": "miedzyrzecz",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1131,7 +1131,7 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
-      "land_plots": 50
+      "land_plots": 51
     },
     {
       "id": "lwowek-slaski",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1287,7 +1287,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 1
     },
     {
       "id": "wabrzezno",
