@@ -3,183 +3,6 @@
   "city": "kedzierzyn-kozle",
   "plots": [
     {
-      "key": "addr|ul. lasoki",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Koźle",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Lasoki",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Lasoki%20Ko%C5%BAle%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1369,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-10",
-          "round": 1,
-          "starting_price_pln": 11000,
-          "outcome": "archived",
-          "area_m2": 1369,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29095/ogloszenie-o-przetargu-ustnym-nieograniczonym",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73823"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|koźle|274/3",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "274/3",
-      "obreb": "Koźle",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Lasoki",
-      "dzialka_id": "160301_1.0014.274/3",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3",
-      "area_m2": 1369,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-10",
-          "round": 1,
-          "starting_price_pln": 11000,
-          "outcome": "sold",
-          "final_price_pln": 64000,
-          "area_m2": 1369
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "274/3",
-          "dzialka_id": "160301_1.0014.274/3",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3"
-        }
-      ]
-    },
-    {
-      "key": "dz|sławięcice|727/53",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "727/53",
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Judyma",
-      "dzialka_id": "160301_1.0091.727/53",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F53",
-      "area_m2": 1219,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-09",
-          "round": 1,
-          "starting_price_pln": 100000,
-          "outcome": "archived",
-          "area_m2": 1219,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72309",
-          "final_price_pln": 147000
-        },
-        {
-          "date": "2025-11-26",
-          "round": 2,
-          "starting_price_pln": 100000,
-          "outcome": "archived",
-          "area_m2": 1219,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29035/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73545",
-          "final_price_pln": 117000
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "727/53",
-          "dzialka_id": "160301_1.0091.727/53",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F53"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. niezapominajek",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Niezapominajek",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Niezapominajek%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1120,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-02",
-          "round": 1,
-          "starting_price_pln": 180000,
-          "outcome": "archived",
-          "area_m2": 1120,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72287"
-        },
-        {
-          "date": "2025-11-26",
-          "round": 2,
-          "starting_price_pln": 160000,
-          "outcome": "archived",
-          "area_m2": 1120,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29035/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73546"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|kędzierzyn|854/44",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "854/44",
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Niezapominajek",
-      "dzialka_id": "160301_1.0044.854/44",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.854%2F44",
-      "area_m2": 1120,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-02",
-          "round": 1,
-          "starting_price_pln": 180000,
-          "outcome": "unsold",
-          "area_m2": 1120
-        },
-        {
-          "date": "2025-11-26",
-          "round": 2,
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "area_m2": 1120
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "854/44",
-          "dzialka_id": "160301_1.0044.854/44",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.854%2F44"
-        }
-      ]
-    },
-    {
       "key": "addr|ul. judyma",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -387,9 +210,2416 @@
           "area_m2": 1139,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73378"
+        },
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "archived",
+          "area_m2": 165,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29826/ogloszenie-o-przetargu-ustnym-ograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77101"
+        },
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 170000,
+          "outcome": "archived",
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77674"
+        },
+        {
+          "date": "2026-07-02",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 934,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77838"
+        },
+        {
+          "date": "2026-07-21",
+          "round": 11,
+          "starting_price_pln": 2800000,
+          "outcome": "active",
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29917/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77505"
+        },
+        {
+          "date": "2026-08-26",
+          "round": 1,
+          "starting_price_pln": 125000,
+          "outcome": "active",
+          "area_m2": 379,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78744"
+        },
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 970,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78764"
+        },
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "starting_price_pln": 8000,
+          "outcome": "active",
+          "area_m2": 76,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30166/ogloszenia-o-przetargach-ustnych-ograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78777"
+        },
+        {
+          "date": "2026-09-09",
+          "round": 5,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 934,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78753"
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|blachownia|378/5",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "378/5",
+      "obreb": "Blachownia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przyjaźni poprzez ustanowioną",
+      "dzialka_id": "160301_1.0063.378/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.378%2F5",
+      "area_m2": 1189,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 1189,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78771"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "378/5",
+          "dzialka_id": "160301_1.0063.378/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.378%2F5"
+        }
+      ]
+    },
+    {
+      "key": "dz|blachownia|378/3, 405/1",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "378/3, 405/1",
+      "obreb": "Blachownia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przyjaźni klasy VI w sąsiedztwie sieci uzbrojeń",
+      "dzialka_id": "160301_1.0063.378/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.378%2F3",
+      "area_m2": 1623,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1623,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78772"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "378/3",
+          "dzialka_id": "160301_1.0063.378/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.378%2F3"
+        },
+        {
+          "nr": "405/1",
+          "dzialka_id": "160301_1.0063.405/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.405%2F1"
+        }
+      ]
+    },
+    {
+      "key": "dz|koźle|2104",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "2104",
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Judyma",
+      "dzialka_id": "160301_1.0014.2104",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.2104",
+      "area_m2": 244,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 244,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77677"
+        },
+        {
+          "date": "2026-09-03",
+          "round": 2,
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 244,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78752"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2104",
+          "dzialka_id": "160301_1.0014.2104",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.2104"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1142/10",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1142/10",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzysztofa niezabudowana",
+      "dzialka_id": "160301_1.0046.1142/10",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1142%2F10",
+      "area_m2": 773,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 773,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78757"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1142/10",
+          "dzialka_id": "160301_1.0046.1142/10",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1142%2F10"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1142/9",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1142/9",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzysztofa niezabudowana",
+      "dzialka_id": "160301_1.0046.1142/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1142%2F9",
+      "area_m2": 905,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 905,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77669"
+        },
+        {
+          "date": "2026-09-03",
+          "round": 2,
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 905,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78758"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1142/9",
+          "dzialka_id": "160301_1.0046.1142/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1142%2F9"
+        }
+      ]
+    },
+    {
+      "key": "dz|koźle|1124/1",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1124/1",
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Rybarze",
+      "dzialka_id": "160301_1.0014.1124/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.1124%2F1",
+      "area_m2": 2159,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 4,
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 2159,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77831"
+        },
+        {
+          "date": "2026-09-02",
+          "round": 5,
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 2159,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78759"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1124/1",
+          "dzialka_id": "160301_1.0014.1124/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.1124%2F1"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|744/20",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "744/20",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Litewskiej",
+      "dzialka_id": "160301_1.0046.744/20",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F20",
+      "area_m2": 1720,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 4,
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 1720,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77829"
+        },
+        {
+          "date": "2026-07-01",
+          "round": 4,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1720
+        },
+        {
+          "date": "2026-09-02",
+          "round": 5,
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 1720,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78760"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "744/20",
+          "dzialka_id": "160301_1.0046.744/20",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F20"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|744/19",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "744/19",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Litewskiej",
+      "dzialka_id": "160301_1.0046.744/19",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F19",
+      "area_m2": 1336,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 4,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1336,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77830"
+        },
+        {
+          "date": "2026-09-02",
+          "round": 5,
+          "starting_price_pln": 140000,
+          "outcome": "active",
+          "area_m2": 1336,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78761"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "744/19",
+          "dzialka_id": "160301_1.0046.744/19",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F19"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|744/18",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "744/18",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Litewskiej",
+      "dzialka_id": "160301_1.0046.744/18",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F18",
+      "area_m2": 1279,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 1279,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77832"
+        },
+        {
+          "date": "2026-09-02",
+          "round": 5,
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 1279,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78762"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "744/18",
+          "dzialka_id": "160301_1.0046.744/18",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F18"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|744/17",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "744/17",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Litewskiej",
+      "dzialka_id": "160301_1.0046.744/17",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F17",
+      "area_m2": 1841,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 4,
+          "starting_price_pln": 210000,
+          "outcome": "archived",
+          "area_m2": 1841,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77833"
+        },
+        {
+          "date": "2026-09-02",
+          "round": 5,
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 1841,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78763"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "744/17",
+          "dzialka_id": "160301_1.0046.744/17",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.744%2F17"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|727/64",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "727/64",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Judyma",
+      "dzialka_id": "160301_1.0091.727/64",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F64",
+      "area_m2": 930,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 930,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78765"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "727/64",
+          "dzialka_id": "160301_1.0091.727/64",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F64"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. królowej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Kr%C3%B3lowej%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 379,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-26",
+          "round": 1,
+          "starting_price_pln": 8000,
+          "outcome": "archived",
+          "area_m2": 28,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28543/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71552"
+        },
+        {
+          "date": "2025-08-27",
+          "round": 1,
+          "starting_price_pln": 32000,
+          "outcome": "archived",
+          "area_m2": 379,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28543/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71560"
+        },
+        {
+          "date": "2025-10-02",
+          "round": 1,
+          "starting_price_pln": 56000,
+          "outcome": "archived",
+          "area_m2": 379,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72299"
+        },
+        {
+          "date": "2026-08-26",
+          "round": 1,
+          "starting_price_pln": 103000,
+          "outcome": "active",
+          "area_m2": 379,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78745"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kędzierzyn|3417/91",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/91",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": "160301_1.0044.3417/91",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F91",
+      "area_m2": 27,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 1,
+          "starting_price_pln": 28000,
+          "outcome": "active",
+          "area_m2": 27,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78746"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/91",
+          "dzialka_id": "160301_1.0044.3417/91",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F91"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|3417/90",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/90",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": "160301_1.0044.3417/90",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F90",
+      "area_m2": 27,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 1,
+          "starting_price_pln": 28000,
+          "outcome": "active",
+          "area_m2": 27,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78747"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/90",
+          "dzialka_id": "160301_1.0044.3417/90",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F90"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|3417/89",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/89",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": "160301_1.0044.3417/89",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F89",
+      "area_m2": 27,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 1,
+          "starting_price_pln": 28000,
+          "outcome": "active",
+          "area_m2": 27,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78748"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/89",
+          "dzialka_id": "160301_1.0044.3417/89",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F89"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|3417/88",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/88",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": "160301_1.0044.3417/88",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F88",
+      "area_m2": 28,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 1,
+          "starting_price_pln": 28000,
+          "outcome": "active",
+          "area_m2": 28,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78749"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/88",
+          "dzialka_id": "160301_1.0044.3417/88",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F88"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. lasoki",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lasoki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Lasoki%20Ko%C5%BAle%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1369,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "starting_price_pln": 11000,
+          "outcome": "archived",
+          "area_m2": 1369,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29095/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73823"
+        },
+        {
+          "date": "2026-08-20",
+          "round": 4,
+          "starting_price_pln": 30000,
+          "outcome": "active",
+          "area_m2": 1369,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78773"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kłodnica|2683/12",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "2683/12",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żeglarska tereny niezabudowane lub energetyczna",
+      "dzialka_id": "160301_1.0046.2683/12",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F12",
+      "area_m2": 1059,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70499"
+        },
+        {
+          "date": "2025-08-20",
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71486"
+        },
+        {
+          "date": "2025-10-02",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72294"
+        },
+        {
+          "date": "2026-03-19",
+          "round": 5,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75535"
+        },
+        {
+          "date": "2026-06-18",
+          "round": 7,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77489"
+        },
+        {
+          "date": "2026-08-20",
+          "round": 8,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78751"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2683/12",
+          "dzialka_id": "160301_1.0046.2683/12",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F12"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. pocztowa tereny niezabudowane lub przyłącze sieci wodociągowej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pocztowa tereny niezabudowane lub przyłącze sieci wodociągowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Pocztowa%20tereny%20niezabudowane%20lub%20przy%C5%82%C4%85cze%20sieci%20wodoci%C4%85gowej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1069,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 1069,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70501"
+        },
+        {
+          "date": "2025-08-20",
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 1069,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71488"
+        },
+        {
+          "date": "2026-03-19",
+          "round": 5,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 1069,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75537"
+        },
+        {
+          "date": "2026-06-18",
+          "round": 7,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 1069,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77487"
+        },
+        {
+          "date": "2026-08-20",
+          "round": 8,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 1069,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78750"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kłodnica|1381/2",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1381/2",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wisławy Szymborskiej",
+      "dzialka_id": "160301_1.0046.1381/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1381%2F2",
+      "area_m2": 1164,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 1164
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 1164
+        },
+        {
+          "date": "2026-06-18",
+          "round": 6,
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77492"
+        },
+        {
+          "date": "2026-08-20",
+          "round": 7,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78755"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1381/2",
+          "dzialka_id": "160301_1.0046.1381/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1381%2F2"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. błonie",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Błonie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20B%C5%82onie%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3934,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 3,
+          "starting_price_pln": 350000,
+          "outcome": "active",
+          "area_m2": 3934,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78756"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. szantowa deszczowej oraz sanitarnej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szantowa deszczowej oraz sanitarnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Szantowa%20deszczowej%20oraz%20sanitarnej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1539,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-12",
+          "round": 1,
+          "starting_price_pln": 210000,
+          "outcome": "archived",
+          "area_m2": 1539,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70477"
+        },
+        {
+          "date": "2025-08-07",
+          "round": 2,
+          "starting_price_pln": 154000,
+          "outcome": "archived",
+          "area_m2": 1539,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71466"
+        },
+        {
+          "date": "2025-09-23",
+          "round": 3,
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 1539,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28697/ogloszenia-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72074"
+        },
+        {
+          "date": "2025-11-04",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 1539,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28914/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73010"
+        },
+        {
+          "date": "2026-03-17",
+          "round": 6,
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 1539,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75518"
+        },
+        {
+          "date": "2026-06-17",
+          "round": 8,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 974,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77496"
+        },
+        {
+          "date": "2026-08-19",
+          "round": 9,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 974,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78769"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. szantowa w sąsiedztwie sieci uzbrojeń",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szantowa w sąsiedztwie sieci uzbrojeń",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Szantowa%20w%20s%C4%85siedztwie%20sieci%20uzbroje%C5%84%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 967,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-12",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27919/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68751"
+        },
+        {
+          "date": "2025-04-22",
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 800,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28093/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69591"
+        },
+        {
+          "date": "2025-06-11",
+          "round": 3,
+          "starting_price_pln": 130000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70483"
+        },
+        {
+          "date": "2025-08-05",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71472"
+        },
+        {
+          "date": "2025-09-16",
+          "round": 5,
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28697/ogloszenia-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72079"
+        },
+        {
+          "date": "2025-11-05",
+          "round": 6,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28914/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73015"
+        },
+        {
+          "date": "2026-03-17",
+          "round": 8,
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75525"
+        },
+        {
+          "date": "2026-03-19",
+          "round": 8,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 800,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75527"
+        },
+        {
+          "date": "2026-06-17",
+          "round": 10,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77494"
+        },
+        {
+          "date": "2026-08-19",
+          "round": 11,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 967,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78767"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kędzierzyn|1756/5, 1756/9, 1756/10",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1756/5, 1756/9, 1756/10",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Grunwaldzka elektroenergetyczny",
+      "dzialka_id": "160301_1.0044.1756/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F5",
+      "area_m2": 745,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-14",
+          "round": 4,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 745
+        },
+        {
+          "date": "2025-03-04",
+          "round": 5,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 745
+        },
+        {
+          "date": "2025-04-15",
+          "round": 6,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 745
+        },
+        {
+          "date": "2025-06-10",
+          "round": 7,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 745
+        },
+        {
+          "date": "2025-09-23",
+          "round": 9,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 745
+        },
+        {
+          "date": "2025-11-04",
+          "round": 10,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 745
+        },
+        {
+          "date": "2026-06-17",
+          "round": 14,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77490"
+        },
+        {
+          "date": "2026-08-19",
+          "round": 15,
+          "starting_price_pln": 71000,
+          "outcome": "active",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78754"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1756/5",
+          "dzialka_id": "160301_1.0044.1756/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F5"
+        },
+        {
+          "nr": "1756/9",
+          "dzialka_id": "160301_1.0044.1756/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F9"
+        },
+        {
+          "nr": "1756/10",
+          "dzialka_id": "160301_1.0044.1756/10",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F10"
+        }
+      ]
+    },
+    {
+      "key": "dz|koźle|792, 1035",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "792, 1035",
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bukowej",
+      "dzialka_id": "160301_1.0014.792",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.792",
+      "area_m2": 42632,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-21",
+          "round": 2,
+          "starting_price_pln": 450000,
+          "outcome": "active",
+          "area_m2": 42632,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29950/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77682"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "792",
+          "dzialka_id": "160301_1.0014.792",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.792"
+        },
+        {
+          "nr": "1035",
+          "dzialka_id": "160301_1.0014.1035",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.1035"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1045",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1045",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Elewatorowej zapewniony poprzez",
+      "dzialka_id": "160301_1.0046.1045",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1045",
+      "area_m2": 23753,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-18",
+          "round": 5,
+          "starting_price_pln": 2000000,
+          "outcome": "unsold",
+          "area_m2": 23753
+        },
+        {
+          "date": "2025-05-13",
+          "round": 6,
+          "starting_price_pln": 2000000,
+          "outcome": "unsold",
+          "area_m2": 23753
+        },
+        {
+          "date": "2025-08-19",
+          "round": 7,
+          "starting_price_pln": 2000000,
+          "outcome": "unsold",
+          "area_m2": 23753
+        },
+        {
+          "date": "2025-10-28",
+          "round": 8,
+          "starting_price_pln": 2000000,
+          "outcome": "unsold",
+          "area_m2": 23753
+        },
+        {
+          "date": "2026-07-21",
+          "round": 11,
+          "starting_price_pln": 2000000,
+          "outcome": "active",
+          "area_m2": 23753,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29917/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77506"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1045",
+          "dzialka_id": "160301_1.0046.1045",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1045"
+        }
+      ]
+    },
+    {
+      "key": "dz|blachownia|602/934",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "602/934",
+      "obreb": "Blachownia",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spacerowa na której znajduje się schron jednoosobowy oraz",
+      "dzialka_id": "160301_1.0063.602/934",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.602%2F934",
+      "area_m2": 41768,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-20",
+          "round": 5,
+          "starting_price_pln": 1700000,
+          "outcome": "unsold",
+          "area_m2": 41768
+        },
+        {
+          "date": "2025-05-15",
+          "round": 6,
+          "starting_price_pln": 1700000,
+          "outcome": "unsold",
+          "area_m2": 41768
+        },
+        {
+          "date": "2025-08-19",
+          "round": 7,
+          "starting_price_pln": 1700000,
+          "outcome": "unsold",
+          "area_m2": 41768
+        },
+        {
+          "date": "2025-10-28",
+          "round": 8,
+          "starting_price_pln": 1500000,
+          "outcome": "unsold",
+          "area_m2": 41768
+        },
+        {
+          "date": "2026-07-21",
+          "round": 11,
+          "starting_price_pln": 1500000,
+          "outcome": "active",
+          "area_m2": 41768,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29917/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77508"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "602/934",
+          "dzialka_id": "160301_1.0063.602/934",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.602%2F934"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. jana vi",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Cisowa",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jana VI",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Jana%20VI%20Cisowa%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 848,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 4,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 848,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29975/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77834"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kędzierzyn|1983/2",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1983/2",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kanałowej",
+      "dzialka_id": "160301_1.0044.1983/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1983%2F2",
+      "area_m2": 934,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-21",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 934
+        },
+        {
+          "date": "2025-03-06",
+          "round": 3,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 934
+        },
+        {
+          "date": "2025-04-16",
+          "round": 4,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 934
+        },
+        {
+          "date": "2026-07-02",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 934
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1983/2",
+          "dzialka_id": "160301_1.0044.1983/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1983%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|cisowa|318/8",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "318/8",
+      "obreb": "Cisowa",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "160301_1.0018.318/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0018.318%2F8",
+      "area_m2": 848,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 4,
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "final_price_pln": 80800,
+          "area_m2": 848
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "318/8",
+          "dzialka_id": "160301_1.0018.318/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0018.318%2F8"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. krzysztofa",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzysztofa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Krzysztofa%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1059,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1059,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77675"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. krzysztofa pendereckiego",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krzysztofa Pendereckiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Krzysztofa%20Pendereckiego%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1211,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 170000,
+          "outcome": "sold",
+          "final_price_pln": 171700,
+          "area_m2": 1211
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kłodnica|1143/12",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1143/12",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "160301_1.0046.1143/12",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F12",
+      "area_m2": 1059,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "sold",
+          "final_price_pln": 151500,
+          "area_m2": 1059
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1143/12",
+          "dzialka_id": "160301_1.0046.1143/12",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F12"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1142/8",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1142/8",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Judyma",
+      "dzialka_id": "160301_1.0046.1142/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1142%2F8",
+      "area_m2": 1020,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1020,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77668",
+          "final_price_pln": 151500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1142/8",
+          "dzialka_id": "160301_1.0046.1142/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1142%2F8"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. astrów",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Astrów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Astr%C3%B3w%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 58,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 15000,
+          "outcome": "archived",
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77679",
+          "final_price_pln": 15150,
+          "area_m2": 58
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. roberta",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Roberta%20S%C5%82awi%C4%99cice%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 330,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 267,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72282"
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 267,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73384"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 4,
+          "starting_price_pln": 20000,
+          "outcome": "archived",
+          "area_m2": 267,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75516"
+        },
+        {
+          "date": "2026-06-18",
+          "round": 6,
+          "starting_price_pln": 15000,
+          "outcome": "archived",
+          "area_m2": 330,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77500"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kłodnica|2683/14",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "2683/14",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pocztowej",
+      "dzialka_id": "160301_1.0046.2683/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14",
+      "area_m2": 1069,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2025-08-20",
+          "round": 2,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2025-10-02",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2026-06-18",
+          "round": 7,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2683/14",
+          "dzialka_id": "160301_1.0046.2683/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|450/8",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "450/8",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta Kocha",
+      "dzialka_id": "160301_1.0091.450/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8",
+      "area_m2": 267,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 25000,
+          "outcome": "unsold",
+          "area_m2": 267
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 25000,
+          "outcome": "unsold",
+          "area_m2": 267
+        },
+        {
+          "date": "2026-06-18",
+          "round": 6,
+          "starting_price_pln": 12000,
+          "outcome": "sold",
+          "final_price_pln": 12120,
+          "area_m2": 267
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "450/8",
+          "dzialka_id": "160301_1.0091.450/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|450/9",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "450/9",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta Kocha",
+      "dzialka_id": "160301_1.0091.450/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9",
+      "area_m2": 330,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "unsold",
+          "area_m2": 330
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 30000,
+          "outcome": "unsold",
+          "area_m2": 330
+        },
+        {
+          "date": "2026-06-18",
+          "round": 6,
+          "starting_price_pln": 15000,
+          "outcome": "sold",
+          "final_price_pln": 15150,
+          "area_m2": 330
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "450/9",
+          "dzialka_id": "160301_1.0091.450/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|534/11",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "534/11",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szantowej",
+      "dzialka_id": "160301_1.0046.534/11",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F11",
+      "area_m2": 974,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-07",
+          "round": 2,
+          "starting_price_pln": 98000,
+          "outcome": "unsold",
+          "area_m2": 974
+        },
+        {
+          "date": "2025-09-23",
+          "round": 3,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 974
+        },
+        {
+          "date": "2025-11-04",
+          "round": 4,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 974
+        },
+        {
+          "date": "2026-06-17",
+          "round": 8,
+          "starting_price_pln": 70000,
+          "outcome": "unsold",
+          "area_m2": 974
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "534/11",
+          "dzialka_id": "160301_1.0046.534/11",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F11"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|534/10",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "534/10",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szantowej",
+      "dzialka_id": "160301_1.0046.534/10",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F10",
+      "area_m2": 1539,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-07",
+          "round": 2,
+          "starting_price_pln": 154000,
+          "outcome": "unsold",
+          "area_m2": 1539
+        },
+        {
+          "date": "2025-09-23",
+          "round": 3,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1539
+        },
+        {
+          "date": "2025-11-04",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1539
+        },
+        {
+          "date": "2026-06-17",
+          "round": 8,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1539
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "534/10",
+          "dzialka_id": "160301_1.0046.534/10",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F10"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|534/13",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "534/13",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szantowej",
+      "dzialka_id": "160301_1.0046.534/13",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F13",
+      "area_m2": 967,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-12",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 967
+        },
+        {
+          "date": "2025-04-22",
+          "round": 2,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 967
+        },
+        {
+          "date": "2025-08-05",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 967
+        },
+        {
+          "date": "2025-09-16",
+          "round": 5,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 967
+        },
+        {
+          "date": "2025-11-05",
+          "round": 6,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 967
+        },
+        {
+          "date": "2026-06-17",
+          "round": 10,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 967
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "534/13",
+          "dzialka_id": "160301_1.0046.534/13",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F13"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. wisławy szymborskiej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wisławy Szymborskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wis%C5%82awy%20Szymborskiej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1164,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-01",
+          "round": 1,
+          "starting_price_pln": 160000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72291"
+        },
+        {
+          "date": "2024-11-20",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73373"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 1164,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75531"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. wisławy wodociągowa",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wisławy wodociągowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wis%C5%82awy%20wodoci%C4%85gowa%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3828,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 400000,
+          "outcome": "archived",
+          "area_m2": 3828,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72289"
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 370000,
+          "outcome": "archived",
+          "area_m2": 3828,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73374"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 4,
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 3828,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75530"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. roberta kocha poprzez gminną",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta Kocha poprzez gminną",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Roberta%20Kocha%20poprzez%20gminn%C4%85%20S%C5%82awi%C4%99cice%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 810,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-30",
+          "round": 1,
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 810,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72273"
+        },
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 60000,
+          "outcome": "archived",
+          "area_m2": 494,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72281"
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 30000,
+          "outcome": "archived",
+          "area_m2": 330,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73382"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 4,
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 330,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75517"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. grunwaldzka elektroenergetyczny",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Grunwaldzka elektroenergetyczny",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Grunwaldzka%20elektroenergetyczny%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 745,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-14",
+          "round": 4,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27561/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67357"
+        },
+        {
+          "date": "2025-03-04",
+          "round": 5,
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27847/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68466"
+        },
+        {
+          "date": "2025-04-15",
+          "round": 6,
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28059/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69390"
+        },
+        {
+          "date": "2025-06-10",
+          "round": 7,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70493"
+        },
+        {
+          "date": "2025-08-06",
+          "round": 8,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71482"
+        },
+        {
+          "date": "2025-09-23",
+          "round": 9,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28697/ogloszenia-o-przetargach",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72088"
+        },
+        {
+          "date": "2025-11-04",
+          "round": 10,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28914/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73019"
+        },
+        {
+          "date": "2026-03-17",
+          "round": 12,
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 745,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75533"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|koźle|274/3",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "274/3",
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lasoki",
+      "dzialka_id": "160301_1.0014.274/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3",
+      "area_m2": 1369,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "starting_price_pln": 11000,
+          "outcome": "sold",
+          "final_price_pln": 64000,
+          "area_m2": 1369
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "274/3",
+          "dzialka_id": "160301_1.0014.274/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|727/53",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "727/53",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Judyma",
+      "dzialka_id": "160301_1.0091.727/53",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F53",
+      "area_m2": 1219,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-09",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 1219,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72309",
+          "final_price_pln": 147000
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 1219,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29035/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73545",
+          "final_price_pln": 117000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "727/53",
+          "dzialka_id": "160301_1.0091.727/53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F53"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. niezapominajek",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niezapominajek",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Niezapominajek%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1120,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-02",
+          "round": 1,
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 1120,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72287"
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "starting_price_pln": 160000,
+          "outcome": "archived",
+          "area_m2": 1120,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29035/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73546"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|kędzierzyn|854/44",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "854/44",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niezapominajek",
+      "dzialka_id": "160301_1.0044.854/44",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.854%2F44",
+      "area_m2": 1120,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-02",
+          "round": 1,
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "area_m2": 1120
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 1120
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "854/44",
+          "dzialka_id": "160301_1.0044.854/44",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.854%2F44"
+        }
+      ]
     },
     {
       "key": "dz|sławięcice|727/52",
@@ -511,123 +2741,6 @@
       ]
     },
     {
-      "key": "addr|ul. wisławy wodociągowa",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Wisławy wodociągowa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wis%C5%82awy%20wodoci%C4%85gowa%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3828,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 400000,
-          "outcome": "archived",
-          "area_m2": 3828,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72289"
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 370000,
-          "outcome": "archived",
-          "area_m2": 3828,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73374"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|ul. roberta kocha poprzez gminną",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta Kocha poprzez gminną",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Roberta%20Kocha%20poprzez%20gminn%C4%85%20S%C5%82awi%C4%99cice%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 810,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-09-30",
-          "round": 1,
-          "starting_price_pln": 90000,
-          "outcome": "archived",
-          "area_m2": 810,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72273"
-        },
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 60000,
-          "outcome": "archived",
-          "area_m2": 494,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72281"
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 30000,
-          "outcome": "archived",
-          "area_m2": 330,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73382"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|ul. roberta",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Roberta%20S%C5%82awi%C4%99cice%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 267,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 25000,
-          "outcome": "archived",
-          "area_m2": 267,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72282"
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 25000,
-          "outcome": "archived",
-          "area_m2": 267,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73384"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "addr|ul. wisławy",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -725,192 +2838,6 @@
       ]
     },
     {
-      "key": "dz|sławięcice|450/8",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "450/8",
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta Kocha",
-      "dzialka_id": "160301_1.0091.450/8",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8",
-      "area_m2": 267,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 25000,
-          "outcome": "unsold",
-          "area_m2": 267
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 25000,
-          "outcome": "unsold",
-          "area_m2": 267
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "450/8",
-          "dzialka_id": "160301_1.0091.450/8",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F8"
-        }
-      ]
-    },
-    {
-      "key": "dz|sławięcice|450/9",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "450/9",
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta Kocha",
-      "dzialka_id": "160301_1.0091.450/9",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9",
-      "area_m2": 330,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 30000,
-          "outcome": "unsold",
-          "area_m2": 330
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 30000,
-          "outcome": "unsold",
-          "area_m2": 330
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "450/9",
-          "dzialka_id": "160301_1.0091.450/9",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.450%2F9"
-        }
-      ]
-    },
-    {
-      "key": "dz|kłodnica|1381/2",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "1381/2",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Wisławy Szymborskiej",
-      "dzialka_id": "160301_1.0046.1381/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1381%2F2",
-      "area_m2": 1164,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "area_m2": 1164
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 1164
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1381/2",
-          "dzialka_id": "160301_1.0046.1381/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1381%2F2"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. szantowa w sąsiedztwie sieci uzbrojeń",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Szantowa w sąsiedztwie sieci uzbrojeń",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Szantowa%20w%20s%C4%85siedztwie%20sieci%20uzbroje%C5%84%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 967,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-03-12",
-          "round": 1,
-          "starting_price_pln": 140000,
-          "outcome": "archived",
-          "area_m2": 967,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27919/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68751"
-        },
-        {
-          "date": "2025-04-22",
-          "round": 2,
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 800,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28093/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69591"
-        },
-        {
-          "date": "2025-06-11",
-          "round": 3,
-          "starting_price_pln": 130000,
-          "outcome": "archived",
-          "area_m2": 967,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70483"
-        },
-        {
-          "date": "2025-08-05",
-          "round": 4,
-          "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 967,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71472"
-        },
-        {
-          "date": "2025-09-16",
-          "round": 5,
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 967,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28697/ogloszenia-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72079"
-        },
-        {
-          "date": "2025-11-05",
-          "round": 6,
-          "starting_price_pln": 100000,
-          "outcome": "archived",
-          "area_m2": 967,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28914/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73015"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "dz|kłodnica|534/21",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -970,290 +2897,6 @@
       ]
     },
     {
-      "key": "dz|kłodnica|534/13",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "534/13",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Szantowej",
-      "dzialka_id": "160301_1.0046.534/13",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F13",
-      "area_m2": 967,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-03-12",
-          "round": 1,
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "area_m2": 967
-        },
-        {
-          "date": "2025-04-22",
-          "round": 2,
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "area_m2": 967
-        },
-        {
-          "date": "2025-08-05",
-          "round": 4,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 967
-        },
-        {
-          "date": "2025-09-16",
-          "round": 5,
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 967
-        },
-        {
-          "date": "2025-11-05",
-          "round": 6,
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 967
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "534/13",
-          "dzialka_id": "160301_1.0046.534/13",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F13"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. szantowa deszczowej oraz sanitarnej",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Szantowa deszczowej oraz sanitarnej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Szantowa%20deszczowej%20oraz%20sanitarnej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1539,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-06-12",
-          "round": 1,
-          "starting_price_pln": 210000,
-          "outcome": "archived",
-          "area_m2": 1539,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70477"
-        },
-        {
-          "date": "2025-08-07",
-          "round": 2,
-          "starting_price_pln": 154000,
-          "outcome": "archived",
-          "area_m2": 1539,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71466"
-        },
-        {
-          "date": "2025-09-23",
-          "round": 3,
-          "starting_price_pln": 140000,
-          "outcome": "archived",
-          "area_m2": 1539,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28697/ogloszenia-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72074"
-        },
-        {
-          "date": "2025-11-04",
-          "round": 4,
-          "starting_price_pln": 140000,
-          "outcome": "archived",
-          "area_m2": 1539,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28914/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73010"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|ul. grunwaldzka elektroenergetyczny",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Grunwaldzka elektroenergetyczny",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Grunwaldzka%20elektroenergetyczny%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 745,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-01-14",
-          "round": 4,
-          "starting_price_pln": 100000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27561/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67357"
-        },
-        {
-          "date": "2025-03-04",
-          "round": 5,
-          "starting_price_pln": 90000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27847/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68466"
-        },
-        {
-          "date": "2025-04-15",
-          "round": 6,
-          "starting_price_pln": 90000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28059/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/69390"
-        },
-        {
-          "date": "2025-06-10",
-          "round": 7,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70493"
-        },
-        {
-          "date": "2025-08-06",
-          "round": 8,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71482"
-        },
-        {
-          "date": "2025-09-23",
-          "round": 9,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28697/ogloszenia-o-przetargach",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72088"
-        },
-        {
-          "date": "2025-11-04",
-          "round": 10,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28914/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73019"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|kłodnica|534/11",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "534/11",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Szantowej",
-      "dzialka_id": "160301_1.0046.534/11",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F11",
-      "area_m2": 974,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-08-07",
-          "round": 2,
-          "starting_price_pln": 98000,
-          "outcome": "unsold",
-          "area_m2": 974
-        },
-        {
-          "date": "2025-09-23",
-          "round": 3,
-          "starting_price_pln": 90000,
-          "outcome": "unsold",
-          "area_m2": 974
-        },
-        {
-          "date": "2025-11-04",
-          "round": 4,
-          "starting_price_pln": 90000,
-          "outcome": "unsold",
-          "area_m2": 974
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "534/11",
-          "dzialka_id": "160301_1.0046.534/11",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F11"
-        }
-      ]
-    },
-    {
-      "key": "dz|kłodnica|534/10",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "534/10",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Szantowej",
-      "dzialka_id": "160301_1.0046.534/10",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F10",
-      "area_m2": 1539,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-08-07",
-          "round": 2,
-          "starting_price_pln": 154000,
-          "outcome": "unsold",
-          "area_m2": 1539
-        },
-        {
-          "date": "2025-09-23",
-          "round": 3,
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "area_m2": 1539
-        },
-        {
-          "date": "2025-11-04",
-          "round": 4,
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "area_m2": 1539
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "534/10",
-          "dzialka_id": "160301_1.0046.534/10",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F10"
-        }
-      ]
-    },
-    {
       "key": "dz|kłodnica|534/12",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -1295,82 +2938,6 @@
           "nr": "534/12",
           "dzialka_id": "160301_1.0046.534/12",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.534%2F12"
-        }
-      ]
-    },
-    {
-      "key": "dz|kędzierzyn|1756/5, 1756/9, 1756/10",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "1756/5, 1756/9, 1756/10",
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Grunwaldzkiej",
-      "dzialka_id": "160301_1.0044.1756/5",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F5",
-      "area_m2": 745,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-01-14",
-          "round": 4,
-          "starting_price_pln": 100000,
-          "outcome": "unsold",
-          "area_m2": 745
-        },
-        {
-          "date": "2025-03-04",
-          "round": 5,
-          "starting_price_pln": 90000,
-          "outcome": "unsold",
-          "area_m2": 745
-        },
-        {
-          "date": "2025-04-15",
-          "round": 6,
-          "starting_price_pln": 90000,
-          "outcome": "unsold",
-          "area_m2": 745
-        },
-        {
-          "date": "2025-06-10",
-          "round": 7,
-          "starting_price_pln": 80000,
-          "outcome": "unsold",
-          "area_m2": 745
-        },
-        {
-          "date": "2025-09-23",
-          "round": 9,
-          "starting_price_pln": 80000,
-          "outcome": "unsold",
-          "area_m2": 745
-        },
-        {
-          "date": "2025-11-04",
-          "round": 10,
-          "starting_price_pln": 80000,
-          "outcome": "unsold",
-          "area_m2": 745
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1756/5",
-          "dzialka_id": "160301_1.0044.1756/5",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F5"
-        },
-        {
-          "nr": "1756/9",
-          "dzialka_id": "160301_1.0044.1756/9",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F9"
-        },
-        {
-          "nr": "1756/10",
-          "dzialka_id": "160301_1.0044.1756/10",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1756%2F10"
         }
       ]
     },
@@ -1540,110 +3107,6 @@
       ]
     },
     {
-      "key": "dz|kłodnica|1045",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "1045",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Elewatorowej",
-      "dzialka_id": "160301_1.0046.1045",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1045",
-      "area_m2": 23753,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-18",
-          "round": 5,
-          "starting_price_pln": 2000000,
-          "outcome": "unsold",
-          "area_m2": 23753
-        },
-        {
-          "date": "2025-05-13",
-          "round": 6,
-          "starting_price_pln": 2000000,
-          "outcome": "unsold",
-          "area_m2": 23753
-        },
-        {
-          "date": "2025-08-19",
-          "round": 7,
-          "starting_price_pln": 2000000,
-          "outcome": "unsold",
-          "area_m2": 23753
-        },
-        {
-          "date": "2025-10-28",
-          "round": 8,
-          "starting_price_pln": 2000000,
-          "outcome": "unsold",
-          "area_m2": 23753
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1045",
-          "dzialka_id": "160301_1.0046.1045",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1045"
-        }
-      ]
-    },
-    {
-      "key": "dz|blachownia|602/934",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "602/934",
-      "obreb": "Blachownia",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Spacerowej",
-      "dzialka_id": "160301_1.0063.602/934",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.602%2F934",
-      "area_m2": 41768,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-20",
-          "round": 5,
-          "starting_price_pln": 1700000,
-          "outcome": "unsold",
-          "area_m2": 41768
-        },
-        {
-          "date": "2025-05-15",
-          "round": 6,
-          "starting_price_pln": 1700000,
-          "outcome": "unsold",
-          "area_m2": 41768
-        },
-        {
-          "date": "2025-08-19",
-          "round": 7,
-          "starting_price_pln": 1700000,
-          "outcome": "unsold",
-          "area_m2": 41768
-        },
-        {
-          "date": "2025-10-28",
-          "round": 8,
-          "starting_price_pln": 1500000,
-          "outcome": "unsold",
-          "area_m2": 41768
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "602/934",
-          "dzialka_id": "160301_1.0063.602/934",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0063.602%2F934"
-        }
-      ]
-    },
-    {
       "key": "addr|ul. ignacego",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -1716,147 +3179,6 @@
           "nr": "727/10",
           "dzialka_id": "160301_1.0091.727/10",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F10"
-        }
-      ]
-    },
-    {
-      "key": "dz|kłodnica|2683/12",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "2683/12",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Żeglarska tereny niezabudowane lub energetyczna",
-      "dzialka_id": "160301_1.0046.2683/12",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F12",
-      "area_m2": 1059,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-06-17",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 1059,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70499"
-        },
-        {
-          "date": "2025-08-20",
-          "round": 2,
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 1059,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71486"
-        },
-        {
-          "date": "2025-10-02",
-          "round": 3,
-          "starting_price_pln": 100000,
-          "outcome": "archived",
-          "area_m2": 1059,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72294"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2683/12",
-          "dzialka_id": "160301_1.0046.2683/12",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F12"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. królowej",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Królowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Kr%C3%B3lowej%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 379,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-08-26",
-          "round": 1,
-          "starting_price_pln": 8000,
-          "outcome": "archived",
-          "area_m2": 28,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28543/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71552"
-        },
-        {
-          "date": "2025-08-27",
-          "round": 1,
-          "starting_price_pln": 32000,
-          "outcome": "archived",
-          "area_m2": 379,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28543/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71560"
-        },
-        {
-          "date": "2025-10-02",
-          "round": 1,
-          "starting_price_pln": 56000,
-          "outcome": "archived",
-          "area_m2": 379,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72299"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|kłodnica|2683/14",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "2683/14",
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Pocztowej",
-      "dzialka_id": "160301_1.0046.2683/14",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14",
-      "area_m2": 1069,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-06-17",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        },
-        {
-          "date": "2025-08-20",
-          "round": 2,
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        },
-        {
-          "date": "2025-10-02",
-          "round": 3,
-          "starting_price_pln": 100000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2683/14",
-          "dzialka_id": "160301_1.0046.2683/14",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.2683%2F14"
         }
       ]
     },
@@ -2602,42 +3924,6 @@
       ]
     },
     {
-      "key": "addr|ul. pocztowa tereny niezabudowane lub przyłącze sieci wodociągowej",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Pocztowa tereny niezabudowane lub przyłącze sieci wodociągowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Pocztowa%20tereny%20niezabudowane%20lub%20przy%C5%82%C4%85cze%20sieci%20wodoci%C4%85gowej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1069,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-06-17",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 1069,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70501"
-        },
-        {
-          "date": "2025-08-20",
-          "round": 2,
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 1069,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71488"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "addr|ul. ignacego mościckiego",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -3052,51 +4338,6 @@
           "nr": "1008/26",
           "dzialka_id": "160301_1.0067.1008/26",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0067.1008%2F26"
-        }
-      ]
-    },
-    {
-      "key": "dz|kędzierzyn|1983/2",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "1983/2",
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Kanałowej",
-      "dzialka_id": "160301_1.0044.1983/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1983%2F2",
-      "area_m2": 934,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-01-21",
-          "round": 2,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 934
-        },
-        {
-          "date": "2025-03-06",
-          "round": 3,
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "area_m2": 934
-        },
-        {
-          "date": "2025-04-16",
-          "round": 4,
-          "starting_price_pln": 130000,
-          "outcome": "unsold",
-          "area_m2": 934
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1983/2",
-          "dzialka_id": "160301_1.0044.1983/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.1983%2F2"
         }
       ]
     },
@@ -3629,40 +4870,46 @@
       ]
     },
     {
-      "key": "addr|ul. wisławy szymborskiej",
+      "key": "dz|kłodnica|1143/11",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
+      "dzialka_nr": "1143/11",
       "obreb": "Kłodnica",
       "street": null,
       "building": null,
-      "address_raw": "ul. Wisławy Szymborskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wis%C5%82awy%20Szymborskiej%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1164,
+      "address_raw": "ul. Krzysztofa kształcie",
+      "dzialka_id": "160301_1.0046.1143/11",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F11",
+      "area_m2": 1016,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2024-10-01",
+          "date": "2026-06-24",
           "round": 1,
-          "starting_price_pln": 160000,
+          "starting_price_pln": 120000,
           "outcome": "archived",
-          "area_m2": 1164,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72291"
+          "area_m2": 1016,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29949/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77671"
         },
         {
-          "date": "2024-11-20",
+          "date": null,
           "round": 2,
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 1164,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73373"
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1016,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30132/uniewaznienie-i-przetargu-ustnego-nieograniczonego-dz-1143-11-o-klodnica-ul-krzysztofa-pendereckiego-ul-blonie",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78564"
         }
       ],
-      "parcels": []
+      "parcels": [
+        {
+          "nr": "1143/11",
+          "dzialka_id": "160301_1.0046.1143/11",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1143%2F11"
+        }
+      ]
     }
   ]
 }
