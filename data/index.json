@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-14T06:33:09.352Z",
+  "generated_at": "2026-07-15T06:38:00.972Z",
   "cities": [
     {
       "id": "gliwice",
@@ -13,7 +13,7 @@
       "active_auctions": 13,
       "archived_auctions": 255,
       "wykaz_entries": 4,
-      "land_plots": 79
+      "land_plots": 78
     },
     {
       "id": "katowice",
@@ -23,8 +23,8 @@
       "host": "bip.katowice.eu",
       "unique_properties": 135,
       "active_listings": 65,
-      "active_auctions": 18,
-      "archived_auctions": 143,
+      "active_auctions": 13,
+      "archived_auctions": 148,
       "wykaz_entries": 0,
       "land_plots": 7
     },
@@ -35,7 +35,7 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 21,
-      "active_listings": 14,
+      "active_listings": 13,
       "active_auctions": 1,
       "archived_auctions": 20,
       "wykaz_entries": 0,
@@ -100,9 +100,9 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 68,
-      "active_auctions": 12,
-      "archived_auctions": 54,
+      "active_listings": 67,
+      "active_auctions": 11,
+      "archived_auctions": 55,
       "wykaz_entries": 0,
       "land_plots": 49
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 72,
+      "active_listings": 89,
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 109
     },
     {
       "id": "trzebinia",
@@ -192,8 +192,8 @@
       "host": "bip.um.opole.pl",
       "unique_properties": 45,
       "active_listings": 93,
-      "active_auctions": 11,
-      "archived_auctions": 82,
+      "active_auctions": 10,
+      "archived_auctions": 83,
       "wykaz_entries": 0,
       "land_plots": 24
     },
@@ -270,8 +270,8 @@
       "host": "bip.torun.pl",
       "unique_properties": 21,
       "active_listings": 18,
-      "active_auctions": 2,
-      "archived_auctions": 22,
+      "active_auctions": 1,
+      "archived_auctions": 23,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -541,9 +541,9 @@
       "voivodeship": "mazowieckie",
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
-      "unique_properties": 12,
-      "active_listings": 7,
-      "active_auctions": 11,
+      "unique_properties": 13,
+      "active_listings": 8,
+      "active_auctions": 12,
       "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -580,9 +580,9 @@
       "voivodeship": "lubuskie",
       "authority": "Gmina Nowa Sól-Miasto",
       "host": "nowasol.pl",
-      "unique_properties": 6,
-      "active_listings": 7,
-      "active_auctions": 2,
+      "unique_properties": 8,
+      "active_listings": 9,
+      "active_auctions": 4,
       "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -724,7 +724,7 @@
       "authority": "Gmina Nakło nad Notecią",
       "host": "bip.gmina-naklo.pl",
       "unique_properties": 7,
-      "active_listings": 11,
+      "active_listings": 9,
       "active_auctions": 3,
       "archived_auctions": 19,
       "wykaz_entries": 0,
@@ -827,12 +827,12 @@
       "voivodeship": "warminsko-mazurskie",
       "authority": "Gmina Miasto Mrągowo",
       "host": "bipmragowo.warmia.mazury.pl",
-      "unique_properties": 1,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 2,
+      "active_listings": 2,
+      "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 8
     },
     {
       "id": "miedzyrzecz",
@@ -935,7 +935,7 @@
       "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 2,
-      "wykaz_entries": 14,
+      "wykaz_entries": 15,
       "land_plots": 21
     },
     {
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1024,8 +1024,8 @@
       "host": "bip.szczecinek.pl",
       "unique_properties": 6,
       "active_listings": 22,
-      "active_auctions": 2,
-      "archived_auctions": 22,
+      "active_auctions": 1,
+      "archived_auctions": 23,
       "wykaz_entries": 0,
       "land_plots": 52
     },
@@ -1079,7 +1079,7 @@
       "active_auctions": 0,
       "archived_auctions": 39,
       "wykaz_entries": 0,
-      "land_plots": 59
+      "land_plots": 58
     },
     {
       "id": "wegrow",
@@ -1116,7 +1116,7 @@
       "unique_properties": 12,
       "active_listings": 4,
       "active_auctions": 3,
-      "archived_auctions": 2,
+      "archived_auctions": 3,
       "wykaz_entries": 13,
       "land_plots": 5
     },
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
