@@ -3,6 +3,50 @@
   "city": "nowa-sol",
   "properties": [
     {
+      "key": "szkolna|11|1",
+      "street": "Szkolna",
+      "street_norm": "szkolna",
+      "building": "11",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 109000,
+          "outcome": "active",
+          "area_m2": 33.36,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-przy-ul-szkolnej-11/14-07-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.36
+    },
+    {
+      "key": "koscielna|11|8",
+      "street": "Kościelna",
+      "street_norm": "koscielna",
+      "building": "11",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76000,
+          "outcome": "active",
+          "area_m2": 25.26,
+          "detail_url": "https://nowasol.pl/przetargi/przetarg/przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-8-przy-ul-koscielnej-11/14-07-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 25.26
+    },
+    {
       "key": "glogowska|28|4",
       "street": "Głogowska",
       "street_norm": "glogowska",
