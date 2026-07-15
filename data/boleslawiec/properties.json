@@ -3,6 +3,56 @@
   "city": "boleslawiec",
   "properties": [
     {
+      "key": "warszawskiej|1|10",
+      "street": "Warszawska",
+      "street_norm": "warszawskiej",
+      "building": "1",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-08",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 97.1
+        },
+        {
+          "date": "2026-06-18",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "unsold_reason": "brak wpłaty wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=251418",
+          "notes": [],
+          "area_m2": 97.1
+        },
+        {
+          "date": "2026-07-13",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 97.1
+        },
+        {
+          "date": "2026-08-13",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 97.1,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6948-lokal-mieszkalny-nr-10-po%C5%82o%C5%BCony-przy-ul-warszawskiej-nr-1-powierzchnia-u%C5%BCytkowa-mieszkania-97%2C10-m2-iv-przetarg",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 97.1
+    },
+    {
       "key": "ogrodowej|4|2",
       "street": "Ogrodowa",
       "street_norm": "ogrodowej",
@@ -68,12 +118,12 @@
       "street_norm": "karola miarki",
       "building": "3",
       "apt": "5",
-      "kind": "mieszkalny",
+      "kind": "unknown",
       "listings": [
         {
           "date": "2026-06-09",
           "round": null,
-          "kind": "mieszkalny",
+          "kind": "unknown",
           "outcome": "announced",
           "wykaz_no": null,
           "area_m2": 26.21
@@ -83,7 +133,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 94500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 26.21,
           "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6862-lokal-mieszkalny-nr-5%2C-po%C5%82o%C5%BCony-przy-ul-karola-miarki-nr-3-powierzchnia-u%C5%BCytkowa-mieszkania-26%2C21-m2-ii-przetarg",
           "wadium_deadline": null,
@@ -120,37 +170,6 @@
           "viewing_date": null
         }
       ]
-    },
-    {
-      "key": "warszawskiej|1|10",
-      "street": "Warszawska",
-      "street_norm": "warszawskiej",
-      "building": "1",
-      "apt": "10",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-08",
-          "round": null,
-          "kind": "mieszkalny",
-          "outcome": "announced",
-          "wykaz_no": null,
-          "area_m2": 97.1
-        },
-        {
-          "date": "2026-06-18",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 350000,
-          "outcome": "unsold",
-          "unsold_reason": "brak wpłaty wadium",
-          "final_price_pln": null,
-          "source_pdf": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=251418",
-          "notes": [],
-          "area_m2": 97.1
-        }
-      ],
-      "area_m2": 97.1
     },
     {
       "key": "koscielnej|6|3",

@@ -4,23 +4,6 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "Karola Miarki 3/5",
-      "address": {
-        "street": "Karola Miarki",
-        "street_norm": "karola miarki",
-        "building": "3",
-        "apt": "5",
-        "key": "karola miarki|3|5",
-        "warning": null
-      },
-      "auction_date": "2026-07-14",
-      "round": 2,
-      "area_m2": 26.21,
-      "starting_price_pln": 94500,
-      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6862-lokal-mieszkalny-nr-5%2C-po%C5%82o%C5%BCony-przy-ul-karola-miarki-nr-3-powierzchnia-u%C5%BCytkowa-mieszkania-26%2C21-m2-ii-przetarg"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Karola Miarki 3/6",
       "address": {
         "street": "Karola Miarki",
@@ -52,6 +35,23 @@
       "area_m2": 84.94,
       "starting_price_pln": 323000,
       "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6890-lokal-mieszkalny-nr-2%2C-po%C5%82o%C5%BCony-przy-ul-ogrodowej-nr-4-powierzchnia-u%C5%BCytkowa-mieszkania-84%2C94-m2-vi-przetarg"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Warszawskiej 1/10",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "1",
+        "apt": "10",
+        "key": "warszawskiej|1|10",
+        "warning": null
+      },
+      "auction_date": "2026-08-13",
+      "round": 4,
+      "area_m2": 97.1,
+      "starting_price_pln": 330000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6948-lokal-mieszkalny-nr-10-po%C5%82o%C5%BCony-przy-ul-warszawskiej-nr-1-powierzchnia-u%C5%BCytkowa-mieszkania-97%2C10-m2-iv-przetarg"
     },
     {
       "kind": "zabudowana",
@@ -190,7 +190,7 @@
       "address_raw": "Warszawskiej 1/10",
       "kind": "mieszkalny",
       "area_m2": 97.1,
-      "published_date": "2026-05-08",
+      "published_date": "2026-07-13",
       "wykaz_no": null
     },
     {
