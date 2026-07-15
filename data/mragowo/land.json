@@ -102,66 +102,31 @@
       ]
     },
     {
-      "key": "dz|nr 10|40/8",
+      "key": "dz|nr 8|284/74",
       "kind": "grunt",
       "city": "mragowo",
-      "dzialka_nr": "40/8",
-      "obreb": "nr 10",
+      "dzialka_nr": "284/74",
+      "obreb": "nr 8",
       "street": null,
       "building": null,
-      "address_raw": "ul. Niedźwiedziej",
+      "address_raw": "ul. Krótkiej",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F8%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1000,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20284%2F74%20ul.%20Kr%C3%B3tkiej%20nr%208%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-07-14",
+          "date": "2026-07-07",
           "round": 1,
-          "starting_price_pln": 185000,
-          "outcome": "active",
-          "area_m2": 1000,
-          "detail_url": "https://bipmragowo.warmia.mazury.pl/8507/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-8.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8507/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-8.html"
+          "starting_price_pln": 2500000,
+          "outcome": "unsold"
         }
       ],
       "parcels": [
         {
-          "nr": "40/8",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F8%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|nr 10|40/9",
-      "kind": "grunt",
-      "city": "mragowo",
-      "dzialka_nr": "40/9",
-      "obreb": "nr 10",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Niedźwiedziej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F9%20ul.%20Nied%C5%BAwiedziej%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1204,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-14",
-          "round": 1,
-          "starting_price_pln": 165000,
-          "outcome": "active",
-          "area_m2": 1204,
-          "detail_url": "https://bipmragowo.warmia.mazury.pl/8506/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-9.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8506/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-9.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "40/9",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F9%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
+          "nr": "284/74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20284%2F74%20nr%208%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

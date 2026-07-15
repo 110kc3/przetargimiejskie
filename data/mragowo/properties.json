@@ -19,9 +19,44 @@
           "unsold_reason": "unknown",
           "final_price_pln": null,
           "source_pdf": "https://bipmragowo.warmia.mazury.pl/8499/informacja-o-wyniku-przetargu.html",
-          "notes": []
+          "notes": [],
+          "area_m2": 35.45
+        },
+        {
+          "date": "2026-08-18",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 35.45,
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8555/przetarg-na-sprzedaz-gminnego-lokalu-mieszkalnego-ul.-mrongowiusza-31-5-mragowo.html",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
-      ]
+      ],
+      "area_m2": 35.45
+    },
+    {
+      "key": "wolnosci|20D|12",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "20D",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "active",
+          "area_m2": 28.75,
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8554/przetarg-na-sprzedaz-gminnego-lokalu-mieszkalnego-ul.-wolnosci-20d-12-mragowo.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 28.75
     }
   ]
 }

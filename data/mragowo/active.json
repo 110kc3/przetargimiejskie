@@ -1,6 +1,45 @@
 {
   "schema_version": 1,
   "city": "mragowo",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mrongowiusza 31/5",
+      "address": {
+        "street": "Mrongowiusza",
+        "street_norm": "mrongowiusza",
+        "building": "31",
+        "apt": "5",
+        "key": "mrongowiusza|31|5",
+        "warning": null
+      },
+      "area_m2": 35.45,
+      "starting_price_pln": 160000,
+      "auction_date": "2026-08-18",
+      "round": 4,
+      "detail_url": "https://bipmragowo.warmia.mazury.pl/8555/przetarg-na-sprzedaz-gminnego-lokalu-mieszkalnego-ul.-mrongowiusza-31-5-mragowo.html",
+      "source_url": "https://bipmragowo.warmia.mazury.pl/8555/przetarg-na-sprzedaz-gminnego-lokalu-mieszkalnego-ul.-mrongowiusza-31-5-mragowo.html",
+      "published_date": "2026-07-14"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolności 20D/12",
+      "address": {
+        "street": "Wolności",
+        "street_norm": "wolnosci",
+        "building": "20D",
+        "apt": "12",
+        "key": "wolnosci|20D|12",
+        "warning": null
+      },
+      "area_m2": 28.75,
+      "starting_price_pln": 185000,
+      "auction_date": "2026-08-18",
+      "round": 1,
+      "detail_url": "https://bipmragowo.warmia.mazury.pl/8554/przetarg-na-sprzedaz-gminnego-lokalu-mieszkalnego-ul.-wolnosci-20d-12-mragowo.html",
+      "source_url": "https://bipmragowo.warmia.mazury.pl/8554/przetarg-na-sprzedaz-gminnego-lokalu-mieszkalnego-ul.-wolnosci-20d-12-mragowo.html",
+      "published_date": "2026-07-14"
+    }
+  ],
   "wykaz": []
 }
