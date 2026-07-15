@@ -30,6 +30,26 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Chełmżyńskiej 9",
+      "address": {
+        "street": "Chełmżyńskiej",
+        "street_norm": "chelmzynskiej",
+        "building": "9",
+        "apt": null,
+        "key": "chelmzynskiej|9|",
+        "warning": null
+      },
+      "auction_date": "2026-09-11",
+      "published_date": "2026-07-15",
+      "round": 1,
+      "area_m2": 8.64,
+      "starting_price_pln": 280000,
+      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/156894/259854",
+      "eto_nr": "13923/2026",
+      "source": "amw"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Bałuckiego 5/1",
       "address": {
         "street": "Bałuckiego",
