@@ -266,8 +266,8 @@
         {
           "date": "2026-07-14",
           "round": 1,
-          "starting_price_pln": 543060,
-          "outcome": "active",
+          "starting_price_pln": null,
+          "outcome": "archived",
           "area_m2": 1626,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-i-nr-2636-obreb-bojkow-wschod-ul-zytnia-1",
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
@@ -283,37 +283,6 @@
           "nr": "263/6",
           "dzialka_id": "246601_1.0019.263/6",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F6"
-        }
-      ]
-    },
-    {
-      "key": "dz|nowe gliwice|72/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "72/2",
-      "obreb": "Nowe Gliwice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Pszczyńska 204",
-      "dzialka_id": "246601_1.0037.72/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-14",
-          "round": 2,
-          "starting_price_pln": 601000,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dz-nr-722-obreb-nowe-gliwice-ul-pszczynska-204"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "72/2",
-          "dzialka_id": "246601_1.0037.72/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2"
         }
       ]
     },
