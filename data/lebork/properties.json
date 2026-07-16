@@ -146,6 +146,30 @@
       "area_m2": 41.82
     },
     {
+      "key": "e plater|10|8",
+      "street": "E. Plater",
+      "street_norm": "e plater",
+      "building": "10",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 163000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 39.44
+        }
+      ],
+      "area_m2": 39.44
+    },
+    {
       "key": "aleja wolnosci|34|2",
       "street": "Aleja Wolności",
       "street_norm": "aleja wolnosci",
