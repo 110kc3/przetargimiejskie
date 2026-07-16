@@ -88,8 +88,16 @@
       "street_norm": "karola miarki",
       "building": "3",
       "apt": "6",
-      "kind": "mieszkalny",
+      "kind": "unknown",
       "listings": [
+        {
+          "date": "2025-11-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 47.15
+        },
         {
           "date": "2026-06-09",
           "round": null,
@@ -120,6 +128,14 @@
       "apt": "5",
       "kind": "unknown",
       "listings": [
+        {
+          "date": "2025-11-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 26.21
+        },
         {
           "date": "2026-06-09",
           "round": null,
