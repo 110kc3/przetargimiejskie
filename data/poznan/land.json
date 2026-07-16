@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "city": "poznan",
+  "plots": [
+    {
+      "key": "dz|krzyżowniki|99/30",
+      "kind": "grunt",
+      "city": "poznan",
+      "dzialka_nr": "99/30",
+      "obreb": "Krzyżowniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jana Henryka Dąbrowskiego i Zygmunta Żuraszka",
+      "dzialka_id": "306401_1.0022.AR_12.99/30",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=306401_1.0022.AR_12.99%2F30",
+      "area_m2": 3362,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 4,
+          "starting_price_pln": 3500000,
+          "outcome": "active",
+          "area_m2": 3362,
+          "detail_url": "https://bip.poznan.pl/bip/news.html?co=print&id=280233&instance=1056&lang=pl&parent=0&category=null&or_id=24",
+          "source_url": "https://bip.poznan.pl/bip/news.html?co=print&id=280233&instance=1056&lang=pl&parent=0&category=null&or_id=24"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "99/30",
+          "dzialka_id": "306401_1.0022.AR_12.99/30",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=306401_1.0022.AR_12.99%2F30"
+        }
+      ]
+    }
+  ]
+}
