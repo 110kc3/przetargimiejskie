@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-16T15:25:49.078Z",
+  "generated_at": "2026-07-16T20:54:47.132Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 101
     },
     {
       "id": "trzebinia",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1403,6 +1403,45 @@
       "active_listings": 225,
       "active_auctions": 15,
       "archived_auctions": 37,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "grudziadz",
+      "label": "Grudziądz",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Prezydent Grudziądza (Urząd Miejski w Grudziądzu, Wydział Geodezji i Gospodarki Nieruchomościami)",
+      "host": "bip.grudziadz.pl",
+      "unique_properties": 12,
+      "active_listings": 44,
+      "active_auctions": 0,
+      "archived_auctions": 45,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "kalisz",
+      "label": "Kalisz",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
+      "host": "bip.kalisz.pl",
+      "unique_properties": 2,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 1,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "wloclawek",
+      "label": "Włocławek",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Gmina Miasto Włocławek",
+      "host": "bip.wloclawek.eu",
+      "unique_properties": 2,
+      "active_listings": 5,
+      "active_auctions": 0,
+      "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 0
     }
