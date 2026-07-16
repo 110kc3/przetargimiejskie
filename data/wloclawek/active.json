@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "city": "wloclawek",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kilińskiego 12A/1",
+      "address": {
+        "street": "Kilińskiego",
+        "street_norm": "kilinskiego",
+        "building": "12A",
+        "apt": "1",
+        "key": "kilinskiego|12A|1",
+        "warning": null
+      },
+      "round": 3,
+      "starting_price_pln": 110270,
+      "auction_date": "2024-04-24",
+      "area_m2": 40.7,
+      "published_year": 2024,
+      "detail_url": "https://bip.wloclawek.eu/6939/726/iii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-stanowiacego-wlasnosc-gminy-miasto-wloclawek-polozonego-w-budynku-przy-ul-kilinskiego-12a-we-wloclawku-usytuowanego-na-dz-nr-71-km-45-o-lacznej-pow-00260-ha.html"
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "Polnej",
+      "address": null,
+      "round": 1,
+      "starting_price_pln": 56000,
+      "auction_date": "2023-12-18",
+      "area_m2": null,
+      "published_year": 2023,
+      "detail_url": "https://bip.wloclawek.eu/4533/726/i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-garazem-w-zabudowie-szeregowej-stanowiacej-wlasnosc-gminy-miasto-wloclawek-polozonej-we-wloclawku-przy-ul-polnej-oznaczonej-jako-dzialka-nr-419-wloclawek-km-105-o-pow-00038-ha.html"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Jagiellońskiej 2/4",
+      "address": {
+        "street": "Jagiellońskiej",
+        "street_norm": "jagiellonskiej",
+        "building": "2",
+        "apt": "4",
+        "key": "jagiellonskiej|2|4",
+        "warning": null
+      },
+      "round": 3,
+      "starting_price_pln": 83250,
+      "auction_date": "2023-12-18",
+      "area_m2": null,
+      "published_year": 2023,
+      "detail_url": "https://bip.wloclawek.eu/4446/726/iii-przetarg-ustny-nieograniczony-na-sprzedaz-udzialu-w-wysokosci-271350-czesci-zabudowanej-budynkiem-mieszkalnym-nieruchomosci-oznaczonej-jako-dzialka-ewidencyjna-nr-535-o-powierzchni-00209-ha-w-obrebie-wloclawek-km-491-polozonej-we-wloclawku-przy-ul-jagiellonskiej-24-stanowiacego-wlasnosc-gminy-miasto-wloclawek.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kilińskiego 12A/1",
+      "address": {
+        "street": "Kilińskiego",
+        "street_norm": "kilinskiego",
+        "building": "12A",
+        "apt": "1",
+        "key": "kilinskiego|12A|1",
+        "warning": null
+      },
+      "round": 2,
+      "starting_price_pln": 110270,
+      "auction_date": "2023-11-13",
+      "area_m2": 40.7,
+      "published_year": 2023,
+      "detail_url": "https://bip.wloclawek.eu/3615/726/ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-stanowiacego-wlasnosc-gminy-miasto-wloclawek-polozonego-w-budynku-przy-ul-kilinskiego-12a-we-wloclawku-usytuowanego-na-dz-nr-71-km-45-o-lacznej-pow-00260-ha.html"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Jagiellońskiej 2/4",
+      "address": {
+        "street": "Jagiellońskiej",
+        "street_norm": "jagiellonskiej",
+        "building": "2",
+        "apt": "4",
+        "key": "jagiellonskiej|2|4",
+        "warning": null
+      },
+      "round": 2,
+      "starting_price_pln": 186500,
+      "auction_date": "2023-09-18",
+      "area_m2": null,
+      "published_year": 2023,
+      "detail_url": "https://bip.wloclawek.eu/3054/726/ii-przetarg-ustny-nieograniczony-na-sprzedaz-udzialu-w-wysokosci-271350-czesci-zabudowanej-budynkiem-mieszkalnym-nieruchomosci-oznaczonej-jako-dzialka-ewidencyjna-nr-535-o-powierzchni-00209-ha-w-obrebie-wloclawek-km-491-polozonej-we-wloclawku-przy-ul-jagiellonskiej-24.html"
+    }
+  ],
+  "wykaz": []
+}
