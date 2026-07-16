@@ -170,6 +170,98 @@
       "area_m2": 39.44
     },
     {
+      "key": "wojska polskiego|38|2",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "38",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 317000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 77.81
+        }
+      ],
+      "area_m2": 77.81
+    },
+    {
+      "key": "teligi|14|23",
+      "street": "Teligi",
+      "street_norm": "teligi",
+      "building": "14",
+      "apt": "23",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 326000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 59.93
+        }
+      ],
+      "area_m2": 59.93
+    },
+    {
+      "key": "teligi|12|6",
+      "street": "Teligi",
+      "street_norm": "teligi",
+      "building": "12",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 59.13
+        }
+      ],
+      "area_m2": 59.13
+    },
+    {
+      "key": "e plater|10|9",
+      "street": "E. Plater",
+      "street_norm": "e plater",
+      "building": "10",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 45.21
+        }
+      ],
+      "area_m2": 45.21
+    },
+    {
       "key": "aleja wolnosci|34|2",
       "street": "Aleja Wolności",
       "street_norm": "aleja wolnosci",
