@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-16T06:39:21.445Z",
+  "generated_at": "2026-07-16T15:25:49.078Z",
   "cities": [
     {
       "id": "gliwice",
@@ -34,9 +34,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 21,
-      "active_listings": 13,
-      "active_auctions": 1,
+      "unique_properties": 23,
+      "active_listings": 15,
+      "active_auctions": 3,
       "archived_auctions": 20,
       "wykaz_entries": 0,
       "land_plots": 7
@@ -100,8 +100,8 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 67,
-      "active_auctions": 11,
+      "active_listings": 70,
+      "active_auctions": 14,
       "archived_auctions": 55,
       "wykaz_entries": 0,
       "land_plots": 49
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 111
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -502,9 +502,9 @@
       "voivodeship": "podkarpackie",
       "authority": "Urząd Miasta Przemyśla",
       "host": "bip.przemysl.pl",
-      "unique_properties": 1,
-      "active_listings": 2,
-      "active_auctions": 2,
+      "unique_properties": 2,
+      "active_listings": 4,
+      "active_auctions": 4,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -988,7 +988,7 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 1
     },
     {
       "id": "trzebnica",
@@ -1040,7 +1040,7 @@
       "active_auctions": 1,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 36
+      "land_plots": 37
     },
     {
       "id": "strzelce-krajenskie",
@@ -1114,7 +1114,7 @@
       "authority": "Prezydent Miasta Bolesławiec (Wydział Mienia i Gospodarki Nieruchomościami)",
       "host": "xn--bolesawiec-e0b.pl",
       "unique_properties": 12,
-      "active_listings": 4,
+      "active_listings": 3,
       "active_auctions": 3,
       "archived_auctions": 3,
       "wykaz_entries": 13,
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1347,10 +1347,10 @@
       "voivodeship": "pomorskie",
       "authority": "Gmina Miasto Lębork",
       "host": "bip.um.lebork.pl",
-      "unique_properties": 22,
+      "unique_properties": 26,
       "active_listings": 6,
       "active_auctions": 6,
-      "archived_auctions": 24,
+      "archived_auctions": 28,
       "wykaz_entries": 0,
       "land_plots": 10
     },
@@ -1366,6 +1366,45 @@
       "archived_auctions": 8,
       "wykaz_entries": 0,
       "land_plots": 1
+    },
+    {
+      "id": "poznan",
+      "label": "Poznań",
+      "voivodeship": "wielkopolskie",
+      "authority": "Urząd Miasta Poznania (Wydział Gospodarki Nieruchomościami)",
+      "host": "bip.poznan.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 1
+    },
+    {
+      "id": "elblag",
+      "label": "Elbląg",
+      "voivodeship": "warminsko-mazurskie",
+      "authority": "Prezydent Miasta Elbląg (Urząd Miejski w Elblągu)",
+      "host": "bip.elblag.eu",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 5
+    },
+    {
+      "id": "wroclaw",
+      "label": "Wrocław",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
+      "host": "bip.um.wroc.pl",
+      "unique_properties": 52,
+      "active_listings": 225,
+      "active_auctions": 15,
+      "archived_auctions": 37,
+      "wykaz_entries": 0,
+      "land_plots": 0
     }
   ]
 }
