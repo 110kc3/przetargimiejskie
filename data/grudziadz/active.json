@@ -1,0 +1,843 @@
+{
+  "schema_version": 1,
+  "city": "grudziadz",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2026-06-29",
+      "published_date": "2026-05-25",
+      "round": 1,
+      "area_m2": 35,
+      "starting_price_pln": 70400,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwsze-przetargi-ustne-nieograniczone-organizowane-w-dniu-29-cze",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/31408/2-ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2026-06-29",
+      "published_date": "2026-05-25",
+      "round": 1,
+      "area_m2": 32.2,
+      "starting_price_pln": 58300,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwsze-przetargi-ustne-nieograniczone-organizowane-w-dniu-29-cze",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/31408/2-ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2026-06-02",
+      "published_date": "2026-04-30",
+      "round": 5,
+      "area_m2": 38.46,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-czerwca",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/31211/2-regulamin-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2026-05-06",
+      "published_date": "2026-04-01",
+      "round": 1,
+      "area_m2": 35,
+      "starting_price_pln": 70400,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwsze-przetargi-ustne-nieograniczone-organizowane-w-dniu-6-maja",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30929/10-ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2026-05-06",
+      "published_date": "2026-04-01",
+      "round": 1,
+      "area_m2": 32.2,
+      "starting_price_pln": 58300,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwsze-przetargi-ustne-nieograniczone-organizowane-w-dniu-6-maja",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30929/10-ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Libelta 10A/5",
+      "address": {
+        "street": "Libelta",
+        "street_norm": "libelta",
+        "building": "10A",
+        "apt": "5",
+        "key": "libelta|10A|5",
+        "warning": null
+      },
+      "auction_date": "2026-05-06",
+      "published_date": "2026-04-01",
+      "round": 1,
+      "area_m2": 45.2,
+      "starting_price_pln": 109000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-6-maja-1",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30928/4a-ogloszenie-o-i-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2026-04-14",
+      "published_date": "2026-03-10",
+      "round": 4,
+      "area_m2": 38.46,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-14-kwiet",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30781/2-regulamin-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 15/8",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "15",
+        "apt": "8",
+        "key": "zamkowa|15|8",
+        "warning": null
+      },
+      "auction_date": "2026-02-24",
+      "published_date": "2026-01-22",
+      "round": 3,
+      "area_m2": 23.88,
+      "starting_price_pln": 4163900,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-24-lutego",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30442/2-ogloszenie-o-iii-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Podhalańska 9/42",
+      "address": {
+        "street": "Podhalańska",
+        "street_norm": "podhalanska",
+        "building": "9",
+        "apt": "42",
+        "key": "podhalanska|9|42",
+        "warning": null
+      },
+      "auction_date": "2026-02-24",
+      "published_date": "2026-01-22",
+      "round": 4,
+      "area_m2": 48.15,
+      "starting_price_pln": 141200000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-24-luteg",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30441/2-ogloszenie-o-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2026-02-23",
+      "published_date": "2026-01-15",
+      "round": 3,
+      "area_m2": 38.46,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-23-lutego",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30388/2-regulamin-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 15/8",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "15",
+        "apt": "8",
+        "key": "zamkowa|15|8",
+        "warning": null
+      },
+      "auction_date": "2026-01-12",
+      "published_date": "2025-12-04",
+      "round": 2,
+      "area_m2": 23.88,
+      "starting_price_pln": 4163900,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-12-styczni",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30138/3-ogloszenie-o-ii-przetargach.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Podhalańska 9/42",
+      "address": {
+        "street": "Podhalańska",
+        "street_norm": "podhalanska",
+        "building": "9",
+        "apt": "42",
+        "key": "podhalanska|9|42",
+        "warning": null
+      },
+      "auction_date": "2026-01-12",
+      "published_date": "2025-12-04",
+      "round": 3,
+      "area_m2": 48.15,
+      "starting_price_pln": 141200000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-12-styczn-1",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30137/2-ogloszenie-o-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2025-12-17",
+      "published_date": "2025-11-12",
+      "round": 2,
+      "area_m2": 38.46,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-17-grudnia",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7388/12_11_2025_14_44_06_2._regulamin_przetargu..doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 15/8",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "15",
+        "apt": "8",
+        "key": "zamkowa|15|8",
+        "warning": null
+      },
+      "auction_date": "2025-11-17",
+      "published_date": "2025-10-15",
+      "round": 1,
+      "area_m2": 23.88,
+      "starting_price_pln": 4171000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-17-list",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7307/15_10_2025_13_00_44_2._ogloszenie_o__i_przetargach_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Podhalańska 9/42",
+      "address": {
+        "street": "Podhalańska",
+        "street_norm": "podhalanska",
+        "building": "9",
+        "apt": "42",
+        "key": "podhalanska|9|42",
+        "warning": null
+      },
+      "auction_date": "2025-11-17",
+      "published_date": "2025-10-15",
+      "round": 2,
+      "area_m2": 48.15,
+      "starting_price_pln": 141200000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-17-listopa",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7306/15_10_2025_12_54_21_2._ogloszenie_o__przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2025-10-21",
+      "published_date": "2025-09-16",
+      "round": 1,
+      "area_m2": 38.46,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-21-pazd",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7221/16_09_2025_14_00_32_5._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Podhalańska 9/42",
+      "address": {
+        "street": "Podhalańska",
+        "street_norm": "podhalanska",
+        "building": "9",
+        "apt": "42",
+        "key": "podhalanska|9|42",
+        "warning": null
+      },
+      "auction_date": "2025-10-02",
+      "published_date": "2025-08-25",
+      "round": 1,
+      "area_m2": 48.15,
+      "starting_price_pln": 141200000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-pazdz",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7127/25_08_2025_12_00_38_17._ogloszenie_o__przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2025-09-04",
+      "published_date": "2025-07-31",
+      "round": 5,
+      "area_m2": 35,
+      "starting_price_pln": 67500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piate-przetargi-ustne-nieograniczone-organizowane-w-dniu-4-wrzesn",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7083/31_07_2025_14_08_56_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2025-09-04",
+      "published_date": "2025-07-31",
+      "round": 5,
+      "area_m2": 32.2,
+      "starting_price_pln": 57500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piate-przetargi-ustne-nieograniczone-organizowane-w-dniu-4-wrzesn",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7083/31_07_2025_14_08_56_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Libelta 10A/5",
+      "address": {
+        "street": "Libelta",
+        "street_norm": "libelta",
+        "building": "10A",
+        "apt": "5",
+        "key": "libelta|10A|5",
+        "warning": null
+      },
+      "auction_date": "2025-09-04",
+      "published_date": "2025-07-31",
+      "round": 5,
+      "area_m2": 45.2,
+      "starting_price_pln": 106000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-4-wrzesnia",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/7082/31_07_2025_14_07_12_2._ogloszenie_o_v_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2025-07-14",
+      "published_date": "2025-06-10",
+      "round": 4,
+      "area_m2": 35,
+      "starting_price_pln": 67500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarte-przetargi-ustne-nieograniczone-organizowane-w-dniu-14-lip",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6922/10_06_2025_15_13_38_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2025-07-14",
+      "published_date": "2025-06-10",
+      "round": 4,
+      "area_m2": 32.2,
+      "starting_price_pln": 57500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarte-przetargi-ustne-nieograniczone-organizowane-w-dniu-14-lip",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6922/10_06_2025_15_13_38_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Libelta 10A/5",
+      "address": {
+        "street": "Libelta",
+        "street_norm": "libelta",
+        "building": "10A",
+        "apt": "5",
+        "key": "libelta|10A|5",
+        "warning": null
+      },
+      "auction_date": "2025-07-14",
+      "published_date": "2025-06-10",
+      "round": 4,
+      "area_m2": 45.2,
+      "starting_price_pln": 106000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-14-lipca",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6921/10_06_2025_15_12_28_2._ogloszenie_o_iv_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2025-05-28",
+      "published_date": "2025-04-24",
+      "round": 5,
+      "area_m2": 38.46,
+      "starting_price_pln": 78600,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-28-maja-20-2",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6751/24_04_2025_11_54_14_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Libelta 10A/5",
+      "address": {
+        "street": "Libelta",
+        "street_norm": "libelta",
+        "building": "10A",
+        "apt": "5",
+        "key": "libelta|10A|5",
+        "warning": null
+      },
+      "auction_date": "2025-05-27",
+      "published_date": "2025-04-23",
+      "round": 3,
+      "area_m2": 45.2,
+      "starting_price_pln": 106000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-27-maja-3",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6747/23_04_2025_14_32_23_2._ogloszenie_o_ii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2025-05-27",
+      "published_date": "2025-04-23",
+      "round": 3,
+      "area_m2": 35,
+      "starting_price_pln": 67500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzecie-przetargi-ustne-nieograniczone-organizowane-w-dniu-27-maj",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6746/23_04_2025_14_30_54_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2025-05-27",
+      "published_date": "2025-04-23",
+      "round": 3,
+      "area_m2": 32.2,
+      "starting_price_pln": 57500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzecie-przetargi-ustne-nieograniczone-organizowane-w-dniu-27-maj",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6746/23_04_2025_14_30_54_2._ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 15/8",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "15",
+        "apt": "8",
+        "key": "zamkowa|15|8",
+        "warning": null
+      },
+      "auction_date": "2025-05-06",
+      "published_date": "2025-04-02",
+      "round": 4,
+      "area_m2": 23.88,
+      "starting_price_pln": 4151300,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-6-maja-2",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6652/02_04_2025_09_41_37_2._ogloszenie_o__iv_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Libelta 10A/5",
+      "address": {
+        "street": "Libelta",
+        "street_norm": "libelta",
+        "building": "10A",
+        "apt": "5",
+        "key": "libelta|10A|5",
+        "warning": null
+      },
+      "auction_date": "2025-04-07",
+      "published_date": "2025-03-03",
+      "round": 2,
+      "area_m2": 45.2,
+      "starting_price_pln": 106000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-7-kwietnia",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6552/03_03_2025_09_10_00_2._ogloszenie_o_ii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2025-04-07",
+      "published_date": "2025-03-03",
+      "round": 2,
+      "area_m2": 35,
+      "starting_price_pln": 67500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugie-przetargi-ustne-nieograniczone-organizowane-w-dniu-7-kwietn",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6551/03_03_2025_09_08_20_2._ogloszenie_o_ii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2025-04-07",
+      "published_date": "2025-03-03",
+      "round": 2,
+      "area_m2": 32.2,
+      "starting_price_pln": 57500,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugie-przetargi-ustne-nieograniczone-organizowane-w-dniu-7-kwietn",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6551/03_03_2025_09_08_20_2._ogloszenie_o_ii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 15/5",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "15",
+        "apt": "5",
+        "key": "zamkowa|15|5",
+        "warning": null
+      },
+      "auction_date": "2025-03-20",
+      "published_date": "2025-02-17",
+      "round": 3,
+      "area_m2": 12.06,
+      "starting_price_pln": 4188200,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzecie-przetargi-ustne-nieograniczone-organizowane-w-dniu-20-marc",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6485/17_02_2025_12_05_31_20._ogloszenie_o__iii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 15/8",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "15",
+        "apt": "8",
+        "key": "zamkowa|15|8",
+        "warning": null
+      },
+      "auction_date": "2025-03-20",
+      "published_date": "2025-02-17",
+      "round": 3,
+      "area_m2": 23.88,
+      "starting_price_pln": 4151300,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzecie-przetargi-ustne-nieograniczone-organizowane-w-dniu-20-marc",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6485/17_02_2025_12_05_31_20._ogloszenie_o__iii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2025-02-05",
+      "published_date": "2024-12-30",
+      "round": 3,
+      "area_m2": 38.46,
+      "starting_price_pln": 78600,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-5-lutego-2",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/6290/30_12_2024_09_58_41_2._ogloszenie_o_iii_przetargu_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2024-09-16",
+      "published_date": "2024-08-07",
+      "round": 2,
+      "area_m2": 32.3,
+      "starting_price_pln": 101123300,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-16-wrzesni",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/5693/07_08_2024_09_32_10_3._ogloszenie_o__przetargu_-_ul._piaskowa_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2022-11-22",
+      "published_date": "2022-10-17",
+      "round": 4,
+      "area_m2": 32.3,
+      "starting_price_pln": 101130000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-22-listo",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3930/17_10_2022_12_33_43_4._ogloszenie_o__przetargu_-_ul._piaskowa_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2022-08-02",
+      "published_date": "2022-06-30",
+      "round": 2,
+      "area_m2": 32.3,
+      "starting_price_pln": 101130000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-sierpnia",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3782/30_06_2022_08_04_09_1._ogloszenie_o__ii_przetargu_-_ul._piaskowa_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Warszawska 15/4",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "15",
+        "apt": "4",
+        "key": "warszawska|15|4",
+        "warning": null
+      },
+      "auction_date": "2022-07-26",
+      "published_date": "2022-06-21",
+      "round": 1,
+      "area_m2": 64.5,
+      "starting_price_pln": 244000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-ograniczony-organizowany-w-dniu-26-lipca-2",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3754/21_06_2022_10_05_05_24._ogloszenie_o_przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2022-06-13",
+      "published_date": "2022-05-12",
+      "round": 1,
+      "area_m2": 32.3,
+      "starting_price_pln": 101130000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-13-czer-2",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3628/12_05_2022_11_46_32_4._ogloszenie_o__przetargu_-_ul._piaskowa_.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2022-02-16",
+      "published_date": "2022-01-13",
+      "round": 3,
+      "area_m2": 32.3,
+      "starting_price_pln": 101134000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-16-lutego",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3368/13_01_2022_14_03_51_1._ogloszenie_o_iii_przetargu_-_ul._piaskowa.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2021-12-15",
+      "published_date": "2021-11-08",
+      "round": 2,
+      "area_m2": 32.3,
+      "starting_price_pln": 101134000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-15-grudnia",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3243/08_11_2021_08_53_26_8._ogloszenie_o_ii_przetargu_-_ul._piaskowa.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piaskowa 3/24",
+      "address": {
+        "street": "Piaskowa",
+        "street_norm": "piaskowa",
+        "building": "3",
+        "apt": "24",
+        "key": "piaskowa|3|24",
+        "warning": null
+      },
+      "auction_date": "2021-10-20",
+      "published_date": "2021-09-09",
+      "round": 1,
+      "area_m2": 32.3,
+      "starting_price_pln": 101134000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-20-pazd",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/3151/09_09_2021_14_22_24_8._ogloszenie_o__przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Aleja 23 Stycznia 58/9",
+      "address": {
+        "street": "Aleja 23 Stycznia",
+        "street_norm": "aleja 23 stycznia",
+        "building": "58",
+        "apt": "9",
+        "key": "aleja 23 stycznia|58|9",
+        "warning": null
+      },
+      "auction_date": "2021-05-14",
+      "published_date": "2021-04-08",
+      "round": 2,
+      "area_m2": 35.43,
+      "starting_price_pln": 50103000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowane-w-dniu-14-maja-20",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/2920/02_06_2021_07_46_19_11._ogloszenie_o_ii_przetargu_-_al._23_stycznia_.docx"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Chełmińska 30-36/58",
+      "address": {
+        "street": "Chełmińska",
+        "street_norm": "chelminska",
+        "building": "30-36",
+        "apt": "58",
+        "key": "chelminska|30-36|58",
+        "warning": null
+      },
+      "auction_date": "2020-10-09",
+      "published_date": "2020-09-04",
+      "round": 1,
+      "area_m2": 41.91,
+      "starting_price_pln": 54133000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-9-pazdz",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/2615/04_09_2020_09_45_25_ogloszenie_chelminska.docx"
+    }
+  ],
+  "wykaz": []
+}
