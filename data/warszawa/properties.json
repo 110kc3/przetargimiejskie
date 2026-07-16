@@ -3,6 +3,29 @@
   "city": "warszawa",
   "properties": [
     {
+      "key": "marymoncka|125|10A",
+      "street": "Marymoncka",
+      "street_norm": "marymoncka",
+      "building": "125",
+      "apt": "10A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 12.7,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/157073/260113",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 12.7
+    },
+    {
       "key": "chelmzynskiej|9|",
       "street": "Chełmżyńskiej",
       "street_norm": "chelmzynskiej",

@@ -4,6 +4,26 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Marymoncka 125/10A",
+      "address": {
+        "street": "Marymoncka",
+        "street_norm": "marymoncka",
+        "building": "125",
+        "apt": "10A",
+        "key": "marymoncka|125|10A",
+        "warning": null
+      },
+      "auction_date": "2026-09-25",
+      "published_date": "2026-07-16",
+      "round": 1,
+      "area_m2": 12.7,
+      "starting_price_pln": 210000,
+      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/157073/260113",
+      "eto_nr": "14102/2026",
+      "source": "amw"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "DRUGI PRZETARG USTNY NIEOGRANICZONY na sprzedaż lokalu mieszkalnego nr 2a usytuowanego w budynku położonym w Warszawie w Dzielnicy Śródmieście przy ul. S. Noakowskiego 10 wraz z udziałem w prawie własności gruntu.",
       "address": null,
       "auction_date": null,
