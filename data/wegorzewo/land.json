@@ -67,6 +67,37 @@
       ]
     },
     {
+      "key": "dz|636/35",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "636/35",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20636%2F35%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 23,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "starting_price_pln": 12000,
+          "outcome": "sold",
+          "final_price_pln": 20560,
+          "area_m2": 23,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/894221/informacja_o_wyniku_pierwszego_przetargu_ustnego_nieograniczoneg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "636/35"
+        }
+      ]
+    },
+    {
       "key": "dz|radzieje|138",
       "kind": "grunt",
       "city": "wegorzewo",
