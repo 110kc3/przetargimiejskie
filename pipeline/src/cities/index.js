@@ -230,6 +230,16 @@ import wroclaw from './wroclaw/index.js';
 // but thin (one OCR'd result, currently unsold); the sold-outcome branch of
 // parseResultDoc is best-effort/unvalidated against a real sold fixture.
 import grudziadz from './grudziadz/index.js';
+// kalisz (Wielkopolskie city-county, 2026-07-16) — older classic PHP BIP board
+// (bip.kalisz.pl, r_ogl=SN), closer to the Kraków bespoke-HTML family than the
+// named Poznań analog; one board serves both announcement + result streams as
+// spiked. classifyKind/addressFromText are scoped to a subjectWindow() (the
+// clause between "ogłasza"/"informacja o wyniku" and the "I." header) after
+// live smoke-testing caught unscoped extraction bleeding into unrelated PDF
+// body text (a land notice's incidental "zabudowana" mention, a RODO clause's
+// vendor address). Land/grunt items are classified but not deep-parsed
+// (out of scope per spike's flat-focused BUILD criterion).
+import kalisz from './kalisz/index.js';
 
 export const cities = [
   gliwice,
@@ -341,6 +351,7 @@ export const cities = [
   elblag,
   wroclaw,
   grudziadz,
+  kalisz,
 ];
 
 /** @param {string} id @returns {object|null} */
