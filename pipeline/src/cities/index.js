@@ -196,6 +196,15 @@ import lebork from './lebork/index.js';
 // "Nabywcą" (ASCII \w) → now a Polish-letter class. Low flat volume (one recurring
 // Rómmla unit, sold on round III) + repeat-round land; wolow/kolbuszowa analog. 8/8.
 import klobuck from './klobuck/index.js';
+// poznan (Wielkopolskie city-county, 2026-07-16) — bespoke WGN CMS, not the
+// Kraków ?news_id= format the spike guessed; board + JSON API need a browser UA
+// (spike's "API empty" was a missing-UA artifact). Board teasers lack price —
+// price lives in a linked born-digital "pełna treść ogłoszenia" PDF. Achieved
+// prices via category-8800 "wyniki przetargów" (confirmed real via Wayback,
+// purged from the live CMS ~1-3 weeks after posting); parseResultDoc follows
+// the cross-city idiom but is NOT YET live-verified against a real result PDF —
+// re-confirm on the first live catch.
+import poznan from './poznan/index.js';
 
 export const cities = [
   gliwice,
@@ -303,6 +312,7 @@ export const cities = [
   suchaBeskidzka,
   lebork,
   klobuck,
+  poznan,
 ];
 
 /** @param {string} id @returns {object|null} */
