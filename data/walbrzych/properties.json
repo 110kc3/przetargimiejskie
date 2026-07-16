@@ -3,6 +3,26 @@
   "city": "walbrzych",
   "properties": [
     {
+      "key": "przy ul stanislawa staszica|1|7",
+      "street": "przy ul. Stanisława Staszica",
+      "street_norm": "przy ul stanislawa staszica",
+      "building": "1",
+      "apt": "7",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "przy ul harcerskiej|7|2",
       "street": "przy ul. Harcerskiej",
       "street_norm": "przy ul harcerskiej",

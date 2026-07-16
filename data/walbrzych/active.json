@@ -3,6 +3,22 @@
   "city": "walbrzych",
   "listings": [
     {
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7",
+      "address": {
+        "street": "przy ul. Stanisława Staszica",
+        "street_norm": "przy ul stanislawa staszica",
+        "building": "1",
+        "apt": "7",
+        "key": "przy ul stanislawa staszica|1|7",
+        "warning": null
+      },
+      "address_raw": "przy ul. Stanisława Staszica 1/7",
+      "kind": "lokal mieszkalny",
+      "starting_price_pln": 170000,
+      "auction_date": "2026-08-19",
+      "round": 1
+    },
+    {
       "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51204/przy-ul-harcerskiej-7-2",
       "address": {
         "street": "przy ul. Harcerskiej",
@@ -136,51 +152,6 @@
       "address_raw": "ul. 11 Listopada 150/7",
       "kind": "lokal mieszkalny",
       "starting_price_pln": 76000,
-      "auction_date": "2026-06-10"
-    },
-    {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50685/walbrzych-przy-ul-armii-krajowej-39a-6",
-      "address": {
-        "street": "Armii Krajowej",
-        "street_norm": "armii krajowej",
-        "building": "39A",
-        "apt": "6",
-        "key": "armii krajowej|39A|6",
-        "warning": null
-      },
-      "address_raw": "ul. Armii Krajowej 39A/6",
-      "kind": "lokal mieszkalny",
-      "starting_price_pln": 40000,
-      "auction_date": "2026-06-10"
-    },
-    {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50684/walbrzych-przy-ul-lubelskiej-26-12",
-      "address": {
-        "street": "Lubelskiej",
-        "street_norm": "lubelskiej",
-        "building": "26",
-        "apt": "12",
-        "key": "lubelskiej|26|12",
-        "warning": null
-      },
-      "address_raw": "ul. Lubelskiej 26/12",
-      "kind": "lokal mieszkalny",
-      "starting_price_pln": 47000,
-      "auction_date": "2026-06-10"
-    },
-    {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50683/walbrzych-przy-ul-armii-krajowej-14-2",
-      "address": {
-        "street": "Armii Krajowej",
-        "street_norm": "armii krajowej",
-        "building": "14",
-        "apt": "2",
-        "key": "armii krajowej|14|2",
-        "warning": null
-      },
-      "address_raw": "ul. Armii Krajowej 14/2",
-      "kind": "lokal mieszkalny",
-      "starting_price_pln": 55000,
       "auction_date": "2026-06-10"
     }
   ],
