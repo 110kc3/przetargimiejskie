@@ -223,6 +223,13 @@ import elblag from './elblag/index.js';
 // result source and Giełda Nieruchomości (bounded ID-range scan) is only a
 // secondary backfill for lots whose BIP window already closed.
 import wroclaw from './wroclaw/index.js';
+// grudziadz (Kujawsko-Pomorskie city-county, 2026-07-16) — plain server-rendered
+// DataTables board (bip.grudziadz.pl); despite client-side "paging": true, ALL
+// ~620 rows since 2008 are in one plain-GET HTML response, so the spike's
+// JS-pagination/render.js concern doesn't apply. Achieved-price stream is real
+// but thin (one OCR'd result, currently unsold); the sold-outcome branch of
+// parseResultDoc is best-effort/unvalidated against a real sold fixture.
+import grudziadz from './grudziadz/index.js';
 
 export const cities = [
   gliwice,
@@ -333,6 +340,7 @@ export const cities = [
   poznan,
   elblag,
   wroclaw,
+  grudziadz,
 ];
 
 /** @param {string} id @returns {object|null} */
