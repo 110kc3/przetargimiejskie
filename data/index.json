@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-15T06:38:00.972Z",
+  "generated_at": "2026-07-16T06:39:21.445Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,9 +8,9 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 181,
-      "active_listings": 13,
-      "active_auctions": 13,
+      "unique_properties": 182,
+      "active_listings": 14,
+      "active_auctions": 14,
       "archived_auctions": 255,
       "wykaz_entries": 4,
       "land_plots": 78
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 109
+      "land_plots": 111
     },
     {
       "id": "trzebinia",
@@ -244,8 +244,8 @@
       "host": "bipraciborz.pl",
       "unique_properties": 13,
       "active_listings": 10,
-      "active_auctions": 10,
-      "archived_auctions": 3,
+      "active_auctions": 7,
+      "archived_auctions": 6,
       "wykaz_entries": 0,
       "land_plots": 1
     },
@@ -320,9 +320,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski w Wałbrzychu",
       "host": "bip.um.walbrzych.pl",
-      "unique_properties": 12,
-      "active_listings": 12,
-      "active_auctions": 1,
+      "unique_properties": 13,
+      "active_listings": 10,
+      "active_auctions": 2,
       "archived_auctions": 11,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -334,8 +334,8 @@
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
       "unique_properties": 116,
-      "active_listings": 19,
-      "active_auctions": 14,
+      "active_listings": 21,
+      "active_auctions": 16,
       "archived_auctions": 106,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -541,9 +541,9 @@
       "voivodeship": "mazowieckie",
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
-      "unique_properties": 13,
-      "active_listings": 8,
-      "active_auctions": 12,
+      "unique_properties": 14,
+      "active_listings": 9,
+      "active_auctions": 13,
       "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1118,7 +1118,7 @@
       "active_auctions": 3,
       "archived_auctions": 3,
       "wykaz_entries": 13,
-      "land_plots": 5
+      "land_plots": 4
     },
     {
       "id": "wolow",
@@ -1131,7 +1131,7 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
-      "land_plots": 51
+      "land_plots": 53
     },
     {
       "id": "lwowek-slaski",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1347,10 +1347,10 @@
       "voivodeship": "pomorskie",
       "authority": "Gmina Miasto Lębork",
       "host": "bip.um.lebork.pl",
-      "unique_properties": 21,
+      "unique_properties": 22,
       "active_listings": 6,
       "active_auctions": 6,
-      "archived_auctions": 23,
+      "archived_auctions": 24,
       "wykaz_entries": 0,
       "land_plots": 10
     },
