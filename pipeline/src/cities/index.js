@@ -214,6 +214,15 @@ import poznan from './poznan/index.js';
 // crawls that board) and via an explicit isBezprzetargowoDoc() classifier,
 // groundtruthed against a real tenant-sale notice.
 import elblag from './elblag/index.js';
+// wroclaw (Dolnoslaskie city-county, 2026-07-16) — Logonet eUrząd BIP with a
+// structured search endpoint (/przetargi-nieruchomosci/szukaj); strong live
+// volume (225 active flat listings on first crawl). Corrects the spike's
+// two-source-join assumption: BIP itself grows a "wynik" .docx attachment
+// with achieved price/buyer/area, but only for a ~7-day RODO publication
+// window post-auction — daily refresh easily beats it, so BIP is the primary
+// result source and Giełda Nieruchomości (bounded ID-range scan) is only a
+// secondary backfill for lots whose BIP window already closed.
+import wroclaw from './wroclaw/index.js';
 
 export const cities = [
   gliwice,
@@ -323,6 +332,7 @@ export const cities = [
   klobuck,
   poznan,
   elblag,
+  wroclaw,
 ];
 
 /** @param {string} id @returns {object|null} */
