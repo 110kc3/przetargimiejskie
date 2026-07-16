@@ -205,6 +205,15 @@ import klobuck from './klobuck/index.js';
 // the cross-city idiom but is NOT YET live-verified against a real result PDF —
 // re-confirm on the first live catch.
 import poznan from './poznan/index.js';
+// elblag (Warminsko-Mazurskie city-county, 2026-07-16) — Logonet eUrząd CMS
+// (same vendor as tarnowskie-gory/kedzierzyn-kozle, confirmed via footer
+// version string), but per-item detail pages are structured HTML tables (not
+// PDF prose) and result docs are batch tables — one .doc can report several
+// properties decided the same day, expanded to one record per row. Filters
+// the bezprzetargowo (tenant-sale) wykaz stream both structurally (never
+// crawls that board) and via an explicit isBezprzetargowoDoc() classifier,
+// groundtruthed against a real tenant-sale notice.
+import elblag from './elblag/index.js';
 
 export const cities = [
   gliwice,
@@ -313,6 +322,7 @@ export const cities = [
   lebork,
   klobuck,
   poznan,
+  elblag,
 ];
 
 /** @param {string} id @returns {object|null} */
