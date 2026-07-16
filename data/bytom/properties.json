@@ -3,6 +3,50 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "michala wolskiego|6|8",
+      "street": "Michała Wolskiego",
+      "street_norm": "michala wolskiego",
+      "building": "6",
+      "apt": "8",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-18",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 82.31,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/pl.-Michala-Wolskiego-68/idn:13744",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 82.31
+    },
+    {
+      "key": "arki bozka|7|56",
+      "street": "Arki Bożka",
+      "street_norm": "arki bozka",
+      "building": "7",
+      "apt": "56",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-18",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 44.38,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Arki-Bozka-756/idn:13742",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.38
+    },
+    {
       "key": "falata|24|5",
       "street": "Fałata",
       "street_norm": "falata",

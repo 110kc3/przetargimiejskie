@@ -3,6 +3,44 @@
   "city": "bytom",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "address_raw": "pl. Michała Wolskiego 6/8",
+      "address": {
+        "street": "Michała Wolskiego",
+        "street_norm": "michala wolskiego",
+        "building": "6",
+        "apt": "8",
+        "key": "michala wolskiego|6|8",
+        "warning": null
+      },
+      "auction_date": "2026-08-18",
+      "published_date": "2026-07-16",
+      "round": 2,
+      "area_m2": 82.31,
+      "starting_price_pln": 80000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/pl.-Michala-Wolskiego-68/idn:13744",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_8,24340.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Arki Bożka 7/56",
+      "address": {
+        "street": "Arki Bożka",
+        "street_norm": "arki bozka",
+        "building": "7",
+        "apt": "56",
+        "key": "arki bozka|7|56",
+        "warning": null
+      },
+      "auction_date": "2026-08-18",
+      "published_date": "2026-07-16",
+      "round": 2,
+      "area_m2": 44.38,
+      "starting_price_pln": 50000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Arki-Bozka-756/idn:13742",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Arki-Bozka-7_56,24337.doc"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Fałata 24/5",
       "address": {
