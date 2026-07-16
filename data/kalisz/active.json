@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "city": "kalisz",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górnośląskiej 42/11A",
+      "address": {
+        "street": "Górnośląskiej",
+        "street_norm": "gornoslaskiej",
+        "building": "42",
+        "apt": "11A",
+        "key": "gornoslaskiej|42|11A",
+        "warning": null
+      },
+      "area_m2": 14.63,
+      "round": 2,
+      "starting_price_pln": 43000,
+      "auction_date": "2026-07-30",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/1706gornoslaska42lok11a.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/1706gornoslaska42lok11a.pdf"
+    }
+  ],
+  "wykaz": []
+}

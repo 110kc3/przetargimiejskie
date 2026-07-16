@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "city": "kalisz",
+  "properties": [
+    {
+      "key": "gornoslaskiej|42|11A",
+      "street": "Górnośląskiej",
+      "street_norm": "gornoslaskiej",
+      "building": "42",
+      "apt": "11A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 43000,
+          "outcome": "active",
+          "area_m2": 14.63,
+          "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/1706gornoslaska42lok11a.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 14.63
+    },
+    {
+      "key": "garncarskiej|9A|",
+      "street": "Garncarskiej",
+      "street_norm": "garncarskiej",
+      "building": "9A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 353500,
+          "source_pdf": "https://bip.kalisz.pl/ogloszenia/sn/1307garncarska9a.pdf",
+          "notes": []
+        }
+      ]
+    }
+  ]
+}
