@@ -240,6 +240,15 @@ import grudziadz from './grudziadz/index.js';
 // vendor address). Land/grunt items are classified but not deep-parsed
 // (out of scope per spike's flat-focused BUILD criterion).
 import kalisz from './kalisz/index.js';
+// wloclawek (Kujawsko-Pomorskie city-county, 2026-07-16) — bip.um.wlocl.pl
+// redirects to bip.wloclawek.eu, the same "BIP w JST" (gov.pl-BIP) CMS as
+// sepolno-krajenskie (identical page structure + attachment links) — not the
+// vague "regional platform" the spike assumed, and a different vendor than
+// Toruń/Bydgoszcz. Thin but genuine stream (~1/yr); only SOLD results carry
+// an attachment on this board (checked live across 5 unresolved entries), so
+// the unsold branch of parseResultDoc is defensive-by-construction, not yet
+// live-verified against a real negative-result doc.
+import wloclawek from './wloclawek/index.js';
 
 export const cities = [
   gliwice,
@@ -352,6 +361,7 @@ export const cities = [
   wroclaw,
   grudziadz,
   kalisz,
+  wloclawek,
 ];
 
 /** @param {string} id @returns {object|null} */
