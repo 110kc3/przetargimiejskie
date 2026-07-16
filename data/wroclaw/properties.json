@@ -1,0 +1,1191 @@
+{
+  "schema_version": 1,
+  "city": "wroclaw",
+  "properties": [
+    {
+      "key": "krzycka|3A|1",
+      "street": "Krzycka",
+      "street_norm": "krzycka",
+      "building": "3A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 575000,
+          "outcome": "active",
+          "area_m2": 59.34,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.34
+    },
+    {
+      "key": "plac gen jozefa bema|4|6",
+      "street": "Plac gen. Józefa Bema",
+      "street_norm": "plac gen jozefa bema",
+      "building": "4",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1118000,
+          "outcome": "active",
+          "area_m2": 108.87,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 108.87
+    },
+    {
+      "key": "przestrzenna|42|11",
+      "street": "Przestrzenna",
+      "street_norm": "przestrzenna",
+      "building": "42",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 666000,
+          "outcome": "active",
+          "area_m2": 83.17,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 83.17
+    },
+    {
+      "key": "przestrzenna 41 lokal|4-4A|",
+      "street": "Przestrzenna 41 lokal",
+      "street_norm": "przestrzenna 41 lokal",
+      "building": "4-4A",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 859500,
+          "outcome": "active",
+          "area_m2": 149.25,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 149.25
+    },
+    {
+      "key": "plac gen jozefa bema 4 lokal|8-8A|",
+      "street": "Plac gen. Józefa Bema 4 lokal",
+      "street_norm": "plac gen jozefa bema 4 lokal",
+      "building": "8-8A",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1091000,
+          "outcome": "active",
+          "area_m2": 109.49,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 109.49
+    },
+    {
+      "key": "krepicka|48|7",
+      "street": "Krępicka",
+      "street_norm": "krepicka",
+      "building": "48",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 530000,
+          "outcome": "active",
+          "area_m2": 75.04,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 75.04
+    },
+    {
+      "key": "krepicka|48|4",
+      "street": "Krępicka",
+      "street_norm": "krepicka",
+      "building": "48",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 555000,
+          "outcome": "active",
+          "area_m2": 77.71,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 77.71
+    },
+    {
+      "key": "wesola|12|10",
+      "street": "Wesoła",
+      "street_norm": "wesola",
+      "building": "12",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 510000,
+          "outcome": "active",
+          "area_m2": 57.9,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 57.9
+    },
+    {
+      "key": "rynek|14|5",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "14",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 950000,
+          "outcome": "active",
+          "area_m2": 70.99,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 70.99
+    },
+    {
+      "key": "rynek|14|6",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "14",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 450000,
+          "outcome": "active",
+          "area_m2": 29.92,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29.92
+    },
+    {
+      "key": "michala wroclawczyka|40|6",
+      "street": "Michała Wrocławczyka",
+      "street_norm": "michala wroclawczyka",
+      "building": "40",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1166000,
+          "outcome": "active",
+          "area_m2": 132.22,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 132.22
+    },
+    {
+      "key": "powstancow slaskich|198|23",
+      "street": "Powstańców Śląskich",
+      "street_norm": "powstancow slaskich",
+      "building": "198",
+      "apt": "23",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 480000,
+          "outcome": "active",
+          "area_m2": 44,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44
+    },
+    {
+      "key": "partyzantow|65|1",
+      "street": "Partyzantów",
+      "street_norm": "partyzantow",
+      "building": "65",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-29",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 603000,
+          "outcome": "active",
+          "area_m2": 64.3,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 64.3
+    },
+    {
+      "key": "stefana okrzei|30|4",
+      "street": "Stefana Okrzei",
+      "street_norm": "stefana okrzei",
+      "building": "30",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 490000,
+          "outcome": "active",
+          "area_m2": 50.74,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.74
+    },
+    {
+      "key": "miernicza|23|6",
+      "street": "Miernicza",
+      "street_norm": "miernicza",
+      "building": "23",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-20",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 455000,
+          "outcome": "active",
+          "area_m2": 79.23,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 79.23
+    },
+    {
+      "key": "generala romualda traugutta|141|4",
+      "street": "generała Romualda Traugutta",
+      "street_norm": "generala romualda traugutta",
+      "building": "141",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 462000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 466620,
+          "source_pdf": "https://bip.um.wroc.pl/attachments/download/176660",
+          "notes": [
+            "nabywca: 54D Sp. z o. o."
+          ],
+          "area_m2": 82.26
+        }
+      ],
+      "area_m2": 82.26
+    },
+    {
+      "key": "paulinska|2A|12",
+      "street": "Paulińska",
+      "street_norm": "paulinska",
+      "building": "2A",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 324000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 327240,
+          "source_pdf": "https://bip.um.wroc.pl/attachments/download/176655",
+          "notes": [
+            "nabywca: 54D Sp. z o. o."
+          ],
+          "area_m2": 37.46
+        }
+      ],
+      "area_m2": 37.46
+    },
+    {
+      "key": "grudzi x105 dzka|85|3",
+      "street": "Grudzi&#x105;dzka",
+      "street_norm": "grudzi x105 dzka",
+      "building": "85",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 387000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 390870,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1098",
+          "notes": [],
+          "area_m2": 49.86
+        }
+      ],
+      "area_m2": 49.86
+    },
+    {
+      "key": "chocimska|5|1",
+      "street": "Chocimska",
+      "street_norm": "chocimska",
+      "building": "5",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 434200,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1104",
+          "notes": [],
+          "area_m2": 47.7
+        }
+      ],
+      "area_m2": 47.7
+    },
+    {
+      "key": "grudzi x105 dzka|69|10",
+      "street": "Grudzi&#x105;dzka",
+      "street_norm": "grudzi x105 dzka",
+      "building": "69",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 364800,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 462016,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1070",
+          "notes": [],
+          "area_m2": 52.06
+        }
+      ],
+      "area_m2": 52.06
+    },
+    {
+      "key": "marii curie sk x142 odowskiej|3|7",
+      "street": "Marii Curie-Sk&#x142;odowskiej",
+      "street_norm": "marii curie sk x142 odowskiej",
+      "building": "3",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 640000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 702800,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1111",
+          "notes": [],
+          "area_m2": 85.91
+        }
+      ],
+      "area_m2": 85.91
+    },
+    {
+      "key": "x17b migrodzka|48|20",
+      "street": "&#x17B;migrodzka",
+      "street_norm": "x17b migrodzka",
+      "building": "48",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 594000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 599940,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1112",
+          "notes": [],
+          "area_m2": 72.18
+        }
+      ],
+      "area_m2": 72.18
+    },
+    {
+      "key": "zgodna|17|1",
+      "street": "Zgodna",
+      "street_norm": "zgodna",
+      "building": "17",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 497000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 501970,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1078",
+          "notes": [],
+          "area_m2": 87.68
+        }
+      ],
+      "area_m2": 87.68
+    },
+    {
+      "key": "aleja gen j xf3 zefa hallera|146|3",
+      "street": "Aleja Gen. J&#xF3;zefa Hallera",
+      "street_norm": "aleja gen j xf3 zefa hallera",
+      "building": "146",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 540000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 550000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1110",
+          "notes": [],
+          "area_m2": 66.79
+        }
+      ],
+      "area_m2": 66.79
+    },
+    {
+      "key": "wojciecha cybulskiego|26|6",
+      "street": "Wojciecha Cybulskiego",
+      "street_norm": "wojciecha cybulskiego",
+      "building": "26",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 720000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 828000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1109",
+          "notes": [],
+          "area_m2": 87.52
+        }
+      ],
+      "area_m2": 87.52
+    },
+    {
+      "key": "walecznych|3|8",
+      "street": "Walecznych",
+      "street_norm": "walecznych",
+      "building": "3",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 801000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 809010,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1106",
+          "notes": [],
+          "area_m2": 93.17
+        }
+      ],
+      "area_m2": 93.17
+    },
+    {
+      "key": "lwowska|4|5",
+      "street": "Lwowska",
+      "street_norm": "lwowska",
+      "building": "4",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 750000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 757500,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1096",
+          "notes": [],
+          "area_m2": 103.48
+        }
+      ],
+      "area_m2": 103.48
+    },
+    {
+      "key": "juliana ursyna niemcewicza|16|13",
+      "street": "Juliana Ursyna Niemcewicza",
+      "street_norm": "juliana ursyna niemcewicza",
+      "building": "16",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 252000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 254520,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1100",
+          "notes": [],
+          "area_m2": 31.45
+        }
+      ],
+      "area_m2": 31.45
+    },
+    {
+      "key": "ruska|45|18",
+      "street": "Ruska",
+      "street_norm": "ruska",
+      "building": "45",
+      "apt": "18",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 440000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 444400,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1086",
+          "notes": [],
+          "area_m2": 39.55
+        }
+      ],
+      "area_m2": 39.55
+    },
+    {
+      "key": "celtycka|5|16",
+      "street": "Celtycka",
+      "street_norm": "celtycka",
+      "building": "5",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-12-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 333300,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1114",
+          "notes": [],
+          "area_m2": 30.8
+        }
+      ],
+      "area_m2": 30.8
+    },
+    {
+      "key": "monte cassino|47|3",
+      "street": "Monte Cassino",
+      "street_norm": "monte cassino",
+      "building": "47",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 550000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 555500,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1101",
+          "notes": [],
+          "area_m2": 55.44
+        }
+      ],
+      "area_m2": 55.44
+    },
+    {
+      "key": "ks franciszka salezego jezierskiego|11|1",
+      "street": "Ks. Franciszka Salezego Jezierskiego",
+      "street_norm": "ks franciszka salezego jezierskiego",
+      "building": "11",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 580000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 748200,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1117",
+          "notes": [],
+          "area_m2": 64.43
+        }
+      ],
+      "area_m2": 64.43
+    },
+    {
+      "key": "k x142 o x15b na|11|7",
+      "street": "K&#x142;o&#x15B;na",
+      "street_norm": "k x142 o x15b na",
+      "building": "11",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 700000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 707000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1088",
+          "notes": [],
+          "area_m2": 90.31
+        }
+      ],
+      "area_m2": 90.31
+    },
+    {
+      "key": "krynicka|92|11",
+      "street": "Krynicka",
+      "street_norm": "krynicka",
+      "building": "92",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 750000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 757500,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1091",
+          "notes": [],
+          "area_m2": 82.54
+        }
+      ],
+      "area_m2": 82.54
+    },
+    {
+      "key": "krucza|41|11",
+      "street": "Krucza",
+      "street_norm": "krucza",
+      "building": "41",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 422600,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1089",
+          "notes": [],
+          "area_m2": 34.76
+        }
+      ],
+      "area_m2": 34.76
+    },
+    {
+      "key": "plac nowy targ|18|6",
+      "street": "Plac Nowy Targ",
+      "street_norm": "plac nowy targ",
+      "building": "18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-31",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 500000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 550000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1085",
+          "notes": [],
+          "area_m2": 42.5
+        }
+      ],
+      "area_m2": 42.5
+    },
+    {
+      "key": "kr x119 picka|48|1",
+      "street": "Kr&#x119;picka",
+      "street_norm": "kr x119 picka",
+      "building": "48",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 460000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 464600,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1080",
+          "notes": [],
+          "area_m2": 75.06
+        }
+      ],
+      "area_m2": 75.06
+    },
+    {
+      "key": "lniana|22|10",
+      "street": "Lniana",
+      "street_norm": "lniana",
+      "building": "22",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 370000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 373700,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1092",
+          "notes": [],
+          "area_m2": 38.32
+        }
+      ],
+      "area_m2": 38.32
+    },
+    {
+      "key": "kr x119 picka|48|5",
+      "street": "Kr&#x119;picka",
+      "street_norm": "kr x119 picka",
+      "building": "48",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 190000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1083",
+          "notes": [],
+          "area_m2": 21.49
+        }
+      ],
+      "area_m2": 21.49
+    },
+    {
+      "key": "aleksandra ostrowskiego|1|61",
+      "street": "Aleksandra Ostrowskiego",
+      "street_norm": "aleksandra ostrowskiego",
+      "building": "1",
+      "apt": "61",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 281900,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1068",
+          "notes": [],
+          "area_m2": 19.88
+        }
+      ],
+      "area_m2": 19.88
+    },
+    {
+      "key": "miko x142 aja reja|25|1",
+      "street": "Miko&#x142;aja Reja",
+      "street_norm": "miko x142 aja reja",
+      "building": "25",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 650000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 836500,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1062",
+          "notes": [],
+          "area_m2": 91.64
+        }
+      ],
+      "area_m2": 91.64
+    },
+    {
+      "key": "plac legion xf3 w|13|14",
+      "street": "Plac Legion&#xF3;w",
+      "street_norm": "plac legion xf3 w",
+      "building": "13",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 370000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1069",
+          "notes": [],
+          "area_m2": 33.48
+        }
+      ],
+      "area_m2": 33.48
+    },
+    {
+      "key": "szewska|52|1",
+      "street": "Szewska",
+      "street_norm": "szewska",
+      "building": "52",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 542000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1058",
+          "notes": [],
+          "area_m2": 31.47
+        }
+      ],
+      "area_m2": 31.47
+    },
+    {
+      "key": "x141 ukasza g xf3 rnickiego|4|3",
+      "street": "&#x141;ukasza G&#xF3;rnickiego",
+      "street_norm": "x141 ukasza g xf3 rnickiego",
+      "building": "4",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 235000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 329950,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1060",
+          "notes": [],
+          "area_m2": 32.44
+        }
+      ],
+      "area_m2": 32.44
+    },
+    {
+      "key": "plac legion xf3 w|12|6",
+      "street": "Plac Legion&#xF3;w",
+      "street_norm": "plac legion xf3 w",
+      "building": "12",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 367500,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1057",
+          "notes": [],
+          "area_m2": 33.48
+        }
+      ],
+      "area_m2": 33.48
+    },
+    {
+      "key": "jemio x142 owa|62|13",
+      "street": "Jemio&#x142;owa",
+      "street_norm": "jemio x142 owa",
+      "building": "62",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 480000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1064",
+          "notes": [],
+          "area_m2": 51.31
+        }
+      ],
+      "area_m2": 51.31
+    },
+    {
+      "key": "sp xf3 x142 dzielcza|38|6",
+      "street": "Sp&#xF3;&#x142;dzielcza",
+      "street_norm": "sp xf3 x142 dzielcza",
+      "building": "38",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 373800,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1077",
+          "notes": [],
+          "area_m2": 28.9
+        }
+      ],
+      "area_m2": 28.9
+    },
+    {
+      "key": "in x17c ynierska|82|37",
+      "street": "In&#x17C;ynierska",
+      "street_norm": "in x17c ynierska",
+      "building": "82",
+      "apt": "37",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 285000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 340000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1082",
+          "notes": [],
+          "area_m2": 26.8
+        }
+      ],
+      "area_m2": 26.8
+    },
+    {
+      "key": "tadeusza ko x15b ciuszki 142 3a|3B|",
+      "street": "Tadeusza Ko&#x15B;ciuszki 142/3A,",
+      "street_norm": "tadeusza ko x15b ciuszki 142 3a",
+      "building": "3B",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1650000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1666500,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1052",
+          "notes": [],
+          "area_m2": 203.66
+        }
+      ],
+      "area_m2": 203.66
+    },
+    {
+      "key": "zdrowa 7 9 11|13|5",
+      "street": "Zdrowa 7, 9, 11,",
+      "street_norm": "zdrowa 7 9 11",
+      "building": "13",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 344000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1065",
+          "notes": [],
+          "area_m2": 24
+        }
+      ],
+      "area_m2": 24
+    },
+    {
+      "key": "o x142 awska|1|6",
+      "street": "O&#x142;awska",
+      "street_norm": "o x142 awska",
+      "building": "1",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-03-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 469000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1051",
+          "notes": [],
+          "area_m2": 29.34
+        }
+      ],
+      "area_m2": 29.34
+    },
+    {
+      "key": "mi x142 ostowska|30|3",
+      "street": "Mi&#x142;ostowska",
+      "street_norm": "mi x142 ostowska",
+      "building": "30",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 410000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1066",
+          "notes": [],
+          "area_m2": 37.37
+        }
+      ],
+      "area_m2": 37.37
+    }
+  ]
+}
