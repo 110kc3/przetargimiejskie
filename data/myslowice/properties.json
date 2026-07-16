@@ -3,6 +3,127 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "armii krajowej|16C|24",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "16C",
+      "apt": "24",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-01",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.02
+    },
+    {
+      "key": "armii krajowej|21|20",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "21",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 36.54,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-01",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 36.54,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.54
+    },
+    {
+      "key": "armii krajowej|41|2",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "41",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "archived",
+          "area_m2": 30.55,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-41-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-01",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "active",
+          "area_m2": 30.55,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-41-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.55
+    },
+    {
       "key": "mikolaja kopernika|15|",
       "street": "Mikołaja Kopernika",
       "street_norm": "mikolaja kopernika",
@@ -500,50 +621,6 @@
       "area_m2": 37.49
     },
     {
-      "key": "armii krajowej|16C|24",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "16C",
-      "apt": "24",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-12-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-04-14",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-16",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 46.02
-    },
-    {
       "key": "katowickiej|9|",
       "street": "Katowicka",
       "street_norm": "katowickiej",
@@ -608,50 +685,6 @@
         }
       ],
       "area_m2": 27.31
-    },
-    {
-      "key": "armii krajowej|21|20",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "21",
-      "apt": "20",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-09",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 180000,
-          "outcome": "archived",
-          "area_m2": 36.54,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 36.54
-    },
-    {
-      "key": "armii krajowej|41|2",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "41",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-09",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 145000,
-          "outcome": "archived",
-          "area_m2": 30.55,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-41-pr",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 30.55
     },
     {
       "key": "armii krajowej|1C|3",

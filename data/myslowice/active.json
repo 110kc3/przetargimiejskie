@@ -3,6 +3,63 @@
   "city": "myslowice",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 16C/24",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "16C",
+        "apt": "24",
+        "key": "armii krajowej|16C|24",
+        "warning": null
+      },
+      "auction_date": "2026-09-01",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 46.02,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 41/2",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "41",
+        "apt": "2",
+        "key": "armii krajowej|41|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-01",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 30.55,
+      "starting_price_pln": 145000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-41-p",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 21/20",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "21",
+        "apt": "20",
+        "key": "armii krajowej|21|20",
+        "warning": null
+      },
+      "auction_date": "2026-09-01",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 36.54,
+      "starting_price_pln": 180000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21",
+      "share": null
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Gwarków 7",
       "address": {
