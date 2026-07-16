@@ -3,17 +3,17 @@
   "city": "zdunska-wola",
   "plots": [
     {
-      "key": "addr|ul. karola szymanowskiego",
+      "key": "dz|21/2",
       "kind": "grunt",
       "city": "zdunska-wola",
-      "dzialka_nr": null,
+      "dzialka_nr": "21/2",
       "obreb": null,
       "street": null,
       "building": null,
       "address_raw": "ul. Karola Szymanowskiego",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Karola%20Szymanowskiego%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%2F2%20ul.%20Karola%20Szymanowskiego%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
+      "area_m2": 554,
       "zoning": null,
       "status": null,
       "listings": [
@@ -21,46 +21,14 @@
           "date": "2026-07-08",
           "round": 1,
           "starting_price_pln": 108000,
-          "outcome": "archived",
-          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/12995/zdunska-wola-ul-karola-szymanowskiego",
-          "source_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/12995/zdunska-wola-ul-karola-szymanowskiego"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|185/5, 185/6, 185/7",
-      "kind": "grunt",
-      "city": "zdunska-wola",
-      "dzialka_nr": "185/5, 185/6, 185/7",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Torowa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20185%2F5%2C%20185%2F6%2C%20185%2F7%20ul.%20Torowa%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
-      "area_m2": 9232,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-24",
-          "round": 1,
-          "starting_price_pln": 320000,
           "outcome": "sold",
-          "final_price_pln": 324000,
-          "area_m2": 9232
+          "final_price_pln": 170000,
+          "area_m2": 554
         }
       ],
       "parcels": [
         {
-          "nr": "185/5"
-        },
-        {
-          "nr": "185/6"
-        },
-        {
-          "nr": "185/7"
+          "nr": "21/2"
         }
       ]
     }
