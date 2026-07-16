@@ -2238,6 +2238,108 @@
       ]
     },
     {
+      "key": "dz|koźle|274/3",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "274/3",
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lasoki",
+      "dzialka_id": "160301_1.0014.274/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3",
+      "area_m2": 1369,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "starting_price_pln": 11000,
+          "outcome": "sold",
+          "final_price_pln": 64000,
+          "area_m2": 1369
+        },
+        {
+          "date": "2026-05-27",
+          "round": 3,
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "area_m2": 1369
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "274/3",
+          "dzialka_id": "160301_1.0014.274/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|515/2",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "515/2",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gliwickiej",
+      "dzialka_id": "160301_1.0044.515/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.515%2F2",
+      "area_m2": 165,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "sold",
+          "final_price_pln": 30300,
+          "area_m2": 165
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "515/2",
+          "dzialka_id": "160301_1.0044.515/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.515%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|kłodnica|1153/9",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "1153/9",
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Błonie",
+      "dzialka_id": "160301_1.0046.1153/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1153%2F9",
+      "area_m2": 3934,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 2,
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "area_m2": 3934
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1153/9",
+          "dzialka_id": "160301_1.0046.1153/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0046.1153%2F9"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. wisławy szymborskiej",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -2470,38 +2572,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "dz|koźle|274/3",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "274/3",
-      "obreb": "Koźle",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Lasoki",
-      "dzialka_id": "160301_1.0014.274/3",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3",
-      "area_m2": 1369,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-10",
-          "round": 1,
-          "starting_price_pln": 11000,
-          "outcome": "sold",
-          "final_price_pln": 64000,
-          "area_m2": 1369
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "274/3",
-          "dzialka_id": "160301_1.0014.274/3",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0014.274%2F3"
-        }
-      ]
     },
     {
       "key": "dz|sławięcice|727/53",
