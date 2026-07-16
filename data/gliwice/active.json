@@ -117,6 +117,7 @@
       "area_m2": 47.5,
       "starting_price_pln": 237600,
       "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
+      "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-17082026-ul-swietojanska-393-ul-konstantego-damrota-94-lokale-mieszkalne-al-wojciecha-korfantego-17i-ul-chorzowska-4012-lokale-uzytkowe-rejon-ul-gornych-walow-31-31agaraz-nr-1-rejon-ulic-mieleckiego-i-plebiscytowejgaraz-nr-11",
       "wadium_deadline": "2026-06-30",
       "viewing_date": "2026-06-25",
       "round": 3
@@ -196,9 +197,30 @@
       "area_m2": 49,
       "starting_price_pln": 117200,
       "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
+      "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-17082026-ul-swietojanska-393-ul-konstantego-damrota-94-lokale-mieszkalne-al-wojciecha-korfantego-17i-ul-chorzowska-4012-lokale-uzytkowe-rejon-ul-gornych-walow-31-31agaraz-nr-1-rejon-ulic-mieleckiego-i-plebiscytowejgaraz-nr-11",
       "wadium_deadline": "2026-06-30",
       "viewing_date": "2026-06-24",
       "round": 2
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "KONSTANTEGO DAMROTA 9/4",
+      "address": {
+        "street": "KONSTANTEGO DAMROTA",
+        "street_norm": "konstantego damrota",
+        "building": "9",
+        "apt": "4",
+        "key": "konstantego damrota|9|4",
+        "warning": null
+      },
+      "auction_date": "2026-08-17",
+      "area_m2": 39.68,
+      "starting_price_pln": 242000,
+      "round": 1,
+      "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-17082026-ul-swietojanska-393-ul-konstantego-damrota-94-lokale-mieszkalne-al-wojciecha-korfantego-17i-ul-chorzowska-4012-lokale-uzytkowe-rejon-ul-gornych-walow-31-31agaraz-nr-1-rejon-ulic-mieleckiego-i-plebiscytowejgaraz-nr-11",
+      "source": "bip",
+      "wadium_deadline": null,
+      "viewing_date": null
     },
     {
       "kind": "mieszkalny",

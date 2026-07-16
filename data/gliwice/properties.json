@@ -159,7 +159,8 @@
           "area_m2": 47.5,
           "detail_url": "https://zgm-gliwice.pl/swietojanska-39-3-04-05-2026-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-25"
+          "viewing_date": "2026-06-25",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-17082026-ul-swietojanska-393-ul-konstantego-damrota-94-lokale-mieszkalne-al-wojciecha-korfantego-17i-ul-chorzowska-4012-lokale-uzytkowe-rejon-ul-gornych-walow-31-31agaraz-nr-1-rejon-ulic-mieleckiego-i-plebiscytowejgaraz-nr-11"
         }
       ],
       "area_m2": 47.5
@@ -205,10 +206,34 @@
           "area_m2": 49,
           "detail_url": "https://zgm-gliwice.pl/chorzowska-40-12-04-05-2026-r/",
           "wadium_deadline": "2026-06-30",
-          "viewing_date": "2026-06-24"
+          "viewing_date": "2026-06-24",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-17082026-ul-swietojanska-393-ul-konstantego-damrota-94-lokale-mieszkalne-al-wojciecha-korfantego-17i-ul-chorzowska-4012-lokale-uzytkowe-rejon-ul-gornych-walow-31-31agaraz-nr-1-rejon-ulic-mieleckiego-i-plebiscytowejgaraz-nr-11"
         }
       ],
       "area_m2": 49
+    },
+    {
+      "key": "konstantego damrota|9|4",
+      "street": "KONSTANTEGO DAMROTA",
+      "street_norm": "konstantego damrota",
+      "building": "9",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 242000,
+          "outcome": "active",
+          "area_m2": 39.68,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-17082026-ul-swietojanska-393-ul-konstantego-damrota-94-lokale-mieszkalne-al-wojciecha-korfantego-17i-ul-chorzowska-4012-lokale-uzytkowe-rejon-ul-gornych-walow-31-31agaraz-nr-1-rejon-ulic-mieleckiego-i-plebiscytowejgaraz-nr-11",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        }
+      ],
+      "area_m2": 39.68
     },
     {
       "key": "kozielska|13|garaz-1",
