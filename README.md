@@ -24,6 +24,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | [`.github/workflows/health.yml`](./.github/workflows/health.yml) | Daily source-health check (`pipeline/scripts/health-check.js`): fails if any city's data is empty or stale — failures feed the per-city `[city-broken]` triage issues. |
 | [`.github/workflows/README.md`](./.github/workflows/README.md) | The workflow catalog — all 7 numbered workflows (refresh · health · OVH deploy · newsletter · extension CI · security · backfill). |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
+| [`OPERATING-MODEL.md`](./OPERATING-MODEL.md) | The operating manual above all other docs: how the project runs autonomously, reaches genre-completeness, and makes money. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
 | [`PRIVACY.md`](./PRIVACY.md) | Privacy policy for the Chrome extension (required for Web Store). |
 | [`SPIKE.md`](./SPIKE.md) | OCR-feasibility spike notes. |
