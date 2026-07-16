@@ -126,6 +126,23 @@ const EXEMPT_NEW = new Map([
   ['wegorzewo', { since: '2026-07-11', reason: 'first Pi refresh blocked by the host anti-abuse rate-limit (build agent made ~150 research reqs) → 0 records; adapter live-verified 2 listings/10 land during build; CI runner-IP refresh will populate' }],
   // Batch 4 (registered 2026-07-11).
   ['strzelce-krajenskie', { since: '2026-07-11', reason: 'live-verified: SystemDoBIP board has 0 active flats (cyclical) / 1 land / weak results → unique may be <1; active-flat parse via miedzyrzecz+gorzow analog, unvalidated live until a flat appears' }],
+  // Batch 5 (registered 2026-07-16): both live-verified locally after their
+  // first CI refresh came back empty (CI job itself succeeded — this is a
+  // thin-board snapshot, not an IP-block or parser bug).
+  ['poznan', { since: '2026-07-16', reason: 'live-verified: WGN board has 0 active flats right now (1 land plot + 5 non-auction notices correctly skipped), category-8800 results board also currently empty (results purge ~1-3wk post-posting); active-flat + result parse unvalidated until one appears' }],
+  ['elblag', { since: '2026-07-16', reason: 'live-verified: board has 0 active flats right now (5 land plots only); the one result doc fetched is a land-plot batch table (Dębowa, "Brak wpłaty wadium"), correctly excluded by the flat-only parser; active-flat parse unvalidated until one appears' }],
+  // gostyn/lipsko: built 2026-07-11/12, unique=0 since their FIRST commit but
+  // never added here — the daily flap (issues #66/#67 since 2026-07-12) is a
+  // 5-day-old oversight, not a new break. Both spike files already documented
+  // this at build time ("thin live volume... flat path ported + unit-tested,
+  // not live-groundtruthed" / "the one live flat is bezprzetargowa, flat path
+  // implemented-but-unverified") — re-confirmed live 2026-07-16: gostyn's board
+  // holds only a 2022 land-plot result (Sikorzyna działka 107/x); lipsko's
+  // sitemap yields only grunt/land announcements+results (Wola Solecka Wólka
+  // działka 392/3). Neither adapter is broken; the flat path just has nothing
+  // to parse yet.
+  ['gostyn', { since: '2026-07-16', reason: 'live-verified: Logonet board 280 holds only a 2022 land-plot result (Sikorzyna 107/x, no lokal mieszkalny); flat path unit-tested but unvalidated live until a flat appears' }],
+  ['lipsko', { since: '2026-07-16', reason: 'live-verified: sitemap yields only grunt/land announcements+results (Wola Solecka Wólka 392/3); the one known live flat is bezprzetargowa (out of scope); flat path implemented-but-unvalidated live until an open-auction flat appears' }],
 ]);
 
 const now = Date.now();
