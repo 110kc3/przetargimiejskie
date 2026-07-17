@@ -64,37 +64,6 @@
       ]
     },
     {
-      "key": "dz|bogusław|2323/2",
-      "kind": "grunt",
-      "city": "jarocin",
-      "dzialka_nr": "2323/2",
-      "obreb": "Bogusław",
-      "street": null,
-      "building": null,
-      "address_raw": "Bogusław, dz. nr 2323/2",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202323%2F2%20Bogus%C5%82aw%2C%20dz.%20nr%202323%2F2%20Bogus%C5%82aw%20Jarocin%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1026,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-16",
-          "round": 6,
-          "starting_price_pln": 205200,
-          "outcome": "active",
-          "area_m2": 1026,
-          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-6przetarg.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2323/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202323%2F2%20Bogus%C5%82aw%20Jarocin%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|witaszyce|307/16",
       "kind": "grunt",
       "city": "jarocin",
@@ -515,51 +484,6 @@
       ]
     },
     {
-      "key": "dz|potarzyca|169",
-      "kind": "grunt",
-      "city": "jarocin",
-      "dzialka_nr": "169",
-      "obreb": "Potarzyca",
-      "street": null,
-      "building": null,
-      "address_raw": "Potarzyca, dz. nr 169",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%20Potarzyca%2C%20dz.%20nr%20169%20Potarzyca%20Jarocin%20geoportal%20dzia%C5%82ki",
-      "area_m2": 10000,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-16",
-          "round": 3,
-          "starting_price_pln": 800000,
-          "outcome": "active",
-          "area_m2": 10000,
-          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-3-przetarg.pdf"
-        },
-        {
-          "date": null,
-          "round": 2,
-          "starting_price_pln": 800000,
-          "outcome": "unsold",
-          "area_m2": 10000
-        },
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": 800000,
-          "outcome": "unsold",
-          "area_m2": 10000
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "169",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%20Potarzyca%20Jarocin%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|jarocin|283/4",
       "kind": "grunt",
       "city": "jarocin",
@@ -753,6 +677,43 @@
         {
           "nr": "2322/2",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202322%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|potarzyca|169",
+      "kind": "grunt",
+      "city": "jarocin",
+      "dzialka_nr": "169",
+      "obreb": "Potarzyca",
+      "street": null,
+      "building": null,
+      "address_raw": "Potarzyca, dz. nr 169",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%20Potarzyca%2C%20dz.%20nr%20169%20Potarzyca%20Jarocin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 10000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 10000
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 10000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "169",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%20Potarzyca%20Jarocin%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
