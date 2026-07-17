@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
   "city": "zagan",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Libelta 13/20",
+      "address": {
+        "street": "Libelta",
+        "street_norm": "libelta",
+        "building": "13",
+        "apt": "20",
+        "key": "libelta|13|20",
+        "warning": null
+      },
+      "area_m2": 37.4,
+      "starting_price_pln": 240000,
+      "auction_date": "2026-08-18",
+      "round": 1,
+      "detail_url": "https://bip.zagan.pl/przetargi/344/666/1_/",
+      "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie_1_LIbelta_13-20.docx&id=70adcfeb512071d2eba37903b2c233c0"
+    }
+  ],
   "wykaz": []
 }

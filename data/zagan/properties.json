@@ -3,6 +3,28 @@
   "city": "zagan",
   "properties": [
     {
+      "key": "libelta|13|20",
+      "street": "Libelta",
+      "street_norm": "libelta",
+      "building": "13",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 37.4,
+          "detail_url": "https://bip.zagan.pl/przetargi/344/666/1_/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 37.4
+    },
+    {
       "key": "zelaznej|16|3",
       "street": "Żelazna",
       "street_norm": "zelaznej",
