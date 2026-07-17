@@ -34,6 +34,33 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.3698"
         }
       ]
+    },
+    {
+      "key": "addr|ul. sportowej",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Sportowej",
+      "building": null,
+      "address_raw": "ul. Sportowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sportowej%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 19170,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-03-10",
+          "round": 1,
+          "starting_price_pln": 1420000,
+          "outcome": "archived",
+          "area_m2": 19170,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104516",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3517603"
+        }
+      ],
+      "parcels": []
     }
   ]
 }
