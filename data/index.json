@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-16T21:32:23.199Z",
+  "generated_at": "2026-07-17T06:52:53.601Z",
   "cities": [
     {
       "id": "gliwice",
@@ -78,7 +78,7 @@
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 1
+      "land_plots": 2
     },
     {
       "id": "bielsko",
@@ -114,8 +114,8 @@
       "host": "bip.swietochlowice.pl",
       "unique_properties": 92,
       "active_listings": 198,
-      "active_auctions": 4,
-      "archived_auctions": 202,
+      "active_auctions": 3,
+      "archived_auctions": 203,
       "wykaz_entries": 0,
       "land_plots": 21
     },
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 102
     },
     {
       "id": "trzebinia",
@@ -230,9 +230,9 @@
       "authority": "Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)",
       "host": "um.bip.legnica.eu",
       "unique_properties": 8,
-      "active_listings": 8,
-      "active_auctions": 7,
-      "archived_auctions": 1,
+      "active_listings": 7,
+      "active_auctions": 4,
+      "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -308,9 +308,9 @@
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
       "unique_properties": 37,
-      "active_listings": 37,
-      "active_auctions": 27,
-      "archived_auctions": 10,
+      "active_listings": 36,
+      "active_auctions": 24,
+      "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -412,9 +412,9 @@
       "authority": "Urząd Miasta w Kłodzku",
       "host": "um.bip.klodzko.pl",
       "unique_properties": 3,
-      "active_listings": 3,
-      "active_auctions": 3,
-      "archived_auctions": 0,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 10,
+      "active_listings": 9,
       "active_auctions": 10,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -542,7 +542,7 @@
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
       "unique_properties": 14,
-      "active_listings": 9,
+      "active_listings": 8,
       "active_auctions": 13,
       "archived_auctions": 1,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1074,9 +1074,9 @@
       "voivodeship": "lubuskie",
       "authority": "Urząd Miasta Żagań",
       "host": "bip.zagan.pl",
-      "unique_properties": 12,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 13,
+      "active_listings": 1,
+      "active_auctions": 1,
       "archived_auctions": 39,
       "wykaz_entries": 0,
       "land_plots": 58
@@ -1115,8 +1115,8 @@
       "host": "xn--bolesawiec-e0b.pl",
       "unique_properties": 12,
       "active_listings": 3,
-      "active_auctions": 3,
-      "archived_auctions": 3,
+      "active_auctions": 2,
+      "archived_auctions": 4,
       "wykaz_entries": 13,
       "land_plots": 4
     },
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1183,7 +1183,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 24
+      "land_plots": 23
     },
     {
       "id": "glubczyce",
