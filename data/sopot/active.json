@@ -1,0 +1,444 @@
+{
+  "schema_version": 1,
+  "city": "sopot",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 61/1",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "61",
+        "apt": "1",
+        "key": "armii krajowej|61|1",
+        "warning": null
+      },
+      "area_m2": 65.2,
+      "starting_price_pln": 900000,
+      "round": 1,
+      "auction_date": "2026-07-16",
+      "detail_url": "https://bip.sopot.pl/a,24962,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego.html",
+      "source_url": "https://bip.sopot.pl/a,24962,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego.html",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Armii Krajowej 74/8",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "74",
+        "apt": "8",
+        "key": "armii krajowej|74|8",
+        "warning": null
+      },
+      "area_m2": 58,
+      "starting_price_pln": 500000,
+      "round": 1,
+      "auction_date": "2026-07-16",
+      "detail_url": "https://bip.sopot.pl/a,24963,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozon.html",
+      "source_url": "https://bip.sopot.pl/a,24963,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozon.html",
+      "share": null
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. 3 Maja garaż nr 30",
+      "address": {
+        "street": "3 Maja",
+        "street_norm": "3 maja",
+        "building": "0",
+        "apt": "garaz-30",
+        "key": "3 maja|0|garaz-30",
+        "warning": null
+      },
+      "area_m2": 14.7,
+      "starting_price_pln": 100000,
+      "round": 1,
+      "auction_date": "2025-11-25",
+      "detail_url": "https://bip.sopot.pl/a,24334,zakonczony-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-sopocie-prz.html",
+      "source_url": "https://bip.sopot.pl/a,24334,zakonczony-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-sopocie-prz.html",
+      "share": null
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Armii Krajowej garaż nr 417",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "0",
+        "apt": "garaz-417",
+        "key": "armii krajowej|0|garaz-417",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 86000,
+      "round": 1,
+      "auction_date": "2025-10-01",
+      "detail_url": "https://bip.sopot.pl/a,24185,zakonczony-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-sopocie-prz.html",
+      "source_url": "https://bip.sopot.pl/a,24185,zakonczony-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-polozonej-w-sopocie-prz.html",
+      "share": null
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Generała Józefa Wybickiego 45/4",
+      "address": {
+        "street": "Generała Józefa Wybickiego",
+        "street_norm": "generala jozefa wybickiego",
+        "building": "45",
+        "apt": "4",
+        "key": "generala jozefa wybickiego|45|4",
+        "warning": null
+      },
+      "area_m2": 40.76,
+      "starting_price_pln": 400000,
+      "round": 1,
+      "auction_date": "2025-05-19",
+      "detail_url": "https://bip.sopot.pl/a,23848,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-4-polozonego-w-budyn.html",
+      "source_url": "https://bip.sopot.pl/a,23848,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-4-polozonego-w-budyn.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 671",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "671",
+        "apt": null,
+        "key": "niepodleglosci|671|",
+        "warning": null
+      },
+      "area_m2": 200.82,
+      "starting_price_pln": 1700000,
+      "round": 3,
+      "auction_date": "2024-05-06",
+      "detail_url": "https://bip.sopot.pl/a,22698,zakonczony-trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacego-wlasnosc-.html",
+      "source_url": "https://bip.sopot.pl/a,22698,zakonczony-trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacego-wlasnosc-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 851/2",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "851",
+        "apt": "2",
+        "key": "niepodleglosci|851|2",
+        "warning": null
+      },
+      "area_m2": 51.7,
+      "starting_price_pln": 334000,
+      "round": 2,
+      "auction_date": "2023-10-05",
+      "detail_url": "https://bip.sopot.pl/a,22198,zakonczony-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-przy-al-n.html",
+      "source_url": "https://bip.sopot.pl/a,22198,zakonczony-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-przy-al-n.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 851/4",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "851",
+        "apt": "4",
+        "key": "niepodleglosci|851|4",
+        "warning": null
+      },
+      "area_m2": 57.8,
+      "starting_price_pln": 373000,
+      "round": 2,
+      "auction_date": "2023-10-05",
+      "detail_url": "https://bip.sopot.pl/a,22199,zakonczony-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-przy-al-n.html",
+      "source_url": "https://bip.sopot.pl/a,22199,zakonczony-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-przy-al-n.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 851/4",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "851",
+        "apt": "4",
+        "key": "niepodleglosci|851|4",
+        "warning": null
+      },
+      "area_m2": 57.8,
+      "starting_price_pln": 373000,
+      "round": 1,
+      "auction_date": "2023-07-06",
+      "detail_url": "https://bip.sopot.pl/a,21973,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-przy-al-niepodleglosci-.html",
+      "source_url": "https://bip.sopot.pl/a,21973,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-w-budynku-przy-al-niepodleglosci-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 851/2",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "851",
+        "apt": "2",
+        "key": "niepodleglosci|851|2",
+        "warning": null
+      },
+      "area_m2": 51.7,
+      "starting_price_pln": 334000,
+      "round": 1,
+      "auction_date": "2023-07-06",
+      "detail_url": "https://bip.sopot.pl/a,21972,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-przy-al-niepodleglosci-.html",
+      "source_url": "https://bip.sopot.pl/a,21972,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-w-budynku-przy-al-niepodleglosci-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 671",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "671",
+        "apt": null,
+        "key": "niepodleglosci|671|",
+        "warning": null
+      },
+      "area_m2": 200.82,
+      "starting_price_pln": 1900000,
+      "round": 2,
+      "auction_date": "2023-05-22",
+      "detail_url": "https://bip.sopot.pl/a,21854,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacym-wlasnosc-gminy-miasta-.html",
+      "source_url": "https://bip.sopot.pl/a,21854,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacym-wlasnosc-gminy-miasta-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 671",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "671",
+        "apt": null,
+        "key": "niepodleglosci|671|",
+        "warning": null
+      },
+      "area_m2": 200.82,
+      "starting_price_pln": 2100000,
+      "round": 1,
+      "auction_date": "2022-03-24",
+      "detail_url": "https://bip.sopot.pl/a,20824,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-polozonego-przy-al-niepodleglosci-671-67.html",
+      "source_url": "https://bip.sopot.pl/a,20824,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-polozonego-przy-al-niepodleglosci-671-67.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Grunwaldzkiej 98/1A",
+      "address": {
+        "street": "Grunwaldzkiej",
+        "street_norm": "grunwaldzkiej",
+        "building": "98",
+        "apt": "1A",
+        "key": "grunwaldzkiej|98|1A",
+        "warning": null
+      },
+      "area_m2": 23.65,
+      "starting_price_pln": 299000,
+      "round": 1,
+      "auction_date": "2022-01-20",
+      "detail_url": "https://bip.sopot.pl/a,20774,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-nr-1a-polozonego-w-budynku-przy-ul-grunw.html",
+      "source_url": "https://bip.sopot.pl/a,20774,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-nr-1a-polozonego-w-budynku-przy-ul-grunw.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Helskiej 9/3",
+      "address": {
+        "street": "Helskiej",
+        "street_norm": "helskiej",
+        "building": "9",
+        "apt": "3",
+        "key": "helskiej|9|3",
+        "warning": null
+      },
+      "area_m2": 120.41,
+      "starting_price_pln": 1566000,
+      "round": 1,
+      "auction_date": "2021-11-25",
+      "detail_url": "https://bip.sopot.pl/a,20589,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-polozonego-w-budynku-.html",
+      "source_url": "https://bip.sopot.pl/a,20589,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-polozonego-w-budynku-.html",
+      "share": "14/100"
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Traugutta garaż nr 16",
+      "address": {
+        "street": "Traugutta",
+        "street_norm": "traugutta",
+        "building": "0",
+        "apt": "garaz-16",
+        "key": "traugutta|0|garaz-16",
+        "warning": null
+      },
+      "area_m2": 21,
+      "starting_price_pln": 150000,
+      "round": 1,
+      "auction_date": "2020-09-07",
+      "detail_url": "https://bip.sopot.pl/a,19871,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-garazu-nr-16-polozonego-przy-ul-traugutta-w-so.html",
+      "source_url": "https://bip.sopot.pl/a,19871,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-garazu-nr-16-polozonego-przy-ul-traugutta-w-so.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Generała Władysława Sikorskiego nr 9/3A",
+      "address": {
+        "street": "Generała Władysława Sikorskiego nr",
+        "street_norm": "generala wladyslawa sikorskiego nr",
+        "building": "9",
+        "apt": "3A",
+        "key": "generala wladyslawa sikorskiego nr|9|3A",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 850000,
+      "round": 1,
+      "auction_date": "2019-05-14",
+      "detail_url": "https://bip.sopot.pl/a,19074,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3a-polozonego-na-drugim.html",
+      "source_url": "https://bip.sopot.pl/a,19074,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3a-polozonego-na-drugim.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Mariana Mokwy nr 6A/6",
+      "address": {
+        "street": "Mariana Mokwy nr",
+        "street_norm": "mariana mokwy nr",
+        "building": "6A",
+        "apt": "6",
+        "key": "mariana mokwy nr|6A|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 1000000,
+      "round": 1,
+      "auction_date": "2019-05-14",
+      "detail_url": "https://bip.sopot.pl/a,19073,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-na-drugim-.html",
+      "source_url": "https://bip.sopot.pl/a,19073,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-na-drugim-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Tadeusza Kościuszki 11/4",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "11",
+        "apt": "4",
+        "key": "tadeusza kosciuszki|11|4",
+        "warning": null
+      },
+      "area_m2": 147.19,
+      "starting_price_pln": 1130000,
+      "round": 1,
+      "auction_date": "2019-02-19",
+      "detail_url": "https://bip.sopot.pl/a,18926,l-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-budynku-.html",
+      "source_url": "https://bip.sopot.pl/a,18926,l-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-budynku-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Tadeusza Kościuszki 11/3",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "11",
+        "apt": "3",
+        "key": "tadeusza kosciuszki|11|3",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "round": 1,
+      "auction_date": "2018-09-27",
+      "detail_url": "https://bip.sopot.pl/a,18760,l-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-polozonego-w-budynku-.html",
+      "source_url": "https://bip.sopot.pl/a,18760,l-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-polozonego-w-budynku-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Generała Władysława Sikorskiego nr 9/3A",
+      "address": {
+        "street": "Generała Władysława Sikorskiego nr",
+        "street_norm": "generala wladyslawa sikorskiego nr",
+        "building": "9",
+        "apt": "3A",
+        "key": "generala wladyslawa sikorskiego nr|9|3A",
+        "warning": null
+      },
+      "area_m2": 116.56,
+      "starting_price_pln": 850000,
+      "round": 1,
+      "auction_date": "2018-08-21",
+      "detail_url": "https://bip.sopot.pl/a,18679,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3a-polozonego-przy-ul-g.html",
+      "source_url": "https://bip.sopot.pl/a,18679,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3a-polozonego-przy-ul-g.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Tadeusza Kościuszki 11/4",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "11",
+        "apt": "4",
+        "key": "tadeusza kosciuszki|11|4",
+        "warning": null
+      },
+      "area_m2": 147.19,
+      "starting_price_pln": 1130000,
+      "round": 1,
+      "auction_date": "2018-08-09",
+      "detail_url": "https://bip.sopot.pl/a,18665,l-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-budynku-.html",
+      "source_url": "https://bip.sopot.pl/a,18665,l-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-budynku-.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Mariana Mokwy nr 6A/6",
+      "address": {
+        "street": "Mariana Mokwy nr",
+        "street_norm": "mariana mokwy nr",
+        "building": "6A",
+        "apt": "6",
+        "key": "mariana mokwy nr|6A|6",
+        "warning": null
+      },
+      "area_m2": 110.76,
+      "starting_price_pln": 1000000,
+      "round": 2,
+      "auction_date": "2018-06-21",
+      "detail_url": "https://bip.sopot.pl/a,18592,ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-na-drugim.html",
+      "source_url": "https://bip.sopot.pl/a,18592,ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-na-drugim.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Mariana Mokwy nr 6A/6",
+      "address": {
+        "street": "Mariana Mokwy nr",
+        "street_norm": "mariana mokwy nr",
+        "building": "6A",
+        "apt": "6",
+        "key": "mariana mokwy nr|6A|6",
+        "warning": null
+      },
+      "area_m2": 110.76,
+      "starting_price_pln": 1000000,
+      "round": 1,
+      "auction_date": "2018-03-22",
+      "detail_url": "https://bip.sopot.pl/a,18437,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-na-drugim-.html",
+      "source_url": "https://bip.sopot.pl/a,18437,i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-na-drugim-.html",
+      "share": null
+    }
+  ],
+  "wykaz": []
+}
