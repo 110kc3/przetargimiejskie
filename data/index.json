@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-18T06:35:33.967Z",
+  "generated_at": "2026-07-18T11:48:58.012Z",
   "cities": [
     {
       "id": "gliwice",
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 9,
+      "active_listings": 0,
       "active_auctions": 10,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1184,6 +1184,19 @@
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 23
+    },
+    {
+      "id": "jelenia-gora",
+      "label": "Jelenia Góra",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Prezydent Miasta Jeleniej Góry",
+      "host": "bip.jeleniagora.pl",
+      "unique_properties": 17,
+      "active_listings": 16,
+      "active_auctions": 15,
+      "archived_auctions": 2,
+      "wykaz_entries": 0,
+      "land_plots": 21
     },
     {
       "id": "glubczyce",
@@ -1391,7 +1404,7 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 6
+      "land_plots": 3
     },
     {
       "id": "wroclaw",
@@ -1442,6 +1455,32 @@
       "active_listings": 5,
       "active_auctions": 0,
       "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "plock",
+      "label": "Płock",
+      "voivodeship": "mazowieckie",
+      "authority": "Agencja Rewitalizacji Starówki ARS Sp. z o.o. / Miasto Płock",
+      "host": "www.ars.plock.pl",
+      "unique_properties": 12,
+      "active_listings": 20,
+      "active_auctions": 11,
+      "archived_auctions": 12,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "sopot",
+      "label": "Sopot",
+      "voivodeship": "pomorskie",
+      "authority": "Prezydent Miasta Sopotu (Wydział Gospodarki Nieruchomościami)",
+      "host": "bip.sopot.pl",
+      "unique_properties": 16,
+      "active_listings": 23,
+      "active_auctions": 0,
+      "archived_auctions": 28,
       "wykaz_entries": 0,
       "land_plots": 0
     }
