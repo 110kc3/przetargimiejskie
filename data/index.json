@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17T06:52:53.601Z",
+  "generated_at": "2026-07-18T06:35:33.967Z",
   "cities": [
     {
       "id": "gliwice",
@@ -48,9 +48,9 @@
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
       "unique_properties": 282,
-      "active_listings": 464,
+      "active_listings": 465,
       "active_auctions": 2,
-      "archived_auctions": 467,
+      "archived_auctions": 468,
       "wykaz_entries": 0,
       "land_plots": 28
     },
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 102
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -230,7 +230,7 @@
       "authority": "Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)",
       "host": "um.bip.legnica.eu",
       "unique_properties": 8,
-      "active_listings": 7,
+      "active_listings": 5,
       "active_auctions": 4,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -307,9 +307,9 @@
       "voivodeship": "lodzkie",
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
-      "unique_properties": 37,
-      "active_listings": 36,
-      "active_auctions": 24,
+      "unique_properties": 41,
+      "active_listings": 40,
+      "active_auctions": 28,
       "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -387,8 +387,8 @@
       "host": "bip.pila.pl",
       "unique_properties": 1,
       "active_listings": 1,
-      "active_auctions": 1,
-      "archived_auctions": 0,
+      "active_auctions": 0,
+      "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -542,7 +542,7 @@
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
       "unique_properties": 14,
-      "active_listings": 8,
+      "active_listings": 7,
       "active_auctions": 13,
       "archived_auctions": 1,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1040,7 +1040,7 @@
       "active_auctions": 1,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 37
+      "land_plots": 38
     },
     {
       "id": "strzelce-krajenskie",
@@ -1144,7 +1144,7 @@
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
-      "land_plots": 15
+      "land_plots": 17
     },
     {
       "id": "sepolno-krajenskie",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1391,7 +1391,7 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 5
+      "land_plots": 6
     },
     {
       "id": "wroclaw",
