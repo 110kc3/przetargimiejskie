@@ -1,0 +1,818 @@
+{
+  "schema_version": 1,
+  "city": "jelenia-gora",
+  "plots": [
+    {
+      "key": "dz|0013, sobieszów ii|116/4",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "116/4",
+      "obreb": "0013, Sobieszów II",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gabrieli Zapolskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20116%2F4%20ul.%20Gabrieli%20Zapolskiej%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2095,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-02",
+          "round": 2,
+          "starting_price_pln": 490000,
+          "outcome": "unsold",
+          "area_m2": 2095
+        },
+        {
+          "date": "2026-10-07",
+          "round": 3,
+          "starting_price_pln": 490000,
+          "outcome": "active",
+          "area_m2": 2095,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25637/83-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51539"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "116/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|0028, 28 ne, am 8|11",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "11",
+      "obreb": "0028, 28 NE, AM 8",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%200028%2C%2028%20NE%2C%20AM%208%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2959,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "starting_price_pln": 490000,
+          "outcome": "active",
+          "area_m2": 2959,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25580/76-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51469"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "11"
+        }
+      ]
+    },
+    {
+      "key": "dz|448/7",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "448/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20448%2F7%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "starting_price_pln": 1400000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25564/70-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51453"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "448/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|0013, sobieszów ii, am 16|886/11",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "886/11",
+      "obreb": "0013, Sobieszów II, AM 16",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20886%2F11%200013%2C%20Sobiesz%C3%B3w%20II%2C%20AM%2016%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 886,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 4,
+          "starting_price_pln": 185000,
+          "outcome": "active",
+          "area_m2": 886,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25616/80-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51508"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "886/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|0060, 60, am 17|271/1",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "271/1",
+      "obreb": "0060, 60, AM 17",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20271%2F1%200060%2C%2060%2C%20AM%2017%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 963,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 963,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25579/75-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51468"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "271/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|0063, maciejowa iii|549",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "549",
+      "obreb": "0063, Maciejowa III",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20549%200063%2C%20Maciejowa%20III%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2290,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 2,
+          "starting_price_pln": 351000,
+          "outcome": "active",
+          "area_m2": 2290,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25612/79-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51503"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "549"
+        }
+      ]
+    },
+    {
+      "key": "dz|0020, jelenia góra 3|826/4",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "826/4",
+      "obreb": "0020, Jelenia Góra 3",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20826%2F4%200020%2C%20Jelenia%20G%C3%B3ra%203%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 22263,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 1,
+          "starting_price_pln": 4200000,
+          "outcome": "active",
+          "area_m2": 22263,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25454/65-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51254"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "826/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010, cieplice x, am 1|32/15",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "32/15",
+      "obreb": "0010, Cieplice X, AM 1",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F15%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 159,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "starting_price_pln": 35000,
+          "outcome": "active",
+          "area_m2": 159,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25561/73-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51450"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/15"
+        }
+      ]
+    },
+    {
+      "key": "dz|0008, cieplice viii, am 2|39",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "39",
+      "obreb": "0008, Cieplice VIII, AM 2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2039%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 9531,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-29",
+          "round": 2,
+          "starting_price_pln": 990000,
+          "outcome": "active",
+          "area_m2": 9531,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25349/59-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51023"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "39"
+        }
+      ]
+    },
+    {
+      "key": "dz|0008, cieplice viii, am 2|40",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "40",
+      "obreb": "0008, Cieplice VIII, AM 2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8028,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-24",
+          "round": 2,
+          "starting_price_pln": 1200000,
+          "outcome": "active",
+          "area_m2": 8028,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25320/58-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/50974"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40"
+        }
+      ]
+    },
+    {
+      "key": "dz|0034, 34, am 2|145",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "145",
+      "obreb": "0034, 34, AM 2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12482,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-29",
+          "round": 1,
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": 12482,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/24876/23-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/50209"
+        },
+        {
+          "date": "2026-07-24",
+          "round": 2,
+          "starting_price_pln": 2000000,
+          "outcome": "active",
+          "area_m2": 12482,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25319/57-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/50972"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "145"
+        }
+      ]
+    },
+    {
+      "key": "dz|0034, 34|47",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "47",
+      "obreb": "0034, 34",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2398,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 4,
+          "starting_price_pln": 325000,
+          "outcome": "active",
+          "area_m2": 2398,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25410/64-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51208"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "47"
+        }
+      ]
+    },
+    {
+      "key": "dz|0063, maciejowa iii|532",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "532",
+      "obreb": "0063, Maciejowa III",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20532%200063%2C%20Maciejowa%20III%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3270,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 2,
+          "starting_price_pln": 470000,
+          "outcome": "active",
+          "area_m2": 3270,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25253/50-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/50854"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "532"
+        }
+      ]
+    },
+    {
+      "key": "dz|0034, 34, am 2|47",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "47",
+      "obreb": "0034, 34, AM 2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2398,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-19",
+          "round": 2,
+          "starting_price_pln": 342000,
+          "outcome": "archived",
+          "area_m2": 2398,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/24733/15-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/49982"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "47"
+        }
+      ]
+    },
+    {
+      "key": "dz|172/1",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "172/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20172%2F1%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/22564/ks-1-2025",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/46263"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/22564/ks-1-2025",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/46265"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/22564/ks-1-2025",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/46264"
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21658/ks-2-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/44420"
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21658/ks-2-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/44421"
+        },
+        {
+          "date": null,
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21658/ks-2-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/44422"
+        },
+        {
+          "date": null,
+          "round": 7,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21191/ks-1-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/43319"
+        },
+        {
+          "date": null,
+          "round": 8,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21191/ks-1-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/43320"
+        },
+        {
+          "date": null,
+          "round": 9,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21191/ks-1-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/43322"
+        },
+        {
+          "date": null,
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21000/ks-6840-13-2022",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/42889"
+        },
+        {
+          "date": null,
+          "round": 11,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19901/ks-4-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/40460"
+        },
+        {
+          "date": null,
+          "round": 12,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19901/ks-4-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/40461"
+        },
+        {
+          "date": null,
+          "round": 13,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19478/ks-3-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/39615"
+        },
+        {
+          "date": null,
+          "round": 14,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19478/ks-3-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/39616"
+        },
+        {
+          "date": null,
+          "round": 15,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18778/ks-2-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/38139"
+        },
+        {
+          "date": null,
+          "round": 16,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18778/ks-2-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/38141"
+        },
+        {
+          "date": null,
+          "round": 17,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18349/ks-1-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/37292"
+        },
+        {
+          "date": null,
+          "round": 18,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18349/ks-1-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/37293"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "172/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|26/31",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "26/31",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2026%2F31%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/15144/75-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/30159"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "26/31"
+        }
+      ]
+    },
+    {
+      "key": "dz|121/3",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "121/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Cieplickiej 37-41. Najbliższe sąsiedztwo",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20121%2F3%20ul.%20Cieplickiej%2037-41.%20Najbli%C5%BCsze%20s%C4%85siedztwo%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 951,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 951,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/14751/46-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/29179"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 951,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/14750/46-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/29179"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "121/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|146",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "146",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20146%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4514,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 4514,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/14593/36-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/28845"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "146"
+        }
+      ]
+    },
+    {
+      "key": "dz|20/5",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "20/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2020%2F5%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/12883/45-2020",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/24630"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "20/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|807, 808/2",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "807, 808/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20807%2C%20808%2F2%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/12882/43-2020",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/24629"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "807"
+        },
+        {
+          "nr": "808/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|107, 3",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "107, 3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Karkonoskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20107%2C%203%20ul.%20Karkonoskiej%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/12850/42-2020",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/24529"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "107"
+        },
+        {
+          "nr": "3"
+        }
+      ]
+    }
+  ]
+}
