@@ -62,6 +62,37 @@
       "parcels": []
     },
     {
+      "key": "dz|21|59/25",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": "59/25",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Fabryczna",
+      "dzialka_id": "286101_1.0021.59/25",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0021.59%2F25",
+      "area_m2": 1629,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-13",
+          "round": 3,
+          "starting_price_pln": 690000,
+          "outcome": "unsold",
+          "area_m2": 1629
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "59/25",
+          "dzialka_id": "286101_1.0021.59/25",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0021.59%2F25"
+        }
+      ]
+    },
+    {
       "key": "dz|24|230/2",
       "kind": "grunt",
       "city": "elblag",
