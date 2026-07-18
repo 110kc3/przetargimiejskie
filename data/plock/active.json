@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "city": "plock",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 13/9",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "13",
+        "apt": "9",
+        "key": "synagogalna|13|9",
+        "warning": null
+      },
+      "area_m2": 46.02,
+      "starting_price_pln": 299130,
+      "auction_date": "2026-04-29",
+      "round": null,
+      "published_date": "2026-04-15",
+      "wadium_deadline": "2026-04-28",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/140/Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9_-polozonego-w-budynku-mieszkalnym--zlokalizowanym-w-Plocku-przy-ul_Synagogalna-13_",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/140/Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9_-polozonego-w-budynku-mieszkalnym--zlokalizowanym-w-Plocku-przy-ul_Synagogalna-13_"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 13/9",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "13",
+        "apt": "9",
+        "key": "synagogalna|13|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 299130,
+      "auction_date": "2026-03-20",
+      "round": null,
+      "published_date": "2026-03-04",
+      "wadium_deadline": "2026-03-17",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/132/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-Synagogalna-13-w-Plocku-wraz-z-pomieszczeniem-przynaleznym",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/132/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-Synagogalna-13-w-Plocku-wraz-z-pomieszczeniem-przynaleznym"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalnej 13/9",
+      "address": {
+        "street": "Synagogalnej",
+        "street_norm": "synagogalnej",
+        "building": "13",
+        "apt": "9",
+        "key": "synagogalnej|13|9",
+        "warning": null
+      },
+      "area_m2": 46.02,
+      "starting_price_pln": 349900,
+      "auction_date": "2025-08-28",
+      "round": null,
+      "published_date": "2025-08-12",
+      "wadium_deadline": "2025-08-27",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/120/Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/120/Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Sienkiewicza 64",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "64",
+        "apt": null,
+        "key": "sienkiewicza|64|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 1243,
+      "starting_price_pln": 1150000,
+      "auction_date": "2025-08-28",
+      "round": null,
+      "published_date": "2025-08-04",
+      "wadium_deadline": "2025-08-27",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/119/Przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-zabudowanej_-polozonej-w-Plocku-przy-ul_Sienkiewicza-64",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/119/Przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-zabudowanej_-polozonej-w-Plocku-przy-ul_Sienkiewicza-64"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalnej 13/9",
+      "address": {
+        "street": "Synagogalnej",
+        "street_norm": "synagogalnej",
+        "building": "13",
+        "apt": "9",
+        "key": "synagogalnej|13|9",
+        "warning": null
+      },
+      "area_m2": 46.02,
+      "starting_price_pln": 349900,
+      "auction_date": "2025-07-31",
+      "round": null,
+      "published_date": "2025-07-04",
+      "wadium_deadline": "2025-07-29",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/117/-Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/117/-Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Bielskiej 23A",
+      "address": {
+        "street": "Bielskiej",
+        "street_norm": "bielskiej",
+        "building": "23A",
+        "apt": null,
+        "key": "bielskiej|23A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 381,
+      "starting_price_pln": null,
+      "auction_date": "2024-09-20",
+      "round": null,
+      "published_date": "2024-09-11",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/106/Publiczny-przetarg-ustny-na-sprzedaz-nieruchomosci-zabudowanej_-polozonej-w-Plocku-przy-ul_Bielskiej-23A_-na-dzialce-o-numerze-ewidencyjnym-238-1-o-powierzchni-0_0381-ha_",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/106/Publiczny-przetarg-ustny-na-sprzedaz-nieruchomosci-zabudowanej_-polozonej-w-Plocku-przy-ul_Bielskiej-23A_-na-dzialce-o-numerze-ewidencyjnym-238-1-o-powierzchni-0_0381-ha_"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jerozolimska 14/10",
+      "address": {
+        "street": "Jerozolimska",
+        "street_norm": "jerozolimska",
+        "building": "14",
+        "apt": "10",
+        "key": "jerozolimska|14|10",
+        "warning": null
+      },
+      "area_m2": 43.49,
+      "starting_price_pln": null,
+      "auction_date": "2023-12-01",
+      "round": null,
+      "published_date": "2023-11-25",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/94/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-10-polozonego-w-budynku-zlokalizowanym-w-Plocku-przy-ul_Jerozolimska-14-16-18",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/94/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-10-polozonego-w-budynku-zlokalizowanym-w-Plocku-przy-ul_Jerozolimska-14-16-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tumskiej 13/9",
+      "address": {
+        "street": "Tumskiej",
+        "street_norm": "tumskiej",
+        "building": "13",
+        "apt": "9",
+        "key": "tumskiej|13|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 3,
+      "published_date": "2023-11-23",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/93/-Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9_-polozonego-w-budynku-mieszkalnym-zlokalizowanym-w-Plocku-przy-ul_Tumskiej-13",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/93/-Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9_-polozonego-w-budynku-mieszkalnym-zlokalizowanym-w-Plocku-przy-ul_Tumskiej-13"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jerozolimska 14/10",
+      "address": {
+        "street": "Jerozolimska",
+        "street_norm": "jerozolimska",
+        "building": "14",
+        "apt": "10",
+        "key": "jerozolimska|14|10",
+        "warning": null
+      },
+      "area_m2": 43.49,
+      "starting_price_pln": null,
+      "auction_date": "2023-11-16",
+      "round": null,
+      "published_date": "2023-11-07",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/91/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-10-polozonego-w-budynku-zlokalizowanym-w-Plocku-przy-ul_Jerozolimska-14-16-18",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/91/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-10-polozonego-w-budynku-zlokalizowanym-w-Plocku-przy-ul_Jerozolimska-14-16-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tumskiej 13/9",
+      "address": {
+        "street": "Tumskiej",
+        "street_norm": "tumskiej",
+        "building": "13",
+        "apt": "9",
+        "key": "tumskiej|13|9",
+        "warning": null
+      },
+      "area_m2": 41.74,
+      "starting_price_pln": null,
+      "auction_date": "2023-11-16",
+      "round": 3,
+      "published_date": "2023-11-07",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/90/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-zlokalizowanym-w-Plocku-przy-ul_Tumskiej-13",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/90/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku-zlokalizowanym-w-Plocku-przy-ul_Tumskiej-13"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Grodzkiej 3",
+      "address": {
+        "street": "Grodzkiej",
+        "street_norm": "grodzkiej",
+        "building": "3",
+        "apt": null,
+        "key": "grodzkiej|3|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2022-11-09",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/84/Przetarg-ustny-na-sprzedaz-udzialow-w-nieruchomosci-zabudowanej-polozonej-w-Plocku-przy-ul_Grodzkiej-3",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/84/Przetarg-ustny-na-sprzedaz-udzialow-w-nieruchomosci-zabudowanej-polozonej-w-Plocku-przy-ul_Grodzkiej-3"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jerozolimska 14/3",
+      "address": {
+        "street": "Jerozolimska",
+        "street_norm": "jerozolimska",
+        "building": "14",
+        "apt": "3",
+        "key": "jerozolimska|14|3",
+        "warning": null
+      },
+      "area_m2": 20.33,
+      "starting_price_pln": 112300,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2018-03-23",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/35/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-3-w-budynku-Jerozolimska-14-16-18-",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/35/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-3-w-budynku-Jerozolimska-14-16-18-"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 4/25",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "4",
+        "apt": "25",
+        "key": "synagogalna|4|25",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 333060,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2018-03-23",
+      "wadium_deadline": "2018-04-04",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/34/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-25-w-budynku-Synagogalna-4-",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/34/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-25-w-budynku-Synagogalna-4-"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 4/25",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "4",
+        "apt": "25",
+        "key": "synagogalna|4|25",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 333060,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2018-03-23",
+      "wadium_deadline": "2018-04-04",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/33/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-25-w-budynku-Synagogalna-4-",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/33/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-25-w-budynku-Synagogalna-4-"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 4/16",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "4",
+        "apt": "16",
+        "key": "synagogalna|4|16",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 224532,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2018-03-23",
+      "wadium_deadline": "2018-04-04",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/32/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-16-w-budynku-Synagogalna-4-",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/32/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-16-w-budynku-Synagogalna-4-"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 13/1",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "13",
+        "apt": "1",
+        "key": "synagogalna|13|1",
+        "warning": null
+      },
+      "area_m2": 52.18,
+      "starting_price_pln": 143000,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2017-06-14",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/31/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-1-w-budynku-Synagogalna-13",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/31/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-1-w-budynku-Synagogalna-13"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stary Rynek 19/1",
+      "address": {
+        "street": "Stary Rynek",
+        "street_norm": "stary rynek",
+        "building": "19",
+        "apt": "1",
+        "key": "stary rynek|19|1",
+        "warning": null
+      },
+      "area_m2": 72.61,
+      "starting_price_pln": 218000,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2017-06-14",
+      "wadium_deadline": "2017-06-26",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/30/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-1-i-2-w-budynku-Stary-Rynek-19",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/30/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-1-i-2-w-budynku-Stary-Rynek-19"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Synagogalna 4/16",
+      "address": {
+        "street": "Synagogalna",
+        "street_norm": "synagogalna",
+        "building": "4",
+        "apt": "16",
+        "key": "synagogalna|4|16",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 212394,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2017-06-14",
+      "wadium_deadline": "2017-06-26",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/29/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-16-w-budynku-Synagogalna-4",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/29/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-16-w-budynku-Synagogalna-4"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Warszawska 2",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "2",
+        "apt": null,
+        "key": "warszawska|2|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2015-06-23",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/13/Regulamin-przetargu-pismengo-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-w-Plocku-ul_Warszawska-2",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/13/Regulamin-przetargu-pismengo-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-w-Plocku-ul_Warszawska-2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Warszawska 2",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "2",
+        "apt": null,
+        "key": "warszawska|2|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "published_date": "2015-06-23",
+      "detail_url": "http://www.ars.plock.pl/pl/przetargi/12/Przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-w-Plocku-ul_Warszawska-2",
+      "source_url": "http://www.ars.plock.pl/pl/przetargi/12/Przetarg-pisemny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-w-Plocku-ul_Warszawska-2"
+    }
+  ],
+  "wykaz": []
+}
