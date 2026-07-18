@@ -336,3 +336,41 @@ const RESULT_TEXT_STUB = `Informacja o wyniku przetargu W dniu 30.06.2026 r. w g
 test('parseResultDoc: live belchatow.pl stub (no price/outcome) → empty array', () => {
   assert.deepEqual(parseResultDoc(RESULT_TEXT_STUB, '2026-07-08', RESULT_URL), []);
 });
+
+// --- BIP attachment-follow helpers (crawl.js) --------------------------------
+// Markup verbatim from live pages fetched 2026-07-18: a belchatow.pl stub body
+// linking its belchatow.bip.gov.pl article, and that article's attachment list
+// (/fobjects/download/…-doc.html "dostępna cyfrowo" + …-pdf.html).
+
+const { bipArticleLinks, pickBipAttachment } = await import('../src/cities/belchatow/crawl.js');
+
+const STUB_BODY_HTML = `<p>Szczegóły w Biuletynie Informacji Publicznej:
+<a href="https://belchatow.bip.gov.pl/ogloszenia/1265382_informacja-o-wyniku-ustnego-przetargu-nieograniczonego-na-wydzierzawienie-nieruchomosci.html">Informacja o wyniku</a></p>
+<a href="https://belchatow.pl/kontakt/">Kontakt</a>`;
+
+test('bipArticleLinks: extracts only belchatow.bip.gov.pl/ogloszenia links', () => {
+  assert.deepEqual(bipArticleLinks(STUB_BODY_HTML), [
+    'https://belchatow.bip.gov.pl/ogloszenia/1265382_informacja-o-wyniku-ustnego-przetargu-nieograniczonego-na-wydzierzawienie-nieruchomosci.html',
+  ]);
+  assert.deepEqual(bipArticleLinks(''), []);
+});
+
+const BIP_ARTICLE_HTML = `<a href="/fobjects/download/2169221/informacja-o-wyniku-przetargu-dostepna-cyfrowo-doc.html">Informacja o wyniku przetargu - dostępna cyfrowo.doc (34,5 KB)</a>
+<a href="/fobjects/details/2169221/informacja-o-wyniku-przetargu-dostepna-cyfrowo-doc.html">szczegóły</a>
+<a href="/fobjects/download/2169222/informacja-o-wyniku-przetargu-pdf.html">Informacja o wyniku przetargu.pdf (321,12 KB)</a>`;
+
+test('pickBipAttachment: prefers the "dostępna cyfrowo" .doc over the PDF', () => {
+  assert.deepEqual(pickBipAttachment(BIP_ARTICLE_HTML), {
+    url: 'https://belchatow.bip.gov.pl/fobjects/download/2169221/informacja-o-wyniku-przetargu-dostepna-cyfrowo-doc.html',
+    kind: 'doc',
+  });
+});
+
+test('pickBipAttachment: falls back to the PDF when no .doc attachment exists', () => {
+  const pdfOnly = BIP_ARTICLE_HTML.split('\n').slice(2).join('\n');
+  assert.deepEqual(pickBipAttachment(pdfOnly), {
+    url: 'https://belchatow.bip.gov.pl/fobjects/download/2169222/informacja-o-wyniku-przetargu-pdf.html',
+    kind: 'pdf',
+  });
+  assert.equal(pickBipAttachment('<p>no attachments</p>'), null);
+});
