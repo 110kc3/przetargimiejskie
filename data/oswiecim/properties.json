@@ -1,5 +1,29 @@
 {
   "schema_version": 1,
   "city": "oswiecim",
-  "properties": []
+  "properties": [
+    {
+      "key": "gen jaroslawa dabrowskiego|46|14",
+      "street": "gen. Jarosława Dąbrowskiego",
+      "street_norm": "gen jaroslawa dabrowskiego",
+      "building": "46",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-26",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 151500,
+          "source_pdf": "https://bip.oswiecim.um.gov.pl/api/download/file?id=52547",
+          "notes": [],
+          "area_m2": 32.4
+        }
+      ],
+      "area_m2": 32.4
+    }
+  ]
 }

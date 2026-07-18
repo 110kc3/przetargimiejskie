@@ -98,7 +98,13 @@ const EXEMPT_NEW = new Map([
   // stay in EXEMPT_NEW (not LEGIT_EMPTY) because the end-to-end active-FLAT
   // parse is UNVALIDATED — no live flat exists on either board to test it
   // against yet. See TODO §1.
-  ['oswiecim', { since: '2026-07-07', reason: 'live-verified: OCR works, board has no active flats now (land/results only); flat-parse unvalidated' }],
+  // oswiecim REMOVED 2026-07-18: result-notice ingestion shipped (crawl routes
+  // "Informacja o wyniku przetargu" docs → OCR → parseResultDoc) and its first
+  // non-empty refresh committed 1 unique property (Dąbrowskiego 46/14, sold
+  // 151 500 zł) — the city stands on its own data; a drop to 0 now correctly
+  // FAILs. The ACTIVE-flat announcement parse is still live-unvalidated (no
+  // flat auction on the board since build) — that residual doesn't need an
+  // exemption, only a live flat to appear.
   ['chrzanow', { since: '2026-07-07', reason: 'live-verified: harvest+render OK, board has no active flats now (lease/land/non-residential); flat-parse unvalidated' }],
   // walbrzych / gniezno / wejherowo: crawler bugs fixed 2026-07-07 and REMOVED
   // from this list — their first non-empty CI refresh committed 12 / 4 / 8

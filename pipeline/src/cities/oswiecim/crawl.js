@@ -5,14 +5,20 @@
 // we extract the attachment PDF text (pdftotext → OCR fallback). Multi-property,
 // so one dokument can yield several listings.
 //
-// NEEDS-LIVE-VERIFY: the OCR output quality of the scanned PDFs is the gate (see
-// config.js) — confirm on the first run. Pagination depth is capped (active +
-// recent); raise MAX_PAGES for a deeper archive once confirmed. Result notices
-// (scanned) are not yet ingested.
+// Result notices ("Informacja o wyniku przetargu …") live on the SAME board as
+// announcements — the crawl collects them in the one pass, OCRs each attachment
+// (content-addressed cache makes that one-time), and parse.js parseResultDoc
+// extracts the achieved price / outcome. Attachments already present in
+// committed data (known source URLs) are skipped without re-fetching.
+//
+// OCR quality LIVE-VERIFIED 2026-07-07 (tesseract 5.3+pol is excellent);
+// pagination depth is capped (active + recent) — raise MAX_PAGES for a deeper
+// archive backfill.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
+import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import { parseAnnouncement } from './parse.js';
 
 const ORIGIN = 'https://bip.oswiecim.um.gov.pl';
@@ -30,9 +36,13 @@ async function attachmentText(url) {
 
 let crawlPromise = null;
 
+const RESULT_RE = /informacj\w*\s+o\s+wynik\w*\s+przetargu/i;
+
 async function crawlAll() {
   const listings = [];
   const land = [];
+  const resultRefs = [];
+  const knownUrls = await loadKnownSourceUrls('oswiecim');
 
   const seen = new Set();
   const ids = [];
@@ -53,6 +63,20 @@ async function crawlAll() {
     const url = dokUrl(id);
     let html;
     try { html = await getText(url); } catch (err) { continue; }
+
+    // Result notices share the board with announcements — route them to the
+    // result stream (parse.js parseResultDoc filters flats / extracts price).
+    // Concluded results already in committed data are skipped pre-OCR.
+    if (RESULT_RE.test(html)) {
+      const att = /\/?api\/download\/file\?id=(\d+)/.exec(html);
+      if (!att) continue;
+      const attUrl = `${ORIGIN}/api/download/file?id=${att[1]}`;
+      if (knownUrls.has(attUrl)) continue;
+      const text = await attachmentText(attUrl);
+      if (text) resultRefs.push({ text, auction_date: null, pdf_url: attUrl });
+      continue;
+    }
+
     if (SKIP_RE.test(html) || !SALE_RE.test(html)) continue;
 
     let recs = parseAnnouncement('', html, url);
@@ -66,12 +90,18 @@ async function crawlAll() {
     for (const rec of recs) (rec.kind === 'grunt' ? land : listings).push(rec);
   }
 
-  console.error(`  oswiecim: ${listings.length} listing(s), ${land.length} land plot(s)`);
-  return { listings, land };
+  console.error(`  oswiecim: ${listings.length} listing(s), ${land.length} land plot(s), ${resultRefs.length} result doc(s)`);
+  return { listings, land, resultRefs };
 }
 
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;
   return { listings, wykaz: [], land };
+}
+
+export async function crawlResultDocs() {
+  crawlPromise ??= crawlAll();
+  const { resultRefs } = await crawlPromise;
+  return resultRefs;
 }

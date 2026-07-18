@@ -34,3 +34,53 @@ test('parseAnnouncement: 3 lokale — keys, usable areas, prices, shared round +
   assert.equal(recs[2].address.key, 'maly rynek|9|6');
   assert.equal(recs[2].starting_price_pln, 71056);
 });
+
+// --- Result notices (parseResultDoc) ----------------------------------------
+// Fixture: verbatim OCR text (tesseract 5.3+pol) of attachment 52547 on
+// dokument 52545 — "Informacja o wyniku przetargu - ul. Dąbrowskiego 46/14",
+// fetched + OCR'd live 2026-07-18. Note the OCR quirks this parser must
+// survive: "m”" for m², spaced thousands, and Oświęcim's "Cena uzyskana"
+// (not "cena osiągnięta") template wording.
+import { parseResultDoc } from '../src/cities/oswiecim/parse.js';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const RESULT_OCR = readFileSync(
+  fileURLToPath(new URL('../ocr-cache/file_id_52547.2644b598.txt', import.meta.url)),
+  'utf8',
+);
+const RESULT_URL = 'https://bip.oswiecim.um.gov.pl/api/download/file?id=52547';
+
+test('parseResultDoc: real Dąbrowskiego 46/14 notice → sold record with achieved price', () => {
+  const recs = parseResultDoc(RESULT_OCR, null, RESULT_URL);
+  assert.equal(recs.length, 1);
+  const r = recs[0];
+  assert.equal(r.kind, 'mieszkalny');
+  assert.equal(r.address.building, '46');
+  assert.equal(r.address.apt, '14');
+  assert.equal(r.area_m2, 32.4);
+  assert.equal(r.round, 3);
+  assert.equal(r.starting_price_pln, 150000);
+  assert.equal(r.final_price_pln, 151500);
+  assert.equal(r.auction_date, '2025-11-26');
+  assert.equal(r.outcome, 'sold');
+  assert.equal(r.unsold_reason, null);
+  assert.equal(r.source_pdf, RESULT_URL);
+  assert.deepEqual(r.notes, []);
+});
+
+test('parseResultDoc: negative-result variant → unsold record, no price', () => {
+  const neg = RESULT_OCR
+    .replace(/Cena uzyskana[\s\S]*?00\/100\)/, '')
+    .replace(/Przetarg zakończył się wynikiem pozytywnym[\s\S]*?Anna Prusak\./, 'Przetarg zakończył się wynikiem negatywnym.');
+  const r = parseResultDoc(neg, null, RESULT_URL)[0];
+  assert.equal(r.outcome, 'unsold');
+  assert.equal(r.final_price_pln, null);
+  assert.equal(r.unsold_reason, 'wynik negatywny');
+});
+
+test('parseResultDoc: non-flat and non-result texts → []', () => {
+  assert.deepEqual(parseResultDoc('Informacja o wyniku przetargu na dzierżawę działki nr 5', null, RESULT_URL), []);
+  assert.deepEqual(parseResultDoc('Prezydent ogłasza przetarg na sprzedaż lokalu mieszkalnego', null, RESULT_URL), []);
+  assert.deepEqual(parseResultDoc('', null, RESULT_URL), []);
+});
