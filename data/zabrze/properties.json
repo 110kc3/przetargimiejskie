@@ -1422,6 +1422,39 @@
       "area_m2": 68.39
     },
     {
+      "key": "wolnosci|232|I",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "232",
+      "apt": "I",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 281000,
+          "outcome": "archived",
+          "area_m2": 67.3,
+          "detail_url": "https://bip.miastozabrze.pl/doc/23770",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-03-26",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 281000,
+          "outcome": "archived",
+          "area_m2": 67.3,
+          "detail_url": "https://bip.miastozabrze.pl/doc/24497",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 67.3
+    },
+    {
       "key": "marcina lutra|3|II",
       "street": "Marcina Lutra",
       "street_norm": "marcina lutra",
@@ -1893,28 +1926,6 @@
         }
       ],
       "area_m2": 53.59
-    },
-    {
-      "key": "wolnosci|232|I",
-      "street": "Wolności",
-      "street_norm": "wolnosci",
-      "building": "232",
-      "apt": "I",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-01-08",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 281000,
-          "outcome": "archived",
-          "area_m2": 67.3,
-          "detail_url": "https://bip.miastozabrze.pl/doc/23770",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 67.3
     },
     {
       "key": "armii krajowej|8A|12",
