@@ -3,6 +3,68 @@
   "city": "lwowek-slaski",
   "plots": [
     {
+      "key": "dz|włodzice|352/1",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "352/1",
+      "obreb": "Włodzice",
+      "street": null,
+      "building": null,
+      "address_raw": "Włodzice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20352%2F1%20W%C5%82odzice%20W%C5%82odzice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-04",
+          "round": 1,
+          "starting_price_pln": 10000,
+          "outcome": "unsold",
+          "area_m2": 2000,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/894480/ogloszenie_przetarg_dz_3521_wlodzice_wielkie"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "352/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20352%2F1%20W%C5%82odzice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|rakowice|49",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "49",
+      "obreb": "Rakowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Rakowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%20Rakowice%20Rakowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 300,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-04",
+          "round": 1,
+          "starting_price_pln": 7800,
+          "outcome": "unsold",
+          "area_m2": 300,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/894479/ogloszenie_przetarg_dz_49_obreb_rakowice_male"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "49",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%20Rakowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|1|35/1",
       "kind": "grunt",
       "city": "lwowek-slaski",
