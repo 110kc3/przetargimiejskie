@@ -1,6 +1,6 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-07-09",
+  "generated_at": "2026-07-18",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
   "total": 336,
   "cities": [
@@ -91,7 +91,7 @@
       "powiat_slug": "jelenia-gora",
       "powiat_label": "Jelenia Góra (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
       "spike": {
         "wave": "A",
@@ -1181,7 +1181,7 @@
       "powiat_slug": "plock",
       "powiat_label": "Płock (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/plock/plock.md",
       "spike": {
         "wave": "A",
@@ -1921,7 +1921,7 @@
       "powiat_slug": "sopot",
       "powiat_label": "Sopot (miasto na prawach powiatu)",
       "type": "city-county",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/sopot/sopot.md",
       "spike": {
         "wave": "A",

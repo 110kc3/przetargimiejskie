@@ -125,6 +125,7 @@ import zabkowiceSlaskie from './zabkowice-slaskie/index.js';
 // land (kedzierzyn-kozle analog). gostyn: Logonet .docx announcements + SCANNED .pdf
 // results (OCR) — thin live volume (mostly one 2022 land notice; spike over-counted).
 import jarocin from './jarocin/index.js';
+import jeleniaGora from './jelenia-gora/index.js';
 import glubczyce from './glubczyce/index.js';
 import gostyn from './gostyn/index.js';
 // Low-effort wave cont. (2026-07-11), source:'html', both spikes materially
@@ -249,6 +250,27 @@ import kalisz from './kalisz/index.js';
 // the unsold branch of parseResultDoc is defensive-by-construction, not yet
 // live-verified against a real negative-result doc.
 import wloclawek from './wloclawek/index.js';
+// plock (Mazowieckie city-county, 2026-07-18) — flat/building sale auctions run
+// not through the city BIP but through a city-owned company, Agencja
+// Rewitalizacji Starówki ARS Sp. z o.o. (ars.plock.pl), server-rendered HTML
+// (HTTP only — HTTPS resets the TLS handshake) with a mix of born-digital and
+// SCANNED PDFs on both the announcement and result streams (pdfText with an
+// ocrPdf fallback for both). Closest analog: bytom. Low but genuine volume
+// (2-5 flat/building sale auctions/yr).
+import plock from './plock/index.js';
+// sopot (Pomorskie city-county, 2026-07-18) — custom NV CMS React/SPA shell
+// (bip.sopot.pl) whose empty <div id="root"> DOES need a browser to render,
+// BUT the SPA itself calls a plain JSON API (/api/menu/107/articles,
+// /api/articles/{id}) that serves identical data with no JS execution —
+// confirmed live by capturing the page's network calls, then re-fetching the
+// same endpoints with plain getText. needsRender left UNSET; render.js is not
+// used. Announcement/result prose lives in a downloadable legacy .doc
+// attachment (docText), not inline HTML, for modern articles; pre-~2020
+// results instead post as a separate "Informacja dotycząca rozstrzygnięcia"
+// article with the prose inline. Low genuine volume (~1-3 flat/yr per spike);
+// land (nieruchomość gruntowa) is out of scope for this build (numerous
+// repeat-round listings would blow the politeness budget) — see config.js.
+import sopot from './sopot/index.js';
 
 export const cities = [
   gliwice,
@@ -342,6 +364,7 @@ export const cities = [
   sepolnoKrajenskie,
   zabkowiceSlaskie,
   jarocin,
+  jeleniaGora,
   glubczyce,
   gostyn,
   kwidzyn,
@@ -362,6 +385,8 @@ export const cities = [
   grudziadz,
   kalisz,
   wloclawek,
+  plock,
+  sopot,
 ];
 
 /** @param {string} id @returns {object|null} */
