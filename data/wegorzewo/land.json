@@ -35,6 +35,37 @@
       ]
     },
     {
+      "key": "dz|636/36",
+      "kind": "grunt",
+      "city": "wegorzewo",
+      "dzialka_nr": "636/36",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20636%2F36%20W%C4%99gorzewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 23,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 1,
+          "starting_price_pln": 12000,
+          "outcome": "sold",
+          "final_price_pln": 19640,
+          "area_m2": 23,
+          "source_url": "https://bip.wegorzewo.pl/wiadomosci/14619/wiadomosc/894472/informacja_o_wyniku__pierwszego__przetargu_ustnego__nieograniczo"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "636/36"
+        }
+      ]
+    },
+    {
       "key": "dz|węgorzewo2|636/35",
       "kind": "grunt",
       "city": "wegorzewo",
