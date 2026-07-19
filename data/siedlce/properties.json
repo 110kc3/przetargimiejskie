@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "city": "siedlce",
+  "properties": [
+    {
+      "key": "swietojanskiej|4|",
+      "street": "Świętojańska",
+      "street_norm": "swietojanskiej",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-12-19",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 4300000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://siedlce.pl/aktualnosci/2025/aktulnosci-11-2025/przetarg-na-sprzedaz-nieruchomosci-miejskiej-przy-ulicy-swietojanskiej-4",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 850.71
+        },
+        {
+          "date": "2026-04-09",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 4300000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://siedlce.pl/aktualnosci/2026/03-2026/przetarg-na-sprzedaz-nieruchomosci-przy-ulicy-swietojanskiej-4",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 850.71
+        },
+        {
+          "date": "2026-07-29",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 3900000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://siedlce.pl/aktualnosci/2026/05-2026/przetarg-nieograniczony-licytacja-na-sprzedaz-zabudowanej-nieruchomosci-miejskiej-polozonej-w-siedlcach-przy-ulicy-swietojanskiej-4",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 850.71
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 850.71
+    },
+    {
+      "key": "jana iii sobieskiego|5|58",
+      "street": "Jana III Sobieskiego",
+      "street_norm": "jana iii sobieskiego",
+      "building": "5",
+      "apt": "58",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "archived",
+          "area_m2": 38.38,
+          "detail_url": "https://siedlce.pl/aktualnosci/2024/aktualnosci-06-2024/prezydent-miasta-siedlce-oglasza-przetarg-nieograniczony-licytacje-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-siedlcach-przy-ulicy-jana-iii-sobieskiego-5-oznaczonego-nr-58-z-udzialem-we-wspolwlasnosci-czesci-domu-oraz-urzadzen-ktore-nie-sluza-do-wylacznego-uzytku-wlascicieli-poszczegolnych-lokali-oraz-ulamkowa-czescia-gruntu-sluzacego-do-racjonalnego-korzystania-z-budynku",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.38
+    },
+    {
+      "key": "jozefa pilsudskiego|96|16",
+      "street": "Józefa Piłsudskiego",
+      "street_norm": "jozefa pilsudskiego",
+      "building": "96",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "archived",
+          "area_m2": 50.37,
+          "detail_url": "https://siedlce.pl/aktualnosci/2024/aktualnosci-06-2024/prezydent-miasta-siedlce-oglasza-ii-przetarg-nieograniczony-licytacje-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-siedlcach-przy-ulicy-jozefa-pilsudskiego-96-oznaczonego-nr-16",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.37
+    }
+  ]
+}
