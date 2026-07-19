@@ -132,6 +132,10 @@ const EXEMPT_NEW = new Map([
   ['wegorzewo', { since: '2026-07-11', reason: 'first Pi refresh blocked by the host anti-abuse rate-limit (build agent made ~150 research reqs) → 0 records; adapter live-verified 2 listings/10 land during build; CI runner-IP refresh will populate' }],
   // Batch 4 (registered 2026-07-11).
   ['strzelce-krajenskie', { since: '2026-07-11', reason: 'live-verified: SystemDoBIP board has 0 active flats (cyclical) / 1 land / weak results → unique may be <1; active-flat parse via miedzyrzecz+gorzow analog, unvalidated live until a flat appears' }],
+  // City-county close-out batch (registered 2026-07-18). Only lubin parks here:
+  // biala-podlaska (8 unique) and siedlce (3 unique) committed real data and
+  // stand on their own.
+  ['lubin', { since: '2026-07-18', reason: 'live-verified: Logonet v5.7.0 announcement+result boards both empty right now (between sessions — sibling wykaz board renders fine, historical attachment PDFs still fetchable); parse groundtruthed on those PDFs, unvalidated live until a session posts' }],
   // Batch 5 (registered 2026-07-16): both live-verified locally after their
   // first CI refresh came back empty (CI job itself succeeded — this is a
   // thin-board snapshot, not an IP-block or parser bug).

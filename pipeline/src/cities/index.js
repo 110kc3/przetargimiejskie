@@ -271,6 +271,9 @@ import plock from './plock/index.js';
 // land (nieruchomość gruntowa) is out of scope for this build (numerous
 // repeat-round listings would blow the politeness budget) — see config.js.
 import sopot from './sopot/index.js';
+import siedlce from './siedlce/index.js';
+import bialaPodlaska from './biala-podlaska/index.js';
+import lubin from './lubin/index.js';
 
 export const cities = [
   gliwice,
@@ -387,6 +390,9 @@ export const cities = [
   wloclawek,
   plock,
   sopot,
+  siedlce,
+  bialaPodlaska,
+  lubin,
 ];
 
 /** @param {string} id @returns {object|null} */
