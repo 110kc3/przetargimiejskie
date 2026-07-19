@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-18T11:48:58.012Z",
+  "generated_at": "2026-07-19T06:32:53.255Z",
   "cities": [
     {
       "id": "gliwice",
@@ -143,7 +143,7 @@
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 111
     },
     {
       "id": "trzebinia",
@@ -203,10 +203,10 @@
       "voivodeship": "malopolskie",
       "authority": "Urząd Miasta Oświęcim (Wydział Mienia Komunalnego)",
       "host": "bip.oswiecim.um.gov.pl",
-      "unique_properties": 0,
+      "unique_properties": 1,
       "active_listings": 0,
       "active_auctions": 0,
-      "archived_auctions": 0,
+      "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 0,
+      "active_listings": 9,
       "active_auctions": 10,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1481,6 +1481,45 @@
       "active_listings": 23,
       "active_auctions": 0,
       "archived_auctions": 28,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "siedlce",
+      "label": "Siedlce",
+      "voivodeship": "mazowieckie",
+      "authority": "Prezydent Miasta Siedlce",
+      "host": "siedlce.pl",
+      "unique_properties": 3,
+      "active_listings": 5,
+      "active_auctions": 1,
+      "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "biala-podlaska",
+      "label": "Biała Podlaska",
+      "voivodeship": "lubelskie",
+      "authority": "ZGL Biała Podlaska Sp. z o.o.",
+      "host": "zglbp.pl",
+      "unique_properties": 8,
+      "active_listings": 21,
+      "active_auctions": 0,
+      "archived_auctions": 21,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "lubin",
+      "label": "Lubin",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Prezydent Miasta Lubina",
+      "host": "bip.um.lubin.pl",
+      "unique_properties": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
     }
