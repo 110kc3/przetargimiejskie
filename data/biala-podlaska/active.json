@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "city": "biala-podlaska",
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Sprzedaż lokalu użytkowego oznaczonego nr 14 położonego na parterze w budynku handlowo–usługowym wielolokalowym przy ul. Plac Wolności 12 w Białej Podlaskiej, o powierzchni użytkowej 40,9 m², wraz z udziałem w nieruchomości wspólnej.",
+      "address": {
+        "street": "Plac Wolności",
+        "street_norm": "plac wolnosci",
+        "building": "12",
+        "apt": "14",
+        "key": "plac wolnosci|12|14",
+        "warning": null
+      },
+      "auction_date": "2026-06-24",
+      "published_date": "2026-06-16",
+      "round": null,
+      "area_m2": 40.9,
+      "starting_price_pln": 250000,
+      "detail_url": "https://www.zglbp.pl/sprzedaz-lokalu-uzytkowego-oznaczonego-nr-14-polozonego-na-parterze-w-budynku-handlowouslugowym-wielolokalowym-przy-ul--plac-wolnosci-12-w-bialej-podlaskiej_-o-powierzchni-uzytkowej-40_9-m_-wraz-z-udzialem-w-nieruchomosci-wspolnej-,r6583543"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg ustny (aukcja) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 9 położonego na II piętrze (III kondygnacji) budynku wielorodzinnego przy ul. Kopernika 7 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "7",
+        "apt": "9",
+        "key": "kopernika|7|9",
+        "warning": null
+      },
+      "auction_date": "2025-08-22",
+      "published_date": "2025-08-07",
+      "round": 1,
+      "area_m2": 77.8,
+      "starting_price_pln": 330000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r4250241",
+      "dzialka_nr": "1217/8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg ustny (aukcja) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 9 położonego na II piętrze (III kondygnacji) budynku wielorodzinnego przy ul. Kopernika 7 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "7",
+        "apt": "9",
+        "key": "kopernika|7|9",
+        "warning": null
+      },
+      "auction_date": "2025-07-30",
+      "published_date": "2025-07-03",
+      "round": 1,
+      "area_m2": 77.8,
+      "starting_price_pln": 330000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r12647097",
+      "dzialka_nr": "1217/8"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Przetarg ustny (aukcja) w trybie Kodeksu Cywilnego na sprzedaż nieruchomości gruntowej zlokalizowanej przy ul. Brzeskiej 36 w Białej Podlaskiej stanowiącej działkę nr ew. 1650/2.",
+      "address": {
+        "street": "Brzeskiej",
+        "street_norm": "brzeskiej",
+        "building": "36",
+        "apt": null,
+        "key": "brzeskiej|36|",
+        "warning": null
+      },
+      "auction_date": "2025-07-08",
+      "published_date": "2025-06-26",
+      "round": 1,
+      "area_m2": 123.2,
+      "land_area_m2": 395,
+      "starting_price_pln": 300000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--brzeskiej-36-w-bialej-podlaskiej-stanowiacej-dzialke-nr-ew--16502-,r11552392",
+      "dzialka_nr": "1650/2"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Przetarg ustny (aukcję) w trybie Kodeksu cywilnego na sprzedaż nieruchomości gruntowej zlokalizowanej przy ul. Brzeskiej 36 w Białej Podlaskiej stanowiącej działkę nr ew. 1650/2.",
+      "address": {
+        "street": "Brzeskiej",
+        "street_norm": "brzeskiej",
+        "building": "36",
+        "apt": null,
+        "key": "brzeskiej|36|",
+        "warning": null
+      },
+      "auction_date": "2025-06-12",
+      "published_date": "2025-05-27",
+      "round": 1,
+      "area_m2": 123.2,
+      "land_area_m2": 395,
+      "starting_price_pln": 365000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--brzeskiej-36-w-bialej-podlaskiej-stanowiacej-dzialke-nr-ew--16502-,r52886002",
+      "dzialka_nr": "1650/2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg ustny (aukcja) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 9 położonego na II piętrze (III kondygnacji) budynku wielorodzinnego przy ul. Kopernika 7 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "7",
+        "apt": "9",
+        "key": "kopernika|7|9",
+        "warning": null
+      },
+      "auction_date": "2025-06-03",
+      "published_date": "2025-05-26",
+      "round": 1,
+      "area_m2": 77.8,
+      "starting_price_pln": 330000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r1430115",
+      "dzialka_nr": "1217/8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Trzeci przetarg ustny (aukcję) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 9 położonego na II piętrze (III kondygnacji) budynku wielorodzinnego przy ul. Kopernika 7 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "7",
+        "apt": "9",
+        "key": "kopernika|7|9",
+        "warning": null
+      },
+      "auction_date": "2025-05-14",
+      "published_date": "2025-04-29",
+      "round": 3,
+      "area_m2": 77.8,
+      "starting_price_pln": 330000,
+      "detail_url": "https://www.zglbp.pl/trzeci-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r17898916",
+      "dzialka_nr": "1217/8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Drugi przetarg ustny (aukcję) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 9 położonego na II piętrze (III kondygnacji) budynku wielorodzinnego przy ul. Kopernika 7 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "7",
+        "apt": "9",
+        "key": "kopernika|7|9",
+        "warning": null
+      },
+      "auction_date": "2025-03-05",
+      "published_date": "2025-02-25",
+      "round": 2,
+      "area_m2": 77.8,
+      "starting_price_pln": 340000,
+      "detail_url": "https://www.zglbp.pl/drugi-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r74455293",
+      "dzialka_nr": "1217/8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg ustny (aukcję) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 9 położonego na II piętrze (III kondygnacji) budynku wielorodzinnego przy ul. Kopernika 7 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "7",
+        "apt": "9",
+        "key": "kopernika|7|9",
+        "warning": null
+      },
+      "auction_date": "2025-02-12",
+      "published_date": "2025-01-27",
+      "round": 1,
+      "area_m2": 77.8,
+      "starting_price_pln": 340000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r45579295",
+      "dzialka_nr": "1217/8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piąty przetarg ustny (aukcję) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 5 położonego na I piętrze budynku wielorodzinnego przy ul. Kolejowej 30 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kolejowej",
+        "street_norm": "kolejowej",
+        "building": "30",
+        "apt": "5",
+        "key": "kolejowej|30|5",
+        "warning": null
+      },
+      "auction_date": "2024-02-13",
+      "published_date": "2024-01-26",
+      "round": 5,
+      "area_m2": 38.77,
+      "starting_price_pln": 180000,
+      "detail_url": "https://www.zglbp.pl/piaty-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r24026071",
+      "dzialka_nr": "1091/34"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Czwarty przetarg ustny (aukcję) w trybie Kodeksu cywilnego na sprzedaż lokalu mieszkalnego oznaczonego nr 5 położonego na I piętrze budynku wielorodzinnego przy ul. Kolejowej 30 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kolejowej",
+        "street_norm": "kolejowej",
+        "building": "30",
+        "apt": "5",
+        "key": "kolejowej|30|5",
+        "warning": null
+      },
+      "auction_date": "2024-01-10",
+      "published_date": "2023-12-20",
+      "round": 4,
+      "area_m2": 38.77,
+      "starting_price_pln": 180000,
+      "detail_url": "https://www.zglbp.pl/czwarty-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r22280937",
+      "dzialka_nr": "1091/34"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Trzeci przetarg ustny na sprzedaż lokalu mieszkalnego oznaczonego nr 5 położonego na I piętrze budynku wielorodzinnego przy ul. Kolejowej 30 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kolejowej",
+        "street_norm": "kolejowej",
+        "building": "30",
+        "apt": "5",
+        "key": "kolejowej|30|5",
+        "warning": null
+      },
+      "auction_date": "2023-12-05",
+      "published_date": "2023-11-16",
+      "round": 3,
+      "area_m2": 38.77,
+      "starting_price_pln": 200000,
+      "detail_url": "https://www.zglbp.pl/trzeci-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r57921558",
+      "dzialka_nr": "1091/34"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Drugi przetarg ustny (aukcja) w trybie Kodeksu cywilnego na sprzedaż nieruchomości gruntowej zlokalizowanej przy ul. Narutowicza 30 w Białej Podlaskiej.",
+      "address": {
+        "street": "Narutowicza",
+        "street_norm": "narutowicza",
+        "building": "30",
+        "apt": null,
+        "key": "narutowicza|30|",
+        "warning": null
+      },
+      "auction_date": "2023-11-09",
+      "published_date": "2023-10-23",
+      "round": 2,
+      "area_m2": 357.24,
+      "starting_price_pln": 2100000,
+      "detail_url": "https://www.zglbp.pl/drugi-przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--narutowicza-30--w-bialej-podlaskiej-,r62137207",
+      "dzialka_nr": "2214/2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg ustny na sprzedaż lokalu mieszkalnego oznaczonego nr 5 położonego na I piętrze budynku wielorodzinnego przy ul. Kolejowej 30 w Białej Podlaskiej.",
+      "address": {
+        "street": "Kolejowej",
+        "street_norm": "kolejowej",
+        "building": "30",
+        "apt": "5",
+        "key": "kolejowej|30|5",
+        "warning": null
+      },
+      "auction_date": "2023-10-30",
+      "published_date": "2023-10-16",
+      "round": 1,
+      "area_m2": 38.77,
+      "starting_price_pln": 200000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r60143838",
+      "dzialka_nr": "1091/34"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Drugi przetarg ustny (aukcja) w trybie Kodeksu cywilnego na sprzedaż lokalu użytkowego oznaczonego nr 6 położonego w budynku przy ul. Prostej 17 w Białej Podlaskiej.",
+      "address": {
+        "street": "Prostej",
+        "street_norm": "prostej",
+        "building": "17",
+        "apt": "6",
+        "key": "prostej|17|6",
+        "warning": null
+      },
+      "auction_date": "2023-10-31",
+      "published_date": "2023-10-16",
+      "round": 2,
+      "area_m2": 36.07,
+      "starting_price_pln": 175000,
+      "detail_url": "https://www.zglbp.pl/drugi-przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-uzytkowego-oznaczonego-nr-6-polozonego-w-budynku-przy-ul--prostej-17-w-bialej-podlaskiej-,r12838849"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Przetarg ustny (aukcja) w trybie Kodeksu cywilnego na sprzedaż nieruchomości gruntowej zlokalizowanej przy ul. Narutowicza 30 w Białej Podlaskiej.",
+      "address": {
+        "street": "Narutowicza",
+        "street_norm": "narutowicza",
+        "building": "30",
+        "apt": null,
+        "key": "narutowicza|30|",
+        "warning": null
+      },
+      "auction_date": "2023-10-20",
+      "published_date": "2023-10-03",
+      "round": 1,
+      "area_m2": 357.24,
+      "starting_price_pln": 2100000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--narutowicza-30--w-bialej-podlaskiej-,r6460902",
+      "dzialka_nr": "2214/2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg ustny na sprzedaż lokalu mieszkalnego oznaczonego nr 5 położonego na I piętrze budynku wielorodzinnego przy ul. Kolejowej 30 w Białej Podlaskiej,",
+      "address": {
+        "street": "Kolejowej",
+        "street_norm": "kolejowej",
+        "building": "30",
+        "apt": "5",
+        "key": "kolejowej|30|5",
+        "warning": null
+      },
+      "auction_date": "2023-10-11",
+      "published_date": "2023-09-20",
+      "round": 1,
+      "area_m2": 38.77,
+      "starting_price_pln": 200000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej_,r71677600",
+      "dzialka_nr": "1091/34"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Przetarg ustny w trybie Kodeksu cywilnego na sprzedaż lokalu użytkowego oznaczonego nr 6 położonego w budynku przy ul. Prostej 17 w Białej Podlaskiej.",
+      "address": {
+        "street": "Prostej",
+        "street_norm": "prostej",
+        "building": "17",
+        "apt": "6",
+        "key": "prostej|17|6",
+        "warning": null
+      },
+      "auction_date": "2023-10-10",
+      "published_date": "2023-09-20",
+      "round": 1,
+      "area_m2": 36.07,
+      "starting_price_pln": 175000,
+      "detail_url": "https://www.zglbp.pl/przetarg-ustny-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-uzytkowego-oznaczonego-nr-6-polozonego-w-budynku-przy-ul--prostej-17-w-bialej-podlaskiej-,r37490405"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Przetarg na na sprzedaż nieruchomości gruntowej zlokalizowanej przy ul. Przechodniej 2 w Białej Podlaskiej",
+      "address": {
+        "street": "Przechodniej",
+        "street_norm": "przechodniej",
+        "building": "2",
+        "apt": null,
+        "key": "przechodniej|2|",
+        "warning": null
+      },
+      "auction_date": "2021-10-21",
+      "published_date": "2021-10-11",
+      "round": 1,
+      "area_m2": 98,
+      "starting_price_pln": 745000,
+      "detail_url": "https://www.zglbp.pl/przetarg-na--na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--przechodniej-2-w-bialej-podlaskiej,r27451326",
+      "dzialka_nr": "1494/6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Sprzedaż nieruchomości gruntowej zlokalizowanej przy ul. Przechodniej 2 w Białej Podlaskiej",
+      "address": {
+        "street": "Przechodniej",
+        "street_norm": "przechodniej",
+        "building": "2",
+        "apt": null,
+        "key": "przechodniej|2|",
+        "warning": null
+      },
+      "auction_date": "2020-08-24",
+      "published_date": "2020-07-24",
+      "round": null,
+      "area_m2": 98,
+      "starting_price_pln": 650000,
+      "detail_url": "https://www.zglbp.pl/sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--przechodniej-2-w-bialej-podlaskiej,r58522132",
+      "dzialka_nr": "1494/6"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Pierwszy przetarg ustny (aukcję) na sprzedaż lokalu użytkowego w budynku przy ul. Sidorskiej 25 w Białej Podlaskiej.",
+      "address": {
+        "street": "Sidorskiej",
+        "street_norm": "sidorskiej",
+        "building": "25",
+        "apt": null,
+        "key": "sidorskiej|25|",
+        "warning": null
+      },
+      "auction_date": "2020-01-28",
+      "published_date": "2020-01-13",
+      "round": 1,
+      "area_m2": 10.6,
+      "starting_price_pln": null,
+      "detail_url": "https://www.zglbp.pl/pierwszy-przetarg-ustny-aukcje-na-sprzedaz-lokalu-uzytkowego--w-budynku-przy-ul--sidorskiej-25-w-bialej-podlaskiej-,r96775151",
+      "dzialka_nr": "1101"
+    }
+  ],
+  "wykaz": []
+}

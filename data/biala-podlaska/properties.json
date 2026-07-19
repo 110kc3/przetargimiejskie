@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "city": "biala-podlaska",
+  "properties": [
+    {
+      "key": "plac wolnosci|12|14",
+      "street": "Plac Wolności",
+      "street_norm": "plac wolnosci",
+      "building": "12",
+      "apt": "14",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-06-24",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 40.9,
+          "detail_url": "https://www.zglbp.pl/sprzedaz-lokalu-uzytkowego-oznaczonego-nr-14-polozonego-na-parterze-w-budynku-handlowouslugowym-wielolokalowym-przy-ul--plac-wolnosci-12-w-bialej-podlaskiej_-o-powierzchni-uzytkowej-40_9-m_-wraz-z-udzialem-w-nieruchomosci-wspolnej-,r6583543",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 40.9
+    },
+    {
+      "key": "kopernika|7|9",
+      "street": "Kopernika",
+      "street_norm": "kopernika",
+      "building": "7",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "archived",
+          "area_m2": 77.8,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r45579295",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-03-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "archived",
+          "area_m2": 77.8,
+          "detail_url": "https://www.zglbp.pl/drugi-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r74455293",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 77.8,
+          "detail_url": "https://www.zglbp.pl/trzeci-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r17898916",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-06-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 77.8,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r1430115",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 77.8,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r12647097",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-08-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 77.8,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r4250241",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 77.8
+    },
+    {
+      "key": "brzeskiej|36|",
+      "street": "Brzeskiej",
+      "street_norm": "brzeskiej",
+      "building": "36",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-06-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 365000,
+          "outcome": "archived",
+          "area_m2": 123.2,
+          "land_area_m2": 395,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--brzeskiej-36-w-bialej-podlaskiej-stanowiacej-dzialke-nr-ew--16502-,r52886002",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 123.2,
+          "land_area_m2": 395,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--brzeskiej-36-w-bialej-podlaskiej-stanowiacej-dzialke-nr-ew--16502-,r11552392",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 123.2
+    },
+    {
+      "key": "kolejowej|30|5",
+      "street": "Kolejowa",
+      "street_norm": "kolejowej",
+      "building": "30",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-10-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 38.77,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej_,r71677600",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-10-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 38.77,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r60143838",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-12-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 38.77,
+          "detail_url": "https://www.zglbp.pl/trzeci-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r57921558",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-01-10",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 38.77,
+          "detail_url": "https://www.zglbp.pl/czwarty-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r22280937",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-13",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 38.77,
+          "detail_url": "https://www.zglbp.pl/piaty-przetarg-ustny-aukcje-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-5-polozonego-na-i-pietrze-budynku-wielorodzinnego-przy-ul--kolejowej-30-w-bialej-podlaskiej-,r24026071",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.77
+    },
+    {
+      "key": "narutowicza|30|",
+      "street": "Narutowicza",
+      "street_norm": "narutowicza",
+      "building": "30",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-20",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 2100000,
+          "outcome": "archived",
+          "area_m2": 357.24,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--narutowicza-30--w-bialej-podlaskiej-,r6460902",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-11-09",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 2100000,
+          "outcome": "archived",
+          "area_m2": 357.24,
+          "detail_url": "https://www.zglbp.pl/drugi-przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--narutowicza-30--w-bialej-podlaskiej-,r62137207",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 357.24
+    },
+    {
+      "key": "prostej|17|6",
+      "street": "Prostej",
+      "street_norm": "prostej",
+      "building": "17",
+      "apt": "6",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 175000,
+          "outcome": "archived",
+          "area_m2": 36.07,
+          "detail_url": "https://www.zglbp.pl/przetarg-ustny-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-uzytkowego-oznaczonego-nr-6-polozonego-w-budynku-przy-ul--prostej-17-w-bialej-podlaskiej-,r37490405",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-10-31",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 175000,
+          "outcome": "archived",
+          "area_m2": 36.07,
+          "detail_url": "https://www.zglbp.pl/drugi-przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-uzytkowego-oznaczonego-nr-6-polozonego-w-budynku-przy-ul--prostej-17-w-bialej-podlaskiej-,r12838849",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.07
+    },
+    {
+      "key": "przechodniej|2|",
+      "street": "Przechodnia",
+      "street_norm": "przechodniej",
+      "building": "2",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2020-08-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 650000,
+          "outcome": "archived",
+          "area_m2": 98,
+          "detail_url": "https://www.zglbp.pl/sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--przechodniej-2-w-bialej-podlaskiej,r58522132",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2021-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 745000,
+          "outcome": "archived",
+          "area_m2": 98,
+          "detail_url": "https://www.zglbp.pl/przetarg-na--na-sprzedaz-nieruchomosci-gruntowej-zlokalizowanej-przy-ul--przechodniej-2-w-bialej-podlaskiej,r27451326",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 98
+    },
+    {
+      "key": "sidorskiej|25|",
+      "street": "Sidorskiej",
+      "street_norm": "sidorskiej",
+      "building": "25",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2020-01-28",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 10.6,
+          "detail_url": "https://www.zglbp.pl/pierwszy-przetarg-ustny-aukcje-na-sprzedaz-lokalu-uzytkowego--w-budynku-przy-ul--sidorskiej-25-w-bialej-podlaskiej-,r96775151",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 10.6
+    }
+  ]
+}
