@@ -1,12 +1,12 @@
 # TODO
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site/data). **Last refreshed: 10 July
+> (extension) and git history (pipeline/site/data). **Last refreshed: 19 July
 > 2026 — extension v1.32.0.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); headless RPi5 execution is specified in
 > [REMOTE.md](./REMOTE.md); city coverage is the generated ledger
-> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 55 · BUILD-ready
-> 59 · 204 spiked).
+> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 117 ·
+> BUILD-ready 54 · all 380 powiat seats spiked).
 >
 > Recently shipped (see git log, not re-listed here): the entire 3-July handover
 > landed in `45dcb09` (extension CI, P2-D verified-heals in refresh, TG PDF
@@ -125,15 +125,16 @@ result notices. The infrastructure all works:
   (GNWR.6840.1.2026) is land-only (3 działki). Flat-only adapter correctly
   parses 0. Sells ~1 flat/year; its flat parser was groundtruthed at build, so
   it's a proven adapter that's legitimately empty of flats now.
-- **oswiecim — verified working, stays `EXEMPT_NEW` (since reset 07-07):** its
-  scanned PDFs **OCR cleanly** (tesseract 5.3+pol — the "REKORD OCR quality"
-  worry was WRONG; OCR is excellent). Of 12 recent sale dokuments, 11 are land/
-  cancellations and the 1 flat mention (dokument **52545**) is a *result notice*
-  the crawler doesn't ingest yet. **Real residuals:** (a) build scanned-result-
-  notice ingestion (captures concluded flats like 52545); (b) VALIDATE the
-  active-flat parse against OCR text when a live flat auction appears (none to
-  test against now); (c) optional: track active LAND auctions (adapter has a
-  `land` path but currently extracts 0 even for land).
+- **oswiecim — result ingestion SHIPPED 2026-07-19 (`da6c07c5`), EXEMPT_NEW
+  entry REMOVED:** residual (a) is done — the crawl now routes "Informacja o
+  wyniku przetargu" dokuments to a city `parseResultDoc` (OCR'd, known-URL
+  skip pre-OCR; template says "Cena uzyskana", OCR renders m² as m”), and the
+  first non-empty refresh committed **1 unique property** (Dąbrowskiego 46/14,
+  III przetarg, 150 000 → 151 500 zł, sold) — the city stands on its own data,
+  a drop to 0 now correctly FAILs. Remaining residuals: (b) VALIDATE the
+  active-flat announcement parse when a live flat auction appears (none since
+  build); (c) optional: track active LAND auctions (adapter has a `land` path
+  but currently extracts 0 even for land).
 - **chrzanow — verified working, stays `EXEMPT_NEW` (since reset 07-07):** the
   board→stub→article harvest runs and **CI installs the Chromium renderer**
   (refresh.yml:125). Its 5 current articles are all non-flat (lease, niezabudowana
@@ -213,24 +214,19 @@ dual-failing city stops ping-ponging its title.
     wyniku przetargu" with an achieved price (only the monument-discount
     "Cena osiągnięta … może zostać obniżona o 30%" boilerplate, which is NOT a
     result). Opole is announcement-only by design — no result stream to build.
-  - **Bełchatów BIP-attachment results (new 2026-07-10, est. S–M):** belchatow.pl
-    result posts are STUBS (property description only). The achieved price +
-    sold/unsold outcome live in an attachment behind the belchatow.bip.gov.pl
-    "Pobierz" link. To capture belchatów's achieved prices, extend
-    `crawlResultDocs`/`parseResultDoc` to follow that link (fetch the BIP page →
-    extract the attachment URL → download → parse/OCR). `parseResultDoc` already
-    skips the price-less stubs, so nothing wrong lands meanwhile. **Owner:**
-    agent · **Blockers:** none.
-- **Result-ref field-name mismatch — chodziez + chelmno (found 2026-07-10, S)** [RPI5]:
-  a latent bug class where a city's `crawlResultDocs()` pushes result refs keyed
-  `{date, url}` / `source_url`, but `refresh.js` reads `ref.pdf_url` /
-  `ref.auction_date` → committed result records get `source_pdf: undefined` /
-  missing date. **chodziez** (`crawl.js` pushes `{date, url}`) and **chelmno**
-  (pushes `source_url`) both affected; both currently LATENT (chodziez's result
-  board is empty, so it shipped clean with 0 archived) but will silently produce
-  undefined source/date once a result lands. Fix: rename to `pdf_url` /
-  `auction_date` in each city's `crawl.js`. Same class as the belchatów ref-field
-  fix (`b78b5f17`). **Owner:** agent · **Blockers:** none.
+  - **Bełchatów BIP-attachment results — SHIPPED 2026-07-19 (`38ad6096`):**
+    `crawlResultDocs` now follows each kept stub's belchatow.bip.gov.pl link,
+    prefers the "dostępna cyfrowo" .doc attachment (docText) over the PDF
+    (pdfText→ocrPdf), and substitutes the attachment text+URL into the result
+    ref (stub-body fallback, 6-follow politeness cap). Extraction leg
+    live-verified on the real Jan 2026 BIP article; 3 helper tests on verbatim
+    live markup. No flat result is live right now (WP search window rotated) —
+    the first one that posts will land with its achieved price.
+- **Result-ref field-name mismatch — chodziez + chelmno — FIXED (`6b8ec1be`):**
+  both cities' `crawl.js` now push the canonical `pdf_url` / `auction_date`
+  field names `refresh.js` reads, with in-file comments documenting the old
+  `{date, url}` / `source_url` trap. Was latent (no results live when fixed);
+  nothing wrong ever landed in committed data.
 - **Kędzierzyn-Koźle refinements:** parse upcoming flat auctions from
   table-announcements as active listings; genitive↔nominative
   announcement↔result join key; confirm `/api/menu/<id>/articles` + board-85
@@ -299,7 +295,7 @@ dual-failing city stops ping-ponging its title.
 
 ## 3 · Extension
 
-### T1 — surface all 55 built cities (data-driven CITIES) [GUI]
+### T1 — surface all built cities (117 and counting; data-driven CITIES) [GUI]
 
 `extension/background.js:22` still hardcodes `CITIES` = 9 Śląskie cities — the
 other 46 built cities are invisible to popup/watchlist/notifications (the site
@@ -404,31 +400,28 @@ data-only. **Owner:** Kamil (scope) / agent (build).
 
 ## 6 · Expansion queues [RPI5]
 
-- **Build the 59-city BUILD-ready queue** (ledger in SPIKE-PROGRESS): dispatch per
-  `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md` via the `przetargi-city-triage`
-  skill. **PROGRESS 2026-07-10: 19 built + pushed this session** (batch 1 = 12,
-  CI-verified; batch 2 = 7) via parallel Sonnet build-agents (clone closest
-  CMS-family analog → live-groundtruth a parse test → verify-before-register →
-  refresh → register). Built: naklo-nad-notecia, zgorzelec, konskie, zlotoryja,
-  choszczno, chodziez, namyslow, olesno, mragowo, miedzyrzecz, pajeczno, lubliniec,
-  pultusk, sandomierz, poddebice, proszowice, pleszew, pisz, rawa-mazowiecka.
-  **~40 remain** (built 74 / build 97 in the ledger). Priority: **big-city + Low
-  first** (Wrocław, Poznań, Elbląg, Grudziądz, Włocławek, Kalisz, Płock, Jelenia
-  Góra, Sopot…). Each build adds an EXEMPT_NEW settling window; update
-  master-cities.json + regenerate the ledger per batch.
-- **pszczyna — DEFERRED, needs crawl-budget tuning before registering** [RPI5]:
-  built + 25 tests green (`cities/pszczyna/` + `tests/parse-pszczyna.test.js`, on
-  disk, unregistered), but its crawl budgets (`INDEX_BUDGET_MS` 5min/query +
-  `ARTICLE_BUDGET_MS` 15min over 472 candidate articles at ~7s/page) are too slow
-  to baseline on the Pi and risk CI's 20-min step timeout on the first full crawl.
-  It's Śląskie = **public-tier** (a blocking-sanity/timeout failure would break the
-  main site's CI). Fix: lower `PSZCZYNA_MAX_PAGES_PER_QUERY` (30→~8), `MAX_ARTICLES`
-  (320→~120), `ARTICLE_BUDGET_MS` (15→~8min) as new defaults in `crawl.js`, relying
-  on the built-in incremental backfill; run a CI-timed refresh; then register.
-- **Spike the remaining 132 of 380 powiat seats** (`spikes/backlog.json`: 132
-  pending / 248 done), then build the resulting BUILD verdicts (historical
-  hit-rate ~40–45% → est. +30–60 adapters). Completes the "every powiat seat"
-  claim.
+- **Build the BUILD-ready queue — 54 land-powiat seats remain** (ledger in
+  SPIKE-PROGRESS): dispatch per `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md`
+  via the `przetargi-city-triage` skill, max 3 concurrent Sonnet build-agents on
+  the Pi. **PROGRESS 2026-07-16→19: all remaining big cities + city-counties
+  built** (wroclaw, elblag, poznan, grudziadz, wloclawek, kalisz, plock,
+  jelenia-gora, sopot, biala-podlaska, siedlce, lubin) — **every Wave-A
+  city-county (66) is now resolved built-or-no-build**; the queue is 54
+  Medium-effort land-powiat seats only (117 built / 54 build in the ledger).
+  Batch lessons now baked into the triage skill dispatch prompts: verify the
+  CMS family live before cloning the spike's named analog (wrong in 4 of 6
+  recent spikes), foreground-only refresh (background runs die silently),
+  registry is append-only chronological. Each 0-data build adds an EXEMPT_NEW
+  settling window; update master-cities.json + regenerate the ledger per batch.
+- **pszczyna — DONE (recovered + registered, see `57b507c6`):** crawl budgets
+  were tightened as planned (pages/query 8, index 3 min, article 8 min, 150
+  articles as `crawl.js` defaults), then registered with batch 3; 18 unique
+  properties committed, 25 tests green. Closure note kept because the entry
+  predicted a CI-timeout risk that the tightened defaults resolved.
+- **Spiking DONE — all 380 powiat seats spiked** (`spikes/backlog.json`:
+  380 done / 0 pending). The "every powiat seat" claim now rests on building
+  out the 54-seat BUILD queue above; everything else is ledgered
+  no-build/dropped/deferred.
 - **CI matrix sharding at ~100+ cities:** group small cities ~4–5/job in
   refresh.yml + backfill.yml — most city jobs finish <2 min of mostly setup
   overhead; grouping roughly halves runner minutes. **Blockers:** built-city

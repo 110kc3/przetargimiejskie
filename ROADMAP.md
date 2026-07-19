@@ -64,11 +64,11 @@ All [RPI5] — dispatch via the `przetargi-city-triage` skill
 [spikes/README.md](./spikes/README.md), build guide in
 [pipeline/ADAPTER-GUIDE.md](./pipeline/ADAPTER-GUIDE.md):
 
-1. **Build the 59-city BUILD-ready queue** (15 Low + 44 Medium effort;
-   demonstrated pace ~7 adapters/day incl. fix cycles). Big-city + Low first:
-   Wrocław, Poznań, Elbląg, Grudziądz, Włocławek, Kalisz, Płock…
-2. **Spike the remaining 132 of 380 powiat seats** (~1 week batched; historical
-   BUILD hit-rate ~40–45%) → **build the resulting +30–60 adapters**.
+1. **Build the BUILD-ready queue — 54 land-powiat seats remain** (all Medium
+   effort; demonstrated pace ~7 adapters/day incl. fix cycles). All big cities
+   and every Wave-A city-county are built as of 2026-07-19 (117 built).
+2. **Spiking is DONE** — all 380 powiat seats spiked (backlog 380/0); the
+   BUILD verdicts feed queue 1 above.
 3. **Shard CI matrix** into grouped jobs (~4–5 small cities/job) when the city
    count makes wall time creep (~100+). refresh.yml + backfill.yml.
 4. Keep the ledger disciplined: `master-cities.json` → `node

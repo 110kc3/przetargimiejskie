@@ -2,7 +2,7 @@
 
 A pipeline that scrapes municipal property auctions from Polish cities (nationwide coverage that began with the Silesian / Górnośląsko-Zagłębiowska cluster), parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
 
-**Cities covered:** **55 built city adapters spanning 16 voivodeships** — national coverage including Warszawa, Kraków, Łódź, Gdańsk, Szczecin, Katowice, Gliwice, Bydgoszcz, Białystok and dozens more. The live generated ledger of what's built / spiked / queued is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); per-city counts and source hosts are in [`data/index.json`](./data/index.json). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
+**Cities covered:** **117 built city adapters spanning 16 voivodeships** — national coverage including Warszawa, Kraków, Łódź, Gdańsk, Szczecin, Katowice, Gliwice, Bydgoszcz, Białystok and dozens more. The live generated ledger of what's built / spiked / queued is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); per-city counts and source hosts are in [`data/index.json`](./data/index.json). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
 
 The architecture is deliberately simple: **local pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No server, no paid service, no hosted database. See [PLAN.md](./PLAN.md) for the why.
 
