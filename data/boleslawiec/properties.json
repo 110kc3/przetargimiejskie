@@ -3,6 +3,54 @@
   "city": "boleslawiec",
   "properties": [
     {
+      "key": "plac piastowski|16|",
+      "street": "Plac Piastowski",
+      "street_norm": "plac piastowski",
+      "building": "16",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-04-15",
+          "round": null,
+          "kind": "zabudowana",
+          "outcome": "announced",
+          "wykaz_no": null
+        },
+        {
+          "date": "2026-06-25",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 499000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 703,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-budynki-u%C5%BCytkowe/6743-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-i-przetarg",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-20",
+          "round": null,
+          "kind": "zabudowana",
+          "outcome": "announced",
+          "wykaz_no": null
+        },
+        {
+          "date": "2026-09-29",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 449000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 703,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6961-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-ii-przetarg",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "warszawskiej|1|10",
       "street": "Warszawska",
       "street_norm": "warszawskiej",
@@ -157,35 +205,6 @@
         }
       ],
       "area_m2": 26.21
-    },
-    {
-      "key": "plac piastowski|16|",
-      "street": "Plac Piastowski",
-      "street_norm": "plac piastowski",
-      "building": "16",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-04-15",
-          "round": null,
-          "kind": "zabudowana",
-          "outcome": "announced",
-          "wykaz_no": null
-        },
-        {
-          "date": "2026-06-25",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 499000,
-          "outcome": "archived",
-          "area_m2": null,
-          "land_area_m2": 703,
-          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-budynki-u%C5%BCytkowe/6743-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-i-przetarg",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
     },
     {
       "key": "koscielnej|6|3",
