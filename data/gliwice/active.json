@@ -164,6 +164,25 @@
     },
     {
       "kind": "garaz",
+      "address_raw": "Górnych Wałów 31A garaż nr 1",
+      "address": {
+        "street": "Górnych Wałów",
+        "street_norm": "gornych walow",
+        "building": "31A",
+        "apt": "garaz-1",
+        "key": "gornych walow|31A|garaz-1",
+        "warning": null
+      },
+      "auction_date": "2026-08-17",
+      "area_m2": 16.56,
+      "starting_price_pln": 38200,
+      "detail_url": "https://zgm-gliwice.pl/gornych-walow-31a-garaz-nr-1-17-08-2026-r/",
+      "wadium_deadline": "2026-08-11",
+      "viewing_date": "2026-08-04",
+      "round": 1
+    },
+    {
+      "kind": "garaz",
       "address_raw": "Plebiscytowa-Mielęckiego garaż nr 11",
       "address": {
         "street": "Plebiscytowa-Mielęckiego",
@@ -220,6 +239,25 @@
       "wadium_deadline": "2026-06-30",
       "viewing_date": "2026-06-24",
       "round": 2
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Korfantego 17/I",
+      "address": {
+        "street": "Korfantego",
+        "street_norm": "korfantego",
+        "building": "17",
+        "apt": "I",
+        "key": "korfantego|17|I",
+        "warning": null
+      },
+      "auction_date": "2026-08-17",
+      "area_m2": 41.14,
+      "starting_price_pln": 171800,
+      "detail_url": "https://zgm-gliwice.pl/korfantego-17-i-16-10-2023-r/",
+      "wadium_deadline": "2026-08-11",
+      "viewing_date": "2026-08-03",
+      "round": 1
     },
     {
       "kind": "mieszkalny",
