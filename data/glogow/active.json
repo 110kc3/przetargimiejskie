@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "city": "glogow",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rzemieślniczej 21a/9",
+      "address": {
+        "street": "Rzemieślniczej",
+        "street_norm": "rzemieslniczej",
+        "building": "21A",
+        "apt": "9",
+        "key": "rzemieslniczej|21A|9",
+        "warning": null
+      },
+      "area_m2": 47.75,
+      "starting_price_pln": 345000,
+      "auction_date": "2026-09-15",
+      "round": 3,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/68545E40-5DA5-4765-B515-083C905201E2/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/68545E40-5DA5-4765-B515-083C905201E2/download"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Okrężnej 99/3",
+      "address": {
+        "street": "Okrężnej",
+        "street_norm": "okreznej",
+        "building": "99",
+        "apt": "3",
+        "key": "okreznej|99|3",
+        "warning": null
+      },
+      "area_m2": 27.9,
+      "starting_price_pln": 110000,
+      "auction_date": "2026-09-15",
+      "round": 1,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/f445f9f91daf62d3be2d7cf7b72509/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/f445f9f91daf62d3be2d7cf7b72509/download"
+    }
+  ],
+  "wykaz": []
+}

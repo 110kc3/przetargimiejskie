@@ -1,0 +1,949 @@
+{
+  "schema_version": 1,
+  "city": "glogow",
+  "properties": [
+    {
+      "key": "rzemieslniczej|21A|9",
+      "street": "Rzemieślnicza",
+      "street_norm": "rzemieslniczej",
+      "building": "21A",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 355000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/ea46242da92f696e910c04b73cb8ee/download",
+          "notes": [],
+          "area_m2": 47.75
+        },
+        {
+          "date": "2026-09-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 345000,
+          "outcome": "active",
+          "area_m2": 47.75,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/68545E40-5DA5-4765-B515-083C905201E2/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 47.75
+    },
+    {
+      "key": "okreznej|99|3",
+      "street": "Okrężna",
+      "street_norm": "okreznej",
+      "building": "99",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 27.9,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/f445f9f91daf62d3be2d7cf7b72509/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 27.9
+    },
+    {
+      "key": "waly boleslawa chrobrego|6|15",
+      "street": "Wały Bolesława Chrobrego",
+      "street_norm": "waly boleslawa chrobrego",
+      "building": "6",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/25FD65AB-02BE-4AE0-B09D-758F7997BB59/download",
+          "notes": [],
+          "area_m2": 47.47
+        }
+      ],
+      "area_m2": 47.47
+    },
+    {
+      "key": "waly boleslawa chrobrego|6|14",
+      "street": "Wały Bolesława Chrobrego",
+      "street_norm": "waly boleslawa chrobrego",
+      "building": "6",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/0577B30C-F37F-4FE7-9841-BE939521AA55/download",
+          "notes": [],
+          "area_m2": 77.42
+        }
+      ],
+      "area_m2": 77.42
+    },
+    {
+      "key": "waly boleslawa chrobrego|6|13",
+      "street": "Wały Bolesława Chrobrego",
+      "street_norm": "waly boleslawa chrobrego",
+      "building": "6",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/35AD0B04-F622-4B8B-B5AD-217BD19B9FEF/download",
+          "notes": [],
+          "area_m2": 70.49
+        }
+      ],
+      "area_m2": 70.49
+    },
+    {
+      "key": "okreznej|5|4",
+      "street": "Okrężna",
+      "street_norm": "okreznej",
+      "building": "5",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/bb1730a8b8320a98d0e8c0e1a87355/download",
+          "notes": [],
+          "area_m2": 33.61
+        },
+        {
+          "date": "2025-05-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/c3ab77a47e3441e507ac818ff3f6df/download",
+          "notes": [],
+          "area_m2": 33.61
+        },
+        {
+          "date": "2025-11-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/0851568edfffb6114c89a020d83d0f/download",
+          "notes": [],
+          "area_m2": 33.61
+        }
+      ],
+      "area_m2": 33.61
+    },
+    {
+      "key": "obroncow pokoju|28|17",
+      "street": "Obrońców Pokoju",
+      "street_norm": "obroncow pokoju",
+      "building": "28",
+      "apt": "17",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-09-02",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 36000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 45000,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/336b40020bc140ac8d3ca14cf9fb0e/download",
+          "notes": [],
+          "area_m2": 10.5
+        }
+      ],
+      "area_m2": 10.5
+    },
+    {
+      "key": "kamienna droga|49|",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "49",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-04-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 550000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/8954932984500666d5224f8d2956a0/download",
+          "notes": [],
+          "area_m2": 182.03
+        },
+        {
+          "date": "2025-08-05",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 530000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9b1842187fc44218650b00d407b60c/download",
+          "notes": [],
+          "area_m2": 182.03
+        }
+      ],
+      "area_m2": 182.03
+    },
+    {
+      "key": "kamienna droga|37|8",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "37",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/d878370962b5d78e46ec2901aafb2f/download",
+          "notes": [],
+          "area_m2": 78.83
+        },
+        {
+          "date": "2025-01-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/cb1c2e2b039c7cb5002c8d86ac06fa/download",
+          "notes": [],
+          "area_m2": 78.83
+        },
+        {
+          "date": "2025-03-25",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9b94ae57cb9d55d764e9959a802bf7/download",
+          "notes": [],
+          "area_m2": 78.83
+        },
+        {
+          "date": "2025-05-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9a4af82b758d2d2fc837cb3117dd0c/download",
+          "notes": [],
+          "area_m2": 78.83
+        }
+      ],
+      "area_m2": 78.83
+    },
+    {
+      "key": "kamienna droga|39|2",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "39",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/7467594ba4a14157f24ab1f62861bd/download",
+          "notes": [],
+          "area_m2": 61.9
+        },
+        {
+          "date": "2025-01-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/ad6ee47fcaf07b6603c3e65cd4d0e8/download",
+          "notes": [],
+          "area_m2": 61.9
+        },
+        {
+          "date": "2025-03-25",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/ef37843303cefd3623602393b2cf58/download",
+          "notes": [],
+          "area_m2": 61.9
+        },
+        {
+          "date": "2025-05-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/85e3ff2f7b67d56223b2b15915516e/download",
+          "notes": [],
+          "area_m2": 61.9
+        }
+      ],
+      "area_m2": 61.9
+    },
+    {
+      "key": "kamienna droga|39|6",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "39",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/ee030ad4fd9e4805450c81bab5c40e/download",
+          "notes": [],
+          "area_m2": 65.1
+        },
+        {
+          "date": "2025-01-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/715fa0f3525b84594a7517edb3cae4/download",
+          "notes": [],
+          "area_m2": 65.1
+        },
+        {
+          "date": "2025-03-25",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/d0feb084323a0058c69d85f14fca69/download",
+          "notes": [],
+          "area_m2": 65.1
+        },
+        {
+          "date": "2025-05-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9cdca6de4fe4f929411dbabe3f0fac/download",
+          "notes": [],
+          "area_m2": 65.1
+        }
+      ],
+      "area_m2": 65.1
+    },
+    {
+      "key": "kamienna droga|39|8",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "39",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/f68c477273ac6c02cd47897fae442d/download",
+          "notes": [],
+          "area_m2": 65.38
+        },
+        {
+          "date": "2025-01-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/719443dbe07a364fba870be52751ef/download",
+          "notes": [],
+          "area_m2": 65.38
+        },
+        {
+          "date": "2025-03-25",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/babf8f3008e543382070df0ccb0d22/download",
+          "notes": [],
+          "area_m2": 65.38
+        },
+        {
+          "date": "2025-05-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/278a2c694280234c9af0a16575d60c/download",
+          "notes": [],
+          "area_m2": 65.38
+        }
+      ],
+      "area_m2": 65.38
+    },
+    {
+      "key": "stawnej|16A|4",
+      "street": "Stawna",
+      "street_norm": "stawnej",
+      "building": "16A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/13909eb270542b63ebe3f1aefbc86c/download",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2025-05-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/518886d7c42769715d7c81d938e523/download",
+          "notes": [],
+          "area_m2": 30
+        }
+      ],
+      "area_m2": 30
+    },
+    {
+      "key": "elektrycznej|22A|5",
+      "street": "Elektryczna",
+      "street_norm": "elektrycznej",
+      "building": "22A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/4707685376983c56b0c2e4086aa840/download",
+          "notes": [],
+          "area_m2": 48.43
+        },
+        {
+          "date": "2025-05-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/c93c5dd79561f093c0e0944c7872f4/download",
+          "notes": [],
+          "area_m2": 48.43
+        }
+      ],
+      "area_m2": 48.43
+    },
+    {
+      "key": "kamienna droga|37|1",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "37",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 253000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/721734652b8927ddf46cb32c64a782/download",
+          "notes": [],
+          "area_m2": 92.07
+        },
+        {
+          "date": "2025-05-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/564d4b26acb6f9bbfd34e0c8005cae/download",
+          "notes": [],
+          "area_m2": 92.07
+        }
+      ],
+      "area_m2": 92.07
+    },
+    {
+      "key": "okreznej|145|1A",
+      "street": "Okrężna",
+      "street_norm": "okreznej",
+      "building": "145",
+      "apt": "1A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/92306e7a99df17b7b1781892cbcbe9/download",
+          "notes": [],
+          "area_m2": 46.73
+        },
+        {
+          "date": "2025-05-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/ea0c3d0f84f8cc4f5efec71e3ff343/download",
+          "notes": [],
+          "area_m2": 46.73
+        }
+      ],
+      "area_m2": 46.73
+    },
+    {
+      "key": "plac 1000 lecia|10|22",
+      "street": "Plac 1000-lecia",
+      "street_norm": "plac 1000 lecia",
+      "building": "10",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 172000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/f4a24fc72749fb039b5e4e12d428f5/download",
+          "notes": [],
+          "area_m2": 35.29
+        },
+        {
+          "date": "2025-05-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/226146bdd038a6b9812cdf477c2268/download",
+          "notes": [],
+          "area_m2": 35.29
+        }
+      ],
+      "area_m2": 35.29
+    },
+    {
+      "key": "piotra skargi|15|1",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "15",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-05-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 45000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 45450,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/c2a308ace184fe0648f1813a911c48/download",
+          "notes": [],
+          "area_m2": 12.71
+        }
+      ],
+      "area_m2": 12.71
+    },
+    {
+      "key": "adama mickiewicza|44|15",
+      "street": "Adama Mickiewicza",
+      "street_norm": "adama mickiewicza",
+      "building": "44",
+      "apt": "15",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-05-06",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 57000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 57570,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/3b4dec2a03802b33f3881dfb0b663b/download",
+          "notes": [],
+          "area_m2": 18.9
+        }
+      ],
+      "area_m2": 18.9
+    },
+    {
+      "key": "jednosci robotniczej|6A|10",
+      "street": "Jedności Robotniczej",
+      "street_norm": "jednosci robotniczej",
+      "building": "6A",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-12-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/15b524329983ffb97c28ab909a16c1/download",
+          "notes": [],
+          "area_m2": 58.26
+        },
+        {
+          "date": "2023-03-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/70e9b6a7d83b601277534d0f1949fa/download",
+          "notes": [],
+          "area_m2": 58.26
+        },
+        {
+          "date": "2024-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/8b363ca9c04a48ce1769beb0e9d986/download",
+          "notes": [],
+          "area_m2": 58.26
+        },
+        {
+          "date": "2024-12-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/295fa51895336ac34ca7a6d3cb77c1/download",
+          "notes": [],
+          "area_m2": 58.26
+        },
+        {
+          "date": "2025-03-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 166650,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/b4a210ace2574a30e27ba7165ed556/download",
+          "notes": [],
+          "area_m2": 58.26
+        }
+      ],
+      "area_m2": 58.26
+    },
+    {
+      "key": "okreznej|61|2",
+      "street": "Okrężna",
+      "street_norm": "okreznej",
+      "building": "61",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 116150,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/7e94a2085e9760b917de5789ae412c/download",
+          "notes": [],
+          "area_m2": 40.24
+        }
+      ],
+      "area_m2": 40.24
+    },
+    {
+      "key": "sniadeckich|5|2",
+      "street": "Śniadeckich",
+      "street_norm": "sniadeckich",
+      "building": "5",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 126250,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/5dd1022994503fc8367d1a31de5569/download",
+          "notes": [],
+          "area_m2": 40.16
+        }
+      ],
+      "area_m2": 40.16
+    },
+    {
+      "key": "obroncow pokoju|28|40",
+      "street": "Obrońców Pokoju",
+      "street_norm": "obroncow pokoju",
+      "building": "28",
+      "apt": "40",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-17",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 30000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/d420b0822b876aa25d78b44b5e6f53/download",
+          "notes": [],
+          "area_m2": 10.5
+        },
+        {
+          "date": "2023-12-19",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 28000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 43300,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/ae459fdf8e58b71456fff7c22531a6/download",
+          "notes": [],
+          "area_m2": 10.5
+        }
+      ],
+      "area_m2": 10.5
+    },
+    {
+      "key": "obroncow pokoju|28|28",
+      "street": "Obrońców Pokoju",
+      "street_norm": "obroncow pokoju",
+      "building": "28",
+      "apt": "28",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-10-17",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 30000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/0d85053460254fc9b7739e34898a74/download",
+          "notes": [],
+          "area_m2": 10.5
+        },
+        {
+          "date": "2023-12-19",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 28000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 42300,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/fd17caf29f918aa81002276cb4afc7/download",
+          "notes": [],
+          "area_m2": 10.5
+        }
+      ],
+      "area_m2": 10.5
+    },
+    {
+      "key": "obroncow pokoju|28|5",
+      "street": "Obrońców Pokoju",
+      "street_norm": "obroncow pokoju",
+      "building": "28",
+      "apt": "5",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-12-19",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 30000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 37300,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/561c2512d418887c7ff4c3ffc75ba3/download",
+          "notes": [],
+          "area_m2": 10.5
+        }
+      ],
+      "area_m2": 10.5
+    },
+    {
+      "key": "kozuchowskiej|27|",
+      "street": "Kożuchowskiej",
+      "street_norm": "kozuchowskiej",
+      "building": "27",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 7000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 7070,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/cfee02e138a3afebc99f85f06b8b2d/download",
+          "notes": [],
+          "area_m2": 42.87
+        }
+      ],
+      "area_m2": 42.87
+    },
+    {
+      "key": "osadnikow|8|11",
+      "street": "Osadników",
+      "street_norm": "osadnikow",
+      "building": "8",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-03-14",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 40400,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/fa2820c59b9450efa29a4afab31176/download",
+          "notes": [],
+          "area_m2": 26.43
+        }
+      ],
+      "area_m2": 26.43
+    }
+  ]
+}

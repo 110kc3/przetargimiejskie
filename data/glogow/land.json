@@ -1,0 +1,1041 @@
+{
+  "schema_version": 1,
+  "city": "glogow",
+  "plots": [
+    {
+      "key": "dz|159/2",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "159/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Stanisława Kutrzeby",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20159%2F2%20Stanis%C5%82awa%20Kutrzeby%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1935,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-21",
+          "round": 1,
+          "starting_price_pln": 1000000,
+          "outcome": "unsold",
+          "area_m2": 1935,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/8034d7c8bec4ebb41c39f1d71fefee/download"
+        },
+        {
+          "date": "2025-05-13",
+          "round": 2,
+          "starting_price_pln": 950000,
+          "outcome": "unsold",
+          "area_m2": 1935,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/854d17e1ece261ec2a071ed83ebfa0/download"
+        },
+        {
+          "date": "2025-09-02",
+          "round": 3,
+          "starting_price_pln": 900000,
+          "outcome": "unsold",
+          "area_m2": 1935,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/9016645597215aa766f6a268626373/download"
+        },
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "starting_price_pln": 1000000,
+          "outcome": "active",
+          "area_m2": 1935,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/62f3920212061f60d7e127749519b9/download",
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/62f3920212061f60d7e127749519b9/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "159/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|63/4",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "63/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Koszykarskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2063%2F4%20Koszykarskiej%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 465,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 465,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/2154E2CA-3410-4D34-A33D-52031CAB315A/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "63/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|99",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "99",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2099%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 700,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-20",
+          "round": 1,
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "area_m2": 700,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/a883f2ce0940fb41e8e6e2fb909cbc/download"
+        },
+        {
+          "date": "2026-07-06",
+          "round": 3,
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "area_m2": 700,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/04C31F84-4982-4823-ACAD-05C1FF920D0E/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "99"
+        }
+      ]
+    },
+    {
+      "key": "dz|696/3",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "696/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20696%2F3%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2596,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-16",
+          "round": 1,
+          "starting_price_pln": 1000000,
+          "outcome": "sold",
+          "final_price_pln": 1430000,
+          "area_m2": 2596,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/02e50bb351ccc973a8beaa5e712ddc/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "696/3"
+        }
+      ]
+    },
+    {
+      "key": "addr|kazimierza wielkiego",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Kazimierza Wielkiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Kazimierza%20Wielkiego%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7741,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-08-12",
+          "round": 3,
+          "starting_price_pln": 1000000,
+          "outcome": "sold",
+          "final_price_pln": 1010000,
+          "area_m2": 7741,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/74fb2004eb7c3f68a329a2a067c4f8/download"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|223/3, 219",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "223/3, 219",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20223%2F3%2C%20219%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 225,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-13",
+          "round": 2,
+          "starting_price_pln": 70000,
+          "outcome": "unsold",
+          "area_m2": 225,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/b9187105fc67a5063a03c068c3ba9a/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "223/3"
+        },
+        {
+          "nr": "219"
+        }
+      ]
+    },
+    {
+      "key": "dz|697",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "697",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Kazimierza Wielkiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20697%20Kazimierza%20Wielkiego%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7741,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-14",
+          "round": 1,
+          "starting_price_pln": 1360000,
+          "outcome": "unsold",
+          "area_m2": 7741,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/f351050fa2a67e5d4de075d59992a8/download"
+        },
+        {
+          "date": "2025-05-06",
+          "round": 2,
+          "starting_price_pln": 1200000,
+          "outcome": "unsold",
+          "area_m2": 7741,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/2d2fe29b010cd4e4338923fcdf28d4/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "697"
+        }
+      ]
+    },
+    {
+      "key": "dz|223/3",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "223/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20223%2F3%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 225,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-04",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "unsold",
+          "area_m2": 225,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/76bd598f851a23f9f6271106ae1404/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "223/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|104/4",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "104/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20104%2F4%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 215,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-14",
+          "round": 1,
+          "starting_price_pln": 51000,
+          "outcome": "unsold",
+          "area_m2": 215,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/31e43e0d1020c3a795a5c574ba11d6/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "104/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|471/2",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "471/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20471%2F2%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 153,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-14",
+          "round": 1,
+          "starting_price_pln": 36000,
+          "outcome": "unsold",
+          "area_m2": 153,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/14dc16e9b40350bc07aada8d5b7918/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "471/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|411/2",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "411/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20411%2F2%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-10",
+          "round": 1,
+          "starting_price_pln": 10000,
+          "outcome": "unsold",
+          "area_m2": 41,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/425c37e03368482eba4226fbfbcc72/download"
+        },
+        {
+          "date": "2024-11-05",
+          "round": 2,
+          "starting_price_pln": 7000,
+          "outcome": "sold",
+          "final_price_pln": 7070,
+          "area_m2": 41,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/714effd8937188783e56d730d16f4a/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "411/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|644",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "644",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20644%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 15,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-10",
+          "round": 1,
+          "starting_price_pln": 4000,
+          "outcome": "sold",
+          "final_price_pln": 4040,
+          "area_m2": 15,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/ccea7e40be7b9714acfd46d47da893/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "644"
+        }
+      ]
+    },
+    {
+      "key": "dz|532/17",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "532/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Gnieźnieńskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20532%2F17%20Gnie%C5%BAnie%C5%84skiej%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 67,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-10",
+          "round": 1,
+          "starting_price_pln": 16000,
+          "outcome": "sold",
+          "final_price_pln": 16160,
+          "area_m2": 67,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/d3cb171dbdd10c2959bf8dbf871ef4/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "532/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|397",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "397",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20397%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1366,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "starting_price_pln": 400000,
+          "outcome": "unsold",
+          "area_m2": 1366,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/d143d0a0e37cdd3a36e89995a926b1/download"
+        },
+        {
+          "date": "2023-07-25",
+          "round": 2,
+          "starting_price_pln": 335000,
+          "outcome": "unsold",
+          "area_m2": 1366,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/5cf87131f5e27ad5e4c3e36a0b7611/download"
+        },
+        {
+          "date": "2023-10-03",
+          "round": 3,
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "area_m2": 1366,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/cb83153c95326666650165407a9f30/download"
+        },
+        {
+          "date": "2024-03-19",
+          "round": 4,
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "area_m2": 1366,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/bf729528aedfa1334e1c62cf82328d/download"
+        },
+        {
+          "date": "2024-05-28",
+          "round": 5,
+          "starting_price_pln": 300000,
+          "outcome": "sold",
+          "final_price_pln": 303000,
+          "area_m2": 1366,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/b8a458469dd5908c47f63e96d022e3/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "397"
+        }
+      ]
+    },
+    {
+      "key": "dz|130/2",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "130/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20130%2F2%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1436,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "starting_price_pln": 400000,
+          "outcome": "unsold",
+          "area_m2": 1436,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/d38857f56ae8d2e23d0ba8fd84cdc4/download"
+        },
+        {
+          "date": "2023-07-25",
+          "round": 2,
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "area_m2": 1436,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/e8e057e1941d1636972a7b1824b6dc/download"
+        },
+        {
+          "date": "2023-10-03",
+          "round": 3,
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "area_m2": 1436,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/f81f8388fef5772d46e119cf6e9ee3/download"
+        },
+        {
+          "date": "2024-03-19",
+          "round": 4,
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "area_m2": 1436,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/4334b12b9fdd37404dc97fc51ac9f3/download"
+        },
+        {
+          "date": "2024-05-28",
+          "round": 5,
+          "starting_price_pln": 310000,
+          "outcome": "sold",
+          "final_price_pln": 313100,
+          "area_m2": 1436,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/99f5d42b0ed7ee4982b557f5bababc/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "130/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|120/5",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "120/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Olchowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20120%2F5%20Olchowej%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4999,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-27",
+          "round": 3,
+          "starting_price_pln": 1400000,
+          "outcome": "unsold",
+          "area_m2": 4999,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/ccc4d91092ff80dc31e7db86d32c2a/download"
+        },
+        {
+          "date": "2024-05-07",
+          "round": 1,
+          "starting_price_pln": 1400000,
+          "outcome": "sold",
+          "final_price_pln": 1414000,
+          "area_m2": 4999,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/82df40447f9b50d750e0015dab186a/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "120/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|27/76",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "27/76",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Książąt Ścinawskich",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2027%2F76%20Ksi%C4%85%C5%BC%C4%85t%20%C5%9Acinawskich%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 764,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-19",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "final_price_pln": 232300,
+          "area_m2": 764,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/86fde0fad49443099e214630b2870f/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "27/76"
+        }
+      ]
+    },
+    {
+      "key": "dz|177/1",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "177/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20177%2F1%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 765,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 215000,
+          "outcome": "sold",
+          "final_price_pln": 217150,
+          "area_m2": 765,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/0289b35e4f72e68f14389e2e265bd4/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "177/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|178",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "178",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20178%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 603,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 170000,
+          "outcome": "sold",
+          "final_price_pln": 171700,
+          "area_m2": 603,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/70775b05f3300b19557eae977d4b6a/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "178"
+        }
+      ]
+    },
+    {
+      "key": "dz|179",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "179",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20179%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 790,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 225000,
+          "outcome": "sold",
+          "final_price_pln": 227250,
+          "area_m2": 790,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/6f6e79355dc7147328e9be37b8ff15/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "179"
+        }
+      ]
+    },
+    {
+      "key": "dz|27/61",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "27/61",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2027%2F61%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 837,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 235000,
+          "outcome": "sold",
+          "final_price_pln": 237350,
+          "area_m2": 837,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/c55bf8dceaf3cb94db5edcbe3bbab5/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "27/61"
+        }
+      ]
+    },
+    {
+      "key": "dz|27/63",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "27/63",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2027%2F63%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 809,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "final_price_pln": 232300,
+          "area_m2": 809,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/41d7b4db356bed282e98a6342eb4c9/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "27/63"
+        }
+      ]
+    },
+    {
+      "key": "dz|27/65",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "27/65",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2027%2F65%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 777,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 220000,
+          "outcome": "sold",
+          "final_price_pln": 222200,
+          "area_m2": 777,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/9cf74d78d9286279b37aaddfc49c2c/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "27/65"
+        }
+      ]
+    },
+    {
+      "key": "dz|44/30",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "44/30",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2044%2F30%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 726,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 205000,
+          "outcome": "sold",
+          "final_price_pln": 207050,
+          "area_m2": 726,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/f68018bb8f1c3b3253b71fed6116fa/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "44/30"
+        }
+      ]
+    },
+    {
+      "key": "dz|44/32",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "44/32",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2044%2F32%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 652,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 185000,
+          "outcome": "sold",
+          "final_price_pln": 186850,
+          "area_m2": 652,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/010bea5895e24ab9967b23118f6b50/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "44/32"
+        }
+      ]
+    },
+    {
+      "key": "dz|44/34",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "44/34",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2044%2F34%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 637,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 180000,
+          "outcome": "sold",
+          "final_price_pln": 181800,
+          "area_m2": 637,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/c101444da63aa782dcda95ef690515/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "44/34"
+        }
+      ]
+    },
+    {
+      "key": "dz|173/1",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "173/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20173%2F1%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 820,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "final_price_pln": 232300,
+          "area_m2": 820,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/9f5d6a451eb55255889c1310092aee/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "173/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|93",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "93",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Spokojnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2093%20Spokojnej%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1256,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-01-24",
+          "round": 1,
+          "starting_price_pln": 260000,
+          "outcome": "unsold",
+          "area_m2": 1256,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/04896e18801e95ec594d5cd3405dd9/download"
+        },
+        {
+          "date": "2023-05-09",
+          "round": 2,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1256,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/f0cf3210d67441dc35e5b369e35640/download"
+        },
+        {
+          "date": "2023-07-25",
+          "round": 3,
+          "starting_price_pln": 180000,
+          "outcome": "sold",
+          "final_price_pln": 181800,
+          "area_m2": 1256,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/0800028ea8389baeeaee6da57d9902/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "93"
+        }
+      ]
+    },
+    {
+      "key": "dz|92",
+      "kind": "grunt",
+      "city": "glogow",
+      "dzialka_nr": "92",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Spokojnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2092%20Spokojnej%20G%C5%82og%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1345,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 2,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 1345,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/6b8c1f2abd97d5c0f20f424da6b268/download"
+        },
+        {
+          "date": "2023-07-25",
+          "round": 3,
+          "starting_price_pln": 180000,
+          "outcome": "sold",
+          "final_price_pln": 181800,
+          "area_m2": 1345,
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/91bec4642dd01e5e05cd4af8f8c45f/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "92"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema": "spike-master/1",
-  "generated_at": "2026-07-18",
+  "generated_at": "2026-07-20",
   "note": "Wave A: 66 miasta na prawach powiatu (all spiked). Wave B: largest land-powiat seats (rolling). Long tail (~900 smaller towns) enumerated in later runs.",
   "total": 336,
   "cities": [
@@ -43,7 +43,7 @@
       "powiat_slug": "powiat-glogowski",
       "powiat_label": "powiat głogowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md",
       "spike": {
         "wave": "Q",
@@ -187,7 +187,7 @@
       "powiat_slug": "powiat-swidnicki",
       "powiat_label": "powiat swidnicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md",
       "spike": {
         "wave": "C",
@@ -539,7 +539,7 @@
       "powiat_slug": "powiat-tomaszowski",
       "powiat_label": "powiat tomaszowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md",
       "spike": {
         "wave": "C",

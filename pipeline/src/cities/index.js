@@ -274,6 +274,9 @@ import sopot from './sopot/index.js';
 import siedlce from './siedlce/index.js';
 import bialaPodlaska from './biala-podlaska/index.js';
 import lubin from './lubin/index.js';
+import tomaszowMazowiecki from './tomaszow-mazowiecki/index.js';
+import glogow from './glogow/index.js';
+import swidnica from './swidnica/index.js';
 
 export const cities = [
   gliwice,
@@ -393,6 +396,9 @@ export const cities = [
   siedlce,
   bialaPodlaska,
   lubin,
+  tomaszowMazowiecki,
+  glogow,
+  swidnica,
 ];
 
 /** @param {string} id @returns {object|null} */

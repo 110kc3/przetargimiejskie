@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "city": "tomaszow-mazowiecki",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Środkowej 3",
+      "address": {
+        "street": "Środkowej",
+        "street_norm": "srodkowej",
+        "building": "3",
+        "apt": null,
+        "key": "srodkowej|3|",
+        "warning": null
+      },
+      "area_m2": 530,
+      "round": 4,
+      "starting_price_pln": 227000,
+      "auction_date": "2026-08-11",
+      "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=624371",
+      "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=624371"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Spalskiej 42",
+      "address": {
+        "street": "Spalskiej",
+        "street_norm": "spalskiej",
+        "building": "42",
+        "apt": null,
+        "key": "spalskiej|42|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 4,
+      "starting_price_pln": 260000,
+      "auction_date": "2026-07-28",
+      "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=623829",
+      "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=623829"
+    }
+  ],
+  "wykaz": []
+}

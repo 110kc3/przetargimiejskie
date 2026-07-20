@@ -2,14 +2,14 @@
 
 > **GENERATED FILE — do not hand-edit.** Regenerate with `node spikes/build-progress.mjs` after updating [master-cities.json](./master-cities.json) (the source of truth).
 >
-> Updated 2026-07-18. Queue: [backlog.json](./backlog.json) (undefined pending / 380 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
+> Updated 2026-07-20. Queue: [backlog.json](./backlog.json) (undefined pending / 380 done of 380 powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).
 
 ## Roll-up (336 spiked)
 
 | Status | Count |
 |---|---|
-| ✅ BUILT | 117 |
-| 🟢 BUILD | 54 |
+| ✅ BUILT | 120 |
+| 🟢 BUILD | 51 |
 | 🟡 VERIFY | 0 |
 | 🔴 NO-BUILD | 156 |
 | ❌ Dropped | 6 |
@@ -17,13 +17,13 @@
 
 **Convention:** every spiked city has a per-city `.md` at its `master-cities.json` path; NO-BUILD verdicts are additionally consolidated in [NO-BUILD.md](./NO-BUILD.md).
 
-## Built adapters (117)
+## Built adapters (120)
 
-Augustów, Bełchatów, Biała Podlaska, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Elbląg, Gdańsk, Giżycko, Gliwice, Głubczyce, Gniezno, Gorzów Wielkopolski, Gostyń, Grudziądz, Jarocin, Jelenia Góra, Kalisz, Kamienna Góra, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kłobuck, Kłodzko, Kolbuszowa, Końskie, Kraków, Krosno Odrzańskie, Kwidzyn, Legnica, Lębork, Lipsko, Lubin, Lubliniec, Lwówek Śląski, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Płock, Poddębice, Poznań, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Siedlce, Skarżysko-Kamienna, Słupsk, Sopot, Sosnowiec, Stargard, Strzelce Krajeńskie, Strzelce Opolskie, Sucha Beskidzka, Sulęcin, Szczecin, Szczecinek, Środa Wielkopolska, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wąbrzeźno, Wejherowo, Węgorzewo, Węgrów, Włocławek, Wołów, Wrocław, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań, Żnin.
+Augustów, Bełchatów, Biała Podlaska, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Elbląg, Gdańsk, Giżycko, Gliwice, Głogów, Głubczyce, Gniezno, Gorzów Wielkopolski, Gostyń, Grudziądz, Jarocin, Jelenia Góra, Kalisz, Kamienna Góra, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kłobuck, Kłodzko, Kolbuszowa, Końskie, Kraków, Krosno Odrzańskie, Kwidzyn, Legnica, Lębork, Lipsko, Lubin, Lubliniec, Lwówek Śląski, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Płock, Poddębice, Poznań, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Siedlce, Skarżysko-Kamienna, Słupsk, Sopot, Sosnowiec, Stargard, Strzelce Krajeńskie, Strzelce Opolskie, Sucha Beskidzka, Sulęcin, Szczecin, Szczecinek, Środa Wielkopolska, Świdnica, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Tomaszów Mazowiecki, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wąbrzeźno, Wejherowo, Węgorzewo, Węgrów, Włocławek, Wołów, Wrocław, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań, Żnin.
 
-## BUILD-ready queue (54, by effort)
+## BUILD-ready queue (51, by effort)
 
-Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Ełk (Medium), Głogów (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Gryfino (Medium), Iława (Medium), Jędrzejów (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płońsk (Medium), Prudnik (Medium), Słubice (Medium), Sochaczew (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Świdnica (Medium), Tomaszów Mazowiecki (Medium), Wałcz (Medium), Wodzisław Śląski (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
+Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Ełk (Medium), Goleniów (Medium), Golub-Dobrzyń (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Gryfino (Medium), Iława (Medium), Jędrzejów (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płońsk (Medium), Prudnik (Medium), Słubice (Medium), Sochaczew (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Wałcz (Medium), Wodzisław Śląski (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
 
 ## Ledger by voivodeship
 
@@ -33,7 +33,7 @@ Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Chojnice (Medium), Czł
 |---|---|---|---|
 | Bolesławiec | powiat boleslawiecki | ✅ BUILT | Medium · LIVE |
 | Dzierżoniów | powiat dzierżoniowski | 🟢 BUILD | Medium · LIVE |
-| Głogów | powiat głogowski | 🟢 BUILD | Medium · LIVE |
+| Głogów | powiat głogowski | ✅ BUILT | Medium · LIVE |
 | Góra | powiat górowski | 🟢 BUILD | Medium · LIVE |
 | Jawor | powiat jaworski | 🔴 NO-BUILD | — · LIVE |
 | Jelenia Góra | Jelenia Góra (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
@@ -49,7 +49,7 @@ Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Chojnice (Medium), Czł
 | Polkowice | powiat polkowicki | 🔴 NO-BUILD | — · LIVE |
 | Strzelin | powiat strzeliński | 🔴 NO-BUILD | — · LIVE |
 | Środa Śląska | powiat średzki | 🟢 BUILD | Medium · LIVE |
-| Świdnica | powiat swidnicki | 🟢 BUILD | Medium · LIVE |
+| Świdnica | powiat swidnicki | ✅ BUILT | Medium · LIVE |
 | Trzebnica | powiat trzebnicki | ✅ BUILT | Low · LIVE |
 | Wałbrzych | Wałbrzych (m.n.p.p.) | ✅ BUILT | Medium · LIVE |
 | Wołów | powiat wołowski | ✅ BUILT | Low · LIVE |
@@ -144,7 +144,7 @@ Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Chojnice (Medium), Czł
 | Rawa Mazowiecka | powiat rawski | ✅ BUILT | Low · LIVE |
 | Sieradz | powiat sieradzki | 🔴 NO-BUILD | — · DESK |
 | Skierniewice | Skierniewice (m.n.p.p.) | 🔴 NO-BUILD | — · LIVE |
-| Tomaszów Mazowiecki | powiat tomaszowski | 🟢 BUILD | Medium · LIVE |
+| Tomaszów Mazowiecki | powiat tomaszowski | ✅ BUILT | Medium · LIVE |
 | Wieluń | powiat wieluński | 🔴 NO-BUILD | — · LIVE |
 | Wieruszów | powiat wieruszowski | 🔴 NO-BUILD | — · LIVE |
 | Zduńska Wola | powiat zduńskowolski | ✅ BUILT | Low · LIVE |

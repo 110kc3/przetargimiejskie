@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "city": "swidnica",
+  "properties": [
+    {
+      "key": "komunardow|18|5",
+      "street": "Komunardów",
+      "street_norm": "komunardow",
+      "building": "18",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 202000,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131297,kolejny-przetarg-ustny-nieograniczony-p-50vii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-5-przy-ul.html",
+          "notes": [
+            "nabywca: Roman Gałafin, Urszula Gałafin"
+          ],
+          "area_m2": 76.48
+        }
+      ],
+      "area_m2": 76.48
+    },
+    {
+      "key": "srodkowej|7A|7",
+      "street": "Środkowa",
+      "street_norm": "srodkowej",
+      "building": "7A",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "no_wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131298,kolejny-przetarg-ustny-nieograniczony-p-51vii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ul.html",
+          "notes": [],
+          "area_m2": 31.3
+        }
+      ],
+      "area_m2": 31.3
+    },
+    {
+      "key": "kraszowickiej|55|01",
+      "street": "Kraszowickiej",
+      "street_norm": "kraszowickiej",
+      "building": "55",
+      "apt": "01",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "no_wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131299,ii-przetarg-ustny-nieograniczony-p-52vii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ulicy-kr.html",
+          "notes": [],
+          "area_m2": 86.48
+        }
+      ],
+      "area_m2": 86.48
+    },
+    {
+      "key": "grodzkiej|16-18|6",
+      "street": "Grodzkiej",
+      "street_norm": "grodzkiej",
+      "building": "16-18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131224,kolejny-przetarg-ustny-nieograniczony-p-45vi26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-uli.html",
+          "notes": [],
+          "area_m2": 82.61
+        }
+      ],
+      "area_m2": 82.61
+    },
+    {
+      "key": "walbrzyskiej|6|6",
+      "street": "Wałbrzyskiej",
+      "street_norm": "walbrzyskiej",
+      "building": "6",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 60600,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131223,kolejny-przetarg-ustny-nieograniczony-p-44vi26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-uli.html",
+          "notes": [
+            "nabywca: Dariusz Michał Sidoruk"
+          ],
+          "area_m2": 30.6
+        }
+      ],
+      "area_m2": 30.6
+    },
+    {
+      "key": "niepodleglosci|17|5",
+      "street": "Niepodległości",
+      "street_norm": "niepodleglosci",
+      "building": "17",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 310000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 352000,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131222,i-przetarg-ustny-nieograniczony-p-43vi26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-5-przy-alei-niep.html",
+          "notes": [
+            "nabywca: Dawid Konrad Orzech"
+          ],
+          "area_m2": 101.8
+        }
+      ],
+      "area_m2": 101.8
+    }
+  ]
+}

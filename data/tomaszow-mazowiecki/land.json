@@ -1,0 +1,1229 @@
+{
+  "schema_version": 1,
+  "city": "tomaszow-mazowiecki",
+  "plots": [
+    {
+      "key": "dz|24|522/3",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "522/3",
+      "obreb": "24",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zielonej 38-40",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20522%2F3%20ul.%20Zielonej%2038-40%2024%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 442,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 442,
+          "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=624378",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=624378"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "522/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|13|1121/2",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "1121/2",
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Parkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201121%2F2%20ul.%20Parkowej%2013%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 717,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-08",
+          "round": 1,
+          "starting_price_pln": 123000,
+          "outcome": "unsold",
+          "area_m2": 717,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=623585"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1121/2"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. mireckiego 62",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mireckiego 62",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Mireckiego%2062%2013%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 719,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=609646"
+        },
+        {
+          "date": "2025-09-16",
+          "round": 2,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 719,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=613009"
+        },
+        {
+          "date": "2025-11-24",
+          "round": 3,
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "area_m2": 719,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616277"
+        },
+        {
+          "date": "2026-03-16",
+          "round": 4,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 719,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619947"
+        },
+        {
+          "date": "2026-05-28",
+          "round": 5,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 719,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=623325"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|8|490",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "490",
+      "obreb": "8",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstytucji 3 Maja 14/16",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%20ul.%20Konstytucji%203%20Maja%2014%2F16%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1754,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 1754,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616650"
+        },
+        {
+          "date": "2026-05-20",
+          "round": 2,
+          "starting_price_pln": 700000,
+          "outcome": "unsold",
+          "area_m2": 1754,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622979"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "490"
+        }
+      ]
+    },
+    {
+      "key": "dz|10|672",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "672",
+      "obreb": "10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Środkowej 3",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20672%20ul.%20%C5%9Arodkowej%203%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 530,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-02-23",
+          "round": 2,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 530,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619386"
+        },
+        {
+          "date": "2026-05-04",
+          "round": 3,
+          "starting_price_pln": 227000,
+          "outcome": "unsold",
+          "area_m2": 530,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622118"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "672"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. spalskiej 42",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spalskiej 42",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Spalskiej%2042%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1155,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-12",
+          "round": 1,
+          "starting_price_pln": 320000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=615449"
+        },
+        {
+          "date": "2026-02-23",
+          "round": 2,
+          "starting_price_pln": 320000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619387"
+        },
+        {
+          "date": "2026-05-04",
+          "round": 3,
+          "starting_price_pln": 284000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622117"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|9|213",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "213",
+      "obreb": "9",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Warszawska 29-31",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20213%20ul.%20Warszawska%2029-31%209%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2587,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-24",
+          "round": 1,
+          "starting_price_pln": 1400000,
+          "outcome": "unsold",
+          "area_m2": 2587,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=604662"
+        },
+        {
+          "date": "2025-07-09",
+          "round": 2,
+          "starting_price_pln": 1400000,
+          "outcome": "unsold",
+          "area_m2": 2587,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=610231"
+        },
+        {
+          "date": "2026-04-08",
+          "round": 4,
+          "starting_price_pln": 1200000,
+          "outcome": "sold",
+          "final_price_pln": 1212000,
+          "area_m2": 2587,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=620806"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "213"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. przyrodniczej 14",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "24",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przyrodniczej 14",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Przyrodniczej%2014%2024%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3085,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-16",
+          "round": 1,
+          "starting_price_pln": 600000,
+          "outcome": "unsold",
+          "area_m2": 3085,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=613010"
+        },
+        {
+          "date": "2026-03-30",
+          "round": 3,
+          "starting_price_pln": 600000,
+          "outcome": "unsold",
+          "area_m2": 3085,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=620317"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|24|233",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "233",
+      "obreb": "24",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przyrodniczej 14",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20233%20ul.%20Przyrodniczej%2014%2024%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3085,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-17",
+          "round": 2,
+          "starting_price_pln": 600000,
+          "outcome": "unsold",
+          "area_m2": 3085,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=617008"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "233"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. środkowej 3",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Środkowej 3",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20%C5%9Arodkowej%203%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 530,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-08",
+          "round": 1,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 530,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616651"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. ugaj",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ugaj",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Ugaj%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 607,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=609647"
+        },
+        {
+          "date": "2025-09-16",
+          "round": 2,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 607,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=613011"
+        },
+        {
+          "date": "2025-11-24",
+          "round": 3,
+          "starting_price_pln": 100000,
+          "outcome": "sold",
+          "final_price_pln": 114000,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616152"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|21|347/2",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "347/2",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jana",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%2F2%20ul.%20Jana%2021%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 45,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-24",
+          "round": 1,
+          "starting_price_pln": 8000,
+          "outcome": "sold",
+          "final_price_pln": 8500,
+          "area_m2": 45,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616151"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "347/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|7|260/6",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "260/6",
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Cekanowskiej 4",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20260%2F6%20ul.%20Cekanowskiej%204%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 565,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-24",
+          "round": 2,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 565,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616149"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "260/6"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. warszawskiej 29-31",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "9",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Warszawskiej 29-31",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Warszawskiej%2029-31%209%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2587,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-03",
+          "round": 3,
+          "starting_price_pln": 1200000,
+          "outcome": "unsold",
+          "area_m2": 2587,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=615450"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. anny 15",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Anny 15",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Anny%2015%2021%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 331,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-01-16",
+          "round": 1,
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=601536"
+        },
+        {
+          "date": "2025-11-03",
+          "round": 4,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 331,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=615448"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|8|351",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "351",
+      "obreb": "8",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Niemcewicza 27",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20351%20ul.%20Niemcewicza%2027%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2080,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-15",
+          "round": 1,
+          "starting_price_pln": 680000,
+          "outcome": "sold",
+          "final_price_pln": 686800,
+          "area_m2": 2080,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=614424"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "351"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. długiej 90",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "8",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Długiej 90",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20D%C5%82ugiej%2090%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 909,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-22",
+          "round": 1,
+          "starting_price_pln": 330000,
+          "outcome": "sold",
+          "final_price_pln": 333300,
+          "area_m2": 909,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=613219"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. cekanowskiej 4",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Cekanowskiej 4",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Cekanowskiej%204%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 565,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-15",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 565,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=612916"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|21|684",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "684",
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Anny 15",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20684%20ul.%20Anny%2015%2021%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 331,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-10",
+          "round": 2,
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "area_m2": 331,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=608770"
+        },
+        {
+          "date": "2025-08-11",
+          "round": 3,
+          "starting_price_pln": 165000,
+          "outcome": "unsold",
+          "area_m2": 331,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=611549"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "684"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. jana i jolanty",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jana i Jolanty",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Jana%20i%20Jolanty%2021%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 693,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-23",
+          "round": 4,
+          "starting_price_pln": 72000,
+          "outcome": "unknown",
+          "area_m2": 604,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=609645",
+          "final_price_pln": 72720
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. dębowej 9",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Dębowej 9",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20D%C4%99bowej%209%204%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-06",
+          "round": 1,
+          "starting_price_pln": 45000,
+          "outcome": "unsold",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=593120"
+        },
+        {
+          "date": "2024-10-04",
+          "round": 2,
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=596238"
+        },
+        {
+          "date": "2025-01-16",
+          "round": 3,
+          "starting_price_pln": 35000,
+          "outcome": "sold",
+          "final_price_pln": 50400,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=601534"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. edwarda i ulicy celiny",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "21",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Edwarda i ulicy Celiny",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Edwarda%20i%20ulicy%20Celiny%2021%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-10-23",
+          "round": 1,
+          "starting_price_pln": 174000,
+          "outcome": "sold",
+          "final_price_pln": 198360,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=597343"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. hallera 15",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Hallera 15",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Hallera%2015%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-14",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=593871"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. słowackiego 28/30",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "11",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Słowackiego 28/30",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20S%C5%82owackiego%2028%2F30%2011%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-14",
+          "round": 1,
+          "starting_price_pln": 330000,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=593870"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. głowackiego 13",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Głowackiego 13",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20G%C5%82owackiego%2013%2013%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-14",
+          "round": 1,
+          "starting_price_pln": 300000,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=593869"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. spalskiej 18",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spalskiej 18",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Spalskiej%2018%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-27",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=586822"
+        },
+        {
+          "date": "2024-07-23",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=592716"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. leśnej 6/10",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Leśnej 6/10",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Le%C5%9Bnej%206%2F10%204%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-07-16",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=592478"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. farbiarskiej 49",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Farbiarskiej 49",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Farbiarskiej%2049%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-07-16",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=592477"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. przędzalnianej 13",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "11",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przędzalnianej 13",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Prz%C4%99dzalnianej%2013%2011%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-18",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unknown",
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=585674"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. klonowej 29",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Klonowej 29",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Klonowej%2029%206%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-20",
+          "round": 2,
+          "starting_price_pln": 220000,
+          "outcome": "sold",
+          "final_price_pln": 222200,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=584214"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|11|596",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "596",
+      "obreb": "11",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Prawej 12",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20596%20ul.%20Prawej%2012%2011%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1306,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-27",
+          "round": 1,
+          "starting_price_pln": 320000,
+          "outcome": "sold",
+          "final_price_pln": 323200,
+          "area_m2": 1306,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=578972"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "596"
+        }
+      ]
+    },
+    {
+      "key": "dz|6|356",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "356",
+      "obreb": "6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Klonowej 8-10",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20356%20ul.%20Klonowej%208-10%206%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2650,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-27",
+          "round": 1,
+          "starting_price_pln": 430000,
+          "outcome": "sold",
+          "final_price_pln": 434300,
+          "area_m2": 2650,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=578971"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "356"
+        }
+      ]
+    },
+    {
+      "key": "dz|6|348",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "348",
+      "obreb": "6",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Klonowej 29",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20348%20ul.%20Klonowej%2029%206%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1155,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-27",
+          "round": 1,
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=578927"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "348"
+        }
+      ]
+    },
+    {
+      "key": "dz|7|319",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "319",
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. ul",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20319%20ul.%20ul%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1713,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-27",
+          "round": 1,
+          "starting_price_pln": 430000,
+          "outcome": "unsold",
+          "area_m2": 1713,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=578926"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "319"
+        }
+      ]
+    },
+    {
+      "key": "dz|12|16/1",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "16/1",
+      "obreb": "12",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Fabrycznej 1B",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2016%2F1%20ul.%20Fabrycznej%201B%2012%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 700,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-16",
+          "round": 1,
+          "starting_price_pln": 280000,
+          "outcome": "unknown",
+          "area_m2": 700,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=578443"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "16/1"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. mireckiego nr 6",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mireckiego nr 6",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Mireckiego%20nr%206%2013%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 972,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-08-29",
+          "round": 1,
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "final_price_pln": 353500,
+          "area_m2": 972,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=576569"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|13|153",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "153",
+      "obreb": "13",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mireckiego 94",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20153%20ul.%20Mireckiego%2094%2013%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-04-11",
+          "round": 3,
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "final_price_pln": 130000,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=570001"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "153"
+        }
+      ]
+    },
+    {
+      "key": "dz|8|3",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "3",
+      "obreb": "8",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Warszawskiej 108",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203%20ul.%20Warszawskiej%20108%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-20",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "final_price_pln": 294300,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=560260"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. meca 15",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "12",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Meca 15",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Meca%2015%2012%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 816,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-20",
+          "round": 1,
+          "starting_price_pln": 295200,
+          "outcome": "sold",
+          "final_price_pln": 311000,
+          "area_m2": 816,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=560259"
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

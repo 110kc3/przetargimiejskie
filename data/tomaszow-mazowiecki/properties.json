@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "city": "tomaszow-mazowiecki",
+  "properties": [
+    {
+      "key": "srodkowej|3|",
+      "street": "Środkowa",
+      "street_norm": "srodkowej",
+      "building": "3",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-11",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 227000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=624371",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 530
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 530
+    },
+    {
+      "key": "spalskiej|42|",
+      "street": "Spalskiej",
+      "street_norm": "spalskiej",
+      "building": "42",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=623829",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "farbiarskiej|15|",
+      "street": "Farbiarskiej",
+      "street_norm": "farbiarskiej",
+      "building": "15",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-10-06",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 220000,
+          "outcome": "unknown",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "http://bip.tomaszow.miasta.pl/public/getFile?id=560948",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "jana pawla ii|23-29|",
+      "street": "Jana Pawła II",
+      "street_norm": "jana pawla ii",
+      "building": "23-29",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2022-09-16",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1005000,
+          "source_pdf": "http://bip.tomaszow.miasta.pl/public/getFile?id=560105",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "plac kosciuszki|23|9",
+      "street": "Plac Kościuszki",
+      "street_norm": "plac kosciuszki",
+      "building": "23",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-08-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 35350,
+          "source_pdf": "http://bip.tomaszow.miasta.pl/public/getFile?id=558829",
+          "notes": [],
+          "area_m2": 63.3
+        }
+      ],
+      "area_m2": 63.3
+    }
+  ]
+}
