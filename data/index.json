@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-20T07:22:22.801Z",
+  "generated_at": "2026-07-20T17:45:41.666Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,9 +8,9 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 183,
-      "active_listings": 15,
-      "active_auctions": 15,
+      "unique_properties": 184,
+      "active_listings": 17,
+      "active_auctions": 17,
       "archived_auctions": 255,
       "wykaz_entries": 4,
       "land_plots": 78
@@ -61,8 +61,8 @@
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 52,
-      "active_listings": 94,
-      "active_auctions": 7,
+      "active_listings": 95,
+      "active_auctions": 8,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 47,
+      "active_listings": 89,
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 67
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1114,8 +1114,8 @@
       "authority": "Prezydent Miasta Bolesławiec (Wydział Mienia i Gospodarki Nieruchomościami)",
       "host": "xn--bolesawiec-e0b.pl",
       "unique_properties": 12,
-      "active_listings": 3,
-      "active_auctions": 2,
+      "active_listings": 5,
+      "active_auctions": 3,
       "archived_auctions": 4,
       "wykaz_entries": 13,
       "land_plots": 3
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1413,7 +1413,7 @@
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
       "unique_properties": 52,
-      "active_listings": 225,
+      "active_listings": 210,
       "active_auctions": 15,
       "archived_auctions": 37,
       "wykaz_entries": 0,
@@ -1520,6 +1520,45 @@
       "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 0,
+      "wykaz_entries": 0,
+      "land_plots": 0
+    },
+    {
+      "id": "tomaszow-mazowiecki",
+      "label": "Tomaszów Mazowiecki",
+      "voivodeship": "lodzkie",
+      "authority": "Prezydent Miasta Tomaszowa Mazowieckiego (Wydział Gospodarki Nieruchomościami)",
+      "host": "bip.tomaszow.miasta.pl",
+      "unique_properties": 5,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 2,
+      "wykaz_entries": 0,
+      "land_plots": 39
+    },
+    {
+      "id": "glogow",
+      "label": "Głogów",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Prezydent Miasta Głogowa",
+      "host": "glogow.bip.info.pl",
+      "unique_properties": 27,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 52,
+      "wykaz_entries": 0,
+      "land_plots": 29
+    },
+    {
+      "id": "swidnica",
+      "label": "Świdnica",
+      "voivodeship": "dolnoslaskie",
+      "authority": "Prezydent Miasta Świdnicy (Wydział Mienia Komunalnego / MZN)",
+      "host": "bip.swidnica.nv.pl",
+      "unique_properties": 6,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 6,
       "wykaz_entries": 0,
       "land_plots": 0
     }
