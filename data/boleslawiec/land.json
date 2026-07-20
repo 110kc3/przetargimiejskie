@@ -66,64 +66,33 @@
       ]
     },
     {
-      "key": "dz|0008|478",
+      "key": "dz|0014|400",
       "kind": "grunt",
       "city": "boleslawiec",
-      "dzialka_nr": "478",
-      "obreb": "0008",
+      "dzialka_nr": "400",
+      "obreb": "0014",
       "street": null,
       "building": null,
-      "address_raw": "ul. Plac Piastowski",
-      "dzialka_id": "020101_1.0008.478",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0008.478",
-      "area_m2": 703,
+      "address_raw": "ul. Bronisława Kosiby",
+      "dzialka_id": "020101_1.0014.400",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0014.400",
+      "area_m2": 3953,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-06-25",
-          "round": 1,
-          "starting_price_pln": 499000,
+          "date": "2026-07-09",
+          "round": 3,
+          "starting_price_pln": 890000,
           "outcome": "unsold",
-          "area_m2": 703
+          "area_m2": 3953
         }
       ],
       "parcels": [
         {
-          "nr": "478",
-          "dzialka_id": "020101_1.0008.478",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0008.478"
-        }
-      ]
-    },
-    {
-      "key": "dz|0001|23/1",
-      "kind": "grunt",
-      "city": "boleslawiec",
-      "dzialka_nr": "23/1",
-      "obreb": "0001",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Tadeusza Kościuszki",
-      "dzialka_id": "020101_1.0001.23/1",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1",
-      "area_m2": 5540,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-23",
-          "round": 1,
-          "starting_price_pln": 570000,
-          "outcome": "unsold",
-          "area_m2": 5540
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "23/1",
-          "dzialka_id": "020101_1.0001.23/1",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1"
+          "nr": "400",
+          "dzialka_id": "020101_1.0014.400",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0014.400"
         }
       ]
     }
