@@ -478,8 +478,15 @@
       "status": "przetarg wkrótce",
       "listings": [
         {
-          "date": null,
+          "date": "2026-09-22",
           "round": 1,
+          "starting_price_pln": 925000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-11682-i-11702-obreb-sosnica-ul-zeromskiego"
+        },
+        {
+          "date": null,
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "active",
           "area_m2": 2091,
