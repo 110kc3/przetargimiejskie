@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-19T07:10:17.190Z",
+  "generated_at": "2026-07-20T07:22:22.801Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,9 +8,9 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 182,
-      "active_listings": 14,
-      "active_auctions": 14,
+      "unique_properties": 183,
+      "active_listings": 15,
+      "active_auctions": 15,
       "archived_auctions": 255,
       "wykaz_entries": 4,
       "land_plots": 78
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 89,
+      "active_listings": 47,
       "active_auctions": 5,
       "archived_auctions": 99,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 67
     },
     {
       "id": "trzebinia",
@@ -541,9 +541,9 @@
       "voivodeship": "mazowieckie",
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
-      "unique_properties": 14,
-      "active_listings": 7,
-      "active_auctions": 13,
+      "unique_properties": 15,
+      "active_listings": 8,
+      "active_auctions": 14,
       "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1118,7 +1118,7 @@
       "active_auctions": 2,
       "archived_auctions": 4,
       "wykaz_entries": 13,
-      "land_plots": 4
+      "land_plots": 3
     },
     {
       "id": "wolow",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
