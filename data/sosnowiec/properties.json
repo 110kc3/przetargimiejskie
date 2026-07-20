@@ -25,6 +25,44 @@
       "area_m2": 61.75
     },
     {
+      "key": "szczecinskiej|11|",
+      "street": "Szczecińska",
+      "street_norm": "szczecinskiej",
+      "building": "11",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-06-19",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2505000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,563864,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-nieruchomosci-zabudowanej-poloz.html",
+          "notes": [],
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562961,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-szc.html",
+          "land_area_m2": 709.58
+        },
+        {
+          "date": "2026-10-09",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2505000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564115,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-szc.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 709.58
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 709.58
+    },
+    {
       "key": "zaglebiowskiej|70|17",
       "street": "Zagłębiowskiej",
       "street_norm": "zaglebiowskiej",
@@ -190,32 +228,6 @@
         }
       ],
       "area_m2": 32.94
-    },
-    {
-      "key": "szczecinskiej|11|",
-      "street": "Szczecińska",
-      "street_norm": "szczecinskiej",
-      "building": "11",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-06-19",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 2505000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,563864,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-prawa-wlasnosci-nieruchomosci-zabudowanej-poloz.html",
-          "notes": [],
-          "area_m2": null,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,562961,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-szc.html",
-          "land_area_m2": 709.58
-        }
-      ],
-      "area_m2": null,
-      "land_area_m2": 709.58
     },
     {
       "key": "kaliskiej|14A|2",

@@ -745,6 +745,27 @@
     },
     {
       "kind": "zabudowana",
+      "address_raw": "Szczecińskiej 11",
+      "address": {
+        "street": "Szczecińskiej",
+        "street_norm": "szczecinskiej",
+        "building": "11",
+        "apt": null,
+        "key": "szczecinskiej|11|",
+        "warning": null
+      },
+      "auction_date": "2026-10-09",
+      "published_date": "2026-07-20",
+      "round": 1,
+      "area_m2": 709.58,
+      "starting_price_pln": 2505000,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564115,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-szc.html",
+      "dzialka_nr": "7212/1",
+      "obreb": "0009 Sosnowiec",
+      "plot_area_m2": 2717
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "Swobodnej 8",
       "address": {
         "street": "Swobodnej",
