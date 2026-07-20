@@ -256,21 +256,255 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
+      "address_raw": "ul. Krzycka 3a/1",
       "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
         "warning": null
       },
-      "area_m2": 79.23,
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wesoła 12/10",
+      "address": {
+        "street": "Wesoła",
+        "street_norm": "wesola",
+        "building": "12",
+        "apt": "10",
+        "key": "wesola|12|10",
+        "warning": null
+      },
+      "area_m2": 57.9,
+      "round": 1,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/5",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "5",
+        "key": "rynek|14|5",
+        "warning": null
+      },
+      "area_m2": 70.99,
+      "round": 1,
+      "starting_price_pln": 950000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "6",
+        "key": "rynek|14|6",
+        "warning": null
+      },
+      "area_m2": 29.92,
+      "round": 1,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Michała Wrocławczyka 40/6",
+      "address": {
+        "street": "Michała Wrocławczyka",
+        "street_norm": "michala wroclawczyka",
+        "building": "40",
+        "apt": "6",
+        "key": "michala wroclawczyka|40|6",
+        "warning": null
+      },
+      "area_m2": 132.22,
+      "round": 2,
+      "starting_price_pln": 1166000,
+      "auction_date": "2026-08-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 198/23",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "198",
+        "apt": "23",
+        "key": "powstancow slaskich|198|23",
+        "warning": null
+      },
+      "area_m2": 44,
+      "round": 1,
+      "starting_price_pln": 480000,
+      "auction_date": "2026-08-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Partyzantów 65/1",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "65",
+        "apt": "1",
+        "key": "partyzantow|65|1",
+        "warning": null
+      },
+      "area_m2": 64.3,
       "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
+      "starting_price_pln": 603000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Okrzei 30/4",
+      "address": {
+        "street": "Stefana Okrzei",
+        "street_norm": "stefana okrzei",
+        "building": "30",
+        "apt": "4",
+        "key": "stefana okrzei|30|4",
+        "warning": null
+      },
+      "area_m2": 50.74,
+      "round": 1,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
     },
     {
       "kind": "mieszkalny",
@@ -526,21 +760,255 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
+      "address_raw": "ul. Krzycka 3a/1",
       "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
         "warning": null
       },
-      "area_m2": 79.23,
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wesoła 12/10",
+      "address": {
+        "street": "Wesoła",
+        "street_norm": "wesola",
+        "building": "12",
+        "apt": "10",
+        "key": "wesola|12|10",
+        "warning": null
+      },
+      "area_m2": 57.9,
+      "round": 1,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/5",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "5",
+        "key": "rynek|14|5",
+        "warning": null
+      },
+      "area_m2": 70.99,
+      "round": 1,
+      "starting_price_pln": 950000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "6",
+        "key": "rynek|14|6",
+        "warning": null
+      },
+      "area_m2": 29.92,
+      "round": 1,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Michała Wrocławczyka 40/6",
+      "address": {
+        "street": "Michała Wrocławczyka",
+        "street_norm": "michala wroclawczyka",
+        "building": "40",
+        "apt": "6",
+        "key": "michala wroclawczyka|40|6",
+        "warning": null
+      },
+      "area_m2": 132.22,
+      "round": 2,
+      "starting_price_pln": 1166000,
+      "auction_date": "2026-08-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 198/23",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "198",
+        "apt": "23",
+        "key": "powstancow slaskich|198|23",
+        "warning": null
+      },
+      "area_m2": 44,
+      "round": 1,
+      "starting_price_pln": 480000,
+      "auction_date": "2026-08-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Partyzantów 65/1",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "65",
+        "apt": "1",
+        "key": "partyzantow|65|1",
+        "warning": null
+      },
+      "area_m2": 64.3,
       "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
+      "starting_price_pln": 603000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Okrzei 30/4",
+      "address": {
+        "street": "Stefana Okrzei",
+        "street_norm": "stefana okrzei",
+        "building": "30",
+        "apt": "4",
+        "key": "stefana okrzei|30|4",
+        "warning": null
+      },
+      "area_m2": 50.74,
+      "round": 1,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
     },
     {
       "kind": "mieszkalny",
@@ -796,21 +1264,255 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
+      "address_raw": "ul. Krzycka 3a/1",
       "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
         "warning": null
       },
-      "area_m2": 79.23,
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wesoła 12/10",
+      "address": {
+        "street": "Wesoła",
+        "street_norm": "wesola",
+        "building": "12",
+        "apt": "10",
+        "key": "wesola|12|10",
+        "warning": null
+      },
+      "area_m2": 57.9,
+      "round": 1,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/5",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "5",
+        "key": "rynek|14|5",
+        "warning": null
+      },
+      "area_m2": 70.99,
+      "round": 1,
+      "starting_price_pln": 950000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "6",
+        "key": "rynek|14|6",
+        "warning": null
+      },
+      "area_m2": 29.92,
+      "round": 1,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Michała Wrocławczyka 40/6",
+      "address": {
+        "street": "Michała Wrocławczyka",
+        "street_norm": "michala wroclawczyka",
+        "building": "40",
+        "apt": "6",
+        "key": "michala wroclawczyka|40|6",
+        "warning": null
+      },
+      "area_m2": 132.22,
+      "round": 2,
+      "starting_price_pln": 1166000,
+      "auction_date": "2026-08-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 198/23",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "198",
+        "apt": "23",
+        "key": "powstancow slaskich|198|23",
+        "warning": null
+      },
+      "area_m2": 44,
+      "round": 1,
+      "starting_price_pln": 480000,
+      "auction_date": "2026-08-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Partyzantów 65/1",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "65",
+        "apt": "1",
+        "key": "partyzantow|65|1",
+        "warning": null
+      },
+      "area_m2": 64.3,
       "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
+      "starting_price_pln": 603000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Okrzei 30/4",
+      "address": {
+        "street": "Stefana Okrzei",
+        "street_norm": "stefana okrzei",
+        "building": "30",
+        "apt": "4",
+        "key": "stefana okrzei|30|4",
+        "warning": null
+      },
+      "area_m2": 50.74,
+      "round": 1,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
     },
     {
       "kind": "mieszkalny",
@@ -1066,21 +1768,255 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
+      "address_raw": "ul. Krzycka 3a/1",
       "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
         "warning": null
       },
-      "area_m2": 79.23,
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wesoła 12/10",
+      "address": {
+        "street": "Wesoła",
+        "street_norm": "wesola",
+        "building": "12",
+        "apt": "10",
+        "key": "wesola|12|10",
+        "warning": null
+      },
+      "area_m2": 57.9,
+      "round": 1,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/5",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "5",
+        "key": "rynek|14|5",
+        "warning": null
+      },
+      "area_m2": 70.99,
+      "round": 1,
+      "starting_price_pln": 950000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "6",
+        "key": "rynek|14|6",
+        "warning": null
+      },
+      "area_m2": 29.92,
+      "round": 1,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Michała Wrocławczyka 40/6",
+      "address": {
+        "street": "Michała Wrocławczyka",
+        "street_norm": "michala wroclawczyka",
+        "building": "40",
+        "apt": "6",
+        "key": "michala wroclawczyka|40|6",
+        "warning": null
+      },
+      "area_m2": 132.22,
+      "round": 2,
+      "starting_price_pln": 1166000,
+      "auction_date": "2026-08-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 198/23",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "198",
+        "apt": "23",
+        "key": "powstancow slaskich|198|23",
+        "warning": null
+      },
+      "area_m2": 44,
+      "round": 1,
+      "starting_price_pln": 480000,
+      "auction_date": "2026-08-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Partyzantów 65/1",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "65",
+        "apt": "1",
+        "key": "partyzantow|65|1",
+        "warning": null
+      },
+      "area_m2": 64.3,
       "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
+      "starting_price_pln": 603000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Okrzei 30/4",
+      "address": {
+        "street": "Stefana Okrzei",
+        "street_norm": "stefana okrzei",
+        "building": "30",
+        "apt": "4",
+        "key": "stefana okrzei|30|4",
+        "warning": null
+      },
+      "area_m2": 50.74,
+      "round": 1,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
     },
     {
       "kind": "mieszkalny",
@@ -1336,21 +2272,255 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
+      "address_raw": "ul. Krzycka 3a/1",
       "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
         "warning": null
       },
-      "area_m2": 79.23,
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wesoła 12/10",
+      "address": {
+        "street": "Wesoła",
+        "street_norm": "wesola",
+        "building": "12",
+        "apt": "10",
+        "key": "wesola|12|10",
+        "warning": null
+      },
+      "area_m2": 57.9,
+      "round": 1,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/5",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "5",
+        "key": "rynek|14|5",
+        "warning": null
+      },
+      "area_m2": 70.99,
+      "round": 1,
+      "starting_price_pln": 950000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "6",
+        "key": "rynek|14|6",
+        "warning": null
+      },
+      "area_m2": 29.92,
+      "round": 1,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Michała Wrocławczyka 40/6",
+      "address": {
+        "street": "Michała Wrocławczyka",
+        "street_norm": "michala wroclawczyka",
+        "building": "40",
+        "apt": "6",
+        "key": "michala wroclawczyka|40|6",
+        "warning": null
+      },
+      "area_m2": 132.22,
+      "round": 2,
+      "starting_price_pln": 1166000,
+      "auction_date": "2026-08-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 198/23",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "198",
+        "apt": "23",
+        "key": "powstancow slaskich|198|23",
+        "warning": null
+      },
+      "area_m2": 44,
+      "round": 1,
+      "starting_price_pln": 480000,
+      "auction_date": "2026-08-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Partyzantów 65/1",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "65",
+        "apt": "1",
+        "key": "partyzantow|65|1",
+        "warning": null
+      },
+      "area_m2": 64.3,
       "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
+      "starting_price_pln": 603000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Okrzei 30/4",
+      "address": {
+        "street": "Stefana Okrzei",
+        "street_norm": "stefana okrzei",
+        "building": "30",
+        "apt": "4",
+        "key": "stefana okrzei|30|4",
+        "warning": null
+      },
+      "area_m2": 50.74,
+      "round": 1,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
     },
     {
       "kind": "mieszkalny",
@@ -1606,21 +2776,255 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
+      "address_raw": "ul. Krzycka 3a/1",
       "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
         "warning": null
       },
-      "area_m2": 79.23,
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wesoła 12/10",
+      "address": {
+        "street": "Wesoła",
+        "street_norm": "wesola",
+        "building": "12",
+        "apt": "10",
+        "key": "wesola|12|10",
+        "warning": null
+      },
+      "area_m2": 57.9,
+      "round": 1,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/5",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "5",
+        "key": "rynek|14|5",
+        "warning": null
+      },
+      "area_m2": 70.99,
+      "round": 1,
+      "starting_price_pln": 950000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 14/6",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "14",
+        "apt": "6",
+        "key": "rynek|14|6",
+        "warning": null
+      },
+      "area_m2": 29.92,
+      "round": 1,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-08-31",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Michała Wrocławczyka 40/6",
+      "address": {
+        "street": "Michała Wrocławczyka",
+        "street_norm": "michala wroclawczyka",
+        "building": "40",
+        "apt": "6",
+        "key": "michala wroclawczyka|40|6",
+        "warning": null
+      },
+      "area_m2": 132.22,
+      "round": 2,
+      "starting_price_pln": 1166000,
+      "auction_date": "2026-08-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 198/23",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "198",
+        "apt": "23",
+        "key": "powstancow slaskich|198|23",
+        "warning": null
+      },
+      "area_m2": 44,
+      "round": 1,
+      "starting_price_pln": 480000,
+      "auction_date": "2026-08-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Partyzantów 65/1",
+      "address": {
+        "street": "Partyzantów",
+        "street_norm": "partyzantow",
+        "building": "65",
+        "apt": "1",
+        "key": "partyzantow|65|1",
+        "warning": null
+      },
+      "area_m2": 64.3,
       "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
+      "starting_price_pln": 603000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stefana Okrzei 30/4",
+      "address": {
+        "street": "Stefana Okrzei",
+        "street_norm": "stefana okrzei",
+        "building": "30",
+        "apt": "4",
+        "key": "stefana okrzei|30|4",
+        "warning": null
+      },
+      "area_m2": 50.74,
+      "round": 1,
+      "starting_price_pln": 490000,
+      "auction_date": "2026-07-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
     },
     {
       "kind": "mieszkalny",
@@ -1876,24 +3280,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Krzycka 3a/1",
       "address": {
         "street": "Krzycka",
@@ -2146,24 +3532,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Krzycka 3a/1",
       "address": {
         "street": "Krzycka",
@@ -2245,1626 +3613,6 @@
         "key": "plac gen jozefa bema 4 lokal|8-8A|",
         "warning": null
       },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/5",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "5",
-        "key": "rynek|14|5",
-        "warning": null
-      },
-      "area_m2": 70.99,
-      "round": 1,
-      "starting_price_pln": 950000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/6",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "6",
-        "key": "rynek|14|6",
-        "warning": null
-      },
-      "area_m2": 29.92,
-      "round": 1,
-      "starting_price_pln": 450000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Michała Wrocławczyka 40/6",
-      "address": {
-        "street": "Michała Wrocławczyka",
-        "street_norm": "michala wroclawczyka",
-        "building": "40",
-        "apt": "6",
-        "key": "michala wroclawczyka|40|6",
-        "warning": null
-      },
-      "area_m2": 132.22,
-      "round": 2,
-      "starting_price_pln": 1166000,
-      "auction_date": "2026-08-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 198/23",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "198",
-        "apt": "23",
-        "key": "powstancow slaskich|198|23",
-        "warning": null
-      },
-      "area_m2": 44,
-      "round": 1,
-      "starting_price_pln": 480000,
-      "auction_date": "2026-08-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Partyzantów 65/1",
-      "address": {
-        "street": "Partyzantów",
-        "street_norm": "partyzantow",
-        "building": "65",
-        "apt": "1",
-        "key": "partyzantow|65|1",
-        "warning": null
-      },
-      "area_m2": 64.3,
-      "round": 3,
-      "starting_price_pln": 603000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stefana Okrzei 30/4",
-      "address": {
-        "street": "Stefana Okrzei",
-        "street_norm": "stefana okrzei",
-        "building": "30",
-        "apt": "4",
-        "key": "stefana okrzei|30|4",
-        "warning": null
-      },
-      "area_m2": 50.74,
-      "round": 1,
-      "starting_price_pln": 490000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/5",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "5",
-        "key": "rynek|14|5",
-        "warning": null
-      },
-      "area_m2": 70.99,
-      "round": 1,
-      "starting_price_pln": 950000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/6",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "6",
-        "key": "rynek|14|6",
-        "warning": null
-      },
-      "area_m2": 29.92,
-      "round": 1,
-      "starting_price_pln": 450000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Michała Wrocławczyka 40/6",
-      "address": {
-        "street": "Michała Wrocławczyka",
-        "street_norm": "michala wroclawczyka",
-        "building": "40",
-        "apt": "6",
-        "key": "michala wroclawczyka|40|6",
-        "warning": null
-      },
-      "area_m2": 132.22,
-      "round": 2,
-      "starting_price_pln": 1166000,
-      "auction_date": "2026-08-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 198/23",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "198",
-        "apt": "23",
-        "key": "powstancow slaskich|198|23",
-        "warning": null
-      },
-      "area_m2": 44,
-      "round": 1,
-      "starting_price_pln": 480000,
-      "auction_date": "2026-08-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Partyzantów 65/1",
-      "address": {
-        "street": "Partyzantów",
-        "street_norm": "partyzantow",
-        "building": "65",
-        "apt": "1",
-        "key": "partyzantow|65|1",
-        "warning": null
-      },
-      "area_m2": 64.3,
-      "round": 3,
-      "starting_price_pln": 603000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stefana Okrzei 30/4",
-      "address": {
-        "street": "Stefana Okrzei",
-        "street_norm": "stefana okrzei",
-        "building": "30",
-        "apt": "4",
-        "key": "stefana okrzei|30|4",
-        "warning": null
-      },
-      "area_m2": 50.74,
-      "round": 1,
-      "starting_price_pln": 490000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/5",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "5",
-        "key": "rynek|14|5",
-        "warning": null
-      },
-      "area_m2": 70.99,
-      "round": 1,
-      "starting_price_pln": 950000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/6",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "6",
-        "key": "rynek|14|6",
-        "warning": null
-      },
-      "area_m2": 29.92,
-      "round": 1,
-      "starting_price_pln": 450000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Michała Wrocławczyka 40/6",
-      "address": {
-        "street": "Michała Wrocławczyka",
-        "street_norm": "michala wroclawczyka",
-        "building": "40",
-        "apt": "6",
-        "key": "michala wroclawczyka|40|6",
-        "warning": null
-      },
-      "area_m2": 132.22,
-      "round": 2,
-      "starting_price_pln": 1166000,
-      "auction_date": "2026-08-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 198/23",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "198",
-        "apt": "23",
-        "key": "powstancow slaskich|198|23",
-        "warning": null
-      },
-      "area_m2": 44,
-      "round": 1,
-      "starting_price_pln": 480000,
-      "auction_date": "2026-08-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Partyzantów 65/1",
-      "address": {
-        "street": "Partyzantów",
-        "street_norm": "partyzantow",
-        "building": "65",
-        "apt": "1",
-        "key": "partyzantow|65|1",
-        "warning": null
-      },
-      "area_m2": 64.3,
-      "round": 3,
-      "starting_price_pln": 603000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stefana Okrzei 30/4",
-      "address": {
-        "street": "Stefana Okrzei",
-        "street_norm": "stefana okrzei",
-        "building": "30",
-        "apt": "4",
-        "key": "stefana okrzei|30|4",
-        "warning": null
-      },
-      "area_m2": 50.74,
-      "round": 1,
-      "starting_price_pln": 490000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/5",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "5",
-        "key": "rynek|14|5",
-        "warning": null
-      },
-      "area_m2": 70.99,
-      "round": 1,
-      "starting_price_pln": 950000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/6",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "6",
-        "key": "rynek|14|6",
-        "warning": null
-      },
-      "area_m2": 29.92,
-      "round": 1,
-      "starting_price_pln": 450000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Michała Wrocławczyka 40/6",
-      "address": {
-        "street": "Michała Wrocławczyka",
-        "street_norm": "michala wroclawczyka",
-        "building": "40",
-        "apt": "6",
-        "key": "michala wroclawczyka|40|6",
-        "warning": null
-      },
-      "area_m2": 132.22,
-      "round": 2,
-      "starting_price_pln": 1166000,
-      "auction_date": "2026-08-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 198/23",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "198",
-        "apt": "23",
-        "key": "powstancow slaskich|198|23",
-        "warning": null
-      },
-      "area_m2": 44,
-      "round": 1,
-      "starting_price_pln": 480000,
-      "auction_date": "2026-08-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Partyzantów 65/1",
-      "address": {
-        "street": "Partyzantów",
-        "street_norm": "partyzantow",
-        "building": "65",
-        "apt": "1",
-        "key": "partyzantow|65|1",
-        "warning": null
-      },
-      "area_m2": 64.3,
-      "round": 3,
-      "starting_price_pln": 603000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stefana Okrzei 30/4",
-      "address": {
-        "street": "Stefana Okrzei",
-        "street_norm": "stefana okrzei",
-        "building": "30",
-        "apt": "4",
-        "key": "stefana okrzei|30|4",
-        "warning": null
-      },
-      "area_m2": 50.74,
-      "round": 1,
-      "starting_price_pln": 490000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/5",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "5",
-        "key": "rynek|14|5",
-        "warning": null
-      },
-      "area_m2": 70.99,
-      "round": 1,
-      "starting_price_pln": 950000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/6",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "6",
-        "key": "rynek|14|6",
-        "warning": null
-      },
-      "area_m2": 29.92,
-      "round": 1,
-      "starting_price_pln": 450000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Michała Wrocławczyka 40/6",
-      "address": {
-        "street": "Michała Wrocławczyka",
-        "street_norm": "michala wroclawczyka",
-        "building": "40",
-        "apt": "6",
-        "key": "michala wroclawczyka|40|6",
-        "warning": null
-      },
-      "area_m2": 132.22,
-      "round": 2,
-      "starting_price_pln": 1166000,
-      "auction_date": "2026-08-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 198/23",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "198",
-        "apt": "23",
-        "key": "powstancow slaskich|198|23",
-        "warning": null
-      },
-      "area_m2": 44,
-      "round": 1,
-      "starting_price_pln": 480000,
-      "auction_date": "2026-08-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Partyzantów 65/1",
-      "address": {
-        "street": "Partyzantów",
-        "street_norm": "partyzantow",
-        "building": "65",
-        "apt": "1",
-        "key": "partyzantow|65|1",
-        "warning": null
-      },
-      "area_m2": 64.3,
-      "round": 3,
-      "starting_price_pln": 603000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stefana Okrzei 30/4",
-      "address": {
-        "street": "Stefana Okrzei",
-        "street_norm": "stefana okrzei",
-        "building": "30",
-        "apt": "4",
-        "key": "stefana okrzei|30|4",
-        "warning": null
-      },
-      "area_m2": 50.74,
-      "round": 1,
-      "starting_price_pln": 490000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": 79.23,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/5",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "5",
-        "key": "rynek|14|5",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 950000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90163/rynek-14-lokal-5"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Rynek 14/6",
-      "address": {
-        "street": "Rynek",
-        "street_norm": "rynek",
-        "building": "14",
-        "apt": "6",
-        "key": "rynek|14|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 450000,
-      "auction_date": "2026-08-31",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90173/rynek-14-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Michała Wrocławczyka 40/6",
-      "address": {
-        "street": "Michała Wrocławczyka",
-        "street_norm": "michala wroclawczyka",
-        "building": "40",
-        "apt": "6",
-        "key": "michala wroclawczyka|40|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 1166000,
-      "auction_date": "2026-08-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 198/23",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "198",
-        "apt": "23",
-        "key": "powstancow slaskich|198|23",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 480000,
-      "auction_date": "2026-08-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Partyzantów 65/1",
-      "address": {
-        "street": "Partyzantów",
-        "street_norm": "partyzantow",
-        "building": "65",
-        "apt": "1",
-        "key": "partyzantow|65|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 603000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89785/ulica-partyzantow-65-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stefana Okrzei 30/4",
-      "address": {
-        "street": "Stefana Okrzei",
-        "street_norm": "stefana okrzei",
-        "building": "30",
-        "apt": "4",
-        "key": "stefana okrzei|30|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 490000,
-      "auction_date": "2026-07-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
       "area_m2": null,
       "round": 1,
       "starting_price_pln": 1091000,
@@ -4033,24 +3781,6 @@
       "auction_date": "2026-07-29",
       "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4",
       "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89786/ulica-stefana-okrzei-30-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 23/6",
-      "address": {
-        "street": "Miernicza",
-        "street_norm": "miernicza",
-        "building": "23",
-        "apt": "6",
-        "key": "miernicza|23|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 455000,
-      "auction_date": "2026-07-20",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89314/ulica-miernicza-23-lokal-6"
     }
   ],
   "wykaz": []
