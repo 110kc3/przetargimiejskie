@@ -3,6 +3,29 @@
   "city": "warszawa",
   "properties": [
     {
+      "key": "pajdaka|7|136",
+      "street": "Pajdaka",
+      "street_norm": "pajdaka",
+      "building": "7",
+      "apt": "136",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 510000,
+          "outcome": "active",
+          "area_m2": 2.4,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/157267/260363",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ],
+      "area_m2": 2.4
+    },
+    {
       "key": "marymoncka|125|10A",
       "street": "Marymoncka",
       "street_norm": "marymoncka",

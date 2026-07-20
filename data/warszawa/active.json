@@ -4,6 +4,26 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Pajdaka 7/136",
+      "address": {
+        "street": "Pajdaka",
+        "street_norm": "pajdaka",
+        "building": "7",
+        "apt": "136",
+        "key": "pajdaka|7|136",
+        "warning": null
+      },
+      "auction_date": "2026-10-02",
+      "published_date": "2026-07-20",
+      "round": 1,
+      "area_m2": 2.4,
+      "starting_price_pln": 510000,
+      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/157267/260363",
+      "eto_nr": "14296/2026",
+      "source": "amw"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Marymoncka 125/10A",
       "address": {
         "street": "Marymoncka",
