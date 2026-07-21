@@ -3,6 +3,39 @@
   "city": "bochnia",
   "plots": [
     {
+      "key": "dz|bochnia-4|1747/5",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1747/5",
+      "obreb": "Bochnia-4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Karola Kuczkiewicza",
+      "dzialka_id": "120101_1.0004.1747/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1747%2F5",
+      "area_m2": 314,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-24",
+          "round": 1,
+          "starting_price_pln": 55000,
+          "outcome": "active",
+          "area_m2": 314,
+          "detail_url": "https://bochnia.eu/przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-karola-kuczkiewicza/",
+          "source_url": "https://bochnia.eu/przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-karola-kuczkiewicza/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1747/5",
+          "dzialka_id": "120101_1.0004.1747/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1747%2F5"
+        }
+      ]
+    },
+    {
       "key": "dz|bochnia-1|1601/1",
       "kind": "grunt",
       "city": "bochnia",
