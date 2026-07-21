@@ -42,68 +42,6 @@
       ]
     },
     {
-      "key": "dz|szczytkowice|285",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": "285",
-      "obreb": "Szczytkowice",
-      "street": null,
-      "building": null,
-      "address_raw": "Szczytkowice",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1636,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-17",
-          "round": 2,
-          "starting_price_pln": 158700,
-          "outcome": "archived",
-          "area_m2": 1636,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3382/przetarg-ggnp132026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/6927"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "285",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|trzebnica|881",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": "881",
-      "obreb": "Trzebnica",
-      "street": null,
-      "building": null,
-      "address_raw": "Trzebnica",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-03",
-          "round": 1,
-          "starting_price_pln": 364200,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7087"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "881",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "addr|szczytkowice",
       "kind": "grunt",
       "city": "trzebnica",
@@ -189,9 +127,47 @@
           "outcome": "archived",
           "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3245/przetarg-ggn-p-10-2026",
           "source_url": "https://bip.trzebnica.pl/attachments/download/6586"
+        },
+        {
+          "date": "2026-07-17",
+          "round": 2,
+          "starting_price_pln": 158700,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3382/przetarg-ggnp132026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6927"
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|trzebnica|881",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "881",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": "Trzebnica",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 1,
+          "starting_price_pln": 364200,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7087"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "881",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
     },
     {
       "key": "addr|kobylice",
