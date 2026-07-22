@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T07:05:10.574Z",
+  "generated_at": "2026-07-22T09:36:18.328Z",
   "cities": [
     {
       "id": "gliwice",
@@ -78,7 +78,7 @@
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 3
     },
     {
       "id": "bielsko",
@@ -788,11 +788,11 @@
       "voivodeship": "wielkopolskie",
       "authority": "Urząd Miejski w Chodzieży",
       "host": "bip.chodziez.pl",
-      "unique_properties": 3,
+      "unique_properties": 4,
       "active_listings": 3,
       "active_auctions": 3,
       "archived_auctions": 0,
-      "wykaz_entries": 0,
+      "wykaz_entries": 1,
       "land_plots": 1
     },
     {
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 33
+      "land_plots": 50
     },
     {
       "id": "jarocin",
@@ -1535,6 +1535,19 @@
       "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 39
+    },
+    {
+      "id": "golub-dobrzyn",
+      "label": "Golub-Dobrzyń",
+      "voivodeship": "kujawsko-pomorskie",
+      "authority": "Starostwo Powiatowe w Golubiu-Dobrzyniu / Gmina Miasto Golub-Dobrzyń",
+      "host": "bip.golub-dobrzyn.com.pl",
+      "unique_properties": 2,
+      "active_listings": 5,
+      "active_auctions": 1,
+      "archived_auctions": 4,
+      "wykaz_entries": 0,
+      "land_plots": 10
     },
     {
       "id": "glogow",
