@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T07:09:24.350Z",
+  "generated_at": "2026-07-22T07:05:10.574Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,11 +8,11 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 184,
+      "unique_properties": 188,
       "active_listings": 17,
       "active_auctions": 17,
       "archived_auctions": 255,
-      "wykaz_entries": 4,
+      "wykaz_entries": 8,
       "land_plots": 78
     },
     {
@@ -100,9 +100,9 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 70,
-      "active_auctions": 14,
-      "archived_auctions": 55,
+      "active_listings": 68,
+      "active_auctions": 12,
+      "archived_auctions": 57,
       "wykaz_entries": 0,
       "land_plots": 49
     },
@@ -140,8 +140,8 @@
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
       "active_listings": 89,
-      "active_auctions": 5,
-      "archived_auctions": 99,
+      "active_auctions": 4,
+      "archived_auctions": 100,
       "wykaz_entries": 0,
       "land_plots": 112
     },
@@ -192,8 +192,8 @@
       "host": "bip.um.opole.pl",
       "unique_properties": 45,
       "active_listings": 93,
-      "active_auctions": 10,
-      "archived_auctions": 83,
+      "active_auctions": 9,
+      "archived_auctions": 84,
       "wykaz_entries": 0,
       "land_plots": 24
     },
@@ -229,9 +229,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)",
       "host": "um.bip.legnica.eu",
-      "unique_properties": 8,
-      "active_listings": 5,
-      "active_auctions": 2,
+      "unique_properties": 11,
+      "active_listings": 6,
+      "active_auctions": 5,
       "archived_auctions": 6,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -282,7 +282,7 @@
       "authority": "Gmina Miejska Pabianice",
       "host": "bip.um.pabianice.pl",
       "unique_properties": 13,
-      "active_listings": 27,
+      "active_listings": 25,
       "active_auctions": 2,
       "archived_auctions": 25,
       "wykaz_entries": 0,
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 11
     },
     {
       "id": "miedzyrzecz",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1127,7 +1127,7 @@
       "authority": "Urząd Miejski w Wołowie (Burmistrz Gminy Wołów)",
       "host": "wolow.pl",
       "unique_properties": 21,
-      "active_listings": 2,
+      "active_listings": 3,
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 33
     },
     {
       "id": "jarocin",
@@ -1414,8 +1414,8 @@
       "host": "bip.um.wroc.pl",
       "unique_properties": 52,
       "active_listings": 210,
-      "active_auctions": 15,
-      "archived_auctions": 37,
+      "active_auctions": 14,
+      "archived_auctions": 38,
       "wykaz_entries": 0,
       "land_plots": 0
     },
