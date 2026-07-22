@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "city": "dzierzoniow",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Krasickiego 47/17",
+      "address": {
+        "street": "Krasickiego",
+        "street_norm": "krasickiego",
+        "building": "47",
+        "apt": "17",
+        "key": "krasickiego|47|17",
+        "warning": null
+      },
+      "area_m2": 31.74,
+      "starting_price_pln": 115000,
+      "auction_date": "2026-09-09",
+      "round": 4,
+      "detail_url": "https://bip.um.dzierzoniow.pl/a,29322,lokal-mieszkalny-nr-17-w-budynku-przy-ul-ignacego-krasickiego-47-w-dzierzoniowie.html",
+      "wadium_deadline": null
+    }
+  ],
+  "wykaz": []
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "city": "golub-dobrzyn",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PTTK 5/3",
+      "address": {
+        "street": "PTTK",
+        "street_norm": "pttk",
+        "building": "5",
+        "apt": "3",
+        "key": "pttk|5|3",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 81000,
+      "auction_date": "2026-04-30",
+      "round": 3,
+      "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8268",
+      "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8268"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PTTK 5/3",
+      "address": {
+        "street": "PTTK",
+        "street_norm": "pttk",
+        "building": "5",
+        "apt": "3",
+        "key": "pttk|5|3",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 81000,
+      "auction_date": "2026-01-15",
+      "round": 2,
+      "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8109",
+      "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8109"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PTTK 5/3",
+      "address": {
+        "street": "PTTK",
+        "street_norm": "pttk",
+        "building": "5",
+        "apt": "3",
+        "key": "pttk|5|3",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 81000,
+      "auction_date": "2025-10-30",
+      "round": 1,
+      "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7968",
+      "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7968"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PTTK 5",
+      "address": {
+        "street": "PTTK",
+        "street_norm": "pttk",
+        "building": "5",
+        "apt": null,
+        "key": "pttk|5|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2025-08-07",
+      "round": 2,
+      "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7878",
+      "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7878"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PTTK 5",
+      "address": {
+        "street": "PTTK",
+        "street_norm": "pttk",
+        "building": "5",
+        "apt": null,
+        "key": "pttk|5|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7711",
+      "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7711"
+    }
+  ],
+  "wykaz": []
+}

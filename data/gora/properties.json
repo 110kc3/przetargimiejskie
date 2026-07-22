@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "city": "gora",
+  "properties": [
+    {
+      "key": "brzezany|42|2",
+      "street": "Brzeżany",
+      "street_norm": "brzezany",
+      "building": "42",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 57000,
+          "outcome": "active",
+          "area_m2": 36.5,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/11557_ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-brzezany-422.docx",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.5
+    },
+    {
+      "key": "wroclawskiej|26|3",
+      "street": "Wrocławska",
+      "street_norm": "wroclawskiej",
+      "building": "26",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "archived",
+          "area_m2": 40.8,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/8612_ogloszenie-i-przetarg-ustny-nieograniczony-lokal-mieszkalny-gora-ul-wroclawska-26-m-3.docx",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-10-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.gora.com.pl/files/file_add/download/9069_informacja-o-wyniku-ii-przetargu-lokal-mieszkalny-gora-ul-wroclawska-26-m3.docx",
+          "notes": [],
+          "area_m2": 40.8,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/8898_ogloszenie-ii-przetarg-ustny-nieograniczony-lokal-mieszkalny-gora-ul-wroclawska-26-m-3.docx"
+        },
+        {
+          "date": "2025-01-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.gora.com.pl/files/file_add/download/9362_informacja-o-wyniku-rokowan-lokal-mieszkalny-gora-ul-wroclawska-26-m-3.docx",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 40.8,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/9155_ogloszenie-rokowania-lokal-mieszkalny-ul-wroclawska-26-m-3.docx"
+        }
+      ],
+      "area_m2": 40.8
+    },
+    {
+      "key": "kloda gorowska|28|7",
+      "street": "Kłoda Górowska",
+      "street_norm": "kloda gorowska",
+      "building": "28",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 31000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 68000,
+          "source_pdf": "https://bip.gora.com.pl/files/file_add/download/8073_informacja-o-wyniku-przetargu-lokal-mieszkalny-kloda-gorowska-28-m7.docx",
+          "notes": [],
+          "area_m2": 26.1,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/7866_ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-kloda-gorowska-28-m-7.docx"
+        }
+      ],
+      "area_m2": 26.1
+    },
+    {
+      "key": "starogorska|15|6",
+      "street": "Starogórska",
+      "street_norm": "starogorska",
+      "building": "15",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-10-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 108500,
+          "outcome": "archived",
+          "area_m2": 81.2,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/7325_ogloszenie-o-i-przetargu-ustnym-nieograniczonym-lokal-mieszkalny-starogorska-15-m-6.docx",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-12-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100850,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 109590,
+          "source_pdf": "https://bip.gora.com.pl/files/file_add/download/7870_informacja-o-wyniku-przetargu-lokal-mieszkalny-gora-ul-starogorska-15-m-6.docx",
+          "notes": [],
+          "area_m2": 81.2,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/7644_ogloszenie-o-ii-przetargu-ustnym-nieograniczonym-lokal-mieszkalny-starogorska-15-m-6.docx"
+        }
+      ],
+      "area_m2": 81.2
+    },
+    {
+      "key": "armii polskiej|9|7",
+      "street": "Armii Polskiej",
+      "street_norm": "armii polskiej",
+      "building": "9",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-06-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 27.3,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/2494_ogloszenie-ii-przetarg-lokal-mieszkalny-gora-ul-armii-polskiej-9-m7.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2021-09-30",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 27600,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 32000,
+          "source_pdf": "https://bip.gora.com.pl/files/file_add/download/3458_informacja-o-wyniku-rokowan-na-sprzedaz-lokal-mieszkalny-gora-ul-armii-polskiej-9-m-7.docx",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 27.3,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/3206_ogloszenie-rokowania-lokal-mieszkalny-gora-ul-armii-polskiej-9-m-7.docx"
+        }
+      ],
+      "area_m2": 27.3
+    },
+    {
+      "key": "b chrobrego|2|2",
+      "street": "B. Chrobrego",
+      "street_norm": "b chrobrego",
+      "building": "2",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99250,
+          "outcome": "archived",
+          "area_m2": 109.72,
+          "detail_url": "https://bip.gora.com.pl/files/file_add/download/3129_ogloszenie-o-przetargu-lokal-mieszkalny-chrobrego-2-m-2.docx",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 109.72
+    }
+  ]
+}
