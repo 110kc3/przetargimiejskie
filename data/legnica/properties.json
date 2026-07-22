@@ -3,6 +3,72 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "zolnierzy ii armii wojska polskiego|2|2",
+      "street": "Żołnierzy II Armii Wojska Polskiego",
+      "street_norm": "zolnierzy ii armii wojska polskiego",
+      "building": "2",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-08-21",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 58.59,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38792,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zolnierzy-II-Armii-Wojska-Polskiego-2.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 58.59
+    },
+    {
+      "key": "chojnowska|86|1A",
+      "street": "Chojnowska",
+      "street_norm": "chojnowska",
+      "building": "86",
+      "apt": "1A",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-08-21",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 19.1,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38791,Ogloszenie-o-przetargu-na-lokal-przy-ul-Chojnowskiej-86.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 19.1
+    },
+    {
+      "key": "jaworzynska|22|10",
+      "street": "Jaworzyńska",
+      "street_norm": "jaworzynska",
+      "building": "22",
+      "apt": "10",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-08-21",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 62.23,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38790,Ogloszenie-o-przetargu-na-lokal-przy-ul-Jaworzynskiej-22.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.23
+    },
+    {
       "key": "zlotoryjska|43|3",
       "street": "Złotoryjska",
       "street_norm": "zlotoryjska",
