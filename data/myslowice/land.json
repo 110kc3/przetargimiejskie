@@ -213,57 +213,6 @@
       ]
     },
     {
-      "key": "dz|0002 brzęczkowice|4131/241",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "4131/241",
-      "obreb": "0002 Brzęczkowice",
-      "street": "Andrzeja Mielęckiego",
-      "building": null,
-      "address_raw": "ul. Andrzeja Mielęckiego",
-      "dzialka_id": "247001_1.0002.AR_1.4131/241",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.4131%2F241",
-      "area_m2": 1507,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-05-20",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 1507,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-andrz",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-andrz"
-        },
-        {
-          "date": "2025-11-04",
-          "round": 2,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 1507,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugich-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowa",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugich-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowa"
-        },
-        {
-          "date": "2026-07-21",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 1507,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-pol",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-pol"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "4131/241",
-          "dzialka_id": "247001_1.0002.AR_1.4131/241",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.4131%2F241"
-        }
-      ]
-    },
-    {
       "key": "dz|0003 dziećkowice|2003/52",
       "kind": "grunt",
       "city": "myslowice",
@@ -737,6 +686,48 @@
           "nr": "9545/42",
           "dzialka_id": "247001_1.0007.AR_3.9545/42",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9545%2F42"
+        }
+      ]
+    },
+    {
+      "key": "dz|0002 brzęczkowice|4131/241",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "4131/241",
+      "obreb": "0002 Brzęczkowice",
+      "street": "Andrzeja Mielęckiego",
+      "building": null,
+      "address_raw": "ul. Andrzeja Mielęckiego",
+      "dzialka_id": "247001_1.0002.AR_1.4131/241",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.4131%2F241",
+      "area_m2": 1507,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-20",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1507,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-andrz",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowanych-ul-andrz"
+        },
+        {
+          "date": "2025-11-04",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 1507,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugich-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowa",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugich-ustnych-przetargach-nieograniczonych-na-sprzedaz-nieruchomosci-niezabudowa"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4131/241",
+          "dzialka_id": "247001_1.0002.AR_1.4131/241",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0002.AR_1.4131%2F241"
         }
       ]
     },
