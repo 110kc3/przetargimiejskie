@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T09:36:18.328Z",
+  "generated_at": "2026-07-23T07:07:37.371Z",
   "cities": [
     {
       "id": "gliwice",
@@ -39,7 +39,7 @@
       "active_auctions": 3,
       "archived_auctions": 20,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 8
     },
     {
       "id": "zabrze",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 89,
+      "active_listings": 81,
       "active_auctions": 4,
       "archived_auctions": 100,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 84
     },
     {
       "id": "trzebinia",
@@ -697,9 +697,9 @@
       "voivodeship": "kujawsko-pomorskie",
       "authority": "Urząd Miasta Bydgoszczy",
       "host": "bip.um.bydgoszcz.pl",
-      "unique_properties": 8,
-      "active_listings": 1,
-      "active_auctions": 1,
+      "unique_properties": 10,
+      "active_listings": 3,
+      "active_auctions": 3,
       "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 11
+      "land_plots": 10
     },
     {
       "id": "miedzyrzecz",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1118,7 +1118,7 @@
       "active_auctions": 3,
       "archived_auctions": 4,
       "wykaz_entries": 13,
-      "land_plots": 3
+      "land_plots": 4
     },
     {
       "id": "wolow",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 50
+      "land_plots": 33
     },
     {
       "id": "jarocin",
@@ -1183,7 +1183,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 23
+      "land_plots": 22
     },
     {
       "id": "jelenia-gora",
@@ -1192,9 +1192,9 @@
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
       "unique_properties": 17,
-      "active_listings": 16,
-      "active_auctions": 15,
-      "archived_auctions": 2,
+      "active_listings": 9,
+      "active_auctions": 8,
+      "archived_auctions": 9,
       "wykaz_entries": 0,
       "land_plots": 21
     },
@@ -1478,8 +1478,8 @@
       "authority": "Prezydent Miasta Sopotu (Wydział Gospodarki Nieruchomościami)",
       "host": "bip.sopot.pl",
       "unique_properties": 16,
-      "active_listings": 23,
-      "active_auctions": 0,
+      "active_listings": 24,
+      "active_auctions": 1,
       "archived_auctions": 28,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1568,9 +1568,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Prezydent Miasta Świdnicy (Wydział Mienia Komunalnego / MZN)",
       "host": "bip.swidnica.nv.pl",
-      "unique_properties": 6,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 7,
+      "active_listings": 3,
+      "active_auctions": 3,
       "archived_auctions": 6,
       "wykaz_entries": 0,
       "land_plots": 0
