@@ -3,6 +3,33 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|ostatnia; kolonia zgorzelec",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Ostatnia; Kolonia Zgorzelec",
+      "building": null,
+      "address_raw": "Ostatnia; Kolonia Zgorzelec",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.901310936294447%2C50.32330583299623%2C18.903014141184972%2C50.324635234118965&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.f25bb3c7-2246-4d9a-bb4e-48f67ef13029",
+      "area_m2": 8969,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-18",
+          "round": 2,
+          "starting_price_pln": 850000,
+          "outcome": "active",
+          "area_m2": 8969,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Ostatnia_Kolonia-Zgorzelec-dz.-1558_85-ustny-II-niezabud,24425.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|karbowska; warszawska; generała władysława andersa",
       "kind": "grunt",
       "city": "bytom",
