@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Al. Niepodległości 671",
+      "address": {
+        "street": "Niepodległości",
+        "street_norm": "niepodleglosci",
+        "building": "671",
+        "apt": null,
+        "key": "niepodleglosci|671|",
+        "warning": null
+      },
+      "area_m2": 200.82,
+      "starting_price_pln": 1300000,
+      "round": 1,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.sopot.pl/a,25201,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacego-wlasnosc-gminy-miasta-sopot.html",
+      "source_url": "https://bip.sopot.pl/a,25201,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacego-wlasnosc-gminy-miasta-sopot.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 61/1",
       "address": {
         "street": "Armii Krajowej",
