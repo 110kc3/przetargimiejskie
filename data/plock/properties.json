@@ -15,56 +15,44 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 349900,
-          "outcome": "unsold",
-          "unsold_reason": "no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "http://www.ars.plock.pl/pl/Auction/Details/118?title=Protokol%3A-Sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 46.02,
           "detail_url": "http://www.ars.plock.pl/pl/przetargi/117/-Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2",
-          "wadium_deadline": "2025-07-29"
+          "wadium_deadline": "2025-07-29",
+          "viewing_date": null
         },
         {
           "date": "2025-08-28",
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 349900,
-          "outcome": "unsold",
-          "unsold_reason": "no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "http://www.ars.plock.pl/pl/Auction/Details/122?title=Protokol%3A-Sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 46.02,
           "detail_url": "http://www.ars.plock.pl/pl/przetargi/120/Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2",
-          "wadium_deadline": "2025-08-27"
+          "wadium_deadline": "2025-08-27",
+          "viewing_date": null
         },
         {
           "date": "2026-03-20",
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 299130,
-          "outcome": "unsold",
-          "unsold_reason": "no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "http://www.ars.plock.pl/pl/Auction/Details/135?title=Protokol%3A-Sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-przy-ul_Synagogalnej-13-w-Plocku-o-powierzchni-46_02-m2",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 46.02,
           "detail_url": "http://www.ars.plock.pl/pl/przetargi/132/Przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9-w-budynku-Synagogalna-13-w-Plocku-wraz-z-pomieszczeniem-przynaleznym",
-          "wadium_deadline": "2026-03-17"
+          "wadium_deadline": "2026-03-17",
+          "viewing_date": null
         },
         {
           "date": "2026-04-29",
           "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 299130,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 299630,
-          "source_pdf": "http://www.ars.plock.pl/pl/przetargi/142/Protokolu-z-licytacji-sprzedazy-lokalu-mieszkalnego-przy-ul_Synagogalnej-13_",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 46.02,
           "detail_url": "http://www.ars.plock.pl/pl/przetargi/140/Publiczny-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-nr-9_-polozonego-w-budynku-mieszkalnym--zlokalizowanym-w-Plocku-przy-ul_Synagogalna-13_",
-          "wadium_deadline": "2026-04-28"
+          "wadium_deadline": "2026-04-28",
+          "viewing_date": null
         }
       ],
       "area_m2": 46.02
@@ -82,16 +70,12 @@
           "round": 1,
           "kind": "zabudowana",
           "starting_price_pln": 1150000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": null,
-          "source_pdf": "http://www.ars.plock.pl/pl/Auction/Details/123?title=Protokul%3A-Sprzedaz-nieruchomosci-gruntowej-zabudowanej_-polozonej-w-Plocku-przy-ul_Sienkiewicza-64-",
-          "notes": [
-            "achieved price unrecoverable (OCR); inferred SOLD from a winner registration block (NIP/REGON) after the signature line"
-          ],
+          "outcome": "archived",
+          "area_m2": null,
           "land_area_m2": 1243,
           "detail_url": "http://www.ars.plock.pl/pl/przetargi/119/Przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-zabudowanej_-polozonej-w-Plocku-przy-ul_Sienkiewicza-64",
-          "wadium_deadline": "2025-08-27"
+          "wadium_deadline": "2025-08-27",
+          "viewing_date": null
         }
       ]
     },
