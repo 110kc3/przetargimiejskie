@@ -1,6 +1,64 @@
 {
   "schema_version": 1,
   "city": "swidnica",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Kraszowickiej 55/01",
+      "address": {
+        "street": "Kraszowickiej",
+        "street_norm": "kraszowickiej",
+        "building": "55",
+        "apt": "01",
+        "key": "kraszowickiej|55|01",
+        "warning": null
+      },
+      "area_m2": 86.48,
+      "starting_price_pln": 80000,
+      "round": 2,
+      "auction_date": "2026-08-27",
+      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131482,kolejny-przetarg-ustny-nieograniczony-p-65viii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ul.html",
+      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131482,kolejny-przetarg-ustny-nieograniczony-p-65viii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ul.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grodzkiej 16-18/6",
+      "address": {
+        "street": "Grodzkiej",
+        "street_norm": "grodzkiej",
+        "building": "16-18",
+        "apt": "6",
+        "key": "grodzkiej|16-18|6",
+        "warning": null
+      },
+      "area_m2": 82.61,
+      "starting_price_pln": 150000,
+      "round": 2,
+      "auction_date": "2026-08-27",
+      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131481,kolejny-przetarg-ustny-nieograniczony-p-64viii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-u.html",
+      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131481,kolejny-przetarg-ustny-nieograniczony-p-64viii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-u.html",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wrocławska 28/1",
+      "address": {
+        "street": "Wrocławska",
+        "street_norm": "wroclawska",
+        "building": "28",
+        "apt": "1",
+        "key": "wroclawska|28|1",
+        "warning": null
+      },
+      "area_m2": 25.43,
+      "starting_price_pln": 125000,
+      "round": 1,
+      "auction_date": "2026-08-27",
+      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131480,i-przetarg-ustny-nieograniczony-p-63viii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-1-przy-ulicy-w.html",
+      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131480,i-przetarg-ustny-nieograniczony-p-63viii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-1-przy-ulicy-w.html",
+      "share": null
+    }
+  ],
   "wykaz": []
 }

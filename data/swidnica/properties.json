@@ -3,6 +3,96 @@
   "city": "swidnica",
   "properties": [
     {
+      "key": "kraszowickiej|55|01",
+      "street": "Kraszowickiej",
+      "street_norm": "kraszowickiej",
+      "building": "55",
+      "apt": "01",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "no_wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131299,ii-przetarg-ustny-nieograniczony-p-52vii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ulicy-kr.html",
+          "notes": [],
+          "area_m2": 86.48
+        },
+        {
+          "date": "2026-08-27",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 86.48,
+          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131482,kolejny-przetarg-ustny-nieograniczony-p-65viii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ul.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 86.48
+    },
+    {
+      "key": "grodzkiej|16-18|6",
+      "street": "Grodzkiej",
+      "street_norm": "grodzkiej",
+      "building": "16-18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131224,kolejny-przetarg-ustny-nieograniczony-p-45vi26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-uli.html",
+          "notes": [],
+          "area_m2": 82.61
+        },
+        {
+          "date": "2026-08-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 82.61,
+          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131481,kolejny-przetarg-ustny-nieograniczony-p-64viii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-u.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 82.61
+    },
+    {
+      "key": "wroclawska|28|1",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "28",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "active",
+          "area_m2": 25.43,
+          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131480,i-przetarg-ustny-nieograniczony-p-63viii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-1-przy-ulicy-w.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 25.43
+    },
+    {
       "key": "komunardow|18|5",
       "street": "Komunardów",
       "street_norm": "komunardow",
@@ -49,52 +139,6 @@
         }
       ],
       "area_m2": 31.3
-    },
-    {
-      "key": "kraszowickiej|55|01",
-      "street": "Kraszowickiej",
-      "street_norm": "kraszowickiej",
-      "building": "55",
-      "apt": "01",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-07-06",
-          "round": 2,
-          "kind": "uzytkowy",
-          "starting_price_pln": 100000,
-          "outcome": "unsold",
-          "unsold_reason": "no_wadium",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131299,ii-przetarg-ustny-nieograniczony-p-52vii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ulicy-kr.html",
-          "notes": [],
-          "area_m2": 86.48
-        }
-      ],
-      "area_m2": 86.48
-    },
-    {
-      "key": "grodzkiej|16-18|6",
-      "street": "Grodzkiej",
-      "street_norm": "grodzkiej",
-      "building": "16-18",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-25",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "unsold_reason": "no_participants",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131224,kolejny-przetarg-ustny-nieograniczony-p-45vi26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-6-przy-uli.html",
-          "notes": [],
-          "area_m2": 82.61
-        }
-      ],
-      "area_m2": 82.61
     },
     {
       "key": "walbrzyskiej|6|6",
