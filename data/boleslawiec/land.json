@@ -66,6 +66,37 @@
       ]
     },
     {
+      "key": "dz|0004|567",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "567",
+      "obreb": "0004",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ekonomiczna",
+      "dzialka_id": "020101_1.0004.567",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0004.567",
+      "area_m2": 25126,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "starting_price_pln": 3600000,
+          "outcome": "unsold",
+          "area_m2": 25126
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "567",
+          "dzialka_id": "020101_1.0004.567",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0004.567"
+        }
+      ]
+    },
+    {
       "key": "dz|0014|400",
       "kind": "grunt",
       "city": "boleslawiec",
