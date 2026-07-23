@@ -3,6 +3,50 @@
   "city": "bydgoszcz",
   "properties": [
     {
+      "key": "l wyczolkowskiego|3|7",
+      "street": "L. Wyczółkowskiego",
+      "street_norm": "l wyczolkowskiego",
+      "building": "3",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 26.13,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10589/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-08-2026-r-ul-l-wyczolkowskiego-3-5m7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.13
+    },
+    {
+      "key": "wilenskiej|6|14",
+      "street": "Wileńska",
+      "street_norm": "wilenskiej",
+      "building": "6",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 52.73,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10588/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-08-2026-r-ul-wilenska-6m14",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.73
+    },
+    {
       "key": "grunwaldzkiej|90|3",
       "street": "Grunwaldzkiej",
       "street_norm": "grunwaldzkiej",

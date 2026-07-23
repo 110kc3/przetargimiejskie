@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. L. Wyczółkowskiego 3/7",
+      "address": {
+        "street": "L. Wyczółkowskiego",
+        "street_norm": "l wyczolkowskiego",
+        "building": "3",
+        "apt": "7",
+        "key": "l wyczolkowskiego|3|7",
+        "warning": null
+      },
+      "area_m2": 26.13,
+      "starting_price_pln": null,
+      "auction_date": "2026-08-28",
+      "round": 3,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10589/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-08-2026-r-ul-l-wyczolkowskiego-3-5m7",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/32989"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wileńskiej 6/14",
+      "address": {
+        "street": "Wileńskiej",
+        "street_norm": "wilenskiej",
+        "building": "6",
+        "apt": "14",
+        "key": "wilenskiej|6|14",
+        "warning": null
+      },
+      "area_m2": 52.73,
+      "starting_price_pln": null,
+      "auction_date": "2026-08-28",
+      "round": 2,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10588/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-08-2026-r-ul-wilenska-6m14",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/32986"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Grunwaldzkiej 90/3",
       "address": {
         "street": "Grunwaldzkiej",
