@@ -362,66 +362,65 @@
       ]
     },
     {
-      "key": "dz|0034, 34|47",
+      "key": "dz|0021, jelenia góra 4|55",
       "kind": "grunt",
       "city": "jelenia-gora",
-      "dzialka_nr": "47",
-      "obreb": "0034, 34",
+      "dzialka_nr": "55",
+      "obreb": "0021, Jelenia Góra 4",
       "street": null,
       "building": null,
       "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 2398,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%200021%2C%20Jelenia%20G%C3%B3ra%204%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 793,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-07-22",
-          "round": 4,
-          "starting_price_pln": 325000,
-          "outcome": "active",
-          "area_m2": 2398,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25410/64-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/51208"
+          "date": "2026-07-17",
+          "round": 3,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 793
         }
       ],
       "parcels": [
         {
-          "nr": "47",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+          "nr": "55",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2055%200021%2C%20Jelenia%20G%C3%B3ra%204%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
     {
-      "key": "dz|0063, maciejowa iii|532",
+      "key": "dz|0022, jelenia góra 5|13, 14/2",
       "kind": "grunt",
       "city": "jelenia-gora",
-      "dzialka_nr": "532",
-      "obreb": "0063, Maciejowa III",
+      "dzialka_nr": "13, 14/2",
+      "obreb": "0022, Jelenia Góra 5",
       "street": null,
       "building": null,
-      "address_raw": null,
+      "address_raw": "ul. Łomnickiej",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20532%200063%2C%20Maciejowa%20III%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3270,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2013%2C%2014%2F2%20ul.%20%C5%81omnickiej%200022%2C%20Jelenia%20G%C3%B3ra%205%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-07-22",
+          "date": "2026-07-17",
           "round": 2,
-          "starting_price_pln": 470000,
-          "outcome": "active",
-          "area_m2": 3270,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25253/50-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/50854"
+          "starting_price_pln": 6400000,
+          "outcome": "unsold"
         }
       ],
       "parcels": [
         {
-          "nr": "532",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20532%200063%2C%20Maciejowa%20III%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+          "nr": "13",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2013%200022%2C%20Jelenia%20G%C3%B3ra%205%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "14/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F2%200022%2C%20Jelenia%20G%C3%B3ra%205%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
