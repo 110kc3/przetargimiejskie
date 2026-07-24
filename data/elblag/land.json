@@ -62,6 +62,72 @@
       "parcels": []
     },
     {
+      "key": "dz|33|267/2",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": "267/2",
+      "obreb": "33",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Strumykowa",
+      "dzialka_id": "286101_1.0033.267/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0033.267%2F2",
+      "area_m2": 2129,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-24",
+          "round": 1,
+          "starting_price_pln": 223500,
+          "outcome": "active",
+          "area_m2": 2129,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10561/i-ustny-przetarg-nieograniczony-ul-strumykowa-67-nieruchomosc-niezabudowana-24-08-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/18575"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "267/2",
+          "dzialka_id": "286101_1.0033.267/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0033.267%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|20|18/29",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": "18/29",
+      "obreb": "20",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Łęczycka",
+      "dzialka_id": "286101_1.0020.18/29",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0020.18%2F29",
+      "area_m2": 617,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-24",
+          "round": 1,
+          "starting_price_pln": 77000,
+          "outcome": "active",
+          "area_m2": 617,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10557/i-ustny-przetarg-ograniczony-ul-leczycka-nieruchomosc-niezabudowana-24-08-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/18557"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "18/29",
+          "dzialka_id": "286101_1.0020.18/29",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0020.18%2F29"
+        }
+      ]
+    },
+    {
       "key": "dz|21|59/25",
       "kind": "grunt",
       "city": "elblag",
