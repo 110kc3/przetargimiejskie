@@ -3,100 +3,6 @@
   "city": "proszowice",
   "plots": [
     {
-      "key": "dz|18/3",
-      "kind": "grunt",
-      "city": "proszowice",
-      "dzialka_nr": "18/3",
-      "obreb": null,
-      "street": "Wolwanowicach",
-      "building": "33A",
-      "address_raw": "Wolwanowicach 33A",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F3%20Wolwanowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 343,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-05-16",
-          "round": 1,
-          "starting_price_pln": 96200,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-9682-ogloszenie_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-9682-ogloszenie_przetargu_ustnego.html"
-        },
-        {
-          "date": "2025-07-11",
-          "round": 2,
-          "starting_price_pln": 77000,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-9843-ogloszenie_drugiego_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-9843-ogloszenie_drugiego_przetargu_ustnego.html"
-        },
-        {
-          "date": "2025-08-29",
-          "round": 3,
-          "starting_price_pln": 69000,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-9937-ogloszenie_trzeciego_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-9937-ogloszenie_trzeciego_przetargu_ustnego.html"
-        },
-        {
-          "date": "2025-12-05",
-          "round": 4,
-          "starting_price_pln": 59000,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-10196-ogloszenie_czwartego_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-10196-ogloszenie_czwartego_przetargu_ustnego.html"
-        },
-        {
-          "date": "2026-01-16",
-          "round": 5,
-          "starting_price_pln": 49000,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-10348-ogloszenie_piatego_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-10348-ogloszenie_piatego_przetargu_ustnego.html"
-        },
-        {
-          "date": "2026-03-06",
-          "round": 6,
-          "starting_price_pln": 44000,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-10525-ogloszenie_szostego_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-10525-ogloszenie_szostego_przetargu_ustnego.html"
-        },
-        {
-          "date": "2026-07-10",
-          "round": 8,
-          "starting_price_pln": 35700,
-          "outcome": "archived",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-10882-ogloszenie_osmego_przetargu_ustnego.html",
-          "source_url": "https://proszowice.pl/aktualnosc-10882-ogloszenie_osmego_przetargu_ustnego.html"
-        },
-        {
-          "date": "2026-08-11",
-          "round": 9,
-          "starting_price_pln": 35700,
-          "outcome": "active",
-          "area_m2": 343,
-          "detail_url": "https://proszowice.pl/aktualnosc-11006-ogloszenie_dziewiatego_przetargu.html",
-          "source_url": "https://proszowice.pl/aktualnosc-11006-ogloszenie_dziewiatego_przetargu.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "18/3"
-        }
-      ]
-    },
-    {
       "key": "dz|2274/2",
       "kind": "grunt",
       "city": "proszowice",
@@ -195,11 +101,114 @@
           "area_m2": 1566,
           "detail_url": "https://proszowice.pl/aktualnosc-9555-ogloszenie_o_szostym_przetargu_ustnym.html",
           "source_url": "https://proszowice.pl/aktualnosc-9555-ogloszenie_o_szostym_przetargu_ustnym.html"
+        },
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "starting_price_pln": 202500,
+          "outcome": "active",
+          "area_m2": 1566,
+          "detail_url": "https://proszowice.pl/aktualnosc-11035-ogloszenie_o_przetargu_dzialka_o.html",
+          "source_url": "https://proszowice.pl/aktualnosc-11035-ogloszenie_o_przetargu_dzialka_o.html"
         }
       ],
       "parcels": [
         {
           "nr": "2274/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|18/3",
+      "kind": "grunt",
+      "city": "proszowice",
+      "dzialka_nr": "18/3",
+      "obreb": null,
+      "street": "Wolwanowicach",
+      "building": "33A",
+      "address_raw": "Wolwanowicach 33A",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F3%20Wolwanowicach%20Proszowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 343,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-16",
+          "round": 1,
+          "starting_price_pln": 96200,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-9682-ogloszenie_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9682-ogloszenie_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-07-11",
+          "round": 2,
+          "starting_price_pln": 77000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-9843-ogloszenie_drugiego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9843-ogloszenie_drugiego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-08-29",
+          "round": 3,
+          "starting_price_pln": 69000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-9937-ogloszenie_trzeciego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-9937-ogloszenie_trzeciego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2025-12-05",
+          "round": 4,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10196-ogloszenie_czwartego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10196-ogloszenie_czwartego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-01-16",
+          "round": 5,
+          "starting_price_pln": 49000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10348-ogloszenie_piatego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10348-ogloszenie_piatego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-03-06",
+          "round": 6,
+          "starting_price_pln": 44000,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10525-ogloszenie_szostego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10525-ogloszenie_szostego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-07-10",
+          "round": 8,
+          "starting_price_pln": 35700,
+          "outcome": "archived",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-10882-ogloszenie_osmego_przetargu_ustnego.html",
+          "source_url": "https://proszowice.pl/aktualnosc-10882-ogloszenie_osmego_przetargu_ustnego.html"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 9,
+          "starting_price_pln": 35700,
+          "outcome": "active",
+          "area_m2": 343,
+          "detail_url": "https://proszowice.pl/aktualnosc-11006-ogloszenie_dziewiatego_przetargu.html",
+          "source_url": "https://proszowice.pl/aktualnosc-11006-ogloszenie_dziewiatego_przetargu.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "18/3"
         }
       ]
     },
