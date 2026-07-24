@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T07:07:37.371Z",
+  "generated_at": "2026-07-24T06:57:15.626Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,7 +8,7 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 188,
+      "unique_properties": 189,
       "active_listings": 17,
       "active_auctions": 17,
       "archived_auctions": 255,
@@ -35,7 +35,7 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 23,
-      "active_listings": 15,
+      "active_listings": 14,
       "active_auctions": 3,
       "archived_auctions": 20,
       "wykaz_entries": 0,
@@ -139,7 +139,7 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 81,
+      "active_listings": 77,
       "active_auctions": 4,
       "archived_auctions": 100,
       "wykaz_entries": 0,
@@ -400,8 +400,8 @@
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
       "active_listings": 12,
-      "active_auctions": 7,
-      "archived_auctions": 29,
+      "active_auctions": 6,
+      "archived_auctions": 30,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -893,11 +893,11 @@
       "authority": "Urząd Miejski w Sandomierzu",
       "host": "bip.um.sandomierz.pl",
       "unique_properties": 12,
-      "active_listings": 7,
+      "active_listings": 2,
       "active_auctions": 0,
       "archived_auctions": 12,
       "wykaz_entries": 0,
-      "land_plots": 21
+      "land_plots": 13
     },
     {
       "id": "poddebice",
@@ -949,7 +949,7 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 2,
-      "land_plots": 32
+      "land_plots": 33
     },
     {
       "id": "rawa-mazowiecka",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 33
+      "land_plots": 50
     },
     {
       "id": "jarocin",
@@ -1404,7 +1404,7 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 5
     },
     {
       "id": "wroclaw",
@@ -1412,9 +1412,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
-      "unique_properties": 52,
-      "active_listings": 210,
-      "active_auctions": 14,
+      "unique_properties": 54,
+      "active_listings": 240,
+      "active_auctions": 16,
       "archived_auctions": 38,
       "wykaz_entries": 0,
       "land_plots": 0
