@@ -3,6 +3,28 @@
   "city": "wroclaw",
   "properties": [
     {
+      "key": "kosynierow gdynskich|83|4",
+      "street": "Kosynierów Gdyńskich",
+      "street_norm": "kosynierow gdynskich",
+      "building": "83",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 556000,
+          "outcome": "active",
+          "area_m2": 67.2,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 67.2
+    },
+    {
       "key": "krzycka|3A|1",
       "street": "Krzycka",
       "street_norm": "krzycka",
@@ -45,6 +67,27 @@
         }
       ],
       "area_m2": 108.87
+    },
+    {
+      "key": "krupnicza|3|7",
+      "street": "Krupnicza",
+      "street_norm": "krupnicza",
+      "building": "3",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1065000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/ulica-krupnicza-3-lokal-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "przestrzenna|42|11",
