@@ -3,6 +3,38 @@
   "city": "pisz",
   "plots": [
     {
+      "key": "dz|maldanin|102/1",
+      "kind": "grunt",
+      "city": "pisz",
+      "dzialka_nr": "102/1",
+      "obreb": "Maldanin",
+      "street": null,
+      "building": null,
+      "address_raw": "obręb Maldanin",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20102%2F1%20obr%C4%99b%20Maldanin%20Maldanin%20Pisz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 182,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-04",
+          "round": 1,
+          "starting_price_pln": 19300,
+          "outcome": "active",
+          "area_m2": 182,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31257",
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31257"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "102/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20102%2F1%20Maldanin%20Pisz%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|pogobie tylne|95/1",
       "kind": "grunt",
       "city": "pisz",
