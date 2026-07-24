@@ -3,6 +3,42 @@
   "city": "myslowice",
   "plots": [
     {
+      "key": "addr|ul. harcerzy śląskich",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": null,
+      "obreb": "0010 Wesoła",
+      "street": "Harcerzy Śląskich",
+      "building": null,
+      "address_raw": "ul. Harcerzy Śląskich",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Harcerzy%20%C5%9Al%C4%85skich%200010%20Weso%C5%82a%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 21596,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 6945000,
+          "outcome": "archived",
+          "area_m2": 21596,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my"
+        },
+        {
+          "date": "2026-09-29",
+          "round": 2,
+          "starting_price_pln": 6945000,
+          "outcome": "active",
+          "area_m2": 21596,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-g",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-g"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|0006 ławki|2517/7",
       "kind": "grunt",
       "city": "myslowice",
@@ -271,33 +307,6 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_1.2003%2F52"
         }
       ]
-    },
-    {
-      "key": "addr|ul. harcerzy śląskich",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": null,
-      "obreb": "0010 Wesoła",
-      "street": "Harcerzy Śląskich",
-      "building": null,
-      "address_raw": "ul. Harcerzy Śląskich",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Harcerzy%20%C5%9Al%C4%85skich%200010%20Weso%C5%82a%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 21596,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-23",
-          "round": 1,
-          "starting_price_pln": 6945000,
-          "outcome": "archived",
-          "area_m2": 21596,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my"
-        }
-      ],
-      "parcels": []
     },
     {
       "key": "dz|0007 mysłowice|9386/403",
