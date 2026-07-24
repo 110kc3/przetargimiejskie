@@ -342,6 +342,19 @@
   ],
   "wykaz": [
     {
+      "wykaz_no": "ZGM/DS/153/2026",
+      "address_raw": "Lipcowa 9/21",
+      "address": {
+        "street": "Lipcowa",
+        "street_norm": "lipcowa",
+        "building": "9",
+        "apt": "21",
+        "key": "lipcowa|9|21",
+        "warning": null
+      },
+      "published_date": null
+    },
+    {
       "wykaz_no": "ZGM/DS/162/2026",
       "address_raw": "Paulińska 5/1",
       "address": {
@@ -428,19 +441,6 @@
         "building": "8",
         "apt": "9",
         "key": "ziemowita|8|9",
-        "warning": null
-      },
-      "published_date": null
-    },
-    {
-      "wykaz_no": "ZGM/DS/104/2026",
-      "address_raw": "Wielkiej Niedźwiedzicy 11/9",
-      "address": {
-        "street": "Wielkiej Niedźwiedzicy",
-        "street_norm": "wielkiej niedzwiedzicy",
-        "building": "11",
-        "apt": "9",
-        "key": "wielkiej niedzwiedzicy|11|9",
         "warning": null
       },
       "published_date": null
