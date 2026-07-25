@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-24T06:57:15.626Z",
+  "generated_at": "2026-07-25T06:50:05.606Z",
   "cities": [
     {
       "id": "gliwice",
@@ -47,9 +47,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
-      "unique_properties": 282,
-      "active_listings": 465,
-      "active_auctions": 2,
+      "unique_properties": 290,
+      "active_listings": 473,
+      "active_auctions": 10,
       "archived_auctions": 468,
       "wykaz_entries": 0,
       "land_plots": 28
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 77,
+      "active_listings": 51,
       "active_auctions": 4,
       "archived_auctions": 100,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 83
     },
     {
       "id": "trzebinia",
@@ -307,9 +307,9 @@
       "voivodeship": "lodzkie",
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
-      "unique_properties": 41,
-      "active_listings": 40,
-      "active_auctions": 28,
+      "unique_properties": 49,
+      "active_listings": 41,
+      "active_auctions": 36,
       "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -412,8 +412,8 @@
       "authority": "Urząd Miasta w Kłodzku",
       "host": "um.bip.klodzko.pl",
       "unique_properties": 3,
-      "active_listings": 1,
-      "active_auctions": 1,
+      "active_listings": 2,
+      "active_auctions": 2,
       "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -543,8 +543,8 @@
       "host": "eto.um.warszawa.pl",
       "unique_properties": 15,
       "active_listings": 8,
-      "active_auctions": 14,
-      "archived_auctions": 1,
+      "active_auctions": 13,
+      "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 50
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1183,7 +1183,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 22
+      "land_plots": 23
     },
     {
       "id": "jelenia-gora",
@@ -1191,10 +1191,10 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
-      "unique_properties": 17,
+      "unique_properties": 18,
       "active_listings": 9,
       "active_auctions": 8,
-      "archived_auctions": 9,
+      "archived_auctions": 10,
       "wykaz_entries": 0,
       "land_plots": 21
     },
@@ -1269,9 +1269,9 @@
       "voivodeship": "lubuskie",
       "authority": "Urząd Miasta w Krośnie Odrzańskim",
       "host": "bip.krosnoodrzanskie.pl",
-      "unique_properties": 9,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 10,
+      "active_listings": 1,
+      "active_auctions": 1,
       "archived_auctions": 22,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1399,12 +1399,12 @@
       "voivodeship": "warminsko-mazurskie",
       "authority": "Prezydent Miasta Elbląg (Urząd Miejski w Elblągu)",
       "host": "bip.elblag.eu",
-      "unique_properties": 0,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 1,
+      "active_listings": 1,
+      "active_auctions": 1,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 5
+      "land_plots": 6
     },
     {
       "id": "wroclaw",
@@ -1412,9 +1412,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
-      "unique_properties": 54,
-      "active_listings": 240,
-      "active_auctions": 16,
+      "unique_properties": 60,
+      "active_listings": 330,
+      "active_auctions": 22,
       "archived_auctions": 38,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1560,7 +1560,7 @@
       "active_auctions": 2,
       "archived_auctions": 52,
       "wykaz_entries": 0,
-      "land_plots": 29
+      "land_plots": 28
     },
     {
       "id": "swidnica",
