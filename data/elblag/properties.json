@@ -1,5 +1,30 @@
 {
   "schema_version": 1,
   "city": "elblag",
-  "properties": []
+  "properties": [
+    {
+      "key": "stefana okrzei|12|",
+      "street": "Stefana Okrzei",
+      "street_norm": "stefana okrzei",
+      "building": "12",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 561518,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10568/i-ustny-przetarg-nieograniczony-ul-stefana-okrzei-12-nieruchomosc-zabudowana-28-09-2026-r",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 350.9
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 350.9
+    }
+  ]
 }

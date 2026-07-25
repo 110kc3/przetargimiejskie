@@ -3,6 +3,65 @@
   "city": "elblag",
   "plots": [
     {
+      "key": "addr|ul. pomorska - wiślicka",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pomorska - Wiślicka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Pomorska%20-%20Wi%C5%9Blicka%20Elbl%C4%85g%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 2,
+          "starting_price_pln": 320000,
+          "outcome": "active",
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10570/ii-ustny-przetarg-nieograniczony-ul-pomorska-nieruchomosc-niezabudowana-28-09-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/18598"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|2|28/2",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": "28/2",
+      "obreb": "2",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Eugeniusza Kwiatkowskiego",
+      "dzialka_id": "286101_1.0002.28/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0002.28%2F2",
+      "area_m2": 53,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 4,
+          "starting_price_pln": 2040000,
+          "outcome": "active",
+          "area_m2": 53,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10569/iv-ustny-przetarg-nieograniczony-ul-eugeniusza-kwiatkowskiego-nieruchomosc-niezabudowana-28-09-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/18590"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "28/2",
+          "dzialka_id": "286101_1.0002.28/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0002.28%2F2"
+        }
+      ]
+    },
+    {
       "key": "dz|29|1/5",
       "kind": "grunt",
       "city": "elblag",
@@ -124,37 +183,6 @@
           "nr": "18/29",
           "dzialka_id": "286101_1.0020.18/29",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0020.18%2F29"
-        }
-      ]
-    },
-    {
-      "key": "dz|21|59/25",
-      "kind": "grunt",
-      "city": "elblag",
-      "dzialka_nr": "59/25",
-      "obreb": "21",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Fabryczna",
-      "dzialka_id": "286101_1.0021.59/25",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0021.59%2F25",
-      "area_m2": 1629,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-13",
-          "round": 3,
-          "starting_price_pln": 690000,
-          "outcome": "unsold",
-          "area_m2": 1629
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "59/25",
-          "dzialka_id": "286101_1.0021.59/25",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0021.59%2F25"
         }
       ]
     }
