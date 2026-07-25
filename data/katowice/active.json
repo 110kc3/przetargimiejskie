@@ -139,101 +139,6 @@
       "viewing_date": "2026-09-07"
     },
     {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Rybnicka 8/8",
-      "address": {
-        "street": "Rybnicka",
-        "street_norm": "rybnicka",
-        "building": "8",
-        "apt": "8",
-        "key": "rybnicka|8|8",
-        "warning": null
-      },
-      "auction_date": "2026-07-14",
-      "area_m2": 28.52,
-      "starting_price_pln": 380000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152360&menu=679",
-      "wadium_deadline": "2026-07-06",
-      "viewing_date": "2026-07-06"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Broniewskiego 1b/13",
-      "address": {
-        "street": "Broniewskiego",
-        "street_norm": "broniewskiego",
-        "building": "1B",
-        "apt": "13",
-        "key": "broniewskiego|1B|13",
-        "warning": null
-      },
-      "auction_date": "2026-07-14",
-      "area_m2": 21.35,
-      "starting_price_pln": 170000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152360&menu=679",
-      "wadium_deadline": "2026-07-06",
-      "viewing_date": "2026-07-06"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Sokolska 52/12",
-      "address": {
-        "street": "Sokolska",
-        "street_norm": "sokolska",
-        "building": "52",
-        "apt": "12",
-        "key": "sokolska|52|12",
-        "warning": null
-      },
-      "auction_date": "2026-07-14",
-      "area_m2": 52.41,
-      "starting_price_pln": 330000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152360&menu=679",
-      "wadium_deadline": "2026-07-06",
-      "viewing_date": "2026-07-06"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Grażyńskiego 42/4",
-      "address": {
-        "street": "Grażyńskiego",
-        "street_norm": "grazynskiego",
-        "building": "42",
-        "apt": "4",
-        "key": "grazynskiego|42|4",
-        "warning": null
-      },
-      "auction_date": "2026-07-14",
-      "area_m2": 48,
-      "starting_price_pln": 320000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152360&menu=679",
-      "wadium_deadline": "2026-07-06",
-      "viewing_date": "2026-07-06"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Jordana 16c/15",
-      "address": {
-        "street": "Jordana",
-        "street_norm": "jordana",
-        "building": "16C",
-        "apt": "15",
-        "key": "jordana|16C|15",
-        "warning": null
-      },
-      "auction_date": "2026-07-14",
-      "area_m2": 26.03,
-      "starting_price_pln": 200000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=152121&menu=679",
-      "wadium_deadline": "2026-07-06",
-      "viewing_date": "2026-07-06"
-    },
-    {
       "kind": "zabudowana",
       "round": 1,
       "address_raw": "Działkowej 17",
@@ -1246,6 +1151,101 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=563",
       "wadium_deadline": "2026-06-08",
       "viewing_date": "2026-06-08"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Jordana 16c/15",
+      "address": {
+        "street": "Jordana",
+        "street_norm": "jordana",
+        "building": "16C",
+        "apt": "15",
+        "key": "jordana|16C|15",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "area_m2": 26.03,
+      "starting_price_pln": 200000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=565",
+      "wadium_deadline": "2026-07-06",
+      "viewing_date": "2026-07-06"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Rybnicka 8/8",
+      "address": {
+        "street": "Rybnicka",
+        "street_norm": "rybnicka",
+        "building": "8",
+        "apt": "8",
+        "key": "rybnicka|8|8",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "area_m2": 28.52,
+      "starting_price_pln": 380000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
+      "wadium_deadline": "2026-07-06",
+      "viewing_date": "2026-07-06"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Broniewskiego 1b/13",
+      "address": {
+        "street": "Broniewskiego",
+        "street_norm": "broniewskiego",
+        "building": "1B",
+        "apt": "13",
+        "key": "broniewskiego|1B|13",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "area_m2": 21.35,
+      "starting_price_pln": 170000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
+      "wadium_deadline": "2026-07-06",
+      "viewing_date": "2026-07-06"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Sokolska 52/12",
+      "address": {
+        "street": "Sokolska",
+        "street_norm": "sokolska",
+        "building": "52",
+        "apt": "12",
+        "key": "sokolska|52|12",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "area_m2": 52.41,
+      "starting_price_pln": 330000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
+      "wadium_deadline": "2026-07-06",
+      "viewing_date": "2026-07-06"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Grażyńskiego 42/4",
+      "address": {
+        "street": "Grażyńskiego",
+        "street_norm": "grazynskiego",
+        "building": "42",
+        "apt": "4",
+        "key": "grazynskiego|42|4",
+        "warning": null
+      },
+      "auction_date": "2026-07-14",
+      "area_m2": 48,
+      "starting_price_pln": 320000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
+      "wadium_deadline": "2026-07-06",
+      "viewing_date": "2026-07-06"
     }
   ],
   "wykaz": []
