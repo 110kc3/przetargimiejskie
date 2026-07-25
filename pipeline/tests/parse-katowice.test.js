@@ -376,3 +376,35 @@ test('single-unit announcement extracts auction_date from singular "odbędzie si
   assert.equal(zab.area_m2, null, 'plot total is not a flat area');
   assert.equal(zab.land_area_m2, 1049.48, 'whole-property total → land_area_m2 (by design)');
 });
+
+// Regression: a unit's own digit must not become the price's leading group.
+// Real row from the 22.07.2026 wykaz (Broniewskiego 1b/13). Unlike
+// GLUED_PRICE_PDF above, the parcel text sits on the SAME line and BEFORE the
+// amounts — "o łącznej pow. 349 m2   170 000 zł" — so a lookbehind that only
+// excluded a preceding digit began matching at the "2" of "m2" and, since
+// spaces are thousands separators here, read 2 170 000. At 21,35 m² that is
+// 101 639 zł/m², which tripped the insane-m2 sanity gate and blocked every
+// katowice data commit from 2026-07-22 until this fix. splitGluedAmounts does
+// not help: 2.17M is well under its 50M plausibility ceiling.
+const UNIT_DIGIT_PDF = `WYKAZ Z DNIA 22.07.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
+
+                                                      ul. Broniewskiego 1b/13
+                                                      lokal mieszkalny o pow. 21,35 m2
+                   Urząd Miasta
+                     Katowice           ustny
+2     14.07.2026                                      dz. nr 110/21 i 127/1 o łącznej pow. 349 m2   170 000 zł   171 700 zł        2                 0                   Artur Zjawiony
+                   ul. Młyńska 4   nieograniczony
+                                                      obręb: Bogucice - Zawodzie
+`;
+
+test('a preceding "m2" does not donate its digit to the price (Broniewskiego 1b/13)', () => {
+  const recs = parseResultPdf(UNIT_DIGIT_PDF, null, 'sample://unit-digit');
+  assert.equal(recs.length, 1);
+  const r = recs[0];
+  assert.equal(r.address_raw, 'Broniewskiego 1b/13');
+  assert.equal(r.starting_price_pln, 170000, 'must be 170 000, not 2 170 000 from "m2"');
+  assert.equal(r.final_price_pln, 171700);
+  assert.equal(r.area_m2, 21.35, 'flat area, not the 349 m² parcel');
+  // The gate that caught this in production, asserted directly.
+  assert.ok(r.starting_price_pln / r.area_m2 < 40000, 'zł/m² must stay inside the sanity band');
+});

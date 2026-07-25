@@ -324,8 +324,15 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
 
   // Same amount shape as PLN_ALL_RE below: spaced or dotted thousands and
   // optional grosze — "850 000 zł", "150 000,00 zł", "150.000,00 zł". The
-  // lookbehind also excludes ',' so the ",00 zł" tail can't match alone.
-  const prices = [...blob.matchAll(/(?<![\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/gi)]
+  // lookbehind excludes ',' so the ",00 zł" tail can't match alone, and a
+  // preceding LETTER so a unit's own digit cannot become the amount's leading
+  // group: "o łącznej pow. 349 m2   170 000 zł" otherwise starts matching at
+  // the 2 of "m2" and, because spaces are thousands separators here, reads as
+  // "2 170 000". That published Broniewskiego 1b/13 at 2 170 000 zł instead of
+  // 170 000 and tripped the insane-m2 gate (101 639 zł/m²), blocking the whole
+  // katowice commit daily. splitGluedAmounts cannot catch it — 2.17M is under
+  // its plausibility ceiling, so the wrong number looks entirely reasonable.
+  const prices = [...blob.matchAll(/(?<![\p{L}\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/giu)]
     .flatMap((m) => splitGluedAmounts(m[1]))
     .filter((n) => n != null);
   const starting_price_pln = prices[0] ?? null;
@@ -381,7 +388,9 @@ export function parseResultPdf(text, fallbackDate, sourceUrl) {
 // ------------------------------------------------- yearly summary PDF table
 
 const ROMAN_TO_INT = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9 };
-const PLN_ALL_RE = /(?<![\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/gi;
+// Letter-excluding lookbehind for the same reason as parseResultRow's copy: a
+// "349 m2" immediately before a price would otherwise contribute its "2".
+const PLN_ALL_RE = /(?<![\p{L}\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/giu;
 const DATE_RE = /(\d{1,2})\.(\d{1,2})\.(\d{4})r?\.?/;
 const ROUND_RE = /\b(I{1,3}|IV|V|VI{0,3}|IX)\s+(?:przetarg\s+)?ustny\b/i;
 const ADDR_TAIL_RE = /\s*[\(\[].*$/;
