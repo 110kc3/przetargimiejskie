@@ -66,6 +66,48 @@
 > re-ask; revisit when Kamil raises it. Caveat: chronic red masks new
 > breakages — the ops-hygiene fixes reduce, but don't eliminate, that risk.
 
+### The stale set grew from 3 to 5 — and the two newcomers are NOT the FINN incident [RPI5]
+
+**Verified 2026-07-25 by live-probing every stale source from the Pi's Polish
+IP.** The chronic-red risk the callout above names ("chronic red masks new
+breakages") has now actually happened: health.yml fails on **five** cities, not
+the documented trio, and nothing flagged the two additions because the run was
+already red.
+
+| city | source resolves to | from a PL IP today | same cause as the trio? |
+|---|---|---|---|
+| swietochlowice | `194.24.181.47` (`bip2.finn.pl`) | **200** | yes — FINN/Azure egress |
+| raciborz | `194.24.181.47` (`bip2.finn.pl`) | **200** | yes — FINN/Azure egress |
+| tczew | `51.68.147.58` | **200** | yes — documented trio |
+| **oswiecim** | `62.87.236.179` | **302 → 200** | **no — new** |
+| **naklo-nad-notecia** | `89.191.148.30` | **TLS failure** | **no — new** |
+
+The trio's diagnosis is unchanged and still needs only non-Azure egress. The two
+new ones are ordinary breakages that egress will not fix:
+
+- [ ] **oswiecim — the BIP moved behind a redirect.** `bip.oswiecim.um.gov.pl/`
+      now answers `302` to
+      `https://bip.oswiecim.um.gov.pl/5677?alias=bip_umoswiecim`, which is
+      `200`. Cheap fix: follow the redirect, or point the adapter's entry URL at
+      the aliased path. Worth checking whether `getText` follows 302 already —
+      if it does, the failure is further in and the alias page's shape changed.
+- [ ] **naklo-nad-notecia — broken TLS chain at the source, not an outage.**
+      `curl` gives `SSL certificate problem: unable to get local issuer
+      certificate`; the very same request with `-k` returns **200**. The server
+      is serving a leaf without its intermediate, so every strict client
+      (undici/Node included) refuses it while a browser papers over it. This
+      fails from Poland too — CI egress is irrelevant. Decide deliberately:
+      supply the missing intermediate to the fetch path for this host only, or
+      classify it `source-unreachable` and stop counting it as our bug. Do NOT
+      reach for a blanket `rejectUnauthorized: false` — that would silently
+      disable certificate checking for all 117 built cities.
+
+**Ops lesson worth keeping:** a permanently-red health check stopped being a
+signal, so two regressions sat unnoticed for ~2 weeks. If the egress unblock
+stays deferred, the trio needs to be *excluded* from the gate (with the reason
+recorded) so that red once again means "something new broke" — otherwise this
+recurs every time a source changes.
+
 ### Broken cities — FINN/Azure egress block: Racibórz + Świętochłowice (one incident) [RPI5]
 
 Both BIPs resolve to the same shared FINN server — `www.bipraciborz.pl` and
