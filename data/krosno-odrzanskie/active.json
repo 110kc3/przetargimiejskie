@@ -1,6 +1,26 @@
 {
   "schema_version": 1,
   "city": "krosno-odrzanskie",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bohaterów Wojska Polskiego 1/1",
+      "address": {
+        "street": "Bohaterów Wojska Polskiego",
+        "street_norm": "bohaterow wojska polskiego",
+        "building": "1",
+        "apt": "1",
+        "key": "bohaterow wojska polskiego|1|1",
+        "warning": null
+      },
+      "area_m2": 78.91,
+      "starting_price_pln": 186000,
+      "auction_date": "2026-09-08",
+      "round": 1,
+      "detail_url": "https://bip.krosnoodrzanskie.pl/przetargi/202/557/12_2FGN_2F2026/",
+      "source_url": "https://bip.krosnoodrzanskie.pl/system/pobierz.php?plik=I_przetarg_ustny_nieogran._na_sprzedaz_lokalu_mieszkalnego.pdf&id=deaf930731a4b5527dedaa92ae612742",
+      "notes": []
+    }
+  ],
   "wykaz": []
 }
