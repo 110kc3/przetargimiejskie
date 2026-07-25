@@ -3,6 +3,182 @@
   "city": "zabrze",
   "properties": [
     {
+      "key": "jozefa chelmonskiego|12|5",
+      "street": "Józefa Chełmońskiego",
+      "street_norm": "jozefa chelmonskiego",
+      "building": "12",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 290000,
+          "outcome": "active",
+          "area_m2": 62.98,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.98
+    },
+    {
+      "key": "fryderyka chopina|30A|2",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "30A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 29.29,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29.29
+    },
+    {
+      "key": "fryderyka chopina|32C|2",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "32C",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 38.75,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.75
+    },
+    {
+      "key": "tarnopolska|70|4",
+      "street": "Tarnopolska",
+      "street_norm": "tarnopolska",
+      "building": "70",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "active",
+          "area_m2": 21.75,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 21.75
+    },
+    {
+      "key": "zwirki i wigury|18|3",
+      "street": "Żwirki i Wigury",
+      "street_norm": "zwirki i wigury",
+      "building": "18",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": 56.51,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 56.51
+    },
+    {
+      "key": "budowlana|62|5",
+      "street": "Budowlana",
+      "street_norm": "budowlana",
+      "building": "62",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 43.93,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26308",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.93
+    },
+    {
+      "key": "budowlana|94|16",
+      "street": "Budowlana",
+      "street_norm": "budowlana",
+      "building": "94",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 30.1,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26308",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.1
+    },
+    {
+      "key": "jaworowa|5|3",
+      "street": "Jaworowa",
+      "street_norm": "jaworowa",
+      "building": "5",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 46.21,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26308",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.21
+    },
+    {
       "key": "fryderyka chopina|30|2",
       "street": "Fryderyka Chopina",
       "street_norm": "fryderyka chopina",

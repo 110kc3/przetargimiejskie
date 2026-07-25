@@ -4,6 +4,142 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Józefa Chełmońskiego 12/5",
+      "address": {
+        "street": "Józefa Chełmońskiego",
+        "street_norm": "jozefa chelmonskiego",
+        "building": "12",
+        "apt": "5",
+        "key": "jozefa chelmonskiego|12|5",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 1,
+      "area_m2": 62.98,
+      "starting_price_pln": 290000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26309"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Fryderyka Chopina 30a/2",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "30A",
+        "apt": "2",
+        "key": "fryderyka chopina|30A|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 1,
+      "area_m2": 29.29,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26309"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Fryderyka Chopina 32c/2",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "32C",
+        "apt": "2",
+        "key": "fryderyka chopina|32C|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 1,
+      "area_m2": 38.75,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26309"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tarnopolska 70/4",
+      "address": {
+        "street": "Tarnopolska",
+        "street_norm": "tarnopolska",
+        "building": "70",
+        "apt": "4",
+        "key": "tarnopolska|70|4",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 1,
+      "area_m2": 21.75,
+      "starting_price_pln": 72000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26309"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Żwirki i Wigury 18/3",
+      "address": {
+        "street": "Żwirki i Wigury",
+        "street_norm": "zwirki i wigury",
+        "building": "18",
+        "apt": "3",
+        "key": "zwirki i wigury|18|3",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 1,
+      "area_m2": 56.51,
+      "starting_price_pln": 260000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26309"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Budowlana 62/5",
+      "address": {
+        "street": "Budowlana",
+        "street_norm": "budowlana",
+        "building": "62",
+        "apt": "5",
+        "key": "budowlana|62|5",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "round": 1,
+      "area_m2": 43.93,
+      "starting_price_pln": 220000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26308"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Budowlana 94/16",
+      "address": {
+        "street": "Budowlana",
+        "street_norm": "budowlana",
+        "building": "94",
+        "apt": "16",
+        "key": "budowlana|94|16",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "round": 1,
+      "area_m2": 30.1,
+      "starting_price_pln": 170000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26308"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jaworowa 5/3",
+      "address": {
+        "street": "Jaworowa",
+        "street_norm": "jaworowa",
+        "building": "5",
+        "apt": "3",
+        "key": "jaworowa|5|3",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "round": 1,
+      "area_m2": 46.21,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26308"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Fryderyka Chopina 30/2",
       "address": {
         "street": "Fryderyka Chopina",
