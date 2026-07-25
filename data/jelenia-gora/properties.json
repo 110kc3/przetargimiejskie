@@ -235,11 +235,12 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 230000,
-          "outcome": "archived",
-          "area_m2": 62.87,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.jeleniagora.pl/attachments/download/51599",
+          "notes": [],
+          "area_m2": 62.87
         }
       ],
       "area_m2": 62.87
@@ -329,6 +330,29 @@
           "viewing_date": null
         }
       ]
+    },
+    {
+      "key": "placu energetyka|1|4",
+      "street": "Placu Energetyka",
+      "street_norm": "placu energetyka",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.jeleniagora.pl/attachments/download/51596",
+          "notes": [],
+          "area_m2": 51.1
+        }
+      ],
+      "area_m2": 51.1
     },
     {
       "key": "1 maja|46|1U",

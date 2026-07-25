@@ -289,79 +289,6 @@
       ]
     },
     {
-      "key": "dz|0008, cieplice viii, am 2|40",
-      "kind": "grunt",
-      "city": "jelenia-gora",
-      "dzialka_nr": "40",
-      "obreb": "0008, Cieplice VIII, AM 2",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 8028,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-24",
-          "round": 2,
-          "starting_price_pln": 1200000,
-          "outcome": "active",
-          "area_m2": 8028,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25320/58-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/50974"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "40",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|0034, 34, am 2|145",
-      "kind": "grunt",
-      "city": "jelenia-gora",
-      "dzialka_nr": "145",
-      "obreb": "0034, 34, AM 2",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 12482,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-04-29",
-          "round": 1,
-          "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 12482,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/24876/23-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/50209"
-        },
-        {
-          "date": "2026-07-24",
-          "round": 2,
-          "starting_price_pln": 2000000,
-          "outcome": "active",
-          "area_m2": 12482,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25319/57-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/50972"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "145",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|0021, jelenia góra 4|55",
       "kind": "grunt",
       "city": "jelenia-gora",
@@ -425,6 +352,38 @@
       ]
     },
     {
+      "key": "dz|0034, 34, am 2|145",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "145",
+      "obreb": "0034, 34, AM 2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12482,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-29",
+          "round": 1,
+          "starting_price_pln": 2000000,
+          "outcome": "archived",
+          "area_m2": 12482,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/24876/23-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/50209"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "145",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|0034, 34, am 2|47",
       "kind": "grunt",
       "city": "jelenia-gora",
@@ -453,6 +412,37 @@
         {
           "nr": "47",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|32/22",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "32/22",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F22%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 159,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 159,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25666/81-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51600"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/22"
         }
       ]
     },
