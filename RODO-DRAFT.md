@@ -24,11 +24,16 @@ STATUS: DRAFT. Not legal advice. Before publishing, Kamil must:
          data outside the EEA (→ keep the SCC clause; else delete it).
        • «PARTNER(ZY)» — the actual partner(s) leads are routed to, once signed.
          Until then the lead form must not be live.
-       • «ANALITYKA» — RESOLVED 2026-07-27: **Umami Cloud (Hobby, free), EU
-         region**, cookieless, no personal data, no consent needed. Already
-         disclosed in `site/privacy/index.html`; keep this section and name
-         Umami as the processor (its EU hosting is what keeps the transfer
-         section simple — no third-country transfer to document).
+       • «ANALITYKA» — RESOLVED 2026-07-27: **Umami Cloud (Hobby, free)**,
+         cookieless, stores no personal data and no IP, so no consent is needed.
+         Already disclosed in `site/privacy/index.html`; keep this section and
+         name Umami as the tool. **Open question for Kamil:** the account runs on
+         `cloud.umami.is` (Umami's US-primary endpoint). Umami operates EU servers
+         too but doesn't document how to select them, so neither the privacy page
+         nor this draft claims EU residency. Because no personal data is
+         processed, there is nothing to document as a third-country transfer — but
+         if a lawyer wants belt-and-braces, ask Umami support to confirm the
+         region, or self-host on the Pi and set `ANALYTICS_HOST`.
   3. Decide scope: publish only the sections whose flow is actually live. Do NOT
      ship the lead-form section before a partner exists, nor the newsletter
      section before the ESP + double-opt-in are wired.
@@ -136,7 +141,7 @@ Logi przechowujemy krótko i nie łączymy ich z Twoją tożsamością.
   wyłącznie techniczne/niezbędne cookies — opisz je tu; w przeciwnym razie:
   Serwis nie zapisuje plików cookies.»
 - **Analityka:** Do zliczania odwiedzin używamy narzędzia
-  **Umami (serwery w UE)**, które działa **bez plików cookies i bez
+  **Umami**, które działa **bez plików cookies i bez
   zbierania danych osobowych** (statystyki są zbiorcze i anonimowe), dlatego nie
   wymaga Twojej zgody. Jeśli kiedykolwiek wprowadzimy narzędzie oparte na cookies
   lub identyfikujące użytkownika, najpierw poprosimy o zgodę i zaktualizujemy tę

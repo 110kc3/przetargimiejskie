@@ -30,6 +30,10 @@ on:
       - 'data/**'
       - 'extension/**'
       - 'build-site.sh'
+      # scripts/ generates every SEO page, the sitemap, llms.txt and the
+      # published data/index.json — a change there changes the site even when
+      # nothing under site/ moved, so it has to trigger a deploy too.
+      - 'scripts/**'
       - '.github/workflows/ovh-deploy.yml'
   # Also deploy after the data-refresh workflow finishes. The refresh job commits
   # data/ using the default GITHUB_TOKEN, and GitHub deliberately does NOT let a

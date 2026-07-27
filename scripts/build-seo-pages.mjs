@@ -651,8 +651,12 @@ console.error(`  seo: published data/index.json — ${publicIds.size} public of 
 // banner. Do not swap in a provider that fails those tests without updating
 // site/privacy/index.html in the same commit.
 //
-// Default: Umami Cloud (Hobby tier, free, EU region). Self-hosted Umami works
-// unchanged via ANALYTICS_HOST — same snippet, different origin, no lock-in.
+// Default: Umami Cloud (Hobby tier, free) on its standard cloud.umami.is
+// endpoint. Umami runs both US and EU servers but does not document how to pick
+// the EU one, so the privacy page deliberately makes NO hosting-location claim —
+// its RODO argument rests on "no personal data is processed at all", which holds
+// either way. If EU residency is ever confirmed or self-hosting happens, point
+// ANALYTICS_HOST at that origin and update site/privacy/ in the same commit.
 //
 // Injected here, as the last build step, rather than pasted into each template:
 // it lands on the static site/ pages and every generated SEO page alike, and a
@@ -667,7 +671,7 @@ console.error(`  seo: published data/index.json — ${publicIds.size} public of 
 // impression that traffic is being recorded.
 
 const ANALYTICS = {
-  umami: (id, host) => `<script defer src="${esc((host || 'https://eu.umami.is').replace(/\/$/, ''))}/script.js" data-website-id="${esc(id)}"></script>`,
+  umami: (id, host) => `<script defer src="${esc((host || 'https://cloud.umami.is').replace(/\/$/, ''))}/script.js" data-website-id="${esc(id)}"></script>`,
   plausible: (id) => `<script defer data-domain="${esc(id)}" src="https://plausible.io/js/script.js"></script>`,
 };
 const A_PROVIDER = process.env.ANALYTICS_PROVIDER || 'umami';
