@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Kaliskiej 14a/2",
+      "address": {
+        "street": "Kaliskiej",
+        "street_norm": "kaliskiej",
+        "building": "14A",
+        "apt": "2",
+        "key": "kaliskiej|14A|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-25",
+      "published_date": "2026-07-27",
+      "round": 1,
+      "area_m2": 48.25,
+      "starting_price_pln": 241250,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564154,przetarg-ustny-nieograniczony-na-sprzedaz-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Rodakowskiego 12/130",
       "address": {
         "street": "Rodakowskiego",
