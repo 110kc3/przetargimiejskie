@@ -100,7 +100,7 @@ to `main` constantly.
 
 Kamil-only, roughly **one day of decisions + account clicks total**, then ~1 h/week:
 rebrand/positioning decisions · Chrome Web Store submit · `PUBLIC_VOIVODESHIPS`
-width · Google Search Console · analytics account (Plausible/Umami) · ESP account ·
+width · Google Search Console · analytics account (Umami Cloud, free) · ESP account ·
 publishing the RODO policy ([RODO-DRAFT.md](./RODO-DRAFT.md) is written, awaiting
 review) · partner demand calls (§3.2) · signing sponsors/partners · JDG
 registration. Everything else must be machine- or agent-shaped; if a task keeps
@@ -238,8 +238,11 @@ Updated 2026-07-27 — two of these are now agent-done and waiting only on a cli
 
 - ~~widen `PUBLIC_VOIVODESHIPS`~~ **DONE** — gate is national + quality-gated:
   54 cities, 15 voivodeships, 2 273 sitemap URLs (was 12 / 1 / 1 090).
-- ~~wire analytics~~ **DONE** — Plausible injected into all 2 275 built pages,
-  privacy policy updated to match. **Kamil: create the plausible.io account** (~5 min).
+- ~~wire analytics~~ **DONE** — injected into all 2 275 built pages, privacy page
+  updated to match. Plausible was dropped (paid, no free tier) for **Umami Cloud
+  Hobby — free, no card, EU region**. **Kamil: sign up, pick the EU region, and set
+  the `ANALYTICS_ID` repo variable** (~5 min). Until then pages build with no
+  snippet at all, rather than a dead beacon.
 
 Remaining, in order: **(1)** the §3.2 demand-test calls — *blocked on nothing*, the
 cheapest highest-kill-power test available, and the reason to do it before anything

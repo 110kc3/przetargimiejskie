@@ -408,16 +408,29 @@ data-only. **Owner:** Kamil (scope) / agent (build).
 - **Google Search Console [ACCOUNT]:** verify przetargimiejskie.pl (DNS TXT via
   OVH), submit sitemap.xml — best after the gate widening so the full sitemap
   indexes once. Also feeds the GTM §6 kill criteria.
-- **Analytics — WIRED 2026-07-27, needs the account [ACCOUNT]:** Plausible is
-  injected into **every** built page (2 275 of them) by the last step of
+- **Analytics — WIRED 2026-07-27, needs a free Umami Cloud account [ACCOUNT]:**
+  the snippet is injected into **every** built page (2 275) by the last step of
   `scripts/build-seo-pages.mjs`, so no page — present or future — can ship
-  unmeasured. `site/privacy/index.html` was updated the same day to disclose it
-  (it previously claimed *"brak narzędzi analitycznych"*, which the injection
-  would have made false). Cookieless, no personal data, no consent banner needed.
-  **Remaining, Kamil-only:** create the plausible.io account for
-  `przetargimiejskie.pl` (~5 min). Until then the snippet loads and drops events
-  harmlessly. Build with `PLAUSIBLE_DOMAIN=''` to omit it; override the domain
-  with the same env var.
+  unmeasured. `site/privacy/index.html` discloses it (it previously claimed
+  *"brak narzędzi analitycznych"*, which the injection would have made false).
+  Cookieless, no personal data, no consent banner needed.
+
+  **Plausible was dropped 2026-07-27 — it is paid (no free tier).** Replaced with
+  **Umami Cloud Hobby: free, no card, EU region** (`eu.umami.is`), which also
+  supports custom events — needed for the GTM §6 *CTA click-through* kill gate,
+  which Cloudflare Web Analytics (the free-unlimited alternative) cannot measure.
+  Self-hosting Umami later needs no code change, only `ANALYTICS_HOST`.
+
+  **Remaining, Kamil-only (~5 min):** sign up at umami.is → **choose the EU
+  region** (the privacy page states EU hosting) → add website `przetargimiejskie.pl`
+  → copy the website id → GitHub → Settings → Secrets and variables → Actions →
+  **Variables** → new variable `ANALYTICS_ID` = that UUID. Next deploy picks it up.
+  It is a variable, not a secret: the id is public in the page HTML.
+
+  Until that variable exists the site builds with **no** tracking snippet at all —
+  deliberately, so nothing ships a dead beacon that looks like working analytics.
+  Config: `ANALYTICS_PROVIDER` (`umami` default | `plausible`), `ANALYTICS_ID`,
+  `ANALYTICS_HOST` (self-hosted Umami origin).
 - **B2G outreach [RPI5]:** clone the `outreach/gliwice/` pitch for 2–3 more
   cities with each city's own unsold stats from `data/`; Kamil sends.
 

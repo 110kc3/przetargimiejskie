@@ -262,7 +262,8 @@ model works, and you've learned that for ≈ €0 before building anything else.
 
 ## 6. Metrics & kill criteria
 
-Track from day one (Plausible/Umami — privacy-friendly, on-brand):
+Track from day one (**Umami Cloud Hobby — free, cookieless, EU region**; wired
+2026-07-27, needs only the account. Plausible was dropped as paid):
 
 - **Reach:** organic sessions/week; which city pages rank; newsletter subscribers.
 - **Lead-gen:** CTA click-through; leads captured/week; lead → partner-accepted rate;
@@ -288,7 +289,7 @@ Track from day one (Plausible/Umami — privacy-friendly, on-brand):
 **Week 1–2 — Public site + reach (the prerequisite)**
 - [ ] SEO pages: one per city + one per active/archived listing, over existing JSON.
 - [ ] Sitemap + meta titles/descriptions on the §3 queries; monthly per-city recap.
-- [ ] Privacy-friendly analytics (Plausible/Umami) live.
+- [ ] Privacy-friendly analytics live — code shipped; set the `ANALYTICS_ID` repo variable.
 - [ ] DNS + OVH hosting + HTTPS confirmed for przetargimiejskie.pl (per README §Website; OVH is the live host).
 - [ ] Launch the weekly newsletter ("co tydzień: nowe przetargi miejskie na Śląsku").
 - [ ] Extension: discreet "powered by przetargimiejskie.pl" link on each badge.

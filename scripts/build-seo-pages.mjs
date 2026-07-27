@@ -643,19 +643,41 @@ const outIndex = {
 writeFileSync(join(OUT, 'data', 'index.json'), JSON.stringify(outIndex, null, 2));
 console.error(`  seo: published data/index.json — ${publicIds.size} public of ${(index.cities || []).length} cities`);
 
-// ---------- analytics: inject Plausible into every built page ----------
-// Cookieless and personal-data-free, which is the only kind of analytics
-// compatible with the site's RODO stance (RODO-DRAFT.md) and the extension's
-// zero-tracking promise — no consent banner is required for it.
+// ---------- analytics: inject the tracking snippet into every built page ----------
+// Whichever provider is configured must be cookieless and store no personal
+// data — that is the only kind compatible with the site's RODO stance
+// (RODO-DRAFT.md), the disclosure in site/privacy/, and the extension's
+// zero-tracking promise. It is also what lets the site run with no consent
+// banner. Do not swap in a provider that fails those tests without updating
+// site/privacy/index.html in the same commit.
+//
+// Default: Umami Cloud (Hobby tier, free, EU region). Self-hosted Umami works
+// unchanged via ANALYTICS_HOST — same snippet, different origin, no lock-in.
 //
 // Injected here, as the last build step, rather than pasted into each template:
 // it lands on the static site/ pages and every generated SEO page alike, and a
-// page added later cannot silently ship unmeasured. Build with
-// PLAUSIBLE_DOMAIN='' to omit it (local previews).
+// page added later cannot silently ship unmeasured.
+//
+//   ANALYTICS_PROVIDER  umami (default) | plausible
+//   ANALYTICS_ID        umami website id (UUID) | plausible domain
+//   ANALYTICS_HOST      self-hosted origin (umami only; default cloud.umami.is)
+//
+// With no ANALYTICS_ID the snippet is omitted entirely. That is deliberate: a
+// placeholder id would ship a script that beacons nowhere and give a false
+// impression that traffic is being recorded.
 
-const PLAUSIBLE_DOMAIN = process.env.PLAUSIBLE_DOMAIN ?? 'przetargimiejskie.pl';
-if (PLAUSIBLE_DOMAIN) {
-  const tag = `<script defer data-domain="${esc(PLAUSIBLE_DOMAIN)}" src="https://plausible.io/js/script.js"></script>`;
+const ANALYTICS = {
+  umami: (id, host) => `<script defer src="${esc((host || 'https://eu.umami.is').replace(/\/$/, ''))}/script.js" data-website-id="${esc(id)}"></script>`,
+  plausible: (id) => `<script defer data-domain="${esc(id)}" src="https://plausible.io/js/script.js"></script>`,
+};
+const A_PROVIDER = process.env.ANALYTICS_PROVIDER || 'umami';
+const A_ID = process.env.ANALYTICS_ID || '';
+if (!A_ID) {
+  console.error('  seo: NOTE — no ANALYTICS_ID set, pages built without analytics.');
+} else if (!ANALYTICS[A_PROVIDER]) {
+  console.error(`  seo: WARNING — unknown ANALYTICS_PROVIDER "${A_PROVIDER}", analytics skipped (expected: ${Object.keys(ANALYTICS).join(' | ')})`);
+} else {
+  const tag = ANALYTICS[A_PROVIDER](A_ID, process.env.ANALYTICS_HOST);
   const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
     const p = join(dir, e.name);
     return e.isDirectory() ? walk(p) : (e.name.endsWith('.html') ? [p] : []);
@@ -663,10 +685,10 @@ if (PLAUSIBLE_DOMAIN) {
   let injected = 0;
   for (const file of walk(OUT)) {
     const html = readFileSync(file, 'utf8');
-    if (html.includes('plausible.io/js/')) continue;
+    if (html.includes('data-website-id=') || html.includes('plausible.io/js/')) continue;
     if (!html.includes('</head>')) { console.error(`  seo: WARNING — no </head>, analytics skipped: ${file}`); continue; }
     writeFileSync(file, html.replace('</head>', `${tag}\n</head>`));
     injected++;
   }
-  console.error(`  seo: injected Plausible (${PLAUSIBLE_DOMAIN}) into ${injected} page(s)`);
+  console.error(`  seo: injected ${A_PROVIDER} analytics into ${injected} page(s)`);
 }

@@ -39,7 +39,7 @@ a venture. That's fine — but decide with the actual CPL in hand, not a guess.
 ### Week 1 — Instrument + demand test (do both in parallel)
 
 **A. Turn on analytics (½ day).** The site currently has *none* — you can't measure a
-funnel you can't see. Add Plausible or Umami (privacy-friendly, on-brand) to every
+funnel you can't see. Add Umami Cloud Hobby — free, cookieless, EU region — to every
 page in `site/`. Without this, Weeks 2–6 produce no data.
 
 **B. Demand test — the decisive call (rest of the week).** Contact **5–8 mortgage

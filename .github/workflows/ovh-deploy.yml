@@ -54,6 +54,15 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Assemble site into _site/
+        # Analytics is injected into every built page by scripts/build-seo-pages.mjs.
+        # The website id is public (it ships in the HTML), so it lives in a repo
+        # *variable*, not a secret: Settings → Secrets and variables → Actions →
+        # Variables → ANALYTICS_ID. Until that variable exists the site simply
+        # builds without a tracking snippet — no placeholder, no dead beacon.
+        env:
+          ANALYTICS_PROVIDER: ${{ vars.ANALYTICS_PROVIDER || 'umami' }}
+          ANALYTICS_ID: ${{ vars.ANALYTICS_ID }}
+          ANALYTICS_HOST: ${{ vars.ANALYTICS_HOST }}
         run: bash build-site.sh _site
 
       - name: Install lftp
