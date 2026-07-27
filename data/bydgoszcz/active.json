@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Dworcowej 12/13",
+      "address": {
+        "street": "Dworcowej",
+        "street_norm": "dworcowej",
+        "building": "12",
+        "apt": "13",
+        "key": "dworcowej|12|13",
+        "warning": null
+      },
+      "area_m2": 49.66,
+      "starting_price_pln": 260000,
+      "auction_date": "2026-08-28",
+      "round": 1,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10631/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-08-2026-r-ul-dworcowa12m13",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/33075"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. L. Wyczółkowskiego 3/7",
       "address": {
         "street": "L. Wyczółkowskiego",
