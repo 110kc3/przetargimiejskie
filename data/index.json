@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-26T07:09:33.900Z",
+  "generated_at": "2026-07-27T07:34:45.811Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 89,
+      "active_listings": 55,
       "active_auctions": 4,
       "archived_auctions": 100,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 84
     },
     {
       "id": "trzebinia",
@@ -164,9 +164,9 @@
       "voivodeship": "malopolskie",
       "authority": "Urząd Miasta Krakowa (Wydział Skarbu Miasta)",
       "host": "bip.krakow.pl",
-      "unique_properties": 9,
-      "active_listings": 13,
-      "active_auctions": 1,
+      "unique_properties": 10,
+      "active_listings": 14,
+      "active_auctions": 2,
       "archived_auctions": 12,
       "wykaz_entries": 0,
       "land_plots": 3
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 12,
+      "active_listings": 9,
       "active_auctions": 6,
       "archived_auctions": 30,
       "wykaz_entries": 0,
@@ -697,9 +697,9 @@
       "voivodeship": "kujawsko-pomorskie",
       "authority": "Urząd Miasta Bydgoszczy",
       "host": "bip.um.bydgoszcz.pl",
-      "unique_properties": 10,
-      "active_listings": 3,
-      "active_auctions": 3,
+      "unique_properties": 11,
+      "active_listings": 4,
+      "active_auctions": 4,
       "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 10
+      "land_plots": 12
     },
     {
       "id": "miedzyrzecz",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1001,7 +1001,7 @@
       "active_auctions": 1,
       "archived_auctions": 25,
       "wykaz_entries": 0,
-      "land_plots": 40
+      "land_plots": 41
     },
     {
       "id": "sroda-wielkopolska",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 51
     },
     {
       "id": "jarocin",
