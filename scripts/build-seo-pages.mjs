@@ -11,24 +11,36 @@
 //   /miasta/                   static hub linking every city page
 //   /sitemap.xml               all of the above + the existing site pages
 //
-// SCOPE: cities with voivodeship === 'slaskie' only — mirrors the public
-// landing-page gate (index.html filters Śląskie; all-Poland stays on the
-// /archiwum-all test view). Widen by changing PUBLIC_VOIVODESHIPS below.
+// SCOPE: all of Poland since 2026-07-27 (PUBLIC_VOIVODESHIPS = null). Narrow to
+// specific voivodeships by setting it to a Set. The /archiwum-all test view
+// still shows every crawled city, published or not.
+//
+// PUBLISH GATE: within that scope a city must also clear MIN_PUBLIC_AUCTIONS
+// (live + archived) to be published at all. This script is the single place the
+// gate is decided — it re-writes <out>/data/index.json with a per-city `public`
+// flag and a date-aware `live_auctions` count, and the runtime pages (landing
+// chips, /archiwum) filter on that flag rather than re-deriving their own.
 //
 // Runs on plain Node (no deps): `node scripts/build-seo-pages.mjs <outDir>`.
 // Called from build-site.sh AFTER site/ + data/ are copied into the out dir.
 // Titles/meta target the GTM.md §3 queries: "przetarg mieszkania <miasto>",
 // "licytacja mieszkania <miasto>", "mieszkanie od miasta", "lokale <ZGM>".
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CITY_LOC, inCity } from './lib/city-loc.mjs';
 
 const ROOT = process.env.SEO_ROOT ? resolve(process.env.SEO_ROOT)
   : resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(process.argv[2] || '_site');
 const SITE = 'https://przetargimiejskie.pl';
-const PUBLIC_VOIVODESHIPS = new Set(['slaskie']);
+// null = all of Poland. Narrow again with e.g. `new Set(['slaskie'])`.
+const PUBLIC_VOIVODESHIPS = null;
+// Minimum auctions (live + archived) for a city to be published. Below this a
+// city page is mostly empty tables and "brak danych", which reads as broken
+// rather than as honest coverage — so it stays crawled but unlisted.
+const MIN_PUBLIC_AUCTIONS = 10;
 const RECAP_MONTHS = 24; // monthly recap pages: this many calendar months back
 
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
@@ -42,20 +54,31 @@ const MONTHS_NOM = ['styczeń','luty','marzec','kwiecień','maj','czerwiec','lip
 const MONTHS_GEN = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
 const MONTHS_LOC = ['styczniu','lutym','marcu','kwietniu','maju','czerwcu','lipcu','sierpniu','wrześniu','październiku','listopadzie','grudniu'];
 
-// Locative ("w …") city names for grammatical prose. Fallback: nominative
-// apposition ("— <Label>") so an unmapped future city is never mis-declined.
-const CITY_LOC = {
-  gliwice: 'w Gliwicach', katowice: 'w Katowicach', bytom: 'w Bytomiu', zabrze: 'w Zabrzu',
-  sosnowiec: 'w Sosnowcu', rybnik: 'w Rybniku', bielsko: 'w Bielsku-Białej',
-  myslowice: 'w Mysłowicach', swietochlowice: 'w Świętochłowicach',
-  'tarnowskie-gory': 'w Tarnowskich Górach', raciborz: 'w Raciborzu', cieszyn: 'w Cieszynie',
-};
-const inCity = (c) => CITY_LOC[c.id] || `— ${c.label}`;
+// Locative city names live in scripts/lib/city-loc.mjs (shared with the B2G
+// one-pager generator so the declensions can't drift apart).
 
 const fmtInt = (n) => Number(n).toLocaleString('pl-PL');
 const fmtPln = (n) => (n == null ? '—' : `${fmtInt(Math.round(n))} zł`);
 const fmtArea = (a) => (a == null ? '—' : `${Number(a).toLocaleString('pl-PL', { maximumFractionDigits: 2 })} m²`);
 const perM2 = (price, area) => (price && area ? `${fmtInt(Math.round(price / area))} zł/m²` : '—');
+
+// Chip metadata for the landing + /miasta/ hub. A city with nothing scheduled
+// must never render as a bare "0 aukcji" — that reads as broken even when the
+// city has a deep archive behind it — so fall back to the archive/property
+// counts. Every chip therefore carries two real numbers.
+const plural = (n) => (n === 1 ? 'aukcja' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 'aukcje' : 'aukcji');
+// Deterministic per-city dot colour. Replaces the hand-maintained `--c-<city>`
+// palette, which only covered ~10 cities — every unmapped city rendered the same
+// grey placeholder dot, which is precisely what made a wide city list look
+// unfinished. Hash → hue keeps every city distinct at any coverage. Fixed S/L so
+// all hues stay legible on the dark background. Mirrored in site/index.html.
+const cityHue = (id) => { let h = 0; for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 360; return h; };
+const cityDot = (id) => `<span class="city-dot" style="background:hsl(${cityHue(id)} 58% 58%)"></span>`;
+const chipMeta = ({ live, archived, props }) => {
+  if (live > 0) return `${fmtInt(live)} ${plural(live)} · ${fmtInt(archived)} w archiwum`;
+  if (archived > 0) return `${fmtInt(archived)} w archiwum · ${fmtInt(props)} nieruchomości`;
+  return `${fmtInt(props)} nieruchomości`;
+};
 const fmtDate = (iso) => {
   if (!iso) return '—';
   const [y, m, d] = iso.slice(0, 10).split('-').map(Number);
@@ -84,9 +107,20 @@ const outcomeHtml = (l) => {
   return OUTCOME_LABEL[o] || esc(o || '—');
 };
 
-const slugify = (s) => String(s ?? '').toLowerCase()
-  .normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l')
-  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+// Slugs become directory names, so they must stay under the filesystem's
+// 255-byte limit. A mis-parsed record can carry a whole announcement paragraph
+// in `street` (seen on krakow), which would otherwise crash the build with
+// ENAMETOOLONG — cap at a word boundary and let the caller's dedupe suffix
+// resolve any collisions the truncation creates.
+const SLUG_MAX = 80;
+const slugify = (s) => {
+  const full = String(s ?? '').toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (full.length <= SLUG_MAX) return full;
+  const cut = full.slice(0, SLUG_MAX);
+  return (cut.slice(0, cut.lastIndexOf('-')) || cut).replace(/-+$/, '');
+};
 
 // ---------- Shared page shell (Slate Ledger, compact subset) ----------
 
@@ -198,8 +232,8 @@ function writePage(relDir, html) {
 // ---------- Load data ----------
 
 const index = readJson(join(ROOT, 'data', 'index.json'));
-const cities = (index.cities || [])
-  .filter((c) => PUBLIC_VOIVODESHIPS.has(c.voivodeship))
+const candidates = (index.cities || [])
+  .filter((c) => !PUBLIC_VOIVODESHIPS || PUBLIC_VOIVODESHIPS.has(c.voivodeship))
   .sort((a, b) => a.label.localeCompare(b.label, 'pl'));
 
 const today = new Date().toISOString().slice(0, 10);
@@ -211,17 +245,19 @@ const recapFloor = (() => { // first day of the month RECAP_MONTHS-1 months ago
 const sitemap = []; // { loc, lastmod }
 const addUrl = (path, lastmod) => sitemap.push({ loc: `${SITE}${path}`, lastmod: (lastmod || today).slice(0, 10) });
 
-// ---------- Per-city ----------
+// ---------- Publish gate ----------
+// Load every candidate once, enrich its properties, and derive the *date-aware*
+// live-auction count. index.json's `active_auctions` is a snapshot frozen at the
+// last refresh, so an auction whose date has since passed still counts there —
+// that drift is why the landing used to advertise "8 aukcji" for a city whose
+// own page then said "0 aktualnych przetargów". `live` below is the single
+// definition every public surface uses from here on.
 
-const cityHub = []; // for /miasta/
-
-for (const city of cities) {
+const loaded = [];
+for (const city of candidates) {
   const dataDir = join(ROOT, 'data', city.id);
   if (!existsSync(join(dataDir, 'properties.json'))) { console.error(`  seo: skipping ${city.id} (no properties.json)`); continue; }
   const props = readJson(join(dataDir, 'properties.json')).properties || [];
-  const landPlots = existsSync(join(dataDir, 'land.json')) ? (readJson(join(dataDir, 'land.json')).plots || []).length : 0;
-  const meta = existsSync(join(dataDir, 'meta.json')) ? readJson(join(dataDir, 'meta.json')) : {};
-  const generated = (meta.generated_at || today).slice(0, 10);
 
   // --- enrich properties: slug, display address, sorted listings ---
   const slugSeen = new Map();
@@ -234,10 +270,35 @@ for (const city of cities) {
     p._listings = [...(p.listings || [])].sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
     p._lastDate = p._listings.reduce((m, l) => (l.date && l.date > m ? l.date : m), '');
     // "Live" = a genuinely upcoming auction (date >= today). Stale 'active'
-    // rows (auction passed, result never published) stay history-only, so the
-    // city count matches meta.json's active_auctions notion.
+    // rows (auction passed, result never published) stay history-only.
     p._live = [...p._listings].reverse().find(isLive) || null;
   }
+
+  const live = props.filter((p) => p._live).length;
+  const archived = city.archived_auctions || 0;
+  loaded.push({ city, props, live, archived, auctions: live + archived });
+}
+
+const published = loaded.filter((e) => e.auctions >= MIN_PUBLIC_AUCTIONS);
+const unlisted = loaded.filter((e) => e.auctions < MIN_PUBLIC_AUCTIONS);
+const cities = published.map((e) => e.city);
+const LIVE_BY_ID = Object.fromEntries(loaded.map((e) => [e.city.id, e.live]));
+if (unlisted.length) {
+  console.error(`  seo: unlisted ${unlisted.length} thin city page(s) (< ${MIN_PUBLIC_AUCTIONS} auctions): `
+    + unlisted.map((e) => `${e.city.id} (${e.auctions})`).join(', '));
+}
+if (!cities.length) throw new Error('publish gate left no cities — refusing to build an empty site');
+
+// ---------- Per-city ----------
+
+const cityHub = []; // for /miasta/
+
+for (const { city, props } of published) {
+  const dataDir = join(ROOT, 'data', city.id);
+  const landPlots = existsSync(join(dataDir, 'land.json')) ? (readJson(join(dataDir, 'land.json')).plots || []).length : 0;
+  const meta = existsSync(join(dataDir, 'meta.json')) ? readJson(join(dataDir, 'meta.json')) : {};
+  const generated = (meta.generated_at || today).slice(0, 10);
+
   const propHref = (p) => `/${city.id}/${p._slug}/`;
   const propLink = (p) => `<a href="${propHref(p)}">${esc(p._addr)}</a>`;
 
@@ -427,8 +488,8 @@ cena wywoławcza zwykle wtedy spada. Wiążące informacje wyłącznie w dokumen
 const hubBody = `
 <p class="lead">Historia miejskich przetargów na mieszkania — wybierz miasto. Każda strona
 zbiera aktualne licytacje, wyniki i pełną historię rund z BIP, aktualizowaną codziennie.</p>
-<div class="chip-row">${cityHub.map(({ city, active, archived }) =>
-  `<span class="chip"><a href="/${city.id}/">${esc(city.label)}</a><span class="m">${active} aktywnych · ${fmtInt(archived)} w archiwum</span></span>`).join('\n')}</div>
+<div class="chip-row">${cityHub.map(({ city, active, archived, props }) =>
+  `<span class="chip"><a href="/${city.id}/">${esc(city.label)}</a><span class="m">${chipMeta({ live: active, archived, props })}</span></span>`).join('\n')}</div>
 <p class="note">Kolejne miasta dodajemy w miarę dostępności otwartych przetargów na mieszkania —
 pełna lista danych także w <a href="/archiwum">archiwum</a>.</p>`;
 
@@ -459,7 +520,7 @@ console.error(`  seo: wrote ${sitemap.length} URLs to sitemap.xml (${cityHub.len
 // static pages are, and where the raw JSON lives. Generated so the city list
 // and counts never go stale.
 
-const activeOf = (c) => c.active_auctions ?? c.active_listings ?? 0;
+const activeOf = (c) => LIVE_BY_ID[c.id] ?? 0;
 const cityLine = (c) => `- ${c.label}: ${SITE}/${c.id}/ (${fmtInt(activeOf(c))} aktywnych · ${fmtInt(c.archived_auctions || 0)} w archiwum)`;
 
 const llms = `# przetargimiejskie
@@ -526,13 +587,27 @@ let landing = readFileSync(landingPath, 'utf8');
 const statProps = cities.reduce((s, c) => s + (c.unique_properties || 0), 0);
 const statActive = cities.reduce((s, c) => s + activeOf(c), 0);
 const statArchived = cities.reduce((s, c) => s + (c.archived_auctions || 0), 0);
-const plural = (n) => (n === 1 ? 'aukcja' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 'aukcje' : 'aukcji');
 const chipHtml = (c) => {
-  const a = activeOf(c);
-  const meta = `${a} ${plural(a)}` + (c.archived_auctions ? ` · ${fmtInt(c.archived_auctions)} w archiwum` : '');
-  return `<span class="city-chip"><span class="city-dot dot-${c.id}"></span><span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></span>`;
+  const meta = chipMeta({ live: activeOf(c), archived: c.archived_auctions || 0, props: c.unique_properties || 0 });
+  return `<span class="city-chip">${cityDot(c.id)}<span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></span>`;
 };
-const chipsHtml = `<div class="city-group"><div class="city-group-title">Śląskie</div><div class="city-row">${cities.map(chipHtml).join('')}</div></div>`;
+// Group by voivodeship, mirroring the landing's runtime JS: largest group first,
+// then alphabetically. (This used to hardcode a single "Śląskie" heading — wrong
+// the moment PUBLIC_VOIVODESHIPS opened past one voivodeship.)
+const WOJ = {
+  dolnoslaskie: 'Dolnośląskie', 'kujawsko-pomorskie': 'Kujawsko-Pomorskie', lubelskie: 'Lubelskie',
+  lubuskie: 'Lubuskie', lodzkie: 'Łódzkie', malopolskie: 'Małopolskie', mazowieckie: 'Mazowieckie',
+  opolskie: 'Opolskie', podkarpackie: 'Podkarpackie', podlaskie: 'Podlaskie', pomorskie: 'Pomorskie',
+  slaskie: 'Śląskie', swietokrzyskie: 'Świętokrzyskie', 'warminsko-mazurskie': 'Warmińsko-Mazurskie',
+  wielkopolskie: 'Wielkopolskie', zachodniopomorskie: 'Zachodniopomorskie',
+};
+const wojGroups = {};
+for (const c of cities) (wojGroups[c.voivodeship || 'inne'] ||= []).push(c);
+const chipsHtml = Object.keys(wojGroups)
+  .sort((x, y) => wojGroups[y].length - wojGroups[x].length || (WOJ[x] || x).localeCompare(WOJ[y] || y, 'pl'))
+  .map((w) => `<div class="city-group"><div class="city-group-title">${esc(WOJ[w] || w)}</div>`
+    + `<div class="city-row">${wojGroups[w].slice().sort((a, b) => a.label.localeCompare(b.label, 'pl')).map(chipHtml).join('')}</div></div>`)
+  .join('');
 
 const inject = (marker, replacement) => {
   if (!landing.includes(marker)) throw new Error(`landing injection marker not found: ${marker}`);
@@ -545,3 +620,53 @@ inject('<div class="stat-value" id="stat-archived">—</div>', `<div class="stat
 inject('<div class="city-groups" id="cities"></div>', `<div class="city-groups" id="cities">${chipsHtml}</div>`);
 writeFileSync(landingPath, landing);
 console.error('  seo: baked landing stats + city chips into index.html');
+
+// ---------- publish the gated data/index.json ----------
+// The runtime pages (landing chips, /archiwum) fetch /data/index.json. Rewrite
+// the *published copy* so they see exactly what this script decided: a `public`
+// flag per city plus the same date-aware `live_auctions` count baked into the
+// static HTML above — one gate, one set of numbers, no page contradicting
+// another. The repo's own data/index.json is deliberately left untouched: the
+// Chrome extension fetches that one from raw.githubusercontent.com and must
+// keep seeing every city, listed or not.
+
+const publicIds = new Set(cities.map((c) => c.id));
+const outIndex = {
+  ...index,
+  public_city_ids: [...publicIds],
+  cities: (index.cities || []).map((c) => ({
+    ...c,
+    live_auctions: LIVE_BY_ID[c.id] ?? null, // null = not evaluated (outside the public voivodeship scope)
+    public: publicIds.has(c.id),
+  })),
+};
+writeFileSync(join(OUT, 'data', 'index.json'), JSON.stringify(outIndex, null, 2));
+console.error(`  seo: published data/index.json — ${publicIds.size} public of ${(index.cities || []).length} cities`);
+
+// ---------- analytics: inject Plausible into every built page ----------
+// Cookieless and personal-data-free, which is the only kind of analytics
+// compatible with the site's RODO stance (RODO-DRAFT.md) and the extension's
+// zero-tracking promise — no consent banner is required for it.
+//
+// Injected here, as the last build step, rather than pasted into each template:
+// it lands on the static site/ pages and every generated SEO page alike, and a
+// page added later cannot silently ship unmeasured. Build with
+// PLAUSIBLE_DOMAIN='' to omit it (local previews).
+
+const PLAUSIBLE_DOMAIN = process.env.PLAUSIBLE_DOMAIN ?? 'przetargimiejskie.pl';
+if (PLAUSIBLE_DOMAIN) {
+  const tag = `<script defer data-domain="${esc(PLAUSIBLE_DOMAIN)}" src="https://plausible.io/js/script.js"></script>`;
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const p = join(dir, e.name);
+    return e.isDirectory() ? walk(p) : (e.name.endsWith('.html') ? [p] : []);
+  });
+  let injected = 0;
+  for (const file of walk(OUT)) {
+    const html = readFileSync(file, 'utf8');
+    if (html.includes('plausible.io/js/')) continue;
+    if (!html.includes('</head>')) { console.error(`  seo: WARNING — no </head>, analytics skipped: ${file}`); continue; }
+    writeFileSync(file, html.replace('</head>', `${tag}\n</head>`));
+    injected++;
+  }
+  console.error(`  seo: injected Plausible (${PLAUSIBLE_DOMAIN}) into ${injected} page(s)`);
+}

@@ -130,7 +130,7 @@ Lives in [`extension/`](./extension). MV3, no build step, no dependencies. Load 
 
 What it does:
 
-- **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL. Note: the extension currently surfaces 9 Śląskie cities — the data-driven all-55 rework is the top [ROADMAP.md](./ROADMAP.md) T1 item; the website archive already covers all 55.
+- **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL. Note: the extension currently surfaces 9 Śląskie cities — the data-driven rework that reads the city list from `index.json` is the top [ROADMAP.md](./ROADMAP.md) T1 item. The public website archive shows the gated Śląskie set (see *Website* below); every crawled city is on `/archiwum-all`.
 - **Content script** (`content.js` + per-site adapters in `sites/`) runs on each covered host:
   - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², a **deal score** (`▼ N% below median` / `▲ N% above median` vs the city's median zł/m²), auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
   - On property-detail pages: injects a sidebar with a chronological history table and a price-delta summary versus the first historical attempt.
@@ -161,6 +161,11 @@ Lives in [`site/`](./site) — fully static, no build step. [`build-site.sh`](./
 - `site/archiwum/` → a standalone web version of the archive — same filters/summary as the extension's archive, but it fetches `/data/<city>/*.json` directly (no Chrome APIs), so it works in any browser.
 - `site/privacy/` → privacy page (`/privacy`).
 - `data/` is copied to `/data/…` so the archive can read it.
+
+**Public scope is gated twice.** [`scripts/build-seo-pages.mjs`](./scripts/build-seo-pages.mjs) is the single place that decides which cities the site advertises: `PUBLIC_VOIVODESHIPS` (`null` = all of Poland, since 2026-07-27) and then `MIN_PUBLIC_AUCTIONS` — a city needs at least 10 auctions (live + archived) or its page is mostly empty tables, which reads as broken rather than as honest coverage. **54 of 121 crawled cities currently publish, across 15 voivodeships.** The script writes a per-city `public` flag and a **date-aware `live_auctions`** count into the *published* `_site/data/index.json`; the landing, `/archiwum` and `/raporty` all filter and count off those fields, so the pages cannot disagree about how many cities or auctions there are. Two consequences worth knowing:
+
+- Use `live_auctions`, not `active_auctions`, for anything user-facing. `active_auctions` is frozen at the last refresh, so auctions whose date has since passed still count there — that drift is what used to make the landing advertise auctions a city page then denied.
+- The gate is self-healing and applies only to the published copy. The repo's own `data/index.json` is untouched (the extension reads it from `raw.githubusercontent.com` and must keep seeing every city), gated-out cities keep being crawled, and they stay visible on the `/archiwum-all` test view. A city re-appears on its own once its board produces enough auctions.
 
 **The extension is not bundled into the site** — it lives in its own top-level `extension/` directory and is distributed via the Chrome Web Store; the site root is `site/`, not the extension.
 

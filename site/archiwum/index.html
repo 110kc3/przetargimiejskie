@@ -241,10 +241,13 @@ async function load(){
   let idx;
   try { idx = await fetch('/data/index.json').then(r=>r.json()); }
   catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
-  // Public archive = mature Śląskie cities only. The /archiwum-all test endpoint
-  // shows every voivodeship (non-Śląskie cities are still being validated).
+  // Public archive = Śląskie cities that clear the publish gate in
+  // scripts/build-seo-pages.mjs (the `public` flag it writes into the published
+  // index.json). Cities below the gate have too little history to render a page
+  // that doesn't read as broken. The /archiwum-all test endpoint shows every
+  // voivodeship and every city, gated or not.
   const SHOW_ALL = /archiwum-all/.test(location.pathname);
-  CITIES = (idx.cities||[]).filter(c => SHOW_ALL || c.voivodeship === 'slaskie');
+  CITIES = (idx.cities||[]).filter(c => SHOW_ALL || c.public !== false);
   if (SHOW_ALL) { const t=document.querySelector('.arc-title'); if(t) t.textContent='Archiwum przetargów — wszystkie miasta (wersja testowa)'; }
   lastRefresh = (idx.generated_at||'').slice(0,10);
   const fc=document.getElementById('f-city');

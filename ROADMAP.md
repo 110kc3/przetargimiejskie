@@ -48,7 +48,7 @@ extension, and receives Monday's digest. Health green daily.
 | PRIVACY.md refresh (still Gliwice-only) — required for store resubmit | [RPI5] draft + Kamil approve | S | blocked on rebrand decision |
 | WEB_STORE_LISTING.md refresh (says 9 cities; reality 55, v1.32.0 features) | [RPI5] | S | blocked on rebrand decision |
 | Chrome Web Store submit (live v1.3.3 vs local v1.32.0 — ~5 weeks unpublished). Recommended: bundle with the 55-city rework, one review cycle | [ACCOUNT] | S + review wait | Kamil — **the distribution unlock** |
-| Widen `PUBLIC_VOIVODESHIPS` beyond Śląskie (+ `CITY_LOC` locatives) — multiplies the SEO surface | [ACCOUNT] decision, [RPI5] execution | S | Kamil decides width |
+| ~~Widen `PUBLIC_VOIVODESHIPS` beyond Śląskie~~ — **DONE 2026-07-27.** Gate is national (`null`); `MIN_PUBLIC_AUCTIONS`=10 unlists thin cities automatically. 54 cities / 15 voivodeships / 2 273 sitemap URLs | — | — | shipped |
 | Google Search Console: verify domain, submit sitemap (after gate widening) | [ACCOUNT] | XS | Kamil |
 | Analytics (Plausible/Umami — privacy-friendly, no cookies): without it the GTM §6 kill gates can't be evaluated | [ACCOUNT] pick+pay, [RPI5] wire in | XS-S | Kamil |
 | RODO/GDPR policy for newsletter + leads (draft agent-side, publish is Kamil's call) — **hard blocker for any ESP send** | [RPI5] draft | S-M | open |

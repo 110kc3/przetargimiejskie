@@ -366,7 +366,11 @@ async function load(){
   let idx;
   try { idx = await fetch('/data/index.json').then(r=>r.json()); }
   catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
-  IDX = (idx.cities||[]).filter(c=>c.voivodeship==='slaskie'); CITIES = IDX.map(c=>c.id); // public = Śląskie only (non-Śląskie are test-tier, /archiwum-all)
+  // public = whatever the publish gate in scripts/build-seo-pages.mjs marked
+  // `public` in the published index.json. Same set the landing and /archiwum
+  // show, so the three pages can't report different city counts. (Gated-out
+  // cities stay reachable on the /archiwum-all test view.)
+  IDX = (idx.cities||[]).filter(c=>c.public!==false); CITIES = IDX.map(c=>c.id);
   IDX.forEach(c=>CITY_LABEL[c.id]=c.label);
   lastRefresh = (idx.generated_at||'').slice(0,10);
 
@@ -494,7 +498,11 @@ function render(){
 function renderKPIs(){
   const scope = fCity==='all' ? IDX : IDX.filter(c=>c.id===fCity);
   const sum = k => scope.reduce((s,c)=>s+(c[k]||0),0);
-  const props = sum('unique_properties'), active = sum('active_auctions'), land = sum('land_plots');
+  // `live_auctions` is recomputed at build time with the date-aware rule the
+  // city pages use; `active_auctions` is frozen at the last refresh and drifts
+  // stale as auction dates pass. Prefer the former, fall back for safety.
+  const props = sum('unique_properties'), land = sum('land_plots');
+  const active = scope.reduce((s,c)=>s+(c.live_auctions ?? c.active_auctions ?? 0),0);
   const ls = scopedListings();
   const sold = ls.filter(l=>l.outcome==='sold' && l.final!=null);
   const decided = ls.filter(l=>l.outcome==='sold'||l.outcome==='unsold');
