@@ -3,6 +3,83 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "armii krajowej|4|11",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "4",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 157000,
+          "outcome": "archived",
+          "area_m2": 37.49,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 157000,
+          "outcome": "archived",
+          "area_m2": 37.49,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-01-20",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 37.49,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 37.49,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-23",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 37.49,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-08",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 37.49,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 37.49
+    },
+    {
       "key": "armii krajowej|16C|24",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -553,72 +630,6 @@
         }
       ],
       "area_m2": 41.51
-    },
-    {
-      "key": "armii krajowej|4|11",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "4",
-      "apt": "11",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-07-15",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 157000,
-          "outcome": "archived",
-          "area_m2": 37.49,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-10-07",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 157000,
-          "outcome": "archived",
-          "area_m2": 37.49,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-01-20",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 37.49,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-04-28",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 37.49,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-23",
-          "round": 5,
-          "kind": "mieszkalny",
-          "starting_price_pln": 150000,
-          "outcome": "archived",
-          "area_m2": 37.49,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4-pr",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 37.49
     },
     {
       "key": "katowickiej|9|",
