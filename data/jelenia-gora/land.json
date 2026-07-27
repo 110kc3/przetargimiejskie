@@ -289,6 +289,96 @@
       ]
     },
     {
+      "key": "dz|0063, maciejowa iii, o powierzchni 0,3270 ha|532",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "532",
+      "obreb": "0063, Maciejowa III, o powierzchni 0,3270 ha",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wrocławskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20532%20ul.%20Wroc%C5%82awskiej%200063%2C%20Maciejowa%20III%2C%20o%20powierzchni%200%2C3270%20ha%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3270,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 2,
+          "starting_price_pln": 470000,
+          "outcome": "unsold",
+          "area_m2": 3270
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "532",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20532%200063%2C%20Maciejowa%20III%2C%20o%20powierzchni%200%2C3270%20ha%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0063, maciejowa iii|243",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "243",
+      "obreb": "0063, Maciejowa III",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Trzcińskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20243%20ul.%20Trzci%C5%84skiej%200063%2C%20Maciejowa%20III%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2819,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 4,
+          "starting_price_pln": 315400,
+          "outcome": "unsold",
+          "area_m2": 2819
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "243",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20243%200063%2C%20Maciejowa%20III%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0034, 34|47",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "47",
+      "obreb": "0034, 34",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2398,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 4,
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "area_m2": 2398
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "47",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|0021, jelenia góra 4|55",
       "kind": "grunt",
       "city": "jelenia-gora",
