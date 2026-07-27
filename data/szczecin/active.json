@@ -40,24 +40,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Kaszubska 65/1",
-      "address": {
-        "street": "Kaszubska",
-        "street_norm": "kaszubska",
-        "building": "65",
-        "apt": "1",
-        "key": "kaszubska|65|1",
-        "warning": null
-      },
-      "auction_date": "2026-07-09",
-      "published_date": "2026-04-28",
-      "round": 1,
-      "area_m2": 150.95,
-      "starting_price_pln": 645300,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=32B668C6894048F8946379CBE1567910"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Kaszubska 58/2",
       "address": {
         "street": "Kaszubska",
@@ -181,42 +163,6 @@
       "area_m2": 145.57,
       "starting_price_pln": 603400,
       "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=CDAF93906E6F49FF921D989B73581B2D"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Bolesława Krzywoustego 48/13",
-      "address": {
-        "street": "Bolesława Krzywoustego",
-        "street_norm": "boleslawa krzywoustego",
-        "building": "48",
-        "apt": "13",
-        "key": "boleslawa krzywoustego|48|13",
-        "warning": null
-      },
-      "auction_date": "2026-07-08",
-      "published_date": "2026-04-27",
-      "round": 1,
-      "area_m2": 104.68,
-      "starting_price_pln": 487500,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=DE30F98EBA414A85B61D8EEC06A2EE7A"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Księcia Bogusława X 28/11",
-      "address": {
-        "street": "Księcia Bogusława X",
-        "street_norm": "ksiecia boguslawa x",
-        "building": "28",
-        "apt": "11",
-        "key": "ksiecia boguslawa x|28|11",
-        "warning": null
-      },
-      "auction_date": "2026-07-08",
-      "published_date": "2026-04-27",
-      "round": 1,
-      "area_m2": 149.9,
-      "starting_price_pln": 671260,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=EDB7E17BBF6F41A6BC66A53B633A6F7D"
     }
   ],
   "wykaz": []
