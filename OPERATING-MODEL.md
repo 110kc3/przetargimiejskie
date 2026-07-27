@@ -181,8 +181,31 @@ funnel. Revenue comes from around the user ([GTM.md](./GTM.md)):
    weekly newsletter, flat fee priced on reach; GitHub Sponsors + a PL tip jar as
    the floor.
 
-The moat monetization rides on: aggregation + **history** (round tracking, achieved
-prices) + freshness + national coverage — none of which a single city BIP offers.
+The moat monetization rides on — **corrected 2026-07-27 after the first actual
+competitor research** ([GTM.md §8](./GTM.md)): **history alone** (round tracking,
+achieved prices, sell-through). Aggregation, freshness and coverage are *not* moats:
+[ListaPrzetargow.pl](https://listaprzetargow.pl/) already runs 7 000+ live municipal
+/ bailiff / bankruptcy listings against our 255, with minute-level alerts and a paid
+tier. What no aggregator tracks is the round number, the price trajectory across
+rounds, or the outcome — they are notice boards that forget a listing the moment it
+expires. That gap is real, it compounds with time rather than crawler count (expired
+notices cannot be backfilled), and it is quantified by law: a failed first auction
+permits a cut **to 50 %** of valuation, negotiations **to 40 %**. Positioning must
+lead with history, never with city counts.
+
+**This re-ordered the revenue model** ([GTM.md §0](./GTM.md)). The primary thesis is
+now **B2G — selling the outcome data back to the cities** (45 % national
+sell-through; 781 failed auctions in `data/`), because every advantage we hold points
+at the seller side and every disadvantage at the buyer side. It needs no traffic and
+no RODO exposure, so unlike lead-gen it is testable immediately, and the competitor
+structurally cannot follow: their business is selling access to *buyers*, and they
+hold no outcome data anyway. Lead-gen is demoted to conditional — it pays in
+proportion to consumer traffic, which is contested by a bigger incumbent, so nothing
+gets built there until reach exists.
+
+`scripts/build-onepager.mjs` generates the pitch from any city's own data;
+**Gliwice (51 % unsold), Świętochłowice (60 %) and Gorzów Wielkopolski (55 %) are
+built and ready to send.**
 
 ### 3.2 The order — demand test before traffic engine
 
@@ -211,13 +234,26 @@ infra ≈ €0 and the marginal cost of running it (per Pillar 1) is ~1 h/week.
 
 ### 3.4 The unlock list — every item currently blocking revenue is human-shaped
 
-In order: **(1)** Chrome Web Store submit (live v1.3.3 vs local v1.32.x — the
-distribution unlock; bundle with the all-cities extension rework), **(2)** widen
-`PUBLIC_VOIVODESHIPS` + Search Console + sitemap (multiplies the SEO surface the
-agents already built), **(3)** analytics account (without it no gate in §3.3 can be
-evaluated), **(4)** publish RODO policy + ESP account → newsletter send goes live
-(the sponsorship vehicle), **(5)** the §3.2 demand-test calls. Agents pre-draft
-everything (store copy, policy, outreach scripts, digests); the human clicks.
+Updated 2026-07-27 — two of these are now agent-done and waiting only on a click:
+
+- ~~widen `PUBLIC_VOIVODESHIPS`~~ **DONE** — gate is national + quality-gated:
+  54 cities, 15 voivodeships, 2 273 sitemap URLs (was 12 / 1 / 1 090).
+- ~~wire analytics~~ **DONE** — Plausible injected into all 2 275 built pages,
+  privacy policy updated to match. **Kamil: create the plausible.io account** (~5 min).
+
+Remaining, in order: **(1)** the §3.2 demand-test calls — *blocked on nothing*, the
+cheapest highest-kill-power test available, and the reason to do it before anything
+else is that a "no" invalidates items 2–4; **(2)** send the finished Gliwice B2G
+one-pager (§3.1 — no traffic, no RODO, testable today); **(3)** Chrome Web Store
+submit (live v1.3.3 vs local v1.32.x — the distribution unlock; bundle with the
+all-cities extension rework); **(4)** Google Search Console + submit the now-2 273-URL
+sitemap; **(5)** publish RODO policy + ESP account → newsletter send goes live (the
+sponsorship vehicle). Agents pre-draft everything (store copy, policy, outreach
+scripts, digests); the human clicks.
+
+**The standing diagnosis:** every remaining blocker is `[ACCOUNT]`-shaped and none is
+blocked on code, while the machine layer keeps committing data refreshes daily. More
+adapters cannot answer "will anyone pay" — only items 1 and 2 can.
 
 ---
 

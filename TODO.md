@@ -248,6 +248,17 @@ dual-failing city stops ping-ponging its title.
 
 ## 2 · Data quality [RPI5]
 
+### Kraków — a property record whose `street` is a whole announcement paragraph
+
+Surfaced 2026-07-27 by opening the SEO gate nationally: one `krakow` property has
+an entire "Prezydent Miasta Krakowa ogłasza przetargi ustne nieograniczone…"
+paragraph parsed into `street`, which produced a >255-byte directory name and
+crashed `build-site.sh` with `ENAMETOOLONG`. **The build is now hardened** — 
+`slugify()` caps slugs at 80 chars on a word boundary — so this is no longer a
+build blocker, but the underlying record is still junk and renders as a garbage
+address on the Kraków city page. Fix the parser (or add the record to the city's
+verified-junk list) and check whether sibling records share the mis-parse.
+
 - **Result (achieved-price) streams:** Chrzanów "Wyniki przetargów" board;
   Oświęcim scanned result notices (OCR). (Kędzierzyn-Koźle/Trzebinia/Kraków
   already parse results.) **Blockers:** chrzanow/oswiecim zero-data fix first
@@ -386,19 +397,27 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   (manifest.json at zip root, gitignored), upload, paste refreshed listing +
   privacy link; expect new-host-permissions review. **Recommended: bundle with
   the 55-city CITIES rework — one review cycle.** THE distribution unlock.
-- **Widen `PUBLIC_VOIVODESHIPS` + `CITY_LOC` [RPI5]:**
-  `scripts/build-seo-pages.mjs:31` is still `new Set(['slaskie'])`; `CITY_LOC`
-  has 12 entries. Kamil decides how wide the public SEO gate opens; agent adds
-  voivodeships + locative entries for the remaining cities, rebuilds (sitemap
-  grows well past 1,026 URLs). Cheap, high-leverage. **Owner:** Kamil
-  (decision) / agent (execution).
+- ~~**Widen `PUBLIC_VOIVODESHIPS` + `CITY_LOC`**~~ — **SHIPPED 2026-07-27.**
+  `PUBLIC_VOIVODESHIPS` is now `null` (all of Poland) and a second gate,
+  `MIN_PUBLIC_AUCTIONS = 10` (live + archived), keeps thin cities unlisted so
+  widening can't resurface empty pages. **12 → 54 published cities across 15
+  voivodeships**; live auctions shown 61 → 205; archive rows 1 158 → 2 716;
+  sitemap 1 090 → 2 273 URLs. `CITY_LOC` covers all 54 (unmapped cities fall back
+  to the safe nominative apposition). Gate is self-healing — a city appears and
+  disappears on its own as its board fills and empties.
 - **Google Search Console [ACCOUNT]:** verify przetargimiejskie.pl (DNS TXT via
   OVH), submit sitemap.xml — best after the gate widening so the full sitemap
   indexes once. Also feeds the GTM §6 kill criteria.
-- **Analytics [ACCOUNT]:** site has none (verified). Kamil picks a
-  privacy-friendly, cookie-free tool (Plausible/Umami/self-host) + account;
-  agent wires the snippet into build-site templates. Without it the 6-week GTM
-  kill gate can't be evaluated.
+- **Analytics — WIRED 2026-07-27, needs the account [ACCOUNT]:** Plausible is
+  injected into **every** built page (2 275 of them) by the last step of
+  `scripts/build-seo-pages.mjs`, so no page — present or future — can ship
+  unmeasured. `site/privacy/index.html` was updated the same day to disclose it
+  (it previously claimed *"brak narzędzi analitycznych"*, which the injection
+  would have made false). Cookieless, no personal data, no consent banner needed.
+  **Remaining, Kamil-only:** create the plausible.io account for
+  `przetargimiejskie.pl` (~5 min). Until then the snippet loads and drops events
+  harmlessly. Build with `PLAUSIBLE_DOMAIN=''` to omit it; override the domain
+  with the same env var.
 - **B2G outreach [RPI5]:** clone the `outreach/gliwice/` pitch for 2–3 more
   cities with each city's own unsold stats from `data/`; Kamil sends.
 
@@ -423,10 +442,42 @@ data-only. **Owner:** Kamil (scope) / agent (build).
 - **FUNDING.yml + tip jar [ACCOUNT]:** no `.github/FUNDING.yml` exists. Kamil
   creates GitHub Sponsors + PL tip jar (BuyCoffee/BLIK); agent commits
   FUNDING.yml + a discreet "wesprzyj" footer link. Zero gating.
-- **Partner demand test [ACCOUNT] — the decisive gate:** ~10 honest calls (5–8
-  mortgage brokers + 3–4 renovation firms in covered cities) for one verbal
-  CPL/flat-fee quote + soft pilot yes. **Zero interest after ~10 calls = park
-  monetization** (donations + sponsor only) and the lead form never gets built.
+- **Partner demand test [ACCOUNT] — THE decisive gate, blocked on nothing, ~3
+  weeks overdue.** ~10 honest calls (5–8 mortgage brokers + 3–4 renovation firms
+  in covered cities) for one verbal CPL/flat-fee quote + soft pilot yes. **Zero
+  interest after ~10 calls = park monetization** (donations + sponsor only) and
+  the lead form never gets built. Note this item has *no blockers* — not
+  analytics, not RODO, not the Web Store — and GTM-SPRINT.md calls it the
+  cheapest highest-kill-power test available. It is the single highest-leverage
+  hour in the project.
+  - **Ask this first, before pricing:** *"jaki procent Waszych klientów kupujących
+    na przetargach gminnych bierze kredyt?"* GTM §2.1 ranks mortgage brokers as
+    the top partner on the untested assumption that these buyers finance at all.
+    Distressed municipal stock with deposit-up-front selects for **cash flippers**,
+    who need no broker. If the answer is "hardly any", the highest-CPL category
+    is gone and renovation/survey becomes partner #1 — a positioning change worth
+    one question.
+  - **Lead with history, not coverage** (GTM §8.3): the pitch is "our users know
+    it's round 3 and the price is down 30 %", not "we track 54 cities".
+
+- **Send the three B2G one-pagers [ACCOUNT] — built 2026-07-27, now THE primary
+  revenue test.** GTM §2.2 was promoted to the primary thesis after the §8
+  competitor research: it needs **no traffic and no RODO exposure**, and the
+  competitor structurally cannot follow us to the seller side. Ready to send:
+  - `outreach/gliwice/one-pager-gliwice.pdf` — 242 outcomes, **51 % unsold**, and
+    the killer stat: **80 % of failed auctions drew no deposit at all** (reach
+    problem, not price problem).
+  - `outreach/swietochlowice/one-pager-swietochlowice.pdf` — 70 outcomes, **60 %
+    unsold**, −26 % median price cut after a failed round.
+  - `outreach/gorzow-wielkopolski/one-pager-gorzow-wielkopolski.pdf` — 65 outcomes,
+    **55 % unsold**; voivodeship capital, so a real budget.
+
+  Generated by `node scripts/build-onepager.mjs <city-id>` from each city's own
+  data — works for any city with ≥20 published outcomes, single-page A4, metrics
+  that a city's data can't support are dropped rather than shown as a false zero.
+  Frame as *"how to price round 1 so it sells"*, never as *"your auctions fail"*.
+  Ask the agent for more cities; `kamienna-gora` (106 outcomes, 77 % unsold),
+  `glogow` (79 %) and `chelmno` (81 %) are the next-strongest stories.
 - **Lead form + labeled partner CTA [RPI5]:** build only after the demand test
   passes — labeled współpraca CTA at high-intent moments, concierge-routed form,
   no trackers. **Blockers:** demand-test pass + RODO policy.
