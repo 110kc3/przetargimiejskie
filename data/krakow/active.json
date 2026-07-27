@@ -3,6 +3,24 @@
   "city": "krakow",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Łagiewnickiej OGŁOSZENIE O PRZETARGACH Prezydent Miasta Krakowa ogłasza przetargi ustne nieograniczone na sprzedaż nieruchomości stanowiących własność Gminy Miejskiej Kraków pierwszy przetarg na sprzedaż lokalu o przeznaczeniu innym niż mieszkalne oznaczonego 6/7",
+      "address": {
+        "street": "Łagiewnickiej OGŁOSZENIE O PRZETARGACH Prezydent Miasta Krakowa ogłasza przetargi ustne nieograniczone na sprzedaż nieruchomości stanowiących własność Gminy Miejskiej Kraków pierwszy przetarg na sprzedaż lokalu o przeznaczeniu innym niż mieszkalne oznaczonego",
+        "street_norm": "lagiewnickiej ogloszenie o przetargach prezydent miasta krakowa oglasza przetargi ustne nieograniczone na sprzedaz nieruchomosci stanowiacych wlasnosc gminy miejskiej krakow pierwszy przetarg na sprzedaz lokalu o przeznaczeniu innym niz mieszkalne oznaczonego",
+        "building": "6",
+        "apt": "7",
+        "key": "lagiewnickiej ogloszenie o przetargach prezydent miasta krakowa oglasza przetargi ustne nieograniczone na sprzedaz nieruchomosci stanowiacych wlasnosc gminy miejskiej krakow pierwszy przetarg na sprzedaz lokalu o przeznaczeniu innym niz mieszkalne oznaczonego|6|7",
+        "warning": null
+      },
+      "area_m2": 24.86,
+      "round": 1,
+      "starting_price_pln": 120000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=257668",
+      "source_url": "https://www.bip.krakow.pl/?news_id=257668"
+    },
+    {
       "kind": "garaz",
       "address_raw": "ul. Królewskiej 69 garaż nr 12",
       "address": {
