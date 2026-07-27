@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-27T07:34:45.811Z",
+  "generated_at": "2026-07-27T11:32:12.302Z",
   "cities": [
     {
       "id": "gliwice",
@@ -35,7 +35,7 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 23,
-      "active_listings": 14,
+      "active_listings": 13,
       "active_auctions": 3,
       "archived_auctions": 20,
       "wykaz_entries": 0,
@@ -61,8 +61,8 @@
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 52,
-      "active_listings": 95,
-      "active_auctions": 8,
+      "active_listings": 96,
+      "active_auctions": 9,
       "archived_auctions": 89,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -87,7 +87,7 @@
       "authority": "Urząd Miejski w Bielsku-Białej",
       "host": "bielsko-biala.pl",
       "unique_properties": 8,
-      "active_listings": 8,
+      "active_listings": 7,
       "active_auctions": 8,
       "archived_auctions": 0,
       "wykaz_entries": 0,
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 55,
+      "active_listings": 89,
       "active_auctions": 4,
       "archived_auctions": 100,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 33,
-      "active_listings": 9,
+      "active_listings": 8,
       "active_auctions": 6,
       "archived_auctions": 30,
       "wykaz_entries": 0,
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 11
     },
     {
       "id": "miedzyrzecz",
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 2,
+      "wykaz_entries": 0,
       "land_plots": 33
     },
     {
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 42
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
@@ -1196,7 +1196,7 @@
       "active_auctions": 8,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 21
+      "land_plots": 24
     },
     {
       "id": "glubczyce",
@@ -1534,7 +1534,7 @@
       "active_auctions": 2,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 39
+      "land_plots": 40
     },
     {
       "id": "golub-dobrzyn",
