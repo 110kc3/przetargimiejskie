@@ -576,6 +576,68 @@ ${cityHub.map(({ city }) => `- ${SITE}/data/${city.id}/properties.json`).join('\
 writeFileSync(join(OUT, 'llms-full.txt'), llmsFull);
 console.error('  seo: wrote llms.txt + llms-full.txt');
 
+// ---------- .well-known/agent.json ----------
+// A2A-style agent card: what an agent looks for at a domain root before it will
+// treat a site as a callable data source rather than a page to scrape.
+// Generated rather than committed, so the city count and the per-city endpoint
+// list track the same `cities` array everything else here is built from.
+//
+// Described as a data source, not a callable JSON-RPC agent: what is on offer is
+// a set of static JSON documents, and claiming a transport that does not exist
+// would be worse than publishing no card at all.
+const agentCard = {
+  name: 'przetargimiejskie',
+  description: 'Historia miejskich przetargów na sprzedaż mieszkań w Polsce: ceny wywoławcze, zł/m², rundy i wyniki, zbierane codziennie z oficjalnych biuletynów BIP. '
+    + `Zakres publiczny: ${cities.length} miast. Treść w języku polskim.`,
+  url: `${SITE}/`,
+  documentationUrl: `${SITE}/llms.txt`,
+  version: '1.0.0',
+  protocolVersion: '0.3.0',
+  provider: { organization: 'przetargimiejskie', url: `${SITE}/` },
+  capabilities: { streaming: false, pushNotifications: false, stateTransitionHistory: false },
+  defaultInputModes: ['text/plain'],
+  defaultOutputModes: ['application/json'],
+  skills: [
+    {
+      id: 'city_index',
+      name: 'Monitored cities and counters',
+      description: `GET /data/index.json — every monitored city with live-auction, archive and unique-property counts. Currently ${cities.length} public cities.`,
+      tags: ['auctions', 'poland', 'municipal', 'index'],
+      examples: ['Które miasta są monitorowane?', 'How many live municipal auctions are there right now?'],
+      inputModes: ['text/plain'],
+      outputModes: ['application/json'],
+    },
+    {
+      id: 'city_properties',
+      name: 'Per-city auction history',
+      description: 'GET /data/<city>/properties.json — every tracked property in one city with its full auction history: starting price, PLN/m², round number, date and outcome. /data/<city>/land.json carries municipal land plots where available.',
+      tags: ['auctions', 'property', 'history', 'prices'],
+      examples: ['Pokaż historię przetargów w Gliwicach', 'What did flats in Katowice sell for per square metre?'],
+      inputModes: ['text/plain'],
+      outputModes: ['application/json'],
+    },
+  ],
+  interfaces: {
+    llms_txt: `${SITE}/llms.txt`,
+    llms_full_txt: `${SITE}/llms-full.txt`,
+    city_index_json: `${SITE}/data/index.json`,
+    sitemap: `${SITE}/sitemap.xml`,
+  },
+  city_endpoints: Object.fromEntries(cityHub.map(({ city }) => [city.id, `${SITE}/data/${city.id}/properties.json`])),
+  _note: "Published data source, not a callable JSON-RPC agent: the skills above name static JSON documents to fetch. Data comes from public BIP bulletins; only the issuing office's own documents are binding.",
+};
+const agentCardJson = `${JSON.stringify(agentCard, null, 2)}\n`;
+mkdirSync(join(OUT, '.well-known'), { recursive: true });
+writeFileSync(join(OUT, '.well-known', 'agent.json'), agentCardJson);
+// Same card at a second, non-dotfile path. The deploy mirrors _site/ to OVH with
+// `lftp mirror --reverse`, and whether that picks up a dot-directory is a detail
+// of lftp's local globbing rather than something this build controls — so the
+// card is also published where no dotfile handling is involved. /agents.json is
+// the convention already used on 110kc3.github.io, and agent-readability
+// auditors accept either path.
+writeFileSync(join(OUT, 'agents.json'), agentCardJson);
+console.error('  seo: wrote .well-known/agent.json + agents.json');
+
 // ---------- landing: bake stats + city chips into the static HTML ----------
 // The landing's own <script> fetches /data/index.json and paints the same
 // values — this injection makes them present in the raw HTML too, so no-JS
