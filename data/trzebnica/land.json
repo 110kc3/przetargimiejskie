@@ -3,6 +3,38 @@
   "city": "trzebnica",
   "plots": [
     {
+      "key": "dz|szczytkowice|285",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "285",
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice, dz. nr 49/1 i 49/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%2C%20dz.%20nr%2049%2F1%20i%2049%2F2%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1636,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 3,
+          "starting_price_pln": 158700,
+          "outcome": "active",
+          "area_m2": 1636,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3470/przetarg-ggn-p-17-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7123"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "285",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kobylice|1/2",
       "kind": "grunt",
       "city": "trzebnica",
