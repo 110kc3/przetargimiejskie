@@ -3,6 +3,46 @@
   "city": "tarnowskie-gory",
   "plots": [
     {
+      "key": "dz|3245/75, 3255/94, 3247/93, 1332/75",
+      "kind": "grunt",
+      "city": "tarnowskie-gory",
+      "dzialka_nr": "3245/75, 3255/94, 3247/93, 1332/75",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Polnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203245%2F75%2C%203255%2F94%2C%203247%2F93%2C%201332%2F75%20ul.%20Polnej%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3265,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 1,
+          "starting_price_pln": 490000,
+          "outcome": "archived",
+          "area_m2": 3265,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,102215,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wl.html",
+          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=123423"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3245/75"
+        },
+        {
+          "nr": "3255/94"
+        },
+        {
+          "nr": "3247/93"
+        },
+        {
+          "nr": "1332/75"
+        }
+      ]
+    },
+    {
       "key": "dz|tarnowskie góry|1276/55, 1273/55",
       "kind": "grunt",
       "city": "tarnowskie-gory",
