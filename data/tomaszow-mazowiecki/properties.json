@@ -3,6 +3,30 @@
   "city": "tomaszow-mazowiecki",
   "properties": [
     {
+      "key": "hallera|23|",
+      "street": "Hallera",
+      "street_norm": "hallera",
+      "building": "23",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-08-31",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 430000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=625043",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 754
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 754
+    },
+    {
       "key": "srodkowej|3|",
       "street": "Środkowa",
       "street_norm": "srodkowej",
@@ -39,7 +63,7 @@
           "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 260000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=623829",
           "wadium_deadline": null,
