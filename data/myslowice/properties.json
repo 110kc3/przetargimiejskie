@@ -80,6 +80,83 @@
       "area_m2": 37.49
     },
     {
+      "key": "krakowskiej|14B|9",
+      "street": "Krakowska",
+      "street_norm": "krakowskiej",
+      "building": "14B",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179000,
+          "outcome": "archived",
+          "area_m2": 41.51,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-08-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179000,
+          "outcome": "archived",
+          "area_m2": 41.51,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-21",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "archived",
+          "area_m2": 41.51,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-28",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "archived",
+          "area_m2": 41.51,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-23",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "archived",
+          "area_m2": 41.51,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-08",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "active",
+          "area_m2": 41.51,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.51
+    },
+    {
       "key": "armii krajowej|16C|24",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -356,7 +433,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 31.58,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-5-znajdujacy-sie-w-budynku-nr-24-p",
           "wadium_deadline": null,
@@ -378,7 +455,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 185000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 37.62,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-9a-p",
           "wadium_deadline": null,
@@ -564,72 +641,6 @@
         }
       ],
       "area_m2": 128
-    },
-    {
-      "key": "krakowskiej|14B|9",
-      "street": "Krakowska",
-      "street_norm": "krakowskiej",
-      "building": "14B",
-      "apt": "9",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-05-20",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 179000,
-          "outcome": "archived",
-          "area_m2": 41.51,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-08-05",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 179000,
-          "outcome": "archived",
-          "area_m2": 41.51,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-10-21",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 169000,
-          "outcome": "archived",
-          "area_m2": 41.51,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-04-28",
-          "round": 5,
-          "kind": "mieszkalny",
-          "starting_price_pln": 169000,
-          "outcome": "archived",
-          "area_m2": 41.51,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-23",
-          "round": 6,
-          "kind": "mieszkalny",
-          "starting_price_pln": 169000,
-          "outcome": "archived",
-          "area_m2": 41.51,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vi-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 41.51
     },
     {
       "key": "katowickiej|9|",

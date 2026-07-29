@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Krakowskiej 14B/9",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "14B",
+        "apt": "9",
+        "key": "krakowskiej|14B|9",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "published_date": null,
+      "round": 7,
+      "area_m2": 41.51,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-9-znajdujacy-sie-w-budynku-nr-14b",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 4/11",
       "address": {
         "street": "Armii Krajowej",
@@ -114,44 +133,6 @@
       "area_m2": 48.86,
       "starting_price_pln": 218000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a",
-      "share": null
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Wielka Skotnica 9A/17",
-      "address": {
-        "street": "Wielka Skotnica",
-        "street_norm": "wielka skotnica",
-        "building": "9A",
-        "apt": "17",
-        "key": "wielka skotnica|9A|17",
-        "warning": null
-      },
-      "auction_date": "2026-07-28",
-      "published_date": null,
-      "round": 1,
-      "area_m2": 37.62,
-      "starting_price_pln": 185000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-9a-p",
-      "share": null
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Armii Krajowej 24/5",
-      "address": {
-        "street": "Armii Krajowej",
-        "street_norm": "armii krajowej",
-        "building": "24",
-        "apt": "5",
-        "key": "armii krajowej|24|5",
-        "warning": null
-      },
-      "auction_date": "2026-07-28",
-      "published_date": null,
-      "round": 2,
-      "area_m2": 31.58,
-      "starting_price_pln": 150000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-5-znajdujacy-sie-w-budynku-nr-24-p",
       "share": null
     },
     {
