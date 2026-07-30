@@ -3,6 +3,43 @@
   "city": "wolow",
   "plots": [
     {
+      "key": "dz|219/9",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "219/9",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 219/9, Am 1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F9%20dz.%20nr%20219%2F9%2C%20Am%201%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1230,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-15",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 1230
+        },
+        {
+          "date": "2026-09-15",
+          "round": 3,
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 1230,
+          "detail_url": "https://wolow.pl/4021/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-mchowa-dz-nr-2199-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "219/9"
+        }
+      ]
+    },
+    {
       "key": "dz|219/11",
       "kind": "grunt",
       "city": "wolow",
