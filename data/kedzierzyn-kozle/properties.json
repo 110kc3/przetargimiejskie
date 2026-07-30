@@ -640,6 +640,77 @@
       "area_m2": 42
     },
     {
+      "key": "grunwaldzkiej|51|1",
+      "street": "Grunwaldzkiej",
+      "street_norm": "grunwaldzkiej",
+      "building": "51",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/74897",
+          "notes": [],
+          "area_m2": 45
+        },
+        {
+          "date": "2026-02-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/75979",
+          "notes": [],
+          "area_m2": 45
+        },
+        {
+          "date": "2026-04-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/77131",
+          "notes": [],
+          "area_m2": 45
+        },
+        {
+          "date": "2026-05-27",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/78076",
+          "notes": [],
+          "area_m2": 45
+        },
+        {
+          "date": "2026-07-21",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/79028",
+          "notes": [],
+          "area_m2": 45
+        }
+      ],
+      "area_m2": 45
+    },
+    {
       "key": "targowej|7|7",
       "street": "Targowa",
       "street_norm": "targowej",
@@ -756,65 +827,6 @@
         }
       ],
       "area_m2": 51.12
-    },
-    {
-      "key": "grunwaldzkiej|51|1",
-      "street": "Grunwaldzkiej",
-      "street_norm": "grunwaldzkiej",
-      "building": "51",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-12-10",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/74897",
-          "notes": [],
-          "area_m2": 45
-        },
-        {
-          "date": "2026-02-17",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/75979",
-          "notes": [],
-          "area_m2": 45
-        },
-        {
-          "date": "2026-04-14",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 100000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/77131",
-          "notes": [],
-          "area_m2": 45
-        },
-        {
-          "date": "2026-05-27",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 90000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/78076",
-          "notes": [],
-          "area_m2": 45
-        }
-      ],
-      "area_m2": 45
     },
     {
       "key": "fryderyka chopina|15|15",
