@@ -22,6 +22,24 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Bolesława Krzywoustego 29/14",
+      "address": {
+        "street": "Bolesława Krzywoustego",
+        "street_norm": "boleslawa krzywoustego",
+        "building": "29",
+        "apt": "14",
+        "key": "boleslawa krzywoustego|29|14",
+        "warning": null
+      },
+      "auction_date": "2026-10-15",
+      "published_date": "2026-07-29",
+      "round": 1,
+      "area_m2": 132.85,
+      "starting_price_pln": 638200,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4CFE2EAA79794318A1305BA0BCF29446"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Kaszubska 58/2",
       "address": {
         "street": "Kaszubska",
@@ -37,24 +55,6 @@
       "area_m2": 175.33,
       "starting_price_pln": 892600,
       "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4ED4FA88B59B4B0D993F5593278C6597"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Kaszubska 65/4",
-      "address": {
-        "street": "Kaszubska",
-        "street_norm": "kaszubska",
-        "building": "65",
-        "apt": "4",
-        "key": "kaszubska|65|4",
-        "warning": null
-      },
-      "auction_date": "2026-07-27",
-      "published_date": "2026-04-30",
-      "round": 1,
-      "area_m2": 185.52,
-      "starting_price_pln": 793000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=71BE1D6171A5483D89F693752F86A10A"
     },
     {
       "kind": "mieszkalny",

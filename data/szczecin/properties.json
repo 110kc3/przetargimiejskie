@@ -3,6 +3,28 @@
   "city": "szczecin",
   "properties": [
     {
+      "key": "boleslawa krzywoustego|29|14",
+      "street": "Bolesława Krzywoustego",
+      "street_norm": "boleslawa krzywoustego",
+      "building": "29",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 638200,
+          "outcome": "active",
+          "area_m2": 132.85,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4CFE2EAA79794318A1305BA0BCF29446",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 132.85
+    },
+    {
       "key": "kaszubska|58|2",
       "street": "Kaszubska",
       "street_norm": "kaszubska",
@@ -115,11 +137,12 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 793000,
-          "outcome": "archived",
-          "area_m2": 185.52,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=71BE1D6171A5483D89F693752F86A10A",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 817000,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=0AF52FC63DEA4EC6A34A62B0A6A3D0B4",
+          "notes": [],
+          "area_m2": 185.52
         }
       ],
       "area_m2": 185.52
@@ -137,11 +160,12 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 933300,
-          "outcome": "archived",
-          "area_m2": 177.23,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=89745857E21A4BDDB01275EF2526F972",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=5D5B39D1B480435C9A1E5A4DF9CEF4FF",
+          "notes": [],
+          "area_m2": 177.23
         }
       ],
       "area_m2": 177.23
@@ -171,11 +195,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 881700,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 890600,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=61AC7CA50CC84CB39EB77D867E56ADB0",
+          "notes": [],
           "area_m2": 182.35,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=8716BCAFDF7C43DAB6A9287232D16D85",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=8716BCAFDF7C43DAB6A9287232D16D85"
         }
       ],
       "area_m2": 182.35
