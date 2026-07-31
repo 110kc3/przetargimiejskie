@@ -3,6 +3,50 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "lukasinskiego|30|3",
+      "street": "Łukasińskiego",
+      "street_norm": "lukasinskiego",
+      "building": "30",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 40.3,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38845,Ogloszenie-o-przetargu-na-lokal-przy-ul-Lukasinskiego-30.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 40.3
+    },
+    {
+      "key": "daszynskiego|15|1A",
+      "street": "Daszyńskiego",
+      "street_norm": "daszynskiego",
+      "building": "15",
+      "apt": "1A",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 62.58,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38843,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.58
+    },
+    {
       "key": "zolnierzy ii armii wojska polskiego|2|2",
       "street": "Żołnierzy II Armii Wojska Polskiego",
       "street_norm": "zolnierzy ii armii wojska polskiego",
@@ -81,7 +125,7 @@
           "round": 3,
           "kind": "unknown",
           "starting_price_pln": 330000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 106.6,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
           "wadium_deadline": null,
@@ -103,7 +147,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 260000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 87.7,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38647,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-97.html",
           "wadium_deadline": null,

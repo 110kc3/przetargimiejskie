@@ -3,6 +3,42 @@
   "city": "legnica",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Łukasińskiego 30/3",
+      "address": {
+        "street": "Łukasińskiego",
+        "street_norm": "lukasinskiego",
+        "building": "30",
+        "apt": "3",
+        "key": "lukasinskiego|30|3",
+        "warning": null
+      },
+      "auction_date": "2026-08-28",
+      "round": 1,
+      "area_m2": 40.3,
+      "starting_price_pln": 110000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38845,Ogloszenie-o-przetargu-na-lokal-przy-ul-Lukasinskiego-30.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65350/20260728przetargluk.docx"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Daszyńskiego 15/1A",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "15",
+        "apt": "1A",
+        "key": "daszynskiego|15|1A",
+        "warning": null
+      },
+      "auction_date": "2026-08-28",
+      "round": 1,
+      "area_m2": 62.58,
+      "starting_price_pln": 200000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38843,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65349/20260728przetargDasz.doc"
+    },
+    {
       "kind": "unknown",
       "address_raw": "ul. Żołnierzy II Armii Wojska Polskiego 2/2",
       "address": {
@@ -55,24 +91,6 @@
       "starting_price_pln": 230000,
       "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38790,Ogloszenie-o-przetargu-na-lokal-przy-ul-Jaworzynskiej-22.html",
       "doc_url": "https://um.bip.legnica.eu/download/107/65225/20260721przetargjaw.docx"
-    },
-    {
-      "kind": "unknown",
-      "address_raw": "ul. Złotoryjska 43/3",
-      "address": {
-        "street": "Złotoryjska",
-        "street_norm": "zlotoryjska",
-        "building": "43",
-        "apt": "3",
-        "key": "zlotoryjska|43|3",
-        "warning": null
-      },
-      "auction_date": "2026-07-30",
-      "round": 3,
-      "area_m2": 106.6,
-      "starting_price_pln": 330000,
-      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
-      "doc_url": "https://um.bip.legnica.eu/download/107/65008/20260616przetargzlot.docx"
     },
     {
       "kind": "mieszkalny",
