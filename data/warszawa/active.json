@@ -4,6 +4,19 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 16 przy ul. Marszałkowskiej 81 w Warszawie",
+      "address": null,
+      "auction_date": null,
+      "published_date": "2026-07-31",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/srodmiescie-ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-16-przy-ul-marszalkowskiej-81-w-warszawie",
+      "eto_nr": "15457/2026",
+      "source": "city"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Pajdaka 7/136",
       "address": {
         "street": "Pajdaka",
@@ -86,26 +99,6 @@
       "starting_price_pln": 280000,
       "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/156894/259854",
       "eto_nr": "13923/2026",
-      "source": "amw"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Bałuckiego 5/1",
-      "address": {
-        "street": "Bałuckiego",
-        "street_norm": "baluckiego",
-        "building": "5",
-        "apt": "1",
-        "key": "baluckiego|5|1",
-        "warning": null
-      },
-      "auction_date": "2026-08-06",
-      "published_date": "2026-06-30",
-      "round": 1,
-      "area_m2": 4.75,
-      "starting_price_pln": 270000,
-      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/155848/258398",
-      "eto_nr": "12877/2026",
       "source": "amw"
     },
     {
