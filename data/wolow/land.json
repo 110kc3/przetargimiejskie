@@ -3,6 +3,89 @@
   "city": "wolow",
   "plots": [
     {
+      "key": "dz|wołów|15/1",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "15/1",
+      "obreb": "Wołów",
+      "street": null,
+      "building": null,
+      "address_raw": "Wołów, dz. nr 15/1, Am 13",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F1%20Wo%C5%82%C3%B3w%2C%20dz.%20nr%2015%2F1%2C%20Am%2013%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2657,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-01-23",
+          "round": 2,
+          "starting_price_pln": 102000,
+          "outcome": "unsold",
+          "area_m2": 1099
+        },
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "area_m2": 2657,
+          "detail_url": "https://wolow.pl/4023/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-ul-powstancow-slaskich-dz-nr-151-am-13.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F1%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|wołów|15/9",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "15/9",
+      "obreb": "Wołów",
+      "street": null,
+      "building": null,
+      "address_raw": "Wołów, dz. nr 15/9, Am 25",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F9%20Wo%C5%82%C3%B3w%2C%20dz.%20nr%2015%2F9%2C%20Am%2025%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1100,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-29",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 1100
+        },
+        {
+          "date": "2026-06-24",
+          "round": 2,
+          "starting_price_pln": 123500,
+          "outcome": "unsold",
+          "area_m2": 1100
+        },
+        {
+          "date": "2026-09-16",
+          "round": 3,
+          "starting_price_pln": 117000,
+          "outcome": "active",
+          "area_m2": 1100,
+          "detail_url": "https://wolow.pl/4022/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-ulkamienna-dz-nr-159-am-25.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/9",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F9%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|219/9",
       "kind": "grunt",
       "city": "wolow",
@@ -285,43 +368,6 @@
       "parcels": [
         {
           "nr": "219/7"
-        }
-      ]
-    },
-    {
-      "key": "dz|wołów|15/9",
-      "kind": "grunt",
-      "city": "wolow",
-      "dzialka_nr": "15/9",
-      "obreb": "Wołów",
-      "street": null,
-      "building": null,
-      "address_raw": "Wołów, dz. nr 15/9, Am 25",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F9%20Wo%C5%82%C3%B3w%2C%20dz.%20nr%2015%2F9%2C%20Am%2025%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1100,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-04-29",
-          "round": 1,
-          "starting_price_pln": 130000,
-          "outcome": "unsold",
-          "area_m2": 1100
-        },
-        {
-          "date": "2026-06-24",
-          "round": 2,
-          "starting_price_pln": 123500,
-          "outcome": "unsold",
-          "area_m2": 1100
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "15/9",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F9%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1531,43 +1577,6 @@
         {
           "nr": "15/2",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F2%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|wołów|15/1",
-      "kind": "grunt",
-      "city": "wolow",
-      "dzialka_nr": "15/1",
-      "obreb": "Wołów",
-      "street": null,
-      "building": null,
-      "address_raw": "Wołów, dz. nr 15/1, Am 25",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F1%20Wo%C5%82%C3%B3w%2C%20dz.%20nr%2015%2F1%2C%20Am%2025%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1099,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-11-15",
-          "round": 1,
-          "starting_price_pln": 107200,
-          "outcome": "unsold",
-          "area_m2": 1099
-        },
-        {
-          "date": "2024-01-23",
-          "round": 2,
-          "starting_price_pln": 102000,
-          "outcome": "unsold",
-          "area_m2": 1099
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "15/1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F1%20Wo%C5%82%C3%B3w%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
