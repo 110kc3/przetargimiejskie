@@ -43,6 +43,36 @@
       ]
     },
     {
+      "key": "dz|3045/97",
+      "kind": "grunt",
+      "city": "lubliniec",
+      "dzialka_nr": "3045/97",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "JAWOROWEJ",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203045%2F97%20JAWOROWEJ%20Lubliniec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 153,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "starting_price_pln": 7000,
+          "outcome": "sold",
+          "final_price_pln": 7070,
+          "area_m2": 153
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3045/97"
+        }
+      ]
+    },
+    {
       "key": "dz|1808/51",
       "kind": "grunt",
       "city": "lubliniec",
@@ -1713,35 +1743,6 @@
       "parcels": [
         {
           "nr": "2618/527"
-        }
-      ]
-    },
-    {
-      "key": "dz|1235/25",
-      "kind": "grunt",
-      "city": "lubliniec",
-      "dzialka_nr": "1235/25",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "Kochanowskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201235%2F25%20Kochanowskiego%20Lubliniec%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3102,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2020-10-08",
-          "round": 1,
-          "starting_price_pln": 240,
-          "outcome": "unsold",
-          "area_m2": 3102
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1235/25"
         }
       ]
     },
