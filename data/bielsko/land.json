@@ -3,6 +3,39 @@
   "city": "bielsko",
   "plots": [
     {
+      "key": "dz|lipnik|290/9",
+      "kind": "grunt",
+      "city": "bielsko",
+      "dzialka_nr": "290/9",
+      "obreb": "Lipnik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Marii Skłodowskiej-Curie i Jana Lechonia Wysokość wadium / zaliczki: 236 000,00 zł",
+      "dzialka_id": "246101_1.0032.290/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9",
+      "area_m2": 4739,
+      "zoning": "budowlana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 3,
+          "starting_price_pln": 2369500,
+          "outcome": "active",
+          "area_m2": 4739,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia",
+          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "290/9",
+          "dzialka_id": "246101_1.0032.290/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9"
+        }
+      ]
+    },
+    {
       "key": "dz|lipnik|3243/5",
       "kind": "grunt",
       "city": "bielsko",
@@ -321,39 +354,6 @@
           "nr": "3885/19",
           "dzialka_id": "246101_1.0032.3885/19",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.3885%2F19"
-        }
-      ]
-    },
-    {
-      "key": "dz|lipnik|290/9",
-      "kind": "grunt",
-      "city": "bielsko",
-      "dzialka_nr": "290/9",
-      "obreb": "Lipnik",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Marii Skłodowskiej-Curie i Jana Lechonia",
-      "dzialka_id": "246101_1.0032.290/9",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9",
-      "area_m2": 4739,
-      "zoning": "budowlana",
-      "status": null,
-      "listings": [
-        {
-          "date": null,
-          "round": 3,
-          "starting_price_pln": 2369500,
-          "outcome": "active",
-          "area_m2": 4739,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia",
-          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-marii-sklodowskiej-curie-i-jana-lechonia"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "290/9",
-          "dzialka_id": "246101_1.0032.290/9",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.290%2F9"
         }
       ]
     }
