@@ -30,6 +30,60 @@
       "parcels": []
     },
     {
+      "key": "addr|piekarska 26",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Piekarska 26",
+      "building": null,
+      "address_raw": "Piekarska 26",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.919099412482595%2C50.350489515429736%2C18.91953462899913%2C50.3508073180326&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.70ded859-2355-4a19-9993-b2b6c6e58812",
+      "area_m2": 715,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-04",
+          "round": 2,
+          "starting_price_pln": 275000,
+          "outcome": "active",
+          "area_m2": 715,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-26-pisemny-II,24547.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|piekarska 30",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Piekarska 30",
+      "building": null,
+      "address_raw": "Piekarska 30",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.919211888372722%2C50.35074039226007%2C18.919677403708054%2C50.351013024983715&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.1d3b0254-b44c-4fa5-9ea6-5713d291c0f8",
+      "area_m2": 640,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 2,
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 640,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-30,24545.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|karbowska; warszawska; generała władysława andersa",
       "kind": "grunt",
       "city": "bytom",
@@ -198,33 +252,6 @@
           "outcome": "active",
           "area_m2": 48423,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-al.-Jana-Pawla-II-i-Kedzierzynska,23861.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|tramwajarzy 8",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Tramwajarzy 8",
-      "building": null,
-      "address_raw": "Tramwajarzy 8",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.931474429214823%2C50.357542376852464%2C18.931758879286978%2C50.35781680459941&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.766eed9d-8a61-4280-853b-8d622f9f2ff1",
-      "area_m2": 398,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-27",
-          "round": 2,
-          "starting_price_pln": 87500,
-          "outcome": "archived",
-          "area_m2": 398,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Tramwajarzy-8,24106.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
         }
       ],

@@ -3,6 +3,28 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "pilsudskiego|7|1",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "7",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-09-01",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 28500,
+          "outcome": "active",
+          "area_m2": 41.05,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Pilsudskiego-71-/idn:13832",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.05
+    },
+    {
       "key": "michala wolskiego|6|8",
       "street": "Michała Wolskiego",
       "street_norm": "michala wolskiego",

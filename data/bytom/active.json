@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "uzytkowy",
+      "address_raw": "ul. Piłsudskiego 7/1",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "7",
+        "apt": "1",
+        "key": "pilsudskiego|7|1",
+        "warning": null
+      },
+      "auction_date": "2026-09-01",
+      "published_date": "2026-07-31",
+      "round": 3,
+      "area_m2": 41.05,
+      "starting_price_pln": 28500,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Pilsudskiego-71-/idn:13832",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-7_11,24563.doc"
+    },
+    {
+      "kind": "uzytkowy",
       "address_raw": "pl. Michała Wolskiego 6/8",
       "address": {
         "street": "Michała Wolskiego",
