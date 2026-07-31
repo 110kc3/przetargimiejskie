@@ -35,6 +35,66 @@
       ]
     },
     {
+      "key": "addr|ul. giedroycia",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": null,
+      "obreb": "Rybnik",
+      "street": "Giedroycia",
+      "building": null,
+      "address_raw": "ul. Giedroycia",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Giedroycia%20Rybnik%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1456,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 2,
+          "starting_price_pln": 117500,
+          "outcome": "active",
+          "area_m2": 1456,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104719",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3525197"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|boguszowice|4673",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": "4673",
+      "obreb": "Boguszowice",
+      "street": "Nowomiejskiej",
+      "building": null,
+      "address_raw": "ul. Nowomiejskiej",
+      "dzialka_id": "247301_1.0007.4673",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.4673",
+      "area_m2": 1121,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 1,
+          "starting_price_pln": 134400,
+          "outcome": "active",
+          "area_m2": 1121,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104717",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3525191"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4673",
+          "dzialka_id": "247301_1.0007.4673",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.4673"
+        }
+      ]
+    },
+    {
       "key": "dz|boguszowice|3698",
       "kind": "grunt",
       "city": "rybnik",
