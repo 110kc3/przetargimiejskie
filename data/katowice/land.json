@@ -36,6 +36,39 @@
       ]
     },
     {
+      "key": "dz|dąbrówka mała|313/53",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "313/53",
+      "obreb": "Dąbrówka Mała",
+      "street": "Siwka",
+      "building": null,
+      "address_raw": "Siwka",
+      "dzialka_id": "246901_1.0004.AR_3.313/53",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0004.AR_3.313%2F53",
+      "area_m2": 879,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "starting_price_pln": 400000,
+          "outcome": "active",
+          "area_m2": 879,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153310&menu=679",
+          "source_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153310&menu=679"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "313/53",
+          "dzialka_id": "246901_1.0004.AR_3.313/53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0004.AR_3.313%2F53"
+        }
+      ]
+    },
+    {
       "key": "dz|roździeń|811/69",
       "kind": "grunt",
       "city": "katowice",
@@ -76,6 +109,33 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_1.811%2F69"
         }
       ]
+    },
+    {
+      "key": "addr|siwka",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": null,
+      "obreb": "Dąbrówka Mała",
+      "street": "Siwka",
+      "building": null,
+      "address_raw": "Siwka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Siwka%20D%C4%85br%C3%B3wka%20Ma%C5%82a%20Katowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 879,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "starting_price_pln": 400000,
+          "outcome": "active",
+          "area_m2": 879,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=576",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=576"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|janów|3101/47",

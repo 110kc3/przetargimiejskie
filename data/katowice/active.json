@@ -4,6 +4,63 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "i mieszkalnych przy ul. Warszawskiej 28/9",
+      "address": {
+        "street": "i mieszkalnych przy ul. Warszawskiej",
+        "street_norm": "i mieszkalnych przy ul warszawskiej",
+        "building": "28",
+        "apt": "9",
+        "key": "i mieszkalnych przy ul warszawskiej|28|9",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "area_m2": 85.06,
+      "starting_price_pln": 400000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153314&menu=679",
+      "wadium_deadline": "2026-08-31",
+      "viewing_date": "2026-08-31"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Grażyńskiego 18/2",
+      "address": {
+        "street": "Grażyńskiego",
+        "street_norm": "grazynskiego",
+        "building": "18",
+        "apt": "2",
+        "key": "grazynskiego|18|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "area_m2": 55.16,
+      "starting_price_pln": 380000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153314&menu=679",
+      "wadium_deadline": "2026-08-31",
+      "viewing_date": "2026-08-31"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Kotlarza 11a/17",
+      "address": {
+        "street": "Kotlarza",
+        "street_norm": "kotlarza",
+        "building": "11A",
+        "apt": "17",
+        "key": "kotlarza|11A|17",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "area_m2": 32.65,
+      "starting_price_pln": 230000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153314&menu=679",
+      "wadium_deadline": "2026-08-31",
+      "viewing_date": "2026-08-31"
+    },
+    {
+      "kind": "mieszkalny",
       "round": 2,
       "address_raw": "Koszalińskiej 36a/5",
       "address": {
