@@ -3,6 +3,72 @@
   "city": "lebork",
   "properties": [
     {
+      "key": "teligi|14|23",
+      "street": "Teligi",
+      "street_norm": "teligi",
+      "building": "14",
+      "apt": "23",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 326000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 59.93
+        },
+        {
+          "date": "2026-09-02",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "active",
+          "area_m2": 59.93,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.93
+    },
+    {
+      "key": "e plater|10|9",
+      "street": "E. Plater",
+      "street_norm": "e plater",
+      "building": "10",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 45.21
+        },
+        {
+          "date": "2026-09-02",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "active",
+          "area_m2": 45.21,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.21
+    },
+    {
       "key": "lokietka|24|3",
       "street": "Łokietka",
       "street_norm": "lokietka",
@@ -194,28 +260,6 @@
       "area_m2": 77.81
     },
     {
-      "key": "teligi|14|23",
-      "street": "Teligi",
-      "street_norm": "teligi",
-      "building": "14",
-      "apt": "23",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-08",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 326000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "notes": [],
-          "area_m2": 59.93
-        }
-      ],
-      "area_m2": 59.93
-    },
-    {
       "key": "teligi|12|6",
       "street": "Teligi",
       "street_norm": "teligi",
@@ -238,28 +282,6 @@
         }
       ],
       "area_m2": 59.13
-    },
-    {
-      "key": "e plater|10|9",
-      "street": "E. Plater",
-      "street_norm": "e plater",
-      "building": "10",
-      "apt": "9",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-08",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "notes": [],
-          "area_m2": 45.21
-        }
-      ],
-      "area_m2": 45.21
     },
     {
       "key": "aleja wolnosci|34|2",
