@@ -3,6 +3,36 @@
   "city": "boleslawiec",
   "plots": [
     {
+      "key": "dz|400",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "400",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bronisława Kosiby",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20400%20ul.%20Bronis%C5%82awa%20Kosiby%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3953,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 4,
+          "starting_price_pln": 890000,
+          "outcome": "active",
+          "area_m2": 3953,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-us%C5%82ugowe-przemys%C5%82owe/6985-dzia%C5%82ka-nr-400-o-pow-0%2C3953-ha%2C-po%C5%82o%C5%BCona-przy-ul-bronis%C5%82awa-kosiby-iv-przetarg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "400"
+        }
+      ]
+    },
+    {
       "key": "dz|23/1",
       "kind": "grunt",
       "city": "boleslawiec",
