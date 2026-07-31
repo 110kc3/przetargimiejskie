@@ -21,7 +21,7 @@
           "date": "2026-07-30",
           "round": 2,
           "starting_price_pln": 1700000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 7064,
           "detail_url": "https://bip.szczecinek.pl/artykul/645/7415/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-trzesieckiej",
           "source_url": "https://bip.szczecinek.pl/artykul/645/7415/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-trzesieckiej"
@@ -32,82 +32,6 @@
           "nr": "88/9",
           "dzialka_id": "321501_1.0028.88/9",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0028.88%2F9"
-        }
-      ]
-    },
-    {
-      "key": "dz|18|454/13",
-      "kind": "grunt",
-      "city": "szczecinek",
-      "dzialka_nr": "454/13",
-      "obreb": "18",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": "321501_1.0018.454/13",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13",
-      "area_m2": 1066,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-01-21",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1066
-        },
-        {
-          "date": "2026-06-23",
-          "round": 3,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1066
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "454/13",
-          "dzialka_id": "321501_1.0018.454/13",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13"
-        }
-      ]
-    },
-    {
-      "key": "dz|18|454/14",
-      "kind": "grunt",
-      "city": "szczecinek",
-      "dzialka_nr": "454/14",
-      "obreb": "18",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": "321501_1.0018.454/14",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14",
-      "area_m2": 1069,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-01-21",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        },
-        {
-          "date": "2026-06-23",
-          "round": 3,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "454/14",
-          "dzialka_id": "321501_1.0018.454/14",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14"
         }
       ]
     },
@@ -190,6 +114,68 @@
           "nr": "1448/11",
           "dzialka_id": "321501_1.0009.1448/11",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F11"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/13",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/13",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.454/13",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13",
+      "area_m2": 1066,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1066
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/13",
+          "dzialka_id": "321501_1.0018.454/13",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/14",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/14",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.454/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14",
+      "area_m2": 1069,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/14",
+          "dzialka_id": "321501_1.0018.454/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14"
         }
       ]
     },
@@ -1228,13 +1214,6 @@
           "area_m2": 866
         },
         {
-          "date": "2026-06-23",
-          "round": 3,
-          "starting_price_pln": 100000,
-          "outcome": "unsold",
-          "area_m2": 866
-        },
-        {
           "date": null,
           "round": 3,
           "starting_price_pln": 100000,
@@ -1407,9 +1386,9 @@
       "obreb": "15",
       "street": null,
       "building": null,
-      "address_raw": "ul. Konstantego Ildefonsa 110",
+      "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F17%20ul.%20Konstantego%20Ildefonsa%20110%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20341%2F17%2015%20Szczecinek%20geoportal%20dzia%C5%82ki",
       "area_m2": 1001,
       "zoning": null,
       "status": null,
@@ -1417,13 +1396,6 @@
         {
           "date": "2025-05-08",
           "round": 3,
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 1001
-        },
-        {
-          "date": "2026-06-23",
-          "round": 4,
           "starting_price_pln": 110000,
           "outcome": "unsold",
           "area_m2": 1001
