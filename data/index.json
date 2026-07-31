@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-30T07:02:41.942Z",
+  "generated_at": "2026-07-31T07:16:36.105Z",
   "cities": [
     {
       "id": "gliwice",
@@ -21,12 +21,12 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
-      "unique_properties": 135,
-      "active_listings": 65,
-      "active_auctions": 12,
+      "unique_properties": 138,
+      "active_listings": 68,
+      "active_auctions": 15,
       "archived_auctions": 149,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 9
     },
     {
       "id": "bytom",
@@ -34,12 +34,12 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 23,
-      "active_listings": 13,
-      "active_auctions": 2,
+      "unique_properties": 24,
+      "active_listings": 14,
+      "active_auctions": 3,
       "archived_auctions": 21,
       "wykaz_entries": 0,
-      "land_plots": 8
+      "land_plots": 9
     },
     {
       "id": "zabrze",
@@ -78,7 +78,7 @@
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 5
     },
     {
       "id": "bielsko",
@@ -143,7 +143,7 @@
       "active_auctions": 4,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 108
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -229,10 +229,10 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)",
       "host": "um.bip.legnica.eu",
-      "unique_properties": 11,
-      "active_listings": 5,
+      "unique_properties": 13,
+      "active_listings": 6,
       "active_auctions": 5,
-      "archived_auctions": 6,
+      "archived_auctions": 8,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -308,9 +308,9 @@
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
       "unique_properties": 52,
-      "active_listings": 44,
-      "active_auctions": 39,
-      "archived_auctions": 13,
+      "active_listings": 41,
+      "active_auctions": 37,
+      "archived_auctions": 15,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -400,8 +400,8 @@
       "host": "bip.um.szczecin.pl",
       "unique_properties": 34,
       "active_listings": 6,
-      "active_auctions": 5,
-      "archived_auctions": 32,
+      "active_auctions": 3,
+      "archived_auctions": 34,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -439,8 +439,8 @@
       "host": "bip.stargard.eu",
       "unique_properties": 14,
       "active_listings": 6,
-      "active_auctions": 9,
-      "archived_auctions": 5,
+      "active_auctions": 7,
+      "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -556,8 +556,8 @@
       "host": "bip.skarzysko.pl",
       "unique_properties": 5,
       "active_listings": 5,
-      "active_auctions": 2,
-      "archived_auctions": 4,
+      "active_auctions": 1,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 5
     },
@@ -582,8 +582,8 @@
       "host": "nowasol.pl",
       "unique_properties": 8,
       "active_listings": 9,
-      "active_auctions": 4,
-      "archived_auctions": 5,
+      "active_auctions": 2,
+      "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -803,8 +803,8 @@
       "host": "zan-namyslow.pl",
       "unique_properties": 8,
       "active_listings": 18,
-      "active_auctions": 2,
-      "archived_auctions": 16,
+      "active_auctions": 0,
+      "archived_auctions": 18,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 12
     },
     {
       "id": "miedzyrzecz",
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1118,7 +1118,7 @@
       "active_auctions": 2,
       "archived_auctions": 5,
       "wykaz_entries": 13,
-      "land_plots": 3
+      "land_plots": 4
     },
     {
       "id": "wolow",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 34
+      "land_plots": 50
     },
     {
       "id": "jarocin",
@@ -1361,8 +1361,8 @@
       "authority": "Gmina Miasto Lębork",
       "host": "bip.um.lebork.pl",
       "unique_properties": 26,
-      "active_listings": 6,
-      "active_auctions": 6,
+      "active_listings": 8,
+      "active_auctions": 8,
       "archived_auctions": 28,
       "wykaz_entries": 0,
       "land_plots": 10
@@ -1440,8 +1440,8 @@
       "host": "bip.kalisz.pl",
       "unique_properties": 2,
       "active_listings": 1,
-      "active_auctions": 1,
-      "archived_auctions": 1,
+      "active_auctions": 0,
+      "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
     },
