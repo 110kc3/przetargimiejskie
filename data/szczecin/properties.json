@@ -93,11 +93,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 533100,
-          "outcome": "active",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=27004E5E6E784BB796693ECC4FF59E9E",
+          "notes": [],
           "area_m2": 107.41,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=30AB545C23424308BA986C0ACAADF961",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=30AB545C23424308BA986C0ACAADF961"
         }
       ],
       "area_m2": 107.41
@@ -115,11 +117,12 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 955500,
-          "outcome": "active",
-          "area_m2": 169.15,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=1FD17A8768BB48C9AAFCD0D89001F32A",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=C232045B1EEE4641A95E804BA016FF73",
+          "notes": [],
+          "area_m2": 169.15
         }
       ],
       "area_m2": 169.15
