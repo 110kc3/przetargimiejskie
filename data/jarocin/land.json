@@ -392,63 +392,98 @@
       ]
     },
     {
-      "key": "dz|witaszyce|289/14",
+      "key": "dz|witaszyce|1267/7",
       "kind": "grunt",
       "city": "jarocin",
-      "dzialka_nr": "289/14",
+      "dzialka_nr": "1267/7",
       "obreb": "Witaszyce",
       "street": null,
       "building": null,
-      "address_raw": "Witaszyce, dz. nr 289/14",
+      "address_raw": "Witaszyce, dz. nr 1267/7",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20289%2F14%20Witaszyce%2C%20dz.%20nr%20289%2F14%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki",
-      "area_m2": 699,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201267%2F7%20Witaszyce%2C%20dz.%20nr%201267%2F7%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2000,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2024-03-07",
-          "round": 2,
-          "starting_price_pln": 80000,
+          "date": "2024-05-23",
+          "round": 1,
+          "starting_price_pln": 280000,
+          "outcome": "unsold",
+          "area_m2": 2000
+        },
+        {
+          "date": "2025-05-29",
+          "round": 1,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000
+        },
+        {
+          "date": null,
+          "round": 6,
+          "starting_price_pln": 231300,
           "outcome": "sold",
-          "final_price_pln": 81000,
-          "area_m2": 699
+          "final_price_pln": 233620,
+          "area_m2": 2000
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000
         }
       ],
       "parcels": [
         {
-          "nr": "289/14",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20289%2F14%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki"
+          "nr": "1267/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201267%2F7%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
     {
-      "key": "dz|witaszyce|1267/5",
+      "key": "dz|jarocin|2327",
       "kind": "grunt",
       "city": "jarocin",
-      "dzialka_nr": "1267/5",
-      "obreb": "Witaszyce",
+      "dzialka_nr": "2327",
+      "obreb": "Jarocin",
       "street": null,
       "building": null,
-      "address_raw": "Witaszyce, dz. nr 1267/5",
+      "address_raw": "Jarocin, dz. nr 2327",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201267%2F5%20Witaszyce%2C%20dz.%20nr%201267%2F5%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1000,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202327%20Jarocin%2C%20dz.%20nr%202327%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1685,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2024-03-07",
-          "round": 6,
-          "starting_price_pln": 140000,
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 322550,
           "outcome": "unsold",
-          "area_m2": 1000
+          "area_m2": 1685
         }
       ],
       "parcels": [
         {
-          "nr": "1267/5",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201267%2F5%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki"
+          "nr": "2327",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202327%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -720,64 +755,6 @@
         {
           "nr": "2322/2",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202322%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|witaszyce|1267/7",
-      "kind": "grunt",
-      "city": "jarocin",
-      "dzialka_nr": "1267/7",
-      "obreb": "Witaszyce",
-      "street": null,
-      "building": null,
-      "address_raw": "Witaszyce, dz. nr 1267/7",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201267%2F7%20Witaszyce%2C%20dz.%20nr%201267%2F7%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki",
-      "area_m2": 2000,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-05-23",
-          "round": 1,
-          "starting_price_pln": 280000,
-          "outcome": "unsold",
-          "area_m2": 2000
-        },
-        {
-          "date": "2025-05-29",
-          "round": 1,
-          "starting_price_pln": 251300,
-          "outcome": "unsold",
-          "area_m2": 2000
-        },
-        {
-          "date": null,
-          "round": 5,
-          "starting_price_pln": 251300,
-          "outcome": "unsold",
-          "area_m2": 2000
-        },
-        {
-          "date": null,
-          "round": 4,
-          "starting_price_pln": 251300,
-          "outcome": "unsold",
-          "area_m2": 2000
-        },
-        {
-          "date": null,
-          "round": 2,
-          "starting_price_pln": 251300,
-          "outcome": "unsold",
-          "area_m2": 2000
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1267/7",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201267%2F7%20Witaszyce%20Jarocin%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
