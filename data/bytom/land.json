@@ -84,6 +84,37 @@
       "parcels": []
     },
     {
+      "key": "dz|3578/28",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "3578/28",
+      "obreb": null,
+      "street": "Jaskółcza",
+      "building": null,
+      "address_raw": "Jaskółcza dz. 3578/28",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.84941457691274%2C50.36304400141068%2C18.849883596987787%2C50.36336618426302&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.181f47ce-e404-419c-b36b-ae6d3d0ec21e",
+      "area_m2": 759,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-01",
+          "round": 2,
+          "starting_price_pln": 187500,
+          "outcome": "active",
+          "area_m2": 759,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Jaskolcza-dz.-3578_28,24562.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3578/28"
+        }
+      ]
+    },
+    {
       "key": "addr|karbowska; warszawska; generała władysława andersa",
       "kind": "grunt",
       "city": "bytom",
@@ -249,7 +280,7 @@
           "date": "2026-07-31",
           "round": 2,
           "starting_price_pln": 6650000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 48423,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-al.-Jana-Pawla-II-i-Kedzierzynska,23861.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
