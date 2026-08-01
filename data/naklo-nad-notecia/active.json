@@ -1,43 +1,6 @@
 {
   "schema_version": 1,
   "city": "naklo-nad-notecia",
-  "listings": [
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. gen. H. Dąbrowskiego 29/15",
-      "address": {
-        "street": "gen. H. Dąbrowskiego",
-        "street_norm": "gen h dabrowskiego",
-        "building": "29",
-        "apt": "15",
-        "key": "gen h dabrowskiego|29|15",
-        "warning": null
-      },
-      "area_m2": 32.58,
-      "starting_price_pln": 80945,
-      "auction_date": "2026-07-31",
-      "round": 3,
-      "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7659/ul-gen-h-dabrowskiego-29-15-naklo-nad-notecia",
-      "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7659/ul-gen-h-dabrowskiego-29-15-naklo-nad-notecia"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. gen. H. Dąbrowskiego 39/12",
-      "address": {
-        "street": "gen. H. Dąbrowskiego",
-        "street_norm": "gen h dabrowskiego",
-        "building": "39",
-        "apt": "12",
-        "key": "gen h dabrowskiego|39|12",
-        "warning": null
-      },
-      "area_m2": 23.41,
-      "starting_price_pln": 70320,
-      "auction_date": "2026-07-31",
-      "round": 3,
-      "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7667/ul-gen-h-dabrowskiego-39-12-naklo-nad-notecia",
-      "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7667/ul-gen-h-dabrowskiego-39-12-naklo-nad-notecia"
-    }
-  ],
+  "listings": [],
   "wykaz": []
 }
