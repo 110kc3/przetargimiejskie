@@ -3,37 +3,34 @@
   "city": "mragowo",
   "plots": [
     {
-      "key": "dz|nr 1|208, 1",
+      "key": "dz|nr 10|69/9",
       "kind": "grunt",
       "city": "mragowo",
-      "dzialka_nr": "208, 1",
-      "obreb": "nr 1",
+      "dzialka_nr": "69/9",
+      "obreb": "nr 10",
       "street": null,
       "building": null,
-      "address_raw": "ul. Widok",
+      "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%2C%201%20ul.%20Widok%20nr%201%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2069%2F9%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3353,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-07-31",
+          "date": "2026-08-05",
           "round": 1,
-          "starting_price_pln": 20000,
+          "starting_price_pln": 1000000,
           "outcome": "active",
-          "detail_url": "https://bipmragowo.warmia.mazury.pl/8532/i-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-polozonej-w-mragowie-przy-ulicy-widok-dz.-nr-1-208-1-146-127.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8532/i-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-polozonej-w-mragowie-przy-ulicy-widok-dz.-nr-1-208-1-146-127.html"
+          "area_m2": 3353,
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8492/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-na-osiedlu-mazurskim-dz.-nr-10-69-9.html",
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8492/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-na-osiedlu-mazurskim-dz.-nr-10-69-9.html"
         }
       ],
       "parcels": [
         {
-          "nr": "208",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20nr%201%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
-        },
-        {
-          "nr": "1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%20nr%201%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
+          "nr": "69/9",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2069%2F9%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
