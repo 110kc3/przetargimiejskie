@@ -21,7 +21,7 @@
           "date": "2026-07-31",
           "round": 1,
           "starting_price_pln": 24698,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 164,
           "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-gorniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich",
           "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-gorniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich"
@@ -33,6 +33,89 @@
         },
         {
           "nr": "94/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|412/22",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "412/22",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Krakowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20412%2F22%20Krakowskiej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 838,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "starting_price_pln": 122000,
+          "outcome": "unsold",
+          "area_m2": 838
+        },
+        {
+          "date": "2026-05-21",
+          "round": 2,
+          "starting_price_pln": 122000,
+          "outcome": "unsold",
+          "area_m2": 838
+        },
+        {
+          "date": "2026-07-30",
+          "round": 3,
+          "starting_price_pln": 122000,
+          "outcome": "archived",
+          "area_m2": 838,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/informacja-o-wyniku-przetargu-1",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/informacja-o-wyniku-przetargu-1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "412/22"
+        }
+      ]
+    },
+    {
+      "key": "dz|156/9",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "156/9",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Piastowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20156%2F9%20Piastowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 755,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 1,
+          "starting_price_pln": 82869,
+          "outcome": "unsold",
+          "area_m2": 755
+        },
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "starting_price_pln": 82869,
+          "outcome": "archived",
+          "area_m2": 755,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/informacja-o-wyniku-przetargu",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/informacja-o-wyniku-przetargu"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "156/9"
         }
       ]
     },
@@ -95,89 +178,6 @@
       "parcels": [
         {
           "nr": "11/16"
-        }
-      ]
-    },
-    {
-      "key": "dz|412/22",
-      "kind": "grunt",
-      "city": "zlotoryja",
-      "dzialka_nr": "412/22",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "Krakowskiej INFORMACJA O WYNIKU PRZETARGU Nieograniczony przetarg ustny na sprzedaż nieruchomości gruntowej niezabudowanej oznaczonej geodezyjnie",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20412%2F22%20Krakowskiej%20INFORMACJA%20O%20WYNIKU%20PRZETARGU%20Nieograniczony%20przetarg%20ustny%20na%20sprzeda%C5%BC%20nieruchomo%C5%9Bci%20gruntowej%20niezabudowanej%20oznaczonej%20geodezyjnie%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
-      "area_m2": 838,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-03-05",
-          "round": 1,
-          "starting_price_pln": 122000,
-          "outcome": "unsold",
-          "area_m2": 838
-        },
-        {
-          "date": "2026-05-21",
-          "round": 2,
-          "starting_price_pln": 122000,
-          "outcome": "unsold",
-          "area_m2": 838
-        },
-        {
-          "date": "2026-07-30",
-          "round": 3,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 838,
-          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-w-rejonie-ul-krakowskiej-w-zlotoryi",
-          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-w-rejonie-ul-krakowskiej-w-zlotoryi"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "412/22"
-        }
-      ]
-    },
-    {
-      "key": "dz|156/9",
-      "kind": "grunt",
-      "city": "zlotoryja",
-      "dzialka_nr": "156/9",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "Piastowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20156%2F9%20Piastowej%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
-      "area_m2": 755,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-03-05",
-          "round": 1,
-          "starting_price_pln": 82869,
-          "outcome": "unsold",
-          "area_m2": 755
-        },
-        {
-          "date": "2026-07-30",
-          "round": 2,
-          "starting_price_pln": 82869,
-          "outcome": "archived",
-          "area_m2": 755,
-          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-ii-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-piastowej-w-zlotoryi",
-          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-ii-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-piastowej-w-zlotoryi"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "156/9"
         }
       ]
     },
