@@ -4,6 +4,29 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.32.1 — 2026-08-02
+
+Store-listing copy only — no behaviour, permission or host changes. Ships so the
+Web Store listing can be updated, since the rendered description lives in the
+manifest and Chrome rejects a re-upload of an already-published version.
+
+- **Repositioned the description** away from coverage and onto outcomes:
+  *"Zanim zalicytujesz: sprawdź, czy ten lokal już się nie sprzedał i o ile
+  spadła cena."* We lose any coverage comparison to ListaPrzetargow (7 000+ live
+  listings to our 255); what no competitor holds is which auctions **failed**,
+  in which round, and how far the price fell (GTM §8.3). Also fixes the stray
+  `..` that ended the old string.
+- **PRIVACY.md rewritten against the code** — it described a Gliwice-only tool
+  while the extension reads nine cities and injects on twelve hosts, and listed
+  4 of the 8 `chrome.storage.local` keys actually written. It was
+  *under*-declaring the extension's footprint. No code changed; the policy now
+  matches what the code has been doing.
+
+Coverage is unchanged at the nine Śląskie cities in `background.js` → `CITIES`
+(Gliwice, Katowice, Bytom, Zabrze, Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice,
+Świętochłowice). The listing deliberately does **not** claim the website's wider
+coverage — see the scope note in `WEB_STORE_LISTING.md`.
+
 ## v1.32.0 — 2026-06-26
 
 New feature: a **województwo (voivodeship) filter** in the popup and the archive,
