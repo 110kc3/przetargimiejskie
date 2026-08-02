@@ -649,9 +649,16 @@ let landing = readFileSync(landingPath, 'utf8');
 const statProps = cities.reduce((s, c) => s + (c.unique_properties || 0), 0);
 const statActive = cities.reduce((s, c) => s + activeOf(c), 0);
 const statArchived = cities.reduce((s, c) => s + (c.archived_auctions || 0), 0);
+// The chip is an <a>, not a <span>. It used to be a span, which made the landing
+// a dead end for a crawler: the 55 city hubs (and through them all ~2 200
+// property pages) were reachable only from the sitemap, because nothing on the
+// homepage linked to them and /miasta/ was itself unlinked. A sitemap gets a URL
+// discovered; internal links are what get it crawled and ranked. Visually
+// identical — every text node inside the chip (.city-name, .city-meta) sets its
+// own colour, and `a` is already text-decoration:none globally.
 const chipHtml = (c) => {
   const meta = chipMeta({ live: activeOf(c), archived: c.archived_auctions || 0, props: c.unique_properties || 0 });
-  return `<span class="city-chip">${cityDot(c.id)}<span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></span>`;
+  return `<a class="city-chip" href="/${c.id}/">${cityDot(c.id)}<span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></a>`;
 };
 // Group by voivodeship, mirroring the landing's runtime JS: largest group first,
 // then alphabetically. (This used to hardcode a single "Śląskie" heading — wrong
