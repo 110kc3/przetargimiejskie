@@ -381,22 +381,37 @@ data-only. **Owner:** Kamil (scope) / agent (build).
 
 ## 4 · Distribution / copy (decision-gated)
 
-- **DECISION — rebrand "Silesian" → national copy.** Kamil decides positioning
-  (55 cities across 16 voivodeships are live); agent then rewrites README,
-  PRIVACY, WEB_STORE_LISTING, site hero. Blocks the two refreshes below.
-  **[ACCOUNT]**
-- **PRIVACY.md refresh [RPI5]:** still titled "ZGM Gliwice — auction history",
-  network section lists only `data/gliwice/*.json` + zgm-gliwice.pl. Must
-  enumerate current hosts/paths/cities before a store resubmit. Agent drafts,
-  Kamil approves (published legal doc). **Blockers:** rebrand decision.
-- **WEB_STORE_LISTING.md refresh [RPI5]:** copy still claims 9 Śląskie cities.
-  Rewrite PL+EN for current coverage + v1.32.0 features. **Blockers:** rebrand
-  decision.
-- **Chrome Web Store submit [ACCOUNT]:** live is **v1.3.3** (29 May) vs local
-  **v1.32.0** — ~5 weeks of features unpublished. Rebuild zip from `extension/`
-  (manifest.json at zip root, gitignored), upload, paste refreshed listing +
-  privacy link; expect new-host-permissions review. **Recommended: bundle with
-  the 55-city CITIES rework — one review cycle.** THE distribution unlock.
+- ~~**DECISION — rebrand "Silesian" → national copy**~~ — **DONE.** The site is
+  national: `<title>` reads "przetargimiejskie – Polska", the hero reads
+  "Historia miejskich przetargów na mieszkania w Polsce", and README describes
+  117 built adapters across 16 voivodeships. This no longer blocks anything; the
+  two copy refreshes below are unblocked and are now the only Śląsk-only surfaces
+  left.
+- **PRIVACY.md refresh [RPI5]:** still titled "ZGM Gliwice — auction history"
+  (verified 2026-08-02: 7 remaining `gliwice` references, effective date still
+  2026-05-19), network section lists only `data/gliwice/*.json` + zgm-gliwice.pl.
+  Must enumerate current hosts/paths/cities before a store resubmit. Agent
+  drafts, Kamil approves (published legal doc). **Blockers:** none — the rebrand
+  decision it waited on is made.
+- **WEB_STORE_LISTING.md refresh [RPI5]:** copy still claims 9 Śląskie cities,
+  and so does the **live listing** — `manifest.json`'s description still opens
+  *"Przetargi miejskie na Śląsku: Gliwice, Katowice, Bytom…"*, which is what a
+  visitor to the store reads today. Rewrite PL+EN for current coverage.
+  Per GTM §8.3 lead with outcomes, not city counts: *"zanim zalicytujesz,
+  sprawdź, czy ten lokal już dwa razy się nie sprzedał i o ile spadła cena"* —
+  city counts are the axis we lose to ListaPrzetargow on. **Blockers:** none.
+- **Chrome Web Store resubmit [ACCOUNT] — NOT the blocker it was recorded as.**
+  Corrected 2026-08-02: this entry claimed live was **v1.3.3 (29 May)** with "~5
+  weeks of features unpublished". That is wrong. The live listing
+  (`jcbkaleamaoknicmilbjibgebmdloken`) is **v1.32.0, updated 27 June 2026** — in
+  sync with `extension/manifest.json`. The build shipped over a month ago.
+
+  It carries **zero ratings ("Brak ocen")** and no reviews. So the shipped
+  extension produced no measurable adoption, which retires the old "THE
+  distribution unlock" framing: publishing was never the bottleneck, and the
+  next resubmit should be treated as a *copy* fix (the Śląsk-only description
+  above), not a feature catch-up. Install count is visible only in the developer
+  dashboard — the public page renders it client-side.
 - ~~**Widen `PUBLIC_VOIVODESHIPS` + `CITY_LOC`**~~ — **SHIPPED 2026-07-27.**
   `PUBLIC_VOIVODESHIPS` is now `null` (all of Poland) and a second gate,
   `MIN_PUBLIC_AUCTIONS = 10` (live + archived), keeps thin cities unlisted so
@@ -405,10 +420,45 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   sitemap 1 090 → 2 273 URLs. `CITY_LOC` covers all 54 (unmapped cities fall back
   to the safe nominative apposition). Gate is self-healing — a city appears and
   disappears on its own as its board fills and empties.
-- **Google Search Console [ACCOUNT]:** verify przetargimiejskie.pl (DNS TXT via
-  OVH), submit sitemap.xml — best after the gate widening so the full sitemap
-  indexes once. Also feeds the GTM §6 kill criteria.
-- **Analytics — WIRED 2026-07-27, needs a free Umami Cloud account [ACCOUNT]:**
+- **Google Search Console [ACCOUNT] — THE traffic blocker, still open.** Verify
+  przetargimiejskie.pl (DNS TXT in the OVH **domain** zone, not the hosting
+  panel), submit sitemap.xml.
+
+  Escalated 2026-08-02 after measuring the consequence: `dig TXT
+  przetargimiejskie.pl` returns only OVH's own record and an SPF line — **no
+  `google-site-verification` has ever existed**, so the sitemap was never
+  submitted and effectively **0 of 2 296 pages are indexed** (`site:` on Google,
+  Bing and DDG all return nothing but the bare domain). Umami reports ~1 visitor
+  per week, and that is the whole reason.
+
+  The on-page work is *not* the gap and needs no further effort — audited
+  2026-08-02: unique titles, meta descriptions carrying live numbers, canonicals,
+  3 093-word city hubs, HTTP/2, compression, Googlebot-UA 200. The site is
+  well-built and undiscovered.
+
+  Note JS analytics **cannot** answer "have I been crawled?" — bots don't run
+  JavaScript. Use the OVH raw access logs instead (Hosting → *przetaa* → Logs, or
+  `logs.cluster129.hosting.ovh.net`) and grep the UA for `Googlebot`.
+- ~~**IndexNow**~~ — **SHIPPED 2026-08-02 (`ba318b83`).** Key file at
+  `site/d69b65d9b31a3b7c9c794c9f2ffb5d7b.txt` + `scripts/indexnow-submit.mjs`;
+  **2 296 URLs submitted and accepted (HTTP 200)**. Needs no account — ownership
+  is proved by serving the key. Covers Bing/Yandex/Seznam only; **Google never
+  joined IndexNow**, which is why the Search Console item above is still the
+  blocker. Re-run after a big city-build wave, not on every data refresh.
+- ~~**Canonical host + cacheable HTML**~~ — **SHIPPED 2026-08-02 (`ba318b83`).**
+  `www.` used to answer 200 alongside the apex (OVH Multi-site roots both at the
+  same folder) — now a one-hop 301 to the final https:// URL. HTML/JSON moved off
+  `no-cache, must-revalidate`, which forced a blocking round-trip on every view
+  for a freshness guarantee a once-daily pipeline cannot need, to
+  `max-age=300, stale-while-revalidate=3600`; icons/og:image get a week.
+  Validated against `httpd:2.4-alpine` before deploy, then verified live.
+- ~~**Analytics — needs a free Umami Cloud account**~~ — **LIVE since 2026-07-28.**
+  `ANALYTICS_ID` is set and the snippet is in the deployed HTML
+  (`data-website-id="b90eebb6-965f-4a18-bd40-777a9fbe0736"`). It reports **~1
+  visitor/week** — see the Search Console item above for why. Note the Umami
+  Cloud **API** is a paid feature; the dashboard is not, and at this volume no
+  API is needed. Self-hosting on the Pi later is an `ANALYTICS_HOST` change only.
+  Original wiring notes, kept for the config reference:
   the snippet is injected into **every** built page (2 275) by the last step of
   `scripts/build-seo-pages.mjs`, so no page — present or future — can ship
   unmeasured. `site/privacy/index.html` discloses it (it previously claimed
@@ -421,16 +471,14 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   which Cloudflare Web Analytics (the free-unlimited alternative) cannot measure.
   Self-hosting Umami later needs no code change, only `ANALYTICS_HOST`.
 
-  **Remaining, Kamil-only (~5 min):** sign up at umami.is → **choose the EU
-  region** (the privacy page states EU hosting) → add website `przetargimiejskie.pl`
-  → copy the website id → GitHub → Settings → Secrets and variables → Actions →
-  **Variables** → new variable `ANALYTICS_ID` = that UUID. Next deploy picks it up.
-  It is a variable, not a secret: the id is public in the page HTML.
+  ~~Remaining, Kamil-only~~ — **done 2026-07-28** (`dd586f40`): the Umami Cloud
+  account exists and `ANALYTICS_ID` is set as a repo **Variable** (not a secret —
+  the id is public in the page HTML).
 
-  Until that variable exists the site builds with **no** tracking snippet at all —
-  deliberately, so nothing ships a dead beacon that looks like working analytics.
-  Config: `ANALYTICS_PROVIDER` (`umami` default | `plausible`), `ANALYTICS_ID`,
-  `ANALYTICS_HOST` (self-hosted Umami origin).
+  If the variable is ever unset the site builds with **no** tracking snippet at
+  all — deliberately, so nothing ships a dead beacon that looks like working
+  analytics. Config: `ANALYTICS_PROVIDER` (`umami` default | `plausible`),
+  `ANALYTICS_ID`, `ANALYTICS_HOST` (self-hosted Umami origin).
 - **B2G outreach [RPI5]:** clone the `outreach/gliwice/` pitch for 2–3 more
   cities with each city's own unsold stats from `data/`; Kamil sends.
 
