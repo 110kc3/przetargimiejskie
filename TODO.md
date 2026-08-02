@@ -387,19 +387,36 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   117 built adapters across 16 voivodeships. This no longer blocks anything; the
   two copy refreshes below are unblocked and are now the only Śląsk-only surfaces
   left.
-- **PRIVACY.md refresh [RPI5]:** still titled "ZGM Gliwice — auction history"
-  (verified 2026-08-02: 7 remaining `gliwice` references, effective date still
-  2026-05-19), network section lists only `data/gliwice/*.json` + zgm-gliwice.pl.
-  Must enumerate current hosts/paths/cities before a store resubmit. Agent
-  drafts, Kamil approves (published legal doc). **Blockers:** none — the rebrand
-  decision it waited on is made.
-- **WEB_STORE_LISTING.md refresh [RPI5]:** copy still claims 9 Śląskie cities,
-  and so does the **live listing** — `manifest.json`'s description still opens
-  *"Przetargi miejskie na Śląsku: Gliwice, Katowice, Bytom…"*, which is what a
-  visitor to the store reads today. Rewrite PL+EN for current coverage.
-  Per GTM §8.3 lead with outcomes, not city counts: *"zanim zalicytujesz,
-  sprawdź, czy ten lokal już dwa razy się nie sprzedał i o ile spadła cena"* —
-  city counts are the axis we lose to ListaPrzetargow on. **Blockers:** none.
+- ~~**PRIVACY.md refresh**~~ — **DONE 2026-08-02 (`9acc75ef`), awaiting Kamil's
+  read before the next store submit.** Rewritten against the code, not the old
+  text: 9 cities named, all 12 content-script hosts listed, all 3 permissions
+  documented (including `alarms`, previously only mentioned in passing), and the
+  storage table corrected from 4 keys to the 8 the code actually writes. It had
+  been *under*-declaring the extension's network and host footprint, which is the
+  wrong direction to be wrong in for a review. Still a published legal doc — read
+  it before relying on it.
+- ~~**WEB_STORE_LISTING.md refresh**~~ — **DONE 2026-08-02 (`9acc75ef`).**
+  Repositioned per GTM §8.3: both descriptions now open on outcomes (*"zanim
+  zalicytujesz, sprawdź, czy ten lokal już się nie sprzedał i o ile spadła
+  cena"*) and cite the art. 39 price-cut rule, instead of leading with coverage —
+  the axis we lose to ListaPrzetargow on. `manifest.json`'s description was
+  repointed to match (it is the string the store renders) and its `..` typo
+  fixed; 123 chars against the 132 limit.
+
+  **The "rewrite for current coverage" premise was wrong and is retired.**
+  `background.js` → `CITIES` holds exactly the nine Śląskie cities, with content
+  scripts on twelve hosts across seven of them. The copy was never stale — the
+  **extension** is what trails the website. Claiming national coverage would have
+  made a published store listing false. The file now carries a scope note saying
+  so, so this doesn't get "fixed" wrongly next time.
+- **Widen the extension's `CITIES` [RPI5] — the real gap behind the copy.** The
+  website publishes 55 city pages (121 cities in `data/index.json`); the
+  extension reads 9. Widening `CITIES` in `extension/background.js` is what makes
+  a national listing *true*; per-city overlay adapters under `extension/sites/`
+  are a separate, larger job and are not required for the popup/archive to cover
+  a city. Only after this ships do the copy and `manifest.json` description
+  change again — in the same commit, per the scope note in WEB_STORE_LISTING.md.
+  **Blockers:** none.
 - **Chrome Web Store resubmit [ACCOUNT] — NOT the blocker it was recorded as.**
   Corrected 2026-08-02: this entry claimed live was **v1.3.3 (29 May)** with "~5
   weeks of features unpublished". That is wrong. The live listing
