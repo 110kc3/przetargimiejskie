@@ -3,6 +3,130 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "powstancow|1|11",
+      "street": "Powstańców",
+      "street_norm": "powstancow",
+      "building": "1",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205500,
+          "outcome": "archived",
+          "area_m2": 59,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-mi",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "share": "4/6"
+        },
+        {
+          "date": "2026-07-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205500,
+          "outcome": "archived",
+          "area_m2": 59,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-m",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "share": "4/6"
+        },
+        {
+          "date": "2026-09-22",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 59,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "share": "4/6"
+        }
+      ],
+      "area_m2": 59
+    },
+    {
+      "key": "brzezinskiej|55A|6",
+      "street": "Brzezińskiej",
+      "street_norm": "brzezinskiej",
+      "building": "55A",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "archived",
+          "area_m2": 46.42,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "archived",
+          "area_m2": 46.42,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "active",
+          "area_m2": 46.42,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.42
+    },
+    {
+      "key": "chrzanowskiej|60|",
+      "street": "Chrzanowskiej",
+      "street_norm": "chrzanowskiej",
+      "building": "60",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 128,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 205000,
+          "outcome": "active",
+          "area_m2": 128,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-w",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 128
+    },
+    {
       "key": "armii krajowej|4|11",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -551,96 +675,6 @@
         }
       ],
       "area_m2": 35.86
-    },
-    {
-      "key": "powstancow|1|11",
-      "street": "Powstańców",
-      "street_norm": "powstancow",
-      "building": "1",
-      "apt": "11",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-12",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205500,
-          "outcome": "archived",
-          "area_m2": 59,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-mi",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "share": "4/6"
-        },
-        {
-          "date": "2026-07-07",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205500,
-          "outcome": "archived",
-          "area_m2": 59,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu-m",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "share": "4/6"
-        }
-      ],
-      "area_m2": 59
-    },
-    {
-      "key": "brzezinskiej|55A|6",
-      "street": "Brzezińskiej",
-      "street_norm": "brzezinskiej",
-      "building": "55A",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-05",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "archived",
-          "area_m2": 46.42,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-30",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "archived",
-          "area_m2": 46.42,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 46.42
-    },
-    {
-      "key": "chrzanowskiej|60|",
-      "street": "Chrzanowskiej",
-      "street_norm": "chrzanowskiej",
-      "building": "60",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-06-30",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 128,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 128
     },
     {
       "key": "katowickiej|9|",

@@ -4,6 +4,63 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Brzezińskiej 55A/6",
+      "address": {
+        "street": "Brzezińskiej",
+        "street_norm": "brzezinskiej",
+        "building": "55A",
+        "apt": "6",
+        "key": "brzezinskiej|55A|6",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 46.42,
+      "starting_price_pln": 175000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-6-znajdujacy-sie-w-budynku-nr-55a",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Powstańców 1/11",
+      "address": {
+        "street": "Powstańców",
+        "street_norm": "powstancow",
+        "building": "1",
+        "apt": "11",
+        "key": "powstancow|1|11",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 59,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-udzialu-4-6-czesci-prawa-wlasnosci-samodzielnego-lokalu",
+      "share": "4/6"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Chrzanowskiej 60",
+      "address": {
+        "street": "Chrzanowskiej",
+        "street_norm": "chrzanowskiej",
+        "building": "60",
+        "apt": null,
+        "key": "chrzanowskiej|60|",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "published_date": null,
+      "round": 2,
+      "area_m2": 128,
+      "starting_price_pln": 205000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-w",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Krakowskiej 14B/9",
       "address": {
         "street": "Krakowskiej",
