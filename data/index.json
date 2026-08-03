@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-03T07:37:18.987Z",
+  "generated_at": "2026-08-03T11:11:19.298Z",
   "cities": [
     {
       "id": "gliwice",
@@ -100,8 +100,8 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 68,
-      "active_auctions": 12,
+      "active_listings": 71,
+      "active_auctions": 15,
       "archived_auctions": 59,
       "wykaz_entries": 0,
       "land_plots": 48
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 81,
+      "active_listings": 89,
       "active_auctions": 4,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 101
+      "land_plots": 103
     },
     {
       "id": "trzebinia",
@@ -438,7 +438,7 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 14,
-      "active_listings": 6,
+      "active_listings": 0,
       "active_auctions": 7,
       "archived_auctions": 7,
       "wykaz_entries": 0,
@@ -516,7 +516,7 @@
       "authority": "Urząd Miasta Chełm",
       "host": "umchelm.bip.lubelskie.pl",
       "unique_properties": 17,
-      "active_listings": 78,
+      "active_listings": 79,
       "active_auctions": 0,
       "archived_auctions": 33,
       "wykaz_entries": 0,
@@ -541,9 +541,9 @@
       "voivodeship": "mazowieckie",
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
-      "unique_properties": 15,
-      "active_listings": 7,
-      "active_auctions": 13,
+      "unique_properties": 16,
+      "active_listings": 8,
+      "active_auctions": 14,
       "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -975,7 +975,7 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 41
     },
     {
       "id": "zdunska-wola",
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 33
+      "land_plots": 50
     },
     {
       "id": "jarocin",
