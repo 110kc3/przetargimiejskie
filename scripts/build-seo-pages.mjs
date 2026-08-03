@@ -747,6 +747,14 @@ console.error(`  seo: published data/index.json — ${publicIds.size} public of 
 const ANALYTICS = {
   umami: (id, host) => `<script defer src="${esc((host || 'https://cloud.umami.is').replace(/\/$/, ''))}/script.js" data-website-id="${esc(id)}"></script>`,
   plausible: (id) => `<script defer data-domain="${esc(id)}" src="https://plausible.io/js/script.js"></script>`,
+  // Cloudflare Web Analytics. Chosen 2026-08-03 because this site is on OVH and
+  // moving its DNS to Cloudflare would mean moving a domain that carries live
+  // email — the beacon needs no DNS change at all. Cookieless, no cross-site
+  // identifier, so no consent banner is added by it.
+  //
+  // The token is public by design: it ships in the HTML of every page. It
+  // identifies which site a hit belongs to and grants no access to anything.
+  cloudflare: (token) => `<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${esc(token)}"}'></script>`,
 };
 const A_PROVIDER = process.env.ANALYTICS_PROVIDER || 'umami';
 const A_ID = process.env.ANALYTICS_ID || '';
@@ -763,7 +771,7 @@ if (!A_ID) {
   let injected = 0;
   for (const file of walk(OUT)) {
     const html = readFileSync(file, 'utf8');
-    if (html.includes('data-website-id=') || html.includes('plausible.io/js/')) continue;
+    if (html.includes('data-website-id=') || html.includes('plausible.io/js/') || html.includes('data-cf-beacon')) continue;
     if (!html.includes('</head>')) { console.error(`  seo: WARNING — no </head>, analytics skipped: ${file}`); continue; }
     writeFileSync(file, html.replace('</head>', `${tag}\n</head>`));
     injected++;
