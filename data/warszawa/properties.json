@@ -339,6 +339,28 @@
           "source": "city"
         }
       ]
+    },
+    {
+      "key": "w boguslawskiego|8|15",
+      "street": "W. Bogusławskiego",
+      "street_norm": "w boguslawskiego",
+      "building": "8",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://eto.um.warszawa.pl/category/165/announcement/158559",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw"
+        }
+      ]
     }
   ]
 }
