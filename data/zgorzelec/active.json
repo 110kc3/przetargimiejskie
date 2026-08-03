@@ -3,6 +3,42 @@
   "city": "zgorzelec",
   "listings": [
     {
+      "kind": "zabudowana",
+      "address_raw": "Armii Krajowej 48",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "48",
+        "apt": null,
+        "key": "armii krajowej|48|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 398000,
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18282&idmp=32&r=r",
+      "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18282&idmp=32&r=r"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Reja 4",
+      "address": {
+        "street": "Reja",
+        "street_norm": "reja",
+        "building": "4",
+        "apt": null,
+        "key": "reja|4|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 400000,
+      "auction_date": "2026-09-17",
+      "round": 3,
+      "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18281&idmp=32&r=r",
+      "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18281&idmp=32&r=r"
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "Warszawskiej 12/6A",
       "address": {

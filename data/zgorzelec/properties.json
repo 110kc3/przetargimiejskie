@@ -3,6 +3,48 @@
   "city": "zgorzelec",
   "properties": [
     {
+      "key": "armii krajowej|48|",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "48",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 398000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18282&idmp=32&r=r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "reja|4|",
+      "street": "Reja",
+      "street_norm": "reja",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 400000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18281&idmp=32&r=r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "reymonta|32|1",
       "street": "Reymonta",
       "street_norm": "reymonta",
