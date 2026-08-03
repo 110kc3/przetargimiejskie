@@ -636,7 +636,12 @@ writeFileSync(join(OUT, '.well-known', 'agent.json'), agentCardJson);
 // the convention already used on 110kc3.github.io, and agent-readability
 // auditors accept either path.
 writeFileSync(join(OUT, 'agents.json'), agentCardJson);
-console.error('  seo: wrote .well-known/agent.json + agents.json');
+// A2A 1.0 reads /.well-known/agent-card.json. /.well-known/agent.json is the
+// pre-0.3 path, which a 1.0 client never looks at — so serving only that one
+// makes the card invisible to exactly the clients the spec moved for. Same
+// document at both paths while the installed base catches up; it costs a file.
+writeFileSync(join(OUT, '.well-known', 'agent-card.json'), agentCardJson);
+console.error('  seo: wrote .well-known/agent.json + .well-known/agent-card.json + agents.json');
 
 // ---------- landing: bake stats + city chips into the static HTML ----------
 // The landing's own <script> fetches /data/index.json and paints the same
