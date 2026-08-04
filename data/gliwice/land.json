@@ -3,6 +3,37 @@
   "city": "gliwice",
   "plots": [
     {
+      "key": "dz|żerniki|620",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "620",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "na płd. od ul. Rogozińskiego",
+      "dzialka_id": "246601_1.0061.620",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.620",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-05",
+          "round": 1,
+          "starting_price_pln": 838900,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-620-obreb-zerniki-na-pld-od-ul-rogozinskiego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "620",
+          "dzialka_id": "246601_1.0061.620",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.620"
+        }
+      ]
+    },
+    {
       "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
       "kind": "grunt",
       "city": "gliwice",
