@@ -3,6 +3,38 @@
   "city": "tarnowskie-gory",
   "plots": [
     {
+      "key": "dz|bobrowniki śląskie|2046/32",
+      "kind": "grunt",
+      "city": "tarnowskie-gory",
+      "dzialka_nr": "2046/32",
+      "obreb": "Bobrowniki Śląskie",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Sienkiewicza 2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202046%2F32%20ul.%20Sienkiewicza%202%20Bobrowniki%20%C5%9Al%C4%85skie%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2752,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 229000,
+          "outcome": "archived",
+          "area_m2": 2752,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,102575,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-ograniczony-na-sprzedaz-prawa-uzytk.html",
+          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=123768"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2046/32",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202046%2F32%20Bobrowniki%20%C5%9Al%C4%85skie%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|3245/75, 3255/94, 3247/93, 1332/75",
       "kind": "grunt",
       "city": "tarnowskie-gory",
