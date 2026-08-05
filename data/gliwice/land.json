@@ -202,8 +202,8 @@
         {
           "date": "2026-08-04",
           "round": 1,
-          "starting_price_pln": 2370000,
-          "outcome": "active",
+          "starting_price_pln": null,
+          "outcome": "archived",
           "area_m2": 7918,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-389-obreb-stare-gliwice-ul-labedzka-4",
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
@@ -214,68 +214,6 @@
           "nr": "389",
           "dzialka_id": "246601_1.0052.389",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.389"
-        }
-      ]
-    },
-    {
-      "key": "dz|sikornik|736",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "736",
-      "obreb": "Sikornik",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Czajki 7",
-      "dzialka_id": "246601_1.0048.736",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 1,
-          "starting_price_pln": 691100,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "736",
-          "dzialka_id": "246601_1.0048.736",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736"
-        }
-      ]
-    },
-    {
-      "key": "dz|sośnica|884",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "884",
-      "obreb": "Sośnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Limanowskiego",
-      "dzialka_id": "246601_1.0051.884",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.884",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 2,
-          "starting_price_pln": 640000,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-884-obreb-sosnica-ul-limanowskiego-1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "884",
-          "dzialka_id": "246601_1.0051.884",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.884"
         }
       ]
     },
