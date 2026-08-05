@@ -163,44 +163,6 @@
       ]
     },
     {
-      "key": "dz|2161/3",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "2161/3",
-      "obreb": null,
-      "street": "Wesołej",
-      "building": null,
-      "address_raw": "Wesołej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202161%2F3%20Weso%C5%82ej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 9264,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-04-14",
-          "round": 1,
-          "starting_price_pln": 795000,
-          "outcome": "unsold",
-          "area_m2": 9264
-        },
-        {
-          "date": "2026-08-04",
-          "round": 2,
-          "starting_price_pln": 795000,
-          "outcome": "active",
-          "area_m2": 9264,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/652/2_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__2__Wesola_2161-3_.docx&id=5b39a6fb0657ba45d2327e32da48c3f1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2161/3"
-        }
-      ]
-    },
-    {
       "key": "dz|2716/10",
       "kind": "grunt",
       "city": "zagan",
@@ -1072,6 +1034,35 @@
       "parcels": [
         {
           "nr": "2379/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|2161/3",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "2161/3",
+      "obreb": null,
+      "street": "Wesołej",
+      "building": null,
+      "address_raw": "Wesołej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202161%2F3%20Weso%C5%82ej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 9264,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-14",
+          "round": 1,
+          "starting_price_pln": 795000,
+          "outcome": "unsold",
+          "area_m2": 9264
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2161/3"
         }
       ]
     },
