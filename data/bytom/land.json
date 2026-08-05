@@ -57,6 +57,68 @@
       "parcels": []
     },
     {
+      "key": "dz|1930/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1930/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1930/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.797555255483775%2C50.39453261733938%2C18.7981846974085%2C50.394927492670824&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.040bca7d-b677-463d-ad53-452111678735",
+      "area_m2": 863,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": 188000,
+          "outcome": "active",
+          "area_m2": 863,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1930_182,24587.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1930/182"
+        }
+      ]
+    },
+    {
+      "key": "dz|1929/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1929/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1929/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.79729795739705%2C50.39464987399032%2C18.79796371111202%2C50.39501316687305&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.b7232d05-ffc0-4762-9361-70aab4f2f54d",
+      "area_m2": 989,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": 183000,
+          "outcome": "active",
+          "area_m2": 989,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1929_182,24586.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1929/182"
+        }
+      ]
+    },
+    {
       "key": "addr|piekarska 30",
       "kind": "grunt",
       "city": "bytom",
