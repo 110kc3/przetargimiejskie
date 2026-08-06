@@ -34,6 +34,37 @@
       ]
     },
     {
+      "key": "dz|sośnica|1340",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1340",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żeromskiego",
+      "dzialka_id": "246601_1.0051.1340",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1340",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-1340-obreb-sosnica-ul-zeromskiego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1340",
+          "dzialka_id": "246601_1.0051.1340",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1340"
+        }
+      ]
+    },
+    {
       "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
       "kind": "grunt",
       "city": "gliwice",
