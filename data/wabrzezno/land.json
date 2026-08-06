@@ -3,46 +3,6 @@
   "city": "wabrzezno",
   "plots": [
     {
-      "key": "dz|725, 726, 727/4, 52/4",
-      "kind": "grunt",
-      "city": "wabrzezno",
-      "dzialka_nr": "725, 726, 727/4, 52/4",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "Gruszkowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20725%2C%20726%2C%20727%2F4%2C%2052%2F4%20Gruszkowej%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1604,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-28",
-          "round": 4,
-          "starting_price_pln": 212667,
-          "outcome": "archived",
-          "area_m2": 1604,
-          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1869/iv-przetarg-nieograniczony-na-zbycie-nieruchomosci-ul-gruszkowa-truskawkowa-i-okrezna.html",
-          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1869/iv-przetarg-nieograniczony-na-zbycie-nieruchomosci-ul-gruszkowa-truskawkowa-i-okrezna.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "725"
-        },
-        {
-          "nr": "726"
-        },
-        {
-          "nr": "727/4"
-        },
-        {
-          "nr": "52/4"
-        }
-      ]
-    },
-    {
       "key": "dz|725, 726, 52/4, 727/4",
       "kind": "grunt",
       "city": "wabrzezno",
@@ -65,6 +25,15 @@
           "area_m2": 1604,
           "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1707/iii-przetarg-nieograniczony-na-zbycie-nieruchomosci-gruntowych.html",
           "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1707/iii-przetarg-nieograniczony-na-zbycie-nieruchomosci-gruntowych.html"
+        },
+        {
+          "date": "2026-07-28",
+          "round": 4,
+          "starting_price_pln": 212667,
+          "outcome": "archived",
+          "area_m2": 1604,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1869/iv-przetarg-nieograniczony-na-zbycie-nieruchomosci-ul-gruszkowa-truskawkowa-i-okrezna.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1869/iv-przetarg-nieograniczony-na-zbycie-nieruchomosci-ul-gruszkowa-truskawkowa-i-okrezna.html"
         }
       ],
       "parcels": [
