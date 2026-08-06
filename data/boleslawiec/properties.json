@@ -51,6 +51,44 @@
       ]
     },
     {
+      "key": "komuny paryskiej|8|1",
+      "street": "Komuny Paryskiej",
+      "street_norm": "komuny paryskiej",
+      "building": "8",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-07",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "77/2026",
+          "area_m2": 82.92
+        },
+        {
+          "date": "2026-08-05",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 82.92
+        },
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 305000,
+          "outcome": "active",
+          "area_m2": 82.92,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6998-lokal-mieszkalny-nr-1-po%C5%82o%C5%BCony-przy-ul-komuny-paryskiej-nr-8-powierzchnia-u%C5%BCytkowa-mieszkania-82-92-m2-i-przetarg",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 82.92
+    },
+    {
       "key": "warszawskiej|1|10",
       "street": "Warszawska",
       "street_norm": "warszawskiej",
@@ -264,23 +302,6 @@
           "kind": "unknown",
           "outcome": "announced",
           "wykaz_no": null
-        }
-      ]
-    },
-    {
-      "key": "komuny paryskiej|8|1",
-      "street": "Komuny Paryskiej",
-      "street_norm": "komuny paryskiej",
-      "building": "8",
-      "apt": "1",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2026-04-07",
-          "round": null,
-          "kind": "unknown",
-          "outcome": "announced",
-          "wykaz_no": "77/2026"
         }
       ]
     },
