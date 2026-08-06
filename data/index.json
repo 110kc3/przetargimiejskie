@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-05T06:56:21.755Z",
+  "generated_at": "2026-08-06T07:09:23.910Z",
   "cities": [
     {
       "id": "gliwice",
@@ -13,7 +13,7 @@
       "active_auctions": 23,
       "archived_auctions": 255,
       "wykaz_entries": 8,
-      "land_plots": 77
+      "land_plots": 78
     },
     {
       "id": "katowice",
@@ -112,9 +112,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Świętochłowicach",
       "host": "bip.swietochlowice.pl",
-      "unique_properties": 92,
-      "active_listings": 198,
-      "active_auctions": 3,
+      "unique_properties": 97,
+      "active_listings": 207,
+      "active_auctions": 10,
       "archived_auctions": 203,
       "wykaz_entries": 0,
       "land_plots": 21
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 78,
+      "active_listings": 89,
       "active_auctions": 4,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -242,10 +242,10 @@
       "voivodeship": "slaskie",
       "authority": "Prezydent Miasta Racibórz",
       "host": "bipraciborz.pl",
-      "unique_properties": 13,
-      "active_listings": 10,
-      "active_auctions": 4,
-      "archived_auctions": 9,
+      "unique_properties": 15,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 1
     },
@@ -333,9 +333,9 @@
       "voivodeship": "podlaskie",
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
-      "unique_properties": 116,
-      "active_listings": 20,
-      "active_auctions": 15,
+      "unique_properties": 117,
+      "active_listings": 22,
+      "active_auctions": 17,
       "archived_auctions": 107,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -767,7 +767,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 22
+      "land_plots": 23
     },
     {
       "id": "choszczno",
@@ -789,9 +789,9 @@
       "authority": "Urząd Miejski w Chodzieży",
       "host": "bip.chodziez.pl",
       "unique_properties": 4,
-      "active_listings": 3,
-      "active_auctions": 3,
-      "archived_auctions": 0,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 3,
       "wykaz_entries": 1,
       "land_plots": 1
     },
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 11
+      "land_plots": 10
     },
     {
       "id": "miedzyrzecz",
@@ -971,7 +971,7 @@
       "authority": "Burmistrz Pszczyny (Urząd Miejski w Pszczynie)",
       "host": "bip.pszczyna.pl",
       "unique_properties": 18,
-      "active_listings": 36,
+      "active_listings": 32,
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
@@ -1027,7 +1027,7 @@
       "active_auctions": 1,
       "archived_auctions": 23,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 53
     },
     {
       "id": "wegorzewo",
@@ -1114,8 +1114,8 @@
       "authority": "Prezydent Miasta Bolesławiec (Wydział Mienia i Gospodarki Nieruchomościami)",
       "host": "xn--bolesawiec-e0b.pl",
       "unique_properties": 12,
-      "active_listings": 3,
-      "active_auctions": 2,
+      "active_listings": 4,
+      "active_auctions": 3,
       "archived_auctions": 5,
       "wykaz_entries": 13,
       "land_plots": 4
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 33
+      "land_plots": 50
     },
     {
       "id": "jarocin",
@@ -1196,7 +1196,7 @@
       "active_auctions": 8,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 28
+      "land_plots": 25
     },
     {
       "id": "glubczyce",
@@ -1248,7 +1248,7 @@
       "active_auctions": 0,
       "archived_auctions": 7,
       "wykaz_entries": 0,
-      "land_plots": 8
+      "land_plots": 9
     },
     {
       "id": "kamienna-gora",
@@ -1257,9 +1257,9 @@
       "authority": "Urząd Miasta Kamienna Góra (Burmistrz Miasta Kamienna Góra)",
       "host": "bip.kamiennagora.pl",
       "unique_properties": 32,
-      "active_listings": 4,
-      "active_auctions": 4,
-      "archived_auctions": 106,
+      "active_listings": 1,
+      "active_auctions": 1,
+      "archived_auctions": 109,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -1313,7 +1313,7 @@
       "active_auctions": 0,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 8
     },
     {
       "id": "znin",
