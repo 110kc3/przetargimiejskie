@@ -141,7 +141,8 @@
           "outcome": "archived",
           "area_m2": 305,
           "detail_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-rzemieslniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich",
-          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-rzemieslniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich"
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/burmistrz-miasta-zlotoryja-oglasza-i-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-przy-ul-rzemieslniczej-w-zlotoryi-ograniczony-do-wlascicieli-nieruchomosci-sasiednich",
+          "final_price_pln": 35574
         }
       ],
       "parcels": [
@@ -178,6 +179,36 @@
       "parcels": [
         {
           "nr": "11/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|16/11",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "16/11",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Sprzymierzeńców",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2016%2F11%20Sprzymierze%C5%84c%C3%B3w%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 620,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "starting_price_pln": 66805,
+          "outcome": "sold",
+          "final_price_pln": 67474,
+          "area_m2": 620
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "16/11"
         }
       ]
     },
