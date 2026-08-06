@@ -1152,6 +1152,39 @@
       ]
     },
     {
+      "key": "dz|09|1448/2",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/2",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": "321501_1.0009.1448/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F2",
+      "area_m2": 934,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 934,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7527/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-modrzewiowej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7527/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-kaszubskiej-modrzewiowej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/2",
+          "dzialka_id": "321501_1.0009.1448/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F2"
+        }
+      ]
+    },
+    {
       "key": "dz|13|103/1",
       "kind": "grunt",
       "city": "szczecinek",
