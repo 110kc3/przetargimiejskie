@@ -163,6 +163,59 @@
       ]
     },
     {
+      "key": "gen jozefa bema|89C|54",
+      "street": "Gen. Józefa Bema",
+      "street_norm": "gen jozefa bema",
+      "building": "89C",
+      "apt": "54",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 375100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 375100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "wladyslawa broniewskiego|8C|42",
+      "street": "Władysława Broniewskiego",
+      "street_norm": "wladyslawa broniewskiego",
+      "building": "8C",
+      "apt": "42",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 368000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-46.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "wolodyjowskiego|8|6",
       "street": "Wołodyjowskiego",
       "street_norm": "wolodyjowskiego",
@@ -422,27 +475,6 @@
           "final_price_pln": 287960,
           "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-95-m-57.html",
           "notes": []
-        }
-      ]
-    },
-    {
-      "key": "gen jozefa bema|89C|54",
-      "street": "Gen. Józefa Bema",
-      "street_norm": "gen jozefa bema",
-      "building": "89C",
-      "apt": "54",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-30",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 375100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54.html",
-          "wadium_deadline": null,
-          "viewing_date": null
         }
       ]
     },
