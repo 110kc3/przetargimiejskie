@@ -4,75 +4,39 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Katowickiej 15/20",
+      "address_raw": "ul. Głubczyckiej 18",
       "address": {
-        "street": "Katowickiej",
-        "street_norm": "katowickiej",
-        "building": "15",
-        "apt": "20",
-        "key": "katowickiej|15|20",
+        "street": "Głubczyckiej",
+        "street_norm": "glubczyckiej",
+        "building": "18",
+        "apt": null,
+        "key": "glubczyckiej|18|",
         "warning": null
       },
-      "area_m2": 41.23,
-      "starting_price_pln": 190000,
-      "auction_date": "2026-08-05",
+      "area_m2": 399.99,
+      "starting_price_pln": 625000,
+      "auction_date": "2026-09-30",
       "round": 1,
-      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955976",
-      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43956121?version=1.0"
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44183368",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44183414?version=1.0"
     },
     {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Bosackiej 12/12",
+      "kind": "zabudowana",
+      "address_raw": "ul. Kozielskiej 7",
       "address": {
-        "street": "Bosackiej",
-        "street_norm": "bosackiej",
-        "building": "12",
-        "apt": "12",
-        "key": "bosackiej|12|12",
+        "street": "Kozielskiej",
+        "street_norm": "kozielskiej",
+        "building": "7",
+        "apt": null,
+        "key": "kozielskiej|7|",
         "warning": null
       },
-      "area_m2": 49.72,
-      "starting_price_pln": 245000,
-      "auction_date": "2026-08-05",
+      "area_m2": 539.56,
+      "starting_price_pln": 690000,
+      "auction_date": "2026-09-30",
       "round": 1,
-      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955433",
-      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43955454?version=1.0"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Bończyka 20/5",
-      "address": {
-        "street": "Bończyka",
-        "street_norm": "bonczyka",
-        "building": "20",
-        "apt": "5",
-        "key": "bonczyka|20|5",
-        "warning": null
-      },
-      "area_m2": 59.53,
-      "starting_price_pln": 285000,
-      "auction_date": "2026-08-05",
-      "round": 1,
-      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955090",
-      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43955117?version=1.0"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Solnej 13/3",
-      "address": {
-        "street": "Solnej",
-        "street_norm": "solnej",
-        "building": "13",
-        "apt": "3",
-        "key": "solnej|13|3",
-        "warning": null
-      },
-      "area_m2": 50.15,
-      "starting_price_pln": 270000,
-      "auction_date": "2026-08-05",
-      "round": 1,
-      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43951818",
-      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/43951848?version=1.0"
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44182007",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44182036?version=1.0"
     }
   ],
   "wykaz": []

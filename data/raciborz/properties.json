@@ -3,6 +3,54 @@
   "city": "raciborz",
   "properties": [
     {
+      "key": "glubczyckiej|18|",
+      "street": "Głubczyckiej",
+      "street_norm": "glubczyckiej",
+      "building": "18",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 625000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44183368",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 399.99
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 399.99
+    },
+    {
+      "key": "kozielskiej|7|",
+      "street": "Kozielska",
+      "street_norm": "kozielskiej",
+      "building": "7",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 690000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44182007",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 539.56
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 539.56
+    },
+    {
       "key": "katowickiej|15|20",
       "street": "Katowicka",
       "street_norm": "katowickiej",
@@ -15,7 +63,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 190000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 41.23,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955976",
           "wadium_deadline": null,
@@ -37,7 +85,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 245000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 49.72,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955433",
           "wadium_deadline": null,
@@ -59,7 +107,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 285000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 59.53,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43955090",
           "wadium_deadline": null,
@@ -81,7 +129,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 270000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 50.15,
           "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43951818",
           "wadium_deadline": null,
@@ -102,12 +150,15 @@
           "date": "2026-07-29",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": 130000,
-          "outcome": "archived",
-          "area_m2": 35.05,
-          "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=43849017",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "brak uczestnikow",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bipraciborz.pl/res/serwisy/pliki/44194891?version=1.0",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 35.05
         }
       ],
       "area_m2": 35.05
