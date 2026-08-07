@@ -91,6 +91,27 @@
       "area_m2": 38.04
     },
     {
+      "key": "piekary|5|",
+      "street": "Piekary",
+      "street_norm": "piekary",
+      "building": "5",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 450000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/33301",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "henryka sienkiewicza|37|2",
       "street": "Henryka Sienkiewicza",
       "street_norm": "henryka sienkiewicza",
