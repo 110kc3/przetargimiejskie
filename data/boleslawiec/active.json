@@ -20,6 +20,23 @@
       "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6948-lokal-mieszkalny-nr-10-po%C5%82o%C5%BCony-przy-ul-warszawskiej-nr-1-powierzchnia-u%C5%BCytkowa-mieszkania-97%2C10-m2-iv-przetarg"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "Komuny Paryskiej 8/1",
+      "address": {
+        "street": "Komuny Paryskiej",
+        "street_norm": "komuny paryskiej",
+        "building": "8",
+        "apt": "1",
+        "key": "komuny paryskiej|8|1",
+        "warning": null
+      },
+      "auction_date": "2026-09-08",
+      "round": 1,
+      "area_m2": 82.92,
+      "starting_price_pln": 305000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6998-lokal-mieszkalny-nr-1-po%C5%82o%C5%BCony-przy-ul-komuny-paryskiej-nr-8-powierzchnia-u%C5%BCytkowa-mieszkania-82-92-m2-i-przetarg"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Plac Piastowski 16",
       "address": {
@@ -36,23 +53,6 @@
       "land_area_m2": 703,
       "starting_price_pln": 449000,
       "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6961-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-ii-przetarg"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Komuny Paryskiej 8/1",
-      "address": {
-        "street": "Komuny Paryskiej",
-        "street_norm": "komuny paryskiej",
-        "building": "8",
-        "apt": "1",
-        "key": "komuny paryskiej|8|1",
-        "warning": null
-      },
-      "auction_date": "2026-09-08",
-      "round": 1,
-      "area_m2": 82.92,
-      "starting_price_pln": 305000,
-      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6998-lokal-mieszkalny-nr-1-po%C5%82o%C5%BCony-przy-ul-komuny-paryskiej-nr-8-powierzchnia-u%C5%BCytkowa-mieszkania-82-92-m2-i-przetarg"
     },
     {
       "kind": "zabudowana",
