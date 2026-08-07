@@ -3,6 +3,41 @@
   "city": "kolbuszowa",
   "plots": [
     {
+      "key": "dz|kolbuszowej|48/223, 48/284",
+      "kind": "grunt",
+      "city": "kolbuszowa",
+      "dzialka_nr": "48/223, 48/284",
+      "obreb": "Kolbuszowej",
+      "street": null,
+      "building": null,
+      "address_raw": "Kolbuszowej, dz. nr 48/223, 48/284",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2048%2F223%2C%2048%2F284%20Kolbuszowej%2C%20dz.%20nr%2048%2F223%2C%2048%2F284%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2394,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "starting_price_pln": 471139,
+          "outcome": "active",
+          "area_m2": 2394,
+          "detail_url": "https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/18212-burmistrz-kolbuszowej-oglasza-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-wlasnosci-gminy-kolbuszowa-przedmiotem-przetargu-jest-niezabudowana-nieruchomosc-gruntowa-polozona-w-kolbuszowej-oznaczona-nr-ew-dzialek-48223-48284-stanowiacych-kompleks-funkcjonalno-uzytkowy-o-lacznej-powierzchni-0-2394-ha.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "48/223",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2048%2F223%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "48/284",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2048%2F284%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kolbuszowej|48/266",
       "kind": "grunt",
       "city": "kolbuszowa",
