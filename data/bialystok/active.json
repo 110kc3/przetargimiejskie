@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Suraska 4 m 14",
+      "address": {
+        "street": "Suraska",
+        "street_norm": "suraska",
+        "building": "4",
+        "apt": "14",
+        "key": "suraska|4|14",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 524100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-suraska-4-m-14.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Gen. Józefa Bema 89C m 54",
       "address": {
         "street": "Gen. Józefa Bema",

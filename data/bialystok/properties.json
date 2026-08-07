@@ -3,6 +3,27 @@
   "city": "bialystok",
   "properties": [
     {
+      "key": "suraska|4|14",
+      "street": "Suraska",
+      "street_norm": "suraska",
+      "building": "4",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 524100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-suraska-4-m-14.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "gen jozefa bema|91|72",
       "street": "Gen. Józefa Bema",
       "street_norm": "gen jozefa bema",
