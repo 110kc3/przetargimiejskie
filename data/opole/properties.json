@@ -27,6 +27,50 @@
       "land_area_m2": 368
     },
     {
+      "key": "oswiecimskiej|12|3",
+      "street": "Oświęcimska",
+      "street_norm": "oswiecimskiej",
+      "building": "12",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 199000,
+          "outcome": "archived",
+          "area_m2": 41.63,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-5_439",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 179100,
+          "outcome": "archived",
+          "area_m2": 41.63,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_461",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 161190,
+          "outcome": "active",
+          "area_m2": 41.63,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-9_479",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.63
+    },
+    {
       "key": "wojciecha drzymaly|6|6",
       "street": "Wojciecha Drzymały",
       "street_norm": "wojciecha drzymaly",
@@ -364,39 +408,6 @@
         }
       ],
       "area_m2": 43.05
-    },
-    {
-      "key": "oswiecimskiej|12|3",
-      "street": "Oświęcimska",
-      "street_norm": "oswiecimskiej",
-      "building": "12",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-12",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 199000,
-          "outcome": "archived",
-          "area_m2": 41.63,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-5_439",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-30",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 179100,
-          "outcome": "archived",
-          "area_m2": 41.63,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-6_461",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 41.63
     },
     {
       "key": "krupniczej|4|",

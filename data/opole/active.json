@@ -309,6 +309,23 @@
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-8_464"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Oświęcimskiej 12/3",
+      "address": {
+        "street": "Oświęcimskiej",
+        "street_norm": "oswiecimskiej",
+        "building": "12",
+        "apt": "3",
+        "key": "oswiecimskiej|12|3",
+        "warning": null
+      },
+      "area_m2": 41.63,
+      "starting_price_pln": 161190,
+      "auction_date": "2026-09-23",
+      "round": 3,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-9_479"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "ul. Mieczysława Niedziałkowskiego 9",
       "address": {
