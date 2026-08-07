@@ -31,6 +31,31 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205500%2F21%20K%C5%82obuck%20K%C5%82obuck%20geoportal%20dzia%C5%82ki"
         }
       ]
+    },
+    {
+      "key": "addr|ul. srebrnej",
+      "kind": "grunt",
+      "city": "klobuck",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Srebrnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Srebrnej%20K%C5%82obuck%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://gminaklobuck.pl/ogloszenie/burmistrz-klobucka-oglasza-trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-polozonej-w-klobucku-przy-ul-srebrnej-207"
+        }
+      ],
+      "parcels": []
     }
   ]
 }
