@@ -3,6 +3,83 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "zlotoryjska|43|3",
+      "street": "Złotoryjska",
+      "street_norm": "zlotoryjska",
+      "building": "43",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 3,
+          "kind": "unknown",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 106.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-04",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 106.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38893,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 106.6
+    },
+    {
+      "key": "wroclawska|97|5",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "97",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": 87.7,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38894,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-97.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 87.7
+    },
+    {
+      "key": "daszynskiego|15|3",
+      "street": "Daszyńskiego",
+      "street_norm": "daszynskiego",
+      "building": "15",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-04",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 41.06,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38892,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.06
+    },
+    {
       "key": "lukasinskiego|30|3",
       "street": "Łukasińskiego",
       "street_norm": "lukasinskiego",
@@ -111,28 +188,6 @@
         }
       ],
       "area_m2": 62.23
-    },
-    {
-      "key": "zlotoryjska|43|3",
-      "street": "Złotoryjska",
-      "street_norm": "zlotoryjska",
-      "building": "43",
-      "apt": "3",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2026-07-30",
-          "round": 3,
-          "kind": "unknown",
-          "starting_price_pln": 330000,
-          "outcome": "archived",
-          "area_m2": 106.6,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 106.6
     },
     {
       "key": "wroclawska|97|3",
