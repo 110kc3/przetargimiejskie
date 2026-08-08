@@ -25,7 +25,7 @@
     },
     {
       "key": "krasinskiego|13|",
-      "street": "Krasińskiego",
+      "street": "KRASIŃSKIEGO",
       "street_norm": "krasinskiego",
       "building": "13",
       "apt": null,
@@ -36,11 +36,14 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": null,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 800,
+          "notes": [
+            "parse: missing starting price"
+          ],
           "area_m2": 4.85,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13676/26-110-skarzysko-kamienna-ul-krasinskiego-13",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13676/26-110-skarzysko-kamienna-ul-krasinskiego-13"
         }
       ],
       "area_m2": 4.85
