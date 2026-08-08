@@ -3,6 +3,72 @@
   "city": "wejherowo",
   "properties": [
     {
+      "key": "sobieskiego|330|3",
+      "street": "Sobieskiego",
+      "street_norm": "sobieskiego",
+      "building": "330",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "active",
+          "area_m2": 65.8,
+          "detail_url": "https://bip.wejherowo.pl/artykul/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-polozonego-w-budynk-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 65.8
+    },
+    {
+      "key": "swietego jana|4|5",
+      "street": "Świętego Jana",
+      "street_norm": "swietego jana",
+      "building": "4",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 253000,
+          "outcome": "active",
+          "area_m2": 36.75,
+          "detail_url": "https://bip.wejherowo.pl/artykul/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-5-polozonego-w-budynk-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.75
+    },
+    {
+      "key": "bukowej|1|4A",
+      "street": "Bukowa",
+      "street_norm": "bukowej",
+      "building": "1",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 406000,
+          "outcome": "active",
+          "area_m2": 66.29,
+          "detail_url": "https://bip.wejherowo.pl/artykul/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4a-polozonego-w-budyn",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 66.29
+    },
+    {
       "key": "sw jana|7|8",
       "street": "św. Jana",
       "street_norm": "sw jana",

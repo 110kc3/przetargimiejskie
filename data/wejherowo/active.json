@@ -4,6 +4,63 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 3 położonego w budynku przy ul. Sobieskiego 330 w Wejherowie, o powierzchni użytkowej 65,80 m2 oraz udziałem wynoszącym 211/1000 części w częściach wspólnych budynku i gruntu, działka nr 66, obręb 16, o powierzchni 970 m2",
+      "address": {
+        "street": "Sobieskiego",
+        "street_norm": "sobieskiego",
+        "building": "330",
+        "apt": "3",
+        "key": "sobieskiego|330|3",
+        "warning": null
+      },
+      "round": 1,
+      "published_date": "2026-08-07",
+      "auction_date": "2026-09-09",
+      "area_m2": 65.8,
+      "starting_price_pln": 380000,
+      "detail_url": "https://bip.wejherowo.pl/artykul/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-3-polozonego-w-budynk-2",
+      "result_pdf_url": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 5 położonego w budynku przy ul. Świętego Jana 4 w Wejherowie, o powierzchni użytkowej 36,75 m2 wraz z pomieszczeniem przynależnym, tj. piwnicą o powierzchni użytkowej 2,39 m2 oraz udziałem wynoszącym 75/1.000 części w częściach wspólnych budynku i gruntu działki nr 33, obręb 15, o powierzchni 587 m2",
+      "address": {
+        "street": "Świętego Jana",
+        "street_norm": "swietego jana",
+        "building": "4",
+        "apt": "5",
+        "key": "swietego jana|4|5",
+        "warning": null
+      },
+      "round": 1,
+      "published_date": "2026-08-07",
+      "auction_date": "2026-09-09",
+      "area_m2": 36.75,
+      "starting_price_pln": 253000,
+      "detail_url": "https://bip.wejherowo.pl/artykul/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-5-polozonego-w-budynk-1",
+      "result_pdf_url": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 4A położonego w budynku przy ul. Bukowej 1 w Wejherowie, o powierzchni użytkowej 66,29 m2 wraz z udziałem wynoszącym 147/1000 części w częściach wspólnych budynku i gruntu działki nr 184/3, obręb 16, o powierzchni 1 683 m2",
+      "address": {
+        "street": "Bukowej",
+        "street_norm": "bukowej",
+        "building": "1",
+        "apt": "4A",
+        "key": "bukowej|1|4A",
+        "warning": null
+      },
+      "round": 1,
+      "published_date": "2026-08-07",
+      "auction_date": "2026-09-09",
+      "area_m2": 66.29,
+      "starting_price_pln": 406000,
+      "detail_url": "https://bip.wejherowo.pl/artykul/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4a-polozonego-w-budyn",
+      "result_pdf_url": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 8 położonego w budynku przy ul. św. Jana 7 w Wejherowie, o powierzchni użytkowej 34,83 m2 oraz udziałem wynoszącym 82/1000 części w częściach wspólnych budynku i gruntu, działka nr 39/1, obręb 15, o powierzchni 494 m2",
       "address": {
         "street": "św. Jana",
