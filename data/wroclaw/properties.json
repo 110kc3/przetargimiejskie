@@ -3,6 +3,115 @@
   "city": "wroclaw",
   "properties": [
     {
+      "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
+      "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
+      "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+      "building": "3",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1065000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "tadeusza kosciuszki|86|11",
+      "street": "Tadeusza Kościuszki",
+      "street_norm": "tadeusza kosciuszki",
+      "building": "86",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 652000,
+          "outcome": "active",
+          "area_m2": 104.94,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 104.94
+    },
+    {
+      "key": "miernicza 9 lokal|12-14|",
+      "street": "Miernicza 9 lokal",
+      "street_norm": "miernicza 9 lokal",
+      "building": "12-14",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-22",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 563500,
+          "outcome": "active",
+          "area_m2": 73.24,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 73.24
+    },
+    {
+      "key": "piastowska 30 lokal|1-1A|",
+      "street": "Piastowska 30 lokal",
+      "street_norm": "piastowska 30 lokal",
+      "building": "1-1A",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-22",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 563500,
+          "outcome": "active",
+          "area_m2": 93.76,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 93.76
+    },
+    {
+      "key": "nowodworska|8|8",
+      "street": "Nowodworska",
+      "street_norm": "nowodworska",
+      "building": "8",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 616000,
+          "outcome": "active",
+          "area_m2": 52.42,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.42
+    },
+    {
       "key": "kosynierow gdynskich|83|4",
       "street": "Kosynierów Gdyńskich",
       "street_norm": "kosynierow gdynskich",
