@@ -4,6 +4,278 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Młodzieżowa 10/4",
+      "address": {
+        "street": "Młodzieżowa",
+        "street_norm": "mlodziezowa",
+        "building": "10",
+        "apt": "4",
+        "key": "mlodziezowa|10|4",
+        "warning": null
+      },
+      "auction_date": "2026-09-29",
+      "round": 1,
+      "area_m2": 54.58,
+      "starting_price_pln": 230000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26408"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ludwiki Wawrzyńskiej 6a/4",
+      "address": {
+        "street": "Ludwiki Wawrzyńskiej",
+        "street_norm": "ludwiki wawrzynskiej",
+        "building": "6A",
+        "apt": "4",
+        "key": "ludwiki wawrzynskiej|6A|4",
+        "warning": null
+      },
+      "auction_date": "2026-09-29",
+      "round": 1,
+      "area_m2": 36.8,
+      "starting_price_pln": 191000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26408"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ludwiki Wawrzyńskiej 15/1",
+      "address": {
+        "street": "Ludwiki Wawrzyńskiej",
+        "street_norm": "ludwiki wawrzynskiej",
+        "building": "15",
+        "apt": "1",
+        "key": "ludwiki wawrzynskiej|15|1",
+        "warning": null
+      },
+      "auction_date": "2026-09-29",
+      "round": 1,
+      "area_m2": 34.55,
+      "starting_price_pln": 160000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26408"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ludwiki Wawrzyńskiej 18/10",
+      "address": {
+        "street": "Ludwiki Wawrzyńskiej",
+        "street_norm": "ludwiki wawrzynskiej",
+        "building": "18",
+        "apt": "10",
+        "key": "ludwiki wawrzynskiej|18|10",
+        "warning": null
+      },
+      "auction_date": "2026-09-29",
+      "round": 1,
+      "area_m2": 31.77,
+      "starting_price_pln": 132000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26408"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ludwika Zamenhofa 2/3",
+      "address": {
+        "street": "Ludwika Zamenhofa",
+        "street_norm": "ludwika zamenhofa",
+        "building": "2",
+        "apt": "3",
+        "key": "ludwika zamenhofa|2|3",
+        "warning": null
+      },
+      "auction_date": "2026-09-29",
+      "round": 1,
+      "area_m2": 36.24,
+      "starting_price_pln": 170000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26408"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ludwika Zamenhofa 7/9",
+      "address": {
+        "street": "Ludwika Zamenhofa",
+        "street_norm": "ludwika zamenhofa",
+        "building": "7",
+        "apt": "9",
+        "key": "ludwika zamenhofa|7|9",
+        "warning": null
+      },
+      "auction_date": "2026-09-29",
+      "round": 1,
+      "area_m2": 36.67,
+      "starting_price_pln": 170000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26408"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 3 Maja 92/2",
+      "address": {
+        "street": "3 Maja",
+        "street_norm": "3 maja",
+        "building": "92",
+        "apt": "2",
+        "key": "3 maja|92|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-24",
+      "round": 1,
+      "area_m2": 41,
+      "starting_price_pln": 140000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26407"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Cisowa 9b/1",
+      "address": {
+        "street": "Cisowa",
+        "street_norm": "cisowa",
+        "building": "9B",
+        "apt": "1",
+        "key": "cisowa|9B|1",
+        "warning": null
+      },
+      "auction_date": "2026-09-24",
+      "round": 1,
+      "area_m2": 42.07,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26407"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jagodowa 6a/5",
+      "address": {
+        "street": "Jagodowa",
+        "street_norm": "jagodowa",
+        "building": "6A",
+        "apt": "5",
+        "key": "jagodowa|6A|5",
+        "warning": null
+      },
+      "auction_date": "2026-09-24",
+      "round": 1,
+      "area_m2": 42.78,
+      "starting_price_pln": 250000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26407"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolności 532/4",
+      "address": {
+        "street": "Wolności",
+        "street_norm": "wolnosci",
+        "building": "532",
+        "apt": "4",
+        "key": "wolnosci|532|4",
+        "warning": null
+      },
+      "auction_date": "2026-09-24",
+      "round": 1,
+      "area_m2": 63.52,
+      "starting_price_pln": 342000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26407"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 3 Maja 6a/4",
+      "address": {
+        "street": "3 Maja",
+        "street_norm": "3 maja",
+        "building": "6A",
+        "apt": "4",
+        "key": "3 maja|6A|4",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "area_m2": 48.2,
+      "starting_price_pln": 185000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26406"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 3 Maja 27o",
+      "address": {
+        "street": "3 Maja",
+        "street_norm": "3 maja",
+        "building": "27O",
+        "apt": null,
+        "key": "3 maja|27O|",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "area_m2": 35.56,
+      "starting_price_pln": 120000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26406"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zygmunta Krasińskiego 10/6",
+      "address": {
+        "street": "Zygmunta Krasińskiego",
+        "street_norm": "zygmunta krasinskiego",
+        "building": "10",
+        "apt": "6",
+        "key": "zygmunta krasinskiego|10|6",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "area_m2": 38.6,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26406"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zofii Nałkowskiej 3/1",
+      "address": {
+        "street": "Zofii Nałkowskiej",
+        "street_norm": "zofii nalkowskiej",
+        "building": "3",
+        "apt": "1",
+        "key": "zofii nalkowskiej|3|1",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "area_m2": 48.82,
+      "starting_price_pln": 180000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26406"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zofii Nałkowskiej 7/6",
+      "address": {
+        "street": "Zofii Nałkowskiej",
+        "street_norm": "zofii nalkowskiej",
+        "building": "7",
+        "apt": "6",
+        "key": "zofii nalkowskiej|7|6",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "area_m2": 32.8,
+      "starting_price_pln": 130000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26406"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 50/3",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "50",
+        "apt": "3",
+        "key": "marszalka jozefa pilsudskiego|50|3",
+        "warning": null
+      },
+      "auction_date": "2026-09-22",
+      "round": 1,
+      "area_m2": 45.63,
+      "starting_price_pln": 160000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26406"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Józefa Chełmońskiego 12/5",
       "address": {
         "street": "Józefa Chełmońskiego",

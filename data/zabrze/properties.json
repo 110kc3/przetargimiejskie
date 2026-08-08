@@ -3,6 +3,358 @@
   "city": "zabrze",
   "properties": [
     {
+      "key": "mlodziezowa|10|4",
+      "street": "Młodzieżowa",
+      "street_norm": "mlodziezowa",
+      "building": "10",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 54.58,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 54.58
+    },
+    {
+      "key": "ludwiki wawrzynskiej|6A|4",
+      "street": "Ludwiki Wawrzyńskiej",
+      "street_norm": "ludwiki wawrzynskiej",
+      "building": "6A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 191000,
+          "outcome": "active",
+          "area_m2": 36.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.8
+    },
+    {
+      "key": "ludwiki wawrzynskiej|15|1",
+      "street": "Ludwiki Wawrzyńskiej",
+      "street_norm": "ludwiki wawrzynskiej",
+      "building": "15",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 34.55,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 34.55
+    },
+    {
+      "key": "ludwiki wawrzynskiej|18|10",
+      "street": "Ludwiki Wawrzyńskiej",
+      "street_norm": "ludwiki wawrzynskiej",
+      "building": "18",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 132000,
+          "outcome": "active",
+          "area_m2": 31.77,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.77
+    },
+    {
+      "key": "ludwika zamenhofa|2|3",
+      "street": "Ludwika Zamenhofa",
+      "street_norm": "ludwika zamenhofa",
+      "building": "2",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 36.24,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.24
+    },
+    {
+      "key": "ludwika zamenhofa|7|9",
+      "street": "Ludwika Zamenhofa",
+      "street_norm": "ludwika zamenhofa",
+      "building": "7",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 36.67,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.67
+    },
+    {
+      "key": "3 maja|92|2",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "92",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "active",
+          "area_m2": 41,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26407",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41
+    },
+    {
+      "key": "cisowa|9B|1",
+      "street": "Cisowa",
+      "street_norm": "cisowa",
+      "building": "9B",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 42.07,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26407",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.07
+    },
+    {
+      "key": "jagodowa|6A|5",
+      "street": "Jagodowa",
+      "street_norm": "jagodowa",
+      "building": "6A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 42.78,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26407",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.78
+    },
+    {
+      "key": "wolnosci|532|4",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "532",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 342000,
+          "outcome": "active",
+          "area_m2": 63.52,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26407",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 63.52
+    },
+    {
+      "key": "3 maja|6A|4",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "6A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "active",
+          "area_m2": 48.2,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26406",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.2
+    },
+    {
+      "key": "3 maja|27O|",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
+      "building": "27O",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 35.56,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26406",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.56
+    },
+    {
+      "key": "zygmunta krasinskiego|10|6",
+      "street": "Zygmunta Krasińskiego",
+      "street_norm": "zygmunta krasinskiego",
+      "building": "10",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 38.6,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26406",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.6
+    },
+    {
+      "key": "zofii nalkowskiej|3|1",
+      "street": "Zofii Nałkowskiej",
+      "street_norm": "zofii nalkowskiej",
+      "building": "3",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 48.82,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26406",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.82
+    },
+    {
+      "key": "zofii nalkowskiej|7|6",
+      "street": "Zofii Nałkowskiej",
+      "street_norm": "zofii nalkowskiej",
+      "building": "7",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "active",
+          "area_m2": 32.8,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26406",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.8
+    },
+    {
+      "key": "marszalka jozefa pilsudskiego|50|3",
+      "street": "Marszałka Józefa Piłsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "50",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 45.63,
+          "detail_url": "https://bip.miastozabrze.pl/doc/26406",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.63
+    },
+    {
       "key": "jozefa chelmonskiego|12|5",
       "street": "Józefa Chełmońskiego",
       "street_norm": "jozefa chelmonskiego",
