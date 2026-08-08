@@ -51,6 +51,44 @@
       ]
     },
     {
+      "key": "wesolej|8|3",
+      "street": "Wesołej",
+      "street_norm": "wesolej",
+      "building": "8",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-25",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 42.8
+        },
+        {
+          "date": "2026-08-07",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 42.8
+        },
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 166500,
+          "outcome": "active",
+          "area_m2": 42.8,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7007-lokal-mieszkalny-nr-3-po%C5%82o%C5%BCony-przy-ul-weso%C5%82ej-nr-8-powierzchnia-u%C5%BCytkowa-mieszkania-42%2C80-m2-ii-przetarg",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.8
+    },
+    {
       "key": "komuny paryskiej|8|1",
       "street": "Komuny Paryskiej",
       "street_norm": "komuny paryskiej",
@@ -144,12 +182,12 @@
       "street_norm": "ogrodowej",
       "building": "4",
       "apt": "2",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2025-07-16",
           "round": null,
-          "kind": "unknown",
+          "kind": "mieszkalny",
           "outcome": "announced",
           "wykaz_no": null,
           "area_m2": 84.94
@@ -167,11 +205,12 @@
           "round": 6,
           "kind": "mieszkalny",
           "starting_price_pln": 323000,
-          "outcome": "archived",
-          "area_m2": 84.94,
-          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6890-lokal-mieszkalny-nr-2%2C-po%C5%82o%C5%BCony-przy-ul-ogrodowej-nr-4-powierzchnia-u%C5%BCytkowa-mieszkania-84%2C94-m2-vi-przetarg",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "brak wpłaty wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=252168",
+          "notes": [],
+          "area_m2": 84.94
         }
       ],
       "area_m2": 84.94
@@ -336,23 +375,6 @@
           "kind": "unknown",
           "outcome": "announced",
           "wykaz_no": "35/2026"
-        }
-      ]
-    },
-    {
-      "key": "wesolej|8|3",
-      "street": "Wesołej",
-      "street_norm": "wesolej",
-      "building": "8",
-      "apt": "3",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2025-11-25",
-          "round": null,
-          "kind": "unknown",
-          "outcome": "announced",
-          "wykaz_no": null
         }
       ]
     }

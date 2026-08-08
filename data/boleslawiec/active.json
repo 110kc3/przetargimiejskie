@@ -37,6 +37,23 @@
       "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6998-lokal-mieszkalny-nr-1-po%C5%82o%C5%BCony-przy-ul-komuny-paryskiej-nr-8-powierzchnia-u%C5%BCytkowa-mieszkania-82-92-m2-i-przetarg"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "Wesołej 8/3",
+      "address": {
+        "street": "Wesołej",
+        "street_norm": "wesolej",
+        "building": "8",
+        "apt": "3",
+        "key": "wesolej|8|3",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "round": 2,
+      "area_m2": 42.8,
+      "starting_price_pln": 166500,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7007-lokal-mieszkalny-nr-3-po%C5%82o%C5%BCony-przy-ul-weso%C5%82ej-nr-8-powierzchnia-u%C5%BCytkowa-mieszkania-42%2C80-m2-ii-przetarg"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Plac Piastowski 16",
       "address": {
@@ -131,7 +148,7 @@
       "address_raw": "Wesołej 8/3",
       "kind": "mieszkalny",
       "area_m2": 42.8,
-      "published_date": "2025-11-25",
+      "published_date": "2026-08-07",
       "wykaz_no": null
     },
     {
