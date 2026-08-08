@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-07T06:07:15.002Z",
+  "generated_at": "2026-08-08T05:24:12.628Z",
   "cities": [
     {
       "id": "gliwice",
@@ -21,9 +21,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miasta Katowice",
       "host": "bip.katowice.eu",
-      "unique_properties": 138,
-      "active_listings": 68,
-      "active_auctions": 15,
+      "unique_properties": 139,
+      "active_listings": 70,
+      "active_auctions": 17,
       "archived_auctions": 149,
       "wykaz_entries": 0,
       "land_plots": 9
@@ -47,9 +47,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
-      "unique_properties": 290,
-      "active_listings": 473,
-      "active_auctions": 10,
+      "unique_properties": 306,
+      "active_listings": 489,
+      "active_auctions": 26,
       "archived_auctions": 468,
       "wykaz_entries": 0,
       "land_plots": 28
@@ -62,8 +62,8 @@
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 52,
       "active_listings": 96,
-      "active_auctions": 9,
-      "archived_auctions": 89,
+      "active_auctions": 8,
+      "archived_auctions": 90,
       "wykaz_entries": 0,
       "land_plots": 227
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 68,
+      "active_listings": 89,
       "active_auctions": 4,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 108
     },
     {
       "id": "trzebinia",
@@ -229,9 +229,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)",
       "host": "um.bip.legnica.eu",
-      "unique_properties": 13,
-      "active_listings": 5,
-      "active_auctions": 5,
+      "unique_properties": 15,
+      "active_listings": 8,
+      "active_auctions": 8,
       "archived_auctions": 8,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -294,9 +294,9 @@
       "voivodeship": "pomorskie",
       "authority": "Gmina Miasta Wejherowa",
       "host": "bip.wejherowo.pl",
-      "unique_properties": 8,
-      "active_listings": 8,
-      "active_auctions": 8,
+      "unique_properties": 11,
+      "active_listings": 11,
+      "active_auctions": 11,
       "archived_auctions": 0,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -321,7 +321,7 @@
       "authority": "Urząd Miejski w Wałbrzychu",
       "host": "bip.um.walbrzych.pl",
       "unique_properties": 13,
-      "active_listings": 10,
+      "active_listings": 9,
       "active_auctions": 1,
       "archived_auctions": 12,
       "wykaz_entries": 0,
@@ -767,7 +767,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 23
+      "land_plots": 24
     },
     {
       "id": "choszczno",
@@ -1114,8 +1114,8 @@
       "authority": "Prezydent Miasta Bolesławiec (Wydział Mienia i Gospodarki Nieruchomościami)",
       "host": "xn--bolesawiec-e0b.pl",
       "unique_properties": 12,
-      "active_listings": 4,
-      "active_auctions": 3,
+      "active_listings": 5,
+      "active_auctions": 4,
       "archived_auctions": 5,
       "wykaz_entries": 13,
       "land_plots": 4
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 33
+      "land_plots": 51
     },
     {
       "id": "jarocin",
@@ -1196,7 +1196,7 @@
       "active_auctions": 8,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 25
+      "land_plots": 22
     },
     {
       "id": "glubczyce",
@@ -1339,7 +1339,7 @@
       "active_auctions": 0,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 4
     },
     {
       "id": "sucha-beskidzka",
@@ -1412,9 +1412,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
-      "unique_properties": 61,
-      "active_listings": 315,
-      "active_auctions": 21,
+      "unique_properties": 66,
+      "active_listings": 375,
+      "active_auctions": 26,
       "archived_auctions": 40,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 2,
-      "active_listings": 1,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 2,
       "wykaz_entries": 0,
