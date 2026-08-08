@@ -3,6 +3,39 @@
   "city": "katowice",
   "properties": [
     {
+      "key": "rybnicka|8|8",
+      "street": "Rybnicka",
+      "street_norm": "rybnicka",
+      "building": "8",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "archived",
+          "area_m2": 28.52,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
+          "wadium_deadline": "2026-07-06",
+          "viewing_date": "2026-07-06"
+        },
+        {
+          "date": "2026-10-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "active",
+          "area_m2": 28.52,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153462&menu=679",
+          "wadium_deadline": "2026-09-28",
+          "viewing_date": "2026-09-28"
+        }
+      ],
+      "area_m2": 28.52
+    },
+    {
       "key": "dzialkowej|17|",
       "street": "Działkowa",
       "street_norm": "dzialkowej",
@@ -124,6 +157,28 @@
           "viewing_date": "2026-09-07"
         }
       ]
+    },
+    {
+      "key": "kosciuszki|45|",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "45",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 18.13,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153461&menu=679",
+          "wadium_deadline": "2026-09-07",
+          "viewing_date": "2026-09-07"
+        }
+      ],
+      "area_m2": 18.13
     },
     {
       "key": "staromiejska|15|8",
@@ -274,28 +329,6 @@
         }
       ],
       "area_m2": 127.66
-    },
-    {
-      "key": "rybnicka|8|8",
-      "street": "Rybnicka",
-      "street_norm": "rybnicka",
-      "building": "8",
-      "apt": "8",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-14",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 380000,
-          "outcome": "archived",
-          "area_m2": 28.52,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
-          "wadium_deadline": "2026-07-06",
-          "viewing_date": "2026-07-06"
-        }
-      ],
-      "area_m2": 28.52
     },
     {
       "key": "broniewskiego|1B|13",

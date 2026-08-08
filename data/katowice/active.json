@@ -3,6 +3,44 @@
   "city": "katowice",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "round": 1,
+      "address_raw": "Kościuszki 45",
+      "address": {
+        "street": "Kościuszki",
+        "street_norm": "kosciuszki",
+        "building": "45",
+        "apt": null,
+        "key": "kosciuszki|45|",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "area_m2": 18.13,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153461&menu=679",
+      "wadium_deadline": "2026-09-07",
+      "viewing_date": "2026-09-07"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Rybnickiej 8/8",
+      "address": {
+        "street": "Rybnickiej",
+        "street_norm": "rybnickiej",
+        "building": "8",
+        "apt": "8",
+        "key": "rybnickiej|8|8",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "area_m2": 28.52,
+      "starting_price_pln": 360000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153462&menu=679",
+      "wadium_deadline": "2026-09-28",
+      "viewing_date": "2026-09-28"
+    },
+    {
       "kind": "mieszkalny",
       "round": 1,
       "address_raw": "i mieszkalnych przy ul. Warszawskiej 28/9",
