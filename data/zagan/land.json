@@ -3,6 +3,51 @@
   "city": "zagan",
   "plots": [
     {
+      "key": "dz|1308/6, 1308/8, 3638/6, 3638/8, 0, 8664",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "1308/6, 1308/8, 3638/6, 3638/8, 0, 8664",
+      "obreb": null,
+      "street": "Asnyka",
+      "building": null,
+      "address_raw": "Asnyka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201308%2F6%2C%201308%2F8%2C%203638%2F6%2C%203638%2F8%2C%200%2C%208664%20Asnyka%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-14",
+          "round": 1,
+          "starting_price_pln": 610000,
+          "outcome": "active",
+          "detail_url": "https://bip.zagan.pl/przetargi/344/668/1_/",
+          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__1_Asnyka__1982-18_1982-20_1308-6_1308-8_3638-6_3638-8.docx&id=c6d15b79feb79e46a8d08afe270a4ae9"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1308/6"
+        },
+        {
+          "nr": "1308/8"
+        },
+        {
+          "nr": "3638/6"
+        },
+        {
+          "nr": "3638/8"
+        },
+        {
+          "nr": "0"
+        },
+        {
+          "nr": "8664"
+        }
+      ]
+    },
+    {
       "key": "dz|1753/6, 1753/7, 1753/8",
       "kind": "grunt",
       "city": "zagan",
