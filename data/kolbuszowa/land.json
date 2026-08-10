@@ -38,6 +38,37 @@
       ]
     },
     {
+      "key": "dz|kupnie|1125/166",
+      "kind": "grunt",
+      "city": "kolbuszowa",
+      "dzialka_nr": "1125/166",
+      "obreb": "Kupnie",
+      "street": null,
+      "building": null,
+      "address_raw": "Kupnie, dz. nr 1125/166",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201125%2F166%20Kupnie%2C%20dz.%20nr%201125%2F166%20Kupnie%20Kolbuszowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 299,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "starting_price_pln": 16445,
+          "outcome": "active",
+          "area_m2": 299,
+          "detail_url": "https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/18237-burmistrz-kolbuszowej-oglasza-i-publiczny-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-wlasnosci-gminy-kolbuszowa-przedmiotem-przetargu-jest-niezabudowana-nieruchomosc-gruntowa-polozona-w-kupnie-oznaczona-nr-ew-dzialki-1125166-o-powierzchni-0-0299-ha.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1125/166",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201125%2F166%20Kupnie%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kolbuszowej|48/266",
       "kind": "grunt",
       "city": "kolbuszowa",
