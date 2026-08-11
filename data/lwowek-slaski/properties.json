@@ -56,7 +56,8 @@
           "notes": [
             "parse: missing starting price",
             "parse: no achieved price and no explicit negative outcome"
-          ]
+          ],
+          "round_source": "inferred"
         }
       ]
     },
@@ -93,7 +94,8 @@
             "parse: missing starting price",
             "parse: no achieved price and no explicit negative outcome"
           ],
-          "area_m2": 27.8
+          "area_m2": 27.8,
+          "round_source": "inferred"
         }
       ],
       "area_m2": 27.8
