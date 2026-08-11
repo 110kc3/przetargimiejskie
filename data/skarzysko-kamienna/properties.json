@@ -22,7 +22,8 @@
             "parse: missing starting price"
           ],
           "area_m2": 21.4,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13680/26-110-skarzysko-kamienna-ul-konarskiego-35"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13680/26-110-skarzysko-kamienna-ul-konarskiego-35",
+          "round_source": "inferred"
         }
       ],
       "area_m2": 21.4
@@ -47,7 +48,8 @@
             "parse: missing starting price"
           ],
           "area_m2": 4.85,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13676/26-110-skarzysko-kamienna-ul-krasinskiego-13"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13676/26-110-skarzysko-kamienna-ul-krasinskiego-13",
+          "round_source": "inferred"
         }
       ],
       "area_m2": 4.85
@@ -74,7 +76,7 @@
         },
         {
           "date": "2025-11-21",
-          "round": 1,
+          "round": 2,
           "kind": "zabudowana",
           "starting_price_pln": 149600,
           "outcome": "unsold",
@@ -83,7 +85,8 @@
           "notes": [
             "parse: no achieved price and no explicit negative outcome"
           ],
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12152/26-110-skarzysko-kamienna-ul-wiezowa"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12152/26-110-skarzysko-kamienna-ul-wiezowa",
+          "round_source": "inferred"
         }
       ]
     },
@@ -127,7 +130,8 @@
           "area_m2": null,
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/10537/26-110-skarzysko-kamienna-ul-staffa-21a",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "round_source": "inferred"
         }
       ]
     }
