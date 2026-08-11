@@ -3,6 +3,44 @@
   "city": "strzelce-opolskie",
   "plots": [
     {
+      "key": "dz|szymiszów|693/9",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "693/9",
+      "obreb": "Szymiszów",
+      "street": null,
+      "building": null,
+      "address_raw": "Szymiszów, dz. nr 693/9",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%2C%20dz.%20nr%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 818,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 818
+        },
+        {
+          "date": "2026-09-16",
+          "round": 2,
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 818,
+          "detail_url": "https://gzmk.pl/bw/II_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnych_polozonych_w_Szymiszowie_przy_ul_Franciszka_Mysliwca,14,1005"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "693/9",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kalinowice|294/7",
       "kind": "grunt",
       "city": "strzelce-opolskie",
@@ -36,36 +74,6 @@
         {
           "nr": "294/7",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|szymiszów|693/9",
-      "kind": "grunt",
-      "city": "strzelce-opolskie",
-      "dzialka_nr": "693/9",
-      "obreb": "Szymiszów",
-      "street": null,
-      "building": null,
-      "address_raw": "Szymiszów, dz. nr 693/9",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%2C%20dz.%20nr%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
-      "area_m2": 818,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-31",
-          "round": 1,
-          "starting_price_pln": 80000,
-          "outcome": "unsold",
-          "area_m2": 818
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "693/9",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
