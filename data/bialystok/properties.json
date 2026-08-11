@@ -24,6 +24,38 @@
       ]
     },
     {
+      "key": "gen jozefa bema|91|19",
+      "street": "Gen. Józefa Bema",
+      "street_norm": "gen jozefa bema",
+      "building": "91",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 428100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-19.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 428100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-19-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "gen jozefa bema|91|72",
       "street": "Gen. Józefa Bema",
       "street_norm": "gen jozefa bema",
@@ -452,27 +484,6 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-11.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
-      "key": "gen jozefa bema|91|19",
-      "street": "Gen. Józefa Bema",
-      "street_norm": "gen jozefa bema",
-      "building": "91",
-      "apt": "19",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 428100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-19.html",
           "wadium_deadline": null,
           "viewing_date": null
         }

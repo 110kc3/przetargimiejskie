@@ -4,6 +4,23 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Józefa Bema 91 m 19",
+      "address": {
+        "street": "Gen. Józefa Bema",
+        "street_norm": "gen jozefa bema",
+        "building": "91",
+        "apt": "19",
+        "key": "gen jozefa bema|91|19",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 428100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-19-1.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Suraska 4 m 14",
       "address": {
         "street": "Suraska",
