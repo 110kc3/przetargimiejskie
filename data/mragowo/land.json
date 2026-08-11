@@ -3,6 +3,36 @@
   "city": "mragowo",
   "plots": [
     {
+      "key": "dz|nr 1|208",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "208",
+      "obreb": "nr 1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Widok",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20ul.%20Widok%20nr%201%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-31",
+          "round": 1,
+          "starting_price_pln": 20000,
+          "outcome": "sold",
+          "final_price_pln": 20200
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "208",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20nr%201%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|nr 8|284/90",
       "kind": "grunt",
       "city": "mragowo",
