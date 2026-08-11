@@ -69,6 +69,41 @@
       "area_m2": 145.57
     },
     {
+      "key": "stolczynska|156|",
+      "street": "Stołczyńska",
+      "street_norm": "stolczynska",
+      "building": "156",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-20",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 88000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=7DA14C9325FF471B95414BF618684310",
+          "notes": [],
+          "area_m2": 25.08
+        },
+        {
+          "date": "2026-08-03",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 71100,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=42EC0348029A4D429C7FAC8F18B2EEAA",
+          "notes": [],
+          "area_m2": 25.08
+        }
+      ],
+      "area_m2": 25.08
+    },
+    {
       "key": "pocztowa|10|11",
       "street": "Pocztowa",
       "street_norm": "pocztowa",
@@ -611,29 +646,6 @@
         }
       ],
       "area_m2": 65.57
-    },
-    {
-      "key": "stolczynska|156|",
-      "street": "Stołczyńska",
-      "street_norm": "stolczynska",
-      "building": "156",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-04-20",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 88000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=7DA14C9325FF471B95414BF618684310",
-          "notes": [],
-          "area_m2": 25.08
-        }
-      ],
-      "area_m2": 25.08
     },
     {
       "key": "kaszubska|17|5",
