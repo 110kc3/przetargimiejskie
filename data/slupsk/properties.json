@@ -3,6 +3,193 @@
   "city": "slupsk",
   "properties": [
     {
+      "key": "zygmunta krasinskiego|17|7A",
+      "street": "Zygmunta Krasińskiego",
+      "street_norm": "zygmunta krasinskiego",
+      "building": "17",
+      "apt": "7A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 490000,
+          "outcome": "active",
+          "area_m2": 123.36,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3185.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 123.36
+    },
+    {
+      "key": "s jaracza|21-21A|5",
+      "street": "S. Jaracza",
+      "street_norm": "s jaracza",
+      "building": "21-21A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 52.24,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3193.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.24
+    },
+    {
+      "key": "rybackiej|5|5",
+      "street": "Rybacka",
+      "street_norm": "rybackiej",
+      "building": "5",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 19.54,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3192.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 19.54
+    },
+    {
+      "key": "jana kilinskiego|18|4",
+      "street": "Jana Kilińskiego",
+      "street_norm": "jana kilinskiego",
+      "building": "18",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-01",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 95.57,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3143.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 95.57,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3189.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 95.57
+    },
+    {
+      "key": "nad sluzami|32|14",
+      "street": "Nad Śluzami",
+      "street_norm": "nad sluzami",
+      "building": "32",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "active",
+          "area_m2": 30.16,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3190.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.16
+    },
+    {
+      "key": "kollataja 40 kollataja 40a kollataja|40B|10",
+      "street": "Kołłątaja 40, Kołłątaja 40A, Kołłątaja",
+      "street_norm": "kollataja 40 kollataja 40a kollataja",
+      "building": "40B",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "active",
+          "area_m2": 34.01,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3188.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 34.01
+    },
+    {
+      "key": "jana kilinskiego|18|6",
+      "street": "Jana Kilińskiego",
+      "street_norm": "jana kilinskiego",
+      "building": "18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 95.55,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3187.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 95.55
+    },
+    {
+      "key": "henryka poboznego|18|2",
+      "street": "Henryka Pobożnego",
+      "street_norm": "henryka poboznego",
+      "building": "18",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 40.26,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3186.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 40.26
+    },
+    {
       "key": "ludwika solskiego|19|3",
       "street": "Ludwika Solskiego",
       "street_norm": "ludwika solskiego",
@@ -89,28 +276,6 @@
         }
       ],
       "area_m2": 123.93
-    },
-    {
-      "key": "jana kilinskiego|18|4",
-      "street": "Jana Kilińskiego",
-      "street_norm": "jana kilinskiego",
-      "building": "18",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-01",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "archived",
-          "area_m2": 95.57,
-          "detail_url": "https://bip.um.slupsk.pl/przetargi/3143.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 95.57
     }
   ]
 }

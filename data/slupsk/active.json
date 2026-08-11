@@ -4,6 +4,150 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. S. Jaracza 21-21a",
+      "address": {
+        "street": "S. Jaracza",
+        "street_norm": "s jaracza",
+        "building": "21-21A",
+        "apt": "5",
+        "key": "s jaracza|21-21A|5",
+        "warning": null
+      },
+      "auction_date": "2026-09-21",
+      "round": 1,
+      "area_m2": 52.24,
+      "starting_price_pln": 210000,
+      "kw": null,
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3193.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rybackiej 5",
+      "address": {
+        "street": "Rybackiej",
+        "street_norm": "rybackiej",
+        "building": "5",
+        "apt": "5",
+        "key": "rybackiej|5|5",
+        "warning": null
+      },
+      "auction_date": "2026-09-21",
+      "round": 1,
+      "area_m2": 19.54,
+      "starting_price_pln": 150000,
+      "kw": "SL1S/000",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3192.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nad Śluzami 32",
+      "address": {
+        "street": "Nad Śluzami",
+        "street_norm": "nad sluzami",
+        "building": "32",
+        "apt": "14",
+        "key": "nad sluzami|32|14",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 3,
+      "area_m2": 30.16,
+      "starting_price_pln": 60000,
+      "kw": "SL1S/00031537/8",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3190.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jana Kilińskiego 18",
+      "address": {
+        "street": "Jana Kilińskiego",
+        "street_norm": "jana kilinskiego",
+        "building": "18",
+        "apt": "4",
+        "key": "jana kilinskiego|18|4",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 3,
+      "area_m2": 95.57,
+      "starting_price_pln": 200000,
+      "kw": null,
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3189.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kołłątaja 40, Kołłątaja 40A, Kołłątaja 40B",
+      "address": {
+        "street": "Kołłątaja 40, Kołłątaja 40A, Kołłątaja",
+        "street_norm": "kollataja 40 kollataja 40a kollataja",
+        "building": "40B",
+        "apt": "10",
+        "key": "kollataja 40 kollataja 40a kollataja|40B|10",
+        "warning": null
+      },
+      "auction_date": "2026-09-17",
+      "round": 3,
+      "area_m2": 34.01,
+      "starting_price_pln": 65000,
+      "kw": "SL1S/00098367/2",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3188.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jana Kilińskiego 18",
+      "address": {
+        "street": "Jana Kilińskiego",
+        "street_norm": "jana kilinskiego",
+        "building": "18",
+        "apt": "6",
+        "key": "jana kilinskiego|18|6",
+        "warning": null
+      },
+      "auction_date": "2026-09-14",
+      "round": 2,
+      "area_m2": 95.55,
+      "starting_price_pln": 250000,
+      "kw": null,
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3187.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Henryka Pobożnego 18",
+      "address": {
+        "street": "Henryka Pobożnego",
+        "street_norm": "henryka poboznego",
+        "building": "18",
+        "apt": "2",
+        "key": "henryka poboznego|18|2",
+        "warning": null
+      },
+      "auction_date": "2026-09-14",
+      "round": 2,
+      "area_m2": 40.26,
+      "starting_price_pln": 90000,
+      "kw": "SL1S/00133299/2",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3186.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zygmunta Krasińskiego 17",
+      "address": {
+        "street": "Zygmunta Krasińskiego",
+        "street_norm": "zygmunta krasinskiego",
+        "building": "17",
+        "apt": "7A",
+        "key": "zygmunta krasinskiego|17|7A",
+        "warning": null
+      },
+      "auction_date": "2026-10-13",
+      "round": 1,
+      "area_m2": 123.36,
+      "starting_price_pln": 490000,
+      "kw": null,
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3185.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Ludwika Solskiego 19",
       "address": {
         "street": "Ludwika Solskiego",
