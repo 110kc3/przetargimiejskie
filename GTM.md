@@ -1,184 +1,183 @@
-# Go-to-market — municipal outcome reporting
+# Go-to-market — municipal auction-data workflow services
 
-> **Status:** active B2G validation strategy, rewritten 2026-08-11. This
-> supersedes the consumer subscription, lead-generation and “price the first
-> round” directions. The free public site and extension may continue, but they
-> are not the commercial thesis.
+> **Status:** active B2G discovery strategy, corrected 2026-08-11 after the
+> public-data pricing review. The Gliwice report is a free proof of capability,
+> not the paid product. Consumer subscriptions, lead generation and valuation
+> remain outside the commercial thesis.
 
 ## Decision
 
-The first paid product is a standardized, fixed-scope municipal report:
+Public notices and result documents are free. Access to them, or a summary made
+only from them, is not presented as something a municipality should buy.
 
-> **Karta wyników zbywania mienia — one entity, one asset class, one closed period**
+The paid hypothesis is a service around a real municipal workflow:
 
-It is a productized data delivery, not consulting, valuation, legal audit or a
-SaaS portal. Version one consists of:
+> **uporządkowanie i automatyzacja rejestru wyników sprzedaży mienia**
 
-- an accessible HTML/PDF report;
-- a row-level CSV with source and control fields;
-- explicit denominators for sold, unsold and unknown outcomes;
-- observed date sequences, elapsed time and published starting-price changes;
-- data-readiness checks, methodology, exclusions and a deterministic input
-  fingerprint.
+Possible paid work includes:
 
-The public Gliwice example under `/dla-samorzadow/przyklad-gliwice/` is an
-immutable report snapshot. It does not silently change when the daily public
-dataset is refreshed.
+- mapping the unit's existing register and recurring reporting process;
+- importing, normalizing and reconciling public or buyer-provided records;
+- linking announcements, results and repeat dates for the same property;
+- flagging missing outcomes, conflicting fields and unavailable source links;
+- producing repeatable Excel/CSV exports or inputs to reports the unit already
+  prepares;
+- maintaining the agreed register and correction workflow.
 
-## Buyer and use case
+These are candidate services, not assumed needs. No proposal or price is created
+until a buyer confirms which repeated task exists, who performs it, and what
+output would replace work rather than merely add another report.
 
-The primary champion is the head or director of a municipal property, asset or
-real-estate department. Where a ZGM/ZBM/MZBM/ZGL runs disposals, target its
-director or asset-sales lead. A deputy mayor or secretary may sponsor the
-purchase; procurement and finance determine the permitted route. Internal audit
-is a possible user, not the opening buyer.
+The public Gliwice example under `/dla-samorzadow/przyklad-gliwice/` remains a
+free, immutable demonstration of the data method. It does not silently change
+with the daily dataset and carries no price or purchase claim.
 
-The report may be used as a source-linked analytical appendix for management
-reporting, reconciliation of published and internal records, or preparation of
-municipal asset information. It does not replace a statutory report, internal
-record, operat szacunkowy or legal review.
+## Buyer and discovery question
 
-## Fixed pilot offer
+The first operational counterpart is the head of the property-sales function in
+a ZGM/ZBM or municipal property department. That person can establish whether
+the unit already has a structured internal register and whether any recurring
+reconciliation or reporting is still manual. Procurement and finance determine
+the route only after an actual need and scope exist.
 
-- one entity;
-- residential premises only in the first cohort;
-- one closed period of no more than four full years;
-- HTML/PDF, CSV and methodology;
-- public-source data only; no account, upload or integration;
-- delivery target: up to 10 working days after written scope confirmation;
-- test price: **2,900 zł plus VAT if applicable**.
+The first question is:
 
-The total price, seller identity, source scope and delivery date must be confirmed
-in writing before an order is accepted. The buyer decides its own purchasing route;
-never promise a direct award.
+> Jak dziś łączą Państwo ogłoszenie, wynik i kolejny termin tej samej
+> nieruchomości, kto aktualizuje ten rejestr i jakie cykliczne zestawienia z niego
+> powstają?
 
-## Hard product boundary
+Follow with concrete process questions:
 
-The product describes historical information published by identified sources. It
-must not:
+- What file or system is the authoritative register?
+- Which steps are copied or checked manually, by whom, and how often?
+- Which recurring export or report has a deadline and a named recipient?
+- Which missing, duplicated or inconsistent fields create rework?
+- Would an external implementation or maintenance service be usable under the
+  unit's information-security and purchasing rules?
+
+If there is no recurring job, no meaningful rework and no owner for the output,
+there is no paid service to sell.
+
+## Engagement shape
+
+The sequence is discovery-first:
+
+1. Show the free Gliwice example as evidence that the method works.
+2. Confirm a repeated, owned workflow and its present cost in time or errors.
+3. Define one measurable result, acceptance test, data boundary and delivery
+   responsibility.
+4. Ask the buyer for its permitted purchasing route and required documents.
+5. Only then provide a written scope, total price and delivery date.
+
+The first paid engagement may be a one-time register clean-up/implementation or
+a small recurring maintenance and export service. There is deliberately no
+public list price: the free data is not being sold, and the service cannot be
+priced honestly before its work and acceptance criteria are known.
+
+## Hard boundary
+
+The public example and any future service may organize historical information
+and automate agreed data operations. They must not:
 
 - determine or predict property value;
 - recommend an opening or subsequent price;
-- estimate fiscal loss, “cost of a failed auction” or missed revenue;
+- estimate fiscal loss or missed revenue;
 - diagnose why an auction did or did not attract a buyer;
 - state that a municipality complied with or breached the law;
 - present address joins, inferred rounds or missing outcomes as verified facts;
-- compare unlike asset classes, periods or incomplete cohorts.
+- replace the buyer's authoritative internal register or statutory report.
 
-Every artifact carries this statement:
+Every report artifact carries this statement:
 
 > Opracowanie przedstawia historyczne informacje opublikowane przez wskazane
 > źródła. Nie stanowi wyceny nieruchomości, operatu szacunkowego, rekomendacji
 > cenowej, audytu prawnego ani doradztwa inwestycyjnego.
 
 Use neutral phrases such as `wynik bez nabywcy`, `opublikowana cena wywoławcza`,
-`brak opublikowanego wyniku` and `pozycja do weryfikacji`. Do not use
-`optymalna cena`, `strata`, `naruszenie`, `problem zasięgu` or other causal
-language.
+`brak opublikowanego wyniku` and `pozycja do weryfikacji`.
 
-## Data acceptance gate
+## Evidence gate
 
-A report is eligible only when the exact entity, asset class and closed period
-pass all automated gates and a manual source review:
+A public example or buyer-scoped analysis may be used only when the exact entity,
+asset class and closed period pass automated gates and manual source review:
 
 - at least 20 decided events;
 - at least three sold and three unsold events;
 - 100% valid outcome-source links for decided events;
 - unknown outcomes at or below 25%;
-- inferred outcomes kept in the unknown category;
+- inferred outcomes kept unknown;
 - non-municipal owner types excluded from a municipal scope;
-- known address aliases folded before sequence metrics are calculated;
-- every headline and rendered page independently inspected before release.
+- known address aliases folded before sequence metrics;
+- every headline and rendered page independently inspected.
 
-The readiness audit is a data-quality gate, not evidence of demand. For the
-maximum four-year residential scope ending 2026-07-31, the current outreach
-starting set is:
+This proves data quality, not willingness to pay. The current free demonstration
+is Gliwice. Other cities are not prospects until a workflow owner confirms a
+problem; data qualification alone no longer creates an outreach list.
 
-- Gliwice;
-- Kamienna Góra;
-- Głogów;
-- Tarnowskie Góry.
+## Gliwice route
 
-The 2026-08-10 Pszczyna refresh now passes the automated numeric gate (38
-decided events, 9.5% unknown and 100% recorded outcome-link coverage), but it is
-not outreach-ready until the required manual source/content and address-join
-review is completed.
+Gliwice's official ZGM material assigns sales of municipal premises by auction to
+ZGM, and its organizational structure identifies a Dział Sprzedaży. That is the
+right discovery owner; the general City Hall is not the first target.
 
-Do not lower thresholds to manufacture a larger prospect list. Additional
-entities enter the cohort only after their source coverage is improved and the
-same audit passes.
+Do not send an unsolicited commercial email to the published auction-help
+address. It is provided for participants in property auctions, not suppliers.
+Use one of these routes:
 
-## Distribution without a consulting motion
+1. a targeted physical letter asking for a short process conversation;
+2. a published ZGM market analysis, request for quotation or service procedure;
+3. an introduction or explicit invitation to send the material.
 
-Use a standardized preview and written scope. Do not sell workshops, bespoke
-recommendations or open-ended analysis.
-
-Permitted validation routes, in order:
-
-1. a published supplier/cooperation inbox that explicitly accepts offers;
-2. a published request for quotation, market consultation or purchasing notice;
-3. an opted-in introduction through a municipal association or event;
-4. a factual public benchmark that lets officials request the fixed pilot;
-5. a targeted physical letter if postage is acceptable.
-
-Do not mass-email public departmental addresses, disguise sales as an access-to-
-information request, or use e-Doręczenia as a marketing list. Once a buyer opts in,
-ask:
-
-> Czy zakup pilota za 2 900 zł + VAT, jeżeli ma zastosowanie, może zostać
-> zrealizowany zgodnie z Państwa
-> regulaminem zamówień poniżej 170 000 zł? Jakich dokumentów potrzebują Państwo
-> od wykonawcy?
+After an invitation, email the free example and ask the process questions above.
+Exact current contacts, official links and the letter draft live only in the
+private vault.
 
 ## Validation gates
 
-### Day 45
+### Discovery gate — first 30 days
 
-Continue only if the current cohort or newly qualified targets
-produce:
+Continue only if there is:
 
-- at least three substantive responses;
-- at least two buyer conversations;
-- at least one written request for a priced pilot; and
-- at least one paid order or signed purchase document.
+- at least one conversation with the actual workflow owner;
+- one confirmed repeated manual/reconciliation task;
+- a named output, frequency and acceptance criterion; and
+- explicit permission to return with a scoped service proposal.
 
-Five qualified buyer conversations with no paid pilot at 2,900 zł is a stop or
-reposition signal. Compliments, requests for free bespoke work and backlinks do
-not pass the gate.
+### Commercial gate — day 60
 
-### Day 90
+Continue service development only with:
 
-Continue productization only with:
+- one written request for scope or quotation through a permitted route; and
+- one paid order, signed purchase document or formal procurement invitation.
 
-- two paid pilots in total;
-- at least one documented reuse in a real municipal workflow; and
-- one second-period order, renewal or annual commitment.
+Five qualified workflow-owner conversations with no repeated problem worth
+funding is a stop/reposition signal. Interest in the free report is not demand.
 
-One paid buyer earns a carefully documented manual delivery. Two paid buyers or
-one renewal earn recurring report automation. A portal, API or integration is not
-considered until three municipalities pay and two commit to continuation.
+### Repeatability gate — day 90+
 
-## What is explicitly deferred
+Automation beyond the first implementation requires:
 
+- a delivered service reused in a real workflow;
+- a second paying unit or a renewal/maintenance request; and
+- evidence that the same core process exists without bespoke reinvention.
+
+## Explicitly deferred
+
+- selling city-by-city reports made only from public data;
+- public pricing before scope discovery;
 - consumer lead forms, broker calls and CPL partnerships;
 - newsletter monetization, sponsorship and paid advertising;
-- RCN ingestion, automatic peer cohorts and league tables;
-- new city adapters built only to enlarge the sales list;
-- accounts, billing, database, customer portal, API or multi-tenancy;
-- municipal-system access or customer uploads;
+- RCN ingestion, peer cohorts and municipal league tables;
+- new city adapters built only to enlarge a prospect list;
+- accounts, billing, customer portal, multi-tenancy or a generic API;
 - AI, forecasting, valuation and property-specific recommendations;
 - paid procurement or valuation consultants before revenue.
 
-No paid consultant is required for the validation sprint. Seller/controller
-identity, invoicing status and the permitted purchase documents are owner facts
-that must be supplied before accepting money; they are tracked in the private
-vault rather than duplicated here.
-
 ## Source of truth
 
-- Implementation, quality and kill gates: [GTM-SPRINT.md](./GTM-SPRINT.md)
-- Public offer: `site/dla-samorzadow/index.html`
-- Report generator: `scripts/build-onepager.mjs`
-- Readiness audit: `scripts/audit-b2g-readiness.mjs`
-- Owner-only actions and target contacts: Obsidian vault,
+- Execution and kill gates: [GTM-SPRINT.md](./GTM-SPRINT.md)
+- Public page: `site/dla-samorzadow/index.html`
+- Free example generator: `scripts/build-onepager.mjs`
+- Evidence audit: `scripts/audit-b2g-readiness.mjs`
+- Owner actions, official contacts and outreach draft: private Obsidian vault,
   `40-projects/przetargimiejskie/b2g-pilot.md`

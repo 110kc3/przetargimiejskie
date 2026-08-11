@@ -117,6 +117,26 @@ test('report renders explicit denominators, unknown outcomes, provenance and the
   ]) assert.ok(!html.toLowerCase().includes(unsafe), `unsafe claim present: ${unsafe}`);
 });
 
+test('public municipal page keeps the public-data example free, unpriced and contactable', () => {
+  const page = readFileSync(
+    new URL('../../site/dla-samorzadow/index.html', import.meta.url), 'utf8',
+  );
+
+  for (const expected of [
+    'Nie sprzedajemy dostępu do publicznych danych',
+    'Możliwy zakres współpracy',
+    'kontakt@przetargimiejskie.pl',
+    '/dla-samorzadow/przyklad-gliwice/',
+  ]) assert.ok(page.includes(expected), `missing public-page content: ${expected}`);
+
+  for (const forbidden of [
+    '2 900 zł',
+    'Zapytaj o pilotaż',
+    'ofertą pilotażu',
+    'przed zakupem',
+  ]) assert.ok(!page.includes(forbidden), `public price/purchase copy present: ${forbidden}`);
+});
+
 test('CSV is source-linked, keeps unknown separate, carries scope/fingerprint and guards spreadsheet formulas', () => {
   const csv = renderCsv(analysis);
   assert.ok(csv.startsWith('\uFEFF'));

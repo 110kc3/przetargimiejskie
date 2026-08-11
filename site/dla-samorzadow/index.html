@@ -7,19 +7,19 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="color-scheme" content="dark" />
-<title>Karta wyników przetargów dla gmin | przetargimiejskie</title>
-<meta name="description" content="Źródłowe zestawienie opublikowanych wyników przetargów na sprzedaż lokali mieszkalnych: terminy, ceny wywoławcze, wyniki i kompletność danych." />
+<title>Źródłowy rejestr wyników przetargów dla gmin | przetargimiejskie</title>
+<meta name="description" content="Bezpłatny przykład uporządkowania publicznych ogłoszeń i wyników przetargów w źródłowy rejestr oraz możliwy zakres automatyzacji danych." />
 <link rel="canonical" href="https://przetargimiejskie.pl/dla-samorzadow/" />
-<meta property="og:title" content="Karta wyników przetargów dla gmin | przetargimiejskie" />
-<meta property="og:description" content="Źródłowe zestawienie opublikowanych wyników przetargów: terminy, ceny wywoławcze, wyniki i kompletność danych." />
+<meta property="og:title" content="Źródłowy rejestr wyników przetargów dla gmin | przetargimiejskie" />
+<meta property="og:description" content="Bezpłatny przykład uporządkowania publicznych ogłoszeń i wyników przetargów oraz możliwy zakres automatyzacji danych." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://przetargimiejskie.pl/dla-samorzadow/" />
 <meta property="og:site_name" content="przetargimiejskie" />
 <meta property="og:locale" content="pl_PL" />
 <meta property="og:image" content="https://przetargimiejskie.pl/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Karta wyników przetargów dla gmin | przetargimiejskie" />
-<meta name="twitter:description" content="Źródłowe zestawienie opublikowanych wyników przetargów: terminy, ceny wywoławcze, wyniki i kompletność danych." />
+<meta name="twitter:title" content="Źródłowy rejestr wyników przetargów dla gmin | przetargimiejskie" />
+<meta name="twitter:description" content="Bezpłatny przykład uporządkowania publicznych ogłoszeń i wyników przetargów oraz możliwy zakres automatyzacji danych." />
 <meta name="twitter:image" content="https://przetargimiejskie.pl/og-image.png" />
 <style>
 :root{
@@ -51,11 +51,11 @@ h1{margin:0;color:var(--strong);font-size:clamp(36px,6vw,62px);line-height:1.07;
 .btn-primary:hover{background:#69a7ff;text-decoration:none}
 .btn-secondary{background:var(--surface);color:var(--strong)}
 .btn-secondary:hover{background:var(--surface-2);text-decoration:none}
-.pilot{display:grid;grid-template-columns:1.2fr .8fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:0 0 56px}
-.pilot>div{background:var(--surface);padding:28px 30px}
-.pilot h2{margin:0 0 10px;font-size:24px;color:var(--strong)}
-.price{margin:0 0 6px;color:var(--ok);font-size:21px;font-weight:800}
-.price-note{margin:0;color:var(--muted);font-size:13px}
+.service{display:grid;grid-template-columns:1.2fr .8fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:0 0 56px}
+.service>div{background:var(--surface);padding:28px 30px}
+.service h2{margin:0 0 10px;font-size:24px;color:var(--strong)}
+.service-title{margin:0 0 6px;color:var(--ok);font-size:19px;font-weight:800}
+.service-note{margin:0;color:var(--muted);font-size:14px}
 .facts{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .facts li{padding-left:22px;position:relative}
 .facts li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
@@ -81,7 +81,7 @@ h2{margin:0 0 10px;color:var(--strong);font-size:30px;letter-spacing:-.5px}
 .final-cta p{max-width:640px;margin:12px auto 26px;color:var(--muted)}
 .site-footer{padding:28px 0 44px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
 .site-footer p{margin:0 0 6px}
-@media(max-width:760px){.hero{padding-top:48px}.pilot,.cards,.steps{grid-template-columns:1fr}.pilot>div{padding:24px}.site-nav{gap:14px}h1{letter-spacing:-1px}}
+@media(max-width:760px){.hero{padding-top:48px}.service,.cards,.steps{grid-template-columns:1fr}.service>div{padding:24px}.site-nav{gap:14px}h1{letter-spacing:-1px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -100,34 +100,34 @@ h2{margin:0 0 10px;color:var(--strong);font-size:30px;letter-spacing:-.5px}
   <div class="wrap">
     <section class="hero">
       <p class="eyebrow">Dla samorządów</p>
-      <h1>Karta wyników przetargów na sprzedaż lokali mieszkalnych</h1>
-      <p class="lead">Źródłowe podsumowanie dla gminy lub jednostki miejskiej. Łączymy opublikowane ogłoszenia i wyniki w jedną historię: terminy, ceny wywoławcze, wyniki oraz braki w publikacji. Wskaźniki mają jawny zakres i mianownik, a rejestr wskazuje dokument potwierdzający każdy rozstrzygnięty wynik.</p>
+      <h1>Publiczne wyniki przetargów w jednym źródłowym rejestrze</h1>
+      <p class="lead">Ogłoszenia i wyniki są publiczne, lecz bywają rozproszone między stronami i dokumentami. Bezpłatny przykład dla Gliwic pokazuje, jak połączyć kolejne terminy tej samej nieruchomości, zachować wynik nieznany zamiast go zgadywać i przypisać dokument źródłowy do każdego rozstrzygnięcia.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="mailto:kontakt@przetargimiejskie.pl?subject=Pilota%C5%BC%20karty%20wynik%C3%B3w%20przetarg%C3%B3w&amp;body=Jednostka%3A%0ARodzaj%20mienia%3A%20lokale%20mieszkalne%0AOczekiwany%20okres%3A%0A">Zapytaj o pilotaż</a>
-        <a class="btn btn-secondary" href="#zakres">Zobacz zakres karty</a>
+        <a class="btn btn-primary" href="/dla-samorzadow/przyklad-gliwice/">Zobacz przykład Gliwic</a>
+        <a class="btn btn-secondary" href="mailto:kontakt@przetargimiejskie.pl?subject=Rozmowa%20o%20rejestrze%20wynik%C3%B3w%20przetarg%C3%B3w">Kontakt</a>
       </div>
     </section>
 
-    <aside class="pilot" aria-labelledby="pilot-title">
+    <aside class="service" aria-labelledby="service-title">
       <div>
-        <h2 id="pilot-title">Pilotaż o stałym zakresie</h2>
-        <p class="price">2 900 zł + VAT, jeżeli ma zastosowanie</p>
-        <p class="price-note">Przed zamówieniem pisemnie potwierdzamy całkowitą cenę, dane sprzedawcy, zakres źródeł i termin.</p>
+        <h2 id="service-title">Bezpłatny przykład, jawne źródła</h2>
+        <p class="service-title">Nie sprzedajemy dostępu do publicznych danych.</p>
+        <p class="service-note">Ewentualna płatna współpraca może dotyczyć wyłącznie uzgodnionej pracy: uporządkowania rejestru, automatyzacji kontroli i eksportów albo utrzymania procesu.</p>
       </div>
       <div>
         <ul class="facts">
-          <li>jedna jednostka i jeden rodzaj mienia</li>
-          <li>maksymalnie cztery pełne lata</li>
-          <li>HTML/PDF oraz źródłowy CSV</li>
-          <li>do 10 dni roboczych od potwierdzenia zakresu</li>
+          <li>pełny przykład HTML i PDF</li>
+          <li>źródłowy rejestr CSV i JSON</li>
+          <li>jawna metodologia i wyłączenia</li>
+          <li>bez konta i bez formularza sprzedażowego</li>
         </ul>
       </div>
     </aside>
 
     <section id="zakres" aria-labelledby="scope-title">
       <div class="section-head">
-        <h2 id="scope-title">Co zawiera karta</h2>
-        <p>Zakres jest ustalany przed zakupem. Jeżeli dane nie pozwalają policzyć wskaźnika bezpiecznie, karta pokazuje brak podstaw zamiast pozornego zera.</p>
+        <h2 id="scope-title">Co pokazuje przykład</h2>
+        <p>Jeżeli publiczne dane nie pozwalają policzyć wskaźnika bezpiecznie, opracowanie pokazuje brak podstaw zamiast pozornego zera.</p>
       </div>
       <div class="cards">
         <article class="card"><h3>Wyniki z mianownikiem</h3><p>Sprzedaż, brak nabywcy i brak opublikowanego wyniku pozostają trzema oddzielnymi kategoriami.</p></article>
@@ -140,12 +140,12 @@ h2{margin:0 0 10px;color:var(--strong);font-size:30px;letter-spacing:-.5px}
     </section>
 
     <section aria-labelledby="process-title">
-      <div class="section-head"><h2 id="process-title">Jak powstaje</h2></div>
+      <div class="section-head"><h2 id="process-title">Możliwy zakres współpracy</h2><p>Najpierw trzeba potwierdzić rzeczywisty proces i powtarzalną pracę po stronie jednostki. Dopiero wtedy można uczciwie określić usługę.</p></div>
       <ol class="steps">
-        <li><strong>Ustalamy zakres.</strong><br />Jednostka, rodzaj nieruchomości i zamknięty okres.</li>
-        <li><strong>Sprawdzamy gotowość danych.</strong><br />Potwierdzamy próbę, źródła i ograniczenia przed zamówieniem.</li>
-        <li><strong>Dostarczamy stały pakiet.</strong><br />HTML/PDF, CSV, metodologia, wyłączenia i linki do dokumentów.</li>
-        <li><strong>Korygujemy odwzorowanie.</strong><br />Poprawiamy błędy przeniesienia danych źródłowych; pakiet nie obejmuje doradztwa cenowego.</li>
+        <li><strong>Rozpoznanie procesu.</strong><br />Jak dziś łączone są ogłoszenia z wynikami, kto aktualizuje rejestr i jakie zestawienia trzeba przygotowywać.</li>
+        <li><strong>Uporządkowanie rejestru.</strong><br />Normalizacja adresów, połączenie kolejnych terminów, usunięcie duplikatów i zachowanie źródeł.</li>
+        <li><strong>Automatyzacja kontroli.</strong><br />Sygnały o brakującym wyniku, niespójności lub niedostępnym odnośniku oraz cykliczne eksporty.</li>
+        <li><strong>Utrzymanie i raportowanie.</strong><br />Aktualizacje, korekty odwzorowania i dane wejściowe do istniejących raportów jednostki.</li>
       </ol>
     </section>
 
@@ -164,9 +164,9 @@ h2{margin:0 0 10px;color:var(--strong);font-size:30px;letter-spacing:-.5px}
     </section>
 
     <section class="final-cta" aria-labelledby="contact-title">
-      <h2 id="contact-title">Sprawdź dostępność danych dla swojej jednostki</h2>
-      <p>Napisz nazwę jednostki, rodzaj mienia i oczekiwany okres. Odpowiemy informacją o dostępności źródeł oraz pisemną ofertą pilotażu.</p>
-      <a class="btn btn-primary" href="mailto:kontakt@przetargimiejskie.pl?subject=Pilota%C5%BC%20karty%20wynik%C3%B3w%20przetarg%C3%B3w&amp;body=Jednostka%3A%0ARodzaj%20mienia%3A%20lokale%20mieszkalne%0AOczekiwany%20okres%3A%0A">kontakt@przetargimiejskie.pl</a>
+      <h2 id="contact-title">Masz podobny problem z rejestrem lub raportowaniem?</h2>
+      <p>Napisz, jak dziś łączycie ogłoszenia z wynikami i jaki powtarzalny rezultat zajmuje najwięcej pracy. Najpierw sprawdzimy, czy istnieje sensowny zakres współpracy.</p>
+      <a class="btn btn-primary" href="mailto:kontakt@przetargimiejskie.pl?subject=Rozmowa%20o%20rejestrze%20wynik%C3%B3w%20przetarg%C3%B3w&amp;body=Jednostka%3A%0AObecny%20proces%20lub%20problem%3A%0APotrzebny%20rezultat%3A%0A">kontakt@przetargimiejskie.pl</a>
     </section>
   </div>
 </main>

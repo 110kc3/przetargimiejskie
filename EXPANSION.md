@@ -1,6 +1,11 @@
 # Multi-city expansion & monetization plan
 
-> **Status:** planning. Builds on [PLAN.md](./PLAN.md) (the Gliwice architecture) and [SPIKE.md](./SPIKE.md) (the OCR feasibility spike). Nothing here changes the existing Gliwice pipeline yet — this doc decides *how* to scale it to other cities and *how* to make money from it. Build scope is deliberately left to be decided wave-by-wave.
+> **Archived commercial exploration (superseded 2026-08-11).** The architecture
+> audit and city research below remain useful technical reference. The consumer
+> SaaS, freemium and pricing sections are not an active commercial plan. The
+> controlling direction is the free public-data example plus a separately scoped
+> municipal workflow service described in [GTM.md](./GTM.md) and
+> [GTM-SPRINT.md](./GTM-SPRINT.md).
 
 ## What this document covers
 

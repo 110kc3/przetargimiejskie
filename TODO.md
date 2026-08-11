@@ -496,15 +496,17 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   all — deliberately, so nothing ships a dead beacon that looks like working
   analytics. Config: `ANALYTICS_PROVIDER` (`umami` default | `plausible`),
   `ANALYTICS_ID`, `ANALYTICS_HOST` (self-hosted Umami origin).
-- **B2G pilot [ACTIVE, 2026-08-11]:** use only the fixed-scope, source-linked
-  municipal report described in `GTM-SPRINT.md`. The withdrawn July outreach
-  charts and PDFs must not be cloned, sent or quoted. Kamil's live review,
-  seller-data and lawful-outreach actions exist only in the private vault note
+- **B2G workflow discovery [ACTIVE, corrected 2026-08-11]:** the source-linked
+  Gliwice report is a free proof of capability, not a paid public-data product.
+  Validate whether ZGM has a repeated register/reconciliation/reporting task
+  before defining any service or price; do not broaden outreach from data quality
+  alone. The withdrawn July assets remain unusable. Kamil's current Gliwice
+  letter, official contacts and owner actions live only in the private vault note
   `40-projects/przetargimiejskie/b2g-pilot.md`.
 
 ## 5 · Consumer monetization — deferred while B2G is tested
 
-The B2G pilot is the only active commercial track. Newsletter, partner lead-gen,
+The B2G workflow-service discovery is the only active commercial track. Newsletter, partner lead-gen,
 sponsorship and donation tasks below are historical/deferred context; none is a
 current owner action or a prerequisite for the municipal pilot.
 

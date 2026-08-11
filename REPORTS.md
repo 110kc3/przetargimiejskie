@@ -2,10 +2,11 @@
 
 > **Archived product exploration (superseded 2026-08-11).** The dashboard,
 > newsletter, deal-board and paid-feed ideas below are not an active build plan.
-> The controlling commercial direction is the fixed-scope, source-linked B2G
-> report in [GTM.md](./GTM.md) and [GTM-SPRINT.md](./GTM-SPRINT.md). Do not reuse
-> the illustrative statistics, price-opportunity language or implementation
-> sequence below in public or sales material.
+> The controlling commercial direction is the free Gliwice public-data example
+> plus discovery of a separately scoped municipal workflow service in
+> [GTM.md](./GTM.md) and [GTM-SPRINT.md](./GTM-SPRINT.md). Do not reuse the
+> illustrative statistics, price-opportunity language or implementation sequence
+> below in public or sales material.
 
 ---
 

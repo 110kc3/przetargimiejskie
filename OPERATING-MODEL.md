@@ -2,8 +2,8 @@
 
 > **What this is.** The one document above all the others: the *way of working* that
 > takes przetargimiejskie to three end-states — **(1) autonomous** (runs with low
-> human attention), **(2) reliable in its stated scope**, and **(3) paid for through
-> a fixed-scope municipal reporting product**. The commercial sections were reset
+> human attention), **(2) reliable in its stated scope**, and **(3) able to support
+> a paid municipal data-workflow service once a buyer confirms the work**. The commercial sections were reset
 > on 2026-08-11; [GTM.md](./GTM.md) and [GTM-SPRINT.md](./GTM-SPRINT.md) are the
 > controlling product documents.
 >
@@ -21,16 +21,17 @@ The three goals are one system, but national completeness is not a prerequisite
 for testing the paid offer:
 
 ```
-AUTONOMY  ──feeds──▶  SOURCE QUALITY  ──enables──▶  FIXED-SCOPE REPORTS
-(refresh and health)     (qualified city/period)    (paid B2G validation)
+AUTONOMY  ──feeds──▶  SOURCE QUALITY  ──demonstrates──▶  WORKFLOW SERVICE
+(refresh and health)     (free evidence)              (paid only after discovery)
 ```
 
 - **Autonomy protects the source record.** A product that silently rots is worth zero.
 - **Quality is evaluated per entity, asset class and closed period.** A city either
   passes the report gate or it does not; national city count is not a sales claim.
-- **Revenue is demand-gated, not traffic-gated.** The current test is a standardized
-  municipal report. Consumer lead generation, sponsorship and newsletter
-  monetization are deferred.
+- **Revenue is problem-gated, not data-gated.** The free report demonstrates the
+  method. The current test is whether a municipality has recurring reconciliation,
+  automation or reporting work worth buying. Consumer lead generation,
+  sponsorship and newsletter monetization are deferred.
 
 Work is split into three layers, and *keeping work in the right layer is the whole
 operating model*:
@@ -39,7 +40,7 @@ operating model*:
 |---|---|---|
 | **Machine** | GitHub Actions (7 workflows) | Daily refresh, health gate, auto-triage issues, site deploy, newsletter generation |
 | **Agent** | Claude Code sessions (RPi5, headless) | Fix broken cities, dispatch spike/build batches, ledger + doc upkeep |
-| **Human** | Kamil only | Seller/invoice facts, lawful purchasing route, acceptance of orders and pricing decisions; see the private vault |
+| **Human** | Kamil only | Discovery outreach, seller/invoice facts, lawful purchasing route and acceptance of an order; see the private vault |
 
 ---
 
@@ -162,52 +163,54 @@ cities, health green at full scale.
 
 ---
 
-## 3. Pillar 3 — Paid B2G validation
+## 3. Pillar 3 — Paid B2G workflow validation
 
-### 3.1 The offer
+### 3.1 Free evidence and the paid hypothesis
 
-The first paid product is the **Karta wyników zbywania mienia**: one entity, one
-asset class and one closed period, delivered as HTML/PDF, source/control CSV and a
-frozen analysis snapshot. The first-cohort price hypothesis is **2,900 zł + VAT,
-if applicable**. It is a standardized data product, not consulting, valuation,
-legal audit, forecasting or a SaaS portal.
+The **Karta wyników zbywania mienia** for Gliwice is a free public example. Its
+sources are public and the report itself is not offered as paid access to them.
+It proves that the repository can connect notices and outcomes conservatively,
+retain provenance and reproduce a fixed analysis.
 
-The report may describe only historical information published by identified
-sources. Sold, unsold and unknown outcomes remain separate; inferred results remain
-unknown; source coverage, exclusions and denominators are visible. No national
-failure-rate claim, causal diagnosis, loss estimate or price recommendation is a
-commercial primitive.
+The paid hypothesis is implementation or maintenance work around a confirmed
+municipal process: cleaning and migrating a register, automating joins and
+exception checks, producing an existing recurring export, or maintaining the
+agreed workflow. No public price exists; scope and price follow discovery of the
+actual work and its acceptance criteria.
 
-### 3.2 Eligibility before outreach
+### 3.2 Discovery before an offer
 
-Run `scripts/audit-b2g-readiness.mjs` for the exact entity, residential asset class
-and closed period. A target is eligible only when it has at least 20 decided events,
-at least three of each decided outcome, 100% outcome-source coverage and at most 25%
-unknown outcomes, followed by manual source and rendered-artifact review. The
-current four-year outreach cohort is Gliwice, Kamienna Góra, Głogów and
-Tarnowskie Góry. Pszczyna passes the automated gate but remains pending manual
-review. Do not lower thresholds to enlarge the list.
+Start with ZGM Gliwice's Dział Sprzedaży because the official remit assigns it the
+relevant auction-sale workflow. Ask how notices, results and repeat dates are
+registered today, which steps are manual, and which recurring output has a named
+owner and deadline. Do not assume that a public-data report replaces internal
+work. Do not broaden outreach to other data-qualified cities until the Gliwice
+conversation establishes whether this workflow problem exists at all.
+
+The data-readiness audit still protects any example or buyer-scoped analysis, but
+passing it is evidence quality—not a reason to contact or charge a city.
 
 ### 3.3 Demand and productization gates
 
-Within 45 days, require three substantive responses, two buyer conversations, one
-written request for a priced pilot and one paid order or signed purchase document.
-Five qualified conversations with no paid pilot is a stop/reposition signal.
-Within 90 days, require two paid pilots, one documented workflow reuse and one
-second-period order, renewal or annual commitment.
+Within 30 days, require one workflow-owner conversation, one confirmed repeated
+task and explicit permission to return with a scope. Within 60 days, require a
+written request for scope/quotation through a permitted route and a paid order,
+signed purchase document or procurement invitation. Recurring automation follows
+only when the first delivery is reused and a second buyer or renewal demonstrates
+repeatability.
 
-One paid buyer earns a carefully documented manual delivery. Recurring automation
-follows two paid buyers or one renewal. A portal/API is not considered until three
-municipalities pay and two commit to continuation.
+Five qualified workflow-owner conversations with no repeated problem worth
+funding is a stop/reposition signal. Praise for the free example does not pass.
 
 ### 3.4 Division of work
 
-The repository owns the public example, data gate, generator, source verification
-and neutral copy. The only owner actions are private seller/invoice facts, approval
-of the fixed price and use of a lawful buyer-approved contact or purchasing route;
-they are kept in the vault. Consumer lead generation, broker calls, newsletters,
-sponsorship, RCN integration and new city builds solely for prospect volume are
-deferred. See [GTM.md](./GTM.md) for the exact boundaries and [GTM-SPRINT.md](./GTM-SPRINT.md)
+The repository owns the free example, data gate, generator, source verification
+and neutral copy. The owner handles the physical discovery letter, any invited
+conversation, seller/invoice facts and the buyer-approved purchasing route; these
+actions are kept in the vault. No unsolicited pitch goes to a public operational
+email. Consumer lead generation, broker calls, newsletters, sponsorship, RCN
+integration and new city builds solely for prospect volume are deferred. See
+[GTM.md](./GTM.md) for the exact boundaries and [GTM-SPRINT.md](./GTM-SPRINT.md)
 for the execution gate.
 
 ---
@@ -218,20 +221,22 @@ for the execution gate.
 |---|---|---|---|
 | **Daily** | 04:00 refresh → health → triage issues → deploy | Work the `[city-broken]` queue; one expansion batch when queue is empty | — |
 | **Weekly** | Scheduled data checks | Ledger rebuild, TODO/README/vault sync | Review exceptions and any active buyer response |
-| **Per pilot** | Deterministic analysis + artifact build | Source check, manual sample, PDF/CSV review | Confirm seller/order facts and buyer route |
-| **Day 45/90** | — | Assemble evidence against the written gate | Continue, reposition or stop |
+| **Per discovery** | Keep free example available | Prepare process questions and evidence | Use permitted route; record the workflow, owner and requested result |
+| **Per engagement** | Run agreed automation only after scope | Build/test against acceptance criteria | Confirm seller/order facts and buyer route |
+| **Day 30/60/90** | — | Assemble evidence against the written gate | Continue, reposition or stop |
 
 ## 5. Order of operations from today
 
 1. Keep refresh and health green; fix source integrity before adding report claims.
-2. Use the frozen Gliwice example and the current outreach cohort for the
-   fixed-price B2G test.
-3. Complete only the owner facts and lawful route listed in the private vault.
-4. Evaluate the day-45 gate before adding report automation or prospect-specific
-   data work.
+2. Keep the Gliwice example free and use it only to request a process-discovery
+   conversation with ZGM's Dział Sprzedaży.
+3. Use the lawful route and letter listed in the private vault; do not send an
+   unsolicited electronic sales pitch.
+4. Define or price nothing until a workflow owner confirms a repeated task,
+   measurable output and permitted purchasing route.
 5. Continue national completeness work only where it improves the public record;
    do not treat city count as proof of willingness to pay.
 
-**The end-state, in one sentence:** a self-refreshing public source record whose
-qualified slices can be delivered as neutral, reproducible municipal reports with
-clear limits and demonstrated recurring use.
+**The end-state, in one sentence:** a self-refreshing public source record that
+demonstrates the capability to remove verified, recurring municipal data work
+through a separately scoped and paid service.
