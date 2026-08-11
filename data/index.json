@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-10T05:59:23.315Z",
+  "generated_at": "2026-08-11T05:36:37.674Z",
   "cities": [
     {
       "id": "gliwice",
@@ -10,8 +10,8 @@
       "host": "zgm-gliwice.pl",
       "unique_properties": 190,
       "active_listings": 21,
-      "active_auctions": 23,
-      "archived_auctions": 255,
+      "active_auctions": 14,
+      "archived_auctions": 264,
       "wykaz_entries": 8,
       "land_plots": 78
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 63,
+      "active_listings": 89,
       "active_auctions": 4,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 108
     },
     {
       "id": "trzebinia",
@@ -334,8 +334,8 @@
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
       "unique_properties": 118,
-      "active_listings": 23,
-      "active_auctions": 18,
+      "active_listings": 24,
+      "active_auctions": 19,
       "archived_auctions": 107,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -450,9 +450,9 @@
       "voivodeship": "pomorskie",
       "authority": "Urząd Miejski w Słupsku",
       "host": "bip.um.slupsk.pl",
-      "unique_properties": 5,
-      "active_listings": 2,
-      "active_auctions": 2,
+      "unique_properties": 12,
+      "active_listings": 10,
+      "active_auctions": 10,
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -477,7 +477,7 @@
       "authority": "Urząd Miasta Gniezna",
       "host": "bip.gniezno.eu",
       "unique_properties": 4,
-      "active_listings": 4,
+      "active_listings": 3,
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 0,
@@ -543,8 +543,8 @@
       "host": "eto.um.warszawa.pl",
       "unique_properties": 16,
       "active_listings": 7,
-      "active_auctions": 12,
-      "archived_auctions": 4,
+      "active_auctions": 11,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -802,7 +802,7 @@
       "authority": "ZAN Sp. z o.o. (Zakład Administracji Nieruchomości) w Namysłowie",
       "host": "zan-namyslow.pl",
       "unique_properties": 8,
-      "active_listings": 18,
+      "active_listings": 17,
       "active_auctions": 0,
       "archived_auctions": 18,
       "wykaz_entries": 0,
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 10
+      "land_plots": 11
     },
     {
       "id": "miedzyrzecz",
@@ -998,8 +998,8 @@
       "host": "bip.trzebnica.pl",
       "unique_properties": 13,
       "active_listings": 1,
-      "active_auctions": 1,
-      "archived_auctions": 25,
+      "active_auctions": 0,
+      "archived_auctions": 26,
       "wykaz_entries": 0,
       "land_plots": 41
     },
@@ -1170,7 +1170,7 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 51
+      "land_plots": 34
     },
     {
       "id": "jarocin",
