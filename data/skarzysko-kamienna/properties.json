@@ -4,7 +4,7 @@
   "properties": [
     {
       "key": "konarskiego|35|",
-      "street": "Konarskiego",
+      "street": "KONARSKIEGO",
       "street_norm": "konarskiego",
       "building": "35",
       "apt": null,
@@ -15,13 +15,17 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13680/26-110-skarzysko-kamienna-ul-konarskiego-35",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 470,
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "area_m2": 21.4,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13680/26-110-skarzysko-kamienna-ul-konarskiego-35"
         }
-      ]
+      ],
+      "area_m2": 21.4
     },
     {
       "key": "krasinskiego|13|",
@@ -70,7 +74,7 @@
         },
         {
           "date": "2025-11-21",
-          "round": 2,
+          "round": 1,
           "kind": "zabudowana",
           "starting_price_pln": 149600,
           "outcome": "unsold",
