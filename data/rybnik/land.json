@@ -35,6 +35,38 @@
       ]
     },
     {
+      "key": "dz|orzepowice|1326/12/1327/12",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": "1326/12/1327/12",
+      "obreb": "Orzepowice",
+      "street": "Lawendowej",
+      "building": null,
+      "address_raw": "ul. Lawendowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201326%2F12%2F1327%2F12%20Lawendowej%20Orzepowice%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 273,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "starting_price_pln": 32000,
+          "outcome": "active",
+          "area_m2": 273,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104860",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3530030"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1326/12/1327/12",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201326%2F12%2F1327%2F12%20Orzepowice%20Rybnik%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. giedroycia",
       "kind": "grunt",
       "city": "rybnik",
