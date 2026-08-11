@@ -67,6 +67,56 @@
       ]
     },
     {
+      "key": "addr|ul. spalskiej 42",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": null,
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spalskiej 42",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Spalskiej%2042%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1155,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-12",
+          "round": 1,
+          "starting_price_pln": 320000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=615449"
+        },
+        {
+          "date": "2026-02-23",
+          "round": 2,
+          "starting_price_pln": 320000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619387"
+        },
+        {
+          "date": "2026-05-04",
+          "round": 3,
+          "starting_price_pln": 284000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622117"
+        },
+        {
+          "date": "2026-07-28",
+          "round": 4,
+          "starting_price_pln": 260000,
+          "outcome": "unsold",
+          "area_m2": 1155,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=625490"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|6|131",
       "kind": "grunt",
       "city": "tomaszow-mazowiecki",
@@ -263,48 +313,6 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20672%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki"
         }
       ]
-    },
-    {
-      "key": "addr|ul. spalskiej 42",
-      "kind": "grunt",
-      "city": "tomaszow-mazowiecki",
-      "dzialka_nr": null,
-      "obreb": "7",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Spalskiej 42",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Spalskiej%2042%207%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1155,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-12",
-          "round": 1,
-          "starting_price_pln": 320000,
-          "outcome": "unsold",
-          "area_m2": 1155,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=615449"
-        },
-        {
-          "date": "2026-02-23",
-          "round": 2,
-          "starting_price_pln": 320000,
-          "outcome": "unsold",
-          "area_m2": 1155,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619387"
-        },
-        {
-          "date": "2026-05-04",
-          "round": 3,
-          "starting_price_pln": 284000,
-          "outcome": "unsold",
-          "area_m2": 1155,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622117"
-        }
-      ],
-      "parcels": []
     },
     {
       "key": "dz|9|213",
