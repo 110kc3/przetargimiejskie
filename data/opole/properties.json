@@ -3,6 +3,61 @@
   "city": "opole",
   "properties": [
     {
+      "key": "ksiedza jana dzierzona|9|7",
+      "street": "Księdza Jana Dzierżona",
+      "street_norm": "ksiedza jana dzierzona",
+      "building": "9",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 850000,
+          "outcome": "archived",
+          "area_m2": 121.3,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_150",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-08-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 765000,
+          "outcome": "archived",
+          "area_m2": 121.3,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-8_177",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 810000,
+          "outcome": "archived",
+          "area_m2": 121.3,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_311",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 915000,
+          "outcome": "active",
+          "area_m2": 121.3,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_480",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 121.3
+    },
+    {
       "key": "mieczyslawa niedzialkowskiego|9|",
       "street": "Mieczysława Niedziałkowskiego",
       "street_norm": "mieczyslawa niedzialkowskiego",
@@ -780,50 +835,6 @@
         }
       ],
       "area_m2": 90.75
-    },
-    {
-      "key": "ksiedza jana dzierzona|9|7",
-      "street": "Księdza Jana Dzierżona",
-      "street_norm": "ksiedza jana dzierzona",
-      "building": "9",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2024-05-28",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 850000,
-          "outcome": "archived",
-          "area_m2": 121.3,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_150",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-08-13",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 765000,
-          "outcome": "archived",
-          "area_m2": 121.3,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-8_177",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-09-03",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 810000,
-          "outcome": "archived",
-          "area_m2": 121.3,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_311",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 121.3
     },
     {
       "key": "oleskiej|69|9",

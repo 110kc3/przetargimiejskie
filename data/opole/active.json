@@ -343,6 +343,23 @@
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-9_474"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Księdza Jana Dzierżona 9/7",
+      "address": {
+        "street": "Księdza Jana Dzierżona",
+        "street_norm": "ksiedza jana dzierzona",
+        "building": "9",
+        "apt": "7",
+        "key": "ksiedza jana dzierzona|9|7",
+        "warning": null
+      },
+      "area_m2": 121.3,
+      "starting_price_pln": 915000,
+      "auction_date": "2026-10-14",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_480"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "ul. Oświęcimskiej 46",
       "address": {
