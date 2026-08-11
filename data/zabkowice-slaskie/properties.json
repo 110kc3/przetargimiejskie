@@ -60,7 +60,7 @@
         },
         {
           "date": "2026-08-12",
-          "round": 1,
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 50000,
           "outcome": "active",
@@ -68,7 +68,8 @@
           "land_area_m2": 277,
           "detail_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/10794/sulislawice-52b-lokal-mieszkalny-nr-2-am-2-obreb-sulislawice",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "round_source": "inferred"
         }
       ]
     },
@@ -89,7 +90,8 @@
           "area_m2": 29.56,
           "detail_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/10793/zabkowice-slaskie-lokal-polozony-przy-ul-ziebickiej-21-o-pow-29-56-m2",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "round_source": "inferred"
         }
       ],
       "area_m2": 29.56
