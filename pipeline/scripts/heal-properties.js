@@ -23,11 +23,10 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { healStreetVariants, dedupeListingsByDate } from '../src/core/build-properties.js';
+import { dedupeListingsByDate } from '../src/core/build-properties.js';
 import {
   applyVerifiedRenames,
-  applyVerifiedJunk,
-  crossCityDisplay,
+  applyDurablePropertyHeals,
   buildGlobalStreetDisplay,
 } from '../src/core/verified-heals.js';
 
@@ -99,13 +98,9 @@ for (const cityId of readdirSync(DATA_DIR, { withFileTypes: true })
     console.error(`${cityId}: ${p2.key} area ${a} m² → land_area_m2 (whole-property sale)`);
   }
 
-  // (2) fold genitive/nominative zombie duplicates + dedupe per date, then the
-  //     cross-city display pass.
-  props = healStreetVariants(props);
-  crossCityDisplay(props, cityId, globalByNorm);
-
-  // (3) verified junk keys from since-fixed parser bugs.
-  props = applyVerifiedJunk(props, cityId);
+  // (2) Apply the same durable variant/alias/junk/kind/round sequence used by
+  //     both normal and preserve-on-empty refresh paths.
+  props = applyDurablePropertyHeals(props, cityId, globalByNorm);
 
   if (JSON.stringify(props) !== before) {
     file.properties = props;

@@ -25,8 +25,8 @@ try { setDefaultResultOrder('ipv4first'); } catch { /* older node */ }
 import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
-import { buildCityData, healStreetVariants, healKinds, todayWarsaw } from './core/build-properties.js';
-import { applyVerifiedRenames, applyVerifiedJunk, crossCityDisplay, buildGlobalStreetDisplay } from './core/verified-heals.js';
+import { buildCityData, healKinds, syncActiveListingRounds, todayWarsaw } from './core/build-properties.js';
+import { applyDurablePropertyHeals, buildGlobalStreetDisplay } from './core/verified-heals.js';
 import { buildLand } from './core/build-land.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archivePastActive } from './core/merge-history.js';
@@ -180,6 +180,13 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     let prevMeta = null;
     try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
 
+    // Even while preserving, apply the same durable identity/round heals as a
+    // healthy refresh. Otherwise an outage can indefinitely re-publish aliases
+    // and stale inferred rounds from the committed baseline.
+    const beforePreserveHeal = JSON.stringify(prevProperties);
+    prevProperties = applyDurablePropertyHeals(prevProperties, city.id, globalStreetDisplay);
+    const preserveHealed = JSON.stringify(prevProperties) !== beforePreserveHeal;
+
     // Even while preserving, AGE OUT concluded auctions. Some boards (e.g. ZGM
     // Rybnik) legitimately empty out after an auction day — every announcement
     // is removed until the next batch. Without this, the preserved listings
@@ -190,14 +197,18 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     // reclassification is always safe. Idempotent: next run ages out 0 and
     // skips the write again.
     const aged = archivePastActive(prevProperties, todayWarsaw());
-    if (aged === 0) {
+    if (aged === 0 && !preserveHealed) {
       console.error('  nothing to age out; skipping write.');
       return prevMeta
         ? { ...prevMeta, city: city.id, stale: true }
         : { schema_version: SCHEMA_VERSION, city: city.id, unique_properties: prevProperties.length,
             active_listings: 0, active_auctions: 0, archived_auctions: 0, wykaz_entries: 0, stale: true };
     }
-    console.error(`  aged out ${aged} past-dated preserved listings (active → archived); rewriting data files.`);
+    if (aged) {
+      console.error(`  aged out ${aged} past-dated preserved listings (active → archived); rewriting data files.`);
+    } else {
+      console.error('  durable property heals changed preserved data; rewriting data files.');
+    }
 
     let activeAuctions = 0;
     let archivedAuctions = 0;
@@ -207,9 +218,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
         else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archivedAuctions++;
       }
     }
-    // Even on the preserve path, coerce any non-canonical kind re-seeded from the
-    // committed file before re-publishing prevProperties verbatim.
-    healKinds(prevProperties);
     const cityDir = join(DATA_DIR, city.id);
     await mkdir(cityDir, { recursive: true });
     await writeFile(
@@ -224,7 +232,10 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       const today = todayWarsaw();
       const keep = (prevActive.listings || []).filter((l) => !l.auction_date || l.auction_date >= today);
       for (const l of keep) if (l.kind != null) l.kind = normalizeKind(l.kind);
-      if (keep.length !== (prevActive.listings || []).length) {
+      // Old Gliwice active snapshots predate round provenance; their non-BIP
+      // values were history-derived and should follow the healed property row.
+      syncActiveListingRounds(keep, prevProperties, { inferUnmarked: city.id === 'gliwice' });
+      if (JSON.stringify(keep) !== JSON.stringify(prevActive.listings || [])) {
         await writeFile(activePath, JSON.stringify({ ...prevActive, listings: keep }, null, 2) + '\n');
       }
     } catch { /* no previous active.json — nothing to age */ }
@@ -263,29 +274,14 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     } catch (err) {
       console.error(`  WARN: history merge skipped (${err.message}); writing fresh build.`);
     }
-    // Heal street case-variant ZOMBIES the merge resurrects: a genitive key
-    // committed by an old run ("sportowej|6|2") is re-seeded forever even
-    // after buildCityData coalesced the fresh copy into the nominative
-    // ("sportowa|6|2") — duplicating the same auction in the archive. Fold
-    // variants + dedupe per date on the POST-merge array.
-    // Verified re-keys BEFORE variant folding (a rename can produce a key the
-    // variant fold then coalesces); shared with scripts/heal-properties.js.
-    applyVerifiedRenames(properties, city.id);
+    // Heal aliases, old parser keys, street variants, kinds, and inferred rounds
+    // on the POST-merge array. The same entry point is used by fresh builds,
+    // preserve-on-empty, and the offline healer.
     const beforeHeal = properties.length;
-    properties = healStreetVariants(properties);
+    properties = applyDurablePropertyHeals(properties, city.id, globalStreetDisplay);
     if (properties.length !== beforeHeal) {
-      console.error(`  healed ${beforeHeal - properties.length} street-variant zombie propert${beforeHeal - properties.length === 1 ? 'y' : 'ies'} post-merge.`);
+      console.error(`  healed ${beforeHeal - properties.length} duplicate/alias propert${beforeHeal - properties.length === 1 ? 'y' : 'ies'} post-merge.`);
     }
-    // Cross-city display flip (Xskiej → Xska when a nominative twin exists in
-    // ANOTHER city): applyDisplayStreets inside healStreetVariants only sees
-    // within-city twins, so these flips are otherwise reverted by the merge.
-    crossCityDisplay(properties, city.id, globalStreetDisplay);
-    // Fold verified junk keys the merge re-seeded from the committed file.
-    properties = applyVerifiedJunk(properties, city.id);
-    // Coerce any non-canonical kind the merge re-seeded from the committed file
-    // (e.g. a historical "zabudowa" → "zabudowana"); see build-properties' healKinds.
-    const kindsHealed = healKinds(properties);
-    if (kindsHealed) console.error(`  healed ${kindsHealed} non-canonical kind value(s) post-merge.`);
   } else {
     // No history merge ran (city's FIRST publish, or MERGE_HISTORY=0). The merge
     // branch above is where kinds + street variants + plot areas normally get
@@ -293,12 +289,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     // area from a parser reaches properties.json unhealed on exactly these paths
     // (the first-run gap in the kind/TYP guarantee). healStreetVariants also runs
     // healPlotAreas; buildCityData already coalesced fresh street variants.
-    applyVerifiedRenames(properties, city.id);
-    properties = healStreetVariants(properties);
-    crossCityDisplay(properties, city.id, globalStreetDisplay);
-    properties = applyVerifiedJunk(properties, city.id);
-    const kindsHealed = healKinds(properties);
-    if (kindsHealed) console.error(`  healed ${kindsHealed} non-canonical kind value(s) (fresh build).`);
+    properties = applyDurablePropertyHeals(properties, city.id, globalStreetDisplay);
   }
 
   // Age out retained listings: a listing the source removed while still
@@ -313,16 +304,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   // active.json carries the raw crawl listings — so copy the round across by
   // property key. This is what makes Gliwice's current listing show "II przetarg"
   // when it had one prior attempt, instead of a blank round.
-  const activeRoundByKey = new Map();
-  for (const p of properties) {
-    const a = p.listings.find((l) => l.outcome === 'active' && l.round != null);
-    if (a) activeRoundByKey.set(p.key, a.round);
-  }
-  for (const a of active) {
-    if (a.round == null && a.address && activeRoundByKey.has(a.address.key)) {
-      a.round = activeRoundByKey.get(a.address.key);
-    }
-  }
+  syncActiveListingRounds(active, properties);
 
   // Count auctions by real status (from each listing's outcome), so the site can
   // show RUNNING auctions separately from concluded/archived ones. `active.length`

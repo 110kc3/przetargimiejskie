@@ -1,11 +1,11 @@
-# OPERATING-MODEL.md — how this project runs itself, gets finished, and earns
+# OPERATING-MODEL.md — how the data operation supports the B2G product
 
 > **What this is.** The one document above all the others: the *way of working* that
-> takes przetargimiejskie to three end-states — **(1) autonomous** (runs with ~1 h/week
-> of human attention), **(2) complete in its genre** (the definitive Polish
-> municipal-auction record), **(3) making money** (paid around the user, never from
-> them). It doesn't replace the detail docs; it tells you which one to open and in
-> what order. Written 2026-07-16 from live repo state.
+> takes przetargimiejskie to three end-states — **(1) autonomous** (runs with low
+> human attention), **(2) reliable in its stated scope**, and **(3) paid for through
+> a fixed-scope municipal reporting product**. The commercial sections were reset
+> on 2026-08-11; [GTM.md](./GTM.md) and [GTM-SPRINT.md](./GTM-SPRINT.md) are the
+> controlling product documents.
 >
 > Detail docs: [PROJECT-OVERVIEW.md](./PROJECT-OVERVIEW.md) (architecture) ·
 > [ROADMAP.md](./ROADMAP.md) (tiers & gates) · [TODO.md](./TODO.md) (live backlog) ·
@@ -17,21 +17,20 @@
 
 ## 0. The thesis
 
-The three goals are one system, in dependency order:
+The three goals are one system, but national completeness is not a prerequisite
+for testing the paid offer:
 
 ```
-AUTONOMY  ──feeds──▶  COMPLETENESS  ──feeds──▶  MONEY
-(the machine keeps      (complete coverage        (traffic × trust × coverage
- itself green and        is what makes the         is what a sponsor or
- keeps expanding)        product defensible)       lead-gen partner pays for)
+AUTONOMY  ──feeds──▶  SOURCE QUALITY  ──enables──▶  FIXED-SCOPE REPORTS
+(refresh and health)     (qualified city/period)    (paid B2G validation)
 ```
 
-- **Autonomy first**, because completeness is ~110+ more adapters and nobody should
-  hand-crank those, and because a data product that silently rots is worth zero.
-- **Completeness second**, because "every municipal auction in Poland, with history"
-  is the genre-defining claim no competitor (and no single city BIP) can make.
-- **Money last and demand-gated**, because every revenue model here pays in
-  proportion to reach, and reach is unproven until distribution is switched on.
+- **Autonomy protects the source record.** A product that silently rots is worth zero.
+- **Quality is evaluated per entity, asset class and closed period.** A city either
+  passes the report gate or it does not; national city count is not a sales claim.
+- **Revenue is demand-gated, not traffic-gated.** The current test is a standardized
+  municipal report. Consumer lead generation, sponsorship and newsletter
+  monetization are deferred.
 
 Work is split into three layers, and *keeping work in the right layer is the whole
 operating model*:
@@ -40,7 +39,7 @@ operating model*:
 |---|---|---|
 | **Machine** | GitHub Actions (7 workflows) | Daily refresh, health gate, auto-triage issues, site deploy, newsletter generation |
 | **Agent** | Claude Code sessions (RPi5, headless) | Fix broken cities, dispatch spike/build batches, ledger + doc upkeep |
-| **Human** | Kamil only (`[ACCOUNT]` items) | Store submit, DNS/ESP/analytics accounts, legal publish, partner calls, pricing, JDG |
+| **Human** | Kamil only | Seller/invoice facts, lawful purchasing route, acceptance of orders and pricing decisions; see the private vault |
 
 ---
 
@@ -98,13 +97,12 @@ to `main` constantly.
 
 ### 1.4 The human layer — what can never be automated
 
-Kamil-only, roughly **one day of decisions + account clicks total**, then ~1 h/week:
-rebrand/positioning decisions · Chrome Web Store submit · `PUBLIC_VOIVODESHIPS`
-width · Google Search Console · analytics account (Umami Cloud, free) · ESP account ·
-publishing the RODO policy ([RODO-DRAFT.md](./RODO-DRAFT.md) is written, awaiting
-review) · partner demand calls (§3.2) · signing sponsors/partners · JDG
-registration. Everything else must be machine- or agent-shaped; if a task keeps
-landing on the human, that's an operating-model bug — automate or delete it.
+Kamil supplies facts and authority the repository cannot invent: the exact seller
+identity and address, VAT/invoice treatment, approval of the fixed offer, the
+buyer-approved purchasing route, and acceptance of an order. Those actions live
+only in the private vault at `40-projects/przetargimiejskie/b2g-pilot.md`.
+Implementation, source checks, report generation and public copy stay in the
+machine/agent layers.
 
 **Autonomy exit test:** four consecutive weeks where health stays green, coverage
 grows, the digest generates, and total human input is ≤ 1 h/week of decisions.
@@ -164,99 +162,53 @@ cities, health green at full scale.
 
 ---
 
-## 3. Pillar 3 — Making money
+## 3. Pillar 3 — Paid B2G validation
 
-### 3.1 The settled model — don't relitigate
+### 3.1 The offer
 
-Everything user-facing is **free forever** (extension, archive, alerts, newsletter,
-export): the records are public, gating them is indefensible, and free is the
-funnel. Revenue comes from around the user ([GTM.md](./GTM.md)):
+The first paid product is the **Karta wyników zbywania mienia**: one entity, one
+asset class and one closed period, delivered as HTML/PDF, source/control CSV and a
+frozen analysis snapshot. The first-cohort price hypothesis is **2,900 zł + VAT,
+if applicable**. It is a standardized data product, not consulting, valuation,
+legal audit, forecasting or a SaaS portal.
 
-1. **Lead-gen partnerships (the engine).** At the moment someone eyes a municipal
-   flat they need: a mortgage broker (*ekspert kredytowy* — highest CPL), a
-   renovation crew (near-universal need — municipal stock is distressed), a
-   surveyor, insurance. Labeled (*współpraca*), contextual, zero trackers, leads
-   routed concierge-style first. Never notaries (regulated tariff).
-2. **Sponsorship + donations (the supplement).** One tasteful sponsor slot on site +
-   weekly newsletter, flat fee priced on reach; GitHub Sponsors + a PL tip jar as
-   the floor.
+The report may describe only historical information published by identified
+sources. Sold, unsold and unknown outcomes remain separate; inferred results remain
+unknown; source coverage, exclusions and denominators are visible. No national
+failure-rate claim, causal diagnosis, loss estimate or price recommendation is a
+commercial primitive.
 
-The moat monetization rides on — **corrected 2026-07-27 after the first actual
-competitor research** ([GTM.md §8](./GTM.md)): **history alone** (round tracking,
-achieved prices, sell-through). Aggregation, freshness and coverage are *not* moats:
-[ListaPrzetargow.pl](https://listaprzetargow.pl/) already runs 7 000+ live municipal
-/ bailiff / bankruptcy listings against our 255, with minute-level alerts and a paid
-tier. What no aggregator tracks is the round number, the price trajectory across
-rounds, or the outcome — they are notice boards that forget a listing the moment it
-expires. That gap is real, it compounds with time rather than crawler count (expired
-notices cannot be backfilled), and it is quantified by law: a failed first auction
-permits a cut **to 50 %** of valuation, negotiations **to 40 %**. Positioning must
-lead with history, never with city counts.
+### 3.2 Eligibility before outreach
 
-**This re-ordered the revenue model** ([GTM.md §0](./GTM.md)). The primary thesis is
-now **B2G — selling the outcome data back to the cities** (45 % national
-sell-through; 781 failed auctions in `data/`), because every advantage we hold points
-at the seller side and every disadvantage at the buyer side. It needs no traffic and
-no RODO exposure, so unlike lead-gen it is testable immediately, and the competitor
-structurally cannot follow: their business is selling access to *buyers*, and they
-hold no outcome data anyway. Lead-gen is demoted to conditional — it pays in
-proportion to consumer traffic, which is contested by a bigger incumbent, so nothing
-gets built there until reach exists.
+Run `scripts/audit-b2g-readiness.mjs` for the exact entity, residential asset class
+and closed period. A target is eligible only when it has at least 20 decided events,
+at least three of each decided outcome, 100% outcome-source coverage and at most 25%
+unknown outcomes, followed by manual source and rendered-artifact review. The
+current four-year outreach cohort is Gliwice, Kamienna Góra, Głogów and
+Tarnowskie Góry. Pszczyna passes the automated gate but remains pending manual
+review. Do not lower thresholds to enlarge the list.
 
-`scripts/build-onepager.mjs` generates the pitch from any city's own data;
-**Gliwice (51 % unsold), Świętochłowice (60 %) and Gorzów Wielkopolski (55 %) are
-built and ready to send.**
+### 3.3 Demand and productization gates
 
-### 3.2 The order — demand test before traffic engine
+Within 45 days, require three substantive responses, two buyer conversations, one
+written request for a priced pilot and one paid order or signed purchase document.
+Five qualified conversations with no paid pilot is a stop/reposition signal.
+Within 90 days, require two paid pilots, one documented workflow reuse and one
+second-period order, renewal or annual commitment.
 
-Per [GTM-SPRINT.md](./GTM-SPRINT.md): the cheapest, highest-kill-power test is not
-SEO — it's **~10 phone calls** (5–8 mortgage brokers + 3–4 renovation firms in
-covered cities) to get one verbal *"yes, I'd pay ~X per lead"*. `[ACCOUNT]` — this
-is Kamil's single highest-leverage hour. It yields the only number that sizes the
-business: `monthly revenue ≈ leads/month × CPL`.
+One paid buyer earns a carefully documented manual delivery. Recurring automation
+follows two paid buyers or one renewal. A portal/API is not considered until three
+municipalities pay and two commit to continuation.
 
-- **≥1 real quote** → run the funnel: analytics on → distribution live → free pilot
-  leads → convert to paid → JDG before the *działalność nierejestrowana* quarterly
-  cap (10 813,50 zł).
-- **Zero interest after ~10 honest calls** → the engine has no buyer at current
-  scale: park lead-gen, keep donations + one sponsor, keep growing
-  completeness/reach, retest at higher coverage.
+### 3.4 Division of work
 
-### 3.3 Metrics and kill gates (evaluate monthly, honestly)
-
-Track: organic sessions/week · ranking city pages · newsletter subscribers · CTA
-CTR · leads/week · partner-accepted rate · revenue per partner. Gates: 6 weeks of
-flat-zero organic traffic → fix funnel before any monetization work; traffic but
-~zero CTA clicks → wrong moment/offer, move the CTA; leads but no payer → flat
-placement/sponsorship instead of CPL. Note the honest ceiling: this is
-**side-income / micro-business scale**, not a venture — which is fine, because
-infra ≈ €0 and the marginal cost of running it (per Pillar 1) is ~1 h/week.
-
-### 3.4 The unlock list — every item currently blocking revenue is human-shaped
-
-Updated 2026-07-27 — two of these are now agent-done and waiting only on a click:
-
-- ~~widen `PUBLIC_VOIVODESHIPS`~~ **DONE** — gate is national + quality-gated:
-  54 cities, 15 voivodeships, 2 273 sitemap URLs (was 12 / 1 / 1 090).
-- ~~wire analytics~~ **DONE** — injected into all 2 275 built pages, privacy page
-  updated to match. Plausible was dropped (paid, no free tier) for **Umami Cloud
-  Hobby — free, no card, EU region**. **Kamil: sign up, pick the EU region, and set
-  the `ANALYTICS_ID` repo variable** (~5 min). Until then pages build with no
-  snippet at all, rather than a dead beacon.
-
-Remaining, in order: **(1)** the §3.2 demand-test calls — *blocked on nothing*, the
-cheapest highest-kill-power test available, and the reason to do it before anything
-else is that a "no" invalidates items 2–4; **(2)** send the finished Gliwice B2G
-one-pager (§3.1 — no traffic, no RODO, testable today); **(3)** Chrome Web Store
-submit (live v1.3.3 vs local v1.32.x — the distribution unlock; bundle with the
-all-cities extension rework); **(4)** Google Search Console + submit the now-2 273-URL
-sitemap; **(5)** publish RODO policy + ESP account → newsletter send goes live (the
-sponsorship vehicle). Agents pre-draft everything (store copy, policy, outreach
-scripts, digests); the human clicks.
-
-**The standing diagnosis:** every remaining blocker is `[ACCOUNT]`-shaped and none is
-blocked on code, while the machine layer keeps committing data refreshes daily. More
-adapters cannot answer "will anyone pay" — only items 1 and 2 can.
+The repository owns the public example, data gate, generator, source verification
+and neutral copy. The only owner actions are private seller/invoice facts, approval
+of the fixed price and use of a lawful buyer-approved contact or purchasing route;
+they are kept in the vault. Consumer lead generation, broker calls, newsletters,
+sponsorship, RCN integration and new city builds solely for prospect volume are
+deferred. See [GTM.md](./GTM.md) for the exact boundaries and [GTM-SPRINT.md](./GTM-SPRINT.md)
+for the execution gate.
 
 ---
 
@@ -265,23 +217,21 @@ adapters cannot answer "will anyone pay" — only items 1 and 2 can.
 | Cadence | Machine | Agent | Human (Kamil) |
 |---|---|---|---|
 | **Daily** | 04:00 refresh → health → triage issues → deploy | Work the `[city-broken]` queue; one expansion batch when queue is empty | — |
-| **Weekly** | Digest generation | Ledger rebuild, TODO/README/vault sync, pre-draft outreach/digest | ~1 h: read digest + metrics, decisions, partner touches |
-| **Monthly** | — | Coverage + data-quality report | §3.3 gate review; prune non-performing partners; pricing |
+| **Weekly** | Scheduled data checks | Ledger rebuild, TODO/README/vault sync | Review exceptions and any active buyer response |
+| **Per pilot** | Deterministic analysis + artifact build | Source check, manual sample, PDF/CSV review | Confirm seller/order facts and buyer route |
+| **Day 45/90** | — | Assemble evidence against the written gate | Continue, reposition or stop |
 
 ## 5. Order of operations from today
 
-1. **Close the autonomy gaps** (§1.3): PL egress into CI + the scheduled daily
-   agent session. *Everything downstream compounds on this.*
-2. **Kamil's distribution day** (§3.4 items 1–4): store submit, gates wide,
-   analytics, RODO + ESP.
-3. **Demand-test week** (§3.2): ~10 calls, get a CPL or a documented "no buyer yet".
-4. **Finish completeness** (§2.2): ~6–10 weeks of scheduled batches to T2-complete,
-   running unattended behind whatever monetization is doing.
-5. **Monetize per the gates** (§3.3): sponsor + donations immediately after
-   distribution is live; lead-gen when the demand test says yes; long-tail T3
-   expansion only when revenue asks for it.
+1. Keep refresh and health green; fix source integrity before adding report claims.
+2. Use the frozen Gliwice example and the current outreach cohort for the
+   fixed-price B2G test.
+3. Complete only the owner facts and lawful route listed in the private vault.
+4. Evaluate the day-45 gate before adding report automation or prospect-specific
+   data work.
+5. Continue national completeness work only where it improves the public record;
+   do not treat city count as proof of willingness to pay.
 
-**The end-state, in one sentence:** a self-refreshing, self-healing national record
-of every Polish municipal property auction — maintained by scheduled agents at
-~1 h/week of human cost, complete across all powiat seats, free for everyone, and
-paid for by the businesses that serve its users.
+**The end-state, in one sentence:** a self-refreshing public source record whose
+qualified slices can be delivered as neutral, reproducible municipal reports with
+clear limits and demonstrated recurring use.

@@ -86,7 +86,7 @@ export function dedupeListingsByDate(p) {
       }
       for (const k of [
         'round', 'area_m2', 'land_area_m2', 'detail_url',
-        'bip_url', 'wadium_deadline', 'viewing_date', 'source_pdf', 'final_price_pln',
+        'bip_url', 'wadium_deadline', 'viewing_date', 'source_pdf', 'final_price_pln', 'owner_type',
       ]) {
         if (prevDl[k] == null && l[k] != null) prevDl[k] = l[k];
       }
@@ -99,9 +99,27 @@ export function dedupeListingsByDate(p) {
       continue;
     }
     const [primary, secondary] = prev.source_pdf || !l.source_pdf ? [prev, l] : [l, prev];
+    // A result row remains the primary event record, but a secondary source may
+    // carry stronger round evidence. In particular Gliwice's result PDF omits
+    // the round for unsuccessful auctions while the BIP announcement states it.
+    // Preserve that explicit anchor instead of retaining an already-derived
+    // number merely because it is non-null.
+    const primaryRoundSource = roundSource(primary);
+    const secondaryRoundSource = roundSource(secondary);
+    if (
+      secondary.round != null &&
+      secondaryRoundSource === 'explicit' &&
+      primaryRoundSource !== 'explicit'
+    ) {
+      primary.round = secondary.round;
+      primary.round_source = 'explicit';
+    } else if (primary.round == null && secondary.round != null) {
+      primary.round = secondary.round;
+      if (secondaryRoundSource) primary.round_source = secondaryRoundSource;
+    }
     for (const k of [
-      'round', 'starting_price_pln', 'area_m2', 'land_area_m2', 'detail_url',
-      'bip_url', 'wadium_deadline', 'viewing_date',
+      'starting_price_pln', 'area_m2', 'land_area_m2', 'detail_url',
+      'bip_url', 'wadium_deadline', 'viewing_date', 'owner_type',
     ]) {
       if (primary[k] == null && secondary[k] != null) primary[k] = secondary[k];
     }
@@ -114,6 +132,76 @@ export function dedupeListingsByDate(p) {
     }
   }
   p.listings = out;
+}
+
+function roundSource(listing) {
+  const marker = String(listing?.round_source ?? listing?.round_provenance ?? '').toLowerCase();
+  if (
+    listing?.round_inferred === true ||
+    marker === 'inferred' || marker === 'derived' || marker === 'history'
+  ) return 'inferred';
+  if (
+    listing?.round_explicit === true || listing?.round_inferred === false ||
+    marker === 'explicit' || marker === 'source' || marker === 'source-stated'
+  ) return 'explicit';
+  return null;
+}
+
+/**
+ * Reconcile chronological auction rounds without overwriting source-stated
+ * anchors. Rows marked `round_source: "inferred"` are recalculated after a
+ * property merge; explicit and legacy-unmarked non-null rounds are anchors.
+ * Newly inferred values are marked so later alias/history heals can safely
+ * repeat the operation.
+ * @param {object} property
+ * @returns {object} the same property
+ */
+export function deriveAuctionRounds(property) {
+  property.listings.sort((left, right) =>
+    (left.date || '9999').localeCompare(right.date || '9999'));
+  let attempt = 0;
+  for (const listing of property.listings) {
+    if (listing.outcome === 'announced') continue;
+    const nextAttempt = attempt + 1;
+    const source = roundSource(listing);
+    const validRound = Number.isInteger(listing.round) && listing.round > 0;
+    if (validRound && source !== 'inferred') {
+      attempt = listing.round;
+      if (source === 'explicit') listing.round_source = 'explicit';
+      continue;
+    }
+    listing.round = nextAttempt;
+    listing.round_source = 'inferred';
+    attempt = nextAttempt;
+  }
+  return property;
+}
+
+/**
+ * Copy reconciled property rounds back to the live rows written to active.json.
+ * Source-explicit rows stay untouched; null/inferred rows follow the matching
+ * active event in the property history.
+ * @param {Array} active
+ * @param {Array} properties
+ * @param {{inferUnmarked?: boolean}} [options]
+ */
+export function syncActiveListingRounds(active, properties, { inferUnmarked = false } = {}) {
+  const byKey = new Map(properties.map((property) => [property.key, property]));
+  for (const listing of active) {
+    if (!listing.address) continue;
+    const source = roundSource(listing);
+    const legacyInferred =
+      inferUnmarked && source == null && listing.round != null && listing.source !== 'bip';
+    if (listing.round != null && source !== 'inferred' && !legacyInferred) continue;
+    const property = byKey.get(listing.address.key);
+    if (!property) continue;
+    const event = property.listings.find((candidate) =>
+      candidate.outcome === 'active' &&
+      (!listing.auction_date || candidate.date === listing.auction_date));
+    if (!event || event.round == null) continue;
+    listing.round = event.round;
+    listing.round_source = roundSource(event) || 'inferred';
+  }
 }
 
 /**
@@ -294,9 +382,12 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
     p.listings.push({
       date: r.auction_date,
       round: r.round,
+      ...(r.round_source ? { round_source: r.round_source } : {}),
+      ...(r.round_inferred === true ? { round_inferred: true } : {}),
       kind: r.kind,
       starting_price_pln: r.starting_price_pln,
       outcome: r.outcome,
+      ...(r.outcome_evidence ? { outcome_evidence: r.outcome_evidence } : {}),
       unsold_reason: r.unsold_reason,
       final_price_pln: r.final_price_pln,
       source_pdf: r.source_pdf,
@@ -328,6 +419,12 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
     p.listings.push({
       date: a.auction_date,
       round: a.round ?? null,
+      ...(a.round_source
+        ? { round_source: a.round_source }
+        : a.source === 'bip' && a.round != null
+          ? { round_source: 'explicit' }
+          : {}),
+      ...(a.round_inferred === true ? { round_inferred: true } : {}),
       kind: a.kind,
       starting_price_pln: a.starting_price_pln,
       outcome: isPast ? 'archived' : 'active',
@@ -340,6 +437,7 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
       // whose primary row is the ZGM listing (see gliwice foldBipDuplicates).
       ...(a.bip_url ? { bip_url: a.bip_url } : {}),
       ...(a.source ? { source: a.source } : {}),
+      ...(a.owner_type ? { owner_type: a.owner_type } : {}),
       ...(a.share ? { share: a.share } : {}),
     });
   }
@@ -449,22 +547,10 @@ export function buildCityData({ allRecords, active, wykaz, detailAreas }) {
   }
 
   for (const p of props.values()) {
-    p.listings.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
-
-    // Derive the auction round from history when the source didn't state it
-    // (e.g. Gliwice publishes "II ustny przetarg" on the page but the data has
-    // no explicit round). Walking the property's attempts oldest-first, each
-    // successive auction is the next round — so a flat with one prior attempt is
-    // round 2 (II przetarg), matching the city's own wording and the extension's
-    // "1 poprzednia próba". Explicit rounds (cities that parse them) are kept and
-    // keep the counter aligned; wykaz pre-announcements aren't attempts.
-    let attempt = 0;
-    for (const l of p.listings) {
-      if (l.outcome === 'announced') continue;
-      attempt++;
-      if (l.round == null) l.round = attempt;
-      else attempt = l.round;
-    }
+    // Derive missing rounds and mark their provenance. The shared helper is
+    // intentionally reusable after verified alias folds, where previously
+    // inferred values must move while source-explicit anchors stay fixed.
+    deriveAuctionRounds(p);
   }
   const properties = [...props.values()].sort((a, b) => {
     const la = a.listings[a.listings.length - 1]?.date || '0';

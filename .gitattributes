@@ -10,6 +10,9 @@
 # throughout. Binaries are pinned so they are never touched. After adding this,
 # run once to clear any already-CRLF blobs:  git add --renormalize . && commit.
 * text=auto eol=lf
+# The public source ledger is designed for direct use in Polish Excel. Keep the
+# generated BOM + CRLF form on every checkout even though Git stores text as LF.
+site/dla-samorzadow/przyklad-gliwice/rejestr-zrodel.csv text eol=crlf
 *.png binary
 *.ico binary
 *.zip binary

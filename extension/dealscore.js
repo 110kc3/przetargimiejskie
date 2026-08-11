@@ -1,9 +1,9 @@
 // Deal score — how a listing's zł/m² compares to the local (per-city) median.
 //
 // The pipeline already gives us starting price + area per listing; the median
-// zł/m² for a city is the cheap, defensible "is this cheap for here?" signal
-// that the popup and the on-page chip surface. Public records stay public — we
-// just do the arithmetic the user would otherwise do in their head.
+// zł/m² for a city is a descriptive reference point surfaced by the popup and
+// on-page chip. It is not a valuation or recommendation; it only reports the
+// arithmetic relationship between one published price and the observed median.
 //
 // Exposes window.ZGM_DEALSCORE:
 //   buildCityMedians(properties, minSample?) -> Map<city, {median, n}>

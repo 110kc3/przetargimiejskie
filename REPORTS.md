@@ -1,12 +1,11 @@
 # REPORTS.md — Reports, dashboards & data-as-product
 
-> **Status:** planning. Builds on [GTM.md](./GTM.md) (free consumer tool +
-> lead-gen + sponsorship) and [EXPANSION.md §4](./EXPANSION.md) ("sell the
-> service, not the public data"). This document answers one question the others
-> only touch: **what reports can we build from the scraped data, who are they
-> for, and how do we show — and maybe monetize — them?** No code is changed by
-> this document. Decision points are flagged; nothing here commits a city,
-> price, or stack.
+> **Archived product exploration (superseded 2026-08-11).** The dashboard,
+> newsletter, deal-board and paid-feed ideas below are not an active build plan.
+> The controlling commercial direction is the fixed-scope, source-linked B2G
+> report in [GTM.md](./GTM.md) and [GTM-SPRINT.md](./GTM-SPRINT.md). Do not reuse
+> the illustrative statistics, price-opportunity language or implementation
+> sequence below in public or sales material.
 
 ---
 

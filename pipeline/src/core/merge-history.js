@@ -15,10 +15,12 @@
 //   - Listings within a property are unioned by a fingerprint (date; kind only
 //     for dateless rows) — one auction event per property/date. When the SAME
 //     event is seen in both,
-//     the FRESH copy fully REPLACES the old one — so corrections propagate (a
-//     fixed area/price, an 'active' that became 'sold', a now-derived round)
-//     without creating a duplicate. Events only in the OLD data (gone upstream)
-//     are frozen at last-seen. (Price, outcome AND round are deliberately NOT in
+//     the FRESH copy replaces the old one — so corrections propagate (a fixed
+//     area/price, an 'active' that became 'sold', a now-derived round) without
+//     creating a duplicate. A missing secondary BIP URL or owner-scope marker is
+//     retained because those facts may come from a source no longer on the live
+//     board. Events only in the OLD data (gone upstream) are frozen at last-seen.
+//     (Price, outcome AND round are deliberately NOT in
 //     the fingerprint: price/outcome get corrected on re-crawl, and `round` is a
 //     value DERIVED from history — including it once caused old null-round rows
 //     and new derived-round rows to both survive, doubling every historical row.)
@@ -120,7 +122,28 @@ export function mergeProperties(previous, fresh) {
     const merged = new Map();
     for (const l of old.listings) merged.set(listingFingerprint(l), l);
     const freshFps = new Set((fp.listings || []).map(listingFingerprint));
-    for (const l of fp.listings || []) merged.set(listingFingerprint(l), l);
+    for (const l of fp.listings || []) {
+      const fingerprint = listingFingerprint(l);
+      const previousListing = merged.get(fingerprint);
+      if (!previousListing) {
+        merged.set(fingerprint, l);
+        continue;
+      }
+      // Fresh values remain authoritative, but these two fields are durable
+      // scope/provenance facts often learned from a secondary city-BIP stream.
+      // That page may disappear from a later crawl while the result PDF remains;
+      // dropping its URL or State Treasury marker would silently change a frozen
+      // report's source and owner scope even though it is the same dated event.
+      merged.set(fingerprint, {
+        ...l,
+        ...(l.bip_url == null && previousListing.bip_url != null
+          ? { bip_url: previousListing.bip_url }
+          : {}),
+        ...(l.owner_type == null && previousListing.owner_type != null
+          ? { owner_type: previousListing.owner_type }
+          : {}),
+      });
+    }
     // listings retained only from old (not re-seen in this crawl)
     for (const fpKey of merged.keys()) if (!freshFps.has(fpKey)) keptListings++;
     old.listings = [...merged.values()].sort((a, b) =>

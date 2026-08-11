@@ -135,3 +135,94 @@ test('garage on a bare parcel re-keys via the rejon convention (Mastalerza, dzia
   assert.equal(r.starting_price_pln, 102400);
   assert.equal(r.final_price_pln, 111030);
 });
+
+test('unsold rows accept ASCII, en, em, minus, and composite OCR dashes after a mixed-case Al. prefix', () => {
+  for (const [index, dash] of ['-', '–', '—', '−', '—-'].entries()) {
+    const text = [
+      'INFORMACJA O WYNIKACH POSTĘPOWAŃ DOTYCZĄCYCH PRZETARGÓW',
+      `Al. Przyjaźni ${index + 1} ${dash} sprzedaż lokalu mieszkalnego`,
+      'Cena wywoławcza nieruchomości wynosiła 100.000,00 zł',
+      'Komisja przetargowa stwierdziła, że nie odnotowano wpłat wadium.',
+    ].join('\n');
+    const recs = parseResultPdf(text, '2026-01-01', `sample://dash-${index}`);
+    assert.equal(recs.length, 1, `separator ${dash} should produce one record`);
+    assert.equal(recs[0].address_raw, `Przyjaźni ${index + 1}`);
+    assert.equal(recs[0].address.street, 'Przyjaźni');
+  }
+});
+
+test('sold address prefixes are case-insensitive, including Al.', () => {
+  const text = [
+    'INFORMACJA O WYNIKU POSTĘPOWANIA',
+    'w dniu 16.02.2026 r. odbył się I ustny przetarg na sprzedaż lokalu',
+    'mieszkalnego położonego w Gliwicach przy Al. Przyjaźni 1/2.',
+    'Cena wywoławcza nieruchomości: 100.000,00 zł.',
+    'Cena osiągnięta w przetargu: 110.000,00 zł.',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2026-02-16', 'sample://sold-al-prefix');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].address_raw, 'Przyjaźni 1/2');
+  assert.equal(recs[0].address.key, 'przyjazni|1|2');
+});
+
+test('real Bednarska two-row shape keeps units 7 and 8 with their distinct prices', () => {
+  const text = [
+    'INFORMACJA O WYNIKACH POSTĘPOWAŃ DOTYCZĄCYCH PRZETARGÓW',
+    'ul. Bednarska 2B - sprzedaż lokalu mieszkalnego nr 7 wraz ze sprzedażą ułamkowej',
+    'części gruntu (działka nr 882 o powierzchni 581 m2, obręb Stare Miasto).',
+    'Cena wywoławcza nieruchomości wynosiła 109.700,00 zł',
+    'ul. Bednarska 2B - sprzedaż lokalu mieszkalnego nr 8 wraz ze sprzedażą ułamkowej',
+    'części gruntu (działka nr 882 o powierzchni 581 m2, obręb Stare Miasto).',
+    'Cena wywoławcza nieruchomości wynosiła 112.600,00 zł',
+    'Komisja przetargowa stwierdziła, że odnotowano wpłatę po 1 wadium.',
+    'Oferenci nie stawili się na licytacji.',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2024-03-11', 'sample://bednarska-real-shape');
+  assert.deepEqual(recs.map((r) => ({
+    raw: r.address_raw,
+    key: r.address.key,
+    price: r.starting_price_pln,
+    reason: r.unsold_reason,
+  })), [
+    { raw: 'Bednarska 2B/7', key: 'bednarska|2B|7', price: 109700, reason: 'bidder_noshow' },
+    { raw: 'Bednarska 2B/8', key: 'bednarska|2B|8', price: 112600, reason: 'bidder_noshow' },
+  ]);
+});
+
+test('an ambiguous residential unit slash pair is not expanded into two auctions', () => {
+  const text = [
+    'INFORMACJA O WYNIKACH POSTĘPOWAŃ DOTYCZĄCYCH PRZETARGÓW',
+    'ul. Wspólna 2 - sprzedaż lokalu mieszkalnego nr 7/8',
+    'Cena wywoławcza nieruchomości wynosiła 100.000,00 zł',
+    'Komisja przetargowa stwierdziła, że nie odnotowano wpłat wadium.',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2026-01-01', 'sample://ambiguous-unit-pair');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].address_raw, 'Wspólna 2');
+  assert.equal(recs[0].address.key, 'wspolna|2|');
+});
+
+test('a non-unit 7/8 share is not expanded into duplicate results', () => {
+  const text = [
+    'INFORMACJA O WYNIKACH POSTĘPOWAŃ DOTYCZĄCYCH PRZETARGÓW',
+    'ul. Wspólna 2 - sprzedaż lokalu mieszkalnego wraz z udziałem nr 7/8 w gruncie',
+    'Cena wywoławcza nieruchomości wynosiła 100.000,00 zł',
+    'Komisja przetargowa stwierdziła, że nie odnotowano wpłat wadium.',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2026-01-01', 'sample://land-share');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].address_raw, 'Wspólna 2');
+  assert.equal(recs[0].address.apt, null);
+});
+
+test('plural "Oferenci nie stawili się" maps to bidder_noshow', () => {
+  const text = [
+    'INFORMACJA O WYNIKACH POSTĘPOWAŃ DOTYCZĄCYCH PRZETARGÓW',
+    'ul. Bednarska 2B - sprzedaż lokalu mieszkalnego nr 7',
+    'Cena wywoławcza nieruchomości wynosiła 109.700,00 zł',
+    'Komisja przetargowa stwierdziła, że Oferenci nie stawili się na licytacji.',
+  ].join('\n');
+  const recs = parseResultPdf(text, '2024-03-11', 'sample://plural-noshow');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].unsold_reason, 'bidder_noshow');
+});

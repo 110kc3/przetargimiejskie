@@ -570,6 +570,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     starting_price_pln,
     final_price_pln: null,
     outcome: 'unsold',
+    outcome_evidence: 'inferred',
     unsold_reason: 'superseded_by_next_round',
     area_m2: extractAreaM2(body, kind),
     notes,

@@ -14,7 +14,8 @@
 //   2. crossCityDisplay  — the -skiej/-ckiej/-dzkiej display flip whose
 //        nominative-twin evidence lives in ANOTHER city (applyDisplayStreets
 //        only sees within-city twins, so these specific flips are lost on merge).
-//   3. VERIFIED_JUNK     — fold a bled junk key into its named survivor.
+//   3. VERIFIED_ALIASES  — fold two source spellings of one verified property.
+//   4. VERIFIED_JUNK     — fold a bled junk key into its named survivor.
 //
 // Every map entry is data-verified against the cached source document; do not
 // add speculative entries. Maps are keyed by city id and are no-ops for any
@@ -23,7 +24,12 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { dedupeListingsByDate } from './build-properties.js';
+import {
+  dedupeListingsByDate,
+  deriveAuctionRounds,
+  healStreetVariants,
+  healKinds,
+} from './build-properties.js';
 
 // city → [old key, replacement fields] — junk keys from since-fixed parser bugs
 // whose TRUE identity was verified against the cached source document.
@@ -57,6 +63,20 @@ export const VERIFIED_RENAMES = {
   ],
 };
 
+// city → [alias key, canonical key]. These are verified spellings of the same
+// physical street/property, not heuristic suffix matches. Unlike VERIFIED_JUNK,
+// an alias may legitimately contribute dates absent from the canonical stream;
+// all listings are therefore merged and only same-date duplicates are folded.
+export const VERIFIED_ALIASES = {
+  gliwice: [
+    ['karola libelta|10|1', 'libelta|10|1'],
+    ['pawla stalmacha|7|3', 'stalmacha|7|3'],
+    ['konstantego damrota|9|4', 'damrota|9|4'],
+    ['ignacego daszynskiego|65|10', 'daszynskiego|65|10'],
+    ['bl czeslawa|82|8', 'blogoslawionego czeslawa|82|8'],
+  ],
+};
+
 // city → [junk key, surviving key] — fold junk into survivor ONLY if every dated
 // listing of the junk property has a same-date listing on the survivor (with a
 // matching starting price when both carry one); otherwise the fold is refused.
@@ -72,6 +92,13 @@ export const VERIFIED_RENAMES = {
 //                      (86,38 m²); its 2025-02-24 / 450 000 → 517 500 zł sale
 //                      matches exactly powstanczej|5|8 (area 86,38).
 export const VERIFIED_JUNK = {
+  gliwice: [
+    // Legacy output from the pre-unit parser duplicated the real 11.03.2024
+    // Bednarska 2B/7 result under a building-only key. The fixed parser emits
+    // units 7 and 8 separately; the guarded same-date/price check below makes
+    // this migration refuse to run if that verified duplicate ever diverges.
+    ['bednarska|2B|', 'bednarska|2B|7'],
+  ],
   katowice: [
     ['gornej 4 6 i|8|', 'gorna|4|'],
     ['oddzialow mlodziezy ii ustny|66|', 'oddzialow mlodziezy powstanczej|5|10'],
@@ -103,6 +130,71 @@ export function applyVerifiedRenames(props, cityId) {
       for (const l of p.listings) if (l.area_m2 === a) { l.land_area_m2 = a; l.area_m2 = null; }
     }
     console.error(`${cityId}: re-keyed ${oldKey} \u2192 ${p.key}`);
+  }
+}
+
+/**
+ * Fold a source spelling alias into its verified canonical property. Refuse the
+ * fold if either side is absent; a later crawl may provide the missing twin and
+ * no listing is ever discarded speculatively.
+ * @param {Array} props
+ * @param {string} cityId
+ * @returns {Array}
+ */
+export function applyVerifiedAliases(props, cityId) {
+  let out = props;
+  for (const [aliasKey, canonicalKey] of VERIFIED_ALIASES[cityId] || []) {
+    const alias = out.find((property) => property.key === aliasKey);
+    if (!alias) continue;
+    const canonical = out.find((property) => property.key === canonicalKey);
+    if (!canonical) {
+      console.error(`${cityId}: REFUSING to fold alias ${aliasKey} — canonical ${canonicalKey} not found.`);
+      continue;
+    }
+    backfillVerifiedRoundProvenance([alias, canonical], cityId);
+    canonical.listings.push(...alias.listings);
+    dedupeListingsByDate(canonical);
+    canonical.listings.sort((left, right) => (left.date || '9999').localeCompare(right.date || '9999'));
+    if (canonical.area_m2 == null && alias.area_m2 != null) canonical.area_m2 = alias.area_m2;
+    if (canonical.area_m2 != null) {
+      for (const listing of canonical.listings) {
+        if (listing.area_m2 == null) listing.area_m2 = canonical.area_m2;
+      }
+    }
+    if (canonical.kind === 'unknown' && alias.kind && alias.kind !== 'unknown') canonical.kind = alias.kind;
+    deriveAuctionRounds(canonical);
+    out = out.filter((property) => property !== alias);
+    console.error(`${cityId}: folded verified alias ${aliasKey} into ${canonicalKey}.`);
+  }
+  return out;
+}
+
+// Old committed Gliwice rows predate round provenance. The adapter shapes let
+// us migrate them without guessing: unsuccessful ZGM result rows and ZGM board
+// rows had no source round and were history-derived; city-BIP rows state a Roman
+// round, as do successful/no-winner result paragraphs. This migration is scoped
+// to Gliwice and runs before a verified alias fold, where the distinction is
+// necessary to re-number inferred attempts without moving explicit anchors.
+export function backfillVerifiedRoundProvenance(props, cityId) {
+  if (cityId !== 'gliwice') return;
+  for (const property of props || []) {
+    for (const listing of property.listings || []) {
+      if (!Number.isInteger(listing.round) || listing.round < 1) continue;
+      if (
+        listing.round_source || listing.round_provenance ||
+        listing.round_inferred != null || listing.round_explicit != null
+      ) continue;
+      if (
+        listing.source === 'bip' ||
+        (listing.source_pdf && (listing.outcome === 'sold' || listing.outcome === 'no_winner'))
+      ) {
+        listing.round_source = 'explicit';
+      } else if (
+        listing.outcome === 'unsold' || listing.outcome === 'active' || listing.outcome === 'archived'
+      ) {
+        listing.round_source = 'inferred';
+      }
+    }
   }
 }
 
@@ -203,5 +295,27 @@ export function applyVerifiedJunk(props, cityId) {
     out = out.filter((p) => p !== junk);
     console.error(`${cityId}: folded junk property ${junkKey} into ${survivorKey}.`);
   }
+  return out;
+}
+
+/**
+ * Apply the complete durable post-build heal sequence used by normal refresh,
+ * preserve-on-empty refresh, and the offline healer. Keeping one entry point
+ * prevents an outage path from re-publishing aliases or stale inferred rounds
+ * that the normal merge path would have fixed.
+ * @param {Array} props
+ * @param {string} cityId
+ * @param {Map<string, string>} [globalByNorm]
+ * @returns {Array}
+ */
+export function applyDurablePropertyHeals(props, cityId, globalByNorm) {
+  backfillVerifiedRoundProvenance(props, cityId);
+  applyVerifiedRenames(props, cityId);
+  let out = healStreetVariants(props);
+  out = applyVerifiedAliases(out, cityId);
+  crossCityDisplay(out, cityId, globalByNorm);
+  out = applyVerifiedJunk(out, cityId);
+  healKinds(out);
+  for (const property of out) deriveAuctionRounds(property);
   return out;
 }

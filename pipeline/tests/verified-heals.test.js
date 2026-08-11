@@ -11,10 +11,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { healStreetVariants, healKinds } from '../src/core/build-properties.js';
 import {
   applyVerifiedRenames,
+  applyVerifiedAliases,
   applyVerifiedJunk,
+  applyDurablePropertyHeals,
   crossCityDisplay,
 } from '../src/core/verified-heals.js';
 
@@ -69,6 +70,34 @@ test('applyVerifiedJunk REFUSES to fold when the survivor is missing', () => {
   assert.equal(out.length, 1, 'no survivor → junk is kept, not dropped');
 });
 
+test('verified Bednarska migration removes only the covered legacy building row', () => {
+  const unit7 = {
+    key: 'bednarska|2B|7', street: 'Bednarska', street_norm: 'bednarska',
+    building: '2B', apt: '7', kind: 'mieszkalny',
+    listings: [listing('2024-03-11', {
+      outcome: 'unsold', starting_price_pln: 109700, source_pdf: 'result.pdf',
+    })],
+  };
+  const unit8 = {
+    key: 'bednarska|2B|8', street: 'Bednarska', street_norm: 'bednarska',
+    building: '2B', apt: '8', kind: 'mieszkalny',
+    listings: [listing('2024-03-11', {
+      outcome: 'unsold', starting_price_pln: 112600, source_pdf: 'result.pdf',
+    })],
+  };
+  const legacy = {
+    key: 'bednarska|2B|', street: 'Bednarska', street_norm: 'bednarska',
+    building: '2B', apt: null, kind: 'mieszkalny',
+    listings: [listing('2024-03-11', {
+      outcome: 'unsold', starting_price_pln: 109700, source_pdf: 'result.pdf',
+    })],
+  };
+  const out = applyVerifiedJunk([unit7, unit8, legacy], 'gliwice');
+  assert.deepEqual(out.map((property) => property.key).sort(),
+    ['bednarska|2B|7', 'bednarska|2B|8']);
+  assert.equal(out.find((property) => property.key === 'bednarska|2B|7').listings.length, 1);
+});
+
 // ---- applyVerifiedRenames --------------------------------------------------
 
 test('applyVerifiedRenames re-keys and moves a whole-property total to land', () => {
@@ -98,6 +127,95 @@ test('applyVerifiedRenames back-fills the verified area onto area-less listings'
   assert.equal(p.listings[0].area_m2, 144.07, 'area back-filled onto the listing');
 });
 
+test('applyVerifiedAliases combines unique dates and lets a result row replace a same-date archived alias', () => {
+  const canonical = {
+    key: 'libelta|10|1', street: 'Libelta', street_norm: 'libelta', building: '10', apt: '1',
+    kind: 'mieszkalny', listings: [
+      listing('2026-05-11', { round: 1, outcome: 'unsold', starting_price_pln: 300690, source_pdf: 'result-may.pdf' }),
+      listing('2026-07-06', { round: 2, outcome: 'unsold', starting_price_pln: 267280, source_pdf: 'result-july.pdf' }),
+      listing('2026-09-07', { round: 3, outcome: 'active', starting_price_pln: 233870 }),
+    ],
+  };
+  const alias = {
+    key: 'karola libelta|10|1', street: 'Karola Libelta', street_norm: 'karola libelta', building: '10', apt: '1',
+    kind: 'mieszkalny', listings: [
+      listing('2026-03-30', { round: 1, outcome: 'unsold', starting_price_pln: 334100, source_pdf: 'result-march.pdf' }),
+      listing('2026-07-06', { round: 3, outcome: 'archived', starting_price_pln: 267280, source: 'bip' }),
+    ],
+  };
+  const out = applyVerifiedAliases([canonical, alias], 'gliwice');
+  assert.equal(out.length, 1);
+  assert.deepEqual(out[0].listings.map((item) => item.date),
+    ['2026-03-30', '2026-05-11', '2026-07-06', '2026-09-07']);
+  assert.deepEqual(out[0].listings.map((item) => item.round), [1, 2, 3, 4]);
+  assert.deepEqual(out[0].listings.map((item) => item.round_source),
+    ['inferred', 'inferred', 'explicit', 'inferred']);
+  assert.equal(out[0].listings[2].outcome, 'unsold');
+  assert.equal(out[0].listings[2].source_pdf, 'result-july.pdf');
+});
+
+test('verified Daszyńskiego alias restores the full four-attempt trajectory', () => {
+  const canonical = {
+    key: 'daszynskiego|65|10', street: 'Daszyńskiego', street_norm: 'daszynskiego', building: '65', apt: '10',
+    kind: 'mieszkalny', area_m2: 51.59, listings: [
+      listing('2026-05-11', { round: 1, outcome: 'unsold', starting_price_pln: 240840, source_pdf: 'may.pdf' }),
+      listing('2026-07-06', { round: 2, outcome: 'unsold', starting_price_pln: 214080, source_pdf: 'july.pdf' }),
+      listing('2026-09-07', { round: 3, outcome: 'active', starting_price_pln: 214080 }),
+    ],
+  };
+  const alias = {
+    key: 'ignacego daszynskiego|65|10', street: 'Ignacego Daszyńskiego',
+    street_norm: 'ignacego daszynskiego', building: '65', apt: '10',
+    kind: 'mieszkalny', area_m2: 51.59, listings: [
+      listing('2026-03-30', { round: 1, outcome: 'unsold', starting_price_pln: 267600, source_pdf: 'march.pdf' }),
+    ],
+  };
+  const out = applyVerifiedAliases([canonical, alias], 'gliwice');
+  assert.equal(out.length, 1);
+  assert.equal(out[0].key, 'daszynskiego|65|10');
+  assert.deepEqual(out[0].listings.map((item) => item.round), [1, 2, 3, 4]);
+  assert.deepEqual(out[0].listings.map((item) => item.starting_price_pln),
+    [267600, 240840, 214080, 214080]);
+});
+
+test('verified Bł. Czesława alias preserves explicit round III and back-fills area', () => {
+  const canonical = {
+    key: 'blogoslawionego czeslawa|82|8', street: 'Błogosławionego Czesława',
+    street_norm: 'blogoslawionego czeslawa', building: '82', apt: '8',
+    kind: 'mieszkalny', area_m2: null, listings: [
+      listing('2024-08-26', {
+        round: 3, outcome: 'sold', starting_price_pln: 161500,
+        final_price_pln: 194440, source_pdf: 'august.pdf', area_m2: null,
+      }),
+    ],
+  };
+  const alias = {
+    key: 'bl czeslawa|82|8', street: 'Bł. Czesława', street_norm: 'bl czeslawa',
+    building: '82', apt: '8', kind: 'mieszkalny', area_m2: 46.59, listings: [
+      listing('2024-05-13', {
+        round: 1, outcome: 'unsold', starting_price_pln: 201800,
+        source_pdf: 'may.pdf', area_m2: 46.59,
+      }),
+    ],
+  };
+  const out = applyVerifiedAliases([canonical, alias], 'gliwice');
+  assert.equal(out.length, 1);
+  assert.deepEqual(out[0].listings.map((item) => item.round), [1, 3]);
+  assert.deepEqual(out[0].listings.map((item) => item.round_source), ['inferred', 'explicit']);
+  assert.equal(out[0].area_m2, 46.59);
+  assert.ok(out[0].listings.every((item) => item.area_m2 === 46.59));
+});
+
+test('applyVerifiedAliases refuses to rename an alias when its canonical twin is absent', () => {
+  const alias = {
+    key: 'karola libelta|10|1', street: 'Karola Libelta', street_norm: 'karola libelta', building: '10', apt: '1',
+    kind: 'mieszkalny', listings: [listing('2026-03-30')],
+  };
+  const out = applyVerifiedAliases([alias], 'gliwice');
+  assert.equal(out.length, 1);
+  assert.equal(out[0].key, 'karola libelta|10|1');
+});
+
 // ---- crossCityDisplay ------------------------------------------------------
 
 test('crossCityDisplay flips an adjectival genitive with a cross-city twin, not a surname', () => {
@@ -123,15 +241,6 @@ test('crossCityDisplay is a no-op when no evidence map is supplied', () => {
 // output of mergeProperties (survivor + a junk key the merge re-seeded from the
 // committed file). Proves the wired sequence self-heals — and that a second
 // pass changes nothing.
-function refreshPostMerge(properties, cityId, globalByNorm) {
-  applyVerifiedRenames(properties, cityId);
-  properties = healStreetVariants(properties);
-  crossCityDisplay(properties, cityId, globalByNorm);
-  properties = applyVerifiedJunk(properties, cityId);
-  healKinds(properties);
-  return properties;
-}
-
 test('refresh post-merge sequence folds a re-seeded junk key and is idempotent', () => {
   const make = () => ([
     { key: 'gorna|4|', street: 'Górna', street_norm: 'gorna', building: '4', apt: null,
@@ -139,11 +248,15 @@ test('refresh post-merge sequence folds a re-seeded junk key and is idempotent',
     { key: 'gornej 4 6 i|8|', street: 'Górnej 4 6 i', street_norm: 'gornej 4 6 i', building: '8', apt: null,
       kind: 'unknown', listings: [listing('2023-05-10', { starting_price_pln: 100000, outcome: 'sold', final_price_pln: 120000 })] },
   ]);
-  const once = refreshPostMerge(make(), 'katowice', new Map());
+  const once = applyDurablePropertyHeals(make(), 'katowice', new Map());
   assert.equal(once.find((p) => p.key === 'gornej 4 6 i|8|'), undefined, 're-seeded junk folded away');
   assert.equal(once.length, 1);
 
   // Idempotency: feeding the healed output back through changes nothing.
-  const twice = refreshPostMerge(once.map((p) => ({ ...p, listings: p.listings.map((l) => ({ ...l })) })), 'katowice', new Map());
+  const twice = applyDurablePropertyHeals(
+    once.map((p) => ({ ...p, listings: p.listings.map((l) => ({ ...l })) })),
+    'katowice',
+    new Map(),
+  );
   assert.deepEqual(JSON.parse(JSON.stringify(twice)), JSON.parse(JSON.stringify(once)));
 });

@@ -115,7 +115,7 @@ function blockFigures(seg) {
   };
 }
 
-function makeListing(addressRaw, kind, date, round, figures, url) {
+function makeListing(addressRaw, kind, date, round, figures, url, ownerType = null) {
   return {
     kind,
     address_raw: addressRaw,
@@ -126,7 +126,15 @@ function makeListing(addressRaw, kind, date, round, figures, url) {
     round: round ?? null,
     detail_url: url,
     source: 'bip', // provenance marker; harmless extra field on the listing.
+    ...(ownerType ? { owner_type: ownerType } : {}),
   };
+}
+
+function ownerTypeFrom(text, title, url) {
+  const haystack = `${title || ''} ${url || ''} ${text || ''}`;
+  return /w[łl]asno[śs][ćc]\s+skarbu\s+pa[ńn]stwa/i.test(haystack)
+    ? 'state_treasury'
+    : null;
 }
 
 // A SPRZEDAŻ page is a DZIAŁKA (bare-land) sale when the title leads with
@@ -204,6 +212,7 @@ function parseBipLandDoc(text, date, url, title) {
 export function parseBipSaleDoc(html, url, title) {
   const text = stripBip(html);
   const date = resolveDate(text, url, title);
+  const ownerType = ownerTypeFrom(text, title, url);
 
   // ---- Land branch: działka sale → one 'grunt' record (routed to LAND) -----
   if (isDzialkaDoc(text, title)) return parseBipLandDoc(text, date, url, title);
@@ -241,7 +250,7 @@ export function parseBipSaleDoc(html, url, title) {
     // "<street> <bldg> garaż nr <N>" garage form.
     const addrRaw =
       kind === 'garaz' ? `${street} ${bldg} garaż nr ${lokNr}` : `${street} ${bldg}/${lokNr}`;
-    const lst = makeListing(addrRaw, kind, date, ROMAN[mm[1]] || null, blockFigures(seg), url);
+    const lst = makeListing(addrRaw, kind, date, ROMAN[mm[1]] || null, blockFigures(seg), url, ownerType);
     if (lst.address) out.push(lst);
   }
   if (out.length) return out;
@@ -255,6 +264,7 @@ export function parseBipSaleDoc(html, url, title) {
     const figures = blockFigures(text);
     const lst = makeListing(
       tm[2].replace(/\s+/g, ' ').trim(), kind, date, rm ? ROMAN[rm[1]] || null : null, figures, url,
+      ownerType,
     );
     // Only emit when we actually got the money — otherwise it's noise.
     if (lst.address && lst.starting_price_pln != null) return [lst];
@@ -369,6 +379,11 @@ export function foldBipDuplicates(listings) {
     );
     if (twin) {
       if (l.detail_url && !twin.bip_url) twin.bip_url = l.detail_url;
+      if (l.round != null) {
+        twin.round = l.round;
+        twin.round_source = 'explicit';
+      }
+      if (l.owner_type && !twin.owner_type) twin.owner_type = l.owner_type;
       continue; // drop the duplicate BIP lokal row
     }
     out.push(l);

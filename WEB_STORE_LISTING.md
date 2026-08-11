@@ -70,10 +70,9 @@ Zanim zalicytujesz: sprawdź, czy ten lokal już się nie sprzedał i o ile spad
 ### Polish
 
 ```
-W naszych danych ponad połowa miejskich przetargów na mieszkania kończy się bez
-nabywcy — a po nieudanej licytacji urząd może obniżyć cenę wywoławczą nawet do
-50% wartości (a w rokowaniach do 40%). Przetargi miejskie pokazuje Ci to wprost,
-na stronach BIP, z których i tak korzystasz.
+Przetargi miejskie porządkuje publiczne ogłoszenia i wyniki miejskich przetargów
+na mieszkania. Na stronach BIP pokazuje wcześniejsze zaobserwowane terminy,
+opublikowane ceny wywoławcze i wyniki — bez szacowania wartości nieruchomości.
 
 Gdy przeglądasz ogłoszenie o przetargu, rozszerzenie dodaje obok niego:
 • runda przetargu (1., 2., 3. …) — od razu widzisz, czy to ponowne wystawienie,
@@ -82,10 +81,10 @@ Gdy przeglądasz ogłoszenie o przetargu, rozszerzenie dodaje obok niego:
 • cena wywoławcza, powierzchnia i zł/m²,
 • data przetargu, termin wpłaty wadium i oględzin.
 
-DLACZEGO RUNDA MA ZNACZENIE
-Zgodnie z ustawą o gospodarce nieruchomościami nieudany pierwszy przetarg
-pozwala obniżyć cenę w drugim. "To trzecia runda" to nie ciekawostka — to
-konkretna informacja o tym, ile jeszcze może spaść cena.
+DLACZEGO HISTORIA MA ZNACZENIE
+Numer rundy i wcześniejsze ogłoszenia pomagają odnaleźć dokumenty dotyczące tej
+samej nieruchomości. Rozszerzenie opisuje opublikowaną historię; nie jest wyceną,
+prognozą ceny ani rekomendacją udziału w aukcji. Wiążą informacje urzędu.
 
 OBSŁUGIWANE MIASTA (rozszerzenie)
 Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM),
@@ -117,10 +116,9 @@ niezwiązane z żadnym urzędem.
 ### English
 
 ```
-In our data, more than half of municipal flat auctions end without a buyer — and
-after a failed auction the authority may cut the starting price to as little as
-50% of valuation (40% in negotiations). Przetargi miejskie shows you this
-directly, on the public BIP pages you already browse.
+Przetargi miejskie organizes public notices and results for municipal flat
+auctions. On the BIP pages you already browse, it shows earlier observed dates,
+published starting prices and outcomes without estimating the property's value.
 
 When you view an auction announcement, the extension adds:
 • the auction round (1st, 2nd, 3rd …) — instantly see if it's a re-listing,
@@ -129,10 +127,10 @@ When you view an auction announcement, the extension adds:
 • starting price, area and PLN/m²,
 • auction date, deposit (wadium) deadline and viewing dates.
 
-WHY THE ROUND MATTERS
-Under Polish property law a failed first auction lets the authority reduce the
-price in the second. "This is round three" isn't trivia — it's a concrete signal
-of how much further the price can fall.
+WHY HISTORY MATTERS
+The reported round and earlier notices help locate documents concerning the same
+property. The extension describes published history; it is not a valuation,
+price forecast or recommendation to bid. The authority's documents are binding.
 
 CITIES (extension)
 Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM),

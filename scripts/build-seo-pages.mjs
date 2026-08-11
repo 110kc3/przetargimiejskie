@@ -204,7 +204,7 @@ ${ld}<style>${CSS}</style>
       <a href="/raporty">Raporty</a>
       <a href="/archiwum">Archiwum</a>
       <a href="/miasta/">Miasta</a>
-      <a href="/privacy">Prywatność</a>
+      <a href="/dla-samorzadow/">Dla samorządów</a>
     </nav>
   </header>
   ${crumbHtml}
@@ -215,7 +215,8 @@ ${ld}<style>${CSS}</style>
        zakładów gospodarki mieszkaniowej. Ceny i terminy mają charakter informacyjny — wiążące są
        wyłącznie dokumenty urzędu. Narzędzie nieoficjalne, niezwiązane z żadnym urzędem.</p>
     <p>Kontakt: <a href="mailto:kontakt@przetargimiejskie.pl">kontakt@przetargimiejskie.pl</a> ·
-       <a href="/privacy">Prywatność</a> · <a href="https://github.com/110kc3/przetargimiejskie">Kod źródłowy</a></p>
+       <a href="/dla-samorzadow/">Dla samorządów</a> · <a href="/privacy">Prywatność</a> ·
+       <a href="https://github.com/110kc3/przetargimiejskie">Kod źródłowy</a></p>
   </footer>
 </div>
 </body>
@@ -447,8 +448,9 @@ ${live ? 'najbliższy przetarg poniżej, pod spodem' : ''} pełna historia licyt
 (rundy, ceny wywoławcze, wyniki). Więcej nieruchomości: <a href="/${city.id}/">przetargi ${esc(city.label)}</a>.</p>
 ${liveBlock}
 <section class="section"><h2 class="section-title">Historia przetargów</h2>${histTable}
-<p class="note">Kolejne rundy tego samego lokalu oznaczają brak nabywcy we wcześniejszych terminach —
-cena wywoławcza zwykle wtedy spada. Wiążące informacje wyłącznie w dokumentach źródłowych urzędu.</p></section>`,
+<p class="note">Tabela pokazuje zaobserwowane, opublikowane terminy i statusy. Nie należy
+wnioskować o wyniku wcześniejszego terminu wyłącznie z numeru późniejszej rundy;
+wiążące informacje znajdują się w dokumentach źródłowych urzędu.</p></section>`,
     }));
     addUrl(`/${city.id}/${p._slug}/`, p._lastDate || generated);
   }
@@ -505,7 +507,10 @@ addUrl('/miasta/');
 
 // ---------- sitemap.xml ----------
 
-for (const p of ['/', '/archiwum/', '/raporty/', '/privacy/']) addUrl(p);
+for (const p of [
+  '/', '/archiwum/', '/raporty/', '/dla-samorzadow/',
+  '/dla-samorzadow/przyklad-gliwice/', '/privacy/',
+]) addUrl(p);
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemap.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n')}
@@ -536,6 +541,8 @@ const llms = `# przetargimiejskie
 - ${SITE}/<city>/ — per city: live auctions, recent results, every tracked property
 - ${SITE}/<city>/<address-slug>/ — one property's full auction history (rounds, prices, outcomes)
 - ${SITE}/<city>/<YYYY-MM>/ — monthly recap of what the city put up for auction
+- ${SITE}/dla-samorzadow/ — fixed-scope, source-linked reporting product for municipalities
+- ${SITE}/dla-samorzadow/przyklad-gliwice/ — frozen public HTML/PDF/CSV example with explicit scope and denominators
 
 ## Pages that need JavaScript
 
@@ -548,6 +555,7 @@ const llms = `# przetargimiejskie
 - ${SITE}/data/<city>/properties.json — all properties + full listing history for one city
 - ${SITE}/data/<city>/land.json — municipal land plots (where available)
 - ${SITE}/data/<city>/meta.json — per-city freshness metadata
+- ${SITE}/dla-samorzadow/przyklad-gliwice/analiza-zrodlowa.json — immutable analysis snapshot behind the public example
 - Sitemap: ${SITE}/sitemap.xml
 
 ## Cities

@@ -17,6 +17,7 @@ import { parseAddress } from '../../core/normalize.js';
  * @property {string} address_raw
  * @property {ReturnType<typeof parseAddress>|null} address
  * @property {number|null} round           Roman numeral I/II/III/... as integer
+ * @property {'explicit'|'inferred'} [round_source]
  * @property {number|null} starting_price_pln
  * @property {number|null} final_price_pln
  * @property {ResultOutcome} outcome
@@ -81,7 +82,7 @@ const PRICE_LINE_FINAL =
 const ROUND_RE = /\b(I{1,3}|IV|V|VI|VII|VIII|IX|X)\s+ustny\s+przetarg/i;
 
 const ADDR_FROM_SOLD =
-  /przy\s+(?:u[lł]|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\-,;:j ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*[\/\\]\s*[\dA-Za-z]+)?)/;
+  /przy\s+(?:u[lł]|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.\-,;:j ]+?\s+\d+(?:-\d+)?[A-Za-z]?(?:\s*[\/\\]\s*[\dA-Za-z]+)?)/i;
 // Sold-section garage variant: "garażu nr N ... w rejonie ul. STREET wraz ..."
 // These "rejon" garages have no building number — we synthesize bldg = "rejon"
 // and apt = "garaz-N" so the join key is stable.
@@ -177,6 +178,7 @@ function parseSoldSection(sold, auctionDate, sourcePdf) {
       address_raw: addressRaw,
       address,
       round,
+      ...(round != null ? { round_source: 'explicit' } : {}),
       starting_price_pln: startingPrice,
       final_price_pln: finalPrice,
       outcome,
@@ -190,7 +192,26 @@ function parseSoldSection(sold, auctionDate, sourcePdf) {
 // Accept the same street prefixes as the sold-section regex (ul/al/pl/os) —
 // matching only "ul." silently dropped unsold items at other prefixes.
 const UNSOLD_ITEM_RE =
-  /\b(?:ul|al|pl|os)\.\s+([^\n]+?)\s+-\s+sprzeda[żz]\s+([^\n]+?)(?=\n|$)/g;
+  /\b(?:ul|al|pl|os)\.\s+([^\n]+?)\s*[-\u2013\u2014\u2212]+\s*(?:sprzeda[żz]\s+([^\n]+?)|((?:lokal\w*\s+(?:mieszkaln\w*|u[żz]ytkow\w*)|gara[żz]\w*)[^\n]*))(?=\n|$)/gi;
+
+// Some result rows keep a flat number only in the sale description rather than
+// the address column. Attach one unambiguous singular `lokal ... nr N` to the
+// building address. Slash pairs are deliberately not expanded: without a source
+// row for each unit they can denote one combined identifier rather than two
+// independent auctions.
+const RESIDENTIAL_UNIT_RE =
+  /\blokal\w*\s+mieszkaln\w*\s+nr\.?\s+([1-9]\d*[A-Za-z]?)(?!\s*\/)/i;
+
+function expandUnsoldAddressRaws(addressRaw, tail) {
+  const baseAddress = parseAddress(addressRaw);
+  if (!baseAddress || baseAddress.apt !== null) return [addressRaw];
+  // The real 11.03.2024 result publishes Bednarska 2B twice, with the unit
+  // number only in each sale description (nr 7 and nr 8). Keeping the bare
+  // building key makes build-properties collapse the two same-date auctions
+  // and discard one of their distinct prices, so attach an explicit unit here.
+  const unit = RESIDENTIAL_UNIT_RE.exec(tail);
+  return unit ? [`${addressRaw}/${unit[1]}`] : [addressRaw];
+}
 
 /**
  * Parse the "unsold" section. Each item is "ul. <addr> - sprzedaż <kind>..."
@@ -230,7 +251,7 @@ function parseUnsoldSection(unsold, auctionDate, sourcePdf) {
 function classifyUnsoldReason(reasonPara) {
   const p = reasonPara.toLowerCase();
   if (/odst[ąa]pi[łl]/.test(p)) return 'bidder_withdrew';
-  if (/nie\s+stawi[łl]\s+si[ęe]/.test(p)) return 'bidder_noshow';
+  if (/nie\s+stawi(?:[łl]|li)\s+si[ęe]/.test(p)) return 'bidder_noshow';
   if (/nie\s+odnotowano\s+wp[łl]at/.test(p)) return 'no_deposits';
   if (/brak\s+ofert/.test(p)) return 'no_deposits';
   return 'unknown';
@@ -243,32 +264,34 @@ function extractUnsoldItems(chunk, auctionDate, sourcePdf, reason) {
   let m;
   while ((m = UNSOLD_ITEM_RE.exec(chunk)) !== null) {
     const addressRaw = cleanAddrNoise(m[1]);
-    const tail = m[2];
+    const tail = m[2] ?? m[3];
     const kind = classifyKind(tail);
-    // For garages the addr is "Kurpiowska 16" and the description is "garażu nr 1"
-    // We treat garaż-with-nr separately so the join key is street+building+null.
-    const address = parseAddress(addressRaw);
     // Price line appears later in the surrounding text — search a window after the match
     const after = chunk.slice(m.index, m.index + 600);
     const priceM = PRICE_LINE_START.exec(after);
     const startingPrice = priceM ? parsePLN(priceM[1].trim()) : null;
-    const notes = [];
-    if (!address) notes.push('parse: address unparsed: ' + addressRaw);
-    if (startingPrice === null) notes.push('parse: missing starting price');
-    if (address?.warning) notes.push(address.warning);
-    items.push({
-      auction_date: auctionDate,
-      source_pdf: sourcePdf,
-      kind,
-      address_raw: addressRaw,
-      address,
-      round: null,
-      starting_price_pln: startingPrice,
-      final_price_pln: null,
-      outcome: 'unsold',
-      unsold_reason: reason,
-      notes,
-    });
+    for (const itemAddressRaw of expandUnsoldAddressRaws(addressRaw, tail)) {
+      // For garages the addr is "Kurpiowska 16" and the description is "garażu nr 1"
+      // We treat garaż-with-nr separately so the join key is street+building+null.
+      const address = parseAddress(itemAddressRaw);
+      const notes = [];
+      if (!address) notes.push('parse: address unparsed: ' + itemAddressRaw);
+      if (startingPrice === null) notes.push('parse: missing starting price');
+      if (address?.warning) notes.push(address.warning);
+      items.push({
+        auction_date: auctionDate,
+        source_pdf: sourcePdf,
+        kind,
+        address_raw: itemAddressRaw,
+        address,
+        round: null,
+        starting_price_pln: startingPrice,
+        final_price_pln: null,
+        outcome: 'unsold',
+        unsold_reason: reason,
+        notes,
+      });
+    }
   }
   return items;
 }

@@ -124,6 +124,7 @@ test('single-lokal page → title address + integer (no-grosze) price', () => {
   assert.equal(l.round, 1);
   assert.equal(l.area_m2, 24.34); // użytkowej area, not the 2,13 piwnica
   assert.equal(l.starting_price_pln, 180557);
+  assert.equal(l.owner_type, 'state_treasury');
 });
 
 test('działka (land) page → one grunt record (parcel + obręb + price)', () => {
@@ -174,13 +175,19 @@ const zgm = (raw, date, url) => ({
 const bip = (raw, date, url) => ({ ...zgm(raw, date, url), source: 'bip', detail_url: url });
 
 test('foldBipDuplicates: BIP twin of a ZGM auction becomes bip_url, not a row', () => {
+  const zgmRow = zgm('Świętojańska 39/3', '2026-07-06', 'https://zgm-gliwice.pl/swietojanska-39-3');
+  zgmRow.round = null;
+  const bipRow = bip('ŚWIĘTOJAŃSKIEJ 39/3', '2026-07-06', 'https://bip.gliwice.eu/sprzedaz-x');
+  bipRow.round = 4;
   const out = foldBipDuplicates([
-    zgm('Świętojańska 39/3', '2026-07-06', 'https://zgm-gliwice.pl/swietojanska-39-3'),
-    bip('ŚWIĘTOJAŃSKIEJ 39/3', '2026-07-06', 'https://bip.gliwice.eu/sprzedaz-x'),
+    zgmRow,
+    bipRow,
   ]);
   assert.equal(out.length, 1, 'duplicate folded, not doubled');
   assert.equal(out[0].detail_url, 'https://zgm-gliwice.pl/swietojanska-39-3'); // ZGM stays primary
   assert.equal(out[0].bip_url, 'https://bip.gliwice.eu/sprzedaz-x');           // BIP as secondary
+  assert.equal(out[0].round, 4);
+  assert.equal(out[0].round_source, 'explicit');
 });
 
 test('foldBipDuplicates: bridges full-vs-short street name (Daszyńskiego)', () => {

@@ -8,10 +8,10 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="color-scheme" content="dark" />
 <title id="doc-title">Raporty rynku — przetargimiejskie</title>
-<meta id="doc-desc" name="description" content="Raporty z miejskich przetargów na mieszkania w Polsce: skuteczność sprzedaży, ceny końcowe vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje. Gliwice, Katowice, Kraków, Zabrze, Opole i więcej." />
+<meta id="doc-desc" name="description" content="Raporty z miejskich przetargów na mieszkania w Polsce: opublikowane wyniki, ceny końcowe vs wywoławcze, mediany zł/m², rozkład i historyczne zmiany cen. Gliwice, Katowice, Kraków, Zabrze, Opole i więcej." />
 <link rel="canonical" href="https://przetargimiejskie.pl/raporty/" />
 <meta property="og:title" content="Raporty rynku — przetargimiejskie" />
-<meta property="og:description" content="Analiza miejskich przetargów na mieszkania: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², aktualne okazje." />
+<meta property="og:description" content="Opis miejskich przetargów na mieszkania: opublikowane wyniki, ceny vs wywoławcze, mediany zł/m² i historyczne zmiany cen." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://przetargimiejskie.pl/raporty/" />
 <meta property="og:site_name" content="przetargimiejskie" />
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://przetargimiejskie.pl/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Raporty rynku — przetargimiejskie" />
-<meta name="twitter:description" content="Analiza miejskich przetargów na mieszkania: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², aktualne okazje." />
+<meta name="twitter:description" content="Opis miejskich przetargów na mieszkania: opublikowane wyniki, ceny vs wywoławcze, mediany zł/m² i historyczne zmiany cen." />
 <meta name="twitter:image" content="https://przetargimiejskie.pl/og-image.png" />
 <style>
 /* ===== przetargimiejskie — Slate Ledger (dark) — shared with / and /archiwum ===== */
@@ -215,6 +215,7 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
       <a href="/">Strona główna</a>
       <a href="/archiwum">Archiwum</a>
       <a href="/raporty" class="active">Raporty</a>
+      <a href="/dla-samorzadow/">Dla samorządów</a>
       <a href="/privacy">Prywatność</a>
     </nav>
   </div>
@@ -231,7 +232,7 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
     <label class="field"><span class="field-label">Okres analizy</span>
       <select class="control" id="f-period"></select></label>
     <span class="spacer"></span>
-    <button class="btn" id="btn-csv" title="Pobierz tabelę okazji jako plik CSV (otwiera się w Excelu)">⤓ CSV</button>
+    <button class="btn" id="btn-csv" title="Pobierz tabelę zmian opublikowanych cen jako plik CSV (otwiera się w Excelu)">⤓ CSV</button>
     <button class="btn btn-primary" id="btn-pdf" title="Zapisz raport jako PDF (okno drukowania)">⤓ PDF</button>
   </div>
 
@@ -274,8 +275,8 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
   </section>
 
   <section class="section" id="s-deals">
-    <div class="section-head"><h2 class="section-title">Tablica okazji — aktualne aukcje po obniżce</h2></div>
-    <p class="section-lead">Nieruchomości <b>obecnie wystawione na aukcję</b> (możesz licytować), które były już wystawiane wcześniej — z ceną wywoławczą obniżoną względem pierwszego podejścia. Największe obniżki na górze; spadek ≥ 25% oznaczony na zielono.</p>
+    <div class="section-head"><h2 class="section-title">Zmiany opublikowanych cen — aktualne aukcje</h2></div>
+    <p class="section-lead">Nieruchomości <b>obecnie wystawione na aukcję</b>, dla których opublikowano wcześniejszą i obecną cenę wywoławczą. Tabela porządkuje historyczne wartości; nie określa wartości nieruchomości ani nie rekomenduje udziału w aukcji.</p>
     <div class="table-scroll">
       <table class="data-table"><thead><tr>
         <th>Miasto / nieruchomość</th><th>Rodzaj</th><th class="num">Runda</th>
@@ -318,7 +319,8 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
        zakładów gospodarki mieszkaniowej. Wartości historyczne pochodzą z dokumentów wyników przetargów (część po OCR) —
        traktuj je informacyjnie; wiążące są zawsze dokumenty źródłowe urzędu.</p>
     <p>Kontakt: <a href="mailto:kontakt@przetargimiejskie.pl">kontakt@przetargimiejskie.pl</a> ·
-       <a href="/archiwum">Archiwum</a> · <a href="/privacy">Prywatność</a> ·
+       <a href="/archiwum">Archiwum</a> · <a href="/dla-samorzadow/">Dla samorządów</a> ·
+       <a href="/privacy">Prywatność</a> ·
        <a href="https://github.com/110kc3/przetargimiejskie">Kod źródłowy</a></p>
   </footer>
 </div>
@@ -478,7 +480,7 @@ function render(){
   document.getElementById('page-title').textContent = fCity==='all' ? 'Raporty rynku — cała Polska' : `Raporty rynku — ${cityLabel}`;
   document.getElementById('doc-title').textContent = (fCity==='all' ? 'Raporty rynku' : `Raporty — ${cityLabel}`) + ' — przetargimiejskie';
   document.getElementById('doc-desc').setAttribute('content',
-    `Raport z miejskich przetargów na mieszkania — ${cityLabel}: skuteczność sprzedaży, ceny vs wywoławcze, mediany zł/m², rozkład cen i aktualne okazje.`);
+    `Raport z miejskich przetargów na mieszkania — ${cityLabel}: opublikowane wyniki, ceny vs wywoławcze, mediany zł/m², rozkład i historyczne zmiany cen.`);
   document.getElementById('sub').textContent =
     `${cityLabel} · ${KIND_PLURAL[fKind]||'nieruchomości'} · dane odświeżono ${lastRefresh||'—'}`;
   const rangeTxt = fPeriod==='all' ? 'cały dostępny okres' : `${monthName(periodStartYM())} – ${monthName(CURYM)}`;
@@ -651,10 +653,10 @@ function renderDeals(){
   document.getElementById('deals-body').innerHTML = rows.length? rows.map(r=>{
     const cls=r.cut==null?'':(r.cut<0?'delta-down':(r.cut>0?'delta-up':''));
     const hot=r.cut!=null&&r.cut<=-25;
-    const okazja=hot?`<span class="badge-deal">↓ okazja</span>`:'';
+    const duzaZmiana=hot?`<span class="badge-deal">↓ co najmniej 25%</span>`:'';
     const unsoldB=r.priorUnsold>0?`<span class="badge-unsold">${r.priorUnsold}× bez sprzedaży</span>`:'';
     return `<tr class="${hot?'deal-hot':''}">
-      <td class="addr">${chip(r.city,r.cityLabel)}${esc(r.addr)}${okazja}${unsoldB}</td>
+      <td class="addr">${chip(r.city,r.cityLabel)}${esc(r.addr)}${duzaZmiana}${unsoldB}</td>
       <td>${esc(KIND[r.kind]||r.kind)}</td>
       <td class="num">${roundLabel(r.round)}</td>
       <td class="num">${fmtPLN(r.first)}</td>
@@ -694,7 +696,7 @@ function renderRecap(){
     : '<tr class="empty-row"><td colspan="5">Brak sprzedaży.</td></tr>';
 }
 
-// ===== CSV export (current opportunities; semicolon + BOM for PL Excel) =====
+// ===== CSV export (published price changes; semicolon + BOM for PL Excel) =====
 function exportCSV(){
   const rows=dealRows();
   const head=['miasto','adres','rodzaj','runda','razy_bez_sprzedazy','cena_pierwsza_pln','cena_teraz_pln','obnizka_proc','powierzchnia_m2','zl_m2','data_aukcji'];
@@ -705,7 +707,7 @@ function exportCSV(){
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download=`przetargimiejskie-okazje-${fCity}-${TODAY}.csv`;
+  a.download=`przetargimiejskie-zmiany-cen-${fCity}-${TODAY}.csv`;
   document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
 }
 

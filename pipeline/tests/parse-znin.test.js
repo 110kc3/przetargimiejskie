@@ -316,6 +316,7 @@ test('parseResultDoc: LAND Brzyskorzystew 295/10 round I forwarded as CONFIRMED-
   assert.equal(r.starting_price_pln, 99700);
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');
+  assert.equal(r.outcome_evidence, 'inferred');
   assert.equal(r.unsold_reason, 'superseded_by_next_round');
   assert.equal(r.round, 1);
   assert.equal(r.auction_date, '2024-04-16'); // fallbackDate (OCR) — HTML has none

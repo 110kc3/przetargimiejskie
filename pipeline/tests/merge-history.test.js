@@ -42,6 +42,20 @@ test('fresh replaces same event in place (active→sold, area/price corrected, n
   assert.equal(properties[0].listings[0].starting_price_pln, 95000, 'fresh price wins');
 });
 
+test('fresh replacement retains secondary BIP provenance and owner scope', () => {
+  const prev = [prop('a|1|2', [L('2026-01-01', 'archived', {
+    bip_url: 'https://bip.example.test/auction', owner_type: 'state_treasury',
+  })])];
+  const fresh = [prop('a|1|2', [L('2026-01-01', 'sold', {
+    source_pdf: 'https://results.example.test/result.pdf', price: 95000,
+  })])];
+  const { properties } = mergeProperties(prev, fresh);
+  const [event] = properties[0].listings;
+  assert.equal(event.outcome, 'sold', 'fresh result remains authoritative');
+  assert.equal(event.bip_url, 'https://bip.example.test/auction');
+  assert.equal(event.owner_type, 'state_treasury');
+});
+
 test('property-level area prefers fresh, propagates to listings', () => {
   const prev = [prop('a|1|2', [L('2024-01-01', 'sold')], { area_m2: null })];
   const fresh = [prop('a|1|2', [L('2026-01-01', 'active')], { area_m2: 40 })];

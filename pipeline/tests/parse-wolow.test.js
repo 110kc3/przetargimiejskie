@@ -423,6 +423,7 @@ test('parseResultDoc: Pełczyn 26 round I (wolow.pl/3475) forwarded as CONFIRMED
   assert.equal(r.starting_price_pln, 140000);
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');
+  assert.equal(r.outcome_evidence, 'inferred');
   assert.equal(r.unsold_reason, 'superseded_by_next_round');
   assert.equal(r.round, 1);
   assert.equal(r.auction_date, '2026-01-13');

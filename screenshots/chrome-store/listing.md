@@ -42,8 +42,8 @@ prowadzonych przez Zakład Gospodarki Mieszkaniowej w Gliwicach
 
 Gdy oglądasz aktualne ogłoszenie przetargu, od razu widzisz, czy dana
 nieruchomość była już wcześniej wystawiana — ile razy, po jakiej cenie i z
-jakim skutkiem. Nieruchomość, która nie sprzedała się kilka razy z rzędu, to
-zwykle sygnał niskiego zainteresowania — i często okazja.
+jakim skutkiem. Rozszerzenie pokazuje opublikowaną historię terminu, wyniku i
+ceny wywoławczej; nie jest wyceną ani rekomendacją udziału w aukcji.
 
 CO ROBI ROZSZERZENIE
 
@@ -99,8 +99,8 @@ Zakład Gospodarki Mieszkaniowej in Gliwice, Poland (zgm-gliwice.pl).
 
 When you look at a current auction listing, you instantly see whether that
 property has been put up before — how many times, at what price, and with
-what result. A property that has failed to sell several times in a row is
-usually a sign of low interest — and often a bargain.
+what result. The extension describes published dates, outcomes and starting
+prices; it is not a valuation or recommendation to bid.
 
 WHAT IT DOES
 
@@ -215,7 +215,7 @@ Current 1280×800 PNGs for the 9-city build, ready to upload (regenerate with
 4. `04-houses-land.png` — the Rodzaj filter in focus: domy and działki with their
    own area column and a geoportal "mapa działki" link per parcel.
 5. `05-raporty.png` — the Raporty page: median zł/m² by city (the deal-score
-   basis) and the price-drop deals board (Tablica okazji).
+   basis) and the published price-change table (Zmiany cen).
 
 ---
 

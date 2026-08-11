@@ -34,6 +34,44 @@
       ]
     },
     {
+      "key": "dz|sośnica|1168/2, 1170/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1168/2, 1170/2",
+      "obreb": "Sośnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żeromskiego",
+      "dzialka_id": "246601_1.0051.1168/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2",
+      "area_m2": 2091,
+      "zoning": "mieszkaniowe",
+      "status": "przetarg ogłoszony",
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "starting_price_pln": 925000,
+          "outcome": "active",
+          "area_m2": 2091,
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-11682-i-11702-obreb-sosnica-ul-zeromskiego"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1168/2",
+          "dzialka_id": "246601_1.0051.1168/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2"
+        },
+        {
+          "nr": "1170/2",
+          "dzialka_id": "246601_1.0051.1170/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1170%2F2"
+        }
+      ]
+    },
+    {
       "key": "dz|sośnica|1340",
       "kind": "grunt",
       "city": "gliwice",
@@ -216,73 +254,34 @@
       ]
     },
     {
-      "key": "dz|stare gliwice|389",
+      "key": "dz|bojków|1312/2",
       "kind": "grunt",
       "city": "gliwice",
-      "dzialka_nr": "389",
-      "obreb": "Stare Gliwice",
+      "dzialka_nr": "1312/2",
+      "obreb": "Bojków",
       "street": null,
       "building": null,
-      "address_raw": "ul. Łabędzka",
-      "dzialka_id": "246601_1.0052.389",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.389",
-      "area_m2": 7918,
-      "zoning": "usługowe",
-      "status": "przetarg ogłoszony",
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 7918,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-389-obreb-stare-gliwice-ul-labedzka-4",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "389",
-          "dzialka_id": "246601_1.0052.389",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0052.389"
-        }
-      ]
-    },
-    {
-      "key": "dz|bojków wschód|263/2, 263/6",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "263/2, 263/6",
-      "obreb": "Bojków Wschód",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Żytnia",
-      "dzialka_id": "246601_1.0019.263/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2",
-      "area_m2": 1626,
+      "address_raw": "ul. Chmielna",
+      "dzialka_id": "246601_1.0018.1312/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
+      "area_m2": 1097,
       "zoning": "mieszkaniowe",
       "status": "przetarg ogłoszony",
       "listings": [
         {
-          "date": "2026-07-14",
+          "date": "2026-08-10",
           "round": 1,
           "starting_price_pln": null,
           "outcome": "archived",
-          "area_m2": 1626,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-i-nr-2636-obreb-bojkow-wschod-ul-zytnia-1",
+          "area_m2": 1097,
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
         }
       ],
       "parcels": [
         {
-          "nr": "263/2",
-          "dzialka_id": "246601_1.0019.263/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2"
-        },
-        {
-          "nr": "263/6",
-          "dzialka_id": "246601_1.0019.263/6",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F6"
+          "nr": "1312/2",
+          "dzialka_id": "246601_1.0018.1312/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
@@ -459,51 +458,6 @@
         {
           "nr": "1337",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201337%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|sośnica|1168/2, 1170/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1168/2, 1170/2",
-      "obreb": "Sośnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Żeromskiego",
-      "dzialka_id": "246601_1.0051.1168/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2",
-      "area_m2": 2091,
-      "zoning": "mieszkaniowe",
-      "status": "przetarg wkrótce",
-      "listings": [
-        {
-          "date": "2026-09-22",
-          "round": 1,
-          "starting_price_pln": 925000,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-11682-i-11702-obreb-sosnica-ul-zeromskiego"
-        },
-        {
-          "date": null,
-          "round": 2,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 2091,
-          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2165.pdf",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1168/2",
-          "dzialka_id": "246601_1.0051.1168/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2"
-        },
-        {
-          "nr": "1170/2",
-          "dzialka_id": "246601_1.0051.1170/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1170%2F2"
         }
       ]
     },
@@ -1438,39 +1392,6 @@
       ]
     },
     {
-      "key": "dz|bojków|1312/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1312/2",
-      "obreb": "Bojków",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Chmielna",
-      "dzialka_id": "246601_1.0018.1312/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
-      "area_m2": 1097,
-      "zoning": "mieszkaniowe",
-      "status": "przetarg wkrótce",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 1097,
-          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2795.pdf",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1312/2",
-          "dzialka_id": "246601_1.0018.1312/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
-        }
-      ]
-    },
-    {
       "key": "dz|czechowice zachód|366, 367",
       "kind": "grunt",
       "city": "gliwice",
@@ -1937,6 +1858,44 @@
           "nr": "483",
           "dzialka_id": "246601_1.0019.483",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.483"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków wschód|263/2, 263/6",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "263/2, 263/6",
+      "obreb": "Bojków Wschód",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żytnia",
+      "dzialka_id": "246601_1.0019.263/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2",
+      "area_m2": 1626,
+      "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1626,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-i-nr-2636-obreb-bojkow-wschod-ul-zytnia-1",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "263/2",
+          "dzialka_id": "246601_1.0019.263/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F2"
+        },
+        {
+          "nr": "263/6",
+          "dzialka_id": "246601_1.0019.263/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0019.263%2F6"
         }
       ]
     },

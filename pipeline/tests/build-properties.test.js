@@ -10,7 +10,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildCityData, healStreetVariants, healKinds } from '../src/core/build-properties.js';
+import {
+  buildCityData,
+  deriveAuctionRounds,
+  healStreetVariants,
+  healKinds,
+  syncActiveListingRounds,
+} from '../src/core/build-properties.js';
 import { parseAddress } from '../src/core/normalize.js';
 
 const resultRec = (addrRaw, date, o = {}) => ({
@@ -85,6 +91,44 @@ test('distinct dates remain distinct listings with derived rounds', () => {
   });
   assert.equal(properties[0].listings.length, 2);
   assert.deepEqual(properties[0].listings.map((l) => l.round), [1, 2]);
+  assert.deepEqual(properties[0].listings.map((l) => l.round_source), ['inferred', 'inferred']);
+});
+
+test('deriveAuctionRounds moves only inferred values and preserves an explicit anchor', () => {
+  const property = {
+    listings: [
+      { date: '2026-03-30', round: 1, round_source: 'inferred', outcome: 'unsold' },
+      { date: '2026-05-11', round: 1, round_source: 'inferred', outcome: 'unsold' },
+      { date: '2026-07-06', round: 3, round_source: 'explicit', outcome: 'unsold' },
+      { date: '2026-09-07', round: 3, round_source: 'inferred', outcome: 'active' },
+    ],
+  };
+  deriveAuctionRounds(property);
+  assert.deepEqual(property.listings.map((item) => item.round), [1, 2, 3, 4]);
+  assert.deepEqual(property.listings.map((item) => item.round_source),
+    ['inferred', 'inferred', 'explicit', 'inferred']);
+
+  const active = [{
+    address: parseAddress('Libelta 10/1'), auction_date: '2026-09-07',
+    round: 3, round_source: 'inferred',
+  }];
+  syncActiveListingRounds(active, [{ key: 'libelta|10|1', ...property }]);
+  assert.equal(active[0].round, 4);
+  assert.equal(active[0].round_source, 'inferred');
+});
+
+test('buildCityData preserves optional outcome evidence and owner type', () => {
+  const result = resultRec('ul. Polna 3/2', '2026-01-12', { outcome: 'unsold' });
+  result.outcome_evidence = 'source-explicit';
+  const active = activeListing('ul. Leśna 4/1', '2099-01-12');
+  active.owner_type = 'municipality';
+  const { properties } = buildCityData({
+    allRecords: [result], active: [active], wykaz: [], detailAreas: new Map(),
+  });
+  const resultListing = properties.find((p) => p.key === 'polna|3|2').listings[0];
+  const activeRow = properties.find((p) => p.key === 'lesna|4|1').listings[0];
+  assert.equal(resultListing.outcome_evidence, 'source-explicit');
+  assert.equal(activeRow.owner_type, 'municipality');
 });
 
 test('healStreetVariants folds a post-merge genitive zombie into the nominative property', () => {
