@@ -4,6 +4,40 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Czarnieckiego 11/8",
+      "address": {
+        "street": "Czarnieckiego",
+        "street_norm": "czarnieckiego",
+        "building": "11",
+        "apt": "8",
+        "key": "czarnieckiego|11|8",
+        "warning": null
+      },
+      "area_m2": 26.54,
+      "starting_price_pln": 125000,
+      "auction_date": "2026-09-15",
+      "round": 2,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-ii-przetarg-na-sprzedaz-nieruchomosci/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hugona Kołłątaja 7/2",
+      "address": {
+        "street": "Hugona Kołłątaja",
+        "street_norm": "hugona kollataja",
+        "building": "7",
+        "apt": "2",
+        "key": "hugona kollataja|7|2",
+        "warning": null
+      },
+      "area_m2": 48.36,
+      "starting_price_pln": 270000,
+      "auction_date": "2026-09-15",
+      "round": 2,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-ii-przetarg-na-sprzedaz-nieruchomosci/"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Aleja Gryfa 15/1",
       "address": {
         "street": "Aleja Gryfa",

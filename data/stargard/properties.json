@@ -3,6 +3,72 @@
   "city": "stargard",
   "properties": [
     {
+      "key": "hugona kollataja|7|2",
+      "street": "Hugona Kołłątaja",
+      "street_norm": "hugona kollataja",
+      "building": "7",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "archived",
+          "area_m2": 48.36,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-i-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 48.36,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-ii-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.36
+    },
+    {
+      "key": "czarnieckiego|11|8",
+      "street": "Czarnieckiego",
+      "street_norm": "czarnieckiego",
+      "building": "11",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "archived",
+          "area_m2": 26.54,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-i-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "active",
+          "area_m2": 26.54,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-ii-przetarg-na-sprzedaz-nieruchomosci/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.54
+    },
+    {
       "key": "aleja gryfa|15|1",
       "street": "Aleja Gryfa",
       "street_norm": "aleja gryfa",
@@ -133,28 +199,6 @@
       ]
     },
     {
-      "key": "hugona kollataja|7|2",
-      "street": "Hugona Kołłątaja",
-      "street_norm": "hugona kollataja",
-      "building": "7",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-30",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 270000,
-          "outcome": "archived",
-          "area_m2": 48.36,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-i-przetarg-na-sprzedaz-nieruchomosci/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 48.36
-    },
-    {
       "key": "szczecinska|28B|11",
       "street": "Szczecińska",
       "street_norm": "szczecinska",
@@ -175,28 +219,6 @@
         }
       ],
       "area_m2": 33.99
-    },
-    {
-      "key": "czarnieckiego|11|8",
-      "street": "Czarnieckiego",
-      "street_norm": "czarnieckiego",
-      "building": "11",
-      "apt": "8",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-28",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 125000,
-          "outcome": "archived",
-          "area_m2": 26.54,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-i-przetarg-na-sprzedaz-nieruchomosci/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 26.54
     },
     {
       "key": "ulicy jugoslowianskiej|25|1",
