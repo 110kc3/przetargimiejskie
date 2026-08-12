@@ -3,6 +3,52 @@
   "city": "glogow",
   "properties": [
     {
+      "key": "kamienna droga|49|",
+      "street": "Kamienna Droga",
+      "street_norm": "kamienna droga",
+      "building": "49",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-04-15",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 550000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/8954932984500666d5224f8d2956a0/download",
+          "notes": [],
+          "area_m2": 182.03
+        },
+        {
+          "date": "2025-08-05",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 530000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9b1842187fc44218650b00d407b60c/download",
+          "notes": [],
+          "area_m2": 182.03
+        },
+        {
+          "date": "2026-10-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 500000,
+          "outcome": "active",
+          "area_m2": 182.03,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/EC2CB578-7514-4295-9284-F45FADDC75F5/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 182.03
+    },
+    {
       "key": "rzemieslniczej|21A|9",
       "street": "Rzemieślnicza",
       "street_norm": "rzemieslniczej",
@@ -196,41 +242,6 @@
         }
       ],
       "area_m2": 10.5
-    },
-    {
-      "key": "kamienna droga|49|",
-      "street": "Kamienna Droga",
-      "street_norm": "kamienna droga",
-      "building": "49",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2025-04-15",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 550000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/8954932984500666d5224f8d2956a0/download",
-          "notes": [],
-          "area_m2": 182.03
-        },
-        {
-          "date": "2025-08-05",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 530000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9b1842187fc44218650b00d407b60c/download",
-          "notes": [],
-          "area_m2": 182.03
-        }
-      ],
-      "area_m2": 182.03
     },
     {
       "key": "kamienna droga|37|8",

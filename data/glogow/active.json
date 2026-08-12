@@ -3,6 +3,24 @@
   "city": "glogow",
   "listings": [
     {
+      "kind": "zabudowana",
+      "address_raw": "Kamienna Droga 49",
+      "address": {
+        "street": "Kamienna Droga",
+        "street_norm": "kamienna droga",
+        "building": "49",
+        "apt": null,
+        "key": "kamienna droga|49|",
+        "warning": null
+      },
+      "area_m2": 182.03,
+      "starting_price_pln": 500000,
+      "auction_date": "2026-10-21",
+      "round": 1,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/EC2CB578-7514-4295-9284-F45FADDC75F5/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/EC2CB578-7514-4295-9284-F45FADDC75F5/download"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Rzemieślniczej 21a/9",
       "address": {
