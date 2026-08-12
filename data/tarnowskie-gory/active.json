@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Sienkiewicza 2",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "2",
+        "apt": null,
+        "key": "sienkiewicza|2|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 481,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,102861,burmistrz-miasta-tarnowskie-gory-odwoluje-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruch.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124160"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Pokoju 10/5",
       "address": {
         "street": "Pokoju",

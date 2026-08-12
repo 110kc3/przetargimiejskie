@@ -1167,6 +1167,28 @@
         }
       ],
       "area_m2": 96.5
+    },
+    {
+      "key": "sienkiewicza|2|",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "2",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,102861,burmistrz-miasta-tarnowskie-gory-odwoluje-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruch.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     }
   ]
 }
