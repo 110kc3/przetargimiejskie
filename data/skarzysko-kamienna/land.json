@@ -18,22 +18,14 @@
       "status": null,
       "listings": [
         {
-          "date": "2024-12-09",
-          "round": 1,
-          "starting_price_pln": 215200,
-          "outcome": "archived",
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/10538/26-110-skarzysko-kamienna-ul-prezydenta-rp",
-          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/10538/26-110-skarzysko-kamienna-ul-prezydenta-rp"
-        },
-        {
           "date": "2025-05-16",
-          "round": 2,
+          "round": 1,
           "starting_price_pln": 112700,
           "outcome": "unsold"
         },
         {
           "date": "2025-09-11",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 110000,
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11818/26-110-skarzysko-kamienna-ul-pszenna",
@@ -41,7 +33,7 @@
         },
         {
           "date": "2025-09-30",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 1181000,
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11813/26-110-skarzysko-kamienna-ul-powstancow-warszawy",
@@ -49,19 +41,19 @@
         },
         {
           "date": "2025-10-14",
-          "round": 5,
+          "round": 4,
           "starting_price_pln": 32800,
           "outcome": "unsold"
         },
         {
           "date": "2025-11-18",
-          "round": 6,
+          "round": 5,
           "starting_price_pln": null,
           "outcome": "unsold"
         },
         {
           "date": "2025-11-26",
-          "round": 7,
+          "round": 6,
           "starting_price_pln": 4119000,
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12066/26-110-skarzysko-kamienna-ul-sokola-al-tysiaclecia",
@@ -69,7 +61,7 @@
         },
         {
           "date": "2025-11-28",
-          "round": 8,
+          "round": 7,
           "starting_price_pln": 68500,
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12195/26-110-skarzysko-kamienna-ul-mlodzawy-dzialk-nr-123-7",
@@ -77,11 +69,19 @@
         },
         {
           "date": "2026-01-15",
-          "round": 9,
+          "round": 8,
           "starting_price_pln": 39000,
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12394/26-110-skarzysko-kamienna-ul-fabryczna",
           "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12394/26-110-skarzysko-kamienna-ul-fabryczna"
+        },
+        {
+          "date": "2026-09-14",
+          "round": 9,
+          "starting_price_pln": 100400,
+          "outcome": "active",
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13884/zagorze-gmina-blizyn-ul-wrzosowa",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13884/zagorze-gmina-blizyn-ul-wrzosowa"
         }
       ],
       "parcels": []
