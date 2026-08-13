@@ -4,6 +4,26 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Grójecka 66/78",
+      "address": {
+        "street": "Grójecka",
+        "street_norm": "grojecka",
+        "building": "66",
+        "apt": "78",
+        "key": "grojecka|66|78",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "published_date": "2026-08-12",
+      "round": 1,
+      "area_m2": 26.02,
+      "starting_price_pln": 536000,
+      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/159161/262989",
+      "eto_nr": "16190/2026",
+      "source": "amw"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. W. Bogusławskiego 8/15",
       "address": {
         "street": "W. Bogusławskiego",
