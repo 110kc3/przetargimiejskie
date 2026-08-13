@@ -2779,6 +2779,37 @@
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F15"
         }
       ]
+    },
+    {
+      "key": "dz|politechnika|71/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "71/2",
+      "obreb": "Politechnika",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jagiellońska 34A",
+      "dzialka_id": "246601_1.0043.71/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0043.71%2F2",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-712-obreb-politechnika-ul-jagiellonska-34a"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "71/2",
+          "dzialka_id": "246601_1.0043.71/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0043.71%2F2"
+        }
+      ]
     }
   ]
 }
