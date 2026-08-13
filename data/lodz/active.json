@@ -4,6 +4,86 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Pabianicka 37/18",
+      "address": {
+        "street": "Pabianicka",
+        "street_norm": "pabianicka",
+        "building": "37",
+        "apt": "18",
+        "key": "pabianicka|37|18",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 1,
+      "wadium_pln": null,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Kalinowa-42_inne_20260812.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Pabianicka 37/30",
+      "address": {
+        "street": "Pabianicka",
+        "street_norm": "pabianicka",
+        "building": "37",
+        "apt": "30",
+        "key": "pabianicka|37|30",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "wadium_pln": null,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Kalinowa-42_inne_20260812.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Włókiennicza 18/48",
+      "address": {
+        "street": "Włókiennicza",
+        "street_norm": "wlokiennicza",
+        "building": "18",
+        "apt": "48",
+        "key": "wlokiennicza|18|48",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 2,
+      "wadium_pln": null,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Kalinowa-42_inne_20260812.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Włókiennicza 18/2U",
+      "address": {
+        "street": "Włókiennicza",
+        "street_norm": "wlokiennicza",
+        "building": "18",
+        "apt": "2U",
+        "key": "wlokiennicza|18|2U",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "wadium_pln": null,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Kalinowa-42_inne_20260812.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Sieradzka 9/35",
       "address": {
         "street": "Sieradzka",

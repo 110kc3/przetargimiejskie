@@ -179,6 +179,94 @@
       ]
     },
     {
+      "key": "pabianicka|37|18",
+      "street": "Pabianicka",
+      "street_norm": "pabianicka",
+      "building": "37",
+      "apt": "18",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "pabianicka|37|30",
+      "street": "Pabianicka",
+      "street_norm": "pabianicka",
+      "building": "37",
+      "apt": "30",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "wlokiennicza|18|48",
+      "street": "Włókiennicza",
+      "street_norm": "wlokiennicza",
+      "building": "18",
+      "apt": "48",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "wlokiennicza|18|2U",
+      "street": "Włókiennicza",
+      "street_norm": "wlokiennicza",
+      "building": "18",
+      "apt": "2U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/przetarg-2-1-id174935/2026/08/12/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "grabowa|4|6",
       "street": "Grabowa",
       "street_norm": "grabowa",
