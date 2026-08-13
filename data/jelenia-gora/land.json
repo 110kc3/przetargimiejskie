@@ -287,92 +287,6 @@
       ]
     },
     {
-      "key": "dz|0010, cieplice x, am 1|32/15",
-      "kind": "grunt",
-      "city": "jelenia-gora",
-      "dzialka_nr": "32/15",
-      "obreb": "0010, Cieplice X, AM 1",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F15%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 159,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-12",
-          "round": 1,
-          "starting_price_pln": 35000,
-          "outcome": "active",
-          "area_m2": 159,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25561/73-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/51450"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "32/15",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F15%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|0008, cieplice viii, am 2|39",
-      "kind": "grunt",
-      "city": "jelenia-gora",
-      "dzialka_nr": "39",
-      "obreb": "0008, Cieplice VIII, AM 2",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2039%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 9531,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-29",
-          "round": 2,
-          "starting_price_pln": 990000,
-          "outcome": "unsold",
-          "area_m2": 9531
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "39",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2039%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. kornela makuszyńskiego",
-      "kind": "grunt",
-      "city": "jelenia-gora",
-      "dzialka_nr": null,
-      "obreb": "0013, Sobieszów II, AM 16",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. KORNELA MAKUSZYŃSKIEGO",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20KORNELA%20MAKUSZY%C5%83SKIEGO%200013%2C%20Sobiesz%C3%B3w%20II%2C%20AM%2016%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-24",
-          "round": 2,
-          "starting_price_pln": 1700000,
-          "outcome": "unsold"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "dz|0034, 34, am 2|145",
       "kind": "grunt",
       "city": "jelenia-gora",
@@ -433,37 +347,6 @@
         {
           "nr": "47",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200034%2C%2034%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|32/22",
-      "kind": "grunt",
-      "city": "jelenia-gora",
-      "dzialka_nr": "32/22",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F22%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
-      "area_m2": 159,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 159,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25666/81-2026",
-          "source_url": "https://bip.jeleniagora.pl/attachments/download/51600"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "32/22"
         }
       ]
     },
