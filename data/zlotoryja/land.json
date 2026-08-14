@@ -3,6 +3,37 @@
   "city": "zlotoryja",
   "plots": [
     {
+      "key": "dz|545/18",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "545/18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20545%2F18%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 28,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-18",
+          "round": 1,
+          "starting_price_pln": 75927,
+          "outcome": "active",
+          "area_m2": 28,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/i-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-zabudowanej-garazem-przy-ul-zimowej-w-zlotoryi",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/i-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-gruntowej-zabudowanej-garazem-przy-ul-zimowej-w-zlotoryi"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "545/18"
+        }
+      ]
+    },
+    {
       "key": "dz|207/5, 94/1",
       "kind": "grunt",
       "city": "zlotoryja",

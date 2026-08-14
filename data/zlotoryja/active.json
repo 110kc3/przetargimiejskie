@@ -1,6 +1,61 @@
 {
   "schema_version": 1,
   "city": "zlotoryja",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Legnickiej 32/2",
+      "address": {
+        "street": "Legnickiej",
+        "street_norm": "legnickiej",
+        "building": "32",
+        "apt": "2",
+        "key": "legnickiej|32|2",
+        "warning": null
+      },
+      "area_m2": 20.46,
+      "starting_price_pln": 58597,
+      "auction_date": "2026-09-18",
+      "round": 2,
+      "detail_url": "https://bip.zlotoryja.pl/przetargi-74/ii-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-legnicka-32",
+      "source_url": "https://bip.zlotoryja.pl/przetargi-74/ii-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-legnicka-32"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Fryderyka Chopina 5/2",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "5",
+        "apt": "2",
+        "key": "fryderyka chopina|5|2",
+        "warning": null
+      },
+      "area_m2": 78.5,
+      "starting_price_pln": 310600,
+      "auction_date": "2026-09-18",
+      "round": 1,
+      "detail_url": "https://bip.zlotoryja.pl/przetargi-74/i-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-fryderyka-chopina-5-w-zlotoryi",
+      "source_url": "https://bip.zlotoryja.pl/przetargi-74/i-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-fryderyka-chopina-5-w-zlotoryi"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Garbarskiej 14/2",
+      "address": {
+        "street": "Garbarskiej",
+        "street_norm": "garbarskiej",
+        "building": "14",
+        "apt": "2",
+        "key": "garbarskiej|14|2",
+        "warning": null
+      },
+      "area_m2": 65.63,
+      "starting_price_pln": 217695,
+      "auction_date": "2026-09-18",
+      "round": 2,
+      "detail_url": "https://bip.zlotoryja.pl/przetargi-74/ii-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-garbarska-14-w-zlotoryi",
+      "source_url": "https://bip.zlotoryja.pl/przetargi-74/ii-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-garbarska-14-w-zlotoryi"
+    }
+  ],
   "wykaz": []
 }

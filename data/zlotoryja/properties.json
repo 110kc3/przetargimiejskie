@@ -3,28 +3,6 @@
   "city": "zlotoryja",
   "properties": [
     {
-      "key": "marszalka jozefa pilsudskiego|26|1",
-      "street": "Marszałka Józefa Piłsudskiego",
-      "street_norm": "marszalka jozefa pilsudskiego",
-      "building": "26",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-07",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 254237,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "notes": [],
-          "area_m2": 89.9
-        }
-      ],
-      "area_m2": 89.9
-    },
-    {
       "key": "legnickiej|32|2",
       "street": "Legnickiej",
       "street_norm": "legnickiej",
@@ -42,6 +20,17 @@
           "final_price_pln": null,
           "notes": [],
           "area_m2": 20.46
+        },
+        {
+          "date": "2026-09-18",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 58597,
+          "outcome": "active",
+          "area_m2": 20.46,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/ii-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-legnicka-32",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 20.46
@@ -64,9 +53,64 @@
           "final_price_pln": null,
           "notes": [],
           "area_m2": 65.63
+        },
+        {
+          "date": "2026-09-18",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 217695,
+          "outcome": "active",
+          "area_m2": 65.63,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/ii-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-garbarska-14-w-zlotoryi",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 65.63
+    },
+    {
+      "key": "fryderyka chopina|5|2",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "5",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 310600,
+          "outcome": "active",
+          "area_m2": 78.5,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/i-nieograniczony-przetarg-ustny-na-sprzedaz-lokalu-mieszkalnego-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-prawie-wlasnosci-gruntu-ul-fryderyka-chopina-5-w-zlotoryi",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 78.5
+    },
+    {
+      "key": "marszalka jozefa pilsudskiego|26|1",
+      "street": "Marszałka Józefa Piłsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "26",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 254237,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 89.9
+        }
+      ],
+      "area_m2": 89.9
     }
   ]
 }
