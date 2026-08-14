@@ -35,6 +35,33 @@
       ]
     },
     {
+      "key": "addr|ul. teofila bieli",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": null,
+      "obreb": "Kamień",
+      "street": "Teofila Bieli",
+      "building": null,
+      "address_raw": "ul. Teofila Bieli",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Teofila%20Bieli%20Kamie%C5%84%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 389,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 389,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104891",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3531633"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|orzepowice|1326/12/1327/12",
       "kind": "grunt",
       "city": "rybnik",
