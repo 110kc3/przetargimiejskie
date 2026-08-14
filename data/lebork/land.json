@@ -3,6 +3,61 @@
   "city": "lebork",
   "plots": [
     {
+      "key": "dz|505",
+      "kind": "grunt",
+      "city": "lebork",
+      "dzialka_nr": "505",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20505%20L%C4%99bork%20geoportal%20dzia%C5%82ki",
+      "area_m2": 968,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-10",
+          "round": 1,
+          "starting_price_pln": 505968116000,
+          "outcome": "unsold",
+          "area_m2": 968,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-10"
+        },
+        {
+          "date": "2025-11-19",
+          "round": 2,
+          "starting_price_pln": 505968108000,
+          "outcome": "unsold",
+          "area_m2": 968,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-ii-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-19"
+        },
+        {
+          "date": "2026-01-08",
+          "round": 3,
+          "starting_price_pln": 93000,
+          "outcome": "unsold",
+          "area_m2": 968,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-iii-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-0"
+        },
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "starting_price_pln": 90000,
+          "outcome": "sold",
+          "final_price_pln": 202950,
+          "area_m2": 968,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-05"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "505"
+        }
+      ]
+    },
+    {
       "key": "dz|132/5",
       "kind": "grunt",
       "city": "lebork",
@@ -131,52 +186,6 @@
       "parcels": [
         {
           "nr": "134/5"
-        }
-      ]
-    },
-    {
-      "key": "dz|505",
-      "kind": "grunt",
-      "city": "lebork",
-      "dzialka_nr": "505",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20505%20L%C4%99bork%20geoportal%20dzia%C5%82ki",
-      "area_m2": 968,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-09-10",
-          "round": 1,
-          "starting_price_pln": 505968116000,
-          "outcome": "unsold",
-          "area_m2": 968,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-10"
-        },
-        {
-          "date": "2025-11-19",
-          "round": 2,
-          "starting_price_pln": 505968108000,
-          "outcome": "unsold",
-          "area_m2": 968,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-ii-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-19"
-        },
-        {
-          "date": "2026-01-08",
-          "round": 3,
-          "starting_price_pln": 93000,
-          "outcome": "unsold",
-          "area_m2": 968,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-iii-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-0"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "505"
         }
       ]
     },
