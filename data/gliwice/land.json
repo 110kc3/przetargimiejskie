@@ -254,38 +254,6 @@
       ]
     },
     {
-      "key": "dz|bojków|1312/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1312/2",
-      "obreb": "Bojków",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Chmielna",
-      "dzialka_id": "246601_1.0018.1312/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
-      "area_m2": 1097,
-      "zoning": "mieszkaniowe",
-      "status": "przetarg ogłoszony",
-      "listings": [
-        {
-          "date": "2026-08-10",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 1097,
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1312/2",
-          "dzialka_id": "246601_1.0018.1312/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
-        }
-      ]
-    },
-    {
       "key": "dz|brzezinka|469/5",
       "kind": "grunt",
       "city": "gliwice",
@@ -999,15 +967,15 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.263%2F2",
       "area_m2": 772,
       "zoning": "mieszkaniowo-usługowe",
-      "status": "oferta do wznowienia",
+      "status": "przetarg ogłoszony",
       "listings": [
         {
-          "date": null,
+          "date": "2026-09-15",
           "round": 1,
-          "starting_price_pln": null,
+          "starting_price_pln": 305000,
           "outcome": "active",
           "area_m2": 772,
-          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3367.pdf",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-obreb-bojkow-ul-knurowska-3",
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
         },
         {
@@ -1395,6 +1363,39 @@
           "nr": "41",
           "dzialka_id": "246601_1.0018.41",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.41"
+        }
+      ]
+    },
+    {
+      "key": "dz|bojków|1312/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1312/2",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Chmielna",
+      "dzialka_id": "246601_1.0018.1312/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
+      "area_m2": 1097,
+      "zoning": "mieszkaniowe",
+      "status": "oferta do wznowienia",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1097,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2795.pdf",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1312/2",
+          "dzialka_id": "246601_1.0018.1312/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
