@@ -1152,6 +1152,39 @@
       ]
     },
     {
+      "key": "dz|18|456/3",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "456/3",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "321501_1.0018.456/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F3",
+      "area_m2": 995,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 995,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7543/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-modrzewiowej-i-bukowej",
+          "source_url": "https://bip.szczecinek.pl/artykul/645/7543/przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-modrzewiowej-i-bukowej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "456/3",
+          "dzialka_id": "321501_1.0018.456/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F3"
+        }
+      ]
+    },
+    {
       "key": "dz|09|1448/2",
       "kind": "grunt",
       "city": "szczecinek",
