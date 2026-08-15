@@ -106,12 +106,15 @@
           "round": 5,
           "kind": "zabudowana",
           "starting_price_pln": 2500000,
-          "outcome": "archived",
-          "area_m2": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/attachments/download/14616",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
           "land_area_m2": 854,
-          "detail_url": "https://bip.szczecinek.pl/artykul/645/7418/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7418/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
         }
       ]
     },
