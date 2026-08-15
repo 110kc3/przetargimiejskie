@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T06:03:30.660Z",
+  "generated_at": "2026-08-15T04:59:36.744Z",
   "cities": [
     {
       "id": "gliwice",
@@ -308,7 +308,7 @@
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
       "unique_properties": 56,
-      "active_listings": 42,
+      "active_listings": 4,
       "active_auctions": 34,
       "archived_auctions": 22,
       "wykaz_entries": 0,
@@ -335,8 +335,8 @@
       "host": "bip.bialystok.pl",
       "unique_properties": 118,
       "active_listings": 22,
-      "active_auctions": 17,
-      "archived_auctions": 109,
+      "active_auctions": 15,
+      "archived_auctions": 111,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -555,7 +555,7 @@
       "authority": "Gmina Skarżysko-Kamienna",
       "host": "bip.skarzysko.pl",
       "unique_properties": 5,
-      "active_listings": 5,
+      "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 6,
       "wykaz_entries": 0,
@@ -832,7 +832,7 @@
       "active_auctions": 2,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 12
     },
     {
       "id": "miedzyrzecz",
@@ -949,7 +949,7 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 2,
-      "land_plots": 32
+      "land_plots": 33
     },
     {
       "id": "rawa-mazowiecka",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1192,9 +1192,9 @@
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
       "unique_properties": 18,
-      "active_listings": 6,
-      "active_auctions": 5,
-      "archived_auctions": 13,
+      "active_listings": 4,
+      "active_auctions": 3,
+      "archived_auctions": 15,
       "wykaz_entries": 0,
       "land_plots": 17
     },
