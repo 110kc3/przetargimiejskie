@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T04:59:36.744Z",
+  "generated_at": "2026-08-16T05:04:42.352Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 90,
+      "active_listings": 88,
       "active_auctions": 5,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 110
+      "land_plots": 101
     },
     {
       "id": "trzebinia",
@@ -308,7 +308,7 @@
       "authority": "Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)",
       "host": "bip.uml.lodz.pl",
       "unique_properties": 56,
-      "active_listings": 4,
+      "active_listings": 42,
       "active_auctions": 34,
       "archived_auctions": 22,
       "wykaz_entries": 0,
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1313,7 +1313,7 @@
       "active_auctions": 0,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 8
+      "land_plots": 7
     },
     {
       "id": "znin",
