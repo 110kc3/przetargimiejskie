@@ -26,15 +26,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 280000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 280000,
-          "source_pdf": "https://proszowice.pl/aktualnosc-10934-informacja_o_pierwszym_przetargu_ustnym.html",
-          "notes": [
-            "parse: achieved price not stated; using cena wywoławcza (no postąpienie recorded)"
-          ],
+          "outcome": "archived",
           "area_m2": 43.34,
-          "detail_url": "https://proszowice.pl/aktualnosc-10833-ogloszenie_o_pierwszym_przetargu_ustnym.html"
+          "detail_url": "https://proszowice.pl/aktualnosc-10833-ogloszenie_o_pierwszym_przetargu_ustnym.html",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 43.34
@@ -121,13 +117,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 210000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 212100,
-          "source_pdf": "https://proszowice.pl/aktualnosc-8924-informacja_o_przeprowadzonym_przetargu.html",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 34.05,
-          "detail_url": "https://proszowice.pl/aktualnosc-8766-ogloszenie_przetargu_lokal_mieszkalny.html"
+          "detail_url": "https://proszowice.pl/aktualnosc-8766-ogloszenie_przetargu_lokal_mieszkalny.html",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 34.05
@@ -145,13 +139,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 290000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 370000,
-          "source_pdf": "https://proszowice.pl/aktualnosc-8922-informacja_o_przeprowadzonym_przetargu.html",
-          "notes": [],
+          "outcome": "archived",
           "area_m2": 47.15,
-          "detail_url": "https://proszowice.pl/aktualnosc-8768-ogloszenie_przetargu_lokal_mieszkalny.html"
+          "detail_url": "https://proszowice.pl/aktualnosc-8768-ogloszenie_przetargu_lokal_mieszkalny.html",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 47.15
@@ -169,15 +161,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 110000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 110000,
-          "source_pdf": "https://proszowice.pl/aktualnosc-7879-informacja_o_pierwszych_przetargach.html",
-          "notes": [
-            "parse: achieved price not stated; using cena wywoławcza (no postąpienie recorded)"
-          ],
+          "outcome": "archived",
           "area_m2": 23.09,
-          "detail_url": "https://proszowice.pl/aktualnosc-7731-ogloszenie_pierwszego_przetargu_ustnego.html"
+          "detail_url": "https://proszowice.pl/aktualnosc-7731-ogloszenie_pierwszego_przetargu_ustnego.html",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 23.09
