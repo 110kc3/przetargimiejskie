@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Marii Konopnickiej - działka nr 3482/6",
+      "address": {
+        "street": "Marii Konopnickiej - działka nr",
+        "street_norm": "marii konopnickiej dzialka nr",
+        "building": "3482",
+        "apt": "6",
+        "key": "marii konopnickiej dzialka nr|3482|6",
+        "warning": null
+      },
+      "auction_date": "2026-36-40",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 3737000,
+      "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/870174/sprzedaz__ul_marii_konopnickiej__dzialka_nr_34826_wm6840362026"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jeziorna 15",
+      "address": {
+        "street": "Jeziorna",
+        "street_norm": "jeziorna",
+        "building": "15",
+        "apt": null,
+        "key": "jeziorna|15|",
+        "warning": null
+      },
+      "auction_date": "2026-02-40",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 305000,
+      "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/862537/sprzedaz__ul_jeziorna_15_wm684022026"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Wyszyńskiego 18/14",
       "address": {
         "street": "Wyszyńskiego",

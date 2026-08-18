@@ -3,6 +3,48 @@
   "city": "gniezno",
   "properties": [
     {
+      "key": "marii konopnickiej dzialka nr|3482|6",
+      "street": "Marii Konopnickiej - działka nr",
+      "street_norm": "marii konopnickiej dzialka nr",
+      "building": "3482",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-36-40",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3737000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/870174/sprzedaz__ul_marii_konopnickiej__dzialka_nr_34826_wm6840362026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "jeziorna|15|",
+      "street": "Jeziorna",
+      "street_norm": "jeziorna",
+      "building": "15",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-40",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 305000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/862537/sprzedaz__ul_jeziorna_15_wm684022026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "cierpiegi|18|9A",
       "street": "Cierpięgi",
       "street_norm": "cierpiegi",
