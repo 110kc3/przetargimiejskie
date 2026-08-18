@@ -1953,6 +1953,33 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204042%2F415%200002%20Brz%C4%99czkowice.%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
+    },
+    {
+      "key": "addr|ul. katowickiej",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Katowickiej",
+      "building": null,
+      "address_raw": "ul. Katowickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Katowickiej%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12.869,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 12.869,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-na-dzierzawe-na-okres-30-lat-niezabudowanej-nieruchomosci-o-powierzchni-12-869-m2-po",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-na-dzierzawe-na-okres-30-lat-niezabudowanej-nieruchomosci-o-powierzchni-12-869-m2-po"
+        }
+      ],
+      "parcels": []
     }
   ]
 }
