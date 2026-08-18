@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T05:10:53.080Z",
+  "generated_at": "2026-08-18T05:04:58.343Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,10 +8,10 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 187,
+      "unique_properties": 193,
       "active_listings": 13,
-      "active_auctions": 13,
-      "archived_auctions": 270,
+      "active_auctions": 7,
+      "archived_auctions": 283,
       "wykaz_entries": 9,
       "land_plots": 78
     },
@@ -104,7 +104,7 @@
       "active_auctions": 12,
       "archived_auctions": 62,
       "wykaz_entries": 0,
-      "land_plots": 49
+      "land_plots": 50
     },
     {
       "id": "swietochlowice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 49,
+      "active_listings": 51,
       "active_auctions": 5,
       "archived_auctions": 101,
       "wykaz_entries": 0,
-      "land_plots": 71
+      "land_plots": 83
     },
     {
       "id": "trzebinia",
@@ -334,7 +334,7 @@
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
       "unique_properties": 118,
-      "active_listings": 22,
+      "active_listings": 21,
       "active_auctions": 15,
       "archived_auctions": 111,
       "wykaz_entries": 0,
@@ -476,10 +476,10 @@
       "voivodeship": "wielkopolskie",
       "authority": "Urząd Miasta Gniezna",
       "host": "bip.gniezno.eu",
-      "unique_properties": 4,
-      "active_listings": 3,
-      "active_auctions": 0,
-      "archived_auctions": 4,
+      "unique_properties": 6,
+      "active_listings": 5,
+      "active_auctions": 1,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1196,7 +1196,7 @@
       "active_auctions": 3,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 17
+      "land_plots": 18
     },
     {
       "id": "glubczyce",
