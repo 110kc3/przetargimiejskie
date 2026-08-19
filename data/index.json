@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T05:04:58.343Z",
+  "generated_at": "2026-08-19T05:52:30.853Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,7 +9,7 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 193,
-      "active_listings": 13,
+      "active_listings": 7,
       "active_auctions": 7,
       "archived_auctions": 283,
       "wykaz_entries": 9,
@@ -35,9 +35,9 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 24,
-      "active_listings": 14,
-      "active_auctions": 3,
-      "archived_auctions": 21,
+      "active_listings": 13,
+      "active_auctions": 1,
+      "archived_auctions": 23,
       "wykaz_entries": 0,
       "land_plots": 12
     },
@@ -48,7 +48,7 @@
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
       "unique_properties": 306,
-      "active_listings": 489,
+      "active_listings": 488,
       "active_auctions": 24,
       "archived_auctions": 470,
       "wykaz_entries": 0,
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 51,
-      "active_auctions": 5,
-      "archived_auctions": 101,
+      "active_listings": 90,
+      "active_auctions": 3,
+      "archived_auctions": 103,
       "wykaz_entries": 0,
-      "land_plots": 83
+      "land_plots": 108
     },
     {
       "id": "trzebinia",
@@ -192,8 +192,8 @@
       "host": "bip.um.opole.pl",
       "unique_properties": 45,
       "active_listings": 95,
-      "active_auctions": 9,
-      "archived_auctions": 86,
+      "active_auctions": 8,
+      "archived_auctions": 87,
       "wykaz_entries": 0,
       "land_plots": 24
     },
@@ -503,8 +503,8 @@
       "authority": "Urząd Miasta Przemyśla",
       "host": "bip.przemysl.pl",
       "unique_properties": 2,
-      "active_listings": 2,
-      "active_auctions": 4,
+      "active_listings": 1,
+      "active_auctions": 5,
       "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -829,8 +829,8 @@
       "host": "bipmragowo.warmia.mazury.pl",
       "unique_properties": 2,
       "active_listings": 2,
-      "active_auctions": 2,
-      "archived_auctions": 1,
+      "active_auctions": 0,
+      "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 12
     },
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 2,
+      "wykaz_entries": 1,
       "land_plots": 33
     },
     {
@@ -1075,11 +1075,11 @@
       "authority": "Urząd Miasta Żagań",
       "host": "bip.zagan.pl",
       "unique_properties": 13,
-      "active_listings": 1,
-      "active_auctions": 1,
-      "archived_auctions": 39,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 40,
       "wykaz_entries": 0,
-      "land_plots": 59
+      "land_plots": 58
     },
     {
       "id": "wegrow",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1339,7 +1339,7 @@
       "active_auctions": 1,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 5
+      "land_plots": 4
     },
     {
       "id": "sucha-beskidzka",
@@ -1556,8 +1556,8 @@
       "authority": "Prezydent Miasta Głogowa",
       "host": "glogow.bip.info.pl",
       "unique_properties": 27,
-      "active_listings": 3,
-      "active_auctions": 3,
+      "active_listings": 4,
+      "active_auctions": 4,
       "archived_auctions": 52,
       "wykaz_entries": 0,
       "land_plots": 28
