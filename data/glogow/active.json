@@ -3,6 +3,24 @@
   "city": "glogow",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "Plac 1000-lecia 10/22",
+      "address": {
+        "street": "Plac 1000-lecia",
+        "street_norm": "plac 1000 lecia",
+        "building": "10",
+        "apt": "22",
+        "key": "plac 1000 lecia|10|22",
+        "warning": null
+      },
+      "area_m2": 35.29,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-09-22",
+      "round": 2,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/B6C3C711-2E78-487F-B0BD-1241E679D52C/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/B6C3C711-2E78-487F-B0BD-1241E679D52C/download"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Kamienna Droga 49",
       "address": {

@@ -49,6 +49,52 @@
       "area_m2": 182.03
     },
     {
+      "key": "plac 1000 lecia|10|22",
+      "street": "Plac 1000-lecia",
+      "street_norm": "plac 1000 lecia",
+      "building": "10",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 172000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/f4a24fc72749fb039b5e4e12d428f5/download",
+          "notes": [],
+          "area_m2": 35.29
+        },
+        {
+          "date": "2025-05-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/226146bdd038a6b9812cdf477c2268/download",
+          "notes": [],
+          "area_m2": 35.29
+        },
+        {
+          "date": "2026-09-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 35.29,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/B6C3C711-2E78-487F-B0BD-1241E679D52C/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.29
+    },
+    {
       "key": "rzemieslniczej|21A|9",
       "street": "Rzemieślnicza",
       "street_norm": "rzemieslniczej",
@@ -618,41 +664,6 @@
         }
       ],
       "area_m2": 46.73
-    },
-    {
-      "key": "plac 1000 lecia|10|22",
-      "street": "Plac 1000-lecia",
-      "street_norm": "plac 1000 lecia",
-      "building": "10",
-      "apt": "22",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-01-28",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 172000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/f4a24fc72749fb039b5e4e12d428f5/download",
-          "notes": [],
-          "area_m2": 35.29
-        },
-        {
-          "date": "2025-05-06",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/226146bdd038a6b9812cdf477c2268/download",
-          "notes": [],
-          "area_m2": 35.29
-        }
-      ],
-      "area_m2": 35.29
     },
     {
       "key": "piotra skargi|15|1",
