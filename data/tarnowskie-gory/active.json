@@ -537,24 +537,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Słoneczników 69/11",
-      "address": {
-        "street": "Słoneczników",
-        "street_norm": "slonecznikow",
-        "building": "69",
-        "apt": "11",
-        "key": "slonecznikow|69|11",
-        "warning": null
-      },
-      "area_m2": 28.59,
-      "starting_price_pln": 140000,
-      "auction_date": "2024-11-18",
-      "round": 1,
-      "detail_url": "https://bip.tarnowskiegory.pl/a,97520,ogloszenie-o-pierwszym-przetargu-pisemnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-11-polo.html",
-      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118738"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
       "address": {
         "street": "Kardynała Stefana Wyszyńskiego",
@@ -570,6 +552,24 @@
       "round": 2,
       "detail_url": "https://bip.tarnowskiegory.pl/a,97519,ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego.html",
       "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118737"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 69/11",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "69",
+        "apt": "11",
+        "key": "slonecznikow|69|11",
+        "warning": null
+      },
+      "area_m2": 28.59,
+      "starting_price_pln": 140000,
+      "auction_date": "2024-11-18",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,97520,ogloszenie-o-pierwszym-przetargu-pisemnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-11-polo.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118738"
     },
     {
       "kind": "zabudowana",
