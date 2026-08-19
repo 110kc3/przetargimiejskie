@@ -263,64 +263,57 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-13",
+          "date": "2024-02-20",
           "round": 1,
           "starting_price_pln": 156000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
-          "date": "2024-02-20",
-          "round": 2,
-          "starting_price_pln": 156000,
-          "outcome": "unsold",
-          "area_m2": 1499
-        },
-        {
           "date": "2025-03-03",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
           "date": "2025-07-22",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
           "date": "2025-10-07",
-          "round": 5,
+          "round": 4,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
           "date": "2025-12-16",
-          "round": 6,
+          "round": 5,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
           "date": "2026-03-10",
-          "round": 7,
+          "round": 6,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
           "date": "2026-06-30",
-          "round": 8,
+          "round": 7,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499
         },
         {
           "date": "2026-09-16",
-          "round": 9,
+          "round": 8,
           "starting_price_pln": 153000,
           "outcome": "active",
           "area_m2": 1499,
@@ -623,115 +616,6 @@
       "parcels": [
         {
           "nr": "2116/26"
-        }
-      ]
-    },
-    {
-      "key": "dz|3124/10, 3124/21, 3124/24",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "3124/10, 3124/21, 3124/24",
-      "obreb": null,
-      "street": "Żelaznej",
-      "building": null,
-      "address_raw": "Żelaznej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203124%2F10%2C%203124%2F21%2C%203124%2F24%20%C5%BBelaznej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-18",
-          "round": 1,
-          "starting_price_pln": 671000,
-          "outcome": "active",
-          "detail_url": "https://bip.zagan.pl/przetargi/344/663/1_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__1_Zelazna_3124-10_3124-21_3124-24docx.docx&id=80c5881ef764c6030e1f7c41980bb4ed"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3124/10"
-        },
-        {
-          "nr": "3124/21"
-        },
-        {
-          "nr": "3124/24"
-        }
-      ]
-    },
-    {
-      "key": "dz|3961/3",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "3961/3",
-      "obreb": null,
-      "street": "Piłsudskiego",
-      "building": null,
-      "address_raw": "Piłsudskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203961%2F3%20Pi%C5%82sudskiego%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1451,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-02-20",
-          "round": 1,
-          "starting_price_pln": 184000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
-          "date": "2024-04-23",
-          "round": 2,
-          "starting_price_pln": 184000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
-          "date": "2024-11-19",
-          "round": 3,
-          "starting_price_pln": 184000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
-          "date": "2025-05-15",
-          "round": 4,
-          "starting_price_pln": 204000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
-          "date": "2025-07-22",
-          "round": 5,
-          "starting_price_pln": 204000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
-          "date": "2025-10-07",
-          "round": 6,
-          "starting_price_pln": 204000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
-          "date": "2026-08-18",
-          "round": 7,
-          "starting_price_pln": 204000,
-          "outcome": "active",
-          "area_m2": 1451,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/665/1_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__1_Pilsudskiego3961-3.docx&id=4c083b8f49693f0f9b9479354cb3e1ec"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3961/3"
         }
       ]
     },
@@ -1432,57 +1316,50 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-12",
+          "date": "2024-02-20",
           "round": 1,
           "starting_price_pln": 179000,
           "outcome": "unsold",
           "area_m2": 1750
         },
         {
-          "date": "2024-02-20",
-          "round": 2,
-          "starting_price_pln": 179000,
-          "outcome": "unsold",
-          "area_m2": 1750
-        },
-        {
           "date": "2024-04-23",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 144000,
           "outcome": "unsold",
           "area_m2": 1750
         },
         {
           "date": "2025-03-03",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750
         },
         {
           "date": "2025-05-15",
-          "round": 5,
+          "round": 4,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750
         },
         {
           "date": "2025-07-22",
-          "round": 6,
+          "round": 5,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750
         },
         {
           "date": "2025-10-07",
-          "round": 7,
+          "round": 6,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750
         },
         {
           "date": "2025-12-16",
-          "round": 8,
+          "round": 7,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750
@@ -1491,6 +1368,70 @@
       "parcels": [
         {
           "nr": "2612"
+        }
+      ]
+    },
+    {
+      "key": "dz|3961/3",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "3961/3",
+      "obreb": null,
+      "street": "Piłsudskiego",
+      "building": null,
+      "address_raw": "Piłsudskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203961%2F3%20Pi%C5%82sudskiego%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1451,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-20",
+          "round": 1,
+          "starting_price_pln": 184000,
+          "outcome": "unsold",
+          "area_m2": 1451
+        },
+        {
+          "date": "2024-04-23",
+          "round": 2,
+          "starting_price_pln": 184000,
+          "outcome": "unsold",
+          "area_m2": 1451
+        },
+        {
+          "date": "2024-11-19",
+          "round": 3,
+          "starting_price_pln": 184000,
+          "outcome": "unsold",
+          "area_m2": 1451
+        },
+        {
+          "date": "2025-05-15",
+          "round": 4,
+          "starting_price_pln": 204000,
+          "outcome": "unsold",
+          "area_m2": 1451
+        },
+        {
+          "date": "2025-07-22",
+          "round": 5,
+          "starting_price_pln": 204000,
+          "outcome": "unsold",
+          "area_m2": 1451
+        },
+        {
+          "date": "2025-10-07",
+          "round": 6,
+          "starting_price_pln": 204000,
+          "outcome": "unsold",
+          "area_m2": 1451
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3961/3"
         }
       ]
     },
