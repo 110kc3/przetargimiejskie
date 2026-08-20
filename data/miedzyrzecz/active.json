@@ -1,6 +1,45 @@
 {
   "schema_version": 1,
   "city": "miedzyrzecz",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Stycznia 14/2",
+      "address": {
+        "street": "Stycznia",
+        "street_norm": "stycznia",
+        "building": "14",
+        "apt": "2",
+        "key": "stycznia|14|2",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 340000,
+      "auction_date": "2026-10-06",
+      "round": 1,
+      "detail_url": "https://bip.miedzyrzecz.pl/przetargi/0/368/362_/",
+      "source_url": "https://bip.miedzyrzecz.pl/system/pobierz.php?plik=30_Stycznia_14_m.2.pdf&id=53ada1f225e864d78dcb36af29ae5cb8",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Mieszka I 78B/1",
+      "address": {
+        "street": "Mieszka I",
+        "street_norm": "mieszka i",
+        "building": "78B",
+        "apt": "1",
+        "key": "mieszka i|78B|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 118000,
+      "auction_date": "2026-10-06",
+      "round": 1,
+      "detail_url": "https://bip.miedzyrzecz.pl/przetargi/0/369/363_/",
+      "source_url": "https://bip.miedzyrzecz.pl/system/pobierz.php?plik=Mieszka_I_78B_m._1.pdf&id=bf5da1cee8deaead13711c65443c9651",
+      "round_source": "inferred"
+    }
+  ],
   "wykaz": []
 }
