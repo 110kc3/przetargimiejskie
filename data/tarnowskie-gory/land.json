@@ -24,7 +24,8 @@
           "outcome": "archived",
           "area_m2": 2752,
           "detail_url": "https://bip.tarnowskiegory.pl/a,102575,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-ograniczony-na-sprzedaz-prawa-uzytk.html",
-          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=123768"
+          "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=123768",
+          "final_price_pln": 231290
         }
       ],
       "parcels": [
@@ -73,6 +74,30 @@
           "nr": "1332/75"
         }
       ]
+    },
+    {
+      "key": "addr|ul. polnej",
+      "kind": "grunt",
+      "city": "tarnowskie-gory",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Polnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Polnej%20Tarnowskie%20G%C3%B3ry%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 1,
+          "starting_price_pln": 490000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|tarnowskie góry|1276/55, 1273/55",
