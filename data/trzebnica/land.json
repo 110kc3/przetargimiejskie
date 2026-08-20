@@ -3,6 +3,52 @@
   "city": "trzebnica",
   "plots": [
     {
+      "key": "dz|kobylice|1/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "1/2",
+      "obreb": "Kobylice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kobylice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3873,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 2,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7086"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 3,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7169"
+        },
+        {
+          "date": "2026-09-21",
+          "round": 4,
+          "starting_price_pln": 215700,
+          "outcome": "active",
+          "area_m2": 3873,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3490/przetarg-nr-ggn-p-19-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7182"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|szczytkowice|285",
       "kind": "grunt",
       "city": "trzebnica",
@@ -33,72 +79,6 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki"
         }
       ]
-    },
-    {
-      "key": "addr|kobylice",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": null,
-      "obreb": "Kobylice",
-      "street": null,
-      "building": null,
-      "address_raw": "Kobylice",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-05-13",
-          "round": 1,
-          "starting_price_pln": 215800,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2626/przetargnrggnp102025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5195"
-        },
-        {
-          "date": "2025-07-15",
-          "round": 2,
-          "starting_price_pln": 195000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2711/przetargggnp202025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5363"
-        },
-        {
-          "date": "2025-08-20",
-          "round": 3,
-          "starting_price_pln": 165000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2809/przetargggnp272025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5557"
-        },
-        {
-          "date": "2025-09-29",
-          "round": 4,
-          "starting_price_pln": 165000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2890/przetargggnp352025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5675"
-        },
-        {
-          "date": "2026-05-15",
-          "round": 1,
-          "starting_price_pln": 215700,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3217/przetarg-nr-ggn-p-9-2026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/6511"
-        },
-        {
-          "date": "2026-08-11",
-          "round": 3,
-          "starting_price_pln": 215700,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3446/przetargggnp152026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7072"
-        }
-      ],
-      "parcels": []
     },
     {
       "key": "addr|szczytkowice",
@@ -229,34 +209,62 @@
       ]
     },
     {
-      "key": "dz|kobylice|1/2",
+      "key": "addr|kobylice",
       "kind": "grunt",
       "city": "trzebnica",
-      "dzialka_nr": "1/2",
+      "dzialka_nr": null,
       "obreb": "Kobylice",
       "street": null,
       "building": null,
       "address_raw": "Kobylice",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-07-03",
+          "date": "2025-05-13",
+          "round": 1,
+          "starting_price_pln": 215800,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2626/przetargnrggnp102025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5195"
+        },
+        {
+          "date": "2025-07-15",
           "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2711/przetargggnp202025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5363"
+        },
+        {
+          "date": "2025-08-20",
+          "round": 3,
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2809/przetargggnp272025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5557"
+        },
+        {
+          "date": "2025-09-29",
+          "round": 4,
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2890/przetargggnp352025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5675"
+        },
+        {
+          "date": "2026-05-15",
+          "round": 1,
           "starting_price_pln": 215700,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7086"
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3217/przetarg-nr-ggn-p-9-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6511"
         }
       ],
-      "parcels": [
-        {
-          "nr": "1/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki"
-        }
-      ]
+      "parcels": []
     },
     {
       "key": "addr|biedaszków wielki",

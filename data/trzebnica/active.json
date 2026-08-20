@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
   "city": "trzebnica",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Boleścin 0/2",
+      "address": {
+        "street": "Boleścin",
+        "street_norm": "bolescin",
+        "building": "0",
+        "apt": "2",
+        "key": "bolescin|0|2",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": 14945000,
+      "auction_date": "2026-09-21",
+      "round": 2,
+      "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3489/przetarg-nr-ggn-p-18-2026",
+      "source_url": "https://bip.trzebnica.pl/attachments/download/7181"
+    }
+  ],
   "wykaz": []
 }
