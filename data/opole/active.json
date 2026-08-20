@@ -344,6 +344,23 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Reymonta 3/6",
+      "address": {
+        "street": "Władysława Reymonta",
+        "street_norm": "wladyslawa reymonta",
+        "building": "3",
+        "apt": "6",
+        "key": "wladyslawa reymonta|3|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 702000,
+      "auction_date": "2026-10-21",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_481"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Księdza Jana Dzierżona 9/7",
       "address": {
         "street": "Księdza Jana Dzierżona",

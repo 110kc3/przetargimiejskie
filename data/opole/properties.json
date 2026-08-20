@@ -3,6 +3,82 @@
   "city": "opole",
   "properties": [
     {
+      "key": "wladyslawa reymonta|3|6",
+      "street": "Władysława Reymonta",
+      "street_norm": "wladyslawa reymonta",
+      "building": "3",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 702000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_141",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-07-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 631800,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_172",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-06-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 770000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_270",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-09-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 693000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_310",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 780000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_451",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 702000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_481",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "ksiedza jana dzierzona|9|7",
       "street": "Księdza Jana Dzierżona",
       "street_norm": "ksiedza jana dzierzona",
@@ -300,71 +376,6 @@
         }
       ],
       "area_m2": 74.44
-    },
-    {
-      "key": "wladyslawa reymonta|3|6",
-      "street": "Władysława Reymonta",
-      "street_norm": "wladyslawa reymonta",
-      "building": "3",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2024-04-23",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 702000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_141",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-07-10",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 631800,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_172",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-06-10",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 770000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_270",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-09-03",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 693000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-9_310",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-07-21",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 780000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_451",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
     },
     {
       "key": "augustyna kosnego|26|9",
