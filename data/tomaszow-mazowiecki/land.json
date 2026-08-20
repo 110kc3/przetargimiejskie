@@ -35,6 +35,53 @@
       ]
     },
     {
+      "key": "dz|10|672",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "672",
+      "obreb": "10",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Środkowej 3",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20672%20ul.%20%C5%9Arodkowej%203%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 530,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-02-23",
+          "round": 2,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 530,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619386"
+        },
+        {
+          "date": "2026-05-04",
+          "round": 3,
+          "starting_price_pln": 227000,
+          "outcome": "unsold",
+          "area_m2": 530,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622118"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 4,
+          "starting_price_pln": 227000,
+          "outcome": "unsold",
+          "area_m2": 530,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=625792"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "672",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20672%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. spalskiej 42",
       "kind": "grunt",
       "city": "tomaszow-mazowiecki",
@@ -240,45 +287,6 @@
         {
           "nr": "490",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|10|672",
-      "kind": "grunt",
-      "city": "tomaszow-mazowiecki",
-      "dzialka_nr": "672",
-      "obreb": "10",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Środkowej 3",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20672%20ul.%20%C5%9Arodkowej%203%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
-      "area_m2": 530,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-02-23",
-          "round": 2,
-          "starting_price_pln": 250000,
-          "outcome": "unsold",
-          "area_m2": 530,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=619386"
-        },
-        {
-          "date": "2026-05-04",
-          "round": 3,
-          "starting_price_pln": 227000,
-          "outcome": "unsold",
-          "area_m2": 530,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622118"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "672",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20672%2010%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
