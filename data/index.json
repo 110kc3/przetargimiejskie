@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T05:52:30.853Z",
+  "generated_at": "2026-08-20T05:07:00.062Z",
   "cities": [
     {
       "id": "gliwice",
@@ -12,7 +12,7 @@
       "active_listings": 7,
       "active_auctions": 7,
       "archived_auctions": 283,
-      "wykaz_entries": 9,
+      "wykaz_entries": 8,
       "land_plots": 78
     },
     {
@@ -130,7 +130,7 @@
       "active_auctions": 5,
       "archived_auctions": 60,
       "wykaz_entries": 0,
-      "land_plots": 47
+      "land_plots": 48
     },
     {
       "id": "kedzierzyn-kozle",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 90,
+      "active_listings": 50,
       "active_auctions": 3,
       "archived_auctions": 103,
       "wykaz_entries": 0,
-      "land_plots": 108
+      "land_plots": 78
     },
     {
       "id": "trzebinia",
@@ -191,8 +191,8 @@
       "authority": "Urząd Miasta Opola (Wydział Gospodarki Nieruchomościami)",
       "host": "bip.um.opole.pl",
       "unique_properties": 45,
-      "active_listings": 95,
-      "active_auctions": 8,
+      "active_listings": 96,
+      "active_auctions": 9,
       "archived_auctions": 87,
       "wykaz_entries": 0,
       "land_plots": 24
@@ -296,8 +296,8 @@
       "host": "bip.wejherowo.pl",
       "unique_properties": 11,
       "active_listings": 11,
-      "active_auctions": 11,
-      "archived_auctions": 0,
+      "active_auctions": 6,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -476,10 +476,10 @@
       "voivodeship": "wielkopolskie",
       "authority": "Urząd Miasta Gniezna",
       "host": "bip.gniezno.eu",
-      "unique_properties": 6,
-      "active_listings": 5,
-      "active_auctions": 1,
-      "archived_auctions": 5,
+      "unique_properties": 8,
+      "active_listings": 7,
+      "active_auctions": 2,
+      "archived_auctions": 6,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -504,8 +504,8 @@
       "host": "bip.przemysl.pl",
       "unique_properties": 2,
       "active_listings": 1,
-      "active_auctions": 5,
-      "archived_auctions": 1,
+      "active_auctions": 4,
+      "archived_auctions": 2,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -788,11 +788,11 @@
       "voivodeship": "wielkopolskie",
       "authority": "Urząd Miejski w Chodzieży",
       "host": "bip.chodziez.pl",
-      "unique_properties": 5,
+      "unique_properties": 6,
       "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 3,
-      "wykaz_entries": 1,
+      "wykaz_entries": 2,
       "land_plots": 1
     },
     {
@@ -828,11 +828,11 @@
       "authority": "Gmina Miasto Mrągowo",
       "host": "bipmragowo.warmia.mazury.pl",
       "unique_properties": 2,
-      "active_listings": 2,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 10
     },
     {
       "id": "miedzyrzecz",
@@ -840,9 +840,9 @@
       "voivodeship": "lubuskie",
       "authority": "Urząd Miejski w Międzyrzeczu",
       "host": "bip.miedzyrzecz.pl",
-      "unique_properties": 16,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "unique_properties": 18,
+      "active_listings": 2,
+      "active_auctions": 2,
       "archived_auctions": 36,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -997,8 +997,8 @@
       "authority": "Gmina Trzebnica",
       "host": "bip.trzebnica.pl",
       "unique_properties": 13,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "active_listings": 1,
+      "active_auctions": 1,
       "archived_auctions": 26,
       "wykaz_entries": 0,
       "land_plots": 41
@@ -1079,7 +1079,7 @@
       "active_auctions": 0,
       "archived_auctions": 40,
       "wykaz_entries": 0,
-      "land_plots": 58
+      "land_plots": 59
     },
     {
       "id": "wegrow",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1183,7 +1183,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 23
+      "land_plots": 22
     },
     {
       "id": "jelenia-gora",
@@ -1191,12 +1191,12 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
-      "unique_properties": 18,
-      "active_listings": 4,
-      "active_auctions": 3,
+      "unique_properties": 19,
+      "active_listings": 5,
+      "active_auctions": 4,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 18
+      "land_plots": 17
     },
     {
       "id": "glubczyce",
@@ -1413,9 +1413,9 @@
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
       "unique_properties": 66,
-      "active_listings": 375,
-      "active_auctions": 26,
-      "archived_auctions": 40,
+      "active_listings": 360,
+      "active_auctions": 25,
+      "archived_auctions": 41,
       "wykaz_entries": 0,
       "land_plots": 0
     },
