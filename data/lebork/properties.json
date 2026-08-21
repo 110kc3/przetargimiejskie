@@ -92,11 +92,11 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 120000,
-          "outcome": "archived",
-          "area_m2": 42.25,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalne-1",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 42.25
         }
       ],
       "area_m2": 42.25
@@ -114,11 +114,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 249000,
-          "outcome": "archived",
-          "area_m2": 60.16,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 60.16
         }
       ],
       "area_m2": 60.16
@@ -136,11 +136,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 287000,
-          "outcome": "archived",
-          "area_m2": 62.72,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-5",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 62.72
         }
       ],
       "area_m2": 62.72
@@ -158,11 +158,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 113000,
-          "outcome": "archived",
-          "area_m2": 29.31,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 29.31
         }
       ],
       "area_m2": 29.31
@@ -202,14 +204,40 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 158000,
-          "outcome": "archived",
-          "area_m2": 41.82,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkalny-4",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 41.82
         }
       ],
       "area_m2": 41.82
+    },
+    {
+      "key": "sklodowskiej|22|",
+      "street": "Skłodowskiej",
+      "street_norm": "sklodowskiej",
+      "building": "22",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 21.46
+        }
+      ],
+      "area_m2": 21.46
     },
     {
       "key": "e plater|10|8",
