@@ -3,6 +3,39 @@
   "city": "poznan",
   "plots": [
     {
+      "key": "dz|plewiska|610/3",
+      "kind": "grunt",
+      "city": "poznan",
+      "dzialka_nr": "610/3",
+      "obreb": "Plewiska",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "306401_1.0041.AR_10.610/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=306401_1.0041.AR_10.610%2F3",
+      "area_m2": 578,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "starting_price_pln": 560000,
+          "outcome": "active",
+          "area_m2": 578,
+          "detail_url": "https://bip.poznan.pl/bip/news.html?co=print&id=284440&instance=1056&lang=pl&parent=0&category=null&or_id=24",
+          "source_url": "https://bip.poznan.pl/bip/news.html?co=print&id=284440&instance=1056&lang=pl&parent=0&category=null&or_id=24"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "610/3",
+          "dzialka_id": "306401_1.0041.AR_10.610/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=306401_1.0041.AR_10.610%2F3"
+        }
+      ]
+    },
+    {
       "key": "dz|krzyżowniki|99/30",
       "kind": "grunt",
       "city": "poznan",
