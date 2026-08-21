@@ -89,7 +89,7 @@
       "address_raw": "Kalinowice, dz. nr 294/7",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%2C%20dz.%20nr%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "area_m2": 1660,
       "zoning": null,
       "status": null,
       "listings": [
@@ -98,6 +98,13 @@
           "round": 1,
           "starting_price_pln": 130000,
           "outcome": "unsold"
+        },
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 1660
         }
       ],
       "parcels": [
