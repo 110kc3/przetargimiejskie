@@ -3,137 +3,32 @@
   "city": "pleszew",
   "plots": [
     {
-      "key": "dz|nowej wsi|249/7",
-      "kind": "grunt",
-      "city": "pleszew",
-      "dzialka_nr": "249/7",
-      "obreb": "Nowej Wsi",
-      "street": null,
-      "building": null,
-      "address_raw": "Nowej Wsi",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F7%20Nowej%20Wsi%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki",
-      "area_m2": 869,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-07-08",
-          "round": 1,
-          "starting_price_pln": 91020,
-          "outcome": "unsold",
-          "area_m2": 869
-        },
-        {
-          "date": "2025-09-15",
-          "round": 2,
-          "starting_price_pln": 91020,
-          "outcome": "unsold",
-          "area_m2": 869
-        },
-        {
-          "date": "2026-08-18",
-          "round": 4,
-          "starting_price_pln": 91020,
-          "outcome": "archived",
-          "area_m2": 869,
-          "detail_url": "https://bip.pleszew.pl/pleszewm/zasoby/files/nieruchomosci/2026/gp-obw-10072026.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "249/7",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F7%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|nowej wsi|249/8",
+      "key": "dz|nowa   wieś|249/8",
       "kind": "grunt",
       "city": "pleszew",
       "dzialka_nr": "249/8",
-      "obreb": "Nowej Wsi",
+      "obreb": "Nowa   Wieś",
       "street": null,
       "building": null,
-      "address_raw": "Nowej Wsi",
+      "address_raw": "Nowa   Wieś",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F8%20Nowej%20Wsi%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F8%20Nowa%20%20%20Wie%C5%9B%20Nowa%20%20%20Wie%C5%9B%20Pleszew%20geoportal%20dzia%C5%82ki",
       "area_m2": 860,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2025-07-08",
-          "round": 1,
-          "starting_price_pln": 91020,
-          "outcome": "unsold",
-          "area_m2": 860
-        },
-        {
-          "date": "2025-09-15",
-          "round": 2,
-          "starting_price_pln": 91020,
-          "outcome": "unsold",
-          "area_m2": 860
-        },
-        {
           "date": "2026-08-18",
           "round": 4,
           "starting_price_pln": 91020,
-          "outcome": "archived",
-          "area_m2": 860,
-          "detail_url": "https://bip.pleszew.pl/pleszewm/zasoby/files/nieruchomosci/2026/gp-obw-10072026.pdf"
+          "outcome": "unsold",
+          "area_m2": 860
         }
       ],
       "parcels": [
         {
           "nr": "249/8",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F8%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|nowej wsi|249/9",
-      "kind": "grunt",
-      "city": "pleszew",
-      "dzialka_nr": "249/9",
-      "obreb": "Nowej Wsi",
-      "street": null,
-      "building": null,
-      "address_raw": "Nowej Wsi",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F9%20Nowej%20Wsi%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki",
-      "area_m2": 860,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-07-08",
-          "round": 1,
-          "starting_price_pln": 91020,
-          "outcome": "unsold",
-          "area_m2": 860
-        },
-        {
-          "date": "2025-09-15",
-          "round": 2,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "area_m2": 860
-        },
-        {
-          "date": "2026-08-18",
-          "round": 4,
-          "starting_price_pln": 91020,
-          "outcome": "archived",
-          "area_m2": 860,
-          "detail_url": "https://bip.pleszew.pl/pleszewm/zasoby/files/nieruchomosci/2026/gp-obw-10072026.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "249/9",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F9%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki"
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F8%20Nowa%20%20%20Wie%C5%9B%20Pleszew%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -317,6 +212,117 @@
         {
           "nr": "1854/2",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201854%2F2%20Pleszewie%20Pleszew%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nowej wsi|249/7",
+      "kind": "grunt",
+      "city": "pleszew",
+      "dzialka_nr": "249/7",
+      "obreb": "Nowej Wsi",
+      "street": null,
+      "building": null,
+      "address_raw": "Nowej Wsi",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F7%20Nowej%20Wsi%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki",
+      "area_m2": 869,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "starting_price_pln": 91020,
+          "outcome": "unsold",
+          "area_m2": 869
+        },
+        {
+          "date": "2025-09-15",
+          "round": 2,
+          "starting_price_pln": 91020,
+          "outcome": "unsold",
+          "area_m2": 869
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "249/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F7%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nowej wsi|249/8",
+      "kind": "grunt",
+      "city": "pleszew",
+      "dzialka_nr": "249/8",
+      "obreb": "Nowej Wsi",
+      "street": null,
+      "building": null,
+      "address_raw": "Nowej Wsi",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F8%20Nowej%20Wsi%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki",
+      "area_m2": 860,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "starting_price_pln": 91020,
+          "outcome": "unsold",
+          "area_m2": 860
+        },
+        {
+          "date": "2025-09-15",
+          "round": 2,
+          "starting_price_pln": 91020,
+          "outcome": "unsold",
+          "area_m2": 860
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "249/8",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F8%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nowej wsi|249/9",
+      "kind": "grunt",
+      "city": "pleszew",
+      "dzialka_nr": "249/9",
+      "obreb": "Nowej Wsi",
+      "street": null,
+      "building": null,
+      "address_raw": "Nowej Wsi",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F9%20Nowej%20Wsi%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki",
+      "area_m2": 860,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "starting_price_pln": 91020,
+          "outcome": "unsold",
+          "area_m2": 860
+        },
+        {
+          "date": "2025-09-15",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 860
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "249/9",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20249%2F9%20Nowej%20Wsi%20Pleszew%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
