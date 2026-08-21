@@ -124,18 +124,19 @@
       "street_norm": "kosciuszki",
       "building": "22",
       "apt": null,
-      "kind": "zabudowana",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-07-14",
           "round": 1,
-          "kind": "zabudowana",
+          "kind": "mieszkalny",
           "starting_price_pln": 3500000,
           "outcome": "unsold",
           "unsold_reason": "unknown",
           "final_price_pln": null,
-          "source_pdf": "https://bip.szczecinek.pl/attachments/download/14534",
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7504/informacja-o-przetargu-z-dnia-14-07-2026r-na-zbycie-nieruchomosci-przy-ulicy-kosciuszki-22",
           "notes": [
+            "parse: missing starting price",
             "parse: no achieved price and no explicit negative outcome"
           ],
           "detail_url": "https://bip.szczecinek.pl/artykul/645/7373/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",

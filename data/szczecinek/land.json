@@ -3,6 +3,37 @@
   "city": "szczecinek",
   "plots": [
     {
+      "key": "dz|18|82",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "82",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pilskiej",
+      "dzialka_id": "321501_1.0018.82",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.82",
+      "area_m2": 1943,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 4,
+          "starting_price_pln": 460000,
+          "outcome": "unsold",
+          "area_m2": 1943
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "82",
+          "dzialka_id": "321501_1.0018.82",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.82"
+        }
+      ]
+    },
+    {
       "key": "dz|28|88/9",
       "kind": "grunt",
       "city": "szczecinek",
