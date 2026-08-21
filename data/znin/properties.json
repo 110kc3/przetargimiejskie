@@ -15,9 +15,25 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 82000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "outcome_evidence": "inferred",
+          "unsold_reason": "superseded_by_next_round",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.gminaznin.pl/nieruchomosc/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-jadown-1",
+          "notes": [
+            "no achieved-price document is published on bip.gminaznin.pl (see parse.js header) — outcome inferred from a later round of the same subject being published, not a source-stated result"
+          ],
           "area_m2": 56,
-          "detail_url": "https://bip.gminaznin.pl/nieruchomosc/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-jadown-1",
+          "detail_url": "https://bip.gminaznin.pl/nieruchomosc/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-jadown-1"
+        },
+        {
+          "date": "2026-09-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "active",
+          "area_m2": 56,
+          "detail_url": "https://bip.gminaznin.pl/nieruchomosc/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-jadownika-1",
           "wadium_deadline": null,
           "viewing_date": null
         }
