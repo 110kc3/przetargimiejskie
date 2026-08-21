@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-20T05:07:00.062Z",
+  "generated_at": "2026-08-21T05:08:23.535Z",
   "cities": [
     {
       "id": "gliwice",
@@ -114,8 +114,8 @@
       "host": "bip.swietochlowice.pl",
       "unique_properties": 97,
       "active_listings": 207,
-      "active_auctions": 10,
-      "archived_auctions": 203,
+      "active_auctions": 8,
+      "archived_auctions": 205,
       "wykaz_entries": 0,
       "land_plots": 21
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 50,
+      "active_listings": 43,
       "active_auctions": 3,
       "archived_auctions": 103,
       "wykaz_entries": 0,
-      "land_plots": 78
+      "land_plots": 41
     },
     {
       "id": "trzebinia",
@@ -309,8 +309,8 @@
       "host": "bip.uml.lodz.pl",
       "unique_properties": 56,
       "active_listings": 42,
-      "active_auctions": 34,
-      "archived_auctions": 22,
+      "active_auctions": 27,
+      "archived_auctions": 29,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -399,9 +399,9 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 34,
-      "active_listings": 4,
-      "active_auctions": 3,
-      "archived_auctions": 35,
+      "active_listings": 3,
+      "active_auctions": 1,
+      "archived_auctions": 37,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -582,8 +582,8 @@
       "host": "nowasol.pl",
       "unique_properties": 8,
       "active_listings": 9,
-      "active_auctions": 2,
-      "archived_auctions": 7,
+      "active_auctions": 0,
+      "archived_auctions": 9,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -832,7 +832,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 10
+      "land_plots": 12
     },
     {
       "id": "miedzyrzecz",
@@ -936,7 +936,7 @@
       "active_auctions": 0,
       "archived_auctions": 2,
       "wykaz_entries": 15,
-      "land_plots": 21
+      "land_plots": 22
     },
     {
       "id": "pisz",
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 1,
+      "wykaz_entries": 0,
       "land_plots": 33
     },
     {
@@ -1027,7 +1027,7 @@
       "active_auctions": 0,
       "archived_auctions": 24,
       "wykaz_entries": 0,
-      "land_plots": 54
+      "land_plots": 55
     },
     {
       "id": "wegorzewo",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1191,12 +1191,12 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
-      "unique_properties": 19,
+      "unique_properties": 20,
       "active_listings": 5,
       "active_auctions": 4,
-      "archived_auctions": 15,
+      "archived_auctions": 16,
       "wykaz_entries": 0,
-      "land_plots": 17
+      "land_plots": 18
     },
     {
       "id": "glubczyce",
@@ -1322,8 +1322,8 @@
       "authority": "Urząd Miejski w Żninie (Burmistrz Żnina)",
       "host": "bip.gminaznin.pl",
       "unique_properties": 2,
-      "active_listings": 3,
-      "active_auctions": 0,
+      "active_listings": 4,
+      "active_auctions": 1,
       "archived_auctions": 3,
       "wykaz_entries": 0,
       "land_plots": 13
@@ -1360,10 +1360,10 @@
       "voivodeship": "pomorskie",
       "authority": "Gmina Miasto Lębork",
       "host": "bip.um.lebork.pl",
-      "unique_properties": 26,
+      "unique_properties": 27,
       "active_listings": 2,
       "active_auctions": 2,
-      "archived_auctions": 34,
+      "archived_auctions": 35,
       "wykaz_entries": 0,
       "land_plots": 10
     },
@@ -1391,7 +1391,7 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 1
+      "land_plots": 2
     },
     {
       "id": "elblag",
@@ -1534,7 +1534,7 @@
       "active_auctions": 1,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 40
+      "land_plots": 41
     },
     {
       "id": "golub-dobrzyn",
