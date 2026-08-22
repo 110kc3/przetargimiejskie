@@ -3,6 +3,27 @@
   "city": "tomaszow-mazowiecki",
   "properties": [
     {
+      "key": "konstytucji|3|",
+      "street": "Konstytucji",
+      "street_norm": "konstytucji",
+      "building": "3",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 600000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=625848",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "hallera|23|",
       "street": "Hallera",
       "street_norm": "hallera",

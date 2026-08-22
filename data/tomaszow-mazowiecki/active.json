@@ -3,6 +3,24 @@
   "city": "tomaszow-mazowiecki",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "Konstytucji 3",
+      "address": {
+        "street": "Konstytucji",
+        "street_norm": "konstytucji",
+        "building": "3",
+        "apt": null,
+        "key": "konstytucji|3|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 600000,
+      "auction_date": "2026-10-26",
+      "detail_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=625848",
+      "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=625848"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Hallera 23",
       "address": {
