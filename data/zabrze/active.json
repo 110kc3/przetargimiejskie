@@ -4,6 +4,142 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Panieńskie Skały 6/6",
+      "address": {
+        "street": "Panieńskie Skały",
+        "street_norm": "panienskie skaly",
+        "building": "6",
+        "apt": "6",
+        "key": "panienskie skaly|6|6",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 25.16,
+      "starting_price_pln": 80000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Panieńskie Skały 6/10",
+      "address": {
+        "street": "Panieńskie Skały",
+        "street_norm": "panienskie skaly",
+        "building": "6",
+        "apt": "10",
+        "key": "panienskie skaly|6|10",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 25.16,
+      "starting_price_pln": 78000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Żwirki i Wigury 9/1",
+      "address": {
+        "street": "Żwirki i Wigury",
+        "street_norm": "zwirki i wigury",
+        "building": "9",
+        "apt": "1",
+        "key": "zwirki i wigury|9|1",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 33.42,
+      "starting_price_pln": 140000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Reform Rolnych 6/7",
+      "address": {
+        "street": "Reform Rolnych",
+        "street_norm": "reform rolnych",
+        "building": "6",
+        "apt": "7",
+        "key": "reform rolnych|6|7",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 29.88,
+      "starting_price_pln": 110000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Franklina Roosevelta 47/4",
+      "address": {
+        "street": "Franklina Roosevelta",
+        "street_norm": "franklina roosevelta",
+        "building": "47",
+        "apt": "4",
+        "key": "franklina roosevelta|47|4",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 43.7,
+      "starting_price_pln": 170000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Franklina Roosevelta 47/11",
+      "address": {
+        "street": "Franklina Roosevelta",
+        "street_norm": "franklina roosevelta",
+        "building": "47",
+        "apt": "11",
+        "key": "franklina roosevelta|47|11",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 34.5,
+      "starting_price_pln": 130000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Franklina Roosevelta 49/6",
+      "address": {
+        "street": "Franklina Roosevelta",
+        "street_norm": "franklina roosevelta",
+        "building": "49",
+        "apt": "6",
+        "key": "franklina roosevelta|49|6",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 33.58,
+      "starting_price_pln": 130000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Franklina Roosevelta 57/21",
+      "address": {
+        "street": "Franklina Roosevelta",
+        "street_norm": "franklina roosevelta",
+        "building": "57",
+        "apt": "21",
+        "key": "franklina roosevelta|57|21",
+        "warning": null
+      },
+      "auction_date": "2026-10-20",
+      "round": 1,
+      "area_m2": 44.4,
+      "starting_price_pln": 160000,
+      "detail_url": "https://bip.miastozabrze.pl/doc/26532"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Młodzieżowa 10/4",
       "address": {
         "street": "Młodzieżowa",
