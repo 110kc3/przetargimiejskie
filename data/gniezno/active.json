@@ -58,6 +58,24 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Wrzesińska - działka nr 3865/21",
+      "address": {
+        "street": "Wrzesińska - działka nr",
+        "street_norm": "wrzesinska dzialka nr",
+        "building": "3865",
+        "apt": "21",
+        "key": "wrzesinska dzialka nr|3865|21",
+        "warning": null
+      },
+      "auction_date": "2026-05-07",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 5211000,
+      "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/869671/sprzedaz__ul_wrzesinska__dzialka_nr_386521_wm684052026"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Mieszka I 16/9",
       "address": {
         "street": "Mieszka I",
@@ -73,6 +91,24 @@
       "area_m2": null,
       "starting_price_pln": 234000,
       "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/893053/sprzedaz__ul_mieszka_i_169_wm6840182026"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Cierpięgi 18/9a",
+      "address": {
+        "street": "Cierpięgi",
+        "street_norm": "cierpiegi",
+        "building": "18",
+        "apt": "9A",
+        "key": "cierpiegi|18|9A",
+        "warning": null
+      },
+      "auction_date": "2026-01-29",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 54000,
+      "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/856735/sprzedaz___ul_cierpiegi_189a_wm6840182025"
     },
     {
       "kind": "mieszkalny",
