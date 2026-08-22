@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T05:08:23.535Z",
+  "generated_at": "2026-08-22T05:02:46.833Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,12 +8,12 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 193,
+      "unique_properties": 194,
       "active_listings": 7,
       "active_auctions": 7,
       "archived_auctions": 283,
       "wykaz_entries": 8,
-      "land_plots": 78
+      "land_plots": 79
     },
     {
       "id": "katowice",
@@ -26,7 +26,7 @@
       "active_auctions": 17,
       "archived_auctions": 149,
       "wykaz_entries": 0,
-      "land_plots": 8
+      "land_plots": 9
     },
     {
       "id": "bytom",
@@ -47,9 +47,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miejski w Zabrzu",
       "host": "bip.miastozabrze.pl",
-      "unique_properties": 306,
-      "active_listings": 488,
-      "active_auctions": 24,
+      "unique_properties": 314,
+      "active_listings": 496,
+      "active_auctions": 32,
       "archived_auctions": 470,
       "wykaz_entries": 0,
       "land_plots": 28
@@ -62,8 +62,8 @@
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 52,
       "active_listings": 96,
-      "active_auctions": 8,
-      "archived_auctions": 90,
+      "active_auctions": 7,
+      "archived_auctions": 91,
       "wykaz_entries": 0,
       "land_plots": 227
     },
@@ -231,8 +231,8 @@
       "host": "um.bip.legnica.eu",
       "unique_properties": 15,
       "active_listings": 8,
-      "active_auctions": 8,
-      "archived_auctions": 8,
+      "active_auctions": 5,
+      "archived_auctions": 11,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -476,10 +476,10 @@
       "voivodeship": "wielkopolskie",
       "authority": "Urząd Miasta Gniezna",
       "host": "bip.gniezno.eu",
-      "unique_properties": 8,
-      "active_listings": 7,
+      "unique_properties": 9,
+      "active_listings": 9,
       "active_auctions": 2,
-      "archived_auctions": 6,
+      "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -621,10 +621,10 @@
       "host": "bip.braniewo.pl",
       "unique_properties": 11,
       "active_listings": 9,
-      "active_auctions": 1,
-      "archived_auctions": 16,
+      "active_auctions": 0,
+      "archived_auctions": 17,
       "wykaz_entries": 0,
-      "land_plots": 33
+      "land_plots": 34
     },
     {
       "id": "belchatow",
@@ -948,8 +948,8 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 0,
-      "land_plots": 33
+      "wykaz_entries": 2,
+      "land_plots": 32
     },
     {
       "id": "rawa-mazowiecka",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1230,10 +1230,10 @@
       "voivodeship": "pomorskie",
       "authority": "Urząd Miejski w Kwidzynie (Burmistrz Miasta Kwidzyna)",
       "host": "bip.kwidzyn.pl",
-      "unique_properties": 5,
+      "unique_properties": 6,
       "active_listings": 0,
-      "active_auctions": 2,
-      "archived_auctions": 5,
+      "active_auctions": 0,
+      "archived_auctions": 8,
       "wykaz_entries": 0,
       "land_plots": 7
     },
@@ -1412,9 +1412,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
-      "unique_properties": 66,
-      "active_listings": 360,
-      "active_auctions": 25,
+      "unique_properties": 67,
+      "active_listings": 337,
+      "active_auctions": 26,
       "archived_auctions": 41,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1529,9 +1529,9 @@
       "voivodeship": "lodzkie",
       "authority": "Prezydent Miasta Tomaszowa Mazowieckiego (Wydział Gospodarki Nieruchomościami)",
       "host": "bip.tomaszow.miasta.pl",
-      "unique_properties": 6,
-      "active_listings": 1,
-      "active_auctions": 1,
+      "unique_properties": 7,
+      "active_listings": 2,
+      "active_auctions": 2,
       "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 41
