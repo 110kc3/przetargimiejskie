@@ -83,7 +83,8 @@
           "outcome": "archived",
           "area_m2": 1219,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72309"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72309",
+          "final_price_pln": 147000
         },
         {
           "date": "2025-11-26",
@@ -367,6 +368,13 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2025-10-09",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 1136
+        },
         {
           "date": "2025-11-25",
           "round": 2,
