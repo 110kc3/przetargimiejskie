@@ -152,6 +152,19 @@
   ],
   "wykaz": [
     {
+      "wykaz_no": "ZGM/DS/181/2026",
+      "address_raw": "Królowej Jadwigi 14/18",
+      "address": {
+        "street": "Królowej Jadwigi",
+        "street_norm": "krolowej jadwigi",
+        "building": "14",
+        "apt": "18",
+        "key": "krolowej jadwigi|14|18",
+        "warning": null
+      },
+      "published_date": null
+    },
+    {
       "wykaz_no": "ZGM/DS/126/2026",
       "address_raw": "Derkacza 2/8",
       "address": {
@@ -225,19 +238,6 @@
         "building": "3",
         "apt": "8",
         "key": "strzody|3|8",
-        "warning": null
-      },
-      "published_date": null
-    },
-    {
-      "wykaz_no": "ZGM/DS/97/2026",
-      "address_raw": "Mewy 3/9",
-      "address": {
-        "street": "Mewy",
-        "street_norm": "mewy",
-        "building": "3",
-        "apt": "9",
-        "key": "mewy|3|9",
         "warning": null
       },
       "published_date": null

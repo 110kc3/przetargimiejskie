@@ -3,6 +3,37 @@
   "city": "gliwice",
   "plots": [
     {
+      "key": "dz|nowe gliwice|72/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "72/2",
+      "obreb": "Nowe Gliwice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Pszczyńska 204",
+      "dzialka_id": "246601_1.0037.72/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-20",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-722-obreb-nowe-gliwice-ul-pszczynska-204"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "72/2",
+          "dzialka_id": "246601_1.0037.72/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2"
+        }
+      ]
+    },
+    {
       "key": "dz|żerniki|620",
       "kind": "grunt",
       "city": "gliwice",
