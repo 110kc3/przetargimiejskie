@@ -3,37 +3,6 @@
   "city": "olkusz",
   "plots": [
     {
-      "key": "dz|968/136",
-      "kind": "grunt",
-      "city": "olkusz",
-      "dzialka_nr": "968/136",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Zielonej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20968%2F136%20ul.%20Zielonej%20Olkusz%20geoportal%20dzia%C5%82ki",
-      "area_m2": 671,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-11-17",
-          "round": 2,
-          "starting_price_pln": 200000,
-          "outcome": "archived",
-          "area_m2": 671,
-          "detail_url": "https://umig.olkusz.pl/index.php/2023/10/13/13-10-2023-ogloszenie-4/",
-          "source_url": "https://umig.olkusz.pl/index.php/2023/10/13/13-10-2023-ogloszenie-4/"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "968/136"
-        }
-      ]
-    },
-    {
       "key": "addr|ul. rabsztyńskiej",
       "kind": "grunt",
       "city": "olkusz",
@@ -177,6 +146,46 @@
       "parcels": [
         {
           "nr": "968/137"
+        }
+      ]
+    },
+    {
+      "key": "dz|968/136",
+      "kind": "grunt",
+      "city": "olkusz",
+      "dzialka_nr": "968/136",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zielonej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20968%2F136%20ul.%20Zielonej%20Olkusz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 671,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-11-17",
+          "round": 2,
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 671,
+          "detail_url": "https://umig.olkusz.pl/index.php/2023/10/13/13-10-2023-ogloszenie-4/",
+          "source_url": "https://umig.olkusz.pl/index.php/2023/10/13/13-10-2023-ogloszenie-4/"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 671,
+          "detail_url": "https://umig.olkusz.pl/index.php/2023/07/28/28-07-2023-ogloszenie-9/",
+          "source_url": "https://umig.olkusz.pl/index.php/2023/07/28/28-07-2023-ogloszenie-9/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "968/136"
         }
       ]
     },
