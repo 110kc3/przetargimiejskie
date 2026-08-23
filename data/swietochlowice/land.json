@@ -132,8 +132,8 @@
       "street": "Zielonej",
       "building": null,
       "address_raw": "ul. Zielonej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203946%2F4%20Zielonej%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.3946/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3946%2F4",
       "area_m2": 29836,
       "zoning": null,
       "status": null,
@@ -150,7 +150,9 @@
       ],
       "parcels": [
         {
-          "nr": "3946/4"
+          "nr": "3946/4",
+          "dzialka_id": "247601_1.0003.3946/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3946%2F4"
         }
       ]
     },
@@ -194,8 +196,8 @@
       "street": "Wojska Polskiego",
       "building": null,
       "address_raw": "ul. Wojska Polskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204252%20Wojska%20Polskiego%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.4252",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4252",
       "area_m2": 4584,
       "zoning": null,
       "status": null,
@@ -212,7 +214,9 @@
       ],
       "parcels": [
         {
-          "nr": "4252"
+          "nr": "4252",
+          "dzialka_id": "247601_1.0003.4252",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4252"
         }
       ]
     },
@@ -292,8 +296,8 @@
       "street": "granicy z m",
       "building": null,
       "address_raw": "ul. granicy z m",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203116%2F175%20granicy%20z%20m%20Chropacz%C3%B3w%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0001.3116/175",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3116%2F175",
       "area_m2": 37749,
       "zoning": null,
       "status": null,
@@ -319,7 +323,9 @@
       ],
       "parcels": [
         {
-          "nr": "3116/175"
+          "nr": "3116/175",
+          "dzialka_id": "247601_1.0001.3116/175",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3116%2F175"
         }
       ]
     },
@@ -332,8 +338,8 @@
       "street": "Góra Hugona w Świętochłowicach",
       "building": null,
       "address_raw": "ul. Góra Hugona w Świętochłowicach",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20125%20G%C3%B3ra%20Hugona%20w%20%C5%9Awi%C4%99toch%C5%82owicach%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.125",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.125",
       "area_m2": 3001,
       "zoning": null,
       "status": null,
@@ -350,7 +356,9 @@
       ],
       "parcels": [
         {
-          "nr": "125"
+          "nr": "125",
+          "dzialka_id": "247601_1.0003.125",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.125"
         }
       ]
     },
@@ -363,8 +371,8 @@
       "street": "Hucie Florian",
       "building": null,
       "address_raw": "ul. Hucie Florian",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203979%20Hucie%20Florian%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.3979",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3979",
       "area_m2": 1115,
       "zoning": null,
       "status": null,
@@ -390,7 +398,9 @@
       ],
       "parcels": [
         {
-          "nr": "3979"
+          "nr": "3979",
+          "dzialka_id": "247601_1.0003.3979",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3979"
         }
       ]
     },
@@ -403,8 +413,8 @@
       "street": "Granicznej",
       "building": null,
       "address_raw": "ul. Granicznej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203427%20Granicznej%20Chropacz%C3%B3w%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0001.3427",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3427",
       "area_m2": 343,
       "zoning": null,
       "status": null,
@@ -430,7 +440,9 @@
       ],
       "parcels": [
         {
-          "nr": "3427"
+          "nr": "3427",
+          "dzialka_id": "247601_1.0001.3427",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0001.3427"
         }
       ]
     },
@@ -443,8 +455,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203384%2F14%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.3384/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3384%2F14",
       "area_m2": 1680,
       "zoning": null,
       "status": null,
@@ -461,7 +473,9 @@
       ],
       "parcels": [
         {
-          "nr": "3384/14"
+          "nr": "3384/14",
+          "dzialka_id": "247601_1.0003.3384/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.3384%2F14"
         }
       ]
     },
@@ -492,10 +506,12 @@
       ],
       "parcels": [
         {
-          "nr": "0"
+          "nr": "0",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "0209"
+          "nr": "0209",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200209%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -553,8 +569,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20568%2F116%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.568/116",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.568%2F116",
       "area_m2": 1152,
       "zoning": null,
       "status": null,
@@ -571,7 +587,9 @@
       ],
       "parcels": [
         {
-          "nr": "568/116"
+          "nr": "568/116",
+          "dzialka_id": "247601_1.0003.568/116",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.568%2F116"
         }
       ]
     },
@@ -584,8 +602,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204424%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.4424",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4424",
       "area_m2": 495,
       "zoning": null,
       "status": null,
@@ -602,7 +620,9 @@
       ],
       "parcels": [
         {
-          "nr": "4424"
+          "nr": "4424",
+          "dzialka_id": "247601_1.0003.4424",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.4424"
         }
       ]
     },
@@ -633,7 +653,8 @@
       ],
       "parcels": [
         {
-          "nr": "1329/133"
+          "nr": "1329/133",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201329%2F133%200003%20(%C5%9Awi%C4%99toch%C5%82owice)%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -704,8 +725,8 @@
       "street": null,
       "building": null,
       "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201602%2F285%200003%20%C5%9Awi%C4%99toch%C5%82owice%20%C5%9Awi%C4%99toch%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "247601_1.0003.1602/285",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.1602%2F285",
       "area_m2": 860,
       "zoning": null,
       "status": null,
@@ -722,7 +743,9 @@
       ],
       "parcels": [
         {
-          "nr": "1602/285"
+          "nr": "1602/285",
+          "dzialka_id": "247601_1.0003.1602/285",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247601_1.0003.1602%2F285"
         }
       ]
     }
