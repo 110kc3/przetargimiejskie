@@ -235,6 +235,71 @@ jobs:
           path: triage/
           retention-days: 14
 
+  # Institutional sellers use a row-based contract under data/providers/ and
+  # run once per refresh (never as fake cities). A single-city diagnostic run
+  # skips this job so it cannot mutate unrelated data.
+  providers:
+    needs: setup
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.only_city == '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Install OCR toolchain
+        run: |
+          sudo grep -rlZ packages.microsoft.com /etc/apt/sources.list.d/ 2>/dev/null | sudo xargs -0r rm -f || true
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-pol
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Install pipeline deps
+        working-directory: pipeline
+        run: npm ci || npm install
+
+      - name: Refresh PKP and AMW feeds
+        id: provider_refresh
+        continue-on-error: true
+        working-directory: pipeline
+        run: npm run refresh:providers
+
+      - name: Sanity-check provider data
+        id: provider_health
+        if: always()
+        continue-on-error: true
+        working-directory: pipeline
+        run: npm run health:providers
+
+      - name: Commit and push if provider data changed
+        if: always() && steps.provider_health.outcome == 'success'
+        run: |
+          git config user.name  "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add data/providers pipeline/ocr-cache
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "data: refresh institutional providers $(date -u +%Y-%m-%d)"
+            for i in 1 2 3 4 5 6; do
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt $i failed; retrying ..."
+              sleep $(( (RANDOM % 8) + 2 ))
+            done
+            echo "could not push provider data after 6 attempts" >&2
+            exit 1
+          fi
+
+      # refresh-providers preserves the failed feed but still writes a healthy
+      # sibling feed. Commit that safe partial progress above, then keep the job
+      # red so the source incident remains visible.
+      - name: Fail on provider refresh or health error
+        if: always() && (steps.provider_refresh.outcome != 'success' || steps.provider_health.outcome != 'success')
+        run: exit 1
+
   # Turn the per-city triage artifacts into GitHub issues: one open issue per
   # broken city ([city-broken] <id>: <why>, body = a paste-into-Claude-Code
   # triage prompt), a "still failing" comment on repeats, auto-close on
@@ -296,7 +361,7 @@ jobs:
   # Rebuild data/index.json once, after every city job has finished (also when
   # some failed — their last-published meta.json keeps them in the index).
   index:
-    needs: [setup, refresh]
+    needs: [setup, refresh, providers]
     if: ${{ always() && needs.setup.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10

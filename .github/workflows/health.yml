@@ -28,6 +28,9 @@ on:
     paths:
       - 'data/**'
       - 'pipeline/scripts/health-check.js'
+      - 'pipeline/scripts/provider-health-check.js'
+      - 'pipeline/src/providers/**'
+      - 'pipeline/src/refresh-providers.js'
 
 permissions:
   contents: read
@@ -60,6 +63,13 @@ jobs:
           STALE_DAYS: ${{ inputs.stale_days || '3' }}
           HEALTH_JSON_OUT: ${{ github.workspace }}/health-failures.json
         run: node scripts/health-check.js
+
+      - name: Check institutional provider feeds
+        if: always()
+        working-directory: pipeline
+        env:
+          PROVIDER_STALE_DAYS: ${{ inputs.stale_days || '3' }}
+        run: node scripts/provider-health-check.js
 
       # Turn the FAILs into per-city issues + close recovered health-owned ones.
       # always(): the sync must run precisely when the step above exited 1.

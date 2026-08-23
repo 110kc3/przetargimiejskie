@@ -86,11 +86,13 @@ body.hide-map .map-col{display:none}
 .empty-row td{color:var(--faint);text-align:center;padding:22px}
 .chip{display:inline-flex;align-items:center;gap:7px;margin-right:8px;font-size:12.5px;color:var(--fg);font-weight:600}
 .chip .city-dot{width:7px;height:7px}
-.city-dot{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block}
+.city-dot{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block;background:var(--faint)}
+.seller-badge{display:inline-block;margin-right:7px;padding:1px 7px;border-radius:999px;font-size:10.5px;font-weight:700;
+  color:var(--accent-hi);background:var(--accent-weak);border:1px solid var(--border-2);vertical-align:1px;white-space:nowrap}
 .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600;line-height:1.5}
 .pill-sold{color:var(--ok);background:var(--ok-bg)}
 .pill-unsold{color:var(--bad);background:var(--bad-bg)}
-.pill-archived,.pill-no_winner{color:var(--muted);background:var(--surface-2)}
+.pill-archived,.pill-no_winner,.pill-cancelled{color:var(--muted);background:var(--surface-2)}
 .pill-reason{color:var(--faint);font-weight:500;font-size:12px;margin-left:2px}
 .badge-share{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600;
   color:var(--accent-hi);background:var(--accent-weak);border:1px solid var(--border-2);vertical-align:1px;white-space:nowrap}
@@ -124,6 +126,8 @@ body.hide-map .map-col{display:none}
       <select class="control" id="f-woj"><option value="all">Wszystkie</option></select></label>
     <label class="field"><span class="field-label">Miasto</span>
       <select class="control" id="f-city"><option value="all">Wszystkie</option></select></label>
+    <label class="field" id="f-seller-field" hidden><span class="field-label">Sprzedający</span>
+      <select class="control" id="f-seller"><option value="all">Wszyscy</option><option value="municipality">Miasto / gmina</option></select></label>
     <label class="field"><span class="field-label">Rodzaj</span>
       <select class="control" id="f-class">
         <option value="mieszkalny">mieszkania</option>
@@ -133,7 +137,7 @@ body.hide-map .map-col{display:none}
       <select class="control" id="f-outcome">
         <option value="all">Wszystkie</option><option value="sold">sprzedane</option>
         <option value="unsold">bez sprzedaży</option><option value="no_winner">bez rozstrzygnięcia</option>
-        <option value="archived">zakończone</option></select></label>
+        <option value="archived">zakończone</option><option value="cancelled">odwołane / unieważnione</option></select></label>
     <label class="field"><span class="field-label">Rok</span>
       <select class="control" id="f-year"><option value="all">Wszystkie lata</option></select></label>
     <label class="field"><span class="field-label">Szukaj ulicy</span>
@@ -189,7 +193,7 @@ const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',zabudowa:'dom',grunt:'dzi
 const KIND_ALIAS = {zabudowa:'zabudowana',zabudowy:'zabudowana'};
 const aliasKind = k => KIND_ALIAS[k] || k;
 const roundLabel = r => r ? `${r}. przet.` : '—';
-const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia'};
+const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia',cancelled:'odwołane / unieważnione'};
 // Why the auction didn't sell, in Polish. 'unknown' carries no info → suppressed
 // (the "bez sprzedaży" pill already says it didn't sell). Unmapped codes fall
 // through to their raw value so a new reason still surfaces rather than vanishes.
@@ -234,6 +238,7 @@ let sortKey='date', sortDir='desc';
 let aSortKey='date', aSortDir='asc';
 
 function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${esc(city)}"></span>${esc(label||city)}</span>`; }
+function sellerBadge(r){ return r.seller&&r.seller!=='municipality'?`<span class="seller-badge">${esc(r.sellerLabel||r.seller)}</span>`:''; }
 function addrText(r){ return `${r.street||''} ${r.building||''}${r.apt?'/'+r.apt:''}`.trim(); }
 function arrow(k){ return sortKey===k?`<span class="arrow">${sortDir==='asc'?'▲':'▼'}</span>`:''; }
 function aArrow(k){ return aSortKey===k?`<span class="arrow">${aSortDir==='asc'?'▲':'▼'}</span>`:''; }
@@ -249,10 +254,38 @@ async function load(){
   // voivodeship and every city, gated or not.
   const SHOW_ALL = /archiwum-all/.test(location.pathname);
   CITIES = (idx.cities||[]).filter(c => SHOW_ALL || c.public !== false);
+  const MUNICIPAL_CITIES = CITIES.slice();
   if (SHOW_ALL) { const t=document.querySelector('.arc-title'); if(t) t.textContent='Archiwum przetargów — wszystkie miasta (wersja testowa)'; }
-  lastRefresh = (idx.generated_at||'').slice(0,10);
+
+  // Institutional feeds are a pilot visible only on /archiwum-all. Their
+  // files and metrics stay separate from the municipal city contract.
+  let providerIndex={providers:[]}, providerDocs=[];
+  if(SHOW_ALL){
+    try{
+      providerIndex=await fetch('/data/providers/index.json').then(r=>r.ok?r.json():({providers:[]}));
+      providerDocs=(await Promise.all((providerIndex.providers||[]).map(async p=>{
+        try{return {provider:p,doc:await fetch(`/data/providers/${p.id}/listings.json`).then(r=>r.ok?r.json():null)};}
+        catch(e){return null;}
+      }))).filter(x=>x&&x.doc&&Array.isArray(x.doc.listings));
+    }catch(e){ providerIndex={providers:[]}; providerDocs=[]; }
+  }
+
+  const cityByFold=new Map(CITIES.map(c=>[fold(c.label),c]));
+  for(const {doc} of providerDocs) for(const row of doc.listings){
+    const key=fold(row.city); if(!key||cityByFold.has(key)) continue;
+    const base=`provider-${row.city_norm||key.replace(/\s+/g,'-')}`;
+    let id=base,n=2; while(CITIES.some(c=>c.id===id)) id=`${base}-${n++}`;
+    const city={id,label:row.city,voivodeship:row.voivodeship||null,providerOnly:true};
+    CITIES.push(city); cityByFold.set(key,city);
+  }
+  lastRefresh=[idx.generated_at,providerIndex.generated_at].filter(Boolean).sort().at(-1)?.slice(0,10);
   const fc=document.getElementById('f-city');
   CITIES.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.label;fc.appendChild(o);});
+  if(providerDocs.length){
+    const seller=document.getElementById('f-seller');
+    for(const p of providerIndex.providers||[]){const o=document.createElement('option');o.value=p.id;o.textContent=p.label;seller.appendChild(o);}
+    document.getElementById('f-seller-field').hidden=false;
+  }
   // Voivodeship (województwo) filter, driven by index.json's per-city voivodeship.
   WOJ_BY_CITY = Object.fromEntries(CITIES.map(c=>[c.id, c.voivodeship||null]));
   const WOJ_LABELS = {dolnoslaskie:'Dolnośląskie','kujawsko-pomorskie':'Kujawsko-Pomorskie',lubelskie:'Lubelskie',lubuskie:'Lubuskie',lodzkie:'Łódzkie',malopolskie:'Małopolskie',mazowieckie:'Mazowieckie',opolskie:'Opolskie',podkarpackie:'Podkarpackie',podlaskie:'Podlaskie',pomorskie:'Pomorskie',slaskie:'Śląskie',swietokrzyskie:'Świętokrzyskie','warminsko-mazurskie':'Warmińsko-Mazurskie',wielkopolskie:'Wielkopolskie',zachodniopomorskie:'Zachodniopomorskie'};
@@ -263,7 +296,7 @@ async function load(){
   // Picking a voivodeship narrows the city dropdown to that voivodeship.
   fw.addEventListener('change',()=>{ const w=fw.value; for(const o of fc.options){ if(o.value==='all') continue; o.hidden = w!=='all' && WOJ_BY_CITY[o.value]!==w; } if(fc.selectedOptions[0]&&fc.selectedOptions[0].hidden) fc.value='all'; });
 
-  await Promise.all(CITIES.map(async c=>{
+  await Promise.all(MUNICIPAL_CITIES.map(async c=>{
     try{
       const [props, act, land] = await Promise.all([
         fetch(`/data/${c.id}/properties.json`).then(r=>r.json()).catch(()=>({properties:[]})),
@@ -281,27 +314,44 @@ async function load(){
       for(const p of (props.properties||[]))
         for(const l of (p.listings||[]))
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))
-            records.push({city:c.id,cityLabel:c.label,kind:l.kind||p.kind,street:p.street,building:p.building,apt:p.apt,
+            records.push({city:c.id,cityLabel:c.label,seller:'municipality',sellerLabel:'Miasto / gmina',kind:l.kind||p.kind,street:p.street,building:p.building,apt:p.apt,
               date:l.date,round:l.round,area:l.area_m2??p.area_m2??l.land_area_m2,plotArea:(l.area_m2!=null&&l.land_area_m2!=null)?l.land_area_m2:null,start:l.starting_price_pln,final:l.final_price_pln,
               outcome:l.outcome,reason:l.unsold_reason,share:l.share??p.share,src:l.source_pdf||l.detail_url,bip:l.bip_url});
       for(const l of (act.listings||[]))
         if(!l.auction_date || l.auction_date>=TODAY)
-          active.push({city:c.id,cityLabel:c.label,kind:l.kind,addr:l.address_raw,round:l.round,
+          active.push({city:c.id,cityLabel:c.label,seller:'municipality',sellerLabel:'Miasto / gmina',kind:l.kind,addr:l.address_raw,round:l.round,
             area:l.area_m2??l.land_area_m2,plotArea:(l.area_m2!=null&&l.land_area_m2!=null)?l.land_area_m2:null,start:l.starting_price_pln,date:l.auction_date,share:l.share,url:l.detail_url,bip:l.bip_url});
       for(const p of (land.plots||[])){
         const disp = p.street ? `${p.street}${p.building?' '+p.building:''}` : (p.dzialka_nr?`dz. ${p.dzialka_nr}${p.obreb?' ('+p.obreb+')':''}`:(p.address_raw||'—'));
         for(const l of (p.listings||[])){
           if(['sold','unsold','archived','no_winner'].includes(l.outcome))
-            records.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',
+            records.push({city:c.id,cityLabel:c.label,seller:'municipality',sellerLabel:'Miasto / gmina',kind:'grunt',street:disp,building:'',apt:'',
               date:l.date,round:l.round,area:p.area_m2??l.area_m2,start:l.starting_price_pln,final:l.final_price_pln,
               outcome:l.outcome,reason:null,share:null,src:l.detail_url||l.source_url,bip:null,portal:l.source_url,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
           else if(l.outcome==='active' && (!l.date || l.date>=TODAY))
-            active.push({city:c.id,cityLabel:c.label,kind:'grunt',addr:disp,round:l.round,
+            active.push({city:c.id,cityLabel:c.label,seller:'municipality',sellerLabel:'Miasto / gmina',kind:'grunt',addr:disp,round:l.round,
               area:p.area_m2??l.area_m2,start:l.starting_price_pln,date:l.date,share:null,url:l.detail_url||l.source_url,bip:null,portal:l.source_url,geo:p.geoportal_url,dz:p.dzialka_nr,parcels:p.parcels,status:p.status});
         }
       }
     }catch(e){}
   }));
+
+  let providerRowCount=0;
+  for(const {provider,doc} of providerDocs) for(const row of doc.listings||[]){
+    const place=cityByFold.get(fold(row.city)); if(!place) continue;
+    const common={city:place.id,cityLabel:place.label,seller:provider.id,sellerLabel:provider.label,
+      kind:aliasKind(row.kind)||'unknown',round:row.round,area:row.kind==='grunt'?(row.land_area_m2??row.area_m2):row.area_m2,
+      start:row.starting_price_pln,share:null};
+    if(row.outcome==='active'&&(!row.auction_date||row.auction_date>=TODAY)){
+      active.push({...common,addr:row.address_raw,date:row.auction_date,url:row.detail_url||row.offer_url,status:row.source_status});
+      providerRowCount++;
+    }else if(['sold','unsold','archived','no_winner','cancelled'].includes(row.outcome)){
+      records.push({...common,street:row.street||row.address_raw,building:row.building||'',apt:row.apt||'',
+        date:row.auction_date,final:row.final_price_pln,outcome:row.outcome,reason:null,
+        src:row.result_url||row.detail_url||row.offer_url,bip:null,status:row.source_status});
+      providerRowCount++;
+    }
+  }
 
   const dates = records.map(r=>r.date).filter(Boolean).sort();
   minDate=dates[0]; maxDate=dates[dates.length-1];
@@ -310,9 +360,9 @@ async function load(){
   years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;fy.appendChild(o);});
 
   document.getElementById('sub').textContent =
-    `Dane od ${minDate||'—'} do ${maxDate||'—'} · ${records.length} rekordów · odświeżono ${lastRefresh||'—'}`;
+    `Dane od ${minDate||'—'} do ${maxDate||'—'} · ${records.length} rekordów${providerRowCount?` · pilot instytucjonalny: ${providerRowCount}`:''} · odświeżono ${lastRefresh||'—'}`;
 
-  ['f-woj','f-city','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  ['f-woj','f-city','f-seller','f-class','f-outcome','f-year','f-q'].forEach(id=>document.getElementById(id).addEventListener('input',render));
   document.querySelectorAll('th[data-sort]').forEach(th=>{
     th.dataset.label = th.textContent.trim();
     th.addEventListener('click',()=>{
@@ -370,6 +420,7 @@ function activeCmp(a,b){ const av=activeVal(a), bv=activeVal(b);
 function render(){
   const woj=document.getElementById('f-woj').value,
         city=document.getElementById('f-city').value,
+        seller=document.getElementById('f-seller').value,
         cls=document.getElementById('f-class').value,
         outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
         q=fold(document.getElementById('f-q').value.trim());
@@ -379,16 +430,18 @@ function render(){
   // The Mapa (Google Maps) column is for non-land listings only.
   document.body.classList.toggle('hide-map', cls==='grunt');
   const cityYear = r => (woj==='all'||WOJ_BY_CITY[r.city]===woj) && (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
-  renderSummary(records.filter(cityYear));
+  const showMunicipalSummary=seller==='all'||seller==='municipality';
+  document.getElementById('tiles').hidden=!showMunicipalSummary;
+  if(showMunicipalSummary) renderSummary(records.filter(r=>r.seller==='municipality'&&cityYear(r)));
 
-  const match = r => cityYear(r) && (cls==='all'||r.kind===cls) && (outcome==='all'||r.outcome===outcome)
+  const match = r => cityYear(r) && (seller==='all'||r.seller===seller) && (cls==='all'||r.kind===cls) && (outcome==='all'||r.outcome===outcome)
     && (!q || fold(addrText(r)).includes(q));
   let rows = records.filter(match);
   rows.sort((a,b)=>{const av=getSort(a),bv=getSort(b);const c=(typeof av==='number'&&typeof bv==='number')?av-bv:String(av).localeCompare(String(bv));return sortDir==='asc'?c:-c;});
   document.getElementById('count').textContent = rows.length+' rekordów';
   document.getElementById('hist-body').innerHTML = rows.map(r=>`<tr>
     <td class="num muted-cell">${esc(r.date)||esc(r.status)||'<span title="Brak daty w dokumencie źródłowym">—</span>'}</td>
-    <td class="addr">${chip(r.city,r.cityLabel)}${esc(addrText(r))}${shareBadge(r.share)}</td>
+    <td class="addr">${chip(r.city,r.cityLabel)}${sellerBadge(r)}${esc(addrText(r))}${shareBadge(r.share)}</td>
     <td>${esc(KIND[r.kind]||r.kind)}</td>
     <td>${roundLabel(r.round)}</td>
     <td class="num">${fmtArea(r.area)}</td>
@@ -401,7 +454,7 @@ function render(){
     <td>${srcLink(r.src)}${bipLink(r.bip)}${r.kind==='grunt'&&r.portal&&r.portal!==r.src?portalLink(r.portal):''}</td>
   </tr>`).join('') || '<tr class="empty-row"><td colspan="12">Brak rekordów dla wybranych filtrów.</td></tr>';
 
-  const acts = active.filter(a=>(woj==='all'||WOJ_BY_CITY[a.city]===woj)&&(city==='all'||a.city===city)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
+  const acts = active.filter(a=>(woj==='all'||WOJ_BY_CITY[a.city]===woj)&&(city==='all'||a.city===city)&&(seller==='all'||a.seller===seller)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
   // Header-driven sort (Data default = soonest first). Undated / unpriced rows
   // always sink to the bottom so the "—" cells never displace rows with a value.
   acts.sort(activeCmp);
@@ -409,7 +462,7 @@ function render(){
     const href = safeHref(a.url);
     return `<tr>
     <td class="num muted-cell">${esc(a.date)||esc(a.status)||'<span title="Wykaz / pre-ogłoszenie — urząd nie ustalił jeszcze terminu przetargu">termin nieogłoszony</span>'}</td>
-    <td class="addr">${chip(a.city,a.cityLabel)}${esc(a.addr)||''}${shareBadge(a.share)}</td>
+    <td class="addr">${chip(a.city,a.cityLabel)}${sellerBadge(a)}${esc(a.addr)||''}${shareBadge(a.share)}</td>
     <td>${esc(KIND[a.kind]||a.kind)}</td>
     <td>${roundLabel(a.round)}</td>
     <td class="num">${fmtArea(a.area)}</td>

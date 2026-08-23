@@ -416,6 +416,23 @@ verified-junk list) and check whether sibling records share the mis-parse.
   publication period, keeping only annual summaries (confirmed by the Referat
   Obrotu Nieruchomościami, 23 June 2026). Pipeline already uses the summaries.
 
+### Institutional-source pilot — graduation and residuals
+
+PKP + AMW now refresh into the separate `data/providers/` contract and appear
+seller-labelled only on `/archiwum-all`; city files, city medians and the
+extension remain untouched. Source contracts and limitations are recorded in
+[`spikes/providers/`](./spikes/providers/README.md). Remaining work:
+
+- let the scheduled job complete three consecutive green refreshes, then
+  manually spot-check at least five active and five result links per provider;
+- after that gate, decide whether to graduate the labelled rows to public
+  `/archiwum` (still excluded from municipal summary medians);
+- add provider-specific issue synchronization if workflow-only failure alerts
+  prove too easy to miss;
+- Orange stays deferred: its official portal mixes ordinary offers and auctions
+  and exposes no dependable result pairing. Revisit only on a new official
+  auction/result endpoint, not by relabelling all offers as auctions.
+
 ## 3 · Extension
 
 ### T1 — surface all built cities (117 and counting; data-driven CITIES) [GUI]

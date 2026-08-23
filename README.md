@@ -1,6 +1,6 @@
 # przetargimiejskie
 
-A pipeline that scrapes municipal property auctions from Polish cities (nationwide coverage that began with the Silesian / Górnośląsko-Zagłębiowska cluster), parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, at what prices, and how the city has been adjusting the asking price.
+A pipeline that scrapes municipal property auctions from Polish cities (nationwide coverage that began with the Silesian / Górnośląsko-Zagłębiowska cluster), plus an isolated pilot for nationwide institutional sellers, parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, and at what prices.
 
 **Cities covered:** **117 built city adapters spanning 16 voivodeships** — national coverage including Warszawa, Kraków, Łódź, Gdańsk, Szczecin, Katowice, Gliwice, Bydgoszcz, Białystok and dozens more. The live generated ledger of what's built / spiked / queued is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); per-city counts and source hosts are in [`data/index.json`](./data/index.json). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
 
@@ -12,6 +12,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 |---|---|
 | [`pipeline/`](./pipeline) | Node.js scraper + OCR/text/`.doc` extractors + per-city parsers. Builds `data/<city>/*.json`. |
 | [`pipeline/src/cities/<city>/`](./pipeline/src/cities) | One adapter per city (crawl + parse), registered in `cities/index.js`. |
+| [`pipeline/src/providers/`](./pipeline/src/providers) | Nationwide institutional-seller adapters (currently PKP + AMW). Kept separate from cities and municipal metrics. |
 | [`pipeline/ocr-cache/`](./pipeline/ocr-cache) | Committed OCR text per scanned PDF (each OCR'd once). |
 | [`pipeline/pdf-text-cache/`](./pipeline/pdf-text-cache) | Committed `pdftotext` output for text PDFs (many cities). |
 | [`pipeline/doc-text-cache/`](./pipeline/doc-text-cache) | Committed `catdoc` output for legacy `.doc` announcements (Bytom, Legnica, …). Doubles as a retention store if a source later removes the file. |
@@ -20,6 +21,7 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | `data/<city>/active.json` | Currently-active auctions and "wykaz" pre-announcements. |
 | `data/<city>/meta.json` | Provenance: when generated, schema/parser versions, counts. |
 | [`data/index.json`](./data/index.json) | Per-city summary (label, authority, host, counts). |
+| [`data/providers/`](./data/providers) | Separate provider index, metadata and row-based listings. The contract and rollout notes are in [`spikes/providers/`](./spikes/providers). |
 | [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | GitHub Actions: re-runs the pipeline daily at 04:00 UTC **and on push to `main`** — a per-city matrix (`max-parallel: 10`) with a data-sanity gate, committing each city's delta separately. |
 | [`.github/workflows/health.yml`](./.github/workflows/health.yml) | Daily source-health check (`pipeline/scripts/health-check.js`): fails if any city's data is empty or stale — failures feed the per-city `[city-broken]` triage issues. |
 | [`.github/workflows/README.md`](./.github/workflows/README.md) | The workflow catalog — all 7 numbered workflows (refresh · health · OVH deploy · newsletter · extension CI · security · backfill). |
@@ -62,6 +64,10 @@ npm install
 # the full build
 npm run refresh
 
+# institutional provider feeds (PKP + AMW)
+npm run refresh:providers
+npm run health:providers
+
 # tests (only failures print)
 npm test
 ```
@@ -103,6 +109,9 @@ A brand-new city adapter's crawler is therefore **first validated on its first C
 
 **Source-health check.** `npm run health` (script: [`pipeline/scripts/health-check.js`](./pipeline/scripts/health-check.js)) fails if any registered city's data is empty or stale — the same gate [`.github/workflows/health.yml`](./.github/workflows/health.yml) runs daily.
 
+`npm run health:providers` applies the equivalent freshness, count, identity and
+deduplication checks to the separate institutional feeds.
+
 **Extension.** No automated DOM tests; load it unpacked (see [Chrome extension](#chrome-extension) below) and verify against a covered site. The only enforced invariant is the version lockstep test above.
 
 ## Running on GitHub Actions
@@ -114,7 +123,7 @@ The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, o
 3. Gates the fresh data on `pipeline/scripts/sanity-check.js` — a failure blocks only that city's commit, so its last-good data stays published — then enriches land geoportal links (best-effort, never blocks).
 4. Commits and pushes `data/<city>/` + the caches (`ocr-cache/`, `pdf-text-cache/`, `doc-text-cache/`, `detail-cache/`) if any changed.
 
-Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
+In parallel, one `providers` job refreshes PKP + AMW, validates and commits only `data/providers/` plus its OCR cache. Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
 
 The auto-provided `GITHUB_TOKEN` with `permissions: contents: write` is enough; no secrets needed.
 
@@ -161,6 +170,12 @@ Lives in [`site/`](./site) — fully static, no build step. [`build-site.sh`](./
 - `site/archiwum/` → a standalone web version of the archive — same filters/summary as the extension's archive, but it fetches `/data/<city>/*.json` directly (no Chrome APIs), so it works in any browser.
 - `site/privacy/` → privacy page (`/privacy`).
 - `data/` is copied to `/data/…` so the archive can read it.
+
+The `/archiwum-all` test view also loads the separate PKP/AMW provider ledger,
+labels each seller and offers a seller filter. This is a pilot: provider rows do
+not enter municipal medians, `data/index.json`, city health, or the extension.
+See [`spikes/providers/README.md`](./spikes/providers/README.md) for the public
+graduation gate and the documented Orange defer decision.
 
 **Public scope is gated twice.** [`scripts/build-seo-pages.mjs`](./scripts/build-seo-pages.mjs) is the single place that decides which cities the site advertises: `PUBLIC_VOIVODESHIPS` (`null` = all of Poland, since 2026-07-27) and then `MIN_PUBLIC_AUCTIONS` — a city needs at least 10 auctions (live + archived) or its page is mostly empty tables, which reads as broken rather than as honest coverage. **54 of 121 crawled cities currently publish, across 15 voivodeships.** The script writes a per-city `public` flag and a **date-aware `live_auctions`** count into the *published* `_site/data/index.json`; the landing, `/archiwum` and `/raporty` all filter and count off those fields, so the pages cannot disagree about how many cities or auctions there are. Two consequences worth knowing:
 

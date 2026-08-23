@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-23T20:42:43.845Z",
+  "providers": [
+    {
+      "id": "pkp",
+      "label": "PKP S.A.",
+      "seller_type": "state_company",
+      "host": "www.pkp.pl",
+      "source_url": "https://www.pkp.pl/pl/nieruchomosci-przetargi?menu=2",
+      "minimum_fresh_rows": 50,
+      "generated_at": "2026-08-23T20:42:29.050Z",
+      "total_listings": 137,
+      "active_auctions": 57,
+      "historical_auctions": 80
+    },
+    {
+      "id": "amw",
+      "label": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "host": "amw.com.pl",
+      "source_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci",
+      "minimum_fresh_rows": 5,
+      "generated_at": "2026-08-23T20:42:43.845Z",
+      "total_listings": 27,
+      "active_auctions": 20,
+      "historical_auctions": 7
+    }
+  ]
+}

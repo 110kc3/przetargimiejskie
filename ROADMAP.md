@@ -39,6 +39,7 @@ extension, and receives Monday's digest. Health green daily.
 | Augustów: replace the now-empty listing indexes with filtered official search or another durable discovery feed | [RPI5] | M | open |
 | Brzeg: detect the anti-DDoS waiting-room page, classify as source-unreachable, cookie-retry | [RPI5] | S | **shipped this session** |
 | Racibórz + Świętochłowice: **not code** — FINN host (bip2.finn.pl, 194.24.181.47) historically blocks Azure/GH-runner IPs. Both live-refreshed successfully from this runner on 2026-08-23, so health is green now; durable fix remains wiring the shipped `FETCH_PROXY_URL` hook to a Polish exit (RPi5 or proxy) in CI | [RPI5] | S | live data recovered; durable CI egress still open |
+| Institutional-source pilot: separate PKP + AMW pipeline/data/health, seller-labelled `/archiwum-all`; Orange evaluated and deferred | [RPI5] | M | **pilot shipped 2026-08-23**; public `/archiwum` after 3 green refreshes + spot-check |
 
 ### T1.b Distribution (mixed)
 
