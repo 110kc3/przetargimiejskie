@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "gliwice",
-  "generated_at": "2026-08-23T08:44:52.816Z",
+  "generated_at": "2026-08-23T14:55:17.213Z",
   "source_pdf_count": 44,
   "parsed_records": 256,
   "parser_note_count": 13,
@@ -13,5 +13,6 @@
   "wykaz_entries": 8,
   "land_plots": 79,
   "land_listings": 81,
-  "retained_properties": 22
+  "retained_properties": 22,
+  "valid_empty": false
 }
