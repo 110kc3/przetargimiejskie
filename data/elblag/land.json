@@ -37,8 +37,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Eugeniusza Kwiatkowskiego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2028%2F2%20ul.%20Eugeniusza%20Kwiatkowskiego%202%20Elbl%C4%85g%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "286101_1.0002.28/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0002.28%2F2",
       "area_m2": 53,
       "zoning": null,
       "status": null,
@@ -55,7 +55,9 @@
       ],
       "parcels": [
         {
-          "nr": "28/2"
+          "nr": "28/2",
+          "dzialka_id": "286101_1.0002.28/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0002.28%2F2"
         }
       ]
     },
@@ -68,8 +70,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Druskiennicka",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F5%20ul.%20Druskiennicka%2029%20Elbl%C4%85g%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "286101_1.0029.1/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0029.1%2F5",
       "area_m2": 4438,
       "zoning": null,
       "status": null,
@@ -86,7 +88,9 @@
       ],
       "parcels": [
         {
-          "nr": "1/5"
+          "nr": "1/5",
+          "dzialka_id": "286101_1.0029.1/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0029.1%2F5"
         }
       ]
     },
@@ -99,8 +103,8 @@
       "street": null,
       "building": null,
       "address_raw": "ul. Dębowa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20230%2F2%20ul.%20D%C4%99bowa%2024%20Elbl%C4%85g%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "286101_1.0024.230/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0024.230%2F2",
       "area_m2": 545,
       "zoning": null,
       "status": null,
@@ -117,7 +121,9 @@
       ],
       "parcels": [
         {
-          "nr": "230/2"
+          "nr": "230/2",
+          "dzialka_id": "286101_1.0024.230/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0024.230%2F2"
         }
       ]
     },
