@@ -207,7 +207,7 @@ const ANNEX_RE = /zal-nr|zalacznik|mapa|zgloszenie|oswiadczenie|szkic|zdjeci|kla
 
 /** The born-digital ogłoszenie PDF (never an annex or the result notice). */
 export function pickAnnouncementPdf(attachments) {
-  const pdfs = (attachments || []).filter((a) => /\.pdf$/i.test(a.url));
+  const pdfs = (attachments || []).filter((a) => /\.pdf(?:[?#]|$)/i.test(a.url));
   const ann = pdfs.find(
     (a) => /ogloszeni|akt-ogl|przetarg-na-sprzeda/i.test(a.url) && !/wynik/i.test(a.url),
   );
@@ -218,7 +218,7 @@ export function pickAnnouncementPdf(attachments) {
 
 /** The "informacja o wyniku przetargu" PDF (filename carries "wynik"). */
 export function pickResultPdf(attachments) {
-  const r = (attachments || []).find((a) => /\.pdf$/i.test(a.url) && /wynik/i.test(a.url));
+  const r = (attachments || []).find((a) => /\.pdf(?:[?#]|$)/i.test(a.url) && /wynik/i.test(a.url));
   return r ? r.url : null;
 }
 

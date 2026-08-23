@@ -36,6 +36,9 @@ import { parseAnnouncement, isResultDoc, isBezprzetargowoDoc } from './parse.js'
 
 const ORIGIN = 'https://bip.elblag.eu';
 const BOARD_URL = `${ORIGIN}/przetargi-nieruchomosci/190`;
+// bip.elblag.eu currently omits an intermediate certificate. Keep the bypass
+// scoped to this municipal source and thread it through HTML and documents.
+const FETCH_OPTS = { insecureTLS: true };
 
 function stripTags(html) {
   return (html || '')
@@ -114,7 +117,7 @@ function pickAttachment(atts, namePredicate) {
  *  (core/doc-text.js) for anything else (.doc/.docx) — both born-digital
  *  formats seen live for this city, no OCR needed for either. */
 async function extractText(att) {
-  return att.ext === 'pdf' ? pdfText(att.url) : docText(att.url);
+  return att.ext === 'pdf' ? pdfText(att.url, FETCH_OPTS) : docText(att.url, FETCH_OPTS);
 }
 
 // One memoised pass over the board — see file header. crawlResultDocs() and
@@ -129,7 +132,7 @@ async function crawlAll() {
 
   let boardHtml;
   try {
-    boardHtml = await getText(BOARD_URL);
+    boardHtml = await getText(BOARD_URL, FETCH_OPTS);
   } catch (err) {
     console.error(`  elblag: board fetch failed: ${err.message}`);
     return { listings, land, resultRefs };
@@ -140,7 +143,7 @@ async function crawlAll() {
   for (const detailUrl of detailUrls) {
     let html;
     try {
-      html = await getText(detailUrl);
+      html = await getText(detailUrl, FETCH_OPTS);
     } catch (err) {
       console.error(`  elblag: detail fetch failed ${detailUrl}: ${err.message}`);
       continue;

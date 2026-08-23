@@ -79,6 +79,18 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { parseBoardLinks } from '../src/cities/wloclawek/crawl.js';
+
+test('board links accept canonical and historical category URL shapes', () => {
+  const links = parseBoardLinks(
+    '<div class="cct-item__name"><a href="https://bip.wloclawek.eu/6939/nowy.html">new</a></div>' +
+    '<div class="cct-item__name"><a href="/3615/726/stary.html">old</a></div>',
+  );
+  assert.deepEqual(links, [
+    { docid: '6939', url: 'https://bip.wloclawek.eu/6939/nowy.html' },
+    { docid: '3615', url: 'https://bip.wloclawek.eu/3615/726/stary.html' },
+  ]);
+});
 
 import {
   parsePLN,

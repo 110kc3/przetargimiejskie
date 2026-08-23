@@ -2,12 +2,10 @@
 //
 // Source: bip.tczew.pl — IDcom.pl bip-v1 platform, server-rendered HTML.
 //
-//   LIST (archiwum, all years):
-//     https://bip.tczew.pl/wiadomosci/archiwum/3/lista/1/przetargi
-//   LIST (current year):
-//     https://bip.tczew.pl/wiadomosci/archiwum/3/lista/1/{YYYY}
+//   CURRENT LIST (authoritative live board):
+//     https://bip.tczew.pl/wiadomosci/3/lista/1/przetargi
 //   DETAIL:
-//     https://bip.tczew.pl/wiadomosci/archiwum/3/wiadomosc/{ID}/{slug}
+//     https://bip.tczew.pl/wiadomosci/3/wiadomosc/{ID}/{slug}
 //   ATTACHMENT (static CDN):
 //     https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/{ID}/files/{filename}.pdf
 //
@@ -31,33 +29,32 @@
 // Crawl strategy:
 //   crawlActive():       scan list for entries whose title contains "przetarg" +
 //                        "lokal mieszkalny" (or "sprzedaż lokal") but NOT "wynik".
-//                        Fetch detail page to get published_date + PDF attachment URL.
-//                        Do NOT fetch the PDF here — no inline price or area in the list;
-//                        leave area/price null (the result PDF is the authoritative source).
+//                        Fetch the detail page and announcement PDF so its
+//                        auction date, price and area are not lost.
 //                        Return listings with outcome:'active'.
 //   crawlResultDocs():   scan same list for entries whose title contains "wynik" +
 //                        "lokal mieszkalny". Fetch detail page, extract PDF attachment URL.
-//                        Return refs with { url, pdfUrl, published_date }.
+//                        Return registry-contract refs with
+//                        { pdf_url, auction_date, detail_url }.
 //
 // No bot-block detected (standard fetch UA works). Static CDN on idcom-jst.pl
 // also unblocked.
 
-import { getText, getBytes } from '../../core/fetch.js';
+import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
-import { parseResultDoc } from './parse.js';
+import {
+  areaFromText,
+  auctionDateFromText,
+  parseResultDoc,
+  startingPriceFromText,
+} from './parse.js';
 
 const ORIGIN = 'https://bip.tczew.pl';
-// All-years archive list (Przetargi board id=3)
-const LIST_URL = `${ORIGIN}/wiadomosci/archiwum/3/lista/1/przetargi`;
+const MAX_PAGES = 10;
 
-// Year-specific archive: /wiadomosci/archiwum/3/lista/1/{YYYY}
-export function yearListUrl(year) {
-  return `${ORIGIN}/wiadomosci/archiwum/3/lista/1/${year}`;
-}
-
-function currentYear() {
-  return new Date().getFullYear();
+export function currentListUrl(page = 1) {
+  return `${ORIGIN}/wiadomosci/3/lista/${page}/przetargi`;
 }
 
 // ---- list-page parser -------------------------------------------------------
@@ -106,7 +103,7 @@ export function parseListPage(html) {
  */
 export function publishedDateFromDetail(html) {
   if (!html) return null;
-  const m = /Data wytworzenia dokumentu:\s*<span>(\d{2})-(\d{2})-(\d{4})<\/span>/i.exec(html);
+  const m = /Data wytworzenia dokumentu:\s*<span>(\d{2})[.-](\d{2})[.-](\d{4})(?:\s*r\.)?/i.exec(html);
   if (m) return `${m[3]}-${m[2]}-${m[1]}`;
   // fallback: "Data wprowadzenia dokumentu do BIP: <span>DD miesiac YYYY HH:MM</span>"
   const PL_MONTHS = {
@@ -145,19 +142,17 @@ export function attachmentPdfFromDetail(html) {
 
 // ---- crawlActive ------------------------------------------------------------
 //
-// Announcements: titles matching "przetarg" + "lokal" (or "sprzedaż") but NOT
-// "wynik". We intentionally do NOT fetch the announcement PDF here to keep CI
-// fast — the price data lives in result PDFs, not in active announcements.
-//
-// address_raw is extracted from the list-page title because the title always
-// includes the address ("przy ul. Elżbiety 4", etc.). area_m2 and
-// starting_price_pln are left null (fetched only when parseResultDoc is called).
+// Announcements: titles matching "przetarg" + residential sale but NOT
+// "wynik". The active board is low-volume, so fetching the announcement PDF is
+// cheap and gives us a real auction date (critical for aging removed listings).
 
-function isAnnouncementTitle(title) {
+export function isAnnouncementTitle(title) {
   const t = title.toLowerCase();
   return (
-    /przetarg\w*\s+ustny/i.test(t) &&
+    /(?:przetarg\w*\s+ustn\w*|ustn\w*\s+przetarg\w*)/i.test(t) &&
     /lokal\w*\s+mieszkaln/i.test(t) &&
+    /sprzeda[żz]/i.test(t) &&
+    !/najem|dzier[żz]aw/i.test(t) &&
     !/wynik/i.test(t)
   );
 }
@@ -215,16 +210,48 @@ export function addressFromTitle(title) {
   return parseAddress(raw);
 }
 
-export async function crawlActive() {
-  let html;
-  try {
-    html = await getText(LIST_URL);
-  } catch (err) {
-    console.error(`  tczew: list fetch failed: ${err.message}`);
-    return { listings: [], wykaz: [], land: [] };
-  }
+let boardPromise = null;
 
-  const entries = parseListPage(html);
+async function crawlCurrentBoard() {
+  const entries = [];
+  const seen = new Set();
+  let verified = false;
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    const url = currentListUrl(page);
+    let html;
+    try {
+      html = await getText(url);
+    } catch (err) {
+      console.error(`  tczew: current Przetargi page ${page} fetch failed: ${err.message}`);
+      break;
+    }
+    const found = parseListPage(html);
+    if (page === 1) {
+      // A non-empty parsed list, or the CMS's explicit empty-state message,
+      // proves that we reached the intended board rather than a challenge or a
+      // silently changed layout.
+      verified = found.length > 0 || /Brak wiadomo[śs]ci w kategorii:\s*Przetargi/i.test(html);
+    }
+    let added = 0;
+    for (const entry of found) {
+      if (seen.has(entry.url)) continue;
+      seen.add(entry.url);
+      entries.push(entry);
+      added++;
+    }
+    if (added === 0) break;
+  }
+  console.error(`  tczew: ${entries.length} current Przetargi entry/entries crawled`);
+  return { entries, verified };
+}
+
+function getCurrentBoard() {
+  boardPromise ??= crawlCurrentBoard();
+  return boardPromise;
+}
+
+export async function crawlActive() {
+  const { entries, verified } = await getCurrentBoard();
   const announcements = entries.filter((e) => isAnnouncementTitle(e.title));
   console.error(`  tczew: list has ${entries.length} entries, ${announcements.length} flat announcement(s)`);
 
@@ -237,6 +264,15 @@ export async function crawlActive() {
       console.error(`  tczew: detail fetch failed (${entry.url}): ${err.message}`);
     }
     const published_date = detailHtml ? publishedDateFromDetail(detailHtml) : null;
+    const pdfUrl = detailHtml ? attachmentPdfFromDetail(detailHtml) : null;
+    let announcementText = '';
+    if (pdfUrl) {
+      try {
+        announcementText = await pdfText(pdfUrl);
+      } catch (err) {
+        console.error(`  tczew: announcement PDF failed (${pdfUrl}): ${err.message}`);
+      }
+    }
     const address = addressFromTitle(entry.title);
     const round = roundFromTitle(entry.title);
 
@@ -248,36 +284,34 @@ export async function crawlActive() {
       kind: 'mieszkalny',
       address_raw: entry.title,
       address,
-      auction_date: null,       // not available from title or list page; in announcement PDF
+      auction_date: auctionDateFromText(announcementText),
       published_date,
       round,
-      area_m2: null,            // in announcement PDF, not fetched at crawl time
-      starting_price_pln: null, // in announcement PDF, not fetched at crawl time
+      area_m2: areaFromText(announcementText),
+      starting_price_pln: startingPriceFromText(announcementText),
       detail_url: entry.url,
+      source_pdf: pdfUrl,
     });
   }
 
   console.error(`  tczew active: ${listings.length} listing(s)`);
-  return { listings, wykaz: [], land: [] };
+  return {
+    listings,
+    wykaz: [],
+    land: [],
+    valid_empty: verified && announcements.length === 0,
+  };
 }
 
 // ---- crawlResultDocs --------------------------------------------------------
 //
 // Scans the same list for result notices ("wynik" + "lokal mieszkalny").
 // Fetches each result notice detail page to get the PDF attachment URL.
-// Returns refs: { url, pdfUrl, published_date }
+// Returns refs: { pdf_url, auction_date, detail_url }
 // The refresh loop then calls pdfText(pdfUrl) + parseResultDoc(text, date, url).
 
 export async function crawlResultDocs() {
-  let html;
-  try {
-    html = await getText(LIST_URL);
-  } catch (err) {
-    console.error(`  tczew: list fetch failed (crawlResultDocs): ${err.message}`);
-    return [];
-  }
-
-  const entries = parseListPage(html);
+  const { entries } = await getCurrentBoard();
   const resultEntries = entries.filter((e) => isResultTitle(e.title));
   console.error(`  tczew: ${resultEntries.length} result notice(s) found`);
 
@@ -295,8 +329,14 @@ export async function crawlResultDocs() {
       console.error(`  tczew: no PDF attachment found on result page ${entry.url}`);
       continue;
     }
-    const published_date = publishedDateFromDetail(detailHtml);
-    refs.push({ url: entry.url, pdfUrl, published_date });
+    // The result parser normally extracts the actual auction date from the
+    // attachment. Publication date is only a conservative fallback.
+    const publishedDate = publishedDateFromDetail(detailHtml);
+    refs.push({
+      pdf_url: pdfUrl,
+      auction_date: publishedDate,
+      detail_url: entry.url,
+    });
   }
 
   console.error(`  tczew: ${refs.length} result PDF ref(s)`);

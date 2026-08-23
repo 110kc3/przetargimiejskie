@@ -18,13 +18,16 @@ function isoFrom(d, mo, y) { const m = PL_MONTH[String(mo).toLowerCase()]; retur
 // Auction date: "… odbędą się … na lokal 9/4 – 8 listopada 2011r." — the first
 // DD <month> YYYY after "odbędą/odbędzie się".
 export function noticeDate(text) {
-  const m = /odb[ęe]d[ąa]?\s*[ąa]?\s*si[ęe][\s\S]{0,260}?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text || '');
+  const m = /odb[ęe]d(?:[ąa]|zie)\s+si[ęe][\s\S]{0,260}?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text || '');
   return m ? isoFrom(m[1], m[2], m[3]) : null;
 }
 
 export function isSaleAnnouncement(text) {
   const t = (text || '').toLowerCase();
-  if (/dzier[żz]aw|\bnajem\b|najmu|wynajem|bezprzetarg/.test(t)) return false;
+  // Do not reject a sale merely because its boilerplate says the flat is free
+  // from lease agreements ("wolny od umów najmu"). Only explicit disposal
+  // modes identify a rental/lease notice.
+  if (/na\s+(?:wynajem|najem)|w\s+dzier[żz]aw|oddani\w*\s+w\s+najem|bezprzetarg/.test(t)) return false;
   return /og[łl]asza/.test(t) && /przetarg/.test(t) && /sprzeda/.test(t);
 }
 
@@ -37,7 +40,7 @@ export function splitItems(text) {
 
 // Address: "lokal mieszkalny Mały Rynek 9/4" → "Mały Rynek 9/4".
 export function addressFromItem(seg) {
-  const m = /lokal\w*\s+(?:mieszkaln\w*|u[żz]ytkow\w*|niemieszkaln\w*)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)\b/.exec(seg || '');
+  const m = /lokal\w*\s+(?:mieszkaln\w*|u[żz]ytkow\w*|niemieszkaln\w*)\s+(?:(?:po[łl]o[żz]on\w*\s+)?(?:w\s+O[śs]wi[ęe]cimiu\s+)?przy\s+ul\.?\s+)?([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)\b/.exec(seg || '');
   if (!m) return null;
   const raw = `${m[1].replace(/\s+/g, ' ').trim()} ${m[2]}/${m[3]}`;
   const a = parseAddress(raw);
@@ -48,7 +51,13 @@ function parseItem(seg, { round, auction_date, url }) {
   const addr = addressFromItem(seg);
   if (!addr) return null;
   const kind = classifyKind(seg);
-  return { kind: kind === 'unknown' ? 'mieszkalny' : kind, address_raw: addr.address_raw, address: addr.address, area_m2: areaFromText(seg), starting_price_pln: priceFromText(seg), round, auction_date, detail_url: url };
+  let area_m2 = areaFromText(seg);
+  if (area_m2 == null) {
+    // Tesseract renders m² as m*, m" or m” in the current scanned template.
+    const areaM = /(?:o\s+pow\.?|powierzchni\s+u[żz]ytkowej)\s*(\d+[,.]\d+)\s*m(?:\s*2|²|[\*"”])/i.exec(seg);
+    if (areaM) area_m2 = Number(areaM[1].replace(',', '.'));
+  }
+  return { kind: kind === 'unknown' ? 'mieszkalny' : kind, address_raw: addr.address_raw, address: addr.address, area_m2, starting_price_pln: priceFromText(seg), round, auction_date, detail_url: url };
 }
 
 /** Parse one announcement → an ARRAY of per-property listings (multi-property). */

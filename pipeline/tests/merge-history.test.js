@@ -5,7 +5,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { mergeProperties, listingFingerprint, archivePastActive } from '../src/core/merge-history.js';
+import {
+  archiveAllActive,
+  archivePastActive,
+  listingFingerprint,
+  mergeProperties,
+} from '../src/core/merge-history.js';
 
 const prop = (key, listings, extra = {}) => ({
   key, street: key.split('|')[0], street_norm: key.split('|')[0],
@@ -94,6 +99,18 @@ test('archivePastActive ages out retained past-dated actives, keeps future + dat
   const b = properties.find((p) => p.key === 'b|3|4');
   assert.deepEqual(b.listings.map((l) => l.outcome), ['active', 'active'],
     'future-dated and dateless rows stay active');
+});
+
+test('archiveAllActive closes dated and dateless rows after a verified-empty live crawl', () => {
+  const properties = [prop('a|1|2', [
+    L('2026-12-01', 'active'),
+    L(null, 'active'),
+    L('2025-01-01', 'sold'),
+  ])];
+  assert.equal(archiveAllActive(properties), 2);
+  assert.deepEqual(properties[0].listings.map((l) => l.outcome), [
+    'archived', 'archived', 'sold',
+  ]);
 });
 
 test('round derivation does not duplicate: null-round old + derived-round fresh → one row', () => {

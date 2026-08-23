@@ -90,6 +90,10 @@ test('normalizeKind — "zabudowa" alias heals to "zabudowana" (the TYP-column b
   assert.equal(normalizeKind('zabudowa'), 'zabudowana');
 });
 
+test('normalizeKind — a raw municipal flat label heals to the canonical kind', () => {
+  assert.equal(normalizeKind('lokal mieszkalny'), 'mieszkalny');
+});
+
 test('normalizeKind — empty / nullish / garbage → unknown', () => {
   assert.equal(normalizeKind(''), 'unknown');
   assert.equal(normalizeKind(null), 'unknown');

@@ -4,6 +4,7 @@
 // usable area is taken (not the cellar "piwnica").
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { isResidentialAuctionHtml } from '../src/cities/oswiecim/crawl.js';
 import { noticeDate, splitItems, addressFromItem, parseAnnouncement } from '../src/cities/oswiecim/parse.js';
 
 const BODY = `PREZYDENT MIASTA OŚWIĘCIM ogłasza II przetarg ustny nieograniczony na sprzedaż lokali mieszkalnych oznaczonych nr 9/4, 9/5, 9/6 w budynku Mały Rynek 9 w Oświęcimiu.
@@ -33,6 +34,27 @@ test('parseAnnouncement: 3 lokale — keys, usable areas, prices, shared round +
   assert.equal(recs[1].starting_price_pln, 78304);
   assert.equal(recs[2].address.key, 'maly rynek|9|6');
   assert.equal(recs[2].starting_price_pln, 71056);
+});
+
+test('parseAnnouncement: current Budowlanych 35/3 OCR wording', () => {
+  const current = `PREZYDENT MIASTA OŚWIĘCIM
+ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego przy ul. Budowlanych 35/3
+o pow. 46,14 m* w Oświęcimiu, stanowiącego własność Gminy Miasto Oświęcim.
+Lokal mieszkalny wolny jest od umów najmu, nie ma w nim osób zameldowanych.
+Cena wywoławcza nieruchomości wynosi: 275.000,00 zł.
+Przetarg odbędzie się w dniu 8 września 2026 roku o godzinie 13:00.`;
+  const [rec] = parseAnnouncement('', current, 'https://bip.oswiecim.um.gov.pl/5987/dokument/55663');
+  assert.equal(rec.address.key, 'budowlanych|35|3');
+  assert.equal(rec.area_m2, 46.14);
+  assert.equal(rec.starting_price_pln, 275000);
+  assert.equal(rec.round, 1);
+  assert.equal(rec.auction_date, '2026-09-08');
+});
+
+test('valid-empty candidate detection excludes a residential wykaz but keeps auctions and results', () => {
+  assert.equal(isResidentialAuctionHtml('Wykaz MK.6840 lokalu mieszkalnego na sprzedaż'), false);
+  assert.equal(isResidentialAuctionHtml('MK.6840 przetarg na sprzedaż lokalu mieszkalnego'), true);
+  assert.equal(isResidentialAuctionHtml('Informacja o wyniku przetargu lokalu mieszkalnego'), true);
 });
 
 // --- Result notices (parseResultDoc) ----------------------------------------

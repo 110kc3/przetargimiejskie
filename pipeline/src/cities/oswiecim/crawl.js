@@ -38,11 +38,21 @@ let crawlPromise = null;
 
 const RESULT_RE = /informacj\w*\s+o\s+wynik\w*\s+przetargu/i;
 
+export function isResidentialAuctionHtml(html) {
+  const isResult = RESULT_RE.test(html || '');
+  return (
+    /lokal\w*\s+mieszkaln/i.test(html || '') &&
+    (isResult || (!SKIP_RE.test(html || '') && SALE_RE.test(html || '')))
+  );
+}
+
 async function crawlAll() {
   const listings = [];
   const land = [];
   const resultRefs = [];
   const knownUrls = await loadKnownSourceUrls('oswiecim');
+  let fetchedDocuments = 0;
+  let inScopeCandidates = 0;
 
   const seen = new Set();
   const ids = [];
@@ -63,11 +73,16 @@ async function crawlAll() {
     const url = dokUrl(id);
     let html;
     try { html = await getText(url); } catch (err) { continue; }
+    fetchedDocuments++;
+    const isResult = RESULT_RE.test(html);
+    if (isResidentialAuctionHtml(html)) {
+      inScopeCandidates++;
+    }
 
     // Result notices share the board with announcements — route them to the
     // result stream (parse.js parseResultDoc filters flats / extracts price).
     // Concluded results already in committed data are skipped pre-OCR.
-    if (RESULT_RE.test(html)) {
+    if (isResult) {
       const att = /\/?api\/download\/file\?id=(\d+)/.exec(html);
       if (!att) continue;
       const attUrl = `${ORIGIN}/api/download/file?id=${att[1]}`;
@@ -91,13 +106,14 @@ async function crawlAll() {
   }
 
   console.error(`  oswiecim: ${listings.length} listing(s), ${land.length} land plot(s), ${resultRefs.length} result doc(s)`);
-  return { listings, land, resultRefs };
+  const validEmpty = fetchedDocuments > 0 && inScopeCandidates === 0;
+  return { listings, land, resultRefs, validEmpty };
 }
 
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings, land } = await crawlPromise;
-  return { listings, wykaz: [], land };
+  const { listings, land, validEmpty } = await crawlPromise;
+  return { listings, wykaz: [], land, valid_empty: validEmpty };
 }
 
 export async function crawlResultDocs() {

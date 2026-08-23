@@ -29,7 +29,7 @@ import { buildCityData, healKinds, syncActiveListingRounds, todayWarsaw } from '
 import { applyDurablePropertyHeals, buildGlobalStreetDisplay } from './core/verified-heals.js';
 import { buildLand } from './core/build-land.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
-import { mergeProperties, archivePastActive } from './core/merge-history.js';
+import { mergeProperties, archiveAllActive, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
 
 // History accumulation: merge each run with the previously-committed
@@ -109,7 +109,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   );
 
   console.error('Crawling active listings + wykaz ...');
-  const { listings: active, wykaz, land = [] } = await city.crawlActive();
+  const activeCrawl = await city.crawlActive();
+  const { listings: active, wykaz, land = [], valid_empty = false } = activeCrawl;
   console.error(`Got ${active.length} active listings, ${wykaz.length} wykaz entries.\n`);
 
   // Partition LAND (kind 'grunt') out of the address-keyed streams: land has no
@@ -167,7 +168,15 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   // MIN_HISTORY_YEAR still had a perfectly healthy crawl — only a crawl that
   // saw literally nothing indicates a source outage.
   const crawlEmpty = crawledActiveCount === 0 && beforeFloor === 0 && wykaz.length === 0 && landRecords.length === 0;
-  if (crawlEmpty && prevProperties.length > 0) {
+  // `valid_empty` describes the address-keyed property stream. A healthy board
+  // may still yield out-of-scope land rows, so do not require the separate land
+  // stream to be empty before accepting the adapter's explicit proof.
+  const propertyCrawlEmpty = active.length === 0 && allRecords.length === 0 && wykaz.length === 0;
+  const verifiedEmpty = propertyCrawlEmpty && valid_empty === true;
+  if (verifiedEmpty) {
+    console.error(`  ${city.id}: source was reached and explicitly reported no in-scope records — accepting a valid empty crawl.`);
+  }
+  if (crawlEmpty && !verifiedEmpty && prevProperties.length > 0) {
     console.error(
       `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data.`,
     );
@@ -295,6 +304,12 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   // Age out retained listings: a listing the source removed while still
   // 'active' is frozen by the merge and would inflate active_auctions forever.
   // (buildCityData reclassifies only the freshly-crawled listings.)
+  const verifiedEmptyArchived = verifiedEmpty ? archiveAllActive(properties) : 0;
+  if (verifiedEmptyArchived) {
+    console.error(
+      `  archived ${verifiedEmptyArchived} retained active listing(s) because the authoritative source verified an empty in-scope board.`,
+    );
+  }
   const agedOut = archivePastActive(properties, todayWarsaw());
   if (agedOut) console.error(`  aged out ${agedOut} past-dated retained listings (active → archived).`);
 
@@ -356,6 +371,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     land_plots: landPlots.length,          // unique parcels in land.json (preserved on empty-crawl outage)
     land_listings: landRecords.length,     // raw land auction rows seen this run
     retained_properties: retained.kept_properties,
+    valid_empty: verifiedEmpty,
   };
 
   const cityDir = join(DATA_DIR, city.id);

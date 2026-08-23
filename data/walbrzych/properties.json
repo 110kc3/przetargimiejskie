@@ -3,19 +3,19 @@
   "city": "walbrzych",
   "properties": [
     {
-      "key": "przy ul stanislawa staszica|1|7",
-      "street": "przy ul. Stanisława Staszica",
-      "street_norm": "przy ul stanislawa staszica",
+      "key": "stanislawa staszica|1|7",
+      "street": "Stanisława Staszica",
+      "street_norm": "stanislawa staszica",
       "building": "1",
       "apt": "7",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-08-19",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
           "starting_price_pln": 170000,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7",
           "wadium_deadline": null,
           "viewing_date": null,
@@ -24,23 +24,24 @@
       ]
     },
     {
-      "key": "przy ul harcerskiej|7|2",
-      "street": "przy ul. Harcerskiej",
-      "street_norm": "przy ul harcerskiej",
+      "key": "harcerskiej|7|2",
+      "street": "Harcerska",
+      "street_norm": "harcerskiej",
       "building": "7",
       "apt": "2",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-07-27",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
           "starting_price_pln": 175000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51204/przy-ul-harcerskiej-7-2",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 177000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57419",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51204/przy-ul-harcerskiej-7-2"
         }
       ]
     },
@@ -50,18 +51,19 @@
       "street_norm": "joachima lelewela",
       "building": "5",
       "apt": "10",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-06-24",
-          "round": 1,
-          "kind": "unknown",
+          "round": 2,
+          "kind": "mieszkalny",
           "starting_price_pln": 59000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51006/walbrzych-przy-ul-joachima-lelewela-5-10",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 72000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57167",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51006/walbrzych-przy-ul-joachima-lelewela-5-10"
         }
       ]
     },
@@ -71,18 +73,30 @@
       "street_norm": "piotra skargi",
       "building": "26",
       "apt": "18",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-24",
+          "date": "2026-05-06",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
+          "starting_price_pln": 28000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        },
+        {
+          "date": "2026-06-24",
+          "round": 2,
+          "kind": "mieszkalny",
           "starting_price_pln": 26000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51005/walbrzych-przy-ul-piotra-skargi-26-18",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 26300,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57167",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51005/walbrzych-przy-ul-piotra-skargi-26-18"
         }
       ]
     },
@@ -92,18 +106,30 @@
       "street_norm": "piotra skargi",
       "building": "26",
       "apt": "14",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-24",
+          "date": "2026-05-06",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
+          "starting_price_pln": 34000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        },
+        {
+          "date": "2026-06-24",
+          "round": 2,
+          "kind": "mieszkalny",
           "starting_price_pln": 32000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51004/walbrzych-przy-ul-piotra-skargi-26-14",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 32350,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57167",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51004/walbrzych-przy-ul-piotra-skargi-26-14"
         }
       ]
     },
@@ -113,12 +139,12 @@
       "street_norm": "11 listopada",
       "building": "188",
       "apt": "16",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-06-24",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
           "starting_price_pln": 68000,
           "outcome": "archived",
           "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51003/walbrzych-przy-ul-11-listopada-188-16",
@@ -129,38 +155,28 @@
       ]
     },
     {
-      "key": "wroclawskiej|56|6",
-      "street": "Wrocławska",
-      "street_norm": "wroclawskiej",
-      "building": "56",
-      "apt": "6",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2026-06-10",
-          "round": 1,
-          "kind": "unknown",
-          "starting_price_pln": 88000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50690/walbrzych-przy-ul-wroclawskiej-56-6",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "walbrzych ul gen w andersa|131|1",
-      "street": "Wałbrzych, ul. gen. W. Andersa",
-      "street_norm": "walbrzych ul gen w andersa",
+      "key": "andersa|131|1",
+      "street": "Andersa",
+      "street_norm": "andersa",
       "building": "131",
       "apt": "1",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-10",
+          "date": "2026-04-15",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 2,
+          "kind": "mieszkalny",
           "starting_price_pln": 99000,
           "outcome": "archived",
           "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50689/walbrzych-ul-gen-w-andersa-131-1",
@@ -176,18 +192,41 @@
       "street_norm": "slowackiego",
       "building": "26A",
       "apt": "3",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-10",
+          "date": "2026-02-25",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
+          "starting_price_pln": 128000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 3,
+          "kind": "mieszkalny",
           "starting_price_pln": 90000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50688/walbrzych-przy-ul-slowackiego-26a-3",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56974",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50688/walbrzych-przy-ul-slowackiego-26a-3"
         }
       ]
     },
@@ -197,12 +236,12 @@
       "street_norm": "11 listopada",
       "building": "150",
       "apt": "7",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-06-10",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
           "starting_price_pln": 76000,
           "outcome": "archived",
           "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50686/walbrzych-przy-ul-11-listopada-150-7",
@@ -217,35 +256,26 @@
       "street_norm": "armii krajowej",
       "building": "39A",
       "apt": "6",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
         {
           "date": "2026-06-10",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
           "starting_price_pln": 40000,
           "outcome": "archived",
           "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50685/walbrzych-przy-ul-armii-krajowej-39a-6",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
-      "key": "lubelskiej|26|12",
-      "street": "Lubelskiej",
-      "street_norm": "lubelskiej",
-      "building": "26",
-      "apt": "12",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2026-06-10",
-          "round": 1,
-          "kind": "unknown",
-          "starting_price_pln": 47000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50684/walbrzych-przy-ul-lubelskiej-26-12",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -257,17 +287,1678 @@
       "street_norm": "armii krajowej",
       "building": "14",
       "apt": "2",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-10",
+          "date": "2026-02-25",
           "round": 1,
-          "kind": "unknown",
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 3,
+          "kind": "mieszkalny",
           "starting_price_pln": 55000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50683/walbrzych-przy-ul-armii-krajowej-14-2",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56974",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|56|6",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "56",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 88000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 94000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56974",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50690/walbrzych-przy-ul-wroclawskiej-56-6"
+        }
+      ]
+    },
+    {
+      "key": "l hirszfelda|7|13",
+      "street": "L. Hirszfelda",
+      "street_norm": "l hirszfelda",
+      "building": "7",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 205000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56974",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kresowa|2|5",
+      "street": "Kresowa",
+      "street_norm": "kresowa",
+      "building": "2",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 68000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 52000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56974",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "lubelska|26|12",
+      "street": "Lubelska",
+      "street_norm": "lubelska",
+      "building": "26",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 68000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 61000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        },
+        {
+          "date": "2026-06-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 47000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 47500,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56974",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50684/walbrzych-przy-ul-lubelskiej-26-12"
+        }
+      ]
+    },
+    {
+      "key": "sw jadwigi|3|5",
+      "street": "Św. Jadwigi",
+      "street_norm": "sw jadwigi",
+      "building": "3",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 38000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 38400,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "piotra skargi|26|2",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "26",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 34000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 34340,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "piotra skargi|26|3",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "26",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 34000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 34340,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "piotra skargi|26|5",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "26",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 44500,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 44950,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "andersa|187|3",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "187",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 121200,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56619",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|123|13",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "123",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 70500,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "armii krajowej|39|12",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "39",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 54000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 54540,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/56315",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "armii krajowej|17|6",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "17",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 46000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55990",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|132|14",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "132",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 60600,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "i grabowskiej|2|9",
+      "street": "I. Grabowskiej",
+      "street_norm": "i grabowskiej",
+      "building": "2",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 54000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 54550,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55702",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "swidnicka|11|3",
+      "street": "Świdnicka",
+      "street_norm": "swidnicka",
+      "building": "11",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 166700,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55434",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|92|2",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "92",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": []
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54696",
+          "notes": []
+        },
+        {
+          "date": "2026-02-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 142000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55434",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|110|1",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "110",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54079",
+          "notes": []
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54696",
+          "notes": []
+        },
+        {
+          "date": "2026-02-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 84000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 84900,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55434",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|58|9",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "58",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 94000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54780",
+          "notes": []
+        },
+        {
+          "date": "2026-02-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 81000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55434",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "andersa|23|8",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "23",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55434",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kopalniana|2C|7",
+      "street": "Kopalniana",
+      "street_norm": "kopalniana",
+      "building": "2C",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53379",
+          "notes": []
+        },
+        {
+          "date": "2025-10-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54425",
+          "notes": []
+        },
+        {
+          "date": "2026-01-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 51500,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55197",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "andersa|115|6",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "115",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53379",
+          "notes": []
+        },
+        {
+          "date": "2025-10-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 73000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54425",
+          "notes": []
+        },
+        {
+          "date": "2026-01-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 31000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55197",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "lotnikow|1|9",
+      "street": "Lotników",
+      "street_norm": "lotnikow",
+      "building": "1",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53575",
+          "notes": []
+        },
+        {
+          "date": "2025-11-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54614",
+          "notes": []
+        },
+        {
+          "date": "2026-01-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55164",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "szkolna|14|6",
+      "street": "Szkolna",
+      "street_norm": "szkolna",
+      "building": "14",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 35000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": []
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 42000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54696",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "pocztowa|11|5",
+      "street": "Pocztowa",
+      "street_norm": "pocztowa",
+      "building": "11",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": []
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54696",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "niepodleglosci|89|4",
+      "street": "Niepodległości",
+      "street_norm": "niepodleglosci",
+      "building": "89",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": []
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54696",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "piotra skargi|1|6",
+      "street": "Piotra Skargi",
+      "street_norm": "piotra skargi",
+      "building": "1",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53379",
+          "notes": []
+        },
+        {
+          "date": "2025-10-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 55000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54425",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "kosciuszki|7|5A",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "7",
+      "apt": "5A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52149",
+          "notes": []
+        },
+        {
+          "date": "2025-07-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 216000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53142",
+          "notes": []
+        },
+        {
+          "date": "2025-10-08",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 2700,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": [
+            "parse: no achieved price and no explicit unsold text"
+          ],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "kosciuszki|7|3",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "7",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52149",
+          "notes": []
+        },
+        {
+          "date": "2025-07-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 83000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53142",
+          "notes": []
+        },
+        {
+          "date": "2025-10-08",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "czajkowskiego|6|2",
+      "street": "Czajkowskiego",
+      "street_norm": "czajkowskiego",
+      "building": "6",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 152600,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54194",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "andersa|20|4",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "20",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 81000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54079",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "paderewskiego|14|10",
+      "street": "Paderewskiego",
+      "street_norm": "paderewskiego",
+      "building": "14",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 80800,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54079",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "andersa|163|8",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "163",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 50500,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "dluga|89|4",
+      "street": "Długa",
+      "street_norm": "dluga",
+      "building": "89",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52917",
+          "notes": []
+        },
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 282800,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "palisadowa|80|1",
+      "street": "Palisadowa",
+      "street_norm": "palisadowa",
+      "building": "80",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52917",
+          "notes": []
+        },
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 343400,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "andersa|113|2",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "113",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52917",
+          "notes": []
+        },
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "pilsudskiego|82|1",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "82",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 88000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "j kossaka|6|2",
+      "street": "J. Kossaka",
+      "street_norm": "j kossaka",
+      "building": "6",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53379",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "j skrzetuskiego|8|11",
+      "street": "J. Skrzetuskiego",
+      "street_norm": "j skrzetuskiego",
+      "building": "8",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53379",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "r dmowskiego|3|4",
+      "street": "R. Dmowskiego",
+      "street_norm": "r dmowskiego",
+      "building": "3",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53379",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|61|6",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "61",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52149",
+          "notes": []
+        },
+        {
+          "date": "2025-07-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 87000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53142",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "hirszfelda|13|4",
+      "street": "Hirszfelda",
+      "street_norm": "hirszfelda",
+      "building": "13",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/51525",
+          "notes": []
+        },
+        {
+          "date": "2025-05-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 141400,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52149",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "pionierow|4|4",
+      "street": "Pionierów",
+      "street_norm": "pionierow",
+      "building": "4",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 122000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 124000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52149",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wroclawska|92|5",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "92",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 75800,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52149",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "daszynskiego|27|4",
+      "street": "Daszyńskiego",
+      "street_norm": "daszynskiego",
+      "building": "27",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50920",
+          "notes": []
+        },
+        {
+          "date": "2025-03-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/51475",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "brzechwy|11|9A",
+      "street": "Brzechwy",
+      "street_norm": "brzechwy",
+      "building": "11",
+      "apt": "9A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50920",
+          "notes": []
+        },
+        {
+          "date": "2025-03-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 101000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/51475",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|6|9",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "6",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 80800,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50920",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "proletariacka|17|7",
+      "street": "Proletariacka",
+      "street_norm": "proletariacka",
+      "building": "17",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 44000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 61500,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50920",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "rynek|13|10",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "13",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 43000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 113000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50920",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "slowicza|19|3",
+      "street": "Słowicza",
+      "street_norm": "slowicza",
+      "building": "19",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-01-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 82000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50920",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "boguslawskiego|16|7",
+      "street": "Bogusławskiego",
+      "street_norm": "boguslawskiego",
+      "building": "16",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49226",
+          "notes": []
+        },
+        {
+          "date": "2024-10-07",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49808",
+          "notes": []
+        },
+        {
+          "date": "2024-11-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50273",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "magistracki|3A|5",
+      "street": "Magistracki",
+      "street_norm": "magistracki",
+      "building": "3A",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-12",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49226",
+          "notes": []
+        },
+        {
+          "date": "2024-11-20",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 155888,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50273",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "wojska polskiego|5|2",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "5",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49808",
+          "notes": []
+        },
+        {
+          "date": "2024-11-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 116200,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50273",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "wojska polskiego|2|3",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "2",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-07",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 139000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49808",
+          "notes": []
+        },
+        {
+          "date": "2024-11-20",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 139000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 190000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50273",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "stanislawa kazury|4|7",
+      "street": "Stanisława Kazury",
+      "street_norm": "stanislawa kazury",
+      "building": "4",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 77000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50144",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "jana dlugosza|2A|3",
+      "street": "Jana Długosza",
+      "street_norm": "jana dlugosza",
+      "building": "2A",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-11-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 28000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 40000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/50144",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "psie pole|10|1",
+      "street": "Psie Pole",
+      "street_norm": "psie pole",
+      "building": "10",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 90000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49808",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "orkana|48|5",
+      "street": "Orkana",
+      "street_norm": "orkana",
+      "building": "48",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 60600,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/49226",
+          "notes": []
         }
       ]
     }

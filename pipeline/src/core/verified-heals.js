@@ -31,6 +31,27 @@ import {
   healKinds,
 } from './build-properties.js';
 
+const HTML_ENTITY_RE = /&(?:#\d+|#x[\da-f]+|[a-z][\w-]+);/gi;
+
+/**
+ * Strip crawler/OCR suffix noise such as `;j` or `:x` without treating the
+ * semicolon that terminates an HTML entity as noise. Some legacy adapters
+ * publish encoded street names (for example `Grudzi&#x105;dzka`), so removing
+ * everything after that semicolon corrupts both the display name and key.
+ * @param {string} street
+ * @returns {string}
+ */
+export function stripOcrStreetNoise(street) {
+  const entities = [];
+  const protectedStreet = String(street ?? '').replace(HTML_ENTITY_RE, (entity) => {
+    const marker = `__HTML_ENTITY_${entities.length}__`;
+    entities.push(entity);
+    return marker;
+  });
+  const cleaned = protectedStreet.replace(/[;:]\S*/g, '').replace(/\s+/g, ' ').trim();
+  return cleaned.replace(/__HTML_ENTITY_(\d+)__/g, (_match, index) => entities[Number(index)]);
+}
+
 // city → [old key, replacement fields] — junk keys from since-fixed parser bugs
 // whose TRUE identity was verified against the cached source document.
 //   katowice przetargi 26 — page-break artifact in the 2023 yearly PDF: footer
@@ -61,6 +82,23 @@ export const VERIFIED_RENAMES = {
       building: '3', apt: null, moveAreaToLand: true,
     }],
   ],
+  walbrzych: [
+    ['przy ul stanislawa staszica|1|7', {
+      key: 'stanislawa staszica|1|7', street: 'Stanisława Staszica',
+      street_norm: 'stanislawa staszica', building: '1', apt: '7',
+    }],
+    ['walbrzych ul gen w andersa|131|1', {
+      key: 'andersa|131|1', street: 'Andersa', street_norm: 'andersa',
+      building: '131', apt: '1',
+    }],
+  ],
+  sandomierz: [
+    ['polskiej organizacji wojskowej i przetarg ustny nieograniczony przeprowadzono w dniu|26|', {
+      key: 'polskiej organizacji wojskowej|0|garaz-0',
+      street: 'Polskiej Organizacji Wojskowej', street_norm: 'polskiej organizacji wojskowej',
+      building: '0', apt: 'garaz-0', kind: 'garaz',
+    }],
+  ],
 };
 
 // city → [alias key, canonical key]. These are verified spellings of the same
@@ -74,6 +112,15 @@ export const VERIFIED_ALIASES = {
     ['konstantego damrota|9|4', 'damrota|9|4'],
     ['ignacego daszynskiego|65|10', 'daszynskiego|65|10'],
     ['bl czeslawa|82|8', 'blogoslawionego czeslawa|82|8'],
+  ],
+  walbrzych: [
+    ['przy ul harcerskiej|7|2', 'harcerskiej|7|2'],
+    ['t kosciuszki|7|3', 'kosciuszki|7|3'],
+    ['t kosciuszki|7|5A', 'kosciuszki|7|5A'],
+  ],
+  sandomierz: [
+    ['polskiej organizacji wojskowej w sandomierzu zalacznik nr|1|',
+      'polskiej organizacji wojskowej|0|garaz-0'],
   ],
 };
 

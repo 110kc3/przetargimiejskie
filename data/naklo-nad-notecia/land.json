@@ -3,6 +3,37 @@
   "city": "naklo-nad-notecia",
   "plots": [
     {
+      "key": "dz|47/3",
+      "kind": "grunt",
+      "city": "naklo-nad-notecia",
+      "dzialka_nr": "47/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. ewid. nr 47/3, obręb Potulice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%2F3%20dz.%20ewid.%20nr%2047%2F3%2C%20obr%C4%99b%20Potulice%20Nak%C5%82o%20nad%20Noteci%C4%85%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1200,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-17",
+          "round": 2,
+          "starting_price_pln": 97570,
+          "outcome": "active",
+          "area_m2": 1200,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7949/dz-ewid-nr-47-3-obreb-potulice-przysiolek-elzbiecin",
+          "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/7949/dz-ewid-nr-47-3-obreb-potulice-przysiolek-elzbiecin"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "47/3"
+        }
+      ]
+    },
+    {
       "key": "dz|2564/17",
       "kind": "grunt",
       "city": "naklo-nad-notecia",

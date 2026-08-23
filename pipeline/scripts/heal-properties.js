@@ -28,6 +28,7 @@ import {
   applyVerifiedRenames,
   applyDurablePropertyHeals,
   buildGlobalStreetDisplay,
+  stripOcrStreetNoise,
 } from '../src/core/verified-heals.js';
 
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
@@ -64,8 +65,8 @@ for (const cityId of readdirSync(DATA_DIR, { withFileTypes: true })
   // (1) strip ;/: OCR noise from streets, re-key, fold onto an existing twin.
   const byKey = new Map(props.map((p) => [p.key, p]));
   for (const p of [...byKey.values()]) {
-    if (!/[;:]/.test(p.street)) continue;
-    const cleanedStreet = p.street.replace(/[;:]\S*/g, '').replace(/\s+/g, ' ').trim();
+    const cleanedStreet = stripOcrStreetNoise(p.street);
+    if (cleanedStreet === p.street) continue;
     const norm = streetNorm(cleanedStreet);
     const newKey = `${norm}|${p.building}|${p.apt ?? ''}`;
     console.error(`${cityId}: street noise '${p.street}' → '${cleanedStreet}' (${p.key} → ${newKey})`);

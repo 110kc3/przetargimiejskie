@@ -80,6 +80,10 @@ describe('auctionDateFromAnn', () => {
     const text = 'Przetarg odbędzie się w dniu 5 marca 2026 r., o godz. 10:00';
     assert.equal(auctionDateFromAnn(text), '2026-03-05');
   });
+  it('extracts date from cooperative-right auction wording', () => {
+    const text = 'Aukcje odbędą się w dniu 25 czerwca 2026 roku o godz. 10:00';
+    assert.equal(auctionDateFromAnn(text), '2026-06-25');
+  });
   it('returns null when no date', () => {
     assert.equal(auctionDateFromAnn('brak daty'), null);
     assert.equal(auctionDateFromAnn(''), null);
@@ -178,6 +182,94 @@ lewa oficyna (budynek nr 587) – parter
 20. Termin przetargów zakończonych wynikiem negatywnym dla lokali będących przedmiotem przetargów - 09.04.2026r.
 Przetargi odbędą się w dniu 13 sierpnia 2026 r., o godz. 10:00, w siedzibie Urzędu Miasta Łodzi.
 `.trim();
+
+// Current 8-lot layout (2026-08-21): page breaks precede rows, building/unit
+// footnote markers are inline, areas may stand alone, and prices occupy three
+// columns on otherwise non-numeric table lines.
+const CURRENT_8_LOT_TEXT = `
+OGŁOSZENIE PREZYDENTA MIASTA ŁODZI
+1. ul. Rybna 7A*1
+lokal mieszkalny nr 50
+KW LD1M/00046221/3
+29,31
+____________
+table 140 000   20 000   1 400
+\f2. ul. Łagiewnicka 89A
+lokal mieszkalny nr 20
+KW LD1M/00047293/5
+37,34
+table 189 000   27 000   1890
+\f3. ul. Łagiewnicka 101A
+lokal mieszkalny nr 6
+KW LD1M/00046908/3
+44,87
+table 231 000   33 000   2 310
+\f4. ul. Generała Jarosława Dąbrowskiego 51
+lokal mieszkalny nr 46
+KW LD1M/00050067/6
+36,13
+table 161 000   23 000   1 610
+\f5. ul. Marcina Kasprzaka 19/21*2
+lokal mieszkalny nr 2
+KW LD1M/00055699/0
+33,52
+table 147 000   21 000   1 470
+\f6. ul. Skalna 30
+lokal mieszkalny nr 2*3
+KW LD1M/00033429/7
+32,78 / 11,24
+table 119 000   17 000   1 190
+\f7. ul. Henryka Sienkiewicza 27*4
+lokal mieszkalny nr 10*5
+KW LD1M/00228241/9
+34,55 / 1,81
+table 85 000   17 000   850
+\f8. ul. Wólczańska 228
+lokal mieszkalny nr 8
+KW LD1M/00101373/7
+26,50
+table 70 000   14 000   700
+Przetargi odbędą się w dniu 1 października 2026 r.
+`.trim();
+
+it('current 8-lot PDF: form feeds, footnotes, simple areas and price columns', () => {
+  const recs = parseAnnouncementPdf(CURRENT_8_LOT_TEXT);
+  assert.equal(recs.length, 8);
+  assert.deepEqual(recs.map((r) => r.starting_price_pln), [
+    140000, 189000, 231000, 161000, 147000, 119000, 85000, 70000,
+  ]);
+  assert.deepEqual(recs.map((r) => r.area_m2), [29.31, 37.34, 44.87, 36.13, 33.52, 32.78, 34.55, 26.5]);
+  assert.equal(recs[0].address.key, 'rybna|7A|50');
+  assert.equal(recs[4].address.key, 'marcina kasprzaka|19|2');
+  assert.equal(recs[6].address.key, 'henryka sienkiewicza|27|10');
+  assert.ok(recs.every((r) => r.auction_date === '2026-10-01'));
+});
+
+it('live shifted Lp. layout keeps each address with its own price columns', () => {
+  const shifted = `
+     ul. Przemysłowa 21
+     lokal mieszkalny nr 2*2
+     KW LD1M/00055888/2
+     28,55
+     Miejski Administrator Nieruchomości,                                                           80 000    8 000    800
+3.   nr tel.: (42) 798 732 301, 628 73 72
+     Rejon Obsługi Najemców Zasobu Obcego,
+     ul. Ignacego Paderewskiego 11A
+\f     ul. Przemysłowa 21
+     lokal mieszkalny nr 6*3
+     KW LD1M/00055888/2
+     29,11
+4.   nr tel.: (42) 798 732 301, 628 73 72              172/11                  budynek frontowy     70 000    7 000    700
+     Rejon Obsługi Najemców Zasobu Obcego,
+     ul. Ignacego Paderewskiego 11A
+  `;
+  const recs = parseAnnouncementPdf(shifted);
+  assert.equal(recs.length, 2);
+  assert.deepEqual(recs.map((record) => record.address.key),
+    ['przemyslowa|21|2', 'przemyslowa|21|6']);
+  assert.deepEqual(recs.map((record) => record.starting_price_pln), [80000, 70000]);
+  assert.deepEqual(recs.map((record) => record.area_m2), [28.55, 29.11]);
+});
 
 describe('splitLots (announcement)', () => {
   it('finds 5 lots in the Płocka/Jaracza fixture', () => {

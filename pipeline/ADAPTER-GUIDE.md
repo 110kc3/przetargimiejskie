@@ -72,11 +72,19 @@ a city that hasn't been spiked BUILD.
 ```js
 export default {
   ...config,                 // id, label, voivodeship, authority, host, source
-  async crawlActive(),       // → { listings, wykaz, land }   (current auctions/designations)
+  async crawlActive(),       // → { listings, wykaz, land, valid_empty? }
   async crawlResultDocs(),   // → result refs (the achieved-price stream)
   parseResultDoc,            // (text/ref) → result records
 };
 ```
+
+`valid_empty: true` is an opt-in health signal for the narrow case where the
+adapter successfully parsed the intended official board and proved that it has
+no in-scope records—either from parsed out-of-scope rows or the platform's
+explicit empty-state marker. It lets refresh accept zero rows without weakening
+the global preserve-on-empty outage guard, and closes retained `active` rows
+(including dateless ones) because the live board is authoritative. Never set it
+merely because requests or parsers returned nothing.
 
 `config`: `id` (slug), `label`, `voivodeship` (slug e.g. `malopolskie`),
 `authority`, `host`, `source` (`'html'` if the adapter extracts attachments

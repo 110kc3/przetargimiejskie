@@ -120,9 +120,7 @@ function _parsePriceLine(line) {
  * @returns {string|null}
  */
 export function auctionDateFromAnn(text) {
-  const m =
-    /Przetarg[iy]?\s+odb[ęe]d[ąa]\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(text || '')
-    || /Przetarg\s+odb[ęe]dzie\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(text || '');
+  const m = /(?:Przetarg(?:i|y)?|Aukcj[ae])\s+odb(?:[ęe]d[ąa]|[ęe]dzie)\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(text || '');
   if (!m) return null;
   return isoFrom(m[1], m[2], m[3]);
 }
@@ -136,17 +134,20 @@ export function auctionDateFromAnn(text) {
  * @returns {string[]}
  */
 export function splitLots(text) {
-  const t = (text || '').replace(/\r/g, '');
-  // Split on numbered list markers at line start (1. 2. … 20.)
-  const parts = t.split(/^(\d{1,2})\.\s+/m);
-  // parts = [ preamble, '1', segment1text, '2', segment2text, ... ]
-  const segs = [];
-  for (let i = 1; i < parts.length; i += 2) {
-    const seg = (parts[i + 1] || '').trim();
-    // Keep only lot segments — must contain a KW number "LD1M/..."
-    if (/LD\d[A-Z]\/\d{8}\/\d/.test(seg)) segs.push(seg);
-  }
-  return segs;
+  // pdftotext uses form-feed between PDF pages. A new lot often starts
+  // immediately after it, so normalise it to a line boundary before splitting.
+  const t = (text || '').replace(/\r/g, '').replace(/\f/g, '\n');
+  // The Lp. number is not anchored consistently: in several live layouts it
+  // appears midway through the property block beside a contact row. Splitting
+  // on that number shifts the following address onto the previous lot and can
+  // turn page/footnote numbers into prices. Property address lines are stable,
+  // so split at those instead (with an optional inline Lp. prefix). Contact
+  // addresses form their own segments and are rejected by the KW+lokal gate.
+  return t
+    .split(/(?=^[ \t]*(?:\d{1,2}\.[ \t]+)?(?:ul\.|al\.|pl\.|os\.)\s+)/m)
+    .map((segment) => segment.trim())
+    .filter((segment) =>
+      /LD\d[A-Z]\/\d{8}\/\d/.test(segment) && /lokal[^\n]{0,60}\s+nr\s+\d/i.test(segment));
 }
 
 /**
@@ -177,7 +178,7 @@ export function parseLotSegment(seg) {
   //   - "lokal[^0-9\n]{0,40}?" matches "lokal użytkowy", "lokal użytkowy - garaż", etc.
   //     because Polish chars like "ż" are not in \w; [^0-9\n] avoids crossing digit lines.
   const addrRe =
-    /(?:ul\.|al\.|pl\.|os\.)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- '"]+?)\s+(\d+(?:\/\d+)?[A-Za-z]?)\s+(lokal[^0-9\n]{0,40}?)\s+nr\s+(\d+[A-Za-z]*)/i;
+    /(?:ul\.|al\.|pl\.|os\.)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- '"]+?)\s+(\d+(?:\/\d+)?[A-Za-z]?)(?:\*\d+)?\s+(lokal[^0-9\n]{0,40}?)\s+nr\s+(\d+[A-Za-z]*)(?:\*\d+)?/i;
   const addrM = addrRe.exec(seg);
   if (!addrM) return null;
 
@@ -201,7 +202,9 @@ export function parseLotSegment(seg) {
   // --- Area (m2) ---
   // The area appears as "17,64 / 2,19" (flat / przynależne) or just "37,34".
   // Extract the first decimal number in the segment — it's always the flat area.
-  const areaM = /(\d{1,3},\d{2})\s*(?:\/|_)/.exec(seg);
+  // Some layouts place the two-decimal area on a line by itself with the
+  // separator on the next line; the fractional share always has 3+ decimals.
+  const areaM = /(\d{1,3},\d{2})\b/.exec(seg);
   const area_m2 = areaM ? parseArea(areaM[1]) : null;
 
   // --- Prices ---
@@ -210,13 +213,30 @@ export function parseLotSegment(seg) {
   // Scan from the END of the segment for the last line that is purely digits + spaces
   // (avoids being tripped up by appended footnotes like "*1/ Dotyczy…").
   const lines = seg.split('\n').map(l => l.trim()).filter(Boolean);
-  let priceLine = '';
+  let starting_price_pln = null;
+  let wadium_pln = null;
+  // Current PDFs render the three money columns on a line that may also carry
+  // table underscores/text. Match the final three horizontal numeric columns.
+  const grouped = String.raw`\d{1,3}(?:[ \t ]\d{3})+`;
+  const priceColumns = new RegExp(`(${grouped})[ \\t]+(${grouped})[ \\t]+(${grouped}|\\d{3,4})(?:\\s*)$`);
   for (let i = lines.length - 1; i >= 0; i--) {
+    const m = priceColumns.exec(lines[i]);
+    if (!m) continue;
+    starting_price_pln = parsePLN(m[1]);
+    wadium_pln = parsePLN(m[2]);
+    break;
+  }
+  let priceLine = '';
+  for (let i = lines.length - 1; starting_price_pln == null && i >= 0; i--) {
     if (/^[\d\s]+$/.test(lines[i])) { priceLine = lines[i]; break; }
   }
   const priceNums = _parsePriceLine(priceLine);
-  const starting_price_pln = priceNums.length >= 1 ? priceNums[0] : null;
-  const wadium_pln = priceNums.length >= 2 ? priceNums[1] : null;
+  if (starting_price_pln == null) starting_price_pln = priceNums.length >= 1 ? priceNums[0] : null;
+  if (wadium_pln == null) wadium_pln = priceNums.length >= 2 ? priceNums[1] : null;
+  // A municipal sale's starting price cannot be an Lp./footnote/page marker.
+  // Keep the record when a malformed layout hides the price, but never publish
+  // the marker as a single-digit PLN value.
+  if (starting_price_pln != null && starting_price_pln < 1000) starting_price_pln = null;
 
   return {
     kind: kind === 'unknown' ? 'mieszkalny' : kind,
@@ -278,7 +298,7 @@ export function auctionDateFromResult(text) {
  * @returns {string[]}
  */
 export function splitResultLots(text) {
-  const t = (text || '').replace(/\r/g, '');
+  const t = (text || '').replace(/\r/g, '').replace(/\f/g, '\n');
   const parts = t.split(/^(\d{1,2})\.\s+/m);
   const segs = [];
   for (let i = 1; i < parts.length; i += 2) {
@@ -302,7 +322,7 @@ export function parseResultSegment(seg, auction_date, sourceUrl) {
   // nominative/genitive mixed — "ul. Rybnej 7A" vs "ul. Rybna 7A").
   // Handles compound buildings ("19/21") and Polish kind phrases ("lokal użytkowy - garaż").
   const addrRe =
-    /(?:ul\.|al\.|pl\.|os\.)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- '"]+?)\s+(\d+(?:\/\d+)?[A-Za-z]?)\s+(lokal[^0-9\n]{0,40}?)\s+nr\s+(\d+[A-Za-z]*)/i;
+    /(?:ul\.|al\.|pl\.|os\.)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- '"]+?)\s+(\d+(?:\/\d+)?[A-Za-z]?)(?:\*\d+)?\s+(lokal[^0-9\n]{0,40}?)\s+nr\s+(\d+[A-Za-z]*)(?:\*\d+)?/i;
   const addrM = addrRe.exec(seg);
   if (!addrM) return null;
 
@@ -328,7 +348,7 @@ export function parseResultSegment(seg, auction_date, sourceUrl) {
   const starting_price_pln = priceMatch ? parsePLN(priceMatch[1].replace(/\s/g, '')) : null;
 
   // Area: first decimal in the segment
-  const areaM = /(\d{1,3},\d{2})\s*(?:\/|_)/.exec(seg);
+  const areaM = /(\d{1,3},\d{2})\b/.exec(seg);
   const area_m2 = areaM ? parseArea(areaM[1]) : null;
 
   // Achieved price: "Cena lokalu uzyskana w przetargu została ustalona na kwotę

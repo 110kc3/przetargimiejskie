@@ -17,6 +17,7 @@ import {
   applyVerifiedJunk,
   applyDurablePropertyHeals,
   crossCityDisplay,
+  stripOcrStreetNoise,
 } from '../src/core/verified-heals.js';
 
 // Silence the heals' console.error progress during the run (failures only).
@@ -27,6 +28,13 @@ test.after(() => { console.error = origError; });
 const listing = (date, extra = {}) => ({
   date, round: null, kind: 'mieszkalny', starting_price_pln: null,
   outcome: 'archived', final_price_pln: null, ...extra,
+});
+
+test('OCR street-noise cleanup preserves HTML entity terminators', () => {
+  assert.equal(stripOcrStreetNoise('Grudzi&#x105;dzka'), 'Grudzi&#x105;dzka');
+  assert.equal(stripOcrStreetNoise('Miko&lstrok;aja Reja'), 'Miko&lstrok;aja Reja');
+  assert.equal(stripOcrStreetNoise('Jagiellońskiej;j'), 'Jagiellońskiej');
+  assert.equal(stripOcrStreetNoise('Grudzi&#x105;dzka;j'), 'Grudzi&#x105;dzka');
 });
 
 // ---- applyVerifiedJunk -----------------------------------------------------
@@ -127,6 +135,22 @@ test('applyVerifiedRenames back-fills the verified area onto area-less listings'
   assert.equal(p.listings[0].area_m2, 144.07, 'area back-filled onto the listing');
 });
 
+test('Wałbrzych verified renames remove board location prose', () => {
+  const staszica = {
+    key: 'przy ul stanislawa staszica|1|7', street: 'przy ul. Stanisława Staszica',
+    street_norm: 'przy ul stanislawa staszica', building: '1', apt: '7',
+    kind: 'lokal mieszkalny', listings: [listing('2026-08-19')],
+  };
+  const andersa = {
+    key: 'walbrzych ul gen w andersa|131|1', street: 'Wałbrzych, ul. gen. W. Andersa',
+    street_norm: 'walbrzych ul gen w andersa', building: '131', apt: '1',
+    kind: 'lokal mieszkalny', listings: [listing('2026-06-10')],
+  };
+  applyVerifiedRenames([staszica, andersa], 'walbrzych');
+  assert.equal(staszica.key, 'stanislawa staszica|1|7');
+  assert.equal(andersa.key, 'andersa|131|1');
+});
+
 test('applyVerifiedAliases combines unique dates and lets a result row replace a same-date archived alias', () => {
   const canonical = {
     key: 'libelta|10|1', street: 'Libelta', street_norm: 'libelta', building: '10', apt: '1',
@@ -152,6 +176,47 @@ test('applyVerifiedAliases combines unique dates and lets a result row replace a
     ['inferred', 'inferred', 'explicit', 'inferred']);
   assert.equal(out[0].listings[2].outcome, 'unsold');
   assert.equal(out[0].listings[2].source_pdf, 'result-july.pdf');
+});
+
+test('Wałbrzych verified aliases fold board prefixes and street initials', () => {
+  const property = (key, date) => ({
+    key,
+    street: key.split('|')[0],
+    street_norm: key.split('|')[0],
+    building: key.split('|')[1],
+    apt: key.split('|')[2],
+    kind: 'mieszkalny',
+    listings: [listing(date)],
+  });
+  const out = applyVerifiedAliases([
+    property('harcerskiej|7|2', '2026-07-27'),
+    property('przy ul harcerskiej|7|2', '2026-07-27'),
+    property('kosciuszki|7|3', '2025-07-16'),
+    property('t kosciuszki|7|3', '2025-10-08'),
+  ], 'walbrzych');
+  assert.deepEqual(out.map((p) => p.key).sort(), ['harcerskiej|7|2', 'kosciuszki|7|3']);
+  assert.deepEqual(out.find((p) => p.key === 'kosciuszki|7|3').listings.map((l) => l.date),
+    ['2025-07-16', '2025-10-08']);
+});
+
+test('Sandomierz bare-street garage rows re-key and fold onto one stable property', () => {
+  const result = {
+    key: 'polskiej organizacji wojskowej i przetarg ustny nieograniczony przeprowadzono w dniu|26|',
+    street: 'Polskiej Organizacji Wojskowej . I przetarg ustny nieograniczony przeprowadzono w dniu',
+    street_norm: 'polskiej organizacji wojskowej i przetarg ustny nieograniczony przeprowadzono w dniu',
+    building: '26', apt: null, kind: 'garaz', listings: [listing('2021-02-26')],
+  };
+  const announcement = {
+    key: 'polskiej organizacji wojskowej w sandomierzu zalacznik nr|1|',
+    street: 'Polskiej Organizacji Wojskowej w Sandomierzu Załącznik nr',
+    street_norm: 'polskiej organizacji wojskowej w sandomierzu zalacznik nr',
+    building: '1', apt: null, kind: 'garaz', listings: [listing('2021-02-26')],
+  };
+  applyVerifiedRenames([result, announcement], 'sandomierz');
+  const out = applyVerifiedAliases([result, announcement], 'sandomierz');
+  assert.equal(out.length, 1);
+  assert.equal(out[0].key, 'polskiej organizacji wojskowej|0|garaz-0');
+  assert.equal(out[0].listings.length, 1);
 });
 
 test('verified Daszyńskiego alias restores the full four-attempt trajectory', () => {

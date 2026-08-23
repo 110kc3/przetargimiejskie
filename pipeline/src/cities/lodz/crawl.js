@@ -35,9 +35,8 @@ import { pdfText } from '../../core/pdf-text.js';
 import { parseAnnouncementPdf } from './parse.js';
 
 const ORIGIN = 'https://bip.uml.lodz.pl';
-const BROWSER_UA =
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-const FETCH_OPTS = { userAgent: BROWSER_UA };
+// The site's anti-bot layer challenges the previous browser impersonation.
+// core/fetch.js's transparent, polite project UA receives the real page.
 
 // The active listing board + the 2026 archive board.
 // The archive TYPO3 slug ends in "-2024-r-1-1" because the node was created in
@@ -113,7 +112,7 @@ async function crawlAll() {
   for (const listingPage of LISTING_PAGES) {
     let html;
     try {
-      html = await getText(listingPage, FETCH_OPTS);
+      html = await getText(listingPage);
     } catch (err) {
       console.error(`  lodz listing fetch failed (${listingPage}): ${err.message}`);
       continue;
@@ -131,7 +130,7 @@ async function crawlAll() {
   for (const articleUrl of articleUrls) {
     let html;
     try {
-      html = await getText(articleUrl, FETCH_OPTS);
+      html = await getText(articleUrl);
     } catch (err) {
       console.error(`  lodz article fetch failed (${articleUrl}): ${err.message}`);
       continue;
@@ -146,7 +145,7 @@ async function crawlAll() {
     // Parse the announcement PDF → active records.
     let annText;
     try {
-      annText = await pdfText(annPdfUrl, { userAgent: BROWSER_UA });
+      annText = await pdfText(annPdfUrl);
     } catch (err) {
       console.error(`  lodz ann PDF extract failed (${annPdfUrl}): ${err.message}`);
       continue;
@@ -165,7 +164,7 @@ async function crawlAll() {
     if (resultPdfUrl) {
       let resultText;
       try {
-        resultText = await pdfText(resultPdfUrl, { userAgent: BROWSER_UA });
+        resultText = await pdfText(resultPdfUrl);
       } catch (err) {
         console.error(`  lodz result PDF extract failed (${resultPdfUrl}): ${err.message}`);
         continue;

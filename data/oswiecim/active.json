@@ -1,6 +1,24 @@
 {
   "schema_version": 1,
   "city": "oswiecim",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Budowlanych 35/3",
+      "address": {
+        "street": "Budowlanych",
+        "street_norm": "budowlanych",
+        "building": "35",
+        "apt": "3",
+        "key": "budowlanych|35|3",
+        "warning": null
+      },
+      "area_m2": 46.14,
+      "starting_price_pln": 275000,
+      "round": 1,
+      "auction_date": "2026-09-08",
+      "detail_url": "https://bip.oswiecim.um.gov.pl/5987/dokument/55663"
+    }
+  ],
   "wykaz": []
 }

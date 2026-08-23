@@ -46,6 +46,25 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { harvestItems, normalizeArticleUrl } from '../src/cities/sandomierz/crawl.js';
+
+test('board harvest accepts canonical and historical category URL shapes', () => {
+  const item = (url, title) =>
+    `<h2 class="pageOnPageHeader"><a href="${url}">${title}</a></h2>` +
+    '<div class="pageOnPagePreambule"><p>Opis</p></div>';
+  const items = harvestItems(
+    item('https://bip.um.sandomierz.pl/20559/ogloszenie-o-przetargu.html', 'Nowy') +
+    item('https://bip.um.sandomierz.pl/13385/132/ogloszenie-o-przetargu.html', 'Stary'),
+  );
+  assert.deepEqual(items.map((x) => x.href), [
+    'https://bip.um.sandomierz.pl/20559/ogloszenie-o-przetargu.html',
+    'https://bip.um.sandomierz.pl/13385/ogloszenie-o-przetargu.html',
+  ]);
+  assert.equal(
+    normalizeArticleUrl('https://bip.um.sandomierz.pl/13746/132/informacja-o-wyniku.html'),
+    'https://bip.um.sandomierz.pl/13746/informacja-o-wyniku.html',
+  );
+});
 
 import {
   isResultTitle,
@@ -115,6 +134,8 @@ test('title routing: sale announcement vs result notice vs noise', () => {
   // sale result.
   assert.equal(isResultTitle('Informacja o wyniku przetargu na dzierżawę nieruchomości'), false);
   assert.equal(isResultTitle('Informacja o wyniku  przetargu na najem lokalu użytkowego'), false);
+  assert.equal(isAnnouncementTitle('Ogłoszenie o przetargu na najem lokalu użytkowego'), false);
+  assert.equal(isAnnouncementTitle('Informacja o wyniku przetargu na dzierżawę nieruchomości'), false);
 });
 
 test('isSaleBody: the real board-preambule/body mismatch (article 17919, Opatowska 13)', () => {
@@ -326,4 +347,22 @@ test('parseResultDoc: Zaleśnej land UNSOLD via USTNY OGRANICZONY round III (rea
 
 test('parseResultDoc: returns [] for a rental result title\'s body text (defensive; rentals are filtered before this point in crawl.js)', () => {
   assert.deepEqual(parseResultDoc('Informacja o wyniku przetargu na najem lokalu użytkowego położonego przy ul. Rynek 2.', null, 'x'), []);
+});
+
+test('parseResultDoc: bare-street garage right does not consume the auction date as a building', () => {
+  const text = `
+    Informacja o wyniku przetargu na sprzedaż spółdzielczego własnościowego
+    prawa do lokalu garażowego położonego w Sandomierzu przy ul. Polskiej
+    Organizacji Wojskowej. I przetarg ustny nieograniczony przeprowadzono
+    w dniu 26 lutego 2021 r. Cena wywoławcza prawa wynosiła 21.000,00 zł.
+    Ustalona w wyniku przetargu cena nabycia prawa wynosi brutto 29.000,00 zł.
+  `;
+  const [record] = parseResultDoc(text, null, 'https://example.com/garage-result');
+  assert.ok(record);
+  assert.equal(record.kind, 'garaz');
+  assert.equal(record.address_raw, 'ul. Polskiej Organizacji Wojskowej');
+  assert.equal(record.address.key, 'polskiej organizacji wojskowej|0|garaz-0');
+  assert.equal(record.auction_date, '2021-02-26');
+  assert.equal(record.starting_price_pln, 21000);
+  assert.equal(record.final_price_pln, 29000);
 });

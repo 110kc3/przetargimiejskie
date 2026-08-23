@@ -94,6 +94,7 @@ export function isResultTitle(title) {
 export function isAnnouncementTitle(title) {
   const t = (title || '').toLowerCase();
   if (isResultTitle(title)) return false;
+  if (/najem|wynajem|dzier[żz]aw/.test(t)) return false;
   if (/^\s*wykaz|zamiar\s+sprzeda|odwo[łl]ani|uniewa[żz]ni|informacj\w*\s+komisj/.test(t)) return false;
   return /przetarg/.test(t);
 }
@@ -212,7 +213,18 @@ export function resolveKindLocal(title, text) {
   return generic;
 }
 
-function addressFromSafe(title, text) {
+function addressFromSafe(title, text, kind = null) {
+  // Some historical garage-right sales name only the street (no building or
+  // garage number). The generic helper otherwise scans forward and mistakes
+  // the auction date/list marker for a building. Use the established rejon
+  // garage convention for that explicit no-number form.
+  if (kind === 'garaz') {
+    const street = landStreetFromText(text);
+    if (street) {
+      const address = parseAddress(`ul. ${street} garaż nr 0`);
+      if (address) return { address_raw: `ul. ${street}`, address };
+    }
+  }
   const addr = addressFrom(title, text);
   if (addr && OFFICE_STREET_RE.test(addr.address.street)) return null;
   return addr;
@@ -247,7 +259,7 @@ export function parseAnnouncement(title, contentHtml, url) {
     };
   }
 
-  const addr = addressFromSafe(title, text);
+  const addr = addressFromSafe(title, text, kind);
   if (!addr) return null;
   return {
     kind: kind === 'unknown' ? 'mieszkalny' : kind,
@@ -288,7 +300,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     }];
   }
 
-  const addr = addressFromSafe('', t);
+  const addr = addressFromSafe('', t, kind);
   if (!addr) return [];
   if (starting_price_pln == null) notes.push('parse: missing starting price');
   if (!sold && !negativeStated) notes.push('parse: no achieved price and no explicit negative outcome');

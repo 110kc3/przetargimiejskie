@@ -42,9 +42,10 @@ import {
 const ORIGIN = 'https://bip.gmina-naklo.pl';
 
 // A browser UA — the Logonet host serves the XML feed to the bot UA too, but a
-// browser UA is the safe default for municipal WAFs (harmless if unneeded).
+// browser UA is the safe default for municipal WAFs. The host currently ships
+// an incomplete TLS chain, so use the fetch layer's scoped compatibility mode.
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) przetargimiejskie-bot/0.1';
-const FETCH_OPTS = { userAgent: UA };
+const FETCH_OPTS = { userAgent: UA, insecureTLS: true };
 
 // Hard cap so a broken feed can never loop forever. The board is 1 page / ~96
 // records as of 2026-07-10 and grows a handful a year.

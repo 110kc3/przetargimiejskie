@@ -3,6 +3,114 @@
   "city": "raciborz",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Kolejowej 19/1a",
+      "address": {
+        "street": "Kolejowej",
+        "street_norm": "kolejowej",
+        "building": "19",
+        "apt": "1A",
+        "key": "kolejowej|19|1A",
+        "warning": null
+      },
+      "area_m2": 114.71,
+      "starting_price_pln": 405000,
+      "auction_date": "2026-09-16",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44327814",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44327837?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Waryńskiego 12/7",
+      "address": {
+        "street": "Waryńskiego",
+        "street_norm": "warynskiego",
+        "building": "12",
+        "apt": "7",
+        "key": "warynskiego|12|7",
+        "warning": null
+      },
+      "area_m2": 24.93,
+      "starting_price_pln": 105000,
+      "auction_date": "2026-09-16",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44327315",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44327339?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ocickiej 28/2",
+      "address": {
+        "street": "Ocickiej",
+        "street_norm": "ocickiej",
+        "building": "28",
+        "apt": "2",
+        "key": "ocickiej|28|2",
+        "warning": null
+      },
+      "area_m2": 49.66,
+      "starting_price_pln": 170000,
+      "auction_date": "2026-09-16",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44326834",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44326856?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kozielskiej 6/6",
+      "address": {
+        "street": "Kozielskiej",
+        "street_norm": "kozielskiej",
+        "building": "6",
+        "apt": "6",
+        "key": "kozielskiej|6|6",
+        "warning": null
+      },
+      "area_m2": 32.11,
+      "starting_price_pln": 120000,
+      "auction_date": "2026-09-16",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44326417",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44326441?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Londzina 28/5",
+      "address": {
+        "street": "Londzina",
+        "street_norm": "londzina",
+        "building": "28",
+        "apt": "5",
+        "key": "londzina|28|5",
+        "warning": null
+      },
+      "area_m2": 77.11,
+      "starting_price_pln": 200000,
+      "auction_date": "2026-09-16",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44326015",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44326036?version=1.0"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Londzina 50/7",
+      "address": {
+        "street": "Londzina",
+        "street_norm": "londzina",
+        "building": "50",
+        "apt": "7",
+        "key": "londzina|50|7",
+        "warning": null
+      },
+      "area_m2": 66.84,
+      "starting_price_pln": 155000,
+      "auction_date": "2026-09-16",
+      "round": 2,
+      "detail_url": "https://www.bipraciborz.pl/bip/dokumenty-akcja-wyszukaj-idstatusu-77591-idtypu-77593-idkategorii-39853-idzakladki-95775-numerzakladki-1?komunikat=44325117",
+      "source_url": "https://www.bipraciborz.pl/res/serwisy/pliki/44325138?version=1.0"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Głubczyckiej 18",
       "address": {

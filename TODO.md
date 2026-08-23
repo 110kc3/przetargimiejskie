@@ -71,37 +71,50 @@ change as this report:
   parser handles the live wide-table layout, yielding six verified flats for
   the 30 September and 26 October auctions.
 
-The remaining repair queue is:
+The 23-August repair batch is complete:
 
 | Issue | Verified cause and required change | Effort |
 |---|---|---:|
-| [#259 Wałbrzych](https://github.com/110kc3/przetargimiejskie/issues/259) | Result traversal reads global sidebar months on every year page and lacks crawl-wide month/article/PDF dedupe, repeatedly extracting the same non-result PDF until CI kills the job. Add global seen sets and preferably scope link extraction to page content. | 1–2h |
-| [#81 Nakło nad Notecią](https://github.com/110kc3/przetargimiejskie/issues/81) | Source omits a TLS intermediate. Add the already-supported `insecureTLS: true` to this city's existing `FETCH_OPTS`; the live diagnostic then produced 6 flats, 8 land items and 45 parsed records. Never disable TLS globally. | <1h |
-| [#165 Elbląg](https://github.com/110kc3/przetargimiejskie/issues/165) | Same incomplete certificate chain. Thread a scoped `FETCH_OPTS` through the two HTML fetches and PDF/DOC extraction calls; the live diagnostic produced one current flat and seven land items. | <1h |
-| [#139 Sandomierz](https://github.com/110kc3/przetargimiejskie/issues/139) | Canonical detail URLs dropped the hard-coded `/132/` segment. Accept both old and canonical shapes and normalize known URLs. | ~1h |
-| [#232 Sępólno Krajeńskie](https://github.com/110kc3/przetargimiejskie/issues/232) | Canonical links dropped `/405/`, while attachment URLs gained `?v=...`. Make the category segment optional and extension checks query-safe; the existing detail parser works on a current notice. | ~1h |
-| [#234 Włocławek](https://github.com/110kc3/przetargimiejskie/issues/234) | Canonical links dropped `/726/`; query suffixes prevent preferring the born-digital DOCX result. Make the segment optional and extension checks query-safe. | ~1h |
-| [#223 Kalisz](https://github.com/110kc3/przetargimiejskie/issues/223) | The small current board contains no flats, but the 2026 archive contains 93 documents including flat results and uses different `DivBipRow` markup. Add current-year archive discovery/parser and feed the PDFs through the existing classifiers. | 2–4h |
-| [#4 Tczew](https://github.com/110kc3/przetargimiejskie/issues/4) | The old `Przetargi` category is empty, but the same BIP's paginated 2026 `Zarządzenia` feed contains flat-sale orders. Repoint discovery, paginate, accept both `przetarg ustny` and `ustny przetarg`; existing IDcom detail/PDF/address helpers mostly apply. | 3–5h |
-| [#278 Łódź](https://github.com/110kc3/przetargimiejskie/issues/278) | The custom browser UA receives a 244-byte `Request Rejected` page while the normal polite UA receives the real board. After removing it, harden the current PDF parser for form-feed row breaks, `*N` footnote markers, simple decimal areas and three-column price lines; add the current eight-lot fixture. | 3–5h |
+| [#259 Wałbrzych](https://github.com/110kc3/przetargimiejskie/issues/259) | Added crawl-wide month/article/PDF dedupe and fixed attachment selection: the page-wide fallback had selected the global city phone-book PDF. Added a 30-second fetch deadline, singular/prose results, and resilient shifted/wrapped table columns. Replaying 119 deduplicated source documents recovered 110 verified result rows (68 properties / 115 concluded auctions) without the earlier 500/600 zł price fragments. | shipped |
+| [#81 Nakło nad Notecią](https://github.com/110kc3/przetargimiejskie/issues/81) | Added host-scoped `insecureTLS`; live refresh restored 6 flats/buildings, 8 current land rows and 45 parsed auction rows from 46 result documents. | shipped |
+| [#165 Elbląg](https://github.com/110kc3/przetargimiejskie/issues/165) | Threaded host-scoped `insecureTLS` through HTML/PDF/DOC fetches; live crawl restored one listing and seven land rows. | shipped |
+| [#139 Sandomierz](https://github.com/110kc3/przetargimiejskie/issues/139) | Migrated to canonical category `/67/`, retained `/132/` compatibility and normalized historical known URLs. | shipped |
+| [#232 Sępólno Krajeńskie](https://github.com/110kc3/przetargimiejskie/issues/232) | Migrated to canonical `/657/`, retained `/405/` compatibility, scoped discovery to real cards and made attachment suffix checks query-safe. Live: 17 notices, 6 listings, 3 result records. | shipped |
+| [#234 Włocławek](https://github.com/110kc3/przetargimiejskie/issues/234) | Migrated to canonical links, retained `/726/` compatibility, scoped discovery to real cards and made DOCX/PDF selection query-safe. Live: 84 notices, 5 listings, 2 result records. | shipped |
+| [#223 Kalisz](https://github.com/110kc3/przetargimiejskie/issues/223) | Added the paired-row current-year archive parser and known-URL dedupe. Live: 86 archived documents found, 9 auction announcements and 6 result records recovered. | shipped |
+| [#4 Tczew](https://github.com/110kc3/przetargimiejskie/issues/4) | The authoritative current `Przetargi` board still works; the bug was crawling its empty archive. Repointed to the live board and added verified-empty handling so the removed dateless listing archives safely. `Zarządzenia` are disposal authorizations, not live auction rows, and are deliberately not published as active. | shipped |
+| [#278 Łódź](https://github.com/110kc3/przetargimiejskie/issues/278) | Removed the challenged browser UA, corrected the live TYPO3 archive slug and hardened form-feed/footnote/area/three-column-price parsing. The current eight-lot PDF now yields all eight records. | shipped |
 
-Five tickets are not city-parser patches:
+The source-reached cleanup is also complete:
 
 - [#82 Oświęcim](https://github.com/110kc3/przetargimiejskie/issues/82) and
-  [#150 Piła](https://github.com/110kc3/przetargimiejskie/issues/150): live
-  crawlers work, but current boards contain land/non-residential material and
-  no residential-flat auction. Extend refresh triage with an explicit
-  source-reached/valid-empty signal so these do not masquerade as layout
-  changes; do not weaken preserve-on-empty.
+  [#150 Piła](https://github.com/110kc3/przetargimiejskie/issues/150) now use an
+  explicit, opt-in `valid_empty` signal without weakening preserve-on-empty.
+  Piła live-verified a genuine empty residential board. Oświęcim additionally
+  exposed a new Budowlanych 35/3 auction; its `przy ul.` address and singular
+  `odbędzie się` date forms are now parsed and regression-tested.
+
+Remaining health work:
+
+- Wałbrzych's pre-August-2024 result PDFs use a separate legacy layout with the
+  address on the same physical line as the `Lp.` marker. The current parser
+  deliberately skips those rows because treating them as the newer
+  address-before-row layout cross-associates each flat with the next lot's
+  prices. Current/live health and the recovered August-2024→2026 history are
+  complete; older history needs its own positionally faithful fixture/parser.
 - [#276 Augustów](https://github.com/110kc3/przetargimiejskie/issues/276): the
   former active and inactive listing components are both genuinely empty.
   Historical details remain accessible and official-site search finds source
   material, but a filtered search or replacement-feed discovery path is needed.
 - [#173 Racibórz](https://github.com/110kc3/przetargimiejskie/issues/173) and
   [#174 Świętochłowice](https://github.com/110kc3/przetargimiejskie/issues/174):
-  both adapters work locally; shared FINN host `bip2.finn.pl` connect-drops
-  GitHub/Azure egress. Provision the documented Polish proxy or self-hosted
-  runner in [REMOTE.md](./REMOTE.md); there is no adapter fix.
+  both adapters work and the shared FINN host was reachable from this runner on
+  23 August. A live refresh republished Racibórz (21 properties / 8 current
+  auctions) and Świętochłowice (97 / 8), making the strict 3-day health check
+  green for all 121 cities. GitHub/Azure egress has historically been
+  connect-dropped by this host, so provisioning the documented Polish proxy or
+  self-hosted runner in [REMOTE.md](./REMOTE.md) remains the durable reliability
+  task; there is no adapter patch to make.
 
 The dated July investigation notes below are retained as diagnosis history.
 Where they disagree with this section (notably Tczew, Nakło, Oświęcim and

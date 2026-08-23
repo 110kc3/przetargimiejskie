@@ -28,7 +28,7 @@ import { htmlToText } from '../../core/finn-bip.js';
 import { isAnnouncementTitle, isResultTitle, parseAnnouncement } from './parse.js';
 
 const ORIGIN = 'https://bip.um.sandomierz.pl';
-const BOARD_PATH = '/67/132/sprzedaz-i-dzierzawa-mienia-komunalnego.html';
+const BOARD_PATH = '/67/sprzedaz-i-dzierzawa-mienia-komunalnego.html';
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
@@ -37,7 +37,9 @@ const TIME_BUDGET_MS = Number(process.env.SANDOMIERZ_TIME_BUDGET_MS) || 180000;
 
 // Board item: <h2 class="pageOnPageHeader"><a href="...">TITLE</a></h2>
 //             <div class="pageOnPagePreambule"><p>PREAMBULE</p></div>
-const ITEM_RE = /<a href="(https:\/\/bip\.um\.sandomierz\.pl\/\d+\/132\/[^"]+)">([^<]+)<\/a><\/h2>\s*<div class="pageOnPagePreambule"><p>([^<]*)<\/p>/g;
+// The CMS removed the category id (/132/) from canonical article URLs in
+// August 2026. Accept both shapes so archived fixtures and live links work.
+const ITEM_RE = /<a href="(https:\/\/bip\.um\.sandomierz\.pl\/\d+\/(?:132\/)?[^"]+)">([^<]+)<\/a><\/h2>\s*<div class="pageOnPagePreambule"><p>([^<]*)<\/p>/g;
 
 function decodeEntities(s) {
   return (s || '')
@@ -48,12 +50,18 @@ function decodeEntities(s) {
     .trim();
 }
 
-function harvestItems(html) {
+/** Canonicalise the CMS's retired category segment so old committed source
+ * URLs still match the new live links and are not reprocessed as duplicates. */
+export function normalizeArticleUrl(url) {
+  return String(url || '').replace(/(bip\.um\.sandomierz\.pl\/\d+)\/132\//i, '$1/');
+}
+
+export function harvestItems(html) {
   const out = [];
   let m;
   ITEM_RE.lastIndex = 0;
   while ((m = ITEM_RE.exec(html)) !== null) {
-    out.push({ href: m[1], title: decodeEntities(m[2]), preambule: decodeEntities(m[3]) });
+    out.push({ href: normalizeArticleUrl(m[1]), title: decodeEntities(m[2]), preambule: decodeEntities(m[3]) });
   }
   return out;
 }
@@ -85,7 +93,9 @@ function candidateRole(title) {
 let crawlPromise = null;
 
 async function crawlAll() {
-  const known = await loadKnownSourceUrls('sandomierz');
+  const known = new Set(
+    [...await loadKnownSourceUrls('sandomierz')].map(normalizeArticleUrl),
+  );
   const start = Date.now();
 
   // 1) Harvest candidate (href,title) across the paginated board; keep sale

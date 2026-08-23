@@ -238,7 +238,11 @@ async function crawlAll() {
   console.error(
     `  pila: ${listings.length} active listing(s), ${resultRefs.length} result PDF ref(s)`,
   );
-  return { listings, resultRefs };
+  // A parsed, non-empty board with no residential-auction titles is a verified
+  // empty source, not an outage. Parser/fetch failures after finding a flat do
+  // not qualify and still trigger the global preserve-on-empty safety net.
+  const validEmpty = stubs.length > 0 && flat.length === 0;
+  return { listings, resultRefs, validEmpty };
 }
 
 // Memoised crawl -- both crawlActive and crawlResultDocs share one pass.
@@ -247,8 +251,8 @@ let crawlPromise = null;
 /** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings } = await crawlPromise;
-  return { listings, wykaz: [], land: [] };
+  const { listings, validEmpty } = await crawlPromise;
+  return { listings, wykaz: [], land: [], valid_empty: validEmpty };
 }
 
 /**

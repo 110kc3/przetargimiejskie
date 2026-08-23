@@ -29,11 +29,18 @@ import {
 } from '../src/cities/walbrzych/parse.js';
 
 import {
+  normalizeBoardAddress,
   parseBoardPage,
   parseMonthUrls,
   parseArticleUrls,
   parsePdfUrl,
 } from '../src/cities/walbrzych/crawl.js';
+
+test('normalizeBoardAddress: strips venue prose and aligns the Andersa spelling', () => {
+  assert.equal(normalizeBoardAddress('przy ul. Stanisława Staszica 1/7'), 'ul. Stanisława Staszica 1/7');
+  assert.equal(normalizeBoardAddress('Wałbrzych, przy ul. Harcerskiej 7/2'), 'ul. Harcerskiej 7/2');
+  assert.equal(normalizeBoardAddress('Wałbrzych, ul. gen. W. Andersa 131/1'), 'ul. Andersa 131/1');
+});
 
 // ── Real PDF fixture: 22.01.2025, 6 lots ────────────────────────────────────
 //
@@ -132,6 +139,10 @@ test('isResultNotice: recognises a Wałbrzych result PDF', () => {
   assert.equal(isResultNotice(RESULT_22JAN), true);
 });
 
+test('isResultNotice: recognises singular prose result notices', () => {
+  assert.equal(isResultNotice('INFORMACJA O WYNIKU PRZETARGU'), true);
+});
+
 test('isResultNotice: rejects non-result text', () => {
   assert.equal(isResultNotice('Ogłoszenie o przetargu na lokal mieszkalny'), false);
   assert.equal(isResultNotice(''), false);
@@ -180,7 +191,9 @@ test('isFlatAddressLine: rejects non-flat addresses', () => {
   assert.equal(isFlatAddressLine('ul. Andersa 121A'), false,        'building-only, no apt');
   assert.equal(isFlatAddressLine('ul. Madalińskiego'), false,       'no number at all');
   assert.equal(isFlatAddressLine('dz. 37/13'), false,               'parcel notation, not a street');
+  assert.equal(isFlatAddressLine('cz. dz 91/8 obr Gaj nr 32'), false, 'partial parcel notation');
   assert.equal(isFlatAddressLine('obr. Piaskowa Góra nr'), false,   'cadastral precinct line');
+  assert.equal(isFlatAddressLine('KW 00043029/1'), false,            'land-register number');
   assert.equal(isFlatAddressLine(''), false);
   assert.equal(isFlatAddressLine(null), false);
 });
@@ -190,6 +203,11 @@ test('isFlatAddressLine: rejects non-flat addresses', () => {
 test('normaliseAddressLine: leaves ul.-prefixed addresses unchanged', () => {
   assert.equal(normaliseAddressLine('ul. Mickiewicza 6/9'), 'ul. Mickiewicza 6/9');
   assert.equal(normaliseAddressLine('al. Wyzwolenia 5/2'), 'al. Wyzwolenia 5/2');
+});
+
+test('normaliseAddressLine: aligns verified abbreviated patron names', () => {
+  assert.equal(normaliseAddressLine('ul. gen. W. Andersa 115/6'), 'ul. Andersa 115/6');
+  assert.equal(normaliseAddressLine('ul. P. Skargi 1/6'), 'ul. Piotra Skargi 1/6');
 });
 
 test('normaliseAddressLine: adds ul. prefix to bare street names', () => {
@@ -351,6 +369,74 @@ test('parseResultDoc: 08.01.2025 — auction date from title', () => {
   assert.equal(auctionDateFromTitle(RESULT_08JAN), '2025-01-08');
 });
 
+test('parseResultDoc: shifted table columns keep complete starting and achieved prices', () => {
+  // Faithful row excerpts from live result PDFs 55702 (2026-02-25) and 53761
+  // (2025-09-17). Their price columns start around character 96 rather than
+  // the historical 113, which previously truncated the values to 600/500/800.
+  const shifted = `
+                                       Informacja o wynikach przetargów przeprowadzonych w dniu 25.02.2026 r.
+\f                                               ul. Wrocławska 132/14
+   7                           I przetarg      obr. Szczawienko nr 2          1         -       60.000,00 zł    60.600,00 zł        -   Spółka Cywilna
+
+                                             ul. gen. Władysława
+                                                 Andersa 163/8
+4                         II przetarg       obr. Biały Kamień nr    1                -           50.000,00 zł   50.500,00 zł          -           Monika Nowak
+
+                                                     ul. Długa 89/4
+  10                            II przetarg                                      1      -   280.000,00 zł     282.800,00 zł      -           Andrzej
+  `;
+  const recs = parseResultDoc(shifted, null, 'https://example.com/shifted');
+  assert.equal(recs.length, 3);
+  assert.deepEqual(
+    recs.map((record) => [record.address.key, record.starting_price_pln, record.final_price_pln]),
+    [
+      ['wroclawska|132|14', 60000, 60600],
+      ['andersa|163|8', 50000, 50500],
+      ['dluga|89|4', 280000, 282800],
+    ],
+  );
+  assert.ok(recs.every((record) => record.outcome === 'sold'));
+});
+
+test('parseResultDoc: prices wrapped below the Lp. marker stay with their address', () => {
+  // Faithful excerpts from live PDFs 52917 and 56315. These templates put the
+  // row number/cadastral field on one line and the round/prices on the next.
+  const wrapped = `
+    Informacja o wynikach przetargów przeprowadzonych w dniu 15.04.2026 r.
+                                        Andersa 113/2
+      15.04.2026 r.                      dz. nr 347/7                                                           Brak
+8     Urząd Miejski                 obr. Biały Kamień nr                                                 zainteresowanych
+                       II przetarg                            -   -   129.000,00 zł         -         -
+     w Wałbrzychu,                            14                                                             nabyciem
+     ul. Kopernika 2                       KW nr                                                          nieruchomości
+
+                                            ul. Wrocławska 123/13
+       15.04.2026 r.                                                                                                                                               KRS INWESTYCJE
+                                                 dz. nr 98/17
+      Urząd Miejski                                                                                                                                                  Spółka Cywilna
+7                                           obr. Szczawienko nr 4
+      w Wałbrzychu,        II przetarg                                       2                   -             65.000,00 zł      70.500,00 zł           -          Robert Koźlak Rafał
+                                                    KW nr
+  `;
+  const recs = parseResultDoc(wrapped, null, 'https://example.com/wrapped');
+  assert.deepEqual(
+    recs.map((record) => [record.address.key, record.round, record.starting_price_pln, record.final_price_pln, record.outcome]),
+    [
+      ['andersa|113|2', 2, 129000, null, 'unsold'],
+      ['wroclawska|123|13', 2, 65000, 70500, 'sold'],
+    ],
+  );
+});
+
+test('parseResultDoc: rejects same-line legacy rows rather than pairing them with the next lot', () => {
+  const legacy = `
+    Informacja o wynikach przetargów przeprowadzonych w dniu 13.04.2022 r.
+4     13.04.2022 r.   I przetarg       ul. Psie Pole 19/4   14   1   70.000,00 zł   105.000,00 zł
+5     13.04.2022 r.   I przetarg       ul. Bohaterów Getta 9/2   13   80.000,00 zł   140.000,00 zł
+  `;
+  assert.deepEqual(parseResultDoc(legacy, null, 'https://example.com/legacy'), []);
+});
+
 test('parseResultDoc: fallbackDate used when no date in title', () => {
   const noDate = RESULT_22JAN.replace(/w dniu 22\.01\.2025 r\./, 'w dniu (data)');
   const recs = parseResultDoc(noDate, '2025-01-22', 'https://example.com/test');
@@ -359,6 +445,57 @@ test('parseResultDoc: fallbackDate used when no date in title', () => {
   if (recs.length > 0) {
     assert.ok(recs[0].auction_date === '2025-01-22' || recs[0].auction_date === null);
   }
+});
+
+test('parseResultDoc: singular prose notice parses the flat, date, round, price, and outcome', () => {
+  const prose = `
+    Wałbrzych, dnia 12.01.2026r.
+    INFORMACJA O WYNIKU PRZETARGU
+    Informuję, iż wyznaczony na dzień 12 stycznia 2026r. na godzinę 09.00
+    trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr
+    9, stanowiącego własność Skarbu Państwa, położonym w Wałbrzychu,
+    przy ulicy Lotników 1, posadowionym na działce nr 175/3, zakończył się
+    wynikiem negatywnym, ponieważ nikt nie przystąpił do przetargu.
+    Cena wywoławcza nieruchomości – 140 000,00 zł
+  `;
+  const [record] = parseResultDoc(
+    prose,
+    null,
+    'https://bip.um.walbrzych.pl/attachments/download/55164',
+  );
+  assert.ok(record);
+  assert.equal(record.address.key, 'lotnikow|1|9');
+  assert.equal(record.auction_date, '2026-01-12');
+  assert.equal(record.round, 3);
+  assert.equal(record.starting_price_pln, 140000);
+  assert.equal(record.final_price_pln, null);
+  assert.equal(record.outcome, 'unsold');
+  assert.equal(record.unsold_reason, 'no_bidders');
+});
+
+test('parseResultDoc: multi-property prose notice ignores the city-hall address', () => {
+  const prose = `
+    Wałbrzych, dnia 27.07.2026r.
+    INFORMACJA O WYNIKACH PRZETARGÓW
+    Informuję, iż wyznaczone na dzień 27 lipca 2026r. w siedzibie Urzędu
+    Miejskiego w Wałbrzychu przy ulicy Kopernika 2, przetargi na sprzedaż
+    nieruchomości zakończyły się wynikiem pozytywnym:
+    1) pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 2
+    położonego w Wałbrzychu przy ulicy Harcerskiej 7 z równoczesną sprzedażą gruntu;
+    Cena wywoławcza nieruchomości – 175 000,00 zł
+    Najwyższa cena osiągnięta w przetargu – 177 000 zł
+    2) pierwszy przetarg na sprzedaż nieruchomości gruntowej zabudowanej,
+    położonej przy ulicy Słonecznej, działka nr 161/2.
+    Cena wywoławcza nieruchomości – 42 000,00 zł
+  `;
+  const recs = parseResultDoc(prose, null, 'https://bip.um.walbrzych.pl/attachments/download/57419');
+  assert.equal(recs.length, 1);
+  assert.equal(recs[0].address.key, 'harcerskiej|7|2');
+  assert.equal(recs[0].auction_date, '2026-07-27');
+  assert.equal(recs[0].round, 1);
+  assert.equal(recs[0].starting_price_pln, 175000);
+  assert.equal(recs[0].final_price_pln, 177000);
+  assert.equal(recs[0].outcome, 'sold');
 });
 
 // ── crawl helpers ────────────────────────────────────────────────────────────
@@ -383,7 +520,7 @@ test('parseBoardPage: filters for lokal mieszkalny only', () => {
   const cards = parseBoardPage(html);
   assert.equal(cards.length, 1, 'only the lokal mieszkalny card should be returned');
   assert.match(cards[0].detail_url, /12345/);
-  assert.equal(cards[0].kind, 'lokal mieszkalny');
+  assert.equal(cards[0].kind, 'mieszkalny');
   assert.equal(cards[0].starting_price_pln, 80000);
   assert.equal(cards[0].auction_date, '2026-06-10');
   // Regression: the card MUST carry a parsed `address` (the key buildCityData
@@ -438,6 +575,16 @@ test('parsePdfUrl: extracts PDF download link from article page', () => {
     <a href="/attachments/download/50920" title="Plik do pobrania">22.01.2025 wynik przetargu</a> pdf, 115 kB`;
   const url = parsePdfUrl(html);
   assert.equal(url, 'https://bip.um.walbrzych.pl/attachments/download/50920');
+});
+
+test('parsePdfUrl: ignores the global contact phone-book attachment', () => {
+  const html = `
+    <aside><a href="https://bip.um.walbrzych.pl/attachments/download/57503">Spis telefonów</a></aside>
+    <h2>Załączniki</h2>
+    <span><a id="attachments-title" title="Plik do pobrania"
+      href="https://bip.um.walbrzych.pl/attachments/download/57462">Wyniki</a></span>
+    <span class="files textPDF">pdf, 147 kB</span>`;
+  assert.equal(parsePdfUrl(html), 'https://bip.um.walbrzych.pl/attachments/download/57462');
 });
 
 test('parsePdfUrl: returns null when no PDF link', () => {

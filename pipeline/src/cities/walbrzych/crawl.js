@@ -28,7 +28,8 @@ import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
-import { parseResultDoc } from './parse.js';
+import { loadKnownSourceUrls } from '../../core/known-urls.js';
+import { isResultNotice, parseResultDoc } from './parse.js';
 
 const ORIGIN = 'https://bip.um.walbrzych.pl';
 const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36';
@@ -40,6 +41,18 @@ const MAX_PAGES = 60; // safety ceiling (~1500 items; current total ~450)
 
 /** URL for listing board page N (1-indexed) */
 const boardUrl = (page) => `${ORIGIN}/przetargi-nieruchomosci/${page}/${PER_PAGE}`;
+
+/** Remove location prose that the board inconsistently prepends to an address. */
+export function normalizeBoardAddress(raw) {
+  return String(raw || '')
+    .trim()
+    .replace(/^Wa[łl]brzych,?\s*/i, '')
+    .replace(/^przy\s+/i, '')
+    // Result tables use the short official street form "Andersa". Keeping the
+    // board's honorific/initial would split one unit into two property keys.
+    .replace(/^ul\.\s+gen\.\s+(?:W\.\s*)?Andersa\b/i, 'ul. Andersa')
+    .trim();
+}
 
 /**
  * Parse a listing board HTML page. Extract property cards.
@@ -100,14 +113,13 @@ export function parseBoardPage(html) {
 
     // Kind
     const kindM = /Rodzaj nieruchomo[śs]ci<\/[^>]+>\s*<[^>]+>([^<]+)</.exec(block);
-    const kind = kindM ? kindM[1].trim().toLowerCase() : '';
-    if (!kind.includes('lokal mieszkalny')) continue; // filter: flats only
+    const sourceKind = kindM ? kindM[1].trim().toLowerCase() : '';
+    if (!sourceKind.includes('lokal mieszkalny')) continue; // filter: flats only
+    const kind = 'mieszkalny';
 
     // Address (from address cell, strip "Wałbrzych, przy " prefix)
     const addrM = /Adres nieruchomo[śs]ci<\/[^>]+>\s*<[^>]+><a[^>]*>([^<]+)<\/a>/.exec(block);
-    const addrRaw = addrM
-      ? addrM[1].trim().replace(/^Wa[łl]brzych,?\s*przy\s*/i, '').trim()
-      : '';
+    const addrRaw = addrM ? normalizeBoardAddress(addrM[1]) : '';
 
     // Starting price
     const priceM = /Cena wywo[łl]awcza<\/[^>]+>\s*<[^>]+>([^<]+)</.exec(block);
@@ -225,12 +237,23 @@ export function parseArticleUrls(html) {
  * @returns {string|null} absolute URL
  */
 export function parsePdfUrl(html) {
-  // Primary: link followed by "pdf," mime hint
-  const m = /href="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"[^>]*>[^<]*<\/a>\s*pdf,/i.exec(html);
-  if (m) return ORIGIN + m[1];
-  // Fallback: any /attachments/download/ link
-  const fb = /href="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"/.exec(html);
-  return fb ? ORIGIN + fb[1] : null;
+  // Current Logonet markup explicitly tags the article attachment. Prefer it:
+  // the global contact box also contains a `/attachments/download/...` link
+  // for the city phone book, which must never be mistaken for a result PDF.
+  const tagged = /<a\b(?=[^>]*\bid="attachments-title")[^>]*\bhref="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"/i.exec(html);
+  if (tagged) return ORIGIN + tagged[1];
+
+  // Older pages lack the id but put their attachment after this heading.
+  const headingAt = (html || '').search(/<h2[^>]*>\s*Za[łl][ąa]czniki\s*<\/h2>/i);
+  if (headingAt >= 0) {
+    const section = html.slice(headingAt, headingAt + 20_000);
+    const inSection = /href="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"/i.exec(section);
+    if (inSection) return ORIGIN + inSection[1];
+  }
+
+  // Legacy compact markup: link immediately followed by the MIME hint.
+  const legacy = /href="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"[^>]*>[^<]*<\/a>\s*pdf,/i.exec(html);
+  return legacy ? ORIGIN + legacy[1] : null;
 }
 
 /**
@@ -239,6 +262,12 @@ export function parsePdfUrl(html) {
  */
 async function crawlResultDocs() {
   const refs = [];
+  const known = await loadKnownSourceUrls('walbrzych');
+  // Every year page currently embeds the same global month sidebar. Keep
+  // dedupe crawl-wide so each month/article/PDF is fetched at most once.
+  const seenMonthUrls = new Set();
+  const seenArticleUrls = new Set();
+  const seenPdfUrls = new Set();
 
   for (const { year, url: yearUrl } of YEAR_PAGES) {
     let yearHtml;
@@ -256,6 +285,8 @@ async function crawlResultDocs() {
     }
 
     for (const monthUrl of monthUrls) {
+      if (seenMonthUrls.has(monthUrl)) continue;
+      seenMonthUrls.add(monthUrl);
       let monthHtml;
       try {
         monthHtml = await getText(monthUrl, { userAgent: BROWSER_UA });
@@ -266,6 +297,8 @@ async function crawlResultDocs() {
 
       const articleUrls = parseArticleUrls(monthHtml);
       for (const articleUrl of articleUrls) {
+        if (seenArticleUrls.has(articleUrl) || known.has(articleUrl)) continue;
+        seenArticleUrls.add(articleUrl);
         let articleHtml;
         try {
           articleHtml = await getText(articleUrl, { userAgent: BROWSER_UA });
@@ -279,6 +312,8 @@ async function crawlResultDocs() {
           console.error(`  walbrzych: no PDF attachment on ${articleUrl}`);
           continue;
         }
+        if (seenPdfUrls.has(pdfUrl) || known.has(pdfUrl)) continue;
+        seenPdfUrls.add(pdfUrl);
 
         let text;
         try {
@@ -289,7 +324,7 @@ async function crawlResultDocs() {
         }
 
         // Quick guard: skip non-result PDFs (should not occur in this tree)
-        if (!/Informacja\s+o\s+wynikach\s+przetarg/i.test(text)) {
+        if (!isResultNotice(text)) {
           console.error(`  walbrzych: unexpected non-result PDF at ${pdfUrl} — skipped`);
           continue;
         }

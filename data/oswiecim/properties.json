@@ -3,6 +3,28 @@
   "city": "oswiecim",
   "properties": [
     {
+      "key": "budowlanych|35|3",
+      "street": "Budowlanych",
+      "street_norm": "budowlanych",
+      "building": "35",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 275000,
+          "outcome": "active",
+          "area_m2": 46.14,
+          "detail_url": "https://bip.oswiecim.um.gov.pl/5987/dokument/55663",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.14
+    },
+    {
       "key": "gen jaroslawa dabrowskiego|46|14",
       "street": "gen. Jarosława Dąbrowskiego",
       "street_norm": "gen jaroslawa dabrowskiego",

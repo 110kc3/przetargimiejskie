@@ -69,7 +69,11 @@ export const ADDRESS_KINDS = ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', '
  *  the genitive "zabudowy" are both truncations/declensions of "zabudowana" (a
  *  built property / house); healing them makes the TYP column read "dom" and
  *  lets the houses filter group the row. */
-export const KIND_ALIASES = { zabudowa: 'zabudowana', zabudowy: 'zabudowana' };
+export const KIND_ALIASES = {
+  zabudowa: 'zabudowana',
+  zabudowy: 'zabudowana',
+  'lokal mieszkalny': 'mieszkalny',
+};
 
 const VALID_KINDS = new Set([...KINDS, 'unknown']);
 

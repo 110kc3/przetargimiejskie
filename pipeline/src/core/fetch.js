@@ -55,6 +55,10 @@ const USER_AGENT =
 // (FETCH_MIN_INTERVAL_MS) exists for local one-off runs against hosts already
 // verified to tolerate it - CI never sets it.
 const MIN_INTERVAL_MS = Number(process.env.FETCH_MIN_INTERVAL_MS) || 1000;
+// Bound both the connection and response-body phases. Native fetch otherwise
+// has no overall deadline, so one municipal server that accepts a connection
+// and then stalls can hold an entire city (and CI matrix job) indefinitely.
+const REQUEST_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS) || 30000;
 let lastFetchAt = 0;
 
 // ---- failure-snapshot hook (CI triage) -------------------------------------
@@ -206,7 +210,11 @@ export async function politeGet(url, opts = {}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       await throttle();
-      const res = await (proxiedFetch || fetch)(url, { headers, redirect: 'follow' });
+      const res = await (proxiedFetch || fetch)(url, {
+        headers,
+        redirect: 'follow',
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
       if (res.status >= 500 || res.status === 429) {
         throw new Error(`http ${res.status} on ${url}`);
       }

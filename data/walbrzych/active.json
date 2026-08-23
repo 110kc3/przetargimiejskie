@@ -5,32 +5,30 @@
     {
       "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7",
       "address": {
-        "street": "przy ul. Stanisława Staszica",
-        "street_norm": "przy ul stanislawa staszica",
+        "street": "Stanisława Staszica",
+        "street_norm": "stanislawa staszica",
         "building": "1",
         "apt": "7",
-        "key": "przy ul stanislawa staszica|1|7",
+        "key": "stanislawa staszica|1|7",
         "warning": null
       },
-      "address_raw": "przy ul. Stanisława Staszica 1/7",
-      "kind": "lokal mieszkalny",
+      "address_raw": "ul. Stanisława Staszica 1/7",
+      "kind": "mieszkalny",
       "starting_price_pln": 170000,
-      "auction_date": "2026-08-19",
-      "round": 1,
-      "round_source": "inferred"
+      "auction_date": "2026-08-19"
     },
     {
       "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51204/przy-ul-harcerskiej-7-2",
       "address": {
-        "street": "przy ul. Harcerskiej",
-        "street_norm": "przy ul harcerskiej",
+        "street": "Harcerskiej",
+        "street_norm": "harcerskiej",
         "building": "7",
         "apt": "2",
-        "key": "przy ul harcerskiej|7|2",
+        "key": "harcerskiej|7|2",
         "warning": null
       },
-      "address_raw": "przy ul. Harcerskiej 7/2",
-      "kind": "lokal mieszkalny",
+      "address_raw": "ul. Harcerskiej 7/2",
+      "kind": "mieszkalny",
       "starting_price_pln": 175000,
       "auction_date": "2026-07-27"
     },
@@ -45,7 +43,7 @@
         "warning": null
       },
       "address_raw": "ul. Joachima Lelewela 5/10",
-      "kind": "lokal mieszkalny",
+      "kind": "mieszkalny",
       "starting_price_pln": 59000,
       "auction_date": "2026-06-24"
     },
@@ -60,7 +58,7 @@
         "warning": null
       },
       "address_raw": "ul. Piotra Skargi 26/18",
-      "kind": "lokal mieszkalny",
+      "kind": "mieszkalny",
       "starting_price_pln": 26000,
       "auction_date": "2026-06-24"
     },
@@ -75,7 +73,7 @@
         "warning": null
       },
       "address_raw": "ul. Piotra Skargi 26/14",
-      "kind": "lokal mieszkalny",
+      "kind": "mieszkalny",
       "starting_price_pln": 32000,
       "auction_date": "2026-06-24"
     },
@@ -90,7 +88,7 @@
         "warning": null
       },
       "address_raw": "ul. 11 Listopada 188/16",
-      "kind": "lokal mieszkalny",
+      "kind": "mieszkalny",
       "starting_price_pln": 68000,
       "auction_date": "2026-06-24"
     },
@@ -105,22 +103,22 @@
         "warning": null
       },
       "address_raw": "ul. Wrocławskiej 56/6",
-      "kind": "lokal mieszkalny",
+      "kind": "mieszkalny",
       "starting_price_pln": 88000,
       "auction_date": "2026-06-10"
     },
     {
       "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/50689/walbrzych-ul-gen-w-andersa-131-1",
       "address": {
-        "street": "Wałbrzych, ul. gen. W. Andersa",
-        "street_norm": "walbrzych ul gen w andersa",
+        "street": "Andersa",
+        "street_norm": "andersa",
         "building": "131",
         "apt": "1",
-        "key": "walbrzych ul gen w andersa|131|1",
+        "key": "andersa|131|1",
         "warning": null
       },
-      "address_raw": "Wałbrzych, ul. gen. W. Andersa 131/1",
-      "kind": "lokal mieszkalny",
+      "address_raw": "ul. Andersa 131/1",
+      "kind": "mieszkalny",
       "starting_price_pln": 99000,
       "auction_date": "2026-06-10"
     },
@@ -135,7 +133,7 @@
         "warning": null
       },
       "address_raw": "ul. Słowackiego 26A/3",
-      "kind": "lokal mieszkalny",
+      "kind": "mieszkalny",
       "starting_price_pln": 90000,
       "auction_date": "2026-06-10"
     }

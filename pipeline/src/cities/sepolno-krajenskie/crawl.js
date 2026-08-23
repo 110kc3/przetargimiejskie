@@ -25,7 +25,7 @@ import { pdfText } from '../../core/pdf-text.js';
 import { parseNotice, areaFromAnnouncement, parseResultDoc } from './parse.js';
 
 const PORTAL = 'https://bip.gmina-sepolno.pl';
-const BOARD = `${PORTAL}/657/405/przetargi.html`;
+const BOARD = `${PORTAL}/657/przetargi.html`;
 const BOARD_DOCID = '657'; // the board's own self-link — never a notice
 const MAX_PAGES = 6; // observed ~2 pages; a safety bound for growth
 
@@ -39,14 +39,17 @@ const LISTING_KINDS = new Set(['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz'])
 
 /**
  * Extract notice-detail links from one board-index page.
- * Notice URL: /<docid>/405/<slug>.html (absolute or root-relative). Skips the
+ * Notice URL: /<docid>/<slug>.html; the historical /405/ category segment is
+ * also accepted (absolute or root-relative). Skips the
  * board's own self-link (docid 657 / slug "przetargi.html").
  * @param {string} html @returns {Array<{docid:string, url:string}>}
  */
 export function parseBoardLinks(html) {
   const out = [];
   const seen = new Set();
-  const re = /href="((?:https?:\/\/[^"]+)?\/(\d+)\/405\/([^"]+\.html))"/gi;
+  // Scope to board-card titles. Once /405/ disappeared, a global href scan
+  // also matched hundreds of navigation pages that merely share /<id>/<slug>.
+  const re = /<div[^>]*class="cct-item__name"[^>]*>\s*<a href="((?:https?:\/\/[^"]+)?\/(\d+)\/(?:405\/)?([^"]+\.html))"/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
     const docid = m[2];

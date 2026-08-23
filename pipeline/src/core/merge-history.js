@@ -98,6 +98,28 @@ export function archivePastActive(properties, todayIso) {
 }
 
 /**
+ * Close every retained active listing after an adapter has positively verified
+ * that its authoritative live source contains no in-scope records. This is the
+ * dateless counterpart to archivePastActive(): without it, an old listing whose
+ * source never exposed an auction date would survive a valid-empty refresh as
+ * active forever.
+ * @param {Array} properties
+ * @returns {number} count of reclassified listings
+ */
+export function archiveAllActive(properties) {
+  let n = 0;
+  for (const p of properties || []) {
+    for (const l of p.listings || []) {
+      if (l.outcome === 'active') {
+        l.outcome = 'archived';
+        n++;
+      }
+    }
+  }
+  return n;
+}
+
+/**
  * @param {Array} previous  properties[] from the last committed file ([] if none)
  * @param {Array} fresh      properties[] just built from the current crawl
  * @returns {{ properties: Array, stats: { kept_properties:number, kept_listings:number } }}

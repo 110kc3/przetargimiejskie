@@ -46,7 +46,8 @@ const LISTING_KINDS = new Set(['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz'])
 
 /**
  * Extract notice-detail links from one board-index page.
- * Notice URL: /<docid>/726/<slug>.html (absolute or root-relative). Skips the
+ * Notice URL: /<docid>/<slug>.html; the historical /726/ category segment is
+ * also accepted (absolute or root-relative). Skips the
  * board's own self-link (docid 2730 / slug
  * "ogloszenia-o-przetargach-nieruchomosci.html").
  * @param {string} html @returns {Array<{docid:string, url:string}>}
@@ -54,7 +55,9 @@ const LISTING_KINDS = new Set(['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz'])
 export function parseBoardLinks(html) {
   const out = [];
   const seen = new Set();
-  const re = /href="((?:https?:\/\/[^"]+)?\/(\d+)\/726\/([^"]+\.html))"/gi;
+  // Scope to board-card titles. Once /726/ disappeared, a global href scan
+  // also matched hundreds of unrelated navigation pages.
+  const re = /<div[^>]*class="cct-item__name"[^>]*>\s*<a href="((?:https?:\/\/[^"]+)?\/(\d+)\/(?:726\/)?([^"]+\.html))"/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
     const docid = m[2];
@@ -78,7 +81,7 @@ export function parseBoardLinks(html) {
  * @param {string} url @returns {Promise<string>}
  */
 export async function extractResultText(url) {
-  if (/\.docx?$/i.test(url)) {
+  if (/\.docx?(?:[?#]|$)/i.test(url)) {
     return docText(url);
   }
   try {

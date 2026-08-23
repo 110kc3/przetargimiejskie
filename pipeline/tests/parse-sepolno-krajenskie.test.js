@@ -36,6 +36,18 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { parseBoardLinks } from '../src/cities/sepolno-krajenskie/crawl.js';
+
+test('board links accept canonical and historical category URL shapes', () => {
+  const links = parseBoardLinks(
+    '<div class="cct-item__name"><a href="https://bip.gmina-sepolno.pl/5301/nowy.html">new</a></div>' +
+    '<div class="cct-item__name"><a href="/2562/405/stary.html">old</a></div>',
+  );
+  assert.deepEqual(links, [
+    { docid: '5301', url: 'https://bip.gmina-sepolno.pl/5301/nowy.html' },
+    { docid: '2562', url: 'https://bip.gmina-sepolno.pl/2562/405/stary.html' },
+  ]);
+});
 
 import {
   parsePLN,
@@ -83,6 +95,15 @@ ${metaHtml}
 <p>${attHtml}</p>
 </body></html>`;
 }
+
+test('attachment selection accepts cache-busting query strings', () => {
+  const atts = extractAttachments(
+    '<a href="/download/attachment/1/ogloszenie.pdf?v=1">ann</a>' +
+    '<a href="/download/attachment/2/informacja-o-wyniku.pdf?v=2">result</a>',
+  );
+  assert.match(pickAnnouncementPdf(atts), /ogloszenie\.pdf\?v=1$/);
+  assert.match(pickResultPdf(atts), /wyniku\.pdf\?v=2$/);
+});
 
 const HALLERA_TITLE =
   'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż prawa własności nieruchomości lokalowej przy ul. Hallera 9/4 w Sępólnie Krajeńskim';

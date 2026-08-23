@@ -1,6 +1,169 @@
 {
   "schema_version": 1,
   "city": "kalisz",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górnośląskiej 42/11A",
+      "address": {
+        "street": "Górnośląskiej",
+        "street_norm": "gornoslaskiej",
+        "building": "42",
+        "apt": "11A",
+        "key": "gornoslaskiej|42|11A",
+        "warning": null
+      },
+      "area_m2": 14.63,
+      "round": 2,
+      "starting_price_pln": 43000,
+      "auction_date": "2026-07-30",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/1706gornoslaska42lok11a.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/1706gornoslaska42lok11a.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Garncarskiej 9A",
+      "address": {
+        "street": "Garncarskiej",
+        "street_norm": "garncarskiej",
+        "building": "9A",
+        "apt": null,
+        "key": "garncarskiej|9A|",
+        "warning": null
+      },
+      "area_m2": 115.36,
+      "round": 1,
+      "starting_price_pln": 350000,
+      "auction_date": "2026-07-03",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2905garncarska.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/2905garncarska.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Częstochowskiej 7/6A",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "7",
+        "apt": "6A",
+        "key": "czestochowskiej|7|6A",
+        "warning": null
+      },
+      "area_m2": 28,
+      "round": 2,
+      "starting_price_pln": 115350,
+      "auction_date": "2026-06-24",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/1205czestochowska.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/1205czestochowska.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Kredytowej 1",
+      "address": {
+        "street": "Kredytowej",
+        "street_norm": "kredytowej",
+        "building": "1",
+        "apt": null,
+        "key": "kredytowej|1|",
+        "warning": null
+      },
+      "area_m2": 825,
+      "round": 2,
+      "starting_price_pln": 415000,
+      "auction_date": "2026-06-16",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/wgm.6840.01.0051.2024.ad.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/wgm.6840.01.0051.2024.ad.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Garncarskiej 9A",
+      "address": {
+        "street": "Garncarskiej",
+        "street_norm": "garncarskiej",
+        "building": "9A",
+        "apt": null,
+        "key": "garncarskiej|9A|",
+        "warning": null
+      },
+      "area_m2": 115.36,
+      "round": 1,
+      "starting_price_pln": 350000,
+      "auction_date": "2026-05-27",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/wgm.6840.01.0039.2023.aw.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/wgm.6840.01.0039.2023.aw.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Górnośląskiej 42/11A",
+      "address": {
+        "street": "Górnośląskiej",
+        "street_norm": "gornoslaskiej",
+        "building": "42",
+        "apt": "11A",
+        "key": "gornoslaskiej|42|11A",
+        "warning": null
+      },
+      "area_m2": 14.63,
+      "round": 1,
+      "starting_price_pln": 61500,
+      "auction_date": "2026-05-13",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2703gornoslaska42lok11a.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/2703gornoslaska42lok11a.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Kredytowej 1",
+      "address": {
+        "street": "Kredytowej",
+        "street_norm": "kredytowej",
+        "building": "1",
+        "apt": null,
+        "key": "kredytowej|1|",
+        "warning": null
+      },
+      "area_m2": 825,
+      "round": 1,
+      "starting_price_pln": 415000,
+      "auction_date": "2026-03-31",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2602kredytowa1.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/2602kredytowa1.pdf"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Podgórze 22",
+      "address": {
+        "street": "Podgórze",
+        "street_norm": "podgorze",
+        "building": "22",
+        "apt": null,
+        "key": "podgorze|22|",
+        "warning": null
+      },
+      "area_m2": 178,
+      "round": 2,
+      "starting_price_pln": 440000,
+      "auction_date": "2026-05-12",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2402podgorze22i24.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/2402podgorze22i24.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Częstochowskiej 7/6A",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "7",
+        "apt": "6A",
+        "key": "czestochowskiej|7|6A",
+        "warning": null
+      },
+      "area_m2": 28,
+      "round": 1,
+      "starting_price_pln": 115350,
+      "auction_date": "2026-02-25",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2201czesto.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/2201czesto.pdf"
+    }
+  ],
   "wykaz": []
 }

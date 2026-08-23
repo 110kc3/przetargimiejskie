@@ -237,9 +237,9 @@ const RESULT_RE = /wynik|rozstrzygni/i;
 export function pickResultAttachment(attachments) {
   const matches = (attachments || []).filter((a) => RESULT_RE.test(a.url));
   if (!matches.length) return null;
-  const docx = matches.find((a) => /\.docx$/i.test(a.url));
+  const docx = matches.find((a) => /\.docx(?:[?#]|$)/i.test(a.url));
   if (docx) return docx.url;
-  const pdf = matches.find((a) => /\.pdf$/i.test(a.url));
+  const pdf = matches.find((a) => /\.pdf(?:[?#]|$)/i.test(a.url));
   return pdf ? pdf.url : matches[0].url;
 }
 

@@ -39,7 +39,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { itemsFromBoardHtml } from '../src/cities/kalisz/crawl.js';
+import { itemsFromBoardHtml, itemsFromArchiveHtml } from '../src/cities/kalisz/crawl.js';
 import {
   isAuctionSaleDoc,
   isAnnouncement,
@@ -62,6 +62,23 @@ const BOARD_ITEMS_HTML = `<td width=25><font color='#000080'><strong>4.</strong>
 <br /><br /></td></tr><tr><td width=15>&nbsp;</td><td><a href="./ogloszenia/sn/1706gornoslaska42lok11a.pdf"><img src="./grafika/pdf_icon.gif"border="0"alt="pobierz ogłoszenie"><strong>Pobierz</strong></a><div id="ogl_zalaczniki180699123"style="display:none;"><br/><strong>Załączniki do ogłoszenia:</strong><div align="right"><img src="./grafika/ogl_close.gif"width="16px"height="16px"border="0"alt="Zamknij załączniki do ogłoszenia"  onclick="hide('ogl_zalaczniki180699123')"   ><p><a href="./ogloszenia/sn/"></a></p></div></div><div style="text-align:right"><a href="javascript:news_print('index.php?id=1&o_id=180699123&o_typ=SN')"onmouseout="hide(180699123)"><img src="./grafika/print_32px.gif" alt="Drukuj ogłoszenie o numerze: 180699123" title="Drukuj ogłoszenie o numerze: 180699123"></a></div><div id="ogl_info180699123"height="120px"style="display:block;"><font size="-1"><strong><u>Informacje o ogłoszeniu:</u></strong></font>
 	      <p style="font-size:11px;color:#000080;">Informację wytworzył(-a):&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:#000000;">Grzegorz Kulawinek</span>&nbsp;&nbsp;&nbsp;Data wytworzenia:&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:#000000;">09-06-2026 </span><br/>Ogłoszenie wprowadził(-a):&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:#000000;">Góral Aleksander</span>&nbsp;&nbsp;&nbsp;Data wprowadzenia:&nbsp;&nbsp;&nbsp;<span style="font-size:11px;font-weight:bold;color:#000000;">17-06-2026 </span><br/>
 	    Na stronie biuletynu od:&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:#000000;">17-06-2026 </span>&nbsp;&nbsp;&nbsp;do&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:#000000;">30-07-2026 </span><br />Na podstawie:&nbsp;&nbsp;&nbsp;<span style="font-weight:bold;color:#000000;">WGM.6840.01.0019.2024.AD</span><br/></p></div><tr class="p"align="justify"valign="top"><td colspan="2"><hr size="1px"color='#000080'></td></tr><tr class=p align=justify valign=top>`;
+
+const ARCHIVE_ITEM_HTML = `<div class="DivBipRow-1">
+  <div class="DivBipCell-10 DivCellText-Center">2.</div>
+  <div class="DivBipCell-70 DivCellText-Left">Informacja o wyniku II przetargu na sprzedaż lokalu mieszkalnego przy ul. Górnośląskiej 42/11A</div>
+  <div class="DivBipCell-20 DivCellText-Center">2026-08-07</div>
+</div><div class="DivBipRow-2">
+  <div class="DivBipCell-70 DivCellText-Left">Na podstawie: <span>WGM.6840.01.0019.2024.AD</span></div>
+  <div class="DivBipCell-20"><a href="./ogloszenia/sn/070842lok11a.pdf"><strong>Pobierz plik</strong></a></div>
+</div>`;
+
+test('itemsFromArchiveHtml: parses the paired DivBipRow archive layout', () => {
+  const [item] = itemsFromArchiveHtml(ARCHIVE_ITEM_HTML);
+  assert.match(item.title, /Górnośląskiej 42\/11A/);
+  assert.equal(item.pdfUrl, 'https://bip.kalisz.pl/ogloszenia/sn/070842lok11a.pdf');
+  assert.equal(item.ref, 'WGM.6840.01.0019.2024.AD');
+  assert.equal(item.archived, true);
+});
 
 const GORNOSLASKA_EXCERPT = `PREZYDENT MIASTA KALISZA
 WGM.6840.01.0019.2024.AD

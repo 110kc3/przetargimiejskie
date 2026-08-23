@@ -10,7 +10,8 @@
 // ERROR (exit 1) classes — each one is a real bug we shipped once:
 //   price-glue      starting/final price > 50M zł ("180 000 221 400" glued)
 //                   or a non-null price under 1 000 zł (column fragment)
-//   cellar-area     area_m2 < 8 m² (a piwnica/komórka picked as the flat)
+//   cellar-area     residential/unknown area_m2 < 8 m² (a piwnica/komórka
+//                   picked as the flat; tiny commercial rooms are legitimate)
 //   plot-area       area_m2 > 300 m² on a mieszkalny/unknown property
 //                   (plot/building total in the flat-area field → use
 //                   land_area_m2)
@@ -103,7 +104,9 @@ function checkCity(city) {
     // areas (property + listings)
     const areas = [p.area_m2, ...p.listings.map((l) => l.area_m2)].filter((a) => a != null);
     for (const a of new Set(areas)) {
-      if (a < MIN_FLAT_M2) err(city, p.key, 'cellar-area', `area ${a} m²`);
+      if (a < MIN_FLAT_M2 && (p.kind === 'mieszkalny' || p.kind === 'unknown')) {
+        err(city, p.key, 'cellar-area', `area ${a} m²`);
+      }
       if (a > MAX_FLAT_M2 && (p.kind === 'mieszkalny' || p.kind === 'unknown')) {
         err(city, p.key, 'plot-area', `area ${a} m² on kind '${p.kind}'`);
       }

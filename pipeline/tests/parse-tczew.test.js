@@ -55,11 +55,29 @@ import assert from 'node:assert/strict';
 
 import {
   parseListPage,
+  currentListUrl,
+  isAnnouncementTitle,
   publishedDateFromDetail,
   attachmentPdfFromDetail,
   roundFromTitle,
   addressFromTitle,
 } from '../src/cities/tczew/crawl.js';
+
+test('live source uses the authoritative current Przetargi board', () => {
+  assert.equal(currentListUrl(3), 'https://bip.tczew.pl/wiadomosci/3/lista/3/przetargi');
+});
+
+test('residential-sale order routing accepts both auction word orders', () => {
+  assert.equal(
+    isAnnouncementTitle('w sprawie ogłoszenia pierwszego ustnego przetargu nieograniczonego na sprzedaż samodzielnego lokalu mieszkalnego nr 5'),
+    true,
+  );
+  assert.equal(
+    isAnnouncementTitle('Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 5'),
+    true,
+  );
+  assert.equal(isAnnouncementTitle('przetarg ustny na najem lokalu mieszkalnego'), false);
+});
 
 import {
   auctionDateFromText,
@@ -151,6 +169,13 @@ const DETAIL_HTML_RESULT = `
 test('publishedDateFromDetail: parses DD-MM-YYYY from "Data wytworzenia dokumentu"', () => {
   assert.equal(publishedDateFromDetail(DETAIL_HTML_ANNOUNCE), '2026-02-02');
   assert.equal(publishedDateFromDetail(DETAIL_HTML_RESULT), '2026-03-10');
+});
+
+test('publishedDateFromDetail: parses the live dotted date with r. suffix', () => {
+  assert.equal(
+    publishedDateFromDetail('Data wytworzenia dokumentu: <span>02.02.2026 r. </span>'),
+    '2026-02-02',
+  );
 });
 
 test('publishedDateFromDetail: returns null for empty/no-match HTML', () => {
