@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "katowice",
-  "generated_at": "2026-08-23T08:45:03.202Z",
+  "generated_at": "2026-08-23T14:55:20.255Z",
   "source_pdf_count": 25,
   "parsed_records": 115,
   "parser_note_count": 3,
@@ -13,5 +13,6 @@
   "wykaz_entries": 0,
   "land_plots": 9,
   "land_listings": 10,
-  "retained_properties": 4
+  "retained_properties": 4,
+  "valid_empty": false
 }
