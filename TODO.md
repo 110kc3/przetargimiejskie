@@ -1,8 +1,9 @@
 # TODO
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site/data). **Last refreshed: 19 July
-> 2026 — extension v1.32.0.** Structure/tiers/gates live in
+> (extension) and git history (pipeline/site/data). **Last full backlog refresh:
+> 19 July 2026 — extension v1.32.0; city-health audit refreshed 23 August
+> 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); headless RPi5 execution is specified in
 > [REMOTE.md](./REMOTE.md); city coverage is the generated ledger
 > [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 117 ·
@@ -48,7 +49,63 @@
 > **Env tags** (ROADMAP legend): **[RPI5]** headless-ok · **[GUI]** needs
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
 
-## 1 · Ops / health (health.yml red since 4 July)
+## 1 · Ops / health
+
+### Current city-issue queue — live-audited 23 August 2026 [RPI5]
+
+This is the authoritative disposition of all 27 open `[city-broken]` issues at
+the audit date. Every source was probed live and representative adapters were
+run end-to-end in an isolated worktree. The cleanup part is handled in the same
+change as this report:
+
+- `LEGIT_EMPTY` was rechecked and reset for Busko-Zdrój; Chrzanów, Strzelce
+  Krajeńskie, Zduńska Wola, Gostyń, Lipsko, Poznań and Lubin moved there with
+  the normal 45-day human recheck.
+- `EXEMPT_NEW` is empty. Olesno, Mrągowo, Pleszew and Węgorzewo have real
+  committed property history and no longer need it. Elbląg also stands on its
+  committed history; its TLS failure remains visible instead of being obscured
+  by an expired new-adapter exemption.
+- Gdańsk was removed from `LEGIT_EMPTY`: the live check found two upcoming
+  auction articles. Its crawler now excludes index self-links and selects the
+  article attachment instead of the earlier page-wide accessibility PDF; the
+  parser handles the live wide-table layout, yielding six verified flats for
+  the 30 September and 26 October auctions.
+
+The remaining repair queue is:
+
+| Issue | Verified cause and required change | Effort |
+|---|---|---:|
+| [#259 Wałbrzych](https://github.com/110kc3/przetargimiejskie/issues/259) | Result traversal reads global sidebar months on every year page and lacks crawl-wide month/article/PDF dedupe, repeatedly extracting the same non-result PDF until CI kills the job. Add global seen sets and preferably scope link extraction to page content. | 1–2h |
+| [#81 Nakło nad Notecią](https://github.com/110kc3/przetargimiejskie/issues/81) | Source omits a TLS intermediate. Add the already-supported `insecureTLS: true` to this city's existing `FETCH_OPTS`; the live diagnostic then produced 6 flats, 8 land items and 45 parsed records. Never disable TLS globally. | <1h |
+| [#165 Elbląg](https://github.com/110kc3/przetargimiejskie/issues/165) | Same incomplete certificate chain. Thread a scoped `FETCH_OPTS` through the two HTML fetches and PDF/DOC extraction calls; the live diagnostic produced one current flat and seven land items. | <1h |
+| [#139 Sandomierz](https://github.com/110kc3/przetargimiejskie/issues/139) | Canonical detail URLs dropped the hard-coded `/132/` segment. Accept both old and canonical shapes and normalize known URLs. | ~1h |
+| [#232 Sępólno Krajeńskie](https://github.com/110kc3/przetargimiejskie/issues/232) | Canonical links dropped `/405/`, while attachment URLs gained `?v=...`. Make the category segment optional and extension checks query-safe; the existing detail parser works on a current notice. | ~1h |
+| [#234 Włocławek](https://github.com/110kc3/przetargimiejskie/issues/234) | Canonical links dropped `/726/`; query suffixes prevent preferring the born-digital DOCX result. Make the segment optional and extension checks query-safe. | ~1h |
+| [#223 Kalisz](https://github.com/110kc3/przetargimiejskie/issues/223) | The small current board contains no flats, but the 2026 archive contains 93 documents including flat results and uses different `DivBipRow` markup. Add current-year archive discovery/parser and feed the PDFs through the existing classifiers. | 2–4h |
+| [#4 Tczew](https://github.com/110kc3/przetargimiejskie/issues/4) | The old `Przetargi` category is empty, but the same BIP's paginated 2026 `Zarządzenia` feed contains flat-sale orders. Repoint discovery, paginate, accept both `przetarg ustny` and `ustny przetarg`; existing IDcom detail/PDF/address helpers mostly apply. | 3–5h |
+| [#278 Łódź](https://github.com/110kc3/przetargimiejskie/issues/278) | The custom browser UA receives a 244-byte `Request Rejected` page while the normal polite UA receives the real board. After removing it, harden the current PDF parser for form-feed row breaks, `*N` footnote markers, simple decimal areas and three-column price lines; add the current eight-lot fixture. | 3–5h |
+
+Five tickets are not city-parser patches:
+
+- [#82 Oświęcim](https://github.com/110kc3/przetargimiejskie/issues/82) and
+  [#150 Piła](https://github.com/110kc3/przetargimiejskie/issues/150): live
+  crawlers work, but current boards contain land/non-residential material and
+  no residential-flat auction. Extend refresh triage with an explicit
+  source-reached/valid-empty signal so these do not masquerade as layout
+  changes; do not weaken preserve-on-empty.
+- [#276 Augustów](https://github.com/110kc3/przetargimiejskie/issues/276): the
+  former active and inactive listing components are both genuinely empty.
+  Historical details remain accessible and official-site search finds source
+  material, but a filtered search or replacement-feed discovery path is needed.
+- [#173 Racibórz](https://github.com/110kc3/przetargimiejskie/issues/173) and
+  [#174 Świętochłowice](https://github.com/110kc3/przetargimiejskie/issues/174):
+  both adapters work locally; shared FINN host `bip2.finn.pl` connect-drops
+  GitHub/Azure egress. Provision the documented Polish proxy or self-hosted
+  runner in [REMOTE.md](./REMOTE.md); there is no adapter fix.
+
+The dated July investigation notes below are retained as diagnosis history.
+Where they disagree with this section (notably Tczew, Nakło, Oświęcim and
+the old `EXEMPT_NEW` membership), this 23-August audit supersedes them.
 
 > **Why health is red (confirmed 2026-07-07):** health.yml runs health-check.js
 > with **`STALE_DAYS=3`** (health.yml:60, tighter than the local default 14), so

@@ -66,14 +66,14 @@ const LEGIT_EMPTY_RECHECK_DAYS = Number(process.env.LEGIT_EMPTY_RECHECK_DAYS || 
 // bump `since` (the "renew on a schedule" option from TODO). Keep SHORT and
 // reason-tagged; only add sources verified empty-by-design.
 const LEGIT_EMPTY = new Map([
-  ['gdansk', { since: '2026-07-07', reason: 'announcement index empty between auction rounds' }],
-  // augustow was MIS-CLASSIFIED here 2026-07-07 → moved to EXEMPT_NEW: it's not
-  // empty, it crawls 4 flat stubs but never enriches them from their detail
-  // pages, so all-null listings drop in the build. Real bug, see TODO §1.
-  // Sells ~1 flat/year; the current board (GNWR.6840.1.2026) is land-only
-  // (3 działki, no lokal mieszkalny), so the flat-only adapter correctly parses
-  // 0. Verified live 2026-07-07 — adapter works, source has no flats now.
-  ['busko-zdroj', { since: '2026-07-07', reason: 'sells ~1 flat/year; board currently land-only (verified live 2026-07-07)' }],
+  ['busko-zdroj', { since: '2026-08-23', reason: 'live-rechecked: current feed has no residential-flat auction (land/non-flat only)' }],
+  ['chrzanow', { since: '2026-08-23', reason: 'live-rechecked: renderer and harvest work; current articles are land/lease/non-residential' }],
+  ['strzelce-krajenskie', { since: '2026-08-23', reason: 'live-rechecked: current board has one land item and only non-flat result refs' }],
+  ['zdunska-wola', { since: '2026-08-23', reason: 'live-rechecked: current auction XML is empty; source and adapter are reachable' }],
+  ['gostyn', { since: '2026-08-23', reason: 'live-rechecked: current result material is land-only; no residential-flat auction' }],
+  ['lipsko', { since: '2026-08-23', reason: 'live-rechecked: current candidates and results are land; no open-auction flat' }],
+  ['poznan', { since: '2026-08-23', reason: 'live-rechecked: current WGN/results boards have land only and no flat result' }],
+  ['lubin', { since: '2026-08-23', reason: 'live-rechecked: announcement/result boards are empty between sessions; sibling board works' }],
 ]);
 
 // Cities pending their FIRST successful live refresh — newly-built adapters
@@ -85,75 +85,12 @@ const LEGIT_EMPTY = new Map([
 // data (then a future drop to 0 correctly fails again). Every entry carries
 // its `since` date: past EXEMPT_MAX_DAYS the exemption ESCALATES to a FAIL
 // (class exempt-expired) so a forgotten entry can't mask real breakage forever.
-// (Removed 2026-07-07 after their first non-empty CI refresh: kedzierzyn-kozle,
-// lodz, skarzysko-kamienna, bydgoszcz, gorzow-wielkopolski; and the 07-07
-// crawler-bug fixes walbrzych→12, gniezno→4, wejherowo→8, confirmed committed.)
-const EXEMPT_NEW = new Map([
-  // Both live-verified 2026-07-07 (since RESET, backed by that investigation —
-  // not a forgotten park): the adapters are NOT broken. unique=0 because the
-  // current boards carry NO active residential-flat auction — only land
-  // (działka/niezabudowana), leases, non-residential premises, cancellations,
-  // and result notices. Infra works: oswiecim's scanned PDFs OCR cleanly
-  // (tesseract 5.3+pol), chrzanow's harvest+CI Chromium render both run. They
-  // stay in EXEMPT_NEW (not LEGIT_EMPTY) because the end-to-end active-FLAT
-  // parse is UNVALIDATED — no live flat exists on either board to test it
-  // against yet. See TODO §1.
-  // oswiecim REMOVED 2026-07-18: result-notice ingestion shipped (crawl routes
-  // "Informacja o wyniku przetargu" docs → OCR → parseResultDoc) and its first
-  // non-empty refresh committed 1 unique property (Dąbrowskiego 46/14, sold
-  // 151 500 zł) — the city stands on its own data; a drop to 0 now correctly
-  // FAILs. The ACTIVE-flat announcement parse is still live-unvalidated (no
-  // flat auction on the board since build) — that residual doesn't need an
-  // exemption, only a live flat to appear.
-  ['chrzanow', { since: '2026-07-07', reason: 'live-verified: harvest+render OK, board has no active flats now (lease/land/non-residential); flat-parse unvalidated' }],
-  // walbrzych / gniezno / wejherowo: crawler bugs fixed 2026-07-07 and REMOVED
-  // from this list — their first non-empty CI refresh committed 12 / 4 / 8
-  // properties (see the header note; a future drop to 0 now correctly FAILs).
-  // gdansk moved to LEGIT_EMPTY (2026-07-07): empty-by-design, not a settling
-  // adapter, so an expiring exemption would false-FAIL it at the ~07-23 cliff.
-  // augustow FIXED + REMOVED 2026-07-09: the missing detail-page enrichment now
-  // exists (parseAnnouncementDetail + crawlAll enrichment pass) — the 4 stubs
-  // expand into 9 flat records → 3 unique properties committed, so no exemption
-  // is needed. Adapter stands on its own data now.
-  // busko-zdroj moved to LEGIT_EMPTY (2026-07-07): live-verified the adapter
-  // parses correctly — the current board is a land-only auction (no flat), so
-  // 0 flat records is right, not a broken parser. It's empty-between-flats, not
-  // settling-in.
-  // Batch-1 powiat-seat expansion (registered 2026-07-10, live-groundtruthed).
-  // Only the two that first-refreshed with 0 active listings + unique=1 are
-  // parked here (a settling-window drop to 0 unique would else FAIL); the other
-  // 10 committed unique>=2 on first refresh and stand on their own data.
-  ['olesno', { since: '2026-07-10', reason: 'live-verified: skyCMS board has no active flats now (year-board results only, 2 archived → unique 1); active-flat parse unvalidated until one appears' }],
-  ['mragowo', { since: '2026-07-10', reason: 'live-verified: CNT board has active land (7 plots) but no active flats now (unique 1); active-flat parse unvalidated until one appears' }],
-  // Batch 2 (registered 2026-07-10).
-  ['pleszew', { since: '2026-07-10', reason: 'live-verified: WOKISS board has active land (21 plots) but the sole flat asset (Zachodnia 1) is dormant since Feb 2025 (I→II unsold, no III posted) → 0 active flats now; active-flat parse unvalidated until one appears' }],
-  // Batch 3 (registered 2026-07-11).
-  ['zdunska-wola', { since: '2026-07-11', reason: 'live-verified: Logonet board has active land but no active flats now, and its rolling board ages sold results out (unique 0); active-flat parse unvalidated until one appears' }],
-  ['wegorzewo', { since: '2026-07-11', reason: 'first Pi refresh blocked by the host anti-abuse rate-limit (build agent made ~150 research reqs) → 0 records; adapter live-verified 2 listings/10 land during build; CI runner-IP refresh will populate' }],
-  // Batch 4 (registered 2026-07-11).
-  ['strzelce-krajenskie', { since: '2026-07-11', reason: 'live-verified: SystemDoBIP board has 0 active flats (cyclical) / 1 land / weak results → unique may be <1; active-flat parse via miedzyrzecz+gorzow analog, unvalidated live until a flat appears' }],
-  // City-county close-out batch (registered 2026-07-18). Only lubin parks here:
-  // biala-podlaska (8 unique) and siedlce (3 unique) committed real data and
-  // stand on their own.
-  ['lubin', { since: '2026-07-18', reason: 'live-verified: Logonet v5.7.0 announcement+result boards both empty right now (between sessions — sibling wykaz board renders fine, historical attachment PDFs still fetchable); parse groundtruthed on those PDFs, unvalidated live until a session posts' }],
-  // Batch 5 (registered 2026-07-16): both live-verified locally after their
-  // first CI refresh came back empty (CI job itself succeeded — this is a
-  // thin-board snapshot, not an IP-block or parser bug).
-  ['poznan', { since: '2026-07-16', reason: 'live-verified: WGN board has 0 active flats right now (1 land plot + 5 non-auction notices correctly skipped), category-8800 results board also currently empty (results purge ~1-3wk post-posting); active-flat + result parse unvalidated until one appears' }],
-  ['elblag', { since: '2026-07-16', reason: 'live-verified: board has 0 active flats right now (5 land plots only); the one result doc fetched is a land-plot batch table (Dębowa, "Brak wpłaty wadium"), correctly excluded by the flat-only parser; active-flat parse unvalidated until one appears' }],
-  // gostyn/lipsko: built 2026-07-11/12, unique=0 since their FIRST commit but
-  // never added here — the daily flap (issues #66/#67 since 2026-07-12) is a
-  // 5-day-old oversight, not a new break. Both spike files already documented
-  // this at build time ("thin live volume... flat path ported + unit-tested,
-  // not live-groundtruthed" / "the one live flat is bezprzetargowa, flat path
-  // implemented-but-unverified") — re-confirmed live 2026-07-16: gostyn's board
-  // holds only a 2022 land-plot result (Sikorzyna działka 107/x); lipsko's
-  // sitemap yields only grunt/land announcements+results (Wola Solecka Wólka
-  // działka 392/3). Neither adapter is broken; the flat path just has nothing
-  // to parse yet.
-  ['gostyn', { since: '2026-07-16', reason: 'live-verified: Logonet board 280 holds only a 2022 land-plot result (Sikorzyna 107/x, no lokal mieszkalny); flat path unit-tested but unvalidated live until a flat appears' }],
-  ['lipsko', { since: '2026-07-16', reason: 'live-verified: sitemap yields only grunt/land announcements+results (Wola Solecka Wólka 392/3); the one known live flat is bezprzetargowa (out of scope); flat path implemented-but-unvalidated live until an open-auction flat appears' }],
-]);
+// Empty as of the 2026-08-23 audit: every previously parked adapter either
+// committed real data and now stands on its own, or was live-rechecked as a
+// working but currently empty source and moved to the expiring LEGIT_EMPTY
+// review list above. Add future adapters here only during their first-refresh
+// settling window; do not use this map for known source or crawler failures.
+const EXEMPT_NEW = new Map();
 
 const now = Date.now();
 const fails = []; // { city, classification, message, meta? }
@@ -275,4 +212,4 @@ if (fails.length) {
   process.exit(1);
 }
 
-console.error(`\nHealth OK — ${(index.cities || []).length} cities, all fresh and non-empty.`);
+console.error(`\nHealth OK — ${(index.cities || []).length} cities, all within the configured health policy.`);

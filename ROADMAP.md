@@ -32,12 +32,12 @@ extension, and receives Monday's digest. Health green daily.
 
 | Item | Env | Effort | Status |
 |---|---|---|---|
-| Fix health red: EXEMPT_NEW cleanup (remove 5 stale entries, add busko-zdrój) | [RPI5] | XS | **shipped this session** |
+| 23-Aug health-policy cleanup: empty `EXEMPT_NEW`, live-recheck 8 quiet sources in expiring `LEGIT_EMPTY`, restore Gdańsk discovery + wide-table parsing (6 live flats) | [RPI5] | XS | **shipped 2026-08-23** |
+| Repair 9 verified city crawlers: Wałbrzych, Nakło, Elbląg, Sandomierz, Sępólno, Włocławek, Kalisz, Tczew, Łódź (root causes and estimates in TODO §1) | [RPI5] | M | open |
+| Add explicit source-reached/valid-empty refresh-triage signal for Oświęcim and Piła; keep preserve-on-empty strict | [RPI5] | S-M | open |
+| Augustów: replace the now-empty listing indexes with filtered official search or another durable discovery feed | [RPI5] | M | open |
 | Brzeg: detect the anti-DDoS waiting-room page, classify as source-unreachable, cookie-retry | [RPI5] | S | **shipped this session** |
 | Racibórz + Świętochłowice: **not code** — FINN host (bip2.finn.pl, 194.24.181.47) blocks Azure/GH-runner IPs. Durable fix = non-Azure egress: `FETCH_PROXY_URL` support (shipped this session) + a Polish exit (RPi5 or proxy). Sources verified live + parseable from PL IP | [RPI5] | S | egress hook shipped; needs a PL exit wired into CI |
-| Tczew: source emptied server-side (whole Przetargi category) — nothing to crawl. Watch sibling board `/wiadomosci/1157/sprzedaz`; update LIST_URL when the city republishes | [RPI5] | XS watch | reclassified |
-| Clear the 7 remaining zero-data cities (oświęcim, chrzanów, wejherowo, wałbrzych, gdańsk, gniezno, augustów) before their EXEMPT_NEW entries expire (06-27 cohort — oświęcim + chrzanów — expires 18 July) — fix crawlers or add a non-expiring legitimately-empty mechanism | [RPI5] | M | open |
-| Triage-bot gap: refresh auto-closes health-owned issues for 0-record cities (0→0 counts as healthy) → daily issue flap; also challenge pages misclassified as layout-change | [RPI5] | S | open (flap paused by busko-zdrój exemption) |
 
 ### T1.b Distribution (mixed)
 

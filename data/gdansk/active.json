@@ -1,6 +1,115 @@
 {
   "schema_version": 1,
   "city": "gdansk",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Uczniowska 37/4",
+      "address": {
+        "street": "Uczniowska",
+        "street_norm": "uczniowska",
+        "building": "37",
+        "apt": "4",
+        "key": "uczniowska|37|4",
+        "warning": null
+      },
+      "area_m2": 55.8,
+      "starting_price_pln": 500000,
+      "auction_date": "2026-10-26",
+      "round": 1,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-PLANOWANYCH-NA-DZIEN-26-10-2026,a,316868",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202608280300/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-26-10-2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ks. Mariana Góreckiego 8/3",
+      "address": {
+        "street": "Ks. Mariana Góreckiego",
+        "street_norm": "ks mariana goreckiego",
+        "building": "8",
+        "apt": "3",
+        "key": "ks mariana goreckiego|8|3",
+        "warning": null
+      },
+      "area_m2": 94.47,
+      "starting_price_pln": 720000,
+      "auction_date": "2026-10-26",
+      "round": 1,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-PLANOWANYCH-NA-DZIEN-26-10-2026,a,316868",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202608280300/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-26-10-2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Teofila Lenartowicza 3/5",
+      "address": {
+        "street": "Teofila Lenartowicza",
+        "street_norm": "teofila lenartowicza",
+        "building": "3",
+        "apt": "5",
+        "key": "teofila lenartowicza|3|5",
+        "warning": null
+      },
+      "area_m2": 47.86,
+      "starting_price_pln": 300000,
+      "auction_date": "2026-10-26",
+      "round": 1,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-PLANOWANYCH-NA-DZIEN-26-10-2026,a,316868",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202608280300/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-26-10-2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kaprów 15/5",
+      "address": {
+        "street": "Kaprów",
+        "street_norm": "kaprow",
+        "building": "15",
+        "apt": "5",
+        "key": "kaprow|15|5",
+        "warning": null
+      },
+      "area_m2": 93.97,
+      "starting_price_pln": 1050000,
+      "auction_date": "2026-09-30",
+      "round": 3,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-NA-SPRZEDAZ-NIERUCHOMOSCI-GMINY-MIASTA-GDANSKA-PLANOWANYCH-NA-DZIEN-30-09-2026,a,315307",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202607278994/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-30-09-2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Opata Jacka Rybińskiego 6/7",
+      "address": {
+        "street": "Opata Jacka Rybińskiego",
+        "street_norm": "opata jacka rybinskiego",
+        "building": "6",
+        "apt": "7",
+        "key": "opata jacka rybinskiego|6|7",
+        "warning": null
+      },
+      "area_m2": 98.14,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-09-30",
+      "round": 4,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-NA-SPRZEDAZ-NIERUCHOMOSCI-GMINY-MIASTA-GDANSKA-PLANOWANYCH-NA-DZIEN-30-09-2026,a,315307",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202607278994/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-30-09-2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Na Zaspę 34B/6",
+      "address": {
+        "street": "Na Zaspę",
+        "street_norm": "na zaspe",
+        "building": "34B",
+        "apt": "6",
+        "key": "na zaspe|34B|6",
+        "warning": null
+      },
+      "area_m2": 98.92,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-09-30",
+      "round": 2,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-NA-SPRZEDAZ-NIERUCHOMOSCI-GMINY-MIASTA-GDANSKA-PLANOWANYCH-NA-DZIEN-30-09-2026,a,315307",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202607278994/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-30-09-2026.pdf"
+    }
+  ],
   "wykaz": []
 }

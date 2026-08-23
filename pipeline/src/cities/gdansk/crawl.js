@@ -25,12 +25,16 @@ import { parseAnnouncementPdf } from './parse.js';
 const ORIGIN = 'https://bip.gdansk.pl';
 // Announcement index (Wydział Skarbu → Ogłoszenia o przetargach)
 const INDEX_URL = `${ORIGIN}/urzad-miejski/Ogloszenia-o-przetargach,a,1439`;
+const INDEX_PATHNAME = new URL(INDEX_URL).pathname.toLowerCase();
 // Link pattern: BIP article slugs for auction-batch announcements
 const ANN_LINK_RE =
   /\/urzad-miejski\/(?:OGLOSZENIE|ogloszenie)[^"'\s]*,a,\d+/i;
-// PDF attachment link: cloudgdansk CDN
+// PDF attachment links: cloudgdansk CDN. The page chrome also contains a
+// global accessibility PDF before the article body, so prefer the attachment
+// anchor/auction filename rather than blindly taking the first CDN PDF.
 const PDF_LINK_RE =
-  /https?:\/\/download\.cloudgdansk\.pl\/gdansk-pl\/d\/[^"'\s)]+\.pdf/i;
+  /https?:\/\/download\.cloudgdansk\.pl\/gdansk-pl\/d\/[^"'\s)]+\.pdf/gi;
+const ARTICLE_FILE_ANCHOR_RE = /<a\b[^>]*class="[^"]*\barticle-file\b[^"]*"[^>]*>/gi;
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
@@ -50,6 +54,18 @@ export function parseIndexLinks(html) {
     let href = m[1].replace(/&amp;/gi, '&');
     if (!ANN_LINK_RE.test(href)) continue;
     if (!/^https?:/i.test(href)) href = ORIGIN + (href.startsWith('/') ? '' : '/') + href;
+    // The empty-between-rounds index links back to itself in its breadcrumbs
+    // and accessibility navigation. Its title/path also matches ANN_LINK_RE,
+    // so without this guard the crawler fetches the index as an "article" and
+    // may mistake an unrelated page-wide PDF for an auction attachment.
+    try {
+      const candidate = new URL(href);
+      if (candidate.origin === ORIGIN && candidate.pathname.toLowerCase() === INDEX_PATHNAME) {
+        continue;
+      }
+    } catch {
+      continue;
+    }
     if (!seen.has(href)) {
       seen.add(href);
       out.push(href);
@@ -65,8 +81,13 @@ export function parseIndexLinks(html) {
  * @returns {string|null}
  */
 export function parsePdfUrl(html) {
-  const m = PDF_LINK_RE.exec(html);
-  return m ? m[0] : null;
+  const source = String(html || '');
+  for (const anchor of source.match(ARTICLE_FILE_ANCHOR_RE) || []) {
+    const pdf = anchor.match(PDF_LINK_RE)?.[0];
+    if (pdf) return pdf;
+  }
+  const pdfs = source.match(PDF_LINK_RE) || [];
+  return pdfs.find((url) => /\/ogloszeni[^/]*przetarg/i.test(url)) || null;
 }
 
 /**

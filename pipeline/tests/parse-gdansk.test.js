@@ -10,8 +10,7 @@
 //     https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-NA-SPRZEDAZ-NIERUCHOMOSCI-GMINNYCH-NA-DZIEN-01-07-2026,a,309425
 //     → PDF: https://download.cloudgdansk.pl/gdansk-pl/d/202604273600/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-01-07-2026.pdf
 //
-//   PDF content (NOT directly fetched — CDN timed out in spike; fixture text
-//   is reconstructed from:
+//   ORIGINAL PDF FIXTURE: reconstructed during the 2026-06-27 spike from:
 //     1. Known properties listed on gdansk.pl/urzad-miejski/wydzial-skarbu/nieruchomosci
 //        (6 live flats as of 2026-06-27, of which the following are confirmed
 //         "Przetarg ustny nieograniczony"):
@@ -23,7 +22,8 @@
 //          ul. Uczniowska 37 lok. 4
 //     2. Standard Gdańsk Wydział Skarbu PDF vocabulary (server-rendered BIP,
 //        standard przetarg announcement boilerplate).
-//   NOTE: validate and tune the parsers against the REAL PDF after 2026-07-01.
+//   The current wide-table layout is additionally covered below with excerpts
+//   groundtruthed against the live 30.09.2026 PDF on 2026-08-23.
 //
 //   RESULT NOTICES: URL pattern UNCONFIRMED (spike gap). No fixture available.
 //   parseResultDoc is a stub returning []; tests assert that only.
@@ -102,6 +102,45 @@ Szczegółowe warunki przetargów określają regulaminy, które można uzyskać
 w Wydziale Skarbu Urzędu Miejskiego w Gdańsku.
 `.trim();
 
+// Condensed live-shape excerpt of the 30.09.2026 wide-table PDF. It includes
+// an earlier land section and historic auction dates in row notes: neither may
+// override the local-property rows or the batch date in the heading.
+const LIVE_TABLE_TEXT = `
+Prezydent Miasta Gdańska uprzejmie zaprasza do uczestnictwa w dniu 30 września 2026 r.
+w nieograniczonych przetargach ustnych na sprzedaż nieruchomości.
+NIERUCHOMOŚCI GRUNTOWE:
+Gdańsk – Klukowo
+ul. Azymutalna                   obręb 003             1.100.000 zł
+Nieruchomość gruntowa niezabudowana o powierzchni 119,85 m2.
+
+NIERUCHOMOŚCI LOKALOWE:
+Cena wywoławcza             Wadium
+Do lokalu przynależy piwnica o powierzchni użytkowej 18,40 m2.
+1.050.000 zł
+Gdańsk – Oliwa             105.000 zł
+ul. Kaprów 15 lokal nr 5       Działki nr 512/1 i 512/8
+1.                              93,97 m2                 10.500 zł
+Przetarg ustny nieograniczony
+III przetarg – po bezskutecznych przetargach w dniach 15.04.2026 r. i 01.07.2026 r.
+
+Gdańsk – Oliwa
+ul. Opata Jacka
+Rybińskiego 6 lokal nr 7        Działka nr 520
+2.                              98,14 m2                800.000 zł
+Przetarg ustny nieograniczony
+IV przetarg po bezskutecznych przetargach w dniach 28.01.2026 r. i 01.07.2026 r.
+
+Gdańsk – Nowy Port             800.000 zł             80.000 zł
+ul. Na Zaspę 34B
+Działka nr 103
+lokal nr 6
+3.                              98,92 m2                  8.000 zł
+Przetarg ustny nieograniczony
+II przetarg – po bezskutecznym przetargu w dniu 01.07.2026 r.
+
+Warunkiem wzięcia udziału w przetargach jest wpłacenie wadium.
+`.trim();
+
 // ---------------------------------------------------------------------------
 // auctionDateFromText
 // ---------------------------------------------------------------------------
@@ -130,6 +169,9 @@ describe('auctionDateFromText', () => {
   });
   it('extracts date from the full announcement fixture', () => {
     assert.equal(auctionDateFromText(ANN_PDF_TEXT), '2026-07-01');
+  });
+  it('prefers the current spelled-month heading over historic row dates', () => {
+    assert.equal(auctionDateFromText(LIVE_TABLE_TEXT), '2026-09-30');
   });
 });
 
@@ -181,6 +223,14 @@ describe('splitBlocks', () => {
     const text = 'ul. Kaprów 15 m. 5\nPowierzchnia: 93,97 m²\nCena wywoławcza wynosi 1 200 000,00 zł';
     const blocks = splitBlocks(text);
     assert.equal(blocks.length, 1);
+  });
+  it('keeps only local-property rows from the current wide-table layout', () => {
+    const blocks = splitBlocks(LIVE_TABLE_TEXT);
+    assert.equal(blocks.length, 3);
+    assert.match(blocks[0], /Kaprów 15/);
+    assert.match(blocks[1], /Rybińskiego 6/);
+    assert.match(blocks[2], /Na Zaspę 34B/);
+    assert.doesNotMatch(blocks.join('\n'), /Azymutalna/);
   });
 });
 
@@ -320,6 +370,25 @@ describe('parseAnnouncementPdf', () => {
     assert.equal(r.address.building, '34B');
     assert.equal(r.address.apt, '6');
   });
+
+  it('parses live wide-table rows with per-property rounds', () => {
+    const recs = parseAnnouncementPdf(LIVE_TABLE_TEXT, {});
+    assert.equal(recs.length, 3);
+    assert.deepEqual(
+      recs.map((r) => ({
+        key: r.address.key,
+        area: r.area_m2,
+        price: r.starting_price_pln,
+        date: r.auction_date,
+        round: r.round,
+      })),
+      [
+        { key: 'kaprow|15|5', area: 93.97, price: 1050000, date: '2026-09-30', round: 3 },
+        { key: 'opata jacka rybinskiego|6|7', area: 98.14, price: 800000, date: '2026-09-30', round: 4 },
+        { key: 'na zaspe|34B|6', area: 98.92, price: 800000, date: '2026-09-30', round: 2 },
+      ],
+    );
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -369,6 +438,17 @@ describe('parseIndexLinks', () => {
     assert.equal(links.length, 1);
   });
 
+  it('ignores the announcement index own navigation links', () => {
+    const html = `
+      <a href="/urzad-miejski/Ogloszenia-o-przetargach,a,1439">breadcrumb</a>
+      <a href="https://bip.gdansk.pl/urzad-miejski/Ogloszenia-o-przetargach,a,1439?contrast=1">accessibility</a>
+      <a href="/urzad-miejski/OGLOSZENIE-O-PRZETARGACH,a,12345">real announcement</a>
+    `;
+    assert.deepEqual(parseIndexLinks(html), [
+      'https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH,a,12345',
+    ]);
+  });
+
   it('ignores non-announcement links', () => {
     const html = `
       <a href="/urzad-miejski/Inne,a,1587">Inne</a>
@@ -403,6 +483,29 @@ describe('parsePdfUrl', () => {
       url,
       'https://download.cloudgdansk.pl/gdansk-pl/d/202604273600/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-01-07-2026.pdf',
     );
+  });
+
+  it('prefers the article attachment over the global accessibility PDF', () => {
+    const accessibility =
+      'https://download.cloudgdansk.pl/gdansk-pl/d/202307214472/informacja-o-urzedzie-miejskim-w-gdansku-w-etr_31-07-2023.pdf';
+    const announcement =
+      'https://download.cloudgdansk.pl/gdansk-pl/d/202608280300/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-26-10-2026.pdf';
+    const html = `
+      <a href="${accessibility}" aria-label="Gdańsk bez barier">accessibility</a>
+      <div class="content">
+        <a class="article-file" href="${announcement}" data-file-id="280300">announcement</a>
+      </div>
+    `;
+    assert.equal(parsePdfUrl(html), announcement);
+  });
+
+  it('does not return an unrelated page-wide PDF', () => {
+    const html = `
+      <a href="https://download.cloudgdansk.pl/gdansk-pl/d/202307214472/informacja-o-urzedzie-miejskim-w-gdansku-w-etr_31-07-2023.pdf">
+        accessibility
+      </a>
+    `;
+    assert.equal(parsePdfUrl(html), null);
   });
 
   it('returns null when no PDF link present', () => {
