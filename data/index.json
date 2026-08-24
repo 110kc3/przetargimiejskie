@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T08:22:16.247Z",
+  "generated_at": "2026-08-24T12:42:32.464Z",
   "cities": [
     {
       "id": "gliwice",
@@ -13,7 +13,7 @@
       "active_auctions": 7,
       "archived_auctions": 283,
       "wykaz_entries": 8,
-      "land_plots": 79
+      "land_plots": 81
     },
     {
       "id": "katowice",
@@ -39,7 +39,7 @@
       "active_auctions": 1,
       "archived_auctions": 23,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 15
     },
     {
       "id": "zabrze",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 62,
+      "active_listings": 90,
       "active_auctions": 3,
       "archived_auctions": 103,
       "wykaz_entries": 0,
-      "land_plots": 84
+      "land_plots": 112
     },
     {
       "id": "trzebinia",
@@ -1131,7 +1131,7 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
-      "land_plots": 54
+      "land_plots": 53
     },
     {
       "id": "lwowek-slaski",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1205,11 +1205,11 @@
       "authority": "Urząd Miejski w Głubczycach",
       "host": "bip.glubczyce.pl",
       "unique_properties": 20,
-      "active_listings": 11,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 36,
       "wykaz_entries": 0,
-      "land_plots": 23
+      "land_plots": 12
     },
     {
       "id": "gostyn",
@@ -1412,9 +1412,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
-      "unique_properties": 67,
-      "active_listings": 337,
-      "active_auctions": 26,
+      "unique_properties": 68,
+      "active_listings": 338,
+      "active_auctions": 27,
       "archived_auctions": 41,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 6,
-      "active_listings": 2,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
