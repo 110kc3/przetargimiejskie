@@ -1,6 +1,59 @@
 {
   "schema_version": 1,
   "city": "stargard",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62 28",
+      "address": {
+        "street": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62",
+        "street_norm": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62",
+        "building": "28",
+        "apt": null,
+        "key": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62|28|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 272000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/nieruchomosci-gruntowe-niezabudowane-obr-19-os-pyrzyckie-dzialki-numer-1-61-26-i-442-19-2-61-27-i-442-20-3-62-28/",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Czarnieckiego 11/8",
+      "address": {
+        "street": "Czarnieckiego",
+        "street_norm": "czarnieckiego",
+        "building": "11",
+        "apt": "8",
+        "key": "czarnieckiego|11|8",
+        "warning": null
+      },
+      "area_m2": 26.54,
+      "starting_price_pln": 125000,
+      "auction_date": "2026-09-15",
+      "round": 2,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-ii-przetarg-na-sprzedaz-nieruchomosci/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hugona Kołłątaja 7/2",
+      "address": {
+        "street": "Hugona Kołłątaja",
+        "street_norm": "hugona kollataja",
+        "building": "7",
+        "apt": "2",
+        "key": "hugona kollataja|7|2",
+        "warning": null
+      },
+      "area_m2": 48.36,
+      "starting_price_pln": 270000,
+      "auction_date": "2026-09-15",
+      "round": 2,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-ii-przetarg-na-sprzedaz-nieruchomosci/"
+    }
+  ],
   "wykaz": []
 }
