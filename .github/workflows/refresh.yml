@@ -59,6 +59,10 @@ jobs:
       # matrix installs Playwright only for these (see `needsRender` in the
       # city's config.js). Registry-driven so it can't drift.
       render_cities: ${{ steps.registry.outputs.render_cities }}
+      # A deliberately small set of sources that block/stall Azure IPs. Their
+      # matrix jobs use the labelled Polish residential runner; every other
+      # city stays on GitHub-hosted capacity.
+      residential_cities: ${{ steps.registry.outputs.residential_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -80,6 +84,7 @@ jobs:
         run: |
           echo "cities=$(node -e "import('./src/cities/index.js').then(m=>{const only=process.env.ONLY_CITY;const ids=m.cities.map(c=>c.id).filter(id=>!only||id===only);console.log(JSON.stringify(ids))})")" >> "$GITHUB_OUTPUT"
           echo "render_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsRender).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+          echo "residential_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsResidentialEgress).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
 
   # One job per city, so a broken parser/source in one city can't block the
   # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
@@ -88,7 +93,9 @@ jobs:
   # the per-job paths are disjoint, so the rebases are always clean.
   refresh:
     needs: setup
-    runs-on: ubuntu-latest
+    # A custom label is sufficient to select a self-hosted runner. The fallback
+    # remains ubuntu-latest for the normal 117-city hosted matrix.
+    runs-on: ${{ contains(fromJSON(needs.setup.outputs.residential_cities), matrix.city) && 'przetargimiejskie-egress' || 'ubuntu-latest' }}
     timeout-minutes: 25   # Zabrze alone needs ~113 throttled doc+attachment fetches
     strategy:
       fail-fast: false
@@ -104,6 +111,9 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Install OCR toolchain
+        # The persistent Pi already has this toolchain. More importantly, the
+        # hosted-runner cleanup below must never remove apt sources on the Pi.
+        if: ${{ !contains(fromJSON(needs.setup.outputs.residential_cities), matrix.city) }}
         run: |
           # GH-hosted runners preconfigure packages.microsoft.com / azure-cli apt
           # repos that intermittently serve a broken InRelease ("NOSPLIT" / "no
@@ -241,16 +251,18 @@ jobs:
   providers:
     needs: setup
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.only_city == '' }}
-    runs-on: ubuntu-latest
+    # PKP currently connect-times-out from Azure while succeeding from the
+    # Polish residential runner. AMW shares the job so partial safe commits and
+    # the existing provider health gate remain atomic.
+    runs-on: przetargimiejskie-egress
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Install OCR toolchain
+      - name: Verify self-hosted OCR toolchain
         run: |
-          sudo grep -rlZ packages.microsoft.com /etc/apt/sources.list.d/ 2>/dev/null | sudo xargs -0r rm -f || true
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-pol
+          command -v pdftotext
+          command -v tesseract
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:

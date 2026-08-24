@@ -22,6 +22,15 @@ test('brzeg-style waiting room (wait cue + auto-reload) is detected', () => {
   assert.equal(challengeSignature(html), 'wait-cue+auto-reload');
 });
 
+test('brzeg proof-of-work verification page is detected', () => {
+  const html = `<html><head><title>Weryfikacja</title></head><body>
+    <h2>Potwierdź, że nie jesteś robotem</h2>
+    <script>fetch('/__nodea/verify-js', {method:'POST'}).then(() => location.reload())</script>
+    </body></html>`;
+  assert.equal(isChallengePage(html), true);
+  assert.equal(challengeSignature(html), 'wait-cue+auto-reload');
+});
+
 test('meta-refresh waiting room is detected', () => {
   const html = `<html><head><meta http-equiv="refresh" content="5"><title>Please wait</title></head><body>Verifying…</body></html>`;
   assert.equal(isChallengePage(html), true);

@@ -4,6 +4,12 @@ Runbook for running przetargimiejskie work on the Raspberry Pi 5: no GUI, no des
 Chrome, Debian Bookworm arm64. Companion docs: [README.md](README.md) (pipeline overview,
 "Running locally"), [ROADMAP.md](ROADMAP.md) (phased plan), [TODO.md](TODO.md) (task queue).
 
+> **Live deployment (2026-08-24):** this Pi is registered as the repository
+> runner `borg-przetargimiejskie`, with the custom label
+> `przetargimiejskie-egress`. The systemd service is enabled at boot.
+> `refresh.yml` routes only Racibórz, Świętochłowice, Brzeg, Wałbrzych and the
+> PKP/AMW provider job here; the other 117 cities remain on hosted runners.
+
 ## 1. Why this box matters strategically
 
 Its **residential Polish IP** is egress GitHub Actions cannot buy:
@@ -30,6 +36,9 @@ Three ways to use the Pi for this:
    through the `core/fetch.js` helpers (`politeGet`/`getText`/`getBytes`) are
    proxied — the insecureTLS path, city-local direct `fetch` calls and the
    playwright renderer are not.
+
+Production uses option 2. Options 1 and 3 remain recovery paths if the runner is
+temporarily offline.
 
 Bonus: spikes benefit too — cloud fetchers get 403'd by some BIPs (choszczno) that
 accept residential clients.

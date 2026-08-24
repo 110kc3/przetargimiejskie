@@ -32,6 +32,7 @@
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 import { getText, politeGet, proxyFetch, snapshot } from '../../core/fetch.js';
+import { isChallengePage } from '../../core/challenge-page.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseListingPage, parseBipIndexMonth, parseBipItemPage, parseResultDoc } from './parse.js';
 
@@ -65,7 +66,15 @@ const WAITING_ROOM_DELAY_MS = 6000; // the challenge reloads itself after 5 s
 
 /** True when `html` is the waiting-room challenge page, not real content. */
 export function isWaitingRoom(html) {
-  return Boolean(html) && WAITING_ROOM_TITLE_RE.test(html) && WAITING_ROOM_RELOAD_RE.test(html);
+  // Keep the original narrow signature and also recognize newer generic
+  // challenges. In August 2026 brzeg.pl replaced the spinner with a 6.7 KB
+  // "Weryfikacja / Nie jestem robotem" proof-of-work page. fetchListingHtml
+  // calls politeGet directly to retain cookies, so it must opt into the shared
+  // detector explicitly instead of relying on getText's assertion.
+  return Boolean(html) && (
+    (WAITING_ROOM_TITLE_RE.test(html) && WAITING_ROOM_RELOAD_RE.test(html)) ||
+    isChallengePage(html)
+  );
 }
 
 // Accumulate name=value pairs from a response's Set-Cookie headers into `jar`.

@@ -10,6 +10,9 @@ export const config = {
   authority: 'Urząd Miejski w Świętochłowicach',
   host: 'bip.swietochlowice.pl',
   source: 'html',
+  // This is the same FINN origin as Racibórz. Azure runner IPs are silently
+  // dropped, so schedule this adapter on the Polish residential runner.
+  needsResidentialEgress: true,
   bip: {
     origin: ORIGIN,
     listPath: '/bipkod/29287911',

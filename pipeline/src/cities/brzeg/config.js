@@ -29,4 +29,7 @@ export const config = {
   authority: 'Urząd Miasta w Brzegu',
   host: 'brzeg.pl',
   source: 'html',
+  // brzeg.pl serves Azure IPs a JavaScript/PoW robot challenge instead of the
+  // listing page. The real page is available from the residential runner.
+  needsResidentialEgress: true,
 };

@@ -50,6 +50,14 @@ test('isWaitingRoom: detects the Proszę czekać… challenge page', () => {
   assert.equal(isWaitingRoom(WAITING_ROOM_HTML), true);
 });
 
+test('isWaitingRoom: detects the newer Weryfikacja proof-of-work page', () => {
+  const html = `<!doctype html><html lang="pl"><head><title>Weryfikacja</title></head>
+    <body><h2>Potwierdź, że nie jesteś robotem</h2>
+    <script>fetch('/__nodea/verify-js', {method:'POST'}).then(() => location.reload())</script>
+    </body></html>`;
+  assert.equal(isWaitingRoom(html), true);
+});
+
 test('isWaitingRoom: real listing page is not a waiting room', () => {
   assert.equal(isWaitingRoom(REAL_PAGE_HTML), false);
 });

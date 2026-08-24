@@ -35,4 +35,7 @@ export const config = {
   authority: 'Urząd Miejski w Wałbrzychu',
   host: 'bip.um.walbrzych.pl',
   source: 'html', // crawlResultDocs() returns refs with .text already attached
+  // The source repeatedly stalls long enough on Azure to exhaust the 20-minute
+  // step deadline. Residential egress completes the same crawl reliably.
+  needsResidentialEgress: true,
 };

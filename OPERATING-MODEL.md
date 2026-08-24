@@ -86,13 +86,10 @@ to `main` constantly.
 
 ### 1.3 The two autonomy gaps to close (do these first)
 
-1. **PL egress wired into CI.** Half of recurring health-red is one root cause: the
-   FINN host (`bip2.finn.pl` — Racibórz, Świętochłowice) and Brzeg's anti-DDoS page
-   block Azure/GH-runner IPs, and no code fix exists. Options in REMOTE.md §1;
-   **preferred: register the Pi as a GitHub self-hosted runner** and point only the
-   blocked cities' matrix jobs at it (`runs-on: self-hosted` split in `refresh.yml`).
-   Fallback: `FETCH_PROXY_URL` (already shipped in `core/fetch.js`) + a paid PL
-   proxy. Until this lands, these cities are permanent agent-layer toil.
+1. **PL egress wired into CI — shipped 2026-08-24.** The labelled Pi runner now
+   handles the FINN pair (Racibórz, Świętochłowice), Brzeg, Wałbrzych and the
+   provider job. The other 117 city jobs remain on hosted runners. The existing
+   `FETCH_PROXY_URL` hook remains the fallback if the Pi is unavailable.
 2. **The scheduled daily agent session** (§1.2) so triage and expansion happen
    without being asked.
 
