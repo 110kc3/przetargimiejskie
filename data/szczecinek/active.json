@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "zabudowana",
+      "address_raw": "ul. Kościuszki 22",
+      "address": {
+        "street": "Kościuszki",
+        "street_norm": "kosciuszki",
+        "building": "22",
+        "apt": null,
+        "key": "kosciuszki|22|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 2800000,
+      "auction_date": "2026-10-29",
+      "round": 2,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7552/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7552/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22"
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "ul. Władysława Bartoszewskiego 12",
       "address": {
         "street": "Władysława Bartoszewskiego",
