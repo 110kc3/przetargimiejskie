@@ -3,6 +3,37 @@
   "city": "gliwice",
   "plots": [
     {
+      "key": "dz|sikornik|736",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "736",
+      "obreb": "Sikornik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Czajki 7-1",
+      "dzialka_id": "246601_1.0048.736",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 2,
+          "starting_price_pln": 576700,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-2"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "736",
+          "dzialka_id": "246601_1.0048.736",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736"
+        }
+      ]
+    },
+    {
       "key": "dz|nowe gliwice|72/2",
       "kind": "grunt",
       "city": "gliwice",
@@ -2809,6 +2840,37 @@
           "nr": "102/15",
           "dzialka_id": "246601_1.0027.102/15",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0027.102%2F15"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerniki|1201/1",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1201/1",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Omańkowskiej 12",
+      "dzialka_id": "246601_1.0061.1201/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F1",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 760000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-12011-obreb-zerniki-ul-omankowskiej-12"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1201/1",
+          "dzialka_id": "246601_1.0061.1201/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F1"
         }
       ]
     },
