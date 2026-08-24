@@ -3,6 +3,95 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "dz|1722/25",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1722/25",
+      "obreb": null,
+      "street": "Kamienna",
+      "building": null,
+      "address_raw": "Kamienna dz. 1722/25",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.906686885162518%2C50.337624553536244%2C18.907975930646902%2C50.338235039148884&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.827abcad-841a-430a-90fb-39ca1a2a0a50",
+      "area_m2": 2505,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-22",
+          "round": 1,
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 2505,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Kamienna-dz.-1722-25,24722.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1722/25"
+        }
+      ]
+    },
+    {
+      "key": "addr|tadeusza boya-żeleńskiego; powstańców",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Tadeusza Boya-Żeleńskiego; Powstańców",
+      "building": null,
+      "address_raw": "Tadeusza Boya-Żeleńskiego; Powstańców",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.81570896334619%2C50.38867442978172%2C18.816858834079394%2C50.389854627997636&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.98540e51-937a-43b3-a52c-a3016e945102",
+      "area_m2": 1570,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-21",
+          "round": 2,
+          "starting_price_pln": 202500,
+          "outcome": "active",
+          "area_m2": 1570,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Powstancow-i-Boya-Zelenskiego,24726.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|3078/37",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "3078/37",
+      "obreb": null,
+      "street": "Stanisława Witczaka",
+      "building": null,
+      "address_raw": "Stanisława Witczaka dz. 3078/37",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.935023397992833%2C50.36167421596538%2C18.935111362512977%2C50.3617366747597&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.0b518067-c965-4643-9373-c4f61fb2129a",
+      "area_m2": 20,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-21",
+          "round": 1,
+          "starting_price_pln": 28000,
+          "outcome": "active",
+          "area_m2": 20,
+          "detail_url": "https://www.bytom.pl/bip/download/ogloszenie-przetargu-ul.-Witczaka-dz.-3078_37-udzial-ustny-I-zabud,24725.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3078/37"
+        }
+      ]
+    },
+    {
       "key": "addr|ostatnia; kolonia zgorzelec",
       "kind": "grunt",
       "city": "bytom",
