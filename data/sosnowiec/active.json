@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Kraszewskiego 15/85",
+      "address": {
+        "street": "Kraszewskiego",
+        "street_norm": "kraszewskiego",
+        "building": "15",
+        "apt": "85",
+        "key": "kraszewskiego|15|85",
+        "warning": null
+      },
+      "auction_date": "2026-10-16",
+      "published_date": "2026-08-24",
+      "round": 1,
+      "area_m2": 41.83,
+      "starting_price_pln": 188235,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564564,przetarg-ustny-nieograniczony-na-sprzedaz-prawa-wlasnosci-lokalu-mieszkalnego-nr-85-przy-ul-kraszews.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Kaliskiej 14a/2",
       "address": {
         "street": "Kaliskiej",
