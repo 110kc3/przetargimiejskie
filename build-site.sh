@@ -24,10 +24,15 @@ cp -r "$OUT/archiwum" "$OUT/archiwum-all"
 cp -r data "$OUT"/data         # JSON the web pages fetch at /data/<city>/...
 
 # SEO pages (P0-C): /<miasto>/ + per-property + monthly recaps + /miasta/ +
-# sitemap.xml, generated statically from data/*.json (Śląskie cities only —
-# mirrors the landing's public gate; scope lives in the script). Plain Node,
-# no deps — the ubuntu-latest runner ships Node, no setup-node needed.
+# sitemap.xml, generated statically from data/*.json (the national publish gate
+# lives in the script). Plain Node, no deps — the ubuntu-latest runner ships
+# Node, no setup-node needed.
 node scripts/build-seo-pages.mjs "$OUT"
+
+# Validate the assembled output rather than trusting template-level checks: each
+# sitemap URL must have a real HTML file, a matching self-canonical and no
+# noindex; duplicate URLs and future sitemap dates fail the deploy too.
+node scripts/audit-seo-build.mjs "$OUT"
 
 # Note: we no longer publish /extension.zip — the site links to the Chrome Web
 # Store listing instead. (The extension/ source still lives in the repo.)

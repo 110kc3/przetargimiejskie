@@ -243,8 +243,21 @@ const recapFloor = (() => { // first day of the month RECAP_MONTHS-1 months ago
   return d.toISOString().slice(0, 7);
 })();
 
-const sitemap = []; // { loc, lastmod }
-const addUrl = (path, lastmod) => sitemap.push({ loc: `${SITE}${path}`, lastmod: (lastmod || today).slice(0, 10) });
+// Keep the sitemap deliberately free of <lastmod> until the pipeline persists
+// a real per-page content-modification timestamp. The dates available here are
+// not that:
+//
+//   - meta.generated_at changes after every daily crawl, even when a page's
+//     main content did not change;
+//   - a listing's date is the auction date, not the page modification date, and
+//     is often in the future for an open auction.
+//
+// Publishing either value as <lastmod> makes the whole freshness signal
+// unverifiable (and previously produced hundreds of future-dated sitemap
+// entries). The element is optional; an honest omission is better than a false
+// crawl-scheduling hint.
+const sitemap = []; // { loc }
+const addUrl = (path) => sitemap.push({ loc: `${SITE}${path}` });
 
 // ---------- Publish gate ----------
 // Load every candidate once, enrich its properties, and derive the *date-aware*
@@ -384,7 +397,7 @@ ${monthChips ? `<section class="section"><h2 class="section-title">Miesięczne p
     },
     body: cityBody,
   }));
-  addUrl(`/${city.id}/`, generated);
+  addUrl(`/${city.id}/`);
 
   // ---------- property pages ----------
   for (const p of props) {
@@ -452,7 +465,7 @@ ${liveBlock}
 wnioskować o wyniku wcześniejszego terminu wyłącznie z numeru późniejszej rundy;
 wiążące informacje znajdują się w dokumentach źródłowych urzędu.</p></section>`,
     }));
-    addUrl(`/${city.id}/${p._slug}/`, p._lastDate || generated);
+    addUrl(`/${city.id}/${p._slug}/`);
   }
 
   // ---------- monthly recap pages ----------
@@ -478,7 +491,7 @@ wiążące informacje znajdują się w dokumentach źródłowych urzędu.</p></s
 </table></div>
 <p class="note">${nav}</p>`,
     }));
-    addUrl(`/${city.id}/${ym}/`, generated);
+    addUrl(`/${city.id}/${ym}/`);
   }
 
   cityHub.push({ city, active: activeRows.length, props: props.length, archived: city.archived_auctions || 0 });
@@ -513,7 +526,7 @@ for (const p of [
 ]) addUrl(p);
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemap.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n')}
+${sitemap.map((u) => `  <url><loc>${u.loc}</loc></url>`).join('\n')}
 </urlset>
 `;
 writeFileSync(join(OUT, 'sitemap.xml'), xml);
