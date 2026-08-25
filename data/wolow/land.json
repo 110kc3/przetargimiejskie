@@ -364,6 +364,36 @@
       ]
     },
     {
+      "key": "dz|gliniany|729",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "729",
+      "obreb": "Gliniany",
+      "street": null,
+      "building": null,
+      "address_raw": "Gliniany, dz. nr 729, Am 1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20729%20Gliniany%2C%20dz.%20nr%20729%2C%20Am%201%20Gliniany%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1500,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-08",
+          "round": 1,
+          "starting_price_pln": 13000,
+          "outcome": "unsold",
+          "area_m2": 1500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "729",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20729%20Gliniany%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|tarchalice|629/6",
       "kind": "grunt",
       "city": "wolow",
