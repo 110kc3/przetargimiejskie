@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T12:46:38.032Z",
+  "generated_at": "2026-08-25T05:13:55.820Z",
   "cities": [
     {
       "id": "gliwice",
@@ -9,9 +9,9 @@
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
       "unique_properties": 194,
-      "active_listings": 7,
-      "active_auctions": 7,
-      "archived_auctions": 283,
+      "active_listings": 6,
+      "active_auctions": 6,
+      "archived_auctions": 284,
       "wykaz_entries": 8,
       "land_plots": 81
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 90,
+      "active_listings": 44,
       "active_auctions": 3,
       "archived_auctions": 103,
       "wykaz_entries": 0,
-      "land_plots": 112
+      "land_plots": 57
     },
     {
       "id": "trzebinia",
@@ -542,7 +542,7 @@
       "authority": "Miasto Stołeczne Warszawa",
       "host": "eto.um.warszawa.pl",
       "unique_properties": 16,
-      "active_listings": 8,
+      "active_listings": 7,
       "active_auctions": 12,
       "archived_auctions": 5,
       "wykaz_entries": 0,
@@ -1131,7 +1131,7 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
-      "land_plots": 53
+      "land_plots": 54
     },
     {
       "id": "lwowek-slaski",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1196,7 +1196,7 @@
       "active_auctions": 4,
       "archived_auctions": 16,
       "wykaz_entries": 0,
-      "land_plots": 18
+      "land_plots": 17
     },
     {
       "id": "glubczyce",
@@ -1205,11 +1205,11 @@
       "authority": "Urząd Miejski w Głubczycach",
       "host": "bip.glubczyce.pl",
       "unique_properties": 20,
-      "active_listings": 0,
+      "active_listings": 11,
       "active_auctions": 0,
       "archived_auctions": 36,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 23
     },
     {
       "id": "gostyn",
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 6,
-      "active_listings": 0,
+      "active_listings": 2,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
