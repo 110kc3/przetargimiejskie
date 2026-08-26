@@ -3,6 +3,51 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "rybnej|3|",
+      "street": "Rybna",
+      "street_norm": "rybnej",
+      "building": "3",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-11-29",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 214000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558287,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,557716,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
+        },
+        {
+          "date": "2025-04-11",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 214000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559471,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558786,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
+        },
+        {
+          "date": "2026-10-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 242000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564578,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "rodakowskiego|12|130",
       "street": "Rodakowskiego",
       "street_norm": "rodakowskiego",
@@ -384,40 +429,6 @@
         }
       ],
       "area_m2": 75.97
-    },
-    {
-      "key": "rybnej|3|",
-      "street": "Rybna",
-      "street_norm": "rybnej",
-      "building": "3",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2024-11-29",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 214000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558287,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu.html",
-          "notes": [],
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,557716,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
-        },
-        {
-          "date": "2025-04-11",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 214000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559471,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu.html",
-          "notes": [],
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558786,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
-        }
-      ]
     },
     {
       "key": "zagaje|6|6",
