@@ -331,132 +331,6 @@
       ]
     },
     {
-      "key": "dz|0001 brzezinka.|2702/231",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "2702/231",
-      "obreb": "0001 Brzezinka.",
-      "street": "Niepodległości",
-      "building": null,
-      "address_raw": "ul. Niepodległości",
-      "dzialka_id": "247001_1.0001.AR_4.2702/231",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231",
-      "area_m2": 439,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-25",
-          "round": 2,
-          "starting_price_pln": 95000,
-          "outcome": "active",
-          "area_m2": 439,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2702/231",
-          "dzialka_id": "247001_1.0001.AR_4.2702/231",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231"
-        }
-      ]
-    },
-    {
-      "key": "dz|0001 brzezinka|3420/174",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "3420/174",
-      "obreb": "0001 Brzezinka",
-      "street": "Henryka Sienkiewicza",
-      "building": null,
-      "address_raw": "ul. Henryka Sienkiewicza",
-      "dzialka_id": "247001_1.0001.AR_2.3420/174",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.3420%2F174",
-      "area_m2": 3368,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-25",
-          "round": 1,
-          "starting_price_pln": 480000,
-          "outcome": "active",
-          "area_m2": 3368,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3420/174",
-          "dzialka_id": "247001_1.0001.AR_2.3420/174",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_2.3420%2F174"
-        }
-      ]
-    },
-    {
-      "key": "dz|0001 brzezinka|2684/248",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "2684/248",
-      "obreb": "0001 Brzezinka",
-      "street": "Dworcowej",
-      "building": null,
-      "address_raw": "ul. Dworcowej",
-      "dzialka_id": "247001_1.0001.AR_4.2684/248",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248",
-      "area_m2": 10452,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-06-17",
-          "round": 1,
-          "starting_price_pln": 2085000,
-          "outcome": "archived",
-          "area_m2": 10452,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dworcowa",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dworcowa"
-        },
-        {
-          "date": "2025-11-25",
-          "round": 2,
-          "starting_price_pln": 2076000,
-          "outcome": "archived",
-          "area_m2": 10452,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p"
-        },
-        {
-          "date": "2026-05-19",
-          "round": 3,
-          "starting_price_pln": 2076000,
-          "outcome": "archived",
-          "area_m2": 10452,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-1",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-1"
-        },
-        {
-          "date": "2026-08-25",
-          "round": 4,
-          "starting_price_pln": 2076000,
-          "outcome": "active",
-          "area_m2": 10452,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-3",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-3"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2684/248",
-          "dzialka_id": "247001_1.0001.AR_4.2684/248",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248"
-        }
-      ]
-    },
-    {
       "key": "dz|0002 brzęczkowice|4131/241",
       "kind": "grunt",
       "city": "myslowice",
@@ -564,6 +438,57 @@
           "nr": "9386/403",
           "dzialka_id": "247001_1.0007.AR_3.9386/403",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0007.AR_3.9386%2F403"
+        }
+      ]
+    },
+    {
+      "key": "dz|0001 brzezinka|2684/248",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "2684/248",
+      "obreb": "0001 Brzezinka",
+      "street": "Dworcowej",
+      "building": null,
+      "address_raw": "ul. Dworcowej",
+      "dzialka_id": "247001_1.0001.AR_4.2684/248",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248",
+      "area_m2": 10452,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "starting_price_pln": 2085000,
+          "outcome": "archived",
+          "area_m2": 10452,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dworcowa",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-dworcowa"
+        },
+        {
+          "date": "2025-11-25",
+          "round": 2,
+          "starting_price_pln": 2076000,
+          "outcome": "archived",
+          "area_m2": 10452,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p"
+        },
+        {
+          "date": "2026-05-19",
+          "round": 3,
+          "starting_price_pln": 2076000,
+          "outcome": "archived",
+          "area_m2": 10452,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-1",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2684/248",
+          "dzialka_id": "247001_1.0001.AR_4.2684/248",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248"
         }
       ]
     },
