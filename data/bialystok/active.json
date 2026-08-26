@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Rynek Kościuszki 17 m 7",
+      "address": {
+        "street": "Rynek Kościuszki",
+        "street_norm": "rynek kosciuszki",
+        "building": "17",
+        "apt": "7",
+        "key": "rynek kosciuszki|17|7",
+        "warning": null
+      },
+      "auction_date": "2026-10-07",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 321100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-rynek-kosciuszki-17-m-7.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przejazd 2 m 7",
+      "address": {
+        "street": "Przejazd",
+        "street_norm": "przejazd",
+        "building": "2",
+        "apt": "7",
+        "key": "przejazd|2|7",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 275100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Gen. Józefa Bema 91 m 19",
       "address": {
         "street": "Gen. Józefa Bema",
@@ -217,23 +253,6 @@
       "starting_price_pln": 604100,
       "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-1.html",
       "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przędzalniana 4B m 35",
-      "address": {
-        "street": "Przędzalniana",
-        "street_norm": "przedzalniana",
-        "building": "4B",
-        "apt": "35",
-        "key": "przedzalniana|4B|35",
-        "warning": null
-      },
-      "auction_date": "2026-08-14",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": 179900,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przedzalniana-4b-m-35-36.html"
     },
     {
       "kind": "mieszkalny",

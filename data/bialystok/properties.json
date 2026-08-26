@@ -58,6 +58,50 @@
       ]
     },
     {
+      "key": "rynek kosciuszki|17|7",
+      "street": "Rynek Kościuszki",
+      "street_norm": "rynek kosciuszki",
+      "building": "17",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 321100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-rynek-kosciuszki-17-m-7.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "przejazd|2|7",
+      "street": "Przejazd",
+      "street_norm": "przejazd",
+      "building": "2",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 275100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "gen jozefa bema|91|72",
       "street": "Gen. Józefa Bema",
       "street_norm": "gen jozefa bema",
@@ -434,11 +478,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 179900,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przedzalniana-4b-m-35-36.html",
-          "wadium_deadline": null,
-          "viewing_date": null,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 181700,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przedzalniana-4b-m-35-36.html",
+          "notes": [],
           "round_source": "inferred"
         }
       ]
