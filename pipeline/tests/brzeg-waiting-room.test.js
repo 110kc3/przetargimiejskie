@@ -1,6 +1,6 @@
 // Brzeg anti-DDoS waiting-room detector tests.
 //
-// Since 2026-07-07 the brzeg.pl WordPress host serves GH-runner (Azure) IPs
+// Since 2026-07-07 the brzeg.pl WordPress host serves Azure-hosted CI IPs
 // an ~12 KB challenge page — <title>Proszę czekać…</title> plus a
 // setTimeout(() => location.reload(), 5000) script — instead of the real
 // ~726 KB listing page (evidence: triage-brzeg artifact snapshot

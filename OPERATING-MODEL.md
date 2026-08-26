@@ -11,7 +11,8 @@
 > [ROADMAP.md](./ROADMAP.md) (tiers & gates) · [TODO.md](./TODO.md) (live backlog) ·
 > [GTM.md](./GTM.md) + [GTM-SPRINT.md](./GTM-SPRINT.md) (revenue) ·
 > [EXPANSION.md](./EXPANSION.md) (multi-city design) · [REMOTE.md](./REMOTE.md)
-> (RPi5 runbook) · [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (coverage ledger).
+> (manual RPi5 work) · [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) (secure CI egress) ·
+> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (coverage ledger).
 
 ---
 
@@ -67,8 +68,8 @@ open a terminal. The standing agent jobs, in priority order:
 1. **Daily ops triage (~15 min/day).** Read open `[city-broken]` issues; for each,
    diagnose live (the Pi's residential PL IP sees what CI cannot), fix the crawler or
    reclassify (source-emptied / IP-blocked / challenge page), keep `EXEMPT_NEW`
-   honest before entries expire. Known non-bugs: a single-city 503/timeout is
-   runner-IP flake, not code.
+   honest before entries expire. Known non-bugs: a single-city 503/timeout can be
+   hosted-CI egress flake, not code.
 2. **Expansion batches (the completeness engine, §2.3).** Dispatch via the
    `przetargi-city-triage` skill: spike unspiked powiat seats, build from the
    BUILD-ready queue, re-verify the `verify` bucket. **Cap 2–3 concurrent city
@@ -82,14 +83,16 @@ open a terminal. The standing agent jobs, in priority order:
 Scheduling mechanics: a cron'd headless session on the Pi (`claude -p` /
 `claude schedule`), or an interactive `/loop`. The Pi is already provisioned per
 [REMOTE.md](./REMOTE.md) §3. Always `git pull --rebase` before pushing — CI commits
-to `main` constantly.
+to `main` constantly. These are operator-controlled development sessions, not
+remotely dispatched workflow jobs.
 
 ### 1.3 The two autonomy gaps to close (do these first)
 
-1. **PL egress wired into CI — shipped 2026-08-24.** The labelled Pi runner now
-   handles the FINN pair (Racibórz, Świętochłowice), Brzeg, Wałbrzych and the
-   provider job. The other 117 city jobs remain on hosted runners. The existing
-   `FETCH_PROXY_URL` hook remains the fallback if the Pi is unavailable.
+1. **Restricted PL egress — open.** All repository code stays on GitHub-hosted
+   machines. Provision the deny-by-default proxy in
+   [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md), then route only the FINN pair
+   (Racibórz, Świętochłowice), Brzeg, Wałbrzych and the provider job through
+   `FETCH_PROXY_URL`. Until then those sources may preserve last-good data.
 2. **The scheduled daily agent session** (§1.2) so triage and expansion happen
    without being asked.
 

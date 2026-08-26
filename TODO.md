@@ -4,8 +4,9 @@
 > (extension) and git history (pipeline/site/data). **Last full backlog refresh:
 > 19 July 2026 — extension v1.32.0; city-health audit refreshed 23 August
 > 2026.** Structure/tiers/gates live in
-> [ROADMAP.md](./ROADMAP.md); headless RPi5 execution is specified in
-> [REMOTE.md](./REMOTE.md); city coverage is the generated ledger
+> [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
+> [REMOTE.md](./REMOTE.md), secure CI egress in
+> [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
 > [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 117 ·
 > BUILD-ready 54 · all 380 powiat seats spiked).
 >
@@ -22,8 +23,8 @@
 > future anti-bot/waiting-room page auto-classifies source-unreachable),
 > `LEGIT_EMPTY` slow-recheck allowlist for gdansk/augustow, P2-D Katowice junk
 > allowlist dropped (fold now runs inside refresh), and a `todayWarsaw`
-> small-ICU fix (was returning `MM/DD/YYYY` on the RPi5's small-ICU Node —
-> matters for the self-hosted-runner path); 2026-07-07 zero-data investigation
+> small-ICU fix (was returning `MM/DD/YYYY` on minimal Debian Node builds);
+> 2026-07-07 zero-data investigation
 > (live-crawled from the Pi) — busko-zdrój/oswiecim/chrzanow are NOT broken,
 > their boards just have no active flats right now; busko→LEGIT_EMPTY,
 > oswiecim/chrzanow reasons corrected + clocks reset (OCR verified excellent, CI
@@ -108,13 +109,13 @@ Remaining health work:
   material, but a filtered search or replacement-feed discovery path is needed.
 - [#173 Racibórz](https://github.com/110kc3/przetargimiejskie/issues/173) and
   [#174 Świętochłowice](https://github.com/110kc3/przetargimiejskie/issues/174):
-  both adapters work and the shared FINN host was reachable from this runner on
+  both adapters work and the shared FINN host was reachable from a Polish IP on
   23 August. A live refresh republished Racibórz (21 properties / 8 current
   auctions) and Świętochłowice (97 / 8), making the strict 3-day health check
   green for all 121 cities. GitHub/Azure egress has historically been
-  connect-dropped by this host, so provisioning the documented Polish proxy or
-  self-hosted runner in [REMOTE.md](./REMOTE.md) remains the durable reliability
-  task; there is no adapter patch to make.
+  connect-dropped by this host, so provisioning the restricted Polish proxy in
+  [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) remains the durable reliability task;
+  there is no adapter patch to make.
 
 The dated July investigation notes below are retained as diagnosis history.
 Where they disagree with this section (notably Tczew, Nakło, Oświęcim and
@@ -126,13 +127,14 @@ the old `EXEMPT_NEW` membership), this 23-August audit supersedes them.
 > swietochlowice (7d), raciborz (6d), tczew (4d). Per policy *stale-data FAILs
 > cannot be allowlisted; only a green crawl clears them* — so **no code change
 > can green health** while those sources are unreachable from CI's Azure IPs.
-> **The single unblock is non-Azure egress** (RPi5 self-hosted runner per
-> REMOTE.md, or a PL proxy as `FETCH_PROXY_URL`) — a Kamil/infra action. The
+> **The single unblock is non-Azure egress** via the restricted
+> `FETCH_PROXY_URL` design in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) — a
+> Kamil/infra action. The
 > ops-hygiene fixes this session removed the *surrounding* noise (auto-close
 > flap, title churn, the ~07-23 gdansk/augustow false-cliff) but cannot clear
 > the stale trio. **DECISION:** Kamil deferred the egress unblock on 2026-07-07
 > ("leave red for now") — health stays chronically red on the stale trio until
-> an RPi5 self-hosted runner or a PL `FETCH_PROXY_URL` proxy is stood up. Don't
+> the restricted PL proxy is stood up. Don't
 > re-ask; revisit when Kamil raises it. Caveat: chronic red masks new
 > breakages — the ops-hygiene fixes reduce, but don't eliminate, that risk.
 
@@ -188,14 +190,14 @@ run), while both sources returned HTTP 200 in 0.3–1.7 s from a Polish IP on
 2026-07-07. **Sources are up and parseable — no adapter change needed.** Treat
 as ONE provider incident (issues #2 + #3). Fix is egress, not code: the
 `FETCH_PROXY_URL` hook in `pipeline/src/core/fetch.js` (undici ProxyAgent) is
-**shipped** — residual work is provisioning actual non-Azure egress (the RPi5
-self-hosted runner per REMOTE.md, or a PL proxy endpoint as a repo secret) and
-wiring it into refresh.yml for FINN-hosted cities; note the insecureTLS path is
-not proxied. Preserve-on-empty holds 9 (raciborz) + 91 (swietochlowice) properties
+**shipped** — residual work is provisioning the deny-by-default proxy in
+[PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) and wiring it into `refresh.yml` for
+FINN-hosted cities; note the insecureTLS path is not proxied. Preserve-on-empty
+holds 9 (raciborz) + 91 (swietochlowice) properties
 meanwhile; but stale-data FAILs cannot be allowlisted — only a green crawl
 clears them. Optionally tag FINN-hosted cities in config so simultaneous
 194.24.181.47 failures triage as one incident, not N issues.
-**Owner:** agent · **Blockers:** non-Azure egress (RPi5/proxy).
+**Owner:** agent · **Blockers:** restricted non-Azure proxy.
 
 ### Broken city — Brzeg anti-DDoS waiting room [RPI5]
 
@@ -206,8 +208,8 @@ the 3 expected ul. 3 Maja 1 listings. Detection + cookie-retry +
 source-unreachable throw **shipped this session** in
 `pipeline/src/cities/brzeg/crawl.js` (+ `tests/brzeg-waiting-room.test.js`).
 Residual: verify on the next CI refresh whether the cookie-retry passes the gate
-from Azure; if not, fall back to the same non-Azure egress as the FINN pair
-(`FETCH_PROXY_URL`/RPi5); confirm issue #11 reclassifies/closes after the next
+from Azure; if not, use the same restricted `FETCH_PROXY_URL` path as the FINN
+pair; confirm issue #11 reclassifies/closes after the next
 green run.
 **Owner:** agent · **Blockers:** none (egress fallback shared with FINN item).
 

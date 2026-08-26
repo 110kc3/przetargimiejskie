@@ -30,6 +30,6 @@ export const config = {
   host: 'brzeg.pl',
   source: 'html',
   // brzeg.pl serves Azure IPs a JavaScript/PoW robot challenge instead of the
-  // listing page. The real page is available from the residential runner.
+  // listing page. The real page is available from a residential Polish IP.
   needsResidentialEgress: true,
 };

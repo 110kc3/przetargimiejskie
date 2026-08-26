@@ -35,7 +35,7 @@
 // (address-keyed) and active land plots (kind 'grunt' → land.json, inline HTML,
 // no OCR). crawlResultDocs OCRs achieved-price results for FLATS ONLY — the
 // ~180 land plots each carry their own scanned result PDF and OCRing all of them
-// every run is infeasible on this project's Pi runner; land achieved-prices are
+// every routine refresh is infeasible; land achieved-prices are
 // a documented out-of-scope residual, not a bug. See spikes/podkarpackie/
 // powiat-kolbuszowski/kolbuszowa.md (VERDICT: BUILD, Low effort). Closest
 // analog: `wolow` (inline-HTML fields parsed from the page body, classify-on-

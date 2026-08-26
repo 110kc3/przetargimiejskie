@@ -331,7 +331,7 @@ export function applyDisplayStreets(properties) {
  * midnight, keeping yesterday's auctions 'active' one extra cycle.
  *
  * Assembled from formatToParts rather than an `en-CA` format string: on a
- * small-ICU Node build (e.g. Debian/apt Node on the RPi5 self-hosted runner)
+ * small-ICU Node build (for example, Debian's minimal Node package)
  * only `en-US` locale data ships, so `en-CA` silently falls back to US
  * "MM/DD/YYYY" and this returned garbage. The timezone conversion still works
  * (tz data is bundled independently of locale data), so reading numeric parts
