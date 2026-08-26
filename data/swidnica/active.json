@@ -3,6 +3,25 @@
   "city": "swidnica",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Westerplatte 19A/10",
+      "address": {
+        "street": "Westerplatte",
+        "street_norm": "westerplatte",
+        "building": "19A",
+        "apt": "10",
+        "key": "westerplatte|19A|10",
+        "warning": null
+      },
+      "area_m2": 35.14,
+      "starting_price_pln": 95000,
+      "round": 1,
+      "auction_date": "2026-09-28",
+      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131581,i-przetarg-ustny-nieograniczony-p-73ix26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-10-przy-ulicy-we.html",
+      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131581,i-przetarg-ustny-nieograniczony-p-73ix26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-10-przy-ulicy-we.html",
+      "share": null
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "ul. Kraszowickiej 55/01",
       "address": {
