@@ -3,6 +3,28 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "moniuszki|6|9A",
+      "street": "Moniuszki",
+      "street_norm": "moniuszki",
+      "building": "6",
+      "apt": "9A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 53.13,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Moniuszki-69a/idn:13955",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 53.13
+    },
+    {
       "key": "pilsudskiego|7|1",
       "street": "Piłsudskiego",
       "street_norm": "pilsudskiego",

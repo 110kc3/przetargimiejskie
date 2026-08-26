@@ -3,6 +3,25 @@
   "city": "bytom",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Moniuszki 6/9a",
+      "address": {
+        "street": "Moniuszki",
+        "street_norm": "moniuszki",
+        "building": "6",
+        "apt": "9A",
+        "key": "moniuszki|6|9A",
+        "warning": null
+      },
+      "auction_date": "2026-09-24",
+      "published_date": "2026-08-25",
+      "round": 1,
+      "area_m2": 53.13,
+      "starting_price_pln": 200000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Moniuszki-69a/idn:13955",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Moniuszki-6_9a,24788.doc"
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "ul. Piłsudskiego 7/1",
       "address": {
