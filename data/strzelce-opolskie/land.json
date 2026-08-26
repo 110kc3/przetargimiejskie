@@ -3,6 +3,50 @@
   "city": "strzelce-opolskie",
   "plots": [
     {
+      "key": "dz|kalinowice|294/7",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "294/7",
+      "obreb": "Kalinowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kalinowice, dz. nr 294/7",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%2C%20dz.%20nr%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1660,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 1660
+        },
+        {
+          "date": "2026-09-29",
+          "round": 2,
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 1660,
+          "detail_url": "https://gzmk.pl/bw/II_ustny_przetarg_nieograniczony_na_sprzedaz_dzialki_budowlanej_polozonej_w_Kalinowicach_,14,1007"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "294/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|strzelce opolskie|2223/1",
       "kind": "grunt",
       "city": "strzelce-opolskie",
@@ -75,73 +119,6 @@
         {
           "nr": "693/9",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|kalinowice|294/7",
-      "kind": "grunt",
-      "city": "strzelce-opolskie",
-      "dzialka_nr": "294/7",
-      "obreb": "Kalinowice",
-      "street": null,
-      "building": null,
-      "address_raw": "Kalinowice, dz. nr 294/7",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%2C%20dz.%20nr%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1660,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-05-12",
-          "round": 1,
-          "starting_price_pln": 130000,
-          "outcome": "unsold"
-        },
-        {
-          "date": "2026-08-12",
-          "round": 1,
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 1660
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "294/7",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20294%2F7%20Kalinowice%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|szymiszów|861/1",
-      "kind": "grunt",
-      "city": "strzelce-opolskie",
-      "dzialka_nr": "861/1",
-      "obreb": "Szymiszów",
-      "street": null,
-      "building": null,
-      "address_raw": "Szymiszów, dz. nr 861/1",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20861%2F1%20Szymisz%C3%B3w%2C%20dz.%20nr%20861%2F1%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
-      "area_m2": 902,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-01-15",
-          "round": 1,
-          "starting_price_pln": 85000,
-          "outcome": "sold",
-          "final_price_pln": 90000,
-          "area_m2": 902
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "861/1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20861%2F1%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
         }
       ]
     }
