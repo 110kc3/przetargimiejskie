@@ -3,6 +3,69 @@
   "city": "lebork",
   "plots": [
     {
+      "key": "dz|134/5",
+      "kind": "grunt",
+      "city": "lebork",
+      "dzialka_nr": "134/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Polnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20134%2F5%20Polnej%20L%C4%99bork%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1745,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-02",
+          "round": 1,
+          "starting_price_pln": 210000,
+          "outcome": "unsold",
+          "area_m2": 1745,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu-0"
+        },
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1745,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-ii-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu"
+        },
+        {
+          "date": "2025-11-19",
+          "round": 3,
+          "starting_price_pln": 189000,
+          "outcome": "unsold",
+          "area_m2": 1745,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-iii-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu"
+        },
+        {
+          "date": "2026-01-08",
+          "round": 4,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1745,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-iv-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu"
+        },
+        {
+          "date": "2026-08-19",
+          "round": 1,
+          "starting_price_pln": 178000,
+          "outcome": "sold",
+          "final_price_pln": 221129,
+          "area_m2": 1745,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargu-ustnego-nieograniczonego-ktory-zostal-przeprowadzony-w-dniu-19"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "134/5"
+        }
+      ]
+    },
+    {
       "key": "dz|505",
       "kind": "grunt",
       "city": "lebork",
@@ -132,60 +195,6 @@
       "parcels": [
         {
           "nr": "504"
-        }
-      ]
-    },
-    {
-      "key": "dz|134/5",
-      "kind": "grunt",
-      "city": "lebork",
-      "dzialka_nr": "134/5",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "Polnej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20134%2F5%20Polnej%20L%C4%99bork%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1745,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-07-02",
-          "round": 1,
-          "starting_price_pln": 210000,
-          "outcome": "unsold",
-          "area_m2": 1745,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu-0"
-        },
-        {
-          "date": "2025-09-17",
-          "round": 2,
-          "starting_price_pln": 195000,
-          "outcome": "unsold",
-          "area_m2": 1745,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-ii-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu"
-        },
-        {
-          "date": "2025-11-19",
-          "round": 3,
-          "starting_price_pln": 189000,
-          "outcome": "unsold",
-          "area_m2": 1745,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-iii-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu"
-        },
-        {
-          "date": "2026-01-08",
-          "round": 4,
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "area_m2": 1745,
-          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-iv-przetargow-ustnych-nieograniczonych-ktore-zostaly-przeprowadzone-w-dniu"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "134/5"
         }
       ]
     },
