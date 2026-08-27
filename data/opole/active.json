@@ -377,6 +377,23 @@
       "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_480"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wojciecha Drzymały 6/6",
+      "address": {
+        "street": "Wojciecha Drzymały",
+        "street_norm": "wojciecha drzymaly",
+        "building": "6",
+        "apt": "6",
+        "key": "wojciecha drzymaly|6|6",
+        "warning": null
+      },
+      "area_m2": 122.42,
+      "starting_price_pln": 675000,
+      "auction_date": "2026-11-03",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-11_482"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "ul. Oświęcimskiej 46",
       "address": {
