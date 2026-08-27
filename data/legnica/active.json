@@ -3,6 +3,60 @@
   "city": "legnica",
   "listings": [
     {
+      "kind": "unknown",
+      "address_raw": "ul. Czarnieckiego 30/1A",
+      "address": {
+        "street": "Czarnieckiego",
+        "street_norm": "czarnieckiego",
+        "building": "30",
+        "apt": "1A",
+        "key": "czarnieckiego|30|1A",
+        "warning": null
+      },
+      "auction_date": "2026-10-05",
+      "round": 1,
+      "area_m2": 33.72,
+      "starting_price_pln": 80000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39001,Ogloszenie-o-przetargu-na-lokal-przy-ul-Czarnieckiego-30.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65594/20260825przetargcza.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Niedziałkowskiego 5/1A",
+      "address": {
+        "street": "Niedziałkowskiego",
+        "street_norm": "niedzialkowskiego",
+        "building": "5",
+        "apt": "1A",
+        "key": "niedzialkowskiego|5|1A",
+        "warning": null
+      },
+      "auction_date": "2026-10-05",
+      "round": 1,
+      "area_m2": 96.9,
+      "starting_price_pln": 270000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39000,Ogloszenie-o-przetargu-na-lokal-przy-ul-Niedzialkowskiego-5.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65593/20260825przetargnied.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Działkowa 11/1A",
+      "address": {
+        "street": "Działkowa",
+        "street_norm": "dzialkowa",
+        "building": "11",
+        "apt": "1A",
+        "key": "dzialkowa|11|1A",
+        "warning": null
+      },
+      "auction_date": "2026-10-05",
+      "round": 1,
+      "area_m2": 27.83,
+      "starting_price_pln": 110000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38999,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dzialkowej-11.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65592/20260825przetargdzi.docx"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Wrocławska 97/5",
       "address": {
