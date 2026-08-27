@@ -3,6 +3,38 @@
   "city": "jelenia-gora",
   "plots": [
     {
+      "key": "dz|0008, cieplice viii, am 2|40",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "40",
+      "obreb": "0008, Cieplice VIII, AM 2",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8028,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-19",
+          "round": 3,
+          "starting_price_pln": 1200000,
+          "outcome": "active",
+          "area_m2": 8028,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25886/89-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51836"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|0008, cieplice viii, am 2|39",
       "kind": "grunt",
       "city": "jelenia-gora",
@@ -31,6 +63,102 @@
         {
           "nr": "39",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2039%200008%2C%20Cieplice%20VIII%2C%20AM%202%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0034, 34|145",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "145",
+      "obreb": "0034, 34",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12482,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-18",
+          "round": 3,
+          "starting_price_pln": 2000000,
+          "outcome": "active",
+          "area_m2": 12482,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25885/88-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51837"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "145",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20145%200034%2C%2034%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010, cieplice x, am 1|32/19",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "32/19",
+      "obreb": "0010, Cieplice X, AM 1",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F19%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 73,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-20",
+          "round": 1,
+          "starting_price_pln": 16000,
+          "outcome": "active",
+          "area_m2": 73,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25888/94-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51839"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F19%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0010, cieplice x, am 1|32/16",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "32/16",
+      "obreb": "0010, Cieplice X, AM 1",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F16%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 208,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "starting_price_pln": 46000,
+          "outcome": "active",
+          "area_m2": 208,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25887/93-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51838"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/16",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F16%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
