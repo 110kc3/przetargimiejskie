@@ -71,11 +71,12 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 108000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "brak_uczestnikow",
+          "final_price_pln": null,
+          "notes": [],
           "area_m2": 28.35,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/645471/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/645471/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_lokalu"
         },
         {
           "date": "2023-01-27",
