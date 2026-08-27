@@ -3,6 +3,28 @@
   "city": "wroclaw",
   "properties": [
     {
+      "key": "tadeusza kosciuszki|31|7",
+      "street": "Tadeusza Kościuszki",
+      "street_norm": "tadeusza kosciuszki",
+      "building": "31",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 488000,
+          "outcome": "active",
+          "area_m2": 55.65,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 55.65
+    },
+    {
       "key": "marszalka jozefa pilsudskiego|40|11",
       "street": "Marszałka Józefa Piłsudskiego",
       "street_norm": "marszalka jozefa pilsudskiego",
@@ -585,7 +607,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 1166000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 132.22,
           "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90212/ulica-michala-wroclawczyka-40-lokal-6",
           "wadium_deadline": null,
