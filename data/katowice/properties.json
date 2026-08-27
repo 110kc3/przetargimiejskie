@@ -3,6 +3,28 @@
   "city": "katowice",
   "properties": [
     {
+      "key": "jozefowskiej|118A|1",
+      "street": "Józefowska",
+      "street_norm": "jozefowskiej",
+      "building": "118A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 440000,
+          "outcome": "active",
+          "area_m2": 62.8,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153651&menu=679",
+          "wadium_deadline": "2026-10-19",
+          "viewing_date": "2026-10-19"
+        }
+      ],
+      "area_m2": 62.8
+    },
+    {
       "key": "rybnicka|8|8",
       "street": "Rybnicka",
       "street_norm": "rybnicka",
