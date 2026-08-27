@@ -68,50 +68,6 @@
       ]
     },
     {
-      "key": "dz|kętrzyn|12/63",
-      "kind": "grunt",
-      "city": "ketrzyn",
-      "dzialka_nr": "12/63",
-      "obreb": "Kętrzyn",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3185,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-21",
-          "round": 1,
-          "starting_price_pln": 269400,
-          "outcome": "unsold",
-          "area_m2": 3185
-        },
-        {
-          "date": "2026-03-20",
-          "round": 2,
-          "starting_price_pln": 215500,
-          "outcome": "unsold",
-          "area_m2": 3185
-        },
-        {
-          "date": "2026-06-12",
-          "round": 3,
-          "starting_price_pln": 215500,
-          "outcome": "unsold",
-          "area_m2": 3185
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "12/63",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|kętrzyn|12/62",
       "kind": "grunt",
       "city": "ketrzyn",
@@ -152,6 +108,50 @@
         {
           "nr": "12/62",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F62%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kętrzyn|12/63",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "12/63",
+      "obreb": "Kętrzyn",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3185,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-21",
+          "round": 1,
+          "starting_price_pln": 269400,
+          "outcome": "unsold",
+          "area_m2": 3185
+        },
+        {
+          "date": "2026-03-20",
+          "round": 2,
+          "starting_price_pln": 215500,
+          "outcome": "unsold",
+          "area_m2": 3185
+        },
+        {
+          "date": "2026-06-12",
+          "round": 3,
+          "starting_price_pln": 215500,
+          "outcome": "unsold",
+          "area_m2": 3185
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "12/63",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
