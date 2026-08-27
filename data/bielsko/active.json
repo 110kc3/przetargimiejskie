@@ -78,7 +78,7 @@
     },
     {
       "kind": "zabudowana",
-      "address_raw": "ul. Łukowa 15, Łukowa 17",
+      "address_raw": "ul. Łukowa 15, Łukowa 17 Wysokość wadium / zaliczki: 175 000,00 zł",
       "address": {
         "street": "Łukowa",
         "street_norm": "lukowa",
@@ -87,7 +87,7 @@
         "key": "lukowa|15|",
         "warning": null
       },
-      "auction_date": null,
+      "auction_date": "2026-10-27",
       "published_date": null,
       "round": 2,
       "area_m2": 185.08,
@@ -111,24 +111,6 @@
       "area_m2": 1465,
       "starting_price_pln": 1350000,
       "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-gorska-94"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Stanisława Wyspiańskiego 32/9",
-      "address": {
-        "street": "Stanisława Wyspiańskiego",
-        "street_norm": "stanislawa wyspianskiego",
-        "building": "32",
-        "apt": "9",
-        "key": "stanislawa wyspianskiego|32|9",
-        "warning": null
-      },
-      "auction_date": null,
-      "published_date": null,
-      "round": 2,
-      "area_m2": 17.75,
-      "starting_price_pln": 75900,
-      "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-stanislawa-wyspianskiego-329"
     }
   ],
   "wykaz": []
