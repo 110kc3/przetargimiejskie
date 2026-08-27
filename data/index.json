@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T05:13:55.820Z",
+  "generated_at": "2026-08-27T04:41:40.965Z",
   "cities": [
     {
       "id": "gliwice",
@@ -8,11 +8,11 @@
       "voivodeship": "slaskie",
       "authority": "ZGM",
       "host": "zgm-gliwice.pl",
-      "unique_properties": 194,
+      "unique_properties": 195,
       "active_listings": 6,
       "active_auctions": 6,
       "archived_auctions": 284,
-      "wykaz_entries": 8,
+      "wykaz_entries": 9,
       "land_plots": 81
     },
     {
@@ -34,9 +34,9 @@
       "voivodeship": "slaskie",
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
-      "unique_properties": 24,
-      "active_listings": 13,
-      "active_auctions": 1,
+      "unique_properties": 25,
+      "active_listings": 14,
+      "active_auctions": 2,
       "archived_auctions": 23,
       "wykaz_entries": 0,
       "land_plots": 15
@@ -61,8 +61,8 @@
       "authority": "Urząd Miejski w Sosnowcu",
       "host": "bip.um.sosnowiec.pl",
       "unique_properties": 53,
-      "active_listings": 97,
-      "active_auctions": 8,
+      "active_listings": 98,
+      "active_auctions": 9,
       "archived_auctions": 91,
       "wykaz_entries": 0,
       "land_plots": 227
@@ -100,11 +100,11 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 68,
-      "active_auctions": 12,
-      "archived_auctions": 62,
+      "active_listings": 67,
+      "active_auctions": 11,
+      "archived_auctions": 63,
       "wykaz_entries": 0,
-      "land_plots": 50
+      "land_plots": 48
     },
     {
       "id": "swietochlowice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 44,
+      "active_listings": 50,
       "active_auctions": 3,
       "archived_auctions": 103,
       "wykaz_entries": 0,
-      "land_plots": 57
+      "land_plots": 79
     },
     {
       "id": "trzebinia",
@@ -333,9 +333,9 @@
       "voivodeship": "podlaskie",
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
-      "unique_properties": 118,
-      "active_listings": 21,
-      "active_auctions": 15,
+      "unique_properties": 120,
+      "active_listings": 22,
+      "active_auctions": 17,
       "archived_auctions": 111,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -386,8 +386,8 @@
       "authority": "Urząd Miasta Piły",
       "host": "bip.pila.pl",
       "unique_properties": 1,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "active_listings": 1,
+      "active_auctions": 1,
       "archived_auctions": 1,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1257,9 +1257,9 @@
       "authority": "Urząd Miasta Kamienna Góra (Burmistrz Miasta Kamienna Góra)",
       "host": "bip.kamiennagora.pl",
       "unique_properties": 32,
-      "active_listings": 1,
-      "active_auctions": 1,
-      "archived_auctions": 109,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 110,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -1339,7 +1339,7 @@
       "active_auctions": 1,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 4
+      "land_plots": 3
     },
     {
       "id": "sucha-beskidzka",
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 6,
-      "active_listings": 2,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
@@ -1568,9 +1568,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Prezydent Miasta Świdnicy (Wydział Mienia Komunalnego / MZN)",
       "host": "bip.swidnica.nv.pl",
-      "unique_properties": 7,
-      "active_listings": 3,
-      "active_auctions": 3,
+      "unique_properties": 8,
+      "active_listings": 4,
+      "active_auctions": 4,
       "archived_auctions": 6,
       "wykaz_entries": 0,
       "land_plots": 0
