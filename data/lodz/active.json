@@ -4,6 +4,166 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Grabowa 5/36",
+      "address": {
+        "street": "Grabowa",
+        "street_norm": "grabowa",
+        "building": "5",
+        "apt": "36",
+        "key": "grabowa|5|36",
+        "warning": null
+      },
+      "area_m2": 16.2,
+      "starting_price_pln": 60000,
+      "wadium_pln": 6000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Radwańska 50/23",
+      "address": {
+        "street": "Radwańska",
+        "street_norm": "radwanska",
+        "building": "50",
+        "apt": "23",
+        "key": "radwanska|50|23",
+        "warning": null
+      },
+      "area_m2": 35.05,
+      "starting_price_pln": 150000,
+      "wadium_pln": 15000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wólczańska 217/8",
+      "address": {
+        "street": "Wólczańska",
+        "street_norm": "wolczanska",
+        "building": "217",
+        "apt": "8",
+        "key": "wolczanska|217|8",
+        "warning": null
+      },
+      "area_m2": 120.93,
+      "starting_price_pln": 710000,
+      "wadium_pln": 71000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Gdańska 12/4G",
+      "address": {
+        "street": "Gdańska",
+        "street_norm": "gdanska",
+        "building": "12",
+        "apt": "4G",
+        "key": "gdanska|12|4G",
+        "warning": null
+      },
+      "area_m2": 22.3,
+      "starting_price_pln": 80000,
+      "wadium_pln": 8000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Włókiennicza 18/12",
+      "address": {
+        "street": "Włókiennicza",
+        "street_norm": "wlokiennicza",
+        "building": "18",
+        "apt": "12",
+        "key": "wlokiennicza|18|12",
+        "warning": null
+      },
+      "area_m2": 65.23,
+      "starting_price_pln": 380000,
+      "wadium_pln": 38000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tramwajowa 3/1",
+      "address": {
+        "street": "Tramwajowa",
+        "street_norm": "tramwajowa",
+        "building": "3",
+        "apt": "1",
+        "key": "tramwajowa|3|1",
+        "warning": null
+      },
+      "area_m2": 32.34,
+      "starting_price_pln": 190000,
+      "wadium_pln": 19000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Henryka Sienkiewicza 37/8",
+      "address": {
+        "street": "Henryka Sienkiewicza",
+        "street_norm": "henryka sienkiewicza",
+        "building": "37",
+        "apt": "8",
+        "key": "henryka sienkiewicza|37|8",
+        "warning": null
+      },
+      "area_m2": 196.75,
+      "starting_price_pln": 940000,
+      "wadium_pln": 94000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. kpt. pilota Franciszka Żwirki 20/24",
+      "address": {
+        "street": "kpt. pilota Franciszka Żwirki",
+        "street_norm": "kpt pilota franciszka zwirki",
+        "building": "20",
+        "apt": "24",
+        "key": "kpt pilota franciszka zwirki|20|24",
+        "warning": null
+      },
+      "area_m2": 10.89,
+      "starting_price_pln": 50000,
+      "wadium_pln": 5000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Plac-Koscielny-6_Grabowa-5_inne_20260826.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Rybna 7A/50",
       "address": {
         "street": "Rybna",
