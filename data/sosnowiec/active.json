@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Ostrogórskiej 35a/399",
+      "address": {
+        "street": "Ostrogórskiej",
+        "street_norm": "ostrogorskiej",
+        "building": "35A",
+        "apt": "399",
+        "key": "ostrogorskiej|35A|399",
+        "warning": null
+      },
+      "auction_date": "2026-11-06",
+      "published_date": "2026-08-27",
+      "round": 1,
+      "area_m2": 41.54,
+      "starting_price_pln": 207700,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564591,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-399-ul-ostrogorska-35a.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Kraszewskiego 15/85",
       "address": {
         "street": "Kraszewskiego",
