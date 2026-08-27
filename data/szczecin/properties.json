@@ -3,6 +3,28 @@
   "city": "szczecin",
   "properties": [
     {
+      "key": "aleja papieza jana pawla ii|16|3",
+      "street": "Aleja Papieża Jana Pawła II",
+      "street_norm": "aleja papieza jana pawla ii",
+      "building": "16",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 800000,
+          "outcome": "active",
+          "area_m2": 163.66,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=7F1BFDD3815641E0814E7D51AE351911",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 163.66
+    },
+    {
       "key": "boleslawa krzywoustego|29|14",
       "street": "Bolesława Krzywoustego",
       "street_norm": "boleslawa krzywoustego",
@@ -37,11 +59,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 892600,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=66B54B700DAA442FA736F11CE6B741ED",
+          "notes": [],
           "area_m2": 175.33,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4ED4FA88B59B4B0D993F5593278C6597",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4ED4FA88B59B4B0D993F5593278C6597"
         }
       ],
       "area_m2": 175.33
@@ -59,11 +83,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 603400,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=F1D67CFFDEA8432297414B643E09319F",
+          "notes": [],
           "area_m2": 145.57,
-          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=CDAF93906E6F49FF921D989B73581B2D",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=CDAF93906E6F49FF921D989B73581B2D"
         }
       ],
       "area_m2": 145.57
