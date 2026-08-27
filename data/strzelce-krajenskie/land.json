@@ -3,6 +3,36 @@
   "city": "strzelce-krajenskie",
   "plots": [
     {
+      "key": "dz|67/2",
+      "kind": "grunt",
+      "city": "strzelce-krajenskie",
+      "dzialka_nr": "67/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Wielisławice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2067%2F2%20Wielis%C5%82awice%20Strzelce%20Kraje%C5%84skie%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "starting_price_pln": 36500,
+          "outcome": "active",
+          "detail_url": "https://bip.strzelce.pl/przetargi/29/140/GPM_36_2F2026/",
+          "source_url": "https://bip.strzelce.pl/system/pobierz.php?plik=GPM_36_2026.pdf&id=4c51fabe5ad6ff2bd3a48575c2920033"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "67/2"
+        }
+      ]
+    },
+    {
       "key": "dz|306/17",
       "kind": "grunt",
       "city": "strzelce-krajenskie",
