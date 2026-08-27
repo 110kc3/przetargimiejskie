@@ -57,11 +57,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 180000,
-          "outcome": "active",
-          "area_m2": 57.61,
-          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18253&idmp=32&r=r",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 57.61
         }
       ],
       "area_m2": 57.61

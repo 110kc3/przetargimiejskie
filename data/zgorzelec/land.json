@@ -32,6 +32,40 @@
           "nr": "20/4"
         }
       ]
+    },
+    {
+      "key": "dz|15/57, 15/58",
+      "kind": "grunt",
+      "city": "zgorzelec",
+      "dzialka_nr": "15/57, 15/58",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Banacha",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F57%2C%2015%2F58%20Banacha%20Zgorzelec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1006,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "starting_price_pln": 113100,
+          "outcome": "active",
+          "area_m2": 1006,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=32&r=r",
+          "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=32&r=r"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/57"
+        },
+        {
+          "nr": "15/58"
+        }
+      ]
     }
   ]
 }
