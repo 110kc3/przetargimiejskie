@@ -3,6 +3,60 @@
   "city": "jelenia-gora",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gustawa Morcinka 21/2",
+      "address": {
+        "street": "Gustawa Morcinka",
+        "street_norm": "gustawa morcinka",
+        "building": "21",
+        "apt": "2",
+        "key": "gustawa morcinka|21|2",
+        "warning": null
+      },
+      "area_m2": 51.77,
+      "starting_price_pln": 370000,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/25901/98-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/51875"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Staromiejska 10/10",
+      "address": {
+        "street": "Staromiejska",
+        "street_norm": "staromiejska",
+        "building": "10",
+        "apt": "10",
+        "key": "staromiejska|10|10",
+        "warning": null
+      },
+      "area_m2": 52.56,
+      "starting_price_pln": 280000,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/25901/98-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/51875"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Piastowski 23/4",
+      "address": {
+        "street": "Plac Piastowski",
+        "street_norm": "plac piastowski",
+        "building": "23",
+        "apt": "4",
+        "key": "plac piastowski|23|4",
+        "warning": null
+      },
+      "area_m2": 16.8,
+      "starting_price_pln": 100000,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/25901/98-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/51875"
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "ul. Mroczna 1/13U",
       "address": {

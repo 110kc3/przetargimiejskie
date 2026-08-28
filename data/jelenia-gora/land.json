@@ -99,6 +99,38 @@
       ]
     },
     {
+      "key": "dz|0010, cieplice x, am 1|32/15",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "32/15",
+      "obreb": "0010, Cieplice X, AM 1",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F15%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 159,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "starting_price_pln": 35000,
+          "outcome": "active",
+          "area_m2": 159,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25889/95-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/51840"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/15",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F15%200010%2C%20Cieplice%20X%2C%20AM%201%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|0010, cieplice x, am 1|32/19",
       "kind": "grunt",
       "city": "jelenia-gora",

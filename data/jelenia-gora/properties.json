@@ -3,6 +3,72 @@
   "city": "jelenia-gora",
   "properties": [
     {
+      "key": "gustawa morcinka|21|2",
+      "street": "Gustawa Morcinka",
+      "street_norm": "gustawa morcinka",
+      "building": "21",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 370000,
+          "outcome": "active",
+          "area_m2": 51.77,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25901/98-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 51.77
+    },
+    {
+      "key": "staromiejska|10|10",
+      "street": "Staromiejska",
+      "street_norm": "staromiejska",
+      "building": "10",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "active",
+          "area_m2": 52.56,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25901/98-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.56
+    },
+    {
+      "key": "plac piastowski|23|4",
+      "street": "Plac Piastowski",
+      "street_norm": "plac piastowski",
+      "building": "23",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 16.8,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25901/98-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 16.8
+    },
+    {
       "key": "mroczna|1|13U",
       "street": "Mroczna",
       "street_norm": "mroczna",
