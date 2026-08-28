@@ -39,7 +39,7 @@
       "building": null,
       "address_raw": "Stefana Żeromskiego 4",
       "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.920180424607008%2C50.35222052660435%2C18.92060132230292%2C50.35264730138&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.844b4acd-64ab-4812-ab80-798bfc90beba",
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.920094675490486%2C50.35222052660435%2C18.92060132230292%2C50.35268487819935&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.ae3408af-3f7d-4d2f-ab0f-5bb8ec0481fb",
       "area_m2": 905,
       "zoning": "niezabudowana",
       "status": null,
@@ -55,6 +55,99 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|5543/32",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "5543/32",
+      "obreb": null,
+      "street": "Matki Ewy",
+      "building": null,
+      "address_raw": "Matki Ewy dz. 5543/32",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.850127742568084%2C50.36210157859788%2C18.85019088090656%2C50.362170770228786&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.a1185e49-7a38-493d-87c6-e116d8a68506",
+      "area_m2": 21,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 3,
+          "starting_price_pln": 9500,
+          "outcome": "active",
+          "area_m2": 21,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5543_32,24814.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5543/32"
+        }
+      ]
+    },
+    {
+      "key": "dz|5544/32",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "5544/32",
+      "obreb": null,
+      "street": "Matki Ewy",
+      "building": null,
+      "address_raw": "Matki Ewy dz. 5544/32",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.8501680825125%2C50.362109466347434%2C18.85023122081596%2C50.36217874786785&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.734ce405-d3bf-4076-a672-f9045c794272",
+      "area_m2": 21,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 3,
+          "starting_price_pln": 9500,
+          "outcome": "active",
+          "area_m2": 21,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5544_32,24815.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5544/32"
+        }
+      ]
+    },
+    {
+      "key": "dz|5545/32",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "5545/32",
+      "obreb": null,
+      "street": "Matki Ewy",
+      "building": null,
+      "address_raw": "Matki Ewy dz. 5545/32",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.850208281938063%2C50.36211744295158%2C18.8502714202067%2C50.36218663456961&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.f27464c6-25f8-4fb6-ad30-ff4edef56acb",
+      "area_m2": 21,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 3,
+          "starting_price_pln": 9500,
+          "outcome": "active",
+          "area_m2": 21,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5545_32,24816.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5545/32"
+        }
+      ]
     },
     {
       "key": "dz|3002/290",
