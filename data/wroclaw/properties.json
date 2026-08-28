@@ -629,11 +629,14 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 480000,
-          "outcome": "archived",
-          "area_m2": 44,
-          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/89985/ulica-powstancow-slaskich-198-lokal-23",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 508800,
+          "source_pdf": "https://bip.um.wroc.pl/attachments/download/178874",
+          "notes": [
+            "nabywca: ELŻBIETA GÓRNA, BOGUSŁAWA GÓRNA, STANISŁAWA GÓRNA I BOLESŁAW GÓRNY"
+          ],
+          "area_m2": 44
         }
       ],
       "area_m2": 44
