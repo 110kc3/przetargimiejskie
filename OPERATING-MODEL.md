@@ -91,8 +91,11 @@ remotely dispatched workflow jobs.
 1. **Restricted PL egress — open.** All repository code stays on GitHub-hosted
    machines. Provision the deny-by-default proxy in
    [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md), then route only the FINN pair
-   (Racibórz, Świętochłowice), Brzeg, Wałbrzych and the provider job through
-   `FETCH_PROXY_URL`. Until then those sources may preserve last-good data.
+   (Racibórz, Świętochłowice), Brzeg, Wałbrzych and PKP through
+   `FETCH_PROXY_URL`. Until then the four cities are omitted from the hosted
+   matrix and PKP is omitted from the hosted provider refresh; their last-good
+   data is guarded by expiring stale-only health warnings. AMW refreshes on
+   GitHub-hosted runners without the proxy.
 2. **The scheduled daily agent session** (§1.2) so triage and expansion happen
    without being asked.
 

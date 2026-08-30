@@ -429,8 +429,9 @@ seller-labelled only on `/archiwum-all`; city files, city medians and the
 extension remain untouched. Source contracts and limitations are recorded in
 [`spikes/providers/`](./spikes/providers/README.md). Remaining work:
 
-- let the scheduled job complete three consecutive green refreshes, then
-  manually spot-check at least five active and five result links per provider;
+- let AMW complete three consecutive green hosted refreshes; after restricted
+  Polish egress is deployed, resume PKP and require the same three-run gate,
+  then manually spot-check at least five active and five result links per provider;
 - after that gate, decide whether to graduate the labelled rows to public
   `/archiwum` (still excluded from municipal summary medians);
 - add provider-specific issue synchronization if workflow-only failure alerts

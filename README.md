@@ -117,14 +117,14 @@ deduplication checks to the separate institutional feeds.
 
 ## Running on GitHub Actions
 
-The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). A `setup` job runs the parser test suite once (must pass — fail-fast against parser regressions), then a **per-city matrix** (`fail-fast: false`, `max-parallel: 10`) runs one job per registered city, each of which:
+The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). A `setup` job runs the parser test suite once (must pass — fail-fast against parser regressions), then a **per-city matrix** (`fail-fast: false`, `max-parallel: 10`) runs one job per hosted-safe registered city. Adapters marked `needsResidentialEgress` remain published from last-good data but are omitted until the restricted proxy in [`PL-EGRESS-PLAN.md`](./PL-EGRESS-PLAN.md) is deployed. Each matrix job:
 
 1. Installs `poppler-utils`, `tesseract-ocr-pol`, and `catdoc` (legacy `.doc` → text, for Bytom) (~5 s).
 2. Runs `CITY=<city> npm run refresh` for its one city.
 3. Gates the fresh data on `pipeline/scripts/sanity-check.js` — a failure blocks only that city's commit, so its last-good data stays published — then enriches land geoportal links (best-effort, never blocks).
 4. Commits and pushes `data/<city>/` + the caches (`ocr-cache/`, `pdf-text-cache/`, `doc-text-cache/`, `detail-cache/`) if any changed.
 
-In parallel, one `providers` job refreshes PKP + AMW, validates and commits only `data/providers/` plus its OCR cache. Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
+In parallel, one `providers` job refreshes AMW, validates the complete PKP + AMW ledger, and commits only `data/providers/` plus its OCR cache. PKP remains on last-good data under a 21-day stale-only health exemption while its host drops Azure connections; missing, empty or malformed provider data still fails immediately. Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken hosted city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
 
 The auto-provided `GITHUB_TOKEN` with `permissions: contents: write` is enough; no secrets needed.
 
