@@ -2,8 +2,9 @@
 
 > Written 7 July 2026 from a full-repo audit (5-agent research pass: docs-drift,
 > CI/health, broken-city diagnosis, backlog inventory, RPi5 feasibility).
-> **Backlog detail lives in [TODO.md](./TODO.md); remote/headless execution is
-> specified in [REMOTE.md](./REMOTE.md).** This file is the structure: tiers,
+> **Backlog detail lives in [TODO.md](./TODO.md); manual headless work is specified
+> in [REMOTE.md](./REMOTE.md), and automated Polish egress in
+> [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).** This file is the structure: tiers,
 > gates, owners, environments.
 >
 > **Verdict: the project is finishable.** All infrastructure exists (55 adapters,
@@ -38,7 +39,7 @@ extension, and receives Monday's digest. Health green daily.
 | Wałbrzych pre-Aug-2024 same-line legacy result-table history (current source and Aug-2024→2026 archive are repaired) | [RPI5] | S-M | optional historical backfill; documented in TODO §1 |
 | Augustów: replace the now-empty listing indexes with filtered official search or another durable discovery feed | [RPI5] | M | open |
 | Brzeg: detect the anti-DDoS waiting-room page, classify as source-unreachable, cookie-retry | [RPI5] | S | **shipped this session** |
-| Residential CI egress for Racibórz + Świętochłowice (FINN), Brzeg, Wałbrzych and providers | [RPI5] | S | **shipped 2026-08-24** — labelled Pi runner online; unaffected cities stay hosted |
+| Restricted residential CI egress for Racibórz + Świętochłowice (FINN), Brzeg, Wałbrzych and providers | [RPI5] | M | **open** — deny-by-default proxy plan documented; all code remains on hosted CI |
 | Institutional-source pilot: separate PKP + AMW pipeline/data/health, seller-labelled `/archiwum-all`; Orange evaluated and deferred | [RPI5] | M | **pilot shipped 2026-08-23**; public `/archiwum` after 3 green refreshes + spot-check |
 
 ### T1.b Distribution (mixed)
@@ -107,7 +108,7 @@ bundled with a needed bump.
    pick; ESP + RODO publish; Search Console. Roughly a day of decisions +
    account clicks, spread over T1.
 2. **One GUI session** for the extension 55-city rework + browser verification.
-3. **Everything else is [RPI5]-shaped** — and the RPi5 is *strategically
-   necessary*, not just convenient: its residential Polish IP bypasses the
-   FINN/Azure block that is the root cause of half the current health red.
-   See [REMOTE.md](./REMOTE.md).
+3. **Everything else is [RPI5]-shaped.** Residential Polish egress remains
+   strategically necessary because it bypasses the FINN/Azure block, but the Pi
+   is only a restricted network proxy for automation; workflow code remains on
+   hosted CI. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).

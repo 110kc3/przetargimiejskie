@@ -4,11 +4,11 @@ Runbook for running przetargimiejskie work on the Raspberry Pi 5: no GUI, no des
 Chrome, Debian Bookworm arm64. Companion docs: [README.md](README.md) (pipeline overview,
 "Running locally"), [ROADMAP.md](ROADMAP.md) (phased plan), [TODO.md](TODO.md) (task queue).
 
-> **Live deployment (2026-08-24):** this Pi is registered as the repository
-> runner `borg-przetargimiejskie`, with the custom label
-> `przetargimiejskie-egress`. The systemd service is enabled at boot.
-> `refresh.yml` routes only Racibórz, Świętochłowice, Brzeg, Wałbrzych and the
-> PKP/AMW provider job here; the other 117 cities remain on hosted runners.
+> **Security boundary (2026-08-25):** this is an operator-controlled development
+> machine only. It is not connected to GitHub Actions, carries no workflow service
+> or registration material, and must not execute remotely dispatched repository
+> jobs. The reviewed automation replacement is the restricted proxy design in
+> [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 
 ## 1. Why this box matters strategically
 
@@ -19,26 +19,21 @@ Its **residential Polish IP** is egress GitHub Actions cannot buy:
   IP ranges (UND_ERR_CONNECT_TIMEOUT in CI since ~2026-07-04). Both sites answer
   HTTP 200 in under 2 s from a Polish connection. No code fix exists — the fix is egress.
 - **brzeg** — brzeg.pl serves an anti-DDoS waiting room ("Proszę czekać…" + reload
-  script) selectively to GH-runner traffic; the real page and the existing parser work
+  script) selectively to Azure-hosted CI traffic; the real page and the existing parser work
   fine from a Polish IP.
 
-Three ways to use the Pi for this:
+Two permitted uses of the Pi are intentionally separate:
 
-1. **One-off refreshes from the Pi**: `CITY=raciborz npm run refresh` (then
-   swietochlowice, brzeg), ship data via PR. Manual but works today.
-2. **GitHub self-hosted runner**: register the Pi as a runner and point the FINN-hosted
-   cities' matrix jobs at it (`runs-on: self-hosted` split in
-   `.github/workflows/refresh.yml`). Automated, but the Pi must stay up at 04:00 UTC.
-3. **PL proxy exit**: `FETCH_PROXY_URL` in `pipeline/src/core/fetch.js` (undici
-   ProxyAgent; when unset, undici is never imported — behavior identical to plain
-   fetch) — point CI at a Polish/non-Azure exit, per-city or globally. Keeps
-   everything in hosted CI but needs a trustworthy proxy. NOTE: only requests
-   through the `core/fetch.js` helpers (`politeGet`/`getText`/`getBytes`) are
-   proxied — the insecureTLS path, city-local direct `fetch` calls and the
-   playwright renderer are not.
+1. **Operator-initiated local work**: `CITY=raciborz npm run refresh`, tests,
+   investigation and spikes from an interactive session, shipped through a reviewed PR.
+2. **Restricted network egress**: the future `FETCH_PROXY_URL` service described in
+   [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md). GitHub-hosted jobs may reach only an
+   allowlisted HTTPS proxy; no repository code executes on the Pi.
 
-Production uses option 2. Options 1 and 3 remain recovery paths if the runner is
-temporarily offline.
+The proxy hook covers requests made through `core/fetch.js`
+(`politeGet`/`getText`/`getBytes`/`proxyFetch`). The insecure-TLS path, unwrapped direct
+`fetch` calls and the Playwright renderer require separate review and are not grounds to
+broaden the Pi's automation permissions.
 
 Bonus: spikes benefit too — cloud fetchers get 403'd by some BIPs (choszczno) that
 accept residential clients.

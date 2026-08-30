@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-08-25T04:32:45.509Z",
+  "generated_at": "2026-08-30T08:16:37.198Z",
   "listings": [
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
@@ -420,7 +420,7 @@
       "event_key": "amw:832e4635388175b1",
       "external_id": "12060",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653-12060",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653-12060"
     },
@@ -455,7 +455,7 @@
       "event_key": "amw:46970289be73c243",
       "external_id": "11804",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/swietoszow-ul-klonowa-4a-8-11804",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/swietoszow-ul-klonowa-4a-8-11804"
     },
@@ -488,11 +488,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:88fa6214f77df902",
-      "external_id": "10357",
-      "source_status": "Ogłoszony",
-      "outcome": "active",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-6-10357",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-6-10357"
+      "external_id": "ca9612e2c5bb076b",
+      "source_status": "Negatywny",
+      "outcome": "unsold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/08/48/docs/6a9087537d1d0_informacja%20o%20wyniku%20przteragu%20II%20UPN%20Miros%C5%82awiec%204_6%20negatywny%2027.08.2026.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-6-10357",
+      "result_url": "https://amw.com.pl/uploads/publications/01/08/48/docs/6a9087537d1d0_informacja%20o%20wyniku%20przteragu%20II%20UPN%20Miros%C5%82awiec%204_6%20negatywny%2027.08.2026.pdf"
     },
     {
       "title": "Świętoszów, ul. Klonowa 8B/10, dz. 156/9 i 156/10",
@@ -525,7 +526,7 @@
       "event_key": "amw:939aa81f18ad1542",
       "external_id": "11794",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/swietoszow-ul-klonowa-8b-10-11794",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/swietoszow-ul-klonowa-8b-10-11794"
     },
@@ -560,7 +561,7 @@
       "event_key": "amw:a231de20ac0507ac",
       "external_id": "12055",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/sandomierz-ul-mickiewicza-13-27-12055",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/sandomierz-ul-mickiewicza-13-27-12055"
     },
@@ -593,11 +594,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:ad2a5a5efecf10c7",
-      "external_id": "10358",
-      "source_status": "Ogłoszony",
-      "outcome": "active",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-10358",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-10358"
+      "external_id": "1194f18e7187968a",
+      "source_status": "Negatywny",
+      "outcome": "unsold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/08/49/docs/6a9087fbcf310_informacja%20o%20wyniku%20przteragu%20II%20UPN%20Miros%C5%82awiec%204_9%20negatywny%2027.08.2026.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-10358",
+      "result_url": "https://amw.com.pl/uploads/publications/01/08/49/docs/6a9087fbcf310_informacja%20o%20wyniku%20przteragu%20II%20UPN%20Miros%C5%82awiec%204_9%20negatywny%2027.08.2026.pdf"
     },
     {
       "title": "Tarnowskie Góry, ul. Wyspiańskiego 12/3",
@@ -630,7 +632,7 @@
       "event_key": "amw:d693ee2b0b41c1de",
       "external_id": "12053",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/tarnowskie-gory-ul-wyspianskiego-12-3-12053",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/tarnowskie-gory-ul-wyspianskiego-12-3-12053"
     },
@@ -665,7 +667,7 @@
       "event_key": "amw:0900534c59883943",
       "external_id": "12054",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054"
     },
@@ -698,11 +700,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:66da65bd8f1ce11a",
-      "external_id": "10421",
-      "source_status": "Ogłoszony",
-      "outcome": "active",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-29-19-10421",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-29-19-10421"
+      "external_id": "00fbae7af139a442",
+      "source_status": "Negatywny",
+      "outcome": "unsold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/09/13/docs/6a8de22d15662_skan%20informacja%20o%20wyniku%20przetargu%20II%20UPN.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-29-19-10421",
+      "result_url": "https://amw.com.pl/uploads/publications/01/09/13/docs/6a8de22d15662_skan%20informacja%20o%20wyniku%20przetargu%20II%20UPN.pdf"
     },
     {
       "title": "Mirosławiec Górny, ul. Lotnictwa Polskiego 14/19, dz. 50/58",

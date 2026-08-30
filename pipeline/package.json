@@ -13,12 +13,13 @@
     "build-index": "node src/build-index.js",
     "health": "node scripts/health-check.js",
     "health:providers": "node scripts/provider-health-check.js",
+    "check:workflow-runners": "node scripts/check-workflow-runners.js",
     "enrich-land": "node scripts/enrich-land-geoportal.js",
     "crawl:results": "node src/cities/gliwice/crawl-results.js",
     "crawl:active": "node src/cities/gliwice/crawl-active.js",
     "test": "node --test --test-reporter=dot tests/*.test.js"
   },
-  "comment:dependencies": "playwright powers the OPTIONAL headless renderer (core/render.js) for the few JS-rendered BIPs. It is loaded lazily — the 9 server-rendered cities never touch it. CI runs `npx playwright install --with-deps chromium`. undici powers the OPTIONAL proxy egress (core/fetch.js FETCH_PROXY_URL, for hosts that firewall GH-runner/Azure IPs, e.g. bip2.finn.pl); it too is loaded lazily — with the env var unset it is never imported. Pinned ^6 to stay compatible with any Node >=18.17 (incl. self-hosted runners on older 20.x); undici 7 raises the floor to 20.18.1.",
+  "comment:dependencies": "playwright powers the OPTIONAL headless renderer (core/render.js) for the few JS-rendered BIPs. It is loaded lazily — the 9 server-rendered cities never touch it. CI runs `npx playwright install --with-deps chromium`. undici powers the OPTIONAL proxy egress (core/fetch.js FETCH_PROXY_URL, for hosts that firewall GitHub/Azure IPs, e.g. bip2.finn.pl); it too is loaded lazily — with the env var unset it is never imported. Pinned ^6 for Node 20 compatibility; undici 7 raises the floor to 20.18.1.",
   "dependencies": {
     "playwright": "^1.49.0",
     "undici": "^6.21.0"

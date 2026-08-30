@@ -32,7 +32,7 @@ export const config = {
   authority: 'Prezydent Miasta Racibórz',
   host: 'bipraciborz.pl',
   source: 'html',
-  // The shared FINN origin drops GitHub/Azure connections but is reliable from
-  // the repository's Polish residential self-hosted runner.
+  // The shared FINN origin drops GitHub/Azure connections. This flag selects
+  // the future restricted Polish proxy path described in PL-EGRESS-PLAN.md.
   needsResidentialEgress: true,
 };

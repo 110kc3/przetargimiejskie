@@ -53,7 +53,8 @@ The diagram above is the **Gliwice** flow (OCR'd result PDFs). Other cities plug
 ## Running locally
 
 > Headless Linux box (RPi5 / ARM64, Polish residential IP)? Follow
-> [REMOTE.md](./REMOTE.md) — setup, task matrix, and the PR-only push flow.
+> [REMOTE.md](./REMOTE.md) for operator-initiated local work. Automated Polish
+> egress is separately constrained by [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 
 ```bash
 # one-time setup

@@ -8,7 +8,7 @@
 // that proxy (undici ProxyAgent). Why: some Polish municipal hosts firewall
 // GitHub Actions' Azure IP ranges outright — bip2.finn.pl (194.24.181.47, the
 // shared FINN server behind www.bipraciborz.pl and bip.swietochlowice.pl)
-// silently drops runner connections while answering in under a second from
+// silently drops Azure-hosted connections while answering in under a second from
 // Polish IPs. Pointing FETCH_PROXY_URL at a PL/non-Azure exit restores those
 // cities in CI. When UNSET the behavior is byte-identical to before (undici is
 // not even imported; the plain global fetch is used).

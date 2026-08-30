@@ -5,7 +5,7 @@
 // crawlActive():
 //   Fetches brzeg.pl/gminne-nieruchomosci-do-sprzedazy/ (WordPress, server-
 //   rendered; since 2026-07-07 the host serves an anti-DDoS waiting room to
-//   GH-runner IPs — see the waiting-room section below).  Parses inline fields
+//   Azure-hosted CI IPs — see the waiting-room section below). Parses inline fields
 //   (address, kind, round, cena wywoławcza, termin, BIP link).  Returns
 //   { listings, wykaz:[] }.
 //
@@ -49,7 +49,7 @@ const FETCH_OPTS = { userAgent: BROWSER_UA };
 // Anti-DDoS waiting room (brzeg.pl listing page, first seen 2026-07-07)
 // ---------------------------------------------------------------------------
 //
-// The brzeg.pl WordPress host serves GH-runner (Azure) IPs an ~12 KB challenge
+// The brzeg.pl WordPress host serves Azure-hosted CI IPs an ~12 KB challenge
 // page — <title>Proszę czekać…</title> plus a setTimeout(() =>
 // location.reload(), 5000) script — instead of the real ~726 KB listing page.
 // The loader has no JS computation, so a cookie/time-based gate may pass on a

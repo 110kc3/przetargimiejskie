@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 import { setDefaultResultOrder } from 'node:dns';
 
 // Prefer IPv4 for all DNS lookups. Some municipal BIPs publish an AAAA record
-// that isn't routable from the GitHub Actions runner (Azure), which made fetch
+// that isn't routable from GitHub-hosted Actions (Azure), which made fetch
 // hang on connect (UND_ERR_CONNECT_TIMEOUT) for e.g. bip.swietochlowice.pl while
 // the host loaded fine over IPv4 from a browser. ipv4first makes Node try the A
 // record first. Harmless for hosts that already work over IPv4.
