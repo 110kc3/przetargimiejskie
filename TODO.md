@@ -115,7 +115,11 @@ Remaining health work:
   green for all 121 cities. GitHub/Azure egress has historically been
   connect-dropped by this host, so provisioning the restricted Polish proxy in
   [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) remains the durable reliability task;
-  there is no adapter patch to make.
+  there is no adapter patch to make. After repository-managed workflow execution
+  was removed on 25 August, Brzeg, Racibórz, Świętochłowice and Wałbrzych moved to
+  a stale-only health exemption: they remain explicit warnings, every other health
+  rule remains active, and the exemption expires after 21 days so the proxy work
+  cannot disappear behind a permanent allowlist.
 
 The dated July investigation notes below are retained as diagnosis history.
 Where they disagree with this section (notably Tczew, Nakło, Oświęcim and

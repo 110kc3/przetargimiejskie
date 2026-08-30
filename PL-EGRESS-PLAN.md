@@ -4,7 +4,10 @@
 repository-connected machine and the former Pi job service, credentials and work
 directory have been removed. All workflow jobs are routed to GitHub-hosted machines.
 The sources that reject Azure traffic may therefore preserve their last-good data
-until the proxy described here is available.
+until the proxy described here is available. `health-check.js` keeps those known
+sources visible as warnings under a stale-only exemption that expires 21 days after
+25 August; missing or empty data still fails immediately, and stale data becomes a
+failure again when that deadline expires.
 
 ## Decision
 
