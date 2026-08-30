@@ -1,6 +1,9 @@
-# Lightweight security safety net (~3-4 min/run). Two independent jobs, both
-# reporting to the repo Security tab via SARIF — neither blocks a push/PR:
+# Lightweight security safety net (~3-4 min/run). Three independent jobs; the
+# scanners report to the repo Security tab via SARIF and never block a push/PR:
 #
+#   - Hosted-runner policy: rejects workflow jobs that depend on a
+#     repository-managed runner, where an offline machine can strand scheduled
+#     refresh jobs indefinitely.
 #   - CodeQL (javascript): the project's real risk class is crawled municipal
 #     content flowing into innerHTML / hrefs across the extension, popup and
 #     site (the exact bug family hand-fixed in v1.14.3 and re-hardened in
@@ -32,6 +35,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  hosted-runner-policy:
+    name: Hosted runner policy
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - name: Reject workflow jobs that require repository-managed runners
+        run: node pipeline/scripts/check-workflow-runners.js
+
   codeql:
     name: CodeQL (javascript)
     runs-on: ubuntu-latest

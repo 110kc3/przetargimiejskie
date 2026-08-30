@@ -13,6 +13,7 @@
     "build-index": "node src/build-index.js",
     "health": "node scripts/health-check.js",
     "health:providers": "node scripts/provider-health-check.js",
+    "check:workflow-runners": "node scripts/check-workflow-runners.js",
     "enrich-land": "node scripts/enrich-land-geoportal.js",
     "crawl:results": "node src/cities/gliwice/crawl-results.js",
     "crawl:active": "node src/cities/gliwice/crawl-active.js",
