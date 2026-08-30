@@ -48,13 +48,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Emit the city registry as the matrix input + gate everything on the parser
-  # tests (run once here instead of 9× in the matrix).
+  # Emit the GitHub-hosted-safe subset of the city registry as the matrix input
+  # + gate everything on the parser tests (run once instead of per matrix job).
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
+      # Registered adapters held out until the restricted egress proxy exists.
+      blocked_cities: ${{ steps.registry.outputs.blocked_cities }}
       # Cities whose adapter needs core/render.js (headless Chromium) — the
       # matrix installs Playwright only for these (see `needsRender` in the
       # city's config.js). Registry-driven so it can't drift.
@@ -70,16 +72,14 @@ jobs:
       - name: Run parser tests
         working-directory: pipeline
         run: npm test
-      - name: Read city registry
+      - name: Build hosted refresh matrix
         id: registry
         working-directory: pipeline
         env:
           # workflow_dispatch only — restricts the matrix to one city (used by
           # the triage E2E test so a test run can't touch other cities).
           ONLY_CITY: ${{ inputs.only_city || '' }}
-        run: |
-          echo "cities=$(node -e "import('./src/cities/index.js').then(m=>{const only=process.env.ONLY_CITY;const ids=m.cities.map(c=>c.id).filter(id=>!only||id===only);console.log(JSON.stringify(ids))})")" >> "$GITHUB_OUTPUT"
-          echo "render_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsRender).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+        run: node scripts/refresh-matrix.js
 
   # One job per city, so a broken parser/source in one city can't block the
   # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
@@ -244,10 +244,9 @@ jobs:
   providers:
     needs: setup
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.only_city == '' }}
-    # PKP has historically connect-timed-out from Azure. Until the restricted
-    # proxy in PL-EGRESS-PLAN.md is deployed, preserve-on-failure keeps the last
-    # good data. AMW shares the job so partial safe commits and provider health
-    # remain atomic.
+    # PKP connect-times out from Azure, so it remains published from last-good
+    # data under the expiring provider-health warning until the restricted proxy
+    # in PL-EGRESS-PLAN.md is deployed. AMW refreshes normally from hosted CI.
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -261,11 +260,11 @@ jobs:
         working-directory: pipeline
         run: npm ci || npm install
 
-      - name: Refresh PKP and AMW feeds
+      - name: Refresh AMW feed
         id: provider_refresh
         continue-on-error: true
         working-directory: pipeline
-        run: npm run refresh:providers
+        run: PROVIDER=amw npm run refresh:providers
 
       - name: Sanity-check provider data
         id: provider_health
@@ -294,9 +293,9 @@ jobs:
             exit 1
           fi
 
-      # refresh-providers preserves the failed feed but still writes a healthy
-      # sibling feed. Commit that safe partial progress above, then keep the job
-      # red so the source incident remains visible.
+      # Keep AMW refresh failures and every provider integrity failure strict.
+      # PKP's known hosted-egress limitation is represented by the bounded
+      # stale-only warning in provider-health-check.js, not a doomed network try.
       - name: Fail on provider refresh or health error
         if: always() && (steps.provider_refresh.outcome != 'success' || steps.provider_health.outcome != 'success')
         run: exit 1
@@ -347,9 +346,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          # The recovered universe = the cities THIS run refreshed (the whole
-          # registry normally; just the one city on an only_city dispatch, so a
-          # single-city test run can never mass-close other cities' issues).
+          # The recovered universe = the hosted cities THIS run actually
+          # refreshed. Egress-deferred cities must not have incidents closed by
+          # a run that deliberately omitted them.
           CITIES_JSON: ${{ needs.setup.outputs.cities }}
         run: |
           RECOVERED=$(echo "$CITIES_JSON" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).join(',')))")

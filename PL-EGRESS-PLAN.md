@@ -3,11 +3,13 @@
 **Status: planned, not deployed.** As of 25 August 2026, GitHub reports no
 repository-connected machine and the former Pi job service, credentials and work
 directory have been removed. All workflow jobs are routed to GitHub-hosted machines.
-The sources that reject Azure traffic may therefore preserve their last-good data
-until the proxy described here is available. `health-check.js` keeps those known
-sources visible as warnings under a stale-only exemption that expires 21 days after
-25 August; missing or empty data still fails immediately, and stale data becomes a
-failure again when that deadline expires.
+The four city adapters marked `needsResidentialEgress` are omitted from the hosted
+matrix, and PKP is omitted from the hosted provider refresh; AMW continues to refresh
+normally. The deferred sources preserve their last-good data until the proxy described
+here is available. The city and provider health checks keep them visible as warnings
+under stale-only exemptions that expire 21 days after 25 August; missing, empty or
+malformed data still fails immediately, and stale data becomes a failure again when
+that deadline expires.
 
 ## Decision
 
@@ -64,7 +66,7 @@ interactive shell, sudo, Docker membership, source checkout or user credentials.
 - Allow `CONNECT` to TCP 443 only.
 - Deny loopback, link-local, multicast and private-address destinations.
 - Deny every destination by default, then allow only the audited hostnames needed by
-  Raciborz, Swietochlowice, Brzeg, Walbrzych, PKP and AMW, including verified redirect
+  Raciborz, Swietochlowice, Brzeg, Walbrzych and PKP, including verified redirect
   targets.
 - Protect against DNS rebinding by checking resolved destinations as well as requested
   hostnames.
@@ -77,7 +79,7 @@ interactive shell, sudo, Docker membership, source checkout or user credentials.
 
 - Keep `runs-on: ubuntu-latest` for every job.
 - Join the private network only for a city whose config has
-  `needsResidentialEgress: true` and for the PKP/AMW provider job.
+  `needsResidentialEgress: true` and for the PKP provider refresh.
 - Set `FETCH_PROXY_URL` only for those steps.
 - Never enable the private-network step for `pull_request`, `pull_request_target`,
   issue-comment or other contributor-controlled events.
