@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T12:43:33.216Z",
+  "generated_at": "2026-08-30T13:27:02.177Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 51,
+      "active_listings": 40,
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 83
+      "land_plots": 49
     },
     {
       "id": "trzebinia",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 6,
-      "active_listings": 0,
+      "active_listings": 2,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
