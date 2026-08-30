@@ -386,6 +386,87 @@
       ]
     },
     {
+      "key": "dz|jarocin|315/6",
+      "kind": "grunt",
+      "city": "jarocin",
+      "dzialka_nr": "315/6",
+      "obreb": "Jarocin",
+      "street": null,
+      "building": null,
+      "address_raw": "Jarocin, dz. nr 315/6",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20315%2F6%20Jarocin%2C%20dz.%20nr%20315%2F6%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 31361,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 7140000,
+          "outcome": "unsold",
+          "area_m2": 31361
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "315/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20315%2F6%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|jarocin|314/2",
+      "kind": "grunt",
+      "city": "jarocin",
+      "dzialka_nr": "314/2",
+      "obreb": "Jarocin",
+      "street": null,
+      "building": null,
+      "address_raw": "Jarocin, dz. nr 314/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20314%2F2%20Jarocin%2C%20dz.%20nr%20314%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 24921,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "314/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20314%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|witaszyce|1267/7",
       "kind": "grunt",
       "city": "jarocin",
@@ -749,50 +830,6 @@
         {
           "nr": "2322/2",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202322%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|jarocin|314/2",
-      "kind": "grunt",
-      "city": "jarocin",
-      "dzialka_nr": "314/2",
-      "obreb": "Jarocin",
-      "street": null,
-      "building": null,
-      "address_raw": "Jarocin, dz. nr 314/2",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20314%2F2%20Jarocin%2C%20dz.%20nr%20314%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki",
-      "area_m2": 24921,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": 13800000,
-          "outcome": "unsold",
-          "area_m2": 24921
-        },
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": 13800000,
-          "outcome": "unsold",
-          "area_m2": 24921
-        },
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": 13800000,
-          "outcome": "unsold",
-          "area_m2": 24921
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "314/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20314%2F2%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

@@ -3,6 +3,83 @@
   "city": "opole",
   "properties": [
     {
+      "key": "wojciecha drzymaly|6|6",
+      "street": "Wojciecha Drzymały",
+      "street_norm": "wojciecha drzymaly",
+      "building": "6",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 648000,
+          "outcome": "archived",
+          "area_m2": 122.42,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_142",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-07-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 583200,
+          "outcome": "archived",
+          "area_m2": 122.42,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_170",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-07-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 740000,
+          "outcome": "archived",
+          "area_m2": 122.42,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_287",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 666000,
+          "outcome": "archived",
+          "area_m2": 122.42,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_335",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 750000,
+          "outcome": "archived",
+          "area_m2": 122.42,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-8_470",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 675000,
+          "outcome": "active",
+          "area_m2": 122.42,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-11_482",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 122.42
+    },
+    {
       "key": "wladyslawa reymonta|3|6",
       "street": "Władysława Reymonta",
       "street_norm": "wladyslawa reymonta",
@@ -200,72 +277,6 @@
         }
       ],
       "area_m2": 41.63
-    },
-    {
-      "key": "wojciecha drzymaly|6|6",
-      "street": "Wojciecha Drzymały",
-      "street_norm": "wojciecha drzymaly",
-      "building": "6",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2024-04-23",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 648000,
-          "outcome": "archived",
-          "area_m2": 122.42,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-4_142",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-07-09",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 583200,
-          "outcome": "archived",
-          "area_m2": 122.42,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_170",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-07-29",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 740000,
-          "outcome": "archived",
-          "area_m2": 122.42,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-7_287",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-10-14",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 666000,
-          "outcome": "archived",
-          "area_m2": 122.42,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_335",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-08-18",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 750000,
-          "outcome": "archived",
-          "area_m2": 122.42,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-8_470",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 122.42
     },
     {
       "key": "pawla stalmacha|1|4",

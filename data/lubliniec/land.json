@@ -43,6 +43,36 @@
       ]
     },
     {
+      "key": "dz|240701",
+      "kind": "grunt",
+      "city": "lubliniec",
+      "dzialka_nr": "240701",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "płk",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240701%20p%C5%82k%20Lubliniec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3500,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-19",
+          "round": 1,
+          "starting_price_pln": 1100000,
+          "outcome": "sold",
+          "final_price_pln": 1166000,
+          "area_m2": 3500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "240701"
+        }
+      ]
+    },
+    {
       "key": "dz|3045/97",
       "kind": "grunt",
       "city": "lubliniec",
@@ -1714,35 +1744,6 @@
         },
         {
           "nr": "911/27"
-        }
-      ]
-    },
-    {
-      "key": "dz|2618/527",
-      "kind": "grunt",
-      "city": "lubliniec",
-      "dzialka_nr": "2618/527",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202618%2F527%20Lubliniec%20geoportal%20dzia%C5%82ki",
-      "area_m2": 4364,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2020-10-08",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "area_m2": 4364
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2618/527"
         }
       ]
     },

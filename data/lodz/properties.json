@@ -3,6 +3,190 @@
   "city": "lodz",
   "properties": [
     {
+      "key": "grabowa|5|36",
+      "street": "Grabowa",
+      "street_norm": "grabowa",
+      "building": "5",
+      "apt": "36",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "active",
+          "area_m2": 16.2,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 16.2
+    },
+    {
+      "key": "radwanska|50|23",
+      "street": "Radwańska",
+      "street_norm": "radwanska",
+      "building": "50",
+      "apt": "23",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 35.05,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 35.05
+    },
+    {
+      "key": "wolczanska|217|8",
+      "street": "Wólczańska",
+      "street_norm": "wolczanska",
+      "building": "217",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 710000,
+          "outcome": "active",
+          "area_m2": 120.93,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 120.93
+    },
+    {
+      "key": "gdanska|12|4G",
+      "street": "Gdańska",
+      "street_norm": "gdanska",
+      "building": "12",
+      "apt": "4G",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 22.3,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 22.3
+    },
+    {
+      "key": "wlokiennicza|18|12",
+      "street": "Włókiennicza",
+      "street_norm": "wlokiennicza",
+      "building": "18",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "active",
+          "area_m2": 65.23,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 65.23
+    },
+    {
+      "key": "tramwajowa|3|1",
+      "street": "Tramwajowa",
+      "street_norm": "tramwajowa",
+      "building": "3",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 32.34,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 32.34
+    },
+    {
+      "key": "henryka sienkiewicza|37|8",
+      "street": "Henryka Sienkiewicza",
+      "street_norm": "henryka sienkiewicza",
+      "building": "37",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 940000,
+          "outcome": "active",
+          "area_m2": 196.75,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 196.75
+    },
+    {
+      "key": "kpt pilota franciszka zwirki|20|24",
+      "street": "kpt. pilota Franciszka Żwirki",
+      "street_norm": "kpt pilota franciszka zwirki",
+      "building": "20",
+      "apt": "24",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 10.89,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnego-lokalu-uzytkowego-garazu-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-placu-koscielnym-6-ul-grabowej-5-ul-radwanskiej-50-ul-wolczanskiej-217-ul-gdanskiej-12-ul-wlokienniczej-18-ul-tramwajowej-3-ul-henryka-sienkiewicza-37-ul-kpt-pilota-franciszka-zwirki-20-id176396/2026/08/26/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 10.89
+    },
+    {
       "key": "bojownikow getta warszawskiego|3A|8",
       "street": "Bojowników Getta Warszawskiego",
       "street_norm": "bojownikow getta warszawskiego",
@@ -1395,9 +1579,9 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 175000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 36.83,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
@@ -1418,9 +1602,9 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 203000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 37.69,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
@@ -1441,9 +1625,9 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 196000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 45.01,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
@@ -1464,9 +1648,9 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 105000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 30.66,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
@@ -1487,9 +1671,9 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 238000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 51.86,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-augusta-cieszkowskiego-13-ul-jozefa-ignacego-kraszewskiego-17-ul-ogniskowej-8-ul-zbocze-29-ul-zbiorczej-2-id170789/2026/07/8/",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"

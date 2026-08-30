@@ -40,6 +40,24 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "Aleja Papieża Jana Pawła II 16/3",
+      "address": {
+        "street": "Aleja Papieża Jana Pawła II",
+        "street_norm": "aleja papieza jana pawla ii",
+        "building": "16",
+        "apt": "3",
+        "key": "aleja papieza jana pawla ii|16|3",
+        "warning": null
+      },
+      "auction_date": "2026-10-29",
+      "published_date": "2026-08-27",
+      "round": 1,
+      "area_m2": 163.66,
+      "starting_price_pln": 800000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=7F1BFDD3815641E0814E7D51AE351911"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Bolesława Śmiałego 7/5",
       "address": {
         "street": "Bolesława Śmiałego",

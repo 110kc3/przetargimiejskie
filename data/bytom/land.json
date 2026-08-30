@@ -3,6 +3,242 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|al. jana nowaka-jeziorańskiego; hutnicza",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "al. Jana Nowaka-Jeziorańskiego; Hutnicza",
+      "building": null,
+      "address_raw": "al. Jana Nowaka-Jeziorańskiego; Hutnicza",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.857584101782034%2C50.35173475958779%2C18.8592250242509%2C50.353693216453046&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.20d1ca27-72db-4bf7-9173-77e6ebfaecf0",
+      "area_m2": 9719,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 2,
+          "starting_price_pln": 750000,
+          "outcome": "active",
+          "area_m2": 9719,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-Aleja-Jana-Nowaka-Jezioranskiego-i-Hutnicza,24802.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|stefana żeromskiego 4",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Stefana Żeromskiego 4",
+      "building": null,
+      "address_raw": "Stefana Żeromskiego 4",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.920094675490486%2C50.35222052660435%2C18.92060132230292%2C50.35268487819935&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.ae3408af-3f7d-4d2f-ab0f-5bb8ec0481fb",
+      "area_m2": 905,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "starting_price_pln": 450000,
+          "outcome": "active",
+          "area_m2": 905,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zeromskiego-4,24803.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|5543/32",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "5543/32",
+      "obreb": null,
+      "street": "Matki Ewy",
+      "building": null,
+      "address_raw": "Matki Ewy dz. 5543/32",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.850127742568084%2C50.36210157859788%2C18.85019088090656%2C50.362170770228786&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.a1185e49-7a38-493d-87c6-e116d8a68506",
+      "area_m2": 21,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 3,
+          "starting_price_pln": 9500,
+          "outcome": "active",
+          "area_m2": 21,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5543_32,24814.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5543/32"
+        }
+      ]
+    },
+    {
+      "key": "dz|5544/32",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "5544/32",
+      "obreb": null,
+      "street": "Matki Ewy",
+      "building": null,
+      "address_raw": "Matki Ewy dz. 5544/32",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.8501680825125%2C50.362109466347434%2C18.85023122081596%2C50.36217874786785&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.734ce405-d3bf-4076-a672-f9045c794272",
+      "area_m2": 21,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 3,
+          "starting_price_pln": 9500,
+          "outcome": "active",
+          "area_m2": 21,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5544_32,24815.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5544/32"
+        }
+      ]
+    },
+    {
+      "key": "dz|5545/32",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "5545/32",
+      "obreb": null,
+      "street": "Matki Ewy",
+      "building": null,
+      "address_raw": "Matki Ewy dz. 5545/32",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.850208281938063%2C50.36211744295158%2C18.8502714202067%2C50.36218663456961&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.f27464c6-25f8-4fb6-ad30-ff4edef56acb",
+      "area_m2": 21,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 3,
+          "starting_price_pln": 9500,
+          "outcome": "active",
+          "area_m2": 21,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Matki-Ewy-dz.-5545_32,24816.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5545/32"
+        }
+      ]
+    },
+    {
+      "key": "dz|3002/290",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "3002/290",
+      "obreb": null,
+      "street": "Pogodna",
+      "building": null,
+      "address_raw": "Pogodna dz. 3002/290",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858849041127733%2C50.36024973253364%2C18.85947342442472%2C50.36069767566331&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.302b44fa-9fe8-4db9-bb49-6a0847c38c97",
+      "area_m2": 1359,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-25",
+          "round": 1,
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 1359,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pogodna-dz.-3002_290,24796.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3002/290"
+        }
+      ]
+    },
+    {
+      "key": "dz|3159/126",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "3159/126",
+      "obreb": null,
+      "street": "Wrocławska",
+      "building": null,
+      "address_raw": "Wrocławska dz. 3159/126",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.883174900076114%2C50.35483913141327%2C18.8849137765071%2C50.35546403030069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.f59d6228-7109-42b5-b85d-c4605e99b3a0",
+      "area_m2": 2757,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-25",
+          "round": 1,
+          "starting_price_pln": 300000,
+          "outcome": "active",
+          "area_m2": 2757,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Wroclawska-dz.-3159_126,24795.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3159/126"
+        }
+      ]
+    },
+    {
+      "key": "addr|piekarska 86; piekarska 86 b",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Piekarska 86; Piekarska 86 B",
+      "building": null,
+      "address_raw": "Piekarska 86; Piekarska 86 B",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.921757935069152%2C50.35611343206733%2C18.922171185361478%2C50.356299814419664&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.9c218f0f-104c-4dbc-b16f-e6f8fbef620c",
+      "area_m2": 403,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-24",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 403,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-86-i-86B,24786.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|1722/25",
       "kind": "grunt",
       "city": "bytom",
@@ -287,153 +523,6 @@
           "outcome": "active",
           "area_m2": 11963,
           "detail_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858271212808077%2C50.35750264867635%2C18.861827075281656%2C50.35853732968069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.dd0ed598-53b3-4a66-b585-5b1a0dfc0772",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|1921/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1921/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1921/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.796805126171652%2C50.39492170492029%2C18.797414489146103%2C50.39533813473651&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.310dba7b-b0f5-402e-9ed8-3b1f91d82226",
-      "area_m2": 1067,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-06",
-          "round": 2,
-          "starting_price_pln": 99000,
-          "outcome": "archived",
-          "area_m2": 1067,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1921_182,24239.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1921/182"
-        }
-      ]
-    },
-    {
-      "key": "dz|1927/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1927/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1927/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.79675561497683%2C50.39451717210785%2C18.79730209367603%2C50.39483128934408&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.3934f128-5b18-4dd6-a940-9cf7f0ec27f1",
-      "area_m2": 826,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-06",
-          "round": 2,
-          "starting_price_pln": 70000,
-          "outcome": "archived",
-          "area_m2": 826,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1927_182,24238.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1927/182"
-        }
-      ]
-    },
-    {
-      "key": "dz|1920/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1920/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1920/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.796359255985383%2C50.39483417496175%2C18.797063754367183%2C50.395216663297624&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.8d137941-a0e6-42d5-a839-ae879d8f781b",
-      "area_m2": 1133,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-06",
-          "round": 2,
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 1133,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1920_182,24240.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1920/182"
-        }
-      ]
-    },
-    {
-      "key": "addr|świętych cyryla i metodego",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Świętych Cyryla i Metodego",
-      "building": null,
-      "address_raw": "Świętych Cyryla i Metodego",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.931458131318273%2C50.329798504810135%2C18.93410819593911%2C50.331213493332314&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.a93fd5e9-20dc-4cb3-b208-4414a8622b92",
-      "area_m2": 12821,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-05",
-          "round": 1,
-          "starting_price_pln": 2700000,
-          "outcome": "archived",
-          "area_m2": 12821,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-sw.-Cyryla-i-Metodego,23862.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|kędzierzyńska; al. jana pawła ii",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Kędzierzyńska; al. Jana Pawła II",
-      "building": null,
-      "address_raw": "Kędzierzyńska; al. Jana Pawła II",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.936755613528064%2C50.3543109035019%2C18.93930407426079%2C50.35856811407192&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.a3391ec5-2941-4ee6-80cc-b938333bb875",
-      "area_m2": 48423,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-31",
-          "round": 2,
-          "starting_price_pln": 6650000,
-          "outcome": "archived",
-          "area_m2": 48423,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-al.-Jana-Pawla-II-i-Kedzierzynska,23861.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
         }
       ],

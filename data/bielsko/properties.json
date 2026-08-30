@@ -3,6 +3,28 @@
   "city": "bielsko",
   "properties": [
     {
+      "key": "lukowa|15|",
+      "street": "Łukowa",
+      "street_norm": "lukowa",
+      "building": "15",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1750000,
+          "outcome": "active",
+          "area_m2": 185.08,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-lukowa-15-lukowa-17",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 185.08
+    },
+    {
       "key": "11 listopada|23|2",
       "street": "11 Listopada",
       "street_norm": "11 listopada",
@@ -91,28 +113,6 @@
         }
       ],
       "area_m2": 56
-    },
-    {
-      "key": "lukowa|15|",
-      "street": "Łukowa",
-      "street_norm": "lukowa",
-      "building": "15",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": null,
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 1750000,
-          "outcome": "active",
-          "area_m2": 185.08,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-lukowa-15-lukowa-17",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 185.08
     },
     {
       "key": "gorska|94|",

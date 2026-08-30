@@ -486,6 +486,148 @@
       ]
     },
     {
+      "key": "targowej|7|7",
+      "street": "Targowa",
+      "street_norm": "targowej",
+      "building": "7",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 315500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/73925",
+          "notes": [],
+          "area_m2": 65.2
+        },
+        {
+          "date": "2025-12-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/74903",
+          "notes": [],
+          "area_m2": 65.2
+        },
+        {
+          "date": "2026-02-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/75985",
+          "notes": [],
+          "area_m2": 65.2
+        },
+        {
+          "date": "2026-04-21",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/77288",
+          "notes": [],
+          "area_m2": 65.2
+        },
+        {
+          "date": "2026-06-16",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/78367",
+          "notes": [],
+          "area_m2": 65.2
+        },
+        {
+          "date": "2026-08-18",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/79374",
+          "notes": [],
+          "area_m2": 65.2
+        }
+      ],
+      "area_m2": 65.2
+    },
+    {
+      "key": "anny|7|4",
+      "street": "Anny",
+      "street_norm": "anny",
+      "building": "7",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/76472",
+          "notes": [],
+          "area_m2": 51.12
+        },
+        {
+          "date": "2026-04-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/77286",
+          "notes": [],
+          "area_m2": 51.12
+        },
+        {
+          "date": "2026-06-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/78363",
+          "notes": [],
+          "area_m2": 51.12
+        },
+        {
+          "date": "2026-08-18",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/79371",
+          "notes": [],
+          "area_m2": 51.12
+        }
+      ],
+      "area_m2": 51.12
+    },
+    {
       "key": "ligonia|5A|",
       "street": "Ligonia",
       "street_norm": "ligonia",
@@ -720,124 +862,6 @@
         }
       ],
       "area_m2": 45
-    },
-    {
-      "key": "targowej|7|7",
-      "street": "Targowa",
-      "street_norm": "targowej",
-      "building": "7",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-10-29",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 315500,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/73925",
-          "notes": [],
-          "area_m2": 65.2
-        },
-        {
-          "date": "2025-12-10",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 280000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/74903",
-          "notes": [],
-          "area_m2": 65.2
-        },
-        {
-          "date": "2026-02-17",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 240000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/75985",
-          "notes": [],
-          "area_m2": 65.2
-        },
-        {
-          "date": "2026-04-21",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 200000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/77288",
-          "notes": [],
-          "area_m2": 65.2
-        },
-        {
-          "date": "2026-06-16",
-          "round": 5,
-          "kind": "mieszkalny",
-          "starting_price_pln": 180000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/78367",
-          "notes": [],
-          "area_m2": 65.2
-        }
-      ],
-      "area_m2": 65.2
-    },
-    {
-      "key": "anny|7|4",
-      "street": "Anny",
-      "street_norm": "anny",
-      "building": "7",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-03-10",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/76472",
-          "notes": [],
-          "area_m2": 51.12
-        },
-        {
-          "date": "2026-04-21",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/77286",
-          "notes": [],
-          "area_m2": 51.12
-        },
-        {
-          "date": "2026-06-16",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 210000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/78363",
-          "notes": [],
-          "area_m2": 51.12
-        }
-      ],
-      "area_m2": 51.12
     },
     {
       "key": "fryderyka chopina|15|15",

@@ -3,6 +3,25 @@
   "city": "katowice",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Józefowskiej 118a/1",
+      "address": {
+        "street": "Józefowskiej",
+        "street_norm": "jozefowskiej",
+        "building": "118A",
+        "apt": "1",
+        "key": "jozefowskiej|118A|1",
+        "warning": null
+      },
+      "auction_date": "2026-10-27",
+      "area_m2": 62.8,
+      "starting_price_pln": 440000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153651&menu=679",
+      "wadium_deadline": "2026-10-19",
+      "viewing_date": "2026-10-19"
+    },
+    {
       "kind": "uzytkowy",
       "round": 1,
       "address_raw": "Kościuszki 45",

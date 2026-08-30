@@ -76,6 +76,24 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Kaszarska 3/5a",
+      "address": {
+        "street": "Kaszarska",
+        "street_norm": "kaszarska",
+        "building": "3",
+        "apt": "5A",
+        "key": "kaszarska|3|5A",
+        "warning": null
+      },
+      "auction_date": "2026-08-18",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/893327/sprzedaz__ul_kaszarska_35a_wm6840202026"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Mieszka I 16/9",
       "address": {
         "street": "Mieszka I",

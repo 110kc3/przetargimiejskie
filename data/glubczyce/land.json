@@ -75,6 +75,78 @@
       ]
     },
     {
+      "key": "dz|głubczycach|199/33",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "199/33",
+      "obreb": "Głubczycach",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20199%2F33%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-25",
+          "round": 1,
+          "starting_price_pln": 132552,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2025-04-29",
+          "round": 2,
+          "starting_price_pln": 119452,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2026-08-25",
+          "round": 1,
+          "starting_price_pln": 184903,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "199/33",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20199%2F33%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|bogdanowice|875/1",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "875/1",
+      "obreb": "Bogdanowice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20875%2F1%20Bogdanowice%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 247,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-05",
+          "round": 1,
+          "starting_price_pln": 11332,
+          "outcome": "sold",
+          "final_price_pln": 11452,
+          "area_m2": 247
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "875/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20875%2F1%20Bogdanowice%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|bogdanowicach|875/1",
       "kind": "grunt",
       "city": "glubczyce",
@@ -443,41 +515,6 @@
       ]
     },
     {
-      "key": "dz|głubczycach|199/33",
-      "kind": "grunt",
-      "city": "glubczyce",
-      "dzialka_nr": "199/33",
-      "obreb": "Głubczycach",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20199%2F33%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-03-25",
-          "round": 1,
-          "starting_price_pln": 132552,
-          "outcome": "unsold"
-        },
-        {
-          "date": "2025-04-29",
-          "round": 2,
-          "starting_price_pln": 119452,
-          "outcome": "unsold"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "199/33",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20199%2F33%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|bogdanowicach|347/11",
       "kind": "grunt",
       "city": "glubczyce",
@@ -833,66 +870,6 @@
         {
           "nr": "199/34",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20199%2F34%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|miejscowości|563",
-      "kind": "grunt",
-      "city": "glubczyce",
-      "dzialka_nr": "563",
-      "obreb": "miejscowości",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20563%20miejscowo%C5%9Bci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1872,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-04-05",
-          "round": 4,
-          "starting_price_pln": 24852,
-          "outcome": "sold",
-          "final_price_pln": 25102,
-          "area_m2": 1872
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "563",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20563%20miejscowo%C5%9Bci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|niepodleglosci|1304/4",
-      "kind": "grunt",
-      "city": "glubczyce",
-      "dzialka_nr": "1304/4",
-      "obreb": "Niepodleglosci",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201304%2F4%20Niepodleglosci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-04-05",
-          "round": 2,
-          "starting_price_pln": 53070,
-          "outcome": "unsold"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1304/4",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201304%2F4%20Niepodleglosci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     }
