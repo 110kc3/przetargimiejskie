@@ -2,13 +2,13 @@
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
 > (extension) and git history (pipeline/site/data). **Last full backlog refresh:
-> 19 July 2026 — extension v1.32.0; city-health audit refreshed 23 August
+> 19 July 2026 — extension v1.32.0; city-health audit refreshed 31 August
 > 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
 > [REMOTE.md](./REMOTE.md), secure CI egress in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
-> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 117 ·
-> BUILD-ready 54 · all 380 powiat seats spiked).
+> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 121 ·
+> BUILD-ready 50 · all 380 powiat seats spiked).
 >
 > Recently shipped (see git log, not re-listed here): the entire 3-July handover
 > landed in `45dcb09` (extension CI, P2-D verified-heals in refresh, TG PDF
@@ -51,6 +51,25 @@
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
 
 ## 1 · Ops / health
+
+### Deferred execution queue — recorded 31 August 2026
+
+These are the deliberately unstarted steps left after the current failure-repair and
+security pass:
+
+- [ ] **Restricted Polish egress (previous step 4):** deploy and acceptance-test the
+      deny-by-default proxy in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md), then restore
+      Brzeg, Racibórz, Świętochłowice and Wałbrzych to the hosted matrix and PKP to the
+      provider job. Complete before the 21-day stale-only exemption reaches its
+      15 September deadline. Route AMW through it only if repeated hosted runs establish
+      the same Azure-connectivity failure.
+- [ ] **National extension coverage (previous step 5) [GUI]:** replace the nine-city
+      hardcode with lazy, data-driven discovery for all 121 built cities, finish the
+      scalable filters/i18n/voivodeship mapping, browser-test, version-bump and prepare
+      the store submission.
+- [ ] **CI cost and next adapters (previous step 7):** shard the 121-city refresh and
+      backfill matrices into roughly 4–5 small cities per job, then continue the 50-city
+      BUILD-ready queue from the generated ledger.
 
 ### Current city-issue queue — live-audited 23 August 2026 [RPI5]
 
@@ -427,11 +446,15 @@ verified-junk list) and check whether sibling records share the mis-parse.
 PKP + AMW now refresh into the separate `data/providers/` contract and appear
 seller-labelled only on `/archiwum-all`; city files, city medians and the
 extension remain untouched. Source contracts and limitations are recorded in
-[`spikes/providers/`](./spikes/providers/README.md). Remaining work:
+[`spikes/providers/`](./spikes/providers/README.md). AMW completed its graduation
+gate on 31 August 2026: hosted provider attempts 3, 4 and 5 of
+[run 33312600323](https://github.com/110kc3/przetargimiejskie/actions/runs/33312600323)
+were consecutively green, and five active detail pages plus five explicit result PDFs
+were spot-checked HTTP 200 against the published 12-active / 16-concluded ledger.
+Remaining work:
 
-- let AMW complete three consecutive green hosted refreshes; after restricted
-  Polish egress is deployed, resume PKP and require the same three-run gate,
-  then manually spot-check at least five active and five result links per provider;
+- after restricted Polish egress is deployed, resume PKP and require the same
+  three-run gate, then manually spot-check at least five active and five result links;
 - after that gate, decide whether to graduate the labelled rows to public
   `/archiwum` (still excluded from municipal summary medians);
 - add provider-specific issue synchronization if workflow-only failure alerts
@@ -442,10 +465,10 @@ extension remain untouched. Source contracts and limitations are recorded in
 
 ## 3 · Extension
 
-### T1 — surface all built cities (117 and counting; data-driven CITIES) [GUI]
+### T1 — surface all 121 built cities (data-driven CITIES) [GUI]
 
 `extension/background.js:22` still hardcodes `CITIES` = 9 Śląskie cities — the
-other 46 built cities are invisible to popup/watchlist/notifications (the site
+other 112 built cities are invisible to popup/watchlist/notifications (the site
 archive already reads `data/index.json` dynamically). Implement EXPANSION §1.6:
 lazy per-city fetch keyed off `data/index.json`, extend `i18n.js` labels +
 voivodeship map, keep popup filters scalable. Minor version bump; verify in a
@@ -641,14 +664,14 @@ current owner action or a prerequisite for the municipal pilot.
 
 ## 6 · Expansion queues [RPI5]
 
-- **Build the BUILD-ready queue — 54 land-powiat seats remain** (ledger in
+- **Build the BUILD-ready queue — 50 land-powiat seats remain** (ledger in
   SPIKE-PROGRESS): dispatch per `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md`
   via the `przetargi-city-triage` skill, max 3 concurrent Sonnet build-agents on
   the Pi. **PROGRESS 2026-07-16→19: all remaining big cities + city-counties
   built** (wroclaw, elblag, poznan, grudziadz, wloclawek, kalisz, plock,
   jelenia-gora, sopot, biala-podlaska, siedlce, lubin) — **every Wave-A
-  city-county (66) is now resolved built-or-no-build**; the queue is 54
-  Medium-effort land-powiat seats only (117 built / 54 build in the ledger).
+  city-county (66) is now resolved built-or-no-build**; the queue is 50
+  Medium-effort land-powiat seats only (121 built / 50 build in the ledger).
   Batch lessons now baked into the triage skill dispatch prompts: verify the
   CMS family live before cloning the spike's named analog (wrong in 4 of 6
   recent spikes), foreground-only refresh (background runs die silently),
@@ -661,12 +684,12 @@ current owner action or a prerequisite for the municipal pilot.
   predicted a CI-timeout risk that the tightened defaults resolved.
 - **Spiking DONE — all 380 powiat seats spiked** (`spikes/backlog.json`:
   380 done / 0 pending). The "every powiat seat" claim now rests on building
-  out the 54-seat BUILD queue above; everything else is ledgered
+  out the 50-seat BUILD queue above; everything else is ledgered
   no-build/dropped/deferred.
 - **CI matrix sharding at ~100+ cities:** group small cities ~4–5/job in
   refresh.yml + backfill.yml — most city jobs finish <2 min of mostly setup
-  overhead; grouping roughly halves runner minutes. **Blockers:** built-city
-  count reaching ~100.
+  overhead; grouping roughly halves runner minutes. **Blockers:** none; the
+  registry is already at 121 cities.
 - **DEMAND-GATED long tail (~700 towns in land powiats):** low BUILD hit-rate,
   permanent maintenance liability — only worth it as a "complete Poland" moat
   with revenue behind it. Kamil makes the go/no-go per EXPANSION ("let revenue

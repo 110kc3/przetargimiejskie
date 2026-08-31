@@ -44,6 +44,7 @@ import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
+import { htmlToText } from '../../core/finn-bip.js';
 import {
   buildRecordText,
   parseAnnouncement,
@@ -57,6 +58,8 @@ import {
 const ORIGIN = 'https://glogow.bip.info.pl';
 const API_BASE = `${ORIGIN}/api/fo`;
 const API_ARTICLES = `${API_BASE}/articles`;
+const OFFICIAL_ORIGIN = 'https://www.glogow.pl';
+const OFFICIAL_LIST = `${OFFICIAL_ORIGIN}/urzad/index.php/ogloszenia`;
 
 const CATEGORY = 'przedmiotowe27d'; // legacy idmp=27 "Sprzedaż nieruchomości gminnych"
 const LIST_PATH = '/sprzedaz-nieruchomosci-gminnych-2';
@@ -67,6 +70,12 @@ const COUNT = 30;
 // yields zero items or `meta.pages` is reached, so this generous cap only
 // matters as a runaway guard.
 const MAX_LIST_PAGES = 30;
+
+// The city portal mixes four posts per page across all departments. Twelve
+// pages cover the newest 48 posts (normally several months) and are sufficient
+// to keep current auctions/results fresh while the archival BIP API is down.
+// Older history remains protected by the normal merge/preserve path.
+const MAX_OFFICIAL_FALLBACK_PAGES = 12;
 
 // Detail-fetch (article JSON + attachment PDF) budget — the expensive part:
 // one throttled request per article PLUS one per attachment PDF. Live volume
@@ -100,6 +109,39 @@ function articleUrl(slug) {
 }
 function pdfDownloadUrl(attachmentId) {
   return `${API_BASE}/files/${attachmentId}/download`;
+}
+
+/**
+ * Extract sale-auction/result PDF candidates from one page of the independent
+ * official city announcements portal. The portal republishes the same signed
+ * legal PDFs as the BIP but lives on a different host. This parser deliberately
+ * returns only candidates whose card text passes the existing Głogów gates.
+ *
+ * @returns {Array<{title:string,publishedFrom:string|null,pdfUrls:string[],role:'announcement'|'result'}>}
+ */
+export function parseOfficialFallbackPage(html) {
+  const out = [];
+  for (const match of String(html || '').matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/gi)) {
+    const card = match[1];
+    const title = htmlToText(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(card)?.[1] || '');
+    const teaser = htmlToText(card);
+    const probe = buildRecordText({ title, body: teaser });
+    const role = isResultDoc(probe) ? 'result' : isAnnouncement(probe) ? 'announcement' : null;
+    if (!role || !isSaleAuction(probe) || isLease(probe)) continue;
+
+    const pdfUrls = [];
+    const seen = new Set();
+    for (const link of card.matchAll(/href=["']([^"']+\.pdf(?:\?[^"']*)?)["']/gi)) {
+      const url = new URL(link[1].replace(/&amp;/gi, '&'), OFFICIAL_ORIGIN).href;
+      if (seen.has(url)) continue;
+      seen.add(url);
+      pdfUrls.push(url);
+    }
+    if (!pdfUrls.length) continue;
+    const publishedFrom = /class=["'][^"']*miesiac[^"']*["'][^>]*>\s*(\d{4}-\d{2}-\d{2})/i.exec(card)?.[1] || null;
+    out.push({ title, publishedFrom, pdfUrls, role });
+  }
+  return out;
 }
 
 /** Walk the board's list endpoint (bounded), newest-first, collecting every
@@ -164,6 +206,59 @@ async function fetchAttachmentText(attachmentId) {
   }
 }
 
+/**
+ * Bounded current-window fallback for an unavailable archival BIP API. The
+ * official portal is not used when the primary works: it is intentionally a
+ * continuity source, not a second full-history crawl.
+ */
+async function crawlOfficialFallback({ listings, land, resultRefs, knownUrls }) {
+  let candidates = 0;
+  let fetchedPages = 0;
+  for (let page = 0; page < MAX_OFFICIAL_FALLBACK_PAGES; page++) {
+    const url = page === 0 ? OFFICIAL_LIST : `${OFFICIAL_LIST}?start=${page * 4}`;
+    let html;
+    try {
+      html = await getText(url, FETCH_OPTS);
+    } catch (err) {
+      console.error(`  glogow: official fallback page ${page + 1} failed: ${err.message}`);
+      break;
+    }
+    fetchedPages++;
+    const cards = parseOfficialFallbackPage(html);
+    candidates += cards.length;
+    for (const card of cards) {
+      for (const pdfUrl of card.pdfUrls) {
+        if (card.role === 'result' && knownUrls.has(pdfUrl)) continue;
+        let body;
+        try {
+          body = await pdfText(pdfUrl, FETCH_OPTS);
+        } catch (err) {
+          console.error(`  glogow: official fallback PDF failed ${pdfUrl}: ${err.message}`);
+          continue;
+        }
+        const recordText = buildRecordText({ title: card.title, body });
+        if (isResultDoc(recordText)) {
+          if (!isSaleAuction(recordText) || isLease(recordText)) continue;
+          resultRefs.push({
+            text: recordText,
+            pdf_url: pdfUrl,
+            auction_date: card.publishedFrom,
+          });
+          continue;
+        }
+        if (!isAnnouncement(recordText) || !isSaleAuction(recordText) || isLease(recordText)) continue;
+        for (const parsed of parseAnnouncement(recordText)) {
+          const enriched = { ...parsed, detail_url: pdfUrl, source_url: pdfUrl };
+          (parsed.kind === 'grunt' ? land : listings).push(enriched);
+        }
+      }
+    }
+  }
+  console.error(
+    `  glogow: official fallback inspected ${fetchedPages} page(s), ${candidates} sale/result candidate card(s)`,
+  );
+}
+
 let crawlPromise = null;
 
 async function crawlAll() {
@@ -180,7 +275,13 @@ async function crawlAll() {
   const knownUrls = await loadKnownSourceUrls('glogow');
 
   const boardItems = await fetchBoardItems();
+  const landComplete = boardItems.length > 0;
   console.error(`  glogow: board has ${boardItems.length} item(s)`);
+
+  if (boardItems.length === 0) {
+    console.error('  glogow: archival BIP API unavailable; using bounded official city-portal fallback');
+    await crawlOfficialFallback({ listings, land, resultRefs, knownUrls });
+  }
 
   const deadline = Date.now() + CRAWL_BUDGET_MS;
   let processed = 0;
@@ -247,7 +348,7 @@ async function crawlAll() {
     `  glogow: ${activeListings.length} active flat/unit/garage/house listing(s) (of ${listings.length} parsed), ` +
     `${activeLand.length} active land plot(s) (of ${land.length} parsed), ${resultRefs.length} result record(s)`,
   );
-  return { listings: activeListings, land: activeLand, resultRefs };
+  return { listings: activeListings, land: activeLand, resultRefs, landComplete };
 }
 
 /** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
@@ -256,11 +357,11 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
+/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[], land_complete: boolean }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings, land } = await crawlPromise;
-  return { listings, wykaz: [], land };
+  const { listings, land, landComplete } = await crawlPromise;
+  return { listings, wykaz: [], land, land_complete: landComplete };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

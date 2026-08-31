@@ -1,11 +1,13 @@
 # Polish egress security plan
 
-**Status: planned, not deployed.** As of 25 August 2026, GitHub reports no
-repository-connected machine and the former Pi job service, credentials and work
-directory have been removed. All workflow jobs are routed to GitHub-hosted machines.
+**Status: containment verified; restricted proxy not deployed.** Re-audited on
+31 August 2026: GitHub reports no repository-connected machine and the former Pi job
+service, credentials and work directory remain removed. All workflow jobs are routed
+to GitHub-hosted machines.
 The four city adapters marked `needsResidentialEgress` are omitted from the hosted
-matrix, and PKP is omitted from the hosted provider refresh; AMW continues to refresh
-normally. The deferred sources preserve their last-good data until the proxy described
+matrix, and PKP is omitted from the hosted provider refresh. AMW passed three
+consecutive hosted rechecks on 31 August after one transient Azure connection timeout.
+The deferred sources preserve their last-good data until the proxy described
 here is available. The city and provider health checks keep them visible as warnings
 under stale-only exemptions that expire 21 days after 25 August; missing, empty or
 malformed data still fails immediately, and stale data becomes a failure again when
@@ -39,11 +41,42 @@ The affected adapters already make their requests through the proxy-aware helper
 - [x] Uninstall its boot-enabled job service.
 - [x] Delete its local registration material and work directory.
 - [x] Route the refresh matrix and provider job back to `ubuntu-latest`.
-- [ ] Review the 24–25 August workflow history and retained system logs.
-- [ ] Rotate credentials that workflow code could have read from the `borg` account,
-      especially GitHub CLI/PAT credentials and reusable SSH keys.
-- [ ] Review the Pi for unexpected persistence. If there is any evidence of compromise,
+- [x] Review the 24–25 August workflow history and retained system logs.
+- [x] Rotate the GitHub SSH identity and remove the former reused key from GitHub and
+      this host's inbound `authorized_keys`.
+- [x] Revoke the existing GitHub CLI OAuth credential after the final repository and
+      issue operations in this remediation are complete; remove its local CLI entry and
+      verify that authentication is rejected.
+- [ ] When the two currently offline private hosts are reachable, install the prepared
+      host-specific replacement keys, remove the former reused key there, verify both
+      new logins, then securely delete the old private key from this host.
+- [x] Review the Pi for unexpected persistence. If there is any evidence of compromise,
       rebuild the operating system rather than trusting an in-place cleanup.
+
+### Phase 0 audit record — 31 August 2026
+
+- GitHub and local inspection both show zero registered repository runners, listener or
+  worker processes, runner services, registration artifacts, work directories or cron
+  persistence.
+- Actions runs `32725189329`, `32728761745` and `32809274141` account for the entire
+  former self-hosted period: ten executed self-hosted jobs, all from trusted `main`
+  push/schedule workflow code. No pull-request or contributor-controlled ref ran there.
+- Retained service logs match the server-side history: registration and service start on
+  24 August, server-side runner deletion on 25 August, followed by local stop/uninstall
+  and credential/work-directory removal. No unexplained execution window was found.
+- The host has no unexpected login account, boot/user service, cron entry, recent failed
+  SSH-authentication pattern or new home-directory SUID artifact. Reviewed workflow code
+  did not reference the other credential locations inventoried under the login account.
+- A dedicated GitHub SSH key is active and tested; the former reused key is deleted from
+  GitHub and local inbound authorization. Separate replacement keys are prepared for the
+  two offline private hosts, but their remote revocation is deliberately deferred to
+  avoid lockout.
+- The exact GitHub CLI OAuth credential was revoked through GitHub's credential-revocation
+  endpoint after the final issue operations, removed locally, and verified unusable.
+
+The audit found no evidence of unexpected code execution, persistence or credential
+access. That is a bounded evidence statement, not proof that exposure was impossible;
+the remaining key retirement above stays mandatory.
 
 ## Phase 1 — private transport
 

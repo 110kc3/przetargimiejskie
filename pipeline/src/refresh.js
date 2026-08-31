@@ -27,7 +27,7 @@ import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
 import { buildCityData, healKinds, syncActiveListingRounds, todayWarsaw } from './core/build-properties.js';
 import { applyDurablePropertyHeals, buildGlobalStreetDisplay } from './core/verified-heals.js';
-import { buildLand } from './core/build-land.js';
+import { buildLand, mergePartialLand } from './core/build-land.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archiveAllActive, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
@@ -110,7 +110,13 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
 
   console.error('Crawling active listings + wykaz ...');
   const activeCrawl = await city.crawlActive();
-  const { listings: active, wykaz, land = [], valid_empty = false } = activeCrawl;
+  const {
+    listings: active,
+    wykaz,
+    land = [],
+    valid_empty = false,
+    land_complete: landComplete = true,
+  } = activeCrawl;
   console.error(`Got ${active.length} active listings, ${wykaz.length} wykaz entries.\n`);
 
   // Partition LAND (kind 'grunt') out of the address-keyed streams: land has no
@@ -343,16 +349,24 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   // previously published some, treat it as a source outage and keep the last-good
   // file — same philosophy as the properties preserve-on-empty net above.
   const landFile = join(DATA_DIR, city.id, 'land.json');
+  let prevPlots = [];
+  if (existsSync(landFile)) {
+    try { prevPlots = JSON.parse(await readFile(landFile, 'utf8'))?.plots || []; } catch { prevPlots = []; }
+  }
   let landPlots = landBuilt.plots;
   let landPreserved = false;
-  if (landPlots.length === 0 && existsSync(landFile)) {
-    let prevPlots = [];
-    try { prevPlots = JSON.parse(await readFile(landFile, 'utf8'))?.plots || []; } catch { prevPlots = []; }
-    if (prevPlots.length > 0) {
-      console.error(`  ${city.id}: land crawl returned 0 plots but ${prevPlots.length} were previously published — preserving land.json (likely a land-source outage).`);
-      landPlots = prevPlots;
-      landPreserved = true;
-    }
+  if (!landComplete && prevPlots.length > 0) {
+    landPlots = mergePartialLand(prevPlots, landPlots);
+    console.error(
+      `  ${city.id}: land source is a partial window — merged ${landBuilt.plots.length} current plot(s) into ${prevPlots.length} previously published plot(s).`,
+    );
+    // With no current plots the merge is byte-for-byte equivalent to the
+    // existing file, so leave the last-good artifact untouched.
+    landPreserved = landBuilt.plots.length === 0;
+  } else if (landPlots.length === 0 && prevPlots.length > 0) {
+    console.error(`  ${city.id}: land crawl returned 0 plots but ${prevPlots.length} were previously published — preserving land.json (likely a land-source outage).`);
+    landPlots = prevPlots;
+    landPreserved = true;
   }
 
   const meta = {
@@ -372,6 +386,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     land_listings: landRecords.length,     // raw land auction rows seen this run
     retained_properties: retained.kept_properties,
     valid_empty: verifiedEmpty,
+    ...(!landComplete ? { land_complete: false } : {}),
   };
 
   const cityDir = join(DATA_DIR, city.id);
@@ -395,7 +410,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   if (!landPreserved) {
     await writeFile(
       join(cityDir, 'land.json'),
-      JSON.stringify({ schema_version: LAND_SCHEMA_VERSION, city: city.id, plots: landBuilt.plots }, null, 2) + '\n',
+      JSON.stringify({ schema_version: LAND_SCHEMA_VERSION, city: city.id, plots: landPlots }, null, 2) + '\n',
     );
   }
 

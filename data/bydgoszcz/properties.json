@@ -3,6 +3,50 @@
   "city": "bydgoszcz",
   "properties": [
     {
+      "key": "mikolaja reja|7|2",
+      "street": "Mikołaja Reja",
+      "street_norm": "mikolaja reja",
+      "building": "7",
+      "apt": "2",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 74.8,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10777/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-23-09-2026-r-ul-m-reja-7-lokal-uzytkowy-nr-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 74.8
+    },
+    {
+      "key": "kapusciska|8|1U",
+      "street": "Kapuściska",
+      "street_norm": "kapusciska",
+      "building": "8",
+      "apt": "1U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 44.87,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10656/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-15-09-2026-r-ul-kapusciska-8-nr-u1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.87
+    },
+    {
       "key": "l wyczolkowskiego|3|7",
       "street": "L. Wyczółkowskiego",
       "street_norm": "l wyczolkowskiego",

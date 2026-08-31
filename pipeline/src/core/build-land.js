@@ -156,3 +156,72 @@ export function buildLand(records, cityId, cfg = {}) {
   });
   return { plots: arr };
 }
+
+/**
+ * Merge a partial land crawl into the last published parcel history.
+ *
+ * Some continuity sources expose only a bounded current window. They may add
+ * a newly announced parcel, but absence from that window is not evidence that
+ * an older parcel/history entry should be deleted. Plot keys and auction dates
+ * are stable identities, matching buildLand's own same-date folding rule.
+ *
+ * @param {Array<object>} previousPlots
+ * @param {Array<object>} currentPlots
+ * @returns {Array<object>}
+ */
+export function mergePartialLand(previousPlots, currentPlots) {
+  const plots = new Map();
+
+  const clonePlot = (plot) => ({
+    ...plot,
+    listings: Array.isArray(plot.listings) ? plot.listings.map((listing) => ({ ...listing })) : [],
+    parcels: Array.isArray(plot.parcels) ? plot.parcels.map((parcel) => ({ ...parcel })) : [],
+  });
+
+  for (const plot of previousPlots || []) {
+    if (plot?.key) plots.set(plot.key, clonePlot(plot));
+  }
+
+  for (const incoming of currentPlots || []) {
+    if (!incoming?.key) continue;
+    const previous = plots.get(incoming.key);
+    if (!previous) {
+      plots.set(incoming.key, clonePlot(incoming));
+      continue;
+    }
+
+    // Prefer newly parsed, non-null metadata while retaining fields that the
+    // bounded source omitted.
+    for (const [key, value] of Object.entries(incoming)) {
+      if (key !== 'listings' && value != null) previous[key] = value;
+    }
+
+    const dated = new Map();
+    for (const listing of previous.listings) {
+      if (listing.date) dated.set(String(listing.date), listing);
+    }
+    for (const listing of incoming.listings || []) {
+      const existing = listing.date ? dated.get(String(listing.date)) : null;
+      if (!existing) {
+        const copy = { ...listing };
+        previous.listings.push(copy);
+        if (copy.date) dated.set(String(copy.date), copy);
+        continue;
+      }
+
+      // A current-window announcement must never downgrade a previously
+      // resolved result for the same event back to active.
+      const resolvedOutcome = existing.outcome && existing.outcome !== 'active' ? existing.outcome : null;
+      for (const [key, value] of Object.entries(listing)) {
+        if (value != null) existing[key] = value;
+      }
+      if (resolvedOutcome && listing.outcome === 'active') existing.outcome = resolvedOutcome;
+    }
+    previous.listings.sort((a, b) => String(a.date || '9999').localeCompare(String(b.date || '9999')));
+  }
+
+  return [...plots.values()].sort((a, b) => {
+    const latest = (plot) => plot.listings?.[plot.listings.length - 1]?.date || '0';
+    return String(latest(b)).localeCompare(String(latest(a)));
+  });
+}

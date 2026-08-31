@@ -44,6 +44,7 @@ import {
 import {
   parseIndexPage,
   classifyArticle,
+  isVerifiedEmptyBoard,
   docAttachments,
   pubDateFromHtml,
 } from '../src/cities/bydgoszcz/crawl.js';
@@ -171,6 +172,25 @@ nie obowiązuje aktualny miejscowy plan zagospodarowania przestrzennego.
 Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy przy ul.
 Jezuickiej 2 w Sali Łochowskiego (parter) w dniu 31 lipca 2026 r.
 o godzinie 10.00`;
+
+// attachments/download/33133 (catdoc), condensed. This live August 2026
+// commercial announcement introduced both the explicit "Lokal użytkowy"
+// board-title qualifier and the letter-led unit identifier U1.
+const ANN_KAPUSCISKA_COMMERCIAL = `PREZYDENT MIASTA BYDGOSZCZY
+
+ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu użytkowego
+stanowiącego własność Miasta Bydgoszczy
+
+Lokal użytkowy nr U1
+znajduje się na parterze w 3-kondygnacyjnym budynku położonym przy
+ul. Kapuściska 8 w Bydgoszczy.
+
+44,87 m2
+Opis lokalu użytkowego
+110 000,-
+
+Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy przy ul. Jezuickiej 2
+w dniu 15 września 2026 r. o godzinie 10.00`;
 
 // attachments/download/32667 (unzip word/document.xml), near-verbatim.
 const RES_CHODKIEWICZA_UNSOLD = `
@@ -319,6 +339,16 @@ test('parseAnnouncement: Grunwaldzka 90/3 — I przetarg, 38,04 m2, 250 000,-', 
   assert.equal(rec.round, 1);
 });
 
+test('parseAnnouncement: live commercial Kapuściska 8/U1 — letter-led unit retained', () => {
+  const rec = parseAnnouncement(ANN_KAPUSCISKA_COMMERCIAL);
+  assert.equal(rec.kind, 'uzytkowy');
+  assert.equal(rec.address_raw, 'ul. Kapuściska 8/1U');
+  assert.equal(rec.address.key, 'kapusciska|8|1U');
+  assert.equal(rec.auction_date, '2026-09-15');
+  assert.equal(rec.area_m2, 44.87);
+  assert.equal(rec.starting_price_pln, 110000);
+});
+
 // ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: Chodkiewicza 2/1 unsold — VI przetarg, wywoławcza 135.000,-', () => {
@@ -408,6 +438,10 @@ test('classifyArticle: live titles route correctly', () => {
     'flat-ann',
   );
   assert.equal(
+    classifyArticle('Lokal użytkowy przeznaczony do sprzedaży w drodze przetargu ustnego nieograniczonego w dniu 23.09.2026 r., ul.M.Reja 7 lokal użytkowy nr 2', 'lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-23-09-2026-r-ul-m-reja-7-lokal-uzytkowy-nr-2'),
+    'flat-ann',
+  );
+  assert.equal(
     classifyArticle('Informacja o wyniku przetargu przeprowadzonego w dniu 26.06.2026r, ul. Chodkiewicza 2, lokal nr 1', 'informacja-o-wyniku-przetargu-przeprowadzonego-w-dniu-26-06-2026r-ul-chodkiewicza-2-lokal-nr-1'),
     'result',
   );
@@ -416,6 +450,13 @@ test('classifyArticle: live titles route correctly', () => {
     'skip',
   );
   assert.equal(classifyArticle('Informacja o odwołaniu przetargu', 'informacja-o-odwolaniu-przetargu'), 'skip');
+});
+
+test('isVerifiedEmptyBoard: only a complete healthy board with no candidate proves empty', () => {
+  assert.equal(isVerifiedEmptyBoard({ boardVerified: true, boardComplete: true, activeCandidates: 0 }), true);
+  assert.equal(isVerifiedEmptyBoard({ boardVerified: true, boardComplete: false, activeCandidates: 0 }), false);
+  assert.equal(isVerifiedEmptyBoard({ boardVerified: false, boardComplete: true, activeCandidates: 0 }), false);
+  assert.equal(isVerifiedEmptyBoard({ boardVerified: true, boardComplete: true, activeCandidates: 1 }), false);
 });
 
 test('docAttachments: textWord class selects .doc/.docx, skips PDFs, tolerates empty ext label', () => {

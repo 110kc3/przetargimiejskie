@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLand, landKey, splitParcels } from '../src/core/build-land.js';
+import { buildLand, landKey, mergePartialLand, splitParcels } from '../src/core/build-land.js';
 
 test('landKey prefers parcel, then obręb-qualified parcel, then address', () => {
   assert.equal(landKey({ dzialka_nr: '233/1' }), 'dz|233/1');
@@ -75,4 +75,24 @@ test('splitParcels: distinct parcels, deduped, with separators', () => {
 test('buildLand attaches a per-parcel `parcels` list for multi-parcel plots', () => {
   const { plots } = buildLand([{ dzialka_nr: '263/2, 263/6', obreb: 'Bojków', area_m2: 1626, auction_date: '2026-07-14', starting_price_pln: 543060 }], 'gliwice', { label: 'Gliwice' });
   assert.deepEqual(plots[0].parcels.map((p) => p.nr), ['263/2', '263/6']);
+});
+
+test('mergePartialLand retains unseen history and merges current-window plots by key/date', () => {
+  const previous = buildLand([
+    { dzialka_nr: '1/1', auction_date: '2025-01-10', outcome: 'unsold', starting_price_pln: 100 },
+    { dzialka_nr: '1/1', auction_date: '2026-09-10', outcome: 'sold', starting_price_pln: 90 },
+    { dzialka_nr: '2/2', auction_date: '2024-04-20', outcome: 'archived', starting_price_pln: 50 },
+  ], 'demo').plots;
+  const current = buildLand([
+    { dzialka_nr: '1/1', auction_date: '2026-09-10', outcome: 'active', starting_price_pln: 85, source_url: 'https://fallback.test/1.pdf' },
+    { dzialka_nr: '3/3', auction_date: '2026-10-01', outcome: 'active', starting_price_pln: 200 },
+  ], 'demo').plots;
+
+  const merged = mergePartialLand(previous, current);
+  assert.deepEqual(new Set(merged.map((plot) => plot.key)), new Set(['dz|1/1', 'dz|2/2', 'dz|3/3']));
+  const first = merged.find((plot) => plot.key === 'dz|1/1');
+  assert.equal(first.listings.length, 2, 'same-date fallback row is folded into existing history');
+  assert.equal(first.listings[1].starting_price_pln, 85, 'newly parsed fields win');
+  assert.equal(first.listings[1].source_url, 'https://fallback.test/1.pdf');
+  assert.equal(first.listings[1].outcome, 'sold', 'resolved result is not downgraded to active');
 });

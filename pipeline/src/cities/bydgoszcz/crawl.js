@@ -82,8 +82,24 @@ export function classifyArticle(title, slug) {
   const s = (slug || '').toLowerCase();
   if (/odwo[łl]ani/.test(t) || /odwolani/.test(s)) return 'skip'; // cancellations
   if (/informacja\s+o\s+wyniku/.test(t) || /informacja-o-wyniku/.test(s)) return 'result';
-  if (/lokal\w*\s+przeznaczon\w+\s+do\s+sprzeda[żz]y/.test(t) || /^lokal-przeznaczony-do-sprzedazy/.test(s)) return 'flat-ann';
+  // The board added an explicit kind between "Lokal" and "przeznaczony" in
+  // August 2026 (for example "Lokal użytkowy przeznaczony...").  Keep the
+  // older unqualified form too; parseAnnouncement determines the final kind.
+  if (
+    /lokal\w*(?:\s+(?:mieszkaln\w+|u[żz]ytkow\w+|niemieszkaln\w+))?\s+przeznaczon\w+\s+do\s+sprzeda[żz]y/.test(t) ||
+    /^lokal-(?:(?:mieszkalny|uzytkowy|niemieszkalny)-)?przeznaczony-do-sprzedazy/.test(s)
+  ) return 'flat-ann';
   return 'skip'; // land / buildings / wykaz — out of the flat stream
+}
+
+/**
+ * A non-empty, completely traversed board with no in-scope announcement title
+ * is positive evidence that the flat/commercial stream is genuinely empty.
+ * A candidate that later fails to download or parse deliberately prevents this
+ * proof, leaving refresh.js's preserve-on-empty guard in charge.
+ */
+export function isVerifiedEmptyBoard({ boardVerified, boardComplete, activeCandidates }) {
+  return boardVerified && boardComplete && activeCandidates === 0;
 }
 
 /**
@@ -125,6 +141,9 @@ async function crawlAll() {
   const resultRefs = []; // { text, pdf_url, detail_url, auction_date } — all asset types
 
   const articlesSeen = new Set();
+  let boardVerified = false;
+  let boardComplete = false;
+  let activeCandidates = 0;
 
   for (let page = 1; page <= MAX_PAGES; page++) {
     const url = `${ORIGIN}/artykuly/${BOARD}/${page}/${PER_PAGE}/ogloszenia-o-przetargach-na-zbycie-nieruchomosci`;
@@ -132,14 +151,19 @@ async function crawlAll() {
     if (!html) break;
 
     const stubs = parseIndexPage(html);
+    if (stubs.length > 0) boardVerified = true;
     const fresh = stubs.filter((s) => !articlesSeen.has(s.id));
-    if (fresh.length === 0) break; // past the last page (Logonet mirrors it)
+    if (fresh.length === 0) {
+      boardComplete = true;
+      break; // past the last page (Logonet mirrors it)
+    }
 
     for (const stub of fresh) {
       articlesSeen.add(stub.id);
 
       const role = classifyArticle(stub.title, stub.slug);
       if (role === 'skip') continue;
+      if (role === 'flat-ann') activeCandidates++;
 
       const detail_url = abs(`/artykul/${BOARD}/${stub.id}/${stub.slug}`);
       const articleHtml = await fetchHtml(detail_url);
@@ -184,11 +208,15 @@ async function crawlAll() {
       listings.push({ ...rec, detail_url, source_url: docUrl });
     }
 
-    if (stubs.length < PER_PAGE) break; // short page ⇒ last page
+    if (stubs.length < PER_PAGE) {
+      boardComplete = true;
+      break; // short page ⇒ last page
+    }
   }
 
   console.error(`  bydgoszcz: ${listings.length} flat listing(s), ${resultRefs.length} result notice(s)`);
-  return { listings, resultRefs };
+  const validEmpty = isVerifiedEmptyBoard({ boardVerified, boardComplete, activeCandidates });
+  return { listings, resultRefs, validEmpty };
 }
 
 /** Result notices (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
@@ -200,10 +228,10 @@ export async function crawlResultDocs() {
 /** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings } = await crawlPromise;
+  const { listings, validEmpty } = await crawlPromise;
   // wykaz board 1071 exists (pre-auction designations, no date/price) — not
   // wired; land announcements are skipped (parcel stream not built for this city).
-  return { listings, wykaz: [], land: [] };
+  return { listings, wykaz: [], land: [], valid_empty: validEmpty };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

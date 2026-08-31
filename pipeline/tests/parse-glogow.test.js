@@ -34,6 +34,45 @@ import {
   kindFromText,
   parsePLN,
 } from '../src/cities/glogow/parse.js';
+import { parseOfficialFallbackPage } from '../src/cities/glogow/crawl.js';
+
+const OFFICIAL_FALLBACK_HTML = `
+<article>
+  <header><h2>Ogłoszenie o przetargach na sprzedaż lokali mieszkalnych położonych w Głogowie</h2>
+    <span class="miesiac">2026-08-18</span></header>
+  <p>PREZYDENT MIASTA G&#321;OGOWA og&#322;asza drugie przetargi ustne nieograniczone
+    na sprzeda&#380; lokali mieszkalnych.
+    <a href="/urzad/images/stories/2015/ogloszenia/joanna/17_2026.pdf">OGŁOSZENIE</a></p>
+</article>
+<article>
+  <header><h2>Informacja o wykazie nieruchomości</h2>
+    <span class="miesiac">2026-08-19</span></header>
+  <p>Wykaz przeznaczony do dzierżawy bezprzetargowej.
+    <a href="/urzad/images/wykaz.pdf">WYKAZ</a></p>
+</article>
+<article>
+  <header><h2>Informacja o wyniku przetargu na sprzedaż lokalu mieszkalnego</h2>
+    <span class="miesiac">2026-08-20</span></header>
+  <p>Informacja o wyniku przetargu na sprzedaż lokalu.
+    <a href="https://www.glogow.pl/urzad/images/wynik.pdf">WYNIK</a></p>
+</article>`;
+
+test('parseOfficialFallbackPage: keeps only official sale announcement/result cards', () => {
+  assert.deepEqual(parseOfficialFallbackPage(OFFICIAL_FALLBACK_HTML), [
+    {
+      title: 'Ogłoszenie o przetargach na sprzedaż lokali mieszkalnych położonych w Głogowie',
+      publishedFrom: '2026-08-18',
+      pdfUrls: ['https://www.glogow.pl/urzad/images/stories/2015/ogloszenia/joanna/17_2026.pdf'],
+      role: 'announcement',
+    },
+    {
+      title: 'Informacja o wyniku przetargu na sprzedaż lokalu mieszkalnego',
+      publishedFrom: '2026-08-20',
+      pdfUrls: ['https://www.glogow.pl/urzad/images/wynik.pdf'],
+      role: 'result',
+    },
+  ]);
+});
 
 // --------------------------------------------------------------- real fixtures
 

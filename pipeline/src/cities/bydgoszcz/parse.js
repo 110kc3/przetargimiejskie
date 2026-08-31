@@ -245,8 +245,14 @@ export function unitAreaFromText(text) {
 export function addressRawFromText(text) {
   const t = (text || '').replace(/\r/g, '');
 
-  const unitM = /lokal\w*\s+(?:mieszkaln\w+|u[żz]ytkow\w+|niemieszkaln\w+)\s+nr\s+(\d+[A-Za-z]?)/i.exec(t);
-  const unit = unitM ? unitM[1] : null;
+  const unitM = /lokal\w*\s+(?:mieszkaln\w+|u[żz]ytkow\w+|niemieszkaln\w+)\s+nr\s+([A-Za-z]?\d+[A-Za-z]?)/i.exec(t);
+  // Commercial units may use a letter-led identifier (live: "U1").  The
+  // shared address key accepts digit-led apartment tokens, so retain the same
+  // information in its canonical form ("U1" → "1U"), as the Jelenia Góra
+  // adapter already does for the identical municipal convention.
+  const rawUnit = unitM ? unitM[1] : null;
+  const prefixUnit = rawUnit && /^([A-Za-z])(\d+)$/.exec(rawUnit);
+  const unit = prefixUnit ? `${prefixUnit[2]}${prefixUnit[1].toUpperCase()}` : rawUnit;
 
   const m = /po[łl]o[żz]on\w+[\s\S]{0,40}?\bul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'\- ]+?)\s+(\d+[A-Za-z]?)\b/.exec(t);
   if (!m) return null;
