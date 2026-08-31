@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T01:49:47.861Z",
+  "generated_at": "2026-08-31T10:58:25.150Z",
   "cities": [
     {
       "id": "gliwice",
@@ -39,7 +39,7 @@
       "active_auctions": 2,
       "archived_auctions": 23,
       "wykaz_entries": 0,
-      "land_plots": 18
+      "land_plots": 19
     },
     {
       "id": "zabrze",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 40,
+      "active_listings": 90,
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 49
+      "land_plots": 111
     },
     {
       "id": "trzebinia",
@@ -191,8 +191,8 @@
       "authority": "Urząd Miasta Opola (Wydział Gospodarki Nieruchomościami)",
       "host": "bip.um.opole.pl",
       "unique_properties": 45,
-      "active_listings": 97,
-      "active_auctions": 10,
+      "active_listings": 98,
+      "active_auctions": 11,
       "archived_auctions": 87,
       "wykaz_entries": 0,
       "land_plots": 24
@@ -437,9 +437,9 @@
       "voivodeship": "zachodniopomorskie",
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
-      "unique_properties": 15,
-      "active_listings": 3,
-      "active_auctions": 4,
+      "unique_properties": 16,
+      "active_listings": 4,
+      "active_auctions": 5,
       "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -676,7 +676,7 @@
       "active_auctions": 0,
       "archived_auctions": 49,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 12
     },
     {
       "id": "ostroleka",
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 2,
+      "wykaz_entries": 1,
       "land_plots": 32
     },
     {
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1413,7 +1413,7 @@
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
       "unique_properties": 69,
-      "active_listings": 338,
+      "active_listings": 360,
       "active_auctions": 27,
       "archived_auctions": 42,
       "wykaz_entries": 0,
@@ -1426,8 +1426,8 @@
       "authority": "Prezydent Grudziądza (Urząd Miejski w Grudziądzu, Wydział Geodezji i Gospodarki Nieruchomościami)",
       "host": "bip.grudziadz.pl",
       "unique_properties": 12,
-      "active_listings": 44,
-      "active_auctions": 0,
+      "active_listings": 45,
+      "active_auctions": 1,
       "archived_auctions": 45,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 6,
-      "active_listings": 2,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
