@@ -3,6 +3,33 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|pl. generała władysława sikorskiego 8a; pl. generała władysława sikorskiego 8",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "pl. Generała Władysława Sikorskiego 8A; pl. Generała Władysława Sikorskiego 8",
+      "building": null,
+      "address_raw": "pl. Generała Władysława Sikorskiego 8A; pl. Generała Władysława Sikorskiego 8",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.91963277914547%2C50.34521563564164%2C18.920201168622526%2C50.34552200218409&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.05a263e2-85a9-4388-a8b0-54f5a6ecc502",
+      "area_m2": 634,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-29",
+          "round": 1,
+          "starting_price_pln": 550000,
+          "outcome": "active",
+          "area_m2": 634,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Sikorskiego-8-i-8a-ustny-I-niezabud.i-zabud,24833.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|al. jana nowaka-jeziorańskiego; hutnicza",
       "kind": "grunt",
       "city": "bytom",
