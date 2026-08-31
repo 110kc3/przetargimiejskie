@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Żeromskiego 3/5",
+      "address": {
+        "street": "Żeromskiego",
+        "street_norm": "zeromskiego",
+        "building": "3",
+        "apt": "5",
+        "key": "zeromskiego|3|5",
+        "warning": null
+      },
+      "auction_date": "2026-10-02",
+      "published_date": "2026-08-31",
+      "round": 1,
+      "area_m2": 38.46,
+      "starting_price_pln": 65000,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-pazdz-1",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/32230/4-regulamin-przetargu.doc"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Rybacka 27C/4",
       "address": {
         "street": "Rybacka",

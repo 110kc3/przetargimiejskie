@@ -3,6 +3,105 @@
   "city": "grudziadz",
   "properties": [
     {
+      "key": "zeromskiego|3|5",
+      "street": "Żeromskiego",
+      "street_norm": "zeromskiego",
+      "building": "3",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 78600,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-5-lutego-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-05-28",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 78600,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-28-maja-20-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-21-pazd",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-12-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-17-grudnia",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-02-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-23-lutego",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-14",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-14-kwiet",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-02",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "archived",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-czerwca",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 65000,
+          "outcome": "active",
+          "area_m2": 38.46,
+          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-pazdz-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.46
+    },
+    {
       "key": "rybacka|27C|4",
       "street": "Rybacka",
       "street_norm": "rybacka",
@@ -155,94 +254,6 @@
         }
       ],
       "area_m2": 32.2
-    },
-    {
-      "key": "zeromskiego|3|5",
-      "street": "Żeromskiego",
-      "street_norm": "zeromskiego",
-      "building": "3",
-      "apt": "5",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-02-05",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 78600,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-5-lutego-2",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-05-28",
-          "round": 5,
-          "kind": "mieszkalny",
-          "starting_price_pln": 78600,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-28-maja-20-2",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-10-21",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-21-pazd",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-12-17",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugi-przetarg-ustny-nieograniczony-organizowany-w-dniu-17-grudnia",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-02-23",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-trzeci-przetarg-ustny-nieograniczony-organizowany-w-dniu-23-lutego",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-04-14",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-czwarty-przetarg-ustny-nieograniczony-organizowany-w-dniu-14-kwiet",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-02",
-          "round": 5,
-          "kind": "mieszkalny",
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 38.46,
-          "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-czerwca",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 38.46
     },
     {
       "key": "libelta|10A|5",
