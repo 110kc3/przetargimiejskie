@@ -4,6 +4,10 @@ import { parsePkpDetail, parsePkpListPage, pkpMaxPage } from './parse.js';
 
 const BROWSER_UA = 'Mozilla/5.0 (compatible; PrzetargiMiejskie/1.0; +https://przetargimiejskie.pl)';
 const ORIGIN = 'https://www.pkp.pl';
+// PKP occasionally drops Azure connections for longer than the core fetcher's
+// default four-attempt (~49 s) window. Two extra attempts extend the critical
+// list-page window to ~91 s while remaining well inside the provider job cap.
+const FETCH_OPTS = { userAgent: BROWSER_UA, retries: 5 };
 
 function listUrl(page, today) {
   const params = new URLSearchParams({
@@ -16,11 +20,11 @@ function listUrl(page, today) {
 
 export async function crawlPkp(previous = []) {
   const today = todayWarsaw();
-  const firstHtml = await getText(listUrl(0, today), { userAgent: BROWSER_UA });
+  const firstHtml = await getText(listUrl(0, today), FETCH_OPTS);
   const pages = [firstHtml];
   const maxPage = pkpMaxPage(firstHtml);
   for (let page = 1; page <= maxPage; page++) {
-    pages.push(await getText(listUrl(page, today), { userAgent: BROWSER_UA }));
+    pages.push(await getText(listUrl(page, today), FETCH_OPTS));
   }
 
   const byId = new Map();
@@ -41,7 +45,7 @@ export async function crawlPkp(previous = []) {
       continue;
     }
     try {
-      const detail = await getText(row.detail_url, { userAgent: BROWSER_UA });
+      const detail = await getText(row.detail_url, FETCH_OPTS);
       const enriched = parsePkpDetail(detail);
       records.push({
         ...row,

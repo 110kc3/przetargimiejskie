@@ -39,12 +39,10 @@
 // (source_pdf field) are skipped — only NEW candidates need fetching.
 // Together these keep every run well within the 25-min CI job cap.
 
-import { readFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 import { getText } from '../../core/fetch.js';
+import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import { parseDetailFields, parseDetailPage, stripTags } from './parse.js';
 
 const ORIGIN = 'https://www.bip.bialystok.pl';
@@ -53,7 +51,11 @@ const BASE_URL = `${ORIGIN}${BASE_PATH}`;
 
 // SmartSite pager form params (confirmed from live page source 2026-06-27)
 const FORM_PARAM = 'PAGE_SEARCH_TYPE_PROPERTY_SALES_AUCTIONS_FORM';
-const PAGE_LIMIT = 10;
+// The form defaults to 10, but the server honours larger values (live-verified
+// 2026-08-31). At 100, the three result boards need only 11 + 6 + 1 requests
+// instead of 106 + 54 + 3, while each response remains comfortably below the
+// fetch deadline (a 500-row page can exceed it when the source is slow).
+const PAGE_LIMIT = 100;
 
 // Status IDs from the <select> on the BIP index page
 const STATUS_OPEN = 1376;         // Otwarty
@@ -85,12 +87,6 @@ const MAX_DETAILS =
 // Committed-data URL set (incremental skip)
 // ---------------------------------------------------------------------------
 
-// Resolve the repo-level data/bialystok/properties.json path relative to this
-// source file (pipeline/src/cities/bialystok/crawl.js → ../../../../data/).
-const PROPS_PATH = fileURLToPath(
-  new URL('../../../../data/bialystok/properties.json', import.meta.url),
-);
-
 /**
  * Load the set of detail-page URLs already recorded in the committed
  * data/bialystok/properties.json (via the source_pdf field).
@@ -99,19 +95,7 @@ const PROPS_PATH = fileURLToPath(
  * @returns {Promise<Set<string>>}
  */
 export async function loadKnownUrls() {
-  if (!existsSync(PROPS_PATH)) return new Set();
-  try {
-    const raw = await readFile(PROPS_PATH, 'utf8');
-    const parsed = JSON.parse(raw);
-    const records = Array.isArray(parsed?.properties) ? parsed.properties : [];
-    const urls = new Set();
-    for (const rec of records) {
-      if (rec?.source_pdf) urls.add(rec.source_pdf);
-    }
-    return urls;
-  } catch {
-    return new Set();
-  }
+  return loadKnownSourceUrls('bialystok');
 }
 
 // ---------------------------------------------------------------------------
@@ -173,6 +157,25 @@ export function parseIndexPage(html) {
 export function parseTotalCount(html) {
   const m = /Dostępne:\s*(\d+)\s+wynik/i.exec(html);
   return m ? Number(m[1]) : 0;
+}
+
+/**
+ * The mixed SmartSite board includes school rentals, land and commercial
+ * units, but residential-sale titles consistently identify a flat as
+ * `m 12`, `m. 12A`, or `lokal mieszkalny`. Filtering on that index metadata
+ * avoids fetching hundreds of known out-of-scope detail pages. The detector
+ * was checked against every published Białystok result and active URL on
+ * 2026-08-31 (96 result URLs + 17 active URLs, zero misses).
+ *
+ * Keep the whitespace/dot after `m` significant: bare `m2` is an area unit,
+ * common in unrelated school-space rental titles.
+ *
+ * @param {string} title
+ * @returns {boolean}
+ */
+export function isLikelyResidentialTitle(title) {
+  const plain = stripTags(title || '').replace(/\s+/g, ' ').trim();
+  return /(?:\blokal(?:u)?\s+mieszkaln|\bm(?:\.|\s+)\s*\d+[a-z]?\b)/iu.test(plain);
 }
 
 // ---------------------------------------------------------------------------
@@ -266,9 +269,14 @@ async function fetchDetailText(url) {
  */
 export async function crawlActive() {
   const refs = await fetchAllRefsForStatus(STATUS_OPEN);
+  const candidates = refs.filter((ref) => isLikelyResidentialTitle(ref.title));
   const listings = [];
 
-  for (const r of refs) {
+  console.error(
+    `  bialystok active candidates: ${candidates.length}/${refs.length} refs after residential-title filter`,
+  );
+
+  for (const r of candidates) {
     let html;
     try {
       html = await getText(r.detailUrl, FETCH_OPTS);
@@ -325,12 +333,15 @@ export async function crawlResultDocs() {
     }
   }
 
-  console.error(`  bialystok result candidates: ${allRefs.length} detail pages to check`);
+  const residentialRefs = allRefs.filter((ref) => isLikelyResidentialTitle(ref.title));
+  console.error(
+    `  bialystok result candidates: ${residentialRefs.length}/${allRefs.length} refs after residential-title filter`,
+  );
 
   // --- incremental skip: load URLs already committed to properties.json ----
   const knownUrls = await loadKnownUrls();
-  const newRefs = allRefs.filter((r) => !knownUrls.has(r.detailUrl));
-  const skipped = allRefs.length - newRefs.length;
+  const newRefs = residentialRefs.filter((r) => !knownUrls.has(r.detailUrl));
+  const skipped = residentialRefs.length - newRefs.length;
   if (skipped > 0) {
     console.error(`  bialystok result: skipping ${skipped} already-known URL(s); ${newRefs.length} new candidate(s) to fetch`);
   }

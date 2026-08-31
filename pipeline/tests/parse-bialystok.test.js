@@ -32,7 +32,11 @@ import {
   parseResultDoc,
 } from '../src/cities/bialystok/parse.js';
 
-import { parseIndexPage, parseTotalCount } from '../src/cities/bialystok/crawl.js';
+import {
+  isLikelyResidentialTitle,
+  parseIndexPage,
+  parseTotalCount,
+} from '../src/cities/bialystok/crawl.js';
 
 // ---------------------------------------------------------------------------
 // stripTags helper
@@ -488,4 +492,14 @@ test('parseTotalCount: extracts number from "Dostępne: N wyników" line', () =>
   assert.equal(parseTotalCount(INDEX_HTML), 402);
   assert.equal(parseTotalCount('Dostępne: 2011 wyników ze wszystkich kategorii.'), 2011);
   assert.equal(parseTotalCount('no count here'), 0);
+});
+
+test('isLikelyResidentialTitle: keeps flat markers without treating m2 as a flat', () => {
+  assert.equal(isLikelyResidentialTitle('ul. Rynek Kościuszki 17 m 7'), true);
+  assert.equal(isLikelyResidentialTitle('I. Malmeda 15A m. 22'), true);
+  assert.equal(isLikelyResidentialTitle('ul. Grochowa 2 m 39A'), true);
+  assert.equal(isLikelyResidentialTitle('Sprzedaż lokalu mieszkalnego nr 4'), true);
+  assert.equal(isLikelyResidentialTitle('Najem powierzchni 2 m2 pod automat'), false);
+  assert.equal(isLikelyResidentialTitle('ul. Lipowa 12, lokal użytkowy nr 2U'), false);
+  assert.equal(isLikelyResidentialTitle('Białystok, działka nr 366/46 w obr. 13'), false);
 });
