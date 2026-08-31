@@ -1,17 +1,21 @@
 # Polish egress security plan
 
-**Status: containment verified; restricted proxy not deployed.** Re-audited on
-31 August 2026: GitHub reports no repository-connected machine and the former Pi job
-service, credentials and work directory remain removed. All workflow jobs are routed
-to GitHub-hosted machines.
-The four city adapters marked `needsResidentialEgress` are omitted from the hosted
-matrix, and PKP is omitted from the hosted provider refresh. AMW passed three
-consecutive hosted rechecks on 31 August after one transient Azure connection timeout.
-The deferred sources preserve their last-good data until the proxy described
-here is available. The city and provider health checks keep them visible as warnings
-under stale-only exemptions that expire 21 days after 25 August; missing, empty or
-malformed data still fails immediately, and stale data becomes a failure again when
-that deadline expires.
+**Status: containment verified; restricted proxy and private transport not deployed.**
+Re-audited on 31 August 2026: GitHub reports no repository-connected machine and the
+former Pi job service, credentials and work directory remain removed. All workflow
+jobs are routed to GitHub-hosted machines. A secret-free hosted probe in
+[run 33379464740](https://github.com/110kc3/przetargimiejskie/actions/runs/33379464740)
+completed full direct refreshes for Brzeg, Świętochłowice and Wałbrzych; PKP completed
+three sequential direct refreshes and each run passed five-active/five-result link
+checks. Those sources and AMW now run under strict hosted refresh/health gates.
+
+Racibórz alone still connect-dropped and remains marked `needsResidentialEgress`,
+omitted from the matrix, and published from last-good data under the stale-only
+exemption that expires 21 days after 25 August (15 September). The production workflow
+now has dormant `FETCH_PROXY_URL` integration: the flagged adapter is included only
+when the secret exists, and the raw credential is scoped only to its refresh step. No
+repository secret is configured. Tailscale/private transport is deliberately deferred.
+Missing, empty or malformed Racibórz data still fails immediately.
 
 ## Decision
 
@@ -31,9 +35,9 @@ explicitly approved Polish source domains
 ```
 
 The affected adapters already make their requests through the proxy-aware helpers in
-`pipeline/src/core/fetch.js`: Raciborz, Swietochlowice, Walbrzych, PKP and AMW use
-`getText`/`getBytes`; Brzeg also uses the exported `proxyFetch` for its cookie retry.
-`FETCH_PROXY_URL` is therefore sufficient for these paths.
+`pipeline/src/core/fetch.js`. Racibórz uses `getText`, so `FETCH_PROXY_URL` is sufficient
+for its current path. Brzeg, Świętochłowice, Wałbrzych, PKP and AMW remain proxy-aware
+but do not currently require or receive special egress.
 
 ## Phase 0 — containment and credential hygiene
 
@@ -78,7 +82,7 @@ The audit found no evidence of unexpected code execution, persistence or credent
 access. That is a bounded evidence statement, not proof that exposure was impossible;
 the remaining key retirement above stays mandatory.
 
-## Phase 1 — private transport
+## Phase 1 — private transport (deferred)
 
 Use a private overlay network; Tailscale workload identity federation is the preferred
 implementation because each GitHub-hosted job receives a short-lived identity without a
@@ -98,9 +102,9 @@ interactive shell, sudo, Docker membership, source checkout or user credentials.
 
 - Allow `CONNECT` to TCP 443 only.
 - Deny loopback, link-local, multicast and private-address destinations.
-- Deny every destination by default, then allow only the audited hostnames needed by
-  Raciborz, Swietochlowice, Brzeg, Walbrzych and PKP, including verified redirect
-  targets.
+- Deny every destination by default, then initially allow only Racibórz's audited
+  hostname and verified redirect targets. Expand the allowlist only if a new hosted
+  gate demonstrates that another source again requires restricted egress.
 - Protect against DNS rebinding by checking resolved destinations as well as requested
   hostnames.
 - Disable caching; cap request size, bandwidth, concurrent connections and idle time.
@@ -110,11 +114,12 @@ interactive shell, sudo, Docker membership, source checkout or user credentials.
 
 ## Phase 3 — workflow integration
 
-- Keep `runs-on: ubuntu-latest` for every job.
-- Join the private network only for a city whose config has
-  `needsResidentialEgress: true` and for the PKP provider refresh.
-- Set `FETCH_PROXY_URL` only for those steps.
-- Never enable the private-network step for `pull_request`, `pull_request_target`,
+- [x] Keep `runs-on: ubuntu-latest` for every job.
+- [ ] Join the private network only for a city whose config has
+  `needsResidentialEgress: true` (transport is deferred).
+- [x] Include a flagged city only when `FETCH_PROXY_URL` is configured, and set the
+  raw credential only for that city's refresh step.
+- [x] Never enable the private-network path for `pull_request`, `pull_request_target`,
   issue-comment or other contributor-controlled events.
 - Keep the default `GITHUB_TOKEN` read-only and set explicit job permissions.
 - Use `actions/checkout` with `persist-credentials: false` in crawl jobs.

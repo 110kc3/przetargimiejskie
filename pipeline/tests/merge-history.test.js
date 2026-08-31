@@ -61,6 +61,26 @@ test('fresh replacement retains secondary BIP provenance and owner scope', () =>
   assert.equal(event.owner_type, 'state_treasury');
 });
 
+test('cached terminal result survives a lingering announcement-board row', () => {
+  const prev = [prop('stanislawa staszica|1|7', [L('2026-08-19', 'unsold', {
+    round: 3,
+    source_pdf: 'https://results.example.test/walbrzych-2026-08-19.pdf',
+    final_price_pln: null,
+    unsold_reason: 'unknown',
+  })])];
+  const fresh = [prop('stanislawa staszica|1|7', [L('2026-08-19', 'archived', {
+    round: 1,
+    round_source: 'inferred',
+    detail_url: 'https://board.example.test/staszica-1-7',
+  })])];
+  const { properties } = mergeProperties(prev, fresh);
+  const [event] = properties[0].listings;
+  assert.equal(event.outcome, 'unsold', 'result-backed outcome remains authoritative');
+  assert.equal(event.round, 3, 'result-backed round is not downgraded by the board');
+  assert.equal(event.source_pdf, 'https://results.example.test/walbrzych-2026-08-19.pdf');
+  assert.equal(event.detail_url, 'https://board.example.test/staszica-1-7', 'board URL is still back-filled');
+});
+
 test('property-level area prefers fresh, propagates to listings', () => {
   const prev = [prop('a|1|2', [L('2024-01-01', 'sold')], { area_m2: null })];
   const fresh = [prop('a|1|2', [L('2026-01-01', 'active')], { area_m2: 40 })];

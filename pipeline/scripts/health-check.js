@@ -101,10 +101,7 @@ const EXEMPT_NEW = new Map();
 // deployed. Remove each entry as soon as its hosted refresh is restored.
 const EGRESS_STALE_MAX_DAYS = Number(process.env.EGRESS_STALE_MAX_DAYS || 21);
 const EGRESS_STALE = new Map([
-  ['brzeg', { since: '2026-08-25', reason: 'brzeg.pl serves Azure a JavaScript/PoW challenge' }],
   ['raciborz', { since: '2026-08-25', reason: 'the shared FINN origin drops Azure connections' }],
-  ['swietochlowice', { since: '2026-08-25', reason: 'the shared FINN origin drops Azure connections' }],
-  ['walbrzych', { since: '2026-08-25', reason: 'the source repeatedly exceeds the hosted crawl deadline' }],
 ]);
 
 const now = Date.now();

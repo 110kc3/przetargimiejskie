@@ -8,37 +8,16 @@ import { fileURLToPath } from 'node:url';
 
 const DATA_DIR = fileURLToPath(new URL('../../data/providers/', import.meta.url));
 const STALE_DAYS = Number(process.env.PROVIDER_STALE_DAYS ?? process.env.STALE_DAYS ?? 3);
-const EGRESS_STALE_MAX_DAYS = Number(process.env.EGRESS_STALE_MAX_DAYS || 21);
 const expected = ['amw', 'pkp'];
 const validOutcomes = new Set(['active', 'sold', 'unsold', 'no_winner', 'archived', 'cancelled']);
 const failures = [];
-const warnings = [];
 
-// Suppress ONLY staleness for a feed that cannot currently refresh from
-// GitHub-hosted Azure. Missing files, empty data, count drift, bad identities
-// and every other contract violation still fail. This expires with the city
-// exemptions; remove it as soon as restricted Polish egress is deployed.
-const EGRESS_STALE = new Map([
-  ['pkp', { since: '2026-08-25', reason: 'www.pkp.pl drops GitHub-hosted Azure connections' }],
-]);
 const parsedNow = Date.parse(process.env.PROVIDER_HEALTH_NOW || '');
 const now = Number.isNaN(parsedNow) ? Date.now() : parsedNow;
 
 function daysSince(iso) {
   const parsed = Date.parse(iso);
   return Number.isNaN(parsed) ? Infinity : (now - parsed) / 86_400_000;
-}
-
-function egressStaleExemption(id) {
-  const exemption = EGRESS_STALE.get(id);
-  if (!exemption) return { active: false, expired: false };
-  const age = daysSince(exemption.since);
-  return {
-    active: age <= EGRESS_STALE_MAX_DAYS,
-    expired: age > EGRESS_STALE_MAX_DAYS,
-    age,
-    ...exemption,
-  };
 }
 
 async function readJson(path) {
@@ -67,21 +46,7 @@ else {
     else {
       const ageDays = daysSince(meta.generated_at);
       if (ageDays > STALE_DAYS) {
-        const exemption = egressStaleExemption(id);
-        if (exemption.active) {
-          const remaining = Math.max(0, EGRESS_STALE_MAX_DAYS - exemption.age).toFixed(0);
-          warnings.push(
-            `${id}: stale (${ageDays.toFixed(1)} days), temporarily preserved for known egress failure ` +
-            `(${exemption.reason}); exemption expires in ${remaining}d`,
-          );
-        } else if (exemption.expired) {
-          failures.push(
-            `${id}: egress staleness exemption from ${exemption.since} expired ` +
-            `(${exemption.age.toFixed(0)}d > ${EGRESS_STALE_MAX_DAYS}d)`,
-          );
-        } else {
-          failures.push(`${id}: stale (${ageDays.toFixed(1)} days)`);
-        }
+        failures.push(`${id}: stale (${ageDays.toFixed(1)} days)`);
       }
     }
     const keys = listings.map((row) => row.event_key);
@@ -96,7 +61,6 @@ else {
   }
 }
 
-for (const warning of warnings) console.warn(`WARN ${warning}`);
 if (failures.length) {
   for (const failure of failures) console.error(`FAIL ${failure}`);
   process.exitCode = 1;

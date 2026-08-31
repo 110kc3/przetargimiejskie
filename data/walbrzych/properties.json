@@ -3,6 +3,111 @@
   "city": "walbrzych",
   "properties": [
     {
+      "key": "kosynierow|3A|1",
+      "street": "Kosynierów",
+      "street_norm": "kosynierow",
+      "building": "3A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51706/przy-ul-kosynierow-3a-1-obreb-podgorze-nr-39",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "stacyjnej|4|3",
+      "street": "Stacyjna",
+      "street_norm": "stacyjnej",
+      "building": "4",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 55000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51705/przy-ul-stacyjnej-4-3-obreb-szczawienko-nr-3",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "gen j bema|60A|2",
+      "street": "gen. J. Bema",
+      "street_norm": "gen j bema",
+      "building": "60A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 93000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51703/ul-gen-j-bema-60a-2-obreb-bialy-kamien-nr-14",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "1 maja|110|1",
+      "street": "1 Maja",
+      "street_norm": "1 maja",
+      "building": "110",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51701/przy-ul-1-maja-110-1-obreb-sobiecin-nr-28",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "niepodleglosci|199|7",
+      "street": "Niepodległości",
+      "street_norm": "niepodleglosci",
+      "building": "199",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51700/przy-ul-niepodleglosci-199-7-obreb-podgorze-nr-39",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "stanislawa staszica|1|7",
       "street": "Stanisława Staszica",
       "street_norm": "stanislawa staszica",
@@ -12,14 +117,15 @@
       "listings": [
         {
           "date": "2026-08-19",
-          "round": 1,
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 170000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57549",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7"
         }
       ]
     },
@@ -36,11 +142,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 175000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51204/przy-ul-harcerskiej-7-2",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 177000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57419",
+          "notes": []
         }
       ]
     },
@@ -54,14 +160,14 @@
       "listings": [
         {
           "date": "2026-06-24",
-          "round": 1,
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 59000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51006/walbrzych-przy-ul-joachima-lelewela-5-10",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 72000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57167",
+          "notes": []
         }
       ]
     },
@@ -89,11 +195,11 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 26000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51005/walbrzych-przy-ul-piotra-skargi-26-18",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 26300,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57167",
+          "notes": []
         }
       ]
     },
@@ -121,11 +227,11 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 32000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51004/walbrzych-przy-ul-piotra-skargi-26-14",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 32350,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/57167",
+          "notes": []
         }
       ]
     },

@@ -57,12 +57,15 @@
 These are the deliberately unstarted steps left after the current failure-repair and
 security pass:
 
-- [ ] **Restricted Polish egress (previous step 4):** deploy and acceptance-test the
-      deny-by-default proxy in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md), then restore
-      Brzeg, Racibórz, Świętochłowice and Wałbrzych to the hosted matrix and PKP to the
-      provider job. Complete before the 21-day stale-only exemption reaches its
-      15 September deadline. Route AMW through it only if repeated hosted runs establish
-      the same Azure-connectivity failure.
+- [ ] **Racibórz-only restricted Polish egress (previous step 4; transport deferred):**
+      the secret-free hosted probe
+      [run 33379464740](https://github.com/110kc3/przetargimiejskie/actions/runs/33379464740)
+      restored Brzeg, Świętochłowice and Wałbrzych directly; only Racibórz still failed.
+      The workflow-side `FETCH_PROXY_URL` gate is wired and scopes the credential to a
+      flagged city, but no secret, proxy or private transport is configured. Tailscale
+      remains deliberately skipped for now. Deploy and acceptance-test the restricted
+      path in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) before Racibórz's 21-day stale-only
+      exemption reaches its 15 September deadline.
 - [ ] **National extension coverage (previous step 5) [GUI]:** replace the nine-city
       hardcode with lazy, data-driven discovery for all 121 built cities, finish the
       scalable filters/i18n/voivodeship mapping, browser-test, version-bump and prepare
@@ -130,19 +133,16 @@ Remaining health work:
   [#174 Świętochłowice](https://github.com/110kc3/przetargimiejskie/issues/174):
   both adapters work and the shared FINN host was reachable from a Polish IP on
   23 August. A live refresh republished Racibórz (21 properties / 8 current
-  auctions) and Świętochłowice (97 / 8), making the strict 3-day health check
-  green for all 121 cities. GitHub/Azure egress has historically been
-  connect-dropped by this host, so provisioning the restricted Polish proxy in
-  [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) remains the durable reliability task;
-  there is no adapter patch to make. After repository-managed workflow execution
-  was removed on 25 August, Brzeg, Racibórz, Świętochłowice and Wałbrzych moved to
-  a stale-only health exemption: they remain explicit warnings, every other health
-  rule remains active, and the exemption expires after 21 days so the proxy work
-  cannot disappear behind a permanent allowlist.
+  auctions) and Świętochłowice (97 / 8). A new GitHub-hosted probe on 31 August
+  then refreshed Świętochłowice directly while Racibórz still connect-dropped.
+  Świętochłowice has therefore returned to the normal matrix and strict health;
+  Racibórz alone keeps the expiring stale-only exemption and remains the restricted
+  egress task. Brzeg and Wałbrzych also passed full direct hosted refreshes in the
+  same run and returned to the normal matrix.
 
 The dated July investigation notes below are retained as diagnosis history.
 Where they disagree with this section (notably Tczew, Nakło, Oświęcim and
-the old `EXEMPT_NEW` membership), this 23-August audit supersedes them.
+the old stale/egress membership), the 31-August update above supersedes them.
 
 > **Why health is red (confirmed 2026-07-07):** health.yml runs health-check.js
 > with **`STALE_DAYS=3`** (health.yml:60, tighter than the local default 14), so
@@ -450,12 +450,15 @@ extension remain untouched. Source contracts and limitations are recorded in
 gate on 31 August 2026: hosted provider attempts 3, 4 and 5 of
 [run 33312600323](https://github.com/110kc3/przetargimiejskie/actions/runs/33312600323)
 were consecutively green, and five active detail pages plus five explicit result PDFs
-were spot-checked HTTP 200 against the published 12-active / 16-concluded ledger.
+were spot-checked HTTP 200 against the published 12-active / 16-concluded ledger. PKP
+completed the same gate in
+[run 33379464740](https://github.com/110kc3/przetargimiejskie/actions/runs/33379464740):
+three sequential hosted refresh jobs were green, and each independently checked five
+active detail links plus five result links. The refreshed ledger contains 144 rows
+(50 active / 94 historical), so PKP now refreshes directly in the strict provider job.
 Remaining work:
 
-- after restricted Polish egress is deployed, resume PKP and require the same
-  three-run gate, then manually spot-check at least five active and five result links;
-- after that gate, decide whether to graduate the labelled rows to public
+- decide whether to graduate the labelled rows to public
   `/archiwum` (still excluded from municipal summary medians);
 - add provider-specific issue synchronization if workflow-only failure alerts
   prove too easy to miss;

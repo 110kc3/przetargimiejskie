@@ -48,6 +48,11 @@ export function normalizeBoardAddress(raw) {
     .trim()
     .replace(/^Wa[łl]brzych,?\s*/i, '')
     .replace(/^przy\s+/i, '')
+    // Newer board labels append cadastral context after the flat address,
+    // e.g. "ul. Kosynierów 3A/1, obręb Podgórze nr 39". Leaving that suffix
+    // in place makes the generic parser treat precinct number 39 as the
+    // building and loses the actual 3A/1 unit.
+    .replace(/\s*,?\s*obr[eę]b\b.*$/i, '')
     // Result tables use the short official street form "Andersa". Keeping the
     // board's honorific/initial would split one unit into two property keys.
     .replace(/^ul\.\s+gen\.\s+(?:W\.\s*)?Andersa\b/i, 'ul. Andersa')

@@ -15,11 +15,15 @@
 //   - Listings within a property are unioned by a fingerprint (date; kind only
 //     for dateless rows) — one auction event per property/date. When the SAME
 //     event is seen in both,
-//     the FRESH copy replaces the old one — so corrections propagate (a fixed
-//     area/price, an 'active' that became 'sold', a now-derived round) without
-//     creating a duplicate. A missing secondary BIP URL or owner-scope marker is
-//     retained because those facts may come from a source no longer on the live
-//     board. Events only in the OLD data (gone upstream) are frozen at last-seen.
+//     the FRESH copy normally replaces the old one — so corrections propagate
+//     (a fixed area/price, an 'active' that became 'sold', a now-derived round)
+//     without creating a duplicate. One exception is durable outcome evidence:
+//     an old result-backed terminal row beats a fresh active/archive-board row
+//     that has no result document. This covers boards that keep a concluded
+//     auction visible after its result PDF has entered the known-document cache.
+//     A missing secondary BIP URL or owner-scope marker is retained because those
+//     facts may come from a source no longer on the live board. Events only in
+//     the OLD data (gone upstream) are frozen at last-seen.
 //     (Price, outcome AND round are deliberately NOT in
 //     the fingerprint: price/outcome get corrected on re-crawl, and `round` is a
 //     value DERIVED from history — including it once caused old null-round rows
@@ -57,6 +61,14 @@ export function listingFingerprint(l) {
  * page or attachment it was parsed from), or null if unknown. */
 export function listingSource(l) {
   return l.detail_url || l.source_pdf || l.source_url || null;
+}
+
+const TERMINAL_RESULT_OUTCOMES = new Set(['sold', 'unsold', 'no_winner', 'cancelled']);
+
+/** A concluded row supported by a result document, rather than inferred only
+ * from an announcement disappearing or its date passing. */
+function isResultBackedTerminal(listing) {
+  return Boolean(listing?.source_pdf) && TERMINAL_RESULT_OUTCOMES.has(listing?.outcome);
 }
 
 /** Collapse "null-twin" duplicates within one property's listings: drop a
@@ -140,7 +152,7 @@ export function mergeProperties(previous, fresh) {
       byKey.set(fp.key, { ...fp, listings: [...(fp.listings || [])] });
       continue;
     }
-    // Union listings by fingerprint; fresh overwrites a matching old event.
+    // Union listings by fingerprint; fresh normally overwrites a matching old event.
     const merged = new Map();
     for (const l of old.listings) merged.set(listingFingerprint(l), l);
     const freshFps = new Set((fp.listings || []).map(listingFingerprint));
@@ -151,18 +163,37 @@ export function mergeProperties(previous, fresh) {
         merged.set(fingerprint, l);
         continue;
       }
-      // Fresh values remain authoritative, but these two fields are durable
-      // scope/provenance facts often learned from a secondary city-BIP stream.
-      // That page may disappear from a later crawl while the result PDF remains;
+      // Fresh values normally remain authoritative. A cached result document is
+      // deliberately not reparsed on every run, though, and some boards retain
+      // the concluded announcement. Do not let that weaker active/archived row
+      // erase a previously parsed terminal result.
+      const keepPreviousResult =
+        isResultBackedTerminal(previousListing) && !l.source_pdf &&
+        (l.outcome === 'active' || l.outcome === 'archived');
+      const primary = keepPreviousResult ? previousListing : l;
+      const secondary = keepPreviousResult ? l : previousListing;
+
+      // These are durable scope/provenance facts often learned from a secondary
+      // city-BIP stream. The board may disappear from a later crawl while the
+      // result PDF remains; retaining the facts keeps the frozen event sourced.
       // dropping its URL or State Treasury marker would silently change a frozen
       // report's source and owner scope even though it is the same dated event.
       merged.set(fingerprint, {
-        ...l,
-        ...(l.bip_url == null && previousListing.bip_url != null
-          ? { bip_url: previousListing.bip_url }
+        ...primary,
+        ...(primary.detail_url == null && secondary.detail_url != null
+          ? { detail_url: secondary.detail_url }
           : {}),
-        ...(l.owner_type == null && previousListing.owner_type != null
-          ? { owner_type: previousListing.owner_type }
+        ...(primary.area_m2 == null && secondary.area_m2 != null
+          ? { area_m2: secondary.area_m2 }
+          : {}),
+        ...(primary.land_area_m2 == null && secondary.land_area_m2 != null
+          ? { land_area_m2: secondary.land_area_m2 }
+          : {}),
+        ...(primary.bip_url == null && secondary.bip_url != null
+          ? { bip_url: secondary.bip_url }
+          : {}),
+        ...(primary.owner_type == null && secondary.owner_type != null
+          ? { owner_type: secondary.owner_type }
           : {}),
       });
     }

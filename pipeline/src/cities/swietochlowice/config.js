@@ -10,9 +10,9 @@ export const config = {
   authority: 'Urząd Miejski w Świętochłowicach',
   host: 'bip.swietochlowice.pl',
   source: 'html',
-  // This is the same FINN origin as Racibórz. Azure IPs are silently dropped;
-  // this flag selects the future restricted proxy in PL-EGRESS-PLAN.md.
-  needsResidentialEgress: true,
+  // The shared FINN origin historically dropped Azure traffic, but a full
+  // hosted refresh succeeded on 31 August 2026. It now runs in the normal
+  // matrix; health/triage will surface any recurrence.
   bip: {
     origin: ORIGIN,
     listPath: '/bipkod/29287911',

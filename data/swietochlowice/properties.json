@@ -151,7 +151,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 140000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
           "wadium_deadline": null,
@@ -172,7 +172,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 140000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 33.4,
           "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
           "wadium_deadline": null,
@@ -194,7 +194,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 90000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 34.45,
           "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
           "wadium_deadline": null,
@@ -216,11 +216,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 55000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 55550,
+          "source_pdf": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/44440426",
+          "notes": [],
           "area_m2": 24.18,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911"
         }
       ],
       "area_m2": 24.18
@@ -238,11 +240,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 99000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/44440181",
+          "notes": [],
           "area_m2": 40.63,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911"
         }
       ],
       "area_m2": 40.63

@@ -57,6 +57,9 @@ jobs:
       cities: ${{ steps.registry.outputs.cities }}
       # Registered adapters held out until the restricted egress proxy exists.
       blocked_cities: ${{ steps.registry.outputs.blocked_cities }}
+      # Every selected adapter that needs FETCH_PROXY_URL. This remains populated
+      # when the proxy is enabled, unlike blocked_cities.
+      egress_cities: ${{ steps.registry.outputs.egress_cities }}
       # Cities whose adapter needs core/render.js (headless Chromium) — the
       # matrix installs Playwright only for these (see `needsRender` in the
       # city's config.js). Registry-driven so it can't drift.
@@ -79,6 +82,9 @@ jobs:
           # workflow_dispatch only — restricts the matrix to one city (used by
           # the triage E2E test so a test run can't touch other cities).
           ONLY_CITY: ${{ inputs.only_city || '' }}
+          # Do not pass the credential into setup; only disclose whether it is
+          # configured so the registry can include the gated adapters.
+          RESIDENTIAL_EGRESS_ENABLED: ${{ secrets.FETCH_PROXY_URL != '' }}
         run: node scripts/refresh-matrix.js
 
   # One job per city, so a broken parser/source in one city can't block the
@@ -147,6 +153,10 @@ jobs:
         id: refresh
         timeout-minutes: 20
         working-directory: pipeline
+        env:
+          # Only flagged adapters receive the proxy credential. Every unaffected
+          # city keeps direct egress even when the repository secret is present.
+          FETCH_PROXY_URL: ${{ contains(fromJSON(needs.setup.outputs.egress_cities), matrix.city) && secrets.FETCH_PROXY_URL || '' }}
         run: |
           set -o pipefail
           mkdir -p "$GITHUB_WORKSPACE/triage/snapshots"
@@ -244,9 +254,8 @@ jobs:
   providers:
     needs: setup
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.only_city == '' }}
-    # PKP connect-times out from Azure, so it remains published from last-good
-    # data under the expiring provider-health warning until the restricted proxy
-    # in PL-EGRESS-PLAN.md is deployed. AMW refreshes normally from hosted CI.
+    # PKP and AMW both passed their hosted graduation gates and refresh directly
+    # from Azure. Keep them as separate steps so one source's failure is explicit.
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -261,10 +270,16 @@ jobs:
         run: npm ci || npm install
 
       - name: Refresh AMW feed
-        id: provider_refresh
+        id: provider_refresh_amw
         continue-on-error: true
         working-directory: pipeline
         run: PROVIDER=amw npm run refresh:providers
+
+      - name: Refresh PKP feed
+        id: provider_refresh_pkp
+        continue-on-error: true
+        working-directory: pipeline
+        run: PROVIDER=pkp npm run refresh:providers
 
       - name: Sanity-check provider data
         id: provider_health
@@ -293,11 +308,9 @@ jobs:
             exit 1
           fi
 
-      # Keep AMW refresh failures and every provider integrity failure strict.
-      # PKP's known hosted-egress limitation is represented by the bounded
-      # stale-only warning in provider-health-check.js, not a doomed network try.
+      # Keep both source refreshes and every provider integrity failure strict.
       - name: Fail on provider refresh or health error
-        if: always() && (steps.provider_refresh.outcome != 'success' || steps.provider_health.outcome != 'success')
+        if: always() && (steps.provider_refresh_amw.outcome != 'success' || steps.provider_refresh_pkp.outcome != 'success' || steps.provider_health.outcome != 'success')
         run: exit 1
 
   # Turn the per-city triage artifacts into GitHub issues: one open issue per

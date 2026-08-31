@@ -40,6 +40,10 @@ test('normalizeBoardAddress: strips venue prose and aligns the Andersa spelling'
   assert.equal(normalizeBoardAddress('przy ul. Stanisława Staszica 1/7'), 'ul. Stanisława Staszica 1/7');
   assert.equal(normalizeBoardAddress('Wałbrzych, przy ul. Harcerskiej 7/2'), 'ul. Harcerskiej 7/2');
   assert.equal(normalizeBoardAddress('Wałbrzych, ul. gen. W. Andersa 131/1'), 'ul. Andersa 131/1');
+  assert.equal(
+    normalizeBoardAddress('przy ul. Kosynierów 3A/1, obręb Podgórze nr 39'),
+    'ul. Kosynierów 3A/1',
+  );
 });
 
 // ── Real PDF fixture: 22.01.2025, 6 lots ────────────────────────────────────
@@ -531,6 +535,19 @@ test('parseBoardPage: filters for lokal mieszkalny only', () => {
 
 test('parseBoardPage: empty HTML returns empty array', () => {
   assert.deepEqual(parseBoardPage('<html><body>nic</body></html>'), []);
+});
+
+test('parseBoardPage: cadastral suffix cannot replace the flat address', () => {
+  const html = `
+    <table class="table table-borderless">
+      <tr><th scope="row">Adres nieruchomości</th><td class="normal"><a href="https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51706/przy-ul-kosynierow">ul. Kosynierów 3A/1, obręb Podgórze nr 39</a></td></tr>
+      <tr><th scope="row">Rodzaj nieruchomości</th><td>lokal mieszkalny</td></tr>
+      <tr><th scope="row">Cena wywoławcza</th><td>32.000,00 zł</td></tr>
+      <tr><th scope="row">Data przetargu</th><td><strong>07.10.2026</strong></td></tr>
+    </table>`;
+  const [card] = parseBoardPage(html);
+  assert.equal(card.address_raw, 'ul. Kosynierów 3A/1');
+  assert.equal(card.address.key, 'kosynierow|3A|1');
 });
 
 // parseMonthUrls
