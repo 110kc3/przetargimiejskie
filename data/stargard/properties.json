@@ -355,6 +355,28 @@
           "round_source": "inferred"
         }
       ]
+    },
+    {
+      "key": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 18 i 62 10 2 61 19 i 62 11 3 61 21 i 62|13|",
+      "street": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 18 i 62 10 2 61 19 i 62 11 3 61 21 i 62",
+      "street_norm": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 18 i 62 10 2 61 19 i 62 11 3 61 21 i 62",
+      "building": "13",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 233600,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/nieruchomosci-gruntowe-niezabudowane-obr-19-os-pyrzyckie-dzialki-numer-1-61-18-i-62-10-2-61-19-i-62-11-3-61-21-i-62-13/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
     }
   ]
 }
