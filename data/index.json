@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T13:21:10.479Z",
+  "generated_at": "2026-08-31T14:21:13.770Z",
   "cities": [
     {
       "id": "gliwice",
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 1,
+      "wykaz_entries": 0,
       "land_plots": 32
     },
     {
@@ -997,8 +997,8 @@
       "authority": "Gmina Trzebnica",
       "host": "bip.trzebnica.pl",
       "unique_properties": 13,
-      "active_listings": 1,
-      "active_auctions": 1,
+      "active_listings": 2,
+      "active_auctions": 2,
       "archived_auctions": 26,
       "wykaz_entries": 0,
       "land_plots": 41
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1205,11 +1205,11 @@
       "authority": "Urząd Miejski w Głubczycach",
       "host": "bip.glubczyce.pl",
       "unique_properties": 20,
-      "active_listings": 11,
+      "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 37,
       "wykaz_entries": 0,
-      "land_plots": 22
+      "land_plots": 11
     },
     {
       "id": "gostyn",
@@ -1439,7 +1439,7 @@
       "authority": "Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)",
       "host": "bip.kalisz.pl",
       "unique_properties": 6,
-      "active_listings": 0,
+      "active_listings": 2,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
