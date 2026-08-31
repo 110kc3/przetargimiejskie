@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-08-30T12:52:08.755Z",
+  "generated_at": "2026-08-31T01:45:03.625Z",
   "listings": [
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
@@ -72,6 +72,41 @@
       "outcome": "active",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653"
+    },
+    {
+      "title": "Dęblin, ul. Wiślana 19/29",
+      "city": "Dęblin",
+      "address_raw": "ul. Wiślana 19/29",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "city_norm": "deblin",
+      "voivodeship": "lubelskie",
+      "street": "Wiślana",
+      "building": "19",
+      "apt": "29",
+      "area_m2": 23.73,
+      "land_area_m2": null,
+      "publication_date": null,
+      "auction_date": "2026-10-06",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 154000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:0daffa4d871b0694",
+      "external_id": "11751",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/deblin-ul-wislana-19-29-11751",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/deblin-ul-wislana-19-29-11751"
     },
     {
       "title": "Warszawa, ul. Pajdaka 7, m. 136",
