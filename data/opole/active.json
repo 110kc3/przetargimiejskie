@@ -378,6 +378,23 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Pawła Stalmacha 1/4",
+      "address": {
+        "street": "Pawła Stalmacha",
+        "street_norm": "pawla stalmacha",
+        "building": "1",
+        "apt": "4",
+        "key": "pawla stalmacha|1|4",
+        "warning": null
+      },
+      "area_m2": 90.75,
+      "starting_price_pln": 432000,
+      "auction_date": "2026-11-10",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-11_483"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Wojciecha Drzymały 6/6",
       "address": {
         "street": "Wojciecha Drzymały",

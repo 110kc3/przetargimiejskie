@@ -3,6 +3,83 @@
   "city": "opole",
   "properties": [
     {
+      "key": "pawla stalmacha|1|4",
+      "street": "Pawła Stalmacha",
+      "street_norm": "pawla stalmacha",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 480000,
+          "outcome": "archived",
+          "area_m2": 90.75,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_148",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-07-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 432000,
+          "outcome": "archived",
+          "area_m2": 90.75,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_175",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-08-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 480000,
+          "outcome": "archived",
+          "area_m2": 67.5,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_293",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-10-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 432000,
+          "outcome": "archived",
+          "area_m2": 67.5,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_340",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 480000,
+          "outcome": "archived",
+          "area_m2": 90.75,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-8_464",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 432000,
+          "outcome": "active",
+          "area_m2": 90.75,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-11_483",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 90.75
+    },
+    {
       "key": "wojciecha drzymaly|6|6",
       "street": "Wojciecha Drzymały",
       "street_norm": "wojciecha drzymaly",
@@ -277,72 +354,6 @@
         }
       ],
       "area_m2": 41.63
-    },
-    {
-      "key": "pawla stalmacha|1|4",
-      "street": "Pawła Stalmacha",
-      "street_norm": "pawla stalmacha",
-      "building": "1",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2024-05-21",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 480000,
-          "outcome": "archived",
-          "area_m2": 90.75,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-5_148",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-07-24",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 432000,
-          "outcome": "archived",
-          "area_m2": 90.75,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2024-7_175",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-08-05",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 480000,
-          "outcome": "archived",
-          "area_m2": 67.5,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_293",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-10-21",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 432000,
-          "outcome": "archived",
-          "area_m2": 67.5,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-10_340",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-08-11",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 480000,
-          "outcome": "archived",
-          "area_m2": 90.75,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-8_464",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 90.75
     },
     {
       "key": "jagiellonow|4|5",
