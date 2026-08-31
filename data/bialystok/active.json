@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Juliana Tuwima 9 m 34",
+      "address": {
+        "street": "Juliana Tuwima",
+        "street_norm": "juliana tuwima",
+        "building": "9",
+        "apt": "34",
+        "key": "juliana tuwima|9|34",
+        "warning": null
+      },
+      "auction_date": "2026-10-13",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 199100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-34.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Rynek Kościuszki 17 m 7",
       "address": {
         "street": "Rynek Kościuszki",
