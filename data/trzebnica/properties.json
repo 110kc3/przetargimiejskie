@@ -3,6 +3,105 @@
   "city": "trzebnica",
   "properties": [
     {
+      "key": "rynek|12|",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "12",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-10-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 128300,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1649/przetargnrggnp562023",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-11-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1700/przetargggnp652023",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2023-12-28",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1749/przetargggnp812023",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-06",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 91000,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1834/przetargggnp82024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-03-22",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 91000,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1915/przetarg-ggnp-16-2024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-11-25",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 98000,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2384/przetargggnp502024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-02-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 118900,
+          "outcome": "archived",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3111/przetarg-ggn-p-6-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 134400,
+          "outcome": "active",
+          "area_m2": 30.13,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3521/przetarg-nr-ggn-p-21-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.13
+    },
+    {
       "key": "bolescin|0|2",
       "street": "Boleścin",
       "street_norm": "bolescin",
@@ -34,93 +133,6 @@
         }
       ],
       "area_m2": 93.4
-    },
-    {
-      "key": "rynek|12|",
-      "street": "Rynek",
-      "street_norm": "rynek",
-      "building": "12",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2023-10-17",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 128300,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1649/przetargnrggnp562023",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2023-11-27",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1700/przetargggnp652023",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2023-12-28",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 99000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1749/przetargggnp812023",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-02-06",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 91000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1834/przetargggnp82024",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-03-22",
-          "round": 5,
-          "kind": "mieszkalny",
-          "starting_price_pln": 91000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1915/przetarg-ggnp-16-2024",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-11-25",
-          "round": 6,
-          "kind": "mieszkalny",
-          "starting_price_pln": 98000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2384/przetargggnp502024",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-02-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 118900,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3111/przetarg-ggn-p-6-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
     },
     {
       "key": "ujezdziec wielki|26|",

@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Rynek 12",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "12",
+        "apt": null,
+        "key": "rynek|12|",
+        "warning": null
+      },
+      "area_m2": 30.13,
+      "starting_price_pln": 134400,
+      "auction_date": "2026-10-02",
+      "round": 1,
+      "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3521/przetarg-nr-ggn-p-21-2026",
+      "source_url": "https://bip.trzebnica.pl/attachments/download/7276"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Boleścin 0/2",
       "address": {
         "street": "Boleścin",

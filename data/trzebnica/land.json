@@ -3,6 +3,112 @@
   "city": "trzebnica",
   "plots": [
     {
+      "key": "addr|biedaszków wielki",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Biedaszków Wielki",
+      "street": null,
+      "building": null,
+      "address_raw": "Biedaszków Wielki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Biedaszk%C3%B3w%20Wielki%20Biedaszk%C3%B3w%20Wielki%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-27",
+          "round": 1,
+          "starting_price_pln": 1900000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1449/przetargggnp432023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2797"
+        },
+        {
+          "date": "2023-10-03",
+          "round": 2,
+          "starting_price_pln": 1800,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1581/przetarg-ggnp492023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/3032"
+        },
+        {
+          "date": "2023-12-14",
+          "round": 3,
+          "starting_price_pln": 1500000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1688/przetargggnp632023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/3236"
+        },
+        {
+          "date": "2024-03-06",
+          "round": 4,
+          "starting_price_pln": 1300,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1833/przetargggnp72024",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/3543"
+        },
+        {
+          "date": "2024-08-26",
+          "round": 1,
+          "starting_price_pln": 1505300,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2184/przetargggnp262024",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/4375"
+        },
+        {
+          "date": "2024-11-18",
+          "round": 2,
+          "starting_price_pln": 1300000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2332/przetargggnp412024",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/4614"
+        },
+        {
+          "date": "2025-04-03",
+          "round": 3,
+          "starting_price_pln": 1200000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2517/przetargggnp32025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/4992"
+        },
+        {
+          "date": "2025-11-05",
+          "round": 1,
+          "starting_price_pln": 950000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2893/przetargggnp362025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5690"
+        },
+        {
+          "date": "2026-01-26",
+          "round": 2,
+          "starting_price_pln": 850000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3009/przetargggnp512025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5903"
+        },
+        {
+          "date": "2026-04-13",
+          "round": 3,
+          "starting_price_pln": 750000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3120/przetarg-ggnp-7-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6156"
+        },
+        {
+          "date": "2026-11-03",
+          "round": 1,
+          "starting_price_pln": 1516100,
+          "outcome": "active",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3522/przetarg-nr-ggn-p-22-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7277"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|kobylice|1/2",
       "kind": "grunt",
       "city": "trzebnica",
@@ -269,104 +375,6 @@
           "outcome": "archived",
           "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3217/przetarg-nr-ggn-p-9-2026",
           "source_url": "https://bip.trzebnica.pl/attachments/download/6511"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "addr|biedaszków wielki",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": null,
-      "obreb": "Biedaszków Wielki",
-      "street": null,
-      "building": null,
-      "address_raw": "Biedaszków Wielki",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Biedaszk%C3%B3w%20Wielki%20Biedaszk%C3%B3w%20Wielki%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-07-27",
-          "round": 1,
-          "starting_price_pln": 1900000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1449/przetargggnp432023",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/2797"
-        },
-        {
-          "date": "2023-10-03",
-          "round": 2,
-          "starting_price_pln": 1800,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1581/przetarg-ggnp492023",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/3032"
-        },
-        {
-          "date": "2023-12-14",
-          "round": 3,
-          "starting_price_pln": 1500000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1688/przetargggnp632023",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/3236"
-        },
-        {
-          "date": "2024-03-06",
-          "round": 4,
-          "starting_price_pln": 1300,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1833/przetargggnp72024",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/3543"
-        },
-        {
-          "date": "2024-08-26",
-          "round": 1,
-          "starting_price_pln": 1505300,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2184/przetargggnp262024",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/4375"
-        },
-        {
-          "date": "2024-11-18",
-          "round": 2,
-          "starting_price_pln": 1300000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2332/przetargggnp412024",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/4614"
-        },
-        {
-          "date": "2025-04-03",
-          "round": 3,
-          "starting_price_pln": 1200000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2517/przetargggnp32025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/4992"
-        },
-        {
-          "date": "2025-11-05",
-          "round": 1,
-          "starting_price_pln": 950000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2893/przetargggnp362025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5690"
-        },
-        {
-          "date": "2026-01-26",
-          "round": 2,
-          "starting_price_pln": 850000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3009/przetargggnp512025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5903"
-        },
-        {
-          "date": "2026-04-13",
-          "round": 3,
-          "starting_price_pln": 750000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3120/przetarg-ggnp-7-2026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/6156"
         }
       ],
       "parcels": []
