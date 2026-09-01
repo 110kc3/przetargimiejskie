@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-08-31T20:30:55.127Z",
+  "generated_at": "2026-09-01T05:21:05.134Z",
   "listings": [
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
@@ -37,6 +37,41 @@
       "outcome": "active",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-grojecka-66-11662",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-grojecka-66-11662"
+    },
+    {
+      "title": "Oleśnica, ul. Hallera 4/8",
+      "city": "Oleśnica",
+      "address_raw": "ul. Hallera 4/8",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "city_norm": "olesnica",
+      "voivodeship": "dolnoslaskie",
+      "street": "Hallera",
+      "building": "4",
+      "apt": "8",
+      "area_m2": 79.21,
+      "land_area_m2": null,
+      "publication_date": null,
+      "auction_date": "2026-10-13",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 365000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:302a816874f59010",
+      "external_id": "8834",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/olesnica-ul-hallera-4-8-8834",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/olesnica-ul-hallera-4-8-8834"
     },
     {
       "title": "Brzeg, ul. Małujowicka, dz. 571/57, 571/58",
