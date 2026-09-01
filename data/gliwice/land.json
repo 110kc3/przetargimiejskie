@@ -214,7 +214,7 @@
           "date": "2026-08-31",
           "round": 1,
           "starting_price_pln": null,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 10099,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-4",
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
@@ -250,61 +250,6 @@
           "nr": "560",
           "dzialka_id": "246601_1.0030.560",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
-        }
-      ]
-    },
-    {
-      "key": "dz|ligota zabrska|: 52, 53, 54, 559, 560, 56",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": ": 52, 53, 54, 559, 560, 56",
-      "obreb": "Ligota Zabrska",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. św. Jacka-1",
-      "dzialka_id": "246601_1.0030.53",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-31",
-          "round": 3,
-          "starting_price_pln": 4587000,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-4"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": ": 52",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%3A%2052%20Ligota%20Zabrska%20Gliwice%20geoportal%20dzia%C5%82ki"
-        },
-        {
-          "nr": "53",
-          "dzialka_id": "246601_1.0030.53",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
-        },
-        {
-          "nr": "54",
-          "dzialka_id": "246601_1.0030.54",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
-        },
-        {
-          "nr": "559",
-          "dzialka_id": "246601_1.0030.559",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
-        },
-        {
-          "nr": "560",
-          "dzialka_id": "246601_1.0030.560",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
-        },
-        {
-          "nr": "56",
-          "dzialka_id": "246601_1.0030.56",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
         }
       ]
     },
