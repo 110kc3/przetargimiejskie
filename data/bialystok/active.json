@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Włókiennicza 17 m 71",
+      "address": {
+        "street": "Włókiennicza",
+        "street_norm": "wlokiennicza",
+        "building": "17",
+        "apt": "71",
+        "key": "wlokiennicza|17|71",
+        "warning": null
+      },
+      "auction_date": "2026-10-15",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 258100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-71.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Włókiennicza 17 m 68",
+      "address": {
+        "street": "Włókiennicza",
+        "street_norm": "wlokiennicza",
+        "building": "17",
+        "apt": "68",
+        "key": "wlokiennicza|17|68",
+        "warning": null
+      },
+      "auction_date": "2026-10-14",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 326100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-68.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Juliana Tuwima 9 m 34",
       "address": {
         "street": "Juliana Tuwima",
