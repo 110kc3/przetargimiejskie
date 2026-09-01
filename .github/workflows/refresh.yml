@@ -256,8 +256,13 @@ jobs:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.only_city == '' }}
     # PKP and AMW both passed their hosted graduation gates and refresh directly
     # from Azure. Keep them as separate steps so one source's failure is explicit.
+    # Step outcomes are exported for the fresh-runner PKP failover jobs below.
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    outputs:
+      amw_refresh: ${{ steps.provider_refresh_amw.outcome }}
+      pkp_refresh: ${{ steps.provider_refresh_pkp.outcome }}
+      provider_health: ${{ steps.provider_health.outcome }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
@@ -308,10 +313,163 @@ jobs:
             exit 1
           fi
 
-      # Keep both source refreshes and every provider integrity failure strict.
-      - name: Fail on provider refresh or health error
-        if: always() && (steps.provider_refresh_amw.outcome != 'success' || steps.provider_refresh_pkp.outcome != 'success' || steps.provider_health.outcome != 'success')
-        run: exit 1
+  # www.pkp.pl selectively timed out from westus3 while succeeding from three
+  # other Azure regions. A step retry stays on the same blocked runner, so an
+  # isolated PKP transport failure gets up to two NEW hosted runners. Attempt
+  # jobs deliberately remain green and export their real step outcome; the
+  # provider_gate below is the single strict authority and accepts any one
+  # fresh, healthy PKP attempt.
+  providers_pkp_retry_1:
+    needs: [setup, providers]
+    if: ${{ always() && needs.setup.result == 'success' && needs.providers.result == 'success' && needs.providers.outputs.amw_refresh == 'success' && needs.providers.outputs.provider_health == 'success' && needs.providers.outputs.pkp_refresh != 'success' && (github.event_name != 'workflow_dispatch' || inputs.only_city == '') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      pkp_refresh: ${{ steps.provider_refresh_pkp.outcome }}
+      provider_health: ${{ steps.provider_health.outcome }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Install pipeline deps
+        working-directory: pipeline
+        run: npm ci || npm install
+
+      - name: Refresh PKP feed (fresh-runner retry 1)
+        id: provider_refresh_pkp
+        continue-on-error: true
+        working-directory: pipeline
+        run: PROVIDER=pkp npm run refresh:providers
+
+      - name: Sanity-check provider data
+        id: provider_health
+        if: always()
+        continue-on-error: true
+        working-directory: pipeline
+        run: npm run health:providers
+
+      - name: Commit and push refreshed PKP data
+        if: steps.provider_refresh_pkp.outcome == 'success' && steps.provider_health.outcome == 'success'
+        run: |
+          git config user.name  "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add data/providers pipeline/ocr-cache
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "data: refresh PKP provider $(date -u +%Y-%m-%d)"
+            for i in 1 2 3 4 5 6; do
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt $i failed; retrying ..."
+              sleep $(( (RANDOM % 8) + 2 ))
+            done
+            echo "could not push PKP provider data after 6 attempts" >&2
+            exit 1
+          fi
+
+  providers_pkp_retry_2:
+    needs: [setup, providers, providers_pkp_retry_1]
+    if: ${{ always() && needs.setup.result == 'success' && needs.providers.result == 'success' && needs.providers.outputs.amw_refresh == 'success' && needs.providers.outputs.provider_health == 'success' && needs.providers.outputs.pkp_refresh != 'success' && needs.providers_pkp_retry_1.result == 'success' && (needs.providers_pkp_retry_1.outputs.pkp_refresh != 'success' || needs.providers_pkp_retry_1.outputs.provider_health != 'success') && (github.event_name != 'workflow_dispatch' || inputs.only_city == '') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      pkp_refresh: ${{ steps.provider_refresh_pkp.outcome }}
+      provider_health: ${{ steps.provider_health.outcome }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Install pipeline deps
+        working-directory: pipeline
+        run: npm ci || npm install
+
+      - name: Refresh PKP feed (fresh-runner retry 2)
+        id: provider_refresh_pkp
+        continue-on-error: true
+        working-directory: pipeline
+        run: PROVIDER=pkp npm run refresh:providers
+
+      - name: Sanity-check provider data
+        id: provider_health
+        if: always()
+        continue-on-error: true
+        working-directory: pipeline
+        run: npm run health:providers
+
+      - name: Commit and push refreshed PKP data
+        if: steps.provider_refresh_pkp.outcome == 'success' && steps.provider_health.outcome == 'success'
+        run: |
+          git config user.name  "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add data/providers pipeline/ocr-cache
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "data: refresh PKP provider $(date -u +%Y-%m-%d)"
+            for i in 1 2 3 4 5 6; do
+              git pull --rebase -X theirs origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt $i failed; retrying ..."
+              sleep $(( (RANDOM % 8) + 2 ))
+            done
+            echo "could not push PKP provider data after 6 attempts" >&2
+            exit 1
+          fi
+
+  provider_gate:
+    needs: [setup, providers, providers_pkp_retry_1, providers_pkp_retry_2]
+    if: ${{ always() && needs.setup.result == 'success' && (github.event_name != 'workflow_dispatch' || inputs.only_city == '') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Enforce strict provider outcomes
+        env:
+          PRIMARY_JOB: ${{ needs.providers.result }}
+          AMW_PRIMARY: ${{ needs.providers.outputs.amw_refresh }}
+          PKP_PRIMARY: ${{ needs.providers.outputs.pkp_refresh }}
+          PRIMARY_HEALTH: ${{ needs.providers.outputs.provider_health }}
+          RETRY_1_JOB: ${{ needs.providers_pkp_retry_1.result }}
+          PKP_RETRY_1: ${{ needs.providers_pkp_retry_1.outputs.pkp_refresh }}
+          RETRY_1_HEALTH: ${{ needs.providers_pkp_retry_1.outputs.provider_health }}
+          RETRY_2_JOB: ${{ needs.providers_pkp_retry_2.result }}
+          PKP_RETRY_2: ${{ needs.providers_pkp_retry_2.outputs.pkp_refresh }}
+          RETRY_2_HEALTH: ${{ needs.providers_pkp_retry_2.outputs.provider_health }}
+        run: |
+          printf 'primary_job=%s amw=%s pkp=%s health=%s\n' "$PRIMARY_JOB" "$AMW_PRIMARY" "$PKP_PRIMARY" "$PRIMARY_HEALTH"
+          printf 'retry_1_job=%s pkp=%s health=%s\n' "$RETRY_1_JOB" "$PKP_RETRY_1" "$RETRY_1_HEALTH"
+          printf 'retry_2_job=%s pkp=%s health=%s\n' "$RETRY_2_JOB" "$PKP_RETRY_2" "$RETRY_2_HEALTH"
+
+          if [ "$PRIMARY_JOB" != 'success' ] || [ "$AMW_PRIMARY" != 'success' ] || [ "$PRIMARY_HEALTH" != 'success' ]; then
+            echo 'AMW refresh, primary provider health, or provider commit failed' >&2
+            exit 1
+          fi
+
+          pkp_ok=false
+          if [ "$PKP_PRIMARY" = 'success' ]; then
+            pkp_ok=true
+          fi
+          if [ "$RETRY_1_JOB" = 'success' ] && [ "$PKP_RETRY_1" = 'success' ] && [ "$RETRY_1_HEALTH" = 'success' ]; then
+            pkp_ok=true
+          fi
+          if [ "$RETRY_2_JOB" = 'success' ] && [ "$PKP_RETRY_2" = 'success' ] && [ "$RETRY_2_HEALTH" = 'success' ]; then
+            pkp_ok=true
+          fi
+          if [ "$pkp_ok" != 'true' ]; then
+            echo 'PKP refresh failed on the primary runner and every fresh-runner retry' >&2
+            exit 1
+          fi
+          echo 'Provider strict gate passed.'
 
   # Turn the per-city triage artifacts into GitHub issues: one open issue per
   # broken city ([city-broken] <id>: <why>, body = a paste-into-Claude-Code
@@ -374,7 +532,7 @@ jobs:
   # Rebuild data/index.json once, after every city job has finished (also when
   # some failed — their last-published meta.json keeps them in the index).
   index:
-    needs: [setup, refresh, providers]
+    needs: [setup, refresh, provider_gate]
     if: ${{ always() && needs.setup.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
