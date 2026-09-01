@@ -129,11 +129,19 @@ export function parseCatalog(html) {
     const chunk = html.slice(starts[i], starts[i + 1] ?? html.length);
     const text = stripTags(chunk);
     const addrRaw = CAT.adres.exec(text)?.[1]?.trim();
-    if (!addrRaw || /\bdz\.?\s*\d/i.test(addrRaw)) continue;
+    // This map feeds flat/commercial enrichment and, when the BIP list is
+    // temporarily empty, becomes the listing fallback.  Parcel syntax used to
+    // be the only land guard, but catalog land can also be keyed by ordinary
+    // building addresses (for example two buildings on pl. Sikorskiego).  Gate
+    // on the source's explicit type so those rows stay exclusively in
+    // parseCatalogLand() and cannot become bogus residential properties.
+    const typ = /TYP\s*:\s*([\s\S]*?)\s*(?:ETAP|$)/i.exec(text)?.[1]?.trim() ?? '';
+    if (!addrRaw || !/\blokal\b/i.test(typ)) continue;
     const address = parseAddress(primaryAddress(addrRaw));
     if (!address) continue;
     const hrefM = /href="([^"]+\.doc[^"]*)"/i.exec(chunk);
     byKey.set(address.key, {
+      kind: /mieszkaln/i.test(typ) ? 'mieszkalny' : 'uzytkowy',
       auction_date: CAT.termin.exec(text)?.[1] ?? null,
       area_m2: parseArea(CAT.powierzchnia.exec(text)?.[1]),
       starting_price_pln: parsePLN(CAT.cena.exec(text)?.[1]),
@@ -224,6 +232,14 @@ export function parseCatalogLand(html) {
   return land;
 }
 
+// A page can be non-empty while containing no address-keyed listings relevant
+// to this adapter.  In September 2026 page 1 became ten land-only rows while
+// pages 2-5 still held all 14 flat/commercial listings.  Pagination must stop
+// on an empty SOURCE page, not on an empty filtered parse result.
+export function bipListItemCount(html) {
+  return [...String(html || '').matchAll(/<li[^>]*class="[^"]*aktualnosc__item[^"]*"/gi)].length;
+}
+
 export function parseBipList(html) {
   const out = [];
   const itemRe = /<li[^>]*class="[^"]*aktualnosc__item[^"]*"[^>]*>([\s\S]*?)<\/li>/gi;
@@ -277,7 +293,8 @@ async function crawlBipList() {
       break;
     }
     const pageItems = parseBipList(html);
-    if (pageItems.length === 0) break;
+    const sourceItemCount = bipListItemCount(html);
+    if (sourceItemCount === 0) break;
     let added = 0;
     for (const it of pageItems) {
       if (seenKeys.has(it.address.key)) continue;
@@ -285,7 +302,10 @@ async function crawlBipList() {
       items.push(it);
       added++;
     }
-    console.error(`  bytom BIP page ${page}: ${pageItems.length} items (${added} new flats/commercial)`);
+    console.error(
+      `  bytom BIP page ${page}: ${sourceItemCount} source items, ` +
+      `${pageItems.length} relevant (${added} new flats/commercial)`,
+    );
   }
   return items;
 }
@@ -352,7 +372,7 @@ export async function crawlActive() {
     for (const [key, c] of catByKey) {
       const [street_norm] = key.split('|');
       listings.push({
-        kind: 'mieszkalny',
+        kind: c.kind ?? 'mieszkalny',
         address_raw: street_norm,
         address: { key, street: street_norm, street_norm, building: key.split('|')[1], apt: key.split('|')[2] || null, warning: null },
         auction_date: c.auction_date,

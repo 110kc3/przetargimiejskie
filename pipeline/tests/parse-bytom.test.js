@@ -5,7 +5,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseBipList, parseCatalog, parseCatalogLand, attachmentUrlFromDetail, nullImplausiblePrices } from '../src/cities/bytom/crawl.js';
+import { bipListItemCount, parseBipList, parseCatalog, parseCatalogLand, attachmentUrlFromDetail, nullImplausiblePrices } from '../src/cities/bytom/crawl.js';
 import {
   parseAnnouncement,
   roundFromText,
@@ -38,6 +38,14 @@ test('parseBipList keeps flats + commercial, skips land', () => {
   const items = parseBipList(BIP_HTML);
   assert.equal(items.length, 3, 'the grunt parcel should be dropped');
   assert.deepEqual(items.map((i) => i.kind).sort(), ['mieszkalny', 'mieszkalny', 'uzytkowy']);
+});
+
+test('a land-only BIP page still counts as a non-empty pagination page', () => {
+  const html = `<ul class="aktualnosci">
+    ${li({ date: '2026-09-01', href: 'https://www.bytom.pl/bip/x/idn:13978', addr: 'Plac Sikorskiego 8 i Sikorskiego 8a', desc: 'Pierwszy przetarg na sprzedaż nieruchomości gruntowych zabudowanych i niezabudowanych.' })}
+  </ul>`;
+  assert.equal(parseBipList(html).length, 0, 'land remains filtered from residential listings');
+  assert.equal(bipListItemCount(html), 1, 'the crawler must continue to the next source page');
 });
 
 test('parseBipList extracts idn page URL, round, date and address', () => {
@@ -118,17 +126,38 @@ const CATALOG_HTML = `<main>
   <p><strong>CENA WYWOLAWCZA:</strong> 15375</p>
   <p><strong>POWIERZCHNIA:</strong> 25</p>
   <p><strong>LINK:</strong> <a href="https://www.bytom.pl/bip/download/x,1.doc">doc</a></p></div>
+  <div><p><strong>ADRES:</strong> pl. Generała Władysława Sikorskiego 8A; pl. Generała Władysława Sikorskiego 8</p>
+  <p><strong>TYP:</strong> grunty zabudowane</p>
+  <p><strong>ETAP SPRZEDAZY:</strong> I Przetarg</p>
+  <p><strong>TERMIN PRZETARGU:</strong> 2026-10-29</p>
+  <p><strong>CENA WYWOLAWCZA:</strong> 550000</p>
+  <p><strong>POWIERZCHNIA:</strong> 634</p>
+  <p><strong>LINK:</strong> <a href="https://www.bytom.pl/bip/download/Sikorskiego-8-i-8a.doc">doc</a></p></div>
+  <div><p><strong>ADRES:</strong> Marszałka Józefa Piłsudskiego 7/11</p>
+  <p><strong>TYP:</strong> lokal użytkowy</p>
+  <p><strong>ETAP SPRZEDAZY:</strong> I Przetarg</p>
+  <p><strong>TERMIN PRZETARGU:</strong> 2026-10-20</p>
+  <p><strong>CENA WYWOLAWCZA:</strong> 130000</p>
+  <p><strong>POWIERZCHNIA:</strong> 48.2</p>
+  <p><strong>LINK:</strong> <a href="https://www.bytom.pl/bip/download/Pilsudskiego-7-11.doc">doc</a></p></div>
 </main>`;
 
 test('parseCatalog returns an enrichment Map keyed by address, land skipped', () => {
   const map = parseCatalog(CATALOG_HTML);
-  assert.equal(map.size, 1); // grunt dropped (dz. suffix)
+  assert.equal(map.size, 2); // both land rows dropped, including one without a parcel suffix
   const kat = map.get('katowicka|44|8');
   assert.ok(kat);
+  assert.equal(kat.kind, 'mieszkalny');
   assert.equal(kat.auction_date, '2026-06-16');
   assert.equal(kat.starting_price_pln, 85000);
   assert.equal(kat.area_m2, 53.77);
   assert.match(kat.doc_url, /Katowicka-44-8,23643\.doc$/);
+  assert.equal(
+    map.has('generala wladyslawa sikorskiego 8a pl generala wladyslawa sikorskiego|8|'),
+    false,
+    'building-addressed land must not leak into the flat fallback',
+  );
+  assert.equal(map.get('marszalka jozefa pilsudskiego|7|11').kind, 'uzytkowy');
 });
 
 //
