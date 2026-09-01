@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T09:38:43.359Z",
+  "generated_at": "2026-09-01T11:52:25.929Z",
   "cities": [
     {
       "id": "gliwice",
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 90,
+      "active_listings": 50,
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 111
+      "land_plots": 78
     },
     {
       "id": "trzebinia",
@@ -256,7 +256,7 @@
       "authority": "Urząd Miasta Olsztyna",
       "host": "bip.olsztyn.eu",
       "unique_properties": 11,
-      "active_listings": 10,
+      "active_listings": 11,
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
@@ -333,10 +333,10 @@
       "voivodeship": "podlaskie",
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
-      "unique_properties": 227,
-      "active_listings": 18,
-      "active_auctions": 13,
-      "archived_auctions": 272,
+      "unique_properties": 229,
+      "active_listings": 20,
+      "active_auctions": 15,
+      "archived_auctions": 297,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
