@@ -132,6 +132,20 @@
       "kind": "mieszkalny",
       "listings": [
         {
+          "date": "2026-05-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 389100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-72.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
           "date": "2026-07-09",
           "round": 1,
           "kind": "mieszkalny",
@@ -164,6 +178,20 @@
       "apt": "60",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2026-05-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 293100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89a-m-60.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
         {
           "date": "2026-07-09",
           "round": 1,
@@ -231,6 +259,20 @@
       "kind": "mieszkalny",
       "listings": [
         {
+          "date": "2026-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 328100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-54.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
           "date": "2026-07-02",
           "round": 1,
           "kind": "mieszkalny",
@@ -263,6 +305,20 @@
       "apt": "16",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2026-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 407100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-21-m-16.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
         {
           "date": "2026-07-02",
           "round": 1,
@@ -330,8 +386,36 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-09-15",
+          "date": "2025-09-30",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 312900,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-44.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-11-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 312900,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-45.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-09-15",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 368000,
           "outcome": "active",
@@ -418,8 +502,50 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-08-26",
+          "date": "2025-09-24",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 244800,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 244800,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-42.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-12-30",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 244800,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-43.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-26",
+          "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 285100,
           "outcome": "archived",
@@ -440,8 +566,36 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-08-26",
+          "date": "2025-10-01",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 247200,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-29a-m-55-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 247200,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-29a-m-55-56.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-26",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 289100,
           "outcome": "archived",
@@ -474,8 +628,22 @@
           "round_source": "inferred"
         },
         {
-          "date": "2026-08-26",
+          "date": "2025-11-19",
           "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 324900,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-12.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-26",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 363100,
           "outcome": "archived",
@@ -540,8 +708,50 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-08-13",
+          "date": "2026-03-04",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 337100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-zagorna-4-m-34.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-04-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 337100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-zagorna-4-m-34-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-06-11",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 286600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-zagorna-4-m-34-35.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-13",
+          "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 286600,
           "outcome": "archived",
@@ -562,8 +772,22 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-08-13",
+          "date": "2026-05-27",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 484100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-13",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 484100,
           "outcome": "archived",
@@ -606,8 +830,22 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-23",
+          "date": "2026-04-21",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 423100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8b-m-7-10.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-06-23",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 359700,
           "outcome": "sold",
@@ -628,8 +866,36 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-06-11",
+          "date": "2026-03-04",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 367100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wiejska-4b-m-36.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-04-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 367100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wiejska-4b-m-36-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-06-11",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 312100,
           "outcome": "sold",
@@ -650,8 +916,36 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-04-28",
+          "date": "2026-01-20",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 342100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-proletariacka-5-m-13.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 342100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-proletariacka-5-m-13-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-04-28",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 290900,
           "outcome": "sold",
@@ -672,8 +966,36 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-04-21",
+          "date": "2025-12-04",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-grochowa-2-m-39a.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-02-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-grochowa-2-m-39a-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-04-21",
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 238200,
           "outcome": "sold",
@@ -826,8 +1148,22 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2025-11-20",
+          "date": "2025-09-24",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 247500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-29-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 247500,
           "outcome": "sold",
@@ -848,8 +1184,22 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2025-11-19",
+          "date": "2025-09-17",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 196900,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-13-m-32-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-11-19",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 196900,
           "outcome": "sold",
