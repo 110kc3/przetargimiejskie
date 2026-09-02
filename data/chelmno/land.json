@@ -3,6 +3,33 @@
   "city": "chelmno",
   "plots": [
     {
+      "key": "addr|ul. panieńska",
+      "kind": "grunt",
+      "city": "chelmno",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Panieńska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Panie%C5%84ska%20Che%C5%82mno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 283,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-10",
+          "round": 1,
+          "starting_price_pln": 49200,
+          "outcome": "active",
+          "area_m2": 283,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11768/ul-panienska",
+          "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11768/ul-panienska"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|185/22, 372",
       "kind": "grunt",
       "city": "chelmno",
