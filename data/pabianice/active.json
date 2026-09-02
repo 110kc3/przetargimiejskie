@@ -112,6 +112,24 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "lokal mieszkalny nr 6 przy ul. Bolesława Nawrockiego 4A",
+      "address": {
+        "street": "Bolesława Nawrockiego",
+        "street_norm": "boleslawa nawrockiego",
+        "building": "4A",
+        "apt": "6",
+        "key": "boleslawa nawrockiego|4A|6",
+        "warning": null
+      },
+      "starting_price_pln": 61000,
+      "auction_date": "2026-04-30",
+      "round": null,
+      "area_m2": null,
+      "detail_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23924/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a",
+      "source_url": "https://bip.um.pabianice.pl/przetarg-nieruchomosci/23924/lokal-mieszkalny-nr-6-przy-ul-boleslawa-nawrockiego-4a"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "lokal mieszkalny nr 9/10 przy ul. Pomorskiej 20",
       "address": {
         "street": "Pomorskiej",
