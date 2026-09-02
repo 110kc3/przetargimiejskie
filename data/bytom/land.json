@@ -84,6 +84,68 @@
       "parcels": []
     },
     {
+      "key": "dz|736/120",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "736/120",
+      "obreb": null,
+      "street": "Wincentego Witosa",
+      "building": null,
+      "address_raw": "Wincentego Witosa dz. 736/120",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.89350149075181%2C50.33526746848038%2C18.893953442600402%2C50.33556130642531&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.057b3c82-64f5-445d-b53c-bfd14fde38ac",
+      "area_m2": 555,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "starting_price_pln": 125000,
+          "outcome": "active",
+          "area_m2": 555,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Witosa-dz.-736_120,24893.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "736/120"
+        }
+      ]
+    },
+    {
+      "key": "dz|723/131",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "723/131",
+      "obreb": null,
+      "street": "Wincentego Witosa",
+      "building": null,
+      "address_raw": "Wincentego Witosa dz. 723/131",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.891044753551284%2C50.33665756704268%2C18.891517598406207%2C50.336965159870054&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.85548b1a-b22c-4ae7-b125-f5c550006f87",
+      "area_m2": 587,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "starting_price_pln": 126000,
+          "outcome": "active",
+          "area_m2": 587,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Witosa-dz.-723_131,24892.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "723/131"
+        }
+      ]
+    },
+    {
       "key": "dz|5543/32",
       "kind": "grunt",
       "city": "bytom",
@@ -516,7 +578,7 @@
           "date": "2026-09-01",
           "round": 2,
           "starting_price_pln": 187500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 759,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Jaskolcza-dz.-3578_28,24562.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
