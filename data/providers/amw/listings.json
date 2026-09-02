@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-09-01T11:17:57.757Z",
+  "generated_at": "2026-09-02T08:17:24.171Z",
   "listings": [
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
@@ -454,7 +454,7 @@
       "event_key": "amw:63c9937759a222c6",
       "external_id": "12195",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/zagan-ul-dworcowa-16-12-12195",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/zagan-ul-dworcowa-16-12-12195"
     },
@@ -735,11 +735,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:0900534c59883943",
-      "external_id": "12054",
-      "source_status": "Ogłoszony",
-      "outcome": "archived",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054"
+      "external_id": "5c01ed6ad1f6dcf8",
+      "source_status": "Negatywny",
+      "outcome": "unsold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/25/83/docs/6a97475aea665_Wynik%20przetargu%20W%C4%99grzce%207_16.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054",
+      "result_url": "https://amw.com.pl/uploads/publications/01/25/83/docs/6a97475aea665_Wynik%20przetargu%20W%C4%99grzce%207_16.pdf"
     },
     {
       "title": "Mirosławiec Górny, ul. Lotnictwa Polskiego 29/19, dz. 50/40",
