@@ -411,6 +411,32 @@
           "nr": "60/3"
         }
       ]
+    },
+    {
+      "key": "addr|handlowej lista osób zakwalifikowanych do",
+      "kind": "grunt",
+      "city": "lebork",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Handlowej Lista osób zakwalifikowanych do",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Handlowej%20Lista%20os%C3%B3b%20zakwalifikowanych%20do%20L%C4%99bork%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.um.lebork.pl/artykul/lista-osob-zakwalifikowanych-do-i-przetargu-ustnego-ograniczonego-na-sprzedaz-dzialki-771-46-ob",
+          "source_url": "https://bip.um.lebork.pl/artykul/lista-osob-zakwalifikowanych-do-i-przetargu-ustnego-ograniczonego-na-sprzedaz-dzialki-771-46-ob"
+        }
+      ],
+      "parcels": []
     }
   ]
 }
