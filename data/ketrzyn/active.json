@@ -1,6 +1,29 @@
 {
   "schema_version": 1,
   "city": "ketrzyn",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "Bolesława Chrobrego 6/38",
+      "address": {
+        "street": "Bolesława Chrobrego",
+        "street_norm": "boleslawa chrobrego",
+        "building": "6",
+        "apt": "38",
+        "key": "boleslawa chrobrego|6|38",
+        "warning": null
+      },
+      "dzialka_nr": null,
+      "obreb": null,
+      "area_m2": 24.6,
+      "starting_price_pln": 42000,
+      "auction_date": "2026-10-08",
+      "round": 4,
+      "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie-2",
+      "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie/ogloszenie-o-przetargu-chrobrego-6-lok.-38.pdf",
+      "published_date": "2026-09-01",
+      "round_source": "inferred"
+    }
+  ],
   "wykaz": []
 }

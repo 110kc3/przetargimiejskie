@@ -3,6 +3,66 @@
   "city": "ketrzyn",
   "properties": [
     {
+      "key": "boleslawa chrobrego|6|38",
+      "street": "Bolesława Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "6",
+      "apt": "38",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-12-05",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20251023-3/informacja-o-wyniku-przetargu-chrobrego-6-lok.-38.pdf",
+          "notes": [],
+          "area_m2": 24.6
+        },
+        {
+          "date": "2026-03-12",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20260128-3/informacja-o-wyniku-przetargu.pdf",
+          "notes": [],
+          "area_m2": 24.6,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-05-26",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie/informacja-o-wyniku-przetargu-chrobrego-6-lok.-38.pdf",
+          "notes": [],
+          "area_m2": 24.6
+        },
+        {
+          "date": "2026-10-08",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 42000,
+          "outcome": "active",
+          "area_m2": 24.6,
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie-2",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 24.6
+    },
+    {
       "key": "gen wladyslawa sikorskiego|72A|1",
       "street": "Gen. Władysława Sikorskiego",
       "street_norm": "gen wladyslawa sikorskiego",
@@ -38,54 +98,6 @@
         }
       ],
       "area_m2": 33.2
-    },
-    {
-      "key": "boleslawa chrobrego|6|38",
-      "street": "Bolesława Chrobrego",
-      "street_norm": "boleslawa chrobrego",
-      "building": "6",
-      "apt": "38",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2025-12-05",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 42000,
-          "outcome": "unsold",
-          "unsold_reason": "negative_no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20251023-3/informacja-o-wyniku-przetargu-chrobrego-6-lok.-38.pdf",
-          "notes": [],
-          "area_m2": 24.6
-        },
-        {
-          "date": "2026-03-12",
-          "round": 2,
-          "kind": "uzytkowy",
-          "starting_price_pln": 42000,
-          "outcome": "unsold",
-          "unsold_reason": "negative_no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/informacja-o-wyniku-przetargu-lokal-mieszkalny-nr-38-ul-boleslawa-chrobrego-6-w-ketrzynie",
-          "notes": [],
-          "area_m2": 24.6,
-          "round_source": "inferred"
-        },
-        {
-          "date": "2026-05-26",
-          "round": 3,
-          "kind": "uzytkowy",
-          "starting_price_pln": 42000,
-          "outcome": "unsold",
-          "unsold_reason": "negative_no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie/informacja-o-wyniku-przetargu-chrobrego-6-lok.-38.pdf",
-          "notes": [],
-          "area_m2": 24.6
-        }
-      ],
-      "area_m2": 24.6
     },
     {
       "key": "fryderyka chopina|7|3",
