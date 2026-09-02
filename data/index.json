@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T11:52:25.929Z",
+  "generated_at": "2026-09-02T08:55:42.055Z",
   "cities": [
     {
       "id": "gliwice",
@@ -12,7 +12,7 @@
       "active_listings": 6,
       "active_auctions": 6,
       "archived_auctions": 285,
-      "wykaz_entries": 7,
+      "wykaz_entries": 5,
       "land_plots": 81
     },
     {
@@ -36,10 +36,10 @@
       "host": "www.bytom.pl",
       "unique_properties": 25,
       "active_listings": 14,
-      "active_auctions": 2,
-      "archived_auctions": 23,
+      "active_auctions": 1,
+      "archived_auctions": 24,
       "wykaz_entries": 0,
-      "land_plots": 19
+      "land_plots": 21
     },
     {
       "id": "zabrze",
@@ -65,7 +65,7 @@
       "active_auctions": 9,
       "archived_auctions": 92,
       "wykaz_entries": 0,
-      "land_plots": 227
+      "land_plots": 228
     },
     {
       "id": "rybnik",
@@ -100,9 +100,9 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 68,
-      "active_auctions": 11,
-      "archived_auctions": 63,
+      "active_listings": 65,
+      "active_auctions": 8,
+      "archived_auctions": 66,
       "wykaz_entries": 0,
       "land_plots": 50
     },
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 50,
+      "active_listings": 90,
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 78
+      "land_plots": 111
     },
     {
       "id": "trzebinia",
@@ -152,7 +152,7 @@
       "authority": "Urząd Miasta w Trzebini",
       "host": "trzebinia.pl",
       "unique_properties": 4,
-      "active_listings": 4,
+      "active_listings": 2,
       "active_auctions": 2,
       "archived_auctions": 2,
       "wykaz_entries": 0,
@@ -282,9 +282,9 @@
       "authority": "Gmina Miejska Pabianice",
       "host": "bip.um.pabianice.pl",
       "unique_properties": 13,
-      "active_listings": 25,
+      "active_listings": 26,
       "active_auctions": 0,
-      "archived_auctions": 27,
+      "archived_auctions": 28,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -336,7 +336,7 @@
       "unique_properties": 229,
       "active_listings": 20,
       "active_auctions": 15,
-      "archived_auctions": 297,
+      "archived_auctions": 322,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -676,7 +676,7 @@
       "active_auctions": 0,
       "archived_auctions": 49,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 13
     },
     {
       "id": "ostroleka",
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 0,
+      "wykaz_entries": 1,
       "land_plots": 32
     },
     {
@@ -1053,7 +1053,7 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 1
     },
     {
       "id": "wschowa",
@@ -1088,8 +1088,8 @@
       "authority": "Urząd Miejski w Węgrowie",
       "host": "bip.wegrow.com.pl",
       "unique_properties": 4,
-      "active_listings": 4,
-      "active_auctions": 0,
+      "active_listings": 5,
+      "active_auctions": 1,
       "archived_auctions": 4,
       "wykaz_entries": 0,
       "land_plots": 5
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1244,8 +1244,8 @@
       "authority": "Urząd Miasta Kętrzyn (Burmistrz Miasta Kętrzyna)",
       "host": "bip.miastoketrzyn.pl",
       "unique_properties": 4,
-      "active_listings": 0,
-      "active_auctions": 0,
+      "active_listings": 1,
+      "active_auctions": 1,
       "archived_auctions": 7,
       "wykaz_entries": 0,
       "land_plots": 9
@@ -1365,7 +1365,7 @@
       "active_auctions": 2,
       "archived_auctions": 35,
       "wykaz_entries": 0,
-      "land_plots": 10
+      "land_plots": 11
     },
     {
       "id": "klobuck",
@@ -1413,7 +1413,7 @@
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
       "unique_properties": 69,
-      "active_listings": 360,
+      "active_listings": 345,
       "active_auctions": 25,
       "archived_auctions": 44,
       "wykaz_entries": 0,
