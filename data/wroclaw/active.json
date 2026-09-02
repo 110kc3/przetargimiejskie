@@ -418,21 +418,417 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
+      "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "31",
+        "apt": "7",
+        "key": "tadeusza kosciuszki|31|7",
         "warning": null
       },
-      "area_m2": 57.9,
+      "area_m2": 55.65,
+      "round": 3,
+      "starting_price_pln": 488000,
+      "auction_date": "2026-11-04",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|40|11",
+        "warning": null
+      },
+      "area_m2": 189.2,
       "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+      "starting_price_pln": 1432000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "9",
+        "key": "marszalka jozefa pilsudskiego|40|9",
+        "warning": null
+      },
+      "area_m2": 118.34,
+      "round": 1,
+      "starting_price_pln": 966000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
+      "address": {
+        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
+        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+        "building": "3",
+        "apt": "7",
+        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1065000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Kościuszki 86/11",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "86",
+        "apt": "11",
+        "key": "tadeusza kosciuszki|86|11",
+        "warning": null
+      },
+      "area_m2": 104.94,
+      "round": 3,
+      "starting_price_pln": 652000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Miernicza 9 lokal 12-14",
+      "address": {
+        "street": "Miernicza 9 lokal",
+        "street_norm": "miernicza 9 lokal",
+        "building": "12-14",
+        "apt": null,
+        "key": "miernicza 9 lokal|12-14|",
+        "warning": null
+      },
+      "area_m2": 73.24,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowska 30 lokal 1-1A",
+      "address": {
+        "street": "Piastowska 30 lokal",
+        "street_norm": "piastowska 30 lokal",
+        "building": "1-1A",
+        "apt": null,
+        "key": "piastowska 30 lokal|1-1A|",
+        "warning": null
+      },
+      "area_m2": 93.76,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowodworska 8/8",
+      "address": {
+        "street": "Nowodworska",
+        "street_norm": "nowodworska",
+        "building": "8",
+        "apt": "8",
+        "key": "nowodworska|8|8",
+        "warning": null
+      },
+      "area_m2": 52.42,
+      "round": 1,
+      "starting_price_pln": 616000,
+      "auction_date": "2026-10-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
+      "address": {
+        "street": "Kosynierów Gdyńskich",
+        "street_norm": "kosynierow gdynskich",
+        "building": "83",
+        "apt": "4",
+        "key": "kosynierow gdynskich|83|4",
+        "warning": null
+      },
+      "area_m2": 67.2,
+      "round": 1,
+      "starting_price_pln": 556000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gajowicka 166/6A",
+      "address": {
+        "street": "Gajowicka",
+        "street_norm": "gajowicka",
+        "building": "166",
+        "apt": "6A",
+        "key": "gajowicka|166|6A",
+        "warning": null
+      },
+      "area_m2": 81.31,
+      "round": 1,
+      "starting_price_pln": 620000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolskiej 1/1",
+      "address": {
+        "street": "Wolskiej",
+        "street_norm": "wolskiej",
+        "building": "1",
+        "apt": "1",
+        "key": "wolskiej|1|1",
+        "warning": null
+      },
+      "area_m2": 86,
+      "round": 3,
+      "starting_price_pln": 460000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
+      "address": {
+        "street": "generała Jana Henryka Dąbrowskiego",
+        "street_norm": "generala jana henryka dabrowskiego",
+        "building": "21",
+        "apt": "10",
+        "key": "generala jana henryka dabrowskiego|21|10",
+        "warning": null
+      },
+      "area_m2": 100.28,
+      "round": 1,
+      "starting_price_pln": 546000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leonarda da Vinci 3/1",
+      "address": {
+        "street": "Leonarda da Vinci",
+        "street_norm": "leonarda da vinci",
+        "building": "3",
+        "apt": "1",
+        "key": "leonarda da vinci|3|1",
+        "warning": null
+      },
+      "area_m2": 103.22,
+      "round": 1,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-10-05",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 135/29",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "135",
+        "apt": "29",
+        "key": "powstancow slaskich|135|29",
+        "warning": null
+      },
+      "area_m2": 99.3,
+      "round": 2,
+      "starting_price_pln": 688500,
+      "auction_date": "2026-10-01",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krzycka 3a/1",
+      "address": {
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
+        "warning": null
+      },
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rogowskiej 138/18",
+      "address": {
+        "street": "Rogowskiej",
+        "street_norm": "rogowskiej",
+        "building": "138",
+        "apt": "18",
+        "key": "rogowskiej|138|18",
+        "warning": null
+      },
+      "area_m2": 35.6,
+      "round": 1,
+      "starting_price_pln": 400000,
+      "auction_date": "2026-09-10",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Makowa 1/7",
+      "address": {
+        "street": "Makowa",
+        "street_norm": "makowa",
+        "building": "1",
+        "apt": "7",
+        "key": "makowa|1|7",
+        "warning": null
+      },
+      "area_m2": 21.99,
+      "round": 1,
+      "starting_price_pln": 205000,
+      "auction_date": "2026-09-07",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
     },
     {
       "kind": "mieszkalny",
@@ -850,21 +1246,417 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
+      "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "31",
+        "apt": "7",
+        "key": "tadeusza kosciuszki|31|7",
         "warning": null
       },
-      "area_m2": 57.9,
+      "area_m2": 55.65,
+      "round": 3,
+      "starting_price_pln": 488000,
+      "auction_date": "2026-11-04",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|40|11",
+        "warning": null
+      },
+      "area_m2": 189.2,
       "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+      "starting_price_pln": 1432000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "9",
+        "key": "marszalka jozefa pilsudskiego|40|9",
+        "warning": null
+      },
+      "area_m2": 118.34,
+      "round": 1,
+      "starting_price_pln": 966000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
+      "address": {
+        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
+        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+        "building": "3",
+        "apt": "7",
+        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1065000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Kościuszki 86/11",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "86",
+        "apt": "11",
+        "key": "tadeusza kosciuszki|86|11",
+        "warning": null
+      },
+      "area_m2": 104.94,
+      "round": 3,
+      "starting_price_pln": 652000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Miernicza 9 lokal 12-14",
+      "address": {
+        "street": "Miernicza 9 lokal",
+        "street_norm": "miernicza 9 lokal",
+        "building": "12-14",
+        "apt": null,
+        "key": "miernicza 9 lokal|12-14|",
+        "warning": null
+      },
+      "area_m2": 73.24,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowska 30 lokal 1-1A",
+      "address": {
+        "street": "Piastowska 30 lokal",
+        "street_norm": "piastowska 30 lokal",
+        "building": "1-1A",
+        "apt": null,
+        "key": "piastowska 30 lokal|1-1A|",
+        "warning": null
+      },
+      "area_m2": 93.76,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowodworska 8/8",
+      "address": {
+        "street": "Nowodworska",
+        "street_norm": "nowodworska",
+        "building": "8",
+        "apt": "8",
+        "key": "nowodworska|8|8",
+        "warning": null
+      },
+      "area_m2": 52.42,
+      "round": 1,
+      "starting_price_pln": 616000,
+      "auction_date": "2026-10-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
+      "address": {
+        "street": "Kosynierów Gdyńskich",
+        "street_norm": "kosynierow gdynskich",
+        "building": "83",
+        "apt": "4",
+        "key": "kosynierow gdynskich|83|4",
+        "warning": null
+      },
+      "area_m2": 67.2,
+      "round": 1,
+      "starting_price_pln": 556000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gajowicka 166/6A",
+      "address": {
+        "street": "Gajowicka",
+        "street_norm": "gajowicka",
+        "building": "166",
+        "apt": "6A",
+        "key": "gajowicka|166|6A",
+        "warning": null
+      },
+      "area_m2": 81.31,
+      "round": 1,
+      "starting_price_pln": 620000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolskiej 1/1",
+      "address": {
+        "street": "Wolskiej",
+        "street_norm": "wolskiej",
+        "building": "1",
+        "apt": "1",
+        "key": "wolskiej|1|1",
+        "warning": null
+      },
+      "area_m2": 86,
+      "round": 3,
+      "starting_price_pln": 460000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
+      "address": {
+        "street": "generała Jana Henryka Dąbrowskiego",
+        "street_norm": "generala jana henryka dabrowskiego",
+        "building": "21",
+        "apt": "10",
+        "key": "generala jana henryka dabrowskiego|21|10",
+        "warning": null
+      },
+      "area_m2": 100.28,
+      "round": 1,
+      "starting_price_pln": 546000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leonarda da Vinci 3/1",
+      "address": {
+        "street": "Leonarda da Vinci",
+        "street_norm": "leonarda da vinci",
+        "building": "3",
+        "apt": "1",
+        "key": "leonarda da vinci|3|1",
+        "warning": null
+      },
+      "area_m2": 103.22,
+      "round": 1,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-10-05",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 135/29",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "135",
+        "apt": "29",
+        "key": "powstancow slaskich|135|29",
+        "warning": null
+      },
+      "area_m2": 99.3,
+      "round": 2,
+      "starting_price_pln": 688500,
+      "auction_date": "2026-10-01",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krzycka 3a/1",
+      "address": {
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
+        "warning": null
+      },
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rogowskiej 138/18",
+      "address": {
+        "street": "Rogowskiej",
+        "street_norm": "rogowskiej",
+        "building": "138",
+        "apt": "18",
+        "key": "rogowskiej|138|18",
+        "warning": null
+      },
+      "area_m2": 35.6,
+      "round": 1,
+      "starting_price_pln": 400000,
+      "auction_date": "2026-09-10",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Makowa 1/7",
+      "address": {
+        "street": "Makowa",
+        "street_norm": "makowa",
+        "building": "1",
+        "apt": "7",
+        "key": "makowa|1|7",
+        "warning": null
+      },
+      "area_m2": 21.99,
+      "round": 1,
+      "starting_price_pln": 205000,
+      "auction_date": "2026-09-07",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
     },
     {
       "kind": "mieszkalny",
@@ -1282,21 +2074,417 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
+      "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "31",
+        "apt": "7",
+        "key": "tadeusza kosciuszki|31|7",
         "warning": null
       },
-      "area_m2": 57.9,
+      "area_m2": 55.65,
+      "round": 3,
+      "starting_price_pln": 488000,
+      "auction_date": "2026-11-04",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|40|11",
+        "warning": null
+      },
+      "area_m2": 189.2,
       "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+      "starting_price_pln": 1432000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "9",
+        "key": "marszalka jozefa pilsudskiego|40|9",
+        "warning": null
+      },
+      "area_m2": 118.34,
+      "round": 1,
+      "starting_price_pln": 966000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
+      "address": {
+        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
+        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+        "building": "3",
+        "apt": "7",
+        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1065000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Kościuszki 86/11",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "86",
+        "apt": "11",
+        "key": "tadeusza kosciuszki|86|11",
+        "warning": null
+      },
+      "area_m2": 104.94,
+      "round": 3,
+      "starting_price_pln": 652000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Miernicza 9 lokal 12-14",
+      "address": {
+        "street": "Miernicza 9 lokal",
+        "street_norm": "miernicza 9 lokal",
+        "building": "12-14",
+        "apt": null,
+        "key": "miernicza 9 lokal|12-14|",
+        "warning": null
+      },
+      "area_m2": 73.24,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowska 30 lokal 1-1A",
+      "address": {
+        "street": "Piastowska 30 lokal",
+        "street_norm": "piastowska 30 lokal",
+        "building": "1-1A",
+        "apt": null,
+        "key": "piastowska 30 lokal|1-1A|",
+        "warning": null
+      },
+      "area_m2": 93.76,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowodworska 8/8",
+      "address": {
+        "street": "Nowodworska",
+        "street_norm": "nowodworska",
+        "building": "8",
+        "apt": "8",
+        "key": "nowodworska|8|8",
+        "warning": null
+      },
+      "area_m2": 52.42,
+      "round": 1,
+      "starting_price_pln": 616000,
+      "auction_date": "2026-10-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
+      "address": {
+        "street": "Kosynierów Gdyńskich",
+        "street_norm": "kosynierow gdynskich",
+        "building": "83",
+        "apt": "4",
+        "key": "kosynierow gdynskich|83|4",
+        "warning": null
+      },
+      "area_m2": 67.2,
+      "round": 1,
+      "starting_price_pln": 556000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gajowicka 166/6A",
+      "address": {
+        "street": "Gajowicka",
+        "street_norm": "gajowicka",
+        "building": "166",
+        "apt": "6A",
+        "key": "gajowicka|166|6A",
+        "warning": null
+      },
+      "area_m2": 81.31,
+      "round": 1,
+      "starting_price_pln": 620000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolskiej 1/1",
+      "address": {
+        "street": "Wolskiej",
+        "street_norm": "wolskiej",
+        "building": "1",
+        "apt": "1",
+        "key": "wolskiej|1|1",
+        "warning": null
+      },
+      "area_m2": 86,
+      "round": 3,
+      "starting_price_pln": 460000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
+      "address": {
+        "street": "generała Jana Henryka Dąbrowskiego",
+        "street_norm": "generala jana henryka dabrowskiego",
+        "building": "21",
+        "apt": "10",
+        "key": "generala jana henryka dabrowskiego|21|10",
+        "warning": null
+      },
+      "area_m2": 100.28,
+      "round": 1,
+      "starting_price_pln": 546000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leonarda da Vinci 3/1",
+      "address": {
+        "street": "Leonarda da Vinci",
+        "street_norm": "leonarda da vinci",
+        "building": "3",
+        "apt": "1",
+        "key": "leonarda da vinci|3|1",
+        "warning": null
+      },
+      "area_m2": 103.22,
+      "round": 1,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-10-05",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 135/29",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "135",
+        "apt": "29",
+        "key": "powstancow slaskich|135|29",
+        "warning": null
+      },
+      "area_m2": 99.3,
+      "round": 2,
+      "starting_price_pln": 688500,
+      "auction_date": "2026-10-01",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krzycka 3a/1",
+      "address": {
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
+        "warning": null
+      },
+      "area_m2": 59.34,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": 108.87,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": 83.17,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": 149.25,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": 109.49,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rogowskiej 138/18",
+      "address": {
+        "street": "Rogowskiej",
+        "street_norm": "rogowskiej",
+        "building": "138",
+        "apt": "18",
+        "key": "rogowskiej|138|18",
+        "warning": null
+      },
+      "area_m2": 35.6,
+      "round": 1,
+      "starting_price_pln": 400000,
+      "auction_date": "2026-09-10",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": 75.04,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": 77.71,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Makowa 1/7",
+      "address": {
+        "street": "Makowa",
+        "street_norm": "makowa",
+        "building": "1",
+        "apt": "7",
+        "key": "makowa|1|7",
+        "warning": null
+      },
+      "area_m2": 21.99,
+      "round": 1,
+      "starting_price_pln": 205000,
+      "auction_date": "2026-09-07",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
     },
     {
       "kind": "mieszkalny",
@@ -1714,24 +2902,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
         "street": "Tadeusza Kościuszki",
@@ -2146,24 +3316,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
         "street": "Tadeusza Kościuszki",
@@ -2461,1302 +3613,6 @@
         "key": "przestrzenna|42|11",
         "warning": null
       },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Rogowskiej 138/18",
-      "address": {
-        "street": "Rogowskiej",
-        "street_norm": "rogowskiej",
-        "building": "138",
-        "apt": "18",
-        "key": "rogowskiej|138|18",
-        "warning": null
-      },
-      "area_m2": 35.6,
-      "round": 1,
-      "starting_price_pln": 400000,
-      "auction_date": "2026-09-10",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Makowa 1/7",
-      "address": {
-        "street": "Makowa",
-        "street_norm": "makowa",
-        "building": "1",
-        "apt": "7",
-        "key": "makowa|1|7",
-        "warning": null
-      },
-      "area_m2": 21.99,
-      "round": 1,
-      "starting_price_pln": 205000,
-      "auction_date": "2026-09-07",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 31/7",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "31",
-        "apt": "7",
-        "key": "tadeusza kosciuszki|31|7",
-        "warning": null
-      },
-      "area_m2": 55.65,
-      "round": 3,
-      "starting_price_pln": 488000,
-      "auction_date": "2026-11-04",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "11",
-        "key": "marszalka jozefa pilsudskiego|40|11",
-        "warning": null
-      },
-      "area_m2": 189.2,
-      "round": 1,
-      "starting_price_pln": 1432000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "9",
-        "key": "marszalka jozefa pilsudskiego|40|9",
-        "warning": null
-      },
-      "area_m2": 118.34,
-      "round": 1,
-      "starting_price_pln": 966000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
-      "address": {
-        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
-        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
-        "building": "3",
-        "apt": "7",
-        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1065000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 86/11",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "86",
-        "apt": "11",
-        "key": "tadeusza kosciuszki|86|11",
-        "warning": null
-      },
-      "area_m2": 104.94,
-      "round": 3,
-      "starting_price_pln": 652000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 9 lokal 12-14",
-      "address": {
-        "street": "Miernicza 9 lokal",
-        "street_norm": "miernicza 9 lokal",
-        "building": "12-14",
-        "apt": null,
-        "key": "miernicza 9 lokal|12-14|",
-        "warning": null
-      },
-      "area_m2": 73.24,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Piastowska 30 lokal 1-1A",
-      "address": {
-        "street": "Piastowska 30 lokal",
-        "street_norm": "piastowska 30 lokal",
-        "building": "1-1A",
-        "apt": null,
-        "key": "piastowska 30 lokal|1-1A|",
-        "warning": null
-      },
-      "area_m2": 93.76,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Nowodworska 8/8",
-      "address": {
-        "street": "Nowodworska",
-        "street_norm": "nowodworska",
-        "building": "8",
-        "apt": "8",
-        "key": "nowodworska|8|8",
-        "warning": null
-      },
-      "area_m2": 52.42,
-      "round": 1,
-      "starting_price_pln": 616000,
-      "auction_date": "2026-10-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
-      "address": {
-        "street": "Kosynierów Gdyńskich",
-        "street_norm": "kosynierow gdynskich",
-        "building": "83",
-        "apt": "4",
-        "key": "kosynierow gdynskich|83|4",
-        "warning": null
-      },
-      "area_m2": 67.2,
-      "round": 1,
-      "starting_price_pln": 556000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Gajowicka 166/6A",
-      "address": {
-        "street": "Gajowicka",
-        "street_norm": "gajowicka",
-        "building": "166",
-        "apt": "6A",
-        "key": "gajowicka|166|6A",
-        "warning": null
-      },
-      "area_m2": 81.31,
-      "round": 1,
-      "starting_price_pln": 620000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wolskiej 1/1",
-      "address": {
-        "street": "Wolskiej",
-        "street_norm": "wolskiej",
-        "building": "1",
-        "apt": "1",
-        "key": "wolskiej|1|1",
-        "warning": null
-      },
-      "area_m2": 86,
-      "round": 3,
-      "starting_price_pln": 460000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
-      "address": {
-        "street": "generała Jana Henryka Dąbrowskiego",
-        "street_norm": "generala jana henryka dabrowskiego",
-        "building": "21",
-        "apt": "10",
-        "key": "generala jana henryka dabrowskiego|21|10",
-        "warning": null
-      },
-      "area_m2": 100.28,
-      "round": 1,
-      "starting_price_pln": 546000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Leonarda da Vinci 3/1",
-      "address": {
-        "street": "Leonarda da Vinci",
-        "street_norm": "leonarda da vinci",
-        "building": "3",
-        "apt": "1",
-        "key": "leonarda da vinci|3|1",
-        "warning": null
-      },
-      "area_m2": 103.22,
-      "round": 1,
-      "starting_price_pln": 800000,
-      "auction_date": "2026-10-05",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 135/29",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "135",
-        "apt": "29",
-        "key": "powstancow slaskich|135|29",
-        "warning": null
-      },
-      "area_m2": 99.3,
-      "round": 2,
-      "starting_price_pln": 688500,
-      "auction_date": "2026-10-01",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Rogowskiej 138/18",
-      "address": {
-        "street": "Rogowskiej",
-        "street_norm": "rogowskiej",
-        "building": "138",
-        "apt": "18",
-        "key": "rogowskiej|138|18",
-        "warning": null
-      },
-      "area_m2": 35.6,
-      "round": 1,
-      "starting_price_pln": 400000,
-      "auction_date": "2026-09-10",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Makowa 1/7",
-      "address": {
-        "street": "Makowa",
-        "street_norm": "makowa",
-        "building": "1",
-        "apt": "7",
-        "key": "makowa|1|7",
-        "warning": null
-      },
-      "area_m2": 21.99,
-      "round": 1,
-      "starting_price_pln": 205000,
-      "auction_date": "2026-09-07",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 31/7",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "31",
-        "apt": "7",
-        "key": "tadeusza kosciuszki|31|7",
-        "warning": null
-      },
-      "area_m2": 55.65,
-      "round": 3,
-      "starting_price_pln": 488000,
-      "auction_date": "2026-11-04",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "11",
-        "key": "marszalka jozefa pilsudskiego|40|11",
-        "warning": null
-      },
-      "area_m2": 189.2,
-      "round": 1,
-      "starting_price_pln": 1432000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "9",
-        "key": "marszalka jozefa pilsudskiego|40|9",
-        "warning": null
-      },
-      "area_m2": 118.34,
-      "round": 1,
-      "starting_price_pln": 966000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
-      "address": {
-        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
-        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
-        "building": "3",
-        "apt": "7",
-        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1065000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 86/11",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "86",
-        "apt": "11",
-        "key": "tadeusza kosciuszki|86|11",
-        "warning": null
-      },
-      "area_m2": 104.94,
-      "round": 3,
-      "starting_price_pln": 652000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 9 lokal 12-14",
-      "address": {
-        "street": "Miernicza 9 lokal",
-        "street_norm": "miernicza 9 lokal",
-        "building": "12-14",
-        "apt": null,
-        "key": "miernicza 9 lokal|12-14|",
-        "warning": null
-      },
-      "area_m2": 73.24,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Piastowska 30 lokal 1-1A",
-      "address": {
-        "street": "Piastowska 30 lokal",
-        "street_norm": "piastowska 30 lokal",
-        "building": "1-1A",
-        "apt": null,
-        "key": "piastowska 30 lokal|1-1A|",
-        "warning": null
-      },
-      "area_m2": 93.76,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Nowodworska 8/8",
-      "address": {
-        "street": "Nowodworska",
-        "street_norm": "nowodworska",
-        "building": "8",
-        "apt": "8",
-        "key": "nowodworska|8|8",
-        "warning": null
-      },
-      "area_m2": 52.42,
-      "round": 1,
-      "starting_price_pln": 616000,
-      "auction_date": "2026-10-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
-      "address": {
-        "street": "Kosynierów Gdyńskich",
-        "street_norm": "kosynierow gdynskich",
-        "building": "83",
-        "apt": "4",
-        "key": "kosynierow gdynskich|83|4",
-        "warning": null
-      },
-      "area_m2": 67.2,
-      "round": 1,
-      "starting_price_pln": 556000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Gajowicka 166/6A",
-      "address": {
-        "street": "Gajowicka",
-        "street_norm": "gajowicka",
-        "building": "166",
-        "apt": "6A",
-        "key": "gajowicka|166|6A",
-        "warning": null
-      },
-      "area_m2": 81.31,
-      "round": 1,
-      "starting_price_pln": 620000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wolskiej 1/1",
-      "address": {
-        "street": "Wolskiej",
-        "street_norm": "wolskiej",
-        "building": "1",
-        "apt": "1",
-        "key": "wolskiej|1|1",
-        "warning": null
-      },
-      "area_m2": 86,
-      "round": 3,
-      "starting_price_pln": 460000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
-      "address": {
-        "street": "generała Jana Henryka Dąbrowskiego",
-        "street_norm": "generala jana henryka dabrowskiego",
-        "building": "21",
-        "apt": "10",
-        "key": "generala jana henryka dabrowskiego|21|10",
-        "warning": null
-      },
-      "area_m2": 100.28,
-      "round": 1,
-      "starting_price_pln": 546000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Leonarda da Vinci 3/1",
-      "address": {
-        "street": "Leonarda da Vinci",
-        "street_norm": "leonarda da vinci",
-        "building": "3",
-        "apt": "1",
-        "key": "leonarda da vinci|3|1",
-        "warning": null
-      },
-      "area_m2": 103.22,
-      "round": 1,
-      "starting_price_pln": 800000,
-      "auction_date": "2026-10-05",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 135/29",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "135",
-        "apt": "29",
-        "key": "powstancow slaskich|135|29",
-        "warning": null
-      },
-      "area_m2": 99.3,
-      "round": 2,
-      "starting_price_pln": 688500,
-      "auction_date": "2026-10-01",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": 59.34,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": 108.87,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": 83.17,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": 149.25,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": 109.49,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Rogowskiej 138/18",
-      "address": {
-        "street": "Rogowskiej",
-        "street_norm": "rogowskiej",
-        "building": "138",
-        "apt": "18",
-        "key": "rogowskiej|138|18",
-        "warning": null
-      },
-      "area_m2": 35.6,
-      "round": 1,
-      "starting_price_pln": 400000,
-      "auction_date": "2026-09-10",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": 75.04,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": 77.71,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Makowa 1/7",
-      "address": {
-        "street": "Makowa",
-        "street_norm": "makowa",
-        "building": "1",
-        "apt": "7",
-        "key": "makowa|1|7",
-        "warning": null
-      },
-      "area_m2": 21.99,
-      "round": 1,
-      "starting_price_pln": 205000,
-      "auction_date": "2026-09-07",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": 57.9,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 31/7",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "31",
-        "apt": "7",
-        "key": "tadeusza kosciuszki|31|7",
-        "warning": null
-      },
-      "area_m2": 55.65,
-      "round": 3,
-      "starting_price_pln": 488000,
-      "auction_date": "2026-11-04",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "11",
-        "key": "marszalka jozefa pilsudskiego|40|11",
-        "warning": null
-      },
-      "area_m2": 189.2,
-      "round": 1,
-      "starting_price_pln": 1432000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "9",
-        "key": "marszalka jozefa pilsudskiego|40|9",
-        "warning": null
-      },
-      "area_m2": 118.34,
-      "round": 1,
-      "starting_price_pln": 966000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
-      "address": {
-        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
-        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
-        "building": "3",
-        "apt": "7",
-        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1065000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 86/11",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "86",
-        "apt": "11",
-        "key": "tadeusza kosciuszki|86|11",
-        "warning": null
-      },
-      "area_m2": 104.94,
-      "round": 3,
-      "starting_price_pln": 652000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 9 lokal 12-14",
-      "address": {
-        "street": "Miernicza 9 lokal",
-        "street_norm": "miernicza 9 lokal",
-        "building": "12-14",
-        "apt": null,
-        "key": "miernicza 9 lokal|12-14|",
-        "warning": null
-      },
-      "area_m2": 73.24,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Piastowska 30 lokal 1-1A",
-      "address": {
-        "street": "Piastowska 30 lokal",
-        "street_norm": "piastowska 30 lokal",
-        "building": "1-1A",
-        "apt": null,
-        "key": "piastowska 30 lokal|1-1A|",
-        "warning": null
-      },
-      "area_m2": 93.76,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Nowodworska 8/8",
-      "address": {
-        "street": "Nowodworska",
-        "street_norm": "nowodworska",
-        "building": "8",
-        "apt": "8",
-        "key": "nowodworska|8|8",
-        "warning": null
-      },
-      "area_m2": 52.42,
-      "round": 1,
-      "starting_price_pln": 616000,
-      "auction_date": "2026-10-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
-      "address": {
-        "street": "Kosynierów Gdyńskich",
-        "street_norm": "kosynierow gdynskich",
-        "building": "83",
-        "apt": "4",
-        "key": "kosynierow gdynskich|83|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 556000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Gajowicka 166/6A",
-      "address": {
-        "street": "Gajowicka",
-        "street_norm": "gajowicka",
-        "building": "166",
-        "apt": "6A",
-        "key": "gajowicka|166|6A",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 620000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wolskiej 1/1",
-      "address": {
-        "street": "Wolskiej",
-        "street_norm": "wolskiej",
-        "building": "1",
-        "apt": "1",
-        "key": "wolskiej|1|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 460000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
-      "address": {
-        "street": "generała Jana Henryka Dąbrowskiego",
-        "street_norm": "generala jana henryka dabrowskiego",
-        "building": "21",
-        "apt": "10",
-        "key": "generala jana henryka dabrowskiego|21|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 546000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Leonarda da Vinci 3/1",
-      "address": {
-        "street": "Leonarda da Vinci",
-        "street_norm": "leonarda da vinci",
-        "building": "3",
-        "apt": "1",
-        "key": "leonarda da vinci|3|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 800000,
-      "auction_date": "2026-10-05",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 135/29",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "135",
-        "apt": "29",
-        "key": "powstancow slaskich|135|29",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 688500,
-      "auction_date": "2026-10-01",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
       "area_m2": null,
       "round": 2,
       "starting_price_pln": 666000,
@@ -3871,24 +3727,6 @@
       "auction_date": "2026-09-07",
       "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
       "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
     },
     {
       "kind": "mieszkalny",
@@ -4306,21 +4144,417 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
+      "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "31",
+        "apt": "7",
+        "key": "tadeusza kosciuszki|31|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 488000,
+      "auction_date": "2026-11-04",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|40|11",
         "warning": null
       },
       "area_m2": null,
       "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+      "starting_price_pln": 1432000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "9",
+        "key": "marszalka jozefa pilsudskiego|40|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 966000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
+      "address": {
+        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
+        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+        "building": "3",
+        "apt": "7",
+        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1065000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Kościuszki 86/11",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "86",
+        "apt": "11",
+        "key": "tadeusza kosciuszki|86|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 652000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Miernicza 9 lokal 12-14",
+      "address": {
+        "street": "Miernicza 9 lokal",
+        "street_norm": "miernicza 9 lokal",
+        "building": "12-14",
+        "apt": null,
+        "key": "miernicza 9 lokal|12-14|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowska 30 lokal 1-1A",
+      "address": {
+        "street": "Piastowska 30 lokal",
+        "street_norm": "piastowska 30 lokal",
+        "building": "1-1A",
+        "apt": null,
+        "key": "piastowska 30 lokal|1-1A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowodworska 8/8",
+      "address": {
+        "street": "Nowodworska",
+        "street_norm": "nowodworska",
+        "building": "8",
+        "apt": "8",
+        "key": "nowodworska|8|8",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 616000,
+      "auction_date": "2026-10-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
+      "address": {
+        "street": "Kosynierów Gdyńskich",
+        "street_norm": "kosynierow gdynskich",
+        "building": "83",
+        "apt": "4",
+        "key": "kosynierow gdynskich|83|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 556000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gajowicka 166/6A",
+      "address": {
+        "street": "Gajowicka",
+        "street_norm": "gajowicka",
+        "building": "166",
+        "apt": "6A",
+        "key": "gajowicka|166|6A",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 620000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolskiej 1/1",
+      "address": {
+        "street": "Wolskiej",
+        "street_norm": "wolskiej",
+        "building": "1",
+        "apt": "1",
+        "key": "wolskiej|1|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 460000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
+      "address": {
+        "street": "generała Jana Henryka Dąbrowskiego",
+        "street_norm": "generala jana henryka dabrowskiego",
+        "building": "21",
+        "apt": "10",
+        "key": "generala jana henryka dabrowskiego|21|10",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 546000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leonarda da Vinci 3/1",
+      "address": {
+        "street": "Leonarda da Vinci",
+        "street_norm": "leonarda da vinci",
+        "building": "3",
+        "apt": "1",
+        "key": "leonarda da vinci|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-10-05",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 135/29",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "135",
+        "apt": "29",
+        "key": "powstancow slaskich|135|29",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 2,
+      "starting_price_pln": 688500,
+      "auction_date": "2026-10-01",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krzycka 3a/1",
+      "address": {
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rogowskiej 138/18",
+      "address": {
+        "street": "Rogowskiej",
+        "street_norm": "rogowskiej",
+        "building": "138",
+        "apt": "18",
+        "key": "rogowskiej|138|18",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 400000,
+      "auction_date": "2026-09-10",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Makowa 1/7",
+      "address": {
+        "street": "Makowa",
+        "street_norm": "makowa",
+        "building": "1",
+        "apt": "7",
+        "key": "makowa|1|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 205000,
+      "auction_date": "2026-09-07",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
     },
     {
       "kind": "mieszkalny",
@@ -4738,21 +4972,417 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
+      "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "31",
+        "apt": "7",
+        "key": "tadeusza kosciuszki|31|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 488000,
+      "auction_date": "2026-11-04",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "11",
+        "key": "marszalka jozefa pilsudskiego|40|11",
         "warning": null
       },
       "area_m2": null,
       "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
+      "starting_price_pln": 1432000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
+      "address": {
+        "street": "Marszałka Józefa Piłsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "40",
+        "apt": "9",
+        "key": "marszalka jozefa pilsudskiego|40|9",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 966000,
+      "auction_date": "2026-10-29",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
+      "address": {
+        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
+        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+        "building": "3",
+        "apt": "7",
+        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1065000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tadeusza Kościuszki 86/11",
+      "address": {
+        "street": "Tadeusza Kościuszki",
+        "street_norm": "tadeusza kosciuszki",
+        "building": "86",
+        "apt": "11",
+        "key": "tadeusza kosciuszki|86|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 652000,
+      "auction_date": "2026-10-26",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Miernicza 9 lokal 12-14",
+      "address": {
+        "street": "Miernicza 9 lokal",
+        "street_norm": "miernicza 9 lokal",
+        "building": "12-14",
+        "apt": null,
+        "key": "miernicza 9 lokal|12-14|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piastowska 30 lokal 1-1A",
+      "address": {
+        "street": "Piastowska 30 lokal",
+        "street_norm": "piastowska 30 lokal",
+        "building": "1-1A",
+        "apt": null,
+        "key": "piastowska 30 lokal|1-1A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 563500,
+      "auction_date": "2026-10-22",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowodworska 8/8",
+      "address": {
+        "street": "Nowodworska",
+        "street_norm": "nowodworska",
+        "building": "8",
+        "apt": "8",
+        "key": "nowodworska|8|8",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 616000,
+      "auction_date": "2026-10-19",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
+      "address": {
+        "street": "Kosynierów Gdyńskich",
+        "street_norm": "kosynierow gdynskich",
+        "building": "83",
+        "apt": "4",
+        "key": "kosynierow gdynskich|83|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 556000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gajowicka 166/6A",
+      "address": {
+        "street": "Gajowicka",
+        "street_norm": "gajowicka",
+        "building": "166",
+        "apt": "6A",
+        "key": "gajowicka|166|6A",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 620000,
+      "auction_date": "2026-10-12",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wolskiej 1/1",
+      "address": {
+        "street": "Wolskiej",
+        "street_norm": "wolskiej",
+        "building": "1",
+        "apt": "1",
+        "key": "wolskiej|1|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 3,
+      "starting_price_pln": 460000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
+      "address": {
+        "street": "generała Jana Henryka Dąbrowskiego",
+        "street_norm": "generala jana henryka dabrowskiego",
+        "building": "21",
+        "apt": "10",
+        "key": "generala jana henryka dabrowskiego|21|10",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 546000,
+      "auction_date": "2026-10-08",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leonarda da Vinci 3/1",
+      "address": {
+        "street": "Leonarda da Vinci",
+        "street_norm": "leonarda da vinci",
+        "building": "3",
+        "apt": "1",
+        "key": "leonarda da vinci|3|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 800000,
+      "auction_date": "2026-10-05",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Powstańców Śląskich 135/29",
+      "address": {
+        "street": "Powstańców Śląskich",
+        "street_norm": "powstancow slaskich",
+        "building": "135",
+        "apt": "29",
+        "key": "powstancow slaskich|135|29",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 2,
+      "starting_price_pln": 688500,
+      "auction_date": "2026-10-01",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krzycka 3a/1",
+      "address": {
+        "street": "Krzycka",
+        "street_norm": "krzycka",
+        "building": "3A",
+        "apt": "1",
+        "key": "krzycka|3A|1",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 575000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4/6",
+      "address": {
+        "street": "Plac gen. Józefa Bema",
+        "street_norm": "plac gen jozefa bema",
+        "building": "4",
+        "apt": "6",
+        "key": "plac gen jozefa bema|4|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1118000,
+      "auction_date": "2026-09-30",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 42/11",
+      "address": {
+        "street": "Przestrzenna",
+        "street_norm": "przestrzenna",
+        "building": "42",
+        "apt": "11",
+        "key": "przestrzenna|42|11",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 2,
+      "starting_price_pln": 666000,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
+      "address": {
+        "street": "Przestrzenna 41 lokal",
+        "street_norm": "przestrzenna 41 lokal",
+        "building": "4-4A",
+        "apt": null,
+        "key": "przestrzenna 41 lokal|4-4A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 2,
+      "starting_price_pln": 859500,
+      "auction_date": "2026-09-17",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
+      "address": {
+        "street": "Plac gen. Józefa Bema 4 lokal",
+        "street_norm": "plac gen jozefa bema 4 lokal",
+        "building": "8-8A",
+        "apt": null,
+        "key": "plac gen jozefa bema 4 lokal|8-8A|",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 1091000,
+      "auction_date": "2026-09-16",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rogowskiej 138/18",
+      "address": {
+        "street": "Rogowskiej",
+        "street_norm": "rogowskiej",
+        "building": "138",
+        "apt": "18",
+        "key": "rogowskiej|138|18",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 400000,
+      "auction_date": "2026-09-10",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/7",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "7",
+        "key": "krepicka|48|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 530000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krępicka 48/4",
+      "address": {
+        "street": "Krępicka",
+        "street_norm": "krepicka",
+        "building": "48",
+        "apt": "4",
+        "key": "krepicka|48|4",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 555000,
+      "auction_date": "2026-09-09",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Makowa 1/7",
+      "address": {
+        "street": "Makowa",
+        "street_norm": "makowa",
+        "building": "1",
+        "apt": "7",
+        "key": "makowa|1|7",
+        "warning": null
+      },
+      "area_m2": null,
+      "round": 1,
+      "starting_price_pln": 205000,
+      "auction_date": "2026-09-07",
+      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
+      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
     },
     {
       "kind": "mieszkalny",
@@ -5170,24 +5800,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Tadeusza Kościuszki 31/7",
       "address": {
         "street": "Tadeusza Kościuszki",
@@ -5599,888 +6211,6 @@
       "auction_date": "2026-09-07",
       "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
       "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 31/7",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "31",
-        "apt": "7",
-        "key": "tadeusza kosciuszki|31|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 488000,
-      "auction_date": "2026-11-04",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "11",
-        "key": "marszalka jozefa pilsudskiego|40|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1432000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "9",
-        "key": "marszalka jozefa pilsudskiego|40|9",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 966000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
-      "address": {
-        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
-        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
-        "building": "3",
-        "apt": "7",
-        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1065000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 86/11",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "86",
-        "apt": "11",
-        "key": "tadeusza kosciuszki|86|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 652000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 9 lokal 12-14",
-      "address": {
-        "street": "Miernicza 9 lokal",
-        "street_norm": "miernicza 9 lokal",
-        "building": "12-14",
-        "apt": null,
-        "key": "miernicza 9 lokal|12-14|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Piastowska 30 lokal 1-1A",
-      "address": {
-        "street": "Piastowska 30 lokal",
-        "street_norm": "piastowska 30 lokal",
-        "building": "1-1A",
-        "apt": null,
-        "key": "piastowska 30 lokal|1-1A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Nowodworska 8/8",
-      "address": {
-        "street": "Nowodworska",
-        "street_norm": "nowodworska",
-        "building": "8",
-        "apt": "8",
-        "key": "nowodworska|8|8",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 616000,
-      "auction_date": "2026-10-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
-      "address": {
-        "street": "Kosynierów Gdyńskich",
-        "street_norm": "kosynierow gdynskich",
-        "building": "83",
-        "apt": "4",
-        "key": "kosynierow gdynskich|83|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 556000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Gajowicka 166/6A",
-      "address": {
-        "street": "Gajowicka",
-        "street_norm": "gajowicka",
-        "building": "166",
-        "apt": "6A",
-        "key": "gajowicka|166|6A",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 620000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wolskiej 1/1",
-      "address": {
-        "street": "Wolskiej",
-        "street_norm": "wolskiej",
-        "building": "1",
-        "apt": "1",
-        "key": "wolskiej|1|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 460000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
-      "address": {
-        "street": "generała Jana Henryka Dąbrowskiego",
-        "street_norm": "generala jana henryka dabrowskiego",
-        "building": "21",
-        "apt": "10",
-        "key": "generala jana henryka dabrowskiego|21|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 546000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Leonarda da Vinci 3/1",
-      "address": {
-        "street": "Leonarda da Vinci",
-        "street_norm": "leonarda da vinci",
-        "building": "3",
-        "apt": "1",
-        "key": "leonarda da vinci|3|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 800000,
-      "auction_date": "2026-10-05",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 135/29",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "135",
-        "apt": "29",
-        "key": "powstancow slaskich|135|29",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 688500,
-      "auction_date": "2026-10-01",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Rogowskiej 138/18",
-      "address": {
-        "street": "Rogowskiej",
-        "street_norm": "rogowskiej",
-        "building": "138",
-        "apt": "18",
-        "key": "rogowskiej|138|18",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 400000,
-      "auction_date": "2026-09-10",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Makowa 1/7",
-      "address": {
-        "street": "Makowa",
-        "street_norm": "makowa",
-        "building": "1",
-        "apt": "7",
-        "key": "makowa|1|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 205000,
-      "auction_date": "2026-09-07",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 31/7",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "31",
-        "apt": "7",
-        "key": "tadeusza kosciuszki|31|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 488000,
-      "auction_date": "2026-11-04",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91697/ulica-tadeusza-kosciuszki-31-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/11",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "11",
-        "key": "marszalka jozefa pilsudskiego|40|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1432000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91611/ulica-marszalka-jozefa-pilsudskiego-40-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Marszałka Józefa Piłsudskiego 40/9",
-      "address": {
-        "street": "Marszałka Józefa Piłsudskiego",
-        "street_norm": "marszalka jozefa pilsudskiego",
-        "building": "40",
-        "apt": "9",
-        "key": "marszalka jozefa pilsudskiego|40|9",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 966000,
-      "auction_date": "2026-10-29",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91625/ulica-marszalka-jozefa-pilsudskiego-40-lokal-9"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza 3/7",
-      "address": {
-        "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
-        "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
-        "building": "3",
-        "apt": "7",
-        "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1065000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/uwaga-zmiana-terminu-przetargu-ulica-krupnicza-3-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Tadeusza Kościuszki 86/11",
-      "address": {
-        "street": "Tadeusza Kościuszki",
-        "street_norm": "tadeusza kosciuszki",
-        "building": "86",
-        "apt": "11",
-        "key": "tadeusza kosciuszki|86|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 652000,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91366/ulica-tadeusza-kosciuszki-86-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Miernicza 9 lokal 12-14",
-      "address": {
-        "street": "Miernicza 9 lokal",
-        "street_norm": "miernicza 9 lokal",
-        "building": "12-14",
-        "apt": null,
-        "key": "miernicza 9 lokal|12-14|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91357/ulica-miernicza-9-lokal-12-14"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Piastowska 30 lokal 1-1A",
-      "address": {
-        "street": "Piastowska 30 lokal",
-        "street_norm": "piastowska 30 lokal",
-        "building": "1-1A",
-        "apt": null,
-        "key": "piastowska 30 lokal|1-1A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 563500,
-      "auction_date": "2026-10-22",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91362/ulica-piastowska-30-lokal-1-1a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Nowodworska 8/8",
-      "address": {
-        "street": "Nowodworska",
-        "street_norm": "nowodworska",
-        "building": "8",
-        "apt": "8",
-        "key": "nowodworska|8|8",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 616000,
-      "auction_date": "2026-10-19",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91353/ulica-nowodworska-8-lokal-8"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Kosynierów Gdyńskich 83/4",
-      "address": {
-        "street": "Kosynierów Gdyńskich",
-        "street_norm": "kosynierow gdynskich",
-        "building": "83",
-        "apt": "4",
-        "key": "kosynierow gdynskich|83|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 556000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90979/ulica-kosynierow-gdynskich-83-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Gajowicka 166/6A",
-      "address": {
-        "street": "Gajowicka",
-        "street_norm": "gajowicka",
-        "building": "166",
-        "apt": "6A",
-        "key": "gajowicka|166|6A",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 620000,
-      "auction_date": "2026-10-12",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91009/ulica-gajowicka-166-lokal-6a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wolskiej 1/1",
-      "address": {
-        "street": "Wolskiej",
-        "street_norm": "wolskiej",
-        "building": "1",
-        "apt": "1",
-        "key": "wolskiej|1|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 3,
-      "starting_price_pln": 460000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90996/ulica-wolska-1-sredzka-20-lokal-w-budynku-przy-ul-wolskiej-1-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. generała Jana Henryka Dąbrowskiego 21/10",
-      "address": {
-        "street": "generała Jana Henryka Dąbrowskiego",
-        "street_norm": "generala jana henryka dabrowskiego",
-        "building": "21",
-        "apt": "10",
-        "key": "generala jana henryka dabrowskiego|21|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 546000,
-      "auction_date": "2026-10-08",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91321/ulica-generala-jana-henryka-dabrowskiego-21-lokal-10"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Leonarda da Vinci 3/1",
-      "address": {
-        "street": "Leonarda da Vinci",
-        "street_norm": "leonarda da vinci",
-        "building": "3",
-        "apt": "1",
-        "key": "leonarda da vinci|3|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 800000,
-      "auction_date": "2026-10-05",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91001/ulica-leonarda-da-vinci-3-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Powstańców Śląskich 135/29",
-      "address": {
-        "street": "Powstańców Śląskich",
-        "street_norm": "powstancow slaskich",
-        "building": "135",
-        "apt": "29",
-        "key": "powstancow slaskich|135|29",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 688500,
-      "auction_date": "2026-10-01",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91014/ulica-powstancow-slaskich-135-lokal-29"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krzycka 3a/1",
-      "address": {
-        "street": "Krzycka",
-        "street_norm": "krzycka",
-        "building": "3A",
-        "apt": "1",
-        "key": "krzycka|3A|1",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 575000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90668/ulica-krzycka-3a-lokal-1"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4/6",
-      "address": {
-        "street": "Plac gen. Józefa Bema",
-        "street_norm": "plac gen jozefa bema",
-        "building": "4",
-        "apt": "6",
-        "key": "plac gen jozefa bema|4|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1118000,
-      "auction_date": "2026-09-30",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90759/plac-gen-jozefa-bema-4-lokal-6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 42/11",
-      "address": {
-        "street": "Przestrzenna",
-        "street_norm": "przestrzenna",
-        "building": "42",
-        "apt": "11",
-        "key": "przestrzenna|42|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 666000,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90705/ulica-przestrzenna-42-lokal-11"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przestrzenna 41 lokal 4-4a",
-      "address": {
-        "street": "Przestrzenna 41 lokal",
-        "street_norm": "przestrzenna 41 lokal",
-        "building": "4-4A",
-        "apt": null,
-        "key": "przestrzenna 41 lokal|4-4A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 2,
-      "starting_price_pln": 859500,
-      "auction_date": "2026-09-17",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90730/ulica-przestrzenna-41-lokal-4-4a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac gen. Józefa Bema 4 lokal 8-8A",
-      "address": {
-        "street": "Plac gen. Józefa Bema 4 lokal",
-        "street_norm": "plac gen jozefa bema 4 lokal",
-        "building": "8-8A",
-        "apt": null,
-        "key": "plac gen jozefa bema 4 lokal|8-8A|",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 1091000,
-      "auction_date": "2026-09-16",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90692/plac-gen-jozefa-bema-4-lokal-8-8a"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Rogowskiej 138/18",
-      "address": {
-        "street": "Rogowskiej",
-        "street_norm": "rogowskiej",
-        "building": "138",
-        "apt": "18",
-        "key": "rogowskiej|138|18",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 400000,
-      "auction_date": "2026-09-10",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91003/ulica-zemska-38-38a-40-42-44-ul-rogowska-136-138-140-142-144-lokal-w-budynku-przy-ul-rogowskiej-138-lokal-18"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/7",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "7",
-        "key": "krepicka|48|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 530000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90665/ulica-krepicka-48-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Krępicka 48/4",
-      "address": {
-        "street": "Krępicka",
-        "street_norm": "krepicka",
-        "building": "48",
-        "apt": "4",
-        "key": "krepicka|48|4",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 555000,
-      "auction_date": "2026-09-09",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90666/ulica-krepicka-48-lokal-4"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Makowa 1/7",
-      "address": {
-        "street": "Makowa",
-        "street_norm": "makowa",
-        "building": "1",
-        "apt": "7",
-        "key": "makowa|1|7",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 205000,
-      "auction_date": "2026-09-07",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/91002/ulica-makowa-1-lokal-7"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wesoła 12/10",
-      "address": {
-        "street": "Wesoła",
-        "street_norm": "wesola",
-        "building": "12",
-        "apt": "10",
-        "key": "wesola|12|10",
-        "warning": null
-      },
-      "area_m2": null,
-      "round": 1,
-      "starting_price_pln": 510000,
-      "auction_date": "2026-09-02",
-      "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10",
-      "source_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90395/ulica-wesola-12-lokal-10"
     }
   ],
   "wykaz": []
