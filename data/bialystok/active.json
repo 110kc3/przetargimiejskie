@@ -4,6 +4,114 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Juliana Tuwima 1/1 m 41",
+      "address": {
+        "street": "Juliana Tuwima",
+        "street_norm": "juliana tuwima",
+        "building": "1",
+        "apt": "41",
+        "key": "juliana tuwima|1|41",
+        "warning": null
+      },
+      "auction_date": "2026-10-21",
+      "round": 6,
+      "area_m2": null,
+      "starting_price_pln": 285100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-45.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Juliana Tuwima 9 m 11",
+      "address": {
+        "street": "Juliana Tuwima",
+        "street_norm": "juliana tuwima",
+        "building": "9",
+        "apt": "11",
+        "key": "juliana tuwima|9|11",
+        "warning": null
+      },
+      "auction_date": "2026-10-21",
+      "round": 5,
+      "area_m2": null,
+      "starting_price_pln": 363100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-14.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wierzbowa 29A m 55",
+      "address": {
+        "street": "Wierzbowa",
+        "street_norm": "wierzbowa",
+        "building": "29A",
+        "apt": "55",
+        "key": "wierzbowa|29A|55",
+        "warning": null
+      },
+      "auction_date": "2026-10-21",
+      "round": 5,
+      "area_m2": null,
+      "starting_price_pln": 289100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-29a-m-55-58.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hanki Ordonówny 6 m 11",
+      "address": {
+        "street": "Hanki Ordonówny",
+        "street_norm": "hanki ordonowny",
+        "building": "6",
+        "apt": "11",
+        "key": "hanki ordonowny|6|11",
+        "warning": null
+      },
+      "auction_date": "2026-10-14",
+      "round": 4,
+      "area_m2": null,
+      "starting_price_pln": 236000,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-hanki-ordonowny-6-m-11-13.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Broniewskiego 13 m 4",
+      "address": {
+        "street": "Władysława Broniewskiego",
+        "street_norm": "wladyslawa broniewskiego",
+        "building": "13",
+        "apt": "4",
+        "key": "wladyslawa broniewskiego|13|4",
+        "warning": null
+      },
+      "auction_date": "2026-10-22",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 407100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-13-m-4-1.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bohaterów Getta 7 m 15",
+      "address": {
+        "street": "Bohaterów Getta",
+        "street_norm": "bohaterow getta",
+        "building": "7",
+        "apt": "15",
+        "key": "bohaterow getta|7|15",
+        "warning": null
+      },
+      "auction_date": "2026-10-21",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 343100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-bohaterow-getta-7-m-15-1.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Włókiennicza 17 m 71",
       "address": {
         "street": "Włókiennicza",
