@@ -84,6 +84,37 @@
       "parcels": []
     },
     {
+      "key": "dz|4650/220",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "4650/220",
+      "obreb": null,
+      "street": "Św.Cyryla i Metodego",
+      "building": null,
+      "address_raw": "Św.Cyryla i Metodego dz. 4650/220",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.930128417400514%2C50.32914368213576%2C18.930855412971464%2C50.32931163961251&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.b09014f5-adc0-4e85-a3aa-248b9029c138",
+      "area_m2": 597,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-01",
+          "round": 2,
+          "starting_price_pln": 97500,
+          "outcome": "active",
+          "area_m2": 597,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-sw.-Cyryla-i-Metodego-dz.-4650_220,24900.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4650/220"
+        }
+      ]
+    },
+    {
       "key": "dz|736/120",
       "kind": "grunt",
       "city": "bytom",
@@ -531,91 +562,6 @@
           "nr": "1929/182"
         }
       ]
-    },
-    {
-      "key": "addr|piekarska 30",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Piekarska 30",
-      "building": null,
-      "address_raw": "Piekarska 30",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.919211888372722%2C50.35074039226007%2C18.919677403708054%2C50.351013024983715&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.1d3b0254-b44c-4fa5-9ea6-5713d291c0f8",
-      "area_m2": 640,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-02",
-          "round": 2,
-          "starting_price_pln": 190000,
-          "outcome": "active",
-          "area_m2": 640,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-30,24545.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|3578/28",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "3578/28",
-      "obreb": null,
-      "street": "Jaskółcza",
-      "building": null,
-      "address_raw": "Jaskółcza dz. 3578/28",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.84941457691274%2C50.36304400141068%2C18.849883596987787%2C50.36336618426302&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.181f47ce-e404-419c-b36b-ae6d3d0ec21e",
-      "area_m2": 759,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-01",
-          "round": 2,
-          "starting_price_pln": 187500,
-          "outcome": "archived",
-          "area_m2": 759,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Jaskolcza-dz.-3578_28,24562.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3578/28"
-        }
-      ]
-    },
-    {
-      "key": "addr|karbowska; warszawska; generała władysława andersa",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Karbowska; Warszawska; Generała Władysława Andersa",
-      "building": null,
-      "address_raw": "Karbowska; Warszawska; Generała Władysława Andersa",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858271212808077%2C50.35750264867635%2C18.861827075281656%2C50.35853732968069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.dd0ed598-53b3-4a66-b585-5b1a0dfc0772",
-      "area_m2": 11963,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-31",
-          "round": 2,
-          "starting_price_pln": 1950000,
-          "outcome": "archived",
-          "area_m2": 11963,
-          "detail_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858271212808077%2C50.35750264867635%2C18.861827075281656%2C50.35853732968069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.dd0ed598-53b3-4a66-b585-5b1a0dfc0772",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
     }
   ]
 }
