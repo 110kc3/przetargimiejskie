@@ -1,47 +1,6 @@
 {
   "schema_version": 1,
   "city": "lebork",
-  "listings": [
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Teligi 14/23",
-      "address": {
-        "street": "Teligi",
-        "street_norm": "teligi",
-        "building": "14",
-        "apt": "23",
-        "key": "teligi|14|23",
-        "warning": null
-      },
-      "area_m2": 59.93,
-      "starting_price_pln": 300000,
-      "wadium_pln": 30000,
-      "auction_date": "2026-09-02",
-      "round": 2,
-      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln",
-      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln",
-      "published_date": "2026-07-30"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "E. Plater 10/9",
-      "address": {
-        "street": "E. Plater",
-        "street_norm": "e plater",
-        "building": "10",
-        "apt": "9",
-        "key": "e plater|10|9",
-        "warning": null
-      },
-      "area_m2": 45.21,
-      "starting_price_pln": 155000,
-      "wadium_pln": 16000,
-      "auction_date": "2026-09-02",
-      "round": 2,
-      "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln",
-      "source_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln",
-      "published_date": "2026-07-30"
-    }
-  ],
+  "listings": [],
   "wykaz": []
 }
