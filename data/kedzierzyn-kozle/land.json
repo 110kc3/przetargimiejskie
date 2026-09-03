@@ -686,7 +686,7 @@
           "date": "2026-09-02",
           "round": 5,
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 2159,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78759"
@@ -735,7 +735,7 @@
           "date": "2026-09-02",
           "round": 5,
           "starting_price_pln": 190000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1720,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78760"
@@ -777,7 +777,7 @@
           "date": "2026-09-02",
           "round": 5,
           "starting_price_pln": 140000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1336,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78761"
@@ -819,7 +819,7 @@
           "date": "2026-09-02",
           "round": 5,
           "starting_price_pln": 130000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1279,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78762"
@@ -861,7 +861,7 @@
           "date": "2026-09-02",
           "round": 5,
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1841,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78763"
@@ -961,6 +961,113 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|kędzierzyn|3417/96, 3417/97, 3417/98, 3417/99, 3417/100, 3417/101, 3417/102",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/96, 3417/97, 3417/98, 3417/99, 3417/100, 3417/101, 3417/102",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej Jadwigi",
+      "dzialka_id": "160301_1.0044.3417/96",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F96",
+      "area_m2": 190,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 1,
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "area_m2": 190
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/96",
+          "dzialka_id": "160301_1.0044.3417/96",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F96"
+        },
+        {
+          "nr": "3417/97",
+          "dzialka_id": "160301_1.0044.3417/97",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F97"
+        },
+        {
+          "nr": "3417/98",
+          "dzialka_id": "160301_1.0044.3417/98",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F98"
+        },
+        {
+          "nr": "3417/99",
+          "dzialka_id": "160301_1.0044.3417/99",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F99"
+        },
+        {
+          "nr": "3417/100",
+          "dzialka_id": "160301_1.0044.3417/100",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F100"
+        },
+        {
+          "nr": "3417/101",
+          "dzialka_id": "160301_1.0044.3417/101",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F101"
+        },
+        {
+          "nr": "3417/102",
+          "dzialka_id": "160301_1.0044.3417/102",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F102"
+        }
+      ]
+    },
+    {
+      "key": "dz|kędzierzyn|3417/92, 3417/93, 3417/94, 3417/95",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/92, 3417/93, 3417/94, 3417/95",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej Jadwigi",
+      "dzialka_id": "160301_1.0044.3417/92",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F92",
+      "area_m2": 110,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 1,
+          "starting_price_pln": 103000,
+          "outcome": "unsold",
+          "area_m2": 110
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/92",
+          "dzialka_id": "160301_1.0044.3417/92",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F92"
+        },
+        {
+          "nr": "3417/93",
+          "dzialka_id": "160301_1.0044.3417/93",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F93"
+        },
+        {
+          "nr": "3417/94",
+          "dzialka_id": "160301_1.0044.3417/94",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F94"
+        },
+        {
+          "nr": "3417/95",
+          "dzialka_id": "160301_1.0044.3417/95",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F95"
+        }
+      ]
     },
     {
       "key": "dz|kędzierzyn|3417/91",
@@ -1182,15 +1289,6 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75535"
         },
         {
-          "date": "2026-06-18",
-          "round": 7,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 1059,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77489"
-        },
-        {
           "date": "2026-08-20",
           "round": 8,
           "starting_price_pln": 70000,
@@ -1251,15 +1349,6 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75537"
         },
         {
-          "date": "2026-06-18",
-          "round": 7,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 1069,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77487"
-        },
-        {
           "date": "2026-08-20",
           "round": 8,
           "starting_price_pln": 70000,
@@ -1299,15 +1388,6 @@
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 1164
-        },
-        {
-          "date": "2026-06-18",
-          "round": 6,
-          "starting_price_pln": 110000,
-          "outcome": "archived",
-          "area_m2": 1164,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77492"
         },
         {
           "date": "2026-08-20",
@@ -1539,15 +1619,6 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75518"
         },
         {
-          "date": "2026-06-17",
-          "round": 8,
-          "starting_price_pln": 70000,
-          "outcome": "archived",
-          "area_m2": 974,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77496"
-        },
-        {
           "date": "2026-08-19",
           "round": 9,
           "starting_price_pln": 70000,
@@ -1647,15 +1718,6 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75527"
         },
         {
-          "date": "2026-06-17",
-          "round": 10,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 967,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77494"
-        },
-        {
           "date": "2026-08-19",
           "round": 11,
           "starting_price_pln": 70000,
@@ -1725,15 +1787,6 @@
           "area_m2": 745
         },
         {
-          "date": "2026-06-17",
-          "round": 14,
-          "starting_price_pln": 80000,
-          "outcome": "archived",
-          "area_m2": 745,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77490"
-        },
-        {
           "date": "2026-08-19",
           "round": 15,
           "starting_price_pln": 71000,
@@ -1799,13 +1852,6 @@
           "area_m2": 974
         },
         {
-          "date": "2026-06-17",
-          "round": 8,
-          "starting_price_pln": 70000,
-          "outcome": "unsold",
-          "area_m2": 974
-        },
-        {
           "date": "2026-08-19",
           "round": 9,
           "starting_price_pln": 70000,
@@ -1854,13 +1900,6 @@
           "date": "2025-11-04",
           "round": 4,
           "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "area_m2": 1539
-        },
-        {
-          "date": "2026-06-17",
-          "round": 8,
-          "starting_price_pln": 120000,
           "outcome": "unsold",
           "area_m2": 1539
         },
@@ -1927,13 +1966,6 @@
           "date": "2025-11-05",
           "round": 6,
           "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "area_m2": 967
-        },
-        {
-          "date": "2026-06-17",
-          "round": 10,
-          "starting_price_pln": 80000,
           "outcome": "unsold",
           "area_m2": 967
         },
@@ -2301,60 +2333,6 @@
       "parcels": []
     },
     {
-      "key": "addr|ul. roberta",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Sławięcice",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Roberta",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Roberta%20S%C5%82awi%C4%99cice%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 330,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-01",
-          "round": 1,
-          "starting_price_pln": 25000,
-          "outcome": "archived",
-          "area_m2": 267,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72282"
-        },
-        {
-          "date": "2025-11-20",
-          "round": 2,
-          "starting_price_pln": 25000,
-          "outcome": "archived",
-          "area_m2": 267,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73384"
-        },
-        {
-          "date": "2026-03-18",
-          "round": 4,
-          "starting_price_pln": 20000,
-          "outcome": "archived",
-          "area_m2": 267,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75516"
-        },
-        {
-          "date": "2026-06-18",
-          "round": 6,
-          "starting_price_pln": 15000,
-          "outcome": "archived",
-          "area_m2": 330,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29916/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77500"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "addr|ul. wisławy szymborskiej",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -2494,6 +2472,51 @@
           "area_m2": 330,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75517"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. roberta",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Roberta",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Roberta%20S%C5%82awi%C4%99cice%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 267,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-01",
+          "round": 1,
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 267,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72282"
+        },
+        {
+          "date": "2025-11-20",
+          "round": 2,
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 267,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73384"
+        },
+        {
+          "date": "2026-03-18",
+          "round": 4,
+          "starting_price_pln": 20000,
+          "outcome": "archived",
+          "area_m2": 267,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29467/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/75516"
         }
       ],
       "parcels": []
