@@ -3,6 +3,36 @@
   "city": "lubliniec",
   "plots": [
     {
+      "key": "dz|24701",
+      "kind": "grunt",
+      "city": "lubliniec",
+      "dzialka_nr": "24701",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Marii Curie Skłodowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2024701%20Marii%20Curie%20Sk%C5%82odowskiej%20Lubliniec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1500,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-26",
+          "round": 1,
+          "starting_price_pln": 300000,
+          "outcome": "sold",
+          "final_price_pln": 753000,
+          "area_m2": 1500
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "24701"
+        }
+      ]
+    },
+    {
       "key": "dz|1799/51, 1246/51, 1225/51, 1562/51",
       "kind": "grunt",
       "city": "lubliniec",
@@ -1712,38 +1742,6 @@
       "parcels": [
         {
           "nr": "1407/51"
-        }
-      ]
-    },
-    {
-      "key": "dz|940/26, 911/27",
-      "kind": "grunt",
-      "city": "lubliniec",
-      "dzialka_nr": "940/26, 911/27",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20940%2F26%2C%20911%2F27%20Lubliniec%20geoportal%20dzia%C5%82ki",
-      "area_m2": 2243,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2020-10-08",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "area_m2": 2243
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "940/26"
-        },
-        {
-          "nr": "911/27"
         }
       ]
     },
