@@ -3,6 +3,56 @@
   "city": "glubczyce",
   "plots": [
     {
+      "key": "dz|miejscowości|208",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "208",
+      "obreb": "miejscowości",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20miejscowo%C5%9Bci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 400,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "starting_price_pln": 7000,
+          "outcome": "archived",
+          "area_m2": 400,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/28527/10.doc?v=1777884205",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/28527/10.doc?v=1777884205"
+        },
+        {
+          "date": "2026-07-15",
+          "round": 2,
+          "starting_price_pln": 6000,
+          "outcome": "archived",
+          "area_m2": 400,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/29042/13-krolowe-dz-208.doc?v=1783430490",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/29042/13-krolowe-dz-208.doc?v=1783430490"
+        },
+        {
+          "date": "2026-10-08",
+          "round": 3,
+          "starting_price_pln": 45133,
+          "outcome": "active",
+          "area_m2": 400,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/29281/20-krolowe-dz-208.doc?v=1788349161",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/29281/20-krolowe-dz-208.doc?v=1788349161"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "208",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20miejscowo%C5%9Bci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|głubczycach|1333, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1343/2, 1344/2, 1345",
       "kind": "grunt",
       "city": "glubczyce",
@@ -175,47 +225,6 @@
         {
           "nr": "875/1",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20875%2F1%20Bogdanowicach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|miejscowości|208",
-      "kind": "grunt",
-      "city": "glubczyce",
-      "dzialka_nr": "208",
-      "obreb": "miejscowości",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20miejscowo%C5%9Bci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
-      "area_m2": 400,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-09",
-          "round": 1,
-          "starting_price_pln": 7000,
-          "outcome": "archived",
-          "area_m2": 400,
-          "detail_url": "https://bip.glubczyce.pl/download/attachment/28527/10.doc?v=1777884205",
-          "source_url": "https://bip.glubczyce.pl/download/attachment/28527/10.doc?v=1777884205"
-        },
-        {
-          "date": "2026-07-15",
-          "round": 2,
-          "starting_price_pln": 6000,
-          "outcome": "archived",
-          "area_m2": 400,
-          "detail_url": "https://bip.glubczyce.pl/download/attachment/29042/13-krolowe-dz-208.doc?v=1783430490",
-          "source_url": "https://bip.glubczyce.pl/download/attachment/29042/13-krolowe-dz-208.doc?v=1783430490"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "208",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20miejscowo%C5%9Bci%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -685,15 +694,6 @@
       "status": null,
       "listings": [
         {
-          "date": "2024-05-21",
-          "round": 2,
-          "starting_price_pln": 17212,
-          "outcome": "archived",
-          "area_m2": 1118,
-          "detail_url": "https://bip.glubczyce.pl/download/attachment/24209/32-grunwaldzka-34-_-uzytkowanie-wieczyste.doc?v=1713781940",
-          "source_url": "https://bip.glubczyce.pl/download/attachment/24209/32-grunwaldzka-34-_-uzytkowanie-wieczyste.doc?v=1713781940"
-        },
-        {
           "date": "2024-09-11",
           "round": 3,
           "starting_price_pln": 15300,
@@ -707,38 +707,6 @@
         {
           "nr": "349/43",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20349%2F43%20Grunwaldzka%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|nowa wies glubczycka|100/2",
-      "kind": "grunt",
-      "city": "glubczyce",
-      "dzialka_nr": "100/2",
-      "obreb": "Nowa Wies Glubczycka",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20100%2F2%20Nowa%20Wies%20Glubczycka%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
-      "area_m2": 900,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-06-25",
-          "round": 3,
-          "starting_price_pln": 25212,
-          "outcome": "archived",
-          "area_m2": 900,
-          "detail_url": "https://bip.glubczyce.pl/download/attachment/24288/34-nowa-wies-glubczycka-100_2.doc?v=1716456361",
-          "source_url": "https://bip.glubczyce.pl/download/attachment/24288/34-nowa-wies-glubczycka-100_2.doc?v=1716456361"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "100/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20100%2F2%20Nowa%20Wies%20Glubczycka%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
