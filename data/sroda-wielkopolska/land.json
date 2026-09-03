@@ -3,6 +3,93 @@
   "city": "sroda-wielkopolska",
   "plots": [
     {
+      "key": "dz|953/44",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "953/44",
+      "obreb": null,
+      "street": "Strzeleckiej",
+      "building": null,
+      "address_raw": "ul. Strzeleckiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20953%2F44%20Strzeleckiej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 647,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-29",
+          "round": 1,
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 647,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/783352/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        },
+        {
+          "date": "2026-07-10",
+          "round": 1,
+          "starting_price_pln": 284680,
+          "outcome": "archived",
+          "area_m2": 647,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/885397/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        },
+        {
+          "date": "2026-10-16",
+          "round": 2,
+          "starting_price_pln": 282000,
+          "outcome": "active",
+          "area_m2": 647,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/901610/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "953/44"
+        }
+      ]
+    },
+    {
+      "key": "dz|3654/3",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "3654/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203654%2F3%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-10",
+          "round": 1,
+          "starting_price_pln": 40000,
+          "outcome": "archived",
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/885329/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        },
+        {
+          "date": "2026-10-16",
+          "round": 2,
+          "starting_price_pln": 30000,
+          "outcome": "active",
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/901564/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3654/3"
+        }
+      ]
+    },
+    {
       "key": "dz|437/82",
       "kind": "grunt",
       "city": "sroda-wielkopolska",
@@ -57,76 +144,6 @@
       "parcels": [
         {
           "nr": "437/82"
-        }
-      ]
-    },
-    {
-      "key": "dz|953/44",
-      "kind": "grunt",
-      "city": "sroda-wielkopolska",
-      "dzialka_nr": "953/44",
-      "obreb": null,
-      "street": "Strzeleckiej",
-      "building": null,
-      "address_raw": "ul. Strzeleckiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20953%2F44%20Strzeleckiej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
-      "area_m2": 647,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-11-29",
-          "round": 1,
-          "starting_price_pln": 200000,
-          "outcome": "archived",
-          "area_m2": 647,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/783352/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
-        },
-        {
-          "date": "2026-07-10",
-          "round": 1,
-          "starting_price_pln": 284680,
-          "outcome": "archived",
-          "area_m2": 647,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/885397/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "953/44"
-        }
-      ]
-    },
-    {
-      "key": "dz|3654/3",
-      "kind": "grunt",
-      "city": "sroda-wielkopolska",
-      "dzialka_nr": "3654/3",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203654%2F3%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-10",
-          "round": 1,
-          "starting_price_pln": 40000,
-          "outcome": "archived",
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/885329/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3654/3"
         }
       ]
     },
@@ -192,7 +209,7 @@
           "outcome": "archived",
           "area_m2": 494,
           "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/843407/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_udzialu_w",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
         }
       ],
       "parcels": [
@@ -795,7 +812,7 @@
           "outcome": "archived",
           "area_m2": 174,
           "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/711204/ogloszenie_o_przetargu_usntym_ograniczonym_na_sprzedaz_nieruchom",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
         }
       ],
       "parcels": [
