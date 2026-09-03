@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T08:55:42.055Z",
+  "generated_at": "2026-09-03T08:55:46.211Z",
   "cities": [
     {
       "id": "gliwice",
@@ -12,7 +12,7 @@
       "active_listings": 6,
       "active_auctions": 6,
       "archived_auctions": 285,
-      "wykaz_entries": 5,
+      "wykaz_entries": 4,
       "land_plots": 81
     },
     {
@@ -35,11 +35,11 @@
       "authority": "Urząd Miasta Bytom",
       "host": "www.bytom.pl",
       "unique_properties": 25,
-      "active_listings": 14,
-      "active_auctions": 1,
+      "active_listings": 15,
+      "active_auctions": 2,
       "archived_auctions": 24,
       "wykaz_entries": 0,
-      "land_plots": 21
+      "land_plots": 19
     },
     {
       "id": "zabrze",
@@ -143,7 +143,7 @@
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 111
+      "land_plots": 113
     },
     {
       "id": "trzebinia",
@@ -152,7 +152,7 @@
       "authority": "Urząd Miasta w Trzebini",
       "host": "trzebinia.pl",
       "unique_properties": 4,
-      "active_listings": 2,
+      "active_listings": 4,
       "active_auctions": 2,
       "archived_auctions": 2,
       "wykaz_entries": 0,
@@ -165,9 +165,9 @@
       "authority": "Urząd Miasta Krakowa (Wydział Skarbu Miasta)",
       "host": "bip.krakow.pl",
       "unique_properties": 10,
-      "active_listings": 14,
-      "active_auctions": 2,
-      "archived_auctions": 12,
+      "active_listings": 13,
+      "active_auctions": 1,
+      "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 3
     },
@@ -295,7 +295,7 @@
       "authority": "Gmina Miasta Wejherowa",
       "host": "bip.wejherowo.pl",
       "unique_properties": 11,
-      "active_listings": 6,
+      "active_listings": 3,
       "active_auctions": 3,
       "archived_auctions": 8,
       "wykaz_entries": 0,
@@ -333,10 +333,10 @@
       "voivodeship": "podlaskie",
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
-      "unique_properties": 229,
-      "active_listings": 20,
-      "active_auctions": 15,
-      "archived_auctions": 322,
+      "unique_properties": 232,
+      "active_listings": 26,
+      "active_auctions": 21,
+      "archived_auctions": 335,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -451,9 +451,9 @@
       "authority": "Urząd Miejski w Słupsku",
       "host": "bip.um.slupsk.pl",
       "unique_properties": 12,
-      "active_listings": 10,
-      "active_auctions": 10,
-      "archived_auctions": 3,
+      "active_listings": 8,
+      "active_auctions": 8,
+      "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -792,7 +792,7 @@
       "active_listings": 0,
       "active_auctions": 0,
       "archived_auctions": 3,
-      "wykaz_entries": 2,
+      "wykaz_entries": 1,
       "land_plots": 1
     },
     {
@@ -948,7 +948,7 @@
       "active_listings": 4,
       "active_auctions": 0,
       "archived_auctions": 4,
-      "wykaz_entries": 1,
+      "wykaz_entries": 0,
       "land_plots": 32
     },
     {
@@ -1131,7 +1131,7 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
-      "land_plots": 54
+      "land_plots": 52
     },
     {
       "id": "lwowek-slaski",
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 52
     },
     {
       "id": "jarocin",
@@ -1192,11 +1192,11 @@
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
       "unique_properties": 23,
-      "active_listings": 11,
+      "active_listings": 10,
       "active_auctions": 10,
       "archived_auctions": 16,
       "wykaz_entries": 0,
-      "land_plots": 22
+      "land_plots": 20
     },
     {
       "id": "glubczyce",
@@ -1205,11 +1205,11 @@
       "authority": "Urząd Miejski w Głubczycach",
       "host": "bip.glubczyce.pl",
       "unique_properties": 20,
-      "active_listings": 11,
+      "active_listings": 10,
       "active_auctions": 0,
       "archived_auctions": 37,
       "wykaz_entries": 0,
-      "land_plots": 22
+      "land_plots": 21
     },
     {
       "id": "gostyn",
@@ -1300,7 +1300,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 4
+      "land_plots": 2
     },
     {
       "id": "wabrzezno",
@@ -1361,9 +1361,9 @@
       "authority": "Gmina Miasto Lębork",
       "host": "bip.um.lebork.pl",
       "unique_properties": 27,
-      "active_listings": 2,
-      "active_auctions": 2,
-      "archived_auctions": 35,
+      "active_listings": 0,
+      "active_auctions": 0,
+      "archived_auctions": 37,
       "wykaz_entries": 0,
       "land_plots": 11
     },
@@ -1413,9 +1413,9 @@
       "authority": "Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)",
       "host": "bip.um.wroc.pl",
       "unique_properties": 69,
-      "active_listings": 345,
-      "active_auctions": 25,
-      "archived_auctions": 44,
+      "active_listings": 0,
+      "active_auctions": 24,
+      "archived_auctions": 45,
       "wykaz_entries": 0,
       "land_plots": 0
     },
@@ -1491,8 +1491,8 @@
       "authority": "Prezydent Miasta Siedlce",
       "host": "siedlce.pl",
       "unique_properties": 3,
-      "active_listings": 5,
-      "active_auctions": 0,
+      "active_listings": 6,
+      "active_auctions": 1,
       "archived_auctions": 5,
       "wykaz_entries": 0,
       "land_plots": 0
