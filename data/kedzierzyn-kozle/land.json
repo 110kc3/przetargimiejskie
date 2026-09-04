@@ -229,14 +229,6 @@
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77838"
         },
         {
-          "date": "2026-07-21",
-          "round": 11,
-          "starting_price_pln": 2800000,
-          "outcome": "archived",
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29917/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77505"
-        },
-        {
           "date": "2026-08-26",
           "round": 1,
           "starting_price_pln": 125000,
@@ -330,10 +322,8 @@
           "date": "2026-07-21",
           "round": 11,
           "starting_price_pln": 1500000,
-          "outcome": "archived",
-          "area_m2": 41768,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29917/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77508"
+          "outcome": "unsold",
+          "area_m2": 41768
         },
         {
           "date": "2026-09-29",
@@ -447,10 +437,8 @@
           "date": "2026-07-21",
           "round": 11,
           "starting_price_pln": 2000000,
-          "outcome": "archived",
-          "area_m2": 23753,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29917/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/77506"
+          "outcome": "unsold",
+          "area_m2": 23753
         },
         {
           "date": "2026-09-29",
@@ -569,7 +557,7 @@
           "date": "2026-09-03",
           "round": 2,
           "starting_price_pln": 120000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 244,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78752"
@@ -602,7 +590,7 @@
           "date": "2026-09-03",
           "round": 1,
           "starting_price_pln": 110000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 773,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78757"
@@ -644,7 +632,7 @@
           "date": "2026-09-03",
           "round": 2,
           "starting_price_pln": 130000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 905,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78758"
@@ -905,6 +893,100 @@
           "nr": "727/64",
           "dzialka_id": "160301_1.0091.727/64",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F64"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|727/49",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "727/49",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "160301_1.0091.727/49",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F49",
+      "area_m2": 1154,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1154
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "727/49",
+          "dzialka_id": "160301_1.0091.727/49",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F49"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|727/48",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "727/48",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "160301_1.0091.727/48",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F48",
+      "area_m2": 1156,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1156
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "727/48",
+          "dzialka_id": "160301_1.0091.727/48",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F48"
+        }
+      ]
+    },
+    {
+      "key": "dz|sławięcice|727/66",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "727/66",
+      "obreb": "Sławięcice",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "160301_1.0091.727/66",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F66",
+      "area_m2": 970,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "final_price_pln": 121200,
+          "area_m2": 970
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "727/66",
+          "dzialka_id": "160301_1.0091.727/66",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0091.727%2F66"
         }
       ]
     },
