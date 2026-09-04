@@ -3,6 +3,37 @@
   "city": "wolow",
   "plots": [
     {
+      "key": "dz|łososiowice|362/4",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "362/4",
+      "obreb": "Łososiowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Łososiowice, dz. nr 362/4, Am 1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20362%2F4%20%C5%81ososiowice%2C%20dz.%20nr%20362%2F4%2C%20Am%201%20%C5%81ososiowice%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3224,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 3224,
+          "detail_url": "https://wolow.pl/4056/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lososiowicach-lososiowice-dz-nr-3624-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "362/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20362%2F4%20%C5%81ososiowice%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|wołów|15/1",
       "kind": "grunt",
       "city": "wolow",
@@ -240,66 +271,6 @@
       "parcels": [
         {
           "nr": "629/6"
-        }
-      ]
-    },
-    {
-      "key": "dz|219/10",
-      "kind": "grunt",
-      "city": "wolow",
-      "dzialka_nr": "219/10",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "dz. nr 219/10",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F10%20dz.%20nr%20219%2F10%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1216,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-03",
-          "round": 2,
-          "starting_price_pln": 114000,
-          "outcome": "active",
-          "area_m2": 1216,
-          "detail_url": "https://wolow.pl/3987/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-borowa-dz-nr-21910.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "219/10"
-        }
-      ]
-    },
-    {
-      "key": "dz|219/8",
-      "kind": "grunt",
-      "city": "wolow",
-      "dzialka_nr": "219/8",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "dz. nr 219/8",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F8%20dz.%20nr%20219%2F8%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1100,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-03",
-          "round": 2,
-          "starting_price_pln": 114000,
-          "outcome": "active",
-          "area_m2": 1100,
-          "detail_url": "https://wolow.pl/3986/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-mchowa-dz-nr-2198.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "219/8"
         }
       ]
     },
