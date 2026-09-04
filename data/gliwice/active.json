@@ -131,6 +131,19 @@
   ],
   "wykaz": [
     {
+      "wykaz_no": "ZGM/DS/182/2026",
+      "address_raw": "Róży Luksemburg 15/4",
+      "address": {
+        "street": "Róży Luksemburg",
+        "street_norm": "rozy luksemburg",
+        "building": "15",
+        "apt": "4",
+        "key": "rozy luksemburg|15|4",
+        "warning": null
+      },
+      "published_date": null
+    },
+    {
       "wykaz_no": "ZGM/DS/197/2026",
       "address_raw": "Wyszyńskiego 14D/V",
       "address": {
@@ -165,19 +178,6 @@
         "building": "2",
         "apt": "8",
         "key": "derkacza|2|8",
-        "warning": null
-      },
-      "published_date": null
-    },
-    {
-      "wykaz_no": "ZGM/DS/112/2026",
-      "address_raw": "Ziemowita 6 garaż nr 2",
-      "address": {
-        "street": "Ziemowita",
-        "street_norm": "ziemowita",
-        "building": "6",
-        "apt": "garaz-2",
-        "key": "ziemowita|6|garaz-2",
         "warning": null
       },
       "published_date": null
