@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Łazienna 7",
+      "address": {
+        "street": "Łazienna",
+        "street_norm": "lazienna",
+        "building": "7",
+        "apt": null,
+        "key": "lazienna|7|",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 390000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63432/ul-lazienna-7",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ducha Św. 19 m. nr 12 i nr 13",
+      "address": {
+        "street": "Ducha Św. 19 m. nr 12 i nr",
+        "street_norm": "ducha sw 19 m nr 12 i nr",
+        "building": "13",
+        "apt": null,
+        "key": "ducha sw 19 m nr 12 i nr|13|",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Mostowa 22 / ul. Podmurna 21",
       "address": {
         "street": "Mostowa 22 / ul. Podmurna",
