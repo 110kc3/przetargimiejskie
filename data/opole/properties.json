@@ -233,6 +233,61 @@
       ]
     },
     {
+      "key": "jagiellonow|4|5",
+      "street": "Jagiellonów",
+      "street_norm": "jagiellonow",
+      "building": "4",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "archived",
+          "area_m2": 74.44,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_283",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-08-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 378000,
+          "outcome": "archived",
+          "area_m2": 74.44,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_309",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "archived",
+          "area_m2": 74.44,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_471",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 378000,
+          "outcome": "active",
+          "area_m2": 74.44,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_485",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 74.44
+    },
+    {
       "key": "ksiedza jana dzierzona|9|7",
       "street": "Księdza Jana Dzierżona",
       "street_norm": "ksiedza jana dzierzona",
@@ -354,50 +409,6 @@
         }
       ],
       "area_m2": 41.63
-    },
-    {
-      "key": "jagiellonow|4|5",
-      "street": "Jagiellonów",
-      "street_norm": "jagiellonow",
-      "building": "4",
-      "apt": "5",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-06-10",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 420000,
-          "outcome": "archived",
-          "area_m2": 74.44,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-6_283",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2025-08-12",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 378000,
-          "outcome": "archived",
-          "area_m2": 74.44,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2025-8_309",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-07-29",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 420000,
-          "outcome": "archived",
-          "area_m2": 74.44,
-          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-7_471",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 74.44
     },
     {
       "key": "augustyna kosnego|26|9",

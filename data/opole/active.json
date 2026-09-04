@@ -344,6 +344,23 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Jagiellonów 4/5",
+      "address": {
+        "street": "Jagiellonów",
+        "street_norm": "jagiellonow",
+        "building": "4",
+        "apt": "5",
+        "key": "jagiellonow|4|5",
+        "warning": null
+      },
+      "area_m2": 74.44,
+      "starting_price_pln": 378000,
+      "auction_date": "2026-10-21",
+      "round": 2,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-10_485"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Władysława Reymonta 3/6",
       "address": {
         "street": "Władysława Reymonta",
