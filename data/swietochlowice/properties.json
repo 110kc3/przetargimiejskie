@@ -114,7 +114,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 310000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
           "wadium_deadline": null,
@@ -151,11 +151,12 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 140000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.swietochlowice.pl/res/serwisy/pliki/44484696",
+          "notes": [],
+          "detail_url": "https://www.bip.swietochlowice.pl/bipkod/29287911"
         }
       ]
     },
