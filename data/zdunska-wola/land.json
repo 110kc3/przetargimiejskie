@@ -3,34 +3,82 @@
   "city": "zdunska-wola",
   "plots": [
     {
-      "key": "dz|21/2",
+      "key": "addr|ul. kpt. władysława jachowicza 6",
       "kind": "grunt",
       "city": "zdunska-wola",
-      "dzialka_nr": "21/2",
+      "dzialka_nr": null,
       "obreb": null,
       "street": null,
       "building": null,
-      "address_raw": "ul. Karola Szymanowskiego",
+      "address_raw": "ul. kpt. Władysława Jachowicza 6",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%2F2%20ul.%20Karola%20Szymanowskiego%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
-      "area_m2": 554,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20kpt.%20W%C5%82adys%C5%82awa%20Jachowicza%206%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-07-08",
+          "date": "2026-11-09",
           "round": 1,
-          "starting_price_pln": 108000,
-          "outcome": "sold",
-          "final_price_pln": 170000,
-          "area_m2": 554
+          "starting_price_pln": 492000,
+          "outcome": "active",
+          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13138/zdunska-wola-ul-kpt-wladyslawa-jachowicza-nr-6",
+          "source_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13138/zdunska-wola-ul-kpt-wladyslawa-jachowicza-nr-6"
         }
       ],
-      "parcels": [
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. ks. płk. józefa balcerczyka 12",
+      "kind": "grunt",
+      "city": "zdunska-wola",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. ks. płk. Józefa Balcerczyka 12",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20ks.%20p%C5%82k.%20J%C3%B3zefa%20Balcerczyka%2012%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
         {
-          "nr": "21/2"
+          "date": "2026-10-09",
+          "round": 1,
+          "starting_price_pln": 135000,
+          "outcome": "active",
+          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13140/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-12",
+          "source_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13140/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-12"
         }
-      ]
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. ks. płk. józefa balcerczyka 11",
+      "kind": "grunt",
+      "city": "zdunska-wola",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. ks. płk. Józefa Balcerczyka 11",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20ks.%20p%C5%82k.%20J%C3%B3zefa%20Balcerczyka%2011%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-09",
+          "round": 1,
+          "starting_price_pln": 116850,
+          "outcome": "active",
+          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13139/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-11",
+          "source_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13139/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-11"
+        }
+      ],
+      "parcels": []
     }
   ]
 }
