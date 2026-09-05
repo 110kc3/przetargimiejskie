@@ -155,11 +155,13 @@ async function crawlAll() {
   const listings = [];
   const resultRefs = [];
   let skipped = 0;
+  let fetchedDocs = 0;
 
   for (const item of items) {
     let text;
     try {
       text = await pdfText(item.pdfUrl, { userAgent: BROWSER_UA });
+      fetchedDocs++;
     } catch (err) {
       console.error(`  kalisz pdf-text failed (${item.pdfUrl} — "${item.title.slice(0, 60)}"): ${err.message}`);
       continue;
@@ -182,13 +184,23 @@ async function crawlAll() {
     `  kalisz: ${listings.length} listing(s), ${resultRefs.length} result notice(s) ` +
       `(${skipped} non-auction/land/unkeyable item(s) skipped of ${items.length})`,
   );
-  return { listings, resultRefs };
+  return {
+    listings,
+    resultRefs,
+    // A reachable board with either no unseen documents or at least one
+    // successfully inspected document can legitimately contain no new tracked
+    // flat. Do not report that quiet period as a source outage merely because
+    // a couple of unrelated/deleted attachments returned 403.
+    validEmpty: listings.length === 0
+      && resultRefs.length === 0
+      && (items.length === 0 || fetchedDocs > 0),
+  };
 }
 
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings } = await crawlPromise;
-  return { listings, wykaz: [], land: [] };
+  const { listings, validEmpty } = await crawlPromise;
+  return { listings, wykaz: [], land: [], valid_empty: validEmpty };
 }
 
 export async function crawlResultDocs() {

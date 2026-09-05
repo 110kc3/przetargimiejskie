@@ -39,7 +39,7 @@ extension, and receives Monday's digest. Health green daily.
 | Wałbrzych pre-Aug-2024 same-line legacy result-table history (current source and Aug-2024→2026 archive are repaired) | [RPI5] | S-M | optional historical backfill; documented in TODO §1 |
 | Augustów: replace the now-empty listing indexes with filtered official search or another durable discovery feed | [RPI5] | M | open |
 | Brzeg: detect the anti-DDoS waiting-room page, classify as source-unreachable, cookie-retry | [RPI5] | S | **shipped this session** |
-| Restricted residential CI egress for Racibórz + Świętochłowice (FINN), Brzeg, Wałbrzych and providers | [RPI5] | M | **open** — deny-by-default proxy plan documented; all code remains on hosted CI |
+| Restricted residential CI egress for Racibórz + Pszczyna (shared FINN origin) | [RPI5] + [ACCOUNT] | M | **code/proxy complete 2026-09-05** — OAuth client, least-privilege tailnet ACL and hosted acceptance run remain Kamil-only |
 | Institutional-source pilot: separate PKP + AMW pipeline/data/health, seller-labelled `/archiwum-all`; Orange evaluated and deferred | [RPI5] | M | **pilot shipped 2026-08-23**; public `/archiwum` after 3 green refreshes + spot-check |
 
 ### T1.b Distribution (mixed)

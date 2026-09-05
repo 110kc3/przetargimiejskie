@@ -14,7 +14,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 # Share the daily refresh's lock so a backfill and a scheduled run never
 # interleave commits on main.
@@ -29,28 +29,31 @@ jobs:
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
+      egress_cities: ${{ steps.registry.outputs.egress_cities }}
       # Cities needing core/render.js (Playwright) — see refresh.yml.
       render_cities: ${{ steps.registry.outputs.render_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
       - name: Run parser tests
         working-directory: pipeline
         run: npm test
       - name: Read city registry
         id: registry
         working-directory: pipeline
-        run: |
-          echo "cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
-          echo "render_cities=$(node -e "import('./src/cities/index.js').then(m=>console.log(JSON.stringify(m.cities.filter(c=>c.needsRender).map(c=>c.id))))")" >> "$GITHUB_OUTPUT"
+        env:
+          RESIDENTIAL_EGRESS_ENABLED: ${{ secrets.FETCH_PROXY_URL != '' && secrets.TS_OAUTH_CLIENT_ID != '' && secrets.TS_OAUTH_SECRET != '' }}
+        run: node scripts/refresh-matrix.js
 
   # One job per city, parallel, long timeout, crawlers un-bounded. A failure
-  # blocks ONLY that city's commit; the others still backfill.
+  # marks only that city's artifact failed; the others still backfill.
   backfill:
     needs: setup
     runs-on: ubuntu-latest
@@ -69,6 +72,25 @@ jobs:
       BIALYSTOK_MAX_DETAILS: '100000'
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - name: Join restricted tailnet for ${{ matrix.city }}
+        if: contains(fromJSON(needs.setup.outputs.egress_cities), matrix.city)
+        uses: tailscale/github-action@780049a30b6ff5c378a9e7b389d15ece7a204888 # v4.1.3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:przetargi-ci
+          version: '1.102.3'
+          sha256sum: 36ddd9b51be57ffc2990cf76323cfa13643bfbb1b8a969f6183fa164741cdef5
+          ping: 100.114.161.16
+
+      - name: Verify restricted egress policy
+        if: contains(fromJSON(needs.setup.outputs.egress_cities), matrix.city)
+        env:
+          FETCH_PROXY_URL: ${{ secrets.FETCH_PROXY_URL }}
+        run: ops/egress/verify.sh "$FETCH_PROXY_URL"
 
       - name: Install OCR toolchain
         run: |
@@ -88,7 +110,7 @@ jobs:
 
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
 
       - name: Install Playwright Chromium
         if: contains(fromJSON(needs.setup.outputs.render_cities), matrix.city)
@@ -96,10 +118,14 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run pipeline for ${{ matrix.city }}
+        id: refresh
         working-directory: pipeline
+        env:
+          FETCH_PROXY_URL: ${{ contains(fromJSON(needs.setup.outputs.egress_cities), matrix.city) && secrets.FETCH_PROXY_URL || '' }}
         run: CITY=${{ matrix.city }} npm run refresh
 
       - name: Sanity-check ${{ matrix.city }} data
+        id: sanity
         working-directory: pipeline
         run: node scripts/sanity-check.js ${{ matrix.city }}
 
@@ -108,51 +134,92 @@ jobs:
         working-directory: pipeline
         run: CITY=${{ matrix.city }} npm run enrich-land
 
-      - name: Commit and push if data changed
+      - name: Package read-only backfill output
+        if: always()
         run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          # Add only paths that exist (a thin city may produce no data dir).
-          for p in data/${{ matrix.city }} pipeline/ocr-cache pipeline/pdf-text-cache pipeline/doc-text-cache pipeline/rtf-text-cache pipeline/detail-cache pipeline/uldk-cache; do
-            [ -e "$p" ] && git add "$p"
-          done
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: backfill ${{ matrix.city }} $(date -u +%Y-%m-%d)"
-            # -X theirs: our fresh crawl wins a meta.json (generated_at) conflict;
-            # abort a failed rebase so "unmerged files" can't break every retry.
-            for i in 1 2 3 4 5 6; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep $(( (RANDOM % 8) + 2 ))
-            done
-            echo "could not push after 6 attempts" >&2
-            exit 1
+          status=failed
+          if [ "${{ steps.refresh.outcome }}" = success ] && [ "${{ steps.sanity.outcome }}" = success ]; then
+            status=ready
           fi
+          node pipeline/scripts/refresh-artifact.js pack-city \
+            "${{ matrix.city }}" "$status" refresh-artifact
 
-  # Rebuild data/index.json once every city job has finished.
-  index:
+      - name: Upload backfill output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: refresh-result-${{ matrix.city }}
+          path: refresh-artifact/
+          retention-days: 1
+          if-no-files-found: error
+
+  publish:
     needs: [setup, backfill]
     if: ${{ always() && needs.setup.result == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: write
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: main
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - name: Download backfill outputs
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
-          node-version: '20'
-      - name: Install pipeline deps
-        working-directory: pipeline
-        run: npm ci || npm install
+          pattern: 'refresh-result-*'
+          path: incoming-city
+      - name: Validate and apply backfill outputs
+        env:
+          EXPECTED_CITIES: ${{ needs.setup.outputs.cities }}
+        run: |
+          node pipeline/scripts/refresh-artifact.js apply-city \
+            incoming-city "$EXPECTED_CITIES" ready-cities.txt publish-paths.txt
+          while IFS= read -r city; do
+            [ -n "$city" ] || continue
+            node pipeline/scripts/sanity-check.js "$city"
+          done < ready-cities.txt
+      - name: Commit and push validated backfill data
+        run: |
+          if [ ! -s publish-paths.txt ]; then
+            echo "No backfill data changes."
+            exit 0
+          fi
+          git config user.name "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add --pathspec-from-file=publish-paths.txt
+          if git diff --cached --quiet; then
+            echo "No backfill data changes."
+            exit 0
+          fi
+          git commit -m "data: backfill cities $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5 6; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            echo "push attempt $i failed; retrying ..."
+            sleep $(( (RANDOM % 8) + 2 ))
+          done
+          echo "could not push validated backfill data after 6 attempts" >&2
+          exit 1
+
+  # Rebuild data/index.json once every city job has finished.
+  index:
+    needs: [setup, publish]
+    if: ${{ always() && needs.setup.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
       - name: Build data/index.json
         working-directory: pipeline
         run: |
           git pull origin main
-          npm run build-index
+          node src/build-index.js
       - name: Commit and push if index changed
         run: |
           git config user.name  "zgm-data-bot"

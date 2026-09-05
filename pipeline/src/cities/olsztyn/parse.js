@@ -113,7 +113,13 @@ function parseDateNumeric(text) {
 // Matches: optional comma/space + digit(s) + optional letter, repeated.
 // Only strips from the END of the string so "3 Maja" (leading digit) is safe.
 function stripMultiBuildingSuffix(street) {
-  return street.replace(/[,\s]+\d+\w?(?:[,\s]+\d+\w?)*\s*$/, '').trim();
+  // Peel one suffix at a time. The former nested, repeated regexp could
+  // backtrack exponentially on hostile source text even though real street
+  // names are short.
+  let value = street.trimEnd();
+  const suffix = /[,\s]+\d+\w?$/;
+  while (suffix.test(value)) value = value.replace(suffix, '').trimEnd();
+  return value.trim();
 }
 
 // ---------------------------------------------------------------------------

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { cities } from '../src/cities/index.js';
 import { buildRefreshMatrix } from '../scripts/refresh-matrix.js';
 
-const EGRESS_CITIES = ['raciborz'];
+const EGRESS_CITIES = ['pszczyna', 'raciborz'];
 
 test('hosted refresh matrix excludes only residential-egress adapters', () => {
   const matrix = buildRefreshMatrix(cities);
@@ -25,6 +25,7 @@ test('single-city dispatch accepts a hosted city', () => {
 
 test('single-city dispatch rejects unknown and residential-egress cities', () => {
   assert.throws(() => buildRefreshMatrix(cities, 'not-a-city'), /unknown city id/);
+  assert.throws(() => buildRefreshMatrix(cities, 'pszczyna'), /requires residential egress/);
   assert.throws(() => buildRefreshMatrix(cities, 'raciborz'), /requires residential egress/);
 });
 
@@ -38,4 +39,9 @@ test('configured restricted egress includes flagged adapters and permits a targe
   assert.deepEqual(targeted.cities, ['raciborz']);
   assert.deepEqual(targeted.egress_cities, ['raciborz']);
   assert.deepEqual(targeted.blocked_cities, []);
+
+  const secondTarget = buildRefreshMatrix(cities, 'pszczyna', true);
+  assert.deepEqual(secondTarget.cities, ['pszczyna']);
+  assert.deepEqual(secondTarget.egress_cities, ['pszczyna']);
+  assert.deepEqual(secondTarget.blocked_cities, []);
 });

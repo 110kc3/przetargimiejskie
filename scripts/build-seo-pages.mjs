@@ -30,6 +30,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CITY_LOC, inCity } from './lib/city-loc.mjs';
+import { stringifyJsonForHtml } from './lib/safe-json.mjs';
 
 const ROOT = process.env.SEO_ROOT ? resolve(process.env.SEO_ROOT)
   : resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -170,7 +171,7 @@ function page({ path: pagePath, title, description, h1, crumbs, body, jsonLd }) 
   const canonical = `${SITE}${pagePath}`;
   const crumbHtml = crumbs?.length
     ? `<nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : esc(c.label))).join(' › ')}</nav>` : '';
-  const ld = jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
+  const ld = jsonLd ? `<script type="application/ld+json">${stringifyJsonForHtml(jsonLd)}</script>` : '';
   return `<!doctype html>
 <html lang="pl">
 <head>

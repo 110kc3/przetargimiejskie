@@ -111,14 +111,17 @@ function browserHeaders(userAgent, accept) {
   };
 }
 
-// ---- insecure-TLS path (node:https) --------------------------------------
+// ---- host-scoped incomplete-chain compatibility path (node:https) --------
 //
 // Some Polish municipal servers (e.g. bip.miastozabrze.pl) ship an INCOMPLETE
 // certificate chain — they omit the intermediate CA, so Node's fetch fails with
 // UNABLE_TO_VERIFY_LEAF_SIGNATURE. Browsers hide this by auto-fetching the
 // missing intermediate (AIA); Node does not. The data we read is PUBLIC and
 // READ-ONLY and we send no credentials, so for hosts explicitly opted-in via
-// `insecureTLS` we relax chain verification rather than fail entirely.
+// `insecureTLS` we relax chain verification rather than fail entirely. This is
+// never a caller-controlled general-purpose switch: URLs must be credential-
+// free HTTPS requests to one of the audited public-data hosts below, redirects
+// are checked again, and no request on this path carries repository secrets.
 //
 // SECURE ALTERNATIVE (preferred if you'd rather not relax TLS): obtain the
 // host's missing intermediate CA (download it from the leaf cert's caIssuers /
@@ -130,6 +133,35 @@ const insecureAgent = new https.Agent({
   keepAlive: false,
 });
 
+const INSECURE_TLS_HOSTS = new Set([
+  'bip.elblag.eu',
+  'bip.gmina-naklo.pl',
+  'bip.gmina-sepolno.pl',
+  'bip.gniezno.eu',
+  'bip.miastozabrze.pl',
+  'bip.um.lubin.pl',
+  'bip.wegorzewo.pl',
+  'bip.zlotoryja.pl',
+  'glogow.bip.info.pl',
+  'www.glogow.pl',
+  'www.gniezno.eu',
+  'www.um.boleslawiec.bip-gov.pl',
+  'xn--bolesawiec-e0b.pl',
+]);
+
+export function isApprovedInsecureTlsUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:'
+      && !url.username
+      && !url.password
+      && (!url.port || url.port === '443')
+      && INSECURE_TLS_HOSTS.has(url.hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
 /**
  * GET a URL over node:https with relaxed chain verification, throttle + retry +
  * redirect-follow. Returns the raw body Buffer.
@@ -138,6 +170,9 @@ const insecureAgent = new https.Agent({
  * @returns {Promise<Buffer>}
  */
 async function getBufferInsecure(url, opts = {}) {
+  if (!isApprovedInsecureTlsUrl(url)) {
+    throw new Error(`insecureTLS denied for non-allowlisted URL: ${url}`);
+  }
   const { userAgent, accept, retries = 3, redirects = 5 } = opts;
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {

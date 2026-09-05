@@ -1,6 +1,7 @@
 # Polish egress security plan
 
-**Status: containment verified; restricted proxy and private transport not deployed.**
+**Status: containment verified; restricted proxy deployed on the Pi; private
+GitHub-to-tailnet identity pending activation.**
 Re-audited on 31 August 2026: GitHub reports no repository-connected machine and the
 former Pi job service, credentials and work directory remain removed. All workflow
 jobs are routed to GitHub-hosted machines. A secret-free hosted probe in
@@ -9,13 +10,13 @@ completed full direct refreshes for Brzeg, Świętochłowice and Wałbrzych; PKP
 three sequential direct refreshes and each run passed five-active/five-result link
 checks. Those sources and AMW now run under strict hosted refresh/health gates.
 
-Racibórz alone still connect-dropped and remains marked `needsResidentialEgress`,
-omitted from the matrix, and published from last-good data under the stale-only
-exemption that expires 21 days after 25 August (15 September). The production workflow
-now has dormant `FETCH_PROXY_URL` integration: the flagged adapter is included only
-when the secret exists, and the raw credential is scoped only to its refresh step. No
-repository secret is configured. Tailscale/private transport is deliberately deferred.
-Missing, empty or malformed Racibórz data still fails immediately.
+Racibórz still connect-drops from hosted runners; Pszczyna subsequently showed the
+same failure on the shared FINN origin. Both are marked `needsResidentialEgress`.
+The production workflow now contains the pinned Tailscale + `FETCH_PROXY_URL`
+integration and the proxy URL secret is configured. The Tailscale OAuth client and
+tailnet ACL are the final account-level activation step; unless all three secrets are
+present, the registry deliberately omits flagged adapters. Missing, empty or malformed
+data still fails immediately.
 
 ## Decision
 
@@ -82,7 +83,7 @@ The audit found no evidence of unexpected code execution, persistence or credent
 access. That is a bounded evidence statement, not proof that exposure was impossible;
 the remaining key retirement above stays mandatory.
 
-## Phase 1 — private transport (deferred)
+## Phase 1 — private transport (activation pending)
 
 Use a private overlay network; Tailscale workload identity federation is the preferred
 implementation because each GitHub-hosted job receives a short-lived identity without a
@@ -95,16 +96,16 @@ reusable authentication secret.
 - Pin the connectivity action to a reviewed full commit SHA and pin the downloaded
   client version and checksum.
 
-## Phase 2 — restricted proxy
+## Phase 2 — restricted proxy (deployed 4 September 2026)
 
 Run Squid or an equivalent CONNECT proxy under a dedicated system account with no
 interactive shell, sudo, Docker membership, source checkout or user credentials.
 
 - Allow `CONNECT` to TCP 443 only.
 - Deny loopback, link-local, multicast and private-address destinations.
-- Deny every destination by default, then initially allow only Racibórz's audited
-  hostname and verified redirect targets. Expand the allowlist only if a new hosted
-  gate demonstrates that another source again requires restricted egress.
+- Deny every destination by default, then allow only the audited Racibórz and
+  Pszczyna hostnames plus the shared FINN origin. Expand the allowlist only if a
+  new hosted gate demonstrates that another source requires restricted egress.
 - Protect against DNS rebinding by checking resolved destinations as well as requested
   hostnames.
 - Disable caching; cap request size, bandwidth, concurrent connections and idle time.
@@ -112,22 +113,33 @@ interactive shell, sudo, Docker membership, source checkout or user credentials.
   and a writeable directory limited to proxy state/logs.
 - Keep logs free of credentials and fetched response bodies.
 
+The deployed templates are `ops/egress/squid.conf`,
+`ops/egress/check-tailscale-tag.sh` and `ops/egress/przetargi-egress.service`.
+The enabled service on `borg` binds only to `100.114.161.16:3129`. Squid asks
+the local tailscaled identity database to admit only `tag:przetargi-ci`; a
+same-host exception permits appliance acceptance tests but has the same
+destination restrictions. `ops/egress/verify.sh` proves CONNECT is admitted
+for both approved sources while an unrelated domain, loopback and plain HTTP
+are denied. Actual source health is enforced by each subsequent crawl/sanity
+gate, independently of the proxy-policy check.
+
 ## Phase 3 — workflow integration
 
 - [x] Keep `runs-on: ubuntu-latest` for every job.
-- [ ] Join the private network only for a city whose config has
-  `needsResidentialEgress: true` (transport is deferred).
+- [x] Join the private network only for a city whose config has
+  `needsResidentialEgress: true` (pinned workflow step; dormant until OAuth
+  credentials are configured).
 - [x] Include a flagged city only when `FETCH_PROXY_URL` is configured, and set the
   raw credential only for that city's refresh step.
 - [x] Never enable the private-network path for `pull_request`, `pull_request_target`,
   issue-comment or other contributor-controlled events.
-- Keep the default `GITHUB_TOKEN` read-only and set explicit job permissions.
-- Use `actions/checkout` with `persist-credentials: false` in crawl jobs.
-- Replace `npm ci || npm install` with strict, lockfile-enforcing `npm ci`.
-- Require all external actions to use full commit SHAs and restrict the repository's
+- [x] Keep the default `GITHUB_TOKEN` read-only and set explicit job permissions.
+- [x] Use `actions/checkout` with `persist-credentials: false` in crawl jobs.
+- [x] Replace `npm ci || npm install` with strict, lockfile-enforcing `npm ci`.
+- [x] Require all external actions to use full commit SHAs and restrict the repository's
   Actions allowlist to explicitly reviewed publishers.
 
-## Phase 4 — separate crawling from publishing
+## Phase 4 — separate crawling from publishing (implemented 5 September 2026)
 
 Crawl jobs should have `contents: read` only and upload a data artifact. A separate
 GitHub-hosted publisher receives `contents: write` and must treat that artifact as
@@ -143,15 +155,22 @@ Before committing, the publisher must:
 - parse JSON and run the existing city/provider sanity checks;
 - stage explicit allowlisted paths rather than `git add -A`.
 
-After this split, crawler code, downloaded dependencies, source HTML and network access
-never coexist with a repository-write token.
+Daily refresh, provider refresh/retries and manual backfill now use this split.
+`pipeline/scripts/refresh-artifact.js` creates and validates the bounded manifests;
+its rejection cases are regression-tested. After this split, crawler code,
+downloaded dependencies, source HTML and source-network access never coexist with
+a repository-write token.
 
 ## Phase 5 — repository policy
 
-- Enable the repository setting that requires actions to be pinned to full commit SHAs.
-- Allow GitHub-owned actions plus an explicit list of reviewed third-party actions only.
-- Require approval before workflows from any external contributor run.
-- Protect `main` and require the existing checks for source/workflow changes.
+- [x] Enable the repository setting that requires actions to be pinned to full commit SHAs.
+- [x] Allow GitHub-owned actions plus an explicit list of reviewed third-party actions only
+      (Aquasecurity Trivy and Tailscale).
+- [x] Require approval before workflows from any external contributor run.
+- [x] Protect `main` against deletion/force-push and require linear history.
+- Requiring pre-merge checks remains a follow-up architecture change: the current
+  first-party data publisher uses its short-lived `GITHUB_TOKEN` to push validated
+  generated data directly, and GitHub applies required checks to that bot as well.
 - Restrict any publishing bypass identity to generated-data updates; it must not be able
   to alter workflows or executable source.
 

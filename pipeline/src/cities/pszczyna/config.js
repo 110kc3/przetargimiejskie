@@ -68,6 +68,9 @@ export const config = {
   // geoportal enrichment run; either digit prefix (241005) is solid.
   teryt: '241005_4',
   label: 'Pszczyna',
+  // This FINN origin resolves to the same Azure-blocking server as Racibórz.
+  // Route only this adapter through the restricted Polish egress path.
+  needsResidentialEgress: true,
   voivodeship: 'slaskie',
   authority: 'Burmistrz Pszczyny (Urząd Miejski w Pszczynie)',
   host: 'bip.pszczyna.pl',

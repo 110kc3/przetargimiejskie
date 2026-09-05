@@ -2,7 +2,7 @@
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
 > (extension) and git history (pipeline/site/data). **Last full backlog refresh:
-> 19 July 2026 — extension v1.32.0; city-health audit refreshed 31 August
+> 19 July 2026 — extension v1.32.0; city-health/security audit refreshed 5 September
 > 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
 > [REMOTE.md](./REMOTE.md), secure CI egress in
@@ -57,15 +57,14 @@
 These are the deliberately unstarted steps left after the current failure-repair and
 security pass:
 
-- [ ] **Racibórz-only restricted Polish egress (previous step 4; transport deferred):**
-      the secret-free hosted probe
-      [run 33379464740](https://github.com/110kc3/przetargimiejskie/actions/runs/33379464740)
-      restored Brzeg, Świętochłowice and Wałbrzych directly; only Racibórz still failed.
-      The workflow-side `FETCH_PROXY_URL` gate is wired and scopes the credential to a
-      flagged city, but no secret, proxy or private transport is configured. Tailscale
-      remains deliberately skipped for now. Deploy and acceptance-test the restricted
-      path in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) before Racibórz's 21-day stale-only
-      exemption reaches its 15 September deadline.
+- [ ] **Activate restricted Polish egress [ACCOUNT]:** the Pi's Tailscale-only,
+      deny-by-default proxy and the read-only hosted workflow path are complete for
+      Racibórz + Pszczyna; local policy tests and a real proxied Racibórz refresh pass.
+      Create a Tailscale OAuth client limited to `tag:przetargi-ci`, add
+      `TS_OAUTH_CLIENT_ID` / `TS_OAUTH_SECRET` as repository secrets, and install a
+      tailnet grant allowing that tag to reach only `borg:3129`. Then run both cities
+      through `workflow_dispatch` and complete the acceptance record in
+      [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 - [ ] **National extension coverage (previous step 5) [GUI]:** replace the nine-city
       hardcode with lazy, data-driven discovery for all 121 built cities, finish the
       scalable filters/i18n/voivodeship mapping, browser-test, version-bump and prepare
