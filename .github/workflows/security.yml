@@ -1,5 +1,7 @@
-# Lightweight security safety net (~3-4 min/run). Three independent jobs; the
-# scanners report to the repo Security tab via SARIF and never block a push/PR:
+# Security release gate (~3-4 min/run). Three independent jobs; scanner results
+# are uploaded to the Security tab and medium-or-higher dependency findings now
+# block the run. CodeQL alerts on main are checked after analysis so a green
+# workflow cannot coexist with an untriaged main-branch finding.
 #
 #   - Hosted-runner policy: rejects workflow jobs that depend on a
 #     repository-managed runner, where an offline machine can strand scheduled
@@ -14,7 +16,8 @@
 #
 # All third-party actions are pinned to a full commit SHA (with the human tag
 # in a trailing comment) so a moved tag can't silently change what runs — this
-# repo's refresh.yml holds `contents: write`, so supply-chain hygiene matters.
+# repo's trusted data publishers hold `contents: write`, so supply-chain hygiene
+# matters even though the source-facing crawler jobs are read-only.
 name: 6. Security
 
 on:
@@ -63,6 +66,24 @@ jobs:
         with:
           category: '/language:javascript'
 
+      - name: Require zero open CodeQL alerts on main
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # SARIF processing is asynchronous. Retry briefly before deciding the
+          # main-branch baseline is dirty.
+          for attempt in 1 2 3; do
+            count=$(gh api --paginate \
+              "repos/${GITHUB_REPOSITORY}/code-scanning/alerts?state=open&ref=refs/heads/main&tool_name=CodeQL&per_page=100" \
+              --jq '.[].number' | wc -l)
+            [ "$count" -eq 0 ] && exit 0
+            [ "$attempt" -eq 3 ] && break
+            sleep 10
+          done
+          echo "Security gate failed: $count open CodeQL alert(s) on main." >&2
+          exit 1
+
   trivy:
     name: Trivy (deps + secrets)
     runs-on: ubuntu-latest
@@ -79,10 +100,11 @@ jobs:
           scanners: vuln,secret
           format: sarif
           output: trivy-results.sarif
-          severity: CRITICAL,HIGH
-          exit-code: '0'         # report, don't block — this is a safety net
+          severity: CRITICAL,HIGH,MEDIUM
+          exit-code: '1'
           skip-dirs: 'pipeline/node_modules'
       - name: Upload Trivy results to the Security tab
+        if: always()
         uses: github/codeql-action/upload-sarif@8272c299f21ca24af15dfe9ac0971ba969e5e0d5 # v3.36.2
         with:
           sarif_file: trivy-results.sarif

@@ -78,8 +78,15 @@ export function parseRss(xml) {
     const title = titleM[1].trim().replace(/,\s*Sprzedaż.*$/, '').trim();
     // Convert link to absolute if needed
     let href = linkM[1].trim();
-    if (href.startsWith('http://bip.um.szczecin.pl')) {
-      href = href.replace('http://', 'https://');
+    try {
+      const parsed = new URL(href);
+      if (parsed.protocol === 'http:' && parsed.hostname === 'bip.um.szczecin.pl') {
+        parsed.protocol = 'https:';
+        href = parsed.toString();
+      }
+    } catch {
+      // Keep malformed/relative source values unchanged; downstream URL
+      // resolution and fetch validation will reject anything unusable.
     }
     out.push({ title, href, pubDate, pubMs: parsePubDate(pubDate) });
   }

@@ -39,7 +39,7 @@ on:
         default: ''
 
 permissions:
-  contents: write
+  contents: read
 
 # One refresh at a time — the per-city jobs inside a run push commits with a
 # rebase-retry, but two overlapping RUNS would interleave unpredictably.
@@ -55,23 +55,23 @@ jobs:
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
-      # Registered adapters held out until the restricted egress proxy exists.
+      # Registered adapters that require operator-managed residential egress
+      # and are deliberately excluded from GitHub-hosted automation.
       blocked_cities: ${{ steps.registry.outputs.blocked_cities }}
-      # Every selected adapter that needs FETCH_PROXY_URL. This remains populated
-      # when the proxy is enabled, unlike blocked_cities.
-      egress_cities: ${{ steps.registry.outputs.egress_cities }}
       # Cities whose adapter needs core/render.js (headless Chromium) — the
       # matrix installs Playwright only for these (see `needsRender` in the
       # city's config.js). Registry-driven so it can't drift.
       render_cities: ${{ steps.registry.outputs.render_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
       - name: Run parser tests
         working-directory: pipeline
         run: npm test
@@ -82,21 +82,17 @@ jobs:
           # workflow_dispatch only — restricts the matrix to one city (used by
           # the triage E2E test so a test run can't touch other cities).
           ONLY_CITY: ${{ inputs.only_city || '' }}
-          # Do not pass the credential into setup; only disclose whether it is
-          # configured so the registry can include the gated adapters.
-          RESIDENTIAL_EGRESS_ENABLED: ${{ secrets.FETCH_PROXY_URL != '' }}
         run: node scripts/refresh-matrix.js
 
   # One job per city, so a broken parser/source in one city can't block the
   # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
-  # skips data/index.json — see src/refresh.js) and commits only its own
-  # data/<city>/ + caches. Commits race on push, so push uses a rebase-retry;
-  # the per-job paths are disjoint, so the rebases are always clean.
+  # skips data/index.json — see src/refresh.js) and uploads only its own
+  # data/<city>/ + caches as a validated publisher artifact.
   refresh:
     needs: setup
-    # All repository code executes on GitHub-hosted, disposable machines. The
-    # future Polish-egress path is an allowlisted network proxy only; see
-    # PL-EGRESS-PLAN.md.
+    # All repository code executes on GitHub-hosted, disposable machines.
+    # Residential-egress adapters are absent from this matrix and are refreshed
+    # only by an operator; see PL-EGRESS-PLAN.md.
     runs-on: ubuntu-latest
     timeout-minutes: 25   # Zabrze alone needs ~113 throttled doc+attachment fetches
     strategy:
@@ -111,6 +107,8 @@ jobs:
         city: ${{ fromJSON(needs.setup.outputs.cities) }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
 
       - name: Install OCR toolchain
         run: |
@@ -131,7 +129,7 @@ jobs:
 
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
 
       # Headless Chromium for the OPTIONAL renderer (core/render.js), used only by
       # JS-rendered BIPs (config `needsRender: true` — currently just Chrzanów).
@@ -153,10 +151,6 @@ jobs:
         id: refresh
         timeout-minutes: 20
         working-directory: pipeline
-        env:
-          # Only flagged adapters receive the proxy credential. Every unaffected
-          # city keeps direct egress even when the repository secret is present.
-          FETCH_PROXY_URL: ${{ contains(fromJSON(needs.setup.outputs.egress_cities), matrix.city) && secrets.FETCH_PROXY_URL || '' }}
         run: |
           set -o pipefail
           mkdir -p "$GITHUB_WORKSPACE/triage/snapshots"
@@ -186,36 +180,24 @@ jobs:
         working-directory: pipeline
         run: CITY=${{ matrix.city }} npm run enrich-land
 
-      - name: Commit and push if data changed
+      - name: Package read-only crawl output
+        if: always()
         run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          # Add only paths that exist. A thin/empty city may legitimately produce
-          # no data/<city>/ dir, and `git add <missing-path>` hard-fails the whole
-          # job (exit 128 — the "did not match any files" failure). Loop instead.
-          for p in data/${{ matrix.city }} pipeline/ocr-cache pipeline/pdf-text-cache pipeline/doc-text-cache pipeline/rtf-text-cache pipeline/detail-cache pipeline/uldk-cache; do
-            [ -e "$p" ] && git add "$p"
-          done
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: refresh ${{ matrix.city }} $(date -u +%Y-%m-%d)"
-            # Sibling matrix jobs push concurrently; rebase-retry until ours lands.
-            # -X theirs: if our own data/<city>/meta.json (its generated_at line)
-            # conflicts with a version already on origin (a prior run, a manual
-            # push), our fresh crawl wins — we only ever touch our own city + the
-            # shared caches (content-addressed, so additions never truly conflict).
-            # On any failure, abort the half-done rebase so the next retry starts
-            # from a CLEAN tree — otherwise "unmerged files" breaks every retry.
-            for i in 1 2 3 4 5 6; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep $(( (RANDOM % 8) + 2 ))
-            done
-            echo "could not push after 6 attempts" >&2
-            exit 1
+          status=failed
+          if [ "${{ steps.refresh.outcome }}" = success ] && [ "${{ steps.sanity.outcome }}" = success ]; then
+            status=ready
           fi
+          node pipeline/scripts/refresh-artifact.js pack-city \
+            "${{ matrix.city }}" "$status" refresh-artifact
+
+      - name: Upload crawl output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: refresh-result-${{ matrix.city }}
+          path: refresh-artifact/
+          retention-days: 1
+          if-no-files-found: error
 
       # Failure triage — decides from the teed logs + meta counts whether this
       # city is BROKEN (a green job proves nothing: refresh.js swallows per-city
@@ -248,6 +230,59 @@ jobs:
           path: triage/
           retention-days: 14
 
+  # Crawler jobs above are read-only. This trusted job downloads their output,
+  # rejects anything outside the explicit data/cache contract, verifies hashes,
+  # sizes and JSON, reruns sanity checks, and only then receives a write token.
+  publish_cities:
+    needs: [setup, refresh]
+    if: ${{ always() && needs.setup.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
+      - name: Download city crawl outputs
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: 'refresh-result-*'
+          path: incoming-city
+      - name: Validate and apply city crawl outputs
+        env:
+          EXPECTED_CITIES: ${{ needs.setup.outputs.cities }}
+        run: |
+          node pipeline/scripts/refresh-artifact.js apply-city \
+            incoming-city "$EXPECTED_CITIES" ready-cities.txt publish-paths.txt
+          while IFS= read -r city; do
+            [ -n "$city" ] || continue
+            node pipeline/scripts/sanity-check.js "$city"
+          done < ready-cities.txt
+      - name: Commit and push validated city data
+        run: |
+          if [ ! -s publish-paths.txt ]; then
+            echo "No city data changes."
+            exit 0
+          fi
+          git config user.name "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add --pathspec-from-file=publish-paths.txt
+          if git diff --cached --quiet; then
+            echo "No city data changes."
+            exit 0
+          fi
+          git commit -m "data: refresh cities $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5 6; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            echo "push attempt $i failed; retrying ..."
+            sleep $(( (RANDOM % 8) + 2 ))
+          done
+          echo "could not push validated city data after 6 attempts" >&2
+          exit 1
+
   # Institutional sellers use a row-based contract under data/providers/ and
   # run once per refresh (never as fake cities). A single-city diagnostic run
   # skips this job so it cannot mutate unrelated data.
@@ -265,6 +300,8 @@ jobs:
       provider_health: ${{ steps.provider_health.outcome }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -272,7 +309,7 @@ jobs:
 
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
 
       - name: Refresh AMW feed
         id: provider_refresh_amw
@@ -293,25 +330,23 @@ jobs:
         working-directory: pipeline
         run: npm run health:providers
 
-      - name: Commit and push if provider data changed
-        if: always() && steps.provider_health.outcome == 'success'
+      - name: Package primary provider output
+        if: always()
         run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/providers pipeline/ocr-cache
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: refresh institutional providers $(date -u +%Y-%m-%d)"
-            for i in 1 2 3 4 5 6; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep $(( (RANDOM % 8) + 2 ))
-            done
-            echo "could not push provider data after 6 attempts" >&2
-            exit 1
+          status=failed
+          if [ "${{ steps.provider_health.outcome }}" = success ]; then
+            status=ready
           fi
+          node pipeline/scripts/refresh-artifact.js pack-provider \
+            primary "$status" provider-artifact
+      - name: Upload primary provider output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: provider-result-primary
+          path: provider-artifact/
+          retention-days: 1
+          if-no-files-found: error
 
   # www.pkp.pl selectively timed out from westus3 while succeeding from three
   # other Azure regions. A step retry stays on the same blocked runner, so an
@@ -331,6 +366,7 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: main
+          persist-credentials: false
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -338,7 +374,7 @@ jobs:
 
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
 
       - name: Refresh PKP feed (fresh-runner retry 1)
         id: provider_refresh_pkp
@@ -353,25 +389,23 @@ jobs:
         working-directory: pipeline
         run: npm run health:providers
 
-      - name: Commit and push refreshed PKP data
-        if: steps.provider_refresh_pkp.outcome == 'success' && steps.provider_health.outcome == 'success'
+      - name: Package PKP retry 1 output
+        if: always()
         run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/providers pipeline/ocr-cache
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: refresh PKP provider $(date -u +%Y-%m-%d)"
-            for i in 1 2 3 4 5 6; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep $(( (RANDOM % 8) + 2 ))
-            done
-            echo "could not push PKP provider data after 6 attempts" >&2
-            exit 1
+          status=failed
+          if [ "${{ steps.provider_refresh_pkp.outcome }}" = success ] && [ "${{ steps.provider_health.outcome }}" = success ]; then
+            status=ready
           fi
+          node pipeline/scripts/refresh-artifact.js pack-provider \
+            retry-1 "$status" provider-artifact
+      - name: Upload PKP retry 1 output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: provider-result-retry-1
+          path: provider-artifact/
+          retention-days: 1
+          if-no-files-found: error
 
   providers_pkp_retry_2:
     needs: [setup, providers, providers_pkp_retry_1]
@@ -385,6 +419,7 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: main
+          persist-credentials: false
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -392,7 +427,7 @@ jobs:
 
       - name: Install pipeline deps
         working-directory: pipeline
-        run: npm ci || npm install
+        run: npm ci
 
       - name: Refresh PKP feed (fresh-runner retry 2)
         id: provider_refresh_pkp
@@ -407,25 +442,23 @@ jobs:
         working-directory: pipeline
         run: npm run health:providers
 
-      - name: Commit and push refreshed PKP data
-        if: steps.provider_refresh_pkp.outcome == 'success' && steps.provider_health.outcome == 'success'
+      - name: Package PKP retry 2 output
+        if: always()
         run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/providers pipeline/ocr-cache
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: refresh PKP provider $(date -u +%Y-%m-%d)"
-            for i in 1 2 3 4 5 6; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep $(( (RANDOM % 8) + 2 ))
-            done
-            echo "could not push PKP provider data after 6 attempts" >&2
-            exit 1
+          status=failed
+          if [ "${{ steps.provider_refresh_pkp.outcome }}" = success ] && [ "${{ steps.provider_health.outcome }}" = success ]; then
+            status=ready
           fi
+          node pipeline/scripts/refresh-artifact.js pack-provider \
+            retry-2 "$status" provider-artifact
+      - name: Upload PKP retry 2 output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: provider-result-retry-2
+          path: provider-artifact/
+          retention-days: 1
+          if-no-files-found: error
 
   provider_gate:
     needs: [setup, providers, providers_pkp_retry_1, providers_pkp_retry_2]
@@ -451,7 +484,7 @@ jobs:
           printf 'retry_2_job=%s pkp=%s health=%s\n' "$RETRY_2_JOB" "$PKP_RETRY_2" "$RETRY_2_HEALTH"
 
           if [ "$PRIMARY_JOB" != 'success' ] || [ "$AMW_PRIMARY" != 'success' ] || [ "$PRIMARY_HEALTH" != 'success' ]; then
-            echo 'AMW refresh, primary provider health, or provider commit failed' >&2
+            echo 'AMW refresh or primary provider health failed' >&2
             exit 1
           fi
 
@@ -470,6 +503,49 @@ jobs:
             exit 1
           fi
           echo 'Provider strict gate passed.'
+
+  publish_providers:
+    needs: [provider_gate, providers, providers_pkp_retry_1, providers_pkp_retry_2]
+    if: ${{ always() && needs.provider_gate.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
+      - name: Download provider crawl outputs
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: 'provider-result-*'
+          path: incoming-provider
+      - name: Validate and apply provider crawl outputs
+        run: |
+          node pipeline/scripts/refresh-artifact.js apply-provider \
+            incoming-provider ready-providers.txt publish-provider-paths.txt
+          node pipeline/scripts/build-provider-index.js
+          node pipeline/scripts/provider-health-check.js
+          printf '%s\n' data/providers/index.json >> publish-provider-paths.txt
+      - name: Commit and push validated provider data
+        run: |
+          git config user.name "zgm-data-bot"
+          git config user.email "zgm-data-bot@users.noreply.github.com"
+          git add --pathspec-from-file=publish-provider-paths.txt
+          if git diff --cached --quiet; then
+            echo "No provider data changes."
+            exit 0
+          fi
+          git commit -m "data: refresh institutional providers $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5 6; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            echo "push attempt $i failed; retrying ..."
+            sleep $(( (RANDOM % 8) + 2 ))
+          done
+          echo "could not push validated provider data after 6 attempts" >&2
+          exit 1
 
   # Turn the per-city triage artifacts into GitHub issues: one open issue per
   # broken city ([city-broken] <id>: <why>, body = a paste-into-Claude-Code
@@ -532,25 +608,21 @@ jobs:
   # Rebuild data/index.json once, after every city job has finished (also when
   # some failed — their last-published meta.json keeps them in the index).
   index:
-    needs: [setup, refresh, provider_gate]
+    needs: [setup, publish_cities, publish_providers]
     if: ${{ always() && needs.setup.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: main   # not the triggering SHA — we need the matrix jobs' commits
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: '20'
-      - name: Install pipeline deps
-        working-directory: pipeline
-        run: npm ci || npm install
       - name: Build data/index.json
         working-directory: pipeline
         run: |
           git pull origin main   # pick up any commit that landed since checkout
-          npm run build-index
+          node src/build-index.js
       - name: Commit and push if index changed
         run: |
           git config user.name  "zgm-data-bot"

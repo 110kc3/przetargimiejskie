@@ -245,7 +245,10 @@ export function flatAddressFromText(title, text) {
 export function unitAreaFromText(text, flatId) {
   if (!text) return null;
   const AREA_RE = /(?:[łl][ąa]cznej\s+)?pow(?:ierzchni)?\w*\.?\s+u[żz]ytkow\w*\s*([\d][\d.,\s]*)\s*m\s*[²2]/gi;
-  const idRe = flatId ? new RegExp(`nr\\.?\\s*${flatId.replace(/\//g, '\\/')}\\b`, 'i') : null;
+  const escapedFlatId = flatId
+    ? String(flatId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    : null;
+  const idRe = escapedFlatId ? new RegExp(`nr\\.?\\s*${escapedFlatId}\\b`, 'i') : null;
   const candidates = [];
   let m;
   while ((m = AREA_RE.exec(text)) !== null) {

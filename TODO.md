@@ -2,10 +2,10 @@
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
 > (extension) and git history (pipeline/site/data). **Last full backlog refresh:
-> 19 July 2026 — extension v1.32.0; city-health audit refreshed 31 August
+> 19 July 2026 — extension v1.32.0; city-health/security audit refreshed 5 September
 > 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
-> [REMOTE.md](./REMOTE.md), secure CI egress in
+> [REMOTE.md](./REMOTE.md), residential-egress operating policy in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
 > [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 121 ·
 > BUILD-ready 50 · all 380 powiat seats spiked).
@@ -57,15 +57,6 @@
 These are the deliberately unstarted steps left after the current failure-repair and
 security pass:
 
-- [ ] **Racibórz-only restricted Polish egress (previous step 4; transport deferred):**
-      the secret-free hosted probe
-      [run 33379464740](https://github.com/110kc3/przetargimiejskie/actions/runs/33379464740)
-      restored Brzeg, Świętochłowice and Wałbrzych directly; only Racibórz still failed.
-      The workflow-side `FETCH_PROXY_URL` gate is wired and scopes the credential to a
-      flagged city, but no secret, proxy or private transport is configured. Tailscale
-      remains deliberately skipped for now. Deploy and acceptance-test the restricted
-      path in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) before Racibórz's 21-day stale-only
-      exemption reaches its 15 September deadline.
 - [ ] **National extension coverage (previous step 5) [GUI]:** replace the nine-city
       hardcode with lazy, data-driven discovery for all 121 built cities, finish the
       scalable filters/i18n/voivodeship mapping, browser-test, version-bump and prepare
@@ -144,6 +135,12 @@ The dated July investigation notes below are retained as diagnosis history.
 Where they disagree with this section (notably Tczew, Nakło, Oświęcim and
 the old stale/egress membership), the 31-August update above supersedes them.
 
+> **Stable-v1 egress decision (2026-09-05) supersedes the July notes:** no
+> Tailscale or hosted residential proxy will be activated. Racibórz and
+> Pszczyna are excluded from hosted matrices and use reviewed operator refreshes
+> plus the expiring 21-day stale-only health policy in
+> [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+
 > **Why health is red (confirmed 2026-07-07):** health.yml runs health-check.js
 > with **`STALE_DAYS=3`** (health.yml:60, tighter than the local default 14), so
 > the three externally-broken cities below trip **stale-data FAIL** —
@@ -211,16 +208,15 @@ which silently drops TCP from GitHub-Actions/Azure IP ranges:
 `UND_ERR_CONNECT_TIMEOUT` on every CI fetch since ~04 July (fresh Azure IPs each
 run), while both sources returned HTTP 200 in 0.3–1.7 s from a Polish IP on
 2026-07-07. **Sources are up and parseable — no adapter change needed.** Treat
-as ONE provider incident (issues #2 + #3). Fix is egress, not code: the
-`FETCH_PROXY_URL` hook in `pipeline/src/core/fetch.js` (undici ProxyAgent) is
-**shipped** — residual work is provisioning the deny-by-default proxy in
-[PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) and wiring it into `refresh.yml` for
-FINN-hosted cities; note the insecureTLS path is not proxied. Preserve-on-empty
+as ONE provider incident (issues #2 + #3). Fix is egress, not parser code. The
+optional local `FETCH_PROXY_URL` hook remains available to operators, while
+hosted automation excludes the adapters under
+[PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md). Preserve-on-empty
 holds 9 (raciborz) + 91 (swietochlowice) properties
-meanwhile; but stale-data FAILs cannot be allowlisted — only a green crawl
-clears them. Optionally tag FINN-hosted cities in config so simultaneous
+meanwhile; the stale-only exemption is time-bounded and requires an operator
+refresh or re-audit. Optionally tag FINN-hosted cities in config so simultaneous
 194.24.181.47 failures triage as one incident, not N issues.
-**Owner:** agent · **Blockers:** restricted non-Azure proxy.
+**Owner:** agent · **Blockers:** source reachability; operator refresh required.
 
 ### Broken city — Brzeg anti-DDoS waiting room [RPI5]
 
@@ -231,10 +227,10 @@ the 3 expected ul. 3 Maja 1 listings. Detection + cookie-retry +
 source-unreachable throw **shipped this session** in
 `pipeline/src/cities/brzeg/crawl.js` (+ `tests/brzeg-waiting-room.test.js`).
 Residual: verify on the next CI refresh whether the cookie-retry passes the gate
-from Azure; if not, use the same restricted `FETCH_PROXY_URL` path as the FINN
-pair; confirm issue #11 reclassifies/closes after the next
-green run.
-**Owner:** agent · **Blockers:** none (egress fallback shared with FINN item).
+from Azure; if not, classify the source as operator-managed before changing its
+automation boundary. Confirm issue #11 reclassifies/closes after the next green
+run.
+**Owner:** agent · **Blockers:** none.
 
 ### Broken city — Tczew: Przetargi category emptied server-side [RPI5]
 

@@ -88,14 +88,10 @@ remotely dispatched workflow jobs.
 
 ### 1.3 The two autonomy gaps to close (do these first)
 
-1. **Restricted PL egress — open.** All repository code stays on GitHub-hosted
-   machines. Provision the deny-by-default proxy in
-   [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md), then route only the FINN pair
-   (Racibórz, Świętochłowice), Brzeg, Wałbrzych and PKP through
-   `FETCH_PROXY_URL`. Until then the four cities are omitted from the hosted
-   matrix and PKP is omitted from the hosted provider refresh; their last-good
-   data is guarded by expiring stale-only health warnings. AMW refreshes on
-   GitHub-hosted runners without the proxy.
+1. **Residential-egress maintenance.** Racibórz and Pszczyna are deliberately
+   omitted from hosted automation. Refresh or re-audit them from operator egress
+   within each 21-day health window; never turn the Pi into a runner or CI proxy.
+   See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 2. **The scheduled daily agent session** (§1.2) so triage and expansion happen
    without being asked.
 
