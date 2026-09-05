@@ -55,6 +55,24 @@
       "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6961-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-ii-przetarg"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "Rynek 29-30/9",
+      "address": {
+        "street": "Rynek",
+        "street_norm": "rynek",
+        "building": "29-30",
+        "apt": "9",
+        "key": "rynek|29-30|9",
+        "warning": null
+      },
+      "auction_date": "2026-10-15",
+      "round": 1,
+      "area_m2": 48.52,
+      "starting_price_pln": 225000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7094-lokal-mieszkalny-nr-9-po%C5%82o%C5%BCony-w-klatce-nr-30-w-budynku-przy-ul-rynek-nr-29-30-powierzchnia-u%C5%BCytkowa-mieszkania-48%2C52-m2-iii-przetarg",
+      "round_source": "inferred"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Plac Piastowski 16",
       "address": {
@@ -176,7 +194,7 @@
       "address_raw": "Rynek 29-30/9",
       "kind": "mieszkalny",
       "area_m2": 48.52,
-      "published_date": "2026-03-06",
+      "published_date": "2026-09-04",
       "wykaz_no": null
     },
     {

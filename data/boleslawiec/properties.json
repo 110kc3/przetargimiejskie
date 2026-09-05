@@ -3,6 +3,45 @@
   "city": "boleslawiec",
   "properties": [
     {
+      "key": "rynek|29-30|9",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "29-30",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-06",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 48.52
+        },
+        {
+          "date": "2026-09-04",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 48.52
+        },
+        {
+          "date": "2026-10-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 225000,
+          "outcome": "active",
+          "area_m2": 48.52,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7094-lokal-mieszkalny-nr-9-po%C5%82o%C5%BCony-w-klatce-nr-30-w-budynku-przy-ul-rynek-nr-29-30-powierzchnia-u%C5%BCytkowa-mieszkania-48%2C52-m2-iii-przetarg",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 48.52
+    },
+    {
       "key": "plac piastowski|16|",
       "street": "Plac Piastowski",
       "street_norm": "plac piastowski",
@@ -337,23 +376,6 @@
       "listings": [
         {
           "date": "2026-05-29",
-          "round": null,
-          "kind": "unknown",
-          "outcome": "announced",
-          "wykaz_no": null
-        }
-      ]
-    },
-    {
-      "key": "rynek|29-30|9",
-      "street": "Rynek",
-      "street_norm": "rynek",
-      "building": "29-30",
-      "apt": "9",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2026-03-06",
           "round": null,
           "kind": "unknown",
           "outcome": "announced",
