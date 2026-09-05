@@ -4,6 +4,44 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Ogłoszenia o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 3 położonego w Tczewie przy ul. Starowiejskiej 17, będącego własnością Gminy Miejskiej Tczew.",
+      "address": {
+        "street": "Starowiejskiej",
+        "street_norm": "starowiejskiej",
+        "building": "17",
+        "apt": "3",
+        "key": "starowiejskiej|17|3",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-09-04",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.tczew.pl/wiadomosci/3/wiadomosc/902049/ogloszenia_o_i_przetargu_ustnym_nieograniczonym_na_sprzedaz_loka",
+      "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/902049/files/ogloszenie_do_zarzadzenia_310.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ogłoszenia o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 4 położonego w Tczewie przy Placu Hallera 1, będącego własnością Gminy Miejskiej Tczew.",
+      "address": {
+        "street": "Placu Hallera",
+        "street_norm": "placu hallera",
+        "building": "1",
+        "apt": "4",
+        "key": "placu hallera|1|4",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-09-04",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.tczew.pl/wiadomosci/3/wiadomosc/902047/ogloszenia_o_i_przetargu_ustnym_nieograniczonym_na_sprzedaz_loka",
+      "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/902047/files/ogloszenie_do_zarzadzenia_309.pdf"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Ogłoszenie o II przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 5 położonego w Tczewie przy ul. Elżbiety 4, będącego własnością Gminy Miejskiej Tczew",
       "address": {
         "street": "Elżbiety",
