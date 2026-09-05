@@ -36,7 +36,7 @@ The weekly/on-push security workflow runs CodeQL and Trivy. Stable-v1 requires:
 - third-party workflow actions pinned to reviewed full commit SHAs.
 
 Repository settings enforce SHA pins, allow GitHub-owned actions plus only the
-reviewed Trivy and Tailscale actions, and require approval before any external
+reviewed Trivy and Trivy-setup actions, and require approval before any external
 contributor's workflow runs. Refresh and backfill crawlers have read-only tokens
 and no persisted checkout credential. They emit bounded SHA-256 manifests; a
 separate trusted publisher rejects traversal, symlinks, undeclared or duplicate
@@ -64,16 +64,11 @@ source provenance and last-good preservation limit the impact. Replace this
 compatibility path with host-specific intermediate certificates where a source
 offers a stable valid chain.
 
-## Restricted Polish egress
+## Residential-egress sources
 
-Only adapters marked `needsResidentialEgress` may join the private tailnet or
-receive `FETCH_PROXY_URL`. The Pi proxy is bound solely to its Tailscale address,
-requires the caller identity to carry `tag:przetargi-ci` (checked locally through
-`tailscale whois`), denies private and reserved destinations after DNS resolution,
-and allows only the audited Racibórz/Pszczyna sources. The appliance itself has
-a same-host exception solely for acceptance checks. The tailnet ACL must also
-restrict port 3129 to `tag:przetargi-ci`; the OAuth client may mint only that tag.
-
-Repository code never runs on the Pi, and the Pi stores no repository token.
-Run `ops/egress/verify.sh` after every proxy or ACL change. It proves approved
-sources work and an unrelated domain, loopback and plain HTTP are denied.
+Adapters marked `needsResidentialEgress` are unconditionally excluded from
+GitHub-hosted refresh and backfill matrices. GitHub stores no residential-proxy
+or private-network credential, and repository automation never executes on the
+Pi. Racibórz and Pszczyna are refreshed only by an operator from a clean branch;
+last-good preservation plus an expiring 21-day stale-only health rule keeps
+outages visible. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).

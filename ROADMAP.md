@@ -39,7 +39,7 @@ extension, and receives Monday's digest. Health green daily.
 | Wałbrzych pre-Aug-2024 same-line legacy result-table history (current source and Aug-2024→2026 archive are repaired) | [RPI5] | S-M | optional historical backfill; documented in TODO §1 |
 | Augustów: replace the now-empty listing indexes with filtered official search or another durable discovery feed | [RPI5] | M | open |
 | Brzeg: detect the anti-DDoS waiting-room page, classify as source-unreachable, cookie-retry | [RPI5] | S | **shipped this session** |
-| Restricted residential CI egress for Racibórz + Pszczyna (shared FINN origin) | [RPI5] + [ACCOUNT] | M | **code/proxy complete 2026-09-05** — OAuth client, least-privilege tailnet ACL and hosted acceptance run remain Kamil-only |
+| Racibórz + Pszczyna residential-egress policy | [RPI5] | S recurring | **stable-v1 decision 2026-09-05:** hosted automation excluded; operator refresh/re-audit required within each 21-day window |
 | Institutional-source pilot: separate PKP + AMW pipeline/data/health, seller-labelled `/archiwum-all`; Orange evaluated and deferred | [RPI5] | M | **pilot shipped 2026-08-23**; public `/archiwum` after 3 green refreshes + spot-check |
 
 ### T1.b Distribution (mixed)
@@ -108,7 +108,6 @@ bundled with a needed bump.
    pick; ESP + RODO publish; Search Console. Roughly a day of decisions +
    account clicks, spread over T1.
 2. **One GUI session** for the extension 55-city rework + browser verification.
-3. **Everything else is [RPI5]-shaped.** Residential Polish egress remains
-   strategically necessary because it bypasses the FINN/Azure block, but the Pi
-   is only a restricted network proxy for automation; workflow code remains on
-   hosted CI. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+3. **Everything else is [RPI5]-shaped.** The two residential-egress adapters are
+   operator-refreshed and excluded from hosted automation; the Pi is not a CI
+   proxy or workflow runner. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).

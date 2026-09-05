@@ -117,7 +117,7 @@ deduplication checks to the separate institutional feeds.
 
 ## Running on GitHub Actions
 
-The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). A `setup` job runs the parser test suite once (must pass — fail-fast against parser regressions), then a **per-city matrix** (`fail-fast: false`, `max-parallel: 10`) runs one job per hosted-safe registered city. Racibórz and Pszczyna are marked `needsResidentialEgress`; they remain on last-good data unless `FETCH_PROXY_URL` and both Tailscale OAuth secrets are configured. Only those jobs join the private tailnet and receive the proxy URL. See [`PL-EGRESS-PLAN.md`](./PL-EGRESS-PLAN.md). Each matrix job:
+The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, on demand via the "Run workflow" button, and on every push to `main` (the push trigger ignores doc/data/cache/extension-only changes to avoid loops). A `setup` job runs the parser test suite once (must pass — fail-fast against parser regressions), then a **per-city matrix** (`fail-fast: false`, `max-parallel: 10`) runs one job per hosted-safe registered city. Racibórz and Pszczyna are marked `needsResidentialEgress` and are always excluded from hosted automation; reviewed operator refreshes, last-good preservation and an expiring stale-only health window cover them. See [`PL-EGRESS-PLAN.md`](./PL-EGRESS-PLAN.md). Each matrix job:
 
 1. Installs `poppler-utils`, `tesseract-ocr-pol`, and `catdoc` (legacy `.doc` → text, for Bytom) (~5 s).
 2. Runs `CITY=<city> npm run refresh` for its one city.
@@ -126,7 +126,7 @@ The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, o
 
 In parallel, the provider path refreshes PKP and AMW, validates the complete combined ledger, and commits only `data/providers/` plus its OCR cache. Because `www.pkp.pl` can selectively drop one Azure region while remaining reachable from others, an isolated PKP connection failure gets up to two retries on fresh hosted runners; the final provider gate still requires AMW, provider health, commits, and at least one fresh PKP attempt to succeed. Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken hosted city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
 
-The crawler jobs use a read-only `GITHUB_TOKEN` and check out with persisted credentials disabled. Only the artifact publishers and index job receive `contents: write`. `FETCH_PROXY_URL`, `TS_OAUTH_CLIENT_ID` and `TS_OAUTH_SECRET` together enable only adapters explicitly marked for restricted egress.
+The crawler jobs use a read-only `GITHUB_TOKEN` and check out with persisted credentials disabled. Only the artifact publishers and index job receive `contents: write`. No hosted crawl receives a residential proxy or private-network credential.
 
 If you branch-protect `main`, switch the workflow to open a PR via `peter-evans/create-pull-request` instead of pushing directly.
 

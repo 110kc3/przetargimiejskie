@@ -85,10 +85,14 @@ jobs:
           # importing the live registry would pull in the adapter modules).
           ALL_CITIES=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).cities.map(c=>c.id).join(','))")
           mkdir -p health-triage
-          node pipeline/scripts/issue-sync.js \
-            --failures-dir health-triage \
-            --health-json health-failures.json \
-            --recovered "$ALL_CITIES" \
-            --run-url "$RUN_URL" \
-            --source health \
-            $([ "${{ inputs.dry_run || '' }}" = "true" ] && echo --dry-run)
+          args=(
+            --failures-dir health-triage
+            --health-json health-failures.json
+            --recovered "$ALL_CITIES"
+            --run-url "$RUN_URL"
+            --source health
+          )
+          if [ "${{ inputs.dry_run || '' }}" = "true" ]; then
+            args+=(--dry-run)
+          fi
+          node pipeline/scripts/issue-sync.js "${args[@]}"

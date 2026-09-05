@@ -21,7 +21,7 @@
 // EGRESS_STALE_MAX_DAYS, LEGIT_EMPTY_RECHECK_DAYS (env). A brand-new city still
 // settling in goes in EXEMPT_NEW (fast expiry); a source that is empty BY
 // DESIGN goes in LEGIT_EMPTY (slow-recheck expiry, unique=0 → WARN not FAIL);
-// a known Azure-blocked source may temporarily suppress only stale-data via
+// an operator-refreshed source may temporarily suppress only stale-data via
 // EGRESS_STALE (fast expiry); a city with deliberately 0 active auctions goes
 // in EXEMPT_EMPTY — all below.
 //
@@ -94,14 +94,16 @@ const LEGIT_EMPTY = new Map([
 // settling window; do not use this map for known source or crawler failures.
 const EXEMPT_NEW = new Map();
 
-// Sources that cannot currently refresh from GitHub-hosted Azure egress. These
+// Sources deliberately excluded from hosted automation because they require
+// residential egress. These
 // entries suppress ONLY stale-data: missing, empty, malformed, and sanity-bad
 // data still fail normally. The short expiry keeps this from becoming a silent
-// permanent allowlist while the deny-by-default proxy in PL-EGRESS-PLAN.md is
-// deployed. Remove each entry as soon as its hosted refresh is restored.
+// permanent allowlist: an operator must refresh or re-audit each source before
+// expiry and then renew `since`. See PL-EGRESS-PLAN.md.
 const EGRESS_STALE_MAX_DAYS = Number(process.env.EGRESS_STALE_MAX_DAYS || 21);
 const EGRESS_STALE = new Map([
-  ['raciborz', { since: '2026-08-25', reason: 'the shared FINN origin drops Azure connections' }],
+  ['raciborz', { since: '2026-09-05', reason: 'operator-refreshed; the shared FINN origin drops Azure connections' }],
+  ['pszczyna', { since: '2026-09-05', reason: 'operator-refreshed; its source returns 503 from hosted and current operator egress' }],
 ]);
 
 const now = Date.now();
@@ -207,7 +209,7 @@ for (const c of index.cities || []) {
     } else if (egressEx.expired) {
       fail(c.id, 'exempt-expired',
         `egress staleness exemption from ${egressEx.since} expired ` +
-        `(${egressEx.age.toFixed(0)}d > ${EGRESS_STALE_MAX_DAYS}d) — deploy the restricted proxy or re-audit the source ` +
+        `(${egressEx.age.toFixed(0)}d > ${EGRESS_STALE_MAX_DAYS}d) — refresh or re-audit the source from operator egress ` +
         `(reason was: ${egressEx.reason})`, meta);
     } else {
       fail(c.id, 'stale-data', `data stale (${ageStr} > ${STALE_DAYS}d) — crawl stopped updating`, meta);

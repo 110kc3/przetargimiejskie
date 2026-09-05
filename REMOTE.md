@@ -7,8 +7,8 @@ Chrome, Debian Bookworm arm64. Companion docs: [README.md](README.md) (pipeline 
 > **Security boundary (2026-08-25):** this is an operator-controlled development
 > machine only. It is not connected to GitHub Actions, carries no workflow service
 > or registration material, and must not execute remotely dispatched repository
-> jobs. The reviewed automation replacement is the restricted proxy design in
-> [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+> jobs. Sources requiring residential egress are refreshed only through reviewed,
+> operator-initiated local work; see [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 
 ## 1. Why this box matters strategically
 
@@ -22,13 +22,10 @@ Its **residential Polish IP** is egress GitHub Actions cannot buy:
   script) selectively to Azure-hosted CI traffic; the real page and the existing parser work
   fine from a Polish IP.
 
-Two permitted uses of the Pi are intentionally separate:
-
-1. **Operator-initiated local work**: `CITY=raciborz npm run refresh`, tests,
-   investigation and spikes from an interactive session, shipped through a reviewed PR.
-2. **Restricted network egress**: the future `FETCH_PROXY_URL` service described in
-   [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md). GitHub-hosted jobs may reach only an
-   allowlisted HTTPS proxy; no repository code executes on the Pi.
+The permitted use is **operator-initiated local work**: `CITY=raciborz npm run
+refresh`, tests, investigation and spikes from an interactive session, shipped
+through a reviewed PR. The Pi is not exposed to GitHub Actions as a runner or
+proxy.
 
 The proxy hook covers requests made through `core/fetch.js`
 (`politeGet`/`getText`/`getBytes`/`proxyFetch`). The insecure-TLS path, unwrapped direct
@@ -82,8 +79,8 @@ accept residential clients.
 6. Clone to the layout the tooling expects:
    `mkdir -p ~/repos && gh repo clone 110kc3/przetargimiejskie ~/repos/przetargimiejskie`
 7. Deps: `cd ~/repos/przetargimiejskie/pipeline && npm ci` — installs the pipeline's
-   two dependencies: playwright (optional renderer) and undici (optional
-   `FETCH_PROXY_URL` egress), both lazy-loaded; the Chromium browser binary is
+   two dependencies: playwright (optional renderer) and undici (optional local
+   proxy support), both lazy-loaded; the Chromium browser binary is
    NOT downloaded by `npm ci`.
 8. *(Optional — only if refreshing chrzanow here)* `npx playwright install --with-deps chromium`
    in `pipeline/`. chrzanow is the sole `needsRender: true` city
