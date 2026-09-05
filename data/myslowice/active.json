@@ -4,6 +4,44 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Brzezińskiej 47/2",
+      "address": {
+        "street": "Brzezińskiej",
+        "street_norm": "brzezinskiej",
+        "building": "47",
+        "apt": "2",
+        "key": "brzezinskiej|47|2",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 35.86,
+      "starting_price_pln": 135000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Fryderyka Chopina 15/3",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "15",
+        "apt": "3",
+        "key": "fryderyka chopina|15|3",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 44.07,
+      "starting_price_pln": 198000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Brzezińskiej 55A/6",
       "address": {
         "street": "Brzezińskiej",
