@@ -120,14 +120,16 @@ function readDataset(path) {
   return { csv: csvBytes.toString('utf8'), archive_sha256: sha256(bytes), csv_name: list[0] };
 }
 
-function extractHiddenInputs(html) {
+export function extractHiddenInputs(html) {
+  const entities = {
+    '&quot;': '"', '&#39;': "'", '&amp;': '&', '&lt;': '<', '&gt;': '>',
+  };
   const values = {};
   for (const tag of html.match(/<input\b[^>]*>/gi) || []) {
     const attrs = {};
     for (const match of tag.matchAll(/([:\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g)) {
       attrs[match[1].toLowerCase()] = (match[2] ?? match[3] ?? '')
-        .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
-        .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        .replace(/&(?:quot|#39|amp|lt|gt);/g, (entity) => entities[entity]);
     }
     if (attrs.type === 'hidden' && attrs.name) values[attrs.name] = attrs.value || '';
   }
