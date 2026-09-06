@@ -39,7 +39,7 @@ operating model*:
 
 | Layer | Who | What |
 |---|---|---|
-| **Machine** | GitHub Actions (7 workflows) | Daily refresh, health gate, auto-triage issues, site deploy, newsletter generation |
+| **Machine** | GitHub Actions (8 workflows) | Daily refresh, health gate, auto-triage issues, site deploy, newsletter generation, official-city inventory refresh |
 | **Agent** | Claude Code sessions (RPi5, headless) | Fix broken cities, dispatch spike/build batches, ledger + doc upkeep |
 | **Human** | Kamil only | Discovery outreach, seller/invoice facts, lawful purchasing route and acceptance of an order; see the private vault |
 
@@ -116,10 +116,10 @@ grows, the digest generates, and total human input is ≤ 1 h/week of decisions.
 The genre is **Polish municipal property-auction aggregation with history**.
 Complete means:
 
-1. **Every one of the ~380 powiat seats is BUILT or carries a documented NO-BUILD
-   verdict.** NO-BUILD verdicts *are* completeness — most cities sell flats
-   *bezprzetargowo* to sitting tenants, and the documented verdict is the proof of
-   an exhaustive survey. (ROADMAP T2 exit test.)
+1. **Every one of the 1,026 official GUS cities has a canonical SIMC-backed
+   manifest entry and current source evidence.** Documented absence completes a
+   survey but never counts as monitored coverage. Accessible, in-scope municipal
+   sale streams must be implemented and kept healthy.
 2. **The distribution surfaces match the data.** The extension serves all built
    cities data-driven from `data/index.json` (today it hardcodes 9 — the one big
    `[GUI]` item), and the Web Store listing is current. SEO pages cover every built
@@ -129,25 +129,25 @@ Complete means:
 4. **All asset classes the domain implies:** flats (core) + land + garages +
    commercial.
 
-Explicitly **not** required: the ~700 long-tail small towns. Those are T3 and
-**demand-gated** — only traffic/revenue unlocks them. Complete ≠ every village;
-complete = every place with real auction volume, plus documented verdicts for the
-rest.
+Villages remain outside this city/town scope. The 690 presently unresearched
+cities are part of the accepted national expansion rather than demand-gated.
 
-### 2.2 Where it stands (2026-07-16, live ledger)
+### 2.2 Where it stands (2026-09-06, generated ledger)
 
 | Status | Count |
 |---|---|
-| **Built** (live in `data/`) | **105** |
-| BUILD-verified, not yet built | 66 |
+| **Monitored adapters** (live in `data/`) | **121** |
+| BUILD-ready, not yet built | 50 |
 | NO-BUILD (documented) | 156 |
 | Dropped / deferred | 9 |
-| **Ledger total** | **336** of ~380 powiat seats |
+| Other surveyed historic entries | included above; **336 surveyed total** |
+| Unresearched official cities | **690** |
+| **Official inventory** | **1,026** |
 
-So the remaining distance: **~44 seats to spike + ~66–85 adapters to build**. At the
-demonstrated pace (~7 adapters/day in batched agent sessions, 2–3 concurrent), that
-is **~6–10 weeks of scheduled agent work** — no research risk, no unknowns, pure
-execution of §1.2 job 2.
+Phase A establishes identities and accurate denominators. The next gate is the
+national validation and sharded single-publisher design in
+[`ALL-CITIES-PLAN.md`](./ALL-CITIES-PLAN.md), followed by the known 50-city build
+queue, legacy exclusion review and measured research batches for the remaining 690.
 
 ### 2.3 The mechanism (already proven, just keep the crank turning)
 
@@ -156,9 +156,9 @@ forever. Protocol: [spikes/README.md](./spikes/README.md); build guide:
 [pipeline/ADAPTER-GUIDE.md](./pipeline/ADAPTER-GUIDE.md); one new city = one
 `pipeline/src/cities/<city>/` folder + one registry entry + one groundtruthed
 parser test. Shard the CI matrix into grouped jobs when wall-clock creeps (~100+
-cities — we are there; watch it). **Completeness exit test:** ledger shows 0
-unspiked powiat seats, 0 BUILD-ready backlog, extension + SEO surfaces all built
-cities, health green at full scale.
+cities — we are there; this is Phase B2). **Completeness exit test:** all 1,026
+cities have current evidence, every accessible declared source is monitored,
+extension + site expose truthful coverage states, and health is green at full scale.
 
 ---
 

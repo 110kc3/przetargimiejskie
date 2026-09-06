@@ -57,33 +57,36 @@ extension, and receives Monday's digest. Health green daily.
 | RODO/GDPR policy for newsletter + leads (draft agent-side, publish is Kamil's call) — **hard blocker for any ESP send** | [RPI5] draft | S-M | open |
 | Newsletter go-live: ESP account + API secret (Kamil), send step + double-opt-in signup form (agent). First real digest generates Mon 2026-07-13 | [ACCOUNT] + [RPI5] | M | blocked on RODO |
 
-## T2 — Powiat-seat coverage (the credible national claim; ~1.5–2.5 months of batched agent work)
+## T2 — National city coverage
 
-**Exit test:** every one of the 380 powiat seats is BUILT or has a documented
-NO-BUILD verdict; refresh + health green at that scale.
+**Exit test:** every one of the 1,026 official GUS cities has current evidence;
+every accessible in-scope municipal sale stream is monitored; refresh + health are
+green at full scale.
 
 All [RPI5] — dispatch via the `przetargi-city-triage` skill
 (committed at `.claude/skills/przetargi-city-triage/SKILL.md`), protocol in
 [spikes/README.md](./spikes/README.md), build guide in
 [pipeline/ADAPTER-GUIDE.md](./pipeline/ADAPTER-GUIDE.md):
 
-1. **Build the BUILD-ready queue — 54 land-powiat seats remain** (all Medium
-   effort; demonstrated pace ~7 adapters/day incl. fix cycles). All big cities
-   and every Wave-A city-county are built as of 2026-07-19 (117 built).
-2. **Spiking is DONE** — all 380 powiat seats spiked (backlog 380/0); the
-   BUILD verdicts feed queue 1 above.
-3. **Shard CI matrix** into grouped jobs (~4–5 small cities/job) when the city
-   count makes wall time creep (~100+). refresh.yml + backfill.yml.
-4. Keep the ledger disciplined: `master-cities.json` → `node
+1. **Phase A complete:** reproducible TERYT import, 1,026 SIMC identities,
+   preserved historic evidence, repaired powiat mappings and discrepancy report.
+2. **Phase B next:** national data gates and hosted shards with a single validated
+   publisher. Adapters requiring residential egress remain excluded; no local
+   runner, Tailscale or private proxy is introduced.
+3. **Build the known queue:** 50 BUILD-ready cities after the Phase B gates.
+4. **Review and research:** reassess 165 historic exclusions for the broader asset
+   scope, then survey the 690 unresearched official cities in measured batches.
+5. Keep the ledger disciplined: `master-cities.json` → `node
    spikes/build-progress.mjs` after every batch (SPIKE-PROGRESS is generated).
 
-## T3 — All-Poland + monetization (explicitly demand-gated)
+## T3 — Distribution + monetization
 
 **Gate: let revenue, not the city list, decide** (EXPANSION.md). Kill gates per
 GTM-SPRINT: no partner interest after ~10 calls → park monetization; 6 weeks
 flat traffic → fix funnel first.
 
-- ~700 long-tail town spikes **only** with traffic/revenue behind it [RPI5]
+- National research follows the accepted [all-cities plan](./ALL-CITIES-PLAN.md);
+  revenue validates the commercial offer, not whether official cities exist.
 - Partner demand test: ~10 calls to brokers/renovation firms [ACCOUNT] — decides
   whether the lead-gen engine gets built at all
 - Lead form + labeled CTA (concierge routing) [RPI5], after demand test + RODO

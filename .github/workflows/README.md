@@ -1,6 +1,6 @@
 # Workflow catalog
 
-Seven workflows, numbered so the Actions sidebar sorts in pipeline order.
+Eight workflows, numbered so the Actions sidebar sorts in pipeline order.
 The daily chain is **1 → (data commits) → 3**, guarded by **2**; everything
 else is periodic or PR-gated.
 
@@ -18,6 +18,7 @@ else is periodic or PR-gated.
 | 5 | `extension-ci.yml` | Extension CI | PRs touching `extension/**` or its guard files · manual | `web-ext lint` (Firefox-only errors allowlisted in `check-extension-lint.mjs`) + manifest validation + the normalize-parity and version-lockstep tests. PR gate for the user-facing artifact. |
 | 6 | `security.yml` | Security | push/PR to `main` · Mondays 07:00 UTC · manual | Enforces GitHub-hosted runners, runs CodeQL, requires zero open CodeQL alerts on `main`, and runs blocking Trivy dependency/secret scanning at medium severity or above. Findings are also uploaded to the Security tab. |
 | 7 | `backfill.yml` | Backfill (manual) | manual only | Full parallel refresh with a 350-min per-city timeout and unbounded crawlers — primes cold OCR/text caches for new cities. Uses the same hosted-safe matrix and read-only-crawler/validated-publisher boundaries as workflow 1, and shares its concurrency lock. |
+| 8 | `inventory.yml` | Refresh official city inventory | annual 10 January · relevant PRs · manual | Downloads official GUS TERYT files on a GitHub-hosted read-only job, verifies the 1,026-city SIMC manifest and targeted importer tests, then passes exactly five allowlisted generated files to a separate publisher. PR runs never publish. No private-network credentials or local runner are used. |
 
 ## Failure handling & notifications
 
@@ -40,6 +41,7 @@ else is periodic or PR-gated.
 
 - `refresh` — shared by workflows 1 and 7 (one crawl at a time).
 - `ovh-deploy`, `newsletter` — serialize their own runs.
+- `official-city-inventory` serializes official inventory publication.
 - Health / security / extension-ci cancel superseded runs per ref.
 
 ## Removed

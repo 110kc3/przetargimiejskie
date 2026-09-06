@@ -12,11 +12,11 @@
 
 A dispatched agent MUST read these before touching a city:
 
-- **`spikes/backlog.json`** — the full queue of all 380 powiat seats, each marked
-  `status: "done" | "pending"` with its voivodeship/powiat/`spike_path`. Pick
-  `pending` cities from here. (Human view: `spikes/BACKLOG.md`.)
-- **`spikes/master-cities.json`** — the authoritative **per-city status** of every
-  city already spiked. If a city is in here, its `status` field is the truth:
+- **`spikes/backlog.json`** — the historic 380-row powiat survey mapped to official
+  city identities; it is not the complete city queue.
+- **`spikes/master-cities.json`** — the authoritative `city-manifest/2` inventory
+  of 1,026 official cities. Match `official.simc` first and preserve `pipeline_id`
+  and aliases. Historic `status` is retained evidence; lifecycle fields drive work:
 
   | status | meaning | do NOT |
   |---|---|---|
@@ -26,11 +26,13 @@ A dispatched agent MUST read these before touching a city:
   | `no-build` | spiked, no usable flat-auction stream | re-spike or build |
   | `verify` | spiked, needs a live re-check before building | build blindly |
   | `dropped` / `deferred` | prior Śląsk decisions | re-spike |
+  | `unresearched` | no source survey yet | claim empty or covered |
 
 - **`spikes/SPIKE-PROGRESS.md`** — human-readable roll-up + the BUILD-ready queue.
 
-**Rule:** if a city is `built`/`no-build`/`dropped`/`deferred`, leave it alone. If
-`build`, build it. If `pending`, spike it first.
+**Rule:** build only when `lifecycle.implementation` is `ready`; research when
+`lifecycle.research` is `unresearched` or due for review. Capability claims require
+dated source evidence and do not follow automatically from a build verdict.
 
 ---
 

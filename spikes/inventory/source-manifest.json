@@ -1,0 +1,27 @@
+{
+  "publisher": "Główny Urząd Statystyczny, rejestr TERYT",
+  "source_page": "https://eteryt.stat.gov.pl/eTeryt/rejestr_teryt/udostepnianie_danych/baza_teryt/uzytkownicy_indywidualni/pobieranie/pliki_pelne.aspx?contrast=default",
+  "structure_documentation": "https://eteryt.stat.gov.pl/eTeryt/rejestr_teryt/udostepnianie_danych/baza_teryt/uzytkownicy_indywidualni/pobieranie/pliki_pelne_struktury.aspx",
+  "retrieved_at": "2026-09-06",
+  "effective_date": "2026-01-01",
+  "files": {
+    "terc": {
+      "filename": "TERC_Urzedowy_2026-09-06.zip",
+      "archive_sha256": "dd87960312a9bd92e4c4fe1b4d70718409acbc0e57bcd17ef7e7df3798aa7b28",
+      "csv_filename": "TERC_Urzedowy_2026-09-06.csv",
+      "csv_sha256": "557edb286b399cc7f84a3ee0fbeb809b3928e64da70c7eda8b71fa7f06e585d4"
+    },
+    "simc": {
+      "filename": "SIMC_Urzedowy_2026-09-06.zip",
+      "archive_sha256": "329e79708d21d1038b77b99daaaa680f94d803dd13436fbb541524be0af942db",
+      "csv_filename": "SIMC_Urzedowy_2026-09-06.csv",
+      "csv_sha256": "316c6446da15f53fef77ae3f28bda60f9c0300120c217eaa4431e1661a018c5a"
+    },
+    "wmrodz": {
+      "filename": "WMRODZ_2026-09-06.zip",
+      "archive_sha256": "2f731b347221acc253212d17b36c4f371146989ea0171b3b210cbbf48ddf35f0",
+      "csv_filename": "WMRODZ_2026-09-06.csv",
+      "csv_sha256": "8c7f315d4986097ae11df031f94fb7bac974205ad6e67bd981633eec293188d9"
+    }
+  }
+}

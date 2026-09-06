@@ -2,9 +2,9 @@
 
 A pipeline that scrapes municipal property auctions from Polish cities (nationwide coverage that began with the Silesian / Górnośląsko-Zagłębiowska cluster), plus an isolated pilot for nationwide institutional sellers, parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, and at what prices.
 
-**Cities covered:** **117 built city adapters spanning 16 voivodeships** — national coverage including Warszawa, Kraków, Łódź, Gdańsk, Szczecin, Katowice, Gliwice, Bydgoszcz, Białystok and dozens more. The live generated ledger of what's built / spiked / queued is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); per-city counts and source hosts are in [`data/index.json`](./data/index.json). Each city is a self-contained adapter under `pipeline/src/cities/<city>/` registered in `pipeline/src/cities/index.js`.
+**Coverage inventory:** **1,026 official cities and towns**, keyed by GUS SIMC: 121 monitored adapters, 215 other previously surveyed cities and 690 unresearched cities. The generated state is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); monitored-city counts and source hosts are in [`data/index.json`](./data/index.json). Each adapter lives under `pipeline/src/cities/<city>/` and is registered in `pipeline/src/cities/index.js`.
 
-The architecture is deliberately simple: **local pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No server, no paid service, no hosted database. See [PLAN.md](./PLAN.md) for the why.
+The production architecture is deliberately simple: **GitHub-hosted pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No private runner, private-network tunnel, paid service or hosted database is required. See [PLAN.md](./PLAN.md) for the why.
 
 ## What's here
 
@@ -24,7 +24,8 @@ The architecture is deliberately simple: **local pipeline → JSON committed to 
 | [`data/providers/`](./data/providers) | Separate provider index, metadata and row-based listings. The contract and rollout notes are in [`spikes/providers/`](./spikes/providers). |
 | [`.github/workflows/refresh.yml`](./.github/workflows/refresh.yml) | GitHub Actions: re-runs the pipeline daily at 04:00 UTC **and on push to `main`** — a per-city matrix (`max-parallel: 10`) with a data-sanity gate, committing each city's delta separately. |
 | [`.github/workflows/health.yml`](./.github/workflows/health.yml) | Daily source-health check (`pipeline/scripts/health-check.js`): fails if any city's data is empty or stale — failures feed the per-city `[city-broken]` triage issues. |
-| [`.github/workflows/README.md`](./.github/workflows/README.md) | The workflow catalog — all 7 numbered workflows (refresh · health · OVH deploy · newsletter · extension CI · security · backfill). |
+| [`.github/workflows/inventory.yml`](./.github/workflows/inventory.yml) | Annual/manual official GUS TERYT city-inventory reconciliation, with a read-only generator and allowlisted publisher. |
+| [`.github/workflows/README.md`](./.github/workflows/README.md) | The workflow catalog — all 8 numbered workflows. |
 | [`spike/ocr_samples/`](./spike/ocr_samples) | Raw OCR fixtures for the parser unit tests. |
 | [`OPERATING-MODEL.md`](./OPERATING-MODEL.md) | The operating manual above all other docs: how the project runs autonomously, reaches genre-completeness, and makes money. |
 | [`PLAN.md`](./PLAN.md) | Full architecture & form-factor comparison. |
@@ -124,7 +125,7 @@ The included workflow `.github/workflows/refresh.yml` runs daily at 04:00 UTC, o
 3. Gates the fresh data on `pipeline/scripts/sanity-check.js` — a failure blocks only that city's commit, so its last-good data stays published — then enriches land geoportal links (best-effort, never blocks).
 4. Uploads an allowlisted, hashed data/cache artifact while holding only a read token. A separate trusted publisher rejects traversal, symlinks, unexpected paths/types, malformed JSON, oversized content and hash mismatches, reruns the sanity gate, then commits validated output.
 
-In parallel, the provider path refreshes PKP and AMW, validates the complete combined ledger, and commits only `data/providers/` plus its OCR cache. Because `www.pkp.pl` can selectively drop one Azure region while remaining reachable from others, an isolated PKP connection failure gets up to two retries on fresh hosted runners; the final provider gate still requires AMW, provider health, commits, and at least one fresh PKP attempt to succeed. Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken hosted city (commented on repeats, auto-closed on recovery). The full 7-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
+In parallel, the provider path refreshes PKP and AMW, validates the complete combined ledger, and commits only `data/providers/` plus its OCR cache. Because `www.pkp.pl` can selectively drop one Azure region while remaining reachable from others, an isolated PKP connection failure gets up to two retries on fresh hosted runners; the final provider gate still requires AMW, provider health, commits, and at least one fresh PKP attempt to succeed. Afterwards an `index` job rebuilds `data/index.json`, and a `triage` job files one `[city-broken]` GitHub issue per broken hosted city (commented on repeats, auto-closed on recovery). The full 8-workflow catalog is documented in [`.github/workflows/README.md`](./.github/workflows/README.md).
 
 The crawler jobs use a read-only `GITHUB_TOKEN` and check out with persisted credentials disabled. Only the artifact publishers and index job receive `contents: write`. No hosted crawl receives a residential proxy or private-network credential.
 
