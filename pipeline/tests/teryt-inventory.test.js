@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  buildInventory, parseDelimited, reconcileBacklog, verifyInventory,
+  buildInventory, extractHiddenInputs, parseDelimited, reconcileBacklog, verifyInventory,
 } from '../../spikes/inventory/import-teryt.mjs';
 
 const TERC = `WOJ;POW;GMI;RODZ;NAZWA;NAZWA_DOD;STAN_NA
@@ -69,6 +69,11 @@ function build(legacyMaster = LEGACY) {
 
 test('CSV parser preserves quoted delimiters and leading-zero identifiers', () => {
   assert.deepEqual(parseDelimited('\uFEFFA;B\n"x;y";001\n'), [{ A: 'x;y', B: '001' }]);
+});
+
+test('download form attributes are decoded exactly once', () => {
+  const inputs = extractHiddenInputs('<input type="hidden" name="__VIEWSTATE" value="a&amp;quot;b&amp;c">');
+  assert.equal(inputs.__VIEWSTATE, 'a&quot;b&c');
 });
 
 test('TERYT import excludes city parts and preserves prior and pipeline identities', () => {
