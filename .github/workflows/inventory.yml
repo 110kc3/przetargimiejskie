@@ -1,0 +1,133 @@
+# Official-city inventory refresh. The network-facing import job is read-only;
+# a separate publisher validates and commits only the five generated outputs.
+name: 8. Refresh official city inventory
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/inventory.yml'
+      - 'data/index.json'
+      - 'pipeline/tests/teryt-inventory.test.js'
+      - 'spikes/backlog.json'
+      - 'spikes/build-progress.mjs'
+      - 'spikes/inventory/**'
+      - 'spikes/master-cities.json'
+  schedule:
+    - cron: '30 5 10 1 *' # Annual TERYT reconciliation after 1 January changes.
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: official-city-inventory
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+      - name: Download and reconcile official TERYT inventory
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = pull_request ]; then
+            retrieved_at="$(node -p "require('./spikes/inventory/source-manifest.json').retrieved_at")"
+            node spikes/inventory/import-teryt.mjs refresh --retrieved-at "$retrieved_at"
+            node spikes/build-progress.mjs
+            git diff --exit-code -- \
+              spikes/master-cities.json \
+              spikes/backlog.json \
+              spikes/SPIKE-PROGRESS.md \
+              spikes/inventory/source-manifest.json \
+              spikes/inventory/discrepancies.json \
+              spikes/inventory/DISCREPANCIES.md
+          else
+            node spikes/inventory/import-teryt.mjs refresh
+          fi
+      - name: Verify generated inventory
+        run: |
+          node spikes/inventory/import-teryt.mjs verify
+          node --test pipeline/tests/teryt-inventory.test.js
+      - name: Package generated outputs
+        run: |
+          mkdir -p inventory-artifact/spikes/inventory
+          cp spikes/master-cities.json inventory-artifact/spikes/master-cities.json
+          cp spikes/backlog.json inventory-artifact/spikes/backlog.json
+          cp spikes/inventory/source-manifest.json inventory-artifact/spikes/inventory/source-manifest.json
+          cp spikes/inventory/discrepancies.json inventory-artifact/spikes/inventory/discrepancies.json
+          cp spikes/inventory/DISCREPANCIES.md inventory-artifact/spikes/inventory/DISCREPANCIES.md
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: official-city-inventory
+          path: inventory-artifact/
+          retention-days: 7
+          if-no-files-found: error
+
+  publish:
+    if: github.event_name != 'pull_request'
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: main
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: official-city-inventory
+          path: incoming-inventory
+      - name: Reject unexpected artifact content
+        run: |
+          test "$(find incoming-inventory -type f | wc -l)" -eq 5
+          test -z "$(find incoming-inventory -type l -print -quit)"
+          test "$(du -sb incoming-inventory | cut -f1)" -le 20000000
+          while IFS= read -r path; do
+            test "$(stat -c %s "$path")" -le 10000000
+            case "$path" in
+              incoming-inventory/spikes/master-cities.json|\
+              incoming-inventory/spikes/backlog.json|\
+              incoming-inventory/spikes/inventory/source-manifest.json|\
+              incoming-inventory/spikes/inventory/discrepancies.json|\
+              incoming-inventory/spikes/inventory/DISCREPANCIES.md) ;;
+              *) echo "Unexpected inventory artifact path: $path" >&2; exit 1 ;;
+            esac
+          done < <(find incoming-inventory -type f | sort)
+      - name: Apply and verify generated outputs
+        run: |
+          cp incoming-inventory/spikes/master-cities.json spikes/master-cities.json
+          cp incoming-inventory/spikes/backlog.json spikes/backlog.json
+          cp incoming-inventory/spikes/inventory/source-manifest.json spikes/inventory/source-manifest.json
+          cp incoming-inventory/spikes/inventory/discrepancies.json spikes/inventory/discrepancies.json
+          cp incoming-inventory/spikes/inventory/DISCREPANCIES.md spikes/inventory/DISCREPANCIES.md
+          node spikes/inventory/import-teryt.mjs verify
+          node spikes/build-progress.mjs
+      - name: Commit inventory changes
+        run: |
+          git config user.name 'przetargimiejskie-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add \
+            spikes/master-cities.json \
+            spikes/backlog.json \
+            spikes/SPIKE-PROGRESS.md \
+            spikes/inventory/source-manifest.json \
+            spikes/inventory/discrepancies.json \
+            spikes/inventory/DISCREPANCIES.md
+          git diff --cached --quiet && exit 0
+          git commit -m "data: refresh official city inventory"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 5))
+          done
+          exit 1

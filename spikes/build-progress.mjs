@@ -25,6 +25,7 @@ const STATUS = {
   'no-build': { badge: '🔴 NO-BUILD', order: 3 },
   dropped:  { badge: '❌ Dropped',  order: 4 },
   deferred: { badge: '⏸️ Deferred', order: 5 },
+  unresearched: { badge: '⚪ UNRESEARCHED', order: 6 },
 };
 
 // Voivodeship slugs → display names (diacritics matter in the headings).
@@ -40,19 +41,30 @@ const WOJ = {
 
 const count = (status) => cities.filter((c) => c.status === status).length;
 const list = (status) => cities.filter((c) => c.status === status).sort(byLabel);
-const today = new Date().toISOString().slice(0, 10);
+const today = master.generated_at || new Date().toISOString().slice(0, 10);
 
 const district = (c) =>
-  c.type === 'city-county' ? `${c.label} (m.n.p.p.)` : c.powiat_label;
+  c.type === 'city-county'
+    ? `${c.label} (m.n.p.p.)`
+    : (c.powiat_label || `powiat ${c.official?.powiat_name || '—'}`);
+
+const lifecycleCounts = (field) => {
+  const counts = new Map();
+  for (const city of cities) {
+    const value = city.lifecycle?.[field] || 'unknown';
+    counts.set(value, (counts.get(value) || 0) + 1);
+  }
+  return [...counts.entries()].sort(([a], [b]) => a.localeCompare(b));
+};
 
 const lines = [];
 lines.push('# SPIKE-PROGRESS — all-Poland city spike + build ledger');
 lines.push('');
 lines.push(`> **GENERATED FILE — do not hand-edit.** Regenerate with \`node spikes/build-progress.mjs\` after updating [master-cities.json](./master-cities.json) (the source of truth).`);
 lines.push('>');
-lines.push(`> Updated ${today}. Queue: [backlog.json](./backlog.json) (${backlog.by_status.pending} pending / ${backlog.by_status.done} done of ${backlog.total} powiat seats). NO-BUILD detail: [NO-BUILD.md](./NO-BUILD.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md). Dispatch/resume protocol: [README.md](./README.md).`);
+lines.push(`> Updated ${today} from the official GUS TERYT snapshot effective ${master.source?.effective_date || '—'}. Queue: [backlog.json](./backlog.json) (${backlog.by_status?.pending || 0} pending / ${backlog.by_status?.done || 0} done of ${backlog.total} powiat rows; ${backlog.distinct_city_count || '—'} distinct seat cities). Inventory differences: [inventory/DISCREPANCIES.md](./inventory/DISCREPANCIES.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md).`);
 lines.push('');
-lines.push(`## Roll-up (${cities.length} spiked)`);
+lines.push(`## Official inventory roll-up (${cities.length} cities)`);
 lines.push('');
 lines.push('| Status | Count |');
 lines.push('|---|---|');
@@ -60,7 +72,16 @@ for (const [status, s] of Object.entries(STATUS)) {
   lines.push(`| ${s.badge} | ${count(status)} |`);
 }
 lines.push('');
-lines.push(`**Convention:** every spiked city has a per-city \`.md\` at its \`master-cities.json\` path; NO-BUILD verdicts are additionally consolidated in [NO-BUILD.md](./NO-BUILD.md).`);
+lines.push(`**Convention:** official identity is \`official.simc\`; product/pipeline aliases never replace it. A surveyed city has a per-city evidence path. New official cities remain \`unresearched\` until direct source evidence exists.`);
+lines.push('');
+
+lines.push('## Lifecycle coverage');
+lines.push('');
+lines.push('| Dimension | State | Count |');
+lines.push('|---|---|---:|');
+for (const field of ['research', 'implementation', 'runtime']) {
+  for (const [state, total] of lifecycleCounts(field)) lines.push(`| ${field} | ${state} | ${total} |`);
+}
 lines.push('');
 
 lines.push(`## Built adapters (${count('built')})`);
@@ -83,6 +104,11 @@ if (count('verify')) {
   lines.push('');
 }
 
+lines.push(`## Unresearched official cities (${count('unresearched')})`);
+lines.push('');
+lines.push('These are inventory entries, not claims of monitoring or source absence. Research is queued only through an accepted batch.');
+lines.push('');
+
 lines.push('## Ledger by voivodeship');
 lines.push('');
 const wojSlugs = [...new Set(cities.map((c) => c.voivodeship))]
@@ -91,13 +117,11 @@ for (const woj of wojSlugs) {
   const rows = cities.filter((c) => c.voivodeship === woj).sort(byLabel);
   lines.push(`### ${WOJ[woj] || woj} (${rows.length})`);
   lines.push('');
-  lines.push('| City | District | Status | Effort·conf |');
-  lines.push('|---|---|---|---|');
+  lines.push('| City | SIMC | District | Historic verdict | Research | Implementation | Runtime | Review due |');
+  lines.push('|---|---|---|---|---|---|---|---|');
   for (const c of rows) {
     const badge = STATUS[c.status]?.badge || c.status;
-    const effort = c.spike?.effort || '—';
-    const conf = c.spike?.confidence || '—';
-    lines.push(`| ${c.label} | ${district(c)} | ${badge} | ${effort} · ${conf} |`);
+    lines.push(`| ${c.label} | ${c.official?.simc || '—'} | ${district(c)} | ${badge} | ${c.lifecycle?.research || '—'} | ${c.lifecycle?.implementation || '—'} | ${c.lifecycle?.runtime || '—'} | ${c.review?.review_due || '—'} |`);
   }
   lines.push('');
 }

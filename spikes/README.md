@@ -19,11 +19,12 @@ Example: `spikes/malopolskie/powiat-olkuski/olkusz.md`, `spikes/mazowieckie/wars
 Any agent (or person) picking up a city MUST check these first, so we never
 re-spike, re-build, or duplicate work:
 
-- **[`backlog.json`](./backlog.json)** — the full queue of all 380 powiat seats,
-  each `status: "done" | "pending"` with voivodeship/powiat/`spike_path`. Pick
-  `pending` cities from here. Human view: [`BACKLOG.md`](./BACKLOG.md).
-- **[`master-cities.json`](./master-cities.json)** — the authoritative **per-city
-  status** of every city already spiked. If a city is here, its `status` is the truth:
+- **[`backlog.json`](./backlog.json)** — 380 historic powiat rows mapped to 335
+  distinct official seat cities. It is evidence history, not the national denominator.
+- **[`master-cities.json`](./master-cities.json)** — the authoritative 1,026-city
+  GUS SIMC manifest. `official.simc` is canonical; aliases and `pipeline_id`
+  preserve existing identifiers. Historic `status` remains evidence, while
+  `lifecycle` and `capabilities` separately describe current work and coverage:
 
   | status | meaning |
   |---|---|
@@ -33,16 +34,19 @@ re-spike, re-build, or duplicate work:
   | `no-build` | no usable flat-auction stream |
   | `verify` | needs a live re-check before building |
   | `dropped` / `deferred` | prior Śląsk decisions |
+  | `unresearched` | official city present, source survey not started |
 
 - **[`SPIKE-PROGRESS.md`](./SPIKE-PROGRESS.md)** — human roll-up + the BUILD-ready queue.
 
-**Rule:** `built`/`no-build`/`dropped`/`deferred` → leave alone. `build` → build it
-(see the guide below). `pending` → spike it.
+**Rule:** use `lifecycle.research` to choose research work and
+`lifecycle.implementation` to choose build work. Do not infer live coverage from a
+historic verdict alone.
 
 > Every batch, after spiking/building, UPDATE `master-cities.json` (the source
 > of truth), then regenerate the roll-up with `node spikes/build-progress.mjs`
 > (SPIKE-PROGRESS.md is GENERATED — never hand-edit it), and re-run the
-> integrity check (every master entry must have its spike `.md`).
+> inventory verification (`node spikes/inventory/import-teryt.mjs verify`). Only
+> surveyed entries require spike evidence.
 
 ## How to build (extract data)
 

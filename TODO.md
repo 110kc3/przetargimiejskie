@@ -1,14 +1,13 @@
 # TODO
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
-> (extension) and git history (pipeline/site/data). **Last full backlog refresh:
-> 19 July 2026 — extension v1.32.0; city-health/security audit refreshed 5 September
-> 2026.** Structure/tiers/gates live in
+> (extension) and git history (pipeline/site/data). **City inventory refreshed
+> 6 September 2026; city-health/security audit refreshed 5 September 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
 > [REMOTE.md](./REMOTE.md), residential-egress operating policy in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
-> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (BUILT 121 ·
-> BUILD-ready 50 · all 380 powiat seats spiked).
+> [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (1,026 official cities ·
+> 121 monitored · 50 BUILD-ready · 690 unresearched).
 >
 > Recently shipped (see git log, not re-listed here): the entire 3-July handover
 > landed in `45dcb09` (extension CI, P2-D verified-heals in refresh, TG PDF
@@ -682,16 +681,21 @@ current owner action or a prerequisite for the municipal pilot.
   properties committed, 25 tests green. Closure note kept because the entry
   predicted a CI-timeout risk that the tightened defaults resolved.
 - **Spiking DONE — all 380 powiat seats spiked** (`spikes/backlog.json`:
-  380 done / 0 pending). The "every powiat seat" claim now rests on building
-  out the 50-seat BUILD queue above; everything else is ledgered
-  no-build/dropped/deferred.
-- **CI matrix sharding at ~100+ cities:** group small cities ~4–5/job in
+  380 done / 0 pending, representing 335 distinct seat cities). This is preserved
+  historic evidence, not the complete national city denominator.
+- **Phase A national inventory — COMPLETE 2026-09-06:** the reproducible GUS
+  TERYT importer maps exactly 1,026 SIMC city identities, preserves all 336
+  historic verdicts, repairs all 45 duplicate-seat evidence paths, reconciles all
+  121 pipeline IDs and generates a zero-blocker discrepancy report. The annual
+  refresh and PR test run entirely on GitHub-hosted infrastructure.
+- **Phase B1/B2 — NEXT:** replace the Śląskie-only data gate, add class-aware
+  health/valid-empty evidence, then group small cities ~4–5/job in
   refresh.yml + backfill.yml — most city jobs finish <2 min of mostly setup
-  overhead; grouping roughly halves runner minutes. **Blockers:** none; the
-  registry is already at 121 cities.
-- **DEMAND-GATED long tail (~700 towns in land powiats):** low BUILD hit-rate,
-  permanent maintenance liability — only worth it as a "complete Poland" moat
-  with revenue behind it. Kamil makes the go/no-go per EXPANSION ("let revenue
-  decide"). **Blockers:** powiat seats complete + traffic/revenue signal.
+  overhead; use isolated city subprocesses and one validated publisher. Exclude
+  `needsResidentialEgress` sources unconditionally; no Tailscale, local runner,
+  private proxy or corresponding credentials. **Blockers:** none.
+- **National research:** after Phase B gates and the known 50-city queue, review
+  165 historic exclusions against the broader asset scope and survey the 690
+  unresearched official cities in measured batches. See [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md).
 - **Deferred revisits:** Jaworzno, Żory, Ruda Śląska (deferred on flat-auction
   volume — re-spike if volume appears).

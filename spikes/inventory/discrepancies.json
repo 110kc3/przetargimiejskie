@@ -1,0 +1,115 @@
+{
+  "schema": "city-discrepancies/1",
+  "generated_at": "2026-09-06",
+  "official_cities": 1026,
+  "historic_entries": 336,
+  "enabled_pipeline_cities": 121,
+  "unmatched_historic_entries": [],
+  "ambiguous_historic_matches": [],
+  "unmatched_pipeline_cities": [],
+  "duplicate_official_labels": [
+    {
+      "label_key": "olsztyn",
+      "cities": [
+        {
+          "id": "olsztyn-0140675",
+          "label": "Olsztyn",
+          "simc": "0140675",
+          "voivodeship": "slaskie"
+        },
+        {
+          "id": "olsztyn",
+          "label": "Olsztyn",
+          "simc": "0964465",
+          "voivodeship": "warminsko-mazurskie"
+        }
+      ]
+    },
+    {
+      "label_key": "boleslawiec",
+      "cities": [
+        {
+          "id": "boleslawiec-0194330",
+          "label": "Bolesławiec",
+          "simc": "0194330",
+          "voivodeship": "lodzkie"
+        },
+        {
+          "id": "boleslawiec",
+          "label": "Bolesławiec",
+          "simc": "0935989",
+          "voivodeship": "dolnoslaskie"
+        }
+      ]
+    },
+    {
+      "label_key": "olesnica",
+      "cities": [
+        {
+          "id": "olesnica-0257118",
+          "label": "Oleśnica",
+          "simc": "0257118",
+          "voivodeship": "swietokrzyskie"
+        },
+        {
+          "id": "olesnica",
+          "label": "Oleśnica",
+          "simc": "0987213",
+          "voivodeship": "dolnoslaskie"
+        }
+      ]
+    },
+    {
+      "label_key": "ujazd",
+      "cities": [
+        {
+          "id": "ujazd-0554721",
+          "label": "Ujazd",
+          "simc": "0554721",
+          "voivodeship": "lodzkie"
+        },
+        {
+          "id": "ujazd-0965967",
+          "label": "Ujazd",
+          "simc": "0965967",
+          "voivodeship": "opolskie"
+        }
+      ]
+    },
+    {
+      "label_key": "jozefow",
+      "cities": [
+        {
+          "id": "jozefow-0920404",
+          "label": "Józefów",
+          "simc": "0920404",
+          "voivodeship": "mazowieckie"
+        },
+        {
+          "id": "jozefow-0987897",
+          "label": "Józefów",
+          "simc": "0987897",
+          "voivodeship": "lubelskie"
+        }
+      ]
+    },
+    {
+      "label_key": "dobra",
+      "cities": [
+        {
+          "id": "dobra-0949000",
+          "label": "Dobra",
+          "simc": "0949000",
+          "voivodeship": "wielkopolskie"
+        },
+        {
+          "id": "dobra-0978852",
+          "label": "Dobra",
+          "simc": "0978852",
+          "voivodeship": "zachodniopomorskie"
+        }
+      ]
+    }
+  ],
+  "unresolved_backlog_entries": []
+}

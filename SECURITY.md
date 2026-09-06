@@ -43,6 +43,12 @@ separate trusted publisher rejects traversal, symlinks, undeclared or duplicate
 paths, unexpected types, malformed JSON, oversized files and hash mismatches,
 then reruns data sanity checks before receiving permission to push.
 
+The official TERYT inventory uses the same separation. Its network-facing job has
+read-only repository permission and no persisted checkout credential. The publisher
+accepts exactly five named generated files, rejects symlinks and unexpected paths,
+and reruns the inventory verifier before receiving `contents: write`. Pull-request
+runs never publish. The workflow carries no private-network or proxy credential.
+
 The stable-v1 dependency baseline is `undici >=6.28.0`; this removes
 CVE-2026-15157, CVE-2026-16728 and CVE-2026-16729 from the prior 6.27.0 lock.
 

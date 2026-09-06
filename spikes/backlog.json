@@ -81,7 +81,10 @@
       "city_slug": "aleksandrow-kujawski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-aleksandrowski/aleksandrow-kujawski.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-aleksandrowski/aleksandrow-kujawski.md",
+      "city_id": "aleksandrow-kujawski",
+      "city_simc": "0985384",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-aleksandrowski/aleksandrow-kujawski.md"
     },
     {
       "label": "Augustów",
@@ -92,7 +95,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/podlaskie/powiat-augustowski/augustow.md",
-      "note": "seat is the city-county \"Augustów\" (covered, master status: built)"
+      "note": "seat is the city-county \"Augustów\" (covered, master status: built)",
+      "city_id": "augustow",
+      "city_simc": "0977539",
+      "canonical_spike_path": "spikes/podlaskie/powiat-augustowski/augustow.md"
     },
     {
       "label": "Bartoszyce",
@@ -102,7 +108,10 @@
       "city_slug": "bartoszyce",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md",
+      "city_id": "bartoszyce",
+      "city_simc": "0964583",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md"
     },
     {
       "label": "Bełchatów",
@@ -113,7 +122,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-belchatowski/belchatow.md",
-      "note": "seat is the city-county \"Bełchatów\" (covered, master status: build)"
+      "note": "seat is the city-county \"Bełchatów\" (covered, master status: build)",
+      "city_id": "belchatow",
+      "city_simc": "0967647",
+      "canonical_spike_path": "spikes/lodzkie/powiat-belchatowski/belchatow.md"
     },
     {
       "label": "Będzin",
@@ -123,7 +135,10 @@
       "city_slug": "bedzin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-bedzinski/bedzin.md"
+      "spike_path": "spikes/slaskie/powiat-bedzinski/bedzin.md",
+      "city_id": "bedzin",
+      "city_simc": "0937899",
+      "canonical_spike_path": "spikes/slaskie/powiat-bedzinski/bedzin.md"
     },
     {
       "label": "Biała Podlaska",
@@ -133,8 +148,12 @@
       "city_slug": "biala-podlaska",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-bialski/biala-podlaska.md",
-      "note": "seat is the city-county \"Biała Podlaska\" (covered, master status: build)"
+      "spike_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md",
+      "note": "seat is the city-county \"Biała Podlaska\" (covered, master status: build)",
+      "city_id": "biala-podlaska",
+      "city_simc": "0922018",
+      "canonical_spike_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md",
+      "spike_path_original": "spikes/lubelskie/powiat-bialski/biala-podlaska.md"
     },
     {
       "label": "Biała Podlaska",
@@ -144,7 +163,10 @@
       "city_slug": "biala-podlaska",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md"
+      "spike_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md",
+      "city_id": "biala-podlaska",
+      "city_simc": "0922018",
+      "canonical_spike_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md"
     },
     {
       "label": "Białobrzegi",
@@ -154,7 +176,10 @@
       "city_slug": "bialobrzegi",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-bialobrzeski/bialobrzegi.md"
+      "spike_path": "spikes/mazowieckie/powiat-bialobrzeski/bialobrzegi.md",
+      "city_id": "bialobrzegi",
+      "city_simc": "0973286",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-bialobrzeski/bialobrzegi.md"
     },
     {
       "label": "Białogard",
@@ -164,7 +189,10 @@
       "city_slug": "bialogard",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-bialogardzki/bialogard.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-bialogardzki/bialogard.md",
+      "city_id": "bialogard",
+      "city_simc": "0949690",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-bialogardzki/bialogard.md"
     },
     {
       "label": "Białystok",
@@ -174,8 +202,12 @@
       "city_slug": "bialystok",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-bialostocki/bialystok.md",
-      "note": "seat is the city-county \"Białystok\" (covered, master status: built)"
+      "spike_path": "spikes/podlaskie/bialystok/bialystok.md",
+      "note": "seat is the city-county \"Białystok\" (covered, master status: built)",
+      "city_id": "bialystok",
+      "city_simc": "0922410",
+      "canonical_spike_path": "spikes/podlaskie/bialystok/bialystok.md",
+      "spike_path_original": "spikes/podlaskie/powiat-bialostocki/bialystok.md"
     },
     {
       "label": "Białystok",
@@ -185,7 +217,10 @@
       "city_slug": "bialystok",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podlaskie/bialystok/bialystok.md"
+      "spike_path": "spikes/podlaskie/bialystok/bialystok.md",
+      "city_id": "bialystok",
+      "city_simc": "0922410",
+      "canonical_spike_path": "spikes/podlaskie/bialystok/bialystok.md"
     },
     {
       "label": "Bielsko-Biała",
@@ -195,8 +230,12 @@
       "city_slug": "bielsko-biala",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-bielski/bielsko-biala.md",
-      "note": "seat is the city-county \"Bielsko-Biała\" (covered, master status: built)"
+      "spike_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md",
+      "note": "seat is the city-county \"Bielsko-Biała\" (covered, master status: built)",
+      "city_id": "bielsko-biala",
+      "city_simc": "0923584",
+      "canonical_spike_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md",
+      "spike_path_original": "spikes/slaskie/powiat-bielski/bielsko-biala.md"
     },
     {
       "label": "Bielsk Podlaski",
@@ -206,7 +245,10 @@
       "city_slug": "bielsk-podlaski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-bielski/bielsk-podlaski.md"
+      "spike_path": "spikes/podlaskie/powiat-bielski/bielsk-podlaski.md",
+      "city_id": "bielsk-podlaski",
+      "city_simc": "0922685",
+      "canonical_spike_path": "spikes/podlaskie/powiat-bielski/bielsk-podlaski.md"
     },
     {
       "label": "Bielsko-Biała",
@@ -216,7 +258,10 @@
       "city_slug": "bielsko-biala",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md"
+      "spike_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md",
+      "city_id": "bielsko-biala",
+      "city_simc": "0923584",
+      "canonical_spike_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md"
     },
     {
       "label": "Bieruń",
@@ -226,7 +271,10 @@
       "city_slug": "bierun",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-bierunsko-ledzinski/bierun.md"
+      "spike_path": "spikes/slaskie/powiat-bierunsko-ledzinski/bierun.md",
+      "city_id": "bierun",
+      "city_simc": "0938077",
+      "canonical_spike_path": "spikes/slaskie/powiat-bierunsko-ledzinski/bierun.md"
     },
     {
       "label": "Ustrzyki Dolne",
@@ -236,7 +284,10 @@
       "city_slug": "ustrzyki-dolne",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-bieszczadzki/ustrzyki-dolne.md"
+      "spike_path": "spikes/podkarpackie/powiat-bieszczadzki/ustrzyki-dolne.md",
+      "city_id": "ustrzyki-dolne",
+      "city_simc": "0953817",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-bieszczadzki/ustrzyki-dolne.md"
     },
     {
       "label": "Biłgoraj",
@@ -247,7 +298,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lubelskie/powiat-bilgorajski/bilgoraj.md",
-      "note": "seat is the city-county \"Biłgoraj\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Biłgoraj\" (covered, master status: no-build)",
+      "city_id": "bilgoraj",
+      "city_simc": "0987673",
+      "canonical_spike_path": "spikes/lubelskie/powiat-bilgorajski/bilgoraj.md"
     },
     {
       "label": "Bochnia",
@@ -258,7 +312,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-bochenski/bochnia.md",
-      "note": "seat is the city-county \"Bochnia\" (covered, master status: build)"
+      "note": "seat is the city-county \"Bochnia\" (covered, master status: build)",
+      "city_id": "bochnia",
+      "city_simc": "0981682",
+      "canonical_spike_path": "spikes/malopolskie/powiat-bochenski/bochnia.md"
     },
     {
       "label": "Bolesławiec",
@@ -269,7 +326,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md",
-      "note": "seat is the city-county \"Bolesławiec\" (covered, master status: build)"
+      "note": "seat is the city-county \"Bolesławiec\" (covered, master status: build)",
+      "city_id": "boleslawiec",
+      "city_simc": "0935989",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md"
     },
     {
       "label": "Braniewo",
@@ -279,7 +339,10 @@
       "city_slug": "braniewo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md",
+      "city_id": "braniewo",
+      "city_simc": "0932710",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md"
     },
     {
       "label": "Brodnica",
@@ -290,7 +353,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-brodnicki/brodnica.md",
-      "note": "seat is the city-county \"Brodnica\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Brodnica\" (covered, master status: no-build)",
+      "city_id": "brodnica",
+      "city_simc": "0982954",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-brodnicki/brodnica.md"
     },
     {
       "label": "Brzesko",
@@ -300,7 +366,10 @@
       "city_slug": "brzesko",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-brzeski/brzesko.md"
+      "spike_path": "spikes/malopolskie/powiat-brzeski/brzesko.md",
+      "city_id": "brzesko",
+      "city_simc": "0981966",
+      "canonical_spike_path": "spikes/malopolskie/powiat-brzeski/brzesko.md"
     },
     {
       "label": "Brzeg",
@@ -311,7 +380,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/opolskie/powiat-brzeski/brzeg.md",
-      "note": "seat is the city-county \"Brzeg\" (covered, master status: built)"
+      "note": "seat is the city-county \"Brzeg\" (covered, master status: built)",
+      "city_id": "brzeg",
+      "city_simc": "0965252",
+      "canonical_spike_path": "spikes/opolskie/powiat-brzeski/brzeg.md"
     },
     {
       "label": "Brzeziny",
@@ -321,7 +393,10 @@
       "city_slug": "brzeziny",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-brzezinski/brzeziny.md"
+      "spike_path": "spikes/lodzkie/powiat-brzezinski/brzeziny.md",
+      "city_id": "brzeziny",
+      "city_simc": "0977025",
+      "canonical_spike_path": "spikes/lodzkie/powiat-brzezinski/brzeziny.md"
     },
     {
       "label": "Brzozów",
@@ -331,7 +406,10 @@
       "city_slug": "brzozow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-brzozowski/brzozow.md"
+      "spike_path": "spikes/podkarpackie/powiat-brzozowski/brzozow.md",
+      "city_id": "brzozow",
+      "city_simc": "0952841",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-brzozowski/brzozow.md"
     },
     {
       "label": "Busko-Zdrój",
@@ -341,7 +419,10 @@
       "city_slug": "busko-zdroj",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md",
+      "city_id": "busko-zdroj",
+      "city_simc": "0946651",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md"
     },
     {
       "label": "Bydgoszcz",
@@ -351,8 +432,12 @@
       "city_slug": "bydgoszcz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-bydgoski/bydgoszcz.md",
-      "note": "seat is the city-county \"Bydgoszcz\" (covered, master status: build)"
+      "spike_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
+      "note": "seat is the city-county \"Bydgoszcz\" (covered, master status: build)",
+      "city_id": "bydgoszcz",
+      "city_simc": "0928363",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
+      "spike_path_original": "spikes/kujawsko-pomorskie/powiat-bydgoski/bydgoszcz.md"
     },
     {
       "label": "Bydgoszcz",
@@ -362,7 +447,10 @@
       "city_slug": "bydgoszcz",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md"
+      "spike_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
+      "city_id": "bydgoszcz",
+      "city_simc": "0928363",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md"
     },
     {
       "label": "Bytom",
@@ -372,7 +460,10 @@
       "city_slug": "bytom",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/bytom/bytom.md"
+      "spike_path": "spikes/slaskie/bytom/bytom.md",
+      "city_id": "bytom",
+      "city_simc": "0938670",
+      "canonical_spike_path": "spikes/slaskie/bytom/bytom.md"
     },
     {
       "label": "Bytów",
@@ -382,7 +473,10 @@
       "city_slug": "bytow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-bytowski/bytow.md"
+      "spike_path": "spikes/pomorskie/powiat-bytowski/bytow.md",
+      "city_id": "bytow",
+      "city_simc": "0977290",
+      "canonical_spike_path": "spikes/pomorskie/powiat-bytowski/bytow.md"
     },
     {
       "label": "Chełm",
@@ -392,7 +486,10 @@
       "city_slug": "chelm",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lubelskie/chelm/chelm.md"
+      "spike_path": "spikes/lubelskie/chelm/chelm.md",
+      "city_id": "chelm",
+      "city_simc": "0929902",
+      "canonical_spike_path": "spikes/lubelskie/chelm/chelm.md"
     },
     {
       "label": "Chełmno",
@@ -402,7 +499,10 @@
       "city_slug": "chelmno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md",
+      "city_id": "chelmno",
+      "city_simc": "0983066",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md"
     },
     {
       "label": "Chełm",
@@ -412,8 +512,12 @@
       "city_slug": "chelm",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-chelmski/chelm.md",
-      "note": "seat is the city-county \"Chełm\" (covered, master status: built)"
+      "spike_path": "spikes/lubelskie/chelm/chelm.md",
+      "note": "seat is the city-county \"Chełm\" (covered, master status: built)",
+      "city_id": "chelm",
+      "city_simc": "0929902",
+      "canonical_spike_path": "spikes/lubelskie/chelm/chelm.md",
+      "spike_path_original": "spikes/lubelskie/powiat-chelmski/chelm.md"
     },
     {
       "label": "Chodzież",
@@ -423,7 +527,10 @@
       "city_slug": "chodziez",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md"
+      "spike_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md",
+      "city_id": "chodziez",
+      "city_simc": "0966760",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md"
     },
     {
       "label": "Chojnice",
@@ -434,7 +541,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/pomorskie/powiat-chojnicki/chojnice.md",
-      "note": "seat is the city-county \"Chojnice\" (covered, master status: build)"
+      "note": "seat is the city-county \"Chojnice\" (covered, master status: build)",
+      "city_id": "chojnice",
+      "city_simc": "0928854",
+      "canonical_spike_path": "spikes/pomorskie/powiat-chojnicki/chojnice.md"
     },
     {
       "label": "Chorzów",
@@ -444,7 +554,10 @@
       "city_slug": "chorzow",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/chorzow/chorzow.md"
+      "spike_path": "spikes/slaskie/chorzow/chorzow.md",
+      "city_id": "chorzow",
+      "city_simc": "0938887",
+      "canonical_spike_path": "spikes/slaskie/chorzow/chorzow.md"
     },
     {
       "label": "Choszczno",
@@ -454,7 +567,10 @@
       "city_slug": "choszczno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md",
+      "city_id": "choszczno",
+      "city_simc": "0935280",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md"
     },
     {
       "label": "Chrzanów",
@@ -465,7 +581,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md",
-      "note": "seat is the city-county \"Chrzanów\" (covered, master status: built)"
+      "note": "seat is the city-county \"Chrzanów\" (covered, master status: built)",
+      "city_id": "chrzanow",
+      "city_simc": "0938982",
+      "canonical_spike_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md"
     },
     {
       "label": "Ciechanów",
@@ -476,7 +595,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-ciechanowski/ciechanow.md",
-      "note": "seat is the city-county \"Ciechanów\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Ciechanów\" (covered, master status: no-build)",
+      "city_id": "ciechanow",
+      "city_simc": "0930414",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-ciechanowski/ciechanow.md"
     },
     {
       "label": "Cieszyn",
@@ -487,7 +609,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/slaskie/powiat-cieszynski/cieszyn.md",
-      "note": "seat is the city-county \"Cieszyn\" (covered, master status: built)"
+      "note": "seat is the city-county \"Cieszyn\" (covered, master status: built)",
+      "city_id": "cieszyn",
+      "city_simc": "0924158",
+      "canonical_spike_path": "spikes/slaskie/powiat-cieszynski/cieszyn.md"
     },
     {
       "label": "Czarnków",
@@ -497,7 +622,10 @@
       "city_slug": "czarnkow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-czarnkowsko-trzcianecki/czarnkow.md"
+      "spike_path": "spikes/wielkopolskie/powiat-czarnkowsko-trzcianecki/czarnkow.md",
+      "city_id": "czarnkow",
+      "city_simc": "0966777",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-czarnkowsko-trzcianecki/czarnkow.md"
     },
     {
       "label": "Częstochowa",
@@ -507,7 +635,10 @@
       "city_slug": "czestochowa",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/czestochowa/czestochowa.md"
+      "spike_path": "spikes/slaskie/czestochowa/czestochowa.md",
+      "city_id": "czestochowa",
+      "city_simc": "0930868",
+      "canonical_spike_path": "spikes/slaskie/czestochowa/czestochowa.md"
     },
     {
       "label": "Częstochowa",
@@ -517,8 +648,12 @@
       "city_slug": "czestochowa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-czestochowski/czestochowa.md",
-      "note": "seat is the city-county \"Częstochowa\" (covered, master status: dropped)"
+      "spike_path": "spikes/slaskie/czestochowa/czestochowa.md",
+      "note": "seat is the city-county \"Częstochowa\" (covered, master status: dropped)",
+      "city_id": "czestochowa",
+      "city_simc": "0930868",
+      "canonical_spike_path": "spikes/slaskie/czestochowa/czestochowa.md",
+      "spike_path_original": "spikes/slaskie/powiat-czestochowski/czestochowa.md"
     },
     {
       "label": "Człuchów",
@@ -528,7 +663,10 @@
       "city_slug": "czluchow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-czluchowski/czluchow.md"
+      "spike_path": "spikes/pomorskie/powiat-czluchowski/czluchow.md",
+      "city_id": "czluchow",
+      "city_simc": "0977321",
+      "canonical_spike_path": "spikes/pomorskie/powiat-czluchowski/czluchow.md"
     },
     {
       "label": "Dąbrowa Górnicza",
@@ -538,7 +676,10 @@
       "city_slug": "dabrowa-gornicza",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/dabrowa-gornicza/dabrowa-gornicza.md"
+      "spike_path": "spikes/slaskie/dabrowa-gornicza/dabrowa-gornicza.md",
+      "city_id": "dabrowa-gornicza",
+      "city_simc": "0939473",
+      "canonical_spike_path": "spikes/slaskie/dabrowa-gornicza/dabrowa-gornicza.md"
     },
     {
       "label": "Dąbrowa Tarnowska",
@@ -548,7 +689,10 @@
       "city_slug": "dabrowa-tarnowska",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md"
+      "spike_path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md",
+      "city_id": "dabrowa-tarnowska",
+      "city_simc": "0982167",
+      "canonical_spike_path": "spikes/malopolskie/powiat-dabrowski/dabrowa-tarnowska.md"
     },
     {
       "label": "Dębica",
@@ -559,7 +703,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-debicki/debica.md",
-      "note": "seat is the city-county \"Dębica\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Dębica\" (covered, master status: no-build)",
+      "city_id": "debica",
+      "city_simc": "0982233",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-debicki/debica.md"
     },
     {
       "label": "Drawsko Pomorskie",
@@ -569,7 +716,10 @@
       "city_slug": "drawsko-pomorskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md",
+      "city_id": "drawsko-pomorskie",
+      "city_simc": "0949862",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md"
     },
     {
       "label": "Działdowo",
@@ -579,7 +729,10 @@
       "city_slug": "dzialdowo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-dzialdowski/dzialdowo.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-dzialdowski/dzialdowo.md",
+      "city_id": "dzialdowo",
+      "city_simc": "0930609",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-dzialdowski/dzialdowo.md"
     },
     {
       "label": "Dzierżoniów",
@@ -589,7 +742,10 @@
       "city_slug": "dzierzoniow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md",
+      "city_id": "dzierzoniow",
+      "city_simc": "0983988",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md"
     },
     {
       "label": "Elbląg",
@@ -599,7 +755,10 @@
       "city_slug": "elblag",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/elblag/elblag.md"
+      "spike_path": "spikes/warminsko-mazurskie/elblag/elblag.md",
+      "city_id": "elblag",
+      "city_simc": "0932703",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/elblag/elblag.md"
     },
     {
       "label": "Elbląg",
@@ -609,8 +768,12 @@
       "city_slug": "elblag",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-elblaski/elblag.md",
-      "note": "seat is the city-county \"Elbląg\" (covered, master status: build)"
+      "spike_path": "spikes/warminsko-mazurskie/elblag/elblag.md",
+      "note": "seat is the city-county \"Elbląg\" (covered, master status: build)",
+      "city_id": "elblag",
+      "city_simc": "0932703",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/elblag/elblag.md",
+      "spike_path_original": "spikes/warminsko-mazurskie/powiat-elblaski/elblag.md"
     },
     {
       "label": "Ełk",
@@ -621,7 +784,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-elcki/elk.md",
-      "note": "seat is the city-county \"Ełk\" (covered, master status: build)"
+      "note": "seat is the city-county \"Ełk\" (covered, master status: build)",
+      "city_id": "elk",
+      "city_simc": "0977670",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-elcki/elk.md"
     },
     {
       "label": "Garwolin",
@@ -631,7 +797,10 @@
       "city_slug": "garwolin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-garwolinski/garwolin.md"
+      "spike_path": "spikes/mazowieckie/powiat-garwolinski/garwolin.md",
+      "city_id": "garwolin",
+      "city_simc": "0975285",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-garwolinski/garwolin.md"
     },
     {
       "label": "Gdańsk",
@@ -641,7 +810,10 @@
       "city_slug": "gdansk",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/pomorskie/gdansk/gdansk.md"
+      "spike_path": "spikes/pomorskie/gdansk/gdansk.md",
+      "city_id": "gdansk",
+      "city_simc": "0933016",
+      "canonical_spike_path": "spikes/pomorskie/gdansk/gdansk.md"
     },
     {
       "label": "Pruszcz Gdański",
@@ -651,7 +823,10 @@
       "city_slug": "pruszcz-gdanski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-gdanski/pruszcz-gdanski.md"
+      "spike_path": "spikes/pomorskie/powiat-gdanski/pruszcz-gdanski.md",
+      "city_id": "pruszcz-gdanski",
+      "city_simc": "0934620",
+      "canonical_spike_path": "spikes/pomorskie/powiat-gdanski/pruszcz-gdanski.md"
     },
     {
       "label": "Gdynia",
@@ -661,7 +836,10 @@
       "city_slug": "gdynia",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/pomorskie/gdynia/gdynia.md"
+      "spike_path": "spikes/pomorskie/gdynia/gdynia.md",
+      "city_id": "gdynia",
+      "city_simc": "0934100",
+      "canonical_spike_path": "spikes/pomorskie/gdynia/gdynia.md"
     },
     {
       "label": "Giżycko",
@@ -672,7 +850,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md",
-      "note": "seat is the city-county \"Giżycko\" (covered, master status: built)"
+      "note": "seat is the city-county \"Giżycko\" (covered, master status: built)",
+      "city_id": "gizycko",
+      "city_simc": "0977692",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md"
     },
     {
       "label": "Gliwice",
@@ -682,7 +863,10 @@
       "city_slug": "gliwice",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/gliwice/gliwice.md"
+      "spike_path": "spikes/slaskie/gliwice/gliwice.md",
+      "city_id": "gliwice",
+      "city_simc": "0940000",
+      "canonical_spike_path": "spikes/slaskie/gliwice/gliwice.md"
     },
     {
       "label": "Gliwice",
@@ -692,8 +876,12 @@
       "city_slug": "gliwice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-gliwicki/gliwice.md",
-      "note": "seat is the city-county \"Gliwice\" (covered, master status: built)"
+      "spike_path": "spikes/slaskie/gliwice/gliwice.md",
+      "note": "seat is the city-county \"Gliwice\" (covered, master status: built)",
+      "city_id": "gliwice",
+      "city_simc": "0940000",
+      "canonical_spike_path": "spikes/slaskie/gliwice/gliwice.md",
+      "spike_path_original": "spikes/slaskie/powiat-gliwicki/gliwice.md"
     },
     {
       "label": "Głogów",
@@ -703,7 +891,10 @@
       "city_slug": "glogow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md",
+      "city_id": "glogow",
+      "city_simc": "0954082",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md"
     },
     {
       "label": "Głubczyce",
@@ -713,7 +904,10 @@
       "city_slug": "glubczyce",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md"
+      "spike_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md",
+      "city_id": "glubczyce",
+      "city_simc": "0965329",
+      "canonical_spike_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md"
     },
     {
       "label": "Gniezno",
@@ -724,7 +918,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-gnieznienski/gniezno.md",
-      "note": "seat is the city-county \"Gniezno\" (covered, master status: built)"
+      "note": "seat is the city-county \"Gniezno\" (covered, master status: built)",
+      "city_id": "gniezno",
+      "city_simc": "0970632",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-gnieznienski/gniezno.md"
     },
     {
       "label": "Goleniów",
@@ -734,7 +931,10 @@
       "city_slug": "goleniow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-goleniowski/goleniow.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-goleniowski/goleniow.md",
+      "city_id": "goleniow",
+      "city_simc": "0978929",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-goleniowski/goleniow.md"
     },
     {
       "label": "Golub-Dobrzyń",
@@ -744,7 +944,10 @@
       "city_slug": "golub-dobrzyn",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md",
+      "city_id": "golub-dobrzyn",
+      "city_simc": "0983155",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md"
     },
     {
       "label": "Gołdap",
@@ -754,7 +957,10 @@
       "city_slug": "goldap",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-goldapski/goldap.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-goldapski/goldap.md",
+      "city_id": "goldap",
+      "city_simc": "0977700",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-goldapski/goldap.md"
     },
     {
       "label": "Gorlice",
@@ -764,7 +970,10 @@
       "city_slug": "gorlice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-gorlicki/gorlice.md"
+      "spike_path": "spikes/malopolskie/powiat-gorlicki/gorlice.md",
+      "city_id": "gorlice",
+      "city_simc": "0959903",
+      "canonical_spike_path": "spikes/malopolskie/powiat-gorlicki/gorlice.md"
     },
     {
       "label": "Gorzów Wielkopolski",
@@ -774,8 +983,12 @@
       "city_slug": "gorzow-wielkopolski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-gorzowski/gorzow-wielkopolski.md",
-      "note": "seat is the city-county \"Gorzów Wielkopolski\" (covered, master status: build)"
+      "spike_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
+      "note": "seat is the city-county \"Gorzów Wielkopolski\" (covered, master status: build)",
+      "city_id": "gorzow-wielkopolski",
+      "city_simc": "0935140",
+      "canonical_spike_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
+      "spike_path_original": "spikes/lubuskie/powiat-gorzowski/gorzow-wielkopolski.md"
     },
     {
       "label": "Gorzów Wielkopolski",
@@ -785,7 +998,10 @@
       "city_slug": "gorzow-wielkopolski",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md"
+      "spike_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
+      "city_id": "gorzow-wielkopolski",
+      "city_simc": "0935140",
+      "canonical_spike_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md"
     },
     {
       "label": "Gostynin",
@@ -795,7 +1011,10 @@
       "city_slug": "gostynin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md"
+      "spike_path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md",
+      "city_id": "gostynin",
+      "city_simc": "0968977",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-gostyninski/gostynin.md"
     },
     {
       "label": "Gostyń",
@@ -805,7 +1024,10 @@
       "city_slug": "gostyn",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md"
+      "spike_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md",
+      "city_id": "gostyn",
+      "city_simc": "0954395",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md"
     },
     {
       "label": "Góra",
@@ -815,7 +1037,10 @@
       "city_slug": "gora",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md",
+      "city_id": "gora",
+      "city_simc": "0954449",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md"
     },
     {
       "label": "Grajewo",
@@ -825,7 +1050,10 @@
       "city_slug": "grajewo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-grajewski/grajewo.md"
+      "spike_path": "spikes/podlaskie/powiat-grajewski/grajewo.md",
+      "city_id": "grajewo",
+      "city_simc": "0957376",
+      "canonical_spike_path": "spikes/podlaskie/powiat-grajewski/grajewo.md"
     },
     {
       "label": "Grodzisk Mazowiecki",
@@ -835,7 +1063,10 @@
       "city_slug": "grodzisk-mazowiecki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md"
+      "spike_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md",
+      "city_id": "grodzisk-mazowiecki",
+      "city_simc": "0920380",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md"
     },
     {
       "label": "Grodzisk Wielkopolski",
@@ -845,7 +1076,10 @@
       "city_slug": "grodzisk-wielkopolski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md"
+      "spike_path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md",
+      "city_id": "grodzisk-wielkopolski",
+      "city_simc": "0970810",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md"
     },
     {
       "label": "Grójec",
@@ -855,7 +1089,10 @@
       "city_slug": "grojec",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-grojecki/grojec.md"
+      "spike_path": "spikes/mazowieckie/powiat-grojecki/grojec.md",
+      "city_id": "grojec",
+      "city_simc": "0973352",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-grojecki/grojec.md"
     },
     {
       "label": "Grudziądz",
@@ -865,7 +1102,10 @@
       "city_slug": "grudziadz",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md"
+      "spike_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md",
+      "city_id": "grudziadz",
+      "city_simc": "0983333",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md"
     },
     {
       "label": "Grudziądz",
@@ -875,8 +1115,12 @@
       "city_slug": "grudziadz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-grudziadzki/grudziadz.md",
-      "note": "seat is the city-county \"Grudziądz\" (covered, master status: build)"
+      "spike_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md",
+      "note": "seat is the city-county \"Grudziądz\" (covered, master status: build)",
+      "city_id": "grudziadz",
+      "city_simc": "0983333",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md",
+      "spike_path_original": "spikes/kujawsko-pomorskie/powiat-grudziadzki/grudziadz.md"
     },
     {
       "label": "Gryfice",
@@ -886,7 +1130,10 @@
       "city_slug": "gryfice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md",
+      "city_id": "gryfice",
+      "city_simc": "0979053",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-gryficki/gryfice.md"
     },
     {
       "label": "Gryfino",
@@ -896,7 +1143,10 @@
       "city_slug": "gryfino",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-gryfinski/gryfino.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-gryfinski/gryfino.md",
+      "city_id": "gryfino",
+      "city_simc": "0979076",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-gryfinski/gryfino.md"
     },
     {
       "label": "Hajnówka",
@@ -906,7 +1156,10 @@
       "city_slug": "hajnowka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-hajnowski/hajnowka.md"
+      "spike_path": "spikes/podlaskie/powiat-hajnowski/hajnowka.md",
+      "city_id": "hajnowka",
+      "city_simc": "0923035",
+      "canonical_spike_path": "spikes/podlaskie/powiat-hajnowski/hajnowka.md"
     },
     {
       "label": "Hrubieszów",
@@ -916,7 +1169,10 @@
       "city_slug": "hrubieszow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-hrubieszowski/hrubieszow.md"
+      "spike_path": "spikes/lubelskie/powiat-hrubieszowski/hrubieszow.md",
+      "city_id": "hrubieszow",
+      "city_simc": "0987800",
+      "canonical_spike_path": "spikes/lubelskie/powiat-hrubieszowski/hrubieszow.md"
     },
     {
       "label": "Iława",
@@ -926,7 +1182,10 @@
       "city_slug": "ilawa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md",
+      "city_id": "ilawa",
+      "city_simc": "0964650",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md"
     },
     {
       "label": "Inowrocław",
@@ -937,7 +1196,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-inowroclawski/inowroclaw.md",
-      "note": "seat is the city-county \"Inowrocław\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Inowrocław\" (covered, master status: no-build)",
+      "city_id": "inowroclaw",
+      "city_simc": "0928989",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-inowroclawski/inowroclaw.md"
     },
     {
       "label": "Janów Lubelski",
@@ -947,7 +1209,10 @@
       "city_slug": "janow-lubelski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-janowski/janow-lubelski.md"
+      "spike_path": "spikes/lubelskie/powiat-janowski/janow-lubelski.md",
+      "city_id": "janow-lubelski",
+      "city_simc": "0980493",
+      "canonical_spike_path": "spikes/lubelskie/powiat-janowski/janow-lubelski.md"
     },
     {
       "label": "Jarocin",
@@ -957,7 +1222,10 @@
       "city_slug": "jarocin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md"
+      "spike_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md",
+      "city_id": "jarocin",
+      "city_simc": "0936776",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md"
     },
     {
       "label": "Jarosław",
@@ -968,7 +1236,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-jaroslawski/jaroslaw.md",
-      "note": "seat is the city-county \"Jarosław\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Jarosław\" (covered, master status: no-build)",
+      "city_id": "jaroslaw",
+      "city_simc": "0972192",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-jaroslawski/jaroslaw.md"
     },
     {
       "label": "Jasło",
@@ -978,7 +1249,10 @@
       "city_slug": "jaslo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-jasielski/jaslo.md"
+      "spike_path": "spikes/podkarpackie/powiat-jasielski/jaslo.md",
+      "city_id": "jaslo",
+      "city_simc": "0953059",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-jasielski/jaslo.md"
     },
     {
       "label": "Jastrzębie-Zdrój",
@@ -988,7 +1262,10 @@
       "city_slug": "jastrzebie-zdroj",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/jastrzebie-zdroj/jastrzebie-zdroj.md"
+      "spike_path": "spikes/slaskie/jastrzebie-zdroj/jastrzebie-zdroj.md",
+      "city_id": "jastrzebie-zdroj",
+      "city_simc": "0940163",
+      "canonical_spike_path": "spikes/slaskie/jastrzebie-zdroj/jastrzebie-zdroj.md"
     },
     {
       "label": "Jawor",
@@ -998,7 +1275,10 @@
       "city_slug": "jawor",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-jaworski/jawor.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-jaworski/jawor.md",
+      "city_id": "jawor",
+      "city_simc": "0954120",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-jaworski/jawor.md"
     },
     {
       "label": "Jaworzno",
@@ -1008,7 +1288,10 @@
       "city_slug": "jaworzno",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/jaworzno/jaworzno.md"
+      "spike_path": "spikes/slaskie/jaworzno/jaworzno.md",
+      "city_id": "jaworzno",
+      "city_simc": "0940335",
+      "canonical_spike_path": "spikes/slaskie/jaworzno/jaworzno.md"
     },
     {
       "label": "Jelenia Góra",
@@ -1018,7 +1301,10 @@
       "city_slug": "jelenia-gora",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md"
+      "spike_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
+      "city_id": "jelenia-gora",
+      "city_simc": "0935802",
+      "canonical_spike_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md"
     },
     {
       "label": "Jędrzejów",
@@ -1028,7 +1314,10 @@
       "city_slug": "jedrzejow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md",
+      "city_id": "jedrzejow",
+      "city_simc": "0947030",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md"
     },
     {
       "label": "Kalisz",
@@ -1038,8 +1327,12 @@
       "city_slug": "kalisz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-kaliski/kalisz.md",
-      "note": "seat is the city-county \"Kalisz\" (covered, master status: build)"
+      "spike_path": "spikes/wielkopolskie/kalisz/kalisz.md",
+      "note": "seat is the city-county \"Kalisz\" (covered, master status: build)",
+      "city_id": "kalisz",
+      "city_simc": "0936569",
+      "canonical_spike_path": "spikes/wielkopolskie/kalisz/kalisz.md",
+      "spike_path_original": "spikes/wielkopolskie/powiat-kaliski/kalisz.md"
     },
     {
       "label": "Kalisz",
@@ -1049,7 +1342,10 @@
       "city_slug": "kalisz",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/kalisz/kalisz.md"
+      "spike_path": "spikes/wielkopolskie/kalisz/kalisz.md",
+      "city_id": "kalisz",
+      "city_simc": "0936569",
+      "canonical_spike_path": "spikes/wielkopolskie/kalisz/kalisz.md"
     },
     {
       "label": "Kamienna Góra",
@@ -1059,7 +1355,10 @@
       "city_slug": "kamienna-gora",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md",
+      "city_id": "kamienna-gora",
+      "city_simc": "0936026",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md"
     },
     {
       "label": "Kamień Pomorski",
@@ -1069,7 +1368,10 @@
       "city_slug": "kamien-pomorski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-kamienski/kamien-pomorski.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-kamienski/kamien-pomorski.md",
+      "city_id": "kamien-pomorski",
+      "city_simc": "0979113",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-kamienski/kamien-pomorski.md"
     },
     {
       "label": "Jelenia Góra",
@@ -1079,8 +1381,12 @@
       "city_slug": "jelenia-gora",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-karkonoski/jelenia-gora.md",
-      "note": "seat is the city-county \"Jelenia Góra\" (covered, master status: build)"
+      "spike_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
+      "note": "seat is the city-county \"Jelenia Góra\" (covered, master status: build)",
+      "city_id": "jelenia-gora",
+      "city_simc": "0935802",
+      "canonical_spike_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
+      "spike_path_original": "spikes/dolnoslaskie/powiat-karkonoski/jelenia-gora.md"
     },
     {
       "label": "Kartuzy",
@@ -1090,7 +1396,10 @@
       "city_slug": "kartuzy",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-kartuski/kartuzy.md"
+      "spike_path": "spikes/pomorskie/powiat-kartuski/kartuzy.md",
+      "city_id": "kartuzy",
+      "city_simc": "0934547",
+      "canonical_spike_path": "spikes/pomorskie/powiat-kartuski/kartuzy.md"
     },
     {
       "label": "Katowice",
@@ -1100,7 +1409,10 @@
       "city_slug": "katowice",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/katowice/katowice.md"
+      "spike_path": "spikes/slaskie/katowice/katowice.md",
+      "city_id": "katowice",
+      "city_simc": "0937474",
+      "canonical_spike_path": "spikes/slaskie/katowice/katowice.md"
     },
     {
       "label": "Kazimierza Wielka",
@@ -1110,7 +1422,10 @@
       "city_slug": "kazimierza-wielka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-kazimierski/kazimierza-wielka.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-kazimierski/kazimierza-wielka.md",
+      "city_id": "kazimierza-wielka",
+      "city_simc": "0947076",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-kazimierski/kazimierza-wielka.md"
     },
     {
       "label": "Kędzierzyn-Koźle",
@@ -1121,7 +1436,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md",
-      "note": "seat is the city-county \"Kędzierzyn-Koźle\" (covered, master status: built)"
+      "note": "seat is the city-county \"Kędzierzyn-Koźle\" (covered, master status: built)",
+      "city_id": "kedzierzyn-kozle",
+      "city_simc": "0965424",
+      "canonical_spike_path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md"
     },
     {
       "label": "Kępno",
@@ -1131,7 +1449,10 @@
       "city_slug": "kepno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-kepinski/kepno.md"
+      "spike_path": "spikes/wielkopolskie/powiat-kepinski/kepno.md",
+      "city_id": "kepno",
+      "city_simc": "0936871",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-kepinski/kepno.md"
     },
     {
       "label": "Kętrzyn",
@@ -1141,7 +1462,10 @@
       "city_slug": "ketrzyn",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md",
+      "city_id": "ketrzyn",
+      "city_simc": "0964710",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md"
     },
     {
       "label": "Kielce",
@@ -1151,7 +1475,10 @@
       "city_slug": "kielce",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/kielce/kielce.md"
+      "spike_path": "spikes/swietokrzyskie/kielce/kielce.md",
+      "city_id": "kielce",
+      "city_simc": "0945930",
+      "canonical_spike_path": "spikes/swietokrzyskie/kielce/kielce.md"
     },
     {
       "label": "Kielce",
@@ -1161,8 +1488,12 @@
       "city_slug": "kielce",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-kielecki/kielce.md",
-      "note": "seat is the city-county \"Kielce\" (covered, master status: built)"
+      "spike_path": "spikes/swietokrzyskie/kielce/kielce.md",
+      "note": "seat is the city-county \"Kielce\" (covered, master status: built)",
+      "city_id": "kielce",
+      "city_simc": "0945930",
+      "canonical_spike_path": "spikes/swietokrzyskie/kielce/kielce.md",
+      "spike_path_original": "spikes/swietokrzyskie/powiat-kielecki/kielce.md"
     },
     {
       "label": "Kluczbork",
@@ -1172,7 +1503,10 @@
       "city_slug": "kluczbork",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-kluczborski/kluczbork.md"
+      "spike_path": "spikes/opolskie/powiat-kluczborski/kluczbork.md",
+      "city_id": "kluczbork",
+      "city_simc": "0965619",
+      "canonical_spike_path": "spikes/opolskie/powiat-kluczborski/kluczbork.md"
     },
     {
       "label": "Kłobuck",
@@ -1182,7 +1516,10 @@
       "city_slug": "klobuck",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-klobucki/klobuck.md"
+      "spike_path": "spikes/slaskie/powiat-klobucki/klobuck.md",
+      "city_id": "klobuck",
+      "city_simc": "0931678",
+      "canonical_spike_path": "spikes/slaskie/powiat-klobucki/klobuck.md"
     },
     {
       "label": "Kłodzko",
@@ -1193,7 +1530,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md",
-      "note": "seat is the city-county \"Kłodzko\" (covered, master status: built)"
+      "note": "seat is the city-county \"Kłodzko\" (covered, master status: built)",
+      "city_id": "klodzko",
+      "city_simc": "0984077",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md"
     },
     {
       "label": "Kolbuszowa",
@@ -1203,7 +1543,10 @@
       "city_slug": "kolbuszowa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md"
+      "spike_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md",
+      "city_id": "kolbuszowa",
+      "city_simc": "0974392",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md"
     },
     {
       "label": "Kolno",
@@ -1213,7 +1556,10 @@
       "city_slug": "kolno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-kolnenski/kolno.md"
+      "spike_path": "spikes/podlaskie/powiat-kolnenski/kolno.md",
+      "city_id": "kolno",
+      "city_simc": "0957420",
+      "canonical_spike_path": "spikes/podlaskie/powiat-kolnenski/kolno.md"
     },
     {
       "label": "Koło",
@@ -1223,7 +1569,10 @@
       "city_slug": "kolo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-kolski/kolo.md"
+      "spike_path": "spikes/wielkopolskie/powiat-kolski/kolo.md",
+      "city_id": "kolo",
+      "city_simc": "0949052",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-kolski/kolo.md"
     },
     {
       "label": "Kołobrzeg",
@@ -1234,7 +1583,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-kolobrzeski/kolobrzeg.md",
-      "note": "seat is the city-county \"Kołobrzeg\" (covered, master status: build)"
+      "note": "seat is the city-county \"Kołobrzeg\" (covered, master status: build)",
+      "city_id": "kolobrzeg",
+      "city_simc": "0950026",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-kolobrzeski/kolobrzeg.md"
     },
     {
       "label": "Końskie",
@@ -1244,7 +1596,10 @@
       "city_slug": "konskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md",
+      "city_id": "konskie",
+      "city_simc": "0947136",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md"
     },
     {
       "label": "Konin",
@@ -1254,7 +1609,10 @@
       "city_slug": "konin",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/konin/konin.md"
+      "spike_path": "spikes/wielkopolskie/konin/konin.md",
+      "city_id": "konin",
+      "city_simc": "0948667",
+      "canonical_spike_path": "spikes/wielkopolskie/konin/konin.md"
     },
     {
       "label": "Konin",
@@ -1264,8 +1622,12 @@
       "city_slug": "konin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-koninski/konin.md",
-      "note": "seat is the city-county \"Konin\" (covered, master status: no-build)"
+      "spike_path": "spikes/wielkopolskie/konin/konin.md",
+      "note": "seat is the city-county \"Konin\" (covered, master status: no-build)",
+      "city_id": "konin",
+      "city_simc": "0948667",
+      "canonical_spike_path": "spikes/wielkopolskie/konin/konin.md",
+      "spike_path_original": "spikes/wielkopolskie/powiat-koninski/konin.md"
     },
     {
       "label": "Koszalin",
@@ -1275,7 +1637,10 @@
       "city_slug": "koszalin",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/koszalin/koszalin.md"
+      "spike_path": "spikes/zachodniopomorskie/koszalin/koszalin.md",
+      "city_id": "koszalin",
+      "city_simc": "0949448",
+      "canonical_spike_path": "spikes/zachodniopomorskie/koszalin/koszalin.md"
     },
     {
       "label": "Koszalin",
@@ -1285,8 +1650,12 @@
       "city_slug": "koszalin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-koszalinski/koszalin.md",
-      "note": "seat is the city-county \"Koszalin\" (covered, master status: no-build)"
+      "spike_path": "spikes/zachodniopomorskie/koszalin/koszalin.md",
+      "note": "seat is the city-county \"Koszalin\" (covered, master status: no-build)",
+      "city_id": "koszalin",
+      "city_simc": "0949448",
+      "canonical_spike_path": "spikes/zachodniopomorskie/koszalin/koszalin.md",
+      "spike_path_original": "spikes/zachodniopomorskie/powiat-koszalinski/koszalin.md"
     },
     {
       "label": "Kościan",
@@ -1296,7 +1665,10 @@
       "city_slug": "koscian",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-koscianski/koscian.md"
+      "spike_path": "spikes/wielkopolskie/powiat-koscianski/koscian.md",
+      "city_id": "koscian",
+      "city_simc": "0954484",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-koscianski/koscian.md"
     },
     {
       "label": "Kościerzyna",
@@ -1306,7 +1678,10 @@
       "city_slug": "koscierzyna",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md"
+      "spike_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md",
+      "city_id": "koscierzyna",
+      "city_simc": "0934553",
+      "canonical_spike_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md"
     },
     {
       "label": "Kozienice",
@@ -1316,7 +1691,10 @@
       "city_slug": "kozienice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-kozienicki/kozienice.md"
+      "spike_path": "spikes/mazowieckie/powiat-kozienicki/kozienice.md",
+      "city_id": "kozienice",
+      "city_simc": "0973524",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-kozienicki/kozienice.md"
     },
     {
       "label": "Kraków",
@@ -1326,8 +1704,12 @@
       "city_slug": "krakow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-krakowski/krakow.md",
-      "note": "seat is the city-county \"Kraków\" (covered, master status: built)"
+      "spike_path": "spikes/malopolskie/krakow/krakow.md",
+      "note": "seat is the city-county \"Kraków\" (covered, master status: built)",
+      "city_id": "krakow",
+      "city_simc": "0950463",
+      "canonical_spike_path": "spikes/malopolskie/krakow/krakow.md",
+      "spike_path_original": "spikes/malopolskie/powiat-krakowski/krakow.md"
     },
     {
       "label": "Kraków",
@@ -1337,7 +1719,10 @@
       "city_slug": "krakow",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/malopolskie/krakow/krakow.md"
+      "spike_path": "spikes/malopolskie/krakow/krakow.md",
+      "city_id": "krakow",
+      "city_simc": "0950463",
+      "canonical_spike_path": "spikes/malopolskie/krakow/krakow.md"
     },
     {
       "label": "Krapkowice",
@@ -1347,7 +1732,10 @@
       "city_slug": "krapkowice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md"
+      "spike_path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md",
+      "city_id": "krapkowice",
+      "city_simc": "0965677",
+      "canonical_spike_path": "spikes/opolskie/powiat-krapkowicki/krapkowice.md"
     },
     {
       "label": "Krasnystaw",
@@ -1357,7 +1745,10 @@
       "city_slug": "krasnystaw",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-krasnostawski/krasnystaw.md"
+      "spike_path": "spikes/lubelskie/powiat-krasnostawski/krasnystaw.md",
+      "city_id": "krasnystaw",
+      "city_simc": "0930070",
+      "canonical_spike_path": "spikes/lubelskie/powiat-krasnostawski/krasnystaw.md"
     },
     {
       "label": "Kraśnik",
@@ -1368,7 +1759,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lubelskie/powiat-krasnicki/krasnik.md",
-      "note": "seat is the city-county \"Kraśnik\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Kraśnik\" (covered, master status: no-build)",
+      "city_id": "krasnik",
+      "city_simc": "0956112",
+      "canonical_spike_path": "spikes/lubelskie/powiat-krasnicki/krasnik.md"
     },
     {
       "label": "Krosno",
@@ -1378,7 +1772,10 @@
       "city_slug": "krosno",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/krosno/krosno.md"
+      "spike_path": "spikes/podkarpackie/krosno/krosno.md",
+      "city_id": "krosno",
+      "city_simc": "0952410",
+      "canonical_spike_path": "spikes/podkarpackie/krosno/krosno.md"
     },
     {
       "label": "Krosno",
@@ -1388,8 +1785,12 @@
       "city_slug": "krosno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-krosnienski/krosno.md",
-      "note": "seat is the city-county \"Krosno\" (covered, master status: no-build)"
+      "spike_path": "spikes/podkarpackie/krosno/krosno.md",
+      "note": "seat is the city-county \"Krosno\" (covered, master status: no-build)",
+      "city_id": "krosno",
+      "city_simc": "0952410",
+      "canonical_spike_path": "spikes/podkarpackie/krosno/krosno.md",
+      "spike_path_original": "spikes/podkarpackie/powiat-krosnienski/krosno.md"
     },
     {
       "label": "Krosno Odrzańskie",
@@ -1399,7 +1800,10 @@
       "city_slug": "krosno-odrzanskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md"
+      "spike_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md",
+      "city_id": "krosno-odrzanskie",
+      "city_simc": "0988460",
+      "canonical_spike_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md"
     },
     {
       "label": "Krotoszyn",
@@ -1410,7 +1814,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-krotoszynski/krotoszyn.md",
-      "note": "seat is the city-county \"Krotoszyn\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Krotoszyn\" (covered, master status: no-build)",
+      "city_id": "krotoszyn",
+      "city_simc": "0936931",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-krotoszynski/krotoszyn.md"
     },
     {
       "label": "Kutno",
@@ -1421,7 +1828,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-kutnowski/kutno.md",
-      "note": "seat is the city-county \"Kutno\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Kutno\" (covered, master status: no-build)",
+      "city_id": "kutno",
+      "city_simc": "0969103",
+      "canonical_spike_path": "spikes/lodzkie/powiat-kutnowski/kutno.md"
     },
     {
       "label": "Kwidzyn",
@@ -1431,7 +1841,10 @@
       "city_slug": "kwidzyn",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md"
+      "spike_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md",
+      "city_id": "kwidzyn",
+      "city_simc": "0932790",
+      "canonical_spike_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md"
     },
     {
       "label": "Legionowo",
@@ -1441,7 +1854,10 @@
       "city_slug": "legionowo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-legionowski/legionowo.md"
+      "spike_path": "spikes/mazowieckie/powiat-legionowski/legionowo.md",
+      "city_id": "legionowo",
+      "city_simc": "0920806",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-legionowski/legionowo.md"
     },
     {
       "label": "Legnica",
@@ -1451,7 +1867,10 @@
       "city_slug": "legnica",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/legnica/legnica.md"
+      "spike_path": "spikes/dolnoslaskie/legnica/legnica.md",
+      "city_id": "legnica",
+      "city_simc": "0954047",
+      "canonical_spike_path": "spikes/dolnoslaskie/legnica/legnica.md"
     },
     {
       "label": "Legnica",
@@ -1461,8 +1880,12 @@
       "city_slug": "legnica",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-legnicki/legnica.md",
-      "note": "seat is the city-county \"Legnica\" (covered, master status: built)"
+      "spike_path": "spikes/dolnoslaskie/legnica/legnica.md",
+      "note": "seat is the city-county \"Legnica\" (covered, master status: built)",
+      "city_id": "legnica",
+      "city_simc": "0954047",
+      "canonical_spike_path": "spikes/dolnoslaskie/legnica/legnica.md",
+      "spike_path_original": "spikes/dolnoslaskie/powiat-legnicki/legnica.md"
     },
     {
       "label": "Lesko",
@@ -1472,7 +1895,10 @@
       "city_slug": "lesko",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-leski/lesko.md"
+      "spike_path": "spikes/podkarpackie/powiat-leski/lesko.md",
+      "city_id": "lesko",
+      "city_simc": "0953409",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-leski/lesko.md"
     },
     {
       "label": "Leszno",
@@ -1482,8 +1908,12 @@
       "city_slug": "leszno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-leszczynski/leszno.md",
-      "note": "seat is the city-county \"Leszno\" (covered, master status: no-build)"
+      "spike_path": "spikes/wielkopolskie/leszno/leszno.md",
+      "note": "seat is the city-county \"Leszno\" (covered, master status: no-build)",
+      "city_id": "leszno",
+      "city_simc": "0954225",
+      "canonical_spike_path": "spikes/wielkopolskie/leszno/leszno.md",
+      "spike_path_original": "spikes/wielkopolskie/powiat-leszczynski/leszno.md"
     },
     {
       "label": "Leszno",
@@ -1493,7 +1923,10 @@
       "city_slug": "leszno",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/leszno/leszno.md"
+      "spike_path": "spikes/wielkopolskie/leszno/leszno.md",
+      "city_id": "leszno",
+      "city_simc": "0954225",
+      "canonical_spike_path": "spikes/wielkopolskie/leszno/leszno.md"
     },
     {
       "label": "Leżajsk",
@@ -1503,7 +1936,10 @@
       "city_slug": "lezajsk",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-lezajski/lezajsk.md"
+      "spike_path": "spikes/podkarpackie/powiat-lezajski/lezajsk.md",
+      "city_id": "lezajsk",
+      "city_simc": "0974400",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-lezajski/lezajsk.md"
     },
     {
       "label": "Lębork",
@@ -1513,7 +1949,10 @@
       "city_slug": "lebork",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-leborski/lebork.md"
+      "spike_path": "spikes/pomorskie/powiat-leborski/lebork.md",
+      "city_id": "lebork",
+      "city_simc": "0977373",
+      "canonical_spike_path": "spikes/pomorskie/powiat-leborski/lebork.md"
     },
     {
       "label": "Lidzbark Warmiński",
@@ -1523,7 +1962,10 @@
       "city_slug": "lidzbark-warminski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md",
+      "city_id": "lidzbark-warminski",
+      "city_simc": "0964732",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md"
     },
     {
       "label": "Limanowa",
@@ -1533,7 +1975,10 @@
       "city_slug": "limanowa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-limanowski/limanowa.md"
+      "spike_path": "spikes/malopolskie/powiat-limanowski/limanowa.md",
+      "city_id": "limanowa",
+      "city_simc": "0960510",
+      "canonical_spike_path": "spikes/malopolskie/powiat-limanowski/limanowa.md"
     },
     {
       "label": "Lipno",
@@ -1543,7 +1988,10 @@
       "city_slug": "lipno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-lipnowski/lipno.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-lipnowski/lipno.md",
+      "city_id": "lipno",
+      "city_simc": "0985830",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-lipnowski/lipno.md"
     },
     {
       "label": "Lipsko",
@@ -1553,7 +2001,10 @@
       "city_slug": "lipsko",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-lipski/lipsko.md"
+      "spike_path": "spikes/mazowieckie/powiat-lipski/lipsko.md",
+      "city_id": "lipsko",
+      "city_simc": "0973613",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-lipski/lipsko.md"
     },
     {
       "label": "Lubaczów",
@@ -1563,7 +2014,10 @@
       "city_slug": "lubaczow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-lubaczowski/lubaczow.md"
+      "spike_path": "spikes/podkarpackie/powiat-lubaczowski/lubaczow.md",
+      "city_id": "lubaczow",
+      "city_simc": "0972447",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-lubaczowski/lubaczow.md"
     },
     {
       "label": "Lubań",
@@ -1573,7 +2027,10 @@
       "city_slug": "luban",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md",
+      "city_id": "luban",
+      "city_simc": "0936150",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md"
     },
     {
       "label": "Lubartów",
@@ -1583,7 +2040,10 @@
       "city_slug": "lubartow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-lubartowski/lubartow.md"
+      "spike_path": "spikes/lubelskie/powiat-lubartowski/lubartow.md",
+      "city_id": "lubartow",
+      "city_simc": "0956313",
+      "canonical_spike_path": "spikes/lubelskie/powiat-lubartowski/lubartow.md"
     },
     {
       "label": "Lublin",
@@ -1593,8 +2053,12 @@
       "city_slug": "lublin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-lubelski/lublin.md",
-      "note": "seat is the city-county \"Lublin\" (covered, master status: no-build)"
+      "spike_path": "spikes/lubelskie/lublin/lublin.md",
+      "note": "seat is the city-county \"Lublin\" (covered, master status: no-build)",
+      "city_id": "lublin",
+      "city_simc": "0954700",
+      "canonical_spike_path": "spikes/lubelskie/lublin/lublin.md",
+      "spike_path_original": "spikes/lubelskie/powiat-lubelski/lublin.md"
     },
     {
       "label": "Lubin",
@@ -1605,7 +2069,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-lubinski/lubin.md",
-      "note": "seat is the city-county \"Lubin\" (covered, master status: build)"
+      "note": "seat is the city-county \"Lubin\" (covered, master status: build)",
+      "city_id": "lubin",
+      "city_simc": "0954142",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-lubinski/lubin.md"
     },
     {
       "label": "Lublin",
@@ -1615,7 +2082,10 @@
       "city_slug": "lublin",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lubelskie/lublin/lublin.md"
+      "spike_path": "spikes/lubelskie/lublin/lublin.md",
+      "city_id": "lublin",
+      "city_simc": "0954700",
+      "canonical_spike_path": "spikes/lubelskie/lublin/lublin.md"
     },
     {
       "label": "Lubliniec",
@@ -1625,7 +2095,10 @@
       "city_slug": "lubliniec",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md"
+      "spike_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md",
+      "city_id": "lubliniec",
+      "city_simc": "0931945",
+      "canonical_spike_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md"
     },
     {
       "label": "Lwówek Śląski",
@@ -1635,7 +2108,10 @@
       "city_slug": "lwowek-slaski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md",
+      "city_id": "lwowek-slaski",
+      "city_simc": "0936227",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md"
     },
     {
       "label": "Łańcut",
@@ -1645,7 +2121,10 @@
       "city_slug": "lancut",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-lancucki/lancut.md"
+      "spike_path": "spikes/podkarpackie/powiat-lancucki/lancut.md",
+      "city_id": "lancut",
+      "city_simc": "0974529",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-lancucki/lancut.md"
     },
     {
       "label": "Łask",
@@ -1655,7 +2134,10 @@
       "city_slug": "lask",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-laski/lask.md"
+      "spike_path": "spikes/lodzkie/powiat-laski/lask.md",
+      "city_id": "lask",
+      "city_simc": "0976296",
+      "canonical_spike_path": "spikes/lodzkie/powiat-laski/lask.md"
     },
     {
       "label": "Łęczyca",
@@ -1665,7 +2147,10 @@
       "city_slug": "leczyca",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-leczycki/leczyca.md"
+      "spike_path": "spikes/lodzkie/powiat-leczycki/leczyca.md",
+      "city_id": "leczyca",
+      "city_simc": "0969250",
+      "canonical_spike_path": "spikes/lodzkie/powiat-leczycki/leczyca.md"
     },
     {
       "label": "Łęczna",
@@ -1675,7 +2160,10 @@
       "city_slug": "leczna",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-leczynski/leczna.md"
+      "spike_path": "spikes/lubelskie/powiat-leczynski/leczna.md",
+      "city_id": "leczna",
+      "city_simc": "0956388",
+      "canonical_spike_path": "spikes/lubelskie/powiat-leczynski/leczna.md"
     },
     {
       "label": "Łobez",
@@ -1685,7 +2173,10 @@
       "city_slug": "lobez",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-lobeski/lobez.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-lobeski/lobez.md",
+      "city_id": "lobez",
+      "city_simc": "0979136",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-lobeski/lobez.md"
     },
     {
       "label": "Łomża",
@@ -1695,7 +2186,10 @@
       "city_slug": "lomza",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podlaskie/lomza/lomza.md"
+      "spike_path": "spikes/podlaskie/lomza/lomza.md",
+      "city_id": "lomza",
+      "city_simc": "0957241",
+      "canonical_spike_path": "spikes/podlaskie/lomza/lomza.md"
     },
     {
       "label": "Łomża",
@@ -1705,8 +2199,12 @@
       "city_slug": "lomza",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-lomzynski/lomza.md",
-      "note": "seat is the city-county \"Łomża\" (covered, master status: no-build)"
+      "spike_path": "spikes/podlaskie/lomza/lomza.md",
+      "note": "seat is the city-county \"Łomża\" (covered, master status: no-build)",
+      "city_id": "lomza",
+      "city_simc": "0957241",
+      "canonical_spike_path": "spikes/podlaskie/lomza/lomza.md",
+      "spike_path_original": "spikes/podlaskie/powiat-lomzynski/lomza.md"
     },
     {
       "label": "Łosice",
@@ -1716,7 +2214,10 @@
       "city_slug": "losice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-losicki/losice.md"
+      "spike_path": "spikes/mazowieckie/powiat-losicki/losice.md",
+      "city_id": "losice",
+      "city_simc": "0922120",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-losicki/losice.md"
     },
     {
       "label": "Łowicz",
@@ -1726,7 +2227,10 @@
       "city_slug": "lowicz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-lowicki/lowicz.md"
+      "spike_path": "spikes/lodzkie/powiat-lowicki/lowicz.md",
+      "city_id": "lowicz",
+      "city_simc": "0977031",
+      "canonical_spike_path": "spikes/lodzkie/powiat-lowicki/lowicz.md"
     },
     {
       "label": "Łódź",
@@ -1736,8 +2240,12 @@
       "city_slug": "lodz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-lodzki-wschodni/lodz.md",
-      "note": "seat is the city-county \"Łódź\" (covered, master status: built)"
+      "spike_path": "spikes/lodzkie/lodz/lodz.md",
+      "note": "seat is the city-county \"Łódź\" (covered, master status: built)",
+      "city_id": "lodz",
+      "city_simc": "0957650",
+      "canonical_spike_path": "spikes/lodzkie/lodz/lodz.md",
+      "spike_path_original": "spikes/lodzkie/powiat-lodzki-wschodni/lodz.md"
     },
     {
       "label": "Łódź",
@@ -1747,7 +2255,10 @@
       "city_slug": "lodz",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lodzkie/lodz/lodz.md"
+      "spike_path": "spikes/lodzkie/lodz/lodz.md",
+      "city_id": "lodz",
+      "city_simc": "0957650",
+      "canonical_spike_path": "spikes/lodzkie/lodz/lodz.md"
     },
     {
       "label": "Łuków",
@@ -1757,7 +2268,10 @@
       "city_slug": "lukow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-lukowski/lukow.md"
+      "spike_path": "spikes/lubelskie/powiat-lukowski/lukow.md",
+      "city_id": "lukow",
+      "city_simc": "0975530",
+      "canonical_spike_path": "spikes/lubelskie/powiat-lukowski/lukow.md"
     },
     {
       "label": "Maków Mazowiecki",
@@ -1767,7 +2281,10 @@
       "city_slug": "makow-mazowiecki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-makowski/makow-mazowiecki.md"
+      "spike_path": "spikes/mazowieckie/powiat-makowski/makow-mazowiecki.md",
+      "city_id": "makow-mazowiecki",
+      "city_simc": "0966300",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-makowski/makow-mazowiecki.md"
     },
     {
       "label": "Malbork",
@@ -1778,7 +2295,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/pomorskie/powiat-malborski/malbork.md",
-      "note": "seat is the city-county \"Malbork\" (covered, master status: build)"
+      "note": "seat is the city-county \"Malbork\" (covered, master status: build)",
+      "city_id": "malbork",
+      "city_simc": "0932815",
+      "canonical_spike_path": "spikes/pomorskie/powiat-malborski/malbork.md"
     },
     {
       "label": "Miechów",
@@ -1788,7 +2308,10 @@
       "city_slug": "miechow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-miechowski/miechow.md"
+      "spike_path": "spikes/malopolskie/powiat-miechowski/miechow.md",
+      "city_id": "miechow",
+      "city_simc": "0947225",
+      "canonical_spike_path": "spikes/malopolskie/powiat-miechowski/miechow.md"
     },
     {
       "label": "Mielec",
@@ -1799,7 +2322,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-mielecki/mielec.md",
-      "note": "seat is the city-county \"Mielec\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Mielec\" (covered, master status: no-build)",
+      "city_id": "mielec",
+      "city_simc": "0974618",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-mielecki/mielec.md"
     },
     {
       "label": "Międzychód",
@@ -1809,7 +2335,10 @@
       "city_slug": "miedzychod",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-miedzychodzki/miedzychod.md"
+      "spike_path": "spikes/wielkopolskie/powiat-miedzychodzki/miedzychod.md",
+      "city_id": "miedzychod",
+      "city_simc": "0935506",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-miedzychodzki/miedzychod.md"
     },
     {
       "label": "Międzyrzecz",
@@ -1819,7 +2348,10 @@
       "city_slug": "miedzyrzecz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md"
+      "spike_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md",
+      "city_id": "miedzyrzecz",
+      "city_simc": "0935529",
+      "canonical_spike_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md"
     },
     {
       "label": "Mikołów",
@@ -1829,7 +2361,10 @@
       "city_slug": "mikolow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-mikolowski/mikolow.md"
+      "spike_path": "spikes/slaskie/powiat-mikolowski/mikolow.md",
+      "city_id": "mikolow",
+      "city_simc": "0941286",
+      "canonical_spike_path": "spikes/slaskie/powiat-mikolowski/mikolow.md"
     },
     {
       "label": "Milicz",
@@ -1839,7 +2374,10 @@
       "city_slug": "milicz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-milicki/milicz.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-milicki/milicz.md",
+      "city_id": "milicz",
+      "city_simc": "0987130",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-milicki/milicz.md"
     },
     {
       "label": "Mińsk Mazowiecki",
@@ -1850,7 +2388,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-minski/minsk-mazowiecki.md",
-      "note": "seat is the city-county \"Mińsk Mazowiecki\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Mińsk Mazowiecki\" (covered, master status: no-build)",
+      "city_id": "minsk-mazowiecki",
+      "city_simc": "0975687",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-minski/minsk-mazowiecki.md"
     },
     {
       "label": "Mława",
@@ -1860,7 +2401,10 @@
       "city_slug": "mlawa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-mlawski/mlawa.md"
+      "spike_path": "spikes/mazowieckie/powiat-mlawski/mlawa.md",
+      "city_id": "mlawa",
+      "city_simc": "0930696",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-mlawski/mlawa.md"
     },
     {
       "label": "Mogilno",
@@ -1870,7 +2414,10 @@
       "city_slug": "mogilno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md",
+      "city_id": "mogilno",
+      "city_simc": "0929428",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md"
     },
     {
       "label": "Mońki",
@@ -1880,7 +2427,10 @@
       "city_slug": "monki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-moniecki/monki.md"
+      "spike_path": "spikes/podlaskie/powiat-moniecki/monki.md",
+      "city_id": "monki",
+      "city_simc": "0923348",
+      "canonical_spike_path": "spikes/podlaskie/powiat-moniecki/monki.md"
     },
     {
       "label": "Mrągowo",
@@ -1890,7 +2440,10 @@
       "city_slug": "mragowo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md",
+      "city_id": "mragowo",
+      "city_simc": "0964896",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md"
     },
     {
       "label": "Mysłowice",
@@ -1900,7 +2453,10 @@
       "city_slug": "myslowice",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/myslowice/myslowice.md"
+      "spike_path": "spikes/slaskie/myslowice/myslowice.md",
+      "city_id": "myslowice",
+      "city_simc": "0941487",
+      "canonical_spike_path": "spikes/slaskie/myslowice/myslowice.md"
     },
     {
       "label": "Myszków",
@@ -1910,7 +2466,10 @@
       "city_slug": "myszkow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-myszkowski/myszkow.md"
+      "spike_path": "spikes/slaskie/powiat-myszkowski/myszkow.md",
+      "city_id": "myszkow",
+      "city_simc": "0932057",
+      "canonical_spike_path": "spikes/slaskie/powiat-myszkowski/myszkow.md"
     },
     {
       "label": "Myślenice",
@@ -1920,7 +2479,10 @@
       "city_slug": "myslenice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-myslenicki/myslenice.md"
+      "spike_path": "spikes/malopolskie/powiat-myslenicki/myslenice.md",
+      "city_id": "myslenice",
+      "city_simc": "0951617",
+      "canonical_spike_path": "spikes/malopolskie/powiat-myslenicki/myslenice.md"
     },
     {
       "label": "Myślibórz",
@@ -1930,7 +2492,10 @@
       "city_slug": "mysliborz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-mysliborski/mysliborz.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-mysliborski/mysliborz.md",
+      "city_id": "mysliborz",
+      "city_simc": "0935558",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-mysliborski/mysliborz.md"
     },
     {
       "label": "Nakło nad Notecią",
@@ -1940,7 +2505,10 @@
       "city_slug": "naklo-nad-notecia",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md",
+      "city_id": "naklo-nad-notecia",
+      "city_simc": "0929463",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md"
     },
     {
       "label": "Namysłów",
@@ -1950,7 +2518,10 @@
       "city_slug": "namyslow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-namyslowski/namyslow.md"
+      "spike_path": "spikes/opolskie/powiat-namyslowski/namyslow.md",
+      "city_id": "namyslow",
+      "city_simc": "0965743",
+      "canonical_spike_path": "spikes/opolskie/powiat-namyslowski/namyslow.md"
     },
     {
       "label": "Nidzica",
@@ -1960,7 +2531,10 @@
       "city_slug": "nidzica",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md",
+      "city_id": "nidzica",
+      "city_simc": "0964904",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md"
     },
     {
       "label": "Nisko",
@@ -1970,7 +2544,10 @@
       "city_slug": "nisko",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-nizanski/nisko.md"
+      "spike_path": "spikes/podkarpackie/powiat-nizanski/nisko.md",
+      "city_id": "nisko",
+      "city_simc": "0980530",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-nizanski/nisko.md"
     },
     {
       "label": "Nowy Dwór Gdański",
@@ -1980,7 +2557,10 @@
       "city_slug": "nowy-dwor-gdanski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-nowodworski/nowy-dwor-gdanski.md"
+      "spike_path": "spikes/pomorskie/powiat-nowodworski/nowy-dwor-gdanski.md",
+      "city_id": "nowy-dwor-gdanski",
+      "city_simc": "0932880",
+      "canonical_spike_path": "spikes/pomorskie/powiat-nowodworski/nowy-dwor-gdanski.md"
     },
     {
       "label": "Nowy Dwór Mazowiecki",
@@ -1990,7 +2570,10 @@
       "city_slug": "nowy-dwor-mazowiecki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-nowodworski/nowy-dwor-mazowiecki.md"
+      "spike_path": "spikes/mazowieckie/powiat-nowodworski/nowy-dwor-mazowiecki.md",
+      "city_id": "nowy-dwor-mazowiecki",
+      "city_simc": "0921148",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-nowodworski/nowy-dwor-mazowiecki.md"
     },
     {
       "label": "Nowe Miasto Lubawskie",
@@ -2000,7 +2583,10 @@
       "city_slug": "nowe-miasto-lubawskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-nowomiejski/nowe-miasto-lubawskie.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-nowomiejski/nowe-miasto-lubawskie.md",
+      "city_id": "nowe-miasto-lubawskie",
+      "city_simc": "0983563",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-nowomiejski/nowe-miasto-lubawskie.md"
     },
     {
       "label": "Nowy Sącz",
@@ -2010,8 +2596,12 @@
       "city_slug": "nowy-sacz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-nowosadecki/nowy-sacz.md",
-      "note": "seat is the city-county \"Nowy Sącz\" (covered, master status: verify)"
+      "spike_path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md",
+      "note": "seat is the city-county \"Nowy Sącz\" (covered, master status: verify)",
+      "city_id": "nowy-sacz",
+      "city_simc": "0959435",
+      "canonical_spike_path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md",
+      "spike_path_original": "spikes/malopolskie/powiat-nowosadecki/nowy-sacz.md"
     },
     {
       "label": "Nowa Sól",
@@ -2022,7 +2612,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lubuskie/powiat-nowosolski/nowa-sol.md",
-      "note": "seat is the city-county \"Nowa Sól\" (covered, master status: built)"
+      "note": "seat is the city-county \"Nowa Sól\" (covered, master status: built)",
+      "city_id": "nowa-sol",
+      "city_simc": "0988520",
+      "canonical_spike_path": "spikes/lubuskie/powiat-nowosolski/nowa-sol.md"
     },
     {
       "label": "Nowy Targ",
@@ -2033,7 +2626,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-nowotarski/nowy-targ.md",
-      "note": "seat is the city-county \"Nowy Targ\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Nowy Targ\" (covered, master status: no-build)",
+      "city_id": "nowy-targ",
+      "city_simc": "0961538",
+      "canonical_spike_path": "spikes/malopolskie/powiat-nowotarski/nowy-targ.md"
     },
     {
       "label": "Nowy Tomyśl",
@@ -2043,7 +2639,10 @@
       "city_slug": "nowy-tomysl",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-nowotomyski/nowy-tomysl.md"
+      "spike_path": "spikes/wielkopolskie/powiat-nowotomyski/nowy-tomysl.md",
+      "city_id": "nowy-tomysl",
+      "city_simc": "0971175",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-nowotomyski/nowy-tomysl.md"
     },
     {
       "label": "Nowy Sącz",
@@ -2053,7 +2652,10 @@
       "city_slug": "nowy-sacz",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md"
+      "spike_path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md",
+      "city_id": "nowy-sacz",
+      "city_simc": "0959435",
+      "canonical_spike_path": "spikes/malopolskie/nowy-sacz/nowy-sacz.md"
     },
     {
       "label": "Nysa",
@@ -2064,7 +2666,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/opolskie/powiat-nyski/nysa.md",
-      "note": "seat is the city-county \"Nysa\" (covered, master status: built)"
+      "note": "seat is the city-county \"Nysa\" (covered, master status: built)",
+      "city_id": "nysa",
+      "city_simc": "0965789",
+      "canonical_spike_path": "spikes/opolskie/powiat-nyski/nysa.md"
     },
     {
       "label": "Oborniki",
@@ -2074,7 +2679,10 @@
       "city_slug": "oborniki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-obornicki/oborniki.md"
+      "spike_path": "spikes/wielkopolskie/powiat-obornicki/oborniki.md",
+      "city_id": "oborniki",
+      "city_simc": "0971181",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-obornicki/oborniki.md"
     },
     {
       "label": "Olecko",
@@ -2084,7 +2692,10 @@
       "city_slug": "olecko",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-olecki/olecko.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-olecki/olecko.md",
+      "city_id": "olecko",
+      "city_simc": "0977798",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-olecki/olecko.md"
     },
     {
       "label": "Olesno",
@@ -2094,7 +2705,10 @@
       "city_slug": "olesno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-oleski/olesno.md"
+      "spike_path": "spikes/opolskie/powiat-oleski/olesno.md",
+      "city_id": "olesno",
+      "city_simc": "0932293",
+      "canonical_spike_path": "spikes/opolskie/powiat-oleski/olesno.md"
     },
     {
       "label": "Oleśnica",
@@ -2105,7 +2719,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-olesnicki/olesnica.md",
-      "note": "seat is the city-county \"Oleśnica\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Oleśnica\" (covered, master status: no-build)",
+      "city_id": "olesnica",
+      "city_simc": "0987213",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-olesnicki/olesnica.md"
     },
     {
       "label": "Olkusz",
@@ -2116,7 +2733,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-olkuski/olkusz.md",
-      "note": "seat is the city-county \"Olkusz\" (covered, master status: built)"
+      "note": "seat is the city-county \"Olkusz\" (covered, master status: built)",
+      "city_id": "olkusz",
+      "city_simc": "0941777",
+      "canonical_spike_path": "spikes/malopolskie/powiat-olkuski/olkusz.md"
     },
     {
       "label": "Olsztyn",
@@ -2126,7 +2746,10 @@
       "city_slug": "olsztyn",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md"
+      "spike_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md",
+      "city_id": "olsztyn",
+      "city_simc": "0964465",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md"
     },
     {
       "label": "Olsztyn",
@@ -2136,8 +2759,12 @@
       "city_slug": "olsztyn",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-olsztynski/olsztyn.md",
-      "note": "seat is the city-county \"Olsztyn\" (covered, master status: built)"
+      "spike_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md",
+      "note": "seat is the city-county \"Olsztyn\" (covered, master status: built)",
+      "city_id": "olsztyn",
+      "city_simc": "0964465",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md",
+      "spike_path_original": "spikes/warminsko-mazurskie/powiat-olsztynski/olsztyn.md"
     },
     {
       "label": "Oława",
@@ -2147,7 +2774,10 @@
       "city_slug": "olawa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-olawski/olawa.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-olawski/olawa.md",
+      "city_id": "olawa",
+      "city_simc": "0987259",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-olawski/olawa.md"
     },
     {
       "label": "Opatów",
@@ -2157,7 +2787,10 @@
       "city_slug": "opatow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-opatowski/opatow.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-opatowski/opatow.md",
+      "city_id": "opatow",
+      "city_simc": "0980671",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-opatowski/opatow.md"
     },
     {
       "label": "Opoczno",
@@ -2167,7 +2800,10 @@
       "city_slug": "opoczno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-opoczynski/opoczno.md"
+      "spike_path": "spikes/lodzkie/powiat-opoczynski/opoczno.md",
+      "city_id": "opoczno",
+      "city_simc": "0967943",
+      "canonical_spike_path": "spikes/lodzkie/powiat-opoczynski/opoczno.md"
     },
     {
       "label": "Opole",
@@ -2177,7 +2813,10 @@
       "city_slug": "opole",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/opolskie/opole/opole.md"
+      "spike_path": "spikes/opolskie/opole/opole.md",
+      "city_id": "opole",
+      "city_simc": "0965016",
+      "canonical_spike_path": "spikes/opolskie/opole/opole.md"
     },
     {
       "label": "Opole Lubelskie",
@@ -2187,7 +2826,10 @@
       "city_slug": "opole-lubelskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-opolski/opole-lubelskie.md"
+      "spike_path": "spikes/lubelskie/powiat-opolski/opole-lubelskie.md",
+      "city_id": "opole-lubelskie",
+      "city_simc": "0956550",
+      "canonical_spike_path": "spikes/lubelskie/powiat-opolski/opole-lubelskie.md"
     },
     {
       "label": "Opole",
@@ -2197,8 +2839,12 @@
       "city_slug": "opole",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-opolski/opole.md",
-      "note": "seat is the city-county \"Opole\" (covered, master status: built)"
+      "spike_path": "spikes/opolskie/opole/opole.md",
+      "note": "seat is the city-county \"Opole\" (covered, master status: built)",
+      "city_id": "opole",
+      "city_simc": "0965016",
+      "canonical_spike_path": "spikes/opolskie/opole/opole.md",
+      "spike_path_original": "spikes/opolskie/powiat-opolski/opole.md"
     },
     {
       "label": "Ostrołęka",
@@ -2208,8 +2854,12 @@
       "city_slug": "ostroleka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-ostrolecki/ostroleka.md",
-      "note": "seat is the city-county \"Ostrołęka\" (covered, master status: build)"
+      "spike_path": "spikes/mazowieckie/ostroleka/ostroleka.md",
+      "note": "seat is the city-county \"Ostrołęka\" (covered, master status: build)",
+      "city_id": "ostroleka",
+      "city_simc": "0966079",
+      "canonical_spike_path": "spikes/mazowieckie/ostroleka/ostroleka.md",
+      "spike_path_original": "spikes/mazowieckie/powiat-ostrolecki/ostroleka.md"
     },
     {
       "label": "Ostrołęka",
@@ -2219,7 +2869,10 @@
       "city_slug": "ostroleka",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/ostroleka/ostroleka.md"
+      "spike_path": "spikes/mazowieckie/ostroleka/ostroleka.md",
+      "city_id": "ostroleka",
+      "city_simc": "0966079",
+      "canonical_spike_path": "spikes/mazowieckie/ostroleka/ostroleka.md"
     },
     {
       "label": "Ostrowiec Świętokrzyski",
@@ -2230,7 +2883,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-ostrowiecki/ostrowiec-swietokrzyski.md",
-      "note": "seat is the city-county \"Ostrowiec Świętokrzyski\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Ostrowiec Świętokrzyski\" (covered, master status: no-build)",
+      "city_id": "ostrowiec-swietokrzyski",
+      "city_simc": "0947308",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-ostrowiecki/ostrowiec-swietokrzyski.md"
     },
     {
       "label": "Ostrów Wielkopolski",
@@ -2241,7 +2897,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-ostrowski/ostrow-wielkopolski.md",
-      "note": "seat is the city-county \"Ostrów Wielkopolski\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Ostrów Wielkopolski\" (covered, master status: no-build)",
+      "city_id": "ostrow-wielkopolski",
+      "city_simc": "0937132",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-ostrowski/ostrow-wielkopolski.md"
     },
     {
       "label": "Ostrów Mazowiecka",
@@ -2251,7 +2910,10 @@
       "city_slug": "ostrow-mazowiecka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-ostrowski/ostrow-mazowiecka.md"
+      "spike_path": "spikes/mazowieckie/powiat-ostrowski/ostrow-mazowiecka.md",
+      "city_id": "ostrow-mazowiecka",
+      "city_simc": "0966330",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-ostrowski/ostrow-mazowiecka.md"
     },
     {
       "label": "Ostróda",
@@ -2262,7 +2924,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/warminsko-mazurskie/powiat-ostrodzki/ostroda.md",
-      "note": "seat is the city-county \"Ostróda\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Ostróda\" (covered, master status: no-build)",
+      "city_id": "ostroda",
+      "city_simc": "0964927",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-ostrodzki/ostroda.md"
     },
     {
       "label": "Ostrzeszów",
@@ -2272,7 +2937,10 @@
       "city_slug": "ostrzeszow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md"
+      "spike_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md",
+      "city_id": "ostrzeszow",
+      "city_simc": "0937250",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md"
     },
     {
       "label": "Oświęcim",
@@ -2283,7 +2951,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-oswiecimski/oswiecim.md",
-      "note": "seat is the city-county \"Oświęcim\" (covered, master status: built)"
+      "note": "seat is the city-county \"Oświęcim\" (covered, master status: built)",
+      "city_id": "oswiecim",
+      "city_simc": "0924997",
+      "canonical_spike_path": "spikes/malopolskie/powiat-oswiecimski/oswiecim.md"
     },
     {
       "label": "Otwock",
@@ -2293,7 +2964,10 @@
       "city_slug": "otwock",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-otwocki/otwock.md"
+      "spike_path": "spikes/mazowieckie/powiat-otwocki/otwock.md",
+      "city_id": "otwock",
+      "city_simc": "0921237",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-otwocki/otwock.md"
     },
     {
       "label": "Pabianice",
@@ -2304,7 +2978,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-pabianicki/pabianice.md",
-      "note": "seat is the city-county \"Pabianice\" (covered, master status: built)"
+      "note": "seat is the city-county \"Pabianice\" (covered, master status: built)",
+      "city_id": "pabianice",
+      "city_simc": "0959079",
+      "canonical_spike_path": "spikes/lodzkie/powiat-pabianicki/pabianice.md"
     },
     {
       "label": "Pajęczno",
@@ -2314,7 +2991,10 @@
       "city_slug": "pajeczno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md"
+      "spike_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md",
+      "city_id": "pajeczno",
+      "city_simc": "0932330",
+      "canonical_spike_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md"
     },
     {
       "label": "Parczew",
@@ -2324,7 +3004,10 @@
       "city_slug": "parczew",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-parczewski/parczew.md"
+      "spike_path": "spikes/lubelskie/powiat-parczewski/parczew.md",
+      "city_id": "parczew",
+      "city_simc": "0922254",
+      "canonical_spike_path": "spikes/lubelskie/powiat-parczewski/parczew.md"
     },
     {
       "label": "Piaseczno",
@@ -2335,7 +3018,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-piaseczynski/piaseczno.md",
-      "note": "seat is the city-county \"Piaseczno\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Piaseczno\" (covered, master status: no-build)",
+      "city_id": "piaseczno",
+      "city_simc": "0921438",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-piaseczynski/piaseczno.md"
     },
     {
       "label": "Piekary Śląskie",
@@ -2345,7 +3031,10 @@
       "city_slug": "piekary-slaskie",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/piekary-slaskie/piekary-slaskie.md"
+      "spike_path": "spikes/slaskie/piekary-slaskie/piekary-slaskie.md",
+      "city_id": "piekary-slaskie",
+      "city_simc": "0942104",
+      "canonical_spike_path": "spikes/slaskie/piekary-slaskie/piekary-slaskie.md"
     },
     {
       "label": "Piła",
@@ -2356,7 +3045,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-pilski/pila.md",
-      "note": "seat is the city-county \"Piła\" (covered, master status: built)"
+      "note": "seat is the city-county \"Piła\" (covered, master status: built)",
+      "city_id": "pila",
+      "city_simc": "0966530",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-pilski/pila.md"
     },
     {
       "label": "Pińczów",
@@ -2366,7 +3058,10 @@
       "city_slug": "pinczow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-pinczowski/pinczow.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-pinczowski/pinczow.md",
+      "city_id": "pinczow",
+      "city_simc": "0947580",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-pinczowski/pinczow.md"
     },
     {
       "label": "Piotrków Trybunalski",
@@ -2376,8 +3071,12 @@
       "city_slug": "piotrkow-trybunalski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-piotrkowski/piotrkow-trybunalski.md",
-      "note": "seat is the city-county \"Piotrków Trybunalski\" (covered, master status: no-build)"
+      "spike_path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md",
+      "note": "seat is the city-county \"Piotrków Trybunalski\" (covered, master status: no-build)",
+      "city_id": "piotrkow-trybunalski",
+      "city_simc": "0967430",
+      "canonical_spike_path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md",
+      "spike_path_original": "spikes/lodzkie/powiat-piotrkowski/piotrkow-trybunalski.md"
     },
     {
       "label": "Piotrków Trybunalski",
@@ -2387,7 +3086,10 @@
       "city_slug": "piotrkow-trybunalski",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md"
+      "spike_path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md",
+      "city_id": "piotrkow-trybunalski",
+      "city_simc": "0967430",
+      "canonical_spike_path": "spikes/lodzkie/piotrkow-trybunalski/piotrkow-trybunalski.md"
     },
     {
       "label": "Pisz",
@@ -2397,7 +3099,10 @@
       "city_slug": "pisz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md",
+      "city_id": "pisz",
+      "city_simc": "0977835",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md"
     },
     {
       "label": "Pleszew",
@@ -2407,7 +3112,10 @@
       "city_slug": "pleszew",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md"
+      "spike_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md",
+      "city_id": "pleszew",
+      "city_simc": "0937280",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md"
     },
     {
       "label": "Płock",
@@ -2417,7 +3125,10 @@
       "city_slug": "plock",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/plock/plock.md"
+      "spike_path": "spikes/mazowieckie/plock/plock.md",
+      "city_id": "plock",
+      "city_simc": "0968687",
+      "canonical_spike_path": "spikes/mazowieckie/plock/plock.md"
     },
     {
       "label": "Płock",
@@ -2427,8 +3138,12 @@
       "city_slug": "plock",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-plocki/plock.md",
-      "note": "seat is the city-county \"Płock\" (covered, master status: build)"
+      "spike_path": "spikes/mazowieckie/plock/plock.md",
+      "note": "seat is the city-county \"Płock\" (covered, master status: build)",
+      "city_id": "plock",
+      "city_simc": "0968687",
+      "canonical_spike_path": "spikes/mazowieckie/plock/plock.md",
+      "spike_path_original": "spikes/mazowieckie/powiat-plocki/plock.md"
     },
     {
       "label": "Płońsk",
@@ -2438,7 +3153,10 @@
       "city_slug": "plonsk",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-plonski/plonsk.md"
+      "spike_path": "spikes/mazowieckie/powiat-plonski/plonsk.md",
+      "city_id": "plonsk",
+      "city_simc": "0930800",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-plonski/plonsk.md"
     },
     {
       "label": "Poddębice",
@@ -2448,7 +3166,10 @@
       "city_slug": "poddebice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md"
+      "spike_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md",
+      "city_id": "poddebice",
+      "city_simc": "0976400",
+      "canonical_spike_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md"
     },
     {
       "label": "Police",
@@ -2458,7 +3179,10 @@
       "city_slug": "police",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-policki/police.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-policki/police.md",
+      "city_id": "police",
+      "city_simc": "0979449",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-policki/police.md"
     },
     {
       "label": "Polkowice",
@@ -2468,7 +3192,10 @@
       "city_slug": "polkowice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-polkowicki/polkowice.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-polkowicki/polkowice.md",
+      "city_id": "polkowice",
+      "city_simc": "0954165",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-polkowicki/polkowice.md"
     },
     {
       "label": "Poznań",
@@ -2478,7 +3205,10 @@
       "city_slug": "poznan",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/poznan/poznan.md"
+      "spike_path": "spikes/wielkopolskie/poznan/poznan.md",
+      "city_id": "poznan",
+      "city_simc": "0969400",
+      "canonical_spike_path": "spikes/wielkopolskie/poznan/poznan.md"
     },
     {
       "label": "Poznań",
@@ -2488,8 +3218,12 @@
       "city_slug": "poznan",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-poznanski/poznan.md",
-      "note": "seat is the city-county \"Poznań\" (covered, master status: build)"
+      "spike_path": "spikes/wielkopolskie/poznan/poznan.md",
+      "note": "seat is the city-county \"Poznań\" (covered, master status: build)",
+      "city_id": "poznan",
+      "city_simc": "0969400",
+      "canonical_spike_path": "spikes/wielkopolskie/poznan/poznan.md",
+      "spike_path_original": "spikes/wielkopolskie/powiat-poznanski/poznan.md"
     },
     {
       "label": "Proszowice",
@@ -2499,7 +3233,10 @@
       "city_slug": "proszowice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md"
+      "spike_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md",
+      "city_id": "proszowice",
+      "city_simc": "0951818",
+      "canonical_spike_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md"
     },
     {
       "label": "Prudnik",
@@ -2509,7 +3246,10 @@
       "city_slug": "prudnik",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-prudnicki/prudnik.md"
+      "spike_path": "spikes/opolskie/powiat-prudnicki/prudnik.md",
+      "city_id": "prudnik",
+      "city_simc": "0965878",
+      "canonical_spike_path": "spikes/opolskie/powiat-prudnicki/prudnik.md"
     },
     {
       "label": "Pruszków",
@@ -2520,7 +3260,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-pruszkowski/pruszkow.md",
-      "note": "seat is the city-county \"Pruszków\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Pruszków\" (covered, master status: no-build)",
+      "city_id": "pruszkow",
+      "city_simc": "0921510",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-pruszkowski/pruszkow.md"
     },
     {
       "label": "Przasnysz",
@@ -2530,7 +3273,10 @@
       "city_slug": "przasnysz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-przasnyski/przasnysz.md"
+      "spike_path": "spikes/mazowieckie/powiat-przasnyski/przasnysz.md",
+      "city_id": "przasnysz",
+      "city_simc": "0966398",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-przasnyski/przasnysz.md"
     },
     {
       "label": "Przemyśl",
@@ -2540,8 +3286,12 @@
       "city_slug": "przemysl",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-przemyski/przemysl.md",
-      "note": "seat is the city-county \"Przemyśl\" (covered, master status: built)"
+      "spike_path": "spikes/podkarpackie/przemysl/przemysl.md",
+      "note": "seat is the city-county \"Przemyśl\" (covered, master status: built)",
+      "city_id": "przemysl",
+      "city_simc": "0971672",
+      "canonical_spike_path": "spikes/podkarpackie/przemysl/przemysl.md",
+      "spike_path_original": "spikes/podkarpackie/powiat-przemyski/przemysl.md"
     },
     {
       "label": "Przemyśl",
@@ -2551,7 +3301,10 @@
       "city_slug": "przemysl",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/przemysl/przemysl.md"
+      "spike_path": "spikes/podkarpackie/przemysl/przemysl.md",
+      "city_id": "przemysl",
+      "city_simc": "0971672",
+      "canonical_spike_path": "spikes/podkarpackie/przemysl/przemysl.md"
     },
     {
       "label": "Przeworsk",
@@ -2561,7 +3314,10 @@
       "city_slug": "przeworsk",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-przeworski/przeworsk.md"
+      "spike_path": "spikes/podkarpackie/powiat-przeworski/przeworsk.md",
+      "city_id": "przeworsk",
+      "city_simc": "0972513",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-przeworski/przeworsk.md"
     },
     {
       "label": "Przysucha",
@@ -2571,7 +3327,10 @@
       "city_slug": "przysucha",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-przysuski/przysucha.md"
+      "spike_path": "spikes/mazowieckie/powiat-przysuski/przysucha.md",
+      "city_id": "przysucha",
+      "city_simc": "0973777",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-przysuski/przysucha.md"
     },
     {
       "label": "Pszczyna",
@@ -2581,7 +3340,10 @@
       "city_slug": "pszczyna",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md"
+      "spike_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md",
+      "city_id": "pszczyna",
+      "city_simc": "0942222",
+      "canonical_spike_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md"
     },
     {
       "label": "Puck",
@@ -2591,7 +3353,10 @@
       "city_slug": "puck",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-pucki/puck.md"
+      "spike_path": "spikes/pomorskie/powiat-pucki/puck.md",
+      "city_id": "puck",
+      "city_simc": "0934636",
+      "canonical_spike_path": "spikes/pomorskie/powiat-pucki/puck.md"
     },
     {
       "label": "Puławy",
@@ -2602,7 +3367,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lubelskie/powiat-pulawski/pulawy.md",
-      "note": "seat is the city-county \"Puławy\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Puławy\" (covered, master status: no-build)",
+      "city_id": "pulawy",
+      "city_simc": "0956810",
+      "canonical_spike_path": "spikes/lubelskie/powiat-pulawski/pulawy.md"
     },
     {
       "label": "Pułtusk",
@@ -2612,7 +3380,10 @@
       "city_slug": "pultusk",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md"
+      "spike_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md",
+      "city_id": "pultusk",
+      "city_simc": "0930816",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md"
     },
     {
       "label": "Pyrzyce",
@@ -2622,7 +3393,10 @@
       "city_slug": "pyrzyce",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-pyrzycki/pyrzyce.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-pyrzycki/pyrzyce.md",
+      "city_id": "pyrzyce",
+      "city_simc": "0979515",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-pyrzycki/pyrzyce.md"
     },
     {
       "label": "Racibórz",
@@ -2633,7 +3407,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/slaskie/powiat-raciborski/raciborz.md",
-      "note": "seat is the city-county \"Racibórz\" (covered, master status: built)"
+      "note": "seat is the city-county \"Racibórz\" (covered, master status: built)",
+      "city_id": "raciborz",
+      "city_simc": "0942469",
+      "canonical_spike_path": "spikes/slaskie/powiat-raciborski/raciborz.md"
     },
     {
       "label": "Radom",
@@ -2643,7 +3420,10 @@
       "city_slug": "radom",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/radom/radom.md"
+      "spike_path": "spikes/mazowieckie/radom/radom.md",
+      "city_id": "radom",
+      "city_simc": "0972750",
+      "canonical_spike_path": "spikes/mazowieckie/radom/radom.md"
     },
     {
       "label": "Radom",
@@ -2653,8 +3433,12 @@
       "city_slug": "radom",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-radomski/radom.md",
-      "note": "seat is the city-county \"Radom\" (covered, master status: no-build)"
+      "spike_path": "spikes/mazowieckie/radom/radom.md",
+      "note": "seat is the city-county \"Radom\" (covered, master status: no-build)",
+      "city_id": "radom",
+      "city_simc": "0972750",
+      "canonical_spike_path": "spikes/mazowieckie/radom/radom.md",
+      "spike_path_original": "spikes/mazowieckie/powiat-radomski/radom.md"
     },
     {
       "label": "Radomsko",
@@ -2665,7 +3449,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-radomszczanski/radomsko.md",
-      "note": "seat is the city-county \"Radomsko\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Radomsko\" (covered, master status: no-build)",
+      "city_id": "radomsko",
+      "city_simc": "0968078",
+      "canonical_spike_path": "spikes/lodzkie/powiat-radomszczanski/radomsko.md"
     },
     {
       "label": "Radziejów",
@@ -2675,7 +3462,10 @@
       "city_slug": "radziejow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-radziejowski/radziejow.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-radziejowski/radziejow.md",
+      "city_id": "radziejow",
+      "city_simc": "0986060",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-radziejowski/radziejow.md"
     },
     {
       "label": "Radzyń Podlaski",
@@ -2685,7 +3475,10 @@
       "city_slug": "radzyn-podlaski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-radzynski/radzyn-podlaski.md"
+      "spike_path": "spikes/lubelskie/powiat-radzynski/radzyn-podlaski.md",
+      "city_id": "radzyn-podlaski",
+      "city_simc": "0922277",
+      "canonical_spike_path": "spikes/lubelskie/powiat-radzynski/radzyn-podlaski.md"
     },
     {
       "label": "Rawicz",
@@ -2695,7 +3488,10 @@
       "city_slug": "rawicz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-rawicki/rawicz.md"
+      "spike_path": "spikes/wielkopolskie/powiat-rawicki/rawicz.md",
+      "city_id": "rawicz",
+      "city_simc": "0954604",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-rawicki/rawicz.md"
     },
     {
       "label": "Rawa Mazowiecka",
@@ -2705,7 +3501,10 @@
       "city_slug": "rawa-mazowiecka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md"
+      "spike_path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md",
+      "city_id": "rawa-mazowiecka",
+      "city_simc": "0977077",
+      "canonical_spike_path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md"
     },
     {
       "label": "Ropczyce",
@@ -2715,7 +3514,10 @@
       "city_slug": "ropczyce",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-ropczycko-sedziszowski/ropczyce.md"
+      "spike_path": "spikes/podkarpackie/powiat-ropczycko-sedziszowski/ropczyce.md",
+      "city_id": "ropczyce",
+      "city_simc": "0974825",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-ropczycko-sedziszowski/ropczyce.md"
     },
     {
       "label": "Ruda Śląska",
@@ -2725,7 +3527,10 @@
       "city_slug": "ruda-slaska",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/ruda-slaska/ruda-slaska.md"
+      "spike_path": "spikes/slaskie/ruda-slaska/ruda-slaska.md",
+      "city_id": "ruda-slaska",
+      "city_simc": "0942630",
+      "canonical_spike_path": "spikes/slaskie/ruda-slaska/ruda-slaska.md"
     },
     {
       "label": "Rybnik",
@@ -2735,8 +3540,12 @@
       "city_slug": "rybnik",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-rybnicki/rybnik.md",
-      "note": "seat is the city-county \"Rybnik\" (covered, master status: built)"
+      "spike_path": "spikes/slaskie/rybnik/rybnik.md",
+      "note": "seat is the city-county \"Rybnik\" (covered, master status: built)",
+      "city_id": "rybnik",
+      "city_simc": "0942765",
+      "canonical_spike_path": "spikes/slaskie/rybnik/rybnik.md",
+      "spike_path_original": "spikes/slaskie/powiat-rybnicki/rybnik.md"
     },
     {
       "label": "Rybnik",
@@ -2746,7 +3555,10 @@
       "city_slug": "rybnik",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/rybnik/rybnik.md"
+      "spike_path": "spikes/slaskie/rybnik/rybnik.md",
+      "city_id": "rybnik",
+      "city_simc": "0942765",
+      "canonical_spike_path": "spikes/slaskie/rybnik/rybnik.md"
     },
     {
       "label": "Ryki",
@@ -2756,7 +3568,10 @@
       "city_slug": "ryki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-rycki/ryki.md"
+      "spike_path": "spikes/lubelskie/powiat-rycki/ryki.md",
+      "city_id": "ryki",
+      "city_simc": "0956980",
+      "canonical_spike_path": "spikes/lubelskie/powiat-rycki/ryki.md"
     },
     {
       "label": "Rypin",
@@ -2766,7 +3581,10 @@
       "city_slug": "rypin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-rypinski/rypin.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-rypinski/rypin.md",
+      "city_id": "rypin",
+      "city_simc": "0986136",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-rypinski/rypin.md"
     },
     {
       "label": "Rzeszów",
@@ -2776,8 +3594,12 @@
       "city_slug": "rzeszow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-rzeszowski/rzeszow.md",
-      "note": "seat is the city-county \"Rzeszów\" (covered, master status: verify)"
+      "spike_path": "spikes/podkarpackie/rzeszow/rzeszow.md",
+      "note": "seat is the city-county \"Rzeszów\" (covered, master status: verify)",
+      "city_id": "rzeszow",
+      "city_simc": "0974133",
+      "canonical_spike_path": "spikes/podkarpackie/rzeszow/rzeszow.md",
+      "spike_path_original": "spikes/podkarpackie/powiat-rzeszowski/rzeszow.md"
     },
     {
       "label": "Rzeszów",
@@ -2787,7 +3609,10 @@
       "city_slug": "rzeszow",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/rzeszow/rzeszow.md"
+      "spike_path": "spikes/podkarpackie/rzeszow/rzeszow.md",
+      "city_id": "rzeszow",
+      "city_simc": "0974133",
+      "canonical_spike_path": "spikes/podkarpackie/rzeszow/rzeszow.md"
     },
     {
       "label": "Sandomierz",
@@ -2797,7 +3622,10 @@
       "city_slug": "sandomierz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md",
+      "city_id": "sandomierz",
+      "city_simc": "0980926",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md"
     },
     {
       "label": "Sanok",
@@ -2808,7 +3636,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-sanocki/sanok.md",
-      "note": "seat is the city-county \"Sanok\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Sanok\" (covered, master status: no-build)",
+      "city_id": "sanok",
+      "city_simc": "0953510",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-sanocki/sanok.md"
     },
     {
       "label": "Sejny",
@@ -2818,7 +3649,10 @@
       "city_slug": "sejny",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-sejnenski/sejny.md"
+      "spike_path": "spikes/podlaskie/powiat-sejnenski/sejny.md",
+      "city_id": "sejny",
+      "city_simc": "0977918",
+      "canonical_spike_path": "spikes/podlaskie/powiat-sejnenski/sejny.md"
     },
     {
       "label": "Sępólno Krajeńskie",
@@ -2828,7 +3662,10 @@
       "city_slug": "sepolno-krajenskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md",
+      "city_id": "sepolno-krajenskie",
+      "city_simc": "0929546",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md"
     },
     {
       "label": "Siedlce",
@@ -2838,7 +3675,10 @@
       "city_slug": "siedlce",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/siedlce/siedlce.md"
+      "spike_path": "spikes/mazowieckie/siedlce/siedlce.md",
+      "city_id": "siedlce",
+      "city_simc": "0975173",
+      "canonical_spike_path": "spikes/mazowieckie/siedlce/siedlce.md"
     },
     {
       "label": "Siedlce",
@@ -2848,8 +3688,12 @@
       "city_slug": "siedlce",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-siedlecki/siedlce.md",
-      "note": "seat is the city-county \"Siedlce\" (covered, master status: build)"
+      "spike_path": "spikes/mazowieckie/siedlce/siedlce.md",
+      "note": "seat is the city-county \"Siedlce\" (covered, master status: build)",
+      "city_id": "siedlce",
+      "city_simc": "0975173",
+      "canonical_spike_path": "spikes/mazowieckie/siedlce/siedlce.md",
+      "spike_path_original": "spikes/mazowieckie/powiat-siedlecki/siedlce.md"
     },
     {
       "label": "Siemianowice Śląskie",
@@ -2859,7 +3703,10 @@
       "city_slug": "siemianowice-slaskie",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/siemianowice-slaskie/siemianowice-slaskie.md"
+      "spike_path": "spikes/slaskie/siemianowice-slaskie/siemianowice-slaskie.md",
+      "city_id": "siemianowice-slaskie",
+      "city_simc": "0943150",
+      "canonical_spike_path": "spikes/slaskie/siemianowice-slaskie/siemianowice-slaskie.md"
     },
     {
       "label": "Siemiatycze",
@@ -2869,7 +3716,10 @@
       "city_slug": "siemiatycze",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-siemiatycki/siemiatycze.md"
+      "spike_path": "spikes/podlaskie/powiat-siemiatycki/siemiatycze.md",
+      "city_id": "siemiatycze",
+      "city_simc": "0923360",
+      "canonical_spike_path": "spikes/podlaskie/powiat-siemiatycki/siemiatycze.md"
     },
     {
       "label": "Sieradz",
@@ -2880,7 +3730,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-sieradzki/sieradz.md",
-      "note": "seat is the city-county \"Sieradz\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Sieradz\" (covered, master status: no-build)",
+      "city_id": "sieradz",
+      "city_simc": "0976050",
+      "canonical_spike_path": "spikes/lodzkie/powiat-sieradzki/sieradz.md"
     },
     {
       "label": "Sierpc",
@@ -2890,7 +3743,10 @@
       "city_slug": "sierpc",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-sierpecki/sierpc.md"
+      "spike_path": "spikes/mazowieckie/powiat-sierpecki/sierpc.md",
+      "city_id": "sierpc",
+      "city_simc": "0969310",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-sierpecki/sierpc.md"
     },
     {
       "label": "Skarżysko-Kamienna",
@@ -2901,7 +3757,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md",
-      "note": "seat is the city-county \"Skarżysko-Kamienna\" (covered, master status: built)"
+      "note": "seat is the city-county \"Skarżysko-Kamienna\" (covered, master status: built)",
+      "city_id": "skarzysko-kamienna",
+      "city_simc": "0947716",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md"
     },
     {
       "label": "Skierniewice",
@@ -2911,7 +3770,10 @@
       "city_slug": "skierniewice",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lodzkie/skierniewice/skierniewice.md"
+      "spike_path": "spikes/lodzkie/skierniewice/skierniewice.md",
+      "city_id": "skierniewice",
+      "city_simc": "0976942",
+      "canonical_spike_path": "spikes/lodzkie/skierniewice/skierniewice.md"
     },
     {
       "label": "Skierniewice",
@@ -2921,8 +3783,12 @@
       "city_slug": "skierniewice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-skierniewicki/skierniewice.md",
-      "note": "seat is the city-county \"Skierniewice\" (covered, master status: no-build)"
+      "spike_path": "spikes/lodzkie/skierniewice/skierniewice.md",
+      "note": "seat is the city-county \"Skierniewice\" (covered, master status: no-build)",
+      "city_id": "skierniewice",
+      "city_simc": "0976942",
+      "canonical_spike_path": "spikes/lodzkie/skierniewice/skierniewice.md",
+      "spike_path_original": "spikes/lodzkie/powiat-skierniewicki/skierniewice.md"
     },
     {
       "label": "Sławno",
@@ -2932,7 +3798,10 @@
       "city_slug": "slawno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-slawienski/slawno.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-slawienski/slawno.md",
+      "city_id": "slawno",
+      "city_simc": "0977410",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-slawienski/slawno.md"
     },
     {
       "label": "Słubice",
@@ -2942,7 +3811,10 @@
       "city_slug": "slubice",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-slubicki/slubice.md"
+      "spike_path": "spikes/lubuskie/powiat-slubicki/slubice.md",
+      "city_id": "slubice",
+      "city_simc": "0935736",
+      "canonical_spike_path": "spikes/lubuskie/powiat-slubicki/slubice.md"
     },
     {
       "label": "Słupca",
@@ -2952,7 +3824,10 @@
       "city_slug": "slupca",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-slupecki/slupca.md"
+      "spike_path": "spikes/wielkopolskie/powiat-slupecki/slupca.md",
+      "city_id": "slupca",
+      "city_simc": "0949247",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-slupecki/slupca.md"
     },
     {
       "label": "Słupsk",
@@ -2962,7 +3837,10 @@
       "city_slug": "slupsk",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/pomorskie/slupsk/slupsk.md"
+      "spike_path": "spikes/pomorskie/slupsk/slupsk.md",
+      "city_id": "slupsk",
+      "city_simc": "0977278",
+      "canonical_spike_path": "spikes/pomorskie/slupsk/slupsk.md"
     },
     {
       "label": "Słupsk",
@@ -2972,8 +3850,12 @@
       "city_slug": "slupsk",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-slupski/slupsk.md",
-      "note": "seat is the city-county \"Słupsk\" (covered, master status: built)"
+      "spike_path": "spikes/pomorskie/slupsk/slupsk.md",
+      "note": "seat is the city-county \"Słupsk\" (covered, master status: built)",
+      "city_id": "slupsk",
+      "city_simc": "0977278",
+      "canonical_spike_path": "spikes/pomorskie/slupsk/slupsk.md",
+      "spike_path_original": "spikes/pomorskie/powiat-slupski/slupsk.md"
     },
     {
       "label": "Sochaczew",
@@ -2983,7 +3865,10 @@
       "city_slug": "sochaczew",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-sochaczewski/sochaczew.md"
+      "spike_path": "spikes/mazowieckie/powiat-sochaczewski/sochaczew.md",
+      "city_id": "sochaczew",
+      "city_simc": "0977120",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-sochaczewski/sochaczew.md"
     },
     {
       "label": "Sokołów Podlaski",
@@ -2993,7 +3878,10 @@
       "city_slug": "sokolow-podlaski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-sokolowski/sokolow-podlaski.md"
+      "spike_path": "spikes/mazowieckie/powiat-sokolowski/sokolow-podlaski.md",
+      "city_id": "sokolow-podlaski",
+      "city_simc": "0975760",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-sokolowski/sokolow-podlaski.md"
     },
     {
       "label": "Sokółka",
@@ -3003,7 +3891,10 @@
       "city_slug": "sokolka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-sokolski/sokolka.md"
+      "spike_path": "spikes/podlaskie/powiat-sokolski/sokolka.md",
+      "city_id": "sokolka",
+      "city_simc": "0923443",
+      "canonical_spike_path": "spikes/podlaskie/powiat-sokolski/sokolka.md"
     },
     {
       "label": "Sopot",
@@ -3013,7 +3904,10 @@
       "city_slug": "sopot",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/pomorskie/sopot/sopot.md"
+      "spike_path": "spikes/pomorskie/sopot/sopot.md",
+      "city_id": "sopot",
+      "city_simc": "0934783",
+      "canonical_spike_path": "spikes/pomorskie/sopot/sopot.md"
     },
     {
       "label": "Sosnowiec",
@@ -3023,7 +3917,10 @@
       "city_slug": "sosnowiec",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/sosnowiec/sosnowiec.md"
+      "spike_path": "spikes/slaskie/sosnowiec/sosnowiec.md",
+      "city_id": "sosnowiec",
+      "city_simc": "0943428",
+      "canonical_spike_path": "spikes/slaskie/sosnowiec/sosnowiec.md"
     },
     {
       "label": "Stalowa Wola",
@@ -3034,7 +3931,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/podkarpackie/powiat-stalowowolski/stalowa-wola.md",
-      "note": "seat is the city-county \"Stalowa Wola\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Stalowa Wola\" (covered, master status: no-build)",
+      "city_id": "stalowa-wola",
+      "city_simc": "0981133",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-stalowowolski/stalowa-wola.md"
     },
     {
       "label": "Starachowice",
@@ -3045,7 +3945,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/swietokrzyskie/powiat-starachowicki/starachowice.md",
-      "note": "seat is the city-county \"Starachowice\" (covered, master status: build)"
+      "note": "seat is the city-county \"Starachowice\" (covered, master status: build)",
+      "city_id": "starachowice",
+      "city_simc": "0947930",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-starachowicki/starachowice.md"
     },
     {
       "label": "Stargard",
@@ -3056,7 +3959,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md",
-      "note": "seat is the city-county \"Stargard\" (covered, master status: built)"
+      "note": "seat is the city-county \"Stargard\" (covered, master status: built)",
+      "city_id": "stargard",
+      "city_simc": "0979596",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md"
     },
     {
       "label": "Starogard Gdański",
@@ -3067,7 +3973,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md",
-      "note": "seat is the city-county \"Starogard Gdański\" (covered, master status: build)"
+      "note": "seat is the city-county \"Starogard Gdański\" (covered, master status: build)",
+      "city_id": "starogard-gdanski",
+      "city_simc": "0934837",
+      "canonical_spike_path": "spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md"
     },
     {
       "label": "Staszów",
@@ -3077,7 +3986,10 @@
       "city_slug": "staszow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-staszowski/staszow.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-staszowski/staszow.md",
+      "city_id": "staszow",
+      "city_simc": "0981274",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-staszowski/staszow.md"
     },
     {
       "label": "Strzelce Opolskie",
@@ -3087,7 +3999,10 @@
       "city_slug": "strzelce-opolskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md"
+      "spike_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md",
+      "city_id": "strzelce-opolskie",
+      "city_simc": "0965915",
+      "canonical_spike_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md"
     },
     {
       "label": "Strzelce Krajeńskie",
@@ -3097,7 +4012,10 @@
       "city_slug": "strzelce-krajenskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md"
+      "spike_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md",
+      "city_id": "strzelce-krajenskie",
+      "city_simc": "0935742",
+      "canonical_spike_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md"
     },
     {
       "label": "Strzelin",
@@ -3107,7 +4025,10 @@
       "city_slug": "strzelin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-strzelinski/strzelin.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-strzelinski/strzelin.md",
+      "city_id": "strzelin",
+      "city_simc": "0987331",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-strzelinski/strzelin.md"
     },
     {
       "label": "Strzyżów",
@@ -3117,7 +4038,10 @@
       "city_slug": "strzyzow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-strzyzowski/strzyzow.md"
+      "spike_path": "spikes/podkarpackie/powiat-strzyzowski/strzyzow.md",
+      "city_id": "strzyzow",
+      "city_simc": "0975010",
+      "canonical_spike_path": "spikes/podkarpackie/powiat-strzyzowski/strzyzow.md"
     },
     {
       "label": "Sulęcin",
@@ -3127,7 +4051,10 @@
       "city_slug": "sulecin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md"
+      "spike_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md",
+      "city_id": "sulecin",
+      "city_simc": "0935759",
+      "canonical_spike_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md"
     },
     {
       "label": "Sucha Beskidzka",
@@ -3137,7 +4064,10 @@
       "city_slug": "sucha-beskidzka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md"
+      "spike_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md",
+      "city_id": "sucha-beskidzka",
+      "city_simc": "0925287",
+      "canonical_spike_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md"
     },
     {
       "label": "Suwałki",
@@ -3147,8 +4077,12 @@
       "city_slug": "suwalki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-suwalski/suwalki.md",
-      "note": "seat is the city-county \"Suwałki\" (covered, master status: no-build)"
+      "spike_path": "spikes/podlaskie/suwalki/suwalki.md",
+      "note": "seat is the city-county \"Suwałki\" (covered, master status: no-build)",
+      "city_id": "suwalki",
+      "city_simc": "0977456",
+      "canonical_spike_path": "spikes/podlaskie/suwalki/suwalki.md",
+      "spike_path_original": "spikes/podlaskie/powiat-suwalski/suwalki.md"
     },
     {
       "label": "Suwałki",
@@ -3158,7 +4092,10 @@
       "city_slug": "suwalki",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podlaskie/suwalki/suwalki.md"
+      "spike_path": "spikes/podlaskie/suwalki/suwalki.md",
+      "city_id": "suwalki",
+      "city_simc": "0977456",
+      "canonical_spike_path": "spikes/podlaskie/suwalki/suwalki.md"
     },
     {
       "label": "Szamotuły",
@@ -3168,7 +4105,10 @@
       "city_slug": "szamotuly",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md"
+      "spike_path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md",
+      "city_id": "szamotuly",
+      "city_simc": "0971531",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md"
     },
     {
       "label": "Szczecin",
@@ -3178,7 +4118,10 @@
       "city_slug": "szczecin",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/szczecin/szczecin.md"
+      "spike_path": "spikes/zachodniopomorskie/szczecin/szczecin.md",
+      "city_id": "szczecin",
+      "city_simc": "0977976",
+      "canonical_spike_path": "spikes/zachodniopomorskie/szczecin/szczecin.md"
     },
     {
       "label": "Szczecinek",
@@ -3188,7 +4131,10 @@
       "city_slug": "szczecinek",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md",
+      "city_id": "szczecinek",
+      "city_simc": "0950262",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md"
     },
     {
       "label": "Szczytno",
@@ -3198,7 +4144,10 @@
       "city_slug": "szczytno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md",
+      "city_id": "szczytno",
+      "city_simc": "0964991",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md"
     },
     {
       "label": "Sztum",
@@ -3208,7 +4157,10 @@
       "city_slug": "sztum",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/pomorskie/powiat-sztumski/sztum.md"
+      "spike_path": "spikes/pomorskie/powiat-sztumski/sztum.md",
+      "city_id": "sztum",
+      "city_simc": "0932991",
+      "canonical_spike_path": "spikes/pomorskie/powiat-sztumski/sztum.md"
     },
     {
       "label": "Szydłowiec",
@@ -3218,7 +4170,10 @@
       "city_slug": "szydlowiec",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-szydlowiecki/szydlowiec.md"
+      "spike_path": "spikes/mazowieckie/powiat-szydlowiecki/szydlowiec.md",
+      "city_id": "szydlowiec",
+      "city_simc": "0973895",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-szydlowiecki/szydlowiec.md"
     },
     {
       "label": "Środa Wielkopolska",
@@ -3228,7 +4183,10 @@
       "city_slug": "sroda-wielkopolska",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md"
+      "spike_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md",
+      "city_id": "sroda-wielkopolska",
+      "city_simc": "0971614",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md"
     },
     {
       "label": "Środa Śląska",
@@ -3238,7 +4196,10 @@
       "city_slug": "sroda-slaska",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-sredzki/sroda-slaska.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-sredzki/sroda-slaska.md",
+      "city_id": "sroda-slaska",
+      "city_simc": "0987348",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-sredzki/sroda-slaska.md"
     },
     {
       "label": "Śrem",
@@ -3248,7 +4209,10 @@
       "city_slug": "srem",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-sremski/srem.md"
+      "spike_path": "spikes/wielkopolskie/powiat-sremski/srem.md",
+      "city_id": "srem",
+      "city_simc": "0971560",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-sremski/srem.md"
     },
     {
       "label": "Świdnik",
@@ -3259,7 +4223,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lubelskie/powiat-swidnicki/swidnik.md",
-      "note": "seat is the city-county \"Świdnik\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Świdnik\" (covered, master status: no-build)",
+      "city_id": "swidnik",
+      "city_simc": "0957146",
+      "canonical_spike_path": "spikes/lubelskie/powiat-swidnicki/swidnik.md"
     },
     {
       "label": "Świdnica",
@@ -3270,7 +4237,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md",
-      "note": "seat is the city-county \"Świdnica\" (covered, master status: build)"
+      "note": "seat is the city-county \"Świdnica\" (covered, master status: build)",
+      "city_id": "swidnica",
+      "city_simc": "0984657",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md"
     },
     {
       "label": "Świdwin",
@@ -3280,7 +4250,10 @@
       "city_slug": "swidwin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-swidwinski/swidwin.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-swidwinski/swidwin.md",
+      "city_id": "swidwin",
+      "city_simc": "0950322",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-swidwinski/swidwin.md"
     },
     {
       "label": "Świebodzin",
@@ -3290,7 +4263,10 @@
       "city_slug": "swiebodzin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-swiebodzinski/swiebodzin.md"
+      "spike_path": "spikes/lubuskie/powiat-swiebodzinski/swiebodzin.md",
+      "city_id": "swiebodzin",
+      "city_simc": "0988626",
+      "canonical_spike_path": "spikes/lubuskie/powiat-swiebodzinski/swiebodzin.md"
     },
     {
       "label": "Świecie",
@@ -3301,7 +4277,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/kujawsko-pomorskie/powiat-swiecki/swiecie.md",
-      "note": "seat is the city-county \"Świecie\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Świecie\" (covered, master status: no-build)",
+      "city_id": "swiecie",
+      "city_simc": "0929664",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-swiecki/swiecie.md"
     },
     {
       "label": "Świętochłowice",
@@ -3311,7 +4290,10 @@
       "city_slug": "swietochlowice",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/swietochlowice/swietochlowice.md"
+      "spike_path": "spikes/slaskie/swietochlowice/swietochlowice.md",
+      "city_id": "swietochlowice",
+      "city_simc": "0943724",
+      "canonical_spike_path": "spikes/slaskie/swietochlowice/swietochlowice.md"
     },
     {
       "label": "Świnoujście",
@@ -3321,7 +4303,10 @@
       "city_slug": "swinoujscie",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md"
+      "spike_path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md",
+      "city_id": "swinoujscie",
+      "city_simc": "0979722",
+      "canonical_spike_path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md"
     },
     {
       "label": "Tarnobrzeg",
@@ -3331,7 +4316,10 @@
       "city_slug": "tarnobrzeg",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md"
+      "spike_path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md",
+      "city_id": "tarnobrzeg",
+      "city_simc": "0980085",
+      "canonical_spike_path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md"
     },
     {
       "label": "Tarnobrzeg",
@@ -3341,8 +4329,12 @@
       "city_slug": "tarnobrzeg",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podkarpackie/powiat-tarnobrzeski/tarnobrzeg.md",
-      "note": "seat is the city-county \"Tarnobrzeg\" (covered, master status: no-build)"
+      "spike_path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md",
+      "note": "seat is the city-county \"Tarnobrzeg\" (covered, master status: no-build)",
+      "city_id": "tarnobrzeg",
+      "city_simc": "0980085",
+      "canonical_spike_path": "spikes/podkarpackie/tarnobrzeg/tarnobrzeg.md",
+      "spike_path_original": "spikes/podkarpackie/powiat-tarnobrzeski/tarnobrzeg.md"
     },
     {
       "label": "Tarnowskie Góry",
@@ -3353,7 +4345,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md",
-      "note": "seat is the city-county \"Tarnowskie Góry\" (covered, master status: built)"
+      "note": "seat is the city-county \"Tarnowskie Góry\" (covered, master status: built)",
+      "city_id": "tarnowskie-gory",
+      "city_simc": "0943813",
+      "canonical_spike_path": "spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md"
     },
     {
       "label": "Tarnów",
@@ -3363,8 +4358,12 @@
       "city_slug": "tarnow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-tarnowski/tarnow.md",
-      "note": "seat is the city-county \"Tarnów\" (covered, master status: no-build)"
+      "spike_path": "spikes/malopolskie/tarnow/tarnow.md",
+      "note": "seat is the city-county \"Tarnów\" (covered, master status: no-build)",
+      "city_id": "tarnow",
+      "city_simc": "0981570",
+      "canonical_spike_path": "spikes/malopolskie/tarnow/tarnow.md",
+      "spike_path_original": "spikes/malopolskie/powiat-tarnowski/tarnow.md"
     },
     {
       "label": "Tarnów",
@@ -3374,7 +4373,10 @@
       "city_slug": "tarnow",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/malopolskie/tarnow/tarnow.md"
+      "spike_path": "spikes/malopolskie/tarnow/tarnow.md",
+      "city_id": "tarnow",
+      "city_simc": "0981570",
+      "canonical_spike_path": "spikes/malopolskie/tarnow/tarnow.md"
     },
     {
       "label": "Zakopane",
@@ -3385,7 +4387,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-tatrzanski/zakopane.md",
-      "note": "seat is the city-county \"Zakopane\" (covered, master status: build)"
+      "note": "seat is the city-county \"Zakopane\" (covered, master status: build)",
+      "city_id": "zakopane",
+      "city_simc": "0963773",
+      "canonical_spike_path": "spikes/malopolskie/powiat-tatrzanski/zakopane.md"
     },
     {
       "label": "Tczew",
@@ -3396,7 +4401,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/pomorskie/powiat-tczewski/tczew.md",
-      "note": "seat is the city-county \"Tczew\" (covered, master status: built)"
+      "note": "seat is the city-county \"Tczew\" (covered, master status: built)",
+      "city_id": "tczew",
+      "city_simc": "0934903",
+      "canonical_spike_path": "spikes/pomorskie/powiat-tczewski/tczew.md"
     },
     {
       "label": "Tomaszów Mazowiecki",
@@ -3407,7 +4415,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md",
-      "note": "seat is the city-county \"Tomaszów Mazowiecki\" (covered, master status: build)"
+      "note": "seat is the city-county \"Tomaszów Mazowiecki\" (covered, master status: build)",
+      "city_id": "tomaszow-mazowiecki",
+      "city_simc": "0968300",
+      "canonical_spike_path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md"
     },
     {
       "label": "Tomaszów Lubelski",
@@ -3417,7 +4428,10 @@
       "city_slug": "tomaszow-lubelski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-tomaszowski/tomaszow-lubelski.md"
+      "spike_path": "spikes/lubelskie/powiat-tomaszowski/tomaszow-lubelski.md",
+      "city_id": "tomaszow-lubelski",
+      "city_simc": "0988075",
+      "canonical_spike_path": "spikes/lubelskie/powiat-tomaszowski/tomaszow-lubelski.md"
     },
     {
       "label": "Toruń",
@@ -3427,7 +4441,10 @@
       "city_slug": "torun",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/torun/torun.md"
+      "spike_path": "spikes/kujawsko-pomorskie/torun/torun.md",
+      "city_id": "torun",
+      "city_simc": "0982724",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/torun/torun.md"
     },
     {
       "label": "Toruń",
@@ -3437,8 +4454,12 @@
       "city_slug": "torun",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-torunski/torun.md",
-      "note": "seat is the city-county \"Toruń\" (covered, master status: built)"
+      "spike_path": "spikes/kujawsko-pomorskie/torun/torun.md",
+      "note": "seat is the city-county \"Toruń\" (covered, master status: built)",
+      "city_id": "torun",
+      "city_simc": "0982724",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/torun/torun.md",
+      "spike_path_original": "spikes/kujawsko-pomorskie/powiat-torunski/torun.md"
     },
     {
       "label": "Trzebnica",
@@ -3448,7 +4469,10 @@
       "city_slug": "trzebnica",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md",
+      "city_id": "trzebnica",
+      "city_simc": "0987383",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md"
     },
     {
       "label": "Tuchola",
@@ -3458,7 +4482,10 @@
       "city_slug": "tuchola",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-tucholski/tuchola.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-tucholski/tuchola.md",
+      "city_id": "tuchola",
+      "city_simc": "0929724",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-tucholski/tuchola.md"
     },
     {
       "label": "Turek",
@@ -3468,7 +4495,10 @@
       "city_slug": "turek",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-turecki/turek.md"
+      "spike_path": "spikes/wielkopolskie/powiat-turecki/turek.md",
+      "city_id": "turek",
+      "city_simc": "0949336",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-turecki/turek.md"
     },
     {
       "label": "Tychy",
@@ -3478,7 +4508,10 @@
       "city_slug": "tychy",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/tychy/tychy.md"
+      "spike_path": "spikes/slaskie/tychy/tychy.md",
+      "city_id": "tychy",
+      "city_simc": "0944534",
+      "canonical_spike_path": "spikes/slaskie/tychy/tychy.md"
     },
     {
       "label": "Wadowice",
@@ -3489,7 +4522,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/malopolskie/powiat-wadowicki/wadowice.md",
-      "note": "seat is the city-county \"Wadowice\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Wadowice\" (covered, master status: no-build)",
+      "city_id": "wadowice",
+      "city_simc": "0926921",
+      "canonical_spike_path": "spikes/malopolskie/powiat-wadowicki/wadowice.md"
     },
     {
       "label": "Wałbrzych",
@@ -3499,7 +4535,10 @@
       "city_slug": "walbrzych",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md"
+      "spike_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
+      "city_id": "walbrzych",
+      "city_simc": "0983681",
+      "canonical_spike_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md"
     },
     {
       "label": "Wałbrzych",
@@ -3509,8 +4548,12 @@
       "city_slug": "walbrzych",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-walbrzyski/walbrzych.md",
-      "note": "seat is the city-county \"Wałbrzych\" (covered, master status: built)"
+      "spike_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
+      "note": "seat is the city-county \"Wałbrzych\" (covered, master status: built)",
+      "city_id": "walbrzych",
+      "city_simc": "0983681",
+      "canonical_spike_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
+      "spike_path_original": "spikes/dolnoslaskie/powiat-walbrzyski/walbrzych.md"
     },
     {
       "label": "Wałcz",
@@ -3520,7 +4563,10 @@
       "city_slug": "walcz",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md"
+      "spike_path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md",
+      "city_id": "walcz",
+      "city_simc": "0967245",
+      "canonical_spike_path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md"
     },
     {
       "label": "Warszawa",
@@ -3530,7 +4576,10 @@
       "city_slug": "warszawa",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/warszawa/warszawa.md"
+      "spike_path": "spikes/mazowieckie/warszawa/warszawa.md",
+      "city_id": "warszawa",
+      "city_simc": "0918123",
+      "canonical_spike_path": "spikes/mazowieckie/warszawa/warszawa.md"
     },
     {
       "label": "Ożarów Mazowiecki",
@@ -3540,7 +4589,10 @@
       "city_slug": "ozarow-mazowiecki",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md"
+      "spike_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md",
+      "city_id": "ozarow-mazowiecki",
+      "city_simc": "0921415",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md"
     },
     {
       "label": "Wąbrzeźno",
@@ -3550,7 +4602,10 @@
       "city_slug": "wabrzezno",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md",
+      "city_id": "wabrzezno",
+      "city_simc": "0983652",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md"
     },
     {
       "label": "Wągrowiec",
@@ -3560,7 +4615,10 @@
       "city_slug": "wagrowiec",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-wagrowiecki/wagrowiec.md"
+      "spike_path": "spikes/wielkopolskie/powiat-wagrowiecki/wagrowiec.md",
+      "city_id": "wagrowiec",
+      "city_simc": "0967297",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-wagrowiecki/wagrowiec.md"
     },
     {
       "label": "Wejherowo",
@@ -3571,7 +4629,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/pomorskie/powiat-wejherowski/wejherowo.md",
-      "note": "seat is the city-county \"Wejherowo\" (covered, master status: built)"
+      "note": "seat is the city-county \"Wejherowo\" (covered, master status: built)",
+      "city_id": "wejherowo",
+      "city_simc": "0934984",
+      "canonical_spike_path": "spikes/pomorskie/powiat-wejherowski/wejherowo.md"
     },
     {
       "label": "Węgorzewo",
@@ -3581,7 +4642,10 @@
       "city_slug": "wegorzewo",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md"
+      "spike_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md",
+      "city_id": "wegorzewo",
+      "city_simc": "0977947",
+      "canonical_spike_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md"
     },
     {
       "label": "Węgrów",
@@ -3591,7 +4655,10 @@
       "city_slug": "wegrow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md"
+      "spike_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md",
+      "city_id": "wegrow",
+      "city_simc": "0975871",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md"
     },
     {
       "label": "Wieliczka",
@@ -3601,7 +4668,10 @@
       "city_slug": "wieliczka",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/malopolskie/powiat-wielicki/wieliczka.md"
+      "spike_path": "spikes/malopolskie/powiat-wielicki/wieliczka.md",
+      "city_id": "wieliczka",
+      "city_simc": "0952232",
+      "canonical_spike_path": "spikes/malopolskie/powiat-wielicki/wieliczka.md"
     },
     {
       "label": "Wieluń",
@@ -3611,7 +4681,10 @@
       "city_slug": "wielun",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-wielunski/wielun.md"
+      "spike_path": "spikes/lodzkie/powiat-wielunski/wielun.md",
+      "city_id": "wielun",
+      "city_simc": "0976586",
+      "canonical_spike_path": "spikes/lodzkie/powiat-wielunski/wielun.md"
     },
     {
       "label": "Wieruszów",
@@ -3621,7 +4694,10 @@
       "city_slug": "wieruszow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-wieruszowski/wieruszow.md"
+      "spike_path": "spikes/lodzkie/powiat-wieruszowski/wieruszow.md",
+      "city_id": "wieruszow",
+      "city_simc": "0937400",
+      "canonical_spike_path": "spikes/lodzkie/powiat-wieruszowski/wieruszow.md"
     },
     {
       "label": "Włocławek",
@@ -3631,7 +4707,10 @@
       "city_slug": "wloclawek",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md"
+      "spike_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md",
+      "city_id": "wloclawek",
+      "city_simc": "0984752",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md"
     },
     {
       "label": "Włocławek",
@@ -3641,8 +4720,12 @@
       "city_slug": "wloclawek",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-wloclawski/wloclawek.md",
-      "note": "seat is the city-county \"Włocławek\" (covered, master status: build)"
+      "spike_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md",
+      "note": "seat is the city-county \"Włocławek\" (covered, master status: build)",
+      "city_id": "wloclawek",
+      "city_simc": "0984752",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md",
+      "spike_path_original": "spikes/kujawsko-pomorskie/powiat-wloclawski/wloclawek.md"
     },
     {
       "label": "Włodawa",
@@ -3652,7 +4735,10 @@
       "city_slug": "wlodawa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-wlodawski/wlodawa.md"
+      "spike_path": "spikes/lubelskie/powiat-wlodawski/wlodawa.md",
+      "city_id": "wlodawa",
+      "city_simc": "0930294",
+      "canonical_spike_path": "spikes/lubelskie/powiat-wlodawski/wlodawa.md"
     },
     {
       "label": "Włoszczowa",
@@ -3662,7 +4748,10 @@
       "city_slug": "wloszczowa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/swietokrzyskie/powiat-wloszczowski/wloszczowa.md"
+      "spike_path": "spikes/swietokrzyskie/powiat-wloszczowski/wloszczowa.md",
+      "city_id": "wloszczowa",
+      "city_simc": "0948472",
+      "canonical_spike_path": "spikes/swietokrzyskie/powiat-wloszczowski/wloszczowa.md"
     },
     {
       "label": "Wodzisław Śląski",
@@ -3672,7 +4761,10 @@
       "city_slug": "wodzislaw-slaski",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md"
+      "spike_path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md",
+      "city_id": "wodzislaw-slaski",
+      "city_simc": "0944853",
+      "canonical_spike_path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md"
     },
     {
       "label": "Wolsztyn",
@@ -3682,7 +4774,10 @@
       "city_slug": "wolsztyn",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-wolsztynski/wolsztyn.md"
+      "spike_path": "spikes/wielkopolskie/powiat-wolsztynski/wolsztyn.md",
+      "city_id": "wolsztyn",
+      "city_simc": "0988632",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-wolsztynski/wolsztyn.md"
     },
     {
       "label": "Wołomin",
@@ -3693,7 +4788,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-wolominski/wolomin.md",
-      "note": "seat is the city-county \"Wołomin\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Wołomin\" (covered, master status: no-build)",
+      "city_id": "wolomin",
+      "city_simc": "0921792",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-wolominski/wolomin.md"
     },
     {
       "label": "Wołów",
@@ -3703,7 +4801,10 @@
       "city_slug": "wolow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md",
+      "city_id": "wolow",
+      "city_simc": "0987466",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md"
     },
     {
       "label": "Wrocław",
@@ -3713,7 +4814,10 @@
       "city_slug": "wroclaw",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md"
+      "spike_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md",
+      "city_id": "wroclaw",
+      "city_simc": "0986283",
+      "canonical_spike_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md"
     },
     {
       "label": "Wrocław",
@@ -3723,8 +4827,12 @@
       "city_slug": "wroclaw",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-wroclawski/wroclaw.md",
-      "note": "seat is the city-county \"Wrocław\" (covered, master status: build)"
+      "spike_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md",
+      "note": "seat is the city-county \"Wrocław\" (covered, master status: build)",
+      "city_id": "wroclaw",
+      "city_simc": "0986283",
+      "canonical_spike_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md",
+      "spike_path_original": "spikes/dolnoslaskie/powiat-wroclawski/wroclaw.md"
     },
     {
       "label": "Września",
@@ -3735,7 +4843,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/wielkopolskie/powiat-wrzesinski/wrzesnia.md",
-      "note": "seat is the city-county \"Września\" (covered, master status: build)"
+      "note": "seat is the city-county \"Września\" (covered, master status: build)",
+      "city_id": "wrzesnia",
+      "city_simc": "0971637",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-wrzesinski/wrzesnia.md"
     },
     {
       "label": "Wschowa",
@@ -3745,7 +4856,10 @@
       "city_slug": "wschowa",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-wschowski/wschowa.md"
+      "spike_path": "spikes/lubuskie/powiat-wschowski/wschowa.md",
+      "city_id": "wschowa",
+      "city_simc": "0954685",
+      "canonical_spike_path": "spikes/lubuskie/powiat-wschowski/wschowa.md"
     },
     {
       "label": "Wysokie Mazowieckie",
@@ -3755,7 +4869,10 @@
       "city_slug": "wysokie-mazowieckie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-wysokomazowiecki/wysokie-mazowieckie.md"
+      "spike_path": "spikes/podlaskie/powiat-wysokomazowiecki/wysokie-mazowieckie.md",
+      "city_id": "wysokie-mazowieckie",
+      "city_simc": "0957620",
+      "canonical_spike_path": "spikes/podlaskie/powiat-wysokomazowiecki/wysokie-mazowieckie.md"
     },
     {
       "label": "Wyszków",
@@ -3765,7 +4882,10 @@
       "city_slug": "wyszkow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-wyszkowski/wyszkow.md"
+      "spike_path": "spikes/mazowieckie/powiat-wyszkowski/wyszkow.md",
+      "city_id": "wyszkow",
+      "city_simc": "0966470",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-wyszkowski/wyszkow.md"
     },
     {
       "label": "Zabrze",
@@ -3775,7 +4895,10 @@
       "city_slug": "zabrze",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/zabrze/zabrze.md"
+      "spike_path": "spikes/slaskie/zabrze/zabrze.md",
+      "city_id": "zabrze",
+      "city_simc": "0945380",
+      "canonical_spike_path": "spikes/slaskie/zabrze/zabrze.md"
     },
     {
       "label": "Zambrów",
@@ -3785,7 +4908,10 @@
       "city_slug": "zambrow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/podlaskie/powiat-zambrowski/zambrow.md"
+      "spike_path": "spikes/podlaskie/powiat-zambrowski/zambrow.md",
+      "city_id": "zambrow",
+      "city_simc": "0957637",
+      "canonical_spike_path": "spikes/podlaskie/powiat-zambrowski/zambrow.md"
     },
     {
       "label": "Zamość",
@@ -3795,8 +4921,12 @@
       "city_slug": "zamosc",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubelskie/powiat-zamojski/zamosc.md",
-      "note": "seat is the city-county \"Zamość\" (covered, master status: no-build)"
+      "spike_path": "spikes/lubelskie/zamosc/zamosc.md",
+      "note": "seat is the city-county \"Zamość\" (covered, master status: no-build)",
+      "city_id": "zamosc",
+      "city_simc": "0987510",
+      "canonical_spike_path": "spikes/lubelskie/zamosc/zamosc.md",
+      "spike_path_original": "spikes/lubelskie/powiat-zamojski/zamosc.md"
     },
     {
       "label": "Zamość",
@@ -3806,7 +4936,10 @@
       "city_slug": "zamosc",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lubelskie/zamosc/zamosc.md"
+      "spike_path": "spikes/lubelskie/zamosc/zamosc.md",
+      "city_id": "zamosc",
+      "city_simc": "0987510",
+      "canonical_spike_path": "spikes/lubelskie/zamosc/zamosc.md"
     },
     {
       "label": "Zawiercie",
@@ -3817,7 +4950,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/slaskie/powiat-zawiercianski/zawiercie.md",
-      "note": "seat is the city-county \"Zawiercie\" (covered, master status: no-build)"
+      "note": "seat is the city-county \"Zawiercie\" (covered, master status: no-build)",
+      "city_id": "zawiercie",
+      "city_simc": "0945491",
+      "canonical_spike_path": "spikes/slaskie/powiat-zawiercianski/zawiercie.md"
     },
     {
       "label": "Ząbkowice Śląskie",
@@ -3827,7 +4963,10 @@
       "city_slug": "zabkowice-slaskie",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md",
+      "city_id": "zabkowice-slaskie",
+      "city_simc": "0984692",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md"
     },
     {
       "label": "Zduńska Wola",
@@ -3837,7 +4976,10 @@
       "city_slug": "zdunska-wola",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md"
+      "spike_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md",
+      "city_id": "zdunska-wola",
+      "city_simc": "0976675",
+      "canonical_spike_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md"
     },
     {
       "label": "Zgierz",
@@ -3848,7 +4990,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/lodzkie/powiat-zgierski/zgierz.md",
-      "note": "seat is the city-county \"Zgierz\" (covered, master status: build)"
+      "note": "seat is the city-county \"Zgierz\" (covered, master status: build)",
+      "city_id": "zgierz",
+      "city_simc": "0959263",
+      "canonical_spike_path": "spikes/lodzkie/powiat-zgierski/zgierz.md"
     },
     {
       "label": "Zgorzelec",
@@ -3858,7 +5003,10 @@
       "city_slug": "zgorzelec",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md",
+      "city_id": "zgorzelec",
+      "city_simc": "0936546",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md"
     },
     {
       "label": "Zielona Góra",
@@ -3868,7 +5016,10 @@
       "city_slug": "zielona-gora",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/lubuskie/zielona-gora/zielona-gora.md"
+      "spike_path": "spikes/lubuskie/zielona-gora/zielona-gora.md",
+      "city_id": "zielona-gora",
+      "city_simc": "0988313",
+      "canonical_spike_path": "spikes/lubuskie/zielona-gora/zielona-gora.md"
     },
     {
       "label": "Zielona Góra",
@@ -3878,8 +5029,12 @@
       "city_slug": "zielona-gora",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-zielonogorski/zielona-gora.md",
-      "note": "seat is the city-county \"Zielona Góra\" (covered, master status: no-build)"
+      "spike_path": "spikes/lubuskie/zielona-gora/zielona-gora.md",
+      "note": "seat is the city-county \"Zielona Góra\" (covered, master status: no-build)",
+      "city_id": "zielona-gora",
+      "city_simc": "0988313",
+      "canonical_spike_path": "spikes/lubuskie/zielona-gora/zielona-gora.md",
+      "spike_path_original": "spikes/lubuskie/powiat-zielonogorski/zielona-gora.md"
     },
     {
       "label": "Złotoryja",
@@ -3889,7 +5044,10 @@
       "city_slug": "zlotoryja",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md"
+      "spike_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md",
+      "city_id": "zlotoryja",
+      "city_simc": "0954219",
+      "canonical_spike_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md"
     },
     {
       "label": "Złotów",
@@ -3899,7 +5057,10 @@
       "city_slug": "zlotow",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md"
+      "spike_path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md",
+      "city_id": "zlotow",
+      "city_simc": "0967423",
+      "canonical_spike_path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md"
     },
     {
       "label": "Zwoleń",
@@ -3909,7 +5070,10 @@
       "city_slug": "zwolen",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-zwolenski/zwolen.md"
+      "spike_path": "spikes/mazowieckie/powiat-zwolenski/zwolen.md",
+      "city_id": "zwolen",
+      "city_simc": "0974096",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-zwolenski/zwolen.md"
     },
     {
       "label": "Żagań",
@@ -3919,7 +5083,10 @@
       "city_slug": "zagan",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-zaganski/zagan.md"
+      "spike_path": "spikes/lubuskie/powiat-zaganski/zagan.md",
+      "city_id": "zagan",
+      "city_simc": "0988661",
+      "canonical_spike_path": "spikes/lubuskie/powiat-zaganski/zagan.md"
     },
     {
       "label": "Żary",
@@ -3929,7 +5096,10 @@
       "city_slug": "zary",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/lubuskie/powiat-zarski/zary.md"
+      "spike_path": "spikes/lubuskie/powiat-zarski/zary.md",
+      "city_id": "zary",
+      "city_simc": "0988684",
+      "canonical_spike_path": "spikes/lubuskie/powiat-zarski/zary.md"
     },
     {
       "label": "Żnin",
@@ -3939,7 +5109,10 @@
       "city_slug": "znin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md"
+      "spike_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md",
+      "city_id": "znin",
+      "city_simc": "0929865",
+      "canonical_spike_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md"
     },
     {
       "label": "Żory",
@@ -3949,7 +5122,10 @@
       "city_slug": "zory",
       "tier": "city-county",
       "status": "done",
-      "spike_path": "spikes/slaskie/zory/zory.md"
+      "spike_path": "spikes/slaskie/zory/zory.md",
+      "city_id": "zory",
+      "city_simc": "0945746",
+      "canonical_spike_path": "spikes/slaskie/zory/zory.md"
     },
     {
       "label": "Żuromin",
@@ -3959,7 +5135,10 @@
       "city_slug": "zuromin",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/mazowieckie/powiat-zurominski/zuromin.md"
+      "spike_path": "spikes/mazowieckie/powiat-zurominski/zuromin.md",
+      "city_id": "zuromin",
+      "city_simc": "0930851",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-zurominski/zuromin.md"
     },
     {
       "label": "Żyrardów",
@@ -3970,7 +5149,10 @@
       "tier": "powiat-seat",
       "status": "done",
       "spike_path": "spikes/mazowieckie/powiat-zyrardowski/zyrardow.md",
-      "note": "seat is the city-county \"Żyrardów\" (covered, master status: build)"
+      "note": "seat is the city-county \"Żyrardów\" (covered, master status: build)",
+      "city_id": "zyrardow",
+      "city_simc": "0977210",
+      "canonical_spike_path": "spikes/mazowieckie/powiat-zyrardowski/zyrardow.md"
     },
     {
       "label": "Żywiec",
@@ -3980,7 +5162,12 @@
       "city_slug": "zywiec",
       "tier": "powiat-seat",
       "status": "done",
-      "spike_path": "spikes/slaskie/powiat-zywiecki/zywiec.md"
+      "spike_path": "spikes/slaskie/powiat-zywiecki/zywiec.md",
+      "city_id": "zywiec",
+      "city_simc": "0927642",
+      "canonical_spike_path": "spikes/slaskie/powiat-zywiecki/zywiec.md"
     }
-  ]
+  ],
+  "schema": "powiat-backlog/2",
+  "distinct_city_count": 335
 }
