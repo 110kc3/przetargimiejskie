@@ -178,27 +178,6 @@
       ]
     },
     {
-      "key": "lokal niemieszkalny ul warszawska|8|3",
-      "street": "Lokal niemieszkalny ul. Warszawska",
-      "street_norm": "lokal niemieszkalny ul warszawska",
-      "building": "8",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 32800,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-ii-przetarg-ograniczony-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
       "key": "szczecinska|28B|11",
       "street": "Szczecińska",
       "street_norm": "szczecinska",
@@ -311,6 +290,39 @@
         }
       ],
       "area_m2": 24.63
+    },
+    {
+      "key": "lokal niemieszkalny ul warszawska|8|3",
+      "street": "Lokal niemieszkalny ul. Warszawska",
+      "street_norm": "lokal niemieszkalny ul warszawska",
+      "building": "8",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32800,
+          "outcome": "archived",
+          "area_m2": 14,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-ii-przetarg-ograniczony-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 41000,
+          "outcome": "active",
+          "area_m2": 14,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-i-rokowania-na-sprzedaz-nieruchomosci-ograniczone-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8-w-stargardzie/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 14
     },
     {
       "key": "mickiewicza|27|7",
