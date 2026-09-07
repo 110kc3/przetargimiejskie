@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-06T08:44:47.633Z",
+  "generated_at": "2026-09-07T09:16:36.320Z",
   "cities": [
     {
       "id": "gliwice",
@@ -100,8 +100,8 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 37,
-      "active_listings": 67,
-      "active_auctions": 10,
+      "active_listings": 68,
+      "active_auctions": 11,
       "archived_auctions": 66,
       "wykaz_entries": 0,
       "land_plots": 50
@@ -139,11 +139,11 @@
       "authority": "Urząd Miasta Kędzierzyn-Koźle",
       "host": "bip.kedzierzynkozle.pl",
       "unique_properties": 18,
-      "active_listings": 82,
+      "active_listings": 90,
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 85
+      "land_plots": 116
     },
     {
       "id": "trzebinia",
@@ -399,7 +399,7 @@
       "authority": "Urząd Miasta Szczecin",
       "host": "bip.um.szczecin.pl",
       "unique_properties": 35,
-      "active_listings": 4,
+      "active_listings": 2,
       "active_auctions": 2,
       "archived_auctions": 37,
       "wykaz_entries": 0,
@@ -438,8 +438,8 @@
       "authority": "Gmina-Miasto Stargard",
       "host": "bip.stargard.eu",
       "unique_properties": 16,
-      "active_listings": 4,
-      "active_auctions": 5,
+      "active_listings": 5,
+      "active_auctions": 6,
       "archived_auctions": 13,
       "wykaz_entries": 0,
       "land_plots": 0
@@ -1170,7 +1170,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35
     },
     {
       "id": "jarocin",
@@ -1555,9 +1555,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Prezydent Miasta Głogowa",
       "host": "glogow.bip.info.pl",
-      "unique_properties": 28,
-      "active_listings": 4,
-      "active_auctions": 5,
+      "unique_properties": 29,
+      "active_listings": 5,
+      "active_auctions": 6,
       "archived_auctions": 52,
       "wykaz_entries": 0,
       "land_plots": 28
