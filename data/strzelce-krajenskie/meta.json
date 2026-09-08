@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "strzelce-krajenskie",
-  "generated_at": "2026-09-08T09:54:57.903Z",
+  "generated_at": "2026-09-08T10:19:10.007Z",
   "source_pdf_count": 3,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -14,5 +14,24 @@
   "land_plots": 1,
   "land_listings": 1,
   "retained_properties": 0,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:19:04.714Z",
+  "last_successful_source_check_at": "2026-09-08T10:19:04.714Z",
+  "monitored_assets": [
+    "land"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "not_monitored",
+      "last_attempt_at": "2026-09-08T10:19:04.714Z",
+      "last_success_at": null
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:19:04.714Z",
+      "last_success_at": "2026-09-08T10:19:04.714Z"
+    }
+  }
 }

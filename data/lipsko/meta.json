@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "lipsko",
-  "generated_at": "2026-09-08T09:59:55.726Z",
+  "generated_at": "2026-09-08T10:25:26.827Z",
   "source_pdf_count": 2,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -14,5 +14,24 @@
   "land_plots": 2,
   "land_listings": 2,
   "retained_properties": 0,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:25:13.237Z",
+  "last_successful_source_check_at": "2026-09-08T10:25:13.237Z",
+  "monitored_assets": [
+    "land"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "not_monitored",
+      "last_attempt_at": "2026-09-08T10:25:13.237Z",
+      "last_success_at": null
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:25:13.237Z",
+      "last_success_at": "2026-09-08T10:25:13.237Z"
+    }
+  }
 }

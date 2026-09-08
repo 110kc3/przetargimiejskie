@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "skarzysko-kamienna",
-  "generated_at": "2026-09-08T09:48:56.533Z",
+  "generated_at": "2026-09-08T10:25:42.555Z",
   "source_pdf_count": 12,
   "parsed_records": 3,
   "parser_note_count": 11,
@@ -14,5 +14,27 @@
   "land_plots": 5,
   "land_listings": 22,
   "retained_properties": 1,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:25:05.639Z",
+  "last_successful_source_check_at": "2026-09-08T10:25:05.639Z",
+  "monitored_assets": [
+    "building",
+    "commercial",
+    "land",
+    "residential"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-09-08T10:25:05.639Z",
+      "last_success_at": "2026-09-08T10:25:05.639Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:25:05.639Z",
+      "last_success_at": "2026-09-08T10:25:05.639Z"
+    }
+  }
 }

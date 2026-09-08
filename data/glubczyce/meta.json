@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "glubczyce",
-  "generated_at": "2026-09-08T09:57:45.201Z",
+  "generated_at": "2026-09-08T10:26:16.751Z",
   "source_pdf_count": 50,
   "parsed_records": 23,
   "parser_note_count": 11,
@@ -14,5 +14,27 @@
   "land_plots": 21,
   "land_listings": 39,
   "retained_properties": 3,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:26:09.555Z",
+  "last_successful_source_check_at": "2026-09-08T10:26:09.555Z",
+  "monitored_assets": [
+    "building",
+    "garage",
+    "land",
+    "residential"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-09-08T10:26:09.555Z",
+      "last_success_at": "2026-09-08T10:26:09.555Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:26:09.555Z",
+      "last_success_at": "2026-09-08T10:26:09.555Z"
+    }
+  }
 }

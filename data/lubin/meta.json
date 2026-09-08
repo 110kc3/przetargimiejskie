@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "lubin",
-  "generated_at": "2026-09-08T10:01:48.534Z",
+  "generated_at": "2026-09-08T10:27:47.047Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -14,5 +14,22 @@
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 0,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:27:32.476Z",
+  "last_successful_source_check_at": "2026-09-08T10:27:32.476Z",
+  "monitored_assets": [],
+  "source_checks": {
+    "property": {
+      "status": "not_monitored",
+      "last_attempt_at": "2026-09-08T10:27:32.476Z",
+      "last_success_at": null
+    },
+    "land": {
+      "status": "not_monitored",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:27:32.476Z",
+      "last_success_at": null
+    }
+  }
 }

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "szczecinek",
-  "generated_at": "2026-09-08T09:57:37.570Z",
+  "generated_at": "2026-09-08T10:19:54.564Z",
   "source_pdf_count": 63,
   "parsed_records": 12,
   "parser_note_count": 40,
@@ -14,5 +14,26 @@
   "land_plots": 55,
   "land_listings": 84,
   "retained_properties": 0,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:17:10.024Z",
+  "last_successful_source_check_at": "2026-09-08T10:17:10.024Z",
+  "monitored_assets": [
+    "building",
+    "land",
+    "residential"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-09-08T10:17:10.024Z",
+      "last_success_at": "2026-09-08T10:17:10.024Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:17:10.024Z",
+      "last_success_at": "2026-09-08T10:17:10.024Z"
+    }
+  }
 }

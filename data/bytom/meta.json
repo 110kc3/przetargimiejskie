@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "bytom",
-  "generated_at": "2026-09-08T09:37:46.046Z",
+  "generated_at": "2026-09-08T10:09:17.716Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -14,5 +14,27 @@
   "land_plots": 21,
   "land_listings": 21,
   "retained_properties": 10,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:08:48.401Z",
+  "last_successful_source_check_at": "2026-09-08T10:08:48.401Z",
+  "monitored_assets": [
+    "commercial",
+    "garage",
+    "land",
+    "residential"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-09-08T10:08:48.401Z",
+      "last_success_at": "2026-09-08T10:08:48.401Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:08:48.401Z",
+      "last_success_at": "2026-09-08T10:08:48.401Z"
+    }
+  }
 }

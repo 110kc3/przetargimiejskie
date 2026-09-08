@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "kwidzyn",
-  "generated_at": "2026-09-08T10:01:45.864Z",
+  "generated_at": "2026-09-08T10:27:12.240Z",
   "source_pdf_count": 53,
   "parsed_records": 0,
   "parser_note_count": 11,
@@ -14,5 +14,25 @@
   "land_plots": 7,
   "land_listings": 13,
   "retained_properties": 6,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:23:40.279Z",
+  "last_successful_source_check_at": "2026-09-08T10:23:40.279Z",
+  "monitored_assets": [
+    "land",
+    "residential"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "degraded",
+      "last_attempt_at": "2026-09-08T10:23:40.279Z",
+      "last_success_at": "2026-09-08T08:54:12.519Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:23:40.279Z",
+      "last_success_at": "2026-09-08T10:23:40.279Z"
+    }
+  }
 }

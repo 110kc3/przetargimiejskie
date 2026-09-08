@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "boleslawiec",
-  "generated_at": "2026-09-08T09:56:26.185Z",
+  "generated_at": "2026-09-08T10:20:34.472Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -14,5 +14,27 @@
   "land_plots": 4,
   "land_listings": 5,
   "retained_properties": 1,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:20:20.454Z",
+  "last_successful_source_check_at": "2026-09-08T10:20:20.454Z",
+  "monitored_assets": [
+    "building",
+    "land",
+    "residential",
+    "unknown"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-09-08T10:20:20.454Z",
+      "last_success_at": "2026-09-08T10:20:20.454Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:20:20.454Z",
+      "last_success_at": "2026-09-08T10:20:20.454Z"
+    }
+  }
 }

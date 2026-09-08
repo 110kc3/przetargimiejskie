@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "nysa",
-  "generated_at": "2026-09-08T09:43:49.873Z",
+  "generated_at": "2026-09-08T10:09:41.593Z",
   "source_pdf_count": 3,
   "parsed_records": 3,
   "parser_note_count": 0,
@@ -14,5 +14,24 @@
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 0,
-  "valid_empty": false
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-09-08T10:08:38.663Z",
+  "last_successful_source_check_at": "2026-09-08T10:08:38.663Z",
+  "monitored_assets": [
+    "residential"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-09-08T10:08:38.663Z",
+      "last_success_at": "2026-09-08T10:08:38.663Z"
+    },
+    "land": {
+      "status": "not_monitored",
+      "complete": true,
+      "last_attempt_at": "2026-09-08T10:08:38.663Z",
+      "last_success_at": null
+    }
+  }
 }
