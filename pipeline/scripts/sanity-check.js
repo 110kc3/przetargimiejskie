@@ -26,6 +26,8 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateLandDocument } from './coverage-health.js';
+import { validationPolicy } from './validation-policy.js';
 
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
@@ -62,27 +64,11 @@ function err(city, key, cls, msg) {
   errors.push({ city, text: `${city}: [${cls}] ${key} — ${msg}` });
 }
 
-// Tiering: only Śląskie cities are "public" (shown on the main site) and BLOCK CI
-// on a sanity error. Every other voivodeship is TEST-TIER — visible only under
-// /archiwum-all while its parser is still being validated — so its errors are
-// reported as non-blocking WARNs. Voivodeship comes from the committed
-// data/index.json; an unknown (brand-new) city is treated as test-tier. The
-// hardcoded Śląskie set is a fallback so the public tier is never left unchecked
-// if index.json is briefly missing.
-const SLASKIE_FALLBACK = new Set(['gliwice', 'katowice', 'bytom', 'zabrze', 'sosnowiec', 'rybnik', 'bielsko', 'myslowice', 'swietochlowice', 'tarnowskie-gory']);
-let WOJ_BY_CITY = {};
-try {
-  WOJ_BY_CITY = Object.fromEntries(
-    (JSON.parse(readFileSync(join(DATA_DIR, 'index.json'), 'utf8')).cities || []).map((c) => [c.id, c.voivodeship]),
-  );
-} catch { /* index.json missing — fall back to the hardcoded Śląskie set */ }
-const isPublicTier = (city) =>
-  Object.keys(WOJ_BY_CITY).length ? WOJ_BY_CITY[city] === 'slaskie' : SLASKIE_FALLBACK.has(city);
-
 function checkCity(city) {
   const path = join(DATA_DIR, city, 'properties.json');
-  if (!existsSync(path)) return;
-  const props = JSON.parse(readFileSync(path, 'utf8')).properties || [];
+  const props = existsSync(path)
+    ? JSON.parse(readFileSync(path, 'utf8')).properties || []
+    : [];
 
   const keys = new Set(props.map((p) => p.key));
   let missingArea = 0;
@@ -129,6 +115,25 @@ function checkCity(city) {
     if (p.kind === 'mieszkalny' && !hasArea) missingArea++;
   }
   if (missingArea) warns.push(`${city}: ${missingArea} mieszkalny properties without any area (info)`);
+
+  const metaPath = join(DATA_DIR, city, 'meta.json');
+  let meta = null;
+  if (existsSync(metaPath)) meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+  const landPath = join(DATA_DIR, city, 'land.json');
+  if ((meta?.land_plots || 0) > 0 || existsSync(landPath)) {
+    if (!existsSync(landPath)) {
+      err(city, 'land.json', 'land-data', `land_plots=${meta.land_plots} but land.json is missing`);
+    } else {
+      const land = JSON.parse(readFileSync(landPath, 'utf8'));
+      for (const message of validateLandDocument(city, land)) {
+        err(city, 'land.json', 'land-data', message);
+      }
+      if (meta && (land.plots?.length ?? -1) !== (meta.land_plots || 0)) {
+        err(city, 'land.json', 'land-data',
+          `land_plots=${meta.land_plots || 0} does not match land.json (${land.plots?.length ?? 0})`);
+      }
+    }
+  }
 }
 
 const arg = process.argv[2];
@@ -137,16 +142,16 @@ const cities = arg
   : readdirSync(DATA_DIR, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
 for (const c of cities) checkCity(c);
 
-const blocking = errors.filter((e) => isPublicTier(e.city));
-const testTier = errors.filter((e) => !isPublicTier(e.city));
+const blocking = errors.filter((e) => validationPolicy(e.city).status === 'enforced');
+const quarantined = errors.filter((e) => validationPolicy(e.city).status === 'quarantined');
 
 for (const w of warns) console.error('WARN  ' + w);
-for (const e of testTier) console.error('WARN  [test-tier · /archiwum-all, non-blocking] ' + e.text);
+for (const e of quarantined) console.error('WARN  [validation-quarantine, non-blocking] ' + e.text);
 for (const e of blocking) console.error('ERROR ' + e.text);
 console.error(blocking.length
   ? `sanity-check: ${blocking.length} blocking error(s)` +
-      (testTier.length ? ` (+${testTier.length} test-tier, non-blocking)` : '') +
+      (quarantined.length ? ` (+${quarantined.length} quarantined, non-blocking)` : '') +
       ` across ${cities.length} city file(s).`
   : `sanity-check: OK (${cities.length} city file(s)` +
-      (testTier.length ? `; ${testTier.length} test-tier warning(s) ignored` : ' clean') + `).`);
+      (quarantined.length ? `; ${quarantined.length} quarantined warning(s)` : ' clean') + `).`);
 process.exit(blocking.length ? 1 : 0);

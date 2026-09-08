@@ -13,8 +13,8 @@
 > landed in `45dcb09` (extension CI, P2-D verified-heals in refresh, TG PDF
 > price/area fix, newsletter generator + first seeded run 2026-07-06); daily
 > refresh + failure-triage issues live; Bydgoszcz/Gorzów rebuilt 2026-07-06;
-> 2026-07-07 session — brzeg waiting-room handling, FETCH_PROXY_URL egress
-> hook, EXEMPT_NEW cleanup + busko-zdrój entry, docs truth pass
+> 2026-07-07 session — brzeg waiting-room handling, the former proxy-egress
+> experiment (removed 2026-09-08), EXEMPT_NEW cleanup + busko-zdrój entry, docs truth pass
 > (ROADMAP/REMOTE/TODO/README); 2026-07-07 ops-hygiene pass — issue-sync
 > anti-flap close guard + title-ownership guard (kills the busko-zdrój
 > open/close flap and dual-failing title churn), generalized challenge-page
@@ -136,25 +136,24 @@ the old stale/egress membership), the 31-August update above supersedes them.
 
 > **Stable-v1 egress decision (2026-09-05) supersedes the July notes:** no
 > Tailscale or hosted residential proxy will be activated. Racibórz and
-> Pszczyna are excluded from hosted matrices and use reviewed operator refreshes
-> plus the expiring 21-day stale-only health policy in
+> Pszczyna are excluded from hosted matrices and retain last-good data under the
+> expiring 21-day stale-only health policy, with no local production fallback, in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 
-> **Why health is red (confirmed 2026-07-07):** health.yml runs health-check.js
+> **Historical diagnosis from 2026-07-07 (superseded by the stable-v1 decision
+> above):** health.yml runs health-check.js
 > with **`STALE_DAYS=3`** (health.yml:60, tighter than the local default 14), so
 > the three externally-broken cities below trip **stale-data FAIL** —
 > swietochlowice (7d), raciborz (6d), tczew (4d). Per policy *stale-data FAILs
 > cannot be allowlisted; only a green crawl clears them* — so **no code change
 > can green health** while those sources are unreachable from CI's Azure IPs.
-> **The single unblock is non-Azure egress** via the restricted
-> `FETCH_PROXY_URL` design in [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md) — a
-> Kamil/infra action. The
+> At the time, restricted non-Azure proxy egress was proposed as the unblock;
+> that design was not accepted and its hook has now been removed. The
 > ops-hygiene fixes this session removed the *surrounding* noise (auto-close
 > flap, title churn, the ~07-23 gdansk/augustow false-cliff) but cannot clear
-> the stale trio. **DECISION:** Kamil deferred the egress unblock on 2026-07-07
-> ("leave red for now") — health stays chronically red on the stale trio until
-> the restricted PL proxy is stood up. Don't
-> re-ask; revisit when Kamil raises it. Caveat: chronic red masks new
+> the stale trio. **DECISION at that time:** Kamil deferred the egress unblock
+> on 2026-07-07. The later stable-v1 policy excludes the remaining affected
+> sources with expiring visibility instead. Caveat: chronic red masks new
 > breakages — the ops-hygiene fixes reduce, but don't eliminate, that risk.
 
 ### The stale set grew from 3 to 5 — and the two newcomers are NOT the FINN incident [RPI5]
@@ -186,7 +185,7 @@ new ones are ordinary breakages that egress will not fix:
       `curl` gives `SSL certificate problem: unable to get local issuer
       certificate`; the very same request with `-k` returns **200**. The server
       is serving a leaf without its intermediate, so every strict client
-      (undici/Node included) refuses it while a browser papers over it. This
+      (Node included) refuses it while a browser papers over it. This
       fails from Poland too — CI egress is irrelevant. Decide deliberately:
       supply the missing intermediate to the fetch path for this host only, or
       classify it `source-unreachable` and stop counting it as our bug. Do NOT
@@ -208,14 +207,14 @@ which silently drops TCP from GitHub-Actions/Azure IP ranges:
 run), while both sources returned HTTP 200 in 0.3–1.7 s from a Polish IP on
 2026-07-07. **Sources are up and parseable — no adapter change needed.** Treat
 as ONE provider incident (issues #2 + #3). Fix is egress, not parser code. The
-optional local `FETCH_PROXY_URL` hook remains available to operators, while
-hosted automation excludes the adapters under
+former proxy hook has been removed; hosted automation excludes the affected
+adapter under
 [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md). Preserve-on-empty
 holds 9 (raciborz) + 91 (swietochlowice) properties
-meanwhile; the stale-only exemption is time-bounded and requires an operator
-refresh or re-audit. Optionally tag FINN-hosted cities in config so simultaneous
+meanwhile; the stale-only exemption is time-bounded and expires into a hard gap.
+Optionally tag FINN-hosted cities in config so simultaneous
 194.24.181.47 failures triage as one incident, not N issues.
-**Owner:** agent · **Blockers:** source reachability; operator refresh required.
+**Owner:** agent · **Blockers:** direct hosted source reachability or a validated public replacement feed.
 
 ### Broken city — Brzeg anti-DDoS waiting room [RPI5]
 
@@ -688,12 +687,17 @@ current owner action or a prerequisite for the municipal pilot.
   historic verdicts, repairs all 45 duplicate-seat evidence paths, reconciles all
   121 pipeline IDs and generates a zero-blocker discrepancy report. The annual
   refresh and PR test run entirely on GitHub-hosted infrastructure.
-- **Phase B1/B2 — NEXT:** replace the Śląskie-only data gate, add class-aware
-  health/valid-empty evidence, then group small cities ~4–5/job in
-  refresh.yml + backfill.yml — most city jobs finish <2 min of mostly setup
-  overhead; use isolated city subprocesses and one validated publisher. Exclude
-  `needsResidentialEgress` sources unconditionally; no Tailscale, local runner,
-  private proxy or corresponding credentials. **Blockers:** none.
+- **Phase B1/B2 — IN REVIEW 2026-09-08:** national strict-by-default validation,
+  class-aware land/mixed/valid-empty health, source-aware bounded shards,
+  city-isolated subprocesses and one exact-set municipal publisher are
+  implemented. Failed attempts remain visible in the index while last-good city
+  files are preserved. The 21 legacy validation datasets are an explicit repair
+  cohort due 2026-10-06; 100 current cities and every new city are blocking.
+  Racibórz/Pszczyna remain excluded; no Tailscale, local runner, private proxy or
+  corresponding credential is used. **Release gate:** hosted PR checks.
+- **NEXT after Phase B1/B2:** repair the 21 validation-quarantine datasets in
+  small cohorts, starting with identity/schema failures, then complete the
+  current 121-city source/asset audit and Phase B3 website/extension discovery.
 - **National research:** after Phase B gates and the known 50-city queue, review
   165 historic exclusions against the broader asset scope and survey the 690
   unresearched official cities in measured batches. See [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md).

@@ -34,8 +34,8 @@
 // did not reproduce over several repeated fetches (including fresh processes,
 // no shared session). fetchPage() below keeps a defensive one-shot retry
 // (establish a session against the homepage, harvest the JSESSIONID
-// Set-Cookie, forward it via proxyFetch — the same cookie-jar idiom as
-// brzeg/crawl.js's waiting-room retry, since politeGet cannot send a Cookie
+// Set-Cookie, forward it via the shared direct-fetch handle — the same cookie-jar
+// idiom as brzeg/crawl.js's waiting-room retry, since politeGet cannot send a Cookie
 // header) in case the redirect resurfaces for a different caller IP (e.g. the
 // GH Actions runner). Detection: a homepage redirect serves the bare site
 // title with NO page-specific " - Urząd..." suffix that every real content
@@ -43,7 +43,7 @@
 
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { readFile } from 'node:fs/promises';
-import { getText, politeGet, proxyFetch } from '../../core/fetch.js';
+import { directFetch, getText, politeGet } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
 import { docText } from '../../core/doc-text.js';
@@ -109,7 +109,7 @@ async function fetchPage(url) {
   console.error(`  tomaszow-mazowiecki: homepage redirect on ${url} — establishing session + retrying once`);
   const jar = await establishSession();
   const cookie = [...jar].map(([k, v]) => `${k}=${v}`).join('; ');
-  const retry = await proxyFetch(url, {
+  const retry = await directFetch(url, {
     headers: {
       'User-Agent': BROWSER_UA,
       Accept: 'text/html,application/xhtml+xml',

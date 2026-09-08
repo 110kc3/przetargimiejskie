@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdirSync, mkdtempSync, readFileSync, symlinkSync, truncateSync, unlinkSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, truncateSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
@@ -35,6 +35,7 @@ test('publisher validates and applies a city artifact', () => {
   const result = applyCityArtifacts({ repoRoot: f.repo, incomingRoot: f.incoming, expectedCities: ['test-city'] });
   assert.deepEqual(result.ready, ['test-city']);
   assert.deepEqual(result.staged, [f.path]);
+  assert.deepEqual(result.outcomes, [{ id: 'test-city', status: 'ready', metrics: null }]);
   assert.equal(readFileSync(join(f.repo, f.path), 'utf8'), '{"city":"test-city"}\n');
 });
 
@@ -100,6 +101,45 @@ test('publisher rejects missing, extra and conflicting artifact files', () => {
     () => applyCityArtifacts({ repoRoot: f.repo, incomingRoot: f.incoming, expectedCities: ['test-city'] }),
     /undeclared file/,
   );
+});
+
+test('publisher rejects unexpected root files and invalid metrics', () => {
+  const rootFile = fixture();
+  writeFileSync(join(rootFile.incoming, 'unexpected.txt'), 'unexpected');
+  assert.throws(
+    () => applyCityArtifacts({ repoRoot: rootFile.repo, incomingRoot: rootFile.incoming, expectedCities: ['test-city'] }),
+    /unexpected non-directory/,
+  );
+
+  const badMetrics = fixture();
+  const manifestPath = join(badMetrics.artifact, 'manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  manifest.metrics = { attempted_at: '2026-09-08T12:00:00.000Z', duration_ms: -1, request_count: 0 };
+  writeFileSync(manifestPath, JSON.stringify(manifest));
+  assert.throws(
+    () => applyCityArtifacts({ repoRoot: badMetrics.repo, incomingRoot: badMetrics.incoming, expectedCities: ['test-city'] }),
+    /invalid manifest metrics/,
+  );
+});
+
+test('failed city outcome is retained without applying partial files', () => {
+  const f = fixture();
+  const manifestPath = join(f.artifact, 'manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  manifest.status = 'failed';
+  manifest.files = [];
+  manifest.metrics = {
+    attempted_at: '2026-09-08T12:00:00.000Z',
+    duration_ms: 1234,
+    request_count: 7,
+  };
+  writeFileSync(manifestPath, JSON.stringify(manifest));
+  rmSync(join(f.artifact, 'files'), { recursive: true });
+
+  const result = applyCityArtifacts({ repoRoot: f.repo, incomingRoot: f.incoming, expectedCities: ['test-city'] });
+  assert.deepEqual(result.ready, []);
+  assert.deepEqual(result.staged, []);
+  assert.deepEqual(result.outcomes, [{ id: 'test-city', status: 'failed', metrics: manifest.metrics }]);
 });
 
 test('provider publisher requires and applies the primary artifact', () => {

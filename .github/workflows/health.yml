@@ -4,8 +4,8 @@ name: 2. Data health check
 # produced fresh, non-empty data for every city. Runs daily on the committed
 # data (no crawl, no network) so a stalled adapter is caught within a day.
 # Every FAIL also opens/updates a per-city `[city-broken]` issue via
-# scripts/issue-sync.js (classifications: stale-data, empty-data, meta-missing,
-# exempt-expired) — the issue body is a paste-into-Claude-Code triage prompt,
+# scripts/issue-sync.js (including stale/empty/land/source/refresh/quarantine
+# failures) — the issue body is a paste-into-Claude-Code triage prompt,
 # and GitHub's issue notifications deliver the email. The health-side sync only
 # closes issues it opened (label `health-check`) — see the scope rule in
 # issue-sync.js.
@@ -28,6 +28,9 @@ on:
     paths:
       - 'data/**'
       - 'pipeline/scripts/health-check.js'
+      - 'pipeline/scripts/coverage-health.js'
+      - 'pipeline/scripts/sanity-check.js'
+      - 'pipeline/scripts/validation-policy.js'
       - 'pipeline/scripts/provider-health-check.js'
       - 'pipeline/src/providers/**'
       - 'pipeline/src/refresh-providers.js'
@@ -51,7 +54,15 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
-      - name: Check data freshness & non-emptiness
+      - name: Check national data integrity policy
+        id: integrity
+        continue-on-error: true
+        working-directory: pipeline
+        run: node scripts/sanity-check.js
+      - name: Check data freshness, source state and declared asset classes
+        id: city_health
+        if: always()
+        continue-on-error: true
         working-directory: pipeline
         # STALE_DAYS=3: the crawl runs daily and meta.generated_at is rewritten
         # every run, so committed data is normally <1 day old; >3 days means a
@@ -60,15 +71,20 @@ jobs:
         # two. It only emails the maintainer, never blocks a deploy, so raise it
         # again only if a legitimately-static source ever trips it.
         env:
-          STALE_DAYS: ${{ inputs.stale_days || '3' }}
+          # PRs validate the submitted corpus against the repository's 14-day
+          # baseline so unrelated daily-crawl lag does not block code review;
+          # scheduled/manual monitoring keeps the operational 3-day threshold.
+          STALE_DAYS: ${{ inputs.stale_days || (github.event_name == 'pull_request' && '14') || '3' }}
           HEALTH_JSON_OUT: ${{ github.workspace }}/health-failures.json
         run: node scripts/health-check.js
 
       - name: Check institutional provider feeds
+        id: provider_health
         if: always()
+        continue-on-error: true
         working-directory: pipeline
         env:
-          PROVIDER_STALE_DAYS: ${{ inputs.stale_days || '3' }}
+          PROVIDER_STALE_DAYS: ${{ inputs.stale_days || (github.event_name == 'pull_request' && '14') || '3' }}
         run: node scripts/provider-health-check.js
 
       # Turn the FAILs into per-city issues + close recovered health-owned ones.
@@ -96,3 +112,13 @@ jobs:
             args+=(--dry-run)
           fi
           node pipeline/scripts/issue-sync.js "${args[@]}"
+      - name: Enforce health gates
+        if: always()
+        env:
+          INTEGRITY: ${{ steps.integrity.outcome }}
+          CITY_HEALTH: ${{ steps.city_health.outcome }}
+          PROVIDER_HEALTH: ${{ steps.provider_health.outcome }}
+        run: |
+          test "$INTEGRITY" = success
+          test "$CITY_HEALTH" = success
+          test "$PROVIDER_HEALTH" = success

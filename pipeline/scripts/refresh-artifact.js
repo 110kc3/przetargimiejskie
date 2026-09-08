@@ -94,7 +94,7 @@ function changedFiles(repoRoot, roots) {
   return output.toString('utf8').split('\0').filter(Boolean).sort();
 }
 
-export function packArtifact({ repoRoot, outRoot, kind, id, status }) {
+export function packArtifact({ repoRoot, outRoot, kind, id, status, metrics = null }) {
   if (!['city', 'provider'].includes(kind)) fail(`invalid kind: ${kind}`);
   assertId(id, 'artifact id');
   if (!['ready', 'failed'].includes(status)) fail(`invalid status: ${status}`);
@@ -125,12 +125,19 @@ export function packArtifact({ repoRoot, outRoot, kind, id, status }) {
     files.push({ path, size: stat.size, sha256: sha256(bytes) });
   }
 
+  if (metrics && (!Number.isSafeInteger(metrics.duration_ms) || metrics.duration_ms < 0
+      || !Number.isSafeInteger(metrics.request_count) || metrics.request_count < 0
+      || typeof metrics.attempted_at !== 'string'
+      || Number.isNaN(Date.parse(metrics.attempted_at)))) {
+    fail(`invalid metrics for ${id}`);
+  }
   writeFileSync(join(outRoot, 'manifest.json'), `${JSON.stringify({
     schema_version: 1,
     kind,
     id,
     status,
     files,
+    ...(metrics ? { metrics } : {}),
   }, null, 2)}\n`, { encoding: 'utf8', mode: 0o644 });
   return files.map((file) => file.path);
 }
@@ -162,6 +169,12 @@ function readManifest(artifactRoot, expectedKind, expectedId) {
   }
   if (!['ready', 'failed'].includes(manifest.status) || !Array.isArray(manifest.files)) {
     fail(`invalid manifest fields for ${expectedId}`);
+  }
+  if (manifest.metrics && (!Number.isSafeInteger(manifest.metrics.duration_ms)
+      || manifest.metrics.duration_ms < 0 || !Number.isSafeInteger(manifest.metrics.request_count)
+      || manifest.metrics.request_count < 0 || typeof manifest.metrics.attempted_at !== 'string'
+      || Number.isNaN(Date.parse(manifest.metrics.attempted_at)))) {
+    fail(`invalid manifest metrics for ${expectedId}`);
   }
   if (manifest.status === 'failed' && manifest.files.length !== 0) {
     fail(`failed artifact contains files for ${expectedId}`);
@@ -223,10 +236,9 @@ export function applyCityArtifacts({ repoRoot, incomingRoot, expectedCities }) {
   const expected = [...expectedCities].sort();
   if (new Set(expected).size !== expected.length) fail('duplicate expected city');
   expected.forEach((city) => assertId(city, 'city'));
-  const actualDirs = readdirSync(incomingRoot, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort();
+  const rootEntries = readdirSync(incomingRoot, { withFileTypes: true });
+  if (rootEntries.some((entry) => !entry.isDirectory())) fail('unexpected non-directory entry in city artifact set');
+  const actualDirs = rootEntries.map((entry) => entry.name).sort();
   const expectedDirs = expected.map((city) => `refresh-result-${city}`);
   if (JSON.stringify(actualDirs) !== JSON.stringify(expectedDirs)) {
     fail(`artifact set mismatch (expected ${expectedDirs.join(', ')}, got ${actualDirs.join(', ')})`);
@@ -235,6 +247,7 @@ export function applyCityArtifacts({ repoRoot, incomingRoot, expectedCities }) {
   const seen = new Map();
   const staged = new Set();
   const ready = [];
+  const outcomes = [];
   for (const city of expected) {
     const artifactRoot = join(incomingRoot, `refresh-result-${city}`);
     const manifest = readManifest(artifactRoot, 'city', city);
@@ -247,8 +260,9 @@ export function applyCityArtifacts({ repoRoot, incomingRoot, expectedCities }) {
       staged,
     });
     if (manifest.status === 'ready') ready.push(city);
+    outcomes.push({ id: city, status: manifest.status, metrics: manifest.metrics || null });
   }
-  return { ready, staged: [...staged].sort() };
+  return { ready, staged: [...staged].sort(), outcomes };
 }
 
 export function applyProviderArtifacts({ repoRoot, incomingRoot }) {
@@ -279,7 +293,7 @@ function writeLines(path, lines) {
 }
 
 function usage() {
-  console.error('usage: refresh-artifact.js pack-city <city> <ready|failed> <out> | pack-provider <id> <ready|failed> <out> | apply-city <incoming> <expected-json> <ready-out> <paths-out> | apply-provider <incoming> <ready-out> <paths-out>');
+  console.error('usage: refresh-artifact.js pack-city <city> <ready|failed> <out> | pack-provider <id> <ready|failed> <out> | apply-city <incoming> <expected-json> <ready-out> <paths-out> [outcomes-out] | apply-provider <incoming> <ready-out> <paths-out>');
   process.exit(2);
 }
 
@@ -290,12 +304,13 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       packArtifact({ repoRoot: SCRIPT_ROOT, kind: 'city', id: args[0], status: args[1], outRoot: resolve(args[2]) });
     } else if (command === 'pack-provider' && args.length === 3) {
       packArtifact({ repoRoot: SCRIPT_ROOT, kind: 'provider', id: args[0], status: args[1], outRoot: resolve(args[2]) });
-    } else if (command === 'apply-city' && args.length === 4) {
+    } else if (command === 'apply-city' && (args.length === 4 || args.length === 5)) {
       const expectedCities = JSON.parse(args[1]);
       if (!Array.isArray(expectedCities)) fail('expected city JSON is not an array');
       const result = applyCityArtifacts({ repoRoot: SCRIPT_ROOT, incomingRoot: resolve(args[0]), expectedCities });
       writeLines(args[2], result.ready);
       writeLines(args[3], result.staged);
+      if (args[4]) writeFileSync(args[4], `${JSON.stringify(result.outcomes, null, 2)}\n`, 'utf8');
     } else if (command === 'apply-provider' && args.length === 3) {
       const result = applyProviderArtifacts({ repoRoot: SCRIPT_ROOT, incomingRoot: resolve(args[0]) });
       writeLines(args[1], result.ready);

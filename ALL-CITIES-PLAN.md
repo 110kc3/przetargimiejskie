@@ -1,6 +1,6 @@
 # Plan to cover every Polish city and town
 
-Prepared 5 September 2026. **Phase A shipped for review on 6 September 2026; Phase B is next.** The inventory refresh and its tests run on GitHub-hosted infrastructure and require no local or private-network production component.
+Prepared 5 September 2026. **Phase A shipped for review on 6 September 2026; Phase B1/B2 shipped for review on 8 September 2026.** Inventory, refresh and their tests run on GitHub-hosted infrastructure and require no local or private-network production component.
 
 The proposed scope is every Polish city and town, across municipal property-sale auctions: flats, houses/buildings, commercial premises, garages and land. This interprets the request for “all cities” literally and replaces the old demand gate on researching smaller towns for this expansion. The B2G commercial strategy in [GTM.md](GTM.md) and [GTM-SPRINT.md](GTM-SPRINT.md) remains the product context.
 
@@ -66,7 +66,7 @@ This can proceed alongside inventory work. Complete its relevant gates before pr
 
 ### B2. Scheduling and publication
 
-Current refresh/backfill use one matrix job per city and competing Git pushes. Change this before the enabled set approaches the platform limit: GitHub documents a maximum of 256 matrix jobs per workflow run. [GitHub workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
+The former refresh/backfill design used one matrix job and competing Git push per city. Phase B2 replaces it before the enabled set approaches the platform limit: GitHub documents a maximum of 256 matrix jobs per workflow run. [GitHub workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
 
 - Extend `pipeline/scripts/refresh-matrix.js` to emit bounded shards, initially about 4–5 small cities per shard, with runtime-based balancing and dedicated treatment for heavy OCR/rendering sources. Cap total jobs with headroom for setup, publication and provider work; split dispatches further when needed.
 - Exclude every `needsResidentialEgress` adapter from hosted shards. No private-network or proxy credentials may enter the workflow. Coordinate throttling by actual source host, including shared CMS origins.
@@ -76,6 +76,8 @@ Current refresh/backfill use one matrix job per city and competing Git pushes. C
 - Measure job duration, request count, artifact size, checkout size and commit/deploy time after each wave. Retain JSON/static hosting initially; change storage only when measured cost or size requires it.
 
 Acceptance: a representative shard completes despite one injected city failure; missing output cannot produce a false recovery; no private-network or proxy credentials are present; publication preserves history and unrelated data; refresh/backfill dispatch and triage remain usable. Use targeted matrix, publication and triage tests, then a staged hosted run.
+
+Implementation status (8 September 2026): B1/B2 is in review. The hosted-safe 119-city set currently forms 52 source-aware shards; Racibórz and Pszczyna remain excluded. One read-only worker handles each bounded shard, but every city has its own detached worktree, subprocess, timeout, log and hashed outcome manifest. A single municipal publisher rejects incomplete or conflicting artifact sets, applies only validated deltas, records failed attempts without replacing last-good files, rebuilds the index once and commits once. National validation is strict for 100 current cities and by default for every new city; 21 named legacy datasets are visibly quarantined with a 6 October repair/review deadline. Targeted tests cover shard continuation after injected failure, exact artifact-set enforcement, failed-outcome preservation, land-only/mixed/valid-empty health and strict-default policy. Hosted PR verification remains the release gate.
 
 ### B3. Website and extension
 
@@ -161,4 +163,4 @@ After the pilot, forecast from **remaining research / measured research rate + q
 - Scheduled refresh, class-aware health, per-source failure detection, history retention and publication pass at full scale for 14 consecutive days without silent omissions. Document genuine upstream outages as coverage gaps; do not reset freshness to hide them.
 - Runtime, source request volume, storage and maintenance effort fit the measured operating budget. Quarterly source reviews and periodic GUS imports generate actionable changes.
 
-Phase A is complete. Recommended next slice: Phase B1/B2 national quality gates and sharded publication, plus a read-only source/asset audit of the existing 121 cities; then expose current datasets through both product surfaces. This makes each subsequent city addition measurable and usable.
+Phase A is complete and Phase B1/B2 is in review. Recommended next slice after its hosted gate: repair the 21 dated validation-quarantine datasets in small cohorts and perform the read-only source/asset audit of the existing 121 cities; then deliver Phase B3 so current datasets are exposed truthfully through both product surfaces. This makes each subsequent city addition measurable and usable.

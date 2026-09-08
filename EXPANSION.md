@@ -145,7 +145,11 @@ export default {
 
 **`background.js`** — fetch per-city data lazily. When a tab is on `kzgm.katowice.pl`, fetch `data/katowice/*.json` (not all cities). Cache each city under its own `chrome.storage.local` key with the existing 6h TTL. This keeps memory and network small even at 18 cities. The watchlist alarm should scan only the cities the user actually has watched properties in.
 
-**CI (`.github/workflows/refresh.yml`)** — switch the single job to a **matrix over the city registry**, one job per city. A parser break in Bytom then fails only Bytom and still refreshes everyone else. Each job commits its own `data/<city>/`.
+**CI (`.github/workflows/refresh.yml`)** — the registry now emits bounded,
+source-aware hosted shards. Every city runs in an isolated worktree/process, so
+a parser break in Bytom does not stop later cities or leak partial files. Workers
+upload per-city hashed outcomes; one trusted publisher applies the complete
+validated set and commits once.
 
 ---
 

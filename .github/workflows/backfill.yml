@@ -2,14 +2,14 @@ name: 7. Backfill (manual — full refresh, long timeout)
 
 # One-off "prime the cache" run, triggered MANUALLY (Actions → this workflow →
 # Run workflow). Same pipeline as the daily refresh.yml, but:
-#   1. every city's job gets a long timeout (350 min) so a COLD cache can't blow
-#      the cap on the heavy/OCR cities, and
+#   1. every city gets an 80-minute timeout inside a 350-minute shard job so a
+#      COLD cache cannot block the remaining bounded work indefinitely, and
 #   2. the budgeted crawlers (Białystok, Kędzierzyn-Koźle) are UN-bounded via env
 #      so they fetch the full archive in one pass.
-# Runs the cities in PARALLEL (matrix), so the whole backfill finishes in roughly
-# the slowest city's time, not the sum. After it lands once, the daily matrix is
-# fast on cache hits and the bounded crawlers only fetch deltas. Re-run if a job
-# ever times out — each re-run resumes off the committed cache.
+# Runs source-aware shards in parallel and cities within each shard sequentially
+# in isolated worktrees. After it lands once, daily shards are fast on cache hits
+# and bounded crawlers fetch only deltas. Re-run if a city times out — the next
+# run resumes from the last committed cache without losing unrelated progress.
 on:
   workflow_dispatch: {}
 
@@ -23,15 +23,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Emit the city registry as the matrix input + gate on the parser tests.
+  # Emit bounded hosted-safe shards + gate on the parser tests.
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
+      shards: ${{ steps.registry.outputs.shards }}
       blocked_cities: ${{ steps.registry.outputs.blocked_cities }}
-      # Cities needing core/render.js (Playwright) — see refresh.yml.
-      render_cities: ${{ steps.registry.outputs.render_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
@@ -48,20 +47,22 @@ jobs:
       - name: Read city registry
         id: registry
         working-directory: pipeline
+        env:
+          MAX_SHARD_WEIGHT: '4'
         run: node scripts/refresh-matrix.js
 
-  # One job per city, parallel, long timeout, crawlers un-bounded. A failure
-  # marks only that city's artifact failed; the others still backfill.
+  # Bounded sequential shards, with each city isolated in its own worktree and
+  # process. Four small cities fit under GitHub's 360-minute job ceiling.
   backfill:
     needs: setup
     runs-on: ubuntu-latest
     timeout-minutes: 350     # cold-cache full crawl per city (GitHub max is 360)
     strategy:
       fail-fast: false
-      max-parallel: 10       # each job crawls a DIFFERENT BIP; the in-job crawl
-                             # throttle is what protects a site (matches refresh.yml)
+      max-parallel: 10       # shared hosts stay in one shard; the in-process
+                             # request throttle protects each source
       matrix:
-        city: ${{ fromJSON(needs.setup.outputs.cities) }}
+        shard: ${{ fromJSON(needs.setup.outputs.shards) }}
     env:
       # Un-bound the budgeted crawlers for the backfill (daily keeps the caps).
       KK_CRAWL_BUDGET_MS: '300000000'
@@ -94,43 +95,36 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Chromium
-        if: contains(fromJSON(needs.setup.outputs.render_cities), matrix.city)
+        if: matrix.shard.needs_render
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
 
-      - name: Run pipeline for ${{ matrix.city }}
-        id: refresh
-        working-directory: pipeline
-        run: CITY=${{ matrix.city }} npm run refresh
-
-      - name: Sanity-check ${{ matrix.city }} data
-        id: sanity
-        working-directory: pipeline
-        run: node scripts/sanity-check.js ${{ matrix.city }}
-
-      - name: Enrich land geoportal links for ${{ matrix.city }}
-        continue-on-error: true
-        working-directory: pipeline
-        run: CITY=${{ matrix.city }} npm run enrich-land
-
-      - name: Package read-only backfill output
-        if: always()
-        run: |
-          status=failed
-          if [ "${{ steps.refresh.outcome }}" = success ] && [ "${{ steps.sanity.outcome }}" = success ]; then
-            status=ready
-          fi
-          node pipeline/scripts/refresh-artifact.js pack-city \
-            "${{ matrix.city }}" "$status" refresh-artifact
+      - name: Run isolated backfill shard ${{ matrix.shard.id }}
+        timeout-minutes: 340
+        env:
+          CITIES_JSON: ${{ toJSON(matrix.shard.cities) }}
+          CITY_TIMEOUT_MS: '4800000'
+          ARTIFACT_ROOT: ${{ github.workspace }}/refresh-artifacts
+          TRIAGE_ROOT: ${{ github.workspace }}/triage-artifacts
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          RUN_ID: ${{ github.run_id }}
+        run: node pipeline/scripts/refresh-shard.js
 
       - name: Upload backfill output
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: refresh-result-${{ matrix.city }}
-          path: refresh-artifact/
+          name: backfill-shard-${{ matrix.shard.id }}
+          path: refresh-artifacts/
           retention-days: 1
           if-no-files-found: error
+      - name: Upload backfill triage evidence
+        if: always() && hashFiles('triage-artifacts/**/failure.json') != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: backfill-triage-${{ matrix.shard.id }}
+          path: triage-artifacts/
+          retention-days: 14
 
   publish:
     needs: [setup, backfill]
@@ -147,73 +141,43 @@ jobs:
       - name: Download backfill outputs
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
-          pattern: 'refresh-result-*'
+          pattern: 'backfill-shard-*'
           path: incoming-city
+          merge-multiple: true
       - name: Validate and apply backfill outputs
         env:
           EXPECTED_CITIES: ${{ needs.setup.outputs.cities }}
         run: |
           node pipeline/scripts/refresh-artifact.js apply-city \
-            incoming-city "$EXPECTED_CITIES" ready-cities.txt publish-paths.txt
+            incoming-city "$EXPECTED_CITIES" ready-cities.txt publish-paths.txt city-outcomes.json
           while IFS= read -r city; do
             [ -n "$city" ] || continue
             node pipeline/scripts/sanity-check.js "$city"
           done < ready-cities.txt
+          CITY_OUTCOMES_PATH=city-outcomes.json node pipeline/src/build-index.js
+          printf '%s\n' data/index.json >> publish-paths.txt
+          echo "Backfill artifact bytes: $(du -sb incoming-city | cut -f1)"
+          echo "Checkout bytes: $(du -sb . --exclude=.git | cut -f1)"
       - name: Commit and push validated backfill data
         run: |
-          if [ ! -s publish-paths.txt ]; then
-            echo "No backfill data changes."
-            exit 0
-          fi
+          publish_started=$SECONDS
           git config user.name "zgm-data-bot"
           git config user.email "zgm-data-bot@users.noreply.github.com"
           git add --pathspec-from-file=publish-paths.txt
           if git diff --cached --quiet; then
             echo "No backfill data changes."
+            echo "Backfill publication seconds: $((SECONDS - publish_started))"
             exit 0
           fi
           git commit -m "data: backfill cities $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5 6; do
-            git pull --rebase -X theirs origin main && git push && exit 0
+            if git pull --rebase -X theirs origin main && git push; then
+              echo "Backfill publication seconds: $((SECONDS - publish_started))"
+              exit 0
+            fi
             git rebase --abort 2>/dev/null || true
             echo "push attempt $i failed; retrying ..."
             sleep $(( (RANDOM % 8) + 2 ))
           done
           echo "could not push validated backfill data after 6 attempts" >&2
           exit 1
-
-  # Rebuild data/index.json once every city job has finished.
-  index:
-    needs: [setup, publish]
-    if: ${{ always() && needs.setup.result == 'success' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-        with:
-          ref: main
-      - name: Build data/index.json
-        working-directory: pipeline
-        run: |
-          git pull origin main
-          node src/build-index.js
-      - name: Commit and push if index changed
-        run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/index.json
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: rebuild index $(date -u +%Y-%m-%d)"
-            for i in 1 2 3 4 5; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep 3
-            done
-            echo "could not push index after 5 attempts" >&2
-            exit 1
-          fi

@@ -31,7 +31,7 @@
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
-import { getText, politeGet, proxyFetch, snapshot } from '../../core/fetch.js';
+import { directFetch, getText, politeGet, snapshot } from '../../core/fetch.js';
 import { isChallengePage } from '../../core/challenge-page.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseListingPage, parseBipIndexMonth, parseBipItemPage, parseResultDoc } from './parse.js';
@@ -91,8 +91,8 @@ function harvestCookies(res, jar) {
 // The first request goes through politeGet (throttle + retry + browser
 // headers; it returns the raw Response, so Set-Cookie is readable). Challenge
 // retries can't use politeGet (it has no way to send a Cookie header), so they
-// go through proxyFetch — the same egress as attempt 0 when FETCH_PROXY_URL is
-// set — sending politeGet's browser-mode header fingerprint plus the cookie.
+// go through the shared instrumented direct-fetch handle, sending politeGet's
+// browser-mode header fingerprint plus the cookie.
 // Every received body (first response and each retry) is snapshot()ted so the
 // DEBUG_FETCH_DIR triage artifact preserves exactly what the crawler saw.
 async function fetchListingHtml() {
@@ -111,7 +111,7 @@ async function fetchListingHtml() {
       `retrying in ${WAITING_ROOM_DELAY_MS}ms${jar.size ? ' with challenge cookie' : ''}`,
     );
     await sleep(WAITING_ROOM_DELAY_MS);
-    const retry = await proxyFetch(LISTING_URL, {
+    const retry = await directFetch(LISTING_URL, {
       headers: {
         'User-Agent': BROWSER_UA,
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',

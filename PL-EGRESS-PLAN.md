@@ -1,7 +1,7 @@
 # Polish egress operating policy
 
-**Status: hosted residential egress deliberately disabled; operator-only
-refresh policy active from 5 September 2026.**
+**Status: hosted-only policy active from 8 September 2026; residential egress
+and local production refresh are deliberately disabled.**
 
 Racibórz and Pszczyna are registered and published, but their sources do not
 refresh reliably from GitHub-hosted Azure egress. The repository does not join a
@@ -21,39 +21,28 @@ continue on disposable GitHub-hosted runners.
 - Crawler jobs retain read-only repository access and no persisted checkout
   credential. A separate writer validates bounded SHA-256 artifacts before it
   can publish.
-- `FETCH_PROXY_URL` remains an optional local development hook in
-  `pipeline/src/core/fetch.js`; GitHub Actions does not set it and the repository
-  has no such secret.
+- `pipeline/src/core/fetch.js` has no proxy/private-network configuration hook;
+  all production requests are direct from hosted runners.
 - Adding automated residential egress is a new security-sensitive project, not
   a configuration toggle. It requires a fresh design review and explicit owner
   approval.
 
-## Operator refresh procedure
+## No local production fallback
 
-From a trusted machine with suitable Polish egress, use a clean branch and run:
-
-```bash
-cd pipeline
-npm ci
-CITY=raciborz npm run refresh
-node scripts/sanity-check.js raciborz
-CITY=pszczyna npm run refresh
-node scripts/sanity-check.js pszczyna
-npm run build-index
-npm run health
-```
-
-Review all generated data and cache changes, then publish them through the normal
-reviewed Git workflow. An empty or unreachable crawl preserves last-good data and
-must not be presented as a successful refresh.
+Racibórz and Pszczyna retain their last-good published data and an explicit
+degraded/blocked state until their official sources become reachable from the
+hosted pipeline or a public replacement source is validated. Local or operator
+crawls may be used for diagnosis, but they are not a production refresh route and
+must not advance public freshness. An empty or unreachable crawl never proves an
+empty source.
 
 ## Time-bounded health policy
 
 `pipeline/scripts/health-check.js` grants these two sources a stale-data-only
 window of 21 days. Missing, malformed, empty, or sanity-invalid data still fails.
-Before the window expires, an operator must refresh or re-audit each source and
-renew the dated reason. Expiry becomes a hard `exempt-expired` failure, preventing
-operator-only status from turning into a permanent blind spot.
+Expiry becomes a hard `exempt-expired` failure until direct hosted reachability or
+a public replacement feed is established. The date is not renewed from a local
+crawl, preventing an excluded source from turning into a permanent blind spot.
 
 ## Retirement record
 
@@ -65,5 +54,5 @@ allowlist was reduced to the two Aquasecurity actions required by Trivy. The
 earlier self-hosted runner remains removed; no repository-connected machine is
 registered.
 
-The optional proxy client code remains because it is useful for deliberate local
-operator runs and is independently covered by dependency and fetch-boundary tests.
+The former optional proxy client and its direct dependency were removed on
+8 September 2026. No production or local publication path replaces them.
