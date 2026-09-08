@@ -70,13 +70,15 @@ All [RPI5] — dispatch via the `przetargi-city-triage` skill
 
 1. **Phase A complete:** reproducible TERYT import, 1,026 SIMC identities,
    preserved historic evidence, repaired powiat mappings and discrepancy report.
-2. **Phase B next:** national data gates and hosted shards with a single validated
-   publisher. Adapters requiring residential egress remain excluded; no local
-   runner, Tailscale or private proxy is introduced.
-3. **Build the known queue:** 50 BUILD-ready cities after the Phase B gates.
-4. **Review and research:** reassess 165 historic exclusions for the broader asset
+2. **Phase B1/B2 in review:** national data gates and hosted shards with a single
+   validated publisher are implemented. Adapters requiring residential egress
+   remain excluded; no local runner, Tailscale or private proxy is introduced.
+3. **Next:** repair the 21 dated validation-quarantine datasets, audit source and
+   asset coverage for the current 121 cities, then deliver Phase B3 discovery.
+4. **Build the known queue:** 50 BUILD-ready cities after the Phase B gates.
+5. **Review and research:** reassess 165 historic exclusions for the broader asset
    scope, then survey the 690 unresearched official cities in measured batches.
-5. Keep the ledger disciplined: `master-cities.json` → `node
+6. Keep the ledger disciplined: `master-cities.json` → `node
    spikes/build-progress.mjs` after every batch (SPIKE-PROGRESS is generated).
 
 ## T3 — Distribution + monetization
@@ -112,5 +114,6 @@ bundled with a needed bump.
    account clicks, spread over T1.
 2. **One GUI session** for the extension 55-city rework + browser verification.
 3. **Everything else is [RPI5]-shaped.** The two residential-egress adapters are
-   operator-refreshed and excluded from hosted automation; the Pi is not a CI
-   proxy or workflow runner. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+   excluded from hosted automation and retain last-good data until direct hosted
+   access works; the Pi is not a production refresh path, CI proxy or workflow
+   runner. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).

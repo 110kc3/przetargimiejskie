@@ -49,8 +49,9 @@ operating model*:
 
 ### 1.1 What already runs unattended (the machine layer)
 
-- **`refresh.yml`** — daily 04:00 UTC; per-city matrix job commits each city's
-  `data/<city>/` delta; an `index` job rebuilds `data/index.json`; a `triage` job
+- **`refresh.yml`** — daily 04:00 UTC; source-aware hosted shards run every city
+  in an isolated subprocess/worktree, then one municipal publisher validates and
+  commits successful deltas plus `data/index.json`; a `triage` job
   opens/comments/auto-closes one `[city-broken]` issue per failing city. **The
   `[city-broken]` issue list is the agent layer's work queue.**
 - **`health.yml`** — daily silent-breakage guard (stale/empty data fails loud).
@@ -88,10 +89,10 @@ remotely dispatched workflow jobs.
 
 ### 1.3 The two autonomy gaps to close (do these first)
 
-1. **Residential-egress maintenance.** Racibórz and Pszczyna are deliberately
-   omitted from hosted automation. Refresh or re-audit them from operator egress
-   within each 21-day health window; never turn the Pi into a runner or CI proxy.
-   See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+1. **Residential-egress visibility.** Racibórz and Pszczyna are deliberately
+   omitted from hosted automation and retain last-good data. The 21-day window
+   expires into a hard health failure until direct hosted reachability is restored;
+   there is no Pi/local production fallback. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
 2. **The scheduled daily agent session** (§1.2) so triage and expansion happen
    without being asked.
 
@@ -144,10 +145,12 @@ cities are part of the accepted national expansion rather than demand-gated.
 | Unresearched official cities | **690** |
 | **Official inventory** | **1,026** |
 
-Phase A establishes identities and accurate denominators. The next gate is the
-national validation and sharded single-publisher design in
-[`ALL-CITIES-PLAN.md`](./ALL-CITIES-PLAN.md), followed by the known 50-city build
-queue, legacy exclusion review and measured research batches for the remaining 690.
+Phase A established identities and accurate denominators. Phase B1/B2's national
+validation and sharded single-publisher design is in review; next repair its 21
+dated legacy quarantine datasets and complete the current-city source/asset audit
+and Phase B3 distribution in [`ALL-CITIES-PLAN.md`](./ALL-CITIES-PLAN.md). The
+known 50-city build queue, legacy exclusion review and measured research batches
+for the remaining 690 follow those gates.
 
 ### 2.3 The mechanism (already proven, just keep the crank turning)
 
@@ -155,8 +158,9 @@ Spike → verdict → build → first live refresh validates → `health.yml` gu
 forever. Protocol: [spikes/README.md](./spikes/README.md); build guide:
 [pipeline/ADAPTER-GUIDE.md](./pipeline/ADAPTER-GUIDE.md); one new city = one
 `pipeline/src/cities/<city>/` folder + one registry entry + one groundtruthed
-parser test. Shard the CI matrix into grouped jobs when wall-clock creeps (~100+
-cities — we are there; this is Phase B2). **Completeness exit test:** all 1,026
+parser test. The hosted CI now groups cities into bounded, source-aware shards
+while preserving per-city isolation and a single validated publication step.
+**Completeness exit test:** all 1,026
 cities have current evidence, every accessible declared source is monitored,
 extension + site expose truthful coverage states, and health is green at full scale.
 

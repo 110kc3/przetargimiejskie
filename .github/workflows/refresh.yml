@@ -3,6 +3,28 @@
 name: 1. Refresh auction data
 
 on:
+  pull_request:
+    paths:
+      - '.github/workflows/refresh.yml'
+      - '.github/workflows/backfill.yml'
+      - 'pipeline/scripts/coverage-health.js'
+      - 'pipeline/scripts/health-check.js'
+      - 'pipeline/scripts/refresh-artifact.js'
+      - 'pipeline/scripts/refresh-matrix.js'
+      - 'pipeline/scripts/refresh-shard.js'
+      - 'pipeline/scripts/sanity-check.js'
+      - 'pipeline/scripts/validation-policy.js'
+      - 'pipeline/src/build-index.js'
+      - 'pipeline/src/core/fetch.js'
+      - 'pipeline/src/core/request-metrics.js'
+      - 'pipeline/src/refresh.js'
+      - 'pipeline/tests/build-index.test.js'
+      - 'pipeline/tests/coverage-health.test.js'
+      - 'pipeline/tests/refresh-artifact.test.js'
+      - 'pipeline/tests/refresh-matrix.test.js'
+      - 'pipeline/tests/request-metrics.test.js'
+      - 'pipeline/tests/refresh-shard.test.js'
+      - 'pipeline/tests/validation-policy.test.js'
   push:
     branches: [main]
     # Run on pushes that change pipeline code/config — i.e. when a parser or
@@ -41,8 +63,8 @@ on:
 permissions:
   contents: read
 
-# One refresh at a time — the per-city jobs inside a run push commits with a
-# rebase-retry, but two overlapping RUNS would interleave unpredictably.
+# One refresh at a time — each run has one municipal publication commit, but two
+# overlapping runs could still publish observations from different snapshots.
 concurrency:
   group: refresh
   cancel-in-progress: false
@@ -51,17 +73,15 @@ jobs:
   # Emit the GitHub-hosted-safe subset of the city registry as the matrix input
   # + gate everything on the parser tests (run once instead of per matrix job).
   setup:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
       cities: ${{ steps.registry.outputs.cities }}
-      # Registered adapters that require operator-managed residential egress
+      shards: ${{ steps.registry.outputs.shards }}
+      # Registered adapters that require residential egress
       # and are deliberately excluded from GitHub-hosted automation.
       blocked_cities: ${{ steps.registry.outputs.blocked_cities }}
-      # Cities whose adapter needs core/render.js (headless Chromium) — the
-      # matrix installs Playwright only for these (see `needsRender` in the
-      # city's config.js). Registry-driven so it can't drift.
-      render_cities: ${{ steps.registry.outputs.render_cities }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
@@ -84,27 +104,46 @@ jobs:
           ONLY_CITY: ${{ inputs.only_city || '' }}
         run: node scripts/refresh-matrix.js
 
-  # One job per city, so a broken parser/source in one city can't block the
-  # others (fail-fast off). Each job runs `CITY=<id> npm run refresh` (which
-  # skips data/index.json — see src/refresh.js) and uploads only its own
-  # data/<city>/ + caches as a validated publisher artifact.
+  phase_b_tests:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+      - name: Run national pipeline gate tests
+        run: |
+          node --test \
+            pipeline/tests/build-index.test.js \
+            pipeline/tests/coverage-health.test.js \
+            pipeline/tests/refresh-artifact.test.js \
+            pipeline/tests/refresh-matrix.test.js \
+            pipeline/tests/request-metrics.test.js \
+            pipeline/tests/refresh-shard.test.js \
+            pipeline/tests/validation-policy.test.js
+          node pipeline/scripts/sanity-check.js
+
+  # Bounded shards replace the one-job-per-city matrix. Each city still runs in
+  # its own detached worktree and process, so failures and cache writes remain
+  # isolated while setup/toolchain cost is shared by 4-5 small cities.
   refresh:
     needs: setup
     # All repository code executes on GitHub-hosted, disposable machines.
     # Residential-egress adapters are absent from this matrix and are refreshed
-    # only by an operator; see PL-EGRESS-PLAN.md.
+    # until direct hosted access works; see PL-EGRESS-PLAN.md.
     runs-on: ubuntu-latest
-    timeout-minutes: 25   # Zabrze alone needs ~113 throttled doc+attachment fetches
+    timeout-minutes: 115
     strategy:
       fail-fast: false
-      max-parallel: 10    # each job crawls a DIFFERENT city's BIP, so per-site
-                          # politeness is unaffected by parallelism — the crawl
-                          # throttle inside a job is what protects a BIP. 10 keeps
-                          # the 46-city run well under an hour (free-tier ceiling
-                          # is 20 concurrent jobs; was 4, which pushed wall time
-                          # toward 1h as cities grew).
+      max-parallel: 10    # shared source hosts are kept in the same shard;
+                          # per-request throttling protects each origin while
+                          # this cap preserves runner headroom.
       matrix:
-        city: ${{ fromJSON(needs.setup.outputs.cities) }}
+        shard: ${{ fromJSON(needs.setup.outputs.shards) }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
@@ -136,98 +175,36 @@ jobs:
       # render.js is lazy-loaded, so server-rendered cities never touch it;
       # skipping the install here saves ~1–2 min × every non-render job.
       - name: Install Playwright Chromium
-        if: contains(fromJSON(needs.setup.outputs.render_cities), matrix.city)
+        if: matrix.shard.needs_render
         working-directory: pipeline
         run: npx playwright install --with-deps chromium
 
-      # Refresh with the triage instrumentation around it: the pre-run meta is
-      # snapshotted (the commit step moves HEAD, so it can't be recovered
-      # later), all output is teed to a log the classify step reads, and
-      # DEBUG_FETCH_DIR preserves the first ~25 fetched bodies as layout-change
-      # evidence. Step-level timeout (< the job's 25) so a hung crawl still
-      # reaches the always() classify + upload steps instead of being
-      # hard-killed with nothing to show.
-      - name: Run pipeline for ${{ matrix.city }}
-        id: refresh
-        timeout-minutes: 20
-        working-directory: pipeline
-        run: |
-          set -o pipefail
-          mkdir -p "$GITHUB_WORKSPACE/triage/snapshots"
-          cp "$GITHUB_WORKSPACE/data/${{ matrix.city }}/meta.json" "$GITHUB_WORKSPACE/triage/prev-meta.json" 2>/dev/null || true
-          CITY=${{ matrix.city }} \
-            FORCE_FAIL="${{ inputs.force_fail || '' }}" \
-            DEBUG_FETCH_DIR="$GITHUB_WORKSPACE/triage/snapshots" \
-            npm run refresh 2>&1 | tee "$GITHUB_WORKSPACE/triage/refresh.log"
+      - name: Run isolated city shard ${{ matrix.shard.id }}
+        timeout-minutes: 105
+        env:
+          CITIES_JSON: ${{ toJSON(matrix.shard.cities) }}
+          CITY_TIMEOUT_MS: '1200000'
+          FORCE_FAIL: ${{ inputs.force_fail || '' }}
+          ARTIFACT_ROOT: ${{ github.workspace }}/refresh-artifacts
+          TRIAGE_ROOT: ${{ github.workspace }}/triage-artifacts
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          RUN_ID: ${{ github.run_id }}
+        run: node pipeline/scripts/refresh-shard.js
 
-      # Data sanity gate — glued prices, cellar/plot areas, junk streets,
-      # genitive zombie duplicates (the June 2026 bug classes). A failure
-      # blocks ONLY this city's commit; its last-good data stays published.
-      - name: Sanity-check ${{ matrix.city }} data
-        id: sanity
-        working-directory: pipeline
-        run: |
-          set -o pipefail
-          node scripts/sanity-check.js ${{ matrix.city }} 2>&1 | tee "$GITHUB_WORKSPACE/triage/sanity.log"
-
-      # Upgrade land plots' geoportal links to PRECISE national-geoportal
-      # identifyParcel deep-links (resolves obręb + parcel → TERYT id via ULDK).
-      # Cached in pipeline/uldk-cache/; fully defensive — a ULDK outage just
-      # degrades to the parcel-search fallback and never fails the data commit
-      # (continue-on-error makes that doubly sure).
-      - name: Enrich land geoportal links for ${{ matrix.city }}
-        continue-on-error: true
-        working-directory: pipeline
-        run: CITY=${{ matrix.city }} npm run enrich-land
-
-      - name: Package read-only crawl output
-        if: always()
-        run: |
-          status=failed
-          if [ "${{ steps.refresh.outcome }}" = success ] && [ "${{ steps.sanity.outcome }}" = success ]; then
-            status=ready
-          fi
-          node pipeline/scripts/refresh-artifact.js pack-city \
-            "${{ matrix.city }}" "$status" refresh-artifact
-
-      - name: Upload crawl output
+      - name: Upload shard crawl outputs
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: refresh-result-${{ matrix.city }}
-          path: refresh-artifact/
+          name: refresh-shard-${{ matrix.shard.id }}
+          path: refresh-artifacts/
           retention-days: 1
           if-no-files-found: error
-
-      # Failure triage — decides from the teed logs + meta counts whether this
-      # city is BROKEN (a green job proves nothing: refresh.js swallows per-city
-      # throws and preserve-on-empty exits 0 by design). Writes
-      # triage/failure.json + issue-body.md only when broken; always exits 0 so
-      # it can never affect the data commit above. The triage job turns the
-      # uploaded artifact into a GitHub issue.
-      - name: Triage classify
-        if: always()
-        working-directory: pipeline
-        run: |
-          node scripts/triage-report.js classify \
-            --city ${{ matrix.city }} \
-            --refresh-outcome "${{ steps.refresh.outcome }}" \
-            --sanity-outcome  "${{ steps.sanity.outcome }}" \
-            --refresh-log "$GITHUB_WORKSPACE/triage/refresh.log" \
-            --sanity-log  "$GITHUB_WORKSPACE/triage/sanity.log" \
-            --prev-meta   "$GITHUB_WORKSPACE/triage/prev-meta.json" \
-            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-            --run-id "${{ github.run_id }}" \
-            --out-dir "$GITHUB_WORKSPACE/triage"
-
-      # Only uploads when classify found a failure — a healthy day produces
-      # zero triage artifacts, so "green + no artifact" is the recovery signal.
-      - name: Upload triage artifact
-        if: always() && hashFiles('triage/failure.json') != ''
+      - name: Upload shard triage artifacts
+        if: always() && hashFiles('triage-artifacts/**/failure.json') != ''
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: triage-${{ matrix.city }}
-          path: triage/
+          name: triage-shard-${{ matrix.shard.id }}
+          path: triage-artifacts/
           retention-days: 14
 
   # Crawler jobs above are read-only. This trusted job downloads their output,
@@ -248,34 +225,40 @@ jobs:
       - name: Download city crawl outputs
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
-          pattern: 'refresh-result-*'
+          pattern: 'refresh-shard-*'
           path: incoming-city
+          merge-multiple: true
       - name: Validate and apply city crawl outputs
         env:
           EXPECTED_CITIES: ${{ needs.setup.outputs.cities }}
         run: |
           node pipeline/scripts/refresh-artifact.js apply-city \
-            incoming-city "$EXPECTED_CITIES" ready-cities.txt publish-paths.txt
+            incoming-city "$EXPECTED_CITIES" ready-cities.txt publish-paths.txt city-outcomes.json
           while IFS= read -r city; do
             [ -n "$city" ] || continue
             node pipeline/scripts/sanity-check.js "$city"
           done < ready-cities.txt
+          CITY_OUTCOMES_PATH=city-outcomes.json node pipeline/src/build-index.js
+          printf '%s\n' data/index.json >> publish-paths.txt
+          echo "Municipal artifact bytes: $(du -sb incoming-city | cut -f1)"
+          echo "Checkout bytes: $(du -sb . --exclude=.git | cut -f1)"
       - name: Commit and push validated city data
         run: |
-          if [ ! -s publish-paths.txt ]; then
-            echo "No city data changes."
-            exit 0
-          fi
+          publish_started=$SECONDS
           git config user.name "zgm-data-bot"
           git config user.email "zgm-data-bot@users.noreply.github.com"
           git add --pathspec-from-file=publish-paths.txt
           if git diff --cached --quiet; then
             echo "No city data changes."
+            echo "Municipal publication seconds: $((SECONDS - publish_started))"
             exit 0
           fi
           git commit -m "data: refresh cities $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5 6; do
-            git pull --rebase -X theirs origin main && git push && exit 0
+            if git pull --rebase -X theirs origin main && git push; then
+              echo "Municipal publication seconds: $((SECONDS - publish_started))"
+              exit 0
+            fi
             git rebase --abort 2>/dev/null || true
             echo "push attempt $i failed; retrying ..."
             sleep $(( (RANDOM % 8) + 2 ))
@@ -567,24 +550,31 @@ jobs:
           node-version: '20'
       # triage-report.js / issue-sync.js are dependency-free — no npm ci needed.
       - name: Download triage artifacts
+        continue-on-error: true
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
-          pattern: 'triage-*'
+          pattern: 'triage-shard-*'
           path: triage-artifacts
-      # A job the runner hard-killed (job-level timeout, runner loss) never ran
-      # its classify step, so it has no artifact — synthesize a timeout entry
-      # from the Actions API so it still gets an issue.
+          merge-multiple: true
+      - name: Download completion manifests
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: 'refresh-shard-*'
+          path: completed-artifacts
+          merge-multiple: true
+      # A hard-killed shard cannot emit every per-city manifest. Missing
+      # manifests are failures, never recoveries.
       - name: Synthesize entries for hard-killed jobs
         env:
-          GH_TOKEN: ${{ github.token }}
+          CITIES_JSON: ${{ needs.setup.outputs.cities }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           mkdir -p triage-artifacts
-          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" --paginate \
-            --jq '.jobs[] | select(.name | startswith("refresh (")) | select(.conclusion=="failure" or .conclusion=="cancelled") | .name' |
-          sed 's/^refresh (\(.*\))$/\1/' | while read -r city; do
+          echo "$CITIES_JSON" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>JSON.parse(s).forEach(x=>console.log(x)))" |
+          while read -r city; do
             [ -n "$city" ] || continue
-            [ -d "triage-artifacts/triage-$city" ] || \
+            [ -d "completed-artifacts/refresh-result-$city" ] || \
               node pipeline/scripts/triage-report.js synthesize --city "$city" \
                 --classification timeout --run-url "$RUN_URL" \
                 --out-dir "triage-artifacts/triage-$city"
@@ -604,40 +594,3 @@ jobs:
             --recovered "$RECOVERED" \
             --run-url "$RUN_URL" \
             --source refresh
-
-  # Rebuild data/index.json once, after every city job has finished (also when
-  # some failed — their last-published meta.json keeps them in the index).
-  index:
-    needs: [setup, publish_cities, publish_providers]
-    if: ${{ always() && needs.setup.result == 'success' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-        with:
-          ref: main   # not the triggering SHA — we need the matrix jobs' commits
-      - name: Build data/index.json
-        working-directory: pipeline
-        run: |
-          git pull origin main   # pick up any commit that landed since checkout
-          node src/build-index.js
-      - name: Commit and push if index changed
-        run: |
-          git config user.name  "zgm-data-bot"
-          git config user.email "zgm-data-bot@users.noreply.github.com"
-          git add data/index.json
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "data: rebuild index $(date -u +%Y-%m-%d)"
-            for i in 1 2 3 4 5; do
-              git pull --rebase -X theirs origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              echo "push attempt $i failed; retrying ..."
-              sleep 3
-            done
-            echo "could not push index after 5 attempts" >&2
-            exit 1
-          fi

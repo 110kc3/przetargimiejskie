@@ -74,7 +74,7 @@ a city that hasn't been spiked BUILD.
 ```js
 export default {
   ...config,                 // id, label, voivodeship, authority, host, source
-  async crawlActive(),       // → { listings, wykaz, land, valid_empty? }
+  async crawlActive(),       // → { listings, wykaz, land, valid_empty?, valid_empty_land? }
   async crawlResultDocs(),   // → result refs (the achieved-price stream)
   parseResultDoc,            // (text/ref) → result records
 };
@@ -87,6 +87,12 @@ explicit empty-state marker. It lets refresh accept zero rows without weakening
 the global preserve-on-empty outage guard, and closes retained `active` rows
 (including dateless ones) because the live board is authoritative. Never set it
 merely because requests or parsers returned nothing.
+
+`valid_empty_land: true` is the equivalent proof for a declared land board.
+Use it only after the official land source was reached and its explicit empty
+state or fully parsed out-of-scope rows were observed. Property and land source
+states are recorded independently, so success on one stream cannot conceal a
+failure on the other.
 
 `config`: `id` (slug), `label`, `voivodeship` (slug e.g. `malopolskie`),
 `authority`, `host`, `source` (`'html'` if the adapter extracts attachments
@@ -192,13 +198,15 @@ truncation, re-write it (prefer the file Write tool). Two earlier builds
 - **Commit the caches.** `data/<city>/` **and** the populated `pipeline/*-cache/`
   (pdf-text/doc-text/ocr/detail). They're content-addressed → committing means CI
   never re-extracts. This is the "skip what's already in the repo" mechanism.
-- **Test-tier:** non-Śląskie cities are **test-tier** — visible only at
-  `/archiwum-all`, and `sanity-check.js` treats their errors as non-blocking WARNs
-  while parsers settle. Only the 12 Śląskie cities are public + block CI.
+- **Validation:** every new registry entry is strict by default. The dated
+  `validation-policy.js` remediation cohort is the only non-blocking exception;
+  it is exposed as `validation_status: quarantined`/`coverage_status: degraded`
+  until its recorded findings are fixed. Geography does not weaken validation.
 - **No version bump** for pipeline/site/doc changes — only `extension/` changes
   bump `manifest.json` + `popup.html` (per [CLAUDE.md](../CLAUDE.md)).
-- **CI commit-push** is conflict-immune (`-X theirs` + `git rebase --abort`); the
-  first live `refresh.yml` run validates the crawler, `health.yml` guards it after.
+- **CI publication** is a single municipal commit from validated per-city
+  artifacts (`-X theirs` + rebase retry); the first live `refresh.yml` run
+  validates the crawler, and capability-aware `health.yml` guards it after.
 
 ---
 

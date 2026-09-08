@@ -21,18 +21,21 @@
 // EGRESS_STALE_MAX_DAYS, LEGIT_EMPTY_RECHECK_DAYS (env). A brand-new city still
 // settling in goes in EXEMPT_NEW (fast expiry); a source that is empty BY
 // DESIGN goes in LEGIT_EMPTY (slow-recheck expiry, unique=0 → WARN not FAIL);
-// an operator-refreshed source may temporarily suppress only stale-data via
+// a known hosted-egress source may temporarily suppress only stale-data via
 // EGRESS_STALE (fast expiry); a city with deliberately 0 active auctions goes
 // in EXEMPT_EMPTY — all below.
 //
 // When HEALTH_JSON_OUT=<path> is set (health.yml sets it), every FAIL is also
 // written as [{city, classification, message, meta}] so issue-sync.js can turn
-// it into per-city GitHub issues. Classifications: meta-missing, empty-data,
-// stale-data, exempt-expired.
+// it into per-city GitHub issues. Classifications include meta-missing,
+// empty-data, land-data, source-degraded, refresh-failed, stale-data,
+// validation-quarantine-expired and exempt-expired.
 
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+import { validateLandDocument } from './coverage-health.js';
+import { validationPolicy } from './validation-policy.js';
 
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 const STALE_DAYS = Number(process.env.STALE_DAYS || 14);
@@ -102,8 +105,8 @@ const EXEMPT_NEW = new Map();
 // expiry and then renew `since`. See PL-EGRESS-PLAN.md.
 const EGRESS_STALE_MAX_DAYS = Number(process.env.EGRESS_STALE_MAX_DAYS || 21);
 const EGRESS_STALE = new Map([
-  ['raciborz', { since: '2026-09-05', reason: 'operator-refreshed; the shared FINN origin drops Azure connections' }],
-  ['pszczyna', { since: '2026-09-05', reason: 'operator-refreshed; its source returns 503 from hosted and current operator egress' }],
+  ['raciborz', { since: '2026-09-05', reason: 'last-good data retained; the shared FINN origin drops Azure connections' }],
+  ['pszczyna', { since: '2026-09-05', reason: 'last-good data retained; its source returns 503 from hosted runners' }],
 ]);
 
 const now = Date.now();
@@ -152,6 +155,11 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 for (const c of index.cities || []) {
   const ex = exemption(c.id);
   const egressEx = egressStaleExemption(c.id);
+  const validation = validationPolicy(c.id);
+  if (validation.status === 'quarantined' && daysSince(validation.review_due) > 0) {
+    fail(c.id, 'validation-quarantine-expired',
+      `validation quarantine review was due ${validation.review_due}; repair or explicitly renew it`);
+  }
   // The exemption itself has expired — the adapter never produced data within
   // EXEMPT_MAX_DAYS, or the entry was simply forgotten. Either way it must be
   // looked at; a permanent exemption is indistinguishable from silent breakage.
@@ -180,12 +188,15 @@ for (const c of index.cities || []) {
   const unique = meta.unique_properties ?? c.unique_properties ?? 0;
   const activeAuctions = meta.active_auctions ?? c.active_auctions ?? 0;
   const activeListings = meta.active_listings ?? c.active_listings ?? 0;
-  const age = daysSince(meta.generated_at);
+  const landPlots = meta.land_plots ?? c.land_plots ?? 0;
+  const age = daysSince(meta.last_successful_source_check_at || meta.generated_at);
 
-  if (unique < MIN_UNIQUE) {
+  if (unique < MIN_UNIQUE && landPlots === 0) {
     const le = LEGIT_EMPTY.get(c.id);
     const leAge = le ? daysSince(le.since) : Infinity;
-    if (ex.active) {
+    if (meta.valid_empty === true) {
+      warns.push(`${c.id}: source reached and explicitly verified empty`);
+    } else if (ex.active) {
       warns.push(`${c.id}: unique_properties=${unique} (< ${MIN_UNIQUE}) — new adapter, pending first live refresh`);
     } else if (le && leAge <= LEGIT_EMPTY_RECHECK_DAYS) {
       const soon = leAge > LEGIT_EMPTY_RECHECK_DAYS * 0.8 ? ` — recheck due in ${(LEGIT_EMPTY_RECHECK_DAYS - leAge).toFixed(0)}d` : '';
@@ -198,6 +209,39 @@ for (const c of index.cities || []) {
       fail(c.id, 'empty-data', `unique_properties=${unique} (< ${MIN_UNIQUE}) — adapter likely broke`, meta);
     }
   }
+  if (landPlots > 0) {
+    const reportLandFailure = (message) => {
+      if (validation.status === 'quarantined') {
+        warns.push(`${c.id}: validation quarantine — ${message}`);
+      } else {
+        fail(c.id, 'land-data', message, meta);
+      }
+    };
+    const landPath = join(DATA_DIR, c.id, 'land.json');
+    if (!existsSync(landPath)) {
+      reportLandFailure(`land_plots=${landPlots} but land.json is missing`);
+    } else {
+      try {
+        const land = JSON.parse(readFileSync(landPath, 'utf8'));
+        for (const message of validateLandDocument(c.id, land)) reportLandFailure(message);
+        if ((land.plots || []).length !== landPlots) {
+          reportLandFailure(`land_plots=${landPlots} does not match land.json (${(land.plots || []).length})`);
+        }
+      } catch (error) {
+        reportLandFailure(`land.json unparseable (${error.message})`);
+      }
+    }
+  }
+  const degradedStreams = Object.entries(meta.source_checks || {})
+    .filter(([, source]) => source?.status === 'degraded')
+    .map(([stream]) => stream);
+  if (degradedStreams.length) {
+    fail(c.id, 'source-degraded', `${degradedStreams.join(', ')} source stream(s) degraded; last-good data is being preserved`, meta);
+  }
+  if (c.last_refresh_status === 'failed' && degradedStreams.length === 0) {
+    fail(c.id, 'refresh-failed',
+      `latest refresh attempt failed at ${c.last_source_attempt_at || 'an unknown time'}; last-good data is being preserved`, meta);
+  }
   if (age > STALE_DAYS) {
     const ageStr = age === Infinity ? 'no/invalid generated_at' : `${age.toFixed(1)} days old`;
     if (egressEx.active) {
@@ -209,7 +253,7 @@ for (const c of index.cities || []) {
     } else if (egressEx.expired) {
       fail(c.id, 'exempt-expired',
         `egress staleness exemption from ${egressEx.since} expired ` +
-        `(${egressEx.age.toFixed(0)}d > ${EGRESS_STALE_MAX_DAYS}d) — refresh or re-audit the source from operator egress ` +
+        `(${egressEx.age.toFixed(0)}d > ${EGRESS_STALE_MAX_DAYS}d) — restore direct hosted reachability or keep this as an explicit failing gap ` +
         `(reason was: ${egressEx.reason})`, meta);
     } else {
       fail(c.id, 'stale-data', `data stale (${ageStr} > ${STALE_DAYS}d) — crawl stopped updating`, meta);

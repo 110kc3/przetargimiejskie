@@ -22,15 +22,10 @@ Its **residential Polish IP** is egress GitHub Actions cannot buy:
   script) selectively to Azure-hosted CI traffic; the real page and the existing parser work
   fine from a Polish IP.
 
-The permitted use is **operator-initiated local work**: `CITY=raciborz npm run
-refresh`, tests, investigation and spikes from an interactive session, shipped
-through a reviewed PR. The Pi is not exposed to GitHub Actions as a runner or
-proxy.
-
-The proxy hook covers requests made through `core/fetch.js`
-(`politeGet`/`getText`/`getBytes`/`proxyFetch`). The insecure-TLS path, unwrapped direct
-`fetch` calls and the Playwright renderer require separate review and are not grounds to
-broaden the Pi's automation permissions.
+The permitted use is **operator-initiated development only**: tests,
+investigation and spikes from an interactive session. Local crawls do not advance
+published freshness. The Pi is not exposed to GitHub Actions as a runner or
+proxy, and `core/fetch.js` has no proxy/private-network configuration hook.
 
 Bonus: spikes benefit too — cloud fetchers get 403'd by some BIPs (choszczno) that
 accept residential clients.
@@ -78,10 +73,9 @@ accept residential clients.
    then `gh auth setup-git` (HTTPS pushes via gh credential helper).
 6. Clone to the layout the tooling expects:
    `mkdir -p ~/repos && gh repo clone 110kc3/przetargimiejskie ~/repos/przetargimiejskie`
-7. Deps: `cd ~/repos/przetargimiejskie/pipeline && npm ci` — installs the pipeline's
-   two dependencies: playwright (optional renderer) and undici (optional local
-   proxy support), both lazy-loaded; the Chromium browser binary is
-   NOT downloaded by `npm ci`.
+7. Deps: `cd ~/repos/przetargimiejskie/pipeline && npm ci` — installs Playwright,
+   which is lazy-loaded only by the optional renderer; the Chromium browser binary
+   is NOT downloaded by `npm ci`.
 8. *(Optional — only if refreshing chrzanow here)* `npx playwright install --with-deps chromium`
    in `pipeline/`. chrzanow is the sole `needsRender: true` city
    (`pipeline/src/cities/chrzanow/config.js:37`); `core/render.js` lazy-imports playwright
@@ -101,8 +95,8 @@ accept residential clients.
   `gh pr create --head <branch> --title "<title>" --body-file <file>`.
 - **Sequential, not parallel**: run `CITY=<id> npm run refresh` one city at a time.
   CI's 10-way matrix parallelism does not fit 8 GB, especially with OCR or Chromium.
-- **Data commits race the 04:00 UTC cron refresh** (`refresh.yml` per-city jobs push
-  with rebase-retry). Prefer PRs; on generated-file conflicts apply the repo
+- **Data commits can race the 04:00 UTC cron refresh** (`refresh.yml` now makes one
+  validated municipal publication commit). Prefer PRs; on generated-file conflicts apply the repo
   CLAUDE.md rule: take both sources, rebuild, `git add -A && git commit --no-edit && git push`.
 - **Per-machine drift — read this if you are an agent session on the Pi**: the user's
   global CLAUDE.md hardcodes Windows facts ("gh is NOT on PATH, use

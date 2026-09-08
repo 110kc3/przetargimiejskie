@@ -31,6 +31,7 @@ import { buildLand, mergePartialLand } from './core/build-land.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archiveAllActive, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
+import { validationPolicy } from '../scripts/validation-policy.js';
 
 // History accumulation: merge each run with the previously-committed
 // properties.json so a record the source later removes is retained (not lost).
@@ -52,8 +53,20 @@ const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 const PIPELINE_MIN_HISTORY_YEAR =
   Number(process.env.MIN_HISTORY_YEAR) || 2020;
 
+function observedAssetClasses(properties, landCount) {
+  const names = new Set();
+  const mapped = {
+    mieszkalny: 'residential', uzytkowy: 'commercial', garaz: 'garage',
+    zabudowana: 'building', unknown: 'unknown',
+  };
+  for (const property of properties) names.add(mapped[property.kind] || property.kind || 'unknown');
+  if (landCount > 0) names.add('land');
+  return [...names].sort();
+}
+
 // Crawl, OCR/parse, enrich and write one city's three JSON files.
 async function refreshCity(city, globalStreetDisplay = new Map()) {
+  const attemptedAt = new Date().toISOString();
   console.error(`\n=== ${city.label} (${city.id}) ===`);
 
   // Triage E2E hook: lets a workflow_dispatch run exercise the whole
@@ -115,6 +128,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     wykaz,
     land = [],
     valid_empty = false,
+    valid_empty_land = false,
     land_complete: landComplete = true,
   } = activeCrawl;
   console.error(`Got ${active.length} active listings, ${wykaz.length} wykaz entries.\n`);
@@ -161,6 +175,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     try { prevProperties = JSON.parse(await readFile(propPath, 'utf8'))?.properties || []; }
     catch { prevProperties = []; }
   }
+  let prevMeta = null;
+  try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
 
   // SAFETY NET — preserve on empty. A crawl that produced absolutely nothing
   // (no active listings, no result records, no wykaz) almost always means the
@@ -192,9 +208,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       city: city.id, kind: 'empty-crawl', message: 'crawl returned empty',
       prev_properties: prevProperties.length,
     }));
-    let prevMeta = null;
-    try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
-
     // Even while preserving, apply the same durable identity/round heals as a
     // healthy refresh. Otherwise an outage can indefinitely re-publish aliases
     // and stale inferred rounds from the committed baseline.
@@ -213,11 +226,26 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     // skips the write again.
     const aged = archivePastActive(prevProperties, todayWarsaw());
     if (aged === 0 && !preserveHealed) {
-      console.error('  nothing to age out; skipping write.');
-      return prevMeta
-        ? { ...prevMeta, city: city.id, stale: true }
-        : { schema_version: SCHEMA_VERSION, city: city.id, unique_properties: prevProperties.length,
-            active_listings: 0, active_auctions: 0, archived_auctions: 0, wykaz_entries: 0, stale: true };
+      console.error('  nothing to age out; updating source-attempt state only.');
+      const lastSuccess = prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null;
+      const meta = {
+        ...(prevMeta || { schema_version: SCHEMA_VERSION, parser_version: PARSER_VERSION }),
+        city: city.id,
+        last_source_attempt_at: attemptedAt,
+        last_successful_source_check_at: lastSuccess,
+        monitored_assets: prevMeta?.monitored_assets || observedAssetClasses(prevProperties, prevMeta?.land_plots || 0),
+        source_checks: {
+          property: { status: 'degraded', last_attempt_at: attemptedAt, last_success_at: prevMeta?.source_checks?.property?.last_success_at || lastSuccess },
+          land: (prevMeta?.land_plots || 0) > 0
+            ? { status: 'degraded', last_attempt_at: attemptedAt, last_success_at: prevMeta?.source_checks?.land?.last_success_at || lastSuccess }
+            : { status: 'not_monitored', last_attempt_at: attemptedAt, last_success_at: null },
+        },
+        stale: true,
+      };
+      const cityDir = join(DATA_DIR, city.id);
+      await mkdir(cityDir, { recursive: true });
+      await writeFile(metaPath, JSON.stringify(meta, null, 2) + '\n');
+      return meta;
     }
     if (aged) {
       console.error(`  aged out ${aged} past-dated preserved listings (active → archived); rewriting data files.`);
@@ -262,6 +290,21 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       active_auctions: activeAuctions,
       archived_auctions: archivedAuctions,
       stale: true,
+      last_source_attempt_at: attemptedAt,
+      last_successful_source_check_at: prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null,
+      monitored_assets: prevMeta?.monitored_assets || observedAssetClasses(prevProperties, prevMeta?.land_plots || 0),
+      source_checks: {
+        property: {
+          status: 'degraded', last_attempt_at: attemptedAt,
+          last_success_at: prevMeta?.source_checks?.property?.last_success_at || prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null,
+        },
+        land: (prevMeta?.land_plots || 0) > 0
+          ? {
+            status: 'degraded', last_attempt_at: attemptedAt,
+            last_success_at: prevMeta?.source_checks?.land?.last_success_at || prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null,
+          }
+          : { status: 'not_monitored', last_attempt_at: attemptedAt, last_success_at: null },
+      },
     };
     await writeFile(metaPath, JSON.stringify(meta, null, 2) + '\n');
     console.error('--- summary (preserved + aged) ---');
@@ -386,6 +429,32 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     land_listings: landRecords.length,     // raw land auction rows seen this run
     retained_properties: retained.kept_properties,
     valid_empty: verifiedEmpty,
+    valid_empty_land: landRecords.length === 0 && valid_empty_land === true,
+    last_source_attempt_at: attemptedAt,
+    last_successful_source_check_at: attemptedAt,
+    monitored_assets: observedAssetClasses(properties, landPlots.length),
+    source_checks: {
+      property: propertyCrawlEmpty
+        ? (verifiedEmpty
+          ? { status: 'verified_empty', last_attempt_at: attemptedAt, last_success_at: attemptedAt }
+          : (prevProperties.length > 0
+            ? {
+              status: 'degraded', last_attempt_at: attemptedAt,
+              last_success_at: prevMeta?.source_checks?.property?.last_success_at || prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null,
+            }
+            : { status: 'not_monitored', last_attempt_at: attemptedAt, last_success_at: null }))
+        : { status: 'healthy', last_attempt_at: attemptedAt, last_success_at: attemptedAt },
+      land: landRecords.length > 0
+        ? { status: 'healthy', complete: landComplete, last_attempt_at: attemptedAt, last_success_at: attemptedAt }
+        : (valid_empty_land === true
+          ? { status: 'verified_empty', complete: landComplete, last_attempt_at: attemptedAt, last_success_at: attemptedAt }
+          : (prevPlots.length > 0
+            ? {
+              status: 'degraded', complete: landComplete, last_attempt_at: attemptedAt,
+              last_success_at: prevMeta?.source_checks?.land?.last_success_at || prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null,
+            }
+            : { status: 'not_monitored', complete: landComplete, last_attempt_at: attemptedAt, last_success_at: null })),
+    },
     ...(!landComplete ? { land_complete: false } : {}),
   };
 
@@ -427,8 +496,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
 
 // City filter for the CI matrix: `CITY=bytom npm run refresh` runs only that
 // city (comma-separated ids allowed) and SKIPS writing data/index.json —
-// parallel matrix jobs would otherwise race on that one shared file. The
-// aggregate CI job rebuilds the index afterwards via `node src/build-index.js`
+// isolated shard worktrees would otherwise emit competing copies. The single
+// publisher rebuilds the index afterwards via `node src/build-index.js`
 // (see .github/workflows/refresh.yml). No CITY → full run, index written,
 // exactly as before.
 const CITY_FILTER = (process.env.CITY || '')
@@ -503,6 +572,8 @@ async function main() {
       generated_at: new Date().toISOString(),
       cities: cities.map((c) => {
         const m = metas.find((x) => x.city === c.id);
+        const validation = validationPolicy(c.id);
+        const sourceDegraded = Object.values(m?.source_checks || {}).some((source) => source?.status === 'degraded');
         return {
           id: c.id,
           label: c.label,
@@ -515,6 +586,17 @@ async function main() {
           archived_auctions: m?.archived_auctions ?? 0,
           wykaz_entries: m?.wykaz_entries ?? 0,
           land_plots: m?.land_plots ?? 0,
+          validation_status: validation.status,
+          validation_reason: validation.reason,
+          validation_review_due: validation.review_due,
+          coverage_status: validation.status === 'quarantined' || sourceDegraded || m?.stale === true
+            ? 'degraded' : (m?.valid_empty ? 'valid_empty' : ((m?.monitored_assets || []).length ? 'monitored' : 'unknown')),
+          monitored_assets: m?.monitored_assets || [],
+          last_source_attempt_at: m?.last_source_attempt_at || null,
+          last_successful_source_check_at: m?.last_successful_source_check_at || m?.generated_at || null,
+          last_refresh_status: m?.stale === true ? 'failed' : 'ready',
+          last_refresh_duration_ms: null,
+          last_refresh_request_count: null,
         };
       }),
     };

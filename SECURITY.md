@@ -38,10 +38,15 @@ The weekly/on-push security workflow runs CodeQL and Trivy. Stable-v1 requires:
 Repository settings enforce SHA pins, allow GitHub-owned actions plus only the
 reviewed Trivy and Trivy-setup actions, and require approval before any external
 contributor's workflow runs. Refresh and backfill crawlers have read-only tokens
-and no persisted checkout credential. They emit bounded SHA-256 manifests; a
+and no persisted checkout credential. A bounded hosted shard gives every city a
+separate detached worktree, subprocess, timeout and log. Workers emit bounded
+SHA-256 manifests; a
 separate trusted publisher rejects traversal, symlinks, undeclared or duplicate
 paths, unexpected types, malformed JSON, oversized files and hash mismatches,
-then reruns data sanity checks before receiving permission to push.
+requires exactly one outcome per expected city, then reruns data sanity checks
+before receiving permission to push. Only validated deltas can replace city data;
+a failed outcome updates index health/attempt metrics while retaining last-good
+files. The publisher rebuilds the municipal index and commits once.
 
 The official TERYT inventory uses the same separation. Its network-facing job has
 read-only repository permission and no persisted checkout credential. The publisher
@@ -49,8 +54,9 @@ accepts exactly five named generated files, rejects symlinks and unexpected path
 and reruns the inventory verifier before receiving `contents: write`. Pull-request
 runs never publish. The workflow carries no private-network or proxy credential.
 
-The stable-v1 dependency baseline is `undici >=6.28.0`; this removes
-CVE-2026-15157, CVE-2026-16728 and CVE-2026-16729 from the prior 6.27.0 lock.
+The earlier optional Undici proxy dependency has been removed. Production has no
+proxy/private-network configuration path; Node's built-in fetch handles direct
+hosted requests and Playwright remains the only direct pipeline dependency.
 
 ## Broken certificate chains
 
@@ -75,6 +81,7 @@ offers a stable valid chain.
 Adapters marked `needsResidentialEgress` are unconditionally excluded from
 GitHub-hosted refresh and backfill matrices. GitHub stores no residential-proxy
 or private-network credential, and repository automation never executes on the
-Pi. Racibórz and Pszczyna are refreshed only by an operator from a clean branch;
-last-good preservation plus an expiring 21-day stale-only health rule keeps
-outages visible. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+Pi. Racibórz and Pszczyna remain on their last-good data until direct hosted
+access works; there is no local production refresh path. An expiring 21-day
+stale-only health rule turns that limitation into a hard visible failure rather
+than silently renewing it. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
