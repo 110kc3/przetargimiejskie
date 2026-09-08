@@ -4,6 +4,60 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. M. Konopnickiej 31b/8",
+      "address": {
+        "street": "M. Konopnickiej",
+        "street_norm": "m konopnickiej",
+        "building": "31B",
+        "apt": "8",
+        "key": "m konopnickiej|31B|8",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/ul-m-konopnickiej-31b-8-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Płatnerzy 1a/13",
+      "address": {
+        "street": "Płatnerzy",
+        "street_norm": "platnerzy",
+        "building": "1A",
+        "apt": "13",
+        "key": "platnerzy|1A|13",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/ul-platnerzy-1a-13-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac Świętego Ducha 26b/6",
+      "address": {
+        "street": "Plac Świętego Ducha",
+        "street_norm": "plac swietego ducha",
+        "building": "26B",
+        "apt": "6",
+        "key": "plac swietego ducha|26B|6",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/plac-swietego-ducha-26b-6-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Lokal niemieszkalny ul. Warszawska 8/3",
       "address": {
         "street": "Lokal niemieszkalny ul. Warszawska",

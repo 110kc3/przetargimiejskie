@@ -3,6 +3,32 @@
   "city": "elblag",
   "plots": [
     {
+      "key": "addr|ul. bolesława chrobrego",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bolesława Chrobrego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Boles%C5%82awa%20Chrobrego%20Elbl%C4%85g%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-09",
+          "round": 1,
+          "starting_price_pln": 4255000,
+          "outcome": "active",
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10871/i-ustny-przetarg-nieograniczony-ul-boleslawa-chrobrego-kompleks-nieruchomosci-niezabudowanych-09-11-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/18983"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|21|59/25",
       "kind": "grunt",
       "city": "elblag",
@@ -124,39 +150,6 @@
           "nr": "1/5",
           "dzialka_id": "286101_1.0029.1/5",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0029.1%2F5"
-        }
-      ]
-    },
-    {
-      "key": "dz|24|230/2",
-      "kind": "grunt",
-      "city": "elblag",
-      "dzialka_nr": "230/2",
-      "obreb": "24",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Dębowa",
-      "dzialka_id": "286101_1.0024.230/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0024.230%2F2",
-      "area_m2": 545,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-07",
-          "round": 2,
-          "starting_price_pln": 145000,
-          "outcome": "active",
-          "area_m2": 545,
-          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10658/ii-ustny-przetarg-nieograniczony-debowa-nieruchomosc-niezabudowana",
-          "source_url": "https://bip.elblag.eu/attachments/download/18727"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "230/2",
-          "dzialka_id": "286101_1.0024.230/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0024.230%2F2"
         }
       ]
     }

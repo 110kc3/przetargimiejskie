@@ -3,6 +3,33 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|zabrzańska 91",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Zabrzańska 91",
+      "building": null,
+      "address_raw": "Zabrzańska 91",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.88902445199216%2C50.33735940402824%2C18.889538320623796%2C50.337692571962826&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.ed07b6c0-dd06-4ca5-b5a1-ad582079de32",
+      "area_m2": 1148,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-09",
+          "round": 2,
+          "starting_price_pln": 1000000,
+          "outcome": "active",
+          "area_m2": 1148,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zabrzanska-91,24932.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|pl. generała władysława sikorskiego 8a; pl. generała władysława sikorskiego 8",
       "kind": "grunt",
       "city": "bytom",
@@ -78,6 +105,33 @@
           "outcome": "active",
           "area_m2": 905,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zeromskiego-4,24803.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|świętej elżbiety",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Świętej Elżbiety",
+      "building": null,
+      "address_raw": "Świętej Elżbiety",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.86586971272441%2C50.34618960814988%2C18.867496248194254%2C50.346650925757594&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.6eff5819-68de-48e8-9119-b9417c6929ff",
+      "area_m2": 1464,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "starting_price_pln": 221000,
+          "outcome": "active",
+          "area_m2": 1464,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-sw.-Elzbiety-dz.-2808_96-udzial,24933.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
         }
       ],

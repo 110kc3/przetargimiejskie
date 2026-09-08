@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Górniczej 5/46",
+      "address": {
+        "street": "Górniczej",
+        "street_norm": "gorniczej",
+        "building": "5",
+        "apt": "46",
+        "key": "gorniczej|5|46",
+        "warning": null
+      },
+      "auction_date": "2026-10-13",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 52.13,
+      "starting_price_pln": 243000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-46-znajdujacy-sie-w-budynku-nr-5-przy",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Wielka Skotnica 9A/17",
       "address": {
         "street": "Wielka Skotnica",

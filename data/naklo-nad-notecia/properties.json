@@ -3,6 +3,28 @@
   "city": "naklo-nad-notecia",
   "properties": [
     {
+      "key": "gorzen|15|3",
+      "street": "Gorzeń",
+      "street_norm": "gorzen",
+      "building": "15",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 143600,
+          "outcome": "active",
+          "area_m2": 67.67,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/8044/gorzen-15-3",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 67.67
+    },
+    {
       "key": "gen h dabrowskiego|29|15",
       "street": "gen. H. Dąbrowskiego",
       "street_norm": "gen h dabrowskiego",
