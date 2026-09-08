@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T08:58:12.142Z",
+  "generated_at": "2026-09-08T10:06:36.453Z",
   "cities": [
     {
       "id": "gliwice",
@@ -13,7 +13,23 @@
       "active_auctions": 6,
       "archived_auctions": 285,
       "wykaz_entries": 4,
-      "land_plots": 81
+      "land_plots": 81,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "garage",
+        "land",
+        "residential",
+        "unknown"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-04T08:37:23.511Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "katowice",
@@ -26,7 +42,22 @@
       "active_auctions": 18,
       "archived_auctions": 149,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 9,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:38:23.944Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "bytom",
@@ -39,7 +70,22 @@
       "active_auctions": 2,
       "archived_auctions": 24,
       "wykaz_entries": 0,
-      "land_plots": 21
+      "land_plots": 21,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "garage",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:37:46.046Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "zabrze",
@@ -52,7 +98,21 @@
       "active_auctions": 32,
       "archived_auctions": 470,
       "wykaz_entries": 0,
-      "land_plots": 28
+      "land_plots": 28,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:42:34.518Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sosnowiec",
@@ -65,7 +125,22 @@
       "active_auctions": 9,
       "archived_auctions": 93,
       "wykaz_entries": 0,
-      "land_plots": 228
+      "land_plots": 228,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:45:34.157Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "rybnik",
@@ -78,7 +153,20 @@
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 7,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:37:49.300Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "bielsko",
@@ -91,7 +179,22 @@
       "active_auctions": 8,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 11
+      "land_plots": 11,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:38:00.954Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "myslowice",
@@ -104,7 +207,22 @@
       "active_auctions": 12,
       "archived_auctions": 66,
       "wykaz_entries": 0,
-      "land_plots": 50
+      "land_plots": 50,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:40:22.719Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "swietochlowice",
@@ -117,7 +235,22 @@
       "active_auctions": 4,
       "archived_auctions": 209,
       "wykaz_entries": 0,
-      "land_plots": 21
+      "land_plots": 21,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:39:53.267Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "tarnowskie-gory",
@@ -130,7 +263,21 @@
       "active_auctions": 5,
       "archived_auctions": 60,
       "wykaz_entries": 0,
-      "land_plots": 48
+      "land_plots": 48,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:43:26.475Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "kedzierzyn-kozle",
@@ -143,7 +290,22 @@
       "active_auctions": 3,
       "archived_auctions": 105,
       "wykaz_entries": 0,
-      "land_plots": 116
+      "land_plots": 116,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:44:21.940Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "trzebinia",
@@ -156,7 +318,19 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:38:33.575Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "krakow",
@@ -169,7 +343,21 @@
       "active_auctions": 1,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 3,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "garage",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:39:42.509Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "olkusz",
@@ -182,7 +370,21 @@
       "active_auctions": 1,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 6
+      "land_plots": 6,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:46:53.470Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "opole",
@@ -195,7 +397,21 @@
       "active_auctions": 12,
       "archived_auctions": 87,
       "wykaz_entries": 0,
-      "land_plots": 24
+      "land_plots": 24,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:45:28.064Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "oswiecim",
@@ -208,7 +424,19 @@
       "active_auctions": 1,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:40:35.464Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "chrzanow",
@@ -221,7 +449,19 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 3,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:41:36.804Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "legnica",
@@ -234,7 +474,21 @@
       "active_auctions": 3,
       "archived_auctions": 16,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "residential",
+        "unknown"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:40:24.108Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "raciborz",
@@ -247,7 +501,22 @@
       "active_auctions": 8,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 1
+      "land_plots": 1,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-04T15:43:36.300Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "olsztyn",
@@ -260,7 +529,19 @@
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:41:37.643Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "torun",
@@ -273,7 +554,19 @@
       "active_auctions": 3,
       "archived_auctions": 23,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address/price findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:41:55.071Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pabianice",
@@ -286,7 +579,19 @@
       "active_auctions": 0,
       "archived_auctions": 28,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:42:23.715Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wejherowo",
@@ -299,7 +604,19 @@
       "active_auctions": 3,
       "archived_auctions": 8,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:43:45.715Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "lodz",
@@ -312,7 +629,21 @@
       "active_auctions": 60,
       "archived_auctions": 45,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "garage",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-07T08:52:16.006Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "walbrzych",
@@ -325,7 +656,19 @@
       "active_auctions": 5,
       "archived_auctions": 115,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:56:14.688Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "bialystok",
@@ -334,11 +677,23 @@
       "authority": "Urząd Miejski w Białymstoku",
       "host": "bip.bialystok.pl",
       "unique_properties": 232,
-      "active_listings": 27,
+      "active_listings": 26,
       "active_auctions": 22,
       "archived_auctions": 335,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:49.015Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "nysa",
@@ -351,7 +706,19 @@
       "active_auctions": 2,
       "archived_auctions": 6,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:43:49.873Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "gdansk",
@@ -364,7 +731,19 @@
       "active_auctions": 6,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:43:06.579Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "kielce",
@@ -377,7 +756,20 @@
       "active_auctions": 3,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy land identity findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:43:52.281Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pila",
@@ -390,7 +782,19 @@
       "active_auctions": 1,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:43:59.452Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "szczecin",
@@ -403,7 +807,19 @@
       "active_auctions": 2,
       "archived_auctions": 37,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:44:54.691Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "klodzko",
@@ -416,7 +832,19 @@
       "active_auctions": 1,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:49:23.814Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "brzeg",
@@ -429,7 +857,19 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:44:55.598Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "stargard",
@@ -442,7 +882,19 @@
       "active_auctions": 9,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy land/address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:44:51.943Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "slupsk",
@@ -455,7 +907,19 @@
       "active_auctions": 8,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:46:02.159Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "tczew",
@@ -468,7 +932,19 @@
       "active_auctions": 3,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:45:23.005Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "gniezno",
@@ -481,7 +957,19 @@
       "active_auctions": 2,
       "archived_auctions": 8,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:45:50.771Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "cieszyn",
@@ -494,7 +982,20 @@
       "active_auctions": 0,
       "archived_auctions": 37,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:48:05.674Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "przemysl",
@@ -507,7 +1008,19 @@
       "active_auctions": 4,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:46:02.252Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "chelm",
@@ -520,7 +1033,21 @@
       "active_auctions": 0,
       "archived_auctions": 33,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "residential",
+        "unknown"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:55:29.185Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "swinoujscie",
@@ -533,7 +1060,20 @@
       "active_auctions": 46,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "commercial",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:48:51.860Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "warszawa",
@@ -546,7 +1086,19 @@
       "active_auctions": 12,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy area parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:46:28.268Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "skarzysko-kamienna",
@@ -559,7 +1111,22 @@
       "active_auctions": 0,
       "archived_auctions": 6,
       "wykaz_entries": 0,
-      "land_plots": 5
+      "land_plots": 5,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy price parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:48:56.533Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "gizycko",
@@ -572,7 +1139,19 @@
       "active_auctions": 2,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:47:08.995Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "nowa-sol",
@@ -585,7 +1164,19 @@
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:47:12.157Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "augustow",
@@ -598,7 +1189,19 @@
       "active_auctions": 0,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:48:04.615Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "busko-zdroj",
@@ -611,7 +1214,17 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [],
+      "coverage_status": "unknown",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:48:39.406Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "braniewo",
@@ -624,7 +1237,20 @@
       "active_auctions": 0,
       "archived_auctions": 17,
       "wykaz_entries": 0,
-      "land_plots": 35
+      "land_plots": 35,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:49:22.688Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "belchatow",
@@ -637,7 +1263,19 @@
       "active_auctions": 0,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:48:40.004Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "bochnia",
@@ -650,7 +1288,20 @@
       "active_auctions": 0,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 24
+      "land_plots": 24,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:30.494Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "drawsko-pomorskie",
@@ -663,7 +1314,19 @@
       "active_auctions": 0,
       "archived_auctions": 20,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:16.859Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "chelmno",
@@ -676,7 +1339,21 @@
       "active_auctions": 0,
       "archived_auctions": 49,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 13,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:22.947Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "ostroleka",
@@ -689,7 +1366,19 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:05.355Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "bydgoszcz",
@@ -702,7 +1391,21 @@
       "active_auctions": 2,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy price parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:49:36.389Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "gorzow-wielkopolski",
@@ -715,7 +1418,20 @@
       "active_auctions": 0,
       "archived_auctions": 102,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy area/price findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:01.838Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "naklo-nad-notecia",
@@ -728,7 +1444,20 @@
       "active_auctions": 1,
       "archived_auctions": 22,
       "wykaz_entries": 0,
-      "land_plots": 23
+      "land_plots": 23,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:53.884Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "zgorzelec",
@@ -741,7 +1470,22 @@
       "active_auctions": 2,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:12.373Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "konskie",
@@ -754,7 +1498,19 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:52:13.320Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "zlotoryja",
@@ -767,7 +1523,20 @@
       "active_auctions": 3,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 25
+      "land_plots": 25,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:03.929Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "choszczno",
@@ -780,7 +1549,22 @@
       "active_auctions": 0,
       "archived_auctions": 8,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 7,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:12.067Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "chodziez",
@@ -793,7 +1577,21 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 1,
-      "land_plots": 1
+      "land_plots": 1,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential",
+        "unknown"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:50:45.106Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "namyslow",
@@ -806,7 +1604,19 @@
       "active_auctions": 0,
       "archived_auctions": 18,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:36.280Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "olesno",
@@ -819,7 +1629,19 @@
       "active_auctions": 0,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:39.256Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "mragowo",
@@ -832,7 +1654,20 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 11
+      "land_plots": 11,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:29.608Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "miedzyrzecz",
@@ -845,7 +1680,19 @@
       "active_auctions": 2,
       "archived_auctions": 36,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:51:55.335Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pajeczno",
@@ -858,7 +1705,20 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 9,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:52:13.647Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "lubliniec",
@@ -871,7 +1731,23 @@
       "active_auctions": 1,
       "archived_auctions": 32,
       "wykaz_entries": 0,
-      "land_plots": 78
+      "land_plots": 78,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "garage",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:56:22.604Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pultusk",
@@ -884,7 +1760,20 @@
       "active_auctions": 0,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 7,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:52:05.412Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sandomierz",
@@ -897,7 +1786,22 @@
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 13,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "garage",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:53:47.253Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "poddebice",
@@ -910,7 +1814,20 @@
       "active_auctions": 0,
       "archived_auctions": 1,
       "wykaz_entries": 0,
-      "land_plots": 14
+      "land_plots": 14,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:52:33.911Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "proszowice",
@@ -923,7 +1840,20 @@
       "active_auctions": 1,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 13,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:54:45.392Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pleszew",
@@ -936,7 +1866,20 @@
       "active_auctions": 0,
       "archived_auctions": 2,
       "wykaz_entries": 15,
-      "land_plots": 22
+      "land_plots": 22,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:52:31.947Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pisz",
@@ -949,7 +1892,20 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 32
+      "land_plots": 32,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:57:14.752Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "rawa-mazowiecka",
@@ -962,7 +1918,21 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 12
+      "land_plots": 12,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:54:05.280Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "pszczyna",
@@ -975,7 +1945,20 @@
       "active_auctions": 0,
       "archived_auctions": 42,
       "wykaz_entries": 0,
-      "land_plots": 42
+      "land_plots": 42,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-01T05:41:03.679Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "zdunska-wola",
@@ -988,7 +1971,19 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 3,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:53:05.867Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "trzebnica",
@@ -1001,7 +1996,22 @@
       "active_auctions": 2,
       "archived_auctions": 26,
       "wykaz_entries": 0,
-      "land_plots": 41
+      "land_plots": 41,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy price parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:01.511Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sroda-wielkopolska",
@@ -1014,7 +2024,20 @@
       "active_auctions": 0,
       "archived_auctions": 10,
       "wykaz_entries": 0,
-      "land_plots": 27
+      "land_plots": 27,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:54:25.997Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "szczecinek",
@@ -1027,7 +2050,21 @@
       "active_auctions": 1,
       "archived_auctions": 24,
       "wykaz_entries": 0,
-      "land_plots": 55
+      "land_plots": 55,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:57:37.570Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wegorzewo",
@@ -1040,7 +2077,21 @@
       "active_auctions": 0,
       "archived_auctions": 6,
       "wykaz_entries": 0,
-      "land_plots": 38
+      "land_plots": 38,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:56:54.467Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "strzelce-krajenskie",
@@ -1053,7 +2104,19 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 1
+      "land_plots": 1,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:54:57.903Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wschowa",
@@ -1066,7 +2129,20 @@
       "active_auctions": 0,
       "archived_auctions": 7,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 9,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:55:26.089Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "zagan",
@@ -1079,7 +2155,20 @@
       "active_auctions": 0,
       "archived_auctions": 40,
       "wykaz_entries": 0,
-      "land_plots": 59
+      "land_plots": 59,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:55:46.155Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wegrow",
@@ -1092,7 +2181,21 @@
       "active_auctions": 1,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 5
+      "land_plots": 5,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:56:38.281Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sulecin",
@@ -1105,7 +2208,20 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 6
+      "land_plots": 6,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:56:22.298Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "boleslawiec",
@@ -1118,7 +2234,22 @@
       "active_auctions": 4,
       "archived_auctions": 6,
       "wykaz_entries": 12,
-      "land_plots": 4
+      "land_plots": 4,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential",
+        "unknown"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:56:26.185Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wolow",
@@ -1131,7 +2262,22 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 18,
-      "land_plots": 49
+      "land_plots": 49,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential",
+        "unknown"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:58.565Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "lwowek-slaski",
@@ -1144,7 +2290,21 @@
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
-      "land_plots": 17
+      "land_plots": 17,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:58:08.349Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sepolno-krajenskie",
@@ -1157,7 +2317,20 @@
       "active_auctions": 0,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:57:44.824Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "zabkowice-slaskie",
@@ -1170,7 +2343,21 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 52
+      "land_plots": 35,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:00.240Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "jarocin",
@@ -1183,7 +2370,20 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 23
+      "land_plots": 23,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "land",
+        "unknown"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:15.705Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "jelenia-gora",
@@ -1196,7 +2396,21 @@
       "active_auctions": 9,
       "archived_auctions": 17,
       "wykaz_entries": 0,
-      "land_plots": 20
+      "land_plots": 20,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:11.379Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "glubczyce",
@@ -1209,7 +2423,22 @@
       "active_auctions": 0,
       "archived_auctions": 37,
       "wykaz_entries": 0,
-      "land_plots": 21
+      "land_plots": 21,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address/price findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "building",
+        "garage",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:57:45.201Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "gostyn",
@@ -1222,7 +2451,19 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 3,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:58:09.007Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "kwidzyn",
@@ -1235,7 +2476,20 @@
       "active_auctions": 0,
       "archived_auctions": 8,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 7,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy area parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:01:45.864Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "ketrzyn",
@@ -1248,7 +2502,21 @@
       "active_auctions": 1,
       "archived_auctions": 7,
       "wykaz_entries": 0,
-      "land_plots": 9
+      "land_plots": 9,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:28.487Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "kamienna-gora",
@@ -1261,7 +2529,19 @@
       "active_auctions": 0,
       "archived_auctions": 110,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:55.791Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "krosno-odrzanskie",
@@ -1274,7 +2554,19 @@
       "active_auctions": 2,
       "archived_auctions": 22,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:19.094Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "lipsko",
@@ -1287,7 +2579,19 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:55.726Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "kolbuszowa",
@@ -1300,7 +2604,20 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:41.710Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wabrzezno",
@@ -1313,7 +2630,20 @@
       "active_auctions": 0,
       "archived_auctions": 13,
       "wykaz_entries": 0,
-      "land_plots": 7
+      "land_plots": 7,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:19.036Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "znin",
@@ -1326,7 +2656,21 @@
       "active_auctions": 1,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 13
+      "land_plots": 13,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:34.930Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "strzelce-opolskie",
@@ -1339,7 +2683,20 @@
       "active_auctions": 1,
       "archived_auctions": 2,
       "wykaz_entries": 0,
-      "land_plots": 3
+      "land_plots": 3,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:05.233Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sucha-beskidzka",
@@ -1352,7 +2709,20 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T09:59:55.088Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "lebork",
@@ -1365,7 +2735,21 @@
       "active_auctions": 0,
       "archived_auctions": 37,
       "wykaz_entries": 0,
-      "land_plots": 11
+      "land_plots": 11,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:29.356Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "klobuck",
@@ -1378,7 +2762,21 @@
       "active_auctions": 0,
       "archived_auctions": 8,
       "wykaz_entries": 0,
-      "land_plots": 2
+      "land_plots": 2,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:01:10.495Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "poznan",
@@ -1391,7 +2789,19 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 1
+      "land_plots": 1,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:39.180Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "elblag",
@@ -1404,7 +2814,20 @@
       "active_auctions": 1,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 5
+      "land_plots": 5,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:00:52.399Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wroclaw",
@@ -1417,7 +2840,19 @@
       "active_auctions": 23,
       "archived_auctions": 46,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy entity/address parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:05:48.181Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "grudziadz",
@@ -1430,7 +2865,19 @@
       "active_auctions": 1,
       "archived_auctions": 45,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy price parsing findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:50.330Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "kalisz",
@@ -1443,7 +2890,20 @@
       "active_auctions": 0,
       "archived_auctions": 11,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "residential"
+      ],
+      "coverage_status": "valid_empty",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:01:10.707Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "wloclawek",
@@ -1456,7 +2916,20 @@
       "active_auctions": 0,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:57.965Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "plock",
@@ -1469,7 +2942,20 @@
       "active_auctions": 11,
       "archived_auctions": 12,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:17.984Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "sopot",
@@ -1482,7 +2968,21 @@
       "active_auctions": 1,
       "archived_auctions": 28,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "garage",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:01:58.986Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "siedlce",
@@ -1495,7 +2995,20 @@
       "active_auctions": 1,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:01:42.145Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "biala-podlaska",
@@ -1508,7 +3021,21 @@
       "active_auctions": 0,
       "archived_auctions": 21,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:03.275Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "lubin",
@@ -1521,7 +3048,17 @@
       "active_auctions": 0,
       "archived_auctions": 0,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [],
+      "coverage_status": "unknown",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:01:48.534Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "tomaszow-mazowiecki",
@@ -1534,7 +3071,21 @@
       "active_auctions": 1,
       "archived_auctions": 5,
       "wykaz_entries": 0,
-      "land_plots": 40
+      "land_plots": 40,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "building",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:23.616Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "golub-dobrzyn",
@@ -1547,7 +3098,20 @@
       "active_auctions": 1,
       "archived_auctions": 4,
       "wykaz_entries": 0,
-      "land_plots": 10
+      "land_plots": 10,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "land",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:47.483Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "glogow",
@@ -1560,7 +3124,22 @@
       "active_auctions": 6,
       "archived_auctions": 52,
       "wykaz_entries": 0,
-      "land_plots": 28
+      "land_plots": 28,
+      "validation_status": "quarantined",
+      "validation_reason": "legacy address/price findings",
+      "validation_review_due": "2026-10-06",
+      "monitored_assets": [
+        "building",
+        "commercial",
+        "land",
+        "residential"
+      ],
+      "coverage_status": "degraded",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:05:21.922Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     },
     {
       "id": "swidnica",
@@ -1573,7 +3152,20 @@
       "active_auctions": 1,
       "archived_auctions": 9,
       "wykaz_entries": 0,
-      "land_plots": 0
+      "land_plots": 0,
+      "validation_status": "enforced",
+      "validation_reason": null,
+      "validation_review_due": null,
+      "monitored_assets": [
+        "commercial",
+        "residential"
+      ],
+      "coverage_status": "monitored",
+      "last_source_attempt_at": null,
+      "last_successful_source_check_at": "2026-09-08T10:02:32.021Z",
+      "last_refresh_status": null,
+      "last_refresh_duration_ms": null,
+      "last_refresh_request_count": null
     }
   ]
 }
