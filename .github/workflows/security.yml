@@ -23,8 +23,9 @@ name: 6. Security
 on:
   push:
     branches: [main]
+  # Run on stacked PRs too; otherwise a security-sensitive follow-up does not
+  # receive CodeQL/Trivy until its base branch lands on main.
   pull_request:
-    branches: [main]
   schedule:
     - cron: '0 7 * * 1'   # Mondays 07:00 UTC (an hour after the data refresh)
   workflow_dispatch: {}
