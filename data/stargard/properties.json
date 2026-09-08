@@ -178,27 +178,6 @@
       ]
     },
     {
-      "key": "lokal niemieszkalny ul warszawska|8|3",
-      "street": "Lokal niemieszkalny ul. Warszawska",
-      "street_norm": "lokal niemieszkalny ul warszawska",
-      "building": "8",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 32800,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-ii-przetarg-ograniczony-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
       "key": "szczecinska|28B|11",
       "street": "Szczecińska",
       "street_norm": "szczecinska",
@@ -313,6 +292,39 @@
       "area_m2": 24.63
     },
     {
+      "key": "lokal niemieszkalny ul warszawska|8|3",
+      "street": "Lokal niemieszkalny ul. Warszawska",
+      "street_norm": "lokal niemieszkalny ul warszawska",
+      "building": "8",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 32800,
+          "outcome": "archived",
+          "area_m2": 14,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-ii-przetarg-ograniczony-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 41000,
+          "outcome": "active",
+          "area_m2": 14,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-niemieszkalny-ul-warszawska-8-3-i-rokowania-na-sprzedaz-nieruchomosci-ograniczone-do-wlascicieli-lokali-w-budynku-przy-ul-warszawskiej-8-w-stargardzie/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 14
+    },
+    {
       "key": "mickiewicza|27|7",
       "street": "Mickiewicza",
       "street_norm": "mickiewicza",
@@ -372,6 +384,72 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://tbs.stargard.pl/ogloszenia/nieruchomosci-gruntowe-niezabudowane-obr-19-os-pyrzyckie-dzialki-numer-1-61-18-i-62-10-2-61-19-i-62-11-3-61-21-i-62-13/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "m konopnickiej|31B|8",
+      "street": "M. Konopnickiej",
+      "street_norm": "m konopnickiej",
+      "building": "31B",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/ul-m-konopnickiej-31b-8-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "platnerzy|1A|13",
+      "street": "Płatnerzy",
+      "street_norm": "platnerzy",
+      "building": "1A",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/ul-platnerzy-1a-13-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "plac swietego ducha|26B|6",
+      "street": "Plac Świętego Ducha",
+      "street_norm": "plac swietego ducha",
+      "building": "26B",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/plac-swietego-ducha-26b-6-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"

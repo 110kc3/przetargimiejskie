@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Lipowa 37 m 10",
+      "address": {
+        "street": "Lipowa",
+        "street_norm": "lipowa",
+        "building": "37",
+        "apt": "10",
+        "key": "lipowa|37|10",
+        "warning": null
+      },
+      "auction_date": "2026-10-23",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 411500,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-12.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Juliana Tuwima 1/1 m 41",
       "address": {
         "street": "Juliana Tuwima",

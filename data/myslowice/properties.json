@@ -3,6 +3,61 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "wielka skotnica|9A|17",
+      "street": "Wielka Skotnica",
+      "street_norm": "wielka skotnica",
+      "building": "9A",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "archived",
+          "area_m2": 37.62,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-9a-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 185000,
+          "outcome": "active",
+          "area_m2": 37.62,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-9a",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 37.62
+    },
+    {
+      "key": "gorniczej|5|46",
+      "street": "Górnicza",
+      "street_norm": "gorniczej",
+      "building": "5",
+      "apt": "46",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 243000,
+          "outcome": "active",
+          "area_m2": 52.13,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-46-znajdujacy-sie-w-budynku-nr-5-przy",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.13
+    },
+    {
       "key": "fryderyka chopina|15|3",
       "street": "Fryderyka Chopina",
       "street_norm": "fryderyka chopina",
@@ -653,28 +708,6 @@
         }
       ],
       "area_m2": 31.58
-    },
-    {
-      "key": "wielka skotnica|9A|17",
-      "street": "Wielka Skotnica",
-      "street_norm": "wielka skotnica",
-      "building": "9A",
-      "apt": "17",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-28",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 185000,
-          "outcome": "archived",
-          "area_m2": 37.62,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-17-znajdujacy-sie-w-budynku-nr-9a-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 37.62
     },
     {
       "key": "stanislawa wyspianskiego|6C|59",

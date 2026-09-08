@@ -3,6 +3,33 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|zabrzańska 91",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Zabrzańska 91",
+      "building": null,
+      "address_raw": "Zabrzańska 91",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.88902445199216%2C50.33735940402824%2C18.889538320623796%2C50.337692571962826&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.ed07b6c0-dd06-4ca5-b5a1-ad582079de32",
+      "area_m2": 1148,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-09",
+          "round": 2,
+          "starting_price_pln": 1000000,
+          "outcome": "active",
+          "area_m2": 1148,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zabrzanska-91,24932.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|pl. generała władysława sikorskiego 8a; pl. generała władysława sikorskiego 8",
       "kind": "grunt",
       "city": "bytom",
@@ -82,6 +109,126 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "addr|świętej elżbiety",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Świętej Elżbiety",
+      "building": null,
+      "address_raw": "Świętej Elżbiety",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.86586971272441%2C50.34618960814988%2C18.867496248194254%2C50.346650925757594&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.6eff5819-68de-48e8-9119-b9417c6929ff",
+      "area_m2": 1464,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "starting_price_pln": 221000,
+          "outcome": "active",
+          "area_m2": 1464,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-sw.-Elzbiety-dz.-2808_96-udzial,24933.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|2885/96",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "2885/96",
+      "obreb": null,
+      "street": "Świętej Elżbiety",
+      "building": null,
+      "address_raw": "Świętej Elżbiety dz. 2885/96",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.8674541245284%2C50.34597538295459%2C18.868699946537536%2C50.3465686803231&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.3fd83b5d-3866-4daa-b920-31ae0e731373",
+      "area_m2": 3632,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-05",
+          "round": 1,
+          "starting_price_pln": 431000,
+          "outcome": "active",
+          "area_m2": 3632,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-sw.-Elzbiety-dz.-2885_96,24923.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2885/96"
+        }
+      ]
+    },
+    {
+      "key": "dz|1928/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1928/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1928/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.797017309076917%2C50.39416855669766%2C18.797280723259632%2C50.394583336692556&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.5dae3b98-c012-4a3f-97d2-acffc1ebb3c4",
+      "area_m2": 390,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-05",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 390,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1928_182,24924.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1928/182"
+        }
+      ]
+    },
+    {
+      "key": "dz|1931/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1931/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1931/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.79775455235341%2C50.394248431817516%2C18.79862248669008%2C50.39479525185653&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.809b3ab2-929c-46a8-b058-ee5f5aa424ff",
+      "area_m2": 1877,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-05",
+          "round": 1,
+          "starting_price_pln": 226000,
+          "outcome": "active",
+          "area_m2": 1877,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1931_182,24922.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1931/182"
+        }
+      ]
     },
     {
       "key": "dz|4650/220",
@@ -473,95 +620,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "addr|piekarska 26",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Piekarska 26",
-      "building": null,
-      "address_raw": "Piekarska 26",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.919099412482595%2C50.350489515429736%2C18.91953462899913%2C50.3508073180326&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.70ded859-2355-4a19-9993-b2b6c6e58812",
-      "area_m2": 715,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-04",
-          "round": 2,
-          "starting_price_pln": 275000,
-          "outcome": "archived",
-          "area_m2": 715,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-26-pisemny-II,24547.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|1930/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1930/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1930/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.797555255483775%2C50.39453261733938%2C18.7981846974085%2C50.394927492670824&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.040bca7d-b677-463d-ad53-452111678735",
-      "area_m2": 863,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-03",
-          "round": 1,
-          "starting_price_pln": 188000,
-          "outcome": "archived",
-          "area_m2": 863,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1930_182,24587.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1930/182"
-        }
-      ]
-    },
-    {
-      "key": "dz|1929/182",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1929/182",
-      "obreb": null,
-      "street": "Alfonsa Zgrzebnioka",
-      "building": null,
-      "address_raw": "Alfonsa Zgrzebnioka dz. 1929/182",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.79729795739705%2C50.39464987399032%2C18.79796371111202%2C50.39501316687305&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.b7232d05-ffc0-4762-9361-70aab4f2f54d",
-      "area_m2": 989,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-03",
-          "round": 1,
-          "starting_price_pln": 183000,
-          "outcome": "archived",
-          "area_m2": 989,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1929_182,24586.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1929/182"
-        }
-      ]
     }
   ]
 }

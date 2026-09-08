@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Sikorskiego 6/19",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "6",
+        "apt": "19",
+        "key": "sikorskiego|6|19",
+        "warning": null
+      },
+      "area_m2": 48.3,
+      "starting_price_pln": 245000,
+      "auction_date": "2026-10-13",
+      "round": 1,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Plac 1000-lecia 10/22",
       "address": {
         "street": "Plac 1000-lecia",

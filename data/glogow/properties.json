@@ -49,6 +49,28 @@
       "area_m2": 182.03
     },
     {
+      "key": "sikorskiego|6|19",
+      "street": "Sikorskiego",
+      "street_norm": "sikorskiego",
+      "building": "6",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245000,
+          "outcome": "active",
+          "area_m2": 48.3,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.3
+    },
+    {
       "key": "plac 1000 lecia|10|22",
       "street": "Plac 1000-lecia",
       "street_norm": "plac 1000 lecia",

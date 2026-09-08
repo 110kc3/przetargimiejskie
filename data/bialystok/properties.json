@@ -3,6 +3,54 @@
   "city": "bialystok",
   "properties": [
     {
+      "key": "lipowa|37|10",
+      "street": "Lipowa",
+      "street_norm": "lipowa",
+      "building": "37",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 484100,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-1.html",
+          "notes": [
+            "parse: Rozstrzygniety but no Cena nabycia"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 484100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-11.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-10-23",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 411500,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-12.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "wladyslawa broniewskiego|13|4",
       "street": "Władysława Broniewskiego",
       "street_norm": "wladyslawa broniewskiego",
@@ -1013,42 +1061,6 @@
           "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-zagorna-4-m-34-36.html",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "lipowa|37|10",
-      "street": "Lipowa",
-      "street_norm": "lipowa",
-      "building": "37",
-      "apt": "10",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 484100,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-1.html",
-          "notes": [
-            "parse: Rozstrzygniety but no Cena nabycia"
-          ],
-          "round_source": "inferred"
-        },
-        {
-          "date": "2026-08-13",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 484100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-11.html",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"

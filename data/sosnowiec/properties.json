@@ -288,6 +288,30 @@
       "area_m2": 30.8
     },
     {
+      "key": "alei zwyciestwa|25|33",
+      "street": "Alei Zwycięstwa",
+      "street_norm": "alei zwyciestwa",
+      "building": "25",
+      "apt": "33",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 154000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 162000,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,564699,wyniki-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-przy.html",
+          "notes": [],
+          "area_m2": 30.8,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 30.8
+    },
+    {
       "key": "targowej|12|",
       "street": "Targowa",
       "street_norm": "targowej",

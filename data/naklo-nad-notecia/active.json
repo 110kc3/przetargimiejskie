@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Gorzeń 15/3",
+      "address": {
+        "street": "Gorzeń",
+        "street_norm": "gorzen",
+        "building": "15",
+        "apt": "3",
+        "key": "gorzen|15|3",
+        "warning": null
+      },
+      "area_m2": 67.67,
+      "starting_price_pln": 143600,
+      "auction_date": "2026-11-17",
+      "round": 1,
+      "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/8044/gorzen-15-3",
+      "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/8044/gorzen-15-3"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Dąbrowskiego 44/4",
       "address": {
         "street": "Dąbrowskiego",
