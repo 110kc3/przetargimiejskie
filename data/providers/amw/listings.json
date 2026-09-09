@@ -1,8 +1,44 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-09-08T10:08:42.070Z",
+  "generated_at": "2026-09-09T08:31:39.137Z",
   "listings": [
+    {
+      "title": "Brzeg, ul. Małujowicka, dz. 571/62, 571/78",
+      "city": "Brzeg",
+      "address_raw": "ul. Małujowicka",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "grunt",
+      "city_norm": "brzeg",
+      "voivodeship": "opolskie",
+      "street": "ul. Małujowicka",
+      "building": null,
+      "apt": null,
+      "area_m2": null,
+      "land_area_m2": 1161,
+      "publication_date": null,
+      "auction_date": "2026-11-16",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 1600000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "rekreacyjno-wypoczynkowe",
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:f8009293236774f5",
+      "external_id": "12060",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653-12060",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653-12060"
+    },
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
       "city": "Warszawa",
@@ -454,11 +490,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:63c9937759a222c6",
-      "external_id": "12195",
-      "source_status": "Ogłoszony",
-      "outcome": "archived",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/zagan-ul-dworcowa-16-12-12195",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/zagan-ul-dworcowa-16-12-12195"
+      "external_id": "92402b3968a8ce44",
+      "source_status": "Pozytywny",
+      "outcome": "sold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/27/26/docs/6aa037052e40e_Informacja%20o%20wyniku%20przetargu%20ustnego%20%C5%BBaga%C5%84%20Dworcowa%2016-%2012od%2009.09.2026.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/zagan-ul-dworcowa-16-12-12195",
+      "result_url": "https://amw.com.pl/uploads/publications/01/27/26/docs/6aa037052e40e_Informacja%20o%20wyniku%20przetargu%20ustnego%20%C5%BBaga%C5%84%20Dworcowa%2016-%2012od%2009.09.2026.pdf"
     },
     {
       "title": "Brzeg, ul. Małujowicka, dz. 571/62, 571/78",
