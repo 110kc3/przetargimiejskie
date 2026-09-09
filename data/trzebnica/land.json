@@ -109,6 +109,145 @@
       "parcels": []
     },
     {
+      "key": "addr|szczytkowice",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": null,
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 974,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-08-23",
+          "round": 1,
+          "starting_price_pln": 1150000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/275/szczytkowice",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/626"
+        },
+        {
+          "date": "2021-09-30",
+          "round": 2,
+          "starting_price_pln": 1120000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/349/szczytkowice",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/751"
+        },
+        {
+          "date": "2021-11-09",
+          "round": 3,
+          "starting_price_pln": 1115000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/410/szczytkowice",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/851"
+        },
+        {
+          "date": "2021-12-13",
+          "round": 4,
+          "starting_price_pln": 1105000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/478/szczytkowice",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/975"
+        },
+        {
+          "date": "2022-01-28",
+          "round": 5,
+          "starting_price_pln": 198000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/528/ggnp832021",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/1080"
+        },
+        {
+          "date": "2025-06-13",
+          "round": 1,
+          "starting_price_pln": 45000000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2625/przetargggnp92025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5194"
+        },
+        {
+          "date": "2025-07-25",
+          "round": 2,
+          "starting_price_pln": 390000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2725/przetargggnp252025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5427"
+        },
+        {
+          "date": "2025-09-08",
+          "round": 3,
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2848/przetargnrggnp332025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5618"
+        },
+        {
+          "date": "2026-06-09",
+          "round": 1,
+          "starting_price_pln": 158700,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3245/przetarg-ggn-p-10-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6586"
+        },
+        {
+          "date": "2026-07-17",
+          "round": 2,
+          "starting_price_pln": 158700,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3382/przetarg-ggnp132026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/6927"
+        },
+        {
+          "date": "2026-10-12",
+          "round": 1,
+          "starting_price_pln": 10938,
+          "outcome": "active",
+          "area_m2": 974,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3529/przetarg-nr-ggn-p-24-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7293"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|szczytkowice|285",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "285",
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1636,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-12",
+          "round": 4,
+          "starting_price_pln": 158700,
+          "outcome": "active",
+          "area_m2": 1636,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3528/przetarg-nr-ggn-p-23-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7292"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "285",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kobylice|1/2",
       "kind": "grunt",
       "city": "trzebnica",
@@ -216,104 +355,6 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
         }
       ]
-    },
-    {
-      "key": "addr|szczytkowice",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": null,
-      "obreb": "Szczytkowice",
-      "street": null,
-      "building": null,
-      "address_raw": "Szczytkowice",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2021-08-23",
-          "round": 1,
-          "starting_price_pln": 1150000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/275/szczytkowice",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/626"
-        },
-        {
-          "date": "2021-09-30",
-          "round": 2,
-          "starting_price_pln": 1120000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/349/szczytkowice",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/751"
-        },
-        {
-          "date": "2021-11-09",
-          "round": 3,
-          "starting_price_pln": 1115000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/410/szczytkowice",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/851"
-        },
-        {
-          "date": "2021-12-13",
-          "round": 4,
-          "starting_price_pln": 1105000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/478/szczytkowice",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/975"
-        },
-        {
-          "date": "2022-01-28",
-          "round": 5,
-          "starting_price_pln": 198000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/528/ggnp832021",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/1080"
-        },
-        {
-          "date": "2025-06-13",
-          "round": 1,
-          "starting_price_pln": 45000000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2625/przetargggnp92025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5194"
-        },
-        {
-          "date": "2025-07-25",
-          "round": 2,
-          "starting_price_pln": 390000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2725/przetargggnp252025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5427"
-        },
-        {
-          "date": "2025-09-08",
-          "round": 3,
-          "starting_price_pln": 300000,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2848/przetargnrggnp332025",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/5618"
-        },
-        {
-          "date": "2026-06-09",
-          "round": 1,
-          "starting_price_pln": 158700,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3245/przetarg-ggn-p-10-2026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/6586"
-        },
-        {
-          "date": "2026-07-17",
-          "round": 2,
-          "starting_price_pln": 158700,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3382/przetarg-ggnp132026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/6927"
-        }
-      ],
-      "parcels": []
     },
     {
       "key": "addr|kobylice",

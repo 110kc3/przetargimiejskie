@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "olkusz",
-  "generated_at": "2026-09-08T10:17:17.225Z",
+  "generated_at": "2026-09-09T08:38:59.410Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:08:45.898Z",
-  "last_successful_source_check_at": "2026-09-08T10:08:45.898Z",
+  "last_source_attempt_at": "2026-09-09T08:31:48.859Z",
+  "last_successful_source_check_at": "2026-09-09T08:31:48.859Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:08:45.898Z",
-      "last_success_at": "2026-09-08T10:08:45.898Z"
+      "last_attempt_at": "2026-09-09T08:31:48.859Z",
+      "last_success_at": "2026-09-09T08:31:48.859Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:08:45.898Z",
-      "last_success_at": "2026-09-08T10:08:45.898Z"
+      "last_attempt_at": "2026-09-09T08:31:48.859Z",
+      "last_success_at": "2026-09-09T08:31:48.859Z"
     }
   }
 }

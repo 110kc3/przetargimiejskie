@@ -3,6 +3,28 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "wolskiego|6|8",
+      "street": "Wolskiego",
+      "street_norm": "wolskiego",
+      "building": "6",
+      "apt": "8",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 3,
+          "kind": "uzytkowy",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 82.31,
+          "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-nieruchomosci-niezabudowane/pl.-Wolskiego-68/idn:14053",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 82.31
+    },
+    {
       "key": "katowicka|63|17",
       "street": "Katowicka",
       "street_norm": "katowicka",

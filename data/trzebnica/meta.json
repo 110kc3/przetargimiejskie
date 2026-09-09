@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "trzebnica",
-  "generated_at": "2026-09-08T10:28:26.466Z",
+  "generated_at": "2026-09-09T08:51:15.589Z",
   "source_pdf_count": 4,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -11,13 +11,13 @@
   "active_auctions": 2,
   "archived_auctions": 26,
   "wykaz_entries": 0,
-  "land_plots": 41,
-  "land_listings": 173,
+  "land_plots": 42,
+  "land_listings": 175,
   "retained_properties": 11,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:22:27.904Z",
-  "last_successful_source_check_at": "2026-09-08T10:22:27.904Z",
+  "last_source_attempt_at": "2026-09-09T08:45:17.969Z",
+  "last_successful_source_check_at": "2026-09-09T08:45:17.969Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:22:27.904Z",
-      "last_success_at": "2026-09-08T10:22:27.904Z"
+      "last_attempt_at": "2026-09-09T08:45:17.969Z",
+      "last_success_at": "2026-09-09T08:45:17.969Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:22:27.904Z",
-      "last_success_at": "2026-09-08T10:22:27.904Z"
+      "last_attempt_at": "2026-09-09T08:45:17.969Z",
+      "last_success_at": "2026-09-09T08:45:17.969Z"
     }
   }
 }

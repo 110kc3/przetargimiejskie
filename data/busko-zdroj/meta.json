@@ -2,8 +2,8 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "busko-zdroj",
-  "generated_at": "2026-09-08T10:12:51.451Z",
-  "source_pdf_count": 1,
+  "generated_at": "2026-09-09T08:35:53.974Z",
+  "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 0,
@@ -16,19 +16,19 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:11:49.559Z",
-  "last_successful_source_check_at": "2026-09-08T10:11:49.559Z",
+  "last_source_attempt_at": "2026-09-09T08:34:53.159Z",
+  "last_successful_source_check_at": "2026-09-09T08:34:53.159Z",
   "monitored_assets": [],
   "source_checks": {
     "property": {
       "status": "not_monitored",
-      "last_attempt_at": "2026-09-08T10:11:49.559Z",
+      "last_attempt_at": "2026-09-09T08:34:53.159Z",
       "last_success_at": null
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:11:49.559Z",
+      "last_attempt_at": "2026-09-09T08:34:53.159Z",
       "last_success_at": null
     }
   }

@@ -4,6 +4,126 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Traktorowa 41/92",
+      "address": {
+        "street": "Traktorowa",
+        "street_norm": "traktorowa",
+        "building": "41",
+        "apt": "92",
+        "key": "traktorowa|41|92",
+        "warning": null
+      },
+      "area_m2": 37.46,
+      "starting_price_pln": 161000,
+      "wadium_pln": 23000,
+      "auction_date": "2026-11-26",
+      "round": 2,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-id177856/2026/09/9/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_aukcja_Traktorowa-41_Bartoka-43_20260909.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Beli Bartoka 43/22",
+      "address": {
+        "street": "Beli Bartoka",
+        "street_norm": "beli bartoka",
+        "building": "43",
+        "apt": "22",
+        "key": "beli bartoka|43|22",
+        "warning": null
+      },
+      "area_m2": 44.18,
+      "starting_price_pln": 203000,
+      "wadium_pln": 29000,
+      "auction_date": "2026-11-26",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-id177856/2026/09/9/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_aukcja_Traktorowa-41_Bartoka-43_20260909.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nastrojowa 42/9",
+      "address": {
+        "street": "Nastrojowa",
+        "street_norm": "nastrojowa",
+        "building": "42",
+        "apt": "9",
+        "key": "nastrojowa|42|9",
+        "warning": null
+      },
+      "area_m2": 50.01,
+      "starting_price_pln": 360000,
+      "wadium_pln": 36000,
+      "auction_date": "2026-11-26",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Nastrojowa-42_inne_20260909.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Księdza Kardynała Stefana Wyszyńskiego 38/55",
+      "address": {
+        "street": "Księdza Kardynała Stefana Wyszyńskiego",
+        "street_norm": "ksiedza kardynala stefana wyszynskiego",
+        "building": "38",
+        "apt": "55",
+        "key": "ksiedza kardynala stefana wyszynskiego|38|55",
+        "warning": null
+      },
+      "area_m2": 30.94,
+      "starting_price_pln": 240000,
+      "wadium_pln": 24000,
+      "auction_date": "2026-11-26",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Nastrojowa-42_inne_20260909.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Księdza Kardynała Stefana Wyszyńskiego 53/39",
+      "address": {
+        "street": "Księdza Kardynała Stefana Wyszyńskiego",
+        "street_norm": "ksiedza kardynala stefana wyszynskiego",
+        "building": "53",
+        "apt": "39",
+        "key": "ksiedza kardynala stefana wyszynskiego|53|39",
+        "warning": null
+      },
+      "area_m2": 30.94,
+      "starting_price_pln": 168000,
+      "wadium_pln": 24000,
+      "auction_date": "2026-11-26",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Nastrojowa-42_inne_20260909.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Plantowa 15/24",
+      "address": {
+        "street": "Plantowa",
+        "street_norm": "plantowa",
+        "building": "15",
+        "apt": "24",
+        "key": "plantowa|15|24",
+        "warning": null
+      },
+      "area_m2": 37.69,
+      "starting_price_pln": 260000,
+      "wadium_pln": 26000,
+      "auction_date": "2026-11-26",
+      "round": 1,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_Nastrojowa-42_inne_20260909.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Grabowa 5/36",
       "address": {
         "street": "Grabowa",

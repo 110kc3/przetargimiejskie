@@ -3,6 +3,24 @@
   "city": "chelmno",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Dominikańska 26/9",
+      "address": {
+        "street": "Dominikańska",
+        "street_norm": "dominikanska",
+        "building": "26",
+        "apt": "9",
+        "key": "dominikanska|26|9",
+        "warning": null
+      },
+      "area_m2": 20.84,
+      "starting_price_pln": 45000,
+      "auction_date": "2026-10-15",
+      "round": 8,
+      "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11813/ogloszenie-o-przetargu",
+      "source_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11813/ogloszenie-o-przetargu"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Podgórna 7",
       "address": {

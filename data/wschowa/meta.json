@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wschowa",
-  "generated_at": "2026-09-08T10:19:46.770Z",
+  "generated_at": "2026-09-09T08:42:29.593Z",
   "source_pdf_count": 6,
   "parsed_records": 4,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:19:34.099Z",
-  "last_successful_source_check_at": "2026-09-08T10:19:34.099Z",
+  "last_source_attempt_at": "2026-09-09T08:42:16.856Z",
+  "last_successful_source_check_at": "2026-09-09T08:42:16.856Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,13 +25,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:19:34.099Z",
-      "last_success_at": "2026-09-08T10:19:34.099Z"
+      "last_attempt_at": "2026-09-09T08:42:16.856Z",
+      "last_success_at": "2026-09-09T08:42:16.856Z"
     },
     "land": {
       "status": "degraded",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:19:34.099Z",
+      "last_attempt_at": "2026-09-09T08:42:16.856Z",
       "last_success_at": "2026-09-08T08:46:07.814Z"
     }
   }

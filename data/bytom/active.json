@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "uzytkowy",
+      "address_raw": "pl. Wolskiego 6/8",
+      "address": {
+        "street": "Wolskiego",
+        "street_norm": "wolskiego",
+        "building": "6",
+        "apt": "8",
+        "key": "wolskiego|6|8",
+        "warning": null
+      },
+      "auction_date": "2026-10-08",
+      "published_date": "2026-09-08",
+      "round": 3,
+      "area_m2": 82.31,
+      "starting_price_pln": 80000,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-nieruchomosci-niezabudowane/pl.-Wolskiego-68/idn:14053",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_8,24999.doc"
+    },
+    {
+      "kind": "uzytkowy",
       "address_raw": "ul. Katowicka 63/17",
       "address": {
         "street": "Katowicka",

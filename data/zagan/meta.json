@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "zagan",
-  "generated_at": "2026-09-08T10:20:18.769Z",
+  "generated_at": "2026-09-09T08:43:32.469Z",
   "source_pdf_count": 134,
   "parsed_records": 0,
   "parser_note_count": 28,
@@ -16,8 +16,8 @@
   "retained_properties": 13,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:19:56.298Z",
-  "last_successful_source_check_at": "2026-09-08T10:19:56.298Z",
+  "last_source_attempt_at": "2026-09-09T08:43:10.245Z",
+  "last_successful_source_check_at": "2026-09-09T08:43:10.245Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "degraded",
-      "last_attempt_at": "2026-09-08T10:19:56.298Z",
+      "last_attempt_at": "2026-09-09T08:43:10.245Z",
       "last_success_at": "2026-09-08T08:46:42.496Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:19:56.298Z",
-      "last_success_at": "2026-09-08T10:19:56.298Z"
+      "last_attempt_at": "2026-09-09T08:43:10.245Z",
+      "last_success_at": "2026-09-09T08:43:10.245Z"
     }
   }
 }

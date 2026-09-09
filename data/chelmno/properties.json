@@ -3,6 +3,28 @@
   "city": "chelmno",
   "properties": [
     {
+      "key": "dominikanska|26|9",
+      "street": "Dominikańska",
+      "street_norm": "dominikanska",
+      "building": "26",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-15",
+          "round": 8,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "active",
+          "area_m2": 20.84,
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11813/ogloszenie-o-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 20.84
+    },
+    {
       "key": "wodna|34|9",
       "street": "Wodna",
       "street_norm": "wodna",

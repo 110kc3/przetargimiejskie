@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "oswiecim",
-  "generated_at": "2026-09-08T10:10:06.939Z",
+  "generated_at": "2026-09-09T08:33:04.339Z",
   "source_pdf_count": 4,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 2,
   "active_listings": 1,
-  "active_auctions": 1,
-  "archived_auctions": 1,
+  "active_auctions": 0,
+  "archived_auctions": 2,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:08:38.499Z",
-  "last_successful_source_check_at": "2026-09-08T10:08:38.499Z",
+  "last_source_attempt_at": "2026-09-09T08:31:36.089Z",
+  "last_successful_source_check_at": "2026-09-09T08:31:36.089Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:08:38.499Z",
-      "last_success_at": "2026-09-08T10:08:38.499Z"
+      "last_attempt_at": "2026-09-09T08:31:36.089Z",
+      "last_success_at": "2026-09-09T08:31:36.089Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:08:38.499Z",
+      "last_attempt_at": "2026-09-09T08:31:36.089Z",
       "last_success_at": null
     }
   }

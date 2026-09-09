@@ -3,6 +3,155 @@
   "city": "lodz",
   "properties": [
     {
+      "key": "traktorowa|41|92",
+      "street": "Traktorowa",
+      "street_norm": "traktorowa",
+      "building": "41",
+      "apt": "92",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "archived",
+          "area_m2": 37.46,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/aukcje-na-sprzedaz-przyslugujacych-miastu-lodz-spoldzielczych-wlasnosciowych-praw-do-lokali-mieszkalnych-znajdujacych-sie-w-budynkach-polozonych-w-lodzi-przy-ul-traktorowej-41-ul-beli-bartoka-43-ul-lnianej-28-id161633/2026/04/15/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-26",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 161000,
+          "outcome": "active",
+          "area_m2": 37.46,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-id177856/2026/09/9/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.46
+    },
+    {
+      "key": "beli bartoka|43|22",
+      "street": "Beli Bartoka",
+      "street_norm": "beli bartoka",
+      "building": "43",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 203000,
+          "outcome": "active",
+          "area_m2": 44.18,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-id177856/2026/09/9/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 44.18
+    },
+    {
+      "key": "nastrojowa|42|9",
+      "street": "Nastrojowa",
+      "street_norm": "nastrojowa",
+      "building": "42",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "active",
+          "area_m2": 50.01,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 50.01
+    },
+    {
+      "key": "ksiedza kardynala stefana wyszynskiego|38|55",
+      "street": "Księdza Kardynała Stefana Wyszyńskiego",
+      "street_norm": "ksiedza kardynala stefana wyszynskiego",
+      "building": "38",
+      "apt": "55",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 30.94,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 30.94
+    },
+    {
+      "key": "ksiedza kardynala stefana wyszynskiego|53|39",
+      "street": "Księdza Kardynała Stefana Wyszyńskiego",
+      "street_norm": "ksiedza kardynala stefana wyszynskiego",
+      "building": "53",
+      "apt": "39",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 168000,
+          "outcome": "active",
+          "area_m2": 30.94,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 30.94
+    },
+    {
+      "key": "plantowa|15|24",
+      "street": "Plantowa",
+      "street_norm": "plantowa",
+      "building": "15",
+      "apt": "24",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": 37.69,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-nieruchomosci-lokalowych-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-nastrojowej-42-al-ksiedza-kardynala-stefana-wyszynskiego-38-al-ksiedza-kardynala-stefana-wyszynskiego-53-ul-plantowej-15-1-id177859/2026/09/9/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.69
+    },
+    {
       "key": "grabowa|5|36",
       "street": "Grabowa",
       "street_norm": "grabowa",
@@ -2372,28 +2521,6 @@
         }
       ],
       "area_m2": 19.48
-    },
-    {
-      "key": "traktorowa|41|92",
-      "street": "Traktorowa",
-      "street_norm": "traktorowa",
-      "building": "41",
-      "apt": "92",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-25",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 230000,
-          "outcome": "archived",
-          "area_m2": 37.46,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/aukcje-na-sprzedaz-przyslugujacych-miastu-lodz-spoldzielczych-wlasnosciowych-praw-do-lokali-mieszkalnych-znajdujacych-sie-w-budynkach-polozonych-w-lodzi-przy-ul-traktorowej-41-ul-beli-bartoka-43-ul-lnianej-28-id161633/2026/04/15/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 37.46
     }
   ]
 }

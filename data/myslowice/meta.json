@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "myslowice",
-  "generated_at": "2026-09-08T10:11:29.280Z",
+  "generated_at": "2026-09-09T08:34:27.470Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 38,
-  "active_listings": 69,
-  "active_auctions": 12,
-  "archived_auctions": 66,
+  "active_listings": 67,
+  "active_auctions": 10,
+  "archived_auctions": 68,
   "wykaz_entries": 0,
   "land_plots": 50,
-  "land_listings": 90,
+  "land_listings": 87,
   "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:08:36.793Z",
-  "last_successful_source_check_at": "2026-09-08T10:08:36.793Z",
+  "last_source_attempt_at": "2026-09-09T08:31:39.670Z",
+  "last_successful_source_check_at": "2026-09-09T08:31:39.670Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:08:36.793Z",
-      "last_success_at": "2026-09-08T10:08:36.793Z"
+      "last_attempt_at": "2026-09-09T08:31:39.670Z",
+      "last_success_at": "2026-09-09T08:31:39.670Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:08:36.793Z",
-      "last_success_at": "2026-09-08T10:08:36.793Z"
+      "last_attempt_at": "2026-09-09T08:31:39.670Z",
+      "last_success_at": "2026-09-09T08:31:39.670Z"
     }
   }
 }

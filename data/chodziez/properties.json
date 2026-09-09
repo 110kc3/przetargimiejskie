@@ -85,8 +85,19 @@
       "street_norm": "rynek",
       "building": "13",
       "apt": null,
-      "kind": "unknown",
+      "kind": "zabudowana",
       "listings": [
+        {
+          "date": "2026-11-18",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 590000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomościami/2026/ogloszenia-o-przetargach/ogloszenie-i-przetargu-ustnego-nieograniczonego-na-sprzedaz-dzialki-nr-2380-polozonej-w-chodziezy-przy-ul.-rynek-13.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
         {
           "round": null,
           "kind": "unknown",

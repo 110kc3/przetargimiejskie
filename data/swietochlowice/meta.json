@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "swietochlowice",
-  "generated_at": "2026-09-08T10:10:31.140Z",
+  "generated_at": "2026-09-09T08:33:28.425Z",
   "source_pdf_count": 75,
   "parsed_records": 75,
   "parser_note_count": 2,
   "unique_properties": 97,
   "active_listings": 207,
-  "active_auctions": 4,
-  "archived_auctions": 209,
+  "active_auctions": 2,
+  "archived_auctions": 211,
   "wykaz_entries": 0,
   "land_plots": 21,
   "land_listings": 32,
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:08:37.628Z",
-  "last_successful_source_check_at": "2026-09-08T10:08:37.628Z",
+  "last_source_attempt_at": "2026-09-09T08:31:35.575Z",
+  "last_successful_source_check_at": "2026-09-09T08:31:35.575Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:08:37.628Z",
-      "last_success_at": "2026-09-08T10:08:37.628Z"
+      "last_attempt_at": "2026-09-09T08:31:35.575Z",
+      "last_success_at": "2026-09-09T08:31:35.575Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:08:37.628Z",
-      "last_success_at": "2026-09-08T10:08:37.628Z"
+      "last_attempt_at": "2026-09-09T08:31:35.575Z",
+      "last_success_at": "2026-09-09T08:31:35.575Z"
     }
   }
 }

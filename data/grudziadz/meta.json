@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "grudziadz",
-  "generated_at": "2026-09-08T10:28:32.785Z",
+  "generated_at": "2026-09-09T08:52:01.767Z",
   "source_pdf_count": 1,
   "parsed_records": 1,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-08T10:26:43.557Z",
-  "last_successful_source_check_at": "2026-09-08T10:26:43.557Z",
+  "last_source_attempt_at": "2026-09-09T08:50:11.769Z",
+  "last_successful_source_check_at": "2026-09-09T08:50:11.769Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-08T10:26:43.557Z",
-      "last_success_at": "2026-09-08T10:26:43.557Z"
+      "last_attempt_at": "2026-09-09T08:50:11.769Z",
+      "last_success_at": "2026-09-09T08:50:11.769Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-08T10:26:43.557Z",
+      "last_attempt_at": "2026-09-09T08:50:11.769Z",
       "last_success_at": null
     }
   }
