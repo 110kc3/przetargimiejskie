@@ -111,6 +111,37 @@
       "parcels": []
     },
     {
+      "key": "dz|4475/175",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "4475/175",
+      "obreb": null,
+      "street": "Świętych Cyryla i Metodego",
+      "building": null,
+      "address_raw": "Świętych Cyryla i Metodego dz. 4475/175",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.931651442875875%2C50.32913197522126%2C18.93222928924935%2C50.32922621137802&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.8a6d74e9-ea37-4b2b-a3e1-728a2809c195",
+      "area_m2": 270,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "starting_price_pln": 35000,
+          "outcome": "active",
+          "area_m2": 270,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-sw.-Cyryla-i-Metodego-dz.-4475_175,24998.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4475/175"
+        }
+      ]
+    },
+    {
       "key": "addr|świętej elżbiety",
       "kind": "grunt",
       "city": "bytom",

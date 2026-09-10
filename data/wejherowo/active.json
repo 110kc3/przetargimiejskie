@@ -4,6 +4,63 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 9 położonego w budynku przy ul. 3 Maja 20 w Wejherowie, o powierzchni użytkowej 30,53 m2 wraz z pomieszczeniem przynależnym, tj. piwnicą o powierzchni użytkowej 3,71 m2 oraz udziałem wynoszącym 48/1000 części w częściach wspólnych budynku i gruntu, działka nr 339/2, obręb 16, o powierzchni 735 m2",
+      "address": {
+        "street": "3 Maja",
+        "street_norm": "3 maja",
+        "building": "20",
+        "apt": "9",
+        "key": "3 maja|20|9",
+        "warning": null
+      },
+      "round": 3,
+      "published_date": "2026-09-10",
+      "auction_date": "2026-10-14",
+      "area_m2": 30.53,
+      "starting_price_pln": 201000,
+      "detail_url": "https://bip.wejherowo.pl/artykul/trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-polozonego-w-budynku",
+      "result_pdf_url": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piąty przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 1 położonego w budynku przy ul. Wniebowstąpienia 1A w Wejherowie, o powierzchni użytkowej 59,98 m2 wraz z pomieszczeniem przynależnym, tj. piwnicą o powierzchni użytkowej 3,21 m2 oraz udziałem wynoszącym 361/10.000 w częściach wspólnych budynku i gruntu działki nr 90/15, obręb 14",
+      "address": {
+        "street": "Wniebowstąpienia",
+        "street_norm": "wniebowstapienia",
+        "building": "1A",
+        "apt": "1",
+        "key": "wniebowstapienia|1A|1",
+        "warning": null
+      },
+      "round": 5,
+      "published_date": "2026-09-10",
+      "auction_date": "2026-10-14",
+      "area_m2": 59.98,
+      "starting_price_pln": 227000,
+      "detail_url": "https://bip.wejherowo.pl/artykul/piaty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego-w-budynku-p",
+      "result_pdf_url": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piąty przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 7 położonego w budynku przy ul. Wniebowstąpienia 1A w Wejherowie, o powierzchni użytkowej 45,53 m2 wraz z pomieszczeniem przynależnym, tj. piwnicą o powierzchni użytkowej 2,81 m2 oraz udziałem wynoszącym 276/10000 w częściach wspólnych budynku i gruntu działki nr 90/15, obręb 14",
+      "address": {
+        "street": "Wniebowstąpienia",
+        "street_norm": "wniebowstapienia",
+        "building": "1A",
+        "apt": "7",
+        "key": "wniebowstapienia|1A|7",
+        "warning": null
+      },
+      "round": 5,
+      "published_date": "2026-09-10",
+      "auction_date": "2026-10-14",
+      "area_m2": 45.53,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.wejherowo.pl/artykul/piaty-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-7-polozonego-w-budynku-p-1",
+      "result_pdf_url": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 3 położonego w budynku przy ul. Sobieskiego 330 w Wejherowie, o powierzchni użytkowej 65,80 m2 oraz udziałem wynoszącym 211/1000 części w częściach wspólnych budynku i gruntu, działka nr 66, obręb 16, o powierzchni 970 m2",
       "address": {
         "street": "Sobieskiego",

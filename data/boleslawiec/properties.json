@@ -3,6 +3,37 @@
   "city": "boleslawiec",
   "properties": [
     {
+      "key": "mazowieckiej|13B|5",
+      "street": "Mazowieckiej",
+      "street_norm": "mazowieckiej",
+      "building": "13B",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": null,
+          "kind": "mieszkalny",
+          "outcome": "announced",
+          "wykaz_no": null,
+          "area_m2": 107.9
+        },
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 399000,
+          "outcome": "active",
+          "area_m2": 107.9,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7106-lokal-mieszkalny-nr-5-po%C5%82o%C5%BCony-przy-ul-mazowieckiej-nr-13b-powierzchnia-u%C5%BCytkowa-mieszkania-107%2C90-m2",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 107.9
+    },
+    {
       "key": "rynek|29-30|9",
       "street": "Rynek",
       "street_norm": "rynek",

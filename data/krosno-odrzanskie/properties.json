@@ -49,11 +49,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 186000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.krosnoodrzanskie.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu_-_negatywny-_BWP_1-1.pdf&id=0fc5ac54e26c0ba277da6e4e29184664",
+          "notes": [],
           "area_m2": 78.91,
-          "detail_url": "https://bip.krosnoodrzanskie.pl/przetargi/202/557/12_2FGN_2F2026/",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.krosnoodrzanskie.pl/przetargi/202/557/12_2FGN_2F2026/"
         }
       ],
       "area_m2": 78.91
@@ -99,6 +101,18 @@
           "unsold_reason": "unknown",
           "final_price_pln": null,
           "source_pdf": "https://bip.krosnoodrzanskie.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu_-negatywnys.pdf&id=1460f5e0029c10cdeb45a9c9b46374bd",
+          "notes": [],
+          "area_m2": 25.2
+        },
+        {
+          "date": "2026-09-08",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 91000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.krosnoodrzanskie.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu_-negatywny_Swiebodzin.pdf&id=fc1f57bc99b10eff2e85f83cd1ec4a0a",
           "notes": [],
           "area_m2": 25.2
         }

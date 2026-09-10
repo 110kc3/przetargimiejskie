@@ -36,6 +36,39 @@
       ]
     },
     {
+      "key": "dz|lipnik|367/5",
+      "kind": "grunt",
+      "city": "bielsko",
+      "dzialka_nr": "367/5",
+      "obreb": "Lipnik",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": "246101_1.0032.367/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.367%2F5",
+      "area_m2": 518,
+      "zoning": "budowlana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 2,
+          "starting_price_pln": 280000,
+          "outcome": "active",
+          "area_m2": 518,
+          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-lipnicka",
+          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-lipnicka"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "367/5",
+          "dzialka_id": "246101_1.0032.367/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.367%2F5"
+        }
+      ]
+    },
+    {
       "key": "dz|lipnik|290/9",
       "kind": "grunt",
       "city": "bielsko",
@@ -217,39 +250,6 @@
           "nr": "759/45",
           "dzialka_id": "246101_1.0038.759/45",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0038.759%2F45"
-        }
-      ]
-    },
-    {
-      "key": "dz|lipnik|367/5",
-      "kind": "grunt",
-      "city": "bielsko",
-      "dzialka_nr": "367/5",
-      "obreb": "Lipnik",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": "246101_1.0032.367/5",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.367%2F5",
-      "area_m2": 518,
-      "zoning": "budowlana",
-      "status": null,
-      "listings": [
-        {
-          "date": null,
-          "round": 2,
-          "starting_price_pln": 280000,
-          "outcome": "active",
-          "area_m2": 518,
-          "detail_url": "https://bielsko-biala.pl/nieruchomosc/ul-lipnicka",
-          "source_url": "https://bielsko-biala.pl/nieruchomosc/ul-lipnicka"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "367/5",
-          "dzialka_id": "246101_1.0032.367/5",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246101_1.0032.367%2F5"
         }
       ]
     },

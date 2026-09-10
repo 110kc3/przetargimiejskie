@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "chodziez",
-  "generated_at": "2026-09-09T08:37:57.658Z",
+  "generated_at": "2026-09-10T08:40:27.206Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 4,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-09T08:37:53.437Z",
-  "last_successful_source_check_at": "2026-09-09T08:37:53.437Z",
+  "last_source_attempt_at": "2026-09-10T08:40:23.043Z",
+  "last_successful_source_check_at": "2026-09-10T08:40:23.043Z",
   "monitored_assets": [
     "building",
     "land",
@@ -27,13 +27,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-09T08:37:53.437Z",
-      "last_success_at": "2026-09-09T08:37:53.437Z"
+      "last_attempt_at": "2026-09-10T08:40:23.043Z",
+      "last_success_at": "2026-09-10T08:40:23.043Z"
     },
     "land": {
       "status": "degraded",
       "complete": true,
-      "last_attempt_at": "2026-09-09T08:37:53.437Z",
+      "last_attempt_at": "2026-09-10T08:40:23.043Z",
       "last_success_at": "2026-09-08T08:41:43.903Z"
     }
   }

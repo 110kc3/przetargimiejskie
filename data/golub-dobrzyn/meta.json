@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "golub-dobrzyn",
-  "generated_at": "2026-09-09T08:52:38.778Z",
+  "generated_at": "2026-09-10T08:54:21.542Z",
   "source_pdf_count": 13,
   "parsed_records": 0,
   "parser_note_count": 2,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-09T08:52:04.367Z",
-  "last_successful_source_check_at": "2026-09-09T08:52:04.367Z",
+  "last_source_attempt_at": "2026-09-10T08:53:50.594Z",
+  "last_successful_source_check_at": "2026-09-10T08:53:50.594Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-09T08:52:04.367Z",
-      "last_success_at": "2026-09-09T08:52:04.367Z"
+      "last_attempt_at": "2026-09-10T08:53:50.594Z",
+      "last_success_at": "2026-09-10T08:53:50.594Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-09T08:52:04.367Z",
-      "last_success_at": "2026-09-09T08:52:04.367Z"
+      "last_attempt_at": "2026-09-10T08:53:50.594Z",
+      "last_success_at": "2026-09-10T08:53:50.594Z"
     }
   }
 }

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "gniezno",
-  "generated_at": "2026-09-09T08:35:54.737Z",
+  "generated_at": "2026-09-10T08:37:27.267Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-09T08:35:30.091Z",
-  "last_successful_source_check_at": "2026-09-09T08:35:30.091Z",
+  "last_source_attempt_at": "2026-09-10T08:37:02.739Z",
+  "last_successful_source_check_at": "2026-09-10T08:37:02.739Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-09T08:35:30.091Z",
-      "last_success_at": "2026-09-09T08:35:30.091Z"
+      "last_attempt_at": "2026-09-10T08:37:02.739Z",
+      "last_success_at": "2026-09-10T08:37:02.739Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-09T08:35:30.091Z",
+      "last_attempt_at": "2026-09-10T08:37:02.739Z",
       "last_success_at": null
     }
   }

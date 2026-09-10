@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "swidnica",
-  "generated_at": "2026-09-09T08:56:02.938Z",
+  "generated_at": "2026-09-10T08:57:15.209Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 7,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-09T08:55:56.404Z",
-  "last_successful_source_check_at": "2026-09-09T08:55:56.404Z",
+  "last_source_attempt_at": "2026-09-10T08:57:08.542Z",
+  "last_successful_source_check_at": "2026-09-10T08:57:08.542Z",
   "monitored_assets": [
     "commercial",
     "residential"
@@ -25,13 +25,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-09T08:55:56.404Z",
-      "last_success_at": "2026-09-09T08:55:56.404Z"
+      "last_attempt_at": "2026-09-10T08:57:08.542Z",
+      "last_success_at": "2026-09-10T08:57:08.542Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-09T08:55:56.404Z",
+      "last_attempt_at": "2026-09-10T08:57:08.542Z",
       "last_success_at": null
     }
   }

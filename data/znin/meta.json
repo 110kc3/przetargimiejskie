@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "znin",
-  "generated_at": "2026-09-09T08:50:05.648Z",
+  "generated_at": "2026-09-10T08:51:50.454Z",
   "source_pdf_count": 10,
   "parsed_records": 2,
   "parser_note_count": 10,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-09T08:49:10.600Z",
-  "last_successful_source_check_at": "2026-09-09T08:49:10.600Z",
+  "last_source_attempt_at": "2026-09-10T08:50:55.940Z",
+  "last_successful_source_check_at": "2026-09-10T08:50:55.940Z",
   "monitored_assets": [
     "commercial",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-09T08:49:10.600Z",
-      "last_success_at": "2026-09-09T08:49:10.600Z"
+      "last_attempt_at": "2026-09-10T08:50:55.940Z",
+      "last_success_at": "2026-09-10T08:50:55.940Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-09T08:49:10.600Z",
-      "last_success_at": "2026-09-09T08:49:10.600Z"
+      "last_attempt_at": "2026-09-10T08:50:55.940Z",
+      "last_success_at": "2026-09-10T08:50:55.940Z"
     }
   }
 }

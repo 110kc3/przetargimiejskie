@@ -3,6 +3,205 @@
   "city": "jelenia-gora",
   "properties": [
     {
+      "key": "jana kilinskiego|20|2U",
+      "street": "Jana Kilińskiego",
+      "street_norm": "jana kilinskiego",
+      "building": "20",
+      "apt": "2U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-14",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "area_m2": 120.39,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25547/71-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-29",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 120.39,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25942/102-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 120.39
+    },
+    {
+      "key": "cieplicka|17|2U",
+      "street": "Cieplicka",
+      "street_norm": "cieplicka",
+      "building": "17",
+      "apt": "2U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-08-14",
+          "round": 4,
+          "kind": "uzytkowy",
+          "starting_price_pln": 156550,
+          "outcome": "archived",
+          "area_m2": 217.12,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25547/71-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-29",
+          "round": 5,
+          "kind": "uzytkowy",
+          "starting_price_pln": 156550,
+          "outcome": "active",
+          "area_m2": 217.12,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25942/102-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 217.12
+    },
+    {
+      "key": "plac energetyka|1|4",
+      "street": "Plac Energetyka",
+      "street_norm": "plac energetyka",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 51.1,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "active",
+          "area_m2": 51.1,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25941/101-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 51.1
+    },
+    {
+      "key": "dluga 9 10 11 plac ks kard stefana wyszynskiego|38|8",
+      "street": "Długa 9,10,11, Plac Ks. Kard. Stefana Wyszyńskiego",
+      "street_norm": "dluga 9 10 11 plac ks kard stefana wyszynskiego",
+      "building": "38",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245000,
+          "outcome": "archived",
+          "area_m2": 43.8,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 225000,
+          "outcome": "active",
+          "area_m2": 43.8,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25941/101-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.8
+    },
+    {
+      "key": "wolnosci|229|4",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "229",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.jeleniagora.pl/attachments/download/51599",
+          "notes": [],
+          "area_m2": 62.87
+        },
+        {
+          "date": "2026-10-15",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 225000,
+          "outcome": "active",
+          "area_m2": 62.87,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25941/101-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.87
+    },
+    {
+      "key": "powstancow wielkopolskich|15|1U",
+      "street": "Powstańców Wielkopolskich",
+      "street_norm": "powstancow wielkopolskich",
+      "building": "15",
+      "apt": "1U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 45000,
+          "outcome": "archived",
+          "area_m2": 31.28,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-15",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 40000,
+          "outcome": "active",
+          "area_m2": 31.28,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25941/101-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.28
+    },
+    {
       "key": "gustawa morcinka|21|2",
       "street": "Gustawa Morcinka",
       "street_norm": "gustawa morcinka",
@@ -254,50 +453,6 @@
       "area_m2": 39.6
     },
     {
-      "key": "jana kilinskiego|20|2U",
-      "street": "Jana Kilińskiego",
-      "street_norm": "jana kilinskiego",
-      "building": "20",
-      "apt": "2U",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-08-14",
-          "round": 4,
-          "kind": "uzytkowy",
-          "starting_price_pln": 165000,
-          "outcome": "archived",
-          "area_m2": 120.39,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25547/71-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 120.39
-    },
-    {
-      "key": "cieplicka|17|2U",
-      "street": "Cieplicka",
-      "street_norm": "cieplicka",
-      "building": "17",
-      "apt": "2U",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-08-14",
-          "round": 4,
-          "kind": "uzytkowy",
-          "starting_price_pln": 156550,
-          "outcome": "archived",
-          "area_m2": 217.12,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25547/71-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 217.12
-    },
-    {
       "key": "icy jana kilinskiego|20|2U",
       "street": "icy Jana Kilińskiego",
       "street_norm": "icy jana kilinskiego",
@@ -389,95 +544,6 @@
         }
       ],
       "area_m2": 48.5
-    },
-    {
-      "key": "plac energetyka|1|4",
-      "street": "Plac Energetyka",
-      "street_norm": "plac energetyka",
-      "building": "1",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-22",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 350000,
-          "outcome": "archived",
-          "area_m2": 51.1,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 51.1
-    },
-    {
-      "key": "dluga 9 10 11 plac ks kard stefana wyszynskiego|38|8",
-      "street": "Długa 9,10,11, Plac Ks. Kard. Stefana Wyszyńskiego",
-      "street_norm": "dluga 9 10 11 plac ks kard stefana wyszynskiego",
-      "building": "38",
-      "apt": "8",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-22",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 245000,
-          "outcome": "archived",
-          "area_m2": 43.8,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 43.8
-    },
-    {
-      "key": "wolnosci|229|4",
-      "street": "Wolności",
-      "street_norm": "wolnosci",
-      "building": "229",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-22",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.jeleniagora.pl/attachments/download/51599",
-          "notes": [],
-          "area_m2": 62.87
-        }
-      ],
-      "area_m2": 62.87
-    },
-    {
-      "key": "powstancow wielkopolskich|15|1U",
-      "street": "Powstańców Wielkopolskich",
-      "street_norm": "powstancow wielkopolskich",
-      "building": "15",
-      "apt": "1U",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-07-22",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 45000,
-          "outcome": "archived",
-          "area_m2": 31.28,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25497/68-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 31.28
     },
     {
       "key": "placu energetyka|1|4",

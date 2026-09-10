@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "namyslow",
-  "generated_at": "2026-09-09T08:38:34.616Z",
+  "generated_at": "2026-09-10T08:40:59.469Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-09T08:37:59.010Z",
-  "last_successful_source_check_at": "2026-09-09T08:37:59.010Z",
+  "last_source_attempt_at": "2026-09-10T08:40:28.875Z",
+  "last_successful_source_check_at": "2026-09-10T08:40:28.875Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-09T08:37:59.010Z",
-      "last_success_at": "2026-09-09T08:37:59.010Z"
+      "last_attempt_at": "2026-09-10T08:40:28.875Z",
+      "last_success_at": "2026-09-10T08:40:28.875Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-09T08:37:59.010Z",
+      "last_attempt_at": "2026-09-10T08:40:28.875Z",
       "last_success_at": null
     }
   }

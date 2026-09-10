@@ -3,6 +3,27 @@
   "city": "drawsko-pomorskie",
   "properties": [
     {
+      "key": "11 pulku piechoty|33|2",
+      "street": "11 Pułku Piechoty",
+      "street_norm": "11 pulku piechoty",
+      "building": "33",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 73600,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 75000,
+          "source_pdf": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/informacja-o-wyniku-przetargu-na-sprzedaz-lokalu-mieszkalnego-przy-ul-11-pulku-piechoty-332.html",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "gen wl sikorskiego|31|9",
       "street": "Gen. Wł. Sikorskiego",
       "street_norm": "gen wl sikorskiego",

@@ -15,11 +15,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 275000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.oswiecim.um.gov.pl/api/download/file?id=55958",
+          "notes": [],
           "area_m2": 46.14,
-          "detail_url": "https://bip.oswiecim.um.gov.pl/5987/dokument/55663",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.oswiecim.um.gov.pl/5987/dokument/55663"
         }
       ],
       "area_m2": 46.14

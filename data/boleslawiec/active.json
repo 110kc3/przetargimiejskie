@@ -56,6 +56,24 @@
       "round_source": "inferred"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "Mazowieckiej 13b/5",
+      "address": {
+        "street": "Mazowieckiej",
+        "street_norm": "mazowieckiej",
+        "building": "13B",
+        "apt": "5",
+        "key": "mazowieckiej|13B|5",
+        "warning": null
+      },
+      "auction_date": "2026-11-05",
+      "round": 1,
+      "area_m2": 107.9,
+      "starting_price_pln": 399000,
+      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7106-lokal-mieszkalny-nr-5-po%C5%82o%C5%BCony-przy-ul-mazowieckiej-nr-13b-powierzchnia-u%C5%BCytkowa-mieszkania-107%2C90-m2",
+      "round_source": "inferred"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Plac Piastowski 16",
       "address": {
@@ -75,6 +93,21 @@
     }
   ],
   "wykaz": [
+    {
+      "address": {
+        "street": "Mazowieckiej",
+        "street_norm": "mazowieckiej",
+        "building": "13B",
+        "apt": "5",
+        "key": "mazowieckiej|13B|5",
+        "warning": null
+      },
+      "address_raw": "Mazowieckiej 13b/5",
+      "kind": "mieszkalny",
+      "area_m2": 107.9,
+      "published_date": "2026-09-09",
+      "wykaz_no": null
+    },
     {
       "address": {
         "street": "Komuny Paryskiej",
