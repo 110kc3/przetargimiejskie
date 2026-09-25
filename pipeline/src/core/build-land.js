@@ -210,12 +210,13 @@ export function mergePartialLand(previousPlots, currentPlots) {
       }
 
       // A current-window announcement must never downgrade a previously
-      // resolved result for the same event back to active.
+      // resolved result for the same event. buildLand changes past announcements
+      // from active to archived; neither state is evidence of an auction result.
       const resolvedOutcome = existing.outcome && existing.outcome !== 'active' ? existing.outcome : null;
       for (const [key, value] of Object.entries(listing)) {
         if (value != null) existing[key] = value;
       }
-      if (resolvedOutcome && listing.outcome === 'active') existing.outcome = resolvedOutcome;
+      if (resolvedOutcome && ['active', 'archived'].includes(listing.outcome)) existing.outcome = resolvedOutcome;
     }
     previous.listings.sort((a, b) => String(a.date || '9999').localeCompare(String(b.date || '9999')));
   }

@@ -60,21 +60,20 @@ hosted requests and Playwright remains the only direct pipeline dependency.
 
 ## Broken certificate chains
 
-Several public municipal servers omit an intermediate CA. The compatibility
-path in `pipeline/src/core/fetch.js` deliberately disables chain verification
-only after enforcing all of these compensating controls:
+Several public municipal servers omit intermediate CAs. The legacy adapter
+option `insecureTLS` now selects the host-specific chain in
+`pipeline/src/core/source-tls.js`; it **does not disable certificate validation**.
+Reviewed intermediates supplement Node's built-in public roots. Certificate
+expiry, hostname checks and a complete chain to a public root remain required;
+partial-chain trust is disabled. No new self-signed root or leaf is trusted.
 
-- HTTPS on port 443 only;
-- no username or password in the target URL;
-- an explicit audited hostname allowlist;
-- the same validation on every redirect;
-- public read-only requests carrying no repository secret.
-
-This remains a data-integrity risk, not a confidentiality claim: a network
-attacker could alter that public source response. The parser/sanity gates,
-source provenance and last-good preservation limit the impact. Replace this
-compatibility path with host-specific intermediate certificates where a source
-offers a stable valid chain.
+The compatibility path still requires HTTPS on port 443, credential-free URLs,
+an audited hostname and the same allowlist checks on every redirect. Chain
+provenance and the replacement procedure are recorded in
+[pipeline/src/core/certificates/README.md](./pipeline/src/core/certificates/README.md).
+If a source changes issuer or serves an invalid certificate, the request fails
+and the normal refresh policy retains last-good data. Never silence CodeQL or
+restore a certificate-validation bypass to make a source green.
 
 ## Residential-egress sources
 

@@ -45,7 +45,9 @@ concurrency:
 jobs:
   health:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # A registry-wide recovery/new incident can require > 100 issue writes.
+    # Leave time to enforce the health gates even if notification sync times out.
+    timeout-minutes: 15
     permissions:
       contents: read
       issues: write   # per-city [city-broken] issues (skipped on pull_request)
@@ -92,6 +94,7 @@ jobs:
       # Skipped on pull_request (fork tokens are read-only; PR runs are a merge
       # gate, not a monitor).
       - name: Sync city-broken issues
+        timeout-minutes: 10
         if: always() && github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}

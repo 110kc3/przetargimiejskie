@@ -77,22 +77,38 @@ test('buildLand attaches a per-parcel `parcels` list for multi-parcel plots', ()
   assert.deepEqual(plots[0].parcels.map((p) => p.nr), ['263/2', '263/6']);
 });
 
-test('mergePartialLand retains unseen history and merges current-window plots by key/date', () => {
-  const previous = buildLand([
-    { dzialka_nr: '1/1', auction_date: '2025-01-10', outcome: 'unsold', starting_price_pln: 100 },
-    { dzialka_nr: '1/1', auction_date: '2026-09-10', outcome: 'sold', starting_price_pln: 90 },
-    { dzialka_nr: '2/2', auction_date: '2024-04-20', outcome: 'archived', starting_price_pln: 50 },
-  ], 'demo').plots;
-  const current = buildLand([
-    { dzialka_nr: '1/1', auction_date: '2026-09-10', outcome: 'active', starting_price_pln: 85, source_url: 'https://fallback.test/1.pdf' },
-    { dzialka_nr: '3/3', auction_date: '2026-10-01', outcome: 'active', starting_price_pln: 200 },
-  ], 'demo').plots;
+for (const today of ['2026-09-10', '2026-09-11', '2026-09-24']) {
+  test(`mergePartialLand retains results and unseen history on ${today}`, (t) => {
+    t.mock.timers.enable({ apis: ['Date'], now: new Date(`${today}T12:00:00Z`) });
+    const previous = buildLand([
+      { dzialka_nr: '1/1', auction_date: '2025-01-10', outcome: 'unsold', starting_price_pln: 100 },
+      { dzialka_nr: '1/1', auction_date: '2026-09-10', outcome: 'sold', starting_price_pln: 90 },
+      { dzialka_nr: '2/2', auction_date: '2024-04-20', outcome: 'archived', starting_price_pln: 50 },
+    ], 'demo').plots;
+    const current = buildLand([
+      { dzialka_nr: '1/1', auction_date: '2026-09-10', outcome: 'active', starting_price_pln: 85, source_url: 'https://fallback.test/1.pdf' },
+      { dzialka_nr: '3/3', auction_date: '2026-10-01', outcome: 'active', starting_price_pln: 200 },
+    ], 'demo').plots;
 
-  const merged = mergePartialLand(previous, current);
-  assert.deepEqual(new Set(merged.map((plot) => plot.key)), new Set(['dz|1/1', 'dz|2/2', 'dz|3/3']));
-  const first = merged.find((plot) => plot.key === 'dz|1/1');
-  assert.equal(first.listings.length, 2, 'same-date fallback row is folded into existing history');
-  assert.equal(first.listings[1].starting_price_pln, 85, 'newly parsed fields win');
-  assert.equal(first.listings[1].source_url, 'https://fallback.test/1.pdf');
-  assert.equal(first.listings[1].outcome, 'sold', 'resolved result is not downgraded to active');
+    const merged = mergePartialLand(previous, current);
+    assert.deepEqual(new Set(merged.map((plot) => plot.key)), new Set(['dz|1/1', 'dz|2/2', 'dz|3/3']));
+    const first = merged.find((plot) => plot.key === 'dz|1/1');
+    assert.equal(first.listings.length, 2, 'same-date fallback row is folded into existing history');
+    assert.equal(first.listings[1].starting_price_pln, 85, 'newly parsed fields win');
+    assert.equal(first.listings[1].source_url, 'https://fallback.test/1.pdf');
+    assert.equal(first.listings[1].outcome, 'sold', 'an announcement cannot overwrite a resolved result');
+  });
+}
+
+test('mergePartialLand preserves resolved outcomes but accepts newly published results', () => {
+  const plot = (outcome) => [{ key: 'dz|1/1', listings: [{ date: '2026-09-10', outcome }] }];
+  for (const resolved of ['sold', 'unsold', 'cancelled']) {
+    for (const announcement of ['active', 'archived']) {
+      const previous = plot(resolved);
+      assert.equal(mergePartialLand(previous, plot(announcement))[0].listings[0].outcome, resolved);
+      assert.equal(previous[0].listings[0].outcome, resolved, 'previous data is not mutated');
+      assert.equal(mergePartialLand(plot(announcement), plot(resolved))[0].listings[0].outcome, resolved);
+    }
+  }
+  assert.equal(mergePartialLand(plot('unsold'), plot('sold'))[0].listings[0].outcome, 'sold');
 });

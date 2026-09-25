@@ -51,6 +51,38 @@
 
 ## 1 · Ops / health
 
+### CI recovery — 25 September 2026
+
+The 24–25 September audit traced the daily refresh failure since 11 September to
+`build-land.test.js`: once an announcement's 10 September auction date passed,
+`buildLand` archived it and `mergePartialLand` overwrote an existing sold result.
+The setup gate stopped every city/provider crawl, producing 115 stale-data issue
+titles and repeated health failures; deployment success did not imply freshness.
+
+The repair preserves resolved results when incoming announcements are active or
+archived, with fixed-clock boundary tests. Municipal TLS compatibility now uses
+reviewed host-specific intermediate certificates with full chain, hostname and
+expiry verification. This removes the cause of CodeQL alert #128 without a
+scanner exemption. Issue sync uses one open-issue lookup, suppresses unchanged
+owner notifications and removes changing stale ages from titles. Health has a
+15-minute job budget and a 10-minute notification limit.
+
+Local verification: 37 targeted Node 20.20.2 tests; workflow lint and hosted-runner
+policy; complete verified TLS handshakes to all 13 compatibility hosts on
+25 September. No production data was refreshed locally.
+
+- [ ] **Verify the CI-recovery push once next session:** the accompanying commit
+      is pending hosted verification at
+      [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
+      Confirm the setup gate and publication run, CodeQL alert #128 closes after
+      scanning, and the following health check reflects refreshed city/provider
+      timestamps and completes issue reconciliation. Do not call all city health
+      green from parser tests or a successful deployment.
+- Residual source incidents (Gliwice, Świętochłowice, Kłodzko, Brzeg and degraded
+  source streams), Racibórz/Pszczyna's hosted-egress exclusions and dated validation
+  quarantines remain separate from this pipeline repair. Reassess their recorded
+  failures after the first successful hosted refresh; do not bypass their gates.
+
 ### Deferred execution queue — recorded 31 August 2026
 
 These are the deliberately unstarted steps left after the current failure-repair and

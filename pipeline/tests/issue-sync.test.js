@@ -15,8 +15,8 @@ function fakeGh(openIssuesByCity = {}) {
   const run = (args) => {
     calls.push(args);
     if (args[0] === 'issue' && args[1] === 'list') {
-      const city = (args.find((x) => x.startsWith('city:')) || '').replace('city:', '');
-      return JSON.stringify(openIssuesByCity[city] || []);
+      return JSON.stringify(Object.entries(openIssuesByCity).flatMap(([city, issues]) =>
+        issues.map((issue) => ({ ...issue, labels: [...(issue.labels || []), { name: `city:${city}` }] }))));
     }
     return '';
   };
@@ -47,11 +47,11 @@ test('new failure creates issue with labels', () => {
   assert.match(create[create.indexOf('--title') + 1], /^\[city-broken\] wejherowo:/);
 });
 
-test('repeat failure comments instead of duplicating; edits only on changed title', () => {
+test('repeat failure stays quiet; changed failure comments and updates its issue', () => {
   const sameTitle = '[city-broken] wejherowo: layout change suspected (0 records parsed)';
   const { run, calls } = fakeGh({ wejherowo: [{ number: 7, title: sameTitle, labels: [] }] });
   let ops = syncIssues(failuresMap('wejherowo'), [], { source: 'refresh', runUrl: RUN_URL, run });
-  assert.deepEqual(ops.map((o) => o.op), ['comment']);
+  assert.deepEqual(ops.map((o) => o.op), ['unchanged']);
   assert.ok(!calls.some((c) => c[0] === 'issue' && (c[1] === 'create' || c[1] === 'edit')));
 
   const gh2 = fakeGh({ wejherowo: [{ number: 7, title: '[city-broken] wejherowo: source unreachable (http 503)', labels: [] }] });
@@ -59,12 +59,46 @@ test('repeat failure comments instead of duplicating; edits only on changed titl
   assert.deepEqual(ops.map((o) => o.op), ['comment', 'edit']);
 });
 
+test('registry-wide stale incident uses one lookup and suppresses age-only repeat writes', () => {
+  const issues = {};
+  const failures = new Map();
+  for (let i = 0; i < 121; i++) {
+    const city = `city-${i}`;
+    issues[city] = [{ number: i + 1, title: `[city-broken] ${city}: data stale (> 3d) — crawl stopped updating`, labels: [{ name: 'health-check' }] }];
+    failures.set(city, { failure: { city, classification: 'stale-data', headline: 'data stale (14.2 days old > 3d) — crawl stopped updating' }, bodyPath: '/tmp/body.md' });
+  }
+  const { run, calls } = fakeGh(issues);
+  const ops = syncIssues(failures, [], { source: 'health', runUrl: RUN_URL, run });
+  assert.equal(ops.filter((op) => op.op === 'unchanged').length, 121);
+  assert.equal(calls.filter((args) => args[0] === 'issue' && args[1] === 'list').length, 1);
+  assert.equal(calls.filter((args) => args[0] === 'issue' && args[1] !== 'list').length, 0);
+});
+
+test('legacy stale title migrates once without another failure notification', () => {
+  const { run, calls } = fakeGh({ demo: [{ number: 1, title: '[city-broken] demo: data stale (13.2 days old > 3d) — crawl stopped updating', labels: [{ name: 'health-check' }] }] });
+  const failures = new Map([['demo', { failure: { headline: 'data stale (14.2 days old > 3d) — crawl stopped updating', classification: 'stale-data' }, bodyPath: '/tmp/body.md' }]]);
+  const ops = syncIssues(failures, [], { source: 'health', runUrl: RUN_URL, run });
+  assert.deepEqual(ops.map((op) => op.op), ['edit']);
+  assert.ok(!calls.some((args) => args[1] === 'comment'));
+});
+
+test('failed issue inventory cannot cause duplicate issues', () => {
+  for (const response of ['not-json', '{}', '']) {
+    const calls = [];
+    assert.throws(() => syncIssues(failuresMap('demo'), [], {
+      source: 'refresh', runUrl: RUN_URL, run: (args) => { calls.push(args); return response; },
+    }));
+    assert.equal(calls.length, 1);
+  }
+});
+
 test('recovered city closes its open issue; failing city is never "recovered"', () => {
   const { run, calls } = fakeGh({ lodz: [{ number: 3, title: 't', labels: [] }] });
-  const ops = syncIssues(failuresMap('wejherowo'), ['lodz', 'wejherowo'], { source: 'refresh', runUrl: RUN_URL, run });
+  const ops = syncIssues(failuresMap('wejherowo'), ['lodz', 'wejherowo', 'lodz'], { source: 'refresh', runUrl: RUN_URL, run });
   assert.deepEqual(ops.filter((o) => o.op === 'close').map((o) => o.city), ['lodz']);
   const close = calls.find((c) => c[1] === 'close');
   assert.equal(close[2], '3');
+  assert.equal(calls.filter((c) => c[1] === 'close').length, 1);
 });
 
 test('health sync cannot close a refresh-owned issue (anti-flap scope rule)', () => {

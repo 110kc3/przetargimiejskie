@@ -13,6 +13,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { isChallengePage, challengeSignature } from './challenge-page.js';
 import { recordRequest } from './request-metrics.js';
+import { getSourceTlsAgent } from './source-tls.js';
 
 /**
  * Instrumented direct-fetch handle for city-local code that must build its own
@@ -87,67 +88,11 @@ function browserHeaders(userAgent, accept) {
 }
 
 // ---- host-scoped incomplete-chain compatibility path (node:https) --------
-//
-// Some Polish municipal servers (e.g. bip.miastozabrze.pl) ship an INCOMPLETE
-// certificate chain — they omit the intermediate CA, so Node's fetch fails with
-// UNABLE_TO_VERIFY_LEAF_SIGNATURE. Browsers hide this by auto-fetching the
-// missing intermediate (AIA); Node does not. The data we read is PUBLIC and
-// READ-ONLY and we send no credentials, so for hosts explicitly opted-in via
-// `insecureTLS` we relax chain verification rather than fail entirely. This is
-// never a caller-controlled general-purpose switch: URLs must be credential-
-// free HTTPS requests to one of the audited public-data hosts below, redirects
-// are checked again, and no request on this path carries repository secrets.
-//
-// SECURE ALTERNATIVE (preferred if you'd rather not relax TLS): obtain the
-// host's missing intermediate CA (download it from the leaf cert's caIssuers /
-// AIA URL once) and run the pipeline with
-//   NODE_EXTRA_CA_CERTS=path/to/intermediate.pem
-// then drop the `insecureTLS` flag in cities/zabrze/crawl.js.
-const insecureAgent = new https.Agent({
-  rejectUnauthorized: false,
-  keepAlive: false,
-});
-
-const INSECURE_TLS_HOSTS = new Set([
-  'bip.elblag.eu',
-  'bip.gmina-naklo.pl',
-  'bip.gmina-sepolno.pl',
-  'bip.gniezno.eu',
-  'bip.miastozabrze.pl',
-  'bip.um.lubin.pl',
-  'bip.wegorzewo.pl',
-  'bip.zlotoryja.pl',
-  'glogow.bip.info.pl',
-  'www.glogow.pl',
-  'www.gniezno.eu',
-  'www.um.boleslawiec.bip-gov.pl',
-  'xn--bolesawiec-e0b.pl',
-]);
-
-export function isApprovedInsecureTlsUrl(value) {
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:'
-      && !url.username
-      && !url.password
-      && (!url.port || url.port === '443')
-      && INSECURE_TLS_HOSTS.has(url.hostname.toLowerCase());
-  } catch {
-    return false;
-  }
-}
-
-/**
- * GET a URL over node:https with relaxed chain verification, throttle + retry +
- * redirect-follow. Returns the raw body Buffer.
- * @param {string} url
- * @param {{ userAgent?: string, accept?: string, retries?: number, redirects?: number }} [opts]
- * @returns {Promise<Buffer>}
- */
-async function getBufferInsecure(url, opts = {}) {
-  if (!isApprovedInsecureTlsUrl(url)) {
-    throw new Error(`insecureTLS denied for non-allowlisted URL: ${url}`);
-  }
+// Legacy adapter option `insecureTLS` now selects a reviewed intermediate chain,
+// with full certificate verification. It never disables TLS authentication.
+// The hostname/credential/port allowlist is checked again on every redirect.
+async function getBufferWithSourceChain(url, opts = {}) {
+  const agent = getSourceTlsAgent(url);
   const { userAgent, accept, retries = 3, redirects = 5 } = opts;
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -158,12 +103,12 @@ async function getBufferInsecure(url, opts = {}) {
         const headers = userAgent
           ? browserHeaders(userAgent, accept)
           : { 'User-Agent': USER_AGENT, Accept: accept || '*/*' };
-        const req = https.get(url, { agent: insecureAgent, headers, timeout: 30000 }, (res) => {
+        const req = https.get(url, { agent, headers, timeout: 30000 }, (res) => {
           const { statusCode = 0, headers: h } = res;
           if (statusCode >= 300 && statusCode < 400 && h.location && redirects > 0) {
             res.resume(); // drain
             const next = new URL(h.location, url).toString();
-            getBufferInsecure(next, { ...opts, redirects: redirects - 1 }).then(resolve, reject);
+            getBufferWithSourceChain(next, { ...opts, redirects: redirects - 1 }).then(resolve, reject);
             return;
           }
           if (statusCode < 200 || statusCode >= 300) {
@@ -183,7 +128,7 @@ async function getBufferInsecure(url, opts = {}) {
       lastErr = err;
       if (attempt === retries) break; // out of retries — don't sleep for nothing
       const backoff = 1000 * Math.pow(2, attempt);
-      console.error(`  fetch failed (${err.message}) [insecure-tls]; retry in ${backoff}ms`);
+      console.error(`  fetch failed (${err.message}) [source-tls]; retry in ${backoff}ms`);
       await sleep(backoff);
     }
   }
@@ -268,7 +213,7 @@ function assertNotChallenge(url, text) {
 /** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean, retries?: number }} [opts] */
 export async function getText(url, opts = {}) {
   if (opts.insecureTLS) {
-    const buf = await getBufferInsecure(url, {
+    const buf = await getBufferWithSourceChain(url, {
       userAgent: opts.userAgent,
       accept: 'text/html,application/xhtml+xml',
       retries: opts.retries,
@@ -288,18 +233,20 @@ export async function getText(url, opts = {}) {
   return assertNotChallenge(url, text);
 }
 
-/** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean }} [opts] */
+/** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean, retries?: number }} [opts] */
 export async function getBytes(url, opts = {}) {
   if (opts.insecureTLS) {
-    const buf = await getBufferInsecure(url, {
+    const buf = await getBufferWithSourceChain(url, {
       userAgent: opts.userAgent,
       accept: 'application/pdf,*/*',
+      retries: opts.retries,
     });
     snapshot(url, buf, false);
     return buf;
   }
   const res = await politeGet(url, {
     accept: 'application/pdf,*/*',
+    retries: opts.retries,
     userAgent: opts.userAgent,
   });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);

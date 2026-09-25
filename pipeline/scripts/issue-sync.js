@@ -67,7 +67,7 @@ function realRunner(dryRun) {
       // Pretend "no open issues" for list calls so create paths are visible.
       return args[1] === 'list' ? '[]' : '';
     }
-    return execFileSync('gh', args, { encoding: 'utf8' });
+    return execFileSync('gh', args, { encoding: 'utf8', timeout: 60_000 });
   };
 }
 
@@ -97,6 +97,12 @@ function renderStillFailingComment(failure, runUrl) {
     (ev ? `\n\n> ${ev}` : '');
 }
 
+// Age advances on every run without representing a new failure mode. Keep it
+// in the issue body/run evidence, rather than re-titling and notifying daily.
+function stableTitle(title) {
+  return title.replace(/data stale \([\d.]+ days old > (\d+)d\)/g, 'data stale (> $1d)');
+}
+
 /**
  * Reconcile open issues with this run's failures/recoveries.
  * @param {Map<string,{failure:object,bodyPath:string}>} failures
@@ -109,12 +115,20 @@ function renderStillFailingComment(failure, runUrl) {
 export function syncIssues(failures, recovered, { source, runUrl, run, uniqueForCity }) {
   const ops = []; // recorded for tests + the summary line
 
-  const findOpen = (city) => {
-    const json = run(['issue', 'list', '--state', 'open',
-      '--label', LABEL_BROKEN, '--label', `city:${city}`,
-      '--json', 'number,title,labels', '--limit', '5']);
-    try { return JSON.parse(json || '[]')[0] || null; } catch { return null; }
-  };
+  // One paginated lookup for the whole registry, not one API call per city.
+  // Fail closed on malformed/truncated responses instead of creating duplicates.
+  const open = JSON.parse(run(['issue', 'list', '--state', 'open',
+    '--label', LABEL_BROKEN, '--json', 'number,title,labels', '--limit', '10000']));
+  if (!Array.isArray(open) || open.length >= 10000) throw new Error('Incomplete open-issue inventory');
+  const byCity = new Map();
+  for (const issue of open) {
+    for (const label of issue.labels || []) {
+      if (label.name.startsWith('city:') && !byCity.has(label.name.slice(5))) {
+        byCity.set(label.name.slice(5), issue);
+      }
+    }
+  }
+  const findOpen = (city) => byCity.get(city);
 
   // Labels are idempotent to create; per-city labels only when needed.
   if (failures.size) {
@@ -127,7 +141,7 @@ export function syncIssues(failures, recovered, { source, runUrl, run, uniqueFor
   }
 
   for (const [city, { failure, bodyPath }] of failures) {
-    const title = `[city-broken] ${city}: ${failure.headline}`;
+    const title = stableTitle(`[city-broken] ${city}: ${failure.headline}`);
     const existing = findOpen(city);
     if (!existing) {
       run(['label', 'create', `city:${city}`, '--color', 'ededed', '--force']);
@@ -136,9 +150,6 @@ export function syncIssues(failures, recovered, { source, runUrl, run, uniqueFor
         ...labels.flatMap((l) => ['--label', l])]);
       ops.push({ op: 'create', city, title });
     } else {
-      run(['issue', 'comment', String(existing.number), '--body',
-        renderStillFailingComment(failure, runUrl)]);
-      ops.push({ op: 'comment', city, number: existing.number });
       // Re-title/body only when the failure mode changed AND this source owns
       // the title. Ownership follows the label: health owns the issues it
       // opened (health-check label), refresh owns the rest. Without this, a
@@ -146,6 +157,16 @@ export function syncIssues(failures, recovered, { source, runUrl, run, uniqueFor
       // headline → health headline → refresh headline …) — pure churn.
       const isHealthOwned = (existing.labels || []).some((l) => l.name === LABEL_HEALTH);
       const ownsTitle = source === 'health' ? isHealthOwned : !isHealthOwned;
+      if (ownsTitle && existing.title === title) {
+        ops.push({ op: 'unchanged', city, number: existing.number });
+        continue;
+      }
+      // Migrating a legacy age-bearing title is a one-time edit, not an alert.
+      if (!ownsTitle || stableTitle(existing.title) !== title) {
+        run(['issue', 'comment', String(existing.number), '--body',
+          renderStillFailingComment(failure, runUrl)]);
+        ops.push({ op: 'comment', city, number: existing.number });
+      }
       if (existing.title !== title && ownsTitle) {
         run(['issue', 'edit', String(existing.number), '--title', title, '--body-file', bodyPath]);
         ops.push({ op: 'edit', city, number: existing.number });
@@ -153,7 +174,7 @@ export function syncIssues(failures, recovered, { source, runUrl, run, uniqueFor
     }
   }
 
-  for (const city of recovered) {
+  for (const city of new Set(recovered)) {
     if (failures.has(city)) continue; // failed this run — obviously not recovered
     const existing = findOpen(city);
     if (!existing) continue;
@@ -232,6 +253,7 @@ async function main() {
   console.error(`issue-sync (${source}${dryRun ? ', dry-run' : ''}): ` +
     `${failures.size} failing, ${ops.filter((o) => o.op === 'create').length} created, ` +
     `${ops.filter((o) => o.op === 'comment').length} commented, ` +
+    `${ops.filter((o) => o.op === 'unchanged').length} unchanged, ` +
     `${ops.filter((o) => o.op === 'close').length} closed.`);
 }
 
