@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "krakow",
-  "generated_at": "2026-09-10T08:50:10.195Z",
+  "generated_at": "2026-09-25T10:51:45.587Z",
   "source_pdf_count": 10,
-  "parsed_records": 11,
+  "parsed_records": 12,
   "parser_note_count": 0,
-  "unique_properties": 10,
+  "unique_properties": 11,
   "active_listings": 13,
   "active_auctions": 1,
-  "archived_auctions": 13,
+  "archived_auctions": 14,
   "wykaz_entries": 0,
-  "land_plots": 3,
-  "land_listings": 9,
+  "land_plots": 2,
+  "land_listings": 2,
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-10T08:49:34.443Z",
-  "last_successful_source_check_at": "2026-09-10T08:49:34.443Z",
+  "last_source_attempt_at": "2026-09-25T10:51:08.633Z",
+  "last_successful_source_check_at": "2026-09-25T10:51:08.633Z",
   "monitored_assets": [
     "garage",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-10T08:49:34.443Z",
-      "last_success_at": "2026-09-10T08:49:34.443Z"
+      "last_attempt_at": "2026-09-25T10:51:08.633Z",
+      "last_success_at": "2026-09-25T10:51:08.633Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-10T08:49:34.443Z",
-      "last_success_at": "2026-09-10T08:49:34.443Z"
+      "last_attempt_at": "2026-09-25T10:51:08.633Z",
+      "last_success_at": "2026-09-25T10:51:08.633Z"
     }
   }
 }

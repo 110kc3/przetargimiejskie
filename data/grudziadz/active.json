@@ -4,6 +4,44 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/4",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "4",
+        "key": "rybacka|27C|4",
+        "warning": null
+      },
+      "auction_date": "2026-10-26",
+      "published_date": "2026-09-22",
+      "round": 2,
+      "area_m2": 35,
+      "starting_price_pln": 70400,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugie-przetargi-ustne-nieograniczone-organizowane-w-dniu-26-pazdz",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/32430/2-ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Rybacka 27C/6",
+      "address": {
+        "street": "Rybacka",
+        "street_norm": "rybacka",
+        "building": "27C",
+        "apt": "6",
+        "key": "rybacka|27C|6",
+        "warning": null
+      },
+      "auction_date": "2026-10-26",
+      "published_date": "2026-09-22",
+      "round": 2,
+      "area_m2": 32.2,
+      "starting_price_pln": 58300,
+      "detail_url": "https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-drugie-przetargi-ustne-nieograniczone-organizowane-w-dniu-26-pazdz",
+      "doc_url": "https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/32430/2-ogloszenie.doc"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Żeromskiego 3/5",
       "address": {
         "street": "Żeromskiego",

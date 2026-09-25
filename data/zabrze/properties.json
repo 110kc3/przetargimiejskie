@@ -323,7 +323,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 140000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 41,
           "detail_url": "https://bip.miastozabrze.pl/doc/26407",
           "wadium_deadline": null,
@@ -345,7 +345,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 42.07,
           "detail_url": "https://bip.miastozabrze.pl/doc/26407",
           "wadium_deadline": null,
@@ -367,7 +367,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 250000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 42.78,
           "detail_url": "https://bip.miastozabrze.pl/doc/26407",
           "wadium_deadline": null,
@@ -389,7 +389,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 342000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 63.52,
           "detail_url": "https://bip.miastozabrze.pl/doc/26407",
           "wadium_deadline": null,
@@ -411,7 +411,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 185000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 48.2,
           "detail_url": "https://bip.miastozabrze.pl/doc/26406",
           "wadium_deadline": null,
@@ -433,7 +433,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 120000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 35.56,
           "detail_url": "https://bip.miastozabrze.pl/doc/26406",
           "wadium_deadline": null,
@@ -455,7 +455,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 38.6,
           "detail_url": "https://bip.miastozabrze.pl/doc/26406",
           "wadium_deadline": null,
@@ -477,7 +477,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 48.82,
           "detail_url": "https://bip.miastozabrze.pl/doc/26406",
           "wadium_deadline": null,
@@ -499,7 +499,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 130000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 32.8,
           "detail_url": "https://bip.miastozabrze.pl/doc/26406",
           "wadium_deadline": null,
@@ -521,7 +521,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 160000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 45.63,
           "detail_url": "https://bip.miastozabrze.pl/doc/26406",
           "wadium_deadline": null,
@@ -543,11 +543,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 290000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/107154",
+          "notes": [],
           "area_m2": 62.98,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309"
         }
       ],
       "area_m2": 62.98
@@ -565,11 +567,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/107154",
+          "notes": [],
           "area_m2": 29.29,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309"
         }
       ],
       "area_m2": 29.29
@@ -587,11 +591,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 190000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/107154",
+          "notes": [],
           "area_m2": 38.75,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309"
         }
       ],
       "area_m2": 38.75
@@ -609,11 +615,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 72000,
-          "outcome": "active",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 74000,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/107154",
+          "notes": [],
           "area_m2": 21.75,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309"
         }
       ],
       "area_m2": 21.75
@@ -631,11 +639,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 260000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/107154",
+          "notes": [],
           "area_m2": 56.51,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26309",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26309"
         }
       ],
       "area_m2": 56.51
@@ -653,11 +663,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 220000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/106823",
+          "notes": [],
           "area_m2": 43.93,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26308",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26308"
         }
       ],
       "area_m2": 43.93
@@ -675,11 +687,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 170000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/106823",
+          "notes": [],
           "area_m2": 30.1,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26308",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26308"
         }
       ],
       "area_m2": 30.1
@@ -697,14 +711,62 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/106823",
+          "notes": [],
           "area_m2": 46.21,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26308",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26308"
         }
       ],
       "area_m2": 46.21
+    },
+    {
+      "key": "gen wladyslawa andersa|35|3",
+      "street": "gen. Władysława Andersa",
+      "street_norm": "gen wladyslawa andersa",
+      "building": "35",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/106823",
+          "notes": [],
+          "area_m2": 49.9
+        }
+      ],
+      "area_m2": 49.9
+    },
+    {
+      "key": "gen grota roweckiego|16|5",
+      "street": "gen. Grota-Roweckiego",
+      "street_norm": "gen grota roweckiego",
+      "building": "16",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/106823",
+          "notes": [],
+          "area_m2": 35.71
+        }
+      ],
+      "area_m2": 35.71
     },
     {
       "key": "fryderyka chopina|30|2",

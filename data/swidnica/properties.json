@@ -3,28 +3,6 @@
   "city": "swidnica",
   "properties": [
     {
-      "key": "westerplatte|19A|10",
-      "street": "Westerplatte",
-      "street_norm": "westerplatte",
-      "building": "19A",
-      "apt": "10",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-28",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 95000,
-          "outcome": "active",
-          "area_m2": 35.14,
-          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131581,i-przetarg-ustny-nieograniczony-p-73ix26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-10-przy-ulicy-we.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 35.14
-    },
-    {
       "key": "kraszowickiej|55|01",
       "street": "Kraszowickiej",
       "street_norm": "kraszowickiej",
@@ -54,9 +32,76 @@
           "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131482,kolejny-przetarg-ustny-nieograniczony-p-65viii26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ul.html",
           "wadium_deadline": null,
           "viewing_date": null
+        },
+        {
+          "date": "2026-10-26",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 86.48,
+          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131675,kolejny-przetarg-ustny-nieograniczony-p-77x26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ulicy.html",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 86.48
+    },
+    {
+      "key": "srodkowej|7A|7",
+      "street": "Środkowa",
+      "street_norm": "srodkowej",
+      "building": "7A",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "no_wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131298,kolejny-przetarg-ustny-nieograniczony-p-51vii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ul.html",
+          "notes": [],
+          "area_m2": 31.3
+        },
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 85000,
+          "outcome": "active",
+          "area_m2": 31.3,
+          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131678,i-przetarg-ustny-nieograniczony-p-80x26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ulicy-srod.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.3
+    },
+    {
+      "key": "westerplatte|19A|10",
+      "street": "Westerplatte",
+      "street_norm": "westerplatte",
+      "building": "19A",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "active",
+          "area_m2": 35.14,
+          "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131581,i-przetarg-ustny-nieograniczony-p-73ix26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-10-przy-ulicy-we.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.14
     },
     {
       "key": "grodzkiej|16-18|6",
@@ -138,29 +183,6 @@
         }
       ],
       "area_m2": 76.48
-    },
-    {
-      "key": "srodkowej|7A|7",
-      "street": "Środkowa",
-      "street_norm": "srodkowej",
-      "building": "7A",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-06",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 90000,
-          "outcome": "unsold",
-          "unsold_reason": "no_wadium",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.swidnica.nv.pl/swidnica,a,131298,kolejny-przetarg-ustny-nieograniczony-p-51vii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ul.html",
-          "notes": [],
-          "area_m2": 31.3
-        }
-      ],
-      "area_m2": 31.3
     },
     {
       "key": "walbrzyskiej|6|6",

@@ -3,6 +3,37 @@
   "city": "kolbuszowa",
   "plots": [
     {
+      "key": "dz|kolbuszowej|1494/2",
+      "kind": "grunt",
+      "city": "kolbuszowa",
+      "dzialka_nr": "1494/2",
+      "obreb": "Kolbuszowej",
+      "street": null,
+      "building": null,
+      "address_raw": "Kolbuszowej, dz. nr 1494/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201494%2F2%20Kolbuszowej%2C%20dz.%20nr%201494%2F2%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4492,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "starting_price_pln": 1626552,
+          "outcome": "active",
+          "area_m2": 4492,
+          "detail_url": "https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/18453-burmistrz-kolbuszowej-oglasza-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-wlasnosci-gminy-kolbuszowa-przedmiotem-przetargu-jest-niezabudowana-nieruchomosc-gruntowa-polozona-w-kolbuszowej-przy-ulicy-rzeszowskiej-oznaczona-nr-ew-dzialki-14942-o-powierzchni-0-4492-ha.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1494/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201494%2F2%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kolbuszowej|48/223, 48/284",
       "kind": "grunt",
       "city": "kolbuszowa",

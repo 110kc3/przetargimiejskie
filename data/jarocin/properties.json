@@ -3,12 +3,33 @@
   "city": "jarocin",
   "properties": [
     {
+      "key": "malopolskiej oraz zarzadzenia nr|160|",
+      "street": "Małopolskiej oraz Zarządzenia Nr",
+      "street_norm": "malopolskiej oraz zarzadzenia nr",
+      "building": "160",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-3-przetargu-zagrodowa.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "konstytucji 3 maja|20|17",
       "street": "Konstytucji 3 Maja",
       "street_norm": "konstytucji 3 maja",
       "building": "20",
       "apt": "17",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
         {
           "date": "2024-02-29",
@@ -19,7 +40,8 @@
           "unsold_reason": "wynik negatywny",
           "final_price_pln": null,
           "source_pdf": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/wynik-3-przetragu-lokal-konstytucji.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 68.3
         },
         {
           "date": "2024-10-24",
@@ -30,7 +52,8 @@
           "unsold_reason": "wynik negatywny",
           "final_price_pln": null,
           "source_pdf": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-1-przetargu-lokal-konstytucji-20.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 68.3
         },
         {
           "date": "2024-12-19",
@@ -41,9 +64,22 @@
           "unsold_reason": "wynik negatywny",
           "final_price_pln": null,
           "source_pdf": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/wynik-2-przetargu-konstytucji.pdf",
-          "notes": []
+          "notes": [],
+          "area_m2": 68.3
+        },
+        {
+          "date": "2026-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 395000,
+          "outcome": "active",
+          "area_m2": 68.3,
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-przetargu-kostytucji-3-maja.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
-      ]
+      ],
+      "area_m2": 68.3
     }
   ]
 }

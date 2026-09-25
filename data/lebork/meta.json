@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "lebork",
-  "generated_at": "2026-09-10T08:55:17.789Z",
-  "source_pdf_count": 62,
+  "generated_at": "2026-09-25T10:58:17.189Z",
+  "source_pdf_count": 63,
   "parsed_records": 37,
   "parser_note_count": 24,
-  "unique_properties": 27,
-  "active_listings": 0,
-  "active_auctions": 0,
+  "unique_properties": 28,
+  "active_listings": 4,
+  "active_auctions": 4,
   "archived_auctions": 37,
   "wykaz_entries": 0,
-  "land_plots": 11,
-  "land_listings": 26,
+  "land_plots": 12,
+  "land_listings": 27,
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-10T08:53:10.849Z",
-  "last_successful_source_check_at": "2026-09-10T08:53:10.849Z",
+  "last_source_attempt_at": "2026-09-25T10:56:05.616Z",
+  "last_successful_source_check_at": "2026-09-25T10:56:05.616Z",
   "monitored_assets": [
     "commercial",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-10T08:53:10.849Z",
-      "last_success_at": "2026-09-10T08:53:10.849Z"
+      "last_attempt_at": "2026-09-25T10:56:05.616Z",
+      "last_success_at": "2026-09-25T10:56:05.616Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-10T08:53:10.849Z",
-      "last_success_at": "2026-09-10T08:53:10.849Z"
+      "last_attempt_at": "2026-09-25T10:56:05.616Z",
+      "last_success_at": "2026-09-25T10:56:05.616Z"
     }
   }
 }

@@ -4,6 +4,60 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Józefa Bema 89C m 54",
+      "address": {
+        "street": "Gen. Józefa Bema",
+        "street_norm": "gen jozefa bema",
+        "building": "89C",
+        "apt": "54",
+        "key": "gen jozefa bema|89C|54",
+        "warning": null
+      },
+      "auction_date": "2026-11-04",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 375100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54-55.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Broniewskiego 8C m 42",
+      "address": {
+        "street": "Władysława Broniewskiego",
+        "street_norm": "wladyslawa broniewskiego",
+        "building": "8C",
+        "apt": "42",
+        "key": "wladyslawa broniewskiego|8C|42",
+        "warning": null
+      },
+      "auction_date": "2026-11-03",
+      "round": 7,
+      "area_m2": null,
+      "starting_price_pln": 368000,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-47.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul.Wołodyjowskiego 8 m 6",
+      "address": {
+        "street": "ul.Wołodyjowskiego",
+        "street_norm": "ul wolodyjowskiego",
+        "building": "8",
+        "apt": "6",
+        "key": "ul wolodyjowskiego|8|6",
+        "warning": null
+      },
+      "auction_date": "2026-11-20",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 513100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ulwolodyjowskiego-8-m-6.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Lipowa 37 m 10",
       "address": {
         "street": "Lipowa",
@@ -256,42 +310,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Gen. Józefa Bema 89C m 54",
-      "address": {
-        "street": "Gen. Józefa Bema",
-        "street_norm": "gen jozefa bema",
-        "building": "89C",
-        "apt": "54",
-        "key": "gen jozefa bema|89C|54",
-        "warning": null
-      },
-      "auction_date": "2026-09-15",
-      "round": 2,
-      "area_m2": null,
-      "starting_price_pln": 375100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54-1.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Władysława Broniewskiego 8C m 42",
-      "address": {
-        "street": "Władysława Broniewskiego",
-        "street_norm": "wladyslawa broniewskiego",
-        "building": "8C",
-        "apt": "42",
-        "key": "wladyslawa broniewskiego|8C|42",
-        "warning": null
-      },
-      "auction_date": "2026-09-15",
-      "round": 6,
-      "area_m2": null,
-      "starting_price_pln": 368000,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-46.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Gen. Józefa Bema 91 m 72",
       "address": {
         "street": "Gen. Józefa Bema",
@@ -302,11 +320,10 @@
         "warning": null
       },
       "auction_date": "2026-09-23",
-      "round": 2,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": 330800,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-72-73.html",
-      "round_source": "inferred"
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-72-73.html"
     },
     {
       "kind": "mieszkalny",
@@ -320,65 +337,10 @@
         "warning": null
       },
       "auction_date": "2026-09-23",
-      "round": 2,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": 249200,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89a-m-60-61.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Władysława Broniewskiego 10 m 54",
-      "address": {
-        "street": "Władysława Broniewskiego",
-        "street_norm": "wladyslawa broniewskiego",
-        "building": "10",
-        "apt": "54",
-        "key": "wladyslawa broniewskiego|10|54",
-        "warning": null
-      },
-      "auction_date": "2026-09-16",
-      "round": 2,
-      "area_m2": null,
-      "starting_price_pln": 278900,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-10-m-54-55.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wierzbowa 21 m 16",
-      "address": {
-        "street": "Wierzbowa",
-        "street_norm": "wierzbowa",
-        "building": "21",
-        "apt": "16",
-        "key": "wierzbowa|21|16",
-        "warning": null
-      },
-      "auction_date": "2026-09-16",
-      "round": 2,
-      "area_m2": null,
-      "starting_price_pln": 346100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-21-m-16-17.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Sienkiewicza 18 m 13",
-      "address": {
-        "street": "Sienkiewicza",
-        "street_norm": "sienkiewicza",
-        "building": "18",
-        "apt": "13",
-        "key": "sienkiewicza|18|13",
-        "warning": null
-      },
-      "auction_date": "2026-09-16",
-      "round": 2,
-      "area_m2": null,
-      "starting_price_pln": 604100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-1.html",
-      "round_source": "inferred"
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89a-m-60-61.html"
     },
     {
       "kind": "mieszkalny",

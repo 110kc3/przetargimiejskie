@@ -47,44 +47,6 @@
       ]
     },
     {
-      "key": "dz|strzelce opolskie|2223/1",
-      "kind": "grunt",
-      "city": "strzelce-opolskie",
-      "dzialka_nr": "2223/1",
-      "obreb": "Strzelce Opolskie",
-      "street": null,
-      "building": null,
-      "address_raw": "Strzelce Opolskie, dz. nr 2223/1",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202223%2F1%20Strzelce%20Opolskie%2C%20dz.%20nr%202223%2F1%20Strzelce%20Opolskie%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1479,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-04",
-          "round": 1,
-          "starting_price_pln": 270000,
-          "outcome": "unsold",
-          "area_m2": 1479
-        },
-        {
-          "date": "2026-09-22",
-          "round": 2,
-          "starting_price_pln": 270000,
-          "outcome": "active",
-          "area_m2": 1479,
-          "detail_url": "https://gzmk.pl/bw/II_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_polozonej_w_Strzelcach_Op_przy_ul_Wawrzynca_Swierzego,14,1006"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2223/1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202223%2F1%20Strzelce%20Opolskie%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|szymiszów|693/9",
       "kind": "grunt",
       "city": "strzelce-opolskie",
@@ -110,15 +72,44 @@
           "date": "2026-09-16",
           "round": 2,
           "starting_price_pln": 80000,
-          "outcome": "active",
-          "area_m2": 818,
-          "detail_url": "https://gzmk.pl/bw/II_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnych_polozonych_w_Szymiszowie_przy_ul_Franciszka_Mysliwca,14,1005"
+          "outcome": "unsold",
+          "area_m2": 818
         }
       ],
       "parcels": [
         {
           "nr": "693/9",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20693%2F9%20Szymisz%C3%B3w%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|strzelce opolskie|2223/1",
+      "kind": "grunt",
+      "city": "strzelce-opolskie",
+      "dzialka_nr": "2223/1",
+      "obreb": "Strzelce Opolskie",
+      "street": null,
+      "building": null,
+      "address_raw": "Strzelce Opolskie, dz. nr 2223/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202223%2F1%20Strzelce%20Opolskie%2C%20dz.%20nr%202223%2F1%20Strzelce%20Opolskie%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1479,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-04",
+          "round": 1,
+          "starting_price_pln": 270000,
+          "outcome": "unsold",
+          "area_m2": 1479
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2223/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202223%2F1%20Strzelce%20Opolskie%20Strzelce%20Opolskie%20geoportal%20dzia%C5%82ki"
         }
       ]
     }

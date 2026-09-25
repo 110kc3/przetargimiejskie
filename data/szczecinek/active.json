@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "zabudowana",
+      "address_raw": "ul. Władysława Bartoszewskiego 12",
+      "address": {
+        "street": "Władysława Bartoszewskiego",
+        "street_norm": "wladyslawa bartoszewskiego",
+        "building": "12",
+        "apt": null,
+        "key": "wladyslawa bartoszewskiego|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 854,
+      "starting_price_pln": 2500000,
+      "auction_date": "2026-11-24",
+      "round": 6,
+      "detail_url": "https://bip.szczecinek.pl/artykul/645/7591/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12",
+      "source_url": "https://bip.szczecinek.pl/artykul/645/7591/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12"
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "ul. Kościuszki 22",
       "address": {
         "street": "Kościuszki",

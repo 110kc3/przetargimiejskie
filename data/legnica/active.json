@@ -4,6 +4,60 @@
   "listings": [
     {
       "kind": "unknown",
+      "address_raw": "ul. Żwirki i Wigury 10/2",
+      "address": {
+        "street": "Żwirki i Wigury",
+        "street_norm": "zwirki i wigury",
+        "building": "10",
+        "apt": "2",
+        "key": "zwirki i wigury|10|2",
+        "warning": null
+      },
+      "auction_date": "2026-10-22",
+      "round": 3,
+      "area_m2": 58.4,
+      "starting_price_pln": 230000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39184,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Zwirki-i-Wigury-10.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65915/20260922przetargzwi.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Złotoryjska 43/3",
+      "address": {
+        "street": "Złotoryjska",
+        "street_norm": "zlotoryjska",
+        "building": "43",
+        "apt": "3",
+        "key": "zlotoryjska|43|3",
+        "warning": null
+      },
+      "auction_date": "2026-10-22",
+      "round": 5,
+      "area_m2": 106.6,
+      "starting_price_pln": 330000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39183,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65906/20260922przetargzlo.docx"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Rycerska 16/10",
+      "address": {
+        "street": "Rycerska",
+        "street_norm": "rycerska",
+        "building": "16",
+        "apt": "10",
+        "key": "rycerska|16|10",
+        "warning": null
+      },
+      "auction_date": "2026-10-15",
+      "round": 5,
+      "area_m2": 57.44,
+      "starting_price_pln": 220000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39132,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Rycerskiej-16.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/65784/20260915przetargryc.docx"
+    },
+    {
+      "kind": "unknown",
       "address_raw": "ul. Czarnieckiego 30/1A",
       "address": {
         "street": "Czarnieckiego",

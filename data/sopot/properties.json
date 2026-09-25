@@ -3,30 +3,6 @@
   "city": "sopot",
   "properties": [
     {
-      "key": "armii krajowej|61|1",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "61",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 900000,
-          "outcome": "unsold",
-          "unsold_reason": "no_wadium",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.sopot.pl/a,24962,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego.html",
-          "notes": [],
-          "area_m2": 65.2,
-          "detail_url": "https://bip.sopot.pl/a,24962,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego.html"
-        }
-      ],
-      "area_m2": 65.2
-    },
-    {
       "key": "armii krajowej|74|8",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -350,6 +326,42 @@
           "viewing_date": null
         }
       ]
+    },
+    {
+      "key": "armii krajowej|61|1",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "61",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 900000,
+          "outcome": "unsold",
+          "unsold_reason": "no_wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sopot.pl/a,24962,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego.html",
+          "notes": [],
+          "area_m2": 65.2,
+          "detail_url": "https://bip.sopot.pl/a,24962,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego.html"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 850000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sopot.pl/a,25322,ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-1-polozonego-w-budynku.html",
+          "notes": [],
+          "area_m2": 65.2
+        }
+      ],
+      "area_m2": 65.2
     },
     {
       "key": "niepodleglosci|671|",

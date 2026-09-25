@@ -957,6 +957,24 @@
       "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67340"
     },
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarbowej 1a",
+      "address": {
+        "street": "Skarbowej",
+        "street_norm": "skarbowej",
+        "building": "1A",
+        "apt": null,
+        "key": "skarbowej|1A|",
+        "warning": null
+      },
+      "area_m2": 86.6,
+      "starting_price_pln": 250000,
+      "auction_date": "2026-10-27",
+      "round": 2,
+      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30424/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79788"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "ul. Judyma 4",
       "address": {
@@ -1645,42 +1663,6 @@
       "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30143/ogloszenie-o-przetargu-pisemnym-ograniczonym",
       "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78624",
       "round_source": "inferred"
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "ul. Judyma 4",
-      "address": {
-        "street": "Judyma",
-        "street_norm": "judyma",
-        "building": "4",
-        "apt": null,
-        "key": "judyma|4|",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": 110000,
-      "auction_date": "2026-08-18",
-      "round": 10,
-      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30110/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78492"
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "ul. Judyma 4",
-      "address": {
-        "street": "Judyma",
-        "street_norm": "judyma",
-        "building": "4",
-        "apt": null,
-        "key": "judyma|4|",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": 95000,
-      "auction_date": "2026-08-18",
-      "round": 13,
-      "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30110/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-      "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78494"
     }
   ],
   "wykaz": []

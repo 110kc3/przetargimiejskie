@@ -3,6 +3,30 @@
   "city": "lwowek-slaski",
   "properties": [
     {
+      "key": "kotliska|109|2",
+      "street": "Kotliska",
+      "street_norm": "kotliska",
+      "building": "109",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "area_m2": 73.68
+        }
+      ],
+      "area_m2": 73.68
+    },
+    {
       "key": "krotkiej|1|",
       "street": "Krótkiej",
       "street_norm": "krotkiej",

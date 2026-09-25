@@ -15,7 +15,7 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 330000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 74.8,
           "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10777/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-23-09-2026-r-ul-m-reja-7-lokal-uzytkowy-nr-2",
           "wadium_deadline": null,
@@ -37,14 +37,37 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 110000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/33982",
+          "notes": [],
           "area_m2": 44.87,
-          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10656/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-15-09-2026-r-ul-kapusciska-8-nr-u1",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10656/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-15-09-2026-r-ul-kapusciska-8-nr-u1"
         }
       ],
       "area_m2": 44.87
+    },
+    {
+      "key": "unii lubelskiej|1|",
+      "street": "Unii Lubelskiej",
+      "street_norm": "unii lubelskiej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 2100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/34099",
+          "notes": []
+        }
+      ]
     },
     {
       "key": "l wyczolkowskiego|3|7",

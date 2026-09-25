@@ -1,5 +1,27 @@
 {
   "schema_version": 1,
   "city": "zdunska-wola",
-  "properties": []
+  "properties": [
+    {
+      "key": "sportowa|1|",
+      "street": "Sportowa",
+      "street_norm": "sportowa",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 225000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13163/zdunska-wola-ul-sportowa-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
 }

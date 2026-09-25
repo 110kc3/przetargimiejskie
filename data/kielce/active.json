@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Słowackiego 7/7",
+      "address": {
+        "street": "Słowackiego",
+        "street_norm": "slowackiego",
+        "building": "7",
+        "apt": "7",
+        "key": "slowackiego|7|7",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-09-11",
+      "round": 1,
+      "area_m2": 29,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o--i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-7-b-polozonego-w-budynku-przy-ul-slowackiego-7-w-kielcach-o-powierzchni-uzytkowej-2900-m2-wraz-z-udzialem-w-nieruc.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Słowackiego 7/7A",
+      "address": {
+        "street": "Słowackiego",
+        "street_norm": "slowackiego",
+        "building": "7",
+        "apt": "7A",
+        "key": "slowackiego|7|7A",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-09-11",
+      "round": 1,
+      "area_m2": 22.1,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o--i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-7a-polozonego-w-budynku-przy-ul-slowackiego-7-w-kielcach-o-powierzchni-uzytkowej-2210-m2-wraz-z-udzialem-w-nieruch.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Dąbrowskiej 5/11",
       "address": {
         "street": "Dąbrowskiej",

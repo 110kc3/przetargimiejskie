@@ -3,6 +3,383 @@
   "city": "lwowek-slaski",
   "plots": [
     {
+      "key": "dz|żerkowice|276",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "276",
+      "obreb": "Żerkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Żerkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20276%20%C5%BBerkowice%20%C5%BBerkowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1300,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 6500,
+          "outcome": "unsold",
+          "area_m2": 1300,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904391/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "276",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20276%20%C5%BBerkowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|żerkowice|271",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "271",
+      "obreb": "Żerkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Żerkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20271%20%C5%BBerkowice%20%C5%BBerkowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4200,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 20500,
+          "outcome": "unsold",
+          "area_m2": 4200,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904390/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "271",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20271%20%C5%BBerkowice%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|143, 143/22",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "143, 143/22",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2C%20143%2F22%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 454,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 65000,
+          "outcome": "unsold",
+          "area_m2": 454,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904389/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "143/22",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F22%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|143, 143/21",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "143, 143/21",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2C%20143%2F21%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 390,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 56000,
+          "outcome": "unsold",
+          "area_m2": 390,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904388/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "143/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F21%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|143, 143/20",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "143, 143/20",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2C%20143%2F20%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 378,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 54000,
+          "outcome": "unsold",
+          "area_m2": 378,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904387/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "143/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F20%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74, 74/80",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74, 74/80",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2C%2074%2F80%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1005,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 104000,
+          "outcome": "unsold",
+          "area_m2": 1005,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904386/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "74/80",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F80%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74, 74/77",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74, 74/77",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2C%2074%2F77%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1278,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 139000,
+          "outcome": "unsold",
+          "area_m2": 1278,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904385/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "74/77",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F77%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74, 74/76",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74, 74/76",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2C%2074%2F76%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1287,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "area_m2": 1287,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904383/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "74/76",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F76%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74, 74/65",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74, 74/65",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2C%2074%2F65%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1185,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 118000,
+          "outcome": "unsold",
+          "area_m2": 1185,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904380/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "74/65",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F65%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74, 74/50",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74, 74/50",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2C%2074%2F50%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 660,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 72000,
+          "outcome": "unsold",
+          "area_m2": 660,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904378/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "74/50",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F50%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74, 74/49",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74, 74/49",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2C%2074%2F49%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1463,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 143000,
+          "outcome": "unsold",
+          "area_m2": 1463,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904375/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "74/49",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F49%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|rakowice|49",
       "kind": "grunt",
       "city": "lwowek-slaski",
@@ -24,6 +401,7 @@
           "outcome": "archived",
           "detail_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/901542/informacja_lista_osob_zakwalifikowanych_do_udzialu_w_przetargu_u",
           "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/901542/informacja_lista_osob_zakwalifikowanych_do_udzialu_w_przetargu_u",
+          "final_price_pln": 7900,
           "area_m2": 300
         }
       ],
@@ -53,9 +431,10 @@
           "date": "2026-09-04",
           "round": 1,
           "starting_price_pln": 10000,
-          "outcome": "unsold",
-          "area_m2": 2000,
-          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/894480/ogloszenie_przetarg_dz_3521_wlodzice_wielkie"
+          "outcome": "sold",
+          "final_price_pln": 20500,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/903026/informacja_o_nabywcy_dzialki_nr_3521_wlodzice_wielkie",
+          "area_m2": 2000
         }
       ],
       "parcels": [

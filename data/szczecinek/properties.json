@@ -3,43 +3,6 @@
   "city": "szczecinek",
   "properties": [
     {
-      "key": "kosciuszki|22|",
-      "street": "Kościuszki",
-      "street_norm": "kosciuszki",
-      "building": "22",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-07-14",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 3500000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7504/informacja-o-przetargu-z-dnia-14-07-2026r-na-zbycie-nieruchomosci-przy-ulicy-kosciuszki-22",
-          "notes": [
-            "parse: missing starting price",
-            "parse: no achieved price and no explicit negative outcome"
-          ],
-          "detail_url": "https://bip.szczecinek.pl/artykul/645/7373/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
-          "round_source": "inferred"
-        },
-        {
-          "date": "2026-10-29",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 2800000,
-          "outcome": "active",
-          "area_m2": null,
-          "detail_url": "https://bip.szczecinek.pl/artykul/645/7552/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
       "key": "wladyslawa bartoszewskiego|12|",
       "street": "Władysława Bartoszewskiego",
       "street_norm": "wladyslawa bartoszewskiego",
@@ -152,6 +115,110 @@
           ],
           "land_area_m2": 854,
           "detail_url": "https://bip.szczecinek.pl/artykul/645/7418/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12"
+        },
+        {
+          "date": "2026-11-24",
+          "round": 6,
+          "kind": "zabudowana",
+          "starting_price_pln": 2500000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 854,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7591/ogloszenie-o-przetargu-na-zbycie-nieruchomosci-przy-ul-w-bartoszewskiego-12",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "kosciuszki|22|",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "22",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 3500000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7504/informacja-o-przetargu-z-dnia-14-07-2026r-na-zbycie-nieruchomosci-przy-ulicy-kosciuszki-22",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7373/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-10-29",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 2800000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7552/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "w bartoszewskiego|12|",
+      "street": "W. Bartoszewskiego",
+      "street_norm": "w bartoszewskiego",
+      "building": "12",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/6837/informacja-o-wyniku-przetargu-z-dnia-04-09-2025r-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-04-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7351/informacja-o-wyniku-przetargu-z-dnia-16-04-2026-r-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-w-bartoszewskiego-12",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7544/informacja-o-wyniku-przetargu-z-dnia-06-08-2026-r-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-w-bartoszewskiego-12",
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "round_source": "inferred"
         }
       ]
     },
@@ -214,46 +281,6 @@
         }
       ],
       "area_m2": 29.49
-    },
-    {
-      "key": "w bartoszewskiego|12|",
-      "street": "W. Bartoszewskiego",
-      "street_norm": "w bartoszewskiego",
-      "building": "12",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-09-04",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.szczecinek.pl/artykul/338/6837/informacja-o-wyniku-przetargu-z-dnia-04-09-2025r-na-sprzedaz-nieruchomosci-polozonej-przy-ul-w-bartoszewskiego-12",
-          "notes": [
-            "parse: missing starting price",
-            "parse: no achieved price and no explicit negative outcome"
-          ],
-          "round_source": "inferred"
-        },
-        {
-          "date": "2026-04-16",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.szczecinek.pl/artykul/338/7351/informacja-o-wyniku-przetargu-z-dnia-16-04-2026-r-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-w-bartoszewskiego-12",
-          "notes": [
-            "parse: missing starting price",
-            "parse: no achieved price and no explicit negative outcome"
-          ],
-          "round_source": "inferred"
-        }
-      ]
     },
     {
       "key": "koszalinskiej|58|2",

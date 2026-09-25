@@ -3,6 +3,74 @@
   "city": "szczecin",
   "properties": [
     {
+      "key": "pocztowa|30|16",
+      "street": "Pocztowa",
+      "street_norm": "pocztowa",
+      "building": "30",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 806200,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=168D2280F28B4353816581967C94CF92",
+          "notes": [],
+          "area_m2": 162.04
+        },
+        {
+          "date": "2026-11-30",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 806200,
+          "outcome": "active",
+          "area_m2": 162.04,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4AB9034431CB46BCA97AFAC0E1A09C36",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 162.04
+    },
+    {
+      "key": "kaszubska|65|6",
+      "street": "Kaszubska",
+      "street_norm": "kaszubska",
+      "building": "65",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 981600,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=884E1AA5AFEC4FB48B74A337C120E187",
+          "notes": [],
+          "area_m2": 179.86
+        },
+        {
+          "date": "2026-11-30",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 981600,
+          "outcome": "active",
+          "area_m2": 179.86,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=C5DF5F28E48C4A75A10FD05F4EDBD649",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 179.86
+    },
+    {
       "key": "aleja papieza jana pawla ii|16|3",
       "street": "Aleja Papieża Jana Pawła II",
       "street_norm": "aleja papieza jana pawla ii",
@@ -497,52 +565,6 @@
         }
       ],
       "area_m2": 150.98
-    },
-    {
-      "key": "pocztowa|30|16",
-      "street": "Pocztowa",
-      "street_norm": "pocztowa",
-      "building": "30",
-      "apt": "16",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-03",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 806200,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=168D2280F28B4353816581967C94CF92",
-          "notes": [],
-          "area_m2": 162.04
-        }
-      ],
-      "area_m2": 162.04
-    },
-    {
-      "key": "kaszubska|65|6",
-      "street": "Kaszubska",
-      "street_norm": "kaszubska",
-      "building": "65",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-03",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 981600,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=884E1AA5AFEC4FB48B74A337C120E187",
-          "notes": [],
-          "area_m2": 179.86
-        }
-      ],
-      "area_m2": 179.86
     },
     {
       "key": "boleslawa limanowskiego|3|20",

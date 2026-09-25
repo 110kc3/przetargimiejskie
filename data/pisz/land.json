@@ -25,6 +25,15 @@
           "area_m2": 182,
           "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31257",
           "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31257"
+        },
+        {
+          "date": "2026-10-29",
+          "round": 2,
+          "starting_price_pln": 19300,
+          "outcome": "active",
+          "area_m2": 182,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31540",
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31540"
         }
       ],
       "parcels": [
@@ -1087,36 +1096,6 @@
           "nr": "1459/83",
           "dzialka_id": "281603_4.0001.1459/83",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0001.1459%2F83"
-        }
-      ]
-    },
-    {
-      "key": "dz|szczechy małe|14/53",
-      "kind": "grunt",
-      "city": "pisz",
-      "dzialka_nr": "14/53",
-      "obreb": "Szczechy Małe",
-      "street": null,
-      "building": null,
-      "address_raw": "obręb Szczechy Małe",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F53%20obr%C4%99b%20Szczechy%20Ma%C5%82e%20Szczechy%20Ma%C5%82e%20Pisz%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-28",
-          "round": 1,
-          "starting_price_pln": 93000,
-          "outcome": "sold",
-          "final_price_pln": 93930
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "14/53",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F53%20Szczechy%20Ma%C5%82e%20Pisz%20geoportal%20dzia%C5%82ki"
         }
       ]
     }

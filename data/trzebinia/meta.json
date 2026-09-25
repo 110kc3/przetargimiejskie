@@ -2,35 +2,36 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "trzebinia",
-  "generated_at": "2026-09-10T08:49:32.750Z",
+  "generated_at": "2026-09-25T10:51:07.604Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
-  "unique_properties": 4,
-  "active_listings": 4,
+  "unique_properties": 6,
+  "active_listings": 7,
   "active_auctions": 0,
-  "archived_auctions": 4,
+  "archived_auctions": 6,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-10T08:49:24.286Z",
-  "last_successful_source_check_at": "2026-09-10T08:49:24.286Z",
+  "last_source_attempt_at": "2026-09-25T10:50:55.146Z",
+  "last_successful_source_check_at": "2026-09-25T10:50:55.146Z",
   "monitored_assets": [
+    "building",
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-10T08:49:24.286Z",
-      "last_success_at": "2026-09-10T08:49:24.286Z"
+      "last_attempt_at": "2026-09-25T10:50:55.146Z",
+      "last_success_at": "2026-09-25T10:50:55.146Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-10T08:49:24.286Z",
+      "last_attempt_at": "2026-09-25T10:50:55.146Z",
       "last_success_at": null
     }
   }

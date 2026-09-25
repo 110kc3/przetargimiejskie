@@ -3,6 +3,269 @@
   "city": "szczecinek",
   "plots": [
     {
+      "key": "dz|18|456/4",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "456/4",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.456/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F4",
+      "area_m2": 998,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 998
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "456/4",
+          "dzialka_id": "321501_1.0018.456/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F4"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|456/5",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "456/5",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.456/5",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F5",
+      "area_m2": 1007,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "area_m2": 1007
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "456/5",
+          "dzialka_id": "321501_1.0018.456/5",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F5"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|456/8",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "456/8",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.456/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F8",
+      "area_m2": 1000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "final_price_pln": 111100,
+          "area_m2": 1000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "456/8",
+          "dzialka_id": "321501_1.0018.456/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|233",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "233",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bukowej",
+      "dzialka_id": "321501_1.0018.233",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.233",
+      "area_m2": 1395,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 1395
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "233",
+          "dzialka_id": "321501_1.0018.233",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.233"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|1448/9",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/9",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": "321501_1.0009.1448/9",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F9",
+      "area_m2": 1085,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 1085
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/9",
+          "dzialka_id": "321501_1.0009.1448/9",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F9"
+        }
+      ]
+    },
+    {
+      "key": "dz|09|1448/10",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "1448/10",
+      "obreb": "09",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kaszubskiej",
+      "dzialka_id": "321501_1.0009.1448/10",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F10",
+      "area_m2": 857,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 857
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1448/10",
+          "dzialka_id": "321501_1.0009.1448/10",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F10"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/13",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/13",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.454/13",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13",
+      "area_m2": 1066,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1066
+        },
+        {
+          "date": "2026-09-09",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1066
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/13",
+          "dzialka_id": "321501_1.0018.454/13",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13"
+        }
+      ]
+    },
+    {
+      "key": "dz|18|454/14",
+      "kind": "grunt",
+      "city": "szczecinek",
+      "dzialka_nr": "454/14",
+      "obreb": "18",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Modrzewiowej",
+      "dzialka_id": "321501_1.0018.454/14",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14",
+      "area_m2": 1069,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-21",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        },
+        {
+          "date": "2026-09-09",
+          "round": 4,
+          "starting_price_pln": 120000,
+          "outcome": "unsold",
+          "area_m2": 1069
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "454/14",
+          "dzialka_id": "321501_1.0018.454/14",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14"
+        }
+      ]
+    },
+    {
       "key": "dz|18|82",
       "kind": "grunt",
       "city": "szczecinek",
@@ -145,68 +408,6 @@
           "nr": "1448/11",
           "dzialka_id": "321501_1.0009.1448/11",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0009.1448%2F11"
-        }
-      ]
-    },
-    {
-      "key": "dz|18|454/13",
-      "kind": "grunt",
-      "city": "szczecinek",
-      "dzialka_nr": "454/13",
-      "obreb": "18",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": "321501_1.0018.454/13",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13",
-      "area_m2": 1066,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-01-21",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1066
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "454/13",
-          "dzialka_id": "321501_1.0018.454/13",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F13"
-        }
-      ]
-    },
-    {
-      "key": "dz|18|454/14",
-      "kind": "grunt",
-      "city": "szczecinek",
-      "dzialka_nr": "454/14",
-      "obreb": "18",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Modrzewiowej",
-      "dzialka_id": "321501_1.0018.454/14",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14",
-      "area_m2": 1069,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-01-21",
-          "round": 1,
-          "starting_price_pln": 120000,
-          "outcome": "unsold",
-          "area_m2": 1069
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "454/14",
-          "dzialka_id": "321501_1.0018.454/14",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.454%2F14"
         }
       ]
     },
@@ -1190,7 +1391,7 @@
       "obreb": "18",
       "street": null,
       "building": null,
-      "address_raw": null,
+      "address_raw": "ul. Modrzewiowej",
       "dzialka_id": "321501_1.0018.456/3",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=321501_1.0018.456%2F3",
       "area_m2": 995,
@@ -1198,8 +1399,15 @@
       "status": null,
       "listings": [
         {
-          "date": null,
+          "date": "2026-09-16",
           "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "area_m2": 995
+        },
+        {
+          "date": null,
+          "round": 2,
           "starting_price_pln": 110000,
           "outcome": "active",
           "area_m2": 995,
@@ -1230,6 +1438,14 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2026-09-09",
+          "round": 1,
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "final_price_pln": 144100,
+          "area_m2": 934
+        },
         {
           "date": null,
           "round": 4,
@@ -1306,6 +1522,13 @@
         {
           "date": "2026-01-21",
           "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 866
+        },
+        {
+          "date": "2026-09-09",
+          "round": 4,
           "starting_price_pln": 100000,
           "outcome": "unsold",
           "area_m2": 866

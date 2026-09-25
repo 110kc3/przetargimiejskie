@@ -3,6 +3,26 @@
   "city": "wolow",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "Zwycięstwa 22/2",
+      "address": {
+        "street": "Zwycięstwa",
+        "street_norm": "zwyciestwa",
+        "building": "22",
+        "apt": "2",
+        "key": "zwyciestwa|22|2",
+        "warning": null
+      },
+      "dzialka_nr": "22/26",
+      "obreb": null,
+      "area_m2": 38.62,
+      "starting_price_pln": 170000,
+      "auction_date": "2026-11-05",
+      "round": 1,
+      "detail_url": "https://wolow.pl/4074/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-ul-zwyciestwa-222-dz-nr-2226-am-35.html",
+      "published_date": "2026-09-23"
+    },
+    {
       "kind": "zabudowana",
       "address_raw": null,
       "address": null,

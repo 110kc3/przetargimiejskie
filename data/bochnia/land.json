@@ -25,6 +25,15 @@
           "area_m2": 314,
           "detail_url": "https://bochnia.eu/przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-karola-kuczkiewicza/",
           "source_url": "https://bochnia.eu/przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-karola-kuczkiewicza/"
+        },
+        {
+          "date": "2026-10-27",
+          "round": 2,
+          "starting_price_pln": 51000,
+          "outcome": "active",
+          "area_m2": 314,
+          "detail_url": "https://bochnia.eu/burmistrz-miasta-bochnia-na-podstawie-art-39-ust-1-ustawy-z-dnia-21-sierpnia-1997-r-o-gospodarce-nieruchomosciami-oraz-rozporzadzenia-rady-ministrow-z-dnia-14-wrzesnia-2004-r-w-sprawie-sposobu/",
+          "source_url": "https://bochnia.eu/burmistrz-miasta-bochnia-na-podstawie-art-39-ust-1-ustawy-z-dnia-21-sierpnia-1997-r-o-gospodarce-nieruchomosciami-oraz-rozporzadzenia-rady-ministrow-z-dnia-14-wrzesnia-2004-r-w-sprawie-sposobu/"
         }
       ],
       "parcels": [
@@ -32,6 +41,48 @@
           "nr": "1747/5",
           "dzialka_id": "120101_1.0004.1747/5",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1747%2F5"
+        }
+      ]
+    },
+    {
+      "key": "dz|bochnia-4|1748/3",
+      "kind": "grunt",
+      "city": "bochnia",
+      "dzialka_nr": "1748/3",
+      "obreb": "Bochnia-4",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Andrzeja Furdzika",
+      "dzialka_id": "120101_1.0004.1748/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1748%2F3",
+      "area_m2": 461,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-18",
+          "round": 1,
+          "starting_price_pln": 59000,
+          "outcome": "archived",
+          "area_m2": 461,
+          "detail_url": "https://bochnia.eu/ogloszenie-pierwszego-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika-oznaczonej-w-ewidencji-gruntow-i-budynkow-jak/",
+          "source_url": "https://bochnia.eu/ogloszenie-pierwszego-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika-oznaczonej-w-ewidencji-gruntow-i-budynkow-jak/"
+        },
+        {
+          "date": "2026-10-19",
+          "round": 2,
+          "starting_price_pln": 55000,
+          "outcome": "active",
+          "area_m2": 461,
+          "detail_url": "https://bochnia.eu/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika/",
+          "source_url": "https://bochnia.eu/drugi-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika/"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1748/3",
+          "dzialka_id": "120101_1.0004.1748/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1748%2F3"
         }
       ]
     },
@@ -66,39 +117,6 @@
           "nr": "1601/1",
           "dzialka_id": "120101_1.0001.1601/1",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0001.1601%2F1"
-        }
-      ]
-    },
-    {
-      "key": "dz|bochnia-4|1748/3",
-      "kind": "grunt",
-      "city": "bochnia",
-      "dzialka_nr": "1748/3",
-      "obreb": "Bochnia-4",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Andrzeja Furdzika",
-      "dzialka_id": "120101_1.0004.1748/3",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1748%2F3",
-      "area_m2": 461,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-05-18",
-          "round": 1,
-          "starting_price_pln": 59000,
-          "outcome": "archived",
-          "area_m2": 461,
-          "detail_url": "https://bochnia.eu/ogloszenie-pierwszego-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika-oznaczonej-w-ewidencji-gruntow-i-budynkow-jak/",
-          "source_url": "https://bochnia.eu/ogloszenie-pierwszego-przetargu-ustnego-nieograniczonego-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-przy-ul-andrzeja-furdzika-oznaczonej-w-ewidencji-gruntow-i-budynkow-jak/"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1748/3",
-          "dzialka_id": "120101_1.0004.1748/3",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120101_1.0004.1748%2F3"
         }
       ]
     },
@@ -899,10 +917,8 @@
           "date": "2024-03-22",
           "round": 1,
           "starting_price_pln": 5849000,
-          "outcome": "archived",
-          "area_m2": 32492,
-          "detail_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny-dzialka-nr-1386-48/",
-          "source_url": "https://bochnia.eu/i-przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-gruntowej-polozonej-w-bochni-objetej-sse-pod-nazwa-krakowski-park-technologiczny-dzialka-nr-1386-48/"
+          "outcome": "unsold",
+          "area_m2": 32492
         },
         {
           "date": "2024-06-07",

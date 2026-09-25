@@ -80,10 +80,8 @@
           "date": "2026-09-22",
           "round": 3,
           "starting_price_pln": 1000000,
-          "outcome": "active",
-          "area_m2": 15459,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/667/2_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__2_chrobrego_1753-6_1753_3B7_1753-8.docx&id=41f7dc08a5ac5e673c93ede4add0ee39"
+          "outcome": "unsold",
+          "area_m2": 15459
         }
       ],
       "parcels": [
@@ -99,151 +97,272 @@
       ]
     },
     {
-      "key": "dz|3181/1",
+      "key": "dz|2116/26",
       "kind": "grunt",
       "city": "zagan",
-      "dzialka_nr": "3181/1",
+      "dzialka_nr": "2116/26",
       "obreb": null,
-      "street": "Szkolnej",
+      "street": "Węglowej",
       "building": null,
-      "address_raw": "Szkolnej",
+      "address_raw": "Węglowej",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203181%2F1%20Szkolnej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1177,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-17",
-          "round": 1,
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "area_m2": 1177
-        },
-        {
-          "date": "2026-03-10",
-          "round": 2,
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "area_m2": 1177
-        },
-        {
-          "date": "2026-06-30",
-          "round": 3,
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "area_m2": 1177
-        },
-        {
-          "date": "2026-09-16",
-          "round": 4,
-          "starting_price_pln": 153,
-          "outcome": "active",
-          "area_m2": 1177,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/672/4_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie_4_szkolna__3181-1.docx&id=412ee306ebecd89d78c4a12d81a59370"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3181/1"
-        }
-      ]
-    },
-    {
-      "key": "dz|3181/7",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "3181/7",
-      "obreb": null,
-      "street": "Szkolnej",
-      "building": null,
-      "address_raw": "Szkolnej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203181%2F7%20Szkolnej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1085,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-17",
-          "round": 1,
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "area_m2": 1085
-        },
-        {
-          "date": "2026-03-10",
-          "round": 2,
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "area_m2": 1085
-        },
-        {
-          "date": "2026-06-30",
-          "round": 3,
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "area_m2": 1085
-        },
-        {
-          "date": "2026-09-16",
-          "round": 4,
-          "starting_price_pln": 144000,
-          "outcome": "active",
-          "area_m2": 1085,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/673/4_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__4_szkolna___3181-7_.docx&id=0a0bbbfcfca871139c5b25cc6b69fb2f"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3181/7"
-        }
-      ]
-    },
-    {
-      "key": "dz|1786/14",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "1786/14",
-      "obreb": null,
-      "street": "Bolesława Chrobrego",
-      "building": null,
-      "address_raw": "Bolesława Chrobrego",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201786%2F14%20Boles%C5%82awa%20Chrobrego%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 869,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202116%2F26%20W%C4%99glowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1650,
       "zoning": null,
       "status": null,
       "listings": [
         {
           "date": "2026-01-20",
           "round": 1,
-          "starting_price_pln": 130000,
+          "starting_price_pln": 247000,
           "outcome": "unsold",
-          "area_m2": 869
+          "area_m2": 1650
         },
         {
           "date": "2026-06-30",
           "round": 2,
-          "starting_price_pln": 130000,
+          "starting_price_pln": 247000,
           "outcome": "unsold",
-          "area_m2": 869
+          "area_m2": 1650
         },
         {
           "date": "2026-09-16",
           "round": 3,
-          "starting_price_pln": 117000,
-          "outcome": "active",
-          "area_m2": 869,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/674/3_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__3Chrobrego_1786-14.docx&id=04d20e9515a12eb93a4d2af5eece47c0"
+          "starting_price_pln": 223000,
+          "outcome": "unsold",
+          "area_m2": 1650
         }
       ],
       "parcels": [
         {
-          "nr": "1786/14"
+          "nr": "2116/26"
+        }
+      ]
+    },
+    {
+      "key": "dz|3116/9",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "3116/9",
+      "obreb": null,
+      "street": "Kolejowej",
+      "building": null,
+      "address_raw": "Kolejowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203116%2F9%20Kolejowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 926,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-21",
+          "round": 1,
+          "starting_price_pln": 83000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2024-04-24",
+          "round": 2,
+          "starting_price_pln": 83000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2025-07-22",
+          "round": 3,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2025-10-07",
+          "round": 4,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2025-12-16",
+          "round": 5,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2026-03-12",
+          "round": 6,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2026-06-30",
+          "round": 7,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 926
+        },
+        {
+          "date": "2026-09-16",
+          "round": 8,
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "area_m2": 926
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3116/9"
+        }
+      ]
+    },
+    {
+      "key": "dz|2124/2",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "2124/2",
+      "obreb": null,
+      "street": "Węglowej",
+      "building": null,
+      "address_raw": "Węglowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202124%2F2%20W%C4%99glowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1497,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-22",
+          "round": 1,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "area_m2": 1497
+        },
+        {
+          "date": "2025-10-07",
+          "round": 2,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "area_m2": 1497
+        },
+        {
+          "date": "2025-12-16",
+          "round": 3,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "area_m2": 1497
+        },
+        {
+          "date": "2026-03-12",
+          "round": 4,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "area_m2": 1497
+        },
+        {
+          "date": "2026-06-30",
+          "round": 5,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "area_m2": 1497
+        },
+        {
+          "date": "2026-09-16",
+          "round": 6,
+          "starting_price_pln": 207000,
+          "outcome": "unsold",
+          "area_m2": 1497
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2124/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|2112/9",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "2112/9",
+      "obreb": null,
+      "street": "Węglowej",
+      "building": null,
+      "address_raw": "Węglowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202112%2F9%20W%C4%99glowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1253,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-02-20",
+          "round": 1,
+          "starting_price_pln": 123000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2024-04-23",
+          "round": 2,
+          "starting_price_pln": 99000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2025-03-03",
+          "round": 3,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2025-07-23",
+          "round": 4,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2025-10-07",
+          "round": 5,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2025-12-16",
+          "round": 6,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2026-03-10",
+          "round": 7,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2026-06-30",
+          "round": 8,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        },
+        {
+          "date": "2026-09-16",
+          "round": 9,
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "area_m2": 1253
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2112/9"
         }
       ]
     },
@@ -315,10 +434,8 @@
           "date": "2026-09-16",
           "round": 8,
           "starting_price_pln": 153000,
-          "outcome": "active",
-          "area_m2": 1499,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/675/8_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__8_weglowa_2112-8_.docx&id=fe79692ae34ccb0c20bc99c78aebba4c"
+          "outcome": "sold",
+          "area_m2": 1499
         }
       ],
       "parcels": [
@@ -328,294 +445,145 @@
       ]
     },
     {
-      "key": "dz|2112/9",
+      "key": "dz|1786/14",
       "kind": "grunt",
       "city": "zagan",
-      "dzialka_nr": "2112/9",
+      "dzialka_nr": "1786/14",
       "obreb": null,
-      "street": "Węglowej",
+      "street": "Bolesława Chrobrego",
       "building": null,
-      "address_raw": "Węglowej",
+      "address_raw": "Bolesława Chrobrego",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202112%2F9%20W%C4%99glowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1253,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-12-13",
-          "round": 1,
-          "starting_price_pln": 123000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2024-02-20",
-          "round": 2,
-          "starting_price_pln": 123000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2024-04-23",
-          "round": 3,
-          "starting_price_pln": 99000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2025-03-03",
-          "round": 4,
-          "starting_price_pln": 127000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2025-07-23",
-          "round": 5,
-          "starting_price_pln": 127000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2025-10-07",
-          "round": 6,
-          "starting_price_pln": 127000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2025-12-16",
-          "round": 7,
-          "starting_price_pln": 127000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2026-03-10",
-          "round": 8,
-          "starting_price_pln": 127000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2026-06-30",
-          "round": 9,
-          "starting_price_pln": 127000,
-          "outcome": "unsold",
-          "area_m2": 1253
-        },
-        {
-          "date": "2026-09-16",
-          "round": 10,
-          "starting_price_pln": 115000,
-          "outcome": "active",
-          "area_m2": 1253,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/676/8_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__8__weglowa_2112-9.docx&id=f78f9c7bf23b958646197e40de6a87ff"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2112/9"
-        }
-      ]
-    },
-    {
-      "key": "dz|2124/2",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "2124/2",
-      "obreb": null,
-      "street": "Węglowej",
-      "building": null,
-      "address_raw": "Węglowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202124%2F2%20W%C4%99glowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1497,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-07-22",
-          "round": 1,
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "area_m2": 1497
-        },
-        {
-          "date": "2025-10-07",
-          "round": 2,
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "area_m2": 1497
-        },
-        {
-          "date": "2025-12-16",
-          "round": 3,
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "area_m2": 1497
-        },
-        {
-          "date": "2026-03-12",
-          "round": 4,
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "area_m2": 1497
-        },
-        {
-          "date": "2026-06-30",
-          "round": 5,
-          "starting_price_pln": 230000,
-          "outcome": "unsold",
-          "area_m2": 1497
-        },
-        {
-          "date": "2026-09-16",
-          "round": 6,
-          "starting_price_pln": 207000,
-          "outcome": "active",
-          "area_m2": 1497,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/677/6_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__6_weglowa_2124-2.docx&id=9f246224801b742088006d7122a26271"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2124/2"
-        }
-      ]
-    },
-    {
-      "key": "dz|3116/9",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "3116/9",
-      "obreb": null,
-      "street": "Kolejowej",
-      "building": null,
-      "address_raw": "Kolejowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203116%2F9%20Kolejowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 926,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-12-13",
-          "round": 1,
-          "starting_price_pln": 83000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2024-02-21",
-          "round": 2,
-          "starting_price_pln": 83000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2024-04-24",
-          "round": 3,
-          "starting_price_pln": 83000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2025-07-22",
-          "round": 4,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2025-10-07",
-          "round": 5,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2025-12-16",
-          "round": 6,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2026-03-12",
-          "round": 7,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2026-06-30",
-          "round": 8,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 926
-        },
-        {
-          "date": "2026-09-16",
-          "round": 9,
-          "starting_price_pln": 135000,
-          "outcome": "active",
-          "area_m2": 926,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/679/6_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie_6kolejowa_3116-9..docx&id=3f3b90b6aa9fa299a39688c8eed5ffd9"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3116/9"
-        }
-      ]
-    },
-    {
-      "key": "dz|2116/26",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "2116/26",
-      "obreb": null,
-      "street": "Węglowej",
-      "building": null,
-      "address_raw": "Węglowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202116%2F26%20W%C4%99glowej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1650,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201786%2F14%20Boles%C5%82awa%20Chrobrego%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 869,
       "zoning": null,
       "status": null,
       "listings": [
         {
           "date": "2026-01-20",
           "round": 1,
-          "starting_price_pln": 247000,
+          "starting_price_pln": 130000,
           "outcome": "unsold",
-          "area_m2": 1650
+          "area_m2": 869
         },
         {
           "date": "2026-06-30",
           "round": 2,
-          "starting_price_pln": 247000,
+          "starting_price_pln": 130000,
           "outcome": "unsold",
-          "area_m2": 1650
+          "area_m2": 869
         },
         {
           "date": "2026-09-16",
           "round": 3,
-          "starting_price_pln": 223000,
-          "outcome": "active",
-          "area_m2": 1650,
-          "detail_url": "https://bip.zagan.pl/przetargi/344/680/3_/",
-          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__3__weglowa_2116-26.docx&id=f7c24746b988ba12f4b3d3acc33dd7a1"
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 869
         }
       ],
       "parcels": [
         {
-          "nr": "2116/26"
+          "nr": "1786/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|3181/7",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "3181/7",
+      "obreb": null,
+      "street": "Szkolnej",
+      "building": null,
+      "address_raw": "Szkolnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203181%2F7%20Szkolnej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1085,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-17",
+          "round": 1,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 1085
+        },
+        {
+          "date": "2026-03-10",
+          "round": 2,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 1085
+        },
+        {
+          "date": "2026-06-30",
+          "round": 3,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 1085
+        },
+        {
+          "date": "2026-09-16",
+          "round": 4,
+          "starting_price_pln": 144000,
+          "outcome": "unsold",
+          "area_m2": 1085
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3181/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|3181/1",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "3181/1",
+      "obreb": null,
+      "street": "Szkolnej",
+      "building": null,
+      "address_raw": "Szkolnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203181%2F1%20Szkolnej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1177,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-17",
+          "round": 1,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1177
+        },
+        {
+          "date": "2026-03-10",
+          "round": 2,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1177
+        },
+        {
+          "date": "2026-06-30",
+          "round": 3,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1177
+        },
+        {
+          "date": "2026-09-16",
+          "round": 4,
+          "starting_price_pln": 153,
+          "outcome": "sold",
+          "area_m2": 1177
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3181/1"
         }
       ]
     },
@@ -635,50 +603,43 @@
       "status": null,
       "listings": [
         {
-          "date": "2024-02-20",
+          "date": "2024-04-23",
           "round": 1,
           "starting_price_pln": 184000,
           "outcome": "unsold",
           "area_m2": 1451
         },
         {
-          "date": "2024-04-23",
+          "date": "2024-11-19",
           "round": 2,
           "starting_price_pln": 184000,
           "outcome": "unsold",
           "area_m2": 1451
         },
         {
-          "date": "2024-11-19",
-          "round": 3,
-          "starting_price_pln": 184000,
-          "outcome": "unsold",
-          "area_m2": 1451
-        },
-        {
           "date": "2025-05-15",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451
         },
         {
           "date": "2025-07-22",
-          "round": 5,
+          "round": 4,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451
         },
         {
           "date": "2025-10-07",
-          "round": 6,
+          "round": 5,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451
         },
         {
           "date": "2026-08-18",
-          "round": 7,
+          "round": 6,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451
@@ -721,6 +682,85 @@
         },
         {
           "nr": "3124/24"
+        }
+      ]
+    },
+    {
+      "key": "dz|2379/12",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "2379/12",
+      "obreb": null,
+      "street": "Przyjaciół Żołnierza",
+      "building": null,
+      "address_raw": "Przyjaciół Żołnierza",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202379%2F12%20Przyjaci%C3%B3%C5%82%20%C5%BBo%C5%82nierza%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1167,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-14",
+          "round": 1,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 1167
+        },
+        {
+          "date": "2026-06-30",
+          "round": 2,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 1167
+        },
+        {
+          "date": "2026-08-16",
+          "round": 3,
+          "starting_price_pln": 225000,
+          "outcome": "unsold",
+          "area_m2": 1167
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2379/12"
+        }
+      ]
+    },
+    {
+      "key": "dz|2161/3",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "2161/3",
+      "obreb": null,
+      "street": "Wesołej",
+      "building": null,
+      "address_raw": "Wesołej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202161%2F3%20Weso%C5%82ej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 9264,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-14",
+          "round": 1,
+          "starting_price_pln": 795000,
+          "outcome": "unsold",
+          "area_m2": 9264
+        },
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "starting_price_pln": 795000,
+          "outcome": "unsold",
+          "area_m2": 9264
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2161/3"
         }
       ]
     },
@@ -1079,42 +1119,6 @@
       ]
     },
     {
-      "key": "dz|2379/12",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "2379/12",
-      "obreb": null,
-      "street": "Przyjaciół Żołnierza",
-      "building": null,
-      "address_raw": "Przyjaciół Żołnierza",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202379%2F12%20Przyjaci%C3%B3%C5%82%20%C5%BBo%C5%82nierza%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1167,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-04-14",
-          "round": 1,
-          "starting_price_pln": 250000,
-          "outcome": "unsold",
-          "area_m2": 1167
-        },
-        {
-          "date": "2026-06-30",
-          "round": 2,
-          "starting_price_pln": 250000,
-          "outcome": "unsold",
-          "area_m2": 1167
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2379/12"
-        }
-      ]
-    },
-    {
       "key": "dz|2379/11",
       "kind": "grunt",
       "city": "zagan",
@@ -1140,35 +1144,6 @@
       "parcels": [
         {
           "nr": "2379/11"
-        }
-      ]
-    },
-    {
-      "key": "dz|2161/3",
-      "kind": "grunt",
-      "city": "zagan",
-      "dzialka_nr": "2161/3",
-      "obreb": null,
-      "street": "Wesołej",
-      "building": null,
-      "address_raw": "Wesołej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202161%2F3%20Weso%C5%82ej%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 9264,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-04-14",
-          "round": 1,
-          "starting_price_pln": 795000,
-          "outcome": "unsold",
-          "area_m2": 9264
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2161/3"
         }
       ]
     },
@@ -1492,43 +1467,36 @@
       "status": null,
       "listings": [
         {
-          "date": "2024-02-20",
+          "date": "2024-04-23",
           "round": 1,
           "starting_price_pln": 300000,
           "outcome": "unsold",
           "area_m2": 2878
         },
         {
-          "date": "2024-04-23",
+          "date": "2024-11-19",
           "round": 2,
           "starting_price_pln": 300000,
           "outcome": "unsold",
           "area_m2": 2878
         },
         {
-          "date": "2024-11-19",
-          "round": 3,
-          "starting_price_pln": 300000,
-          "outcome": "unsold",
-          "area_m2": 2878
-        },
-        {
           "date": "2025-05-15",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 336000,
           "outcome": "unsold",
           "area_m2": 2878
         },
         {
           "date": "2025-07-22",
-          "round": 5,
+          "round": 4,
           "starting_price_pln": 336000,
           "outcome": "unsold",
           "area_m2": 2878
         },
         {
           "date": "2025-10-07",
-          "round": 6,
+          "round": 5,
           "starting_price_pln": 336000,
           "outcome": "unsold",
           "area_m2": 2878
@@ -2044,22 +2012,15 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-13",
+          "date": "2024-02-21",
           "round": 1,
           "starting_price_pln": 77000,
           "outcome": "unsold",
           "area_m2": 872
         },
         {
-          "date": "2024-02-21",
-          "round": 2,
-          "starting_price_pln": 77000,
-          "outcome": "unsold",
-          "area_m2": 872
-        },
-        {
           "date": "2024-04-24",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 77000,
           "outcome": "sold",
           "area_m2": 872
@@ -2087,22 +2048,15 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-13",
+          "date": "2024-02-21",
           "round": 1,
           "starting_price_pln": 101000,
           "outcome": "unsold",
           "area_m2": 1075
         },
         {
-          "date": "2024-02-21",
-          "round": 2,
-          "starting_price_pln": 101000,
-          "outcome": "unsold",
-          "area_m2": 1075
-        },
-        {
           "date": "2024-04-24",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 101000,
           "outcome": "sold",
           "area_m2": 1075
@@ -2130,22 +2084,15 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-13",
+          "date": "2024-02-21",
           "round": 1,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 1452
         },
         {
-          "date": "2024-02-21",
-          "round": 2,
-          "starting_price_pln": 150000,
-          "outcome": "unsold",
-          "area_m2": 1452
-        },
-        {
           "date": "2024-04-24",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 1452
@@ -2173,22 +2120,15 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-13",
+          "date": "2024-02-21",
           "round": 1,
           "starting_price_pln": 130000,
           "outcome": "unsold",
           "area_m2": 1263
         },
         {
-          "date": "2024-02-21",
-          "round": 2,
-          "starting_price_pln": 130000,
-          "outcome": "unsold",
-          "area_m2": 1263
-        },
-        {
           "date": "2024-04-24",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 130000,
           "outcome": "unsold",
           "area_m2": 1263
@@ -2216,22 +2156,15 @@
       "status": null,
       "listings": [
         {
-          "date": "2023-12-13",
+          "date": "2024-02-21",
           "round": 1,
           "starting_price_pln": 58000,
           "outcome": "unsold",
           "area_m2": 716
         },
         {
-          "date": "2024-02-21",
-          "round": 2,
-          "starting_price_pln": 58000,
-          "outcome": "unsold",
-          "area_m2": 716
-        },
-        {
           "date": "2024-04-24",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 58000,
           "outcome": "sold",
           "area_m2": 716
@@ -2259,15 +2192,8 @@
       "status": null,
       "listings": [
         {
-          "date": "2024-02-20",
-          "round": 1,
-          "starting_price_pln": 275000,
-          "outcome": "unsold",
-          "area_m2": 1981
-        },
-        {
           "date": "2024-04-23",
-          "round": 2,
+          "round": 1,
           "starting_price_pln": 220000,
           "outcome": "sold",
           "area_m2": 1981
@@ -2295,15 +2221,8 @@
       "status": null,
       "listings": [
         {
-          "date": "2024-02-20",
-          "round": 1,
-          "starting_price_pln": 47000,
-          "outcome": "unsold",
-          "area_m2": 371
-        },
-        {
           "date": "2024-04-23",
-          "round": 2,
+          "round": 1,
           "starting_price_pln": 37600,
           "outcome": "unsold",
           "area_m2": 371

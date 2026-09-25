@@ -3,6 +3,105 @@
   "city": "jelenia-gora",
   "properties": [
     {
+      "key": "wolnosci|261|2",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "261",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "archived",
+          "area_m2": 64.48,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25635/78-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "active",
+          "area_m2": 64.48,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26002/107-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 64.48
+    },
+    {
+      "key": "wodna|9|3",
+      "street": "Wodna",
+      "street_norm": "wodna",
+      "building": "9",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 45.97,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26002/107-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.97
+    },
+    {
+      "key": "jasna|4|3",
+      "street": "Jasna",
+      "street_norm": "jasna",
+      "building": "4",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "active",
+          "area_m2": 48,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25992/106-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48
+    },
+    {
+      "key": "wolnosci|253|4",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "253",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "active",
+          "area_m2": 66.72,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25992/106-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 66.72
+    },
+    {
       "key": "jana kilinskiego|20|2U",
       "street": "Jana Kilińskiego",
       "street_norm": "jana kilinskiego",
@@ -67,6 +166,116 @@
         }
       ],
       "area_m2": 217.12
+    },
+    {
+      "key": "kiepury|30|53",
+      "street": "Kiepury",
+      "street_norm": "kiepury",
+      "building": "30",
+      "apt": "53",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "active",
+          "area_m2": 54.89,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25991/99-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 54.89
+    },
+    {
+      "key": "wita stwosza|28|1",
+      "street": "Wita Stwosza",
+      "street_norm": "wita stwosza",
+      "building": "28",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "active",
+          "area_m2": 43.2,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25991/99-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.2
+    },
+    {
+      "key": "cieplicka|32|6",
+      "street": "Cieplicka",
+      "street_norm": "cieplicka",
+      "building": "32",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 39.8,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25991/99-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 39.8
+    },
+    {
+      "key": "zjednoczenia narodowego|36|3",
+      "street": "Zjednoczenia Narodowego",
+      "street_norm": "zjednoczenia narodowego",
+      "building": "36",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "active",
+          "area_m2": 91.13,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25991/99-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 91.13
+    },
+    {
+      "key": "kasprowicza|2|4",
+      "street": "Kasprowicza",
+      "street_norm": "kasprowicza",
+      "building": "2",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "active",
+          "area_m2": 50.19,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25991/99-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.19
     },
     {
       "key": "plac energetyka|1|4",
@@ -377,7 +586,7 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 110000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 38.6,
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/25851/91-2026",
           "wadium_deadline": null,
@@ -385,28 +594,6 @@
         }
       ],
       "area_m2": 38.6
-    },
-    {
-      "key": "wolnosci|261|2",
-      "street": "Wolności",
-      "street_norm": "wolnosci",
-      "building": "261",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-10",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 165000,
-          "outcome": "active",
-          "area_m2": 64.48,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25635/78-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 64.48
     },
     {
       "key": "wolnosci|261|3",
@@ -421,11 +608,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 210000,
-          "outcome": "active",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 212100,
+          "source_pdf": "https://bip.jeleniagora.pl/attachments/download/52047",
+          "notes": [],
           "area_m2": 107.06,
-          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25635/78-2026",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/25635/78-2026"
         }
       ],
       "area_m2": 107.06

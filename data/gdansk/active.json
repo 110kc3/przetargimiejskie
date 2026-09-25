@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Floriana Ceynowy 2/5",
+      "address": {
+        "street": "Floriana Ceynowy",
+        "street_norm": "floriana ceynowy",
+        "building": "2",
+        "apt": "5",
+        "key": "floriana ceynowy|2|5",
+        "warning": null
+      },
+      "area_m2": 16.5,
+      "starting_price_pln": 220000,
+      "auction_date": "2026-11-30",
+      "round": 1,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/Ogloszenie-o-przetargach-na-sprzedaz-nieruchomosci-gminnych-zaplanowanych-na-dzien-30-11-2026-r,a,319101",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202609282580/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-30-11-2026r-gazeta-wyborcza-z-dnia-23-09-2026r.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. S. Wyspiańskiego 15/4",
+      "address": {
+        "street": "S. Wyspiańskiego",
+        "street_norm": "s wyspianskiego",
+        "building": "15",
+        "apt": "4",
+        "key": "s wyspianskiego|15|4",
+        "warning": null
+      },
+      "area_m2": 80.95,
+      "starting_price_pln": 850000,
+      "auction_date": "2026-11-30",
+      "round": 1,
+      "detail_url": "https://bip.gdansk.pl/urzad-miejski/Ogloszenie-o-przetargach-na-sprzedaz-nieruchomosci-gminnych-zaplanowanych-na-dzien-30-11-2026-r,a,319101",
+      "source_url": "https://download.cloudgdansk.pl/gdansk-pl/d/202609282580/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-30-11-2026r-gazeta-wyborcza-z-dnia-23-09-2026r.pdf"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Uczniowska 37/4",
       "address": {
         "street": "Uczniowska",

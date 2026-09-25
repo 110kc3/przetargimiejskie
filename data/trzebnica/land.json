@@ -248,115 +248,6 @@
       ]
     },
     {
-      "key": "dz|kobylice|1/2",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": "1/2",
-      "obreb": "Kobylice",
-      "street": null,
-      "building": null,
-      "address_raw": "Kobylice",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3873,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-03",
-          "round": 2,
-          "starting_price_pln": 215700,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7086"
-        },
-        {
-          "date": "2026-08-11",
-          "round": 3,
-          "starting_price_pln": 215700,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7169"
-        },
-        {
-          "date": "2026-09-21",
-          "round": 4,
-          "starting_price_pln": 215700,
-          "outcome": "active",
-          "area_m2": 3873,
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3490/przetarg-nr-ggn-p-19-2026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7182"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "addr|szczytkowice, dz. nr 49/1 i 49/2",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": null,
-      "obreb": "Szczytkowice",
-      "street": null,
-      "building": null,
-      "address_raw": "Szczytkowice, dz. nr 49/1 i 49/2",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczytkowice%2C%20dz.%20nr%2049%2F1%20i%2049%2F2%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-03",
-          "round": 3,
-          "starting_price_pln": 158700,
-          "outcome": "archived",
-          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3470/przetarg-ggn-p-17-2026",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7123"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|trzebnica|881",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": "881",
-      "obreb": "Trzebnica",
-      "street": null,
-      "building": null,
-      "address_raw": "Trzebnica",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-03",
-          "round": 1,
-          "starting_price_pln": 364200,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7087"
-        },
-        {
-          "date": "2026-08-11",
-          "round": 2,
-          "starting_price_pln": 364200,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7168"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "881",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "addr|kobylice",
       "kind": "grunt",
       "city": "trzebnica",
@@ -410,9 +301,121 @@
           "outcome": "archived",
           "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3217/przetarg-nr-ggn-p-9-2026",
           "source_url": "https://bip.trzebnica.pl/attachments/download/6511"
+        },
+        {
+          "date": "2026-09-21",
+          "round": 4,
+          "starting_price_pln": 215700,
+          "outcome": "archived",
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3490/przetarg-nr-ggn-p-19-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7182"
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|szczytkowice|49/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "49/2",
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F2%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 3,
+          "starting_price_pln": 188400,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7310"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "49/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F2%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica|881",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "881",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": "Trzebnica",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 1,
+          "starting_price_pln": 364200,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7087"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 2,
+          "starting_price_pln": 364200,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7168"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "881",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kobylice|1/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "1/2",
+      "obreb": "Kobylice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kobylice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 2,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7086"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 3,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7169"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
     },
     {
       "key": "addr|boleścin",

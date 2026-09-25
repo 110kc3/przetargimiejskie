@@ -3,6 +3,132 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|bolesława prusa 31a",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Bolesława Prusa 31a",
+      "building": null,
+      "address_raw": "Bolesława Prusa 31a",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.922992471970897%2C50.35314744445917%2C18.92344308921035%2C50.353500878636915&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.8444961f-4eb2-4308-a836-3f2fcda5d262",
+      "area_m2": 763,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 3,
+          "starting_price_pln": 475000,
+          "outcome": "active",
+          "area_m2": 763,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Prusa-31a,25141.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|941/45,1201/45",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "941/45,1201/45",
+      "obreb": null,
+      "street": "Hutnicza",
+      "building": null,
+      "address_raw": "Hutnicza dz. 941/45, 1201/45",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.859109330970924%2C50.35221358992844%2C18.86224099139213%2C50.35441141704971&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.7d0ad35b-c5b9-42e4-87b4-c1c5e7f8a2ff",
+      "area_m2": 30341,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "starting_price_pln": 5000000,
+          "outcome": "active",
+          "area_m2": 30341,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Hutnicza-dz.-941_45-1201_45,25140.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "941/45"
+        },
+        {
+          "nr": "1201/45"
+        }
+      ]
+    },
+    {
+      "key": "dz|2050/9,2051/9",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "2050/9,2051/9",
+      "obreb": null,
+      "street": "Zygmunta Rostkowskiego",
+      "building": null,
+      "address_raw": "Zygmunta Rostkowskiego dz. 2050/9, 2051/9",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.888369921167843%2C50.3425880359697%2C18.892141864426446%2C50.34321283826303&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.4cb82081-36a0-434d-818e-e05436c415e1",
+      "area_m2": 10469,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "starting_price_pln": 1200000,
+          "outcome": "active",
+          "area_m2": 10469,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Rostkowskiego-dz.-2050_9-2051_9,25114.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2050/9"
+        },
+        {
+          "nr": "2051/9"
+        }
+      ]
+    },
+    {
+      "key": "dz|1755/9",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1755/9",
+      "obreb": null,
+      "street": "Karpacka",
+      "building": null,
+      "address_raw": "Karpacka dz. 1755/9",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.896452837903958%2C50.337463768057646%2C18.897241763205614%2C50.33830845936775&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.61a6eb93-8347-4a11-af00-78aa94786580",
+      "area_m2": 2380,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "starting_price_pln": 600000,
+          "outcome": "active",
+          "area_m2": 2380,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Karpacka-dz.-1755_9,25112.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1755/9"
+        }
+      ]
+    },
+    {
       "key": "addr|zabrzańska 91",
       "kind": "grunt",
       "city": "bytom",
@@ -528,7 +654,7 @@
           "date": "2026-09-24",
           "round": 1,
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 403,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-86-i-86B,24786.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -555,7 +681,7 @@
           "date": "2026-09-22",
           "round": 1,
           "starting_price_pln": 220000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 2505,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Kamienna-dz.-1722-25,24722.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -586,7 +712,7 @@
           "date": "2026-09-21",
           "round": 2,
           "starting_price_pln": 202500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1570,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Powstancow-i-Boya-Zelenskiego,24726.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -613,7 +739,7 @@
           "date": "2026-09-21",
           "round": 1,
           "starting_price_pln": 28000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 20,
           "detail_url": "https://www.bytom.pl/bip/download/ogloszenie-przetargu-ul.-Witczaka-dz.-3078_37-udzial-ustny-I-zabud,24725.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -644,7 +770,7 @@
           "date": "2026-09-18",
           "round": 2,
           "starting_price_pln": 850000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 8969,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Ostatnia_Kolonia-Zgorzelec-dz.-1558_85-ustny-II-niezabud,24425.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"

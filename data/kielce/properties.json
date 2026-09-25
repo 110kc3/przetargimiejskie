@@ -67,6 +67,50 @@
         }
       ],
       "area_m2": 22.54
+    },
+    {
+      "key": "slowackiego|7|7",
+      "street": "Słowackiego",
+      "street_norm": "slowackiego",
+      "building": "7",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 29,
+          "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o--i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-7-b-polozonego-w-budynku-przy-ul-slowackiego-7-w-kielcach-o-powierzchni-uzytkowej-2900-m2-wraz-z-udzialem-w-nieruc.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 29
+    },
+    {
+      "key": "slowackiego|7|7A",
+      "street": "Słowackiego",
+      "street_norm": "slowackiego",
+      "building": "7",
+      "apt": "7A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 22.1,
+          "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o--i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-7a-polozonego-w-budynku-przy-ul-slowackiego-7-w-kielcach-o-powierzchni-uzytkowej-2210-m2-wraz-z-udzialem-w-nieruch.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 22.1
     }
   ]
 }

@@ -3,208 +3,6 @@
   "city": "myslowice",
   "plots": [
     {
-      "key": "addr|ul. harcerzy śląskich",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": null,
-      "obreb": "0010 Wesoła",
-      "street": "Harcerzy Śląskich",
-      "building": null,
-      "address_raw": "ul. Harcerzy Śląskich",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Harcerzy%20%C5%9Al%C4%85skich%200010%20Weso%C5%82a%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 21596,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-06-23",
-          "round": 1,
-          "starting_price_pln": 6945000,
-          "outcome": "archived",
-          "area_m2": 21596,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my"
-        },
-        {
-          "date": "2026-09-29",
-          "round": 2,
-          "starting_price_pln": 6945000,
-          "outcome": "active",
-          "area_m2": 21596,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-g",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-g"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|8054/225",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "8054/225",
-      "obreb": null,
-      "street": "Władysława Łokietka",
-      "building": null,
-      "address_raw": "ul. Władysława Łokietka",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208054%2F225%20W%C5%82adys%C5%82awa%20%C5%81okietka%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 33,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-22",
-          "round": 1,
-          "starting_price_pln": 5500,
-          "outcome": "active",
-          "area_m2": 33,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wladyslawa-lo",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wladyslawa-lo"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "8054/225"
-        }
-      ]
-    },
-    {
-      "key": "dz|0009 słupna|257/144",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "257/144",
-      "obreb": "0009 Słupna",
-      "street": "Portowej",
-      "building": null,
-      "address_raw": "ul. Portowej",
-      "dzialka_id": "247001_1.0009.AR_1.257/144",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0009.AR_1.257%2F144",
-      "area_m2": 1305,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-10-14",
-          "round": 1,
-          "starting_price_pln": 330000,
-          "outcome": "archived",
-          "area_m2": 1305,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozone",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozone"
-        },
-        {
-          "date": "2026-04-21",
-          "round": 3,
-          "starting_price_pln": 330000,
-          "outcome": "archived",
-          "area_m2": 1305,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-4",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-4"
-        },
-        {
-          "date": "2026-09-15",
-          "round": 5,
-          "starting_price_pln": 330000,
-          "outcome": "active",
-          "area_m2": 1305,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p-1",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-p-1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "257/144",
-          "dzialka_id": "247001_1.0009.AR_1.257/144",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0009.AR_1.257%2F144"
-        }
-      ]
-    },
-    {
-      "key": "dz|0006 ławki|2517/7",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "2517/7",
-      "obreb": "0006 Ławki",
-      "street": "Murckowskiej",
-      "building": null,
-      "address_raw": "ul. Murckowskiej",
-      "dzialka_id": "247001_1.0006.AR_1.2517/7",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0006.AR_1.2517%2F7",
-      "area_m2": 4182,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-09-30",
-          "round": 1,
-          "starting_price_pln": 600000,
-          "outcome": "archived",
-          "area_m2": 4182,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej"
-        },
-        {
-          "date": "2026-06-16",
-          "round": 1,
-          "starting_price_pln": 600000,
-          "outcome": "archived",
-          "area_m2": 4182,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej-1",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej-1"
-        },
-        {
-          "date": "2026-09-15",
-          "round": 2,
-          "starting_price_pln": 600000,
-          "outcome": "active",
-          "area_m2": 4182,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2517/7",
-          "dzialka_id": "247001_1.0006.AR_1.2517/7",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0006.AR_1.2517%2F7"
-        }
-      ]
-    },
-    {
-      "key": "dz|0001 brzezinka.|2702/231",
-      "kind": "grunt",
-      "city": "myslowice",
-      "dzialka_nr": "2702/231",
-      "obreb": "0001 Brzezinka.",
-      "street": "Niepodległości",
-      "building": null,
-      "address_raw": "ul. Niepodległości",
-      "dzialka_id": "247001_1.0001.AR_4.2702/231",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231",
-      "area_m2": 439,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-25",
-          "round": 2,
-          "starting_price_pln": 95000,
-          "outcome": "archived",
-          "area_m2": 439,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci",
-          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2702/231",
-          "dzialka_id": "247001_1.0001.AR_4.2702/231",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231"
-        }
-      ]
-    },
-    {
       "key": "dz|0001 brzezinka|3420/174",
       "kind": "grunt",
       "city": "myslowice",
@@ -227,6 +25,15 @@
           "area_m2": 3368,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza"
+        },
+        {
+          "date": "2026-11-24",
+          "round": 2,
+          "starting_price_pln": 480000,
+          "outcome": "active",
+          "area_m2": 3368,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-henryka-sienkiewicza"
         }
       ],
       "parcels": [
@@ -287,6 +94,15 @@
           "area_m2": 10452,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-3",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-czwartym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-3"
+        },
+        {
+          "date": "2026-11-17",
+          "round": 5,
+          "starting_price_pln": 2076000,
+          "outcome": "active",
+          "area_m2": 10452,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-s-3",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-piatym-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-s-3"
         }
       ],
       "parcels": [
@@ -294,6 +110,126 @@
           "nr": "2684/248",
           "dzialka_id": "247001_1.0001.AR_4.2684/248",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2684%2F248"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. harcerzy śląskich",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": null,
+      "obreb": "0010 Wesoła",
+      "street": "Harcerzy Śląskich",
+      "building": null,
+      "address_raw": "ul. Harcerzy Śląskich",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Harcerzy%20%C5%9Al%C4%85skich%200010%20Weso%C5%82a%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 21596,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 6945000,
+          "outcome": "archived",
+          "area_m2": 21596,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-gminy-my"
+        },
+        {
+          "date": "2026-09-29",
+          "round": 2,
+          "starting_price_pln": 6945000,
+          "outcome": "active",
+          "area_m2": 21596,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-g",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-drugim-ustnym-przetargu-nieograniczonym-na-sprzedaz-niezabudowanej-nieruchomosci-g"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|0006 ławki|2517/7",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "2517/7",
+      "obreb": "0006 Ławki",
+      "street": "Murckowskiej",
+      "building": null,
+      "address_raw": "ul. Murckowskiej",
+      "dzialka_id": "247001_1.0006.AR_1.2517/7",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0006.AR_1.2517%2F7",
+      "area_m2": 4182,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-30",
+          "round": 1,
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": 4182,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej"
+        },
+        {
+          "date": "2026-06-16",
+          "round": 1,
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": 4182,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej-1",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej-1"
+        },
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": 4182,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-murckowskiej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2517/7",
+          "dzialka_id": "247001_1.0006.AR_1.2517/7",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0006.AR_1.2517%2F7"
+        }
+      ]
+    },
+    {
+      "key": "dz|0001 brzezinka.|2702/231",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "2702/231",
+      "obreb": "0001 Brzezinka.",
+      "street": "Niepodległości",
+      "building": null,
+      "address_raw": "ul. Niepodległości",
+      "dzialka_id": "247001_1.0001.AR_4.2702/231",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231",
+      "area_m2": 439,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-25",
+          "round": 2,
+          "starting_price_pln": 95000,
+          "outcome": "archived",
+          "area_m2": 439,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2702/231",
+          "dzialka_id": "247001_1.0001.AR_4.2702/231",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0001.AR_4.2702%2F231"
         }
       ]
     },
@@ -552,6 +488,48 @@
           "nr": "2057/21",
           "dzialka_id": "247001_1.0003.AR_2.2057/21",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0003.AR_2.2057%2F21"
+        }
+      ]
+    },
+    {
+      "key": "dz|0009 słupna|257/144",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "257/144",
+      "obreb": "0009 Słupna",
+      "street": "Portowej",
+      "building": null,
+      "address_raw": "ul. Portowej",
+      "dzialka_id": "247001_1.0009.AR_1.257/144",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0009.AR_1.257%2F144",
+      "area_m2": 1305,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-14",
+          "round": 1,
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 1305,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozone",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-polozone"
+        },
+        {
+          "date": "2026-04-21",
+          "round": 3,
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 1305,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-4",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-trzecim-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-4"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "257/144",
+          "dzialka_id": "247001_1.0009.AR_1.257/144",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247001_1.0009.AR_1.257%2F144"
         }
       ]
     },

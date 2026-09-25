@@ -3,6 +3,28 @@
   "city": "ketrzyn",
   "properties": [
     {
+      "key": "boleslawa chrobrego|17A|30",
+      "street": "Bolesława Chrobrego",
+      "street_norm": "boleslawa chrobrego",
+      "building": "17A",
+      "apt": "30",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 169000,
+          "outcome": "active",
+          "area_m2": 48.3,
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-lokalu-mieszkalnego-nr-30-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-17a-w-ketrzynie",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.3
+    },
+    {
       "key": "boleslawa chrobrego|6|38",
       "street": "Bolesława Chrobrego",
       "street_norm": "boleslawa chrobrego",
@@ -30,7 +52,7 @@
           "outcome": "unsold",
           "unsold_reason": "negative_no_bidders",
           "final_price_pln": null,
-          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20260128-3/informacja-o-wyniku-przetargu.pdf",
+          "source_pdf": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/informacja-o-wyniku-przetargu-lokal-mieszkalny-nr-38-ul-boleslawa-chrobrego-6-w-ketrzynie",
           "notes": [],
           "area_m2": 24.6,
           "round_source": "inferred"

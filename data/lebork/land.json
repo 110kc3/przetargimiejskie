@@ -3,6 +3,37 @@
   "city": "lebork",
   "plots": [
     {
+      "key": "dz|771/46",
+      "kind": "grunt",
+      "city": "lebork",
+      "dzialka_nr": "771/46",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Handlowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20771%2F46%20Handlowej%20L%C4%99bork%20geoportal%20dzia%C5%82ki",
+      "area_m2": 32,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": 31500,
+          "outcome": "sold",
+          "final_price_pln": 39138,
+          "area_m2": 32,
+          "source_url": "https://bip.um.lebork.pl/artykul/informacja-o-wyniku-i-przetargu-ustnego-ograniczonego-ktory-zostal-przeprowadzony-w-dniu-03-09"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "771/46"
+        }
+      ]
+    },
+    {
       "key": "dz|134/5",
       "kind": "grunt",
       "city": "lebork",

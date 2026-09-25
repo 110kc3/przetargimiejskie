@@ -3,6 +3,50 @@
   "city": "elblag",
   "properties": [
     {
+      "key": "garbary|30|",
+      "street": "Garbary",
+      "street_norm": "garbary",
+      "building": "30",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-11-23",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 4200000,
+          "outcome": "active",
+          "area_m2": null,
+          "land_area_m2": 320,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10953/i-ustny-przetarg-nieograniczony-ul-garbary-30-nieruchomosc-zabudowana-23-11-2026-r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "narciarska|15|9",
+      "street": "Narciarska",
+      "street_norm": "narciarska",
+      "building": "15",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 162000,
+          "outcome": "active",
+          "area_m2": 42.9,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10973/i-ustny-przetarg-nieograniczony-ul-narciarska-15-9-lokal-mieszkalny-26-10-2026-r",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.9
+    },
+    {
       "key": "stefana okrzei|12|",
       "street": "Stefana Okrzei",
       "street_norm": "stefana okrzei",

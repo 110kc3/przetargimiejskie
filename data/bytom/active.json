@@ -3,6 +3,25 @@
   "city": "bytom",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Fałata 24/5",
+      "address": {
+        "street": "Fałata",
+        "street_norm": "falata",
+        "building": "24",
+        "apt": "5",
+        "key": "falata|24|5",
+        "warning": null
+      },
+      "auction_date": "2026-10-21",
+      "published_date": "2026-09-21",
+      "round": 2,
+      "area_m2": 38.36,
+      "starting_price_pln": 112500,
+      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Falata-245/idn:14124",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Falata-24_5,25168.doc"
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "pl. Wolskiego 6/8",
       "address": {
@@ -58,25 +77,6 @@
       "starting_price_pln": 200000,
       "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-mieszkalne/ul.-Moniuszki-69a/idn:13955",
       "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Moniuszki-6_9a,24788.doc"
-    },
-    {
-      "kind": "uzytkowy",
-      "address_raw": "ul. Piłsudskiego 7/1",
-      "address": {
-        "street": "Piłsudskiego",
-        "street_norm": "pilsudskiego",
-        "building": "7",
-        "apt": "1",
-        "key": "pilsudskiego|7|1",
-        "warning": null
-      },
-      "auction_date": "2026-09-01",
-      "published_date": "2026-07-31",
-      "round": 3,
-      "area_m2": 41.05,
-      "starting_price_pln": 28500,
-      "detail_url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-lokale-uzytkowe/ul.-Pilsudskiego-71-/idn:13832",
-      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pilsudskiego-7_11,24563.doc"
     },
     {
       "kind": "mieszkalny",

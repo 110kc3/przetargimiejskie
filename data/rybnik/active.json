@@ -4,6 +4,164 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Poligonowej 15c/5",
+      "address": {
+        "street": "Poligonowej",
+        "street_norm": "poligonowej",
+        "building": "15C",
+        "apt": "5",
+        "key": "poligonowej|15C|5",
+        "warning": null
+      },
+      "auction_date": "2026-10-28",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105398",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552118",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Pawła Cierpioła 2b/10",
+      "address": {
+        "street": "Pawła Cierpioła",
+        "street_norm": "pawla cierpiola",
+        "building": "2B",
+        "apt": "10",
+        "key": "pawla cierpiola|2B|10",
+        "warning": null
+      },
+      "auction_date": "2026-10-28",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105397",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552114",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Józefa Lompy 7b/3",
+      "address": {
+        "street": "Józefa Lompy",
+        "street_norm": "jozefa lompy",
+        "building": "7B",
+        "apt": "3",
+        "key": "jozefa lompy|7B|3",
+        "warning": null
+      },
+      "auction_date": "2026-10-28",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105396",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552107"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Borki 37b/15",
+      "address": {
+        "street": "Borki",
+        "street_norm": "borki",
+        "building": "37B",
+        "apt": "15",
+        "key": "borki|37B|15",
+        "warning": null
+      },
+      "auction_date": "2026-10-28",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105395",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552103"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "gen. Andersa 26b/2",
+      "address": {
+        "street": "gen. Andersa",
+        "street_norm": "gen andersa",
+        "building": "26B",
+        "apt": "2",
+        "key": "gen andersa|26B|2",
+        "warning": null
+      },
+      "auction_date": "2026-11-04",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105392",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552084",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Śląskiej 25a/8",
+      "address": {
+        "street": "Śląskiej",
+        "street_norm": "slaskiej",
+        "building": "25A",
+        "apt": "8",
+        "key": "slaskiej|25A|8",
+        "warning": null
+      },
+      "auction_date": "2026-11-04",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105391",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552080",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Śląskiej 25b/11",
+      "address": {
+        "street": "Śląskiej",
+        "street_norm": "slaskiej",
+        "building": "25B",
+        "apt": "11",
+        "key": "slaskiej|25B|11",
+        "warning": null
+      },
+      "auction_date": "2026-11-04",
+      "published_date": null,
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105387",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552076",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Śląskiej 27d/10",
+      "address": {
+        "street": "Śląskiej",
+        "street_norm": "slaskiej",
+        "building": "27D",
+        "apt": "10",
+        "key": "slaskiej|27D|10",
+        "warning": null
+      },
+      "auction_date": "2026-11-04",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 92,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105383",
+      "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3552063",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "św. Józefa 18/47",
       "address": {
         "street": "św. Józefa",

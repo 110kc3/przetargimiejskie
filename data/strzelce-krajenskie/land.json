@@ -3,6 +3,67 @@
   "city": "strzelce-krajenskie",
   "plots": [
     {
+      "key": "dz|306/17",
+      "kind": "grunt",
+      "city": "strzelce-krajenskie",
+      "dzialka_nr": "306/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Długie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20306%2F17%20D%C5%82ugie%20Strzelce%20Kraje%C5%84skie%20geoportal%20dzia%C5%82ki",
+      "area_m2": 415,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-25",
+          "round": 5,
+          "starting_price_pln": 119000,
+          "outcome": "active",
+          "area_m2": 415,
+          "detail_url": "https://bip.strzelce.pl/przetargi/29/144/OGLOSZENIE_GPM_nr_41_2F2026/",
+          "source_url": "https://bip.strzelce.pl/system/pobierz.php?plik=GPM_41_2026.pdf&id=acc62950a5bd52c74cb90077ef8cb77c"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "306/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|16/404",
+      "kind": "grunt",
+      "city": "strzelce-krajenskie",
+      "dzialka_nr": "16/404",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Długie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2016%2F404%20D%C5%82ugie%20Strzelce%20Kraje%C5%84skie%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-21",
+          "round": 1,
+          "starting_price_pln": 4400,
+          "outcome": "active",
+          "detail_url": "https://bip.strzelce.pl/przetargi/29/142/GPM_39_2F2026/",
+          "source_url": "https://bip.strzelce.pl/system/pobierz.php?plik=GPM.39.2026.pdf&id=4bd0546609eb474838f7fc857874236c"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "16/404"
+        }
+      ]
+    },
+    {
       "key": "dz|67/2",
       "kind": "grunt",
       "city": "strzelce-krajenskie",

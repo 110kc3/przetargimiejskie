@@ -3,6 +3,36 @@
   "city": "boleslawiec",
   "plots": [
     {
+      "key": "dz|196/2",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "196/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Generała Józefa Hallera",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20196%2F2%20ul.%20Genera%C5%82a%20J%C3%B3zefa%20Hallera%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4255,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "starting_price_pln": 1100000,
+          "outcome": "active",
+          "area_m2": 4255,
+          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-mieszkaniowe/7110-dzia%C5%82ka-nr-196-2-o-pow-0%2C4255-ha%2C-po%C5%82o%C5%BCona-przy-ul-genera%C5%82a-j%C3%B3zefa-hallera-i-przetarg"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "196/2"
+        }
+      ]
+    },
+    {
       "key": "dz|567",
       "kind": "grunt",
       "city": "boleslawiec",
@@ -63,16 +93,16 @@
       ]
     },
     {
-      "key": "dz|23/1",
+      "key": "dz|0001|23/1",
       "kind": "grunt",
       "city": "boleslawiec",
       "dzialka_nr": "23/1",
-      "obreb": null,
+      "obreb": "0001",
       "street": null,
       "building": null,
       "address_raw": "ul. Tadeusza Kościuszki",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2023%2F1%20ul.%20Tadeusza%20Ko%C5%9Bciuszki%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "020101_1.0001.23/1",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1",
       "area_m2": 5540,
       "zoning": null,
       "status": null,
@@ -81,29 +111,30 @@
           "date": "2026-09-15",
           "round": 2,
           "starting_price_pln": 440000,
-          "outcome": "active",
-          "area_m2": 5540,
-          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-us%C5%82ugowe-przemys%C5%82owe/6916-dzia%C5%82ka-nr-23-1-o-pow-0%2C5540-ha%2C-po%C5%82o%C5%BCona-przy-ul-tadeusza-ko%C5%9Bciuszki-ii-przetarg"
+          "outcome": "unsold",
+          "area_m2": 5540
         }
       ],
       "parcels": [
         {
-          "nr": "23/1"
+          "nr": "23/1",
+          "dzialka_id": "020101_1.0001.23/1",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1"
         }
       ]
     },
     {
-      "key": "dz|41, 54/4",
+      "key": "dz|0007|41",
       "kind": "grunt",
       "city": "boleslawiec",
-      "dzialka_nr": "41, 54/4",
-      "obreb": null,
+      "dzialka_nr": "41",
+      "obreb": "0007",
       "street": null,
       "building": null,
       "address_raw": "ul. Widok",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2041%2C%2054%2F4%20ul.%20Widok%20Boles%C5%82awiec%20geoportal%20dzia%C5%82ki",
-      "area_m2": 5590,
+      "dzialka_id": "020101_1.0007.41",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0007.41",
+      "area_m2": 4498,
       "zoning": null,
       "status": null,
       "listings": [
@@ -111,17 +142,15 @@
           "date": "2026-09-10",
           "round": 4,
           "starting_price_pln": 1080000,
-          "outcome": "active",
-          "area_m2": 5590,
-          "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/dzia%C5%82ki-mieszkaniowe/6914-dzia%C5%82ka-nr-41-o-pow-0%2C4498-ha-oraz-dzia%C5%82ka-nr-54-4-0%2C1092-ha%2C-po%C5%82o%C5%BCone-przy-ul-widok-iv-przetarg"
+          "outcome": "unsold",
+          "area_m2": 4498
         }
       ],
       "parcels": [
         {
-          "nr": "41"
-        },
-        {
-          "nr": "54/4"
+          "nr": "41",
+          "dzialka_id": "020101_1.0007.41",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0007.41"
         }
       ]
     }

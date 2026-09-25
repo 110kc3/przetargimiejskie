@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "lwowek-slaski",
-  "generated_at": "2026-09-10T08:47:37.282Z",
-  "source_pdf_count": 31,
-  "parsed_records": 5,
-  "parser_note_count": 26,
-  "unique_properties": 9,
-  "active_listings": 6,
+  "generated_at": "2026-09-25T10:51:07.340Z",
+  "source_pdf_count": 45,
+  "parsed_records": 6,
+  "parser_note_count": 38,
+  "unique_properties": 10,
+  "active_listings": 5,
   "active_auctions": 0,
-  "archived_auctions": 11,
+  "archived_auctions": 12,
   "wykaz_entries": 0,
-  "land_plots": 17,
-  "land_listings": 36,
-  "retained_properties": 0,
+  "land_plots": 28,
+  "land_listings": 49,
+  "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-10T08:46:28.371Z",
-  "last_successful_source_check_at": "2026-09-10T08:46:28.371Z",
+  "last_source_attempt_at": "2026-09-25T10:49:32.660Z",
+  "last_successful_source_check_at": "2026-09-25T10:49:32.660Z",
   "monitored_assets": [
     "commercial",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-10T08:46:28.371Z",
-      "last_success_at": "2026-09-10T08:46:28.371Z"
+      "last_attempt_at": "2026-09-25T10:49:32.660Z",
+      "last_success_at": "2026-09-25T10:49:32.660Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-10T08:46:28.371Z",
-      "last_success_at": "2026-09-10T08:46:28.371Z"
+      "last_attempt_at": "2026-09-25T10:49:32.660Z",
+      "last_success_at": "2026-09-25T10:49:32.660Z"
     }
   }
 }

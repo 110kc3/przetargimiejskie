@@ -25,6 +25,30 @@
       "area_m2": 24.86
     },
     {
+      "key": "grottgera|24|7",
+      "street": "Grottgera",
+      "street_norm": "grottgera",
+      "building": "24",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 190000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=261755",
+          "notes": [],
+          "area_m2": 24.86,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 24.86
+    },
+    {
       "key": "krolewskiej|69|garaz-12",
       "street": "Królewskiej",
       "street_norm": "krolewskiej",

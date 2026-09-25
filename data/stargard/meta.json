@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "stargard",
-  "generated_at": "2026-09-10T08:35:46.613Z",
-  "source_pdf_count": 15,
-  "parsed_records": 0,
+  "generated_at": "2026-09-25T10:39:53.191Z",
+  "source_pdf_count": 22,
+  "parsed_records": 4,
   "parser_note_count": 0,
   "unique_properties": 19,
-  "active_listings": 8,
-  "active_auctions": 9,
-  "archived_auctions": 13,
+  "active_listings": 2,
+  "active_auctions": 7,
+  "archived_auctions": 15,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 11,
+  "retained_properties": 13,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-10T08:35:28.218Z",
-  "last_successful_source_check_at": "2026-09-10T08:35:28.218Z",
+  "last_source_attempt_at": "2026-09-25T10:39:39.624Z",
+  "last_successful_source_check_at": "2026-09-25T10:39:39.624Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-10T08:35:28.218Z",
-      "last_success_at": "2026-09-10T08:35:28.218Z"
+      "last_attempt_at": "2026-09-25T10:39:39.624Z",
+      "last_success_at": "2026-09-25T10:39:39.624Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-10T08:35:28.218Z",
+      "last_attempt_at": "2026-09-25T10:39:39.624Z",
       "last_success_at": null
     }
   }

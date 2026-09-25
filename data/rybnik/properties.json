@@ -3,6 +3,181 @@
   "city": "rybnik",
   "properties": [
     {
+      "key": "gen andersa|26B|2",
+      "street": "gen. Andersa",
+      "street_norm": "gen andersa",
+      "building": "26B",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105392",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "slaskiej|25A|8",
+      "street": "Śląska",
+      "street_norm": "slaskiej",
+      "building": "25A",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105391",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "slaskiej|25B|11",
+      "street": "Śląska",
+      "street_norm": "slaskiej",
+      "building": "25B",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105387",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "slaskiej|27D|10",
+      "street": "Śląska",
+      "street_norm": "slaskiej",
+      "building": "27D",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 92,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105383",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 92
+    },
+    {
+      "key": "poligonowej|15C|5",
+      "street": "Poligonowa",
+      "street_norm": "poligonowej",
+      "building": "15C",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105398",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "pawla cierpiola|2B|10",
+      "street": "Pawła Cierpioła",
+      "street_norm": "pawla cierpiola",
+      "building": "2B",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105397",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "jozefa lompy|7B|3",
+      "street": "Józefa Lompy",
+      "street_norm": "jozefa lompy",
+      "building": "7B",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105396",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "borki|37B|15",
+      "street": "Borki",
+      "street_norm": "borki",
+      "building": "37B",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105395",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "a zgrzebnioka|7B|6",
       "street": "A. Zgrzebnioka",
       "street_norm": "a zgrzebnioka",

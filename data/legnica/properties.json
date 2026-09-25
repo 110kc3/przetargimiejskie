@@ -3,6 +3,105 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "zlotoryjska|43|3",
+      "street": "Złotoryjska",
+      "street_norm": "zlotoryjska",
+      "building": "43",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-07-30",
+          "round": 3,
+          "kind": "unknown",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 106.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-04",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "archived",
+          "area_m2": 106.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38893,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-22",
+          "round": 5,
+          "kind": "unknown",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 106.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39183,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Zlotoryjskiej-43.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 106.6
+    },
+    {
+      "key": "zwirki i wigury|10|2",
+      "street": "Żwirki i Wigury",
+      "street_norm": "zwirki i wigury",
+      "building": "10",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "archived",
+          "area_m2": 58.4,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38588,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zwirki-i-Wigury-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-22",
+          "round": 3,
+          "kind": "unknown",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 58.4,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39184,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Zwirki-i-Wigury-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 58.4
+    },
+    {
+      "key": "rycerska|16|10",
+      "street": "Rycerska",
+      "street_norm": "rycerska",
+      "building": "16",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-15",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 57.44,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39132,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Rycerskiej-16.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 57.44
+    },
+    {
       "key": "czarnieckiego|30|1A",
       "street": "Czarnieckiego",
       "street_norm": "czarnieckiego",
@@ -67,39 +166,6 @@
         }
       ],
       "area_m2": 27.83
-    },
-    {
-      "key": "zlotoryjska|43|3",
-      "street": "Złotoryjska",
-      "street_norm": "zlotoryjska",
-      "building": "43",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-30",
-          "round": 3,
-          "kind": "unknown",
-          "starting_price_pln": 330000,
-          "outcome": "archived",
-          "area_m2": 106.6,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38648,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-09-04",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 330000,
-          "outcome": "archived",
-          "area_m2": 106.6,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38893,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zlotoryjskiej-43.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 106.6
     },
     {
       "key": "wroclawska|97|5",
@@ -364,28 +430,6 @@
         }
       ],
       "area_m2": 56.2
-    },
-    {
-      "key": "zwirki i wigury|10|2",
-      "street": "Żwirki i Wigury",
-      "street_norm": "zwirki i wigury",
-      "building": "10",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 230000,
-          "outcome": "archived",
-          "area_m2": 58.4,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38588,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zwirki-i-Wigury-10.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 58.4
     },
     {
       "key": "jaworzynska|5|4",

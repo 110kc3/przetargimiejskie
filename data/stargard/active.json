@@ -4,60 +4,6 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. M. Konopnickiej 31b/8",
-      "address": {
-        "street": "M. Konopnickiej",
-        "street_norm": "m konopnickiej",
-        "building": "31B",
-        "apt": "8",
-        "key": "m konopnickiej|31B|8",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": null,
-      "auction_date": null,
-      "round": 1,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/ul-m-konopnickiej-31b-8-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Płatnerzy 1a/13",
-      "address": {
-        "street": "Płatnerzy",
-        "street_norm": "platnerzy",
-        "building": "1A",
-        "apt": "13",
-        "key": "platnerzy|1A|13",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": null,
-      "auction_date": null,
-      "round": 1,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/ul-platnerzy-1a-13-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Plac Świętego Ducha 26b/6",
-      "address": {
-        "street": "Plac Świętego Ducha",
-        "street_norm": "plac swietego ducha",
-        "building": "26B",
-        "apt": "6",
-        "key": "plac swietego ducha|26B|6",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": null,
-      "auction_date": null,
-      "round": 1,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/plac-swietego-ducha-26b-6-lokal-przeznaczony-do-samodzielnego-wykonania-remontu/",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Lokal niemieszkalny ul. Warszawska 8/3",
       "address": {
         "street": "Lokal niemieszkalny ul. Warszawska",
@@ -90,58 +36,6 @@
       "round": 1,
       "detail_url": "https://tbs.stargard.pl/ogloszenia/nieruchomosci-gruntowe-niezabudowane-obr-19-os-pyrzyckie-dzialki-numer-1-61-18-i-62-10-2-61-19-i-62-11-3-61-21-i-62-13/",
       "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62 28",
-      "address": {
-        "street": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62",
-        "street_norm": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62",
-        "building": "28",
-        "apt": null,
-        "key": "nieruchomosci gruntowe niezabudowane obr 19 os pyrzyckie dzialki numer 1 61 26 i 442 19 2 61 27 i 442 20 3 62|28|",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": 272000,
-      "auction_date": null,
-      "round": 1,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/nieruchomosci-gruntowe-niezabudowane-obr-19-os-pyrzyckie-dzialki-numer-1-61-26-i-442-19-2-61-27-i-442-20-3-62-28/",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Czarnieckiego 11/8",
-      "address": {
-        "street": "Czarnieckiego",
-        "street_norm": "czarnieckiego",
-        "building": "11",
-        "apt": "8",
-        "key": "czarnieckiego|11|8",
-        "warning": null
-      },
-      "area_m2": 26.54,
-      "starting_price_pln": 125000,
-      "auction_date": "2026-09-15",
-      "round": 2,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-ii-przetarg-na-sprzedaz-nieruchomosci/"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Hugona Kołłątaja 7/2",
-      "address": {
-        "street": "Hugona Kołłątaja",
-        "street_norm": "hugona kollataja",
-        "building": "7",
-        "apt": "2",
-        "key": "hugona kollataja|7|2",
-        "warning": null
-      },
-      "area_m2": 48.36,
-      "starting_price_pln": 270000,
-      "auction_date": "2026-09-15",
-      "round": 2,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-ii-przetarg-na-sprzedaz-nieruchomosci/"
     }
   ],
   "wykaz": []

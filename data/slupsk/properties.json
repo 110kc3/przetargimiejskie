@@ -3,26 +3,48 @@
   "city": "slupsk",
   "properties": [
     {
-      "key": "zygmunta krasinskiego|17|7A",
-      "street": "Zygmunta Krasińskiego",
-      "street_norm": "zygmunta krasinskiego",
-      "building": "17",
-      "apt": "7A",
+      "key": "wojska polskiego|8|3",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "8",
+      "apt": "3",
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-10-13",
+          "date": "2026-12-01",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 490000,
+          "starting_price_pln": 510000,
           "outcome": "active",
-          "area_m2": 123.36,
-          "detail_url": "https://bip.um.slupsk.pl/przetargi/3185.html",
+          "area_m2": 148.4,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3231.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
       ],
-      "area_m2": 123.36
+      "area_m2": 148.4
+    },
+    {
+      "key": "stefana starzynskiego|8|1",
+      "street": "Stefana Starzyńskiego",
+      "street_norm": "stefana starzynskiego",
+      "building": "8",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 799000,
+          "outcome": "active",
+          "area_m2": 130.05,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3205.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 130.05
     },
     {
       "key": "s jaracza|21-21A|5",
@@ -37,9 +59,20 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 210000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 52.24,
           "detail_url": "https://bip.um.slupsk.pl/przetargi/3193.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 52.24,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3237.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -59,9 +92,20 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 19.54,
           "detail_url": "https://bip.um.slupsk.pl/przetargi/3192.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 19.54,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3232.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -92,14 +136,289 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 95.57,
           "detail_url": "https://bip.um.slupsk.pl/przetargi/3189.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-30",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 95.57,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3239.html",
           "wadium_deadline": null,
           "viewing_date": null
         }
       ],
       "area_m2": 95.57
+    },
+    {
+      "key": "ludwika solskiego|19|3",
+      "street": "Ludwika Solskiego",
+      "street_norm": "ludwika solskiego",
+      "building": "19",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 480000,
+          "outcome": "archived",
+          "area_m2": 111.54,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3167.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "active",
+          "area_m2": 111.54,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3216.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 111.54
+    },
+    {
+      "key": "kollataja 39 kollataja|39A|4A",
+      "street": "Kołłątaja 39, Kołłątaja",
+      "street_norm": "kollataja 39 kollataja",
+      "building": "39A",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 165000,
+          "outcome": "active",
+          "area_m2": 30.94,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3222.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.94
+    },
+    {
+      "key": "juliana falata|1|5",
+      "street": "Juliana Fałata",
+      "street_norm": "juliana falata",
+      "building": "1",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 38.54,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3220.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 38.54
+    },
+    {
+      "key": "podgornej|2A|6",
+      "street": "Podgórna",
+      "street_norm": "podgornej",
+      "building": "2A",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 39.88,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3219.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 39.88
+    },
+    {
+      "key": "jana kilinskiego|18|6",
+      "street": "Jana Kilińskiego",
+      "street_norm": "jana kilinskiego",
+      "building": "18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 95.55,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3187.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 95.55,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3225.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 95.55
+    },
+    {
+      "key": "szarych szeregow|5|2",
+      "street": "Szarych Szeregów",
+      "street_norm": "szarych szeregow",
+      "building": "5",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 560000,
+          "outcome": "archived",
+          "area_m2": 102.51,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3166.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 102.51,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3226.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 102.51
+    },
+    {
+      "key": "stefana starzynskiego|1|5",
+      "street": "Stefana Starzyńskiego",
+      "street_norm": "stefana starzynskiego",
+      "building": "1",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "archived",
+          "area_m2": 123.93,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3154.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-27",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 123.93,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3223.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 123.93
+    },
+    {
+      "key": "ignacego jana paderewskiego|7|1",
+      "street": "Ignacego Jana Paderewskiego",
+      "street_norm": "ignacego jana paderewskiego",
+      "building": "7",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "active",
+          "area_m2": 63.36,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3209.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 63.36
+    },
+    {
+      "key": "teatralnej|5|1A",
+      "street": "Teatralna",
+      "street_norm": "teatralnej",
+      "building": "5",
+      "apt": "1A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 39.7,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3208.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 39.7
+    },
+    {
+      "key": "zygmunta krasinskiego|17|7A",
+      "street": "Zygmunta Krasińskiego",
+      "street_norm": "zygmunta krasinskiego",
+      "building": "17",
+      "apt": "7A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 490000,
+          "outcome": "active",
+          "area_m2": 123.36,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3185.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 123.36
     },
     {
       "key": "nad sluzami|32|14",
@@ -114,7 +433,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 60000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 30.16,
           "detail_url": "https://bip.um.slupsk.pl/przetargi/3190.html",
           "wadium_deadline": null,
@@ -136,7 +455,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 65000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 34.01,
           "detail_url": "https://bip.um.slupsk.pl/przetargi/3188.html",
           "wadium_deadline": null,
@@ -144,28 +463,6 @@
         }
       ],
       "area_m2": 34.01
-    },
-    {
-      "key": "jana kilinskiego|18|6",
-      "street": "Jana Kilińskiego",
-      "street_norm": "jana kilinskiego",
-      "building": "18",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-14",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "active",
-          "area_m2": 95.55,
-          "detail_url": "https://bip.um.slupsk.pl/przetargi/3187.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 95.55
     },
     {
       "key": "henryka poboznego|18|2",
@@ -180,7 +477,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 90000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 40.26,
           "detail_url": "https://bip.um.slupsk.pl/przetargi/3186.html",
           "wadium_deadline": null,
@@ -188,50 +485,6 @@
         }
       ],
       "area_m2": 40.26
-    },
-    {
-      "key": "ludwika solskiego|19|3",
-      "street": "Ludwika Solskiego",
-      "street_norm": "ludwika solskiego",
-      "building": "19",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 480000,
-          "outcome": "archived",
-          "area_m2": 111.54,
-          "detail_url": "https://bip.um.slupsk.pl/przetargi/3167.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 111.54
-    },
-    {
-      "key": "szarych szeregow|5|2",
-      "street": "Szarych Szeregów",
-      "street_norm": "szarych szeregow",
-      "building": "5",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 560000,
-          "outcome": "archived",
-          "area_m2": 102.51,
-          "detail_url": "https://bip.um.slupsk.pl/przetargi/3166.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 102.51
     },
     {
       "key": "zygmunta krasinskiego|13|10",
@@ -254,28 +507,6 @@
         }
       ],
       "area_m2": 46.53
-    },
-    {
-      "key": "stefana starzynskiego|1|5",
-      "street": "Stefana Starzyńskiego",
-      "street_norm": "stefana starzynskiego",
-      "building": "1",
-      "apt": "5",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-09",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 280000,
-          "outcome": "archived",
-          "area_m2": 123.93,
-          "detail_url": "https://bip.um.slupsk.pl/przetargi/3154.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 123.93
     }
   ]
 }

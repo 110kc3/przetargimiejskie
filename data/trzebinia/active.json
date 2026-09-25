@@ -4,6 +4,57 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Marszałka Piłsudskiego w Trzebini Ogłoszenie Burmistrza Miasta Trzebini z dnia 16",
+      "address": {
+        "street": "Marszałka Piłsudskiego w Trzebini Ogłoszenie Burmistrza Miasta Trzebini z dnia",
+        "street_norm": "marszalka pilsudskiego w trzebini ogloszenie burmistrza miasta trzebini z dnia",
+        "building": "16",
+        "apt": null,
+        "key": "marszalka pilsudskiego w trzebini ogloszenie burmistrza miasta trzebini z dnia|16|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 1660000,
+      "auction_date": "2025-09-25",
+      "round": 1,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12419-ogloszenie-przetarg-pilsudkiego-125-do-27-11-2026"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Marszałka Piłsudskiego w Trzebini Ogłoszenie Burmistrza Miasta Trzebini z dnia 09",
+      "address": {
+        "street": "Marszałka Piłsudskiego w Trzebini Ogłoszenie Burmistrza Miasta Trzebini z dnia",
+        "street_norm": "marszalka pilsudskiego w trzebini ogloszenie burmistrza miasta trzebini z dnia",
+        "building": "09",
+        "apt": null,
+        "key": "marszalka pilsudskiego w trzebini ogloszenie burmistrza miasta trzebini z dnia|09|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 4000,
+      "auction_date": "2026-05-28",
+      "round": 1,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12412-ogloszenie-burmistrza-miasta-trzebini-z-dnia-09-09-2026-r-i-przetarg-ustny-nieograniczony-na-sprzedaz-udzialu-w-prawie-wlasnosci-nieruchomosci-zabudowanej-w-czesci-budynkiem-gospodarczym-polozonej-przy-ulicy-marszalka-pilsudskiego-w-trzebini"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Marszałka Piłsudskiego w Trzebini Ogłoszenie Burmistrza Miasta Trzebini z dnia 09",
+      "address": {
+        "street": "Marszałka Piłsudskiego w Trzebini Ogłoszenie Burmistrza Miasta Trzebini z dnia",
+        "street_norm": "marszalka pilsudskiego w trzebini ogloszenie burmistrza miasta trzebini z dnia",
+        "building": "09",
+        "apt": null,
+        "key": "marszalka pilsudskiego w trzebini ogloszenie burmistrza miasta trzebini z dnia|09|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 102000,
+      "auction_date": "2026-05-28",
+      "round": 1,
+      "detail_url": "https://trzebinia.pl/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/12411-ogloszenie-burmistrza-miasta-trzebini-z-dnia-09-09-2026-r"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Kościuszki 24/1",
       "address": {
         "street": "Kościuszki",
