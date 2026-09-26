@@ -592,7 +592,7 @@
           "date": "2026-09-25",
           "round": 1,
           "starting_price_pln": 250000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1359,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Pogodna-dz.-3002_290,24796.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -623,7 +623,7 @@
           "date": "2026-09-25",
           "round": 1,
           "starting_price_pln": 300000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 2757,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Wroclawska-dz.-3159_126,24795.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -634,149 +634,6 @@
           "nr": "3159/126"
         }
       ]
-    },
-    {
-      "key": "addr|piekarska 86; piekarska 86 b",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Piekarska 86; Piekarska 86 B",
-      "building": null,
-      "address_raw": "Piekarska 86; Piekarska 86 B",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.921757935069152%2C50.35611343206733%2C18.922171185361478%2C50.356299814419664&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.9c218f0f-104c-4dbc-b16f-e6f8fbef620c",
-      "area_m2": 403,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-24",
-          "round": 1,
-          "starting_price_pln": 200000,
-          "outcome": "archived",
-          "area_m2": 403,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-86-i-86B,24786.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|1722/25",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "1722/25",
-      "obreb": null,
-      "street": "Kamienna",
-      "building": null,
-      "address_raw": "Kamienna dz. 1722/25",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.906686885162518%2C50.337624553536244%2C18.907975930646902%2C50.338235039148884&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.827abcad-841a-430a-90fb-39ca1a2a0a50",
-      "area_m2": 2505,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-22",
-          "round": 1,
-          "starting_price_pln": 220000,
-          "outcome": "archived",
-          "area_m2": 2505,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Kamienna-dz.-1722-25,24722.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1722/25"
-        }
-      ]
-    },
-    {
-      "key": "addr|tadeusza boya-żeleńskiego; powstańców",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Tadeusza Boya-Żeleńskiego; Powstańców",
-      "building": null,
-      "address_raw": "Tadeusza Boya-Żeleńskiego; Powstańców",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.81570896334619%2C50.38867442978172%2C18.816858834079394%2C50.389854627997636&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.98540e51-937a-43b3-a52c-a3016e945102",
-      "area_m2": 1570,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-21",
-          "round": 2,
-          "starting_price_pln": 202500,
-          "outcome": "archived",
-          "area_m2": 1570,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Powstancow-i-Boya-Zelenskiego,24726.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|3078/37",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": "3078/37",
-      "obreb": null,
-      "street": "Stanisława Witczaka",
-      "building": null,
-      "address_raw": "Stanisława Witczaka dz. 3078/37",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.935023397992833%2C50.36167421596538%2C18.935111362512977%2C50.3617366747597&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.0b518067-c965-4643-9373-c4f61fb2129a",
-      "area_m2": 20,
-      "zoning": "zabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-21",
-          "round": 1,
-          "starting_price_pln": 28000,
-          "outcome": "archived",
-          "area_m2": 20,
-          "detail_url": "https://www.bytom.pl/bip/download/ogloszenie-przetargu-ul.-Witczaka-dz.-3078_37-udzial-ustny-I-zabud,24725.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3078/37"
-        }
-      ]
-    },
-    {
-      "key": "addr|ostatnia; kolonia zgorzelec",
-      "kind": "grunt",
-      "city": "bytom",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Ostatnia; Kolonia Zgorzelec",
-      "building": null,
-      "address_raw": "Ostatnia; Kolonia Zgorzelec",
-      "dzialka_id": null,
-      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.901310936294447%2C50.32330583299623%2C18.903014141184972%2C50.324635234118965&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.f25bb3c7-2246-4d9a-bb4e-48f67ef13029",
-      "area_m2": 8969,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-18",
-          "round": 2,
-          "starting_price_pln": 850000,
-          "outcome": "archived",
-          "area_m2": 8969,
-          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Ostatnia_Kolonia-Zgorzelec-dz.-1558_85-ustny-II-niezabud,24425.doc",
-          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
-        }
-      ],
-      "parcels": []
     }
   ]
 }
