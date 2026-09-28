@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Sienkiewicza 18 m 13",
+      "address": {
+        "street": "Sienkiewicza",
+        "street_norm": "sienkiewicza",
+        "building": "18",
+        "apt": "13",
+        "key": "sienkiewicza|18|13",
+        "warning": null
+      },
+      "auction_date": "2026-12-09",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 604100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-14.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Gen. Józefa Bema 89C m 54",
       "address": {
         "street": "Gen. Józefa Bema",

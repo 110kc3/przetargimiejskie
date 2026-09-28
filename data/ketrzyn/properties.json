@@ -17,7 +17,7 @@
           "starting_price_pln": 169000,
           "outcome": "active",
           "area_m2": 48.3,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-lokalu-mieszkalnego-nr-30-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-17a-w-ketrzynie",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/3720736c",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -32,6 +32,18 @@
       "apt": "38",
       "kind": "uzytkowy",
       "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 48000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20250508/przetarg_informacja_o_wyniku_chrobrego_6.pdf",
+          "notes": [],
+          "area_m2": 24.6
+        },
         {
           "date": "2025-12-05",
           "round": 1,
@@ -52,7 +64,7 @@
           "outcome": "unsold",
           "unsold_reason": "negative_no_bidders",
           "final_price_pln": null,
-          "source_pdf": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/informacja-o-wyniku-przetargu-lokal-mieszkalny-nr-38-ul-boleslawa-chrobrego-6-w-ketrzynie",
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20260128-3/informacja-o-wyniku-przetargu.pdf",
           "notes": [],
           "area_m2": 24.6,
           "round_source": "inferred"
@@ -76,13 +88,37 @@
           "starting_price_pln": 42000,
           "outcome": "active",
           "area_m2": 24.6,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-lokalu-niemieszkalnego-nr-38-polozonego-w-budynku-przy-ul-boleslawa-chrobrego-6-w-ketrzynie-2",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/f9e11be6",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
         }
       ],
       "area_m2": 24.6
+    },
+    {
+      "key": "michala kajki|4|",
+      "street": "Michała Kajki",
+      "street_norm": "michala kajki",
+      "building": "4",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 3600,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/drugi-przetarg-na-dzierzawe-nieruchomosci-polozonej-przy-ul-michala-kajki-4-w-ketrzynie-z-przeznaczeniem-na-prowadzenie-dzialalnosci-gastronomicznej/informacja-o-wyniku-przetargu-ul-kajki-4-kawiarenka-sig.pdf",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "round_source": "inferred"
+        }
+      ]
     },
     {
       "key": "gen wladyslawa sikorskiego|72A|1",
@@ -181,6 +217,29 @@
         }
       ],
       "area_m2": 44.3
+    },
+    {
+      "key": "mazowieckiej|8|",
+      "street": "Mazowieckiej",
+      "street_norm": "mazowieckiej",
+      "building": "8",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-06-17",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "negative_no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastoketrzyn.pl/przetargi/20250507-2/przetarg_informacja_o_wyniku_mazowiecka_8_lok_2.pdf",
+          "notes": [],
+          "area_m2": 72.1
+        }
+      ],
+      "area_m2": 72.1
     }
   ]
 }

@@ -3,6 +3,51 @@
   "city": "bialystok",
   "properties": [
     {
+      "key": "sienkiewicza|18|13",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "18",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 604100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 604100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 604100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-14.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "ul wolodyjowskiego|8|6",
       "street": "ul.Wołodyjowskiego",
       "street_norm": "ul wolodyjowskiego",
@@ -844,39 +889,6 @@
           "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89a-m-60-61.html",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "sienkiewicza|18|13",
-      "street": "Sienkiewicza",
-      "street_norm": "sienkiewicza",
-      "building": "18",
-      "apt": "13",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-06-30",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 604100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-09-16",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 604100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-sienkiewicza-18-m-13-1.html",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"

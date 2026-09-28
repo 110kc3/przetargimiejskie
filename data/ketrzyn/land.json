@@ -3,6 +3,52 @@
   "city": "ketrzyn",
   "plots": [
     {
+      "key": "dz|nowa różanka|248/21",
+      "kind": "grunt",
+      "city": "ketrzyn",
+      "dzialka_nr": "248/21",
+      "obreb": "Nowa Różanka",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F21%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1542,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-13",
+          "round": 1,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2026-05-28",
+          "round": 2,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2026-10-08",
+          "round": 3,
+          "starting_price_pln": 64000,
+          "outcome": "active",
+          "area_m2": 1542,
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/d46b641e",
+          "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-gruntu-nr-24821-polozonej-w-obrebie-nr-30-w-miejscowosci-nowa-rozanka-gmina-ketrzyn-2/ogloszenie-o-przetargu-248.21.pdf"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "248/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F21%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kętrzyn|12/62",
       "kind": "grunt",
       "city": "ketrzyn",
@@ -44,7 +90,7 @@
           "starting_price_pln": 225000,
           "outcome": "active",
           "area_m2": 3326,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-nr-1262-polozonej-przy-ul-stefana-batorego-w-ketrzynie-2",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/74a9cb98",
           "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-nr-1262-polozonej-przy-ul-stefana-batorego-w-ketrzynie-2/ogloszenie-o-przetargu-12.62.pdf"
         }
       ],
@@ -97,7 +143,7 @@
           "starting_price_pln": 215500,
           "outcome": "active",
           "area_m2": 3185,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-nr-1263-polozonej-przy-ul-stefana-batorego-w-ketrzynie-2",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/4e9fbe1a",
           "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-nr-1263-polozonej-przy-ul-stefana-batorego-w-ketrzynie-2/ogloszenie-o-przetargu-12.63.pdf"
         }
       ],
@@ -105,52 +151,6 @@
         {
           "nr": "12/63",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2012%2F63%20K%C4%99trzyn%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|nowa różanka|248/21",
-      "kind": "grunt",
-      "city": "ketrzyn",
-      "dzialka_nr": "248/21",
-      "obreb": "Nowa Różanka",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F21%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1542,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-03-13",
-          "round": 1,
-          "starting_price_pln": 64000,
-          "outcome": "unsold",
-          "area_m2": 1542
-        },
-        {
-          "date": "2026-05-28",
-          "round": 2,
-          "starting_price_pln": 64000,
-          "outcome": "unsold",
-          "area_m2": 1542
-        },
-        {
-          "date": "2026-10-08",
-          "round": 3,
-          "starting_price_pln": 64000,
-          "outcome": "active",
-          "area_m2": 1542,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-gruntu-nr-24821-polozonej-w-obrebie-nr-30-w-miejscowosci-nowa-rozanka-gmina-ketrzyn-2",
-          "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-gruntu-nr-24821-polozonej-w-obrebie-nr-30-w-miejscowosci-nowa-rozanka-gmina-ketrzyn-2/ogloszenie-o-przetargu-248.21.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "248/21",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20248%2F21%20Nowa%20R%C3%B3%C5%BCanka%20K%C4%99trzyn%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -170,33 +170,40 @@
       "status": null,
       "listings": [
         {
-          "date": "2025-12-05",
+          "date": "2025-06-24",
           "round": 1,
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2025-12-05",
+          "round": 2,
           "starting_price_pln": 72000,
           "outcome": "unsold",
           "area_m2": 1542
         },
         {
           "date": "2026-03-17",
-          "round": 2,
-          "starting_price_pln": 64000,
-          "outcome": "unsold",
-          "area_m2": 1542
-        },
-        {
-          "date": "2026-05-26",
           "round": 3,
           "starting_price_pln": 64000,
           "outcome": "unsold",
           "area_m2": 1542
         },
         {
-          "date": "2026-10-06",
+          "date": "2026-05-26",
           "round": 4,
+          "starting_price_pln": 64000,
+          "outcome": "unsold",
+          "area_m2": 1542
+        },
+        {
+          "date": "2026-10-06",
+          "round": 5,
           "starting_price_pln": 64000,
           "outcome": "active",
           "area_m2": 1542,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-gruntu-nr-24820-polozonej-w-obrebie-nr-30-w-miejscowosci-nowa-rozanka-gmina-ketrzyn-3",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/15db2690",
           "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-gruntu-nr-24820-polozonej-w-obrebie-nr-30-w-miejscowosci-nowa-rozanka-gmina-ketrzyn/ogloszenie-o-przetargu-248.20-1788264786.pdf"
         }
       ],
@@ -249,7 +256,7 @@
           "starting_price_pln": 179100,
           "outcome": "active",
           "area_m2": 2420,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-nr-1260-polozonej-przy-ul-stefana-batorego-w-ketrzynie-2",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/15937a8b",
           "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-nr-1260-polozonej-przy-ul-stefana-batorego-w-ketrzynie/ogloszenie-o-przetargu-12.60.pdf"
         }
       ],
@@ -295,7 +302,7 @@
           "starting_price_pln": 205200,
           "outcome": "active",
           "area_m2": 3032,
-          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/sprzedaz-dzialki-nr-1261-polozonej-przy-ul-stefana-batorego-w-ketrzynie-3",
+          "detail_url": "https://bip.miastoketrzyn.pl/nieruchomosci/przetargi/18d41fb2",
           "source_url": "https://bip.miastoketrzyn.pl/przetargi/sprzedaz-dzialki-nr-1261-polozonej-przy-ul-stefana-batorego-w-ketrzynie-2/ogloszenie-o-przetargu-12.61.pdf"
         }
       ],

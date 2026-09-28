@@ -799,6 +799,27 @@
     },
     {
       "kind": "zabudowana",
+      "address_raw": "Piłsudskiego 34",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "34",
+        "apt": null,
+        "key": "pilsudskiego|34|",
+        "warning": null
+      },
+      "auction_date": "2026-11-27",
+      "published_date": "2026-09-28",
+      "round": 2,
+      "area_m2": 191.71,
+      "starting_price_pln": 404600,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,564908,ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+      "dzialka_nr": "2470",
+      "obreb": "0011 Sosnowiec",
+      "plot_area_m2": 154
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "Rybnej 3",
       "address": {
         "street": "Rybnej",

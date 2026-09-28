@@ -4,6 +4,66 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Sieradzka 9/35",
+      "address": {
+        "street": "Sieradzka",
+        "street_norm": "sieradzka",
+        "building": "9",
+        "apt": "35",
+        "key": "sieradzka|9|35",
+        "warning": null
+      },
+      "area_m2": 33.75,
+      "starting_price_pln": 161000,
+      "wadium_pln": 23000,
+      "auction_date": "2026-10-29",
+      "round": 2,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-sieradzkiej-9-antoniego-odynca-41-wojtowskiej-22-id180211/2026/09/28/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_ogloszenie_Sieradzka-9_Odynca-41_Wojtowska-22_20260928.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Antoniego Odyńca 41/5",
+      "address": {
+        "street": "Antoniego Odyńca",
+        "street_norm": "antoniego odynca",
+        "building": "41",
+        "apt": "5",
+        "key": "antoniego odynca|41|5",
+        "warning": null
+      },
+      "area_m2": 33.03,
+      "starting_price_pln": 147000,
+      "wadium_pln": 21000,
+      "auction_date": "2026-10-29",
+      "round": 2,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-sieradzkiej-9-antoniego-odynca-41-wojtowskiej-22-id180211/2026/09/28/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_ogloszenie_Sieradzka-9_Odynca-41_Wojtowska-22_20260928.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wójtowska 22/11",
+      "address": {
+        "street": "Wójtowska",
+        "street_norm": "wojtowska",
+        "building": "22",
+        "apt": "11",
+        "key": "wojtowska|22|11",
+        "warning": null
+      },
+      "area_m2": 22.51,
+      "starting_price_pln": 55000,
+      "wadium_pln": 11000,
+      "auction_date": "2026-10-29",
+      "round": 2,
+      "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ulicach-sieradzkiej-9-antoniego-odynca-41-wojtowskiej-22-id180211/2026/09/28/",
+      "source_url": "https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_przetarg_ogloszenie_Sieradzka-9_Odynca-41_Wojtowska-22_20260928.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Bolesława Limanowskiego 59/52",
       "address": {
         "street": "Bolesława Limanowskiego",

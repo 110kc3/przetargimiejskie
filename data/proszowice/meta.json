@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "proszowice",
-  "generated_at": "2026-09-27T09:57:16.625Z",
+  "generated_at": "2026-09-28T10:37:55.399Z",
   "source_pdf_count": 48,
   "parsed_records": 0,
   "parser_note_count": 21,
@@ -16,8 +16,8 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-27T09:55:11.105Z",
-  "last_successful_source_check_at": "2026-09-27T09:55:11.105Z",
+  "last_source_attempt_at": "2026-09-28T10:35:51.093Z",
+  "last_successful_source_check_at": "2026-09-28T10:35:51.093Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-27T09:55:11.105Z",
-      "last_success_at": "2026-09-27T09:55:11.105Z"
+      "last_attempt_at": "2026-09-28T10:35:51.093Z",
+      "last_success_at": "2026-09-28T10:35:51.093Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-27T09:55:11.105Z",
-      "last_success_at": "2026-09-27T09:55:11.105Z"
+      "last_attempt_at": "2026-09-28T10:35:51.093Z",
+      "last_success_at": "2026-09-28T10:35:51.093Z"
     }
   }
 }

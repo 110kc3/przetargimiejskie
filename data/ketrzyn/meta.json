@@ -2,38 +2,39 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "ketrzyn",
-  "generated_at": "2026-09-27T10:00:24.998Z",
-  "source_pdf_count": 21,
-  "parsed_records": 2,
-  "parser_note_count": 2,
-  "unique_properties": 5,
+  "generated_at": "2026-09-28T10:39:35.800Z",
+  "source_pdf_count": 25,
+  "parsed_records": 5,
+  "parser_note_count": 3,
+  "unique_properties": 7,
   "active_listings": 2,
   "active_auctions": 2,
-  "archived_auctions": 8,
+  "archived_auctions": 11,
   "wykaz_entries": 0,
   "land_plots": 9,
-  "land_listings": 25,
-  "retained_properties": 2,
+  "land_listings": 26,
+  "retained_properties": 3,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-27T09:59:13.620Z",
-  "last_successful_source_check_at": "2026-09-27T09:59:13.620Z",
+  "last_source_attempt_at": "2026-09-28T10:38:29.147Z",
+  "last_successful_source_check_at": "2026-09-28T10:38:29.147Z",
   "monitored_assets": [
     "commercial",
     "land",
-    "residential"
+    "residential",
+    "unknown"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-27T09:59:13.620Z",
-      "last_success_at": "2026-09-27T09:59:13.620Z"
+      "last_attempt_at": "2026-09-28T10:38:29.147Z",
+      "last_success_at": "2026-09-28T10:38:29.147Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-27T09:59:13.620Z",
-      "last_success_at": "2026-09-27T09:59:13.620Z"
+      "last_attempt_at": "2026-09-28T10:38:29.147Z",
+      "last_success_at": "2026-09-28T10:38:29.147Z"
     }
   }
 }
