@@ -1,6 +1,28 @@
 {
   "schema_version": 1,
   "city": "strzelce-opolskie",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "zabudowana",
+      "address_raw": "Strzelecka 33",
+      "address": {
+        "street": "Strzelecka",
+        "street_norm": "strzelecka",
+        "building": "33",
+        "apt": null,
+        "key": "strzelecka|33|",
+        "warning": null
+      },
+      "dzialka_nr": "102/4",
+      "obreb": null,
+      "area_m2": 467,
+      "starting_price_pln": 211000,
+      "auction_date": "2026-11-03",
+      "round": 4,
+      "detail_url": "https://gzmk.pl/bw/Rokowania_na_sprzedaz_zabudowanej_nieruchomosci_gminnej_polozonej_w_Rozmierce_przy_ul_Strzeleckiej_33,14,1011",
+      "published_date": "2026-09-29",
+      "round_source": "inferred"
+    }
+  ],
   "wykaz": []
 }

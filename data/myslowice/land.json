@@ -114,6 +114,37 @@
       ]
     },
     {
+      "key": "dz|2068/21",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "2068/21",
+      "obreb": null,
+      "street": "Wincentego Witosa",
+      "building": null,
+      "address_raw": "ul. Wincentego Witosa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202068%2F21%20Wincentego%20Witosa%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 685,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-03",
+          "round": 1,
+          "starting_price_pln": 142100,
+          "outcome": "active",
+          "area_m2": 685,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wincentego-wi",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wincentego-wi"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2068/21"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. harcerzy śląskich",
       "kind": "grunt",
       "city": "myslowice",

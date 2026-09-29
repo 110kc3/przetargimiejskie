@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "bydgoszcz",
-  "generated_at": "2026-09-28T10:29:33.153Z",
+  "generated_at": "2026-09-29T10:26:07.071Z",
   "source_pdf_count": 5,
   "parsed_records": 2,
   "parser_note_count": 0,
   "unique_properties": 15,
-  "active_listings": 0,
-  "active_auctions": 0,
+  "active_listings": 2,
+  "active_auctions": 2,
   "archived_auctions": 16,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 13,
+  "retained_properties": 11,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-28T10:29:26.207Z",
-  "last_successful_source_check_at": "2026-09-28T10:29:26.207Z",
+  "last_source_attempt_at": "2026-09-29T10:25:31.472Z",
+  "last_successful_source_check_at": "2026-09-29T10:25:31.472Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -26,13 +26,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-28T10:29:26.207Z",
-      "last_success_at": "2026-09-28T10:29:26.207Z"
+      "last_attempt_at": "2026-09-29T10:25:31.472Z",
+      "last_success_at": "2026-09-29T10:25:31.472Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-28T10:29:26.207Z",
+      "last_attempt_at": "2026-09-29T10:25:31.472Z",
       "last_success_at": null
     }
   }
