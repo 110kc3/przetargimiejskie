@@ -2,9 +2,9 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wroclaw",
-  "generated_at": "2026-09-29T10:42:50.068Z",
-  "source_pdf_count": 36,
-  "parsed_records": 36,
+  "generated_at": "2026-09-30T10:35:24.617Z",
+  "source_pdf_count": 35,
+  "parsed_records": 35,
   "parser_note_count": 0,
   "unique_properties": 69,
   "active_listings": 0,
@@ -13,24 +13,24 @@
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 33,
+  "retained_properties": 34,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-29T10:37:15.449Z",
-  "last_successful_source_check_at": "2026-09-29T10:37:15.449Z",
+  "last_source_attempt_at": "2026-09-30T10:29:31.579Z",
+  "last_successful_source_check_at": "2026-09-30T10:29:31.579Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-29T10:37:15.449Z",
-      "last_success_at": "2026-09-29T10:37:15.449Z"
+      "last_attempt_at": "2026-09-30T10:29:31.579Z",
+      "last_success_at": "2026-09-30T10:29:31.579Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-09-29T10:37:15.449Z",
+      "last_attempt_at": "2026-09-30T10:29:31.579Z",
       "last_success_at": null
     }
   }

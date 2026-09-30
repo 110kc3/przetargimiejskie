@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-29T10:48:15.965Z",
+  "generated_at": "2026-09-30T10:36:21.415Z",
   "cities": [
     {
       "id": "gliwice",
@@ -25,10 +25,10 @@
         "unknown"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:17:45.275Z",
+      "last_source_attempt_at": "2026-09-30T10:09:50.149Z",
       "last_successful_source_check_at": "2026-09-04T08:37:23.511Z",
       "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 77292,
+      "last_refresh_duration_ms": 82332,
       "last_refresh_request_count": 43
     },
     {
@@ -53,10 +53,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:17:45.794Z",
-      "last_successful_source_check_at": "2026-09-29T10:17:46.641Z",
+      "last_source_attempt_at": "2026-09-30T10:09:53.333Z",
+      "last_successful_source_check_at": "2026-09-30T10:09:54.201Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 57526,
+      "last_refresh_duration_ms": 62169,
       "last_refresh_request_count": 29
     },
     {
@@ -81,10 +81,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:17:46.996Z",
+      "last_source_attempt_at": "2026-09-30T10:09:47.229Z",
       "last_successful_source_check_at": "2026-09-27T09:42:01.860Z",
       "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 34149,
+      "last_refresh_duration_ms": 47380,
       "last_refresh_request_count": 23
     },
     {
@@ -95,8 +95,8 @@
       "host": "bip.miastozabrze.pl",
       "unique_properties": 318,
       "active_listings": 482,
-      "active_auctions": 14,
-      "archived_auctions": 492,
+      "active_auctions": 8,
+      "archived_auctions": 498,
       "wykaz_entries": 0,
       "land_plots": 28,
       "validation_status": "enforced",
@@ -108,11 +108,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:18:43.666Z",
-      "last_successful_source_check_at": "2026-09-29T10:18:44.511Z",
+      "last_source_attempt_at": "2026-09-30T10:10:56.005Z",
+      "last_successful_source_check_at": "2026-09-30T10:10:56.864Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 325222,
-      "last_refresh_request_count": 207
+      "last_refresh_duration_ms": 405989,
+      "last_refresh_request_count": 204
     },
     {
       "id": "sosnowiec",
@@ -136,10 +136,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:24:09.121Z",
-      "last_successful_source_check_at": "2026-09-29T10:24:09.966Z",
+      "last_source_attempt_at": "2026-09-30T10:17:42.498Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:43.351Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 493745,
+      "last_refresh_duration_ms": 494609,
       "last_refresh_request_count": 493
     },
     {
@@ -162,10 +162,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:32:23.372Z",
-      "last_successful_source_check_at": "2026-09-29T10:32:24.211Z",
+      "last_source_attempt_at": "2026-09-30T10:25:57.191Z",
+      "last_successful_source_check_at": "2026-09-30T10:25:58.040Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 39411,
+      "last_refresh_duration_ms": 39534,
       "last_refresh_request_count": 39
     },
     {
@@ -190,11 +190,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:33:03.278Z",
-      "last_successful_source_check_at": "2026-09-29T10:33:04.119Z",
+      "last_source_attempt_at": "2026-09-30T10:26:37.222Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:38.079Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 44807,
-      "last_refresh_request_count": 23
+      "last_refresh_duration_ms": 40295,
+      "last_refresh_request_count": 22
     },
     {
       "id": "myslowice",
@@ -203,8 +203,8 @@
       "authority": "Urząd Miasta Mysłowice",
       "host": "bip.myslowice.pl",
       "unique_properties": 38,
-      "active_listings": 65,
-      "active_auctions": 8,
+      "active_listings": 66,
+      "active_auctions": 9,
       "archived_auctions": 71,
       "wykaz_entries": 0,
       "land_plots": 50,
@@ -218,10 +218,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:17:50.897Z",
-      "last_successful_source_check_at": "2026-09-29T10:17:51.473Z",
+      "last_source_attempt_at": "2026-09-30T10:09:48.068Z",
+      "last_successful_source_check_at": "2026-09-30T10:09:48.946Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 176071,
+      "last_refresh_duration_ms": 177149,
       "last_refresh_request_count": 168
     },
     {
@@ -246,10 +246,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:17:53.197Z",
+      "last_source_attempt_at": "2026-09-30T10:09:59.893Z",
       "last_successful_source_check_at": "2026-09-09T08:31:35.575Z",
       "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 203810,
+      "last_refresh_duration_ms": 203259,
       "last_refresh_request_count": 15
     },
     {
@@ -273,10 +273,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:20:47.253Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:47.780Z",
+      "last_source_attempt_at": "2026-09-30T10:12:45.724Z",
+      "last_successful_source_check_at": "2026-09-30T10:12:46.588Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 358256,
+      "last_refresh_duration_ms": 358764,
       "last_refresh_request_count": 357
     },
     {
@@ -301,11 +301,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:26:45.853Z",
-      "last_successful_source_check_at": "2026-09-29T10:26:46.389Z",
+      "last_source_attempt_at": "2026-09-30T10:18:44.780Z",
+      "last_successful_source_check_at": "2026-09-30T10:18:45.631Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 383939,
-      "last_refresh_request_count": 156
+      "last_refresh_duration_ms": 416171,
+      "last_refresh_request_count": 155
     },
     {
       "id": "trzebinia",
@@ -327,11 +327,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:33:10.019Z",
-      "last_successful_source_check_at": "2026-09-29T10:33:10.556Z",
+      "last_source_attempt_at": "2026-09-30T10:25:41.295Z",
+      "last_successful_source_check_at": "2026-09-30T10:25:42.167Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 13593,
-      "last_refresh_request_count": 11
+      "last_refresh_duration_ms": 26974,
+      "last_refresh_request_count": 12
     },
     {
       "id": "krakow",
@@ -354,10 +354,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:33:23.947Z",
-      "last_successful_source_check_at": "2026-09-29T10:33:24.474Z",
+      "last_source_attempt_at": "2026-09-30T10:26:08.772Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:09.635Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 39394,
+      "last_refresh_duration_ms": 40677,
       "last_refresh_request_count": 29
     },
     {
@@ -381,10 +381,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:18:03.662Z",
-      "last_successful_source_check_at": "2026-09-29T10:18:04.331Z",
+      "last_source_attempt_at": "2026-09-30T10:09:56.596Z",
+      "last_successful_source_check_at": "2026-09-30T10:09:57.283Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 476625,
+      "last_refresh_duration_ms": 564408,
       "last_refresh_request_count": 388
     },
     {
@@ -408,10 +408,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:26:00.425Z",
-      "last_successful_source_check_at": "2026-09-29T10:26:01.123Z",
+      "last_source_attempt_at": "2026-09-30T10:19:21.092Z",
+      "last_successful_source_check_at": "2026-09-30T10:19:21.743Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 402251,
+      "last_refresh_duration_ms": 402408,
       "last_refresh_request_count": 402
     },
     {
@@ -433,10 +433,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:17:47.856Z",
-      "last_successful_source_check_at": "2026-09-29T10:17:48.703Z",
+      "last_source_attempt_at": "2026-09-30T10:09:49.197Z",
+      "last_successful_source_check_at": "2026-09-30T10:09:50.078Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 89373,
+      "last_refresh_duration_ms": 90338,
       "last_refresh_request_count": 88
     },
     {
@@ -457,11 +457,11 @@
       "monitored_assets": [
         "land"
       ],
-      "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:18:04.756Z",
-      "last_successful_source_check_at": "2026-09-29T10:18:05.603Z",
+      "coverage_status": "monitored",
+      "last_source_attempt_at": "2026-09-30T10:10:07.441Z",
+      "last_successful_source_check_at": "2026-09-30T10:10:08.027Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 37962,
+      "last_refresh_duration_ms": 37152,
       "last_refresh_request_count": 8
     },
     {
@@ -485,10 +485,10 @@
         "unknown"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:32:43.102Z",
-      "last_successful_source_check_at": "2026-09-29T10:32:43.771Z",
+      "last_source_attempt_at": "2026-09-30T10:26:03.928Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:04.590Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 8305,
+      "last_refresh_duration_ms": 8363,
       "last_refresh_request_count": 8
     },
     {
@@ -538,10 +538,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:32:51.831Z",
-      "last_successful_source_check_at": "2026-09-29T10:32:52.498Z",
+      "last_source_attempt_at": "2026-09-30T10:26:12.658Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:13.314Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 12398,
+      "last_refresh_duration_ms": 13377,
       "last_refresh_request_count": 11
     },
     {
@@ -563,10 +563,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:33:04.521Z",
-      "last_successful_source_check_at": "2026-09-29T10:33:05.188Z",
+      "last_source_attempt_at": "2026-09-30T10:26:26.159Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:26.872Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 70085,
+      "last_refresh_duration_ms": 33550,
       "last_refresh_request_count": 27
     },
     {
@@ -588,10 +588,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:17:49.562Z",
-      "last_successful_source_check_at": "2026-09-29T10:17:50.236Z",
+      "last_source_attempt_at": "2026-09-30T10:09:50.912Z",
+      "last_successful_source_check_at": "2026-09-30T10:09:51.783Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 126886,
+      "last_refresh_duration_ms": 89106,
       "last_refresh_request_count": 38
     },
     {
@@ -613,10 +613,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:19:56.998Z",
-      "last_successful_source_check_at": "2026-09-29T10:19:57.670Z",
+      "last_source_attempt_at": "2026-09-30T10:11:20.445Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:21.290Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 106579,
+      "last_refresh_duration_ms": 114072,
       "last_refresh_request_count": 105
     },
     {
@@ -640,11 +640,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:21:44.125Z",
-      "last_successful_source_check_at": "2026-09-29T10:21:44.794Z",
+      "last_source_attempt_at": "2026-09-30T10:13:15.014Z",
+      "last_successful_source_check_at": "2026-09-30T10:13:15.862Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 41764,
-      "last_refresh_request_count": 23
+      "last_refresh_duration_ms": 24340,
+      "last_refresh_request_count": 22
     },
     {
       "id": "walbrzych",
@@ -665,11 +665,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:22:26.438Z",
-      "last_successful_source_check_at": "2026-09-29T10:22:27.104Z",
+      "last_source_attempt_at": "2026-09-30T10:13:39.852Z",
+      "last_successful_source_check_at": "2026-09-30T10:13:40.694Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 736767,
-      "last_refresh_request_count": 186
+      "last_refresh_duration_ms": 455718,
+      "last_refresh_request_count": 189
     },
     {
       "id": "bialystok",
@@ -690,10 +690,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:34:43.758Z",
-      "last_successful_source_check_at": "2026-09-29T10:34:44.434Z",
+      "last_source_attempt_at": "2026-09-30T10:21:15.954Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:16.811Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 489442,
+      "last_refresh_duration_ms": 435706,
       "last_refresh_request_count": 351
     },
     {
@@ -715,10 +715,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:17:49.306Z",
-      "last_successful_source_check_at": "2026-09-29T10:17:50.179Z",
+      "last_source_attempt_at": "2026-09-30T10:09:49.415Z",
+      "last_successful_source_check_at": "2026-09-30T10:09:50.198Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 63037,
+      "last_refresh_duration_ms": 64036,
       "last_refresh_request_count": 59
     },
     {
@@ -740,10 +740,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:18:52.897Z",
-      "last_successful_source_check_at": "2026-09-29T10:18:53.752Z",
+      "last_source_attempt_at": "2026-09-30T10:10:53.995Z",
+      "last_successful_source_check_at": "2026-09-30T10:10:54.690Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 7852,
+      "last_refresh_duration_ms": 7029,
       "last_refresh_request_count": 4
     },
     {
@@ -766,10 +766,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:19:01.206Z",
-      "last_successful_source_check_at": "2026-09-29T10:19:02.057Z",
+      "last_source_attempt_at": "2026-09-30T10:11:01.572Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:02.262Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 17515,
+      "last_refresh_duration_ms": 16560,
       "last_refresh_request_count": 15
     },
     {
@@ -791,10 +791,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:19:19.267Z",
-      "last_successful_source_check_at": "2026-09-29T10:19:20.123Z",
+      "last_source_attempt_at": "2026-09-30T10:11:18.678Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:19.372Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 3625,
+      "last_refresh_duration_ms": 3395,
       "last_refresh_request_count": 2
     },
     {
@@ -816,11 +816,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:18:55.671Z",
-      "last_successful_source_check_at": "2026-09-29T10:18:56.362Z",
+      "last_source_attempt_at": "2026-09-30T10:11:01.601Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:02.627Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 38608,
-      "last_refresh_request_count": 34
+      "last_refresh_duration_ms": 36906,
+      "last_refresh_request_count": 33
     },
     {
       "id": "klodzko",
@@ -841,10 +841,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:19:23.440Z",
+      "last_source_attempt_at": "2026-09-30T10:11:22.227Z",
       "last_successful_source_check_at": "2026-09-09T08:33:07.981Z",
       "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 2554,
+      "last_refresh_duration_ms": 2165,
       "last_refresh_request_count": 1
     },
     {
@@ -865,12 +865,12 @@
       "monitored_assets": [
         "residential"
       ],
-      "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:19:33.182Z",
-      "last_successful_source_check_at": "2026-09-28T10:23:31.464Z",
-      "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 46692,
-      "last_refresh_request_count": 28
+      "coverage_status": "monitored",
+      "last_source_attempt_at": "2026-09-30T10:11:11.679Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:12.538Z",
+      "last_refresh_status": "ready",
+      "last_refresh_duration_ms": 28023,
+      "last_refresh_request_count": 25
     },
     {
       "id": "stargard",
@@ -891,10 +891,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:20:19.922Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:20.772Z",
+      "last_source_attempt_at": "2026-09-30T10:11:39.951Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:40.816Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 18986,
+      "last_refresh_duration_ms": 15337,
       "last_refresh_request_count": 12
     },
     {
@@ -916,10 +916,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:20:39.355Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:40.217Z",
+      "last_source_attempt_at": "2026-09-30T10:11:55.748Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:56.602Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 77678,
+      "last_refresh_duration_ms": 78345,
       "last_refresh_request_count": 77
     },
     {
@@ -941,10 +941,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:21:57.532Z",
-      "last_successful_source_check_at": "2026-09-29T10:21:58.397Z",
+      "last_source_attempt_at": "2026-09-30T10:13:14.401Z",
+      "last_successful_source_check_at": "2026-09-30T10:13:15.245Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 6674,
+      "last_refresh_duration_ms": 6675,
       "last_refresh_request_count": 5
     },
     {
@@ -966,10 +966,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:22:04.319Z",
+      "last_source_attempt_at": "2026-09-30T10:13:21.572Z",
       "last_successful_source_check_at": "2026-09-28T10:25:43.984Z",
       "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 38505,
+      "last_refresh_duration_ms": 38060,
       "last_refresh_request_count": 16
     },
     {
@@ -992,10 +992,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:19:29.072Z",
-      "last_successful_source_check_at": "2026-09-29T10:19:29.941Z",
+      "last_source_attempt_at": "2026-09-30T10:11:48.356Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:49.258Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 165472,
+      "last_refresh_duration_ms": 211856,
       "last_refresh_request_count": 115
     },
     {
@@ -1017,11 +1017,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:22:15.043Z",
+      "last_source_attempt_at": "2026-09-30T10:15:20.717Z",
       "last_successful_source_check_at": "2026-09-10T08:36:48.055Z",
       "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 7002,
-      "last_refresh_request_count": 3
+      "last_refresh_duration_ms": 5869,
+      "last_refresh_request_count": 2
     },
     {
       "id": "chelm",
@@ -1044,11 +1044,11 @@
         "unknown"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:22:22.084Z",
-      "last_successful_source_check_at": "2026-09-29T10:22:22.937Z",
+      "last_source_attempt_at": "2026-09-30T10:15:26.626Z",
+      "last_successful_source_check_at": "2026-09-30T10:15:27.487Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 580999,
-      "last_refresh_request_count": 573
+      "last_refresh_duration_ms": 582316,
+      "last_refresh_request_count": 574
     },
     {
       "id": "swinoujscie",
@@ -1070,10 +1070,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:32:03.579Z",
-      "last_successful_source_check_at": "2026-09-29T10:32:04.427Z",
+      "last_source_attempt_at": "2026-09-30T10:25:09.144Z",
+      "last_successful_source_check_at": "2026-09-30T10:25:10.003Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 184345,
+      "last_refresh_duration_ms": 89211,
       "last_refresh_request_count": 50
     },
     {
@@ -1095,10 +1095,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:19:58.614Z",
-      "last_successful_source_check_at": "2026-09-29T10:19:59.118Z",
+      "last_source_attempt_at": "2026-09-30T10:11:44.871Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:45.726Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 5546,
+      "last_refresh_duration_ms": 6999,
       "last_refresh_request_count": 3
     },
     {
@@ -1123,10 +1123,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:35:08.079Z",
-      "last_successful_source_check_at": "2026-09-29T10:35:08.931Z",
+      "last_source_attempt_at": "2026-09-30T10:26:38.863Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:39.734Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 51606,
+      "last_refresh_duration_ms": 62567,
       "last_refresh_request_count": 33
     },
     {
@@ -1148,10 +1148,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:19:54.494Z",
-      "last_successful_source_check_at": "2026-09-29T10:19:55.348Z",
+      "last_source_attempt_at": "2026-09-30T10:11:50.561Z",
+      "last_successful_source_check_at": "2026-09-30T10:11:51.411Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 28575,
+      "last_refresh_duration_ms": 28439,
       "last_refresh_request_count": 28
     },
     {
@@ -1173,10 +1173,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:20:23.143Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:23.987Z",
+      "last_source_attempt_at": "2026-09-30T10:12:19.155Z",
+      "last_successful_source_check_at": "2026-09-30T10:12:19.994Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 16946,
+      "last_refresh_duration_ms": 16075,
       "last_refresh_request_count": 15
     },
     {
@@ -1198,10 +1198,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:20:40.582Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:41.436Z",
+      "last_source_attempt_at": "2026-09-30T10:12:35.768Z",
+      "last_successful_source_check_at": "2026-09-30T10:12:36.611Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 29204,
+      "last_refresh_duration_ms": 27070,
       "last_refresh_request_count": 28
     },
     {
@@ -1221,10 +1221,10 @@
       "validation_review_due": null,
       "monitored_assets": [],
       "coverage_status": "unknown",
-      "last_source_attempt_at": "2026-09-29T10:21:09.948Z",
-      "last_successful_source_check_at": "2026-09-29T10:21:10.795Z",
+      "last_source_attempt_at": "2026-09-30T10:13:03.197Z",
+      "last_successful_source_check_at": "2026-09-30T10:13:04.043Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 65770,
+      "last_refresh_duration_ms": 64735,
       "last_refresh_request_count": 64
     },
     {
@@ -1247,10 +1247,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:22:16.177Z",
-      "last_successful_source_check_at": "2026-09-29T10:22:17.022Z",
+      "last_source_attempt_at": "2026-09-30T10:14:08.473Z",
+      "last_successful_source_check_at": "2026-09-30T10:14:09.310Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 156781,
+      "last_refresh_duration_ms": 114393,
       "last_refresh_request_count": 96
     },
     {
@@ -1272,10 +1272,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:20:05.626Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:06.554Z",
+      "last_source_attempt_at": "2026-09-30T10:12:05.420Z",
+      "last_successful_source_check_at": "2026-09-30T10:12:06.279Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 11388,
+      "last_refresh_duration_ms": 12971,
       "last_refresh_request_count": 6
     },
     {
@@ -1298,10 +1298,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:20:36.173Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:36.768Z",
+      "last_source_attempt_at": "2026-09-30T10:12:19.563Z",
+      "last_successful_source_check_at": "2026-09-30T10:12:20.209Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 116530,
+      "last_refresh_duration_ms": 122826,
       "last_refresh_request_count": 108
     },
     {
@@ -1323,10 +1323,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:22:33.165Z",
-      "last_successful_source_check_at": "2026-09-29T10:22:33.744Z",
+      "last_source_attempt_at": "2026-09-30T10:14:22.897Z",
+      "last_successful_source_check_at": "2026-09-30T10:14:23.536Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 67297,
+      "last_refresh_duration_ms": 67526,
       "last_refresh_request_count": 66
     },
     {
@@ -1340,7 +1340,7 @@
       "active_auctions": 1,
       "archived_auctions": 49,
       "wykaz_entries": 0,
-      "land_plots": 13,
+      "land_plots": 12,
       "validation_status": "quarantined",
       "validation_reason": "legacy address parsing findings",
       "validation_review_due": "2026-10-06",
@@ -1350,11 +1350,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:23:40.921Z",
-      "last_successful_source_check_at": "2026-09-29T10:23:41.494Z",
+      "last_source_attempt_at": "2026-09-30T10:15:30.805Z",
+      "last_successful_source_check_at": "2026-09-30T10:15:31.458Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 109604,
-      "last_refresh_request_count": 109
+      "last_refresh_duration_ms": 130907,
+      "last_refresh_request_count": 108
     },
     {
       "id": "ostroleka",
@@ -1375,10 +1375,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:20:40.013Z",
-      "last_successful_source_check_at": "2026-09-29T10:20:40.881Z",
+      "last_source_attempt_at": "2026-09-30T10:12:44.651Z",
+      "last_successful_source_check_at": "2026-09-30T10:12:45.522Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 24866,
+      "last_refresh_duration_ms": 23544,
       "last_refresh_request_count": 22
     },
     {
@@ -1402,11 +1402,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:25:30.894Z",
-      "last_successful_source_check_at": "2026-09-29T10:25:31.472Z",
+      "last_source_attempt_at": "2026-09-30T10:17:41.994Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:42.632Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 36437,
-      "last_refresh_request_count": 14
+      "last_refresh_duration_ms": 16388,
+      "last_refresh_request_count": 12
     },
     {
       "id": "gorzow-wielkopolski",
@@ -1428,11 +1428,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:21:47.956Z",
-      "last_successful_source_check_at": "2026-09-29T10:21:48.468Z",
+      "last_source_attempt_at": "2026-09-30T10:13:34.238Z",
+      "last_successful_source_check_at": "2026-09-30T10:13:35.082Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 10631,
-      "last_refresh_request_count": 8
+      "last_refresh_duration_ms": 82945,
+      "last_refresh_request_count": 31
     },
     {
       "id": "naklo-nad-notecia",
@@ -1454,11 +1454,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:26:07.675Z",
-      "last_successful_source_check_at": "2026-09-29T10:26:08.252Z",
+      "last_source_attempt_at": "2026-09-30T10:17:58.906Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:59.555Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 143604,
-      "last_refresh_request_count": 103
+      "last_refresh_duration_ms": 160335,
+      "last_refresh_request_count": 105
     },
     {
       "id": "zgorzelec",
@@ -1482,10 +1482,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:21:49.548Z",
-      "last_successful_source_check_at": "2026-09-29T10:21:50.389Z",
+      "last_source_attempt_at": "2026-09-30T10:14:00.779Z",
+      "last_successful_source_check_at": "2026-09-30T10:14:01.663Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 6990,
+      "last_refresh_duration_ms": 7690,
       "last_refresh_request_count": 6
     },
     {
@@ -1507,11 +1507,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:22:23.013Z",
-      "last_successful_source_check_at": "2026-09-29T10:22:23.863Z",
+      "last_source_attempt_at": "2026-09-30T10:14:29.927Z",
+      "last_successful_source_check_at": "2026-09-30T10:14:30.804Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 104496,
-      "last_refresh_request_count": 103
+      "last_refresh_duration_ms": 106848,
+      "last_refresh_request_count": 105
     },
     {
       "id": "zlotoryja",
@@ -1533,11 +1533,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:21:56.686Z",
-      "last_successful_source_check_at": "2026-09-29T10:21:57.520Z",
+      "last_source_attempt_at": "2026-09-30T10:14:08.820Z",
+      "last_successful_source_check_at": "2026-09-30T10:14:09.685Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 176891,
-      "last_refresh_request_count": 120
+      "last_refresh_duration_ms": 180586,
+      "last_refresh_request_count": 121
     },
     {
       "id": "choszczno",
@@ -1561,10 +1561,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:23:11.739Z",
-      "last_successful_source_check_at": "2026-09-29T10:23:12.588Z",
+      "last_source_attempt_at": "2026-09-30T10:15:22.096Z",
+      "last_successful_source_check_at": "2026-09-30T10:15:22.959Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 34187,
+      "last_refresh_duration_ms": 38857,
       "last_refresh_request_count": 33
     },
     {
@@ -1577,7 +1577,7 @@
       "active_listings": 1,
       "active_auctions": 1,
       "archived_auctions": 3,
-      "wykaz_entries": 1,
+      "wykaz_entries": 0,
       "land_plots": 1,
       "validation_status": "enforced",
       "validation_reason": null,
@@ -1589,11 +1589,11 @@
         "unknown"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:24:53.852Z",
-      "last_successful_source_check_at": "2026-09-25T10:44:01.214Z",
-      "last_refresh_status": "failed",
-      "last_refresh_duration_ms": 38075,
-      "last_refresh_request_count": 24
+      "last_source_attempt_at": "2026-09-30T10:17:09.775Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:10.618Z",
+      "last_refresh_status": "ready",
+      "last_refresh_duration_ms": 5473,
+      "last_refresh_request_count": 7
     },
     {
       "id": "namyslow",
@@ -1614,10 +1614,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:25:31.964Z",
-      "last_successful_source_check_at": "2026-09-29T10:25:32.803Z",
+      "last_source_attempt_at": "2026-09-30T10:17:15.581Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:16.445Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 46304,
+      "last_refresh_duration_ms": 57470,
       "last_refresh_request_count": 26
     },
     {
@@ -1639,10 +1639,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:26:18.786Z",
-      "last_successful_source_check_at": "2026-09-29T10:26:19.630Z",
+      "last_source_attempt_at": "2026-09-30T10:18:13.228Z",
+      "last_successful_source_check_at": "2026-09-30T10:18:14.067Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 26091,
+      "last_refresh_duration_ms": 26840,
       "last_refresh_request_count": 25
     },
     {
@@ -1656,7 +1656,7 @@
       "active_auctions": 0,
       "archived_auctions": 3,
       "wykaz_entries": 0,
-      "land_plots": 12,
+      "land_plots": 14,
       "validation_status": "enforced",
       "validation_reason": null,
       "validation_review_due": null,
@@ -1665,11 +1665,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:24:12.335Z",
-      "last_successful_source_check_at": "2026-09-29T10:24:13.226Z",
+      "last_source_attempt_at": "2026-09-30T10:16:29.012Z",
+      "last_successful_source_check_at": "2026-09-30T10:16:29.884Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 18964,
-      "last_refresh_request_count": 17
+      "last_refresh_duration_ms": 20364,
+      "last_refresh_request_count": 19
     },
     {
       "id": "miedzyrzecz",
@@ -1690,11 +1690,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:24:35.502Z",
-      "last_successful_source_check_at": "2026-09-29T10:24:36.386Z",
+      "last_source_attempt_at": "2026-09-30T10:16:34.114Z",
+      "last_successful_source_check_at": "2026-09-30T10:16:34.890Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 24505,
-      "last_refresh_request_count": 19
+      "last_refresh_duration_ms": 19679,
+      "last_refresh_request_count": 17
     },
     {
       "id": "pajeczno",
@@ -1716,10 +1716,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:28:51.262Z",
-      "last_successful_source_check_at": "2026-09-29T10:28:51.949Z",
+      "last_source_attempt_at": "2026-09-30T10:16:56.806Z",
+      "last_successful_source_check_at": "2026-09-30T10:16:57.460Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 25542,
+      "last_refresh_duration_ms": 25632,
       "last_refresh_request_count": 25
     },
     {
@@ -1745,10 +1745,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:24:31.794Z",
-      "last_successful_source_check_at": "2026-09-29T10:24:32.652Z",
+      "last_source_attempt_at": "2026-09-30T10:16:49.881Z",
+      "last_successful_source_check_at": "2026-09-30T10:16:50.739Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 260272,
+      "last_refresh_duration_ms": 259649,
       "last_refresh_request_count": 258
     },
     {
@@ -1771,10 +1771,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:25:27.725Z",
-      "last_successful_source_check_at": "2026-09-29T10:25:28.594Z",
+      "last_source_attempt_at": "2026-09-30T10:17:19.280Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:20.168Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 5253,
+      "last_refresh_duration_ms": 5387,
       "last_refresh_request_count": 4
     },
     {
@@ -1799,10 +1799,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:28:52.413Z",
-      "last_successful_source_check_at": "2026-09-29T10:28:53.279Z",
+      "last_source_attempt_at": "2026-09-30T10:21:09.942Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:10.790Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 149021,
+      "last_refresh_duration_ms": 148254,
       "last_refresh_request_count": 146
     },
     {
@@ -1825,10 +1825,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:31:21.934Z",
-      "last_successful_source_check_at": "2026-09-29T10:31:22.800Z",
+      "last_source_attempt_at": "2026-09-30T10:23:38.642Z",
+      "last_successful_source_check_at": "2026-09-30T10:23:39.490Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 12086,
+      "last_refresh_duration_ms": 12819,
       "last_refresh_request_count": 11
     },
     {
@@ -1851,10 +1851,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:31:34.470Z",
-      "last_successful_source_check_at": "2026-09-29T10:31:35.333Z",
+      "last_source_attempt_at": "2026-09-30T10:23:51.668Z",
+      "last_successful_source_check_at": "2026-09-30T10:23:52.509Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 126522,
+      "last_refresh_duration_ms": 125436,
       "last_refresh_request_count": 124
     },
     {
@@ -1877,10 +1877,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:26:03.731Z",
-      "last_successful_source_check_at": "2026-09-29T10:26:04.596Z",
+      "last_source_attempt_at": "2026-09-30T10:17:51.659Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:52.368Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 4031,
+      "last_refresh_duration_ms": 3513,
       "last_refresh_request_count": 3
     },
     {
@@ -1903,10 +1903,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:26:08.071Z",
-      "last_successful_source_check_at": "2026-09-29T10:26:08.959Z",
+      "last_source_attempt_at": "2026-09-30T10:17:55.324Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:56.151Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 834779,
+      "last_refresh_duration_ms": 264098,
       "last_refresh_request_count": 262
     },
     {
@@ -1930,10 +1930,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:40:03.357Z",
-      "last_successful_source_check_at": "2026-09-29T10:40:04.232Z",
+      "last_source_attempt_at": "2026-09-30T10:22:19.980Z",
+      "last_successful_source_check_at": "2026-09-30T10:22:20.692Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 80678,
+      "last_refresh_duration_ms": 79923,
       "last_refresh_request_count": 79
     },
     {
@@ -1982,10 +1982,10 @@
         "land"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:41:24.544Z",
-      "last_successful_source_check_at": "2026-09-29T10:41:25.420Z",
+      "last_source_attempt_at": "2026-09-30T10:23:40.451Z",
+      "last_successful_source_check_at": "2026-09-30T10:23:41.149Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 11335,
+      "last_refresh_duration_ms": 10599,
       "last_refresh_request_count": 10
     },
     {
@@ -2010,11 +2010,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:41:36.013Z",
-      "last_successful_source_check_at": "2026-09-29T10:41:36.891Z",
+      "last_source_attempt_at": "2026-09-30T10:23:51.605Z",
+      "last_successful_source_check_at": "2026-09-30T10:23:52.305Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 377122,
-      "last_refresh_request_count": 358
+      "last_refresh_duration_ms": 408609,
+      "last_refresh_request_count": 353
     },
     {
       "id": "sroda-wielkopolska",
@@ -2036,10 +2036,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:27:22.712Z",
-      "last_successful_source_check_at": "2026-09-29T10:27:23.306Z",
+      "last_source_attempt_at": "2026-09-30T10:17:56.900Z",
+      "last_successful_source_check_at": "2026-09-30T10:17:57.568Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 55144,
+      "last_refresh_duration_ms": 55270,
       "last_refresh_request_count": 55
     },
     {
@@ -2063,11 +2063,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:28:17.974Z",
-      "last_successful_source_check_at": "2026-09-29T10:28:18.556Z",
+      "last_source_attempt_at": "2026-09-30T10:18:52.518Z",
+      "last_successful_source_check_at": "2026-09-30T10:18:53.186Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 141630,
-      "last_refresh_request_count": 143
+      "last_refresh_duration_ms": 144397,
+      "last_refresh_request_count": 142
     },
     {
       "id": "wegorzewo",
@@ -2090,10 +2090,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:28:58.503Z",
-      "last_successful_source_check_at": "2026-09-29T10:28:59.388Z",
+      "last_source_attempt_at": "2026-09-30T10:19:14.019Z",
+      "last_successful_source_check_at": "2026-09-30T10:19:14.900Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 137112,
+      "last_refresh_duration_ms": 131138,
       "last_refresh_request_count": 129
     },
     {
@@ -2115,10 +2115,10 @@
         "land"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:29:42.728Z",
-      "last_successful_source_check_at": "2026-09-29T10:29:43.578Z",
+      "last_source_attempt_at": "2026-09-30T10:21:05.584Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:06.111Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 6626,
+      "last_refresh_duration_ms": 6190,
       "last_refresh_request_count": 5
     },
     {
@@ -2141,10 +2141,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:30:20.243Z",
-      "last_successful_source_check_at": "2026-09-29T10:30:20.904Z",
+      "last_source_attempt_at": "2026-09-30T10:21:45.155Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:45.937Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 13783,
+      "last_refresh_duration_ms": 13989,
       "last_refresh_request_count": 13
     },
     {
@@ -2167,10 +2167,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:30:40.041Z",
-      "last_successful_source_check_at": "2026-09-29T10:30:40.616Z",
+      "last_source_attempt_at": "2026-09-30T10:21:17.347Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:18.029Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 22460,
+      "last_refresh_duration_ms": 23128,
       "last_refresh_request_count": 21
     },
     {
@@ -2194,10 +2194,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:31:04.636Z",
-      "last_successful_source_check_at": "2026-09-29T10:31:05.328Z",
+      "last_source_attempt_at": "2026-09-30T10:21:52.693Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:53.553Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 37622,
+      "last_refresh_duration_ms": 33080,
       "last_refresh_request_count": 23
     },
     {
@@ -2220,10 +2220,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:31:43.844Z",
-      "last_successful_source_check_at": "2026-09-29T10:31:44.539Z",
+      "last_source_attempt_at": "2026-09-30T10:22:25.991Z",
+      "last_successful_source_check_at": "2026-09-30T10:22:26.872Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 22982,
+      "last_refresh_duration_ms": 23054,
       "last_refresh_request_count": 22
     },
     {
@@ -2233,10 +2233,10 @@
       "authority": "Prezydent Miasta Bolesławiec (Wydział Mienia i Gospodarki Nieruchomościami)",
       "host": "xn--bolesawiec-e0b.pl",
       "unique_properties": 13,
-      "active_listings": 4,
-      "active_auctions": 3,
-      "archived_auctions": 8,
-      "wykaz_entries": 13,
+      "active_listings": 2,
+      "active_auctions": 2,
+      "archived_auctions": 9,
+      "wykaz_entries": 11,
       "land_plots": 4,
       "validation_status": "enforced",
       "validation_reason": null,
@@ -2248,10 +2248,10 @@
         "unknown"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:31:02.966Z",
-      "last_successful_source_check_at": "2026-09-29T10:31:03.568Z",
+      "last_source_attempt_at": "2026-09-30T10:21:40.902Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:41.557Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 13925,
+      "last_refresh_duration_ms": 12586,
       "last_refresh_request_count": 10
     },
     {
@@ -2260,9 +2260,9 @@
       "voivodeship": "dolnoslaskie",
       "authority": "Urząd Miejski w Wołowie (Burmistrz Gminy Wołów)",
       "host": "wolow.pl",
-      "unique_properties": 22,
-      "active_listings": 4,
-      "active_auctions": 1,
+      "unique_properties": 23,
+      "active_listings": 5,
+      "active_auctions": 2,
       "archived_auctions": 5,
       "wykaz_entries": 18,
       "land_plots": 48,
@@ -2276,10 +2276,10 @@
         "unknown"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:31:17.311Z",
-      "last_successful_source_check_at": "2026-09-29T10:31:17.894Z",
+      "last_source_attempt_at": "2026-09-30T10:21:53.833Z",
+      "last_successful_source_check_at": "2026-09-30T10:21:54.491Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 251168,
+      "last_refresh_duration_ms": 251205,
       "last_refresh_request_count": 251
     },
     {
@@ -2303,10 +2303,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:32:09.786Z",
-      "last_successful_source_check_at": "2026-09-29T10:32:10.636Z",
+      "last_source_attempt_at": "2026-09-30T10:22:50.389Z",
+      "last_successful_source_check_at": "2026-09-30T10:22:51.255Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 81510,
+      "last_refresh_duration_ms": 81477,
       "last_refresh_request_count": 81
     },
     {
@@ -2329,10 +2329,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:33:31.672Z",
-      "last_successful_source_check_at": "2026-09-29T10:33:32.512Z",
+      "last_source_attempt_at": "2026-09-30T10:24:12.410Z",
+      "last_successful_source_check_at": "2026-09-30T10:24:13.251Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 34865,
+      "last_refresh_duration_ms": 34337,
       "last_refresh_request_count": 20
     },
     {
@@ -2346,7 +2346,7 @@
       "active_auctions": 0,
       "archived_auctions": 15,
       "wykaz_entries": 0,
-      "land_plots": 51,
+      "land_plots": 36,
       "validation_status": "enforced",
       "validation_reason": null,
       "validation_review_due": null,
@@ -2356,11 +2356,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:32:33.608Z",
-      "last_successful_source_check_at": "2026-09-29T10:32:34.223Z",
+      "last_source_attempt_at": "2026-09-30T10:23:19.208Z",
+      "last_successful_source_check_at": "2026-09-30T10:23:19.869Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 174513,
-      "last_refresh_request_count": 146
+      "last_refresh_duration_ms": 210415,
+      "last_refresh_request_count": 148
     },
     {
       "id": "jarocin",
@@ -2383,10 +2383,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:34:06.805Z",
-      "last_successful_source_check_at": "2026-09-29T10:34:07.650Z",
+      "last_source_attempt_at": "2026-09-30T10:24:47.292Z",
+      "last_successful_source_check_at": "2026-09-30T10:24:48.129Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 129624,
+      "last_refresh_duration_ms": 129658,
       "last_refresh_request_count": 129
     },
     {
@@ -2396,7 +2396,7 @@
       "authority": "Prezydent Miasta Jeleniej Góry",
       "host": "bip.jeleniagora.pl",
       "unique_properties": 31,
-      "active_listings": 22,
+      "active_listings": 19,
       "active_auctions": 21,
       "archived_auctions": 20,
       "wykaz_entries": 0,
@@ -2410,11 +2410,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:36:16.818Z",
-      "last_successful_source_check_at": "2026-09-29T10:36:17.651Z",
+      "last_source_attempt_at": "2026-09-30T10:26:57.494Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:58.333Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 119193,
-      "last_refresh_request_count": 66
+      "last_refresh_duration_ms": 110026,
+      "last_refresh_request_count": 65
     },
     {
       "id": "glubczyce",
@@ -2438,10 +2438,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:38:16.409Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:17.255Z",
+      "last_source_attempt_at": "2026-09-30T10:28:47.602Z",
+      "last_successful_source_check_at": "2026-09-30T10:28:48.452Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 6541,
+      "last_refresh_duration_ms": 8813,
       "last_refresh_request_count": 2
     },
     {
@@ -2463,10 +2463,10 @@
         "land"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:34:11.236Z",
-      "last_successful_source_check_at": "2026-09-29T10:34:11.897Z",
+      "last_source_attempt_at": "2026-09-30T10:26:28.027Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:28.926Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 4775,
+      "last_refresh_duration_ms": 4980,
       "last_refresh_request_count": 3
     },
     {
@@ -2489,10 +2489,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:39:06.557Z",
-      "last_successful_source_check_at": "2026-09-29T10:39:07.416Z",
+      "last_source_attempt_at": "2026-09-30T10:26:35.145Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:36.015Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 215392,
+      "last_refresh_duration_ms": 213094,
       "last_refresh_request_count": 212
     },
     {
@@ -2517,10 +2517,10 @@
         "unknown"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:34:32.845Z",
-      "last_successful_source_check_at": "2026-09-29T10:34:33.716Z",
+      "last_source_attempt_at": "2026-09-30T10:26:58.288Z",
+      "last_successful_source_check_at": "2026-09-30T10:26:59.164Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 63011,
+      "last_refresh_duration_ms": 61244,
       "last_refresh_request_count": 60
     },
     {
@@ -2542,11 +2542,11 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:35:36.244Z",
-      "last_successful_source_check_at": "2026-09-29T10:35:37.123Z",
+      "last_source_attempt_at": "2026-09-30T10:28:00.033Z",
+      "last_successful_source_check_at": "2026-09-30T10:28:00.880Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 126384,
-      "last_refresh_request_count": 124
+      "last_refresh_duration_ms": 124068,
+      "last_refresh_request_count": 123
     },
     {
       "id": "krosno-odrzanskie",
@@ -2567,10 +2567,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:34:41.885Z",
-      "last_successful_source_check_at": "2026-09-29T10:34:42.526Z",
+      "last_source_attempt_at": "2026-09-30T10:27:27.439Z",
+      "last_successful_source_check_at": "2026-09-30T10:27:28.045Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 41997,
+      "last_refresh_duration_ms": 41690,
       "last_refresh_request_count": 41
     },
     {
@@ -2592,10 +2592,10 @@
         "land"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:34:46.033Z",
-      "last_successful_source_check_at": "2026-09-29T10:34:46.631Z",
+      "last_source_attempt_at": "2026-09-30T10:27:24.084Z",
+      "last_successful_source_check_at": "2026-09-30T10:27:24.974Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 14714,
+      "last_refresh_duration_ms": 15074,
       "last_refresh_request_count": 14
     },
     {
@@ -2618,10 +2618,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:35:26.385Z",
-      "last_successful_source_check_at": "2026-09-29T10:35:27.255Z",
+      "last_source_attempt_at": "2026-09-30T10:27:38.976Z",
+      "last_successful_source_check_at": "2026-09-30T10:27:39.662Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 73958,
+      "last_refresh_duration_ms": 74200,
       "last_refresh_request_count": 73
     },
     {
@@ -2644,10 +2644,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:35:53.963Z",
-      "last_successful_source_check_at": "2026-09-29T10:35:54.835Z",
+      "last_source_attempt_at": "2026-09-30T10:27:47.305Z",
+      "last_successful_source_check_at": "2026-09-30T10:27:47.872Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 40531,
+      "last_refresh_duration_ms": 40073,
       "last_refresh_request_count": 40
     },
     {
@@ -2671,10 +2671,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:35:52.521Z",
-      "last_successful_source_check_at": "2026-09-29T10:35:53.378Z",
+      "last_source_attempt_at": "2026-09-30T10:28:07.982Z",
+      "last_successful_source_check_at": "2026-09-30T10:28:08.847Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 55966,
+      "last_refresh_duration_ms": 66090,
       "last_refresh_request_count": 55
     },
     {
@@ -2697,10 +2697,10 @@
         "land"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:37:43.135Z",
-      "last_successful_source_check_at": "2026-09-29T10:37:44.005Z",
+      "last_source_attempt_at": "2026-09-30T10:30:04.596Z",
+      "last_successful_source_check_at": "2026-09-30T10:30:05.451Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 14047,
+      "last_refresh_duration_ms": 15573,
       "last_refresh_request_count": 11
     },
     {
@@ -2723,10 +2723,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:37:57.680Z",
-      "last_successful_source_check_at": "2026-09-29T10:37:58.550Z",
+      "last_source_attempt_at": "2026-09-30T10:30:20.339Z",
+      "last_successful_source_check_at": "2026-09-30T10:30:21.186Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 3274,
+      "last_refresh_duration_ms": 3028,
       "last_refresh_request_count": 1
     },
     {
@@ -2750,10 +2750,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:38:01.202Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:02.123Z",
+      "last_source_attempt_at": "2026-09-30T10:30:23.862Z",
+      "last_successful_source_check_at": "2026-09-30T10:30:24.706Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 134023,
+      "last_refresh_duration_ms": 158895,
       "last_refresh_request_count": 131
     },
     {
@@ -2777,10 +2777,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:35:56.451Z",
-      "last_successful_source_check_at": "2026-09-29T10:35:57.325Z",
+      "last_source_attempt_at": "2026-09-30T10:28:09.494Z",
+      "last_successful_source_check_at": "2026-09-30T10:28:10.387Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 49464,
+      "last_refresh_duration_ms": 49549,
       "last_refresh_request_count": 49
     },
     {
@@ -2802,10 +2802,10 @@
         "land"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:36:46.421Z",
-      "last_successful_source_check_at": "2026-09-29T10:36:47.278Z",
+      "last_source_attempt_at": "2026-09-30T10:28:59.139Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:00.007Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 4783,
+      "last_refresh_duration_ms": 4053,
       "last_refresh_request_count": 3
     },
     {
@@ -2829,10 +2829,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:36:51.708Z",
-      "last_successful_source_check_at": "2026-09-29T10:36:52.557Z",
+      "last_source_attempt_at": "2026-09-30T10:29:03.693Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:04.589Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 22614,
+      "last_refresh_duration_ms": 26747,
       "last_refresh_request_count": 11
     },
     {
@@ -2854,11 +2854,11 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:37:14.592Z",
-      "last_successful_source_check_at": "2026-09-29T10:37:15.449Z",
+      "last_source_attempt_at": "2026-09-30T10:29:30.717Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:31.579Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 359326,
-      "last_refresh_request_count": 130
+      "last_refresh_duration_ms": 384864,
+      "last_refresh_request_count": 134
     },
     {
       "id": "grudziadz",
@@ -2879,10 +2879,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:36:34.578Z",
-      "last_successful_source_check_at": "2026-09-29T10:36:35.171Z",
+      "last_source_attempt_at": "2026-09-30T10:28:45.222Z",
+      "last_successful_source_check_at": "2026-09-30T10:28:45.832Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 113140,
+      "last_refresh_duration_ms": 167376,
       "last_refresh_request_count": 109
     },
     {
@@ -2905,10 +2905,10 @@
         "residential"
       ],
       "coverage_status": "valid_empty",
-      "last_source_attempt_at": "2026-09-29T10:43:14.087Z",
-      "last_successful_source_check_at": "2026-09-29T10:43:14.936Z",
+      "last_source_attempt_at": "2026-09-30T10:35:55.867Z",
+      "last_successful_source_check_at": "2026-09-30T10:35:56.723Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 8425,
+      "last_refresh_duration_ms": 8343,
       "last_refresh_request_count": 8
     },
     {
@@ -2931,10 +2931,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:37:06.376Z",
-      "last_successful_source_check_at": "2026-09-29T10:37:07.224Z",
+      "last_source_attempt_at": "2026-09-30T10:28:55.525Z",
+      "last_successful_source_check_at": "2026-09-30T10:28:56.389Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 101861,
+      "last_refresh_duration_ms": 103080,
       "last_refresh_request_count": 97
     },
     {
@@ -2957,10 +2957,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:37:12.112Z",
-      "last_successful_source_check_at": "2026-09-29T10:37:12.789Z",
+      "last_source_attempt_at": "2026-09-30T10:29:03.544Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:04.082Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 61970,
+      "last_refresh_duration_ms": 59706,
       "last_refresh_request_count": 59
     },
     {
@@ -2984,10 +2984,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:37:24.438Z",
-      "last_successful_source_check_at": "2026-09-29T10:37:25.212Z",
+      "last_source_attempt_at": "2026-09-30T10:29:29.181Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:29.686Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 30578,
+      "last_refresh_duration_ms": 30161,
       "last_refresh_request_count": 29
     },
     {
@@ -3010,10 +3010,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:38:22.083Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:22.936Z",
+      "last_source_attempt_at": "2026-09-30T10:29:36.695Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:37.383Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 13853,
+      "last_refresh_duration_ms": 27178,
       "last_refresh_request_count": 13
     },
     {
@@ -3037,10 +3037,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:38:40.693Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:41.554Z",
+      "last_source_attempt_at": "2026-09-30T10:29:54.682Z",
+      "last_successful_source_check_at": "2026-09-30T10:29:55.564Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 25387,
+      "last_refresh_duration_ms": 25469,
       "last_refresh_request_count": 25
     },
     {
@@ -3060,10 +3060,10 @@
       "validation_review_due": null,
       "monitored_assets": [],
       "coverage_status": "unknown",
-      "last_source_attempt_at": "2026-09-29T10:38:36.481Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:37.342Z",
+      "last_source_attempt_at": "2026-09-30T10:30:04.067Z",
+      "last_successful_source_check_at": "2026-09-30T10:30:04.649Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 18882,
+      "last_refresh_duration_ms": 19208,
       "last_refresh_request_count": 11
     },
     {
@@ -3087,10 +3087,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:38:55.706Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:56.373Z",
+      "last_source_attempt_at": "2026-09-30T10:30:30.565Z",
+      "last_successful_source_check_at": "2026-09-30T10:30:31.624Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 15589,
+      "last_refresh_duration_ms": 15638,
       "last_refresh_request_count": 13
     },
     {
@@ -3112,12 +3112,12 @@
         "land",
         "residential"
       ],
-      "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:39:05.336Z",
+      "coverage_status": "degraded",
+      "last_source_attempt_at": "2026-09-30T10:30:38.533Z",
       "last_successful_source_check_at": "2026-09-29T10:39:06.017Z",
-      "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 33985,
-      "last_refresh_request_count": 24
+      "last_refresh_status": "failed",
+      "last_refresh_duration_ms": 40132,
+      "last_refresh_request_count": 26
     },
     {
       "id": "glogow",
@@ -3141,10 +3141,10 @@
         "residential"
       ],
       "coverage_status": "degraded",
-      "last_source_attempt_at": "2026-09-29T10:38:55.432Z",
-      "last_successful_source_check_at": "2026-09-29T10:38:56.269Z",
+      "last_source_attempt_at": "2026-09-30T10:30:23.628Z",
+      "last_successful_source_check_at": "2026-09-30T10:30:24.175Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 191189,
+      "last_refresh_duration_ms": 201188,
       "last_refresh_request_count": 163
     },
     {
@@ -3167,10 +3167,10 @@
         "residential"
       ],
       "coverage_status": "monitored",
-      "last_source_attempt_at": "2026-09-29T10:42:07.167Z",
-      "last_successful_source_check_at": "2026-09-29T10:42:07.999Z",
+      "last_source_attempt_at": "2026-09-30T10:33:45.170Z",
+      "last_successful_source_check_at": "2026-09-30T10:33:45.749Z",
       "last_refresh_status": "ready",
-      "last_refresh_duration_ms": 5604,
+      "last_refresh_duration_ms": 5230,
       "last_refresh_request_count": 5
     }
   ]

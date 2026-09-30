@@ -3,24 +3,6 @@
   "city": "boleslawiec",
   "listings": [
     {
-      "kind": "zabudowana",
-      "address_raw": "Plac Piastowski 16",
-      "address": {
-        "street": "Plac Piastowski",
-        "street_norm": "plac piastowski",
-        "building": "16",
-        "apt": null,
-        "key": "plac piastowski|16|",
-        "warning": null
-      },
-      "auction_date": "2026-09-29",
-      "round": 2,
-      "area_m2": null,
-      "land_area_m2": 703,
-      "starting_price_pln": 449000,
-      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/6961-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-ii-przetarg"
-    },
-    {
       "kind": "mieszkalny",
       "address_raw": "Rynek 29-30/9",
       "address": {
@@ -55,24 +37,6 @@
       "starting_price_pln": 399000,
       "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne/7106-lokal-mieszkalny-nr-5-po%C5%82o%C5%BCony-przy-ul-mazowieckiej-nr-13b-powierzchnia-u%C5%BCytkowa-mieszkania-107%2C90-m2",
       "round_source": "inferred"
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "Plac Piastowski 16",
-      "address": {
-        "street": "Plac Piastowski",
-        "street_norm": "plac piastowski",
-        "building": "16",
-        "apt": null,
-        "key": "plac piastowski|16|",
-        "warning": null
-      },
-      "auction_date": "2026-09-29",
-      "round": 2,
-      "area_m2": null,
-      "land_area_m2": 703,
-      "starting_price_pln": 449000,
-      "detail_url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-budynki-u%C5%BCytkowe/6964-zabudowana-dzia%C5%82ka-nr-478-o-pow-0%2C0703-ha%2C-po%C5%82o%C5%BCona-przy-placu-piastowskim-ii-przetarg"
     }
   ],
   "wykaz": [
@@ -104,21 +68,6 @@
       "kind": "mieszkalny",
       "area_m2": 82.92,
       "published_date": "2026-08-05",
-      "wykaz_no": null
-    },
-    {
-      "address": {
-        "street": "Plac Piastowski",
-        "street_norm": "plac piastowski",
-        "building": "16",
-        "apt": null,
-        "key": "plac piastowski|16|",
-        "warning": null
-      },
-      "address_raw": "Plac Piastowski 16",
-      "kind": "zabudowana",
-      "area_m2": null,
-      "published_date": "2026-07-20",
       "wykaz_no": null
     },
     {
@@ -254,21 +203,6 @@
       "kind": "uzytkowy",
       "area_m2": null,
       "published_date": "2026-05-29",
-      "wykaz_no": null
-    },
-    {
-      "address": {
-        "street": "Plac Piastowski",
-        "street_norm": "plac piastowski",
-        "building": "16",
-        "apt": null,
-        "key": "plac piastowski|16|",
-        "warning": null
-      },
-      "address_raw": "Plac Piastowski 16",
-      "kind": "zabudowana",
-      "area_m2": null,
-      "published_date": "2026-07-20",
       "wykaz_no": null
     }
   ]

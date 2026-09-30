@@ -3,6 +3,26 @@
   "city": "wolow",
   "listings": [
     {
+      "kind": "zabudowana",
+      "address_raw": "Koszarowa 2",
+      "address": {
+        "street": "Koszarowa",
+        "street_norm": "koszarowa",
+        "building": "2",
+        "apt": null,
+        "key": "koszarowa|2|",
+        "warning": null
+      },
+      "dzialka_nr": "35/29",
+      "obreb": null,
+      "area_m2": null,
+      "starting_price_pln": 130000,
+      "auction_date": "2026-11-17",
+      "round": 1,
+      "detail_url": "https://wolow.pl/4077/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-wolow-ul-koszarowa-2-dz-nr-3529-am-30.html",
+      "published_date": "2026-09-29"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Zwycięstwa 22/2",
       "address": {

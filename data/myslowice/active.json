@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "zabudowana",
+      "address_raw": "Grunwaldzkiej 9",
+      "address": {
+        "street": "Grunwaldzkiej",
+        "street_norm": "grunwaldzkiej",
+        "building": "9",
+        "apt": null,
+        "key": "grunwaldzkiej|9|",
+        "warning": null
+      },
+      "auction_date": "2026-12-01",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 557.86,
+      "starting_price_pln": 630000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "Placu Wolności 7",
       "address": {
         "street": "Placu Wolności",

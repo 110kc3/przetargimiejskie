@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "pajeczno",
-  "generated_at": "2026-09-29T10:29:16.503Z",
+  "generated_at": "2026-09-30T10:17:22.199Z",
   "source_pdf_count": 1,
   "parsed_records": 0,
   "parser_note_count": 1,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-29T10:28:51.949Z",
-  "last_successful_source_check_at": "2026-09-29T10:28:51.949Z",
+  "last_source_attempt_at": "2026-09-30T10:16:57.460Z",
+  "last_successful_source_check_at": "2026-09-30T10:16:57.460Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-29T10:28:51.949Z",
-      "last_success_at": "2026-09-29T10:28:51.949Z"
+      "last_attempt_at": "2026-09-30T10:16:57.460Z",
+      "last_success_at": "2026-09-30T10:16:57.460Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-29T10:28:51.949Z",
-      "last_success_at": "2026-09-29T10:28:51.949Z"
+      "last_attempt_at": "2026-09-30T10:16:57.460Z",
+      "last_success_at": "2026-09-30T10:16:57.460Z"
     }
   }
 }

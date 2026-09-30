@@ -3,6 +3,54 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "grunwaldzkiej|9|",
+      "street": "Grunwaldzkiej",
+      "street_norm": "grunwaldzkiej",
+      "building": "9",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-12-12",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 700000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzka",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 557.86
+        },
+        {
+          "date": "2024-06-04",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 670000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzk",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 557.86
+        },
+        {
+          "date": "2026-12-01",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 630000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 557.86
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 557.86
+    },
+    {
       "key": "wielka skotnica|9A|17",
       "street": "Wielka Skotnica",
       "street_norm": "wielka skotnica",
@@ -1071,42 +1119,6 @@
         }
       ],
       "area_m2": 36.49
-    },
-    {
-      "key": "grunwaldzkiej|9|",
-      "street": "Grunwaldzkiej",
-      "street_norm": "grunwaldzkiej",
-      "building": "9",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2023-12-12",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 700000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzka",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "land_area_m2": 557.86
-        },
-        {
-          "date": "2024-06-04",
-          "round": 3,
-          "kind": "zabudowana",
-          "starting_price_pln": 670000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-ul-grunwaldzk",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "land_area_m2": 557.86
-        }
-      ],
-      "area_m2": null,
-      "land_area_m2": 557.86
     },
     {
       "key": "katowickiej|29A|17",

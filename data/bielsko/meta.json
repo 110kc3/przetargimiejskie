@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "bielsko",
-  "generated_at": "2026-09-29T10:33:47.740Z",
+  "generated_at": "2026-09-30T10:27:17.166Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 5,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-09-29T10:33:04.119Z",
-  "last_successful_source_check_at": "2026-09-29T10:33:04.119Z",
+  "last_source_attempt_at": "2026-09-30T10:26:38.079Z",
+  "last_successful_source_check_at": "2026-09-30T10:26:38.079Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-09-29T10:33:04.119Z",
-      "last_success_at": "2026-09-29T10:33:04.119Z"
+      "last_attempt_at": "2026-09-30T10:26:38.079Z",
+      "last_success_at": "2026-09-30T10:26:38.079Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-09-29T10:33:04.119Z",
-      "last_success_at": "2026-09-29T10:33:04.119Z"
+      "last_attempt_at": "2026-09-30T10:26:38.079Z",
+      "last_success_at": "2026-09-30T10:26:38.079Z"
     }
   }
 }
