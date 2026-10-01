@@ -3,6 +3,79 @@
   "city": "opole",
   "plots": [
     {
+      "key": "dz|malina|542, 543, 544, 545, 556, 557, 546, 547, 548",
+      "kind": "grunt",
+      "city": "opole",
+      "dzialka_nr": "542, 543, 544, 545, 556, 557, 546, 547, 548",
+      "obreb": "Malina",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstantego Ciołkowskiego",
+      "dzialka_id": "166101_1.0092.542",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.542",
+      "area_m2": 5690,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-08",
+          "round": 1,
+          "starting_price_pln": 597845,
+          "outcome": "active",
+          "area_m2": 5690,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-12_495",
+          "source_url": "https://bip.um.opole.pl/przetargi,9_2026-12_495"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "542",
+          "dzialka_id": "166101_1.0092.542",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.542"
+        },
+        {
+          "nr": "543",
+          "dzialka_id": "166101_1.0092.543",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.543"
+        },
+        {
+          "nr": "544",
+          "dzialka_id": "166101_1.0092.544",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.544"
+        },
+        {
+          "nr": "545",
+          "dzialka_id": "166101_1.0092.545",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.545"
+        },
+        {
+          "nr": "556",
+          "dzialka_id": "166101_1.0092.556",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.556"
+        },
+        {
+          "nr": "557",
+          "dzialka_id": "166101_1.0092.557",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.557"
+        },
+        {
+          "nr": "546",
+          "dzialka_id": "166101_1.0092.546",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.546"
+        },
+        {
+          "nr": "547",
+          "dzialka_id": "166101_1.0092.547",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.547"
+        },
+        {
+          "nr": "548",
+          "dzialka_id": "166101_1.0092.548",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=166101_1.0092.548"
+        }
+      ]
+    },
+    {
       "key": "dz|bierkowice|242/2, 243/2, 244/3, 245/2, 246/2, 259/1, 261/2",
       "kind": "grunt",
       "city": "opole",

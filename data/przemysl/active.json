@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
   "city": "przemysl",
-  "listings": [
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Franciszkańskiej 8/11",
-      "address": {
-        "street": "Franciszkańskiej",
-        "street_norm": "franciszkanskiej",
-        "building": "8",
-        "apt": "11",
-        "key": "franciszkanskiej|8|11",
-        "warning": null
-      },
-      "area_m2": null,
-      "starting_price_pln": null,
-      "auction_date": null,
-      "round": 2,
-      "detail_url": "https://bip.przemysl.pl/83081/prezydent-miasta-przemysla-oglasza-drugi-przetarg-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-franciszkanskiej-811.html",
-      "published_date": null
-    }
-  ],
+  "listings": [],
   "wykaz": []
 }

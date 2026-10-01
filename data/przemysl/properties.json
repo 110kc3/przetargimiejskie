@@ -42,6 +42,19 @@
           "detail_url": "https://bip.przemysl.pl/83081/prezydent-miasta-przemysla-oglasza-drugi-przetarg-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-franciszkanskiej-811.html",
           "wadium_deadline": null,
           "viewing_date": null
+        },
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [
+            "parse: missing starting price",
+            "parse: missing achieved price on positive result"
+          ]
         }
       ]
     },

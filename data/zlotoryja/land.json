@@ -3,6 +3,51 @@
   "city": "zlotoryja",
   "plots": [
     {
+      "key": "dz|15/6",
+      "kind": "grunt",
+      "city": "zlotoryja",
+      "dzialka_nr": "15/6",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F6%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
+      "area_m2": 973,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-05",
+          "round": 2,
+          "starting_price_pln": 62963,
+          "outcome": "unsold",
+          "area_m2": 973
+        },
+        {
+          "date": "2026-05-21",
+          "round": 3,
+          "starting_price_pln": 62963,
+          "outcome": "unsold",
+          "area_m2": 973
+        },
+        {
+          "date": "2026-11-09",
+          "round": 4,
+          "starting_price_pln": 62963,
+          "outcome": "active",
+          "area_m2": 973,
+          "detail_url": "https://bip.zlotoryja.pl/przetargi-74/ogloszenie-o-nieograniczonym-przetargu-ustnym-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-polozonej-w-nowej-ziemi",
+          "source_url": "https://bip.zlotoryja.pl/przetargi-74/ogloszenie-o-nieograniczonym-przetargu-ustnym-na-sprzedaz-nieruchomosci-gruntowej-niezabudowanej-polozonej-w-nowej-ziemi"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/6"
+        }
+      ]
+    },
+    {
       "key": "dz|165/54, 166/26",
       "kind": "grunt",
       "city": "zlotoryja",
@@ -520,42 +565,6 @@
       "parcels": [
         {
           "nr": "166/26"
-        }
-      ]
-    },
-    {
-      "key": "dz|15/6",
-      "kind": "grunt",
-      "city": "zlotoryja",
-      "dzialka_nr": "15/6",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F6%20Z%C5%82otoryja%20geoportal%20dzia%C5%82ki",
-      "area_m2": 973,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-03-05",
-          "round": 2,
-          "starting_price_pln": 62963,
-          "outcome": "unsold",
-          "area_m2": 973
-        },
-        {
-          "date": "2026-05-21",
-          "round": 3,
-          "starting_price_pln": 62963,
-          "outcome": "unsold",
-          "area_m2": 973
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "15/6"
         }
       ]
     },

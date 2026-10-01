@@ -107,14 +107,63 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/EB5CC433-B13E-406A-B69B-738F3D19EF91/download",
+          "notes": [],
           "area_m2": 35.29,
-          "detail_url": "https://glogow.bip.info.pl/api/fo/files/B6C3C711-2E78-487F-B0BD-1241E679D52C/download",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/B6C3C711-2E78-487F-B0BD-1241E679D52C/download"
         }
       ],
       "area_m2": 35.29
+    },
+    {
+      "key": "stawnej|16A|4",
+      "street": "Stawna",
+      "street_norm": "stawnej",
+      "building": "16A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/13909eb270542b63ebe3f1aefbc86c/download",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2025-05-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/518886d7c42769715d7c81d938e523/download",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2026-09-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/A885560C-4000-49DE-962B-E9535B89C915/download",
+          "notes": [],
+          "area_m2": 30
+        }
+      ],
+      "area_m2": 30
     },
     {
       "key": "rzemieslniczej|21A|9",
@@ -574,41 +623,6 @@
         }
       ],
       "area_m2": 65.38
-    },
-    {
-      "key": "stawnej|16A|4",
-      "street": "Stawna",
-      "street_norm": "stawnej",
-      "building": "16A",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-03-18",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/13909eb270542b63ebe3f1aefbc86c/download",
-          "notes": [],
-          "area_m2": 30
-        },
-        {
-          "date": "2025-05-20",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/518886d7c42769715d7c81d938e523/download",
-          "notes": [],
-          "area_m2": 30
-        }
-      ],
-      "area_m2": 30
     },
     {
       "key": "elektrycznej|22A|5",

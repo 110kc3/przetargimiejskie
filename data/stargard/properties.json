@@ -3,6 +3,105 @@
   "city": "stargard",
   "properties": [
     {
+      "key": "aleja gryfa|15|1",
+      "street": "Aleja Gryfa",
+      "street_norm": "aleja gryfa",
+      "building": "15",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 221000,
+          "outcome": "archived",
+          "area_m2": 52.83,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-aleja-gryfa-15-1-iii-przetarg-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-06",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 221000,
+          "outcome": "active",
+          "area_m2": 52.83,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-aleja-gryfa-15-1-iv-przetarg-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.83
+    },
+    {
+      "key": "lechicka|1|4",
+      "street": "Lechicka",
+      "street_norm": "lechicka",
+      "building": "1",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 246500,
+          "outcome": "archived",
+          "area_m2": 53.99,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-lechicka-1-4-iii-przetarg-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-06",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 232000,
+          "outcome": "active",
+          "area_m2": 53.99,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-lechicka-1-4-iv-przetarg-na-sprzedaz/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 53.99
+    },
+    {
+      "key": "jugoslowianska|29|4",
+      "street": "Jugosłowiańska",
+      "street_norm": "jugoslowianska",
+      "building": "29",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 204000,
+          "outcome": "archived",
+          "area_m2": 46,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-jugoslowianska-29-4-iii-przetarg-ustny-nieograniczony/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-06",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 204000,
+          "outcome": "active",
+          "area_m2": 46,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-jugoslowianska-29-4-iv-przetarg-ustny-nieograniczony/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46
+    },
+    {
       "key": "hugona kollataja|7|2",
       "street": "Hugona Kołłątaja",
       "street_norm": "hugona kollataja",
@@ -69,50 +168,6 @@
       "area_m2": 26.54
     },
     {
-      "key": "aleja gryfa|15|1",
-      "street": "Aleja Gryfa",
-      "street_norm": "aleja gryfa",
-      "building": "15",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-13",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 221000,
-          "outcome": "archived",
-          "area_m2": 52.83,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-aleja-gryfa-15-1-iii-przetarg-na-sprzedaz/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 52.83
-    },
-    {
-      "key": "lechicka|1|4",
-      "street": "Lechicka",
-      "street_norm": "lechicka",
-      "building": "1",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-13",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 246500,
-          "outcome": "archived",
-          "area_m2": 53.99,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-lechicka-1-4-iii-przetarg-na-sprzedaz/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 53.99
-    },
-    {
       "key": "bydgoska|22|5",
       "street": "Bydgoska",
       "street_norm": "bydgoska",
@@ -133,28 +188,6 @@
         }
       ],
       "area_m2": 18.44
-    },
-    {
-      "key": "jugoslowianska|29|4",
-      "street": "Jugosłowiańska",
-      "street_norm": "jugoslowianska",
-      "building": "29",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-12",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 204000,
-          "outcome": "archived",
-          "area_m2": 46,
-          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-jugoslowianska-29-4-iii-przetarg-ustny-nieograniczony/",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 46
     },
     {
       "key": "lokal niemieszkalny ul platnerzy|4B|15",
