@@ -2,9 +2,9 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "glogow",
-  "generated_at": "2026-10-01T11:03:17.812Z",
-  "source_pdf_count": 47,
-  "parsed_records": 2,
+  "generated_at": "2026-10-02T10:36:11.818Z",
+  "source_pdf_count": 45,
+  "parsed_records": 0,
   "parser_note_count": 4,
   "unique_properties": 29,
   "active_listings": 2,
@@ -13,11 +13,11 @@
   "wykaz_entries": 0,
   "land_plots": 28,
   "land_listings": 45,
-  "retained_properties": 25,
+  "retained_properties": 27,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-01T10:59:53.486Z",
-  "last_successful_source_check_at": "2026-10-01T10:59:53.486Z",
+  "last_source_attempt_at": "2026-10-02T10:33:07.271Z",
+  "last_successful_source_check_at": "2026-10-02T10:33:07.271Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-01T10:59:53.486Z",
-      "last_success_at": "2026-10-01T10:59:53.486Z"
+      "last_attempt_at": "2026-10-02T10:33:07.271Z",
+      "last_success_at": "2026-10-02T10:33:07.271Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-01T10:59:53.486Z",
-      "last_success_at": "2026-10-01T10:59:53.486Z"
+      "last_attempt_at": "2026-10-02T10:33:07.271Z",
+      "last_success_at": "2026-10-02T10:33:07.271Z"
     }
   }
 }

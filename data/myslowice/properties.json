@@ -51,6 +51,50 @@
       "land_area_m2": 557.86
     },
     {
+      "key": "gwarkow|7|",
+      "street": "Gwarków",
+      "street_norm": "gwarkow",
+      "building": "7",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-05-26",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 420000,
+          "outcome": "archived",
+          "area_m2": 258.1,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wlas-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-08-04",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 400000,
+          "outcome": "archived",
+          "area_m2": 258.1,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wla-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-03",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 400000,
+          "outcome": "active",
+          "area_m2": 258.1,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wl-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 258.1
+    },
+    {
       "key": "wielka skotnica|9A|17",
       "street": "Wielka Skotnica",
       "street_norm": "wielka skotnica",
@@ -690,39 +734,6 @@
         }
       ],
       "area_m2": 48.86
-    },
-    {
-      "key": "gwarkow|7|",
-      "street": "Gwarków",
-      "street_norm": "gwarkow",
-      "building": "7",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-05-26",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 420000,
-          "outcome": "archived",
-          "area_m2": 258.1,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wlas-1",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-08-04",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 400000,
-          "outcome": "archived",
-          "area_m2": 258.1,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wla-1",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 258.1
     },
     {
       "key": "armii krajowej|24|5",

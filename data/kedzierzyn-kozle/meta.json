@@ -2,8 +2,8 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "kedzierzyn-kozle",
-  "generated_at": "2026-10-01T10:53:28.584Z",
-  "source_pdf_count": 248,
+  "generated_at": "2026-10-02T10:27:43.496Z",
+  "source_pdf_count": 245,
   "parsed_records": 50,
   "parser_note_count": 6,
   "unique_properties": 18,
@@ -12,12 +12,12 @@
   "archived_auctions": 106,
   "wykaz_entries": 0,
   "land_plots": 111,
-  "land_listings": 378,
+  "land_listings": 376,
   "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-01T10:46:43.521Z",
-  "last_successful_source_check_at": "2026-10-01T10:46:43.521Z",
+  "last_source_attempt_at": "2026-10-02T10:22:07.181Z",
+  "last_successful_source_check_at": "2026-10-02T10:22:07.181Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-01T10:46:43.521Z",
-      "last_success_at": "2026-10-01T10:46:43.521Z"
+      "last_attempt_at": "2026-10-02T10:22:07.181Z",
+      "last_success_at": "2026-10-02T10:22:07.181Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-01T10:46:43.521Z",
-      "last_success_at": "2026-10-01T10:46:43.521Z"
+      "last_attempt_at": "2026-10-02T10:22:07.181Z",
+      "last_success_at": "2026-10-02T10:22:07.181Z"
     }
   }
 }

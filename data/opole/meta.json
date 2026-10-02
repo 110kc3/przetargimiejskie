@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "opole",
-  "generated_at": "2026-10-01T10:54:30.118Z",
+  "generated_at": "2026-10-02T10:27:10.337Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-01T10:47:45.784Z",
-  "last_successful_source_check_at": "2026-10-01T10:47:45.784Z",
+  "last_source_attempt_at": "2026-10-02T10:20:27.867Z",
+  "last_successful_source_check_at": "2026-10-02T10:20:27.867Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-01T10:47:45.784Z",
-      "last_success_at": "2026-10-01T10:47:45.784Z"
+      "last_attempt_at": "2026-10-02T10:20:27.867Z",
+      "last_success_at": "2026-10-02T10:20:27.867Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-01T10:47:45.784Z",
-      "last_success_at": "2026-10-01T10:47:45.784Z"
+      "last_attempt_at": "2026-10-02T10:20:27.867Z",
+      "last_success_at": "2026-10-02T10:20:27.867Z"
     }
   }
 }

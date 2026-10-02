@@ -3,6 +3,39 @@
   "city": "sosnowiec",
   "plots": [
     {
+      "key": "dz|12 sosnowiec|2525/11",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2525/11",
+      "obreb": "12 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2525/11, obręb 12 Sosnowiec",
+      "dzialka_id": "247501_1.0012.2525/11",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0012.2525%2F11",
+      "area_m2": 623,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-20",
+          "round": 1,
+          "starting_price_pln": 244000,
+          "outcome": "active",
+          "area_m2": 623,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565011,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565011,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2525/11",
+          "dzialka_id": "247501_1.0012.2525/11",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0012.2525%2F11"
+        }
+      ]
+    },
+    {
       "key": "dz|0006 klimontów|2595/12",
       "kind": "grunt",
       "city": "sosnowiec",
