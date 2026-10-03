@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "lubliniec",
-  "generated_at": "2026-10-02T10:25:15.551Z",
+  "generated_at": "2026-10-03T09:46:23.698Z",
   "source_pdf_count": 120,
   "parsed_records": 32,
   "parser_note_count": 102,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-02T10:20:57.233Z",
-  "last_successful_source_check_at": "2026-10-02T10:20:57.233Z",
+  "last_source_attempt_at": "2026-10-03T09:42:05.409Z",
+  "last_successful_source_check_at": "2026-10-03T09:42:05.409Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -28,14 +28,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-02T10:20:57.233Z",
-      "last_success_at": "2026-10-02T10:20:57.233Z"
+      "last_attempt_at": "2026-10-03T09:42:05.409Z",
+      "last_success_at": "2026-10-03T09:42:05.409Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-02T10:20:57.233Z",
-      "last_success_at": "2026-10-02T10:20:57.233Z"
+      "last_attempt_at": "2026-10-03T09:42:05.409Z",
+      "last_success_at": "2026-10-03T09:42:05.409Z"
     }
   }
 }

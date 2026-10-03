@@ -3,6 +3,82 @@
   "city": "sandomierz",
   "plots": [
     {
+      "key": "dz|2133/10",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "2133/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Piaski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F10%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1403,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-03-11",
+          "round": 1,
+          "starting_price_pln": 37000,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/350/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html",
+          "source_url": "https://bip.um.sandomierz.pl/350/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html"
+        },
+        {
+          "date": "2023-06-22",
+          "round": 1,
+          "starting_price_pln": 60400,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/8336/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html",
+          "source_url": "https://bip.um.sandomierz.pl/8336/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html"
+        },
+        {
+          "date": "2024-07-19",
+          "round": 2,
+          "starting_price_pln": 69100,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/12298/burmistrz-miasta-sandomierza-oglasza-ii-przetargi-ustne-nieograniczone.html",
+          "source_url": "https://bip.um.sandomierz.pl/12298/burmistrz-miasta-sandomierza-oglasza-ii-przetargi-ustne-nieograniczone.html"
+        },
+        {
+          "date": "2025-09-26",
+          "round": 1,
+          "starting_price_pln": 67650,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/16714/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html",
+          "source_url": "https://bip.um.sandomierz.pl/16714/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html"
+        },
+        {
+          "date": "2025-12-04",
+          "round": 2,
+          "starting_price_pln": 67650,
+          "outcome": "archived",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/17543/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym.html",
+          "source_url": "https://bip.um.sandomierz.pl/17543/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym.html"
+        },
+        {
+          "date": "2026-11-03",
+          "round": 1,
+          "starting_price_pln": 72570,
+          "outcome": "active",
+          "area_m2": 1403,
+          "detail_url": "https://bip.um.sandomierz.pl/21026/ogloszenie-i-przetargu-ustnego-nieograniczonego.html",
+          "source_url": "https://bip.um.sandomierz.pl/21026/ogloszenie-i-przetargu-ustnego-nieograniczonego.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2133/10"
+        }
+      ]
+    },
+    {
       "key": "dz|prawobrzeżny|816/5",
       "kind": "grunt",
       "city": "sandomierz",
@@ -83,73 +159,6 @@
       "parcels": [
         {
           "nr": "816/5"
-        }
-      ]
-    },
-    {
-      "key": "dz|2133/10",
-      "kind": "grunt",
-      "city": "sandomierz",
-      "dzialka_nr": "2133/10",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Piaski",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202133%2F10%20ul.%20Piaski%20Sandomierz%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1403,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2021-03-11",
-          "round": 1,
-          "starting_price_pln": 37000,
-          "outcome": "archived",
-          "area_m2": 1403,
-          "detail_url": "https://bip.um.sandomierz.pl/350/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html",
-          "source_url": "https://bip.um.sandomierz.pl/350/przetargi-na-sprzedaz-nieruchomosci-gruntowych-polozonych-w-sandomierzu-przy-ul-piaski-przeznaczonych-pod-zabudowe-mieszkaniowa-jednorodzinna.html"
-        },
-        {
-          "date": "2023-06-22",
-          "round": 1,
-          "starting_price_pln": 60400,
-          "outcome": "archived",
-          "area_m2": 1403,
-          "detail_url": "https://bip.um.sandomierz.pl/8336/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html",
-          "source_url": "https://bip.um.sandomierz.pl/8336/ogloszenie-burmistrza-miasta-sandomierza-o-i-przetargach-ustnych-nieograniczonych.html"
-        },
-        {
-          "date": "2024-07-19",
-          "round": 2,
-          "starting_price_pln": 69100,
-          "outcome": "archived",
-          "area_m2": 1403,
-          "detail_url": "https://bip.um.sandomierz.pl/12298/burmistrz-miasta-sandomierza-oglasza-ii-przetargi-ustne-nieograniczone.html",
-          "source_url": "https://bip.um.sandomierz.pl/12298/burmistrz-miasta-sandomierza-oglasza-ii-przetargi-ustne-nieograniczone.html"
-        },
-        {
-          "date": "2025-09-26",
-          "round": 1,
-          "starting_price_pln": 67650,
-          "outcome": "archived",
-          "area_m2": 1403,
-          "detail_url": "https://bip.um.sandomierz.pl/16714/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html",
-          "source_url": "https://bip.um.sandomierz.pl/16714/ogloszenie-o-i-przetargach-ustnych-nieograniczonych-na-sprzedaz-nieruchomosci-gruntowych.html"
-        },
-        {
-          "date": "2025-12-04",
-          "round": 2,
-          "starting_price_pln": 67650,
-          "outcome": "archived",
-          "area_m2": 1403,
-          "detail_url": "https://bip.um.sandomierz.pl/17543/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym.html",
-          "source_url": "https://bip.um.sandomierz.pl/17543/ogloszenie-o-ii-przetargu-ustnym-nieograniczonym.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2133/10"
         }
       ]
     },

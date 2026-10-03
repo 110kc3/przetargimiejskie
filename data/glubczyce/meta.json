@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "glubczyce",
-  "generated_at": "2026-10-02T10:31:37.745Z",
+  "generated_at": "2026-10-03T09:55:11.680Z",
   "source_pdf_count": 50,
   "parsed_records": 23,
   "parser_note_count": 11,
@@ -11,13 +11,13 @@
   "active_auctions": 0,
   "archived_auctions": 37,
   "wykaz_entries": 0,
-  "land_plots": 21,
-  "land_listings": 39,
+  "land_plots": 20,
+  "land_listings": 38,
   "retained_properties": 3,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-02T10:31:27.711Z",
-  "last_successful_source_check_at": "2026-10-02T10:31:27.711Z",
+  "last_source_attempt_at": "2026-10-03T09:55:04.581Z",
+  "last_successful_source_check_at": "2026-10-03T09:55:04.581Z",
   "monitored_assets": [
     "building",
     "garage",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-02T10:31:27.711Z",
-      "last_success_at": "2026-10-02T10:31:27.711Z"
+      "last_attempt_at": "2026-10-03T09:55:04.581Z",
+      "last_success_at": "2026-10-03T09:55:04.581Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-02T10:31:27.711Z",
-      "last_success_at": "2026-10-02T10:31:27.711Z"
+      "last_attempt_at": "2026-10-03T09:55:04.581Z",
+      "last_success_at": "2026-10-03T09:55:04.581Z"
     }
   }
 }
