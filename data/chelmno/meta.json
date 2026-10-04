@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "chelmno",
-  "generated_at": "2026-10-03T09:42:31.812Z",
+  "generated_at": "2026-10-04T10:28:07.267Z",
   "source_pdf_count": 67,
   "parsed_records": 51,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-03T09:40:34.207Z",
-  "last_successful_source_check_at": "2026-10-03T09:40:34.207Z",
+  "last_source_attempt_at": "2026-10-04T10:25:55.493Z",
+  "last_successful_source_check_at": "2026-10-04T10:25:55.493Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-03T09:40:34.207Z",
-      "last_success_at": "2026-10-03T09:40:34.207Z"
+      "last_attempt_at": "2026-10-04T10:25:55.493Z",
+      "last_success_at": "2026-10-04T10:25:55.493Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-03T09:40:34.207Z",
-      "last_success_at": "2026-10-03T09:40:34.207Z"
+      "last_attempt_at": "2026-10-04T10:25:55.493Z",
+      "last_success_at": "2026-10-04T10:25:55.493Z"
     }
   }
 }

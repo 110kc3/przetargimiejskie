@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "sroda-wielkopolska",
-  "generated_at": "2026-10-03T09:44:49.103Z",
+  "generated_at": "2026-10-04T10:30:28.872Z",
   "source_pdf_count": 3,
   "parsed_records": 3,
   "parser_note_count": 1,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-03T09:43:54.723Z",
-  "last_successful_source_check_at": "2026-10-03T09:43:54.723Z",
+  "last_source_attempt_at": "2026-10-04T10:29:34.567Z",
+  "last_successful_source_check_at": "2026-10-04T10:29:34.567Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-03T09:43:54.723Z",
-      "last_success_at": "2026-10-03T09:43:54.723Z"
+      "last_attempt_at": "2026-10-04T10:29:34.567Z",
+      "last_success_at": "2026-10-04T10:29:34.567Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-03T09:43:54.723Z",
-      "last_success_at": "2026-10-03T09:43:54.723Z"
+      "last_attempt_at": "2026-10-04T10:29:34.567Z",
+      "last_success_at": "2026-10-04T10:29:34.567Z"
     }
   }
 }

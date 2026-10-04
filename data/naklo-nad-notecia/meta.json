@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "naklo-nad-notecia",
-  "generated_at": "2026-10-03T09:44:27.450Z",
+  "generated_at": "2026-10-04T10:30:06.992Z",
   "source_pdf_count": 47,
   "parsed_records": 16,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-03T09:42:41.451Z",
-  "last_successful_source_check_at": "2026-10-03T09:42:41.451Z",
+  "last_source_attempt_at": "2026-10-04T10:28:15.519Z",
+  "last_successful_source_check_at": "2026-10-04T10:28:15.519Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-03T09:42:41.451Z",
-      "last_success_at": "2026-10-03T09:42:41.451Z"
+      "last_attempt_at": "2026-10-04T10:28:15.519Z",
+      "last_success_at": "2026-10-04T10:28:15.519Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-03T09:42:41.451Z",
-      "last_success_at": "2026-10-03T09:42:41.451Z"
+      "last_attempt_at": "2026-10-04T10:28:15.519Z",
+      "last_success_at": "2026-10-04T10:28:15.519Z"
     }
   }
 }

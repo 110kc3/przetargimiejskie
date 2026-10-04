@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "lodz",
-  "generated_at": "2026-10-03T09:39:02.022Z",
+  "generated_at": "2026-10-04T10:42:31.415Z",
   "source_pdf_count": 1,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 44,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-03T09:38:41.622Z",
-  "last_successful_source_check_at": "2026-10-03T09:38:41.622Z",
+  "last_source_attempt_at": "2026-10-04T10:42:11.740Z",
+  "last_successful_source_check_at": "2026-10-04T10:42:11.740Z",
   "monitored_assets": [
     "commercial",
     "garage",
@@ -26,13 +26,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-03T09:38:41.622Z",
-      "last_success_at": "2026-10-03T09:38:41.622Z"
+      "last_attempt_at": "2026-10-04T10:42:11.740Z",
+      "last_success_at": "2026-10-04T10:42:11.740Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-03T09:38:41.622Z",
+      "last_attempt_at": "2026-10-04T10:42:11.740Z",
       "last_success_at": null
     }
   }
