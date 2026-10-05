@@ -3,6 +3,25 @@
   "city": "myslowice",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "Wielka Skotnica 5A/12",
+      "address": {
+        "street": "Wielka Skotnica",
+        "street_norm": "wielka skotnica",
+        "building": "5A",
+        "apt": "12",
+        "key": "wielka skotnica|5A|12",
+        "warning": null
+      },
+      "auction_date": "2026-11-10",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 48.86,
+      "starting_price_pln": 218000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a",
+      "share": null
+    },
+    {
       "kind": "zabudowana",
       "address_raw": "Gwarków 7",
       "address": {

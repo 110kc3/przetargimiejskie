@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Lubicka 51 m. 4",
+      "address": {
+        "street": "Lubicka",
+        "street_norm": "lubicka",
+        "building": "51",
+        "apt": "4",
+        "key": "lubicka|51|4",
+        "warning": null
+      },
+      "auction_date": "2026-11-03",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 138000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63691/ul-lubicka-51-m-4",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Łazienna 7",
       "address": {
         "street": "Łazienna",

@@ -4,6 +4,40 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Hugona Kołłątaja 7/2",
+      "address": {
+        "street": "Hugona Kołłątaja",
+        "street_norm": "hugona kollataja",
+        "building": "7",
+        "apt": "2",
+        "key": "hugona kollataja|7|2",
+        "warning": null
+      },
+      "area_m2": 48.36,
+      "starting_price_pln": 229500,
+      "auction_date": "2026-11-09",
+      "round": 3,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-iii-przetarg-na-sprzedaz-nieruchomosci/"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Czarnieckiego 11/8",
+      "address": {
+        "street": "Czarnieckiego",
+        "street_norm": "czarnieckiego",
+        "building": "11",
+        "apt": "8",
+        "key": "czarnieckiego|11|8",
+        "warning": null
+      },
+      "area_m2": 26.54,
+      "starting_price_pln": 112500,
+      "auction_date": "2026-11-09",
+      "round": 3,
+      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-iii-przetarg-na-sprzedaz-nieruchomosci/"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Jugosłowiańska 29/4",
       "address": {
         "street": "Jugosłowiańska",

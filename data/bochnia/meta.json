@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "bochnia",
-  "generated_at": "2026-10-04T10:24:46.220Z",
+  "generated_at": "2026-10-05T11:08:46.028Z",
   "source_pdf_count": 23,
   "parsed_records": 0,
   "parser_note_count": 1,
@@ -16,8 +16,8 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-04T10:22:57.392Z",
-  "last_successful_source_check_at": "2026-10-04T10:22:57.392Z",
+  "last_source_attempt_at": "2026-10-05T11:06:43.200Z",
+  "last_successful_source_check_at": "2026-10-05T11:06:43.200Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-04T10:22:57.392Z",
-      "last_success_at": "2026-10-04T10:22:57.392Z"
+      "last_attempt_at": "2026-10-05T11:06:43.200Z",
+      "last_success_at": "2026-10-05T11:06:43.200Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-04T10:22:57.392Z",
-      "last_success_at": "2026-10-04T10:22:57.392Z"
+      "last_attempt_at": "2026-10-05T11:06:43.200Z",
+      "last_success_at": "2026-10-05T11:06:43.200Z"
     }
   }
 }

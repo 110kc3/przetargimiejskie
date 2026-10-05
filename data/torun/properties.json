@@ -3,6 +3,29 @@
   "city": "torun",
   "properties": [
     {
+      "key": "lubicka|51|4",
+      "street": "Lubicka",
+      "street_norm": "lubicka",
+      "building": "51",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 138000,
+          "outcome": "active",
+          "area_m2": 31.12,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63691/ul-lubicka-51-m-4",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 31.12
+    },
+    {
       "key": "lazienna|7|",
       "street": "Łazienna",
       "street_norm": "lazienna",
