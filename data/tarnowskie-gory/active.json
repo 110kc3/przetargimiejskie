@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Słoneczników 65/6",
+      "address": {
+        "street": "Słoneczników",
+        "street_norm": "slonecznikow",
+        "building": "65",
+        "apt": "6",
+        "key": "slonecznikow|65|6",
+        "warning": null
+      },
+      "area_m2": 41.24,
+      "starting_price_pln": 220000,
+      "auction_date": "2026-10-05",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,103051,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124355"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Sienkiewicza 2",
       "address": {
         "street": "Sienkiewicza",
@@ -317,24 +335,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Krakowskiej 17/11",
-      "address": {
-        "street": "Krakowskiej",
-        "street_norm": "krakowskiej",
-        "building": "17",
-        "apt": "11",
-        "key": "krakowskiej|17|11",
-        "warning": null
-      },
-      "area_m2": 48.29,
-      "starting_price_pln": 193000,
-      "auction_date": "2025-04-16",
-      "round": 2,
-      "detail_url": "https://bip.tarnowskiegory.pl/a,98458,burmistrz-miasta-tarnowskie-gory-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mies.html",
-      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119925"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Słoneczników 49B/11",
       "address": {
         "street": "Słoneczników",
@@ -350,6 +350,24 @@
       "round": 1,
       "detail_url": "https://bip.tarnowskiegory.pl/a,98457,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-m.html",
       "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119924"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/11",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "11",
+        "key": "krakowskiej|17|11",
+        "warning": null
+      },
+      "area_m2": 48.29,
+      "starting_price_pln": 193000,
+      "auction_date": "2025-04-16",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,98458,burmistrz-miasta-tarnowskie-gory-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mies.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119925"
     },
     {
       "kind": "mieszkalny",
@@ -537,24 +555,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
-      "address": {
-        "street": "Kardynała Stefana Wyszyńskiego",
-        "street_norm": "kardynala stefana wyszynskiego",
-        "building": "1B",
-        "apt": "4",
-        "key": "kardynala stefana wyszynskiego|1B|4",
-        "warning": null
-      },
-      "area_m2": 93.4,
-      "starting_price_pln": 416000,
-      "auction_date": "2024-11-07",
-      "round": 2,
-      "detail_url": "https://bip.tarnowskiegory.pl/a,97519,ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego.html",
-      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118737"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Słoneczników 69/11",
       "address": {
         "street": "Słoneczników",
@@ -570,6 +570,24 @@
       "round": 1,
       "detail_url": "https://bip.tarnowskiegory.pl/a,97520,ogloszenie-o-pierwszym-przetargu-pisemnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-11-polo.html",
       "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118738"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kardynała Stefana Wyszyńskiego 1B/4",
+      "address": {
+        "street": "Kardynała Stefana Wyszyńskiego",
+        "street_norm": "kardynala stefana wyszynskiego",
+        "building": "1B",
+        "apt": "4",
+        "key": "kardynala stefana wyszynskiego|1B|4",
+        "warning": null
+      },
+      "area_m2": 93.4,
+      "starting_price_pln": 416000,
+      "auction_date": "2024-11-07",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,97519,ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118737"
     },
     {
       "kind": "zabudowana",

@@ -3,6 +3,38 @@
   "city": "krakow",
   "plots": [
     {
+      "key": "dz|k-44|17/1",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "17/1",
+      "obreb": "K-44",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Prądnickiej w Krakowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20ul.%20Pr%C4%85dnickiej%20w%20Krakowie%20K-44%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 112,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 112,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=263185",
+          "source_url": "https://www.bip.krakow.pl/?news_id=263185"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "17/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20K-44%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|p-49|85/1",
       "kind": "grunt",
       "city": "krakow",

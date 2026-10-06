@@ -353,6 +353,88 @@
       ]
     },
     {
+      "key": "addr|ul. wrocławskiej",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": null,
+      "obreb": "0063, Maciejowa III o łącznej powierzchni 0,2471 ha",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wrocławskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Wroc%C5%82awskiej%200063%2C%20Maciejowa%20III%20o%20%C5%82%C4%85cznej%20powierzchni%200%2C2471%20ha%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "starting_price_pln": 290000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|0028, 28ne, am 8|11",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "11",
+      "obreb": "0028, 28NE, AM 8",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Anieli Krzywoń",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%20ul.%20Anieli%20Krzywo%C5%84%200028%2C%2028NE%2C%20AM%208%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2959,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "starting_price_pln": 490000,
+          "outcome": "unsold",
+          "area_m2": 2959
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "11",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%200028%2C%2028NE%2C%20AM%208%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|448/7",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "448/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Spółdzielczej i Trasa Czeska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20448%2F7%20ul.%20Sp%C3%B3%C5%82dzielczej%20i%20Trasa%20Czeska%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "starting_price_pln": 1400000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "448/7"
+        }
+      ]
+    },
+    {
       "key": "dz|0034, 34, am 2|145",
       "kind": "grunt",
       "city": "jelenia-gora",

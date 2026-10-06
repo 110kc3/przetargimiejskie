@@ -3,6 +3,37 @@
   "city": "kolbuszowa",
   "plots": [
     {
+      "key": "dz|hucie przedborskiej|300/2",
+      "kind": "grunt",
+      "city": "kolbuszowa",
+      "dzialka_nr": "300/2",
+      "obreb": "Hucie Przedborskiej",
+      "street": null,
+      "building": null,
+      "address_raw": "Hucie Przedborskiej, dz. nr 300/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20300%2F2%20Hucie%20Przedborskiej%2C%20dz.%20nr%20300%2F2%20Hucie%20Przedborskiej%20Kolbuszowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2057,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 5,
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 2057,
+          "detail_url": "https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/18590-burmistrz-kolbuszowej-oglasza-v-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-wlasnosci-gminy-kolbuszowa-przedmiotem-przetargu-jest-zabudowana-nieruchomosc-gruntowa-polozona-w-hucie-przedborskiej-oznaczona-nr-ew-dzialki-3002-o-powierzchni-0-2057-ha.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "300/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20300%2F2%20Hucie%20Przedborskiej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|kolbuszowej|1494/2",
       "kind": "grunt",
       "city": "kolbuszowa",

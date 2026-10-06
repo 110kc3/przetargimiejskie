@@ -3,6 +3,28 @@
   "city": "tarnowskie-gory",
   "properties": [
     {
+      "key": "slonecznikow|65|6",
+      "street": "Słoneczników",
+      "street_norm": "slonecznikow",
+      "building": "65",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "area_m2": 41.24,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,103051,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 41.24
+    },
+    {
       "key": "pokoju|10|5",
       "street": "Pokoju",
       "street_norm": "pokoju",
