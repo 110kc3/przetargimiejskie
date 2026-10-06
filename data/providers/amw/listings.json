@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-10-05T11:04:13.772Z",
+  "generated_at": "2026-10-06T10:57:31.145Z",
   "listings": [
     {
       "title": "Warszawa, ul. Dzierzby 14, dz. 86",
@@ -593,11 +593,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:3d96fd1650dcd302",
-      "external_id": "11950",
-      "source_status": "Ogłoszony",
-      "outcome": "archived",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-pajdaka-7-11950",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-pajdaka-7-11950"
+      "external_id": "32dff1fd66a2530b",
+      "source_status": "Negatywny",
+      "outcome": "unsold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/24/79/docs/6ac411bccb73e_Inf.%20o%20wyniku%20przetargu%20-%20Pajdaka%207%20m.%20136.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-pajdaka-7-11950",
+      "result_url": "https://amw.com.pl/uploads/publications/01/24/79/docs/6ac411bccb73e_Inf.%20o%20wyniku%20przetargu%20-%20Pajdaka%207%20m.%20136.pdf"
     },
     {
       "title": "Warszawa, ul. Marymoncka 125, m. 10A",
@@ -628,11 +629,12 @@
         "mieszkaniowe"
       ],
       "event_key": "amw:86c3d02ca4fde83b",
-      "external_id": "12015",
-      "source_status": "Ogłoszony",
-      "outcome": "archived",
-      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-marymoncka-125-12015",
-      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-marymoncka-125-12015"
+      "external_id": "f6e4555de1e5b19e",
+      "source_status": "Pozytywny",
+      "outcome": "sold",
+      "detail_url": "https://amw.com.pl/uploads/publications/01/25/44/docs/6ac412233562a_Inf.%20o%20wyniku%20przetargu%20-%20Marymoncka%20125%20m.%2010A.pdf",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-marymoncka-125-12015",
+      "result_url": "https://amw.com.pl/uploads/publications/01/25/44/docs/6ac412233562a_Inf.%20o%20wyniku%20przetargu%20-%20Marymoncka%20125%20m.%2010A.pdf"
     },
     {
       "title": "Kędzierzyn-Koźle, ul. Chrobrego 14C/15, dz. 1542/15",
