@@ -2,13 +2,13 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "opole",
-  "generated_at": "2026-10-06T11:13:07.918Z",
+  "generated_at": "2026-10-07T10:58:39.313Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
-  "unique_properties": 45,
-  "active_listings": 100,
-  "active_auctions": 11,
+  "unique_properties": 46,
+  "active_listings": 101,
+  "active_auctions": 12,
   "archived_auctions": 89,
   "wykaz_entries": 0,
   "land_plots": 25,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-06T11:06:23.619Z",
-  "last_successful_source_check_at": "2026-10-06T11:06:23.619Z",
+  "last_source_attempt_at": "2026-10-07T10:51:55.884Z",
+  "last_successful_source_check_at": "2026-10-07T10:51:55.884Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-06T11:06:23.619Z",
-      "last_success_at": "2026-10-06T11:06:23.619Z"
+      "last_attempt_at": "2026-10-07T10:51:55.884Z",
+      "last_success_at": "2026-10-07T10:51:55.884Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-06T11:06:23.619Z",
-      "last_success_at": "2026-10-06T11:06:23.619Z"
+      "last_attempt_at": "2026-10-07T10:51:55.884Z",
+      "last_success_at": "2026-10-07T10:51:55.884Z"
     }
   }
 }

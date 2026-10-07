@@ -1434,6 +1434,95 @@
       ]
     },
     {
+      "key": "dz|kędzierzyn|3417/31, 3420/49",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": "3417/31, 3420/49",
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Królowej",
+      "dzialka_id": "160301_1.0044.3417/31",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31",
+      "area_m2": 9278,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-02-18",
+          "round": 5,
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2025-05-13",
+          "round": 6,
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2025-08-19",
+          "round": 7,
+          "starting_price_pln": 3300000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2025-10-28",
+          "round": 8,
+          "starting_price_pln": 2800000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        },
+        {
+          "date": "2026-09-29",
+          "round": 12,
+          "starting_price_pln": 2800000,
+          "outcome": "unsold",
+          "area_m2": 9278
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3417/31",
+          "dzialka_id": "160301_1.0044.3417/31",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31"
+        },
+        {
+          "nr": "3420/49",
+          "dzialka_id": "160301_1.0044.3420/49",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3420%2F49"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. bukowej",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Koźle",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bukowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Bukowej%20Ko%C5%BAle%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 42632,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 3,
+          "starting_price_pln": 450000,
+          "outcome": "unsold",
+          "area_m2": 42632
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|blachownia|378/4",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -3125,63 +3214,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "dz|kędzierzyn|3417/31, 3420/49",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": "3417/31, 3420/49",
-      "obreb": "Kędzierzyn",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Królowej",
-      "dzialka_id": "160301_1.0044.3417/31",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31",
-      "area_m2": 9278,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-02-18",
-          "round": 5,
-          "starting_price_pln": 3300000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2025-05-13",
-          "round": 6,
-          "starting_price_pln": 3300000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2025-08-19",
-          "round": 7,
-          "starting_price_pln": 3300000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        },
-        {
-          "date": "2025-10-28",
-          "round": 8,
-          "starting_price_pln": 2800000,
-          "outcome": "unsold",
-          "area_m2": 9278
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3417/31",
-          "dzialka_id": "160301_1.0044.3417/31",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3417%2F31"
-        },
-        {
-          "nr": "3420/49",
-          "dzialka_id": "160301_1.0044.3420/49",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=160301_1.0044.3420%2F49"
-        }
-      ]
     },
     {
       "key": "addr|ul. ignacego",

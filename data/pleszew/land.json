@@ -3,6 +3,36 @@
   "city": "pleszew",
   "plots": [
     {
+      "key": "dz|korzkwy|132/3",
+      "kind": "grunt",
+      "city": "pleszew",
+      "dzialka_nr": "132/3",
+      "obreb": "Korzkwy",
+      "street": null,
+      "building": null,
+      "address_raw": "Korzkwy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F3%20Korzkwy%20Korzkwy%20Pleszew%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3417,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "starting_price_pln": 341700,
+          "outcome": "unsold",
+          "area_m2": 3417
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "132/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20132%2F3%20Korzkwy%20Pleszew%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|nowa   wieś|249/8",
       "kind": "grunt",
       "city": "pleszew",

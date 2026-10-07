@@ -395,6 +395,23 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Oleskiej 38/4",
+      "address": {
+        "street": "Oleskiej",
+        "street_norm": "oleskiej",
+        "building": "38",
+        "apt": "4",
+        "key": "oleskiej|38|4",
+        "warning": null
+      },
+      "area_m2": 32.33,
+      "starting_price_pln": 250000,
+      "auction_date": "2026-11-18",
+      "round": 1,
+      "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-11_496"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Pawła Stalmacha 1/4",
       "address": {
         "street": "Pawła Stalmacha",

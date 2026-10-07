@@ -2,13 +2,13 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "mragowo",
-  "generated_at": "2026-10-06T11:04:32.575Z",
+  "generated_at": "2026-10-07T10:52:39.417Z",
   "source_pdf_count": 8,
   "parsed_records": 2,
   "parser_note_count": 0,
   "unique_properties": 2,
-  "active_listings": 0,
-  "active_auctions": 0,
+  "active_listings": 1,
+  "active_auctions": 1,
   "archived_auctions": 3,
   "wykaz_entries": 0,
   "land_plots": 14,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-06T11:04:13.735Z",
-  "last_successful_source_check_at": "2026-10-06T11:04:13.735Z",
+  "last_source_attempt_at": "2026-10-07T10:52:17.603Z",
+  "last_successful_source_check_at": "2026-10-07T10:52:17.603Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-06T11:04:13.735Z",
-      "last_success_at": "2026-10-06T11:04:13.735Z"
+      "last_attempt_at": "2026-10-07T10:52:17.603Z",
+      "last_success_at": "2026-10-07T10:52:17.603Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-06T11:04:13.735Z",
-      "last_success_at": "2026-10-06T11:04:13.735Z"
+      "last_attempt_at": "2026-10-07T10:52:17.603Z",
+      "last_success_at": "2026-10-07T10:52:17.603Z"
     }
   }
 }

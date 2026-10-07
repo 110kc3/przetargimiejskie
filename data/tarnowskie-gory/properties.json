@@ -3,6 +3,28 @@
   "city": "tarnowskie-gory",
   "properties": [
     {
+      "key": "swobodnej|1|",
+      "street": "Swobodna",
+      "street_norm": "swobodnej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 97000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 377,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,103103,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nierucho.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "slonecznikow|65|6",
       "street": "Słoneczników",
       "street_norm": "slonecznikow",

@@ -3,6 +3,72 @@
   "city": "kamienna-gora",
   "properties": [
     {
+      "key": "bohaterow getta|14|12",
+      "street": "Bohaterów Getta",
+      "street_norm": "bohaterow getta",
+      "building": "14",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 96000,
+          "outcome": "active",
+          "area_m2": 24.34,
+          "detail_url": "https://bip.kamiennagora.pl/i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-12-polozonego-w-kamiennej-gorze-przy-ul-bohaterow-getta-14.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 24.34
+    },
+    {
+      "key": "bohaterow getta|16|12",
+      "street": "Bohaterów Getta",
+      "street_norm": "bohaterow getta",
+      "building": "16",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 102000,
+          "outcome": "active",
+          "area_m2": 24.21,
+          "detail_url": "https://bip.kamiennagora.pl/i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-12-polozonego-w-kamiennej-gorze-przy-ul-bohaterow-getta-16.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 24.21
+    },
+    {
+      "key": "bohaterow getta|16|15",
+      "street": "Bohaterów Getta",
+      "street_norm": "bohaterow getta",
+      "building": "16",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 21.06,
+          "detail_url": "https://bip.kamiennagora.pl/i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-15-polozonego-w-kamiennej-gorze-przy-ul-bohaterow-getta-16.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 21.06
+    },
+    {
       "key": "jeleniogorskiej|53|9",
       "street": "Jeleniogórskiej",
       "street_norm": "jeleniogorskiej",

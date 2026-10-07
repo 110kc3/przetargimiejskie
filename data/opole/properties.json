@@ -3,6 +3,28 @@
   "city": "opole",
   "properties": [
     {
+      "key": "oleskiej|38|4",
+      "street": "Oleskiej",
+      "street_norm": "oleskiej",
+      "building": "38",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 32.33,
+          "detail_url": "https://bip.um.opole.pl/przetargi,9_2026-11_496",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 32.33
+    },
+    {
       "key": "pawla stalmacha|1|4",
       "street": "Pawła Stalmacha",
       "street_norm": "pawla stalmacha",

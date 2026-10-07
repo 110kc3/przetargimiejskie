@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "gostyn",
-  "generated_at": "2026-10-06T11:11:17.584Z",
+  "generated_at": "2026-10-07T10:58:16.655Z",
   "source_pdf_count": 1,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,22 +16,22 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-06T11:11:13.078Z",
-  "last_successful_source_check_at": "2026-10-06T11:11:13.078Z",
+  "last_source_attempt_at": "2026-10-07T10:58:09.997Z",
+  "last_successful_source_check_at": "2026-10-07T10:58:09.997Z",
   "monitored_assets": [
     "land"
   ],
   "source_checks": {
     "property": {
       "status": "not_monitored",
-      "last_attempt_at": "2026-10-06T11:11:13.078Z",
+      "last_attempt_at": "2026-10-07T10:58:09.997Z",
       "last_success_at": null
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-06T11:11:13.078Z",
-      "last_success_at": "2026-10-06T11:11:13.078Z"
+      "last_attempt_at": "2026-10-07T10:58:09.997Z",
+      "last_success_at": "2026-10-07T10:58:09.997Z"
     }
   }
 }

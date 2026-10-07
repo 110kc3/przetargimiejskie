@@ -1,6 +1,64 @@
 {
   "schema_version": 1,
   "city": "kamienna-gora",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bohaterów Getta 14/12",
+      "address": {
+        "street": "Bohaterów Getta",
+        "street_norm": "bohaterow getta",
+        "building": "14",
+        "apt": "12",
+        "key": "bohaterow getta|14|12",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": 24.34,
+      "starting_price_pln": 96000,
+      "auction_date": "2026-11-10",
+      "round": 1,
+      "detail_url": "https://bip.kamiennagora.pl/i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-12-polozonego-w-kamiennej-gorze-przy-ul-bohaterow-getta-14.html",
+      "published_date": "2026-10-05"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bohaterów Getta 16/12",
+      "address": {
+        "street": "Bohaterów Getta",
+        "street_norm": "bohaterow getta",
+        "building": "16",
+        "apt": "12",
+        "key": "bohaterow getta|16|12",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": 24.21,
+      "starting_price_pln": 102000,
+      "auction_date": "2026-11-10",
+      "round": 1,
+      "detail_url": "https://bip.kamiennagora.pl/i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-12-polozonego-w-kamiennej-gorze-przy-ul-bohaterow-getta-16.html",
+      "published_date": "2026-10-05"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bohaterów Getta 16/15",
+      "address": {
+        "street": "Bohaterów Getta",
+        "street_norm": "bohaterow getta",
+        "building": "16",
+        "apt": "15",
+        "key": "bohaterow getta|16|15",
+        "warning": null
+      },
+      "obreb": null,
+      "area_m2": 21.06,
+      "starting_price_pln": 90000,
+      "auction_date": "2026-11-10",
+      "round": 1,
+      "detail_url": "https://bip.kamiennagora.pl/i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-15-polozonego-w-kamiennej-gorze-przy-ul-bohaterow-getta-16.html",
+      "published_date": "2026-10-05"
+    }
+  ],
   "wykaz": []
 }
