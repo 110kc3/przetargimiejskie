@@ -3,33 +3,33 @@
   "city": "boleslawiec",
   "plots": [
     {
-      "key": "dz|0001|23/1",
+      "key": "dz|0008|478",
       "kind": "grunt",
       "city": "boleslawiec",
-      "dzialka_nr": "23/1",
-      "obreb": "0001",
+      "dzialka_nr": "478",
+      "obreb": "0008",
       "street": null,
       "building": null,
-      "address_raw": "ul. Tadeusza Kościuszki",
-      "dzialka_id": "020101_1.0001.23/1",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1",
-      "area_m2": 5540,
+      "address_raw": "ul. Plac Piastowski",
+      "dzialka_id": "020101_1.0008.478",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0008.478",
+      "area_m2": 703,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-09-15",
+          "date": "2026-09-29",
           "round": 2,
-          "starting_price_pln": 440000,
+          "starting_price_pln": 449000,
           "outcome": "unsold",
-          "area_m2": 5540
+          "area_m2": 703
         }
       ],
       "parcels": [
         {
-          "nr": "23/1",
-          "dzialka_id": "020101_1.0001.23/1",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0001.23%2F1"
+          "nr": "478",
+          "dzialka_id": "020101_1.0008.478",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0008.478"
         }
       ]
     }

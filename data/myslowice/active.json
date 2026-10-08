@@ -4,6 +4,44 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 4/11",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "4",
+        "apt": "11",
+        "key": "armii krajowej|4|11",
+        "warning": null
+      },
+      "auction_date": "2026-11-10",
+      "published_date": null,
+      "round": 7,
+      "area_m2": 37.49,
+      "starting_price_pln": 150000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 21/20",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "21",
+        "apt": "20",
+        "key": "armii krajowej|21|20",
+        "warning": null
+      },
+      "auction_date": "2026-11-17",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 36.54,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Wielka Skotnica 5A/12",
       "address": {
         "street": "Wielka Skotnica",

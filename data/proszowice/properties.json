@@ -41,11 +41,15 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 280000,
-          "outcome": "active",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 280000,
+          "source_pdf": "https://proszowice.pl/aktualnosc-11209-informacja_o_drugim_przetargu_ustnym.html",
+          "notes": [
+            "parse: achieved price not stated; using cena wywoławcza (no postąpienie recorded)"
+          ],
           "area_m2": 43.34,
-          "detail_url": "https://proszowice.pl/aktualnosc-11097-ogloszenie_o_drugim_przetargu_na.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://proszowice.pl/aktualnosc-11097-ogloszenie_o_drugim_przetargu_na.html"
         }
       ],
       "area_m2": 43.34

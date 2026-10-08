@@ -48,6 +48,40 @@
       ]
     },
     {
+      "key": "przejazd|2|7",
+      "street": "Przejazd",
+      "street_norm": "przejazd",
+      "building": "2",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 275100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-11-27",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 275100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "ul wolodyjowskiego|8|6",
       "street": "ul.Wołodyjowskiego",
       "street_norm": "ul wolodyjowskiego",
@@ -770,31 +804,9 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 321100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-rynek-kosciuszki-17-m-7.html",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "przejazd|2|7",
-      "street": "Przejazd",
-      "street_norm": "przejazd",
-      "building": "2",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-06",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 275100,
-          "outcome": "active",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7.html",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"

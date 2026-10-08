@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "tomaszow-mazowiecki",
-  "generated_at": "2026-10-07T11:04:39.327Z",
+  "generated_at": "2026-10-08T11:26:19.121Z",
   "source_pdf_count": 81,
   "parsed_records": 3,
   "parser_note_count": 0,
@@ -11,13 +11,13 @@
   "active_auctions": 1,
   "archived_auctions": 5,
   "wykaz_entries": 0,
-  "land_plots": 43,
-  "land_listings": 64,
+  "land_plots": 44,
+  "land_listings": 65,
   "retained_properties": 3,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-07T11:04:24.783Z",
-  "last_successful_source_check_at": "2026-10-07T11:04:24.783Z",
+  "last_source_attempt_at": "2026-10-08T11:26:02.585Z",
+  "last_successful_source_check_at": "2026-10-08T11:26:02.585Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-07T11:04:24.783Z",
-      "last_success_at": "2026-10-07T11:04:24.783Z"
+      "last_attempt_at": "2026-10-08T11:26:02.585Z",
+      "last_success_at": "2026-10-08T11:26:02.585Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-07T11:04:24.783Z",
-      "last_success_at": "2026-10-07T11:04:24.783Z"
+      "last_attempt_at": "2026-10-08T11:26:02.585Z",
+      "last_success_at": "2026-10-08T11:26:02.585Z"
     }
   }
 }

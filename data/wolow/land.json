@@ -3,6 +3,154 @@
   "city": "wolow",
   "plots": [
     {
+      "key": "dz|219/10",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "219/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 219/10",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F10%20dz.%20nr%20219%2F10%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1216,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 2,
+          "starting_price_pln": 114000,
+          "outcome": "unsold",
+          "area_m2": 1216
+        },
+        {
+          "date": "2026-11-30",
+          "round": 3,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 1216,
+          "detail_url": "https://wolow.pl/4099/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-borowa-dz-nr-21910-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "219/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|219/8",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "219/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 219/8",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F8%20dz.%20nr%20219%2F8%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1100,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 2,
+          "starting_price_pln": 114000,
+          "outcome": "unsold",
+          "area_m2": 1100
+        },
+        {
+          "date": "2026-11-30",
+          "round": 3,
+          "starting_price_pln": 109000,
+          "outcome": "active",
+          "area_m2": 1100,
+          "detail_url": "https://wolow.pl/4098/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-mchowa-dz-nr-2198-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "219/8"
+        }
+      ]
+    },
+    {
+      "key": "dz|219/7",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "219/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 219/7",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F7%20dz.%20nr%20219%2F7%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1100,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 2,
+          "starting_price_pln": 104500,
+          "outcome": "unsold",
+          "area_m2": 1100
+        },
+        {
+          "date": "2026-11-27",
+          "round": 3,
+          "starting_price_pln": 99900,
+          "outcome": "active",
+          "area_m2": 1100,
+          "detail_url": "https://wolow.pl/4097/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-mchowa-dz-nr-2197-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "219/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|219/6",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "219/6",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 219/6",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20219%2F6%20dz.%20nr%20219%2F6%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1100,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 2,
+          "starting_price_pln": 104500,
+          "outcome": "unsold",
+          "area_m2": 1100
+        },
+        {
+          "date": "2026-11-27",
+          "round": 3,
+          "starting_price_pln": 99900,
+          "outcome": "active",
+          "area_m2": 1100,
+          "detail_url": "https://wolow.pl/4096/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-lisciasta-dz-nr-2196-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "219/6"
+        }
+      ]
+    },
+    {
       "key": "dz|169/3",
       "kind": "grunt",
       "city": "wolow",
@@ -1601,35 +1749,6 @@
       "parcels": [
         {
           "nr": "7"
-        }
-      ]
-    },
-    {
-      "key": "dz|2",
-      "kind": "grunt",
-      "city": "wolow",
-      "dzialka_nr": "2",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "dz. nr 2, Am 1",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%20dz.%20nr%202%2C%20Am%201%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1398,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-08-08",
-          "round": 3,
-          "starting_price_pln": 41400,
-          "outcome": "unsold",
-          "area_m2": 1398
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "2"
         }
       ]
     }

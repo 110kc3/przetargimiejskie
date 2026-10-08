@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "kielce",
-  "generated_at": "2026-10-07T10:47:42.246Z",
+  "generated_at": "2026-10-08T11:06:00.307Z",
   "source_pdf_count": 3,
   "parsed_records": 0,
   "parser_note_count": 1,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-07T10:47:25.309Z",
-  "last_successful_source_check_at": "2026-10-07T10:47:25.309Z",
+  "last_source_attempt_at": "2026-10-08T11:05:43.492Z",
+  "last_successful_source_check_at": "2026-10-08T11:05:43.492Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-07T10:47:25.309Z",
-      "last_success_at": "2026-10-07T10:47:25.309Z"
+      "last_attempt_at": "2026-10-08T11:05:43.492Z",
+      "last_success_at": "2026-10-08T11:05:43.492Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-07T10:47:25.309Z",
-      "last_success_at": "2026-10-07T10:47:25.309Z"
+      "last_attempt_at": "2026-10-08T11:05:43.492Z",
+      "last_success_at": "2026-10-08T11:05:43.492Z"
     }
   }
 }

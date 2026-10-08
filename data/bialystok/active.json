@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Przejazd 2 m 7",
+      "address": {
+        "street": "Przejazd",
+        "street_norm": "przejazd",
+        "building": "2",
+        "apt": "7",
+        "key": "przejazd|2|7",
+        "warning": null
+      },
+      "auction_date": "2026-11-27",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 275100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7-1.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Sienkiewicza 18 m 13",
       "address": {
         "street": "Sienkiewicza",
@@ -266,11 +284,10 @@
         "warning": null
       },
       "auction_date": "2026-10-07",
-      "round": 1,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": 321100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-rynek-kosciuszki-17-m-7.html",
-      "round_source": "inferred"
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-rynek-kosciuszki-17-m-7.html"
     },
     {
       "kind": "mieszkalny",

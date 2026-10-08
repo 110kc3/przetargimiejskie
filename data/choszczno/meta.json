@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "choszczno",
-  "generated_at": "2026-10-07T10:51:47.799Z",
+  "generated_at": "2026-10-08T11:10:49.895Z",
   "source_pdf_count": 7,
   "parsed_records": 6,
   "parser_note_count": 1,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-07T10:51:14.425Z",
-  "last_successful_source_check_at": "2026-10-07T10:51:14.425Z",
+  "last_source_attempt_at": "2026-10-08T11:10:16.448Z",
+  "last_successful_source_check_at": "2026-10-08T11:10:16.448Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-07T10:51:14.425Z",
-      "last_success_at": "2026-10-07T10:51:14.425Z"
+      "last_attempt_at": "2026-10-08T11:10:16.448Z",
+      "last_success_at": "2026-10-08T11:10:16.448Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-07T10:51:14.425Z",
-      "last_success_at": "2026-10-07T10:51:14.425Z"
+      "last_attempt_at": "2026-10-08T11:10:16.448Z",
+      "last_success_at": "2026-10-08T11:10:16.448Z"
     }
   }
 }

@@ -1,6 +1,26 @@
 {
   "schema_version": 1,
   "city": "przemysl",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sikorskiego 1A/39",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "1A",
+        "apt": "39",
+        "key": "sikorskiego|1A|39",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 2,
+      "detail_url": "https://bip.przemysl.pl/83660/prezydent-miasta-przemysla-oglasza-kolejny-przetarg-na-zbycie-przyslugujacego-gminie-miejskiej-spoldzielczego-wlasnosciowego-prawa-do-lokalu-mieszkalnego-przy-ul-sikorskiego-1a39.html",
+      "published_date": null,
+      "round_source": "inferred"
+    }
+  ],
   "wykaz": []
 }

@@ -3,6 +3,37 @@
   "city": "kolbuszowa",
   "plots": [
     {
+      "key": "dz|kolbuszowej|39/1",
+      "kind": "grunt",
+      "city": "kolbuszowa",
+      "dzialka_nr": "39/1",
+      "obreb": "Kolbuszowej",
+      "street": null,
+      "building": null,
+      "address_raw": "Kolbuszowej, dz. nr 39/1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2039%2F1%20Kolbuszowej%2C%20dz.%20nr%2039%2F1%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8097,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-10",
+          "round": 2,
+          "starting_price_pln": 971640,
+          "outcome": "active",
+          "area_m2": 8097,
+          "detail_url": "https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/18617-burmistrz-kolbuszowej-oglasza-ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-wlasnosci-gminy-kolbuszowa-przedmiotem-przetargu-jest-niezabudowana-nieruchomosc-gruntowa-polozona-w-kolbuszowej-przy-ulicy-blonie-oznaczona-numerem-ew-dzialki-391-o-powierzchni-0-8097-ha.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "39/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2039%2F1%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|hucie przedborskiej|300/2",
       "kind": "grunt",
       "city": "kolbuszowa",
@@ -61,6 +92,37 @@
         {
           "nr": "1494/2",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201494%2F2%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|kolbuszowej|48/250",
+      "kind": "grunt",
+      "city": "kolbuszowa",
+      "dzialka_nr": "48/250",
+      "obreb": "Kolbuszowej",
+      "street": null,
+      "building": null,
+      "address_raw": "Kolbuszowej, dz. nr 48/250",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2048%2F250%20Kolbuszowej%2C%20dz.%20nr%2048%2F250%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1202,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-09",
+          "round": 4,
+          "starting_price_pln": 164110,
+          "outcome": "active",
+          "area_m2": 1202,
+          "detail_url": "https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/18618-burmistrz-kolbuszowej-oglasza-iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-wlasnosci-gminy-kolbuszowa-przedmiotem-przetargu-jest-niezabudowana-nieruchomosc-gruntowa-polozona-w-kolbuszowej-przy-ulicy-hiacyntowej-oznaczona-nr-ew-dzialki-48250-o-pow-0-1202-ha.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "48/250",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2048%2F250%20Kolbuszowej%20Kolbuszowa%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
