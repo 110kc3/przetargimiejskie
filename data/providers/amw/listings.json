@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-10-08T11:04:37.294Z",
+  "generated_at": "2026-10-09T11:04:03.901Z",
   "listings": [
     {
       "title": "Warszawa, ul. Dzierzby 14, dz. 86",
@@ -37,6 +37,41 @@
       "outcome": "active",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-dzierzby-14-12266",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/warszawa-ul-dzierzby-14-12266"
+    },
+    {
+      "title": "Węgrzce, Osiedle Wojskowe 7/16",
+      "city": "Węgrzce",
+      "address_raw": "Osiedle Wojskowe 7/16",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "city_norm": "wegrzce",
+      "voivodeship": "malopolskie",
+      "street": "Osiedle Wojskowe",
+      "building": "7",
+      "apt": "16",
+      "area_m2": 11.97,
+      "land_area_m2": null,
+      "publication_date": null,
+      "auction_date": "2026-11-18",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 89000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:f10e153723c53933",
+      "external_id": "12054",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wegrzce-osiedle-wojskowe-7-16-12054"
     },
     {
       "title": "Brzeg, ul. Małujowicka, dz. 571/62, 571/78",
@@ -525,7 +560,7 @@
       "event_key": "amw:6572b5b75f674315",
       "external_id": "11653",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653"
     },
