@@ -3,6 +3,40 @@
   "city": "braniewo",
   "plots": [
     {
+      "key": "dz|nr 5|221/1, 221/2",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "221/1, 221/2",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jana Bażyńskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20221%2F1%2C%20221%2F2%20ul.%20Jana%20Ba%C5%BCy%C5%84skiego%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-01",
+          "round": 1,
+          "starting_price_pln": 103700,
+          "outcome": "sold",
+          "final_price_pln": 161000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "221/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20221%2F1%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "221/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20221%2F2%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. aleja wojska polskiego",
       "kind": "grunt",
       "city": "braniewo",

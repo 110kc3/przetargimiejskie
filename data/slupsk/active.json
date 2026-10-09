@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Szarych Szeregów 4",
+      "address": {
+        "street": "Szarych Szeregów",
+        "street_norm": "szarych szeregow",
+        "building": "4",
+        "apt": "7",
+        "key": "szarych szeregow|4|7",
+        "warning": null
+      },
+      "auction_date": "2026-11-17",
+      "round": 1,
+      "area_m2": 47.86,
+      "starting_price_pln": 270000,
+      "kw": "SL1S/000",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3249.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Jana Kilińskiego 18",
       "address": {
         "street": "Jana Kilińskiego",

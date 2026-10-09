@@ -290,6 +290,69 @@
       ]
     },
     {
+      "key": "dz|0022, jelenia góra 5|13, 14/2",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "13, 14/2",
+      "obreb": "0022, Jelenia Góra 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Łomnickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2013%2C%2014%2F2%20ul.%20%C5%81omnickiej%200022%2C%20Jelenia%20G%C3%B3ra%205%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 3,
+          "starting_price_pln": 6400000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "13",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2013%200022%2C%20Jelenia%20G%C3%B3ra%205%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "14/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F2%200022%2C%20Jelenia%20G%C3%B3ra%205%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0013, sobieszów ii|116/4",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "116/4",
+      "obreb": "0013, Sobieszów II",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Gabrieli Zapolskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20116%2F4%20ul.%20Gabrieli%20Zapolskiej%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2095,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 3,
+          "starting_price_pln": 490000,
+          "outcome": "unsold",
+          "area_m2": 2095
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "116/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20116%2F4%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. wrocławskiej",
       "kind": "grunt",
       "city": "jelenia-gora",

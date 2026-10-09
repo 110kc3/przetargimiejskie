@@ -23,6 +23,25 @@
     },
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Częstochowskiej 12",
+      "address": {
+        "street": "Częstochowskiej",
+        "street_norm": "czestochowskiej",
+        "building": "12",
+        "apt": null,
+        "key": "czestochowskiej|12|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 1231,
+      "starting_price_pln": 239000,
+      "auction_date": "2026-10-08",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,103053,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124356"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Słoneczników 65/6",
       "address": {
         "street": "Słoneczników",

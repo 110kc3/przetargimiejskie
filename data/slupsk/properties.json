@@ -25,6 +25,28 @@
       "area_m2": 148.4
     },
     {
+      "key": "szarych szeregow|4|7",
+      "street": "Szarych Szeregów",
+      "street_norm": "szarych szeregow",
+      "building": "4",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 47.86,
+          "detail_url": "https://bip.um.slupsk.pl/przetargi/3249.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 47.86
+    },
+    {
       "key": "stefana starzynskiego|8|1",
       "street": "Stefana Starzyńskiego",
       "street_norm": "stefana starzynskiego",

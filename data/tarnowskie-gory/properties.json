@@ -3,6 +3,28 @@
   "city": "tarnowskie-gory",
   "properties": [
     {
+      "key": "czestochowskiej|12|",
+      "street": "Częstochowska",
+      "street_norm": "czestochowskiej",
+      "building": "12",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 239000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 1231,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,103053,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "swobodnej|1|",
       "street": "Swobodna",
       "street_norm": "swobodnej",

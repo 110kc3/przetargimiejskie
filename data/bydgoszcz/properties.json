@@ -3,6 +3,28 @@
   "city": "bydgoszcz",
   "properties": [
     {
+      "key": "j j sniadeckich|12|7",
+      "street": "J.J. Śniadeckich",
+      "street_norm": "j j sniadeckich",
+      "building": "12",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 92.43,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11120/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-11-12-2026-r-ul-j-j-sniadeckich-12m7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 92.43
+    },
+    {
       "key": "wilenskiej|6|14",
       "street": "Wileńska",
       "street_norm": "wilenskiej",
