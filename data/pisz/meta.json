@@ -2,8 +2,8 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "pisz",
-  "generated_at": "2026-10-09T11:17:08.331Z",
-  "source_pdf_count": 45,
+  "generated_at": "2026-10-10T10:33:07.861Z",
+  "source_pdf_count": 44,
   "parsed_records": 4,
   "parser_note_count": 0,
   "unique_properties": 2,
@@ -11,13 +11,13 @@
   "active_auctions": 0,
   "archived_auctions": 4,
   "wykaz_entries": 0,
-  "land_plots": 30,
-  "land_listings": 60,
+  "land_plots": 29,
+  "land_listings": 59,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-09T11:12:43.558Z",
-  "last_successful_source_check_at": "2026-10-09T11:12:43.558Z",
+  "last_source_attempt_at": "2026-10-10T10:28:43.113Z",
+  "last_successful_source_check_at": "2026-10-10T10:28:43.113Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-09T11:12:43.558Z",
-      "last_success_at": "2026-10-09T11:12:43.558Z"
+      "last_attempt_at": "2026-10-10T10:28:43.113Z",
+      "last_success_at": "2026-10-10T10:28:43.113Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-09T11:12:43.558Z",
-      "last_success_at": "2026-10-09T11:12:43.558Z"
+      "last_attempt_at": "2026-10-10T10:28:43.113Z",
+      "last_success_at": "2026-10-10T10:28:43.113Z"
     }
   }
 }

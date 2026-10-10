@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "gdansk",
-  "generated_at": "2026-10-09T11:05:08.352Z",
+  "generated_at": "2026-10-10T10:21:35.814Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 3,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-09T11:05:03.547Z",
-  "last_successful_source_check_at": "2026-10-09T11:05:03.547Z",
+  "last_source_attempt_at": "2026-10-10T10:21:30.948Z",
+  "last_successful_source_check_at": "2026-10-10T10:21:30.948Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-09T11:05:03.547Z",
-      "last_success_at": "2026-10-09T11:05:03.547Z"
+      "last_attempt_at": "2026-10-10T10:21:30.948Z",
+      "last_success_at": "2026-10-10T10:21:30.948Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-09T11:05:03.547Z",
+      "last_attempt_at": "2026-10-10T10:21:30.948Z",
       "last_success_at": null
     }
   }
