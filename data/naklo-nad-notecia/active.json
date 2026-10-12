@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Potulicka 26/3",
+      "address": {
+        "street": "Potulicka",
+        "street_norm": "potulicka",
+        "building": "26",
+        "apt": "3",
+        "key": "potulicka|26|3",
+        "warning": null
+      },
+      "area_m2": 71.89,
+      "starting_price_pln": 193851,
+      "auction_date": "2026-12-08",
+      "round": 1,
+      "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/8167/ul-potulicka-26-3-naklo-nad-notecia",
+      "source_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/8167/ul-potulicka-26-3-naklo-nad-notecia"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Gorzeń 15/3",
       "address": {
         "street": "Gorzeń",

@@ -3,6 +3,50 @@
   "city": "szczecin",
   "properties": [
     {
+      "key": "boleslawa krzywoustego|8|7",
+      "street": "Bolesława Krzywoustego",
+      "street_norm": "boleslawa krzywoustego",
+      "building": "8",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 751000,
+          "outcome": "active",
+          "area_m2": 167.69,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=2377587A35B04A8193D90EA665BEF7A8",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 167.69
+    },
+    {
+      "key": "wladyslawa lokietka|34|8",
+      "street": "Władysława Łokietka",
+      "street_norm": "wladyslawa lokietka",
+      "building": "34",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 656000,
+          "outcome": "active",
+          "area_m2": 140.67,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=F680D1B874A44A7388EE47CD77F99BD2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 140.67
+    },
+    {
       "key": "pocztowa|30|16",
       "street": "Pocztowa",
       "street_norm": "pocztowa",
@@ -69,6 +113,52 @@
         }
       ],
       "area_m2": 179.86
+    },
+    {
+      "key": "boleslawa limanowskiego|3|20",
+      "street": "Bolesława Limanowskiego",
+      "street_norm": "boleslawa limanowskiego",
+      "building": "3",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=543AA60EECA34879A53F1DBBAC0729FF",
+          "notes": [],
+          "area_m2": 30.12
+        },
+        {
+          "date": "2026-05-18",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 173600,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=E4CB6AE4FE6E475CBC498B5E7E09B9C7",
+          "notes": [],
+          "area_m2": 30.12
+        },
+        {
+          "date": "2026-11-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "active",
+          "area_m2": 30.12,
+          "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=D5C86DBE0B404BF0B7641C4EAF07D4F6",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.12
     },
     {
       "key": "aleja papieza jana pawla ii|16|3",
@@ -565,41 +655,6 @@
         }
       ],
       "area_m2": 150.98
-    },
-    {
-      "key": "boleslawa limanowskiego|3|20",
-      "street": "Bolesława Limanowskiego",
-      "street_norm": "boleslawa limanowskiego",
-      "building": "3",
-      "apt": "20",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=543AA60EECA34879A53F1DBBAC0729FF",
-          "notes": [],
-          "area_m2": 30.12
-        },
-        {
-          "date": "2026-05-18",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 173600,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=E4CB6AE4FE6E475CBC498B5E7E09B9C7",
-          "notes": [],
-          "area_m2": 30.12
-        }
-      ],
-      "area_m2": 30.12
     },
     {
       "key": "batalionow chlopskich|32|3",

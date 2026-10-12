@@ -359,6 +359,28 @@
       "area_m2": 37.49
     },
     {
+      "key": "armii krajowej|2|41",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "2",
+      "apt": "41",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 139000,
+          "outcome": "active",
+          "area_m2": 30.55,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-41-znajdujacy-sie-w-budynku-nr-2",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30.55
+    },
+    {
       "key": "gwarkow|7|",
       "street": "Gwarków",
       "street_norm": "gwarkow",

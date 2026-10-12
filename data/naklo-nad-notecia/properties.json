@@ -3,6 +3,61 @@
   "city": "naklo-nad-notecia",
   "properties": [
     {
+      "key": "potulicka|26|3",
+      "street": "Potulicka",
+      "street_norm": "potulicka",
+      "building": "26",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 215391,
+          "outcome": "archived",
+          "area_m2": 71.89,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6387/ogloszenie-burmistrza-miasta-i-gminy-naklo-nad-notecia-z-dnia-9-czerwca-2025-roku-w-sprawie-przetargu-ustnego-nieograniczonego",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-02-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 215391,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 71.89
+        },
+        {
+          "date": "2026-07-07",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 215391,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 71.89
+        },
+        {
+          "date": "2026-12-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 193851,
+          "outcome": "active",
+          "area_m2": 71.89,
+          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/8167/ul-potulicka-26-3-naklo-nad-notecia",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 71.89
+    },
+    {
       "key": "gorzen|15|3",
       "street": "Gorzeń",
       "street_norm": "gorzen",
@@ -210,50 +265,6 @@
         }
       ],
       "area_m2": 44
-    },
-    {
-      "key": "potulicka|26|3",
-      "street": "Potulicka",
-      "street_norm": "potulicka",
-      "building": "26",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-09-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 215391,
-          "outcome": "archived",
-          "area_m2": 71.89,
-          "detail_url": "https://bip.gmina-naklo.pl/przetarg-nieruchomosci/6387/ogloszenie-burmistrza-miasta-i-gminy-naklo-nad-notecia-z-dnia-9-czerwca-2025-roku-w-sprawie-przetargu-ustnego-nieograniczonego",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-02-24",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 215391,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "notes": [],
-          "area_m2": 71.89
-        },
-        {
-          "date": "2026-07-07",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 215391,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "notes": [],
-          "area_m2": 71.89
-        }
-      ],
-      "area_m2": 71.89
     },
     {
       "key": "dzialkowa|8|29",

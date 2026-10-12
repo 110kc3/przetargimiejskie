@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Bolesława Krzywoustego 8/7",
+      "address": {
+        "street": "Bolesława Krzywoustego",
+        "street_norm": "boleslawa krzywoustego",
+        "building": "8",
+        "apt": "7",
+        "key": "boleslawa krzywoustego|8|7",
+        "warning": null
+      },
+      "auction_date": "2026-12-14",
+      "published_date": "2026-10-12",
+      "round": 1,
+      "area_m2": 167.69,
+      "starting_price_pln": 751000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=2377587A35B04A8193D90EA665BEF7A8"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Pocztowa 30/16",
       "address": {
         "street": "Pocztowa",
@@ -73,6 +91,42 @@
       "area_m2": 179.86,
       "starting_price_pln": 981600,
       "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=C5DF5F28E48C4A75A10FD05F4EDBD649"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Bolesława Limanowskiego 3/20",
+      "address": {
+        "street": "Bolesława Limanowskiego",
+        "street_norm": "boleslawa limanowskiego",
+        "building": "3",
+        "apt": "20",
+        "key": "boleslawa limanowskiego|3|20",
+        "warning": null
+      },
+      "auction_date": "2026-11-23",
+      "published_date": "2026-10-12",
+      "round": 1,
+      "area_m2": 30.12,
+      "starting_price_pln": 155000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=D5C86DBE0B404BF0B7641C4EAF07D4F6"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Władysława Łokietka 34/8",
+      "address": {
+        "street": "Władysława Łokietka",
+        "street_norm": "wladyslawa lokietka",
+        "building": "34",
+        "apt": "8",
+        "key": "wladyslawa lokietka|34|8",
+        "warning": null
+      },
+      "auction_date": "2026-12-14",
+      "published_date": "2026-10-12",
+      "round": 1,
+      "area_m2": 140.67,
+      "starting_price_pln": 656000,
+      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=F680D1B874A44A7388EE47CD77F99BD2"
     }
   ],
   "wykaz": []

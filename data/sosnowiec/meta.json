@@ -2,9 +2,9 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "sosnowiec",
-  "generated_at": "2026-10-11T10:44:57.080Z",
-  "source_pdf_count": 39,
-  "parsed_records": 37,
+  "generated_at": "2026-10-12T11:47:11.397Z",
+  "source_pdf_count": 40,
+  "parsed_records": 38,
   "parser_note_count": 0,
   "unique_properties": 56,
   "active_listings": 100,
@@ -16,8 +16,8 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-11T10:36:42.641Z",
-  "last_successful_source_check_at": "2026-10-11T10:36:42.641Z",
+  "last_source_attempt_at": "2026-10-12T11:38:56.469Z",
+  "last_successful_source_check_at": "2026-10-12T11:38:56.469Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-11T10:36:42.641Z",
-      "last_success_at": "2026-10-11T10:36:42.641Z"
+      "last_attempt_at": "2026-10-12T11:38:56.469Z",
+      "last_success_at": "2026-10-12T11:38:56.469Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-11T10:36:42.641Z",
-      "last_success_at": "2026-10-11T10:36:42.641Z"
+      "last_attempt_at": "2026-10-12T11:38:56.469Z",
+      "last_success_at": "2026-10-12T11:38:56.469Z"
     }
   }
 }

@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Dąbrowskiej 5/20",
+      "address": {
+        "street": "Dąbrowskiej",
+        "street_norm": "dabrowskiej",
+        "building": "5",
+        "apt": "20",
+        "key": "dabrowskiej|5|20",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-10-12",
+      "round": 1,
+      "area_m2": 21.19,
+      "starting_price_pln": null,
+      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-20-polozonego-w-budynku-przy-ul-dabrowskiej-5-w-kielcach-o-powierzchni-uzytkowej-2119m2-wraz-z-udzialem-w-nieruchom.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Słowackiego 7/7",
       "address": {
         "street": "Słowackiego",
@@ -55,24 +73,6 @@
       "area_m2": 18.21,
       "starting_price_pln": null,
       "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o-trzecim-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-11-polozonego-w-budynku-przy-ul-dabrowskiej-5-w-kielcach-o-powierzchni-uzytkowej-1821-m2-wraz-z-udzialem-w-ni.html"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Dąbrowskiej 5/20",
-      "address": {
-        "street": "Dąbrowskiej",
-        "street_norm": "dabrowskiej",
-        "building": "5",
-        "apt": "20",
-        "key": "dabrowskiej|5|20",
-        "warning": null
-      },
-      "auction_date": null,
-      "published_date": "2026-02-13",
-      "round": 2,
-      "area_m2": 21.19,
-      "starting_price_pln": null,
-      "detail_url": "https://bipum.kielce.eu/urzad-miasta-kielce/ogloszenia-obwieszczenia/nieruchomosci/przetargi-na-sprzedaz-oddanie-w-dzierzawe-nieruchomosci/ogloszenie-prezydenta-miasta-kielce-o--ii-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-numerem-20-polozonego-w-budynku-przy-ul-dabrowskiej-5-w-kielcach-o-powierzchni-uzytkowej-2119m2-wraz-z-udzialem-w-nieruch.html"
     },
     {
       "kind": "mieszkalny",
