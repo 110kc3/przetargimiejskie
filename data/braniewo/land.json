@@ -3,6 +3,56 @@
   "city": "braniewo",
   "plots": [
     {
+      "key": "dz|nr 5|202/3, 202/18, 202/19, 202/20, 202/21, 202/22",
+      "kind": "grunt",
+      "city": "braniewo",
+      "dzialka_nr": "202/3, 202/18, 202/19, 202/20, 202/21, 202/22",
+      "obreb": "nr 5",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Maratońskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F3%2C%20202%2F18%2C%20202%2F19%2C%20202%2F20%2C%20202%2F21%2C%20202%2F22%20ul.%20Marato%C5%84skiej%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-02",
+          "round": 1,
+          "starting_price_pln": 80300,
+          "outcome": "sold",
+          "final_price_pln": 81110
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "202/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F3%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F18%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F19%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F20%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F21%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "202/22",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20202%2F22%20nr%205%20Braniewo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|nr 5|221/1, 221/2",
       "kind": "grunt",
       "city": "braniewo",

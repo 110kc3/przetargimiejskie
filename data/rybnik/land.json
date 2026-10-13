@@ -3,34 +3,35 @@
   "city": "rybnik",
   "plots": [
     {
-      "key": "dz|niewiadom|190/33/180/34",
+      "key": "dz|niedobczyce|3451/133",
       "kind": "grunt",
       "city": "rybnik",
-      "dzialka_nr": "190/33/180/34",
-      "obreb": "Niewiadom",
-      "street": "Sportowej",
+      "dzialka_nr": "3451/133",
+      "obreb": "Niedobczyce",
+      "street": "Zwi ązkowej",
       "building": null,
-      "address_raw": "ul. Sportowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20190%2F33%2F180%2F34%20Sportowej%20Niewiadom%20Rybnik%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3967,
+      "address_raw": "ul. Zwi ązkowej",
+      "dzialka_id": "247301_1.0063.AR_5.3451/133",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0063.AR_5.3451%2F133",
+      "area_m2": 960,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-09-23",
-          "round": 2,
-          "starting_price_pln": 368000,
-          "outcome": "archived",
-          "area_m2": 3967,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104569",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3519620"
+          "date": "2026-11-25",
+          "round": 1,
+          "starting_price_pln": 149000,
+          "outcome": "active",
+          "area_m2": 960,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105687",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3564028"
         }
       ],
       "parcels": [
         {
-          "nr": "190/33/180/34",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20190%2F33%2F180%2F34%20Niewiadom%20Rybnik%20geoportal%20dzia%C5%82ki"
+          "nr": "3451/133",
+          "dzialka_id": "247301_1.0063.AR_5.3451/133",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0063.AR_5.3451%2F133"
         }
       ]
     },
@@ -45,170 +46,45 @@
       "address_raw": "ul. Teofila Bieli",
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Teofila%20Bieli%20Kamie%C5%84%20Rybnik%20geoportal%20dzia%C5%82ki",
-      "area_m2": 389,
+      "area_m2": 508,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-09-22",
+          "date": "2026-11-25",
           "round": 1,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": 389,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104891",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3531633"
+          "starting_price_pln": 77500,
+          "outcome": "active",
+          "area_m2": 508,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105686",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3564025"
         }
       ],
       "parcels": []
     },
     {
-      "key": "dz|orzepowice|1326/12/1327/12",
-      "kind": "grunt",
-      "city": "rybnik",
-      "dzialka_nr": "1326/12/1327/12",
-      "obreb": "Orzepowice",
-      "street": "Lawendowej",
-      "building": null,
-      "address_raw": "ul. Lawendowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201326%2F12%2F1327%2F12%20Lawendowej%20Orzepowice%20Rybnik%20geoportal%20dzia%C5%82ki",
-      "area_m2": 273,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-22",
-          "round": 1,
-          "starting_price_pln": 32000,
-          "outcome": "archived",
-          "area_m2": 273,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104860",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3530030"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1326/12/1327/12",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201326%2F12%2F1327%2F12%20Orzepowice%20Rybnik%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. giedroycia",
+      "key": "addr|ul. szczygłów",
       "kind": "grunt",
       "city": "rybnik",
       "dzialka_nr": null,
       "obreb": "Rybnik",
-      "street": "Giedroycia",
+      "street": "Szczygłów",
       "building": null,
-      "address_raw": "ul. Giedroycia",
+      "address_raw": "ul. Szczygłów",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Giedroycia%20Rybnik%20Rybnik%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1456,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Szczyg%C5%82%C3%B3w%20Rybnik%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 175,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-09-17",
-          "round": 2,
-          "starting_price_pln": 117500,
-          "outcome": "archived",
-          "area_m2": 1456,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104719",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3525197"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "dz|boguszowice|4673",
-      "kind": "grunt",
-      "city": "rybnik",
-      "dzialka_nr": "4673",
-      "obreb": "Boguszowice",
-      "street": "Nowomiejskiej",
-      "building": null,
-      "address_raw": "ul. Nowomiejskiej",
-      "dzialka_id": "247301_1.0007.4673",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.4673",
-      "area_m2": 1121,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-17",
+          "date": "2023-02-20",
           "round": 1,
-          "starting_price_pln": 134400,
+          "starting_price_pln": 11850,
           "outcome": "archived",
-          "area_m2": 1121,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104717",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3525191"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "4673",
-          "dzialka_id": "247301_1.0007.4673",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.4673"
-        }
-      ]
-    },
-    {
-      "key": "dz|boguszowice|3698",
-      "kind": "grunt",
-      "city": "rybnik",
-      "dzialka_nr": "3698",
-      "obreb": "Boguszowice",
-      "street": "Rajskiej",
-      "building": null,
-      "address_raw": "ul. Rajskiej",
-      "dzialka_id": "247301_1.0007.3698",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.3698",
-      "area_m2": 3780,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-17",
-          "round": 2,
-          "starting_price_pln": 631000,
-          "outcome": "archived",
-          "area_m2": 3780,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103998",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3499886"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3698",
-          "dzialka_id": "247301_1.0007.3698",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.3698"
-        }
-      ]
-    },
-    {
-      "key": "addr|ul. sportowej",
-      "kind": "grunt",
-      "city": "rybnik",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Sportowej",
-      "building": null,
-      "address_raw": "ul. Sportowej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sportowej%20Rybnik%20geoportal%20dzia%C5%82ki",
-      "area_m2": 19170,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-03-10",
-          "round": 1,
-          "starting_price_pln": 1420000,
-          "outcome": "archived",
-          "area_m2": 19170,
-          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=104516",
-          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3517603"
+          "area_m2": 175,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105685",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3564020"
         }
       ],
       "parcels": []

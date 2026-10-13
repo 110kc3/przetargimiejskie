@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "olsztyn",
-  "generated_at": "2026-10-12T11:49:47.496Z",
+  "generated_at": "2026-10-13T11:35:29.475Z",
   "source_pdf_count": 1,
   "parsed_records": 3,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 5,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-12T11:49:36.350Z",
-  "last_successful_source_check_at": "2026-10-12T11:49:36.350Z",
+  "last_source_attempt_at": "2026-10-13T11:35:17.709Z",
+  "last_successful_source_check_at": "2026-10-13T11:35:17.709Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-12T11:49:36.350Z",
-      "last_success_at": "2026-10-12T11:49:36.350Z"
+      "last_attempt_at": "2026-10-13T11:35:17.709Z",
+      "last_success_at": "2026-10-13T11:35:17.709Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-12T11:49:36.350Z",
+      "last_attempt_at": "2026-10-13T11:35:17.709Z",
       "last_success_at": null
     }
   }

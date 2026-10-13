@@ -3,6 +3,32 @@
   "city": "elblag",
   "plots": [
     {
+      "key": "addr|ul. lwowska",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lwowska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Lwowska%20Elbl%C4%85g%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-14",
+          "round": 6,
+          "starting_price_pln": 2043200,
+          "outcome": "active",
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/11145/vi-ustny-przetarg-nieograniczony-ul-lwowska-dz-nr-102-31-i-udz-0-4-cz-dzialce-nr-102-17-nieruchomosc-niezabudowana-14-12-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/19542"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|3|370/7",
       "kind": "grunt",
       "city": "elblag",

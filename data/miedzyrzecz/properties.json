@@ -15,12 +15,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 340000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.miedzyrzecz.pl/przetargi/0/368/362_/",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miedzyrzecz.pl/przetargi/0/368/362_/",
+          "notes": [],
+          "round_source": "inferred",
+          "detail_url": "https://bip.miedzyrzecz.pl/przetargi/0/368/362_/"
         }
       ]
     },
@@ -37,12 +38,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 118000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.miedzyrzecz.pl/przetargi/0/369/363_/",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 162000,
+          "source_pdf": "https://bip.miedzyrzecz.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu-Mieszka_I_78.pdf&id=14c40a7a2481885d36d306b8a3f08e79",
+          "notes": [],
+          "round_source": "inferred",
+          "detail_url": "https://bip.miedzyrzecz.pl/przetargi/0/369/363_/"
         }
       ]
     },

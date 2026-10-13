@@ -3,6 +3,24 @@
   "city": "glubczyce",
   "listings": [
     {
+      "kind": "zabudowana",
+      "address_raw": "Chomiąży 35",
+      "address": {
+        "street": "Chomiąży",
+        "street_norm": "chomiazy",
+        "building": "35",
+        "apt": null,
+        "key": "chomiazy|35|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": "2026-11-17",
+      "round": 1,
+      "detail_url": "https://bip.glubczyce.pl/download/attachment/29419/21-chomiaza-35.doc?v=1791882411",
+      "source_url": "https://bip.glubczyce.pl/download/attachment/29419/21-chomiaza-35.doc?v=1791882411"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Bolesława Chrobrego 2/4",
       "address": {
@@ -145,42 +163,6 @@
       "round": null,
       "detail_url": "https://bip.glubczyce.pl/download/attachment/24577/38.doc?v=1722329172",
       "source_url": "https://bip.glubczyce.pl/download/attachment/24577/38.doc?v=1722329172"
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "Nakielska 11",
-      "address": {
-        "street": "Nakielska",
-        "street_norm": "nakielska",
-        "building": "11",
-        "apt": null,
-        "key": "nakielska|11|",
-        "warning": null
-      },
-      "area_m2": 108,
-      "starting_price_pln": 200000,
-      "auction_date": "2024-08-30",
-      "round": 3,
-      "detail_url": "https://bip.glubczyce.pl/download/attachment/24536/37.doc?v=1720511156",
-      "source_url": "https://bip.glubczyce.pl/download/attachment/24536/37.doc?v=1720511156"
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "Nakielska 11",
-      "address": {
-        "street": "Nakielska",
-        "street_norm": "nakielska",
-        "building": "11",
-        "apt": null,
-        "key": "nakielska|11|",
-        "warning": null
-      },
-      "area_m2": 108,
-      "starting_price_pln": 225000,
-      "auction_date": "2024-07-02",
-      "round": 2,
-      "detail_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893",
-      "source_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893"
     }
   ],
   "wykaz": []
