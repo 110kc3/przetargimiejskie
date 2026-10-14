@@ -55,6 +55,18 @@
             "parse: missing starting price",
             "parse: missing achieved price on positive result"
           ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.przemysl.pl/83715/prezydent-miasta-przemysla-oglasza-kolejny-przetarg-na-zbycie-lokalu-mieszkalnego-przy-ul-franciszkanskiej-811.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
         }
       ]
     },

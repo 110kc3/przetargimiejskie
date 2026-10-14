@@ -3,6 +3,80 @@
   "city": "sosnowiec",
   "plots": [
     {
+      "key": "dz|0007 porąbka|2821/8",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2821/8",
+      "obreb": "0007 Porąbka",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2821/8, obręb 0007 Porąbka",
+      "dzialka_id": "247501_1.0007.2821/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0007.2821%2F8",
+      "area_m2": 10832,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-11",
+          "round": 1,
+          "starting_price_pln": 1625000,
+          "outcome": "active",
+          "area_m2": 10832,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565114,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-polozonej-w-sosnowcu-w-rejonie-ul-inwestycyjnej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565114,przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-polozonej-w-sosnowcu-w-rejonie-ul-inwestycyjnej.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2821/8",
+          "dzialka_id": "247501_1.0007.2821/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0007.2821%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|0012 sosnowiec|856/1",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "856/1",
+      "obreb": "0012 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 856/1, obręb 0012 Sosnowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20856%2F1%20dz.%20nr%20856%2F1%2C%20obr%C4%99b%200012%20Sosnowiec%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 15350,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-10",
+          "round": 2,
+          "starting_price_pln": 1340000,
+          "outcome": "archived",
+          "area_m2": 15350,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563392,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,563392,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        },
+        {
+          "date": "2026-12-18",
+          "round": 2,
+          "starting_price_pln": 1340000,
+          "outcome": "active",
+          "area_m2": 15350,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565113,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565113,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "856/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20856%2F1%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|12 sosnowiec|2525/11",
       "kind": "grunt",
       "city": "sosnowiec",
@@ -65,38 +139,6 @@
           "nr": "2595/12",
           "dzialka_id": "247501_1.0006.2595/12",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0006.2595%2F12"
-        }
-      ]
-    },
-    {
-      "key": "dz|0012 sosnowiec|856/1",
-      "kind": "grunt",
-      "city": "sosnowiec",
-      "dzialka_nr": "856/1",
-      "obreb": "0012 Sosnowiec",
-      "street": null,
-      "building": null,
-      "address_raw": "dz. nr 856/1, obręb 0012 Sosnowiec",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20856%2F1%20dz.%20nr%20856%2F1%2C%20obr%C4%99b%200012%20Sosnowiec%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki",
-      "area_m2": 15350,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-10",
-          "round": 2,
-          "starting_price_pln": 1340000,
-          "outcome": "archived",
-          "area_m2": 15350,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563392,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html",
-          "source_url": "https://www.bip.um.sosnowiec.pl/a,563392,drugi-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-pr.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "856/1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20856%2F1%200012%20Sosnowiec%20Sosnowiec%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

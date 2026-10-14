@@ -59,6 +59,25 @@
       "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124355"
     },
     {
+      "kind": "zabudowana",
+      "address_raw": "ul. Strzeleckiej 13",
+      "address": {
+        "street": "Strzeleckiej",
+        "street_norm": "strzeleckiej",
+        "building": "13",
+        "apt": null,
+        "key": "strzeleckiej|13|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 390,
+      "starting_price_pln": 699000,
+      "auction_date": "2026-10-13",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,102947,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nierucho.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124247"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Sienkiewicza 2",
       "address": {

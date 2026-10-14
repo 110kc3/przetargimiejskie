@@ -4,21 +4,21 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "Sikorskiego 6/19",
+      "address_raw": "Obrońców Pokoju 7c/58",
       "address": {
-        "street": "Sikorskiego",
-        "street_norm": "sikorskiego",
-        "building": "6",
-        "apt": "19",
-        "key": "sikorskiego|6|19",
+        "street": "Obrońców Pokoju",
+        "street_norm": "obroncow pokoju",
+        "building": "7C",
+        "apt": "58",
+        "key": "obroncow pokoju|7C|58",
         "warning": null
       },
-      "area_m2": 48.3,
-      "starting_price_pln": 245000,
-      "auction_date": "2026-10-13",
-      "round": 1,
-      "detail_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download",
-      "source_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download"
+      "area_m2": 28.4,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-11-24",
+      "round": 4,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/9C897FEC-96D0-4130-A1E3-85B4C98F408E/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/9C897FEC-96D0-4130-A1E3-85B4C98F408E/download"
     },
     {
       "kind": "zabudowana",

@@ -29,11 +29,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 130000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.wegrow.com.pl/artykul/345/12414/informacja-o-wyniku-drugiego-przetargu-na-sprzedaz-nieruchomosci-stanowiacej-lokal-mieszkalny-nr-19-przy-ul-nowej-3-w-wegrowie",
+          "notes": [],
           "area_m2": 52.7,
-          "detail_url": "https://bip.wegrow.com.pl/artykul/345/12364/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-stanowiacej-lokal-mieszkalny-nr-19-polozony-w-wegrowie-przy-ul-nowej-3",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.wegrow.com.pl/artykul/345/12364/ogloszenie-o-drugim-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-stanowiacej-lokal-mieszkalny-nr-19-polozony-w-wegrowie-przy-ul-nowej-3"
         }
       ],
       "area_m2": 52.7

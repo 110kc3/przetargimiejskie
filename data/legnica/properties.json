@@ -3,6 +3,105 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "zolnierzy ii armii wojska polskiego|2|2",
+      "street": "Żołnierzy II Armii Wojska Polskiego",
+      "street_norm": "zolnierzy ii armii wojska polskiego",
+      "building": "2",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-08-21",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 58.59,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38792,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zolnierzy-II-Armii-Wojska-Polskiego-2.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 58.59,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39310,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zolnierzy-II-Armii-Wojska-Polskiego-2.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 58.59
+    },
+    {
+      "key": "dmowskiego|20|1A",
+      "street": "Dmowskiego",
+      "street_norm": "dmowskiego",
+      "building": "20",
+      "apt": "1A",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 20.8,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39312,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-20.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 20.8
+    },
+    {
+      "key": "dmowskiego|19|1A",
+      "street": "Dmowskiego",
+      "street_norm": "dmowskiego",
+      "building": "19",
+      "apt": "1A",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 73.6,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39311,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-19.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 73.6
+    },
+    {
+      "key": "zeglarska|15|1",
+      "street": "Żeglarska",
+      "street_norm": "zeglarska",
+      "building": "15",
+      "apt": "1",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-11-16",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 43.5,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39309,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zeglarskiej-15.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.5
+    },
+    {
       "key": "zlotoryjska|43|3",
       "street": "Złotoryjska",
       "street_norm": "zlotoryjska",
@@ -254,28 +353,6 @@
         }
       ],
       "area_m2": 62.58
-    },
-    {
-      "key": "zolnierzy ii armii wojska polskiego|2|2",
-      "street": "Żołnierzy II Armii Wojska Polskiego",
-      "street_norm": "zolnierzy ii armii wojska polskiego",
-      "building": "2",
-      "apt": "2",
-      "kind": "unknown",
-      "listings": [
-        {
-          "date": "2026-08-21",
-          "round": 1,
-          "kind": "unknown",
-          "starting_price_pln": 190000,
-          "outcome": "archived",
-          "area_m2": 58.59,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38792,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zolnierzy-II-Armii-Wojska-Polskiego-2.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 58.59
     },
     {
       "key": "chojnowska|86|1A",

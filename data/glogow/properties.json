@@ -3,6 +3,41 @@
   "city": "glogow",
   "properties": [
     {
+      "key": "obroncow pokoju|7C|58",
+      "street": "Obrońców Pokoju",
+      "street_norm": "obroncow pokoju",
+      "building": "7C",
+      "apt": "58",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 155000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9B248C08-0A5D-480C-A5F0-EAFCDCB015EF/download",
+          "notes": [],
+          "area_m2": 28.4,
+          "detail_url": "https://www.glogow.pl/urzad/images/stories/2015/ogloszenia/joanna/12_2026.pdf"
+        },
+        {
+          "date": "2026-11-24",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 28.4,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/9C897FEC-96D0-4130-A1E3-85B4C98F408E/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 28.4
+    },
+    {
       "key": "kamienna droga|49|",
       "street": "Kamienna Droga",
       "street_norm": "kamienna droga",
@@ -61,7 +96,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 245000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 48.3,
           "detail_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download",
           "wadium_deadline": null,
@@ -224,30 +259,6 @@
         }
       ],
       "area_m2": 27.9
-    },
-    {
-      "key": "obroncow pokoju|7C|58",
-      "street": "Obrońców Pokoju",
-      "street_norm": "obroncow pokoju",
-      "building": "7C",
-      "apt": "58",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-15",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 155000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/9B248C08-0A5D-480C-A5F0-EAFCDCB015EF/download",
-          "notes": [],
-          "area_m2": 28.4,
-          "detail_url": "https://www.glogow.pl/urzad/images/stories/2015/ogloszenia/joanna/12_2026.pdf"
-        }
-      ],
-      "area_m2": 28.4
     },
     {
       "key": "waly boleslawa chrobrego|6|15",

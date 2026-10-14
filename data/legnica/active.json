@@ -4,6 +4,78 @@
   "listings": [
     {
       "kind": "unknown",
+      "address_raw": "ul. Dmowskiego 20/1A",
+      "address": {
+        "street": "Dmowskiego",
+        "street_norm": "dmowskiego",
+        "building": "20",
+        "apt": "1A",
+        "key": "dmowskiego|20|1A",
+        "warning": null
+      },
+      "auction_date": "2026-11-16",
+      "round": 1,
+      "area_m2": 20.8,
+      "starting_price_pln": 50000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39312,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-20.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66119/20261006przetargdmow.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Dmowskiego 19/1a",
+      "address": {
+        "street": "Dmowskiego",
+        "street_norm": "dmowskiego",
+        "building": "19",
+        "apt": "1A",
+        "key": "dmowskiego|19|1A",
+        "warning": null
+      },
+      "auction_date": "2026-11-16",
+      "round": 1,
+      "area_m2": 73.6,
+      "starting_price_pln": 160000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39311,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-19.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66118/20261006przetargdmow.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Żołnierzy II Armii Wojska Polskiego 2/2",
+      "address": {
+        "street": "Żołnierzy II Armii Wojska Polskiego",
+        "street_norm": "zolnierzy ii armii wojska polskiego",
+        "building": "2",
+        "apt": "2",
+        "key": "zolnierzy ii armii wojska polskiego|2|2",
+        "warning": null
+      },
+      "auction_date": "2026-11-16",
+      "round": 1,
+      "area_m2": 58.59,
+      "starting_price_pln": 190000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39310,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zolnierzy-II-Armii-Wojska-Polskiego-2.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66117/20261006przetargzo.docx"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Żeglarska 15/1",
+      "address": {
+        "street": "Żeglarska",
+        "street_norm": "zeglarska",
+        "building": "15",
+        "apt": "1",
+        "key": "zeglarska|15|1",
+        "warning": null
+      },
+      "auction_date": "2026-11-16",
+      "round": 1,
+      "area_m2": 43.5,
+      "starting_price_pln": 110000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39309,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zeglarskiej-15.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66116/20261006przetargzegl.docx"
+    },
+    {
+      "kind": "unknown",
       "address_raw": "ul. Żwirki i Wigury 10/2",
       "address": {
         "street": "Żwirki i Wigury",

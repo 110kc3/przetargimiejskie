@@ -15,32 +15,12 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 32000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51706/przy-ul-kosynierow-3a-1-obreb-podgorze-nr-39",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "stacyjnej|4|3",
-      "street": "Stacyjna",
-      "street_norm": "stacyjnej",
-      "building": "4",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-07",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 55000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51705/przy-ul-stacyjnej-4-3-obreb-szczawienko-nr-3",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 47000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/58149",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51706/przy-ul-kosynierow-3a-1-obreb-podgorze-nr-39"
         }
       ]
     },
@@ -104,6 +84,49 @@
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "bema|60A|2",
+      "street": "Bema",
+      "street_norm": "bema",
+      "building": "60A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 93000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 166000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/58149",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "key": "stacyjna|4|3",
+      "street": "Stacyjna",
+      "street_norm": "stacyjna",
+      "building": "4",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 55000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 64000,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/58149",
+          "notes": [],
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51705/przy-ul-stacyjnej-4-3-obreb-szczawienko-nr-3"
         }
       ]
     },

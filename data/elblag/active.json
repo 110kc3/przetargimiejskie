@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "zabudowana",
+      "address_raw": "ul. Łęczycka 26",
+      "address": {
+        "street": "Łęczycka",
+        "street_norm": "leczycka",
+        "building": "26",
+        "apt": null,
+        "key": "leczycka|26|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 6305000,
+      "auction_date": "2026-12-14",
+      "round": 1,
+      "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/11157/i-pisemny-przetarg-nieograniczony-ul-leczycka-26-nieruchomosc-zabudowana-14-12-2026-r",
+      "source_url": "https://bip.elblag.eu/attachments/download/19554"
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "ul. Garbary 30",
       "address": {
         "street": "Garbary",
