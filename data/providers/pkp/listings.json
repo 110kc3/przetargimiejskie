@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "pkp",
-  "generated_at": "2026-10-13T11:20:27.926Z",
+  "generated_at": "2026-10-14T09:12:01.617Z",
   "listings": [
     {
       "event_key": "pkp:31722",
@@ -1694,8 +1694,8 @@
       "starting_price_pln": 48000,
       "final_price_pln": null,
       "bidders": null,
-      "source_status": "Ogłoszony",
-      "outcome": "active",
+      "source_status": "Rozstrzygnięty",
+      "outcome": "sold",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31650",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=23975"
     },
@@ -1727,7 +1727,7 @@
       "final_price_pln": null,
       "bidders": null,
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31604",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=26038"
     },
@@ -1823,7 +1823,7 @@
       "final_price_pln": null,
       "bidders": null,
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31631",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=29792"
     },
@@ -1886,8 +1886,8 @@
       "starting_price_pln": 99000,
       "final_price_pln": null,
       "bidders": null,
-      "source_status": "Ogłoszony",
-      "outcome": "active",
+      "source_status": "Nierozstrzygnięty",
+      "outcome": "no_winner",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31639",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31662"
     },
@@ -1919,7 +1919,7 @@
       "final_price_pln": null,
       "bidders": null,
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31676",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=30151"
     },
@@ -1951,7 +1951,7 @@
       "final_price_pln": null,
       "bidders": null,
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31681",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=30146"
     },
