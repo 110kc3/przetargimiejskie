@@ -188,6 +188,28 @@
         }
       ],
       "area_m2": 50.7
+    },
+    {
+      "key": "wolnosci|18|74",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "18",
+      "apt": "74",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 37.89
+        }
+      ],
+      "area_m2": 37.89
     }
   ]
 }

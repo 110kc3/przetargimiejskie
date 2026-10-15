@@ -2,9 +2,9 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "walbrzych",
-  "generated_at": "2026-10-14T09:21:46.741Z",
-  "source_pdf_count": 92,
-  "parsed_records": 3,
+  "generated_at": "2026-10-15T08:53:28.724Z",
+  "source_pdf_count": 91,
+  "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 74,
   "active_listings": 6,
@@ -13,24 +13,24 @@
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 68,
+  "retained_properties": 69,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-14T09:15:04.267Z",
-  "last_successful_source_check_at": "2026-10-14T09:15:04.267Z",
+  "last_source_attempt_at": "2026-10-15T08:47:59.675Z",
+  "last_successful_source_check_at": "2026-10-15T08:47:59.675Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-14T09:15:04.267Z",
-      "last_success_at": "2026-10-14T09:15:04.267Z"
+      "last_attempt_at": "2026-10-15T08:47:59.675Z",
+      "last_success_at": "2026-10-15T08:47:59.675Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-14T09:15:04.267Z",
+      "last_attempt_at": "2026-10-15T08:47:59.675Z",
       "last_success_at": null
     }
   }

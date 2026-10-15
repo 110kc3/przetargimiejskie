@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wabrzezno",
-  "generated_at": "2026-10-14T09:29:58.898Z",
-  "source_pdf_count": 2,
-  "parsed_records": 0,
+  "generated_at": "2026-10-15T09:02:32.989Z",
+  "source_pdf_count": 3,
+  "parsed_records": 1,
   "parser_note_count": 0,
-  "unique_properties": 4,
+  "unique_properties": 5,
   "active_listings": 13,
   "active_auctions": 0,
-  "archived_auctions": 13,
+  "archived_auctions": 14,
   "wykaz_entries": 0,
   "land_plots": 7,
   "land_listings": 8,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-14T09:29:19.603Z",
-  "last_successful_source_check_at": "2026-10-14T09:29:19.603Z",
+  "last_source_attempt_at": "2026-10-15T09:01:37.946Z",
+  "last_successful_source_check_at": "2026-10-15T09:01:37.946Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-14T09:29:19.603Z",
-      "last_success_at": "2026-10-14T09:29:19.603Z"
+      "last_attempt_at": "2026-10-15T09:01:37.946Z",
+      "last_success_at": "2026-10-15T09:01:37.946Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-14T09:29:19.603Z",
-      "last_success_at": "2026-10-14T09:29:19.603Z"
+      "last_attempt_at": "2026-10-15T09:01:37.946Z",
+      "last_success_at": "2026-10-15T09:01:37.946Z"
     }
   }
 }
