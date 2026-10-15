@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "pkp",
-  "generated_at": "2026-10-14T09:12:01.617Z",
+  "generated_at": "2026-10-15T08:46:58.577Z",
   "listings": [
     {
       "event_key": "pkp:31722",
@@ -1692,8 +1692,8 @@
       "wadium_deadline": "2026-10-07",
       "round": null,
       "starting_price_pln": 48000,
-      "final_price_pln": null,
-      "bidders": null,
+      "final_price_pln": 48110,
+      "bidders": 1,
       "source_status": "Rozstrzygnięty",
       "outcome": "sold",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31650",
@@ -2012,10 +2012,10 @@
       "wadium_deadline": "2026-10-07",
       "round": null,
       "starting_price_pln": 49000,
-      "final_price_pln": null,
-      "bidders": null,
-      "source_status": "Ogłoszony",
-      "outcome": "archived",
+      "final_price_pln": 49100,
+      "bidders": 1,
+      "source_status": "Rozstrzygnięty",
+      "outcome": "sold",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31628",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=29858"
     },
