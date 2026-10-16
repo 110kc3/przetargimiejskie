@@ -4,6 +4,44 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 16C/24",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "16C",
+        "apt": "24",
+        "key": "armii krajowej|16C|24",
+        "warning": null
+      },
+      "auction_date": "2026-11-17",
+      "published_date": null,
+      "round": 5,
+      "area_m2": 46.02,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Chrzanowskiej 60",
+      "address": {
+        "street": "Chrzanowskiej",
+        "street_norm": "chrzanowskiej",
+        "building": "60",
+        "apt": null,
+        "key": "chrzanowskiej|60|",
+        "warning": null
+      },
+      "auction_date": "2026-12-01",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 128,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 2/41",
       "address": {
         "street": "Armii Krajowej",

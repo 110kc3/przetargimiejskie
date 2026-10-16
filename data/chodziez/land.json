@@ -3,32 +3,33 @@
   "city": "chodziez",
   "plots": [
     {
-      "key": "dz|chodzież|917/1",
+      "key": "dz|chodzież|4498/13",
       "kind": "grunt",
       "city": "chodziez",
-      "dzialka_nr": "917/1",
+      "dzialka_nr": "4498/13",
       "obreb": "Chodzież",
       "street": null,
       "building": null,
-      "address_raw": "ul. Kwiatowej",
+      "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20917%2F1%20ul.%20Kwiatowej%20Chodzie%C5%BC%20Chodzie%C5%BC%20geoportal%20dzia%C5%82ki",
-      "area_m2": 37,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204498%2F13%20Chodzie%C5%BC%20Chodzie%C5%BC%20geoportal%20dzia%C5%82ki",
+      "area_m2": 792,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": null,
+          "date": "2026-11-25",
           "round": 1,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "area_m2": 37
+          "starting_price_pln": 239000,
+          "outcome": "active",
+          "area_m2": 792,
+          "detail_url": "https://bip.chodziez.pl/chodziezm/bip/jednostki-organizacyjne-samorzadu-terytorialnego/urzad-miejski/obrot-nieruchomościami/2026/ogloszenia-o-przetargach/ogloszenie-i-przetargu-ustnego-nieograniczonego-na-sprzedaz-dzialki-nr-4498/13-polozonej-w-chodziezy-w-rejonie-ul.-topolowej.html"
         }
       ],
       "parcels": [
         {
-          "nr": "917/1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20917%2F1%20Chodzie%C5%BC%20Chodzie%C5%BC%20geoportal%20dzia%C5%82ki"
+          "nr": "4498/13",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204498%2F13%20Chodzie%C5%BC%20Chodzie%C5%BC%20geoportal%20dzia%C5%82ki"
         }
       ]
     }

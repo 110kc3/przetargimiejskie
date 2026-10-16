@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "legnica",
-  "generated_at": "2026-10-15T08:59:20.960Z",
+  "generated_at": "2026-10-16T08:54:45.184Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 22,
-  "active_listings": 7,
-  "active_auctions": 7,
-  "archived_auctions": 19,
+  "active_listings": 6,
+  "active_auctions": 6,
+  "archived_auctions": 20,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 15,
+  "retained_properties": 16,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-15T08:59:07.651Z",
-  "last_successful_source_check_at": "2026-10-15T08:59:07.651Z",
+  "last_source_attempt_at": "2026-10-16T08:54:33.992Z",
+  "last_successful_source_check_at": "2026-10-16T08:54:33.992Z",
   "monitored_assets": [
     "commercial",
     "residential",
@@ -26,13 +26,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-15T08:59:07.651Z",
-      "last_success_at": "2026-10-15T08:59:07.651Z"
+      "last_attempt_at": "2026-10-16T08:54:33.992Z",
+      "last_success_at": "2026-10-16T08:54:33.992Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-15T08:59:07.651Z",
+      "last_attempt_at": "2026-10-16T08:54:33.992Z",
       "last_success_at": null
     }
   }

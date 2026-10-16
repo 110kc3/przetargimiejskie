@@ -51,6 +51,50 @@
       "land_area_m2": 557.86
     },
     {
+      "key": "chrzanowskiej|60|",
+      "street": "Chrzanowskiej",
+      "street_norm": "chrzanowskiej",
+      "building": "60",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-06-30",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 128,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-15",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 128,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-w",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-01",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 128,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 128
+    },
+    {
       "key": "krakowskiej|14B|9",
       "street": "Krakowska",
       "street_norm": "krakowskiej",
@@ -225,6 +269,72 @@
         }
       ],
       "area_m2": 36.54
+    },
+    {
+      "key": "armii krajowej|16C|24",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "16C",
+      "apt": "24",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-06-16",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 205000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-09-01",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-17",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 46.02,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.02
     },
     {
       "key": "wielka skotnica|5A|12",
@@ -657,94 +767,6 @@
         }
       ],
       "area_m2": 46.42
-    },
-    {
-      "key": "chrzanowskiej|60|",
-      "street": "Chrzanowskiej",
-      "street_norm": "chrzanowskiej",
-      "building": "60",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-06-30",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 128,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-wl",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-09-15",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 128,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych-w",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 128
-    },
-    {
-      "key": "armii krajowej|16C|24",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "16C",
-      "apt": "24",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-12-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-04-14",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-06-16",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 205000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-09-01",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 190000,
-          "outcome": "archived",
-          "area_m2": 46.02,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 46.02
     },
     {
       "key": "armii krajowej|41|2",

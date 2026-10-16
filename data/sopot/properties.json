@@ -3,30 +3,6 @@
   "city": "sopot",
   "properties": [
     {
-      "key": "armii krajowej|74|8",
-      "street": "Armii Krajowej",
-      "street_norm": "armii krajowej",
-      "building": "74",
-      "apt": "8",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-07-16",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 500000,
-          "outcome": "unsold",
-          "unsold_reason": "no_wadium",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.sopot.pl/a,24963,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozon.html",
-          "notes": [],
-          "area_m2": 58,
-          "detail_url": "https://bip.sopot.pl/a,24963,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozon.html"
-        }
-      ],
-      "area_m2": 58
-    },
-    {
       "key": "3 maja|0|garaz-30",
       "street": "3 Maja",
       "street_norm": "3 maja",
@@ -328,6 +304,42 @@
       ]
     },
     {
+      "key": "armii krajowej|74|8",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "74",
+      "apt": "8",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 500000,
+          "outcome": "unsold",
+          "unsold_reason": "no_wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sopot.pl/a,24963,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozon.html",
+          "notes": [],
+          "area_m2": 58,
+          "detail_url": "https://bip.sopot.pl/a,24963,zakonczony-i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozon.html"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 415000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sopot.pl/a,25347,ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-niemieszkalnego-nr-8-polozonego-w-budy.html",
+          "notes": [],
+          "area_m2": 58
+        }
+      ],
+      "area_m2": 58
+    },
+    {
       "key": "armii krajowej|61|1",
       "street": "Armii Krajowej",
       "street_norm": "armii krajowej",
@@ -411,7 +423,7 @@
           "starting_price_pln": 1300000,
           "outcome": "archived",
           "area_m2": 200.82,
-          "detail_url": "https://bip.sopot.pl/a,25201,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacego-wlasnosc-gminy-miasta-sopot.html",
+          "detail_url": "https://bip.sopot.pl/a,25201,rozstrzygniety-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-uzytkowego-stanowiacego-wlasnosc-gmi.html",
           "wadium_deadline": null,
           "viewing_date": null
         },

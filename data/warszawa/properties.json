@@ -373,6 +373,52 @@
           "source": "amw"
         }
       ]
+    },
+    {
+      "key": "ciupagi|2F|22",
+      "street": "Ciupagi",
+      "street_norm": "ciupagi",
+      "building": "2F",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/163395/269043",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw",
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "ciupagi|2C|9",
+      "street": "Ciupagi",
+      "street_norm": "ciupagi",
+      "building": "2C",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/163393/269034",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "amw",
+          "round_source": "inferred"
+        }
+      ]
     }
   ]
 }

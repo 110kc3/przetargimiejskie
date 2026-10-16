@@ -4,42 +4,6 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Bolesława Krzywoustego 8/7",
-      "address": {
-        "street": "Bolesława Krzywoustego",
-        "street_norm": "boleslawa krzywoustego",
-        "building": "8",
-        "apt": "7",
-        "key": "boleslawa krzywoustego|8|7",
-        "warning": null
-      },
-      "auction_date": "2026-12-14",
-      "published_date": "2026-10-12",
-      "round": 1,
-      "area_m2": 167.69,
-      "starting_price_pln": 751000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=2377587A35B04A8193D90EA665BEF7A8"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Pocztowa 30/16",
-      "address": {
-        "street": "Pocztowa",
-        "street_norm": "pocztowa",
-        "building": "30",
-        "apt": "16",
-        "key": "pocztowa|30|16",
-        "warning": null
-      },
-      "auction_date": "2026-11-30",
-      "published_date": "2026-09-24",
-      "round": 3,
-      "area_m2": 162.04,
-      "starting_price_pln": 806200,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4AB9034431CB46BCA97AFAC0E1A09C36"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Bolesława Krzywoustego 29/14",
       "address": {
         "street": "Bolesława Krzywoustego",
@@ -55,78 +19,6 @@
       "area_m2": 132.85,
       "starting_price_pln": 638200,
       "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4CFE2EAA79794318A1305BA0BCF29446"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Aleja Papieża Jana Pawła II 16/3",
-      "address": {
-        "street": "Aleja Papieża Jana Pawła II",
-        "street_norm": "aleja papieza jana pawla ii",
-        "building": "16",
-        "apt": "3",
-        "key": "aleja papieza jana pawla ii|16|3",
-        "warning": null
-      },
-      "auction_date": "2026-10-29",
-      "published_date": "2026-08-27",
-      "round": 1,
-      "area_m2": 163.66,
-      "starting_price_pln": 800000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=7F1BFDD3815641E0814E7D51AE351911"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Kaszubska 65/6",
-      "address": {
-        "street": "Kaszubska",
-        "street_norm": "kaszubska",
-        "building": "65",
-        "apt": "6",
-        "key": "kaszubska|65|6",
-        "warning": null
-      },
-      "auction_date": "2026-11-30",
-      "published_date": "2026-09-24",
-      "round": 3,
-      "area_m2": 179.86,
-      "starting_price_pln": 981600,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=C5DF5F28E48C4A75A10FD05F4EDBD649"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Bolesława Limanowskiego 3/20",
-      "address": {
-        "street": "Bolesława Limanowskiego",
-        "street_norm": "boleslawa limanowskiego",
-        "building": "3",
-        "apt": "20",
-        "key": "boleslawa limanowskiego|3|20",
-        "warning": null
-      },
-      "auction_date": "2026-11-23",
-      "published_date": "2026-10-12",
-      "round": 1,
-      "area_m2": 30.12,
-      "starting_price_pln": 155000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=D5C86DBE0B404BF0B7641C4EAF07D4F6"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Władysława Łokietka 34/8",
-      "address": {
-        "street": "Władysława Łokietka",
-        "street_norm": "wladyslawa lokietka",
-        "building": "34",
-        "apt": "8",
-        "key": "wladyslawa lokietka|34|8",
-        "warning": null
-      },
-      "auction_date": "2026-12-14",
-      "published_date": "2026-10-12",
-      "round": 1,
-      "area_m2": 140.67,
-      "starting_price_pln": 656000,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=F680D1B874A44A7388EE47CD77F99BD2"
     }
   ],
   "wykaz": []

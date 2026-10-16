@@ -3,6 +3,29 @@
   "city": "torun",
   "properties": [
     {
+      "key": "sebastiana klonowica|21|2",
+      "street": "Sebastiana Klonowica",
+      "street_norm": "sebastiana klonowica",
+      "building": "21",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 45.43,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63808/ul-sebastiana-klonowica-21-m-2",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 45.43
+    },
+    {
       "key": "lubicka|51|4",
       "street": "Lubicka",
       "street_norm": "lubicka",

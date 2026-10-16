@@ -2,13 +2,13 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "warszawa",
-  "generated_at": "2026-10-15T08:46:13.935Z",
+  "generated_at": "2026-10-16T08:41:35.177Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
-  "unique_properties": 16,
-  "active_listings": 2,
-  "active_auctions": 9,
+  "unique_properties": 18,
+  "active_listings": 4,
+  "active_auctions": 11,
   "archived_auctions": 8,
   "wykaz_entries": 0,
   "land_plots": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 16,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-15T08:46:08.098Z",
-  "last_successful_source_check_at": "2026-10-15T08:46:08.098Z",
+  "last_source_attempt_at": "2026-10-16T08:41:14.992Z",
+  "last_successful_source_check_at": "2026-10-16T08:41:14.992Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-15T08:46:08.098Z",
-      "last_success_at": "2026-10-15T08:46:08.098Z"
+      "last_attempt_at": "2026-10-16T08:41:14.992Z",
+      "last_success_at": "2026-10-16T08:41:14.992Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-15T08:46:08.098Z",
+      "last_attempt_at": "2026-10-16T08:41:14.992Z",
       "last_success_at": null
     }
   }

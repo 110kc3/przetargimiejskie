@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Sebastiana Klonowica 21 m. 2",
+      "address": {
+        "street": "Sebastiana Klonowica",
+        "street_norm": "sebastiana klonowica",
+        "building": "21",
+        "apt": "2",
+        "key": "sebastiana klonowica|21|2",
+        "warning": null
+      },
+      "auction_date": "2026-11-17",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 270000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63808/ul-sebastiana-klonowica-21-m-2",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Lubicka 51 m. 4",
       "address": {
         "street": "Lubicka",
