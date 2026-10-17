@@ -115,9 +115,17 @@
           "date": "2026-10-16",
           "round": 10,
           "starting_price_pln": 714600,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13888/26-110-skarzysko-kamienna-ul-ekonomii",
           "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13888/26-110-skarzysko-kamienna-ul-ekonomii"
+        },
+        {
+          "date": "2026-11-20",
+          "round": 11,
+          "starting_price_pln": 291300,
+          "outcome": "active",
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14179/26-110-skarzysko-kamienna-ul-legionow",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14179/26-110-skarzysko-kamienna-ul-legionow"
         }
       ],
       "parcels": []
@@ -170,32 +178,6 @@
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12005/26-110-skarzysko-kamienna-ul-sportowa",
           "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12005/26-110-skarzysko-kamienna-ul-sportowa"
-        }
-      ],
-      "parcels": []
-    },
-    {
-      "key": "sikorskiego|20|",
-      "kind": "grunt",
-      "city": "skarzysko-kamienna",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Sikorskiego",
-      "building": "20",
-      "address_raw": "ul. Sikorskiego 20",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Sikorskiego%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-07-23",
-          "round": 1,
-          "starting_price_pln": 766235,
-          "outcome": "archived",
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11502/26-110-skarzysko-kamienna-ul-asfaltowa",
-          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11502/26-110-skarzysko-kamienna-ul-asfaltowa"
         }
       ],
       "parcels": []

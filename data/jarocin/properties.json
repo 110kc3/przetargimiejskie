@@ -3,6 +3,28 @@
   "city": "jarocin",
   "properties": [
     {
+      "key": "bema|31A|4",
+      "street": "Bema",
+      "street_norm": "bema",
+      "building": "31A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 401000,
+          "outcome": "active",
+          "area_m2": 50.9,
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-przetargu-bema-31a-4-bip.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.9
+    },
+    {
       "key": "malopolskiej oraz zarzadzenia nr|160|",
       "street": "Małopolskiej oraz Zarządzenia Nr",
       "street_norm": "malopolskiej oraz zarzadzenia nr",

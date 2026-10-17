@@ -3,6 +3,36 @@
   "city": "jelenia-gora",
   "plots": [
     {
+      "key": "dz|448/7",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "448/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20448%2F7%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-22",
+          "round": 2,
+          "starting_price_pln": 1400000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26132/112-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/52270"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "448/7"
+        }
+      ]
+    },
+    {
       "key": "dz|0028, 28 ne, am 8|11",
       "kind": "grunt",
       "city": "jelenia-gora",

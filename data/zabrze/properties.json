@@ -191,11 +191,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 230000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
           "area_m2": 54.58,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408"
         }
       ],
       "area_m2": 54.58
@@ -213,11 +215,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 191000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
           "area_m2": 36.8,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408"
         }
       ],
       "area_m2": 36.8
@@ -235,11 +239,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 160000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
           "area_m2": 34.55,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408"
         }
       ],
       "area_m2": 34.55
@@ -257,11 +263,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 132000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
           "area_m2": 31.77,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408"
         }
       ],
       "area_m2": 31.77
@@ -279,11 +287,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 170000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
           "area_m2": 36.24,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408"
         }
       ],
       "area_m2": 36.24
@@ -301,14 +311,85 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 170000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
           "area_m2": 36.67,
-          "detail_url": "https://bip.miastozabrze.pl/doc/26408",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.miastozabrze.pl/doc/26408"
         }
       ],
       "area_m2": 36.67
+    },
+    {
+      "key": "prof fryderyka joliot curie|13|9",
+      "street": "prof. Fryderyka Joliot-Curie",
+      "street_norm": "prof fryderyka joliot curie",
+      "building": "13",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
+          "area_m2": 40.5
+        }
+      ],
+      "area_m2": 40.5
+    },
+    {
+      "key": "dr henryka jordana|33|5",
+      "street": "dr. Henryka Jordana",
+      "street_norm": "dr henryka jordana",
+      "building": "33",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
+          "area_m2": 39.25
+        }
+      ],
+      "area_m2": 39.25
+    },
+    {
+      "key": "dr henryka jordana|78B|15",
+      "street": "dr. Henryka Jordana",
+      "street_norm": "dr henryka jordana",
+      "building": "78B",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.miastozabrze.pl/attachment/108563",
+          "notes": [],
+          "area_m2": 49.1
+        }
+      ],
+      "area_m2": 49.1
     },
     {
       "key": "3 maja|92|2",
