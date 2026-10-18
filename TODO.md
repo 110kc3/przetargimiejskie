@@ -51,6 +51,107 @@
 
 ## 1 · Ops / health
 
+### Repository, health and traffic review — 18 October 2026
+
+Snapshot: `cffa7bcfeaab6a5f2a9b89b7d59b8efb772dc8f3` (today's municipal
+publication). Local `main` was fast-forwarded by 173 commits after comparing all
+37 dirty/untracked paths with GitHub. Fifteen files already matched GitHub;
+the remaining differences were earlier release/proxy/security/inventory work
+superseded by the September releases and TLS repair. The four local-only proxy
+appliance files belong to the retired design. All previous local content is
+preserved in stash `2712e13fde70d8599e641ee8430c7fcd46a3fa29` (message:
+`preserved pre-sync September work 2026-10-18; superseded by origin/main`). Do not
+apply that stash wholesale: it would restore the removed proxy and disabled TLS
+verification. No local-only newer implementation was found.
+
+**Verification:** today's [refresh](https://github.com/110kc3/przetargimiejskie/actions/runs/39111471289)
+passed setup (full offline suite on Node 20.20.2), provider refresh and municipal
+publication; [deployment](https://github.com/110kc3/przetargimiejskie/actions/runs/39113587845)
+succeeded. CodeQL alert #128 is fixed (25 September). The
+[health run](https://github.com/110kc3/przetargimiejskie/actions/runs/39125291672)
+completed issue reconciliation and failed its health enforcement gate.
+
+Local read-only checks on Node 24.18.0: 47 focused tests across land merging,
+TLS security, coverage health, validation policy, shard isolation, artifact
+publication and issue sync passed; national integrity, provider health and hosted
+runner policy passed. A fresh site build passed the SEO audit for all **2,873
+sitemap URLs**, with Cloudflare injected into 2,875 HTML pages. Live landing,
+archive, reports, privacy, city directory, robots, sitemap and data index all
+returned HTTP 200; the live index matches today's publication timestamp.
+
+| Current measure | Observed state |
+|---|---|
+| Registered cities / public website cities | 121 / 62 |
+| Index coverage state | 83 monitored, 34 degraded, 2 valid-empty, 2 unknown |
+| Validation policy | 100 enforced, 21 quarantined; all 21 review deadlines expired on 6 October |
+| Latest hosted city outcomes | 112 ready, 7 failed, 2 excluded from hosted automation |
+| Operational health (`STALE_DAYS=3`) | 47 findings across 38 cities |
+| Finding classes | 21 expired quarantines, 10 degraded streams, 7 failed attempts, 5 stale datasets, 2 expired egress exemptions, 2 empty-source rechecks |
+| Published municipal properties / land plots | 2,479 / 1,628; up from 2,353 / 1,606 on 5 September |
+| Separate institutional providers | PKP and AMW both pass current health |
+
+The seven failed hosted attempts are Gliwice, Świętochłowice, Wałbrzych,
+Gniezno, Poddębice, Rawa Mazowiecka and Golub-Dobrzyń. Gliwice is **44 days
+stale** (last-good 4 September; junk-street gate); Gniezno is 20 days stale,
+Golub-Dobrzyń 19 days (cellar-area gate), Rawa Mazowiecka 10 days and
+Świętochłowice four days. Wałbrzych's latest attempt timed out but its last-good
+publication is from yesterday. Racibórz/Pszczyna remain explicit hosted-only
+coverage gaps; their exceptions must not be silently extended or bypassed.
+
+**Traffic, 11–18 October, 18:30 UTC:** the existing account's read-only
+[aggregate report](https://github.com/110kc3/seo/actions/runs/39154419214)
+reports **769 browser page views**, **706 likely-human views**, **371
+likely-human visits**, two likely-bot views and 61 unclassified views. These are
+Cloudflare estimates, not unique people. Sample intervals reach approximately
+1.04; independently grouped dimensions do not reconcile exactly, so do not use
+their sums as a conversion denominator. Reported leading page groups include
+Łódź (43 views), home (42), city directory (28), reports (27), Wrocław (26) and
+Katowice (23); Google referrals are present. One current window establishes use,
+not a growth rate. Edge request/bot logs are unavailable through this account
+because the domain is hosted outside its Cloudflare zones. No conversion or
+revenue evidence was obtained. The workflow artifact expires after 14 days;
+these dated figures preserve the relevant baseline here.
+
+Cloudflare is the live analytics provider (repository variable and production
+HTML), but `site/privacy/index.html` still names Umami. DNS now contains a
+`google-site-verification` TXT record; this supersedes August's missing-record
+diagnosis without proving Search Console ownership, sitemap acceptance or exact
+index coverage. Those account-owned checks remain unverified.
+
+**Prioritized recommendations — not an accepted implementation batch:**
+
+1. **Recover stale auction data first** (medium, several source-specific fixes).
+   Start with Gliwice #426, Golub-Dobrzyń #610, Gniezno #603 and Rawa Mazowiecka
+   #744; investigate the other failed/degraded sources by recorded cause.
+   Acceptance: source-faithful fixtures and targeted tests, then successful hosted
+   publication and three-day health for each selected city. Preserve last-good
+   data and strict gates; do not manufacture freshness locally.
+2. **Retire the 21 expired validation quarantines in small cohorts** (large).
+   Repair the underlying data/parser defects, then remove each quarantine after
+   its blocking sanity and hosted health pass. A date extension alone does not
+   meet acceptance. This is existing Phase B1 follow-up, before new adapters.
+3. **Deliver national product discovery, Phase B3** (large). Website publishing
+   currently exposes 62 of 121 feeds and the extension still hardcodes nine.
+   Acceptance: all official inventory entries discoverable with accurate state,
+   lazy loading for enabled feeds, explicit empty/blocked status, mobile/browser
+   verification and extension release checks. Keep SEO eligibility independent
+   from discovery; no new adapters are required for this slice.
+4. **Make self-service demand measurable** (small discovery slice, no billing or
+   service sales). First correct the provider disclosure and verify Search Console
+   sitemap/index coverage in the account. Measure one optional interest action
+   for saved-search/auction alerts on existing high-traffic city/property pages.
+   Suggested gate: in 30 days obtain ten voluntary interested users and three
+   explicit willingness-to-pay confirmations; otherwise do not build billing or
+   broaden acquisition. Define the event/consent details before implementation;
+   page views alone cannot pass this gate. Manual consulting is not proposed.
+
+Next accepted technical sequence remains source/quarantine repairs and the
+current-city source/asset audit, then B3, then the existing BUILD/research queue
+in [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md). Recommendations above require a
+selection before implementation. Documentation push verification is pending at
+[Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain);
+do not wait after pushing.
+
 ### CI recovery — 25 September 2026
 
 The 24–25 September audit traced the daily refresh failure since 11 September to
@@ -71,13 +172,11 @@ Local verification: 37 targeted Node 20.20.2 tests; workflow lint and hosted-run
 policy; complete verified TLS handshakes to all 13 compatibility hosts on
 25 September. No production data was refreshed locally.
 
-- [ ] **Verify the CI-recovery push once next session:** the accompanying commit
-      is pending hosted verification at
-      [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
-      Confirm the setup gate and publication run, CodeQL alert #128 closes after
-      scanning, and the following health check reflects refreshed city/provider
-      timestamps and completes issue reconciliation. Do not call all city health
-      green from parser tests or a successful deployment.
+- [x] **Verify the CI-recovery push once next session:** checked 18 October.
+      The full Node 20 setup gate and publication run; CodeQL alert #128 is
+      fixed; today's health run reaches enforcement after issue reconciliation.
+      Remaining municipal health failures are quantified in the current review
+      above and are not represented as a green health result.
 - Residual source incidents (Gliwice, Świętochłowice, Kłodzko, Brzeg and degraded
   source streams), Racibórz/Pszczyna's hosted-egress exclusions and dated validation
   quarantines remain separate from this pipeline repair. Reassess their recorded
@@ -92,9 +191,9 @@ security pass:
       hardcode with lazy, data-driven discovery for all 121 built cities, finish the
       scalable filters/i18n/voivodeship mapping, browser-test, version-bump and prepare
       the store submission.
-- [ ] **CI cost and next adapters (previous step 7):** shard the 121-city refresh and
-      backfill matrices into roughly 4–5 small cities per job, then continue the 50-city
-      BUILD-ready queue from the generated ledger.
+- **CI sharding shipped in Phase B2 (8 September):** 119 hosted-safe cities now
+      run in 52 source-aware shards with one municipal publisher. Remaining
+      source/quarantine work and B3 precede the 50-city BUILD-ready queue.
 
 ### Current city-issue queue — live-audited 23 August 2026 [RPI5]
 
@@ -583,25 +682,13 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   sitemap 1 090 → 2 273 URLs. `CITY_LOC` covers all 54 (unmapped cities fall back
   to the safe nominative apposition). Gate is self-healing — a city appears and
   disappears on its own as its board fills and empties.
-- **Google Search Console [ACCOUNT] — THE traffic blocker, still open.** Verify
-  przetargimiejskie.pl (DNS TXT in the OVH **domain** zone, not the hosting
-  panel), submit sitemap.xml.
-
-  Escalated 2026-08-02 after measuring the consequence: `dig TXT
-  przetargimiejskie.pl` returns only OVH's own record and an SPF line — **no
-  `google-site-verification` has ever existed**, so the sitemap was never
-  submitted and effectively **0 of 2 296 pages are indexed** (`site:` on Google,
-  Bing and DDG all return nothing but the bare domain). Umami reports ~1 visitor
-  per week, and that is the whole reason.
-
-  The on-page work is *not* the gap and needs no further effort — audited
-  2026-08-02: unique titles, meta descriptions carrying live numbers, canonicals,
-  3 093-word city hubs, HTTP/2, compression, Googlebot-UA 200. The site is
-  well-built and undiscovered.
-
-  Note JS analytics **cannot** answer "have I been crawled?" — bots don't run
-  JavaScript. Use the OVH raw access logs instead (Hosting → *przetaa* → Logs, or
-  `logs.cluster129.hosting.ovh.net`) and grep the UA for `Googlebot`.
+- **Google Search Console [ACCOUNT] — current account check needed.** On
+  18 October DNS contains `google-site-verification`; August's missing-TXT
+  diagnosis is historical. Confirm ownership, sitemap acceptance and indexed
+  URLs inside Search Console. The live sitemap has 2,873 URLs and current
+  Cloudflare analytics records Google referrals. A search-engine `site:` query
+  is not an index census. Browser analytics cannot establish crawler coverage;
+  use Search Console and OVH access logs for that question.
 - ~~**IndexNow**~~ — **SHIPPED 2026-08-02 (`ba318b83`).** Key file at
   `site/d69b65d9b31a3b7c9c794c9f2ffb5d7b.txt` + `scripts/indexnow-submit.mjs`;
   **2 296 URLs submitted and accepted (HTTP 200)**. Needs no account — ownership
@@ -615,33 +702,15 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   for a freshness guarantee a once-daily pipeline cannot need, to
   `max-age=300, stale-while-revalidate=3600`; icons/og:image get a week.
   Validated against `httpd:2.4-alpine` before deploy, then verified live.
-- ~~**Analytics — needs a free Umami Cloud account**~~ — **LIVE since 2026-07-28.**
-  `ANALYTICS_ID` is set and the snippet is in the deployed HTML
-  (`data-website-id="b90eebb6-965f-4a18-bd40-777a9fbe0736"`). It reports **~1
-  visitor/week** — see the Search Console item above for why. Note the Umami
-  Cloud **API** is a paid feature; the dashboard is not, and at this volume no
-  API is needed. Self-hosting on the Pi later is an `ANALYTICS_HOST` change only.
-  Original wiring notes, kept for the config reference:
-  the snippet is injected into **every** built page (2 275) by the last step of
-  `scripts/build-seo-pages.mjs`, so no page — present or future — can ship
-  unmeasured. `site/privacy/index.html` discloses it (it previously claimed
-  *"brak narzędzi analitycznych"*, which the injection would have made false).
-  Cookieless, no personal data, no consent banner needed.
-
-  **Plausible was dropped 2026-07-27 — it is paid (no free tier).** Replaced with
-  **Umami Cloud Hobby: free, no card, EU region** (`eu.umami.is`), which also
-  supports custom events — needed for the GTM §6 *CTA click-through* kill gate,
-  which Cloudflare Web Analytics (the free-unlimited alternative) cannot measure.
-  Self-hosting Umami later needs no code change, only `ANALYTICS_HOST`.
-
-  ~~Remaining, Kamil-only~~ — **done 2026-07-28** (`dd586f40`): the Umami Cloud
-  account exists and `ANALYTICS_ID` is set as a repo **Variable** (not a secret —
-  the id is public in the page HTML).
-
-  If the variable is ever unset the site builds with **no** tracking snippet at
-  all — deliberately, so nothing ships a dead beacon that looks like working
-  analytics. Config: `ANALYTICS_PROVIDER` (`umami` default | `plausible`),
-  `ANALYTICS_ID`, `ANALYTICS_HOST` (self-hosted Umami origin).
+- **Analytics — Cloudflare Web Analytics is live (verified 18 October).**
+  `ANALYTICS_PROVIDER=cloudflare` and the public `ANALYTICS_ID` are repository
+  Variables; the current production HTML contains `data-cf-beacon`. Configuration
+  changed on 3 August, superseding the former Umami setup. The dated seven-day
+  traffic baseline and its limitations are in the current review above.
+  `site/privacy/index.html` still names Umami and needs correction. Conversion
+  instrumentation is not established by the page-view beacon. With no ID the
+  builder deliberately omits analytics; supported providers are `umami`,
+  `plausible` and `cloudflare`, with `ANALYTICS_HOST` used for Umami.
 - **B2G workflow discovery [ACTIVE, corrected 2026-08-11]:** the source-linked
   Gliwice report is a free proof of capability, not a paid public-data product.
   Validate whether ZGM has a repeated register/reconciliation/reporting task
