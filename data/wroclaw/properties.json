@@ -1124,6 +1124,32 @@
       "area_m2": 64.43
     },
     {
+      "key": "marii curie sklodowskiej|11|6-6A",
+      "street": "Marii Curie-Skłodowskiej",
+      "street_norm": "marii curie sklodowskiej",
+      "building": "11",
+      "apt": "6-6A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1350000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1809000,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1105",
+          "notes": [],
+          "area_m2": 194.69
+        }
+      ],
+      "area_m2": 194.69,
+      "legacy_keys": [
+        "marii curie sk x142 odowskiej|11|6-6A"
+      ]
+    },
+    {
       "key": "klosna|11|7",
       "street": "Kłośna",
       "street_norm": "klosna",
@@ -1217,6 +1243,32 @@
         }
       ],
       "area_m2": 42.5
+    },
+    {
+      "key": "wybrzeze juliusza slowackiego|5|6-6A",
+      "street": "Wybrzeże Juliusza Słowackiego",
+      "street_norm": "wybrzeze juliusza slowackiego",
+      "building": "5",
+      "apt": "6-6A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-07-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 880000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1126400,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1079",
+          "notes": [],
+          "area_m2": 102.37
+        }
+      ],
+      "area_m2": 102.37,
+      "legacy_keys": [
+        "wybrze x17c e juliusza s x142 owackiego|5|6-6A"
+      ]
     },
     {
       "key": "krepicka|48|1",
@@ -1444,6 +1496,32 @@
       ]
     },
     {
+      "key": "marii curie sklodowskiej|11|15-16",
+      "street": "Marii Curie-Skłodowskiej",
+      "street_norm": "marii curie sklodowskiej",
+      "building": "11",
+      "apt": "15-16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 890000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1308300,
+          "source_pdf": "https://gn.um.wroc.pl/oferta/lokal/1054",
+          "notes": [],
+          "area_m2": 140.66
+        }
+      ],
+      "area_m2": 140.66,
+      "legacy_keys": [
+        "marii curie sk x142 odowskiej|11|15-16"
+      ]
+    },
+    {
       "key": "jemiolowa|62|13",
       "street": "Jemiołowa",
       "street_norm": "jemiolowa",
@@ -1544,7 +1622,8 @@
       ],
       "area_m2": 203.66,
       "legacy_keys": [
-        "tadeusza ko x15b ciuszki 142 3a|3B|"
+        "tadeusza ko x15b ciuszki 142 3a|3B|",
+        "tadeusza ko x15b ciuszki|142|3A-3B"
       ]
     },
     {

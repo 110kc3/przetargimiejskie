@@ -3,6 +3,98 @@
   "city": "golub-dobrzyn",
   "properties": [
     {
+      "key": "pilsudskiego|9|1",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "9",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 62000,
+          "outcome": "active",
+          "area_m2": 24.52,
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 24.52
+    },
+    {
+      "key": "chopina|16|6",
+      "street": "Chopina",
+      "street_norm": "chopina",
+      "building": "16",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 62800,
+          "outcome": "active",
+          "area_m2": 23.83,
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 23.83
+    },
+    {
+      "key": "zamkowa|18|5",
+      "street": "Zamkowa",
+      "street_norm": "zamkowa",
+      "building": "18",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 56300,
+          "outcome": "active",
+          "area_m2": 22.28,
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 22.28
+    },
+    {
+      "key": "pttk|23|5",
+      "street": "PTTK",
+      "street_norm": "pttk",
+      "building": "23",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 74800,
+          "outcome": "active",
+          "area_m2": 29.74,
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 29.74
+    },
+    {
       "key": "pttk|5|3",
       "street": "PTTK",
       "street_norm": "pttk",
@@ -74,6 +166,28 @@
           "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7711",
           "wadium_deadline": null,
           "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "sw mikolaja|6|",
+      "street": "Św. Mikołaja",
+      "street_norm": "sw mikolaja",
+      "building": "6",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 4000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8612",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
         }
       ]
     }

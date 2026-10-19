@@ -3,6 +3,24 @@
   "city": "bydgoszcz",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Stanisława Wyspiańskiego 6/3",
+      "address": {
+        "street": "Stanisława Wyspiańskiego",
+        "street_norm": "stanislawa wyspianskiego",
+        "building": "6",
+        "apt": "3",
+        "key": "stanislawa wyspianskiego|6|3",
+        "warning": null
+      },
+      "area_m2": 32.56,
+      "starting_price_pln": 250000,
+      "auction_date": "2026-11-20",
+      "round": 1,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11182/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-20-11-2026-r-ul-s-wyspianskiego-6-lokal-uzytkowy-nr-3",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/34501"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. J.J. Śniadeckich 12/7",
       "address": {

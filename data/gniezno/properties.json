@@ -20,6 +20,49 @@
           "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/893053/sprzedaz__ul_mieszka_i_169_wm6840182026",
           "wadium_deadline": null,
           "viewing_date": null
+        },
+        {
+          "date": "2026-11-13",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210600,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/893053/sprzedaz__ul_mieszka_i_169_wm6840182026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "jeziorna|15|",
+      "street": "Jeziorna",
+      "street_norm": "jeziorna",
+      "building": "15",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-02-40",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 305000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/862537/sprzedaz__ul_jeziorna_15_wm684022026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-01",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 305000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/862537/sprzedaz__ul_jeziorna_15_wm684022026",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ]
     },
@@ -45,27 +88,6 @@
       ]
     },
     {
-      "key": "jeziorna|15|",
-      "street": "Jeziorna",
-      "street_norm": "jeziorna",
-      "building": "15",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-02-40",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 305000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/862537/sprzedaz__ul_jeziorna_15_wm684022026",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
       "key": "cierpiegi|18|9A",
       "street": "Cierpięgi",
       "street_norm": "cierpiegi",
@@ -81,6 +103,49 @@
           "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/856735/sprzedaz___ul_cierpiegi_189a_wm6840182025",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-05-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 54000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/856735/sprzedaz___ul_cierpiegi_189a_wm6840182025",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "chrobrego|11|5A",
+      "street": "Chrobrego",
+      "street_norm": "chrobrego",
+      "building": "11",
+      "apt": "5A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-10-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 126300,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/777722/sprzedaz__ul_chrobrego_115a_wm6840222024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-04-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 69465,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/777722/sprzedaz__ul_chrobrego_115a_wm6840222024",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -123,27 +188,6 @@
           "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/845161/ogloszenie_o_pierwszym_przetargu_ustnym_nieograniczonym_na_sprze",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
-      "key": "chrobrego|11|5A",
-      "street": "Chrobrego",
-      "street_norm": "chrobrego",
-      "building": "11",
-      "apt": "5A",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2024-10-29",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 126300,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/777722/sprzedaz__ul_chrobrego_115a_wm6840222024",
           "wadium_deadline": null,
           "viewing_date": null
         }

@@ -246,7 +246,10 @@
           "round": 1,
           "starting_price_pln": 21000,
           "outcome": "unsold",
-          "area_m2": 103
+          "area_m2": 103,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": []
@@ -356,14 +359,20 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 66
+          "area_m2": 66,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2025-09-03",
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 66
+          "area_m2": 66,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2025-12-10",
@@ -584,21 +593,30 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 20000
+          "area_m2": 20000,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2025-03-26",
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 20000
+          "area_m2": 20000,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2025-09-03",
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 20000
+          "area_m2": 20000,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -661,7 +679,10 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 2006
+          "area_m2": 2006,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -690,7 +711,10 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 1731
+          "area_m2": 1731,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -719,7 +743,10 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4770
+          "area_m2": 4770,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -863,14 +890,20 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 11653
+          "area_m2": 11653,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2024-11-27",
           "round": 2,
           "starting_price_pln": 55000,
           "outcome": "unsold",
-          "area_m2": 11653
+          "area_m2": 11653,
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -899,14 +932,20 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2024-10-30",
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -1097,7 +1136,10 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -1126,7 +1168,10 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -1220,7 +1265,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 347
+          "area_m2": 347,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1249,7 +1298,10 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 439
+          "area_m2": 439,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": []
@@ -1274,7 +1326,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 121
+          "area_m2": 121,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": []
@@ -1299,14 +1355,21 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4168
+          "area_m2": 4168,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-09-28",
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4168
+          "area_m2": 4168,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1335,28 +1398,41 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4099
+          "area_m2": 4099,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-01-12",
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4099
+          "area_m2": 4099,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-03-31",
           "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4099
+          "area_m2": 4099,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-09-28",
           "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4099
+          "area_m2": 4099,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1385,7 +1461,10 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -1417,7 +1496,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 240
+          "area_m2": 240,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1486,7 +1569,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 831
+          "area_m2": 831,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1515,7 +1602,11 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 679
+          "area_m2": 679,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1553,7 +1644,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 693
+          "area_m2": 693,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1582,7 +1677,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 666
+          "area_m2": 666,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1611,7 +1710,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 660
+          "area_m2": 660,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1640,7 +1743,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 653
+          "area_m2": 653,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1712,7 +1819,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 505
+          "area_m2": 505,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": []
@@ -1736,7 +1847,10 @@
           "date": "2021-09-15",
           "round": 1,
           "starting_price_pln": 65000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1950,21 +2064,30 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2023-08-30",
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2024-10-30",
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2025-01-08",
@@ -2048,14 +2171,20 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 784
+          "area_m2": 784,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2024-10-16",
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 1288
+          "area_m2": 1288,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": null,
@@ -2219,7 +2348,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 18
+          "area_m2": 18,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
@@ -2411,7 +2544,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 90
+          "area_m2": 90,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
@@ -2557,7 +2694,11 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 176
+          "area_m2": 176,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
@@ -2691,7 +2832,10 @@
           "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 170
+          "area_m2": 170,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -2756,7 +2900,10 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 817
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [
@@ -2788,14 +2935,21 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4323
+          "area_m2": 4323,
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": null,
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4323
+          "area_m2": 4323,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -2824,14 +2978,21 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 605
+          "area_m2": 605,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 679
+          "area_m2": 679,
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": []

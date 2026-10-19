@@ -78,7 +78,10 @@
           "starting_price_pln": 50000,
           "outcome": "unsold",
           "area_m2": 700,
-          "source_url": "https://glogow.bip.info.pl/api/fo/files/a883f2ce0940fb41e8e6e2fb909cbc/download"
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/a883f2ce0940fb41e8e6e2fb909cbc/download",
+          "notes": [
+            "parse: address-less built property — parcel-keyed"
+          ]
         }
       ],
       "parcels": [
@@ -934,7 +937,10 @@
           "starting_price_pln": 260000,
           "outcome": "unsold",
           "area_m2": 1256,
-          "source_url": "https://glogow.bip.info.pl/api/fo/files/04896e18801e95ec594d5cd3405dd9/download"
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/04896e18801e95ec594d5cd3405dd9/download",
+          "notes": [
+            "parse: address-less built property — parcel-keyed"
+          ]
         },
         {
           "date": "2023-05-09",
@@ -942,7 +948,10 @@
           "starting_price_pln": 200000,
           "outcome": "unsold",
           "area_m2": 1256,
-          "source_url": "https://glogow.bip.info.pl/api/fo/files/f0cf3210d67441dc35e5b369e35640/download"
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/f0cf3210d67441dc35e5b369e35640/download",
+          "notes": [
+            "parse: address-less built property — parcel-keyed"
+          ]
         },
         {
           "date": "2023-07-25",
@@ -951,7 +960,10 @@
           "outcome": "sold",
           "final_price_pln": 181800,
           "area_m2": 1256,
-          "source_url": "https://glogow.bip.info.pl/api/fo/files/0800028ea8389baeeaee6da57d9902/download"
+          "source_url": "https://glogow.bip.info.pl/api/fo/files/0800028ea8389baeeaee6da57d9902/download",
+          "notes": [
+            "parse: address-less built property — parcel-keyed"
+          ]
         }
       ],
       "parcels": [

@@ -11,12 +11,20 @@
       "street": null,
       "building": null,
       "address_raw": "Duńskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201423%20Du%C5%84skiej%200024%20kielce%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "266101_1.0024.1423",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0024.1423",
       "area_m2": 1807,
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2022-06-28",
+          "round": 1,
+          "starting_price_pln": 2100000,
+          "outcome": "unsold",
+          "area_m2": 1807,
+          "source_url": "https://bipum.kielce.eu/resource/9153/INFORMACJA+O+WYNIKU+PRZETARGU+Du%25C5%2584ska.docx"
+        },
         {
           "date": "2022-06-28",
           "round": 1,
@@ -27,9 +35,94 @@
       ],
       "parcels": [
         {
-          "nr": "1423"
+          "nr": "1423",
+          "dzialka_id": "266101_1.0024.1423",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0024.1423"
         }
       ]
+    },
+    {
+      "key": "dz|0005|6/522, 6/523, 6/526, 6/527, 6/529",
+      "kind": "grunt",
+      "city": "kielce",
+      "dzialka_nr": "6/522, 6/523, 6/526, 6/527, 6/529",
+      "obreb": "0005",
+      "street": null,
+      "building": null,
+      "address_raw": "Karola Olszewskiego",
+      "dzialka_id": "266101_1.0005.6/522",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0005.6%2F522",
+      "area_m2": 10864,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-28",
+          "round": 1,
+          "starting_price_pln": 3000000,
+          "outcome": "sold",
+          "final_price_pln": 3030000,
+          "area_m2": 10864,
+          "source_url": "https://bipum.kielce.eu/resource/9154/INFORMACJA+O+WYNIKU+PRZETARGU+Olszewskiego.docx"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6/522",
+          "dzialka_id": "266101_1.0005.6/522",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0005.6%2F522"
+        },
+        {
+          "nr": "6/523",
+          "dzialka_id": "266101_1.0005.6/523",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0005.6%2F523"
+        },
+        {
+          "nr": "6/526",
+          "dzialka_id": "266101_1.0005.6/526",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0005.6%2F526"
+        },
+        {
+          "nr": "6/527",
+          "dzialka_id": "266101_1.0005.6/527",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0005.6%2F527"
+        },
+        {
+          "nr": "6/529",
+          "dzialka_id": "266101_1.0005.6/529",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=266101_1.0005.6%2F529"
+        }
+      ]
+    },
+    {
+      "key": "addr|orląt lwowskich, oznaczonej w ewidencji gruntów i budynków miasta kielce",
+      "kind": "grunt",
+      "city": "kielce",
+      "dzialka_nr": null,
+      "obreb": "0007",
+      "street": null,
+      "building": null,
+      "address_raw": "Orląt Lwowskich, oznaczonej w ewidencji gruntów i budynków Miasta Kielce",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Orl%C4%85t%20Lwowskich%2C%20oznaczonej%20w%20ewidencji%20grunt%C3%B3w%20i%20budynk%C3%B3w%20Miasta%20Kielce%200007%20Kielce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3571,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-06-28",
+          "round": 1,
+          "starting_price_pln": 2300000,
+          "outcome": "sold",
+          "final_price_pln": 3250000,
+          "area_m2": 3571,
+          "source_url": "https://bipum.kielce.eu/resource/9092/informacja+o+wyniku+przetargu+Orl%25C4%2585t+Lwowskich.docx",
+          "notes": [
+            "parse: address not found in result text"
+          ]
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|6/522, 6/523, 6/526, 6/527, 6/529",

@@ -85,12 +85,63 @@
           "starting_price_pln": 100700,
           "outcome": "sold",
           "area_m2": 218,
-          "source_url": "https://bip.golub-dobrzyn.pl/plik,9455,informacja-o-wyniku-przetargu-pdf.pdf"
+          "source_url": "https://bip.golub-dobrzyn.pl/plik,9455,informacja-o-wyniku-przetargu-pdf.pdf",
+          "notes": [
+            "parse: buyer named but achieved price not found"
+          ]
         }
       ],
       "parcels": [
         {
           "nr": "11/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|330",
+      "kind": "grunt",
+      "city": "golub-dobrzyn",
+      "dzialka_nr": "330",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20330%20Golub-Dobrzy%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12438,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-09-08",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,4912,ogloszenie-o-przetargu-dzialka-nr-342-pdf.pdf",
+          "source_url": "https://bip.golub-dobrzyn.pl/plik,4912,ogloszenie-o-przetargu-dzialka-nr-342-pdf.pdf"
+        },
+        {
+          "date": "2024-01-31",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,7311,ogloszenie-przetarg-ul-sokolowska-299-1-pdf.pdf",
+          "source_url": "https://bip.golub-dobrzyn.pl/plik,7311,ogloszenie-przetarg-ul-sokolowska-299-1-pdf.pdf"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 3,
+          "starting_price_pln": 277900,
+          "outcome": "archived",
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,7377,ogloszenie-przetarg-ul-sokolowska-dzialka-330.pdf",
+          "source_url": "https://bip.golub-dobrzyn.pl/plik,7377,ogloszenie-przetarg-ul-sokolowska-dzialka-330.pdf",
+          "final_price_pln": 280680,
+          "area_m2": 12438
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "330"
         }
       ]
     },
@@ -157,6 +208,36 @@
       ]
     },
     {
+      "key": "dz|128",
+      "kind": "grunt",
+      "city": "golub-dobrzyn",
+      "dzialka_nr": "128",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20128%20Golub-Dobrzy%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-01-13",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.golub-dobrzyn.pl/plik,5345,przetarg-na-sprzedaz-dzialki-nr-128-pdf.pdf",
+          "source_url": "https://bip.golub-dobrzyn.pl/plik,5345,przetarg-na-sprzedaz-dzialki-nr-128-pdf.pdf"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "128"
+        }
+      ]
+    },
+    {
       "key": "dz|342",
       "kind": "grunt",
       "city": "golub-dobrzyn",
@@ -215,91 +296,6 @@
       "parcels": [
         {
           "nr": "26"
-        }
-      ]
-    },
-    {
-      "key": "dz|330",
-      "kind": "grunt",
-      "city": "golub-dobrzyn",
-      "dzialka_nr": "330",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20330%20Golub-Dobrzy%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": 12438,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-03-07",
-          "round": 1,
-          "starting_price_pln": 277900,
-          "outcome": "sold",
-          "final_price_pln": 280680,
-          "area_m2": 12438,
-          "source_url": "https://bip.golub-dobrzyn.pl/plik,7517,ogloszenie-o-wyniku-przetargu-sokolowska-330-pdf.pdf"
-        },
-        {
-          "date": null,
-          "round": 2,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "detail_url": "https://bip.golub-dobrzyn.pl/plik,7377,ogloszenie-przetarg-ul-sokolowska-dzialka-330.pdf",
-          "source_url": "https://bip.golub-dobrzyn.pl/plik,7377,ogloszenie-przetarg-ul-sokolowska-dzialka-330.pdf"
-        },
-        {
-          "date": null,
-          "round": 3,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "detail_url": "https://bip.golub-dobrzyn.pl/plik,7311,ogloszenie-przetarg-ul-sokolowska-299-1-pdf.pdf",
-          "source_url": "https://bip.golub-dobrzyn.pl/plik,7311,ogloszenie-przetarg-ul-sokolowska-299-1-pdf.pdf"
-        },
-        {
-          "date": null,
-          "round": 4,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "detail_url": "https://bip.golub-dobrzyn.pl/plik,4912,ogloszenie-o-przetargu-dzialka-nr-342-pdf.pdf",
-          "source_url": "https://bip.golub-dobrzyn.pl/plik,4912,ogloszenie-o-przetargu-dzialka-nr-342-pdf.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "330"
-        }
-      ]
-    },
-    {
-      "key": "dz|128",
-      "kind": "grunt",
-      "city": "golub-dobrzyn",
-      "dzialka_nr": "128",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20128%20Golub-Dobrzy%C5%84%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "detail_url": "https://bip.golub-dobrzyn.pl/plik,5345,przetarg-na-sprzedaz-dzialki-nr-128-pdf.pdf",
-          "source_url": "https://bip.golub-dobrzyn.pl/plik,5345,przetarg-na-sprzedaz-dzialki-nr-128-pdf.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "128"
         }
       ]
     },

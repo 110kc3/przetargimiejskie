@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Św. Mikołaja 6",
+      "address": {
+        "street": "Św. Mikołaja",
+        "street_norm": "sw mikolaja",
+        "building": "6",
+        "apt": null,
+        "key": "sw mikolaja|6|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": 4000,
+      "auction_date": null,
+      "round": 1,
+      "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8612",
+      "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,8612",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "PTTK 5/3",
       "address": {
         "street": "PTTK",
@@ -91,6 +110,82 @@
       "round": 1,
       "detail_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7711",
       "source_url": "https://www.bip.golub-dobrzyn.com.pl/redir,7711"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Piłsudskiego 9/1",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "9",
+        "apt": "1",
+        "key": "pilsudskiego|9|1",
+        "warning": null
+      },
+      "area_m2": 24.52,
+      "starting_price_pln": 62000,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "source_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Chopina 16/6",
+      "address": {
+        "street": "Chopina",
+        "street_norm": "chopina",
+        "building": "16",
+        "apt": "6",
+        "key": "chopina|16|6",
+        "warning": null
+      },
+      "area_m2": 23.83,
+      "starting_price_pln": 62800,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "source_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zamkowa 18/5",
+      "address": {
+        "street": "Zamkowa",
+        "street_norm": "zamkowa",
+        "building": "18",
+        "apt": "5",
+        "key": "zamkowa|18|5",
+        "warning": null
+      },
+      "area_m2": 22.28,
+      "starting_price_pln": 56300,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "source_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "PTTK 23/5",
+      "address": {
+        "street": "PTTK",
+        "street_norm": "pttk",
+        "building": "23",
+        "apt": "5",
+        "key": "pttk|23|5",
+        "warning": null
+      },
+      "area_m2": 29.74,
+      "starting_price_pln": 74800,
+      "auction_date": "2026-11-12",
+      "round": 1,
+      "detail_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "source_url": "https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf",
+      "round_source": "inferred"
     }
   ],
   "wykaz": []

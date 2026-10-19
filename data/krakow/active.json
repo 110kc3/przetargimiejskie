@@ -3,8 +3,8 @@
   "city": "krakow",
   "listings": [
     {
-      "kind": "mieszkalny",
-      "address_raw": "Grottgera 24/6",
+      "kind": "uzytkowy",
+      "address_raw": "ul. Grottgera 24/6",
       "address": {
         "street": "Grottgera",
         "street_norm": "grottgera",
@@ -18,8 +18,25 @@
       "starting_price_pln": 120000,
       "auction_date": "2026-09-02",
       "detail_url": "https://www.bip.krakow.pl/?news_id=257668",
-      "source_url": "https://www.bip.krakow.pl/?news_id=257668",
-      "source_address_raw": "ul. Łagiewnickiej OGŁOSZENIE O PRZETARGACH Prezydent Miasta Krakowa ogłasza przetargi ustne nieograniczone na sprzedaż nieruchomości stanowiących własność Gminy Miejskiej Kraków pierwszy przetarg na sprzedaż lokalu o przeznaczeniu innym niż mieszkalne oznaczonego 6/7"
+      "source_url": "https://www.bip.krakow.pl/?news_id=257668"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Sportowym 1/7",
+      "address": {
+        "street": "Sportowym",
+        "street_norm": "sportowym",
+        "building": "1",
+        "apt": "7",
+        "key": "sportowym|1|7",
+        "warning": null
+      },
+      "area_m2": 14.75,
+      "round": 1,
+      "starting_price_pln": 132000,
+      "auction_date": "2026-09-02",
+      "detail_url": "https://www.bip.krakow.pl/?news_id=257668",
+      "source_url": "https://www.bip.krakow.pl/?news_id=257668"
     },
     {
       "kind": "garaz",
@@ -104,7 +121,7 @@
         "key": "krolewskiej|69|garaz-12",
         "warning": null
       },
-      "area_m2": 35.36,
+      "area_m2": 17,
       "round": 1,
       "starting_price_pln": 114000,
       "auction_date": "2025-11-04",

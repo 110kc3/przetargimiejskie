@@ -709,6 +709,50 @@
         }
       ],
       "area_m2": 47.79
+    },
+    {
+      "key": "polnej|2|2",
+      "street": "Polna",
+      "street_norm": "polnej",
+      "building": "2",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2021-06-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 22.6
+        },
+        {
+          "date": "2021-08-09",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 22.6
+        },
+        {
+          "date": "2021-11-18",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 29000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 35500,
+          "notes": [],
+          "area_m2": 22.6
+        }
+      ],
+      "area_m2": 22.6
     }
   ]
 }

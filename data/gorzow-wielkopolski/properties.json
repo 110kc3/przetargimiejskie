@@ -273,6 +273,41 @@
       "area_m2": 39.06
     },
     {
+      "key": "30 stycznia|6|7",
+      "street": "30 Stycznia",
+      "street_norm": "30 stycznia",
+      "building": "6",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-03-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 189000,
+          "outcome": "archived",
+          "area_m2": 36.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/761/Ogloszenie_Nr_7_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_12_lutego_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 36.43,
+          "detail_url": "https://bip.um.gorzow.pl/przetargi/320/771/Ogloszenie_Nr_20_2F2026_Prezydenta_Miasta_Gorzowa_Wielkopolskiego_z_dnia_8_kwietnia_2026r/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 36.43
+    },
+    {
       "key": "armii polskiej|17|4",
       "street": "Armii Polskiej",
       "street_norm": "armii polskiej",

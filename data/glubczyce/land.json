@@ -143,19 +143,22 @@
           "date": "2025-03-25",
           "round": 1,
           "starting_price_pln": 132552,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/26234/bohaterow-zadworza-199_33-i-205_74-1p-2025-03-25.doc?v=1743070202"
         },
         {
           "date": "2025-04-29",
           "round": 2,
           "starting_price_pln": 119452,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/26470/bohaterow-zadworza-199_33-i-205_74-2p-2025-04-29.doc?v=1746775045"
         },
         {
           "date": "2026-08-25",
           "round": 1,
           "starting_price_pln": 184903,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/29251/bohaterow-zadworza-199_33-i-205_74-1p-2026-08-26.doc?v=1787832395"
         }
       ],
       "parcels": [
@@ -186,7 +189,8 @@
           "starting_price_pln": 11332,
           "outcome": "sold",
           "final_price_pln": 11452,
-          "area_m2": 247
+          "area_m2": 247,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/29253/bogdanowice-875_1-1p-2026-08-13.doc?v=1787831533"
         }
       ],
       "parcels": [
@@ -248,14 +252,16 @@
           "round": 1,
           "starting_price_pln": 74734,
           "outcome": "unsold",
-          "area_m2": 8000
+          "area_m2": 8000,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/28784/krolowe-208-1p-2026-06-10.doc?v=1781172452"
         },
         {
           "date": "2026-07-15",
           "round": 2,
           "starting_price_pln": 59934,
           "outcome": "unsold",
-          "area_m2": 8000
+          "area_m2": 8000,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/29085/krolowe-208-2p-2026-07-22.doc?v=1784792525"
         }
       ],
       "parcels": [
@@ -464,7 +470,11 @@
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 6639,
-          "area_m2": 700
+          "area_m2": 700,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/28362/pomorzowice-108_1-2p.doc?v=1775637473",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
         }
       ],
       "parcels": [
@@ -513,13 +523,56 @@
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 113000,
-          "area_m2": 2800
+          "area_m2": 2800,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/28361/debrzyca-320_1-2p.doc?v=1775637473",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
         }
       ],
       "parcels": [
         {
           "nr": "320/1",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20320%2F1%20Debrzycy%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|braciszowie|144/3, 144/6",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "144/3, 144/6",
+      "obreb": "Braciszowie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%2C%20144%2F6%20Braciszowie%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1969,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 63263,
+          "area_m2": 1969,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/27575/braciszow-144_3-i-144_6-2p-2025-11-26.doc?v=1764154189",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "144/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%20Braciszowie%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "144/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F6%20Braciszowie%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -533,8 +586,8 @@
       "building": null,
       "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%2C%20144%2F6%20Braciszow%20glubczyce%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1969,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%2C%20144%2F6%20Braciszow%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
       "zoning": null,
       "status": null,
       "listings": [
@@ -560,10 +613,53 @@
       ],
       "parcels": [
         {
-          "nr": "144/3"
+          "nr": "144/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%20Braciszow%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         },
         {
-          "nr": "144/6"
+          "nr": "144/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F6%20Braciszow%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|braciszowie|144/3",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "144/3",
+      "obreb": "Braciszowie",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%20Braciszowie%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1969,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-03",
+          "round": 1,
+          "starting_price_pln": 82333,
+          "outcome": "archived",
+          "area_m2": 1969,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/27106/16-braciszow-144_3-i-144_6.doc?v=1757337178",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/27106/16-braciszow-144_3-i-144_6.doc?v=1757337178"
+        },
+        {
+          "date": "2025-10-07",
+          "round": 2,
+          "starting_price_pln": 62633,
+          "outcome": "archived",
+          "area_m2": 1969,
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/27294/19-braciszow-144_3-i-144_6.doc?v=1760531941",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/27294/19-braciszow-144_3-i-144_6.doc?v=1760531941"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "144/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%20Braciszowie%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -627,16 +723,16 @@
       ]
     },
     {
-      "key": "dz|bogdanowice|347/3",
+      "key": "dz|bogdanowice|347/3, 347/4",
       "kind": "grunt",
       "city": "glubczyce",
-      "dzialka_nr": "347/3",
+      "dzialka_nr": "347/3, 347/4",
       "obreb": "Bogdanowice",
       "street": null,
       "building": null,
       "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%2F3%20Bogdanowice%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%2F3%2C%20347%2F4%20Bogdanowice%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
       "area_m2": 116,
       "zoning": null,
       "status": null,
@@ -646,21 +742,24 @@
           "round": 1,
           "starting_price_pln": 4733,
           "outcome": "unsold",
-          "area_m2": 116
+          "area_m2": 116,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/25859/bogdanowice-347_11.doc?v=1736429170"
         },
         {
           "date": "2025-02-11",
           "round": 2,
           "starting_price_pln": 4333,
           "outcome": "unsold",
-          "area_m2": 116
+          "area_m2": 116,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/26012/bogdanowice-347_11-2p.doc?v=1739275115"
         },
         {
           "date": "2025-03-18",
           "round": 3,
           "starting_price_pln": 3933,
           "outcome": "unsold",
-          "area_m2": 116
+          "area_m2": 116,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/26184/bogdanowice-347_11-3p.doc?v=1742385026"
         },
         {
           "date": "2025-04-24",
@@ -668,13 +767,18 @@
           "starting_price_pln": 3533,
           "outcome": "sold",
           "final_price_pln": 3573,
-          "area_m2": 116
+          "area_m2": 116,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/26468/bogdanowice-347_11-4p-2025-04-24.doc?v=1746774940"
         }
       ],
       "parcels": [
         {
           "nr": "347/3",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%2F3%20Bogdanowice%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "347/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20347%2F4%20Bogdanowice%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -698,27 +802,71 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 1118
+          "area_m2": 1118,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/24287/grunwaldzka-349_43-2p-2024-05-21.doc?v=1716370607",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
         },
         {
           "date": "2024-09-11",
           "round": 3,
           "starting_price_pln": 15300,
           "outcome": "unsold",
-          "area_m2": 1118
+          "area_m2": 1118,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/25406/grunwaldzka-349_43-3p-2024-09-11.doc?v=1726220840"
         },
         {
           "date": "2025-02-18",
           "round": 4,
           "starting_price_pln": 7650,
           "outcome": "unsold",
-          "area_m2": 1118
+          "area_m2": 1118,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/26076/grunwaldzka-349_43-1r-2024-02-26.doc?v=1740658187"
         }
       ],
       "parcels": [
         {
           "nr": "349/43",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20349%2F43%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|raciborska|1382, 1383, 1384",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "1382, 1383, 1384",
+      "obreb": "Raciborska",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201382%2C%201383%2C%201384%20Raciborska%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-05",
+          "round": 1,
+          "starting_price_pln": 4000000,
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/25781/raciborska-1382-1383-i-1384-1p-2024-11-05.doc?v=1733312560"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1382",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201382%20Raciborska%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "1383",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201383%20Raciborska%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "1384",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201384%20Raciborska%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -784,7 +932,8 @@
           "round": 2,
           "starting_price_pln": 28292,
           "outcome": "unsold",
-          "area_m2": 900
+          "area_m2": 900,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/24286/nowa-wies-glubczycka-100_2-2p-2024-05-21.doc?v=1716370489"
         },
         {
           "date": "2024-06-25",
@@ -792,7 +941,8 @@
           "starting_price_pln": 25212,
           "outcome": "sold",
           "final_price_pln": 25472,
-          "area_m2": 900
+          "area_m2": 900,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/24524/nowa-wies-glubczycka-100_2-3p-2024-07-02.doc?v=1720007658"
         }
       ],
       "parcels": [
@@ -823,7 +973,8 @@
           "starting_price_pln": 24000,
           "outcome": "sold",
           "final_price_pln": 24240,
-          "area_m2": 220
+          "area_m2": 220,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/24474/bogdanowice-859_4-1p-2024-06-04.doc?v=1719571726"
         }
       ],
       "parcels": [
@@ -854,7 +1005,11 @@
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 8387,
-          "area_m2": 161
+          "area_m2": 161,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/24475/bogdanowice-859_5-1p-2024-04-10.doc?v=1719571865",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
         }
       ],
       "parcels": [

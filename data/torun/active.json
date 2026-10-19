@@ -57,7 +57,7 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Ducha Św. 19/12",
+      "address_raw": "ul. Ducha Św. 19/12",
       "address": {
         "street": "Ducha Św.",
         "street_norm": "ducha sw",
@@ -68,10 +68,26 @@
       },
       "auction_date": "2026-10-06",
       "round": null,
-      "area_m2": null,
+      "area_m2": 19.37,
       "starting_price_pln": 180000,
-      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
-      "source_address_raw": "ul. Ducha Św. 19 m. nr 12 i nr 13"
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ducha Św. 19/13",
+      "address": {
+        "street": "Ducha Św.",
+        "street_norm": "ducha sw",
+        "building": "19",
+        "apt": "13",
+        "key": "ducha sw|19|13",
+        "warning": null
+      },
+      "auction_date": "2026-10-06",
+      "round": null,
+      "area_m2": 18.3,
+      "starting_price_pln": 170000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13"
     },
     {
       "kind": "mieszkalny",
@@ -229,7 +245,7 @@
       "auction_date": "2025-05-20",
       "round": null,
       "area_m2": null,
-      "starting_price_pln": null,
+      "starting_price_pln": 450000,
       "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/55317/ul-wielkie-garbary-17-m-3-i-m-4-lokale-sprzedane"
     },
     {

@@ -244,7 +244,10 @@
           "round": 1,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "source_url": "https://cdn02.sulimo.pl/media/userfiles/pajeczno.pl/PDF/Informacja_o_wyniku_przetargu_przeprowadzonego_w_dniu_12_01_2022.pdf"
+          "source_url": "https://cdn02.sulimo.pl/media/userfiles/pajeczno.pl/PDF/Informacja_o_wyniku_przetargu_przeprowadzonego_w_dniu_12_01_2022.pdf",
+          "notes": [
+            "parse: missing starting price"
+          ]
         }
       ],
       "parcels": [

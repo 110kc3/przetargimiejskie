@@ -22,7 +22,8 @@
           "round": 1,
           "starting_price_pln": 110000,
           "outcome": "unsold",
-          "area_m2": 998
+          "area_m2": 998,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14709"
         }
       ],
       "parcels": [
@@ -53,7 +54,8 @@
           "round": 1,
           "starting_price_pln": 115000,
           "outcome": "unsold",
-          "area_m2": 1007
+          "area_m2": 1007,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14709"
         }
       ],
       "parcels": [
@@ -85,7 +87,8 @@
           "starting_price_pln": 110000,
           "outcome": "sold",
           "final_price_pln": 111100,
-          "area_m2": 1000
+          "area_m2": 1000,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14709"
         }
       ],
       "parcels": [
@@ -116,7 +119,8 @@
           "round": 1,
           "starting_price_pln": 150000,
           "outcome": "unsold",
-          "area_m2": 1395
+          "area_m2": 1395,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14709"
         }
       ],
       "parcels": [
@@ -147,7 +151,11 @@
           "round": 1,
           "starting_price_pln": 150000,
           "outcome": "unsold",
-          "area_m2": 1085
+          "area_m2": 1085,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14704",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -178,7 +186,11 @@
           "round": 1,
           "starting_price_pln": 130000,
           "outcome": "unsold",
-          "area_m2": 857
+          "area_m2": 857,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14704",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -209,14 +221,22 @@
           "round": 1,
           "starting_price_pln": 120000,
           "outcome": "unsold",
-          "area_m2": 1066
+          "area_m2": 1066,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2026-09-09",
           "round": 4,
           "starting_price_pln": 120000,
           "outcome": "unsold",
-          "area_m2": 1066
+          "area_m2": 1066,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14704",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -247,14 +267,22 @@
           "round": 1,
           "starting_price_pln": 120000,
           "outcome": "unsold",
-          "area_m2": 1069
+          "area_m2": 1069,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2026-09-09",
           "round": 4,
           "starting_price_pln": 120000,
           "outcome": "unsold",
-          "area_m2": 1069
+          "area_m2": 1069,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14704",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -285,7 +313,8 @@
           "round": 4,
           "starting_price_pln": 460000,
           "outcome": "unsold",
-          "area_m2": 1943
+          "area_m2": 1943,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14639"
         }
       ],
       "parcels": [
@@ -392,7 +421,8 @@
           "round": 3,
           "starting_price_pln": 110000,
           "outcome": "unsold",
-          "area_m2": 858
+          "area_m2": 858,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12741"
         },
         {
           "date": "2026-01-21",
@@ -400,7 +430,8 @@
           "starting_price_pln": 120000,
           "outcome": "sold",
           "final_price_pln": 121200,
-          "area_m2": 858
+          "area_m2": 858,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801"
         }
       ],
       "parcels": [
@@ -432,7 +463,8 @@
           "starting_price_pln": 120000,
           "outcome": "sold",
           "final_price_pln": 129600,
-          "area_m2": 1067
+          "area_m2": 1067,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801"
         }
       ],
       "parcels": [
@@ -464,7 +496,8 @@
           "starting_price_pln": 200000,
           "outcome": "sold",
           "final_price_pln": 202000,
-          "area_m2": 2388
+          "area_m2": 2388,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801"
         }
       ],
       "parcels": [
@@ -494,7 +527,8 @@
           "date": "2025-05-09",
           "round": 2,
           "starting_price_pln": 1400000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12756"
         }
       ],
       "parcels": []
@@ -519,7 +553,8 @@
           "round": 2,
           "starting_price_pln": 4300000,
           "outcome": "unsold",
-          "area_m2": 13619
+          "area_m2": 13619,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12756"
         }
       ],
       "parcels": []
@@ -543,7 +578,8 @@
           "date": "2025-05-08",
           "round": 1,
           "starting_price_pln": 390000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12741"
         }
       ],
       "parcels": []
@@ -568,7 +604,8 @@
           "round": 2,
           "starting_price_pln": 400000,
           "outcome": "unsold",
-          "area_m2": 5802
+          "area_m2": 5802,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12741"
         }
       ],
       "parcels": [
@@ -600,7 +637,8 @@
           "starting_price_pln": 100000,
           "outcome": "sold",
           "final_price_pln": 141000,
-          "area_m2": 716
+          "area_m2": 716,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12741"
         }
       ],
       "parcels": [
@@ -664,21 +702,30 @@
           "round": 3,
           "starting_price_pln": 45000,
           "outcome": "unsold",
-          "area_m2": 581
+          "area_m2": 581,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         },
         {
           "date": "2021-09-16",
           "round": 4,
           "starting_price_pln": 50000,
           "outcome": "unsold",
-          "area_m2": 581
+          "area_m2": 581,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2021-12-01",
           "round": 2,
           "starting_price_pln": 50000,
           "outcome": "unsold",
-          "area_m2": 581
+          "area_m2": 581,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7460",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2022-10-21",
@@ -686,7 +733,8 @@
           "starting_price_pln": 55000,
           "outcome": "sold",
           "final_price_pln": 74100,
-          "area_m2": 581
+          "area_m2": 581,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/9538"
         }
       ],
       "parcels": [
@@ -717,7 +765,11 @@
           "round": 2,
           "starting_price_pln": 80000,
           "outcome": "unsold",
-          "area_m2": 1246
+          "area_m2": 1246,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7458",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2022-02-23",
@@ -725,7 +777,8 @@
           "starting_price_pln": 110000,
           "outcome": "sold",
           "final_price_pln": 111100,
-          "area_m2": 1246
+          "area_m2": 1246,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967"
         }
       ],
       "parcels": [
@@ -755,7 +808,11 @@
           "date": "2022-02-23",
           "round": 1,
           "starting_price_pln": 50000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": []
@@ -780,7 +837,8 @@
           "round": 1,
           "starting_price_pln": 60000,
           "outcome": "sold",
-          "final_price_pln": 60600
+          "final_price_pln": 60600,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967"
         }
       ],
       "parcels": []
@@ -805,7 +863,11 @@
           "round": 1,
           "starting_price_pln": 60000,
           "outcome": "unsold",
-          "area_m2": 665
+          "area_m2": 665,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -836,7 +898,11 @@
           "round": 1,
           "starting_price_pln": 80000,
           "outcome": "unsold",
-          "area_m2": 1307
+          "area_m2": 1307,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -868,7 +934,8 @@
           "starting_price_pln": 80000,
           "outcome": "sold",
           "final_price_pln": 80800,
-          "area_m2": 1347
+          "area_m2": 1347,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967"
         }
       ],
       "parcels": [
@@ -899,7 +966,11 @@
           "round": 1,
           "starting_price_pln": 70000,
           "outcome": "unsold",
-          "area_m2": 1007
+          "area_m2": 1007,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -929,13 +1000,21 @@
           "date": "2021-07-06",
           "round": 1,
           "starting_price_pln": 280000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7458",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2022-02-23",
           "round": 2,
           "starting_price_pln": 400000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.szczecinek.pl/attachments/download/8967",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": []
@@ -961,7 +1040,8 @@
           "starting_price_pln": 160000,
           "outcome": "sold",
           "final_price_pln": 2037,
-          "area_m2": 2
+          "area_m2": 2,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459"
         },
         {
           "date": "2021-12-01",
@@ -969,7 +1049,8 @@
           "starting_price_pln": 160000,
           "outcome": "sold",
           "final_price_pln": 2037,
-          "area_m2": 2
+          "area_m2": 2,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7460"
         }
       ],
       "parcels": [
@@ -1000,21 +1081,30 @@
           "round": 3,
           "starting_price_pln": 50000,
           "outcome": "unsold",
-          "area_m2": 654
+          "area_m2": 654,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         },
         {
           "date": "2021-09-16",
           "round": 4,
           "starting_price_pln": 60000,
           "outcome": "unsold",
-          "area_m2": 654
+          "area_m2": 654,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2021-12-01",
           "round": 2,
           "starting_price_pln": 60000,
           "outcome": "unsold",
-          "area_m2": 654
+          "area_m2": 654,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7460",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -1045,14 +1135,19 @@
           "round": 3,
           "starting_price_pln": 56000,
           "outcome": "unsold",
-          "area_m2": 752
+          "area_m2": 752,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         },
         {
           "date": "2021-09-16",
           "round": 4,
           "starting_price_pln": 65000,
           "outcome": "unsold",
-          "area_m2": 752
+          "area_m2": 752,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2021-12-01",
@@ -1060,7 +1155,8 @@
           "starting_price_pln": 65000,
           "outcome": "sold",
           "final_price_pln": 65650,
-          "area_m2": 752
+          "area_m2": 752,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7460"
         }
       ],
       "parcels": [
@@ -1092,7 +1188,8 @@
           "starting_price_pln": 60000,
           "outcome": "sold",
           "final_price_pln": 66000,
-          "area_m2": 644
+          "area_m2": 644,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459"
         }
       ],
       "parcels": [
@@ -1124,7 +1221,8 @@
           "starting_price_pln": 60000,
           "outcome": "sold",
           "final_price_pln": 72600,
-          "area_m2": 648
+          "area_m2": 648,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459"
         }
       ],
       "parcels": [
@@ -1155,7 +1253,8 @@
           "round": 3,
           "starting_price_pln": 51000,
           "outcome": "unsold",
-          "area_m2": 681
+          "area_m2": 681,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         },
         {
           "date": "2021-09-16",
@@ -1163,7 +1262,8 @@
           "starting_price_pln": 60000,
           "outcome": "sold",
           "final_price_pln": 60600,
-          "area_m2": 681
+          "area_m2": 681,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459"
         }
       ],
       "parcels": [
@@ -1194,7 +1294,8 @@
           "round": 3,
           "starting_price_pln": 78000,
           "outcome": "unsold",
-          "area_m2": 1055
+          "area_m2": 1055,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         },
         {
           "date": "2021-09-16",
@@ -1202,7 +1303,8 @@
           "starting_price_pln": 85000,
           "outcome": "sold",
           "final_price_pln": 85850,
-          "area_m2": 1055
+          "area_m2": 1055,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459"
         }
       ],
       "parcels": [
@@ -1234,7 +1336,8 @@
           "starting_price_pln": 58500,
           "outcome": "sold",
           "final_price_pln": 59090,
-          "area_m2": 728
+          "area_m2": 728,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7458"
         }
       ],
       "parcels": [
@@ -1264,7 +1367,11 @@
           "date": "2021-07-06",
           "round": 3,
           "starting_price_pln": 380000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7458",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": []
@@ -1290,7 +1397,8 @@
           "starting_price_pln": 65000,
           "outcome": "sold",
           "final_price_pln": 65650,
-          "area_m2": 863
+          "area_m2": 863,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         }
       ],
       "parcels": [
@@ -1321,7 +1429,8 @@
           "round": 3,
           "starting_price_pln": 35000,
           "outcome": "sold",
-          "final_price_pln": 35350
+          "final_price_pln": 35350,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         }
       ],
       "parcels": []
@@ -1346,7 +1455,8 @@
           "round": 3,
           "starting_price_pln": 50000,
           "outcome": "sold",
-          "final_price_pln": 50500
+          "final_price_pln": 50500,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         }
       ],
       "parcels": []
@@ -1372,7 +1482,8 @@
           "starting_price_pln": 180000,
           "outcome": "sold",
           "final_price_pln": 181800,
-          "area_m2": 890
+          "area_m2": 890,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7450"
         }
       ],
       "parcels": [
@@ -1446,7 +1557,8 @@
           "round": 1,
           "starting_price_pln": 110000,
           "outcome": "unsold",
-          "area_m2": 995
+          "area_m2": 995,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14709"
         },
         {
           "date": null,
@@ -1487,7 +1599,8 @@
           "starting_price_pln": 130000,
           "outcome": "sold",
           "final_price_pln": 144100,
-          "area_m2": 934
+          "area_m2": 934,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14704"
         },
         {
           "date": null,
@@ -1527,7 +1640,11 @@
           "round": 1,
           "starting_price_pln": 310000,
           "outcome": "unsold",
-          "area_m2": 1446
+          "area_m2": 1446,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
@@ -1567,14 +1684,22 @@
           "round": 1,
           "starting_price_pln": 100000,
           "outcome": "unsold",
-          "area_m2": 866
+          "area_m2": 866,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2026-09-09",
           "round": 4,
           "starting_price_pln": 100000,
           "outcome": "unsold",
-          "area_m2": 866
+          "area_m2": 866,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/14704",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
@@ -1614,7 +1739,11 @@
           "round": 1,
           "starting_price_pln": 110000,
           "outcome": "unsold",
-          "area_m2": 757
+          "area_m2": 757,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/13801",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": null,
@@ -1761,7 +1890,8 @@
           "round": 3,
           "starting_price_pln": 110000,
           "outcome": "unsold",
-          "area_m2": 1001
+          "area_m2": 1001,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12741"
         },
         {
           "date": null,
@@ -1810,7 +1940,8 @@
           "starting_price_pln": 365000,
           "outcome": "sold",
           "final_price_pln": 1827,
-          "area_m2": 2
+          "area_m2": 2,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7459"
         },
         {
           "date": "2021-12-01",
@@ -1818,7 +1949,8 @@
           "starting_price_pln": 365000,
           "outcome": "sold",
           "final_price_pln": 1827,
-          "area_m2": 2
+          "area_m2": 2,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/7460"
         },
         {
           "date": "2024-10-17",
@@ -2065,14 +2197,19 @@
           "round": 1,
           "starting_price_pln": 150000,
           "outcome": "unsold",
-          "area_m2": 396
+          "area_m2": 396,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/9538",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         },
         {
           "date": "2025-05-08",
           "round": 2,
           "starting_price_pln": 150000,
           "outcome": "unsold",
-          "area_m2": 396
+          "area_m2": 396,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/12741"
         },
         {
           "date": null,
@@ -2220,7 +2357,8 @@
           "round": 1,
           "starting_price_pln": 1350000,
           "outcome": "unsold",
-          "area_m2": 6405
+          "area_m2": 6405,
+          "source_url": "https://bip.szczecinek.pl/attachments/download/9584"
         },
         {
           "date": null,

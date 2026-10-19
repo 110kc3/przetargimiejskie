@@ -3,6 +3,180 @@
   "city": "gliwice",
   "plots": [
     {
+      "key": "dz|żerniki|620",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "620",
+      "obreb": "Żerniki",
+      "street": null,
+      "building": null,
+      "address_raw": "na płd. od ul. Rogozińskiego",
+      "dzialka_id": "246601_1.0061.620",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.620",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-16",
+          "round": 2,
+          "starting_price_pln": 755010,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-620-obreb-zerniki-na-pld-od-ul-rogozinskiego-1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "620",
+          "dzialka_id": "246601_1.0061.620",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.620"
+        }
+      ]
+    },
+    {
+      "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "52, 53, 54, 56, 559, 560",
+      "obreb": "Ligota Zabrska",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Św. Jacka",
+      "dzialka_id": "246601_1.0030.52",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52",
+      "area_m2": 10099,
+      "zoning": "usługowe",
+      "status": "przetarg ogłoszony",
+      "listings": [
+        {
+          "date": "2026-11-23",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 10099,
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "52",
+          "dzialka_id": "246601_1.0030.52",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52"
+        },
+        {
+          "nr": "53",
+          "dzialka_id": "246601_1.0030.53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
+        },
+        {
+          "nr": "54",
+          "dzialka_id": "246601_1.0030.54",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
+        },
+        {
+          "nr": "56",
+          "dzialka_id": "246601_1.0030.56",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
+        },
+        {
+          "nr": "559",
+          "dzialka_id": "246601_1.0030.559",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
+        },
+        {
+          "nr": "560",
+          "dzialka_id": "246601_1.0030.560",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
+        }
+      ]
+    },
+    {
+      "key": "dz|ligota zabrska|: 52, 53, 54, 559, 560, 56",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": ": 52, 53, 54, 559, 560, 56",
+      "obreb": "Ligota Zabrska",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. św. Jacka-2",
+      "dzialka_id": "246601_1.0030.53",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-23",
+          "round": 4,
+          "starting_price_pln": 4587000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-52-53-54-559-560-56-obreb-ligota-zabrska-ul-sw-jacka-5"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": ": 52",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20%3A%2052%20Ligota%20Zabrska%20Gliwice%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "53",
+          "dzialka_id": "246601_1.0030.53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
+        },
+        {
+          "nr": "54",
+          "dzialka_id": "246601_1.0030.54",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
+        },
+        {
+          "nr": "559",
+          "dzialka_id": "246601_1.0030.559",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
+        },
+        {
+          "nr": "560",
+          "dzialka_id": "246601_1.0030.560",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
+        },
+        {
+          "nr": "56",
+          "dzialka_id": "246601_1.0030.56",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
+        }
+      ]
+    },
+    {
+      "key": "dz|sikornik|736",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "736",
+      "obreb": "Sikornik",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Czajki 7-2",
+      "dzialka_id": "246601_1.0048.736",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-10",
+          "round": 2,
+          "starting_price_pln": 576700,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-3"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "736",
+          "dzialka_id": "246601_1.0048.736",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736"
+        }
+      ]
+    },
+    {
       "key": "dz|sośnica|884",
       "kind": "grunt",
       "city": "gliwice",
@@ -34,33 +208,35 @@
       ]
     },
     {
-      "key": "dz|sikornik|736",
+      "key": "dz|bojków|1312/2",
       "kind": "grunt",
       "city": "gliwice",
-      "dzialka_nr": "736",
-      "obreb": "Sikornik",
+      "dzialka_nr": "1312/2",
+      "obreb": "Bojków",
       "street": null,
       "building": null,
-      "address_raw": "ul. Czajki 7-1",
-      "dzialka_id": "246601_1.0048.736",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
+      "address_raw": "ul. Chmielna",
+      "dzialka_id": "246601_1.0018.1312/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
+      "area_m2": 1097,
+      "zoning": "mieszkaniowe",
+      "status": "przetarg ogłoszony",
       "listings": [
         {
-          "date": "2026-10-27",
-          "round": 2,
-          "starting_price_pln": 576700,
+          "date": "2026-10-21",
+          "round": 1,
+          "starting_price_pln": 336000,
           "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-736-obreb-sikornik-ul-czajki-7-2"
+          "area_m2": 1097,
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-13122-obreb-bojkow-ul-chmielna-3"
         }
       ],
       "parcels": [
         {
-          "nr": "736",
-          "dzialka_id": "246601_1.0048.736",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0048.736"
+          "nr": "1312/2",
+          "dzialka_id": "246601_1.0018.1312/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
@@ -92,106 +268,6 @@
           "nr": "72/2",
           "dzialka_id": "246601_1.0037.72/2",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0037.72%2F2"
-        }
-      ]
-    },
-    {
-      "key": "dz|żerniki|620",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "620",
-      "obreb": "Żerniki",
-      "street": null,
-      "building": null,
-      "address_raw": "na płd. od ul. Rogozińskiego",
-      "dzialka_id": "246601_1.0061.620",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.620",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-10-05",
-          "round": 1,
-          "starting_price_pln": 838900,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-620-obreb-zerniki-na-pld-od-ul-rogozinskiego"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "620",
-          "dzialka_id": "246601_1.0061.620",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.620"
-        }
-      ]
-    },
-    {
-      "key": "dz|sośnica|1168/2, 1170/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1168/2, 1170/2",
-      "obreb": "Sośnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Żeromskiego",
-      "dzialka_id": "246601_1.0051.1168/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2",
-      "area_m2": 2091,
-      "zoning": "mieszkaniowe",
-      "status": "przetarg ogłoszony",
-      "listings": [
-        {
-          "date": "2026-09-22",
-          "round": 1,
-          "starting_price_pln": 925000,
-          "outcome": "active",
-          "area_m2": 2091,
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialki-nr-11682-i-11702-obreb-sosnica-ul-zeromskiego"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1168/2",
-          "dzialka_id": "246601_1.0051.1168/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2"
-        },
-        {
-          "nr": "1170/2",
-          "dzialka_id": "246601_1.0051.1170/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1170%2F2"
-        }
-      ]
-    },
-    {
-      "key": "dz|sośnica|1340",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1340",
-      "obreb": "Sośnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Żeromskiego",
-      "dzialka_id": "246601_1.0051.1340",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1340",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-15",
-          "round": 1,
-          "starting_price_pln": 330000,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-1340-obreb-sosnica-ul-zeromskiego"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1340",
-          "dzialka_id": "246601_1.0051.1340",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1340"
         }
       ]
     },
@@ -372,34 +448,39 @@
       ]
     },
     {
-      "key": "dz|bojków|1192",
+      "key": "dz|sośnica|1168/2, 1170/2",
       "kind": "grunt",
       "city": "gliwice",
-      "dzialka_nr": "1192",
-      "obreb": "Bojków",
+      "dzialka_nr": "1168/2, 1170/2",
+      "obreb": "Sośnica",
       "street": null,
       "building": null,
-      "address_raw": "ul. Spacerowa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20ul.%20Spacerowa%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 728,
+      "address_raw": "ul. Żeromskiego",
+      "dzialka_id": "246601_1.0051.1168/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2",
+      "area_m2": 2091,
       "zoning": "mieszkaniowe",
-      "status": "oferta do wznowienia",
+      "status": "przetarg odwołany",
       "listings": [
         {
           "date": null,
           "round": 1,
           "starting_price_pln": null,
           "outcome": "active",
-          "area_m2": 728,
-          "detail_url": "https://geoportal.gliwice.eu/oferta_nieruchomosci/Dz_nr_1192_obr_Bojkow.pdf",
+          "area_m2": 2091,
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
         }
       ],
       "parcels": [
         {
-          "nr": "1192",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201192%20Bojk%C3%B3w%20Gliwice%20geoportal%20dzia%C5%82ki"
+          "nr": "1168/2",
+          "dzialka_id": "246601_1.0051.1168/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1168%2F2"
+        },
+        {
+          "nr": "1170/2",
+          "dzialka_id": "246601_1.0051.1170/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0051.1170%2F2"
         }
       ]
     },
@@ -897,6 +978,46 @@
       ]
     },
     {
+      "key": "dz|bojków|1192/2",
+      "kind": "grunt",
+      "city": "gliwice",
+      "dzialka_nr": "1192/2",
+      "obreb": "Bojków",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jeziorna",
+      "dzialka_id": "246601_1.0018.1192/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1192%2F2",
+      "area_m2": 721,
+      "zoning": "mieszkaniowe",
+      "status": "przetarg wkrótce",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 2,
+          "starting_price_pln": 279600,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-11922-obreb-bojkow-ul-jeziorna"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 721,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3544.pdf",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1192/2",
+          "dzialka_id": "246601_1.0018.1192/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1192%2F2"
+        }
+      ]
+    },
+    {
       "key": "dz|kłodnica|828, 829",
       "kind": "grunt",
       "city": "gliwice",
@@ -946,23 +1067,16 @@
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.263%2F2",
       "area_m2": 772,
       "zoning": "mieszkaniowo-usługowe",
-      "status": "przetarg ogłoszony",
+      "status": "przetarg wkrótce",
       "listings": [
-        {
-          "date": "2026-09-15",
-          "round": 1,
-          "starting_price_pln": 305000,
-          "outcome": "active",
-          "area_m2": 772,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-obreb-bojkow-ul-knurowska-3",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        },
         {
           "date": null,
           "round": 1,
-          "starting_price_pln": 305000,
+          "starting_price_pln": null,
           "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-2632-obreb-bojkow-ul-knurowska-3"
+          "area_m2": 772,
+          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2026_3367.pdf",
+          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
         }
       ],
       "parcels": [
@@ -1035,63 +1149,6 @@
         {
           "nr": "1055/3",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201055%2F3%20Ostropa%20P%C3%B3%C5%82noc%20Gliwice%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|ligota zabrska|52, 53, 54, 56, 559, 560",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "52, 53, 54, 56, 559, 560",
-      "obreb": "Ligota Zabrska",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Św. Jacka",
-      "dzialka_id": "246601_1.0030.52",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52",
-      "area_m2": 10099,
-      "zoning": "usługowe",
-      "status": "oferta do wznowienia",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 10099,
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "52",
-          "dzialka_id": "246601_1.0030.52",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.52"
-        },
-        {
-          "nr": "53",
-          "dzialka_id": "246601_1.0030.53",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.53"
-        },
-        {
-          "nr": "54",
-          "dzialka_id": "246601_1.0030.54",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.54"
-        },
-        {
-          "nr": "56",
-          "dzialka_id": "246601_1.0030.56",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.56"
-        },
-        {
-          "nr": "559",
-          "dzialka_id": "246601_1.0030.559",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.559"
-        },
-        {
-          "nr": "560",
-          "dzialka_id": "246601_1.0030.560",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0030.560"
         }
       ]
     },
@@ -1399,39 +1456,6 @@
           "nr": "41",
           "dzialka_id": "246601_1.0018.41",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.41"
-        }
-      ]
-    },
-    {
-      "key": "dz|bojków|1312/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "1312/2",
-      "obreb": "Bojków",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Chmielna",
-      "dzialka_id": "246601_1.0018.1312/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
-      "area_m2": 1097,
-      "zoning": "mieszkaniowe",
-      "status": "oferta do wznowienia",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 1097,
-          "detail_url": "https://bip.gliwice.eu/storage/zpm/ZPM_2025_2795.pdf",
-          "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1312/2",
-          "dzialka_id": "246601_1.0018.1312/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2"
         }
       ]
     },
@@ -2845,37 +2869,6 @@
           "nr": "1201/1",
           "dzialka_id": "246601_1.0061.1201/1",
           "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0061.1201%2F1"
-        }
-      ]
-    },
-    {
-      "key": "dz|politechnika|71/2",
-      "kind": "grunt",
-      "city": "gliwice",
-      "dzialka_nr": "71/2",
-      "obreb": "Politechnika",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Jagiellońska 34A",
-      "dzialka_id": "246601_1.0043.71/2",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0043.71%2F2",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "starting_price_pln": 220000,
-          "outcome": "active",
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-712-obreb-politechnika-ul-jagiellonska-34a"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "71/2",
-          "dzialka_id": "246601_1.0043.71/2",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0043.71%2F2"
         }
       ]
     }

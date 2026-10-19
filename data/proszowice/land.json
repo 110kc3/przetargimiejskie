@@ -30,7 +30,11 @@
           "date": "2022-12-08",
           "round": 2,
           "starting_price_pln": 147200,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "source_url": "https://proszowice.pl/aktualnosc-7091-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: outcome not explicitly stated (assumed unsold)"
+          ]
         },
         {
           "date": "2023-03-03",
@@ -55,7 +59,8 @@
           "round": 1,
           "starting_price_pln": 188000,
           "outcome": "unsold",
-          "area_m2": 1566
+          "area_m2": 1566,
+          "source_url": "https://proszowice.pl/aktualnosc-8769-informacja_o_przeprowadzonym_przetargu.html"
         },
         {
           "date": "2024-08-29",
@@ -290,7 +295,11 @@
           "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4669
+          "area_m2": 4669,
+          "source_url": "https://proszowice.pl/aktualnosc-6452-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-09-02",
@@ -306,7 +315,11 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 4669
+          "area_m2": 4669,
+          "source_url": "https://proszowice.pl/aktualnosc-7098-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2023-02-24",
@@ -372,7 +385,11 @@
           "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 8879
+          "area_m2": 8879,
+          "source_url": "https://proszowice.pl/aktualnosc-5689-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-03-21",
@@ -388,7 +405,11 @@
           "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 8879
+          "area_m2": 8879,
+          "source_url": "https://proszowice.pl/aktualnosc-6451-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-09-30",
@@ -481,7 +502,11 @@
           "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 5733
+          "area_m2": 5733,
+          "source_url": "https://proszowice.pl/aktualnosc-6450-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2022-09-30",
@@ -497,7 +522,11 @@
           "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
-          "area_m2": 5733
+          "area_m2": 5733,
+          "source_url": "https://proszowice.pl/aktualnosc-7097-informacja_o_przeprowadzonym_przetargu.html",
+          "notes": [
+            "parse: missing starting price"
+          ]
         },
         {
           "date": "2023-02-24",
@@ -648,7 +677,8 @@
           "round": 1,
           "starting_price_pln": 92100,
           "outcome": "unsold",
-          "area_m2": 2800
+          "area_m2": 2800,
+          "source_url": "https://proszowice.pl/aktualnosc-7115-informacja_o_przeprowadzonym_przetargu.html"
         },
         {
           "date": "2023-03-03",
@@ -713,7 +743,8 @@
           "round": 5,
           "starting_price_pln": 37000,
           "outcome": "unsold",
-          "area_m2": 736
+          "area_m2": 736,
+          "source_url": "https://proszowice.pl/aktualnosc-7114-informacja_o_przeprowadzonym_przetargu.html"
         },
         {
           "date": "2023-03-03",

@@ -10,9 +10,9 @@
       "obreb": "0003",
       "street": null,
       "building": null,
-      "address_raw": "26-110 Skarżysko-Kamienna ul. Powstańców Warszawy",
+      "address_raw": "26-110 Skarżysko-Kamienna, ul. Powstańców Warszawy",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2095%2F4%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Powsta%C5%84c%C3%B3w%20Warszawy%200003%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2095%2F4%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Powsta%C5%84c%C3%B3w%20Warszawy%200003%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 2859,
       "zoning": null,
       "status": null,
@@ -23,20 +23,23 @@
           "starting_price_pln": 1181000,
           "outcome": "archived",
           "area_m2": 2859,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11813/26-110-skarzysko-kamienna-ul-powstancow-warszawy"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11813/26-110-skarzysko-kamienna-ul-powstancow-warszawy",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11813/26-110-skarzysko-kamienna-ul-powstancow-warszawy"
         },
         {
           "date": "2026-11-23",
-          "round": 1,
+          "round": 2,
           "starting_price_pln": 966100,
           "outcome": "active",
           "area_m2": 2859,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14073/26-110-skarzysko-kamienna-ul-powstancow-warszawy"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14073/26-110-skarzysko-kamienna-ul-powstancow-warszawy",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14073/26-110-skarzysko-kamienna-ul-powstancow-warszawy"
         }
       ],
       "parcels": [
         {
-          "nr": "95/4"
+          "nr": "95/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2095%2F4%200003%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -50,7 +53,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna, ul. Legionów",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F68%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Legion%C3%B3w%200005%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F68%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Legion%C3%B3w%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 2707,
       "zoning": null,
       "status": null,
@@ -61,12 +64,14 @@
           "starting_price_pln": 291300,
           "outcome": "active",
           "area_m2": 2707,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14179/26-110-skarzysko-kamienna-ul-legionow"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14179/26-110-skarzysko-kamienna-ul-legionow",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/14179/26-110-skarzysko-kamienna-ul-legionow"
         }
       ],
       "parcels": [
         {
-          "nr": "1/68"
+          "nr": "1/68",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F68%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -80,7 +85,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna ul. Ekonomii",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F305%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Ekonomii%200005%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F305%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Ekonomii%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 7006,
       "zoning": null,
       "status": null,
@@ -91,12 +96,14 @@
           "starting_price_pln": 714600,
           "outcome": "archived",
           "area_m2": 7006,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13888/26-110-skarzysko-kamienna-ul-ekonomii"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13888/26-110-skarzysko-kamienna-ul-ekonomii",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13888/26-110-skarzysko-kamienna-ul-ekonomii"
         }
       ],
       "parcels": [
         {
-          "nr": "1/305"
+          "nr": "1/305",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F305%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -110,7 +117,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna ul. Pszenna",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F18%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Pszenna%200008%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F18%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Pszenna%200008%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 808,
       "zoning": null,
       "status": null,
@@ -121,12 +128,14 @@
           "starting_price_pln": 156800,
           "outcome": "archived",
           "area_m2": 808,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13991/26-110-skarzysko-kamienna-ul-pszenna"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13991/26-110-skarzysko-kamienna-ul-pszenna",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13991/26-110-skarzysko-kamienna-ul-pszenna"
         }
       ],
       "parcels": [
         {
-          "nr": "298/18"
+          "nr": "298/18",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F18%200008%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -140,7 +149,7 @@
       "building": null,
       "address_raw": "Zagórze (Gmina Bliżyn) ul. Wrzosowa",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20Zag%C3%B3rze%20(Gmina%20Bli%C5%BCyn)%20ul.%20Wrzosowa%200022%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%20Zag%C3%B3rze%20(Gmina%20Bli%C5%BCyn)%20ul.%20Wrzosowa%200022%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 8300,
       "zoning": null,
       "status": null,
@@ -151,12 +160,14 @@
           "starting_price_pln": 100400,
           "outcome": "archived",
           "area_m2": 8300,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13884/zagorze-gmina-blizyn-ul-wrzosowa"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13884/zagorze-gmina-blizyn-ul-wrzosowa",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/13884/zagorze-gmina-blizyn-ul-wrzosowa"
         }
       ],
       "parcels": [
         {
-          "nr": "208"
+          "nr": "208",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20208%200022%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -170,7 +181,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna ul. Fabryczna",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Fabryczna%200004%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Fabryczna%200004%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 380,
       "zoning": null,
       "status": null,
@@ -181,12 +192,14 @@
           "starting_price_pln": 39000,
           "outcome": "archived",
           "area_m2": 380,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12394/26-110-skarzysko-kamienna-ul-fabryczna"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12394/26-110-skarzysko-kamienna-ul-fabryczna",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12394/26-110-skarzysko-kamienna-ul-fabryczna"
         }
       ],
       "parcels": [
         {
-          "nr": "47"
+          "nr": "47",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2047%200004%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -200,7 +213,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna ul. Młodzawy - działk nr 123/7",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F7%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20M%C5%82odzawy%20-%20dzia%C5%82k%20nr%20123%2F7%200005%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F7%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20M%C5%82odzawy%20-%20dzia%C5%82k%20nr%20123%2F7%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 1089,
       "zoning": null,
       "status": null,
@@ -211,12 +224,46 @@
           "starting_price_pln": 68500,
           "outcome": "archived",
           "area_m2": 1089,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12195/26-110-skarzysko-kamienna-ul-mlodzawy-dzialk-nr-123-7"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12195/26-110-skarzysko-kamienna-ul-mlodzawy-dzialk-nr-123-7",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12195/26-110-skarzysko-kamienna-ul-mlodzawy-dzialk-nr-123-7"
         }
       ],
       "parcels": [
         {
-          "nr": "123/7"
+          "nr": "123/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F7%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0005|123/6",
+      "kind": "grunt",
+      "city": "skarzysko-kamienna",
+      "dzialka_nr": "123/6",
+      "obreb": "0005",
+      "street": null,
+      "building": null,
+      "address_raw": "26-110 Skarżysko-Kamienna ul. Młodzawy - działka nr 123/6",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F6%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20M%C5%82odzawy%20-%20dzia%C5%82ka%20nr%20123%2F6%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
+      "area_m2": 833,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-28",
+          "round": 1,
+          "starting_price_pln": 56700,
+          "outcome": "archived",
+          "area_m2": 833,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12194/26-110-skarzysko-kamienna-ul-mlodzawy-dzialka-nr-123-6",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12194/26-110-skarzysko-kamienna-ul-mlodzawy-dzialka-nr-123-6"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "123/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20123%2F6%200005%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -230,7 +277,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna, ul. Sokola-Al. Tysiąclecia",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2065%2F12%2C%2065%2F13%2C%2065%2F14%2C%2065%2F15%2C%2065%2F16%2C%20115%2F4%2C%20115%2F5%2C%20115%2F6%2C%20115%2F7%2C%20115%2F9%2C%20115%2F18%2C%20115%2F21%2C%20130%2F25%2C%20130%2F29%2C%20130%2F33%2C%20130%2F35%2C%20130%2F40%2C%20130%2F41%2C%20226%2F4%2C%20226%2F5%2C%20229%2F5%2C%20229%2F6%2C%20229%2F7%2C%20229%2F8%2C%2065%2F11%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Sokola-Al.%20Tysi%C4%85clecia%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2065%2F12%2C%2065%2F13%2C%2065%2F14%2C%2065%2F15%2C%2065%2F16%2C%20115%2F4%2C%20115%2F5%2C%20115%2F6%2C%20115%2F7%2C%20115%2F9%2C%20115%2F18%2C%20115%2F21%2C%20130%2F25%2C%20130%2F29%2C%20130%2F33%2C%20130%2F35%2C%20130%2F40%2C%20130%2F41%2C%20226%2F4%2C%20226%2F5%2C%20229%2F5%2C%20229%2F6%2C%20229%2F7%2C%20229%2F8%2C%2065%2F11%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Sokola-Al.%20Tysi%C4%85clecia%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
       "zoning": null,
       "status": null,
@@ -241,6 +288,7 @@
           "starting_price_pln": 4119000,
           "outcome": "archived",
           "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12066/26-110-skarzysko-kamienna-ul-sokola-al-tysiaclecia",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12066/26-110-skarzysko-kamienna-ul-sokola-al-tysiaclecia",
           "notes": [
             "Package includes parcels in two districts and a 1/2 share; see source for individual rights and areas."
           ]
@@ -325,6 +373,123 @@
       ]
     },
     {
+      "key": "dz|115/4, 115/5, 115/6, 115/7, 115/9, 115/18, 115/21, 130/25, 130/29, 130/33, 130/35, 130/40, 130/41, 226/4, 226/5, 229/5, 229/6, 229/7, 229/8, 65/11",
+      "kind": "grunt",
+      "city": "skarzysko-kamienna",
+      "dzialka_nr": "115/4, 115/5, 115/6, 115/7, 115/9, 115/18, 115/21, 130/25, 130/29, 130/33, 130/35, 130/40, 130/41, 226/4, 226/5, 229/5, 229/6, 229/7, 229/8, 65/11",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "26-110 Skarżysko-Kamienna, ul. Sokola-Al. Tysiąclecia - Informacja o wyniku przetargu",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20115%2F4%2C%20115%2F5%2C%20115%2F6%2C%20115%2F7%2C%20115%2F9%2C%20115%2F18%2C%20115%2F21%2C%20130%2F25%2C%20130%2F29%2C%20130%2F33%2C%20130%2F35%2C%20130%2F40%2C%20130%2F41%2C%20226%2F4%2C%20226%2F5%2C%20229%2F5%2C%20229%2F6%2C%20229%2F7%2C%20229%2F8%2C%2065%2F11%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Sokola-Al.%20Tysi%C4%85clecia%20-%20Informacja%20o%20wyniku%20przetargu%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-26",
+          "round": 1,
+          "starting_price_pln": 4119000,
+          "outcome": "unsold"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "115/4"
+        },
+        {
+          "nr": "115/5"
+        },
+        {
+          "nr": "115/6"
+        },
+        {
+          "nr": "115/7"
+        },
+        {
+          "nr": "115/9"
+        },
+        {
+          "nr": "115/18"
+        },
+        {
+          "nr": "115/21"
+        },
+        {
+          "nr": "130/25"
+        },
+        {
+          "nr": "130/29"
+        },
+        {
+          "nr": "130/33"
+        },
+        {
+          "nr": "130/35"
+        },
+        {
+          "nr": "130/40"
+        },
+        {
+          "nr": "130/41"
+        },
+        {
+          "nr": "226/4"
+        },
+        {
+          "nr": "226/5"
+        },
+        {
+          "nr": "229/5"
+        },
+        {
+          "nr": "229/6"
+        },
+        {
+          "nr": "229/7"
+        },
+        {
+          "nr": "229/8"
+        },
+        {
+          "nr": "65/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|0008|298/19",
+      "kind": "grunt",
+      "city": "skarzysko-kamienna",
+      "dzialka_nr": "298/19",
+      "obreb": "0008",
+      "street": null,
+      "building": null,
+      "address_raw": "26-110 Skarżysko-Kamienna, ul. Pszenna - działka nr ewid. 298/19",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F19%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Pszenna%20-%20dzia%C5%82ka%20nr%20ewid.%20298%2F19%200008%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
+      "area_m2": 823,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 1,
+          "starting_price_pln": 94000,
+          "outcome": "archived",
+          "area_m2": 823,
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12127/26-110-skarzysko-kamienna-ul-pszenna-dzialka-nr-ewid-298-19",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12127/26-110-skarzysko-kamienna-ul-pszenna-dzialka-nr-ewid-298-19"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "298/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F19%200008%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|niezidentyfikowana działka — historyczny wynik",
       "kind": "grunt",
       "city": "skarzysko-kamienna",
@@ -353,36 +518,6 @@
       "parcels": []
     },
     {
-      "key": "dz|0008|298/19",
-      "kind": "grunt",
-      "city": "skarzysko-kamienna",
-      "dzialka_nr": "298/19",
-      "obreb": "0008",
-      "street": null,
-      "building": null,
-      "address_raw": "26-110 Skarżysko-Kamienna, ul. Pszenna - działka nr ewid. 298/19",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F19%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Pszenna%20-%20dzia%C5%82ka%20nr%20ewid.%20298%2F19%200008%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
-      "area_m2": 823,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-18",
-          "round": 1,
-          "starting_price_pln": 94000,
-          "outcome": "archived",
-          "area_m2": 823,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12127/26-110-skarzysko-kamienna-ul-pszenna-dzialka-nr-ewid-298-19"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "298/19"
-        }
-      ]
-    },
-    {
       "key": "dz|0009|26/4",
       "kind": "grunt",
       "city": "skarzysko-kamienna",
@@ -391,8 +526,8 @@
       "street": null,
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna, ul. Sportowa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2026%2F4%2026-110%20Skar%C5%BCysko-Kamienna%2C%20ul.%20Sportowa%200009%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "dzialka_id": "126201_1.0009.26/4",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=126201_1.0009.26%2F4",
       "area_m2": 561,
       "zoning": null,
       "status": null,
@@ -401,14 +536,17 @@
           "date": "2025-10-14",
           "round": 1,
           "starting_price_pln": 32800,
-          "outcome": "unsold",
+          "outcome": "archived",
           "area_m2": 561,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12005/26-110-skarzysko-kamienna-ul-sportowa"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12005/26-110-skarzysko-kamienna-ul-sportowa",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/12005/26-110-skarzysko-kamienna-ul-sportowa"
         }
       ],
       "parcels": [
         {
-          "nr": "26/4"
+          "nr": "26/4",
+          "dzialka_id": "126201_1.0009.26/4",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=126201_1.0009.26%2F4"
         }
       ]
     },
@@ -422,7 +560,7 @@
       "building": null,
       "address_raw": "26-110 Skarżysko-Kamienna ul. Pszenna",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F20%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Pszenna%200008%20skarzysko-kamienna%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F20%2026-110%20Skar%C5%BCysko-Kamienna%20ul.%20Pszenna%200008%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki",
       "area_m2": 960,
       "zoning": null,
       "status": null,
@@ -433,12 +571,14 @@
           "starting_price_pln": 110000,
           "outcome": "archived",
           "area_m2": 960,
-          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11818/26-110-skarzysko-kamienna-ul-pszenna"
+          "detail_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11818/26-110-skarzysko-kamienna-ul-pszenna",
+          "source_url": "https://bip.skarzysko.pl/przetarg-nieruchomosci/11818/26-110-skarzysko-kamienna-ul-pszenna"
         }
       ],
       "parcels": [
         {
-          "nr": "298/20"
+          "nr": "298/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20298%2F20%200008%20Skar%C5%BCysko-Kamienna%20geoportal%20dzia%C5%82ki"
         }
       ]
     }
