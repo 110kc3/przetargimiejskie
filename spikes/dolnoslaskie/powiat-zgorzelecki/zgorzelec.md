@@ -44,3 +44,25 @@ Contact: Wydział Gospodarki Nieruchomościami, tel. 75 77 59 900 w. 0174/0175/0
 - **Blockers:** None. No rate-limit/auth signals. Only watch-item: separate announcement vs result boards, and a mixed property/land/procurement stream (classify + drop non-flat where flats are the target — though land is also in-scope for the wider dataset).
 
 **VERDICT: BUILD (Low effort)** — recurring municipal flat auctions on a clean bip.info.pl server-HTML BIP with a dedicated results board; standard Dolnośląskie analog, no blockers.
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The [current announcement board](https://zgorzelec.bip.info.pl/index.php?idmp=32&r=r)
+has two rows: land sale `iddok=18421` (Francuska, IV auction, 20 October 2026),
+and procurement `iddok=16040` (organ-conservation work). No current flat was
+observed. The procurement row must not become a property sale.
+
+The [announcement archive index](https://zgorzelec.bip.info.pl/dokument.php?iddok=10598&idmp=394&r=r)
+links year boards 2026→2020. Its [2026 board](https://zgorzelec.bip.info.pl/index.php?idmp=836&r=r)
+has three sale documents (18437, 18282, 18281), including two built properties.
+The existing adapter does not walk these year boards, so its current-board
+success is not an exhaustive source-coverage claim.
+
+The [result root](https://zgorzelec.bip.info.pl/index.php?idmp=34&r=r) asks the
+reader to select a subcategory. The [result archive index](https://zgorzelec.bip.info.pl/dokument.php?iddok=11762&idmp=402&r=r)
+links 2025/2024/2023 using `/admin/mp.php?idmp=807/740/716` URLs. Public board
+views for those identifiers returned `brak dokumentów` in this probe. Neither
+that placeholder nor a zero parser count proves complete result discovery.
+Keep degraded property coverage visible until an explicit complete-source check
+and archive policy are implemented. Full review remains open and its deadline
+is not renewed by this partial check.

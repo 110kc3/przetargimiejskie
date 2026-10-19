@@ -42,6 +42,15 @@ re-spike, re-build, or duplicate work:
 `lifecycle.implementation` to choose build work. Do not infer live coverage from a
 historic verdict alone.
 
+Source/asset audits use `sources[].scope = "source-asset-audit"` and record their
+date, environment, observed assets, evidence path, limitations and `audit_status`
+(`partial` or `complete`). An asset capability of `observed` means a real source
+sale was inspected; it does not claim complete parser support or healthy hosted
+monitoring. Unchecked assets and procedures stay `unknown`. A partial audit does
+not renew the full-review deadline or promote runtime status. The generated
+progress report distinguishes partial audits from complete audits and unchecked
+enabled cities; remaining execution stays in the repository TODO.
+
 > Every batch, after spiking/building, UPDATE `master-cities.json` (the source
 > of truth), then regenerate the roll-up with `node spikes/build-progress.mjs`
 > (SPIKE-PROGRESS.md is GENERATED — never hand-edit it), and re-run the

@@ -28,7 +28,7 @@ import { ocrPdf } from './core/ocr-pdf.js';
 import { pdfText } from './core/pdf-text.js';
 import { buildCityData, healKinds, syncActiveListingRounds, todayWarsaw } from './core/build-properties.js';
 import { applyDurablePropertyHeals, buildGlobalStreetDisplay } from './core/verified-heals.js';
-import { buildLand, mergePartialLand } from './core/build-land.js';
+import { buildLand, reconcileLandHistory } from './core/build-land.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archiveAllActive, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
@@ -387,31 +387,22 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
 
   const landBuilt = buildLand(landRecords, city.id, city);
 
-  // PRESERVE-ON-EMPTY for LAND. Land has a single source per city (e.g. Bytom's
-  // i-BIIP catalog), so a silent fetch failure there yields 0 plots and would
-  // otherwise overwrite good land.json with an empty file. If we got 0 plots but
-  // previously published some, treat it as a source outage and keep the last-good
-  // file — same philosophy as the properties preserve-on-empty net above.
+  // A complete current board is still a rolling snapshot, not a complete
+  // historical ledger. Apply the same default history retention as properties.
   const landFile = join(DATA_DIR, city.id, 'land.json');
   let prevPlots = [];
   if (existsSync(landFile)) {
     try { prevPlots = JSON.parse(await readFile(landFile, 'utf8'))?.plots || []; } catch { prevPlots = []; }
   }
   prevPlots = repairLandLedger(prevPlots, city.id);
-  let landPlots = repairLandLedger(landBuilt.plots, city.id);
-  let landPreserved = false;
-  if (!landComplete && prevPlots.length > 0) {
-    landPlots = mergePartialLand(prevPlots, landPlots);
-    console.error(
-      `  ${city.id}: land source is a partial window — merged ${landBuilt.plots.length} current plot(s) into ${prevPlots.length} previously published plot(s).`,
-    );
-    // With no current plots the merge is byte-for-byte equivalent to the
-    // existing file, so leave the last-good artifact untouched.
-    landPreserved = landBuilt.plots.length === 0;
-  } else if (landPlots.length === 0 && prevPlots.length > 0) {
-    console.error(`  ${city.id}: land crawl returned 0 plots but ${prevPlots.length} were previously published — preserving land.json (likely a land-source outage).`);
-    landPlots = prevPlots;
-    landPreserved = true;
+  const { plots: landPlots, preserveFile: landPreserved } = reconcileLandHistory(
+    prevPlots, repairLandLedger(landBuilt.plots, city.id), {
+      mergeHistory: MERGE_HISTORY, complete: landComplete,
+      verifiedEmpty: valid_empty_land === true, today: todayWarsaw(),
+    },
+  );
+  if (prevPlots.length > 0) {
+    console.error(`  ${city.id}: land history reconciled ${prevPlots.length} previous + ${landBuilt.plots.length} current plot(s) into ${landPlots.length} retained plot(s).`);
   }
 
   const meta = {

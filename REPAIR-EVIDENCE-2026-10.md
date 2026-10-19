@@ -191,3 +191,103 @@ No threshold, TLS check, timeout budget or egress exclusion was relaxed.
 The continuation's local checks do not prove hosted recovery. Production files
 and source timestamps are untouched; isolated crawl output is validation only.
 Push verification is pending at [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
+
+
+## Further source repair and partial asset audit — 19 October 2026
+
+Bolesławiec's portal now presents a Let's Encrypt YR1 certificate and omits its
+intermediates. The previous Certum compatibility mapping fails; the existing
+reviewed YR1 + ISRG cross-sign chain verifies it against Node's public roots
+without disabling hostname, expiry or complete-chain checks. No new trust anchor
+is added. The separate result-BIP mapping remains Certum.
+
+The official residential RSS has two rows: Rynek 29/30 unit 9, 48.52 m²,
+225,000 zł, III round on 15 October; Mazowiecka 13b/5, 107.90 m²,
+399,000 zł on 5 November. The source RSS fixture covers parsing both rows and
+uppercase `III PRZETARG`; lowercase conjunction `i` still cannot become round I.
+Targeted parser and TLS security-policy checks pass.
+
+Trzebnica's known-history lookup previously read only properties. It now opts
+into resolved property and land outcomes without changing other adapters'
+default lookup. Archived announcements remain eligible for later result
+attachments; an expired announcement is not treated as a captured result. A corrupt/missing stream does not erase the
+other stream's known URLs. Land output is explicitly incremental and merges
+with retained plots/listing outcomes. Complete XML enumeration checks precede
+positive empty proof; current records are never skipped merely because their
+URLs are known. Failed pages/details/attachments and unparsed records withhold
+empty proof, and incomplete result discovery is exposed to refresh. Exact board
+article excerpts and targeted failure/history tests cover these boundaries.
+Historical rows missing an identity now use their own announcement PDFs, capped
+at 12 uncached identity extractions per pass within the existing crawl budget.
+Cached documents do not consume that cap, so unsupported older rows cannot starve
+later uncached material. Remaining unparsed rows keep discovery incomplete.
+A source fixture also reproduces `149.450.00 ` being parsed as 14,945,000 zł;
+trimming before decimal-tail handling restores the source's 149,450 zł amount.
+Bolesławiec's rolling RSS output likewise merges into retained land history.
+
+Eight partial source/asset checks now live in `spikes/master-cities.json` and the
+owning city notes, including the earlier committed Lubin/Wschowa/Żagań evidence.
+The generated ledger reports 0 complete, 8 partial and 113 unchecked enabled cities. `observed` means source evidence, not complete parser
+support. No full-review deadline, runtime declaration, official identity or
+historic build verdict was changed. Full asset/result audits remain open.
+
+Two source/implementation gaps were positively identified:
+
+- Zgorzelec's current board has one land sale and one procurement notice. Its
+  announcement index links year boards that the adapter does not walk. The
+  result root is a subcategory placeholder; the linked public year views tested
+  empty. A zero result count is not a complete-source claim.
+- Ząbkowice notice 11008/PDF 23628 sells a 19.43 m² garage for 44,000 zł on
+  18 November, linked to a 1/6 share of parcel 10/21, Osiedle Wschód-04.
+  The source publishes no street number. The current address-keyed parser drops
+  it. This remains a visible implementation gap; no identity or asset class was
+  fabricated to clear health. The 129 m² plot and 19.43 m² garage are distinct.
+
+The prior push `046f3b07c` was checked once: its refresh was queued and Security
+running. No additional workflow was dispatched or polled to completion. Current
+production health and this batch's hosted acceptance remain unverified.
+
+
+Chrzanów's current official SPA article 2950984 is a real missed sale. A live
+Chromium render and retained article-body fixture show parcels 6297, 1535 and
+1559/1 sold together: individual areas 4.0914/0.0897/0.1628 ha, displayed total
+4.3439 ha (43,439 m²), one starting price of 8,005,000 zł, auction 17 December
+2026. The five-column reader emits one parcel-group record and verifies the
+area total, single price and date. Contradictory totals, multiple price lines
+and invalid dates are rejected. Earlier legacy individual-lot tables still pass.
+Unrelated `m,` BIP menu links are no longer rendered as articles. Rolling land
+output retains historical plots. An isolated actual Chromium refresh has four
+plots (the previous three plus the combined current lot) and passes strict
+sanity and coverage health. Hosted recovery remains pending.
+
+
+Final local verification: targeted parser, source-state, known-URL, land-history,
+TLS and inventory tests pass. All three final isolated city outputs pass strict
+sanity. Bolesławiec has 13 properties/five plots and no coverage-health findings;
+Chrzanów has four plots and no coverage-health findings. Trzebnica has
+13 properties/44 plots (41 before), with previous property identities (including verified aliases), plot keys
+and listing dates retained. Its property/land checks are healthy, while one
+result-discovery degradation remains explicitly visible. No global health success
+is claimed. Production files/timestamps and caches were not changed by the local
+probes. The new push's hosted verification is pending; check its exact commit
+once next session without waiting after push.
+
+
+The completed crawl reached two previously unparsed result PDFs:
+[7167](https://bip.trzebnica.pl/attachments/download/7167) and
+[7396](https://bip.trzebnica.pl/attachments/download/7396). Both explicitly name
+Boleścin building 50/unit 2, starting at 149,450 zł, with negative outcomes on
+10 August / 21 September 2026. Exact extracted-text fixtures retain the evidence.
+The parser now reads that explicit identity and supplies canonical `source_pdf`
+provenance, so property building and same-date deduplication retain the unsold
+outcome rather than preferring an archived announcement.
+
+The [February announcement 6341](https://bip.trzebnica.pl/attachments/download/6341)
+independently prints Boleścin 50/2. An exact date + announcement-URL migration
+moves only the three confirmed historical events from `bolescin|0|2` to
+`bolescin|50|2`; unrelated unknown-building rows cannot be swept into it. The
+legacy watch alias is emitted only when the whole old identity is resolved.
+The February outcome remains archived/unknown, not inferred from later results.
+A replay of the two actual result texts through the real property builder,
+history merge and durable healer retains 93.4 m², all three dates, the old watch
+alias and both published unsold outcomes; strict city sanity passes afterwards.

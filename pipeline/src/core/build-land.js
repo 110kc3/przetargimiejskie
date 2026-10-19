@@ -229,3 +229,25 @@ export function mergePartialLand(previousPlots, currentPlots) {
     return String(latest(b)).localeCompare(String(latest(a)));
   });
 }
+
+/** Retain published events even when a complete current board rolls forward. */
+export function reconcileLandHistory(previous, current, {
+  mergeHistory = true, complete = true, verifiedEmpty = false, today = null,
+} = {}) {
+  const preserveEmpty = current.length === 0 && previous.length > 0;
+  const plots = (mergeHistory || !complete || preserveEmpty)
+    ? mergePartialLand(previous, current)
+    : mergePartialLand([], current);
+  let aged = false;
+  for (const plot of plots) {
+    for (const listing of plot.listings || []) {
+      if (listing.outcome === 'active'
+          && ((verifiedEmpty && current.length === 0)
+            || (today && listing.date && listing.date < today))) {
+        listing.outcome = 'archived';
+        aged = true;
+      }
+    }
+  }
+  return { plots, preserveFile: preserveEmpty && !aged };
+}

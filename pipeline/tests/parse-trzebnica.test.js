@@ -298,6 +298,7 @@ const SYNTHETIC_LEASE_FIELDS = {
 
 test('parsePLN: dot-thousands, space-thousands, grosze tail', () => {
   assert.equal(parsePLN('149.450,00'), 149450);
+  assert.equal(parsePLN('149.450.00 '), 149450); // real XML 3489: decimal dot + trailing space
   assert.equal(parsePLN('215.700,00'), 215700);
   assert.equal(parsePLN('215 700,00'), 215700); // space thousands
   assert.equal(parsePLN('364.200,00'), 364200);

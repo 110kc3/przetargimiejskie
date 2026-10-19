@@ -109,3 +109,21 @@ Estimated **~6–10 flat auctions/year** (open market, ustny nieograniczony). Mu
 **Effort estimate:** Medium — 1 Playwright scraper for announcements + 1 plain-HTTP scraper for BIP results (if BIP serves HTML without JS). DOM parsing straightforward given clean Joomla article structure.
 
 **VERDICT: BUILD** — The city runs a genuine, consistent open flat-auction programme (ustny przetarg nieograniczony) with published results including achieved prices. MZGM is the housing manager. JS rendering is the only real blocker and is already solved in the Kraków/Gliwice adapters. Confidence: **High**.
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The [residential RSS](https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne?format=feed&type=rss)
+returns two real flats: Rynek 29/30, unit 9 (48.52 m², 225,000 zł,
+15 October 2026, III round), and Mazowiecka 13b/5 (107.90 m²,
+399,000 zł, 5 November 2026). The retained RSS fixture is
+`pipeline/tests/fixtures/remediation/boleslawiec-flats-20261019.rss`.
+The residential source is observed; commercial/garage RSS checks returned valid
+empty feeds. That does not establish full all-asset or result completeness.
+
+The portal now serves a Let's Encrypt YR1 leaf without the intermediate chain.
+The earlier Certum mapping fails. Existing reviewed YR1 intermediates authenticate
+the portal against Node's public roots with hostname/expiry checking and no
+partial-chain trust. The separate result BIP retains its Certum mapping.
+The parser now accepts uppercase `III PRZETARG` while preserving the lowercase
+Polish-conjunction guard. Hosted recovery remains separate from these local
+probes. Full review remains open; its previous deadline is not renewed here.

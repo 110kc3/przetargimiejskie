@@ -42,3 +42,16 @@ Contact: Wydział Rozwoju, Gospodarki Komunalnej i Nieruchomości, UM Żagań, P
 - **Blockers:** None. No rate-limit/auth/CAPTCHA signals. Only watch-items: wynik price lives in the Nieruchomości section (not on the auction card), and a land-heavy mixed stream (classify + drop non-flat when flats are the target).
 
 **VERDICT: BUILD (Low effort)** — recurring municipal flat auctions on a clean SystemDoBIP.pl server-HTML BIP (`bip.zagan.pl`), with an already-built same-CMS same-voivodeship analog (Gorzów Wielkopolski) to clone; no blockers.
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The active-board source observation committed in `046f3b07c` is now linked
+from the canonical partial source/asset audit. The identified
+[active board](https://bip.zagan.pl/przetargi/344/status/0/) has one lease at
+pl. Słowiański and no sale rows. Source-region fixtures and negative tests cover
+partial markup changes, unparsed assets, failed later pages and short-page
+pagination. Rentals are not imported as sales. The isolated refresh retains
+13 properties/59 plots and records the current property stream as verified empty.
+This does not establish permanent asset absence or full historical/result
+coverage. Unobserved capabilities and the previous full-review deadline remain
+unchanged.

@@ -13,7 +13,8 @@
 //   pdfText() and attaches it as ref.text (source:'html'), so refresh.js's
 //   OCR/parse loop just reads ref.text.
 //
-// Both hosts need insecureTLS (incomplete cert chain, like bip.miastozabrze.pl).
+// Both hosts use reviewed missing-intermediate compatibility. The legacy
+// insecureTLS option retains full certificate/hostname/expiry verification.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -26,8 +27,8 @@ const RESULTS_BOARD = `${BIP}/public/?id=110553`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 // Portal serves the RSS fine to the polite bot UA, but the BIP host gates it;
-// send a browser UA everywhere for consistency. insecureTLS relaxes the
-// incomplete-chain verification (public, read-only data — see core/fetch.js).
+// send a browser UA everywhere for consistency. insecureTLS selects each host's
+// reviewed intermediate chain (see core/source-tls.js); verification stays on.
 const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
 // sp-estate categories that carry SELLABLE auctions (flats, built property,
@@ -117,7 +118,7 @@ export function parseResultsBoard(html) {
 
 let activePromise = null;
 
-async function crawlAll() {
+export async function crawlAll({ fetchText = getText } = {}) {
   const listings = [];
   const land = [];
   const wykaz = [];
@@ -126,7 +127,7 @@ async function crawlAll() {
   for (const category of SALE_CATEGORIES) {
     let xml;
     try {
-      xml = await getText(feedUrl('sp-estate', category), FETCH_OPTS);
+      xml = await fetchText(feedUrl('sp-estate', category), FETCH_OPTS);
     } catch (err) {
       console.error(`  boleslawiec sp-estate/${category} feed failed: ${err.message}`);
       continue;
@@ -145,7 +146,7 @@ async function crawlAll() {
   for (const category of WYKAZ_CATEGORIES) {
     let xml;
     try {
-      xml = await getText(feedUrl('przetargi-planowane', category), FETCH_OPTS);
+      xml = await fetchText(feedUrl('przetargi-planowane', category), FETCH_OPTS);
     } catch (err) {
       console.error(`  boleslawiec przetargi-planowane/${category} feed failed: ${err.message}`);
       continue;
@@ -160,7 +161,8 @@ async function crawlAll() {
   }
 
   console.error(`  boleslawiec crawlActive: ${listings.length} listing(s), ${wykaz.length} wykaz, ${land.length} land`);
-  return { listings, wykaz, land };
+  // RSS and result boards retain a rolling window, not the full land ledger.
+  return { listings, wykaz, land, land_complete: false };
 }
 
 export async function crawlActive() {

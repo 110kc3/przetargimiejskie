@@ -358,6 +358,29 @@ export function applyVerifiedJunk(props, cityId) {
   return out;
 }
 
+function repairBolescinResultIdentity(props, cityId) {
+  if (cityId !== 'trzebnica') return props;
+  const oldKey = 'bolescin|0|2';
+  // Exact source events: announcement 6341 and results 7167/7396 identify 50/2.
+  // Preserve any other unknown-building rows rather than guessing their identity.
+  const sources = new Map([
+    ['2026-02-27', 'https://bip.trzebnica.pl/przetarg-nieruchomosci/3110/przetarg-ggn-p-5-2026'],
+    ['2026-08-10', 'https://bip.trzebnica.pl/przetarg-nieruchomosci/3445/przetargggnp142026'],
+    ['2026-09-21', 'https://bip.trzebnica.pl/przetarg-nieruchomosci/3489/przetarg-nr-ggn-p-18-2026'],
+  ]);
+  return props.flatMap((property) => {
+    if (property.key !== oldKey) return [property];
+    const isVerified = (listing) => sources.has(listing.date) && sources.get(listing.date) === listing.detail_url;
+    const verified = property.listings.filter(isVerified);
+    if (!verified.length) return [property];
+    const remaining = property.listings.filter((listing) => !isVerified(listing));
+    const { warning: _warning, ...identity } = parseAddress('Boleścin 50/2');
+    const target = { ...property, ...identity, listings: verified,
+      legacy_keys: remaining.length ? [] : [...new Set([...(property.legacy_keys || []), oldKey])] };
+    return [...(remaining.length ? [{ ...property, listings: remaining }] : []), target];
+  });
+}
+
 /**
  * Apply the complete durable post-build heal sequence used by normal refresh,
  * preserve-on-empty refresh, and the offline healer. Keeping one entry point
@@ -394,6 +417,7 @@ export function applyDurablePropertyHeals(props, cityId, globalByNorm) {
   }
   props = repairPropertyLedger(props, cityId);
   props = applySourceCorrections(props, cityId);
+  props = repairBolescinResultIdentity(props, cityId);
   backfillVerifiedRoundProvenance(props, cityId);
   applyVerifiedRenames(props, cityId);
   // Exact identity repairs can meet a correctly parsed version already in the

@@ -31,26 +31,32 @@ const DATA_DIR = fileURLToPath(new URL('../../../data', import.meta.url));
  * (e.g. first run, or the city has not yet been seeded).
  *
  * @param {string} cityId  e.g. 'slupsk', 'bialystok'
+ * @param {{includeLand?: boolean, resolvedOnly?: boolean, dataDir?: string}} [options] Include the
+ *   separate parcel ledger for mixed streams; default callers retain the
+ *   property-only behavior. dataDir supports isolated source validation.
  * @returns {Promise<Set<string>>}
  */
-export async function loadKnownSourceUrls(cityId) {
-  const filePath = join(DATA_DIR, cityId, 'properties.json');
-  if (!existsSync(filePath)) return new Set();
-  try {
-    const raw = await readFile(filePath, 'utf8');
-    const parsed = JSON.parse(raw);
-    const records = Array.isArray(parsed?.properties) ? parsed.properties : [];
-    const urls = new Set();
-    for (const rec of records) {
-      for (const listing of Array.isArray(rec?.listings) ? rec.listings : []) {
-        if (listing.source_pdf) urls.add(listing.source_pdf);
-        if (listing.source_url) urls.add(listing.source_url);
-        if (listing.detail_url) urls.add(listing.detail_url);
-        if (listing.pdf_url)    urls.add(listing.pdf_url);
+export async function loadKnownSourceUrls(cityId, { includeLand = false, resolvedOnly = false, dataDir = DATA_DIR } = {}) {
+  const urls = new Set();
+  for (const [filename, field] of [['properties.json', 'properties'], ...(includeLand ? [['land.json', 'plots']] : [])]) {
+    const filePath = join(dataDir, cityId, filename);
+    if (!existsSync(filePath)) continue;
+    try {
+      const parsed = JSON.parse(await readFile(filePath, 'utf8'));
+      const records = Array.isArray(parsed?.[field]) ? parsed[field] : [];
+      for (const rec of records) {
+        for (const listing of Array.isArray(rec?.listings) ? rec.listings : []) {
+          // An archived announcement is not a published result. Mixed boards
+          // can add a result attachment later, so callers checking outcomes
+          // must keep revisiting unresolved announcements.
+          if (resolvedOnly && !['sold', 'unsold', 'no_winner'].includes(listing.outcome)) continue;
+          if (listing.source_pdf) urls.add(listing.source_pdf);
+          if (listing.source_url) urls.add(listing.source_url);
+          if (listing.detail_url) urls.add(listing.detail_url);
+          if (listing.pdf_url)    urls.add(listing.pdf_url);
+        }
       }
-    }
-    return urls;
-  } catch {
-    return new Set();
+    } catch { /* A missing/bad stream must not discard the other stream's known history. */ }
   }
+  return urls;
 }

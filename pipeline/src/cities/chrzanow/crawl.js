@@ -3,10 +3,10 @@
 // body is a JS SPA — so the body is fetched with the headless renderer
 // (core/render.js renderHtml), then parsed. See config.js.
 //
-// NEEDS-LIVE-VERIFY: this SPA body path (render vs. the BIP article JSON vs. the
-// text-PDF attachment) is the build gate — confirm on the first run. If playwright
-// is unavailable the city yields nothing (isolated; preserve-on-empty keeps last
-// good). Result notices ("Wyniki przetargów") are not yet ingested.
+// Live-verified 19 October 2026 against article 2950984, including its combined
+// three-parcel sale table. If rendering fails, last-good data remains subject to
+// refresh's preservation rules. Result notices ("Wyniki przetargów") are not yet
+// ingested; source/asset coverage is explicitly partial.
 
 import { getText } from '../../core/fetch.js';
 import { renderHtml } from '../../core/render.js';
@@ -20,9 +20,9 @@ const BOARDS = [
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-function harvestArticles(html) {
+export function harvestArticles(html) {
   const out = new Set();
-  for (const m of html.matchAll(/https?:\/\/bip\.malopolska\.pl\/umchrzanow[,/][a-z],?\d+[^"'\s)]*/gi)) out.add(m[0]);
+  for (const m of html.matchAll(/https?:\/\/bip\.malopolska\.pl\/umchrzanow[,/]a,?\d+[^"'\s)]*/gi)) out.add(m[0]);
   return [...out];
 }
 
@@ -68,5 +68,5 @@ async function crawlAll() {
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;
-  return { listings, wykaz: [], land };
+  return { listings, wykaz: [], land, land_complete: false };
 }

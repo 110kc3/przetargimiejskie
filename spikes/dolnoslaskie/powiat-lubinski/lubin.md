@@ -108,3 +108,17 @@ Sessions are batched: multiple flats auctioned in a single date/room (sala nr 12
 - BIP UM Lubin main: https://bip.um.lubin.pl/
 - BIP UM Lubin attachment example: https://bip.um.lubin.pl/attachments/9945/download
 - City portal auction post (2015, land): https://www.lubin.pl/przetarg-na-sprzedaz-nieruchomosci/
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The 19 October source evidence already committed in `046f3b07c` is now linked
+from the canonical manifest's partial source/asset audit. Official announcement
+PDFs [30174](https://bip.um.lubin.pl/attachments/30174/download) and
+[30173](https://bip.um.lubin.pl/attachments/30173/download) describe land sales:
+parcel 963 / district 3, 739 m², 150,000 zł, II auction on 23 October;
+parcel 1030/34 / district 9, 11,107 m², 1,700,000 zł, II auction on 6 November.
+The first is restricted to eligible neighbouring owners. Exact extracted-text
+fixtures and isolated refresh/strict integrity/health evidence are recorded in
+`REPAIR-EVIDENCE-2026-10.md`. Land and oral sales are observed; other asset classes
+and result completeness remain unknown. The old empty-source exception was not
+renewed, and this partial audit does not renew the full-review deadline.

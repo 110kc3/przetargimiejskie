@@ -77,6 +77,50 @@ The older dated sections below preserve diagnosis and do not override this state
   sales and incomplete pagination cannot establish emptiness. Exact board fixtures
   and targeted negative tests pass. Full isolated refreshes pass strict integrity
   and coverage health while retaining history; hosted recovery remains pending.
+- **Bolesławiec follow-up implemented:** the portal rotated from Certum to
+  Let's Encrypt YR1 and omits intermediates. Its host now uses the already
+  reviewed YR1 chain with full hostname/expiry/root verification. A verified
+  live RSS read recovers two flats; uppercase `III PRZETARG` now retains round 3.
+  The separate result-BIP certificate mapping is unchanged. Targeted parser
+  and security-policy checks pass; hosted source recovery remains pending.
+- **Trzebnica incremental-source repair implemented:** known historical URLs
+  now include resolved outcomes from its separate land ledger. Unresolved
+  archived announcements remain eligible for later result attachments.
+  Incremental parcel output uses the history merge instead of replacing retained
+  plots. Missing historical identities are extracted from source PDFs in bounded
+  uncached slices; a real decimal-dot/trailing-space price defect is fixed.
+  Complete XML page/count checks, current-record fetches and extraction checks precede positive empty
+  proof; incomplete result discovery stays degraded. Targeted tests cover known
+  history, pagination/detail/PDF failures and retained sold outcomes. Final
+  isolated output retains prior property identities (including verified aliases),
+  plot keys and listing dates, has
+  13 properties / 44 plots (previously 41 plots), and passes strict integrity.
+  Incomplete result discovery remains explicitly degraded; this is not a green
+  whole-source claim. Local evidence is recorded in the repair document.
+  Two newly reached result PDFs also identify Boleścin 50/2 and confirm the
+  August/September auctions were unsold. Their canonical `source_pdf` provenance
+  now survives property building/deduplication. Exact-source migration moves the
+  former unknown-building events with a watch alias; unrelated rows remain
+  untouched. A replay through the actual builder/merge/healer and strict sanity
+  passes. The February announcement confirms the same building number, while
+  its historical outcome stays unknown/archived.
+- **Chrzanów repaired:** official article 2950984 uses a new HTML table for
+  one jointly priced lot (parcels 6297, 1535, 1559/1; 43,439 m²; 8,005,000 zł;
+  17 December 2026). The parser now retains the grouping and validates its total
+  instead of dropping the sale or repeating its price per parcel. Discovery
+  excludes unrelated BIP menu links, and rolling land output merges history.
+  Targeted tests and an isolated actual Chromium crawl, strict sanity and
+  coverage-health checks pass. Hosted recovery remains pending.
+- **Existing-city asset audit is now recorded in the canonical manifest:**
+  **0 complete / 8 partial / 113 unchecked**, generated in
+  [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The partial checks cover
+  Bolesławiec, Trzebnica, Chrzanów, Zgorzelec, Ząbkowice Śląskie, Lubin, Wschowa
+  and Żagań (the latter three fold in evidence committed in `046f3b07c`).
+  They retain the full
+  review deadlines and do not promote hosted runtime status. Zgorzelec's linked
+  year archives are not crawled. Ząbkowice notice 11008 is a genuine 19.43 m²
+  garage / 44,000 zł sale missed because no street number is published; its
+  parcel/share must not be relabelled as a street address or bare-land sale.
 - **Hosted feed recovery observed:** current committed data from scheduled
   [refresh 39230259387](https://github.com/110kc3/przetargimiejskie/actions/runs/39230259387)
   has ready, healthy streams for Gliwice, Gniezno, Rawa Mazowiecka,
@@ -94,8 +138,9 @@ The older dated sections below preserve diagnosis and do not override this state
   transport or workflow dispatch was introduced.
 
 **Next accepted work:** inspect the natural hosted Security/source outcomes once
-for this push; continue source-specific repairs for Bytom, Chrzanów, Zgorzelec,
-Trzebnica, Bolesławiec, Ząbkowice Śląskie and Kwidzyn, plus Wałbrzych's incomplete
+for the next push; continue source-specific repairs for Bytom, Zgorzelec,
+Ząbkowice Śląskie and Kwidzyn, Trzebnica's remaining unparsed history/completeness,
+and Wałbrzych's incomplete
 result stream and Busko-Zdrój's expired empty-board review. The Bytom property
 board returns HTTP 403 in the current local probe while its catalogue yields 13
 land plots and no units; that does not prove an empty property board. Continue
@@ -105,7 +150,11 @@ visible gaps. Store submission, Search Console acceptance and received 30-day
 interest evidence remain external gates. See [repair evidence](REPAIR-EVIDENCE-2026-10.md).
 
 **Push verification pending:** [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
-Check this continuation commit once next session; never wait after pushing.
+The first continuation `046f3b07c` was checked once at the start of the next turn:
+[refresh 39323322737](https://github.com/110kc3/przetargimiejskie/actions/runs/39323322737)
+was queued and [Security 39323322660](https://github.com/110kc3/przetargimiejskie/actions/runs/39323322660)
+was running. Both remain unverified here; no CI wait or new dispatch was added.
+Check the next continuation commit once next session; never wait after pushing.
 
 ### Notification noise reduction — 19 October 2026
 

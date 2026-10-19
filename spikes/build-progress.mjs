@@ -41,7 +41,11 @@ const WOJ = {
 
 const count = (status) => cities.filter((c) => c.status === status).length;
 const list = (status) => cities.filter((c) => c.status === status).sort(byLabel);
-const today = master.generated_at || new Date().toISOString().slice(0, 10);
+const auditSources = cities.flatMap((city) => (city.sources || [])
+  .filter((source) => source.scope === 'source-asset-audit')
+  .map((source) => ({ city, source })));
+const today = [master.generated_at, ...auditSources.map(({ source }) => source.verified_at)]
+  .filter(Boolean).sort().at(-1) || new Date().toISOString().slice(0, 10);
 
 const district = (c) =>
   c.type === 'city-county'
@@ -81,6 +85,25 @@ lines.push('| Dimension | State | Count |');
 lines.push('|---|---|---:|');
 for (const field of ['research', 'implementation', 'runtime']) {
   for (const [state, total] of lifecycleCounts(field)) lines.push(`| ${field} | ${state} | ${total} |`);
+}
+lines.push('');
+lines.push('Lifecycle totals are retained manifest declarations, not a live health result. Source freshness and failures are recorded in [data/index.json](../data/index.json) and enforced by the health checks.');
+lines.push('');
+
+lines.push('## Existing-city source/asset audit');
+lines.push('');
+const enabled = cities.filter((city) => city.pipeline_id);
+const latestAudits = enabled.map((city) => ({ city, source: auditSources
+  .filter((audit) => audit.city.id === city.id)
+  .map((audit) => audit.source).sort((a, b) => String(b.verified_at).localeCompare(String(a.verified_at)))[0] }));
+const completeAudits = latestAudits.filter(({ source }) => source?.audit_status === 'complete').length;
+const partialAudits = latestAudits.filter(({ source }) => source && source.audit_status !== 'complete').length;
+lines.push(`${enabled.length} enabled cities: **${completeAudits} complete**, **${partialAudits} partial**, **${enabled.length - completeAudits - partialAudits} unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).`);
+lines.push('');
+lines.push('| City | Last source check | Audit | Observed sale assets | Evidence |');
+lines.push('|---|---|---|---|---|');
+for (const { city, source } of latestAudits.filter(({ source }) => source).sort((a, b) => byLabel(a.city, b.city))) {
+  lines.push(`| ${city.label} | ${source.verified_at || '—'} | ${source.audit_status || 'partial'} | ${(source.observed_assets || []).join(', ')} | [source notes](../${source.evidence_path}) |`);
 }
 lines.push('');
 

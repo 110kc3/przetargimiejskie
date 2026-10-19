@@ -99,7 +99,7 @@ const TOWN = 'Trzebnica';
 // both); optional ",00" grosze tail.
 export function parsePLN(numStr) {
   if (!numStr) return null;
-  const cleaned = String(numStr).replace(/[,.]\d{2}$/, '').replace(/[\s. ]/g, '');
+  const cleaned = String(numStr).trim().replace(/[,.]\d{2}$/, '').replace(/[\s. ]/g, '');
   const n = Number(cleaned.replace(/,/g, ''));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
@@ -455,6 +455,13 @@ export function addressRawFromText(text) {
   const cleaned = cleanAdres(field(text, 'ADRES'));
   if (!cleaned) return null;
   if (/\d/.test(cleaned)) return cleaned; // already "<street> <bldg>[/<apt>]"
+  // Published results 7167/7396 identify the previously unnumbered Boleścin
+  // unit explicitly. Keep this tied to the stated village and subject sentence;
+  // parcel/share numbers and the municipal office address cannot supply it.
+  if (/^Boleścin$/i.test(cleaned)) {
+    const explicit = /Lokal\s+mieszkalny\s+nr\s+(\d+[A-Za-z]?)\s+położony\s+w\s+budynku\s+nr\s+(\d+[A-Za-z]?)\s+w\s+Boleścinie\b/i.exec(field(text, 'WYNIK'));
+    if (explicit) return `${cleaned} ${explicit[2]}/${explicit[1]}`;
+  }
   const lokal = flatNoFromText(text);
   return lokal ? `${cleaned} 0/${lokal}` : null;
 }
@@ -547,6 +554,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
       {
         auction_date,
         source_url: sourceUrl,
+        source_pdf: sourceUrl,
         kind: 'grunt',
         dzialka_nr,
         obreb: village || obrebFromText(text),
@@ -575,6 +583,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     {
       auction_date,
       source_url: sourceUrl,
+      source_pdf: sourceUrl,
       kind: kind === 'unknown' ? 'mieszkalny' : kind,
       address_raw,
       address,

@@ -29,9 +29,9 @@
 //     newest-first (the board XML already returns newest-first), so a
 //     timeout only ever truncates the OLDEST tail — that remainder backfills
 //     on the next run (merge-history retains prior results either way).
-//     loadKnownSourceUrls() then skips already-captured historical records on
-//     every run after the first (never applied to ACTIVE records — see
-//     ADAPTER-GUIDE §4: "never skip active listings").
+//     loadKnownSourceUrls() skips already-captured resolved outcomes. Archived
+//     announcements remain eligible for later result attachments; current
+//     records are always checked (ADAPTER-GUIDE §4).
 //
 // A found "informacja o wyniku"-NAMED attachment is fetched and body-checked
 // (isResultNotice) before ever being trusted — one such attachment (Kobylice
@@ -42,11 +42,14 @@
 // source:'html' ⇒ result refs already carry `.text`, which refresh.js hands
 // straight to parseResultDoc.
 
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { docText } from '../../core/doc-text.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
+import { urlCacheKey } from '../../core/hash.js';
 import {
   buildRecordText,
   parseAnnouncement,
@@ -73,6 +76,13 @@ const MAX_BOARD_PAGES = 20;
 // years of growth in one pass.
 const CRAWL_BUDGET_MS = Number(process.env.TRZEBNICA_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 const MAX_RECORDS = Number(process.env.TRZEBNICA_MAX_RECORDS) || 500;
+// Recover missing historical identities from their own announcements, in small
+// uncached slices. Cached documents remain eligible without consuming the cap,
+// so permanently unsupported rows cannot starve later unseen documents.
+const MAX_HISTORICAL_ATTACHMENTS = 12;
+const TEXT_CACHE_DIRS = ['pdf-text-cache', 'doc-text-cache']
+  .map((name) => fileURLToPath(new URL(`../../../${name}/`, import.meta.url)));
+const attachmentCached = (url) => TEXT_CACHE_DIRS.some((directory) => existsSync(join(directory, `${urlCacheKey(url)}.txt`)));
 
 // A record with no parseable date, or a date within this many days in the
 // past, is still treated as ACTIVE (always gets the deep-field fetch — a
@@ -123,26 +133,36 @@ export function parseBoardPage(xml) {
 }
 
 /** Every board record across all pages (bounded, deduped by id). */
-async function fetchBoard() {
+async function fetchBoard(fetchText = getText) {
   const refs = [];
+  refs.complete = false;
   const seen = new Set();
   for (let page = 1; page <= MAX_BOARD_PAGES; page++) {
     let xml;
     try {
-      xml = await getText(boardXml(page), FETCH_OPTS);
+      xml = await fetchText(boardXml(page), FETCH_OPTS);
     } catch (err) {
       console.error(`  trzebnica: board page ${page} failed: ${err.message}`);
       break;
     }
     const pageRefs = parseBoardPage(xml);
-    if (pageRefs.length === 0) break;
+    const totalPages = Number(/<ilosc-stron>(\d+)</i.exec(xml)?.[1]);
+    const sourcePage = Number(/<strona>(\d+)</i.exec(xml)?.[1]);
+    const sourceCount = Number(/<ilosc-rekordow>(\d+)</i.exec(xml)?.[1]);
+    const rawCount = [...xml.matchAll(/<artykul>/gi)].length;
+    if (sourcePage !== page || !Number.isInteger(totalPages) || totalPages < page
+      || sourceCount !== rawCount || rawCount !== pageRefs.length
+      || pageRefs.some((ref) => seen.has(ref.id))) {
+      console.error(`  trzebnica: incomplete or changed board page ${page}; empty-stream proof withheld`);
+      break;
+    }
     for (const r of pageRefs) {
       if (seen.has(r.id)) continue;
       seen.add(r.id);
       refs.push(r);
     }
-    const totalPages = Number(/<ilosc-stron>(\d+)</i.exec(xml)?.[1]) || page;
-    if (page >= totalPages) break;
+    if (page === totalPages) { refs.complete = true; break; }
+    if (pageRefs.length === 0) break;
   }
   return refs;
 }
@@ -183,18 +203,20 @@ async function extractAttachment(url) {
 
 let crawlPromise = null;
 
-async function crawlAll() {
+export async function crawlAll({ fetchText = getText, knownUrls, extractText = extractAttachment, cutoff = activeCutoff() } = {}) {
   const listings = []; // address-keyed active records (flats / built / commercial)
   const land = []; // kind:'grunt' active records → land.json
   const resultRefs = []; // { text, pdf_url, detail_url, auction_date:null }
 
-  const refs = await fetchBoard();
+  const refs = await fetchBoard(fetchText);
+  let sourceComplete = refs.complete;
   console.error(`  trzebnica: ${refs.length} board record(s) enumerated`);
 
-  const known = await loadKnownSourceUrls('trzebnica');
-  const cutoff = activeCutoff();
+  const known = knownUrls ?? await loadKnownSourceUrls('trzebnica', { includeLand: true, resolvedOnly: true });
   const deadline = Date.now() + CRAWL_BUDGET_MS;
   let historicalProcessed = 0;
+  let historicalAttachments = 0;
+  let uncachedHistoricalAttachments = 0;
   let budgetHit = false;
 
   for (const ref of refs) {
@@ -212,6 +234,7 @@ async function crawlAll() {
       if (known.has(ref.url)) continue; // already captured in committed data
       if (!budgetHit && (historicalProcessed >= MAX_RECORDS || Date.now() > deadline)) {
         budgetHit = true;
+        sourceComplete = false;
         console.error(
           `  trzebnica: historical-backfill budget reached (processed ${historicalProcessed}); remainder backfills next run`,
         );
@@ -222,9 +245,16 @@ async function crawlAll() {
 
     let recXml;
     try {
-      recXml = await getText(recordXml(ref.id), FETCH_OPTS);
+      recXml = await fetchText(recordXml(ref.id), FETCH_OPTS);
     } catch (err) {
       console.error(`  trzebnica: record ${ref.id} fetch failed: ${err.message}`);
+      sourceComplete = false;
+      continue;
+    }
+    const detailRefs = parseBoardPage(recXml);
+    if (detailRefs.length !== 1 || detailRefs[0].id !== ref.id) {
+      sourceComplete = false;
+      console.error(`  trzebnica: record ${ref.id} returned an unrecognized detail response`);
       continue;
     }
     const atts = pickAttachments(recXml);
@@ -233,7 +263,7 @@ async function crawlAll() {
     let wynik = '';
     if (atts.result) {
       try {
-        const t = await extractAttachment(atts.result.url);
+        const t = await extractText(atts.result.url);
         if (isResultNotice(t)) {
           wynik = t;
         } else {
@@ -243,6 +273,7 @@ async function crawlAll() {
         }
       } catch (err) {
         console.error(`  trzebnica: result attachment extract failed ${atts.result.url}: ${err.message}`);
+        sourceComplete = false;
       }
     }
 
@@ -260,15 +291,28 @@ async function crawlAll() {
     let ogloszenie = '';
     if (isActive && atts.announcement) {
       try {
-        ogloszenie = await extractAttachment(atts.announcement.url);
+        ogloszenie = await extractText(atts.announcement.url);
       } catch (err) {
         console.error(`  trzebnica: announcement attachment extract failed ${atts.announcement.url}: ${err.message}`);
+        sourceComplete = false;
       }
     }
 
-    const fullText = buildRecordText({ ...baseFields, ogloszenie });
-    const rec = parseAnnouncement(fullText);
-    if (!rec) continue;
+    let rec = parseAnnouncement(buildRecordText({ ...baseFields, ogloszenie }));
+    if (!rec && !isActive && atts.announcement
+      && (attachmentCached(atts.announcement.url) || uncachedHistoricalAttachments < MAX_HISTORICAL_ATTACHMENTS)
+      && Date.now() <= deadline) {
+      historicalAttachments++;
+      if (!attachmentCached(atts.announcement.url)) uncachedHistoricalAttachments++;
+      try {
+        ogloszenie = await extractText(atts.announcement.url);
+        rec = parseAnnouncement(buildRecordText({ ...baseFields, ogloszenie }));
+      } catch (err) {
+        sourceComplete = false;
+        console.error(`  trzebnica: historical identity extraction failed for ${ref.id}: ${err.message}`);
+      }
+    }
+    if (!rec) { sourceComplete = false; continue; }
 
     if (!isActive) {
       // Stale, no confirmed result → age into the archive via the board date
@@ -283,9 +327,14 @@ async function crawlAll() {
   }
 
   console.error(
-    `  trzebnica: ${listings.length} flat/building listing(s), ${land.length} land plot(s), ${resultRefs.length} result record(s)`,
+    `  trzebnica: ${listings.length} flat/building listing(s), ${land.length} land plot(s), ${resultRefs.length} result record(s); ${historicalAttachments} historical identity attachment(s), ${uncachedHistoricalAttachments} uncached`,
   );
-  return { listings, land, resultRefs };
+  resultRefs.complete = sourceComplete;
+  return {
+    listings, land, resultRefs, land_complete: false,
+    valid_empty: sourceComplete && listings.length === 0,
+    valid_empty_land: sourceComplete && land.length === 0,
+  };
 }
 
 /** Result notices (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
@@ -297,8 +346,10 @@ export async function crawlResultDocs() {
 /** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings, land } = await crawlPromise;
-  return { listings, wykaz: [], land };
+  const { listings, land, valid_empty, valid_empty_land } = await crawlPromise;
+  // Known historical rows are skipped and source boards prune old notices.
+  // Preserve land history through the same incremental merge as property history.
+  return { listings, wykaz: [], land, valid_empty, valid_empty_land, land_complete: false };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

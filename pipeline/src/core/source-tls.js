@@ -18,7 +18,7 @@ const SOURCE_CHAINS = new Map([
   ['www.glogow.pl', ['yr1.pem', 'isrg-root-yr-cross-signed.pem']],
   ['www.gniezno.eu', ['home-pl-ov-tls-g2-r36-ca.pem']],
   ['www.um.boleslawiec.bip-gov.pl', ['certum-ev-tls-g2-r39-ca.pem']],
-  ['xn--bolesawiec-e0b.pl', ['certum-ev-tls-g2-r39-ca.pem']],
+  ['xn--bolesawiec-e0b.pl', ['yr1.pem', 'isrg-root-yr-cross-signed.pem']],
 ]);
 const agents = new Map();
 

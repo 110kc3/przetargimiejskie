@@ -38,6 +38,53 @@ export function parseRows(text) {
   return out;
 }
 
+// The October 2026 notice puts parcel numbers, individual areas and their total
+// in separate HTML cells. One row has ONE price/date for the whole parcel group.
+export function parseTableRows(html) {
+  const out = [];
+  for (const table of String(html || '').matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)) {
+    const rows = [...table[1].matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)]
+      .map((row) => [...row[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map((cell) => cell[1]));
+    const header = rows[0]?.map(htmlToText) || [];
+    if (header.length !== 5 || !/ewidencji.*ksi[ęe]gi/i.test(header[0])
+      || !/powierzchnia.*ha/i.test(header[1]) || !/cena/i.test(header[2])
+      || !/termin\s+przetargu/i.test(header[3]) || !/wadium/i.test(header[4])) continue;
+    for (const cells of rows.slice(1)) {
+      if (cells.length !== 5) continue;
+      const subject = htmlToText(cells[0]);
+      const kw = /\bKR1C\/\d+\/\d\b/.exec(subject);
+      if (!kw) continue;
+      const parcelText = subject.slice(0, kw.index).trim();
+      if (!/^\d+(?:\/\d+)?(?:[\s,;]+\d+(?:\/\d+)?)*$/.test(parcelText)) continue;
+      const parcels = [...parcelText.matchAll(/\d+(?:\/\d+)?/g)].map((match) => match[0]);
+      const areaText = htmlToText(cells[1]);
+      const areas = [...areaText.matchAll(/\d+[.,]\d{4}/g)].map((match) => Number(match[0].replace(',', '.')));
+      if (areaText.replace(/\d+[.,]\d{4}|\s/g, '') || !areas.length) continue;
+      let area;
+      if (areas.length === 1) area = areas[0];
+      else if (areas.length === parcels.length) area = areas.reduce((sum, value) => sum + value, 0);
+      else if (areas.length === parcels.length + 1) {
+        area = areas.slice(0, -1).reduce((sum, value) => sum + value, 0);
+        if (Math.abs(area - areas.at(-1)) > 0.000001) continue;
+      } else continue;
+      const prices = cells[2].replace(/<\/p\s*>|<br\s*\/?>/gi, '\n').split('\n').map(htmlToText).filter(Boolean);
+      if (prices.length !== 1 || !/^\d+(?:\s\d{3})*(?:,\d{2})?$/.test(prices[0])) continue;
+      const dates = [...htmlToText(cells[3]).matchAll(/\b(\d{1,2})\.(\d{1,2})\.(\d{4})\b/g)];
+      if (dates.length !== 1 || area <= 0) continue;
+      const date = dates[0];
+      const auction_date = `${date[3]}-${date[2].padStart(2, '0')}-${date[1].padStart(2, '0')}`;
+      const parsedDate = new Date(`${auction_date}T00:00:00Z`);
+      if (!Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== auction_date) continue;
+      out.push({
+        dzialka_nr: parcels.join(', '), area_m2: Math.round(area * 10000), kw: kw[0],
+        starting_price_pln: parsePLN(prices[0]), auction_date,
+        notes: parcels.length > 1 ? ['Łączna cena i powierzchnia dotyczą całego pakietu działek.'] : [],
+      });
+    }
+  }
+  return out;
+}
+
 /** Parse one announcement → an ARRAY of land records (one per priced row). */
 export function parseAnnouncement(title, html, url) {
   const text = htmlToText(html);
@@ -46,9 +93,11 @@ export function parseAnnouncement(title, html, url) {
   const street = streetFromText(text);
   const address_raw = street ? `ul. ${street}` : null;
   const address = address_raw ? parseAddress(address_raw) : null;
-  return parseRows(text).map((r) => ({
+  const tableRows = parseTableRows(html);
+  return (tableRows.length ? tableRows : parseRows(text)).map((r) => ({
     kind: 'grunt', dzialka_nr: r.dzialka_nr, obreb, area_m2: r.area_m2,
     address_raw, address, starting_price_pln: r.starting_price_pln,
     auction_date: r.auction_date, round: null, detail_url: url, source_url: url,
+    ...(r.notes?.length ? { notes: r.notes } : {}),
   }));
 }

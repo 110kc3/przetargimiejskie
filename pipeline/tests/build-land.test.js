@@ -1,6 +1,47 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLand, landKey, mergePartialLand, splitParcels } from '../src/core/build-land.js';
+import { buildLand, landKey, mergePartialLand, reconcileLandHistory, splitParcels } from '../src/core/build-land.js';
+
+const historyPlot = (key, date, outcome = 'active') => ({ key, listings: [{ date, outcome }] });
+
+test('a complete current board retains older plots and auction attempts by default', () => {
+  const previous = [historyPlot('old', '2026-01-01', 'sold'), historyPlot('same', '2026-02-01', 'unsold')];
+  const current = [historyPlot('same', '2026-11-01'), historyPlot('new', '2026-12-01')];
+  const { plots, preserveFile } = reconcileLandHistory(previous, current);
+  assert.equal(preserveFile, false);
+  assert.equal(plots.length, 3);
+  assert.deepEqual(plots.find(p => p.key === 'same').listings.map(l => l.date), ['2026-02-01', '2026-11-01']);
+  assert.equal(plots.find(p => p.key === 'old').listings[0].outcome, 'sold');
+  assert.equal(previous[1].listings.length, 1);
+});
+
+test('explicit fresh rebuild replaces complete input but partial input retains history', () => {
+  const previous = [historyPlot('old', '2026-01-01', 'sold')];
+  const current = [historyPlot('new', '2026-12-01')];
+  assert.equal(reconcileLandHistory(previous, current, { mergeHistory: false }).plots.length, 1);
+  assert.equal(reconcileLandHistory(previous, current, { mergeHistory: false, complete: false }).plots.length, 2);
+  assert.equal(reconcileLandHistory(previous, [], { mergeHistory: false }).preserveFile, true);
+});
+
+test('empty evidence archives retained active events without inventing results or changing inputs', () => {
+  const previous = [historyPlot('future', '2026-12-01'), historyPlot('sold', '2026-01-01', 'sold')];
+  assert.equal(reconcileLandHistory(previous, []).preserveFile, true);
+  const result = reconcileLandHistory(previous, [], { verifiedEmpty: true });
+  assert.equal(result.preserveFile, false);
+  assert.equal(result.plots.find(p => p.key === 'future').listings[0].outcome, 'archived');
+  assert.equal(result.plots.find(p => p.key === 'sold').listings[0].outcome, 'sold');
+  assert.equal(previous[0].listings[0].outcome, 'active');
+  assert.equal(result.plots[0].listings[0].date, '2026-12-01');
+});
+
+test('retained past announcements age without downgrading outcomes or future dates', () => {
+  const previous = [historyPlot('past', '2026-01-01'), historyPlot('future', '2026-12-01'), historyPlot('unsold', '2026-01-02', 'unsold')];
+  const result = reconcileLandHistory(previous, [], { today: '2026-10-19' });
+  assert.equal(result.preserveFile, false);
+  assert.equal(result.plots.find(p => p.key === 'past').listings[0].outcome, 'archived');
+  assert.equal(result.plots.find(p => p.key === 'future').listings[0].outcome, 'active');
+  assert.equal(result.plots.find(p => p.key === 'unsold').listings[0].outcome, 'unsold');
+});
 
 test('landKey prefers parcel, then obręb-qualified parcel, then address', () => {
   assert.equal(landKey({ dzialka_nr: '233/1' }), 'dz|233/1');

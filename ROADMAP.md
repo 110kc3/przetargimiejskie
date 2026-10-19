@@ -21,8 +21,11 @@ an acceptance gate.
 
 The 19 October continuation repairs the shared decoder behind CodeQL
 #130/#131, Lubin's two missed land-table layouts, and positive empty-stream
-checks for Wschowa/Żagań. Targeted tests and isolated source validation are
-recorded in the queue. Hosted acceptance for this continuation is pending.
+checks for Wschowa/Żagań. Further source work restores Bolesławiec's verified
+TLS chain/auction rounds, repairs Trzebnica history handling and fixes
+Chrzanów's combined-lot table. The canonical manifest records eight partial
+source/asset audits (none yet complete), with 113 enabled cities unchecked.
+Targeted tests and isolated source validation are recorded in the queue. Hosted acceptance for this continuation is pending.
 
 Current production health has 16 findings: ten degraded streams, one failed
 attempt, one stale dataset, two expired egress exceptions and two expired

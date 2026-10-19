@@ -131,7 +131,7 @@ export function pubDateToIso(s) {
 // conjunction "and" — a case-insensitive match would false-positive constantly.
 // \w{0,3} after "przetarg" is ASCII-only but safe here: every real suffix seen
 // (przetargu / przetargiem / bare) is plain ASCII, no Polish diacritics.
-const ROUND_RE = /\b(I|II|III|IV|V|VI|VII|VIII|IX|X)\s+przetarg\w{0,3}\b/;
+const ROUND_RE = /\b(I|II|III|IV|V|VI|VII|VIII|IX|X)\s+(?:przetarg|Przetarg|PRZETARG)\w{0,3}\b/;
 const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 
 /** First (leftmost) "<roman> przetarg…" mention -> integer round, else null. */

@@ -29,6 +29,8 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { parseRssItems, crawlAll } from '../src/cities/boleslawiec/crawl.js';
 
 import {
   parsePLN,
@@ -36,8 +38,36 @@ import {
   haToM2,
   polishDateToIso,
   roundFromText,
+  parseActiveItem,
   parseResultDoc,
 } from '../src/cities/boleslawiec/parse.js';
+
+test('live October residential RSS recovers both flats and uppercase auction round', () => {
+  // Official /index.php/mig/sp-estate/lokale-mieszkalne?format=feed&type=rss,
+  // fetched 2026-10-19 after verifying the portal's rotated YR1 chain.
+  const xml = readFileSync(new URL('./fixtures/remediation/boleslawiec-flats-20261019.rss', import.meta.url), 'utf8');
+  const rows = parseRssItems(xml).flatMap((item) => parseActiveItem(item.title, item.description, item.link).listings);
+  assert.equal(rows.length, 2);
+  const rynek = rows.find((row) => row.address_raw === 'Rynek 29-30/9');
+  assert.equal(rynek.round, 3);
+  assert.equal(rynek.area_m2, 48.52);
+  assert.equal(rynek.starting_price_pln, 225000);
+  assert.equal(rynek.auction_date, '2026-10-15');
+  const mazowiecka = rows.find((row) => row.address_raw === 'Mazowieckiej 13b/5');
+  assert.equal(mazowiecka.area_m2, 107.9);
+  assert.equal(mazowiecka.starting_price_pln, 399000);
+  assert.equal(mazowiecka.auction_date, '2026-11-05');
+  assert.equal(roundFromText('lokal i przetarg na działkę'), null);
+});
+
+test('rolling RSS output cannot replace the complete retained land ledger', async () => {
+  const xml = readFileSync(new URL('./fixtures/remediation/boleslawiec-flats-20261019.rss', import.meta.url), 'utf8');
+  const result = await crawlAll({ fetchText: async (url) => url.includes('/sp-estate/lokale-mieszkalne?')
+    ? xml : '<rss><channel></channel></rss>' });
+  assert.equal(result.listings.length, 2);
+  assert.equal(result.land.length, 0);
+  assert.equal(result.land_complete, false, 'refresh must merge last-good plots omitted by the rolling source');
+});
 
 // --------------------------------------------------------------- fixtures
 

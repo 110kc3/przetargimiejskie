@@ -42,3 +42,43 @@ Contact: Urząd Miejski w Trzebnicy, pl. Marszałka J. Piłsudskiego 1 (also ul.
 - **Blockers:** None. Only watch-items: (1) full deep fields sit in **Word (.doc/.docx)** attachments → wire doc extraction, not just pdfText; (2) results are attachments (no dedicated results board) → key on the P/NN number; (3) mixed land/flat stream → classify and filter (land also in-scope for the wider dataset).
 
 **VERDICT: BUILD (Low effort)** — recurring municipal flat auctions on a clean Logonet eUrząd server-HTML BIP with published achieved-price docs; direct tarnowskie-gory analog, no blockers.
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The [official XML board](https://bip.trzebnica.pl/przetargi-nieruchomosci/xml/1/1)
+is reachable and declares four pages; isolated enumeration sees 374 unique
+records. The board directly identifies residential premises and land sales and
+oral-auction procedures. Current land example: record 3522, Biedaszków Wielki,
+3 November 2026, 1,516,100 zł. A historical flat example is record 3489,
+Boleścin, II auction on 21 September 2026; exact board elements for 3489/3490
+are retained in the remediation fixtures. This is a source observation, not a
+claim that all asset/procedure/result streams are completely implemented.
+
+Captured resolved property/land outcomes may be skipped. Archived announcements
+remain eligible for later result attachments. A healthy board may
+therefore yield no *new* property rows while new land rows appear. The crawler
+now requires valid page identity/counts, complete pagination, successful detail
+and attachment handling, and no unparsed rows before confirming an empty current
+stream. Current records are never skipped merely because their URLs are known.
+Incomplete result discovery is carried explicitly to refresh metadata. Local
+regressions cover later-page failure, malformed rows, duplicate pages, wrong
+record responses and failed attachment extraction. Full source/asset review and
+hosted acceptance remain open; the previous full-review deadline is retained.
+
+Incremental land output now merges with the retained parcel ledger. Unparsed
+historical identities can use their announcement PDFs (at most 12 uncached
+identity extractions per pass, with cached documents outside that cost cap).
+The exact XML/PDF 3489 evidence also reproduces a decimal-dot amount with trailing
+whitespace (`149.450.00 `); parsing now yields 149,450 zł rather than 14,945,000 zł.
+Remaining unsupported identities keep discovery visibly incomplete.
+
+Result PDFs [7167](https://bip.trzebnica.pl/attachments/download/7167) and
+[7396](https://bip.trzebnica.pl/attachments/download/7396) explicitly identify
+Boleścin building 50/unit 2 and negative outcomes for 10 August/21 September 2026,
+both at a 149,450 zł starting price. Their exact text is retained in remediation
+fixtures. Canonical `source_pdf` provenance prevents the archived announcements
+from winning deduplication. February announcement PDF 6341 also prints 50/2.
+Only those three date/announcement-URL identities are migrated from the old
+unknown-building key, preserving the watch alias when unambiguous. Other rows
+are left untouched; no February outcome is inferred. The linked cancellation
+attachment 6342 is a remaining source-review item, not a parsed result claim.

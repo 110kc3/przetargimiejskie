@@ -41,3 +41,23 @@ Contact: Wydział Geodezji i Gospodarki Nieruchomościami (GN), Urząd Miejski, 
 - **Blockers:** None. No rate-limit/auth/CAPTCHA. Only watch-items: mixed land-heavy stream (classify by kategoria/tytuł) and achieved prices living in result PDFs (bounded pdfText). Structured status/year filters make crawling efficient.
 
 **VERDICT: BUILD (Low effort)** — recurring municipal flat auctions (przetarg ustny nieograniczony) on a clean Logonet eUrząd BIP with a structured, filterable real-estate board and per-notice result PDFs; direct tarnowskie-gory analog, no blockers.
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The [active sale board](https://bip.zabkowiceslaskie.pl/przetargi-nieruchomosci/szukaj?order=sprzeda%C5%BC&status=0&perPage=25&page=1)
+has five notices: four parcel/land descriptions and notice 11008, a garage sale.
+The [garage notice](https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/11008/zabkowice-slaskie-przy-ul-bartosza-glowackiego)
+and its [scanned announcement PDF 23628](https://bip.zabkowiceslaskie.pl/attachments/download/23628)
+state 19.43 m², 44,000 zł, I oral auction on 18 November 2026, at ul. Bartosza
+Głowackiego. No street/building number is published. First-page Polish OCR
+confirms the same fields and a 1/6 share associated with parcel 10/21,
+district Osiedle Wschód-04. The 129 m² plot area is distinct from the garage's
+19.43 m² usable area.
+
+The current address-keyed parser drops this garage because it cannot construct
+a street/building identity. This is an implementation gap, not an empty property
+board. Do not synthesize a street number from the parcel or relabel the garage
+as bare land. A parcel-aware built-property identity and distinct building/plot
+areas are needed for faithful ingestion. The source has observed garage and
+land sales; complete parser/result coverage is unverified. Keep the degraded
+stream and the previous full-review deadline visible.

@@ -21901,14 +21901,14 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Joomla RSS + bip-gov.pl",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
@@ -21919,13 +21919,28 @@
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://xn--bolesawiec-e0b.pl/index.php/mig/sp-estate/lokale-mieszkalne?format=feed&type=rss",
+          "evidence_path": "spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Local verified TLS/source probe only; hosted recovery pending.",
+            "Other asset feeds and result completeness remain to be audited."
+          ]
         }
       ],
       "review": {
@@ -23185,7 +23200,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "bip.info.pl HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -23193,23 +23208,38 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://zgorzelec.bip.info.pl/index.php?idmp=32&r=r",
+          "evidence_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Current board has one land sale and an unrelated procurement notice; no current flat was observed.",
+            "Adapter does not walk the linked announcement/result archives. Result root asks users to choose a subcategory; linked public year views were empty. Do not claim exhaustive results or verified-empty property coverage."
+          ]
         }
       ],
       "review": {
@@ -24971,7 +25001,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "City HTML + Madkom BIP SPA",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -24979,23 +25009,39 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.malopolska.pl/umchrzanow,a,2950984,przetarg-na-sprzedaz-nieruchomosci-polozoenj-przy-ul-dzialkowej-w-chrzanowie.html",
+          "evidence_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "The current Działkowa notice is one jointly priced three-parcel lot: 43439 m², 8005000 PLN, 2026-12-17. A new HTML table parser retains that grouping.",
+            "One current local land-board stub was observed; article navigation now excludes unrelated BIP menu pages.",
+            "Result ingestion and complete source/asset coverage remain unverified."
+          ]
         }
       ],
       "review": {
@@ -32800,7 +32846,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet eUrząd HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -32808,23 +32854,38 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-lubinski/lubin.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.lubin.pl/artykuly/ogloszenia-o-przetargach",
+          "evidence_path": "spikes/dolnoslaskie/powiat-lubinski/lubin.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Official PDFs 30174/30173 contain two land sales; exact extracted-text fixtures and isolated refresh evidence are committed in 046f3b07c.",
+            "Restricted participation is retained for parcel 963; unobserved assets and result completeness remain unknown."
+          ]
         }
       ],
       "review": {
@@ -34304,7 +34365,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SystemDoBIP HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -34329,6 +34390,19 @@
         {
           "evidence_path": "spikes/lubuskie/powiat-wschowski/wschowa.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.gminawschowa.pl/przetargi/29/status/0/",
+          "evidence_path": "spikes/lubuskie/powiat-wschowski/wschowa.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [],
+          "access_environment": "local",
+          "limitations": [
+            "The identified active board explicitly reports no entries; this is an empty-current-sale check, not proof that the municipality never sells a particular asset.",
+            "Full historical asset/result completeness remains unverified; earlier source/check fixtures and isolated refresh evidence are committed in 046f3b07c."
+          ]
         }
       ],
       "review": {
@@ -57479,7 +57553,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet eUrząd estate HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -57487,23 +57561,40 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
-          "garage": "unknown"
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.zabkowiceslaskie.pl/przetargi-nieruchomosci/szukaj?order=sprzeda%C5%BC&status=0&perPage=25&page=1",
+          "evidence_path": "spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land",
+            "garage"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Notice 11008 / PDF 23628 offers a 19.43 m² garage for 44000 PLN on 2026-11-18; no street number is published.",
+            "Current address-keyed parser drops that garage. Parcel 10/21, district Osiedle Wschód-04, carries a 1/6 land share; it must not become a fictional street number or a bare-land sale.",
+            "Full asset/result coverage remains incomplete."
+          ]
         }
       ],
       "review": {
@@ -59315,31 +59406,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet eUrząd XML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.trzebnica.pl/przetargi-nieruchomosci/xml/1/1",
+          "evidence_path": "spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Current and historical sources share one paginated board.",
+            "Known-history skips require complete enumeration before empty-stream proof; full asset/result completeness remains under review.",
+            "Published negative-result PDFs 7167/7396 identify Boleścin 50/2. Canonical result provenance and guarded identity migration retain the two unsold outcomes; full historical result coverage remains incomplete."
+          ]
         }
       ],
       "review": {
@@ -61586,7 +61694,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SystemDoBIP HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -61611,6 +61719,19 @@
         {
           "evidence_path": "spikes/lubuskie/powiat-zaganski/zagan.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.zagan.pl/przetargi/344/status/0/",
+          "evidence_path": "spikes/lubuskie/powiat-zaganski/zagan.md",
+          "verified_at": "2026-10-19",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [],
+          "access_environment": "local",
+          "limitations": [
+            "The identified complete active board has one lease and no sale rows; rentals remain out of scope.",
+            "Full historical asset/result completeness remains unverified; exact board-region and failure fixtures plus isolated refresh evidence are committed in 046f3b07c."
+          ]
         }
       ],
       "review": {

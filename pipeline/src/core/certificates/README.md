@@ -39,3 +39,10 @@ The replacement intermediate was retrieved from its CA distribution URL and
 verified against Node's existing public roots; TLS verification remains enabled.
 
 | [home-pl-ov-tls-g2-r36-ca.pem](home-pl-ov-tls-g2-r36-ca.pem) | [CA download](https://homeplovtlsg2r36ca.repository.certum.pl/homeplovtlsg2r36ca.cer) | `48e84a03a0612f99940271c144c2f1b9a87547a0039acd6daf31c3847077d30e` |
+
+19 October 2026: `xn--bolesawiec-e0b.pl` now presents a Let's Encrypt YR1 leaf
+while omitting its intermediate chain. Its mapping uses the existing reviewed
+`yr1.pem` and `isrg-root-yr-cross-signed.pem` files above. A live request verifies
+the complete chain and hostname against Node's public roots with certificate
+verification enabled and partial-chain trust disabled. The separate
+`www.um.boleslawiec.bip-gov.pl` source retains its Certum mapping.

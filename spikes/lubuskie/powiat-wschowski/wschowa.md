@@ -42,3 +42,16 @@ Sales are handled directly by the **Wydział Gospodarki Miejskiej i Ochrony Śro
 - **Blockers:** None. No rate-limit/auth/CAPTCHA signals. Only watch-items: mixed property/land/procurement stream (classify) and a brand-new CMS shape (write the board+detail selectors from scratch, then it's reusable for other Lubuskie SystemDoBIP gminas).
 
 **VERDICT: BUILD (Low effort)** — recurring open municipal flat auctions on a clean SystemDoBIP server-HTML BIP with native Ogłoszone/Rozstrzygnięte/Unieważnione status tabs (built-in achieved-price stream); no blockers. First SystemDoBIP adapter — model it on the nowa-sol/brzeg custom-HTML analog.
+
+## Partial source/asset audit — 2026-10-19 (Codex)
+
+The active-board source observation committed in `046f3b07c` is now linked
+from the canonical partial source/asset audit. The identified
+[active board](https://bip.gminawschowa.pl/przetargi/29/status/0/) explicitly
+reports `Brak informacji spełniających kryteria.` The retained source-region
+fixture and rejection tests distinguish this response from fetch failures,
+wrong tabs, changed markup and unparsed sale rows. The isolated refresh retains
+five properties/nine historical plots and records the current land stream as
+verified empty. This is evidence about current sale availability, not permanent
+asset absence or a complete historical/result audit. Unobserved capabilities
+and the previous full-review deadline remain unchanged.
