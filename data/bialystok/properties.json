@@ -48,6 +48,40 @@
       ]
     },
     {
+      "key": "wlokiennicza|17|68",
+      "street": "Włókiennicza",
+      "street_norm": "wlokiennicza",
+      "building": "17",
+      "apt": "68",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 326100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-68.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-02",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 326100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-68-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "przejazd|2|7",
       "street": "Przejazd",
       "street_norm": "przejazd",
@@ -679,28 +713,6 @@
           "outcome": "archived",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-71.html",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "wlokiennicza|17|68",
-      "street": "Włókiennicza",
-      "street_norm": "wlokiennicza",
-      "building": "17",
-      "apt": "68",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-14",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 326100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-68.html",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
