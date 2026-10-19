@@ -691,6 +691,38 @@
       "parcels": []
     },
     {
+      "key": "dz|trzebnica|2014",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "2014",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202014%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3111,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-02-05",
+          "round": 1,
+          "starting_price_pln": 425200,
+          "outcome": "archived",
+          "area_m2": 3111,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3033/przetargggnp532025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5941"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2014",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202014%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|szczytkowice dz. nr 49",
       "kind": "grunt",
       "city": "trzebnica",
@@ -767,6 +799,97 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|trzebnica|3712",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "3712",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203712%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 396,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-02",
+          "round": 1,
+          "starting_price_pln": 45100,
+          "outcome": "archived",
+          "area_m2": 396,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2816/przetargggnp302025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5570"
+        },
+        {
+          "date": "2025-10-08",
+          "round": 2,
+          "starting_price_pln": 45100,
+          "outcome": "archived",
+          "area_m2": 396,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2896/przetargggnp382025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5696"
+        },
+        {
+          "date": "2025-11-18",
+          "round": 3,
+          "starting_price_pln": 36100,
+          "outcome": "archived",
+          "area_m2": 396,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2962/przetargggnp462025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5780"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3712",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203712%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica|3731",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "3731",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203731%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 602,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-08",
+          "round": 2,
+          "starting_price_pln": 68100,
+          "outcome": "archived",
+          "area_m2": 602,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2895/przetargggnp372025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5695"
+        },
+        {
+          "date": "2025-11-18",
+          "round": 3,
+          "starting_price_pln": 55000,
+          "outcome": "archived",
+          "area_m2": 602,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/2961/przetargggnp452025",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/5779"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3731",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203731%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
     },
     {
       "key": "addr|szczytkowice, dz. nr 49",

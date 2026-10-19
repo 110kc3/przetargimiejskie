@@ -62,6 +62,45 @@
       ]
     },
     {
+      "key": "dz|3482/6",
+      "kind": "grunt",
+      "city": "gniezno",
+      "dzialka_nr": "3482/6",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Marii Konopnickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203482%2F6%20ul.%20Marii%20Konopnickiej%20Gniezno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 8731,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-14",
+          "round": 1,
+          "starting_price_pln": 3737000,
+          "outcome": "archived",
+          "area_m2": 8731,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/870174/sprzedaz__ul_marii_konopnickiej__dzialka_nr_34826_wm6840362026",
+          "source_url": "https://bip-v1-files.idcom-jst.pl/sites/47165/wiadomosci/870174/files/1._ogloszenie_o_i_przetargu_002.pdf"
+        },
+        {
+          "date": "2026-10-22",
+          "round": 2,
+          "starting_price_pln": 3737000,
+          "outcome": "active",
+          "area_m2": 8731,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/870174/sprzedaz__ul_marii_konopnickiej__dzialka_nr_34826_wm6840362026"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3482/6"
+        }
+      ]
+    },
+    {
       "key": "dz|7008/12",
       "kind": "grunt",
       "city": "gniezno",
@@ -92,41 +131,41 @@
       ]
     },
     {
-      "key": "dz|3482/6",
+      "key": "dz|3865/21",
       "kind": "grunt",
       "city": "gniezno",
-      "dzialka_nr": "3482/6",
+      "dzialka_nr": "3865/21",
       "obreb": null,
       "street": null,
       "building": null,
-      "address_raw": "ul. Marii Konopnickiej",
+      "address_raw": "ul. Wrzesińska",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203482%2F6%20ul.%20Marii%20Konopnickiej%20Gniezno%20geoportal%20dzia%C5%82ki",
-      "area_m2": 8731,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203865%2F21%20ul.%20Wrzesi%C5%84ska%20Gniezno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 12176,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": "2026-10-22",
-          "round": 2,
-          "starting_price_pln": 3737000,
-          "outcome": "active",
-          "area_m2": 8731,
-          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/870174/sprzedaz__ul_marii_konopnickiej__dzialka_nr_34826_wm6840362026"
+          "date": "2026-05-07",
+          "round": 1,
+          "starting_price_pln": 5211000,
+          "outcome": "archived",
+          "area_m2": 12176,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/869671/sprzedaz__ul_wrzesinska__dzialka_nr_386521_wm684052026",
+          "source_url": "https://bip-v1-files.idcom-jst.pl/sites/47165/wiadomosci/869671/files/1._ogloszenie_o_i_przetargu.pdf"
         },
         {
-          "date": "2026-05-14",
-          "round": 1,
-          "starting_price_pln": 3737000,
+          "date": "2026-08-20",
+          "round": 2,
+          "starting_price_pln": 5211000,
           "outcome": "archived",
-          "area_m2": 8731,
-          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/870174/sprzedaz__ul_marii_konopnickiej__dzialka_nr_34826_wm6840362026",
-          "source_url": "https://bip-v1-files.idcom-jst.pl/sites/47165/wiadomosci/870174/files/1._ogloszenie_o_i_przetargu_002.pdf"
+          "area_m2": 12176,
+          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/869671/sprzedaz__ul_wrzesinska__dzialka_nr_386521_wm684052026"
         }
       ],
       "parcels": [
         {
-          "nr": "3482/6"
+          "nr": "3865/21"
         }
       ]
     },
@@ -156,45 +195,6 @@
       "parcels": [
         {
           "nr": "4102/1"
-        }
-      ]
-    },
-    {
-      "key": "dz|3865/21",
-      "kind": "grunt",
-      "city": "gniezno",
-      "dzialka_nr": "3865/21",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Wrzesińska",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203865%2F21%20ul.%20Wrzesi%C5%84ska%20Gniezno%20geoportal%20dzia%C5%82ki",
-      "area_m2": 12176,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-20",
-          "round": 2,
-          "starting_price_pln": 5211000,
-          "outcome": "archived",
-          "area_m2": 12176,
-          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/869671/sprzedaz__ul_wrzesinska__dzialka_nr_386521_wm684052026"
-        },
-        {
-          "date": "2026-05-07",
-          "round": 1,
-          "starting_price_pln": 5211000,
-          "outcome": "archived",
-          "area_m2": 12176,
-          "detail_url": "https://bip.gniezno.eu/wiadomosci/11287/wiadomosc/869671/sprzedaz__ul_wrzesinska__dzialka_nr_386521_wm684052026",
-          "source_url": "https://bip-v1-files.idcom-jst.pl/sites/47165/wiadomosci/869671/files/1._ogloszenie_o_i_przetargu.pdf"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "3865/21"
         }
       ]
     },

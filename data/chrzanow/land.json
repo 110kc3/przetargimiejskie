@@ -3,6 +3,49 @@
   "city": "chrzanow",
   "plots": [
     {
+      "key": "dz|chrzanów|6297, 1535, 1559/1",
+      "kind": "grunt",
+      "city": "chrzanow",
+      "dzialka_nr": "6297, 1535, 1559/1",
+      "obreb": "Chrzanów",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206297%2C%201535%2C%201559%2F1%20Chrzan%C3%B3w%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 43439,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "starting_price_pln": 8005000,
+          "outcome": "active",
+          "area_m2": 43439,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2950984,przetarg-na-sprzedaz-nieruchomosci-polozoenj-przy-ul-dzialkowej-w-chrzanowie.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2950984,przetarg-na-sprzedaz-nieruchomosci-polozoenj-przy-ul-dzialkowej-w-chrzanowie.html",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6297",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206297%20Chrzan%C3%B3w%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "1535",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201535%20Chrzan%C3%B3w%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "1559/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201559%2F1%20Chrzan%C3%B3w%20Chrzan%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|balin|49/283",
       "kind": "grunt",
       "city": "chrzanow",
