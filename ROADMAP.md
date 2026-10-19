@@ -25,11 +25,16 @@ checks for Wschowa/Żagań. Further source work restores Bolesławiec's verified
 TLS chain/auction rounds, repairs Trzebnica history handling and fixes
 Chrzanów's combined-lot table. The canonical manifest records eight partial
 source/asset audits (none yet complete), with 113 enabled cities unchecked.
-Targeted tests and isolated source validation are recorded in the queue. Hosted acceptance for this continuation is pending.
+The shared refresh also retains land history from complete current boards;
+43 missing plot identities / 85 events were restored from prior published data,
+with newer records and source timestamps retained. Targeted tests and isolated
+source validation are recorded in the queue. Hosted acceptance for this
+continuation is pending.
 
-Current production health has 16 findings: ten degraded streams, one failed
-attempt, one stale dataset, two expired egress exceptions and two expired
-empty-source reviews. Local fixes do not clear production findings. Continue
+Current production health against `c02fab47c` has 15 findings: eight degraded
+streams, four failed attempts, two expired egress exceptions and one expired
+empty-source review. Lubin/Wschowa/Żagań have fresh healthy/verified-empty hosted
+checks; the latest local fixes still await hosted verification. Continue
 source-specific repair and the existing-city source/asset audit before expanding
 adapters. A successful land board must not hide a failed property/result board.
 

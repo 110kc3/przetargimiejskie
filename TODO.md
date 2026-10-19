@@ -127,10 +127,21 @@ The older dated sections below preserve diagnosis and do not override this state
   Golub-Dobrzyń and Poddębice. This proves one successful publication, not three
   days of stability. Oświęcim and Nakło also have fresh healthy hosted output;
   their July repair checkboxes below are closed as superseded.
-- **Current production health: 16 findings**, down from the earlier batch's 25:
-  ten degraded streams, one failed attempt, one stale dataset, two expired egress
-  exceptions and two empty-source rechecks. The new local fixes are not counted
-  as production recovery. Świętochłowice remains the failed/stale feed.
+- **Shared land retention repaired:** complete current boards now merge into
+  published history under the default `MERGE_HISTORY` policy. An explicit fresh
+  rebuild remains possible; partial/empty-source safety remains enforced.
+  Verified empty boards archive retained active announcements, and past retained
+  announcements age without fabricating results. Regression checks pass.
+  The scheduled `c02fab47c` publication replaced two land windows. Recovery from
+  the immediately preceding published `046f3b07c` restores **43 missing plot keys /
+  85 auction events**, retaining the newer records: Sandomierz **22 plots / 39
+  events**, Ząbkowice **71 / 120**. Only land counts change in metadata/index;
+  all source attempt/success timestamps remain unchanged. National integrity passes.
+- **Current production health: 15 findings** against scheduled `c02fab47c`:
+  eight degraded streams, four failed attempts, two expired egress exceptions
+  and one empty-source recheck. The local source fixes are not counted as hosted
+  recovery. Świętochłowice, Kraków, Olkusz and Jarocin retain failed-attempt status;
+  Lubin, Wschowa and Żagań now have healthy/verified-empty hosted source checks.
 - **Latest refresh workflow failure diagnosed:** municipal publication completed;
   the provider gate failed because PKP timed out connecting to `www.pkp.pl` on
   the primary and both fresh-runner retries. Last-good provider health alone
@@ -145,6 +156,7 @@ result stream and Busko-Zdrój's expired empty-board review. The Bytom property
 board returns HTTP 403 in the current local probe while its catalogue yields 13
 land plots and no units; that does not prove an empty property board. Continue
 the current 121-city source/asset audit before the separate new-adapter queue.
+Triage the new Kraków/Olkusz/Jarocin failed publications next.
 PKP/Świętochłowice reachability and Racibórz/Pszczyna's excluded egress remain
 visible gaps. Store submission, Search Console acceptance and received 30-day
 interest evidence remain external gates. See [repair evidence](REPAIR-EVIDENCE-2026-10.md).

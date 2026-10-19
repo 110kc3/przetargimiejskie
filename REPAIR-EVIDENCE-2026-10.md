@@ -135,7 +135,7 @@ for evidence distinctions and the external 30-day demand gate.
 
 ## Continuation — 19 October 2026
 
-Current production data is `9bae21dd6`. Its operational check has **16 findings**:
+The initial continuation snapshot is `9bae21dd6`. Its operational check had **16 findings**:
 ten degraded streams, one failed attempt, one stale dataset, two expired egress
 exceptions and two empty-source rechecks. This supersedes the earlier 25-finding
 snapshot without claiming that the following local work has reached production.
@@ -268,8 +268,8 @@ Chrzanów has four plots and no coverage-health findings. Trzebnica has
 13 properties/44 plots (41 before), with previous property identities (including verified aliases), plot keys
 and listing dates retained. Its property/land checks are healthy, while one
 result-discovery degradation remains explicitly visible. No global health success
-is claimed. Production files/timestamps and caches were not changed by the local
-probes. The new push's hosted verification is pending; check its exact commit
+is claimed. Local crawl outputs and caches were not published. The separate committed-history
+recovery below changes retained production land data without refreshing source timestamps. The new push's hosted verification is pending; check its exact commit
 once next session without waiting after push.
 
 
@@ -291,3 +291,35 @@ The February outcome remains archived/unknown, not inferred from later results.
 A replay of the two actual result texts through the real property builder,
 history merge and durable healer retains 93.4 m², all three dates, the old watch
 alias and both published unsold outcomes; strict city sanity passes afterwards.
+
+
+### Shared land-history recovery — 19 October 2026
+
+During this continuation, scheduled publication `c02fab47c` advanced `main`.
+Its default complete-board path replaced land.json instead of accumulating
+history: Sandomierz 21→14 plots and Ząbkowice 53→36, while both introduced other
+historical records. The shared refresh now merges complete current windows under
+`MERGE_HISTORY`, as properties already do. Partial inputs still merge with the
+explicit fresh-rebuild switch disabled, and empty unverified inputs retain the
+last-good ledger. Retained past active announcements age to archived; positive
+empty-board evidence also archives future retained active announcements. Neither
+path invents an unsold outcome or modifies dates/resolved results. Policy tests
+exercise complete/partial inputs, explicit rebuilds, empty evidence and aging.
+
+Recovery uses only the immediately preceding published, strict-validated
+`046f3b07c` and the newer `c02fab47c` data; isolated crawl outputs are excluded.
+The merge restores 8 Sandomierz keys / 13 events and 35 Ząbkowice keys / 72 events,
+for final totals **22 plots / 39 events** and **71 plots / 120 events**.
+All prior and newer keys/dates remain present. Metadata changes only `land_plots`;
+the index changes only those two counts, and its generated/source/attempt fields
+remain byte-equivalent. The derived catalogue is rebuilt from that index.
+All 121 enabled feeds pass strict national sanity. Full production health remains
+failing with **15 findings**: 8 source degradations, 4 failed attempts
+(Świętochłowice, Kraków, Olkusz, Jarocin), 2 expired egress exceptions and Busko's
+empty-source recheck. This is a dated snapshot of committed scheduled data,
+not hosted verification of this push. Lubin/Wschowa/Żagań now publish healthy or
+verified-empty checks; the newly repaired sources still need their natural
+hosted run. Pending Security/refresh runs were checked once at turn start only.
+
+The Chrzanów exact rendered-body fixture normalizes trailing blank whitespace;
+RSS line endings are normalized by Git. No source table/text values are edited.
