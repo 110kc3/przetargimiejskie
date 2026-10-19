@@ -124,7 +124,7 @@ const WORD_ORDINAL_STEMS = [
  *  case an (unvalidated) result notice phrases it that way instead. */
 export function roundFromText(text) {
   const t = text || '';
-  const lubinOrder = /ogłasza\s+([IVXLCDM]+)\s+nieograniczon\S*\s+przetarg\S*\s+ustn\S*/i.exec(t);
+  const lubinOrder = /ogłasza\s+([IVXLCDM]+)\s+(?:nie)?ograniczon\S*\s+przetarg\S*\s+ustn\S*/i.exec(t);
   if (lubinOrder) {
     const n = romanToInt(lubinOrder[1]);
     if (n) return n;
@@ -384,6 +384,37 @@ function parseLandAnnouncement(text, auction_date, round) {
   return [];
 }
 
+// The October 2026 board uses two text-PDF table layouts: KW/parcel/area/
+// district/location/price/deposit, and parcel/area/district/KW/price/deposit.
+// Read the actual sale table before classifying the surrounding zoning prose,
+// which mentions housing, services and garages even for an undeveloped plot.
+function currentLandTable(text, auction_date, round) {
+  const header = text.split(/^\s*\d+\.\s+/m)[0];
+  if (!/\b(?:Nr|Numer)\b/i.test(header) || !/działki/i.test(header)
+    || !/Powierzchnia/i.test(header) || !/Cena\s+wywoławcza/i.test(header)) return [];
+  const out = [];
+  for (const line of text.split('\n')) {
+    if (!/^\s*\d+\.\s+/.test(line)) continue;
+    const cells = line.trim().split(/\s{2,}/);
+    const kwFirst = cells.length === 8 && /^LE1U\/\d+\/\d+$/.test(cells[1]);
+    const parcelFirst = cells.length === 7 && /^LE1U\/\d+\/\d+$/.test(cells[4]);
+    if (!kwFirst && !parcelFirst) continue;
+    const [parcel, area, district] = cells.slice(kwFirst ? 2 : 1, kwFirst ? 5 : 4);
+    const price = cells.at(-2), deposit = cells.at(-1);
+    if (!/^\d+(?:\/\d+)?$/.test(parcel) || !/^\d+$/.test(district)
+      || !/^\d[\d ]*(?:[,.]\d+)?$/.test(area)
+      || !/^\d[\d .]*,\d{2}$/.test(price) || !/^\d[\d .]*,\d{2}$/.test(deposit)) continue;
+    out.push({
+      kind: 'grunt', dzialka_nr: parcel, obreb: district, area_m2: parseNum(area),
+      address_raw: kwFirst ? cells[5].replace(/,\s*$/, '') : `obręb ${district}`,
+      starting_price_pln: parsePLN(price), auction_date, round,
+      notes: /ogłasza\s+[IVXLCDM]+\s+ograniczony\s+przetarg/i.test(header)
+        ? ['procedure: przetarg ustny ograniczony; participation restricted to eligible neighbouring owners'] : [],
+    });
+  }
+  return out;
+}
+
 // ------------------------------------------------------------ announcement parse
 
 /**
@@ -411,6 +442,9 @@ export function parseAnnouncement(text) {
     }
     if (out.length) return out;
   }
+
+  const tableLand = currentLandTable(t, auction_date, round);
+  if (tableLand.length) return tableLand;
 
   const kind = classifyKind(t.slice(0, 3000));
   if (kind === 'grunt') return parseLandAnnouncement(t, auction_date, round);

@@ -1,124 +1,125 @@
-# ROADMAP — path to "finished"
+# ROADMAP — current delivery gates
 
-> Written 7 July 2026 from a full-repo audit (5-agent research pass: docs-drift,
-> CI/health, broken-city diagnosis, backlog inventory, RPi5 feasibility).
-> **Backlog detail lives in [TODO.md](./TODO.md); manual headless work is specified
-> in [REMOTE.md](./REMOTE.md), and automated Polish egress in
-> [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).** This file is the structure: tiers,
-> gates, owners, environments.
->
-> **Verdict: the project is finishable.** All infrastructure exists (55 adapters,
-> daily matrix CI, health gate, failure triage with auto-close, newsletter
-> generator, SEO pages, site deploy). Nothing remaining is technically blocked —
-> the remaining work splits cleanly into agent-executable batches and a short
-> list of Kamil-only account/business actions.
+Updated 19 October 2026. The authoritative execution queue is
+[TODO.md](TODO.md); source-backed implementation evidence lives in
+[REPAIR-EVIDENCE-2026-10.md](REPAIR-EVIDENCE-2026-10.md). Earlier July–September
+snapshots are retained in the queue and Git history. They do not override the
+current implementation or accepted boundaries.
 
-Current implementation update (19 October 2026): the accepted October batch
-repairs the 21 quarantines and delivers national catalogue discovery and extension
-v1.33.0. Local checks pass; hosted recovery, store submission and the actual
-30-day demand gate remain pending. See [TODO.md](TODO.md) and
-[repair evidence](REPAIR-EVIDENCE-2026-10.md). Earlier dated rows are historical.
+The product has 121 enabled municipal feeds and separate PKP/AMW providers.
+The official inventory contains 1,026 cities/towns. Enabled, source-healthy,
+searchable, SEO-indexable and overlay-supported are separate measures.
 
-## Environment legend
+## 1. Restore dependable operation
 
-Every item is tagged with where it can run:
+The October feed/quarantine repair batch is implemented as `6ac3fd36c`.
+All 121 feeds enforce integrity; none remains quarantined. Hosted municipal
+publication, deployment and extension CI passed for that commit. Current data
+also demonstrates one successful hosted publication for Gliwice, Gniezno,
+Rawa Mazowiecka, Golub-Dobrzyń and Poddębice. Three-day source stability remains
+an acceptance gate.
 
-- **[RPI5]** — headless-ok: runs in a terminal-only agent session (the Linux
-  RPi5 box, per [REMOTE.md](./REMOTE.md)). This is most of the work.
-- **[GUI]** — needs desktop Chrome (extension load-unpacked verification,
-  visual site QA). Windows/desktop session only.
-- **[ACCOUNT]** — Kamil-only: account access or a business decision. Cannot be
-  automated from any session.
+The 19 October continuation repairs the shared decoder behind CodeQL
+#130/#131, Lubin's two missed land-table layouts, and positive empty-stream
+checks for Wschowa/Żagań. Targeted tests and isolated source validation are
+recorded in the queue. Hosted acceptance for this continuation is pending.
 
-## T1 — Ops-stable + distribution-live (weeks, not months)
+Current production health has 16 findings: ten degraded streams, one failed
+attempt, one stale dataset, two expired egress exceptions and two expired
+empty-source reviews. Local fixes do not clear production findings. Continue
+source-specific repair and the existing-city source/asset audit before expanding
+adapters. A successful land board must not hide a failed property/result board.
 
-**Exit test:** a stranger finds a city page on Google, installs the current
-extension, and receives Monday's digest. Health green daily.
+The latest scheduled refresh's municipal publisher completed, but its provider
+gate failed after PKP connection timeouts on three hosted runners. Fresh retained
+provider data and deployment success do not establish a successful latest crawl.
 
-### T1.a Ops (agent work)
+Production remains GitHub-hosted only. Racibórz and Pszczyna stay excluded while
+they require residential egress, retain last-good data and expose expired review
+windows as hard gaps. There is no local production refresh, private proxy,
+Tailscale dependency or private runner. See [PL-EGRESS-PLAN.md](PL-EGRESS-PLAN.md)
+and [SECURITY.md](SECURITY.md). Isolated local source probes are validation only.
 
-| Item | Env | Effort | Status |
-|---|---|---|---|
-| 23-Aug health-policy cleanup: empty `EXEMPT_NEW`, live-recheck 8 quiet sources in expiring `LEGIT_EMPTY`, restore Gdańsk discovery + wide-table parsing (6 live flats) | [RPI5] | XS | **shipped 2026-08-23** |
-| Repair 9 verified city crawlers: Wałbrzych, Nakło, Elbląg, Sandomierz, Sępólno, Włocławek, Kalisz, Tczew, Łódź (root causes and live results in TODO §1) | [RPI5] | M | **shipped 2026-08-23** |
-| Add explicit source-reached/valid-empty refresh-triage signal for Oświęcim and Piła; keep preserve-on-empty strict | [RPI5] | S-M | **shipped 2026-08-23** |
-| Wałbrzych pre-Aug-2024 same-line legacy result-table history (current source and Aug-2024→2026 archive are repaired) | [RPI5] | S-M | optional historical backfill; documented in TODO §1 |
-| Augustów: replace the now-empty listing indexes with filtered official search or another durable discovery feed | [RPI5] | M | open |
-| Brzeg: detect the anti-DDoS waiting-room page, classify as source-unreachable, cookie-retry | [RPI5] | S | **shipped this session** |
-| Racibórz + Pszczyna residential-egress policy | [RPI5] | S recurring | **stable-v1 decision 2026-09-05:** hosted automation excluded; operator refresh/re-audit required within each 21-day window |
-| Institutional-source pilot: separate PKP + AMW pipeline/data/health, seller-labelled `/archiwum-all`; Orange evaluated and deferred | [RPI5] | M | **pilot shipped 2026-08-23**; public `/archiwum` after 3 green refreshes + spot-check |
+## 2. Complete release and distribution acceptance
 
-### T1.b Distribution (mixed)
+National website/extension discovery is implemented in `6ac3fd36c`:
 
-| Item | Env | Effort | Status |
-|---|---|---|---|
-| National website/extension discovery via compact city catalogue, selected-city loading and bounded caches | [RPI5] + browser | M-L | **implemented 2026-10-19**, v1.33.0; hosted/store acceptance pending |
-| DECISION: "Silesian" → national positioning (unblocks the 3 copy items below) | [ACCOUNT] | XS | Kamil |
-| PRIVACY.md and website analytics disclosure | [RPI5] | S | **updated 2026-10-19**; no extension analytics or new host permissions |
-| WEB_STORE_LISTING.md and real current browser captures | [RPI5] + account submission | S | **v1.33.0 draft prepared 2026-10-19**; owner submits |
-| Chrome Web Store submit (live v1.3.3 vs local v1.32.0 — ~5 weeks unpublished). Recommended: bundle with the 55-city rework, one review cycle | [ACCOUNT] | S + review wait | Kamil — **the distribution unlock** |
-| ~~Widen `PUBLIC_VOIVODESHIPS` beyond Śląskie~~ — **DONE 2026-07-27.** Gate is national (`null`); `MIN_PUBLIC_AUCTIONS`=10 unlists thin cities automatically. 54 cities / 15 voivodeships / 2 273 sitemap URLs | — | — | shipped |
-| Google Search Console: verify domain, submit sitemap (after gate widening) | [ACCOUNT] | XS | Kamil |
-| Analytics — code is wired (2026-07-27); needs a **free Umami Cloud** account + the `ANALYTICS_ID` repo variable. Plausible dropped: paid. Without this the GTM §6 kill gates can't be evaluated | [ACCOUNT] sign-up (free) | XS | Kamil — ~5 min |
-| RODO/GDPR policy for newsletter + leads (draft agent-side, publish is Kamil's call) — **hard blocker for any ESP send** | [RPI5] draft | S-M | open |
-| Newsletter go-live: ESP account + API secret (Kamil), send step + double-opt-in signup form (agent). First real digest generates Mon 2026-07-13 | [ACCOUNT] + [RPI5] | M | blocked on RODO |
+- The compact catalogue represents all 1,026 cities and links all 121 feeds.
+- Users select cities before complete histories load; bounded caches and
+  last-good fallback preserve watchlists and failure visibility.
+- Searchability is independent of the ten-auction SEO threshold. Land-only and
+  thin datasets remain discoverable. Unknown coverage is never reported as zero.
+- Existing seven-city overlays remain separate from national data access.
+- Actual desktop/mobile/unpacked-Chrome checks, extension CI, deterministic ZIP,
+  real screenshots and current store/privacy drafts are prepared for v1.33.0.
 
-## T2 — National city coverage
+Chrome Web Store submission remains an owner-account action. Cosmetic host-list
+alignment and the proposed attribution badge remain separate unimplemented
+follow-ups; they do not reopen the delivered national discovery task.
 
-**Exit test:** every one of the 1,026 official GUS cities has current evidence;
-every accessible in-scope municipal sale stream is monitored; refresh + health are
-green at full scale.
+Cloudflare analytics is live and its privacy disclosure is corrected. Search
+Console DNS evidence is present; account ownership, sitemap acceptance and index
+coverage still require the owner's account. Browser visits and search referrals
+cannot close those gates.
 
-All [RPI5] — dispatch via the `przetargi-city-triage` skill
-(committed at `.claude/skills/przetargi-city-triage/SKILL.md`), protocol in
-[spikes/README.md](./spikes/README.md), build guide in
-[pipeline/ADAPTER-GUIDE.md](./pipeline/ADAPTER-GUIDE.md):
+Browser verification can run in headless Chromium on Linux where available;
+store/account acceptance is a different requirement. Current release material:
+[WEB_STORE_LISTING.md](WEB_STORE_LISTING.md), [PRIVACY.md](PRIVACY.md),
+[screenshots](screenshots/chrome-store/RELEASE-1.33.0.md).
 
-1. **Phase A complete:** reproducible TERYT import, 1,026 SIMC identities,
-   preserved historic evidence, repaired powiat mappings and discrepancy report.
-2. **Phase B1/B2 in review:** national data gates and hosted shards with a single
-   validated publisher are implemented. Adapters requiring residential egress
-   remain excluded; no local runner, Tailscale or private proxy is introduced.
-3. **October implementation:** all 21 quarantines are repaired and B3 discovery is implemented. Complete the recorded hosted/source acceptance before selecting any next expansion batch.
-4. **Build the known queue:** 50 BUILD-ready cities after the Phase B gates.
-5. **Review and research:** reassess 165 historic exclusions for the broader asset
+## 3. Validate self-service demand
+
+The selected commercial slice is optional saved-search/auction-alert interest
+validation. `/alerty/` prepares a voluntary e-mail draft and sends nothing.
+[ALERT-VALIDATION.md](ALERT-VALIDATION.md) defines the gate: ten distinct voluntary
+interested users and three explicit willingness-to-pay confirmations within
+30 days of actual deployment. Record received evidence separately from page
+views, unconfirmed drafts, revenue and actual paying customers.
+
+Billing and broader acquisition require that evidence. Earlier B2G service,
+consulting, broker outreach, lead resale and newsletter-send proposals are
+historical/deferred and are not implementation authority. Newsletter generation
+is already scheduled; sending and any signup/consent service remain separate
+owner decisions and acceptance work.
+
+## 4. Continue national coverage in order
+
+[ALL-CITIES-PLAN.md](ALL-CITIES-PLAN.md) supplies the full contract:
+
+1. **Phase A complete:** dated GUS TERYT inventory, explicit identities/aliases,
+   repaired county mappings and generated discrepancy checks.
+2. **Phase B implementation delivered:** strict national validation, class-aware
+   health, bounded hosted shards, single municipal publisher and national
+   website/extension discovery. Finish source/security/release acceptance and
+   the existing 121-city source/asset audit.
+3. **Known BUILD queue:** 50 candidates, beginning with unfinished Dzierżoniów/
+   Góra and the first three candidates after the preceding gates and batch
+   selection. Existing spike verdicts require live source rechecks.
+4. **Review and research:** reassess 165 historical exclusions against all-asset
    scope, then survey the 690 unresearched official cities in measured batches.
-6. Keep the ledger disciplined: `master-cities.json` → `node
-   spikes/build-progress.mjs` after every batch (SPIKE-PROGRESS is generated).
+5. **Promotion:** exact source fixtures, targeted tests, bounded isolated live
+   crawl, validated outputs, reviewed samples and three scheduled successful
+   refreshes/positive empty checks precede monitored status.
 
-## T3 — Distribution + monetization
+Keep `spikes/master-cities.json` authoritative and regenerate progress with
+`node spikes/build-progress.mjs`. Source survey, parser implementation and healthy
+monitoring are different milestones. Do not start new adapters simply to inflate
+coverage while the accepted failure-repair queue remains unresolved.
 
-**Gate: let revenue, not the city list, decide** (EXPANSION.md). Kill gates per
-GTM-SPRINT: no partner interest after ~10 calls → park monetization; 6 weeks
-flat traffic → fix funnel first.
+## 5. Remaining data-quality work
 
-- National research follows the accepted [all-cities plan](./ALL-CITIES-PLAN.md);
-  revenue validates the commercial offer, not whether official cities exist.
-- Partner demand test: ~10 calls to brokers/renovation firms [ACCOUNT] — decides
-  whether the lead-gen engine gets built at all
-- Lead form + labeled CTA (concierge routing) [RPI5], after demand test + RODO
-- One contextual sponsor; GitHub Sponsors + PL tip jar (FUNDING.yml) [ACCOUNT]
-- FB-group seeding with weekly digests [ACCOUNT, agent pre-drafts]
-- JDG registration before the działalność-nierejestrowana cap [ACCOUNT]
+Kraków's paragraph-address defect is repaired with exact source evidence;
+Oświęcim result ingestion, Bełchatów attachment results, Bytom retention and the
+Katowice P2-D heal are also shipped. Do not recreate those historical tasks.
 
-## Parallel data-quality track (non-blocking, all [RPI5])
+Still-open work includes the source/asset audit, verified result-stream gaps,
+Kędzierzyn-Koźle refinements, Tarnowskie Góry district identifiers and missing-field
+source checks, and Gliwice/Katowice historical area backfill. The queue records
+scope and prerequisites. Schema v2 remains conditional on an independently
+necessary schema change; broader overlays, institutional public-archive graduation
+and optional historical backfills retain their decision gates.
 
-Result streams for Chrzanów/Oświęcim (Opole confirmed to post none, closed
-2026-07-10; Bełchatów achieved prices need a BIP-attachment fetch — TODO §2) ·
-Kędzierzyn-Koźle table-announcement parsing + Logonet discovery depth · TG obręb
-name→number map for geoportal links · P2-B Gliwice/Katowice area backfill ·
-Bytom `.doc` retention verified 2026-07-10 (0 dropped/6 refreshes) · P2-D live
-self-heal verify on Katowice → drop sanity allowlist · P2-E schema v2 only
-bundled with a needed bump.
-
-## Critical path, plainly
-
-1. **Kamil's short list** (everything else flows around it): rebrand decision →
-   store copy + PRIVACY; Web Store submit; PUBLIC_VOIVODESHIPS width; analytics
-   pick; ESP + RODO publish; Search Console. Roughly a day of decisions +
-   account clicks, spread over T1.
-2. **One GUI session** for the extension 55-city rework + browser verification.
-3. **Everything else is [RPI5]-shaped.** The two residential-egress adapters are
-   excluded from hosted automation and retain last-good data until direct hosted
-   access works; the Pi is not a production refresh path, CI proxy or workflow
-   runner. See [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md).
+Full completion requires observed source/release/account acceptance and the
+national plan's sustained operation gates. Local tests or a push alone do not
+prove those outcomes. After each push, record verification pending and check the
+exact recorded commit once in the next session; never wait for CI after pushing.

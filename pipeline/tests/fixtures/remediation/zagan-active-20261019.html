@@ -1,0 +1,88 @@
+<ul class="tabs" role="tablist" aria-labelledby="tablist-1">
+		<li class="selected"><a class="selected"  id="tab-0" href="https://bip.zagan.pl/przetargi/344/status/0/" title="Pokaż pozycje o statusie" role="tab" aria-selected="true" aria-controls="tabpanel-0"><span>Ogłoszone</span></a></li>		<li ><a   id="tab-1" href="https://bip.zagan.pl/przetargi/344/status/1/" title="Pokaż pozycje o statusie" role="tab" aria-selected="false" aria-controls="tabpanel-1"><span>Rozstrzygnięte</span></a></li>		<li ><a   id="tab-2" href="https://bip.zagan.pl/przetargi/344/status/2/" title="Pokaż pozycje o statusie" role="tab" aria-selected="false" aria-controls="tabpanel-2"><span>Unieważnione</span></a></li>	</ul>
+		<form action="" id="filtr" method="post">
+		<ul class="filters" id="tabpanel-0" aria-labelledby="tab-0" >
+			<li>
+				<label for="filtr_id_przetarg_nowy_oglaszajacy">Ogłaszający</label>
+				<select id="filtr_id_przetarg_nowy_oglaszajacy" name="filtr[id_przetarg_nowy_oglaszajacy]">
+					<option value="0">Wszyscy ogłaszający</option>
+					<option value="1" >Burmistrz Miasta &#x17b;aga&#x144;</option>				</select>
+			</li>
+			<li>
+				<label for="filtr_id_przetarg_nowy_rodzaj">Rodzaj</label>
+				<select id="filtr_id_przetarg_nowy_rodzaj" name="filtr[id_przetarg_nowy_rodzaj]">
+				<option value="0">Wszystkie rodzaje</option>
+				<option value="4" >czwarty przetarg nieograniczony</option><option value="13" >czwarty przetarg ograniczony</option><option value="3" >drugi przetarg nieograniczony</option><option value="7" >drugi przetarg ograniczony</option><option value="15" >dziewi&#x105;ty przetarg nieograniczony</option><option value="10" >odpowied&#x17a; na skarg&#x119; dotycz&#x105;c&#x105; czynno&#x15b;ci zwi&#x105;zanych z przeprowadzonym przetargiem</option><option value="16" >og&#x142;oszenie o odwo&#x142;aniu przetargu</option><option value="5" >og&#x142;oszenie o zmianie og&#x142;oszenia o przetargu</option><option value="14" >o&#x15b;my przetarg nieograniczony</option><option value="8" >pi&#x105;ty przetarg nieograniczony</option><option value="6" >pierwszy przetarg ograniczony</option><option value="1" >przetarg nieograniczony</option><option value="12" >si&oacute;dmy przetarg nieograniczony</option><option value="9" >sz&oacute;sty przetarg nieograniczony</option><option value="2" >trzeci przetarg nieograniczony</option><option value="11" >trzeci przetarg ograniczony</option>				</select>
+			</li>
+			<li>
+				<label for="filtr_numer">Numer</label>
+				<input id="filtr_numer" name="filtr[numer]" type="text" value="" class="input-short"/>
+			</li>
+			<li>
+				<label for="filtr_dni">Pokaż ostatnie</label>
+				<select id="filtr_dni" name="filtr[dni]" class="select-short" >
+				<option value="7" >7 dni</option><option value="14" >14 dni</option><option value="30" >30 dni</option><option value="0" selected="selected">Wszystkie wpisy</option>				</select>
+			</li>
+			<li>
+				<label for="filtr_iloscNaStronie">Na stronie</label>
+				<select id="filtr_iloscNaStronie" name="filtr[iloscNaStronie]" class="select-short">
+				<option >1</option><option >2</option><option >5</option><option selected="selected">10</option><option >20</option><option >30</option>				</select>
+			</li>
+			<li class="dates">
+				<fieldset>
+					<legend>Data publikacji (w formacie RRRR-MM-DD)</legend>
+					<label for="filtr_data_publikacji_od">od</label>
+					<input id="filtr_data_publikacji_od" class="datePickerField" name="data_publikacji_od" value="" title="Format: RRRR-MM-DD" />
+					<label for="filtr_data_publikacji_do">do</label>
+					<input id="filtr_data_publikacji_do" class="datePickerField" name="data_publikacji_do" value="" title="Format: RRRR-MM-DD" />
+				</fieldset>
+			</li>
+			<li>
+				<input type="hidden" id="czyscFiltr" name="filtr[czysc_filtr]" value="0" />
+				<input type="submit" value="Filtruj listę informacji" />
+				<input type="button" onclick="czyscFormularzWyszukiwania()" value="Wyczyść formularz wyszukiwania" />
+			</li>
+		</ul>
+	</form>
+</div>
+<!-- .......................... koniec : filtrowanie listy tabelarycznej .......................... -->
+<!-- .......................... start : lista tabelaryczna .......................... -->
+<p class="phx ph3" id="search-heading">Lista informacji</p>
+
+<div role="list" aria-labelledby="search-heading">
+	<table summary="Lista informacji" border="1" class="table-data">
+	<tr>
+		<th scope="col" class="th-no offscreen-rwd">Lp</th>
+		<th scope="col" class="th-date-1 offscreen-rwd">Data ogłoszenia</th>
+		<th scope="col" class="th-date-2 offscreen-rwd">Data i godzina przetargu</th>
+		<th scope="col" class="th-title-1 offscreen-rwd">Dotyczy</th>
+		<th scope="col" class="th-title-2 offscreen-rwd">Cena wywoławcza</th>
+		<th scope="col" class="th-title-1 offscreen-rwd">Wynik</th>
+		<th scope="col" class="th-attachments-1 offscreen-rwd	">Załączniki</th>
+	</tr>
+			<tr class="odd">
+			<td class="td-no"><span>Lp: </span>1</td>
+			<td class="td-date-1"><div>Data ogłoszenia</div>2026-10-03 00:00:00</td>
+			<td class="td-date-2"><div>Data i godzina przetargu</div>2026-11-09 10:00:00</td>
+			<td class="td-title-1"><div>Dotyczy</div><a href="https://bip.zagan.pl/przetargi/344/681/1_/" title="Przejdź do szczegółów informacji">ODDANIA W DZIERŻAWĘ NA OKRES 3 LAT CZĘŚCI NIERUCHOMOŚCI GRUNTOWEJ PRZY PL. SŁOWIAŃSKIM Z PRZEZNACZENIEM NA USTAWIENIE PRZYCZEPY GASTRONOMICZNEJ.</a></td>
+			<td class="td-title-2"><div>Cena wywoławcza</div>90,00 zł</td>
+			<td class="td-title-1"><div>Wynik</div>Brak wyniku</td>
+			<td class="td-attachments-1"><div>Załączniki</div>	<!-- .......................... start : lista uproszczona zalacznikow .......................... -->
+	<ul class="attachments">
+			<li><a href="https://bip.zagan.pl/system/pobierz.php?plik=Ogloszenie_prztargu_2026.pdf&amp;id=628fc246af7c4927af3007205bf90cd9" title="Pobierz załącznik"><img src="https://bip.zagan.pl/ikona.php?plik=Ogloszenie_prztargu_2026.pdf" alt="Ikona (PDF)" /></a></li>
+			</ul>
+	<!-- .......................... koniec : lista uproszczona zalacznikow .......................... -->
+	</td>
+		</tr>
+			</table>
+</div>
+	<!-- .......................... koniec : lista tabelaryczna .......................... -->
+
+		</div>
+	<!-- KONIEC TREŚCI -->
+	</div>
+</div>
+
+
+
+<!-- POCZĄTEK STOPKA -->

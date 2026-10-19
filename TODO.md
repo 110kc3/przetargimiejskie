@@ -2,7 +2,7 @@
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
 > (extension) and git history (pipeline/site/data). **City inventory refreshed
-> 6 September 2026; city-health/security audit refreshed 5 September 2026.** Structure/tiers/gates live in
+> 6 September 2026; city-health/security follow-up refreshed 19 October 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
 > [REMOTE.md](./REMOTE.md), residential-egress operating policy in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
@@ -51,6 +51,62 @@
 
 ## 1 · Ops / health
 
+### Current continuation — 19 October 2026
+
+The current request is to finish the accepted tasks in this queue and its linked
+plans. Continue implementation, verification and documentation; historical ideas,
+owner-account actions and explicitly deferred commercial work retain their gates.
+The older dated sections below preserve diagnosis and do not override this state.
+
+- **Security repair implemented:** CodeQL alerts #130/#131 identify repeated HTML
+  entity decoding in `pipeline/src/core/finn-bip.js`. The decoder now processes
+  entities in one pass and tolerates invalid Unicode references. Targeted shared
+  parser and durable-heal tests pass. Alerts remain open until hosted CodeQL
+  observes the fix; no alert was dismissed and no gate was weakened.
+- **Lubin repaired:** the current official announcement board is not empty. Its
+  two PDF table layouts were both missed by the parser. Exact source fixtures now
+  recover parcel **963**, district 3, **739 m² / 150,000 zł**, auction 23 October,
+  and **1030/34**, district 9, **11,107 m² / 1,700,000 zł**, auction 6 November.
+  Both are second rounds; the first retains a restricted-participation note.
+  Isolated end-to-end refresh and strict integrity pass. The production exemption
+  date was not renewed and no locally generated dataset was published.
+- **Wschowa / Żagań source checks repaired:** the former's active board explicitly
+  says there are no entries; the latter has one lease and no current sales.
+  Adapters return positive empty-stream evidence only after identifying the
+  authoritative active board. Fetch failures, changed markup, unparsed/unsupported
+  sales and incomplete pagination cannot establish emptiness. Exact board fixtures
+  and targeted negative tests pass. Full isolated refreshes pass strict integrity
+  and coverage health while retaining history; hosted recovery remains pending.
+- **Hosted feed recovery observed:** current committed data from scheduled
+  [refresh 39230259387](https://github.com/110kc3/przetargimiejskie/actions/runs/39230259387)
+  has ready, healthy streams for Gliwice, Gniezno, Rawa Mazowiecka,
+  Golub-Dobrzyń and Poddębice. This proves one successful publication, not three
+  days of stability. Oświęcim and Nakło also have fresh healthy hosted output;
+  their July repair checkboxes below are closed as superseded.
+- **Current production health: 16 findings**, down from the earlier batch's 25:
+  ten degraded streams, one failed attempt, one stale dataset, two expired egress
+  exceptions and two empty-source rechecks. The new local fixes are not counted
+  as production recovery. Świętochłowice remains the failed/stale feed.
+- **Latest refresh workflow failure diagnosed:** municipal publication completed;
+  the provider gate failed because PKP timed out connecting to `www.pkp.pl` on
+  the primary and both fresh-runner retries. Last-good provider health alone
+  does not prove the latest crawl worked. No additional retry budget, private
+  transport or workflow dispatch was introduced.
+
+**Next accepted work:** inspect the natural hosted Security/source outcomes once
+for this push; continue source-specific repairs for Bytom, Chrzanów, Zgorzelec,
+Trzebnica, Bolesławiec, Ząbkowice Śląskie and Kwidzyn, plus Wałbrzych's incomplete
+result stream and Busko-Zdrój's expired empty-board review. The Bytom property
+board returns HTTP 403 in the current local probe while its catalogue yields 13
+land plots and no units; that does not prove an empty property board. Continue
+the current 121-city source/asset audit before the separate new-adapter queue.
+PKP/Świętochłowice reachability and Racibórz/Pszczyna's excluded egress remain
+visible gaps. Store submission, Search Console acceptance and received 30-day
+interest evidence remain external gates. See [repair evidence](REPAIR-EVIDENCE-2026-10.md).
+
+**Push verification pending:** [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
+Check this continuation commit once next session; never wait after pushing.
+
 ### Notification noise reduction — 19 October 2026
 
 Owner request: reduce excessive project emails. Automated city incidents now stay
@@ -63,9 +119,11 @@ legacy-title migration, daily changes, changed failures and recovery.
 
 Personal watch/Actions settings could not be inspected or changed with the
 current GitHub token (it lacks `notifications` scope). Search Console email
-preferences are separate account controls and were not changed. Push verification
-is pending at [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain);
-check the notification-fix commit once next session, without waiting after push.
+preferences are separate account controls and were not changed. Refresh for
+`8401cf62b` passed [run 39218375397](https://github.com/110kc3/przetargimiejskie/actions/runs/39218375397);
+Security failed on the decoder findings addressed above. Original verification
+was recorded at [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain);
+no additional notification change was required by that run.
 
 ### Accepted implementation batch — 18 October 2026
 
@@ -253,10 +311,10 @@ policy; complete verified TLS handshakes to all 13 compatibility hosts on
 These are the deliberately unstarted steps left after the current failure-repair and
 security pass:
 
-- [ ] **National extension coverage (previous step 5) [GUI]:** replace the nine-city
-      hardcode with lazy, data-driven discovery for all 121 built cities, finish the
-      scalable filters/i18n/voivodeship mapping, browser-test, version-bump and prepare
-      the store submission.
+- [x] **National extension coverage (previous step 5):** implemented in `6ac3fd36c`;
+      all 121 feeds use lazy catalogue discovery, scalable region filters and PL/EN
+      labels. Actual browser checks and extension CI passed; v1.33.0 ZIP,
+      screenshots and store copy are prepared. Owner store submission remains open.
 - **CI sharding shipped in Phase B2 (8 September):** 119 hosted-safe cities now
       run in 52 source-aware shards with one municipal publisher. Remaining
       source/quarantine work and B3 precede the 50-city BUILD-ready queue.
@@ -372,13 +430,18 @@ already red.
 The trio's diagnosis is unchanged and still needs only non-Azure egress. The two
 new ones are ordinary breakages that egress will not fix:
 
-- [ ] **oswiecim — the BIP moved behind a redirect.** `bip.oswiecim.um.gov.pl/`
+- [x] **oswiecim — superseded diagnosis; hosted recovery verified 19 October.**
+      Current committed source checks are healthy with a successful scheduled
+      publication. Historical symptom: the BIP moved behind a redirect. `bip.oswiecim.um.gov.pl/`
       now answers `302` to
       `https://bip.oswiecim.um.gov.pl/5677?alias=bip_umoswiecim`, which is
       `200`. Cheap fix: follow the redirect, or point the adapter's entry URL at
       the aliased path. Worth checking whether `getText` follows 302 already —
       if it does, the failure is further in and the alias page's shape changed.
-- [ ] **naklo-nad-notecia — broken TLS chain at the source, not an outage.**
+- [x] **naklo-nad-notecia — verified-chain repair and hosted recovery complete.**
+      The September host-specific intermediate-chain path retains certificate
+      verification; the 19 October scheduled publication has healthy property
+      and land streams. Historical symptom: broken TLS chain at the source.
       `curl` gives `SSL certificate problem: unable to get local issuer
       certificate`; the very same request with `-k` returns **200**. The server
       is serving a leaf without its intermediate, so every strict client
@@ -536,14 +599,12 @@ dual-failing city stops ping-ponging its title.
 
 ### Kraków — a property record whose `street` is a whole announcement paragraph
 
-Surfaced 2026-07-27 by opening the SEO gate nationally: one `krakow` property has
-an entire "Prezydent Miasta Krakowa ogłasza przetargi ustne nieograniczone…"
-paragraph parsed into `street`, which produced a >255-byte directory name and
-crashed `build-site.sh` with `ENAMETOOLONG`. **The build is now hardened** — 
-`slugify()` caps slugs at 80 chars on a word boundary — so this is no longer a
-build blocker, but the underlying record is still junk and renders as a garbage
-address on the Kraków city page. Fix the parser (or add the record to the city's
-verified-junk list) and check whether sibling records share the mis-parse.
+**Completed in `6ac3fd36c`; checked against current data 19 October.** The
+source-backed correction maps the bled Łagiewnickiej paragraph key to the actual
+lot, and the parser separates HTML list items before reading built addresses.
+The exact `news_id=257668` fixture covers the regression. No current Kraków
+street contains that paragraph, `ogłasza`, `przetarg` or `Prezydent`. The build's
+80-character slug cap remains a separate defensive limit.
 
 - **Result (achieved-price) streams:** Chrzanów "Wyniki przetargów" board;
   Oświęcim scanned result notices (OCR). (Kędzierzyn-Koźle/Trzebinia/Kraków
@@ -661,26 +722,19 @@ Remaining work:
 
 ### T1 — surface all 121 built cities (data-driven CITIES) [GUI]
 
-`extension/background.js:22` still hardcodes `CITIES` = 9 Śląskie cities — the
-other 112 built cities are invisible to popup/watchlist/notifications (the site
-archive already reads `data/index.json` dynamically). Implement EXPANSION §1.6:
-lazy per-city fetch keyed off `data/index.json`, extend `i18n.js` labels +
-voivodeship map, keep popup filters scalable. Minor version bump; verify in a
-real browser. **This is the main technical blocker to an honest store
-resubmit.** **Owner:** agent · **Blockers:** none.
+**Implemented in `6ac3fd36c` (v1.33.0), with hosted extension CI passing.**
+The shared catalogue contains all 1,026 official cities and links all 121 enabled
+feeds. Popup/archive data loading, filters, cache bounds, watch-key migration and
+PL/EN labels have targeted tests and actual Chromium checks. SEO eligibility and
+in-page overlay support remain independent. The ZIP, real browser captures and
+current store/privacy drafts are prepared; owner store submission is pending.
 
-### Riding the same version bump [GUI]
+### Remaining release details
 
-- **Manifest host-list alignment (cosmetic):** `content_scripts.matches`
-  includes several hosts absent from `host_permissions` (8 patterns:
-  `katowice.eu` and `bytom.pl` variants, plus rybnik / myslowice /
-  swietochlowice / bielsko hosts; no functional impact) — align or add a
-  consistency test.
-- **"powered by przetargimiejskie.pl" badge link** in content.js overlays (GTM
-  week-3 item, verified missing).
-
-**Owner:** agent · **Blockers:** bundled with the CITIES rework (one store
-review).
+The old host-list alignment and attribution-badge suggestions have not been
+implemented. They are cosmetic follow-ups, not blockers to national data access;
+any selected extension change still requires version, package and browser checks.
+The v1.33.0 release does not claim overlays for every monitored city.
 
 ### Overlays — deferred/conditional
 
@@ -720,14 +774,9 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   **extension** is what trails the website. Claiming national coverage would have
   made a published store listing false. The file now carries a scope note saying
   so, so this doesn't get "fixed" wrongly next time.
-- **Widen the extension's `CITIES` [RPI5] — the real gap behind the copy.** The
-  website publishes 55 city pages (121 cities in `data/index.json`); the
-  extension reads 9. Widening `CITIES` in `extension/background.js` is what makes
-  a national listing *true*; per-city overlay adapters under `extension/sites/`
-  are a separate, larger job and are not required for the popup/archive to cover
-  a city. Only after this ships do the copy and `manifest.json` description
-  change again — in the same commit, per the scope note in WEB_STORE_LISTING.md.
-  **Blockers:** none.
+- **National extension discovery — implemented 19 October (`6ac3fd36c`).**
+  All 121 feeds are available through data views; overlays retain seven adapters.
+  Current store/privacy copy and the v1.33.0 package describe that distinction.
 - **Chrome Web Store resubmit [ACCOUNT] — NOT the blocker it was recorded as.**
   Corrected 2026-08-02: this entry claimed live was **v1.3.3 (29 May)** with "~5
   weeks of features unpublished". That is wrong. The live listing
@@ -773,11 +822,12 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   Variables; the current production HTML contains `data-cf-beacon`. Configuration
   changed on 3 August, superseding the former Umami setup. The dated seven-day
   traffic baseline and its limitations are in the current review above.
-  `site/privacy/index.html` still names Umami and needs correction. Conversion
-  instrumentation is not established by the page-view beacon. With no ID the
+  `site/privacy/index.html` now discloses Cloudflare (`6ac3fd36c`). The optional
+  alert-interest draft and received-confirmation validation gate are implemented;
+  conversion is not established by the page-view beacon. With no ID the
   builder deliberately omits analytics; supported providers are `umami`,
   `plausible` and `cloudflare`, with `ANALYTICS_HOST` used for Umami.
-- **B2G workflow discovery [ACTIVE, corrected 2026-08-11]:** the source-linked
+- **Historical B2G workflow discovery [superseded by October self-service selection]:** the source-linked
   Gliwice report is a free proof of capability, not a paid public-data product.
   Validate whether ZGM has a repeated register/reconciliation/reporting task
   before defining any service or price; do not broaden outreach from data quality
@@ -785,7 +835,11 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   letter, official contacts and owner actions live only in the private vault note
   `40-projects/przetargimiejskie/b2g-pilot.md`.
 
-## 5 · Consumer monetization — deferred while B2G is tested
+## 5 · Historical consumer monetization proposals — decision-gated
+
+The October self-service alert-interest validation in [ALERT-VALIDATION.md](ALERT-VALIDATION.md)
+is the selected commercial slice. Earlier B2G, lead resale, broker-call and
+newsletter proposals below do not authorize outreach, billing or sending.
 
 The B2G workflow-service discovery is the only active commercial track. Newsletter, partner lead-gen,
 sponsorship and donation tasks below are historical/deferred context; none is a
@@ -854,17 +908,16 @@ current owner action or a prerequisite for the municipal pilot.
   historic verdicts, repairs all 45 duplicate-seat evidence paths, reconciles all
   121 pipeline IDs and generates a zero-blocker discrepancy report. The annual
   refresh and PR test run entirely on GitHub-hosted infrastructure.
-- **Phase B1/B2 — IN REVIEW 2026-09-08:** national strict-by-default validation,
-  class-aware land/mixed/valid-empty health, source-aware bounded shards,
-  city-isolated subprocesses and one exact-set municipal publisher are
-  implemented. Failed attempts remain visible in the index while last-good city
-  files are preserved. The 21 legacy validation datasets are an explicit repair
-  cohort due 2026-10-06; 100 current cities and every new city are blocking.
-  Racibórz/Pszczyna remain excluded; no Tailscale, local runner, private proxy or
-  corresponding credential is used. **Release gate:** hosted PR checks.
-- **NEXT after Phase B1/B2:** repair the 21 validation-quarantine datasets in
-  small cohorts, starting with identity/schema failures, then complete the
-  current 121-city source/asset audit and Phase B3 website/extension discovery.
+- **Phase B1/B2 — implemented; hosted municipal publication verified.**
+  National strict validation now covers all 121 feeds; the quarantine map is
+  empty after `6ac3fd36c`. Hosted shards, isolation and the single publisher run
+  successfully. Racibórz/Pszczyna remain excluded. Production source health
+  is still red; see the current continuation above.
+- **Phase B3 — implemented (`6ac3fd36c`):** national website/extension discovery,
+  bounded selected-city loading and release package/browser checks are complete.
+  Owner store acceptance and ongoing source recovery remain open.
+- **NEXT:** source-specific health repairs and the current 121-city source/asset
+  audit. The separate 50-city BUILD queue follows the Phase B acceptance gates.
 - **National research:** after Phase B gates and the known 50-city queue, review
   165 historic exclusions against the broader asset scope and survey the 690
   unresearched official cities in measured batches. See [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md).

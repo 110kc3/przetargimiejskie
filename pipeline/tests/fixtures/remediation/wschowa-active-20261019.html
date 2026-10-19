@@ -1,0 +1,55 @@
+<ul class="tabs" role="tablist" aria-labelledby="tablist-1">
+		<li class="selected"><a class="selected"  id="tab-0" href="https://bip.gminawschowa.pl/przetargi/29/status/0/" title="Pokaż pozycje o statusie" role="tab" aria-selected="true" aria-controls="tabpanel-0"><span>Ogłoszone</span></a></li>		<li ><a   id="tab-1" href="https://bip.gminawschowa.pl/przetargi/29/status/1/" title="Pokaż pozycje o statusie" role="tab" aria-selected="false" aria-controls="tabpanel-1"><span>Rozstrzygnięte</span></a></li>		<li ><a   id="tab-2" href="https://bip.gminawschowa.pl/przetargi/29/status/2/" title="Pokaż pozycje o statusie" role="tab" aria-selected="false" aria-controls="tabpanel-2"><span>Unieważnione</span></a></li>	</ul>
+		<form action="" id="filtr" method="post">
+		<ul class="filters" id="tabpanel-0" aria-labelledby="tab-0" >
+			<li>
+				<label for="filtr_id_przetarg_nowy_oglaszajacy">Ogłaszający</label>
+				<select id="filtr_id_przetarg_nowy_oglaszajacy" name="filtr[id_przetarg_nowy_oglaszajacy]">
+					<option value="0">Wszyscy ogłaszający</option>
+					<option value="2" >Burmistrz Miasta i Gminy </option><option value="1" >Burmistrz Miasta i Gminy Wschowa</option><option value="3" >Burmistrz Miasta i Gminy Wschowa_ </option>				</select>
+			</li>
+			<li>
+				<label for="filtr_id_przetarg_nowy_rodzaj">Rodzaj</label>
+				<select id="filtr_id_przetarg_nowy_rodzaj" name="filtr[id_przetarg_nowy_rodzaj]">
+				<option value="0">Wszystkie rodzaje</option>
+				<option value="2" >odwo&#x142;anie przetargu</option><option value="1" >Przetarg dot. nieruchomo&#x15b;ci</option><option value="3" >Wyniki przetargu</option>				</select>
+			</li>
+			<li>
+				<label for="filtr_numer">Numer</label>
+				<input id="filtr_numer" name="filtr[numer]" type="text" value="" class="input-short"/>
+			</li>
+			<li>
+				<label for="filtr_dni">Pokaż ostatnie</label>
+				<select id="filtr_dni" name="filtr[dni]" class="select-short" >
+				<option value="7" >7 dni</option><option value="14" >14 dni</option><option value="30" >30 dni</option><option value="0" selected="selected">Wszystkie wpisy</option>				</select>
+			</li>
+			<li>
+				<label for="filtr_iloscNaStronie">Na stronie</label>
+				<select id="filtr_iloscNaStronie" name="filtr[iloscNaStronie]" class="select-short">
+				<option >1</option><option >2</option><option >5</option><option selected="selected">10</option><option >20</option><option >30</option>				</select>
+			</li>
+			<li class="dates">
+				<fieldset>
+					<legend>Data publikacji (w formacie RRRR-MM-DD)</legend>
+					<label for="filtr_data_publikacji_od">od</label>
+					<input id="filtr_data_publikacji_od" class="datePickerField" name="data_publikacji_od" value="" title="Format: RRRR-MM-DD" />
+					<label for="filtr_data_publikacji_do">do</label>
+					<input id="filtr_data_publikacji_do" class="datePickerField" name="data_publikacji_do" value="" title="Format: RRRR-MM-DD" />
+				</fieldset>
+			</li>
+			<li>
+				<input type="hidden" id="czyscFiltr" name="filtr[czysc_filtr]" value="0" />
+				<input type="submit" value="Filtruj listę informacji" />
+				<input type="button" onclick="czyscFormularzWyszukiwania()" value="Wyczyść formularz wyszukiwania" />
+			</li>
+		</ul>
+	</form>
+</div>
+<!-- .......................... koniec : filtrowanie listy tabelarycznej .......................... -->
+<!-- .......................... start : lista tabelaryczna .......................... -->
+<p class="phx ph3" id="search-heading">Lista informacji</p>
+
+	<!-- Komunikat o braku wyników -->
+	<div role="status" aria-live="polite" aria-atomic="true">
+	Brak informacji spełniających kryteria.
+	</div>

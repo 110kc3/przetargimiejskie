@@ -36,6 +36,7 @@ import {
   parseActiveLandRow,
   buildResultText,
   inScopeKind,
+  isLeaseRow,
   dateOnly,
 } from './parse.js';
 
@@ -163,15 +164,23 @@ async function fetchPage(url) {
  * PDF/DOCX/OCR fetches — just the board page(s) themselves.
  * @returns {Promise<{ listings: object[], wykaz: [], land: object[] }>}
  */
-export async function crawlActive() {
+export async function crawlActive({ getPage = fetchPage } = {}) {
   const listings = [];
   const land = [];
   const seenDetails = new Set();
+  let complete = false;
+  let allParsed = true;
 
   for (let page = 1; page <= MAX_ACTIVE_PAGES; page++) {
-    const html = await fetchPage(boardUrl(0, page));
+    const html = await getPage(boardUrl(0, page));
     if (!html) break;
+    const activeTab = /<a\b[^>]*id="tab-0"[^>]*>/i.exec(html)?.[0] || '';
+    if (!activeTab.includes(`href="${boardUrl(0, 1)}"`) || !/aria-selected="true"/i.test(activeTab)) allParsed = false;
     const rows = parseBoardPage(html);
+    const table = /<table\b[^>]*class="[^"]*\btable-data\b[^"]*"[^>]*>([\s\S]*?)<\/table>/i.exec(html)?.[1];
+    const rawRows = [...(table || '').matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)]
+      .filter((row) => /<td\b/i.test(row[1])).length;
+    if (!table || rawRows !== rows.length) allParsed = false;
     if (rows.length === 0) break;
 
     const fresh = rows.filter((r) => r.detailUrl && !seenDetails.has(r.detailUrl));
@@ -183,17 +192,28 @@ export async function crawlActive() {
       if (kind === 'mieszkalny') {
         const rec = parseActiveFlatRow(row);
         if (rec) listings.push(rec);
+        else allParsed = false;
       } else if (kind === 'grunt') {
         const rec = parseActiveLandRow(row);
         if (rec) land.push(rec);
+        else allParsed = false;
+      } else if (!isLeaseRow(row.dotyczyText)) {
+        // Unsupported assets and unknown prose must remain visible gaps.
+        allParsed = false;
       }
     }
 
-    if (rows.length < ROWS_PER_PAGE) break; // short page = last page
+    const laterPage = [...html.matchAll(/href="(?:https:\/\/bip\.zagan\.pl)?\/przetargi\/344\/(\d+)\/status\/0\//g)]
+      .some((link) => Number(link[1]) > page);
+    if (rows.length < ROWS_PER_PAGE && !laterPage) { complete = true; break; }
   }
 
   console.error(`  zagan crawlActive: ${listings.length} flat listing(s), ${land.length} land parcel(s)`);
-  return { listings, wykaz: [], land };
+  return {
+    listings, wykaz: [], land,
+    valid_empty: complete && allParsed && listings.length === 0,
+    valid_empty_land: complete && allParsed && land.length === 0,
+  };
 }
 
 // ── crawlResultDocs ──────────────────────────────────────────────────────────

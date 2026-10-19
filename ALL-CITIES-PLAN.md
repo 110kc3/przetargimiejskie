@@ -80,8 +80,12 @@ Acceptance: a representative shard completes despite one injected city failure; 
 Implementation status (8 September 2026): B1/B2 is in review. The hosted-safe 119-city set currently forms 52 source-aware shards; Racibórz and Pszczyna remain excluded. One read-only worker handles each bounded shard, but every city has its own detached worktree, subprocess, timeout, log and hashed outcome manifest. A single municipal publisher rejects incomplete or conflicting artifact sets, applies only validated deltas, records failed attempts without replacing last-good files, rebuilds the index once and commits once. National validation is strict for 100 current cities and by default for every new city; 21 named legacy datasets are visibly quarantined with a 6 October repair/review deadline. Targeted tests cover shard continuation after injected failure, exact artifact-set enforcement, failed-outcome preservation, land-only/mixed/valid-empty health and strict-default policy. Hosted PR verification remains the release gate.
 
 B1/B2 follow-up (19 October 2026): source-backed remediation restores strict
-validation for all 121 enabled feeds. Hosted publication and recovery remain
-pending for the implementation commit; see `REPAIR-EVIDENCE-2026-10.md`.
+validation for all 121 enabled feeds. Hosted municipal publication passed for
+`6ac3fd36c`; current data also confirms healthy streams for the four priority
+repairs and Poddębice. Three-day stability remains unverified. The continuation
+repairs CodeQL entity-decoding findings and Lubin/Wschowa/Żagań source handling;
+its hosted verification is pending. Current production health has 16 findings.
+See `REPAIR-EVIDENCE-2026-10.md` and the current TODO section.
 
 ### B3. Website and extension
 
@@ -100,8 +104,8 @@ selected city's histories, retain bounded caches and show source states. Actual
 Chromium desktop/mobile and unpacked-extension checks pass, including duplicate
 names, low-volume/land-only sources, failures and interest-draft boundaries.
 Extension v1.33.0 package/privacy/store copy and real captures are prepared.
-Hosted release and owner store acceptance remain external gates. No new city
-expansion was selected in this batch.
+Hosted extension CI and deployment passed for `6ac3fd36c`; owner store acceptance
+remains an external gate. No new city expansion was selected in that batch.
 
 ## 5. Phase C — finish the known 50-city queue
 

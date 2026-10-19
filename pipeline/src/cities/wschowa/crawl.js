@@ -252,16 +252,28 @@ async function extractAttachment(att) {
  * fetches — just the board page(s) themselves.
  * @returns {Promise<{ listings: object[], wykaz: [], land: object[] }>}
  */
-export async function crawlActive() {
+export async function crawlActive({ getPage = fetchPage } = {}) {
   const listings = [];
   const land = [];
   const seenDetails = new Set();
+  let verifiedEmpty = false;
 
   for (let page = 1; page <= MAX_ACTIVE_PAGES; page++) {
-    const html = await fetchPage(boardUrl(0, page));
+    const html = await getPage(boardUrl(0, page));
     if (!html) break;
     const rows = parseBoardPage(html);
-    if (rows.length === 0) break;
+    if (rows.length === 0) {
+      // An empty parser result alone proves nothing. The real empty-board
+      // response has a selected active tab and an explicit live status message.
+      const activeTab = /<a\b[^>]*id="tab-0"[^>]*>/i.exec(html)?.[0] || '';
+      const content = html.slice(html.indexOf('id="search-heading"'));
+      verifiedEmpty = page === 1
+        && activeTab.includes(`href="${boardUrl(0, 1)}"`)
+        && /aria-selected="true"/i.test(activeTab)
+        && /<div\b[^>]*role="status"[^>]*>\s*Brak informacji spełniających kryteria\.\s*<\/div>/i.test(content)
+        && !/<tr\b|\/przetargi\/29\/\d+\//i.test(content);
+      break;
+    }
 
     const fresh = rows.filter((r) => r.detailUrl && !seenDetails.has(r.detailUrl));
     if (fresh.length === 0) break;
@@ -277,7 +289,7 @@ export async function crawlActive() {
   }
 
   console.error(`  wschowa crawlActive: ${listings.length} flat listing(s), ${land.length} land parcel(s)`);
-  return { listings, wykaz: [], land };
+  return { listings, wykaz: [], land, valid_empty: verifiedEmpty, valid_empty_land: verifiedEmpty };
 }
 
 // ── crawlResultDocs ──────────────────────────────────────────────────────────

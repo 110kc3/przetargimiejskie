@@ -59,18 +59,18 @@ export function htmlToText(html) {
   if (!html) return '';
   let s = html.replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/td|\/th|\/h\d|\/span|\/strong|\/b)\s*\/?>/gi, ' ');
   s = s.replace(/<[^>]+>/g, ' ');
-  s = s
-    .replace(/&amp;/gi, '&')
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
-    .replace(/&sup2;/gi, '²')
-    .replace(/&sup3;/gi, '³')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&oacute;/gi, 'ó');
+  // Decode once: an ampersand produced by one entity must not introduce a
+  // second entity for a later replacement to consume (CodeQL #130/#131).
+  const named = { amp: '&', sup2: '²', sup3: '³', nbsp: ' ', lt: '<', gt: '>', quot: '"', oacute: 'ó' };
+  s = s.replace(/&(#x[0-9a-f]+|#\d+|amp|sup2|sup3|nbsp|lt|gt|quot|oacute);/gi, (entity, code) => {
+    if (code[0] !== '#') return named[code.toLowerCase()];
+    const hex = code[1].toLowerCase() === 'x';
+    const point = parseInt(code.slice(hex ? 2 : 1), hex ? 16 : 10);
+    // Invalid numeric references are untrusted source text, not a reason to
+    // crash every municipal parser sharing this helper.
+    return point > 0 && point <= 0x10ffff && !(point >= 0xd800 && point <= 0xdfff)
+      ? String.fromCodePoint(point) : '\uFFFD';
+  });
   return s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
 }
 

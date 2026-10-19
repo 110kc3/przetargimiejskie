@@ -29,6 +29,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
 import {
   romanToInt,
@@ -45,6 +46,35 @@ import {
   parseResultDoc,
   wykazRecordsFromText,
 } from '../src/cities/lubin/parse.js';
+
+test('October 2026 live land tables survive whole parcels and zoning asset mentions', () => {
+  // Exact pdftotext -layout, fetched 2026-10-19 from the official URLs:
+  // https://bip.um.lubin.pl/attachments/30174/download
+  // https://bip.um.lubin.pl/attachments/30173/download
+  const read = (id) => readFileSync(new URL(`./fixtures/remediation/lubin-${id}.txt`, import.meta.url), 'utf8');
+  const [restricted] = parseAnnouncement(read('30174'));
+  assert.equal(parseAnnouncement(read('30174')).length, 1);
+  assert.equal(restricted.kind, 'grunt');
+  assert.equal(restricted.dzialka_nr, '963');
+  assert.equal(restricted.obreb, '3');
+  assert.equal(restricted.area_m2, 739);
+  assert.equal(restricted.address_raw, 'Lubin, ul. Stary Lubin');
+  assert.equal(restricted.starting_price_pln, 150000);
+  assert.equal(restricted.auction_date, '2026-10-23');
+  assert.equal(restricted.round, 2);
+  assert.match(restricted.notes[0], /ograniczony/);
+
+  const [open] = parseAnnouncement(read('30173'));
+  assert.equal(parseAnnouncement(read('30173')).length, 1);
+  assert.equal(open.kind, 'grunt');
+  assert.equal(open.dzialka_nr, '1030/34');
+  assert.equal(open.obreb, '9');
+  assert.equal(open.area_m2, 11107);
+  assert.equal(open.starting_price_pln, 1700000);
+  assert.equal(open.auction_date, '2026-11-06');
+  assert.equal(open.round, 2);
+  assert.deepEqual(open.notes, []);
+});
 
 // ---------------------------------------------------------------- unit helpers
 

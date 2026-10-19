@@ -6,7 +6,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { auctionDateFromText } from '../src/core/finn-bip.js';
+import { auctionDateFromText, htmlToText } from '../src/core/finn-bip.js';
+
+test('HTML text decodes entities once without interpreting generated markup', () => {
+  assert.equal(htmlToText('<p>po&#322;o&#x17c;ony 17,85 m&sup2; &amp; gara&sup3;</p>'), 'położony 17,85 m² & gara³');
+  assert.equal(htmlToText('&amp;lt;script&amp;gt;'), '&lt;script&gt;');
+  assert.equal(htmlToText('&#38;lt;script&#x26;gt;'), '&lt;script&gt;');
+  assert.equal(htmlToText('&amp;#322; &amp;amp; &unknown;'), '&#322; &amp; &unknown;');
+  assert.equal(htmlToText('&lt;b&gt;tekst&lt;/b&gt;'), '<b>tekst</b>');
+});
+
+test('invalid numeric HTML references cannot crash the shared parser', () => {
+  assert.equal(htmlToText('&#0; &#xD800; &#1114112; &#999999999999999999999999;'), '� � � �');
+  assert.equal(htmlToText('&#x1F3E0;'), '🏠');
+});
 
 test('anchored operative sentence wins (spelled + numeric)', () => {
   assert.equal(

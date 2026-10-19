@@ -132,3 +132,62 @@ The live analytics mismatch is repaired: Cloudflare is disclosed, network
 suppliers' connection metadata is acknowledged, and the optional interest flow
 makes no automatic subscription/dispatch claim. See [ALERT-VALIDATION.md](ALERT-VALIDATION.md)
 for evidence distinctions and the external 30-day demand gate.
+
+## Continuation — 19 October 2026
+
+Current production data is `9bae21dd6`. Its operational check has **16 findings**:
+ten degraded streams, one failed attempt, one stale dataset, two expired egress
+exceptions and two empty-source rechecks. This supersedes the earlier 25-finding
+snapshot without claiming that the following local work has reached production.
+
+The scheduled [refresh 39230259387](https://github.com/110kc3/przetargimiejskie/actions/runs/39230259387)
+published municipal output. Committed metadata shows ready/healthy property and
+land streams for Gliwice, Gniezno, Rawa Mazowiecka, Golub-Dobrzyń and Poddębice.
+Oświęcim and Nakło also have fresh healthy hosted output. Three-day recovery is
+still unverified. That workflow failed its separate provider gate: PKP's primary
+runner and both fresh-runner retries timed out connecting to `www.pkp.pl`.
+Retained provider health did not imply a successful latest crawl.
+
+CodeQL alerts [#130](https://github.com/110kc3/przetargimiejskie/security/code-scanning/130)
+and [#131](https://github.com/110kc3/przetargimiejskie/security/code-scanning/131)
+identify chained entity replacements in `core/finn-bip.js`. One-pass entity
+decoding now preserves nested escapes and replaces invalid Unicode references
+without crashing parsers. Shared parser and durable-heal regression checks pass;
+the alerts remain open until hosted analysis observes the fix.
+
+Lubin's current board contains two genuine sales that its parser missed:
+
+| Official text-PDF source | Parcel / district | Area | Starting price | Auction / round |
+|---|---|---:|---:|---|
+| [30174](https://bip.um.lubin.pl/attachments/30174/download) | 963 / 3 | 739 m² | 150,000 zł | 23 October 2026 / II |
+| [30173](https://bip.um.lubin.pl/attachments/30173/download) | 1030/34 / 9 | 11,107 m² | 1,700,000 zł | 6 November 2026 / II |
+
+Exact `pdftotext -layout` fixtures retain source text. The new reader handles
+KW-first and parcel-first tables, whole parcel numbers, wrapped headers and
+zoning prose naming housing/services/garages without misclassifying the plot.
+The first sale's restricted participation is retained in listing notes. A full
+isolated Lubin refresh recovers both plots and passes strict data sanity and
+land-schema checks. Its old empty-source exemption was not renewed.
+
+Wschowa's [active board](https://bip.gminawschowa.pl/przetargi/29/status/0/)
+explicitly reports no entries. Żagań's [active board](https://bip.zagan.pl/przetargi/344/status/0/)
+has one lease, outside the sale scope. Source board-region fixtures (line endings
+and trailing blanks normalized) prove these observations. Adapters now emit
+positive empty-stream checks only after
+identifying the active board and its explicit empty message or fully parsed
+complete rows. Fetch/layout failures, unknown or unparsed sales, unsupported
+assets and incomplete pagination cannot establish an empty stream. Existing
+last-good history remains subject to the normal refresh preservation rules.
+Full isolated Wschowa/Żagań refreshes pass strict sanity and coverage health:
+Wschowa retains five properties/nine historical plots with a verified-empty
+current land stream; Żagań retains 13 properties/59 plots with a verified-empty
+current property stream. Their historical records are preserved.
+
+Bytom's property-board probe returned HTTP 403, while its separate catalogue
+returned 13 land plots and no units. This does not establish a genuinely empty
+property source. Other degraded streams remain in the accepted repair queue.
+No threshold, TLS check, timeout budget or egress exclusion was relaxed.
+
+The continuation's local checks do not prove hosted recovery. Production files
+and source timestamps are untouched; isolated crawl output is validation only.
+Push verification is pending at [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
