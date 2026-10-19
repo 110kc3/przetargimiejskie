@@ -31,12 +31,17 @@ else is periodic or PR-gated.
   fix prompt, with the fetched bytes attached as a `triage-<id>` artifact
   (14-day retention). The issue auto-closes when the city refreshes green.
   GitHub's issue notifications are the alert channel.
-- Issue sync loads the open city-issue inventory once. An unchanged failure owned
-  by that workflow produces no repeated comment; age-only stale-data changes no
-  longer change the title. Legacy age-bearing titles migrate once. Changed
-  failure modes and recoveries still notify, and ownership/empty-data close
-  guards remain in force. Health allows 15 minutes overall and bounds issue sync
-  to 10 minutes so notification work cannot consume the final health-gate budget.
+- Issue sync loads the open city-issue inventory once. Repeat failures produce
+  no comments, including when the other monitor also sees the incident. Changing
+  stale/recheck/exemption ages and failed-attempt timestamps stay in workflow
+  evidence instead of changing titles daily; legacy titles migrate once.
+  Changed failure modes update the owning issue in place without an extra
+  comment. New incidents and recovery comments/closures remain visible, and
+  ownership/empty-data close guards remain in force. Health allows 15 minutes
+  overall and bounds issue sync to 10 minutes so notification work cannot consume
+  the final health-gate budget. Health enforcement and workflow failure statuses
+  remain unchanged. Personal GitHub Actions/watch email preferences are separate
+  account settings; this policy reduces automated issue activity at its source.
 - The setup test gate runs before any crawl. A setup failure leaves every feed
   unchanged; per-city staleness may therefore have a shared pipeline cause.
   Deployment still runs on refresh completion to publish available data/status;

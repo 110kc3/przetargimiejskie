@@ -532,8 +532,9 @@ jobs:
 
   # Turn the per-city triage artifacts into GitHub issues: one open issue per
   # broken city ([city-broken] <id>: <why>, body = a paste-into-Claude-Code
-  # triage prompt), a "still failing" comment on repeats, auto-close on
-  # recovery. GitHub's native issue notifications deliver the email.
+  # triage prompt), quiet repeats and auto-close on recovery. Changed failures
+  # update in place without extra comments. GitHub issue notifications deliver
+  # incident/recovery email according to each subscriber's account settings.
   triage:
     needs: [setup, refresh]
     if: ${{ always() && needs.setup.result == 'success' && github.event_name != 'pull_request' }}

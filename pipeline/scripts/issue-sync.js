@@ -91,16 +91,14 @@ export function loadFailures(dir) {
   return out;
 }
 
-function renderStillFailingComment(failure, runUrl) {
-  const ev = (failure.evidence || [])[0];
-  return `Still failing — [run](${runUrl}) (classification: **${failure.classification}**).` +
-    (ev ? `\n\n> ${ev}` : '');
-}
-
-// Age advances on every run without representing a new failure mode. Keep it
-// in the issue body/run evidence, rather than re-titling and notifying daily.
+// Ages and attempt timestamps advance without representing a new failure mode.
+// Keep those details in run evidence, rather than re-titling and notifying daily.
 function stableTitle(title) {
-  return title.replace(/data stale \([\d.]+ days old > (\d+)d\)/g, 'data stale (> $1d)');
+  return title
+    .replace(/data stale \([\d.]+ days old > (\d+)d\)/g, 'data stale (> $1d)')
+    .replace(/\([\d.]+d > (\d+)d\)/g, '(> $1d)')
+    .replace(/latest refresh attempt failed at (?:\d{4}-\d{2}-\d{2}T[^;]+|an unknown time);/g,
+      'latest refresh attempt failed;');
 }
 
 /**
@@ -157,20 +155,17 @@ export function syncIssues(failures, recovered, { source, runUrl, run, uniqueFor
       // headline → health headline → refresh headline …) — pure churn.
       const isHealthOwned = (existing.labels || []).some((l) => l.name === LABEL_HEALTH);
       const ownsTitle = source === 'health' ? isHealthOwned : !isHealthOwned;
-      if (ownsTitle && existing.title === title) {
-        ops.push({ op: 'unchanged', city, number: existing.number });
+      // A second monitor seeing the same incident must not add a daily comment.
+      // Its independent evidence remains in its workflow logs/triage artifacts.
+      if (!ownsTitle || existing.title === title) {
+        ops.push({ op: 'unchanged', city, number: existing.number,
+          ...(!ownsTitle ? { reason: 'incident owned by the other monitor' } : {}) });
         continue;
       }
-      // Migrating a legacy age-bearing title is a one-time edit, not an alert.
-      if (!ownsTitle || stableTitle(existing.title) !== title) {
-        run(['issue', 'comment', String(existing.number), '--body',
-          renderStillFailingComment(failure, runUrl)]);
-        ops.push({ op: 'comment', city, number: existing.number });
-      }
-      if (existing.title !== title && ownsTitle) {
-        run(['issue', 'edit', String(existing.number), '--title', title, '--body-file', bodyPath]);
-        ops.push({ op: 'edit', city, number: existing.number });
-      }
+      // Update changed failures in place; an extra "still failing" comment
+      // would send a redundant notification for the same update.
+      run(['issue', 'edit', String(existing.number), '--title', title, '--body-file', bodyPath]);
+      ops.push({ op: 'edit', city, number: existing.number });
     }
   }
 
@@ -252,7 +247,7 @@ async function main() {
     { source, runUrl, run: realRunner(dryRun), uniqueForCity: uniqueForCityFs });
   console.error(`issue-sync (${source}${dryRun ? ', dry-run' : ''}): ` +
     `${failures.size} failing, ${ops.filter((o) => o.op === 'create').length} created, ` +
-    `${ops.filter((o) => o.op === 'comment').length} commented, ` +
+    `${ops.filter((o) => o.op === 'edit').length} updated, ` +
     `${ops.filter((o) => o.op === 'unchanged').length} unchanged, ` +
     `${ops.filter((o) => o.op === 'close').length} closed.`);
 }

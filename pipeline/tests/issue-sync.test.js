@@ -1,5 +1,5 @@
 // Unit tests for issue-sync's lifecycle decisions against a fake `gh` runner —
-// create vs comment vs edit vs close, and the health-scope anti-flap rule.
+// create vs quiet repeat vs edit vs close, and the health-scope anti-flap rule.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -47,7 +47,7 @@ test('new failure creates issue with labels', () => {
   assert.match(create[create.indexOf('--title') + 1], /^\[city-broken\] wejherowo:/);
 });
 
-test('repeat failure stays quiet; changed failure comments and updates its issue', () => {
+test('repeat failure stays quiet; changed failure updates without a redundant comment', () => {
   const sameTitle = '[city-broken] wejherowo: layout change suspected (0 records parsed)';
   const { run, calls } = fakeGh({ wejherowo: [{ number: 7, title: sameTitle, labels: [] }] });
   let ops = syncIssues(failuresMap('wejherowo'), [], { source: 'refresh', runUrl: RUN_URL, run });
@@ -56,7 +56,8 @@ test('repeat failure stays quiet; changed failure comments and updates its issue
 
   const gh2 = fakeGh({ wejherowo: [{ number: 7, title: '[city-broken] wejherowo: source unreachable (http 503)', labels: [] }] });
   ops = syncIssues(failuresMap('wejherowo'), [], { source: 'refresh', runUrl: RUN_URL, run: gh2.run });
-  assert.deepEqual(ops.map((o) => o.op), ['comment', 'edit']);
+  assert.deepEqual(ops.map((o) => o.op), ['edit']);
+  assert.ok(!gh2.calls.some((c) => c[1] === 'comment'));
 });
 
 test('registry-wide stale incident uses one lookup and suppresses age-only repeat writes', () => {
@@ -138,22 +139,53 @@ test('refresh sync still closes a refresh-owned issue regardless of unique count
   assert.deepEqual(ops.map((o) => o.op), ['close']);
 });
 
-test('title ownership: health does NOT re-title a refresh-owned issue (dual-failing churn guard)', () => {
+test('health stays quiet on a refresh-owned incident across daily runs', () => {
   // refresh-owned issue (no health-check label) with a stale title; health is
-  // now also failing the city. Health may comment but must not flip the title.
+  // now also failing the city. It must neither comment nor flip the title.
   const refreshOwned = { number: 9, title: '[city-broken] gdansk: old refresh headline', labels: [{ name: 'city-broken' }] };
   const { run, calls } = fakeGh({ gdansk: [refreshOwned] });
-  const ops = syncIssues(failuresMap('gdansk'), [], { source: 'health', runUrl: RUN_URL, run });
-  assert.deepEqual(ops.map((o) => o.op), ['comment']);
-  assert.ok(!calls.some((c) => c[0] === 'issue' && c[1] === 'edit'));
+  for (let day = 0; day < 7; day++) {
+    const ops = syncIssues(failuresMap('gdansk'), [], { source: 'health', runUrl: `${RUN_URL}${day}`, run });
+    assert.deepEqual(ops.map((o) => o.op), ['unchanged']);
+  }
+  assert.ok(!calls.some((c) => c[0] === 'issue' && c[1] !== 'list'));
 });
 
 test('title ownership: health DOES re-title an issue it owns when the mode changed', () => {
   const healthOwned = { number: 10, title: '[city-broken] gdansk: old health headline', labels: [{ name: 'city-broken' }, { name: 'health-check' }] };
   const { run, calls } = fakeGh({ gdansk: [healthOwned] });
   const ops = syncIssues(failuresMap('gdansk'), [], { source: 'health', runUrl: RUN_URL, run });
-  assert.deepEqual(ops.map((o) => o.op), ['comment', 'edit']);
+  assert.deepEqual(ops.map((o) => o.op), ['edit']);
   assert.ok(calls.some((c) => c[0] === 'issue' && c[1] === 'edit'));
+  assert.ok(!calls.some((c) => c[1] === 'comment'));
+});
+
+test('refresh stays quiet on a health-owned incident', () => {
+  const { run, calls } = fakeGh({ demo: [{ number: 8, title: 'health failure', labels: [{ name: 'health-check' }] }] });
+  const ops = syncIssues(failuresMap('demo'), [], { source: 'refresh', runUrl: RUN_URL, run });
+  assert.deepEqual(ops.map((o) => o.op), ['unchanged']);
+  assert.ok(!calls.some((c) => c[0] === 'issue' && c[1] !== 'list'));
+});
+
+test('daily recheck ages and failed-attempt timestamps do not repeat issue updates', () => {
+  for (const [oldHeadline, newHeadline] of [
+    ['LEGIT_EMPTY since 2026-08-23 (55d > 45d) — reconfirm', 'LEGIT_EMPTY since 2026-08-23 (56d > 45d) — reconfirm'],
+    ['in EXEMPT_NEW since 2026-08-23 (55d > 21d) — repair', 'in EXEMPT_NEW since 2026-08-23 (56d > 21d) — repair'],
+    ['latest refresh attempt failed at 2026-10-18T04:25:00.000Z; last-good data is being preserved', 'latest refresh attempt failed at 2026-10-19T04:25:00.000Z; last-good data is being preserved'],
+    ['latest refresh attempt failed at an unknown time; last-good data is being preserved', 'latest refresh attempt failed at 2026-10-19T04:25:00.000Z; last-good data is being preserved'],
+  ]) {
+    const issue = { number: 1, title: `[city-broken] demo: ${oldHeadline}`, labels: [{ name: 'health-check' }] };
+    const failures = new Map([['demo', { failure: { headline: newHeadline }, bodyPath: '/tmp/body.md' }]]);
+    const { run, calls } = fakeGh({ demo: [issue] });
+    const opts = { source: 'health', runUrl: RUN_URL, run };
+    // First run migrates the legacy title once, without adding a comment.
+    assert.deepEqual(syncIssues(failures, [], opts).map((o) => o.op), ['edit']);
+    const edit = calls.find((c) => c[1] === 'edit');
+    issue.title = edit[edit.indexOf('--title') + 1];
+    calls.length = 0;
+    assert.deepEqual(syncIssues(failures, [], opts).map((o) => o.op), ['unchanged']);
+    assert.ok(!calls.some((c) => c[0] === 'issue' && c[1] !== 'list'));
+  }
 });
 
 test('loadFailures reads artifact dirs and skips incomplete ones', () => {

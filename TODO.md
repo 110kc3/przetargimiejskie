@@ -51,11 +51,27 @@
 
 ## 1 · Ops / health
 
+### Notification noise reduction — 19 October 2026
+
+Owner request: reduce excessive project emails. Automated city incidents now stay
+quiet on repeat failures from either monitor. Exemption/recheck ages and changing
+failed-attempt timestamps no longer cause daily title updates. Changed failures
+update the issue without an additional comment; new incidents and recoveries
+retain their existing lifecycle. Health checks, failure statuses and recovery
+guards remain enforced. Targeted issue-sync tests cover both monitor directions,
+legacy-title migration, daily changes, changed failures and recovery.
+
+Personal watch/Actions settings could not be inspected or changed with the
+current GitHub token (it lacks `notifications` scope). Search Console email
+preferences are separate account controls and were not changed. Push verification
+is pending at [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain);
+check the notification-fix commit once next session, without waiting after push.
+
 ### Accepted implementation batch — 18 October 2026
 
 The owner selected review recommendations **1, 2, 3 and 4**, with push after the
-implementation batch. **Implementation completed locally 19 October; hosted
-acceptance is pending the impending push.** Evidence: [REPAIR-EVIDENCE-2026-10.md](REPAIR-EVIDENCE-2026-10.md).
+implementation batch. **Implementation pushed as `6ac3fd36c` on 19 October.**
+Evidence: [REPAIR-EVIDENCE-2026-10.md](REPAIR-EVIDENCE-2026-10.md).
 
 1. **Feed repair implemented and source-probed.** Gliwice, Gniezno, Rawa Mazowiecka
    and Golub-Dobrzyń return real rows in isolated live probes. Wałbrzych now bounds
@@ -85,11 +101,14 @@ Operational health against retained timestamps remains **25 findings** (7 failed
 attempts, 5 stale datasets, 9 degraded streams, 2 expired egress exceptions and
 2 empty-source rechecks). This batch does not claim a green production health run.
 
-**Next accepted verification:** check this implementation commit's Actions and
-first hosted municipal publication once next session, then review source status
-and three-day health. CI, deployment and hosted recovery are **pending**, not
-inferred from local tests. Do not dispatch new workflows or add a local production
-refresh path merely to clear the gate. Branch Actions:
+**Hosted verification checked once on 19 October:** `6ac3fd36c` passed
+[refresh/publication](https://github.com/110kc3/przetargimiejskie/actions/runs/39207555627),
+[deployment](https://github.com/110kc3/przetargimiejskie/actions/runs/39207555711) and
+[extension CI](https://github.com/110kc3/przetargimiejskie/actions/runs/39207555628).
+[Security failed](https://github.com/110kc3/przetargimiejskie/actions/runs/39207555729)
+and needs diagnosis in the accepted technical queue; no failure was suppressed.
+Per-source recovery and three-day health remain unverified. Do not dispatch new
+workflows or add a local production refresh path merely to clear the gate. Branch Actions:
 https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain.
 
 **External acceptance:** Search Console property ownership/sitemap acceptance;
