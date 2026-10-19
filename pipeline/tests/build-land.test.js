@@ -5,8 +5,8 @@ import { buildLand, landKey, mergePartialLand, splitParcels } from '../src/core/
 test('landKey prefers parcel, then obręb-qualified parcel, then address', () => {
   assert.equal(landKey({ dzialka_nr: '233/1' }), 'dz|233/1');
   assert.equal(landKey({ dzialka_nr: '233/1', obreb: 'Śródmieście' }), 'dz|śródmieście|233/1');
-  assert.equal(landKey({ address: { key: 'solskiego|10|' } }), 'solskiego|10|');
-  assert.equal(landKey({ street: 'Solskiego', street_norm: 'solskiego', building: '10' }), 'solskiego|10|');
+  assert.equal(landKey({ address: { key: 'solskiego|10|' } }), 'addr|solskiego|10|');
+  assert.equal(landKey({ street: 'Solskiego', street_norm: 'solskiego', building: '10' }), 'addr|solskiego|10|');
   assert.equal(landKey({ address_raw: 'ul. Bukowa dz. 5' }), 'addr|ul. bukowa dz. 5');
   assert.equal(landKey({}), null);
 });
@@ -51,7 +51,7 @@ test('address-fallback keying when no parcel number is present', () => {
     { street: 'Bukowa', street_norm: 'bukowa', building: '7', area_m2: 800, starting_price_pln: 670000, auction_date: '2026-05-01' },
   ], 'bielsko');
   assert.equal(plots.length, 1);
-  assert.equal(plots[0].key, 'bukowa|7|');
+  assert.equal(plots[0].key, 'addr|bukowa|7|');
   assert.equal(plots[0].area_m2, 800);
 });
 

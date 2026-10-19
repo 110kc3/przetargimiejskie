@@ -44,21 +44,35 @@
     // "Zwycięstwa 34 m. 9" → "Zwycięstwa 34/9".
     s = s.replace(/\s+m\.?\s*(\d+[A-Za-z]?)\s*$/i, '/$1');
 
-    const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+    const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+(?:gara[żz](?:\s*nr\.?)?|g\.(?:\s*nr\.?)?|g\s+nr\.?)\s*(\d+)$/i.exec(s);
     if (garageMatch) {
       const [, street, building, garageNo] = garageMatch;
       return buildAddress(street, building.toUpperCase(), `garaz-${garageNo}`, null);
     }
     // Bare "<street> garaż nr <N>" (no building number — "rejon" garages).
     // Synthesize building="0" to match parse-result.js for the same input.
-    const rejonMatch = /^(.+?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+    const rejonMatch = /^(.+?)\s+(?:gara[żz](?:\s*nr\.?)?|g\.(?:\s*nr\.?)?|g\s+nr\.?)\s*(\d+)$/i.exec(s);
     if (rejonMatch) {
       const [, street, garageNo] = rejonMatch;
       return buildAddress(street, '0', `garaz-${garageNo}`, null);
     }
 
+
+    // A single published lot can name several units or building frontages.
+    // Preserve the stated joint identity instead of putting numbers in street.
+    const jointUnits = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)\s*,\s*(\d+[A-Za-z]?)$/i.exec(s);
+    if (jointUnits) {
+      return buildAddress(jointUnits[1], jointUnits[2].toUpperCase(),
+        `${jointUnits[3]}-${jointUnits[4]}`.toUpperCase(), null);
+    }
+    const jointBuildings = /^(.+?)\s+(\d+[A-Za-z]?(?:\s*,\s*\d+[A-Za-z]?)+)(?:\s*\/\s*([\d]+[A-Za-z]?))?$/i.exec(s);
+    if (jointBuildings) {
+      return buildAddress(jointBuildings[1], jointBuildings[2].replace(/\s/g, '').toUpperCase(),
+        jointBuildings[3]?.toUpperCase() || null, null);
+    }
+
     const re =
-      /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)(?:\s*[\/\\]\s*([0-9]+[A-Za-z]?|[IVX]+|T[IVX]+|[1-9][Il]))?$/i;
+      /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)(?:\s*[\/\\]\s*([0-9]+[A-Za-z]?(?:-[0-9]+[A-Za-z]?)?|[IVX]+|T[IVX]+|[1-9][Il]))?$/i;
     const m = re.exec(s);
     if (!m) return null;
     const street = m[1].trim();

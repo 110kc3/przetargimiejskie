@@ -20,6 +20,14 @@ name: 5. Extension CI
 
 on:
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'extension/**'
+      - 'site/archiwum/**'
+      - 'site/alerty/**'
+      - 'pipeline/tests/catalog*.test.js'
+      - '.github/workflows/extension-ci.yml'
   pull_request:
     paths:
       - 'extension/**'
@@ -39,7 +47,7 @@ concurrency:
 jobs:
   extension-ci:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -62,4 +70,18 @@ jobs:
         working-directory: pipeline
         # Targeted: only the two test files that guard the extension artifact,
         # not the global suite. dot reporter matches the repo's `npm test`.
-        run: node --test --test-reporter=dot tests/normalize-parity.test.js tests/extension-version.test.js
+        run: node --test --test-reporter=dot tests/normalize-parity.test.js tests/extension-version.test.js tests/catalog.test.js tests/catalog-background.test.js tests/alert-interest.test.js
+
+      - name: Install browser test dependencies
+        working-directory: pipeline
+        run: |
+          npm ci --silent
+          npx playwright install --with-deps chromium
+
+      - name: Browser checks for national discovery and voluntary interest
+        env:
+          RUN_BROWSER_TESTS: '1'
+          CATALOG_SITE_DIR: /tmp/przetargi-catalog-ci-site
+        run: |
+          bash build-site.sh /tmp/przetargi-catalog-ci-site > /tmp/site-build.log 2>&1 || { cat /tmp/site-build.log; exit 1; }
+          node --test --test-reporter=dot pipeline/tests/catalog-browser.test.js

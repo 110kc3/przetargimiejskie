@@ -852,3 +852,17 @@ test('parseResultDoc: fallbackDate used when the body has no parseable date', ()
   assert.equal(recs.length, 1);
   assert.equal(recs[0].auction_date, '2024-09-10');
 });
+
+test('March 2025 table keeps ordinal, flat, cellar and price columns separate', async () => {
+  const { readFileSync } = await import('node:fs');
+  const text = readFileSync(new URL('../doc-text-cache/17_02_2025_12_05_31_20._ogloszenie_o__iii_przetargu_.doc.a94831f5.txt', import.meta.url), 'utf8');
+  const parser = await import('../src/cities/grudziadz/parse.js');
+  const rows = parser.parseAnnouncement(text);
+  assert.deepEqual(rows.map(r => [r.address.key, r.area_m2, r.starting_price_pln]), [
+    ['zamkowa|15|5', 65.94, 88200], ['zamkowa|15|8', 41.44, 51300],
+  ]);
+  assert.equal(parser.priceFromText('obr. 14.\n\n1 200 000,- złotych'), 1200000);
+  assert.equal(parser.priceFromText('obr. 101.\n\n134.000.00 złotych 13.400,00 złotych'), 134000);
+  assert.equal(parser.priceFromText('obr. 141.\n\n200.000.00 złotych 20.000,00 złotych'), 200000);
+  assert.equal(parser.priceFromText('obrębie 54\n\n133.000,00 \nzłotych'), 133000);
+});

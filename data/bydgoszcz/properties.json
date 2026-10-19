@@ -164,10 +164,10 @@
       ]
     },
     {
-      "key": "l wyczolkowskiego|3|7",
+      "key": "l wyczolkowskiego|3-5|7",
       "street": "L. Wyczółkowskiego",
       "street_norm": "l wyczolkowskiego",
-      "building": "3",
+      "building": "3-5",
       "apt": "7",
       "kind": "mieszkalny",
       "listings": [
@@ -175,7 +175,7 @@
           "date": "2026-08-28",
           "round": 3,
           "kind": "mieszkalny",
-          "starting_price_pln": 210170000,
+          "starting_price_pln": 170000,
           "outcome": "unsold",
           "unsold_reason": "unknown",
           "final_price_pln": null,
@@ -187,7 +187,10 @@
           "area_m2": 26.13
         }
       ],
-      "area_m2": 26.13
+      "area_m2": 26.13,
+      "legacy_keys": [
+        "l wyczolkowskiego|3|7"
+      ]
     },
     {
       "key": "grunwaldzkiej|90|3",
@@ -256,7 +259,7 @@
           "date": "2026-07-09",
           "round": 7,
           "kind": "mieszkalny",
-          "starting_price_pln": 710299000,
+          "starting_price_pln": 299000,
           "outcome": "unsold",
           "unsold_reason": "unknown",
           "final_price_pln": null,
@@ -281,7 +284,7 @@
           "date": "2026-07-09",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": 210200000,
+          "starting_price_pln": 200000,
           "outcome": "unsold",
           "unsold_reason": "unknown",
           "final_price_pln": null,
@@ -350,7 +353,7 @@
           "date": "2026-06-30",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 130200000,
+          "starting_price_pln": 200000,
           "outcome": "unsold",
           "unsold_reason": "unknown",
           "final_price_pln": null,

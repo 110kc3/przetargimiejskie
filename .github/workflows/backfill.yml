@@ -65,6 +65,7 @@ jobs:
         shard: ${{ fromJSON(needs.setup.outputs.shards) }}
     env:
       # Un-bound the budgeted crawlers for the backfill (daily keeps the caps).
+      WALBRZYCH_CRAWL_BUDGET_MS: '300000000'
       KK_CRAWL_BUDGET_MS: '300000000'
       KK_MAX_ARTICLES: '100000'
       BIALYSTOK_CRAWL_BUDGET_MS: '300000000'
@@ -155,7 +156,7 @@ jobs:
             node pipeline/scripts/sanity-check.js "$city"
           done < ready-cities.txt
           CITY_OUTCOMES_PATH=city-outcomes.json node pipeline/src/build-index.js
-          printf '%s\n' data/index.json >> publish-paths.txt
+          printf '%s\n' data/index.json data/catalog.json >> publish-paths.txt
           echo "Backfill artifact bytes: $(du -sb incoming-city | cut -f1)"
           echo "Checkout bytes: $(du -sb . --exclude=.git | cut -f1)"
       - name: Commit and push validated backfill data

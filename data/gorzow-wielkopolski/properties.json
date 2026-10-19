@@ -801,10 +801,10 @@
           "date": "2024-12-05",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 2504,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 230000,
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_5_grudnia.pdf&id=eb0e2c63259878fcd81d6aef6265f276&stats=true",
           "notes": [],
           "area_m2": 37.3
@@ -813,10 +813,10 @@
           "date": "2025-01-30",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": 2504,
+          "starting_price_pln": 140000,
           "outcome": "sold",
           "unsold_reason": null,
-          "final_price_pln": 140000,
+          "final_price_pln": 199000,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_30_stycznia.pdf&id=ee1b200ec4825185c394670fb9da9246&stats=true",
           "notes": [],
           "area_m2": 37.3
@@ -836,10 +836,10 @@
           "date": "2024-09-19",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 11086,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 270000,
+          "starting_price_pln": 270000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_19_wrzesnia.pdf&id=986ddceb824adbc51cbca72a824f4a40&stats=true",
           "notes": [],
           "area_m2": 47.5
@@ -848,10 +848,10 @@
           "date": "2024-11-28",
           "round": 2,
           "kind": "mieszkalny",
-          "starting_price_pln": 11086,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 249000,
+          "starting_price_pln": 249000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_28_listopada.pdf&id=d466b52d19c7c42c6d3a2d3492c60347&stats=true",
           "notes": [],
           "area_m2": 47.5
@@ -860,10 +860,10 @@
           "date": "2025-01-30",
           "round": 3,
           "kind": "mieszkalny",
-          "starting_price_pln": 11086,
+          "starting_price_pln": 205000,
           "outcome": "sold",
           "unsold_reason": null,
-          "final_price_pln": 205000,
+          "final_price_pln": 257000,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu_30_stycznia.pdf&id=ee1b200ec4825185c394670fb9da9246&stats=true",
           "notes": [],
           "area_m2": 47.5
@@ -879,6 +879,26 @@
       "apt": "111",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2024-09-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "final_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 47.2,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_19_wrzesnia.pdf&id=986ddceb824adbc51cbca72a824f4a40&stats=true"
+        },
+        {
+          "date": "2024-11-28",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 235000,
+          "final_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 47.2,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wynikach_przetargow_28_listopada.pdf&id=d466b52d19c7c42c6d3a2d3492c60347&stats=true"
+        },
         {
           "date": "2025-01-30",
           "round": 1,
@@ -1406,6 +1426,16 @@
       "kind": "mieszkalny",
       "listings": [
         {
+          "date": "2024-01-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 550000,
+          "final_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 128.75,
+          "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wynikach_przetargow_na_sprzedaz_nieruchomosci_objetych_ogloszeniem_nr_62.2023.pdf&id=3b751d3cfa5a12b92544421c198a4824&stats=true"
+        },
+        {
           "date": "2024-03-21",
           "round": 1,
           "kind": "mieszkalny",
@@ -1474,9 +1504,9 @@
       "area_m2": 31.11
     },
     {
-      "key": "maja|29|87",
-      "street": "Maja",
-      "street_norm": "maja",
+      "key": "3 maja|29|87",
+      "street": "3 Maja",
+      "street_norm": "3 maja",
       "building": "29",
       "apt": "87",
       "kind": "mieszkalny",
@@ -1485,16 +1515,19 @@
           "date": "2024-01-25",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 3551,
+          "starting_price_pln": 150000,
           "outcome": "sold",
           "unsold_reason": null,
-          "final_price_pln": 150000,
+          "final_price_pln": 170000,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wynikach_przetargow_na_sprzedaz_nieruchomosci_objetych_ogloszeniem_nr_62.2023.pdf&id=3b751d3cfa5a12b92544421c198a4824&stats=true",
           "notes": [],
           "area_m2": 29.3
         }
       ],
-      "area_m2": 29.3
+      "area_m2": 29.3,
+      "legacy_keys": [
+        "maja|29|87"
+      ]
     },
     {
       "key": "korczaka|5A|2",
@@ -1583,10 +1616,10 @@
           "final_price_pln": 188000,
           "source_pdf": "https://bip.um.gorzow.pl/system/pobierz.php?plik=Ogloszenie_Nr_5_II_2023_z_dnia_20.01.2023r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf&id=088ea552425bb85893e976ba268a379a&stats=true",
           "notes": [],
-          "area_m2": 3
+          "area_m2": 38.86
         }
       ],
-      "area_m2": 3
+      "area_m2": 38.86
     },
     {
       "key": "marcinkowskiego|109|13",

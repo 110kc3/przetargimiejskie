@@ -13,6 +13,12 @@
 > the remaining work splits cleanly into agent-executable batches and a short
 > list of Kamil-only account/business actions.
 
+Current implementation update (19 October 2026): the accepted October batch
+repairs the 21 quarantines and delivers national catalogue discovery and extension
+v1.33.0. Local checks pass; hosted recovery, store submission and the actual
+30-day demand gate remain pending. See [TODO.md](TODO.md) and
+[repair evidence](REPAIR-EVIDENCE-2026-10.md). Earlier dated rows are historical.
+
 ## Environment legend
 
 Every item is tagged with where it can run:
@@ -46,10 +52,10 @@ extension, and receives Monday's digest. Health green daily.
 
 | Item | Env | Effort | Status |
 |---|---|---|---|
-| Extension: surface all 55 cities — `background.js` hardcodes 9; make CITIES data-driven off `data/index.json` (EXPANSION §1.6), version bump | [GUI] | M-L | **the main technical T1 item** |
+| National website/extension discovery via compact city catalogue, selected-city loading and bounded caches | [RPI5] + browser | M-L | **implemented 2026-10-19**, v1.33.0; hosted/store acceptance pending |
 | DECISION: "Silesian" → national positioning (unblocks the 3 copy items below) | [ACCOUNT] | XS | Kamil |
-| PRIVACY.md refresh (still Gliwice-only) — required for store resubmit | [RPI5] draft + Kamil approve | S | blocked on rebrand decision |
-| WEB_STORE_LISTING.md refresh (says 9 cities; reality 55, v1.32.0 features) | [RPI5] | S | blocked on rebrand decision |
+| PRIVACY.md and website analytics disclosure | [RPI5] | S | **updated 2026-10-19**; no extension analytics or new host permissions |
+| WEB_STORE_LISTING.md and real current browser captures | [RPI5] + account submission | S | **v1.33.0 draft prepared 2026-10-19**; owner submits |
 | Chrome Web Store submit (live v1.3.3 vs local v1.32.0 — ~5 weeks unpublished). Recommended: bundle with the 55-city rework, one review cycle | [ACCOUNT] | S + review wait | Kamil — **the distribution unlock** |
 | ~~Widen `PUBLIC_VOIVODESHIPS` beyond Śląskie~~ — **DONE 2026-07-27.** Gate is national (`null`); `MIN_PUBLIC_AUCTIONS`=10 unlists thin cities automatically. 54 cities / 15 voivodeships / 2 273 sitemap URLs | — | — | shipped |
 | Google Search Console: verify domain, submit sitemap (after gate widening) | [ACCOUNT] | XS | Kamil |
@@ -73,8 +79,7 @@ All [RPI5] — dispatch via the `przetargi-city-triage` skill
 2. **Phase B1/B2 in review:** national data gates and hosted shards with a single
    validated publisher are implemented. Adapters requiring residential egress
    remain excluded; no local runner, Tailscale or private proxy is introduced.
-3. **Next:** repair the 21 dated validation-quarantine datasets, audit source and
-   asset coverage for the current 121 cities, then deliver Phase B3 discovery.
+3. **October implementation:** all 21 quarantines are repaired and B3 discovery is implemented. Complete the recorded hosted/source acceptance before selecting any next expansion batch.
 4. **Build the known queue:** 50 BUILD-ready cities after the Phase B gates.
 5. **Review and research:** reassess 165 historic exclusions for the broader asset
    scope, then survey the 690 unresearched official cities in measured batches.

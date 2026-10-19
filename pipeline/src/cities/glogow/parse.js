@@ -384,11 +384,17 @@ export function addressRawFromText(plainText) {
   if (!m) return null;
   const street = foldStreet(m[1], m[2]);
   const building = m[3];
-  const apt = unitNoFromText(t);
+  const inlineUnit = /^\s*\/\s*(\d+[A-Za-z]?)/.exec(t.slice(m.index + m[0].length));
+  const apt = inlineUnit?.[1] || unitNoFromText(t);
   if (apt) return `${street} ${building}/${apt}`;
   const garageNo = garageNoFromText(t);
   if (garageNo) return `${street} ${building} garaż nr ${garageNo}`;
   return `${street} ${building}`;
+}
+
+export function ownershipShare(text) {
+  const match = /udzia[łl]\w*\s+(?:wynosz[ąa]c\w*\s+)?(\d+\s*\/\s*\d+)\s+w\s+prawie\s+w[łl]asno[śs]ci\s*:?\s*lokal/i.exec(text || '');
+  return match ? match[1].replace(/\s/g, '') : null;
 }
 
 /** Land street name (context/display for a parcel-keyed record), or null. */
@@ -509,6 +515,7 @@ function buildAnnouncementRecord(chunk, kind, round, auction_date) {
     address_raw,
     address,
     area_m2: unitAreaFromText(chunk),
+    ...(ownershipShare(chunk) ? { share: ownershipShare(chunk) } : {}),
     starting_price_pln,
     auction_date,
     round,
@@ -655,6 +662,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
       outcome: sold ? 'sold' : 'unsold',
       unsold_reason: sold ? null : 'unknown',
       area_m2: unitAreaFromText(body),
+      ...(ownershipShare(body) ? { share: ownershipShare(body) } : {}),
       notes,
     },
   ];

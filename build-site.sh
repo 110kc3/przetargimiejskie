@@ -16,10 +16,11 @@ OUT="${1:-_site}"
 rm -rf "$OUT"
 mkdir -p "$OUT"
 
+cp extension/catalog.js extension/catalog.css "$OUT"/
 cp -r site/. "$OUT"/            # landing + /archiwum + /raporty + /privacy (CNAME copied too; harmless on CF)
 # /archiwum-all = a build-time copy of /archiwum. The archive JS detects the
-# "archiwum-all" path and shows EVERY voivodeship there (private test view),
-# while the public /archiwum stays Śląskie-only. One codebase, two endpoints.
+# "archiwum-all" path and adds the institutional provider pilot there. Both
+# endpoints use the national municipal catalogue. One codebase, two endpoints.
 cp -r "$OUT/archiwum" "$OUT/archiwum-all"
 cp -r data "$OUT"/data         # JSON the web pages fetch at /data/<city>/...
 

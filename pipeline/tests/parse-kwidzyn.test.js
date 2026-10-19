@@ -305,3 +305,13 @@ test('parseResultDoc: an announcement (no result markers) and empty input both r
   assert.deepEqual(parseResultDoc('', null, 'x'), []);
   assert.deepEqual(parseResultDoc(null, null, 'x'), []);
 });
+
+test('result 127118 never labels a parcel hectare figure as flat square metres', async () => {
+  const { readFileSync } = await import('node:fs');
+  const parser = await import('../src/cities/kwidzyn/parse.js');
+  const text = readFileSync(new URL('../ocr-cache/e_pobierz_get.html_id_127118.8fe4133d.txt', import.meta.url), 'utf8');
+  const rows = parser.parseResultDoc(text, '2025-04-04', 'https://bip.kwidzyn.pl/e,pobierz,get.html?id=127118');
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].area_m2, null);
+  assert.equal(rows[0].starting_price_pln, 89000);
+});

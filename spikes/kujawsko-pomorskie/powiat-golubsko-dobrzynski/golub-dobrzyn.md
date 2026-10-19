@@ -78,3 +78,7 @@ Both entities do NOT restrict flat sales exclusively to bezprzetargowy tryb for 
 - Standard bip.net HTML, achieved price confirmed in result notices
 - Effort is "Medium" only because of dual-publisher setup; each individual feed is Low
 - Recommend implementing powiat feed first (higher confirmed volume, result pages verified), then city feed
+
+## Source repair recheck — 19 October 2026
+
+Geometry-based scanned multi-flat table repair; isolated live probe: 10 property / 6 land records. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.

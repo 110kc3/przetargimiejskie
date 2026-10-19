@@ -4,48 +4,6 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Ciupagi 2F/22",
-      "address": {
-        "street": "Ciupagi",
-        "street_norm": "ciupagi",
-        "building": "2F",
-        "apt": "22",
-        "key": "ciupagi|2F|22",
-        "warning": null
-      },
-      "auction_date": null,
-      "published_date": "2026-10-16",
-      "round": 1,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/163395/269043",
-      "eto_nr": "20424/2026",
-      "source": "amw",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Ciupagi 2C/9",
-      "address": {
-        "street": "Ciupagi",
-        "street_norm": "ciupagi",
-        "building": "2C",
-        "apt": "9",
-        "key": "ciupagi|2C|9",
-        "warning": null
-      },
-      "auction_date": null,
-      "published_date": "2026-10-16",
-      "round": 1,
-      "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://eto.um.warszawa.pl/announcement/attachment/163393/269034",
-      "eto_nr": "20422/2026",
-      "source": "amw",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Ogłoszenia o przetargach lokali mieszkalnych nr 18 i 19 przy ul. Marszałkowskiej 81",
       "address": null,
       "auction_date": null,

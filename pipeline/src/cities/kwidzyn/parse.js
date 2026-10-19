@@ -260,7 +260,7 @@ function extractArea(text, kind) {
   // Flat / house / commercial — the "łączna pow. użytkowa <decimal>" figure.
   const uzyt = /u[żz]ytkow\w*[^\d]{0,12}(\d+[.,]\d+)/i.exec(text);
   if (uzyt) return parseArea(uzyt[1]);
-  const bare = /o\s+(?:[łl][ąa]cznej\s+)?pow\w*\.?[^\d]{0,12}(\d+[.,]\d+)/i.exec(text);
+  const bare = /o\s+(?:[łl][ąa]cznej\s+)?pow\w*\.?[^\d]{0,12}(\d+[.,]\d+)\s*m(?=[²2?*"”\s.,;]|$)/i.exec(text);
   return bare ? parseArea(bare[1]) : null;
 }
 

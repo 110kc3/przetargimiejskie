@@ -216,6 +216,7 @@ export function auctionDateFromText(text) {
   const t = whole(text);
   const patterns = [
     new RegExp(String.raw`odb[ęe]dzie\s+si[ęe]\s+(?:w\s+dniu|dnia)\s+${DATE_TOKEN}`, 'i'),
+    new RegExp(String.raw`odb[ęe]dzie\s+si[ęe][\s\S]{0,300}?(?:w\s+dniu|dnia)\s+${DATE_TOKEN}`, 'i'),
     new RegExp(String.raw`odby[łl]\s+si[ęe]\s+(?:w\s+dniu|dnia)\s+${DATE_TOKEN}`, 'i'),
     new RegExp(String.raw`przeprowadzon\w*\s+(?:w\s+dniu|dnia)\s+${DATE_TOKEN}`, 'i'),
     new RegExp(String.raw`\bw\s+dniu\s+${DATE_TOKEN}\s+o\s+godz`, 'i'),

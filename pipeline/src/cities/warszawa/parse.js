@@ -90,7 +90,10 @@ const ROMAN_PRE_RE = /(?:\b(I{1,3}|IV|VI{0,3}|IX|X)\s+przetarg|\((I{1,3}|IV|VI{0
 const ROMAN_MAP = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 
 export function roundFromText(text) {
-  const t = text || '';
+  // Operative declaration precedes any prior-round recap, whose Roman I
+  // must not override an OCR-damaged '(li)' on the announced second round.
+  const declaration=/og[łl]asza[\s\S]{0,120}?przetarg/i.exec(text || '')?.[0];
+  const t = declaration ? declaration.replace(/\([^)]{1,5}\)/g, ' ') : (text || '');
   const rm = ROMAN_PRE_RE.exec(t);
   if (rm) {
     const r = ROMAN_MAP[(rm[1] || rm[2]).toUpperCase()];
@@ -308,8 +311,9 @@ export function parseAmwPdfText(ocrText) {
   if (primaryCandidates.length) starting_price_pln = primaryCandidates[0];
   else if (fallbackCandidates.length) starting_price_pln = fallbackCandidates[0];
 
-  // Area: "Powierzchnia lokalu | X,XX m2" or "o powierzchni X,XX m*"
-  const areaRe1 = /(?:powierzchni\w*\s+lokalu[^|\n]{0,30}[|:]?\s*|o\s+powierzchni\s+)([\d]+[.,][\d]+)\s*m[*2?]/i;
+  // Prefer the labelled unit row or the explicit flat description. A generic
+  // "o powierzchni" may refer to the cellar before the unit description.
+  const areaRe1 = /powierzchni\w*\s+lokalu\s*[|:]?\s*([\d]+[.,][\d]+)\s*m/i;
   const areaRe2 = /lokal\w*\s+(?:mieszkaln\w+\s+)?(?:nr\s+\d+\w*\s+)?[o0]\s+powierzchni\s+([\d]+[.,][\d]+)\s*m/i;
   const areaM = areaRe1.exec(t) || areaRe2.exec(t);
   const area_m2 = areaM ? parseArea(areaM[1]) : null;

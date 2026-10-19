@@ -69,13 +69,24 @@
       "area_m2": 118.34
     },
     {
-      "key": "uwaga zmiana terminu przetargu ulica krupnicza|3|7",
-      "street": "UWAGA! ZMIANA TERMINU PRZETARGU! ulica Krupnicza",
-      "street_norm": "uwaga zmiana terminu przetargu ulica krupnicza",
+      "key": "krupnicza|3|7",
+      "street": "Krupnicza",
+      "street_norm": "krupnicza",
       "building": "3",
       "apt": "7",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2026-09-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1065000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/ulica-krupnicza-3-lokal-7",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
         {
           "date": "2026-10-26",
           "round": 1,
@@ -87,6 +98,9 @@
           "wadium_deadline": null,
           "viewing_date": null
         }
+      ],
+      "legacy_keys": [
+        "uwaga zmiana terminu przetargu ulica krupnicza|3|7"
       ]
     },
     {
@@ -112,11 +126,11 @@
       "area_m2": 104.94
     },
     {
-      "key": "miernicza 9 lokal|12-14|",
-      "street": "Miernicza 9 lokal",
-      "street_norm": "miernicza 9 lokal",
-      "building": "12-14",
-      "apt": null,
+      "key": "miernicza|9|12-14",
+      "street": "Miernicza",
+      "street_norm": "miernicza",
+      "building": "9",
+      "apt": "12-14",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -131,14 +145,17 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 73.24
+      "area_m2": 73.24,
+      "legacy_keys": [
+        "miernicza 9 lokal|12-14|"
+      ]
     },
     {
-      "key": "piastowska 30 lokal|1-1A|",
-      "street": "Piastowska 30 lokal",
-      "street_norm": "piastowska 30 lokal",
-      "building": "1-1A",
-      "apt": null,
+      "key": "piastowska|30|1-1A",
+      "street": "Piastowska",
+      "street_norm": "piastowska",
+      "building": "30",
+      "apt": "1-1A",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -153,7 +170,10 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 93.76
+      "area_m2": 93.76,
+      "legacy_keys": [
+        "piastowska 30 lokal|1-1A|"
+      ]
     },
     {
       "key": "nowodworska|8|8",
@@ -354,27 +374,6 @@
       "area_m2": 108.87
     },
     {
-      "key": "krupnicza|3|7",
-      "street": "Krupnicza",
-      "street_norm": "krupnicza",
-      "building": "3",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-23",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 1065000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.um.wroc.pl/przetarg-nieruchomosci/90981/ulica-krupnicza-3-lokal-7",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
       "key": "przestrzenna|42|11",
       "street": "Przestrzenna",
       "street_norm": "przestrzenna",
@@ -397,11 +396,11 @@
       "area_m2": 83.17
     },
     {
-      "key": "przestrzenna 41 lokal|4-4A|",
-      "street": "Przestrzenna 41 lokal",
-      "street_norm": "przestrzenna 41 lokal",
-      "building": "4-4A",
-      "apt": null,
+      "key": "przestrzenna|41|4-4A",
+      "street": "Przestrzenna",
+      "street_norm": "przestrzenna",
+      "building": "41",
+      "apt": "4-4A",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -416,14 +415,17 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 149.25
+      "area_m2": 149.25,
+      "legacy_keys": [
+        "przestrzenna 41 lokal|4-4A|"
+      ]
     },
     {
-      "key": "plac gen jozefa bema 4 lokal|8-8A|",
-      "street": "Plac gen. Józefa Bema 4 lokal",
-      "street_norm": "plac gen jozefa bema 4 lokal",
-      "building": "8-8A",
-      "apt": null,
+      "key": "plac gen jozefa bema|4|8-8A",
+      "street": "Plac gen. Józefa Bema",
+      "street_norm": "plac gen jozefa bema",
+      "building": "4",
+      "apt": "8-8A",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -438,7 +440,10 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 109.49
+      "area_m2": 109.49,
+      "legacy_keys": [
+        "plac gen jozefa bema 4 lokal|8-8A|"
+      ]
     },
     {
       "key": "rogowskiej|138|18",
@@ -759,9 +764,9 @@
       "area_m2": 37.46
     },
     {
-      "key": "grudzi x105 dzka|85|3",
-      "street": "Grudzi&#x105;dzka",
-      "street_norm": "grudzi x105 dzka",
+      "key": "grudziadzka|85|3",
+      "street": "Grudziądzka",
+      "street_norm": "grudziadzka",
       "building": "85",
       "apt": "3",
       "kind": "mieszkalny",
@@ -779,7 +784,10 @@
           "area_m2": 49.86
         }
       ],
-      "area_m2": 49.86
+      "area_m2": 49.86,
+      "legacy_keys": [
+        "grudzi x105 dzka|85|3"
+      ]
     },
     {
       "key": "chocimska|5|1",
@@ -805,9 +813,9 @@
       "area_m2": 47.7
     },
     {
-      "key": "grudzi x105 dzka|69|10",
-      "street": "Grudzi&#x105;dzka",
-      "street_norm": "grudzi x105 dzka",
+      "key": "grudziadzka|69|10",
+      "street": "Grudziądzka",
+      "street_norm": "grudziadzka",
       "building": "69",
       "apt": "10",
       "kind": "mieszkalny",
@@ -825,12 +833,15 @@
           "area_m2": 52.06
         }
       ],
-      "area_m2": 52.06
+      "area_m2": 52.06,
+      "legacy_keys": [
+        "grudzi x105 dzka|69|10"
+      ]
     },
     {
-      "key": "marii curie sk x142 odowskiej|3|7",
-      "street": "Marii Curie-Sk&#x142;odowskiej",
-      "street_norm": "marii curie sk x142 odowskiej",
+      "key": "marii curie sklodowskiej|3|7",
+      "street": "Marii Curie-Skłodowskiej",
+      "street_norm": "marii curie sklodowskiej",
       "building": "3",
       "apt": "7",
       "kind": "mieszkalny",
@@ -848,12 +859,15 @@
           "area_m2": 85.91
         }
       ],
-      "area_m2": 85.91
+      "area_m2": 85.91,
+      "legacy_keys": [
+        "marii curie sk x142 odowskiej|3|7"
+      ]
     },
     {
-      "key": "x17b migrodzka|48|20",
-      "street": "&#x17B;migrodzka",
-      "street_norm": "x17b migrodzka",
+      "key": "zmigrodzka|48|20",
+      "street": "Żmigrodzka",
+      "street_norm": "zmigrodzka",
       "building": "48",
       "apt": "20",
       "kind": "mieszkalny",
@@ -871,7 +885,10 @@
           "area_m2": 72.18
         }
       ],
-      "area_m2": 72.18
+      "area_m2": 72.18,
+      "legacy_keys": [
+        "x17b migrodzka|48|20"
+      ]
     },
     {
       "key": "zgodna|17|1",
@@ -897,9 +914,9 @@
       "area_m2": 87.68
     },
     {
-      "key": "aleja gen j xf3 zefa hallera|146|3",
-      "street": "Aleja Gen. J&#xF3;zefa Hallera",
-      "street_norm": "aleja gen j xf3 zefa hallera",
+      "key": "aleja gen jozefa hallera|146|3",
+      "street": "Aleja Gen. Józefa Hallera",
+      "street_norm": "aleja gen jozefa hallera",
       "building": "146",
       "apt": "3",
       "kind": "mieszkalny",
@@ -917,7 +934,10 @@
           "area_m2": 66.79
         }
       ],
-      "area_m2": 66.79
+      "area_m2": 66.79,
+      "legacy_keys": [
+        "aleja gen j xf3 zefa hallera|146|3"
+      ]
     },
     {
       "key": "wojciecha cybulskiego|26|6",
@@ -1104,9 +1124,9 @@
       "area_m2": 64.43
     },
     {
-      "key": "k x142 o x15b na|11|7",
-      "street": "K&#x142;o&#x15B;na",
-      "street_norm": "k x142 o x15b na",
+      "key": "klosna|11|7",
+      "street": "Kłośna",
+      "street_norm": "klosna",
       "building": "11",
       "apt": "7",
       "kind": "mieszkalny",
@@ -1124,7 +1144,10 @@
           "area_m2": 90.31
         }
       ],
-      "area_m2": 90.31
+      "area_m2": 90.31,
+      "legacy_keys": [
+        "k x142 o x15b na|11|7"
+      ]
     },
     {
       "key": "krynicka|92|11",
@@ -1196,9 +1219,9 @@
       "area_m2": 42.5
     },
     {
-      "key": "kr x119 picka|48|1",
-      "street": "Kr&#x119;picka",
-      "street_norm": "kr x119 picka",
+      "key": "krepicka|48|1",
+      "street": "Krępicka",
+      "street_norm": "krepicka",
       "building": "48",
       "apt": "1",
       "kind": "mieszkalny",
@@ -1216,7 +1239,10 @@
           "area_m2": 75.06
         }
       ],
-      "area_m2": 75.06
+      "area_m2": 75.06,
+      "legacy_keys": [
+        "kr x119 picka|48|1"
+      ]
     },
     {
       "key": "lniana|22|10",
@@ -1242,9 +1268,9 @@
       "area_m2": 38.32
     },
     {
-      "key": "kr x119 picka|48|5",
-      "street": "Kr&#x119;picka",
-      "street_norm": "kr x119 picka",
+      "key": "krepicka|48|5",
+      "street": "Krępicka",
+      "street_norm": "krepicka",
       "building": "48",
       "apt": "5",
       "kind": "mieszkalny",
@@ -1262,7 +1288,10 @@
           "area_m2": 21.49
         }
       ],
-      "area_m2": 21.49
+      "area_m2": 21.49,
+      "legacy_keys": [
+        "kr x119 picka|48|5"
+      ]
     },
     {
       "key": "aleksandra ostrowskiego|1|61",
@@ -1288,9 +1317,9 @@
       "area_m2": 19.88
     },
     {
-      "key": "miko x142 aja reja|25|1",
-      "street": "Miko&#x142;aja Reja",
-      "street_norm": "miko x142 aja reja",
+      "key": "mikolaja reja|25|1",
+      "street": "Mikołaja Reja",
+      "street_norm": "mikolaja reja",
       "building": "25",
       "apt": "1",
       "kind": "mieszkalny",
@@ -1308,12 +1337,15 @@
           "area_m2": 91.64
         }
       ],
-      "area_m2": 91.64
+      "area_m2": 91.64,
+      "legacy_keys": [
+        "miko x142 aja reja|25|1"
+      ]
     },
     {
-      "key": "plac legion xf3 w|13|14",
-      "street": "Plac Legion&#xF3;w",
-      "street_norm": "plac legion xf3 w",
+      "key": "plac legionow|13|14",
+      "street": "Plac Legionów",
+      "street_norm": "plac legionow",
       "building": "13",
       "apt": "14",
       "kind": "mieszkalny",
@@ -1331,7 +1363,10 @@
           "area_m2": 33.48
         }
       ],
-      "area_m2": 33.48
+      "area_m2": 33.48,
+      "legacy_keys": [
+        "plac legion xf3 w|13|14"
+      ]
     },
     {
       "key": "szewska|52|1",
@@ -1357,9 +1392,9 @@
       "area_m2": 31.47
     },
     {
-      "key": "x141 ukasza g xf3 rnickiego|4|3",
-      "street": "&#x141;ukasza G&#xF3;rnickiego",
-      "street_norm": "x141 ukasza g xf3 rnickiego",
+      "key": "lukasza gornickiego|4|3",
+      "street": "Łukasza Górnickiego",
+      "street_norm": "lukasza gornickiego",
       "building": "4",
       "apt": "3",
       "kind": "mieszkalny",
@@ -1377,12 +1412,15 @@
           "area_m2": 32.44
         }
       ],
-      "area_m2": 32.44
+      "area_m2": 32.44,
+      "legacy_keys": [
+        "x141 ukasza g xf3 rnickiego|4|3"
+      ]
     },
     {
-      "key": "plac legion xf3 w|12|6",
-      "street": "Plac Legion&#xF3;w",
-      "street_norm": "plac legion xf3 w",
+      "key": "plac legionow|12|6",
+      "street": "Plac Legionów",
+      "street_norm": "plac legionow",
       "building": "12",
       "apt": "6",
       "kind": "mieszkalny",
@@ -1400,12 +1438,15 @@
           "area_m2": 33.48
         }
       ],
-      "area_m2": 33.48
+      "area_m2": 33.48,
+      "legacy_keys": [
+        "plac legion xf3 w|12|6"
+      ]
     },
     {
-      "key": "jemio x142 owa|62|13",
-      "street": "Jemio&#x142;owa",
-      "street_norm": "jemio x142 owa",
+      "key": "jemiolowa|62|13",
+      "street": "Jemiołowa",
+      "street_norm": "jemiolowa",
       "building": "62",
       "apt": "13",
       "kind": "mieszkalny",
@@ -1423,12 +1464,15 @@
           "area_m2": 51.31
         }
       ],
-      "area_m2": 51.31
+      "area_m2": 51.31,
+      "legacy_keys": [
+        "jemio x142 owa|62|13"
+      ]
     },
     {
-      "key": "sp xf3 x142 dzielcza|38|6",
-      "street": "Sp&#xF3;&#x142;dzielcza",
-      "street_norm": "sp xf3 x142 dzielcza",
+      "key": "spoldzielcza|38|6",
+      "street": "Spółdzielcza",
+      "street_norm": "spoldzielcza",
       "building": "38",
       "apt": "6",
       "kind": "mieszkalny",
@@ -1446,12 +1490,15 @@
           "area_m2": 28.9
         }
       ],
-      "area_m2": 28.9
+      "area_m2": 28.9,
+      "legacy_keys": [
+        "sp xf3 x142 dzielcza|38|6"
+      ]
     },
     {
-      "key": "in x17c ynierska|82|37",
-      "street": "In&#x17C;ynierska",
-      "street_norm": "in x17c ynierska",
+      "key": "inzynierska|82|37",
+      "street": "Inżynierska",
+      "street_norm": "inzynierska",
       "building": "82",
       "apt": "37",
       "kind": "mieszkalny",
@@ -1469,14 +1516,17 @@
           "area_m2": 26.8
         }
       ],
-      "area_m2": 26.8
+      "area_m2": 26.8,
+      "legacy_keys": [
+        "in x17c ynierska|82|37"
+      ]
     },
     {
-      "key": "tadeusza ko x15b ciuszki 142 3a|3B|",
-      "street": "Tadeusza Ko&#x15B;ciuszki 142/3A,",
-      "street_norm": "tadeusza ko x15b ciuszki 142 3a",
-      "building": "3B",
-      "apt": null,
+      "key": "tadeusza kosciuszki|142|3A-3B",
+      "street": "Tadeusza Kościuszki",
+      "street_norm": "tadeusza kosciuszki",
+      "building": "142",
+      "apt": "3A-3B",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -1492,13 +1542,16 @@
           "area_m2": 203.66
         }
       ],
-      "area_m2": 203.66
+      "area_m2": 203.66,
+      "legacy_keys": [
+        "tadeusza ko x15b ciuszki 142 3a|3B|"
+      ]
     },
     {
-      "key": "zdrowa 7 9 11|13|5",
-      "street": "Zdrowa 7, 9, 11,",
-      "street_norm": "zdrowa 7 9 11",
-      "building": "13",
+      "key": "zdrowa|7,9,11,13|5",
+      "street": "Zdrowa",
+      "street_norm": "zdrowa",
+      "building": "7,9,11,13",
       "apt": "5",
       "kind": "mieszkalny",
       "listings": [
@@ -1515,12 +1568,15 @@
           "area_m2": 24
         }
       ],
-      "area_m2": 24
+      "area_m2": 24,
+      "legacy_keys": [
+        "zdrowa 7 9 11|13|5"
+      ]
     },
     {
-      "key": "o x142 awska|1|6",
-      "street": "O&#x142;awska",
-      "street_norm": "o x142 awska",
+      "key": "olawska|1|6",
+      "street": "Oławska",
+      "street_norm": "olawska",
       "building": "1",
       "apt": "6",
       "kind": "mieszkalny",
@@ -1538,12 +1594,15 @@
           "area_m2": 29.34
         }
       ],
-      "area_m2": 29.34
+      "area_m2": 29.34,
+      "legacy_keys": [
+        "o x142 awska|1|6"
+      ]
     },
     {
-      "key": "mi x142 ostowska|30|3",
-      "street": "Mi&#x142;ostowska",
-      "street_norm": "mi x142 ostowska",
+      "key": "milostowska|30|3",
+      "street": "Miłostowska",
+      "street_norm": "milostowska",
       "building": "30",
       "apt": "3",
       "kind": "mieszkalny",
@@ -1561,7 +1620,10 @@
           "area_m2": 37.37
         }
       ],
-      "area_m2": 37.37
+      "area_m2": 37.37,
+      "legacy_keys": [
+        "mi x142 ostowska|30|3"
+      ]
     }
   ]
 }

@@ -363,3 +363,13 @@ test('parseResultDoc: unsold land — parcel key, round, no achieved price, expl
   assert.equal(rec.outcome, 'unsold');
   assert.equal(rec.auction_date, '2026-07-02');
 });
+
+test('joint ownership header uses the explicitly named physical building for flat 8', async () => {
+  const { readFileSync } = await import('node:fs');
+  const text = readFileSync(new URL('../pdf-text-cache/51986.f9042bdd.txt', import.meta.url), 'utf8');
+  const rows = parseAnnouncement(text);
+  assert.equal(rows.length, 4);
+  assert.equal(rows[1].address.key, 'plac ks kard stefana wyszynskiego|38|8');
+  assert.equal(rows[1].area_m2, 43.8);
+  assert.equal(rows[1].starting_price_pln, 225000);
+});

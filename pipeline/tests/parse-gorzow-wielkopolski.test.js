@@ -621,3 +621,27 @@ test('title → auction date for crawl refs (flats archive item)', () => {
   const flats = items.find((i) => /lokali mieszkalnych/.test(i.title));
   assert.equal(resultDateFromText(flats.title), '2026-02-05');
 });
+
+test('result 5 December 2024 excludes the 2.504 m² parcel from price columns', async () => {
+  const { readFileSync } = await import('node:fs');
+  const parser = await import('../src/cities/gorzow-wielkopolski/parse.js');
+  const text = readFileSync(new URL('../pdf-text-cache/pobierz.php_plik_informacja_o_wyniku_przetargu_5_grudnia.pdf_id_eb0e2c63259878fcd81d6aef6265f276_stats_true.4a537719.txt', import.meta.url), 'utf8');
+  const rows = parser.parseResultDoc(text, '2024-12-05', 'sample://official-gorzow-result');
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].address.key, 'walczaka|13|82');
+  assert.equal(rows[0].starting_price_pln, 230000);
+  assert.equal(rows[0].final_price_pln, null);
+  assert.equal(rows[0].area_m2, 37.3);
+});
+
+test('2023 OCR rows retain their own area, prices, result and ownership fractions', async () => {
+  const { readFileSync } = await import('node:fs');
+  const text = readFileSync(new URL('../ocr-cache/pobierz.php_plik_Ogloszenie_Nr_5_II_2023_z_dnia_20.01.2023r._-_informacja_o_wyniku_przetargow_ustnych_nieograniczonych_na_sprzedaz_lokali_mieszkalnych.pdf_id_088ea552425bb85893e976ba268a379a_stats_true.3ad70e75.txt', import.meta.url), 'utf8');
+  const rows = parseResultDoc(text, '2023-03-03', 'sample://official-2023-result');
+  assert.deepEqual(rows.map(r => [r.address.key, r.area_m2, r.starting_price_pln, r.final_price_pln]), [
+    ['mickiewicza|28|12', 31.49, 105000, null],
+    ['wawrzyniaka|76|4A', 32.98, 110000, 139000],
+    ['marcinkowskiego|10G|13', 38.86, 170000, 188000],
+    ['8 maja|1C|9', 47.8, 175000, 195000],
+  ]);
+});

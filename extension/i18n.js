@@ -422,5 +422,11 @@
   };
   function wojOf(city) { return city ? (WOJ[city] || null) : null; }
 
-  window.ZGM_I18N = { t, getLang, setLang, onChange, ready, WOJ, wojOf };
+  function setCatalog(catalog) {
+    for (const c of catalog.cities || []) if (c.pipeline_id) {
+      WOJ[c.pipeline_id] = c.voivodeship;
+      for (const language of ['pl','en']) STRINGS[language]['city.' + c.pipeline_id] = c.label;
+    }
+  }
+  window.ZGM_I18N = { t, getLang, setLang, onChange, ready, WOJ, wojOf, setCatalog };
 })();

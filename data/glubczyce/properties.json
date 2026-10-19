@@ -202,40 +202,6 @@
       "area_m2": 49.7
     },
     {
-      "key": "braciszow 144_3 i|144|6",
-      "street": "Braciszow 144_3 I",
-      "street_norm": "braciszow 144_3 i",
-      "building": "144",
-      "apt": "6",
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2025-10-07",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 82333,
-          "outcome": "unsold",
-          "unsold_reason": "no_participants",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27279/braciszow-144_3-i-144_6-1p-2025-10-13.doc?v=1760354240",
-          "notes": []
-        },
-        {
-          "date": "2025-11-18",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": null,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 63263,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/27575/braciszow-144_3-i-144_6-2p-2025-11-26.doc?v=1764154189",
-          "notes": [
-            "parse: missing/garbled starting price"
-          ]
-        }
-      ]
-    },
-    {
       "key": "debrzyca|431|10",
       "street": "Debrzyca",
       "street_norm": "debrzyca",
@@ -427,29 +393,6 @@
       ]
     },
     {
-      "key": "klisino 624|2025|",
-      "street": "Klisino 624",
-      "street_norm": "klisino 624",
-      "building": "2025",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-03-04",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/26122/klisino-624-2025.doc?v=1741691256",
-          "notes": [
-            "parse: missing/garbled starting price"
-          ]
-        }
-      ]
-    },
-    {
       "key": "boleslawa chrobrego|1|2",
       "street": "Boleslawa Chrobrego",
       "street_norm": "boleslawa chrobrego",
@@ -496,38 +439,6 @@
       "area_m2": 26.5
     },
     {
-      "key": "raciborska 1382 1383 i|1384|",
-      "street": "Raciborska 1382 1383 I",
-      "street_norm": "raciborska 1382 1383 i",
-      "building": "1384",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2024-03-26",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 3686626,
-          "outcome": "unsold",
-          "unsold_reason": "no_participants",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24127/raciborska-1382-1383-i-1384-4p-2024-03-26.doc?v=1712214038",
-          "notes": []
-        },
-        {
-          "date": "2024-11-05",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 4000000,
-          "outcome": "unsold",
-          "unsold_reason": "no_participants",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25781/raciborska-1382-1383-i-1384-1p-2024-11-05.doc?v=1733312560",
-          "notes": []
-        }
-      ]
-    },
-    {
       "key": "nakielska|11|",
       "street": "Nakielska",
       "street_norm": "nakielska",
@@ -536,15 +447,28 @@
       "kind": "zabudowana",
       "listings": [
         {
-          "date": "2024-07-02",
-          "round": 2,
+          "date": "2024-05-24",
+          "round": 1,
           "kind": "zabudowana",
-          "starting_price_pln": 225000,
-          "outcome": "archived",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24302/tarnow-opolski-nakielska-11.doc?v=1716818570",
+          "notes": []
+        },
+        {
+          "date": "2024-07-02",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 200000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 202000,
+          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25249/tarnow-opolski-nakielska-11-3p.doc?v=1725964031",
+          "notes": [],
           "area_m2": 108,
-          "detail_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.glubczyce.pl/download/attachment/24305/35.doc?v=1716881893"
         },
         {
           "date": "2024-08-30",
@@ -558,38 +482,9 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 108
-    },
-    {
-      "key": "tarnow opolski nakielska|11|",
-      "street": "Tarnow Opolski Nakielska",
-      "street_norm": "tarnow opolski nakielska",
-      "building": "11",
-      "apt": null,
-      "kind": "garaz",
-      "listings": [
-        {
-          "date": "2024-05-24",
-          "round": 1,
-          "kind": "garaz",
-          "starting_price_pln": 250000,
-          "outcome": "unsold",
-          "unsold_reason": "no_participants",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/24302/tarnow-opolski-nakielska-11.doc?v=1716818570",
-          "notes": []
-        },
-        {
-          "date": "2024-07-02",
-          "round": 3,
-          "kind": "garaz",
-          "starting_price_pln": 0,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 202000,
-          "source_pdf": "https://bip.glubczyce.pl/download/attachment/25249/tarnow-opolski-nakielska-11-3p.doc?v=1725964031",
-          "notes": []
-        }
+      "area_m2": 108,
+      "legacy_keys": [
+        "tarnow opolski nakielska|11|"
       ]
     },
     {

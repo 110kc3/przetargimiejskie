@@ -7,7 +7,7 @@
 > [REMOTE.md](./REMOTE.md), residential-egress operating policy in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
 > [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md) (1,026 official cities ·
-> 121 monitored · 50 BUILD-ready · 690 unresearched).
+> 121 enabled feeds · 50 BUILD-ready · 690 unresearched).
 >
 > Recently shipped (see git log, not re-listed here): the entire 3-July handover
 > landed in `45dcb09` (extension CI, P2-D verified-heals in refresh, TG PDF
@@ -50,6 +50,53 @@
 > desktop Chrome · **[ACCOUNT]** Kamil-only account/business action.
 
 ## 1 · Ops / health
+
+### Accepted implementation batch — 18 October 2026
+
+The owner selected review recommendations **1, 2, 3 and 4**, with push after the
+implementation batch. **Implementation completed locally 19 October; hosted
+acceptance is pending the impending push.** Evidence: [REPAIR-EVIDENCE-2026-10.md](REPAIR-EVIDENCE-2026-10.md).
+
+1. **Feed repair implemented and source-probed.** Gliwice, Gniezno, Rawa Mazowiecka
+   and Golub-Dobrzyń return real rows in isolated live probes. Wałbrzych now bounds
+   result work and exposes incomplete results as degraded. Poddębice's expired
+   source certificate and Świętochłowice's hosted connection timeouts remain visible
+   upstream conditions. Other empty/degraded streams were investigated and are
+   not relabelled as valid-empty without source proof. No local crawl was published.
+2. **All 21 expired quarantines retired through repairs.** Fifty guarded source
+   corrections and 42 ledger/seller migrations retain exact evidence and original
+   rows. All 121 enabled feeds enforce integrity checks. National sanity is clean;
+   no deadline or threshold was relaxed. Every modified existing data file retains
+   its source `generated_at`. Undated/unassigned evidence remains explicitly unknown.
+3. **Phase B3 implemented; extension v1.33.0 prepared.** Shared compact catalogue:
+   1,026 official cities, 121 enabled feeds, independent SEO/overlay eligibility,
+   bounded selected-city loading, cache/failure/watch-key migration. Targeted and
+   actual desktop/mobile/unpacked-Chrome checks pass. ZIP and real browser captures
+   are prepared; store submission remains an owner-account action.
+4. **Self-service measurement implemented.** Cloudflare disclosure now matches the
+   configured production provider. `/alerty/` prepares a voluntary e-mail draft;
+   it sends nothing and claims no signup. Page views, received confirmations,
+   willingness to pay and revenue remain separate. The private evidence reporter
+   enforces the 10-interested / 3-willing-to-pay / 30-day gate in
+   [ALERT-VALIDATION.md](ALERT-VALIDATION.md). No billing, newsletter send or lead
+   resale was implemented.
+
+Operational health against retained timestamps remains **25 findings** (7 failed
+attempts, 5 stale datasets, 9 degraded streams, 2 expired egress exceptions and
+2 empty-source rechecks). This batch does not claim a green production health run.
+
+**Next accepted verification:** check this implementation commit's Actions and
+first hosted municipal publication once next session, then review source status
+and three-day health. CI, deployment and hosted recovery are **pending**, not
+inferred from local tests. Do not dispatch new workflows or add a local production
+refresh path merely to clear the gate. Branch Actions:
+https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain.
+
+**External acceptance:** Search Console property ownership/sitemap acceptance;
+Chrome Web Store submission; source administrator/network recovery where required;
+actual deployment date and 30-day received-message evidence. DNS and page views
+alone do not close those gates. No subsequent city expansion or unrelated backlog
+item was selected by this batch.
 
 ### Repository, health and traffic review — 18 October 2026
 

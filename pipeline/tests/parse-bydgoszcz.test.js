@@ -472,3 +472,10 @@ test('pubDateFromHtml: metryczka <time datetime>', () => {
   assert.equal(pubDateFromHtml(ARTICLE_ATTACH_HTML), '2026-06-03');
   assert.equal(pubDateFromHtml('<p>no metryczka</p>'), null);
 });
+
+// Real result attachment 33647: catdoc separates participant counts with tabs.
+test('result table participant counts cannot glue onto the starting price', async () => {
+  const { readFileSync } = await import('node:fs');
+  const text = readFileSync(new URL('../doc-text-cache/33647.07944cfb.txt', import.meta.url), 'utf8');
+  assert.equal(startingPriceFromText(text), 170000);
+});

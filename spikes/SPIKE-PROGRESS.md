@@ -161,7 +161,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Dobrzyń nad Wisłą | 0985651 | powiat lipnowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gąsawa | 0085189 | powiat żniński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gniewkowo | 0928937 | powiat inowrocławski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Golub-Dobrzyń | 0983155 | powiat golubsko-dobrzyński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
+| Golub-Dobrzyń | 0983155 | powiat golubsko-dobrzyński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-20 |
 | Górzno | 0983244 | powiat brodnicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Grudziądz | 0983333 | Grudziądz (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Inowrocław | 0928989 | powiat inowroclawski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
@@ -359,7 +359,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Poddębice | 0976400 | powiat poddębicki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Przedbórz | 0968026 | powiat radomszczański | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Radomsko | 0968078 | powiat radomszczanski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
-| Rawa Mazowiecka | 0977077 | powiat rawski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
+| Rawa Mazowiecka | 0977077 | powiat rawski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-20 |
 | Rozprza | 0550717 | powiat piotrkowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Rzgów | 0415787 | powiat łódzki wschodni | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Sieradz | 0976050 | powiat sieradzki | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
@@ -781,7 +781,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Czerwionka-Leszczyny | 0939409 | powiat rybnicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Częstochowa | 0930868 | Częstochowa (m.n.p.p.) | ❌ Dropped | surveyed | deferred | not-enabled | 2026-10-18 |
 | Dąbrowa Górnicza | 0939473 | Dąbrowa Górnicza (m.n.p.p.) | ❌ Dropped | surveyed | deferred | not-enabled | 2026-10-18 |
-| Gliwice | 0940000 | Gliwice (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
+| Gliwice | 0940000 | Gliwice (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-20 |
 | Imielin | 0941582 | powiat bieruńsko-lędziński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Janów | 0133273 | powiat częstochowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Jastrzębie-Zdrój | 0940163 | Jastrzębie-Zdrój (m.n.p.p.) | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
@@ -973,7 +973,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Dobra | 0949000 | powiat turecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Dobrzyca | 0196380 | powiat pleszewski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Dolsk | 0970589 | powiat śremski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Gniezno | 0970632 | powiat gnieznienski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
+| Gniezno | 0970632 | powiat gnieznienski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-20 |
 | Golina | 0949017 | powiat koniński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gołańcz | 0966820 | powiat wągrowiecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gostyń | 0954395 | powiat gostyński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |

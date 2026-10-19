@@ -12,3 +12,7 @@ Adapter is live: `pipeline/src/cities/gliwice/` → data in `data/gliwice/` (reg
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Source repair recheck — 19 October 2026
+
+Garage-key repair; isolated live probe: 15 property listings, 82 land records and 7 designations. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.

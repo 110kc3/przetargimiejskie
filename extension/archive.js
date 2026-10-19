@@ -192,10 +192,17 @@ function applyStaticI18n() {
     cur === 'pl' ? t('popup.lang_toggle.to_en') : t('popup.lang_toggle.to_pl');
 }
 
-async function load() {
+async function load(city = window.ZGM_CITY_VIEW.selected()) {
+  for(const element of [$summary,$filters,$table,$activeSection,$historicalSection])element.hidden=true;
+  $status.hidden=false;
+  if(!city?.pipeline_id){$status.textContent=city?ZGM_CATALOG.status(city,window.ZGM_I18N.getLang()):'Wybierz miasto / Choose a city';return;}
+  window.ZGM_CITY_VIEW.populateLoadedFilters(city);
+  $filterYear.replaceChildren(new Option(t('archive.filter.all'),'all'));
+  $filterSearch.value='';
   try {
-    const res = await chrome.runtime.sendMessage({ type: 'getData' });
+    const res = await chrome.runtime.sendMessage({ type: 'getData', cities:[city.pipeline_id] });
     if (!res?.ok) throw new Error(res?.error || 'unknown');
+    if(res.payload.meta.unavailable_cities?.length && !res.payload.meta.per_city[city.pipeline_id])throw new Error(ZGM_CATALOG.status({status:'unavailable'},window.ZGM_I18N.getLang()));
     flatten(res.payload);
     activeListings = (res.payload.active?.listings || []).concat(landActive);
     propByKey = new Map(
@@ -205,7 +212,8 @@ async function load() {
     lastFetchedAt = res.payload.fetched_at || null;
     populateYears();
     renderAll();
-    $status.hidden = true;
+    $status.hidden = !(res.payload.meta.unavailable_cities?.length || res.payload.meta.catalog_stale);
+    if(!$status.hidden)$status.textContent=ZGM_CATALOG.status({status:'unavailable'},window.ZGM_I18N.getLang());
     $summary.hidden = false;
     $filters.hidden = false;
     $table.hidden = false;
@@ -242,6 +250,7 @@ function flatten(payload) {
           street_search: (p.street_norm + ' ' + p.building + ' ' + (p.apt || ''))
             .toLowerCase(),
           kind: l.kind || p.kind || 'unknown',
+          share: l.share ?? p.share ?? null,
           area_m2: l.area_m2 ?? p.area_m2 ?? l.land_area_m2 ?? null,
           // Plot area only when the building area is ALSO known (so it's genuinely
           // the plot, not the sole area). Shown in the Działka column for houses.
@@ -330,7 +339,7 @@ function renderSummary() {
     const kind = tile.dataset.kind;
     const ofKind = scope.filter((r) => r.kind === kind);
     const sold = ofKind.filter(
-      (r) => r.outcome === 'sold' && r.final_price_pln != null,
+      (r) => !r.share && r.outcome === 'sold' && r.final_price_pln != null,
     );
 
     // Cities with an achieved-price stream (Gliwice) summarise SOLD prices.
@@ -346,9 +355,9 @@ function renderSummary() {
       labelKey = 'archive.median';
     } else {
       count = ofKind.length; // records[] holds only historical rows (no active)
-      prices = ofKind.filter((r) => r.starting_price_pln != null).map((r) => r.starting_price_pln);
+      prices = ofKind.filter((r) => !r.share && r.starting_price_pln != null).map((r) => r.starting_price_pln);
       m2vals = ofKind
-        .filter((r) => r.area_m2 && r.starting_price_pln != null)
+        .filter((r) => !r.share && r.area_m2 && r.starting_price_pln != null)
         .map((r) => r.starting_price_pln / r.area_m2);
       suffixKey = 'archive.archived_suffix';
       labelKey = 'archive.median_start';
@@ -377,6 +386,7 @@ function getSortValue(r, key) {
     case 'price': return r.starting_price_pln ?? null;
     case 'final': return r.final_price_pln ?? null;
     case 'm2':
+      if(r.share)return null;
       return r.area_m2 && r.starting_price_pln
         ? r.starting_price_pln / r.area_m2 : null;
     default: return null;
@@ -420,13 +430,13 @@ function renderTable() {
       (r) => `
       <tr class="zgm-ext-row-${r.outcome}">
         <td>${r.date || esc(r.status) || '—'}</td>
-        <td>${cityTagHtml(r.city)}${esc(r.addr_display)}</td>
+        <td>${cityTagHtml(r.city)}${esc(r.addr_display)}${r.share?` · ${window.ZGM_I18N.getLang()==='en'?'share':'udział'} ${esc(r.share)}`:''}</td>
         <td>${esc(t('kind.' + r.kind, { default: r.kind }))}</td>
         <td>${roundCell(r.round)}</td>
         <td>${r.area_m2 ? fmtArea(r.area_m2) : '—'}</td>
         <td>${fmtPLN(r.starting_price_pln)}</td>
         <td>${fmtPLN(r.final_price_pln)}</td>
-        <td>${fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
+        <td>${r.share?'—':fmtPerM2(r.outcome === 'sold' ? r.final_price_pln : r.starting_price_pln, r.area_m2)}</td>
         <td>${esc(outcomeLabel(r))}</td>
         <td>${r.plot_area_m2 ? fmtArea(r.plot_area_m2) : parcelCell(r)}</td>
         <td>${mapsCell(r)}</td>
@@ -689,5 +699,6 @@ function syncThemeButton() {
       renderActiveTable();
     });
   }
-  load();
+  try{await window.ZGM_CITY_VIEW.start(city=>load(city));}catch(err){$status.textContent=err.message;}
+  if(!window.ZGM_CITY_VIEW.selected())load();
 })();

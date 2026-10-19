@@ -33,8 +33,15 @@ export function noticeDate(text, { isResult = false } = {}) {
 // amount). htmlToText flattens newlines, so split on " N. " markers and keep only
 // price-bearing segments (drops the header + boilerplate numbered lists).
 export function splitItems(text) {
-  const t = htmlToText(text);
-  return t.split(/\s\d{1,2}\.\s+/).filter((p) => /cena\s+wywo[łl]awcz/i.test(p) && /\d[\d\s .]*,\d{2}\s*z[łl]/.test(p));
+  let htmlLots = false;
+  const marked = String(text || '').replace(/<li\b[^>]*>([\s\S]*?)(?=<\/li>)/gi, (full, body) => {
+    if (!/^(?:pierwsz|drug|trzeci|czwart|pi[ąa]t|sz[óo]st)\w*\s+przetarg\w*\s+na\s+sprzeda[żz]/i.test(htmlToText(body))) return full;
+    htmlLots = true;
+    return ` __AUCTION_LOT__ ${body}`;
+  });
+  const t = htmlToText(marked);
+  return t.split(htmlLots ? /__AUCTION_LOT__/ : /\s\d{1,2}\.\s+/)
+    .filter((p) => /cena\s+wywo[łl]awcz/i.test(p) && /\d[\d\s .]*,\d{2}\s*z[łl]/.test(p));
 }
 
 const ROUND_WORD = { pierwsz: 1, drug: 2, trzeci: 3, czwart: 4, 'piąt': 5, piat: 5, 'szóst': 6, szost: 6 };
@@ -58,19 +65,24 @@ export function landStreet(seg) {
 // Built unit (flat / commercial / garage): "w budynku przy ul. Królewskiej Nr 69";
 // garage unit "oznaczonego Nr G12" → "ul. Królewskiej 69 garaż nr 12".
 export function builtAddress(seg) {
-  const sm = /(?:w\s+budynku\s+)?(?:po[łl]o[żz]on\w+\s+)?przy\s+ul(?:icy)?\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń. -]+?)\s+Nr\s+(\d+[A-Za-z]?)/i.exec(seg || '');
+  const sm = /(?:przy|na)\s+(?:ul(?:icy)?|os(?:iedlu)?|pl(?:acu)?)\.?\s+([\p{L}][\p{L}.-]*(?:\s+[\p{L}][\p{L}.-]*){0,7}?)\s+(?:Nr\s+)?(\d+[A-Za-z]?)/iu.exec(seg || '');
   if (!sm) return null;
   const street = sm[1].replace(/\s+/g, ' ').trim();
   const building = sm[2];
   const garage = /oznaczon\w*\s+Nr\s+G\s?(\d+)/i.exec(seg || '');
   if (garage) { const raw = `ul. ${street} ${building} garaż nr ${garage[1]}`; const a = parseAddress(raw); return a ? { address_raw: raw, address: a } : null; }
-  const flat = /lokal\w*\s+mieszkaln\w*\s+(?:nr\.?|numer\w*)\s+(\d+[A-Za-z]?)/i.exec(seg || '');
+  const flat = /lokal\w*\s+(?:mieszkaln\w*|o\s+przeznaczeniu\s+innym\s+ni[żz]\s+mieszkalne\s+oznaczonego)\s+(?:nr\.?|numer\w*)\s+(\d+[A-Za-z]?)/i.exec(seg || '');
   const raw = flat ? `ul. ${street} ${building}/${flat[1]}` : `ul. ${street} ${building}`;
   const a = parseAddress(raw); return a ? { address_raw: raw, address: a } : null;
 }
 
 function parseItem(seg, { isResult, auction_date, url }) {
-  const kind = classifyKind(seg || '');
+  // Legal boilerplate/footer links can name other asset classes. Classify
+  // this item's subject, before its first price, rather than the whole page.
+  const subject = String(seg || '').split(/cena\s+wywo[łl]awcz/i)[0];
+  const classified = classifyKind(subject);
+  const kind = classified !== 'garaz' && /lokal\w*\s+o\s+przeznaczeniu\s+innym\s+ni[żz]\s+mieszkalne/i.test(subject)
+    ? 'uzytkowy' : classified;
   const round = roundFromItem(seg);
   const starting_price_pln = priceFromItem(seg);
   const achieved = isResult ? achievedFromItem(seg) : null;

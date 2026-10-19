@@ -167,7 +167,7 @@ export function addressRawFromTitle(title) {
   // Use a lazy match up to a number+optional-letter, then look ahead for terminator.
   // This avoids character-class issues with Polish diacritics in street names
   // and handles digits in street names (e.g. "Konstytucji 3 Maja").
-  const m = /przy\s+ul\.\s+(.+?\s+(\d+[A-Za-z]?(?:\/\d+[A-Za-z]?)?))(?=\s+w\s|\s*,|\s*$)/i.exec(t);
+  const m = /przy\s+ul\.\s+(.+?\s+(\d+(?:-\d+)?[A-Za-z]?(?:\/\d+[A-Za-z]?)?))(?=\s+w\s|\s*,|\s*$)/i.exec(t);
   if (m) {
     const full = m[1].replace(/\s+/g, ' ').trim();
     const numPart = m[2];

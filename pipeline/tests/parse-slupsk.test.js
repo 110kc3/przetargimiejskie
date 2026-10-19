@@ -532,3 +532,13 @@ describe('parseResultDoc -- edge cases', () => {
     assert.equal(r.auction_date, '2025-01-15');
   });
 });
+
+// Full retained notice fragments for the two joint-frontage lots.
+it('keeps joint building frontages without putting building numbers in the street', async () => {
+  const { readFileSync } = await import('node:fs');
+  const parser = await import('../src/cities/slupsk/parse.js');
+  for (const [id, key] of [['3222', 'kollataja|39,39A|4A'], ['3188', 'kollataja|40,40A,40B|10']]) {
+    const html = readFileSync(new URL(`./fixtures/remediation/slupsk-${id}.html`, import.meta.url), 'utf8');
+    assert.equal(parser.parseNoticePage(html, `https://bip.um.slupsk.pl/przetargi/${id}.html`).address.key, key);
+  }
+});

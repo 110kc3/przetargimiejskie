@@ -33,3 +33,9 @@ See [Node TLS options](https://nodejs.org/docs/latest-v20.x/api/tls.html#tlscrea
 | [isrg-root-yr-cross-signed.pem](isrg-root-yr-cross-signed.pem) | [CA download](http://yr.i.lencr.org/) | `b3858d7a4d598b4ab6ed2892a1b8c0ee035154876dd40a082a3b05387eea11a4` |
 | [sectigo-public-server-authentication-ca-dv-r36.pem](sectigo-public-server-authentication-ca-dv-r36.pem) | [CA download](http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVR36.crt) | `b40358316fd9e1caaaab92c382927d2c13ef51b481eec9371a82e16c86f2a687` |
 | [yr1.pem](yr1.pem) | [CA download](http://yr1.i.lencr.org/) | `d5efc243446ef865c0e165eb1958a2f068c9514aa17238701bd6f7ad90253ce7` |
+
+18 October 2026: Gniezno's two hosts rotated to home pl OV TLS G2 R36 CA.
+The replacement intermediate was retrieved from its CA distribution URL and
+verified against Node's existing public roots; TLS verification remains enabled.
+
+| [home-pl-ov-tls-g2-r36-ca.pem](home-pl-ov-tls-g2-r36-ca.pem) | [CA download](https://homeplovtlsg2r36ca.repository.certum.pl/homeplovtlsg2r36ca.cer) | `48e84a03a0612f99940271c144c2f1b9a87547a0039acd6daf31c3847077d30e` |

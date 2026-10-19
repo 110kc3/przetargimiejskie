@@ -64,6 +64,14 @@ export function parsePriceField(raw) {
   if (!raw) return null;
   const s = raw.trim();
   if (/\bod\b.*\bdo\b/i.test(s)) return null;
+  // The price field can omit currency before the deposit (90.000,00, wadium …).
+  // Parse the labelled first amount, never substitute the deposit.
+  if (/wadium/i.test(s)) {
+    const pricePart = s.split(/wadium/i)[0].trim().replace(/[,;]\s*$/, '');
+    if (/^\d[\d .,-]*(?:z[łl])?$/i.test(pricePart)) {
+      return _parsePLN(pricePart.replace(/z[łl]$/i, '').trim().replace(/,-$/, ''));
+    }
+  }
   // Match a price token: digits (with optional space/dot/comma grouping separators),
   // optionally followed by ",-" (Polish dash-decimal shorthand), then optional
   // whitespace, then the zł/zl currency marker.
@@ -332,4 +340,22 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   flush();
 
   return out;
+}
+
+/** Split an explicitly enumerated multi-flat notice using its own unit paragraphs. */
+export function splitMultiFlatNotice(record, html) {
+  const units = [...record.address_raw.matchAll(/(?:m\.\s*nr|i\s+nr)\s*(\d+[A-Za-z]?)/gi)].map((m) => m[1]);
+  if (units.length < 2) return [record];
+  const base = record.address_raw.replace(/\s+m\.\s*nr[\s\S]*$/i, '');
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+  const priceField = /Cena wywoławcza\s+([\s\S]*?)Data przetargu/i.exec(text)?.[1];
+  const prices = priceField?.split(';').map((part) => parsePriceField(part.trim()));
+  if (!prices || prices.length !== units.length || prices.some((v) => v == null)) throw new Error('multi-flat notice has ambiguous prices');
+  return units.map((unit, index) => {
+    const paragraph = new RegExp(`lokalu\\s+mieszkalnego\\s+nr\\s+${unit}\\b([\\s\\S]*?)(?=\\d+\\)\\s*lokalu|$)`, 'i').exec(text)?.[1];
+    const area = /powierzchni(?:\s+użytkowej)?\s+(\d+[,.]\d+)\s*m2/i.exec(paragraph || '');
+    if (!area) throw new Error('multi-flat notice has no unit-specific area');
+    return { ...record, address_raw: `${base}/${unit}`, area_m2: Number(area[1].replace(',', '.')),
+      starting_price_pln: prices[index] };
+  });
 }

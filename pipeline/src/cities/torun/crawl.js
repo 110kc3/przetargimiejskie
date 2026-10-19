@@ -33,7 +33,7 @@ import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { parseAddress } from '../../core/normalize.js';
-import { parseXmlFeed, isResultNotice, areaFromDetailHtml } from './parse.js';
+import { parseXmlFeed, isResultNotice, areaFromDetailHtml, splitMultiFlatNotice } from './parse.js';
 
 const ORIGIN = 'https://bip.torun.pl';
 // One call returns the full index. Per-page 200 is a safe upper bound.
@@ -108,7 +108,14 @@ async function crawlAll() {
   // Active listings: all flat records (both active and resolved).
   // The refresh loop's past-date filter hides already-held auctions in the UI;
   // result-doc prices are folded in by build-properties.
-  const listings = flatRecords.map((r) => {
+  const expanded = [];
+  for (const record of flatRecords) {
+    if (/m\.\s*nr[\s\S]*i\s+nr/i.test(record.address_raw)) {
+      const html = await getText(record.detail_url, FETCH_OPTS);
+      expanded.push(...splitMultiFlatNotice(record, html));
+    } else expanded.push(record);
+  }
+  const listings = expanded.map((r) => {
     const address = parseAddress(r.address_raw);
     return {
       kind: r.kind,
@@ -116,7 +123,7 @@ async function crawlAll() {
       address,
       auction_date: r.auction_date,
       round: r.round,
-      area_m2: null, // not in the XML feed; fetched via crawlDetailAreas()
+      area_m2: r.area_m2 ?? null, // multi-flat detail paragraphs carry individual areas
       starting_price_pln: r.starting_price_pln,
       detail_url: r.detail_url,
     };
@@ -203,6 +210,7 @@ export async function crawlDetailAreas() {
   for (const listing of listings) {
     // Skip resolved listings -- their area comes from the result DOCX, not here.
     if (!listing.detail_url || !listing.address) continue;
+    if (listing.area_m2 != null) { areas.set(listing.address.key, listing.area_m2); continue; }
 
     let html;
     try {

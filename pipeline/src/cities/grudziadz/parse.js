@@ -137,16 +137,8 @@ export function auctionDateFromText(text) {
 // the parcel/cellar area), so either label wins outright when present.
 export function areaFromText(text) {
   if (!text) return null;
-  const full = /powierzchni\w*\s+u[żz]ytkow\w*[^0-9]{0,15}?([\d][\d.,]*)\s*m\s*[²2]/i.exec(text);
-  if (full) {
-    const v = parseArea(full[1]);
-    if (v) return v;
-  }
-  const abbr = /pow\.?\s*u[żz]\.?\s*([\d][\d.,]*)\s*m\s*[²2]/i.exec(text);
-  if (abbr) {
-    const v = parseArea(abbr[1]);
-    if (v) return v;
-  }
+  const labelled = /(?:powierzchni\w*|pow\.?)\s+u(?:[żz]ytkow\w*|[żz]\.?)\s*([\d][\d.,]*)\s*m\s*[²2]/i.exec(text);
+  if (labelled) return parseArea(labelled[1]);
   // Fallback: largest bare m² token that isn't a parcel/cellar figure.
   const M2 = /([\d][\d.,]*)\s*m\s*[²2](?!\d)/gi;
   const cands = [];
@@ -172,7 +164,7 @@ export function areaFromText(text) {
 // a negative lookahead for a following letter instead.
 export function priceFromText(text) {
   if (!text) return null;
-  const m = /([\d][\d\s.,]*)\s*z[łl]\.?(?:otych)?(?![a-zążźćęłńóśż])/i.exec(text);
+  const m = /(?<![\d.,])((?:[1-9]\d{0,2}(?:(?:\.|[ \t\u00a0]+)\d{3})+|[1-9]\d*))(?:[,.]\d{2}|[,\.]\s*-)?\s*z[łl]\.?(?:otych)?(?![a-zążźćęłńóśż])/i.exec(text);
   return m ? parsePLN(m[1]) : null;
 }
 

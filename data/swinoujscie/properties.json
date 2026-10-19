@@ -616,10 +616,10 @@
       "area_m2": 31.56
     },
     {
-      "key": "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow|68|",
-      "street": "Sosnowej 22-24 w Świnoujściu, w ramach którego przysługuje prawo do wyłącznego korzystania z lokalu użytkowego o pow.",
-      "street_norm": "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow",
-      "building": "68",
+      "key": "sosnowej|22-24|",
+      "street": "Sosnowa",
+      "street_norm": "sosnowej",
+      "building": "22-24",
       "apt": null,
       "kind": "uzytkowy",
       "listings": [
@@ -646,7 +646,10 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 68.57
+      "area_m2": 68.57,
+      "legacy_keys": [
+        "sosnowej 22 24 w swinoujsciu w ramach ktorego przysluguje prawo do wylacznego korzystania z lokalu uzytkowego o pow|68|"
+      ]
     },
     {
       "key": "jana matejki|14|6A",

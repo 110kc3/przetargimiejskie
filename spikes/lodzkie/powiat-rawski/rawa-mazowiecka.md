@@ -39,3 +39,7 @@ Housing manager: **Rawskie Towarzystwo Budownictwa Społecznego Sp. z o.o.** (`b
 - **Blockers:** None. No rate-limit/auth signals. Watch-items: (a) year-partitioned boards need enumeration/rollover each January; (b) mixed property/land/lease stream needs classification; (c) confirm the exact results-board slug pattern beyond 2024 on first crawl.
 
 **VERDICT: BUILD (Low effort)** — recurring open municipal flat auctions (Reymonta lokale mieszkalne, confirmed announcement + result) on a clean bip.net/Extranet server-HTML BIP with a separate results stream; standard Golub-Dobrzyń analog, no blockers.
+
+## Source repair recheck — 19 October 2026
+
+Repaired changed year-menu discovery; 7 announcement and 7 result boards, 4 property / 10 land records. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.

@@ -60,6 +60,7 @@ export function htmlToText(html) {
   let s = html.replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/td|\/th|\/h\d|\/span|\/strong|\/b)\s*\/?>/gi, ' ');
   s = s.replace(/<[^>]+>/g, ' ');
   s = s
+    .replace(/&amp;/gi, '&')
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
     .replace(/&sup2;/gi, '²')

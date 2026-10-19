@@ -152,6 +152,7 @@ function activeSortValue(item, key) {
     case 'date': return a.auction_date || null;
     case 'ask':  return a.starting_price_pln ?? null;
     case 'm2':
+      if(a.share)return null;
       return a.area_m2 && a.starting_price_pln
         ? a.starting_price_pln / a.area_m2
         : null;
@@ -195,7 +196,11 @@ function mapsCell(a) {
   return `<a class="zgm-src-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">${t('col.map')} ↗</a>`;
 }
 
-async function load(force) {
+async function load(force, city = window.ZGM_CITY_VIEW.selected()) {
+  if (!city?.pipeline_id) {
+    $status.hidden=false;$status.textContent=city?ZGM_CATALOG.status(city,window.ZGM_I18N.getLang()):'Wybierz miasto / Choose a city';
+    $table.hidden=true;$activeHeading.hidden=true;$watchingSection.hidden=true;lastPayload=null;return;
+  }
   $status.hidden = false;
   $status.textContent = force ? t('popup.refreshing') : t('popup.loading');
   $table.hidden = true;
@@ -203,12 +208,14 @@ async function load(force) {
   $watchingSection.hidden = true;
   try {
     const [res, watchlist] = await Promise.all([
-      chrome.runtime.sendMessage({ type: 'getData', force }),
+      chrome.runtime.sendMessage({ type: 'getData', force, cities:[city.pipeline_id] }),
       window.ZGM_WATCH.getAll(),
     ]);
     if (!res?.ok) throw new Error(res?.error || 'unknown');
+    if(res.payload.meta.unavailable_cities?.length && !res.payload.meta.per_city[city.pipeline_id])throw new Error(ZGM_CATALOG.status({status:'unavailable'},window.ZGM_I18N.getLang()));
+    filterWoj='all';filterCity='all';filterKind='all';
     lastPayload = res.payload;
-    lastWatchlist = watchlist;
+    lastWatchlist = await window.ZGM_WATCH.getAll();
     render();
   } catch (err) {
     $status.textContent = t('popup.failed', { msg: err.message });
@@ -316,7 +323,7 @@ function renderActive() {
       // For houses with both a building area and a plot area, show both
       // ("· 185 m² · dz. 450 m²") so usable vs plot is distinguishable.
       const aArea = a.area_m2 ?? a.land_area_m2; // building (or the sole area if that's all we have)
-      const addr = cityTag + esc(a.address_raw || '') + (aArea ? ` · ${fmtArea(aArea)}` : '')
+      const addr = cityTag + esc(a.address_raw || '') + (a.share ? ` · ${window.ZGM_I18N.getLang()==='en'?'share':'udział'} ${esc(a.share)}` : '') + (aArea ? ` · ${fmtArea(aArea)}` : '')
         + (a.area_m2 != null && a.land_area_m2 != null ? ` · dz. ${fmtArea(a.land_area_m2)}` : '');
       // "nowa" (new) only when this really is a first auction with no recorded
       // history. A 2nd/3rd przetarg is a re-listing, not new — show its round.
@@ -331,8 +338,8 @@ function renderActive() {
         : '—';
       const watched = key ? watchlist[key] : null;
       const star = `<button type="button" class="zgm-star ${watched ? 'on' : ''}" data-key="${esc(key || '')}" title="${esc(t(watched ? 'watch.button.remove' : 'watch.button.add'))}">${watched ? '★' : '☆'}</button>`;
-      const askM2 = (a.area_m2 && a.starting_price_pln != null) ? new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²' : '—';
-      const ds = window.ZGM_DEALSCORE.score(a.starting_price_pln, a.area_m2, a.kind, cityMedians.get(a.city || cityFromKey(key)));
+      const askM2 = (!a.share && a.area_m2 && a.starting_price_pln != null) ? new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(Math.round(a.starting_price_pln / a.area_m2)) + ' zł/m²' : '—';
+      const ds = window.ZGM_DEALSCORE.score(a.starting_price_pln, a.area_m2, a.kind, cityMedians.get(a.city || cityFromKey(key)), a.share);
       const dealCell = ds
         ? `<br><span class="zgm-deal ${ds.below ? 'good' : 'bad'}" title="${esc(t('dealscore.tooltip', { median: Math.round(ds.median), n: cityMedians.get(a.city || cityFromKey(key)).n }))}">${ds.below ? '▼' : '▲'} ${ds.pct}% ${esc(t(ds.below ? 'dealscore.below' : 'dealscore.above'))}</span>`
         : '';
@@ -459,7 +466,8 @@ function renderWatching() {
 
 function render() {
   if (!lastPayload) return;
-  $status.hidden = true;
+  $status.hidden = !(lastPayload?.meta.unavailable_cities?.length || lastPayload?.meta.catalog_stale);
+  if(!$status.hidden)$status.textContent=ZGM_CATALOG.status({status:'unavailable'},window.ZGM_I18N.getLang());
   renderWatching();
   renderActive();
   const fetched = new Date(lastPayload.fetched_at);
@@ -535,5 +543,6 @@ function syncThemeButton() {
     });
   }
 
-  load(false);
+  try{await window.ZGM_CITY_VIEW.start(city=>load(false,city));}catch(err){$status.textContent=err.message;}
+  if(!window.ZGM_CITY_VIEW.selected())load(false);
 })();

@@ -26,6 +26,7 @@
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
+import { ocrPdf } from '../../core/ocr-pdf.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
@@ -157,7 +158,7 @@ async function crawlListings() {
   for (let page = 1; page <= MAX_PAGES; page++) {
     let html;
     try {
-      html = await getText(boardUrl(page), { userAgent: BROWSER_UA });
+      html = await getText(boardUrl(page), { userAgent: BROWSER_UA, retries: 1 });
     } catch (err) {
       console.error(`  walbrzych board page ${page}: ${err.message}`);
       break;
@@ -267,6 +268,10 @@ export function parsePdfUrl(html) {
  */
 async function crawlResultDocs() {
   const refs = [];
+  refs.complete = true;
+  const started = Date.now();
+  const budget = Number(process.env.WALBRZYCH_CRAWL_BUDGET_MS) || 120000;
+  const overBudget = () => Date.now() - started >= budget;
   const known = await loadKnownSourceUrls('walbrzych');
   // Every year page currently embeds the same global month sidebar. Keep
   // dedupe crawl-wide so each month/article/PDF is fetched at most once.
@@ -274,40 +279,47 @@ async function crawlResultDocs() {
   const seenArticleUrls = new Set();
   const seenPdfUrls = new Set();
 
-  for (const { year, url: yearUrl } of YEAR_PAGES) {
+  years: for (const { year, url: yearUrl } of YEAR_PAGES) {
+    if(overBudget()){refs.complete=false;break;}
     let yearHtml;
     try {
-      yearHtml = await getText(yearUrl, { userAgent: BROWSER_UA });
+      yearHtml = await getText(yearUrl, { userAgent: BROWSER_UA, retries: 1 });
     } catch (err) {
+      refs.complete=false;
       console.error(`  walbrzych year ${year}: ${err.message}`);
       continue;
     }
 
     const monthUrls = parseMonthUrls(yearHtml);
     if (monthUrls.length === 0) {
+      refs.complete=false;
       console.error(`  walbrzych year ${year}: no month pages found`);
       continue;
     }
 
     for (const monthUrl of monthUrls) {
+      if(overBudget()){refs.complete=false;break years;}
       if (seenMonthUrls.has(monthUrl)) continue;
       seenMonthUrls.add(monthUrl);
       let monthHtml;
       try {
-        monthHtml = await getText(monthUrl, { userAgent: BROWSER_UA });
+        monthHtml = await getText(monthUrl, { userAgent: BROWSER_UA, retries: 1 });
       } catch (err) {
+        refs.complete=false;
         console.error(`  walbrzych month ${monthUrl}: ${err.message}`);
         continue;
       }
 
       const articleUrls = parseArticleUrls(monthHtml);
       for (const articleUrl of articleUrls) {
+        if(overBudget()){refs.complete=false;break years;}
         if (seenArticleUrls.has(articleUrl) || known.has(articleUrl)) continue;
         seenArticleUrls.add(articleUrl);
         let articleHtml;
         try {
-          articleHtml = await getText(articleUrl, { userAgent: BROWSER_UA });
+          articleHtml = await getText(articleUrl, { userAgent: BROWSER_UA, retries: 1 });
         } catch (err) {
+          refs.complete=false;
           console.error(`  walbrzych article ${articleUrl}: ${err.message}`);
           continue;
         }
@@ -322,14 +334,17 @@ async function crawlResultDocs() {
 
         let text;
         try {
-          text = await pdfText(pdfUrl, { userAgent: BROWSER_UA });
+          text = await pdfText(pdfUrl, { userAgent: BROWSER_UA, retries: 1 });
+          if (!text.trim()) text = await ocrPdf(pdfUrl, { userAgent: BROWSER_UA });
         } catch (err) {
+          refs.complete=false;
           console.error(`  walbrzych: PDF extract failed ${pdfUrl}: ${err.message}`);
           continue;
         }
 
         // Quick guard: skip non-result PDFs (should not occur in this tree)
         if (!isResultNotice(text)) {
+          refs.complete=false;
           console.error(`  walbrzych: unexpected non-result PDF at ${pdfUrl} — skipped`);
           continue;
         }
@@ -339,7 +354,7 @@ async function crawlResultDocs() {
     }
   }
 
-  console.error(`  walbrzych: ${refs.length} result notice PDF(s) found`);
+  console.error(`  walbrzych: ${refs.length} result notice PDF(s) found; complete=${refs.complete}`);
   return refs;
 }
 

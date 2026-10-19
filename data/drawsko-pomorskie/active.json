@@ -157,20 +157,21 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Lp. Adres nieruchomości Oznaczenie geodezyjne Pow. działki w ha Nr księgi Wieczystej Opis nieruchomości Cena wywoławcza Uwagi 1. ul. 11 Pułku Piechoty 59/1",
+      "address_raw": "11 Pułku Piechoty 59/1",
       "address": {
-        "street": "Lp. Adres nieruchomości Oznaczenie geodezyjne Pow. działki w ha Nr księgi Wieczystej Opis nieruchomości Cena wywoławcza Uwagi 1. ul. 11 Pułku Piechoty",
-        "street_norm": "lp adres nieruchomosci oznaczenie geodezyjne pow dzialki w ha nr ksiegi wieczystej opis nieruchomosci cena wywolawcza uwagi 1 ul 11 pulku piechoty",
+        "street": "11 Pułku Piechoty",
+        "street_norm": "11 pulku piechoty",
         "building": "59",
         "apt": "1",
-        "key": "lp adres nieruchomosci oznaczenie geodezyjne pow dzialki w ha nr ksiegi wieczystej opis nieruchomosci cena wywolawcza uwagi 1 ul 11 pulku piechoty|59|1",
+        "key": "11 pulku piechoty|59|1",
         "warning": null
       },
       "area_m2": 32.1,
       "starting_price_pln": 55000,
       "auction_date": "2023-11-23",
       "round": 3,
-      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/iii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-11-pulk-piechoty-591.html"
+      "detail_url": "https://drawsko.pl/aktualnosci-2/33-nieruchomosci/iii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-na-terenie-miasta-drawsko-pomorskie-lokal-mieszkalny-ul-11-pulk-piechoty-591.html",
+      "source_address_raw": "Lp. Adres nieruchomości Oznaczenie geodezyjne Pow. działki w ha Nr księgi Wieczystej Opis nieruchomości Cena wywoławcza Uwagi 1. ul. 11 Pułku Piechoty 59/1"
     },
     {
       "kind": "mieszkalny",

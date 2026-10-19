@@ -28,6 +28,12 @@ vm.runInContext(readFileSync(extPath, 'utf8'), sandbox, { filename: extPath });
 const extApi = sandbox.window.ZGM_NORMALIZE;
 
 const FIXTURES = [
+  'Miernicza 9/12-14',
+  'Tadeusza Kościuszki 142/3A, 3B',
+  'Zdrowa 7, 9, 11, 13/5',
+  'Kozielska 13 g. 1',
+  'Księcia Ziemowita 6 garaż 2',
+  'Księcia Ziemowita 6 g nr 2',
   // canonical street/bldg/apt
   'ul. Zygmunta Starego 29/4',
   'Słowackiego 12/3',

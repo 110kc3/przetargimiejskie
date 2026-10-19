@@ -3,53 +3,78 @@
   "city": "kielce",
   "plots": [
     {
-      "key": "dunskiej obr|0024|",
+      "key": "dz|0024|1423",
       "kind": "grunt",
       "city": "kielce",
-      "dzialka_nr": null,
-      "obreb": null,
-      "street": "Duńskiej /obr.",
-      "building": "0024",
-      "address_raw": "Duńskiej /obr. 0024",
+      "dzialka_nr": "1423",
+      "obreb": "0024",
+      "street": null,
+      "building": null,
+      "address_raw": "Duńskiej",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Du%C5%84skiej%20%2Fobr.%20Kielce%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201423%20Du%C5%84skiej%200024%20kielce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1807,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": null,
+          "date": "2022-06-28",
           "round": 1,
           "starting_price_pln": 2100000,
-          "outcome": "unsold"
+          "outcome": "unsold",
+          "area_m2": 1807
         }
       ],
-      "parcels": []
+      "parcels": [
+        {
+          "nr": "1423"
+        }
+      ]
     },
     {
-      "key": "karola olszewskiego obr|0005|",
+      "key": "dz|6/522, 6/523, 6/526, 6/527, 6/529",
       "kind": "grunt",
       "city": "kielce",
-      "dzialka_nr": null,
+      "dzialka_nr": "6/522, 6/523, 6/526, 6/527, 6/529",
       "obreb": null,
-      "street": "Karola Olszewskiego /obr.",
-      "building": "0005",
-      "address_raw": "Karola Olszewskiego /obr. 0005",
+      "street": null,
+      "building": null,
+      "address_raw": "Karola Olszewskiego",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Karola%20Olszewskiego%20%2Fobr.%20Kielce%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%206%2F522%2C%206%2F523%2C%206%2F526%2C%206%2F527%2C%206%2F529%20Karola%20Olszewskiego%20kielce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 10864,
       "zoning": null,
       "status": null,
       "listings": [
         {
-          "date": null,
+          "date": "2022-06-28",
           "round": 1,
           "starting_price_pln": 3000000,
           "outcome": "sold",
-          "final_price_pln": 30300000000
+          "final_price_pln": 3030000,
+          "area_m2": 10864,
+          "notes": [
+            "Source gives districts 0005 and 0007; district attribution requires confirmation."
+          ]
         }
       ],
-      "parcels": []
+      "parcels": [
+        {
+          "nr": "6/522"
+        },
+        {
+          "nr": "6/523"
+        },
+        {
+          "nr": "6/526"
+        },
+        {
+          "nr": "6/527"
+        },
+        {
+          "nr": "6/529"
+        }
+      ]
     }
   ]
 }

@@ -57,20 +57,21 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Ducha Św. 19 m. nr 12 i nr 13",
+      "address_raw": "Ducha Św. 19/12",
       "address": {
-        "street": "Ducha Św. 19 m. nr 12 i nr",
-        "street_norm": "ducha sw 19 m nr 12 i nr",
-        "building": "13",
-        "apt": null,
-        "key": "ducha sw 19 m nr 12 i nr|13|",
+        "street": "Ducha Św.",
+        "street_norm": "ducha sw",
+        "building": "19",
+        "apt": "12",
+        "key": "ducha sw|19|12",
         "warning": null
       },
       "auction_date": "2026-10-06",
       "round": null,
       "area_m2": null,
-      "starting_price_pln": null,
-      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13"
+      "starting_price_pln": 180000,
+      "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
+      "source_address_raw": "ul. Ducha Św. 19 m. nr 12 i nr 13"
     },
     {
       "kind": "mieszkalny",
@@ -157,7 +158,7 @@
       "auction_date": "2025-11-25",
       "round": null,
       "area_m2": null,
-      "starting_price_pln": 9000,
+      "starting_price_pln": 90000,
       "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59591/ul-poznanska-81-m-7"
     },
     {

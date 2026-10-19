@@ -1,3 +1,4 @@
+import { repairPropertyLedger } from './ledger-repairs.js';
 // Verified, city-specific heals that must survive EVERY refresh — the single
 // source of truth shared by:
 //   - scripts/heal-properties.js  (manual, offline, whole-corpus healer)
@@ -23,6 +24,10 @@
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { applySourceCorrections } from './source-corrections.js';
+import { htmlToText } from './finn-bip.js';
+import { parseAddress } from './normalize.js';
+import { addressRawFromLabel } from '../cities/wroclaw/parse.js';
 
 import {
   dedupeListingsByDate,
@@ -64,6 +69,14 @@ export function stripOcrStreetNoise(street) {
 //     price); keyed on the first address, the 1 749 m² total is the whole
 //     property, not a unit → land_area_m2.
 export const VERIFIED_RENAMES = {
+  // The retained Chełmno ADRES field includes its cadastral-district preface.
+  // Its explicit trailing "przy ul." names the address; prices/dates stay intact.
+  chelmno: [
+    ['obr 3 miasta przy ul ignacego danielewskiego|6|', {
+      key: 'ignacego danielewskiego|6|', street: 'Ignacego Danielewskiego',
+      street_norm: 'ignacego danielewskiego', building: '6', apt: null,
+    }],
+  ],
   katowice: [
     ['przetargi|26|', {
       key: 'wita stwosza|1|11', street: 'Wita Stwosza', street_norm: 'wita stwosza',
@@ -356,9 +369,44 @@ export function applyVerifiedJunk(props, cityId) {
  * @returns {Array}
  */
 export function applyDurablePropertyHeals(props, cityId, globalByNorm) {
+  for (const property of props) {
+    const decoded = htmlToText(property.street);
+    let address = null;
+    if (decoded !== property.street) {
+      const street = parseAddress(`${decoded} 0`);
+      if (street) address = { street: decoded, street_norm: street.street_norm,
+        building: property.building, apt: property.apt,
+        key: `${street.street_norm}|${property.building}|${property.apt ?? ''}` };
+    }
+    if (cityId === 'drawsko-pomorskie' && /Lp\. Adres nieruchomości/.test(decoded)) {
+      const clean = /(?:ul|pl|al|os)\.\s+([^]+)$/.exec(decoded)?.[1];
+      if (clean) address = parseAddress(`${clean} ${property.building}${property.apt ? '/' + property.apt : ''}`);
+    }
+    if (cityId === 'wroclaw') {
+      const raw = `${decoded} ${property.building}${property.apt ? '/' + property.apt : ''}`;
+      address = parseAddress(addressRawFromLabel(raw)) || address;
+    }
+    if (address && address.key !== property.key) {
+      property.legacy_keys = [...new Set([...(property.legacy_keys || []), property.key])];
+      const { warning: _warning, ...identity } = address;
+      Object.assign(property, identity);
+    }
+  }
+  props = repairPropertyLedger(props, cityId);
+  props = applySourceCorrections(props, cityId);
   backfillVerifiedRoundProvenance(props, cityId);
   applyVerifiedRenames(props, cityId);
-  let out = healStreetVariants(props);
+  // Exact identity repairs can meet a correctly parsed version already in the
+  // history. Merge their source rows before the variant engine creates a Map.
+  const identities = new Map();
+  for (const property of props) {
+    const existing = identities.get(property.key);
+    if (!existing) { identities.set(property.key, property); continue; }
+    existing.listings.push(...property.listings);
+    existing.legacy_keys = [...new Set([...(existing.legacy_keys || []), ...(property.legacy_keys || [])])];
+    if (existing.area_m2 == null) existing.area_m2 = property.area_m2;
+  }
+  let out = healStreetVariants([...identities.values()]);
   out = applyVerifiedAliases(out, cityId);
   crossCityDisplay(out, cityId, globalByNorm);
   out = applyVerifiedJunk(out, cityId);

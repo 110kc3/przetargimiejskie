@@ -75,7 +75,7 @@ export function isResultNotice(text) {
 export function isSkippableTitle(title, slug) {
   const s = `${title || ''} ${(slug || '').replace(/-/g, ' ')}`;
   return (
-    /\bnajem\b|dzier[zż]aw/i.test(s) ||
+    /\bnajem\b|najmu|czynsz|dzier[zż]aw/i.test(s) ||
     /lista\s+os[óo]b/i.test(s) ||
     /sprostowanie/i.test(s) ||
     /(^|\W)wykaz\b|wywieszeniu\s+wykazu/i.test(s) ||
@@ -83,6 +83,11 @@ export function isSkippableTitle(title, slug) {
     /rozstrzygni[ęe]ci\w*\s+skarg|skarg\w*\s+na\s+czynno/i.test(s) ||
     /\brokowani/i.test(s)
   );
+}
+
+export function isRentalNotice(text) {
+  return /cena\s+wywo[łl]awcz\w*[\s\S]{0,50}?czynsz\w*\s+najmu/i.test(text || '')
+    || /przetarg\w*[\s\S]{0,100}?na\s+(?:najem|dzier[zż]aw|oddanie\s+w\s+najem)/i.test(text || '');
 }
 
 /** True when the title/slug looks like a published result notice. */
@@ -248,6 +253,29 @@ export function extractBodyText(html) {
   return text.replace(/[ \t]+/g, ' ').replace(/\n\s*\n/g, '\n').trim();
 }
 
+export function landSaleFields(text) {
+  const t = text.replace(/\s+/g, ' ');
+  const raw = /Adres nieruchomości\s+([\s\S]*?)(?=Przetarg na|Typ przetargu|Rodzaj nieruchomości)/i.exec(t)?.[1].trim();
+  const titleParcel = /dzia[łl]k\w*\s+nr\s+(?:ewid\.\s*)?(\d+(?:\/\d+)?)/i.exec(raw || '')?.[1];
+  let subject = t.slice(Math.max(0, t.search(/przedmiotem\s+sprzeda[żz]y/i)));
+  if (titleParcel) {
+    const clauses = [...t.matchAll(/na sprzedaż prawa własności nieruchomości([\s\S]*?)(?=(?:II|III)\.\s|$)/gi)];
+    subject = clauses.find((m) => new RegExp(`działka numer ${titleParcel.replace('/', '\\/')}\\b`).test(m[0]))?.[0] || subject;
+  }
+  const multi = /działki o numerach:\s*([\s\S]*?)(?=Dla ww\.|II\.)/i.exec(subject)?.[1];
+  const parcels = multi ? [...multi.matchAll(/(?:^|,\s*nr\s*|działce nr\s*)([\d/]+(?:\s*(?:,|i)\s*[\d/]+)*)/gi)]
+    .flatMap((m) => m[1].split(/\s*(?:,|i)\s*/)) : [];
+  const nr = parcels.length ? [...new Set(parcels)].join(', ') : titleParcel
+    || /(?:dzia[łl]k[a-ząćęłńóśźż]*[\s\S]{0,240}?(?:nr(?:\s+ewid\.)?|numer(?:em)?)|numerem)\s*[:.]?\s*(\d+(?:\/\d+)?)/i.exec(subject)?.[1];
+  if (!nr) throw new Error('land sale without a source parcel');
+  const ha = /(?:o\s+)?powierzchni\s+(\d+[.,]\d+)\s*ha/i.exec(subject)?.[1];
+  return { kind: 'grunt', dzialka_nr: nr,
+    obreb: multi ? null : /obręb\s+(\d+)/i.exec(subject)?.[1] || null,
+    area_m2: !multi && ha ? Math.round(Number(ha.replace(',', '.')) * 10000) : null,
+    address_raw: raw || null,
+    ...(multi ? { notes: ['Package includes parcels in two districts and a 1/2 share; see source for individual rights and areas.'] } : {}) };
+}
+
 // ------------------------------------------------------------- announcement parse
 
 /**
@@ -259,11 +287,14 @@ export function extractBodyText(html) {
 export function parseAnnouncement(text) {
   if (!text) return null;
   const t = text.replace(/\r/g, '');
+  if (isRentalNotice(t)) return null;
   const kind = kindFromText(t);
 
   const round = roundFromText(t);
   const auction_date = auctionDateFromText(t);
   const starting_price_pln = startingPriceFromText(t);
+  if (kind === 'grunt') return { ...landSaleFields(t), starting_price_pln, auction_date, round };
+
 
   const address_raw = addressRawFromText(t);
   if (!address_raw) return null;
@@ -293,7 +324,7 @@ export function parseAnnouncement(text) {
  * @returns {Array<object>}
  */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
-  if (!isResultNotice(text)) return [];
+  if (!isResultNotice(text) || isRentalNotice(text)) return [];
   const t = text.replace(/\r/g, '');
   const notes = [];
 
@@ -309,6 +340,9 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     /brak\s+oferent/i.test(t) ||
     /nie\s+dosz[łl]o\s+do\s+zawarcia/i.test(t);
 
+  if (kindFromText(t) === 'grunt') return [{ ...landSaleFields(t), auction_date,
+    source_url: sourceUrl, starting_price_pln, final_price_pln: sold ? achieved : null,
+    outcome: sold ? 'sold' : 'unsold', round, notes }];
   const address_raw = addressRawFromText(t);
   if (!address_raw) return [];
   const address = parseAddress(address_raw);

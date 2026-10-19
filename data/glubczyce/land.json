@@ -524,6 +524,50 @@
       ]
     },
     {
+      "key": "dz|braciszow|144/3, 144/6",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "144/3, 144/6",
+      "obreb": "Braciszow",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20144%2F3%2C%20144%2F6%20Braciszow%20glubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1969,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-07",
+          "round": 1,
+          "starting_price_pln": 82333,
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/27279/braciszow-144_3-i-144_6-1p-2025-10-13.doc?v=1760354240"
+        },
+        {
+          "date": "2025-11-18",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 63263,
+          "area_m2": 1969,
+          "source_url": "https://bip.glubczyce.pl/download/attachment/27575/braciszow-144_3-i-144_6-2p-2025-11-26.doc?v=1764154189",
+          "notes": [
+            "parse: missing/garbled starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "144/3"
+        },
+        {
+          "nr": "144/6"
+        }
+      ]
+    },
+    {
       "key": "dz|bogdanowicach|347/11",
       "kind": "grunt",
       "city": "glubczyce",
@@ -675,6 +719,48 @@
         {
           "nr": "349/43",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20349%2F43%20G%C5%82ubczycach%20G%C5%82ubczyce%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1382, 1383, 1384",
+      "kind": "grunt",
+      "city": "glubczyce",
+      "dzialka_nr": "1382, 1383, 1384",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Raciborska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201382%2C%201383%2C%201384%20ul.%20Raciborska%20glubczyce%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-26",
+          "round": 4,
+          "starting_price_pln": 3686626,
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/24127/raciborska-1382-1383-i-1384-4p-2024-03-26.doc?v=1712214038"
+        },
+        {
+          "date": "2024-11-05",
+          "round": 1,
+          "starting_price_pln": 4000000,
+          "outcome": "unsold",
+          "source_url": "https://bip.glubczyce.pl/download/attachment/25781/raciborska-1382-1383-i-1384-1p-2024-11-05.doc?v=1733312560"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1382"
+        },
+        {
+          "nr": "1383"
+        },
+        {
+          "nr": "1384"
         }
       ]
     },

@@ -325,3 +325,18 @@ test('refresh post-merge sequence folds a re-seeded junk key and is idempotent',
   );
   assert.deepEqual(JSON.parse(JSON.stringify(twice)), JSON.parse(JSON.stringify(once)));
 });
+
+test('Wrocław legacy encoding and unit labels recover the stated identity', () => {
+  const old = { key: 'miernicza 9 lokal|12-14|', street: 'Miernicza 9 lokal',
+    street_norm: 'miernicza 9 lokal', building: '12-14', apt: null,
+    kind: 'mieszkalny', area_m2: 73.24, listings: [listing('2026-10-22')] };
+  const encoded = { key: 'grudzi x105 dzka|85|3', street: 'Grudzi&#x105;dzka',
+    street_norm: 'grudzi x105 dzka', building: '85', apt: '3', kind: 'mieszkalny',
+    listings: [listing('2026-05-08', { outcome: 'sold', final_price_pln: 390870 })] };
+  const rows = applyDurablePropertyHeals([old, encoded], 'wroclaw');
+  assert.equal(rows[0].key, 'miernicza|9|12-14');
+  assert.deepEqual(rows[0].legacy_keys, ['miernicza 9 lokal|12-14|']);
+  assert.equal(rows[0].area_m2, 73.24);
+  assert.equal(rows[1].key, 'grudziadzka|85|3');
+  assert.equal(rows[1].listings[0].final_price_pln, 390870);
+});

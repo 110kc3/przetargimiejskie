@@ -107,51 +107,9 @@ async function crawlAll() {
       continue;
     }
 
-    // AMW item: OCR the PDF attachment
-    if (item.is_eto_hosted) {
-      // Step 1: get PDF attachment URL from ETO detail page
-      let attUrl = null;
-      try {
-        const detailHtml = await getText(url, { userAgent: BROWSER_UA, retries: 1 });
-        attUrl = attachmentUrlFromEtoDetail(detailHtml);
-      } catch (err) {
-        console.error('  warszawa AMW detail fetch failed (' + url + '): ' + err.message);
-      }
-
-      // Step 2: OCR the PDF and parse structured fields
-      let pdfFields = { starting_price_pln: null, area_m2: null, auction_date: null,
-                        address: null, address_raw: null, apt: null, round: null };
-      if (attUrl) {
-        try {
-          const ocrText = await ocrPdf(attUrl, { userAgent: BROWSER_UA });
-          pdfFields = parseAmwPdfText(ocrText);
-          console.error(
-            '  warszawa AMW PDF parsed: price=' + pdfFields.starting_price_pln +
-            ' area=' + pdfFields.area_m2 + ' date=' + pdfFields.auction_date,
-          );
-        } catch (err) {
-          console.error('  warszawa AMW PDF OCR failed (' + attUrl + '): ' + err.message);
-        }
-      }
-
-      // Fall back to title-based parsing for any missing fields
-      const titleFields = parseDetailText(item.title);
-
-      listings.push({
-        kind: item.kind ?? 'mieszkalny',
-        address_raw: pdfFields.address_raw ?? titleFields.address_raw ?? item.title,
-        address: pdfFields.address ?? titleFields.address,
-        auction_date: pdfFields.auction_date ?? titleFields.auction_date,
-        published_date: item.published_from,
-        round: pdfFields.round ?? titleFields.round,
-        area_m2: pdfFields.area_m2 ?? titleFields.area_m2,
-        starting_price_pln: pdfFields.starting_price_pln,
-        detail_url: attUrl ?? url,
-        eto_nr: item.eto_nr,
-        source: 'amw',
-      });
-      continue;
-    }
+    // AMW publishes through ETO too, but its sales belong to the independent
+    // institutional provider ledger, not Warsaw's municipal counts/medians.
+    if (item.is_eto_hosted) continue;
 
     // City-owned item: fetch dzielnica detail page
     let detailHtml = '';

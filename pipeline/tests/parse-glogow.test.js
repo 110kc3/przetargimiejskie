@@ -2237,3 +2237,13 @@ test('parseAnnouncement: Witanowice share — same parcel-keyed fallback on the 
   assert.equal(r.auction_date, '2026-01-20');
   assert.equal(r.round, 1);
 });
+
+test('2023 Kożuchowska sale retains the inline unit and the actual one-eighth share', async () => {
+  const { readFileSync } = await import('node:fs');
+  const body = readFileSync(new URL('../pdf-text-cache/download.3dbb5622.txt', import.meta.url), 'utf8');
+  const rows = parseResultDoc(buildRecordText({ body }), '2023-04-25', 'https://glogow.bip.info.pl/api/fo/files/cfee02e138a3afebc99f85f06b8b2d/download');
+  assert.equal(rows[0].address.key, 'kozuchowskiej|27|1');
+  assert.equal(rows[0].share, '1/8');
+  assert.equal(rows[0].starting_price_pln, 7000);
+  assert.equal(rows[0].final_price_pln, 7070);
+});

@@ -62,7 +62,7 @@ function iso(y, m, d) {
 // "2 300 000,00 zł" / "85.000,00 zł" / "85000" → integer PLN.
 function parsePLN(numStr) {
   if (!numStr) return null;
-  const s = String(numStr).replace(/\s/g, '');
+  const s = String(numStr).replace(/\s/g, '').replace(/,00,00$/, ',00');
   // Detect dot-thousands vs decimal separator by looking at what follows the last separator:
   // if last separator is "," with exactly 2 digits after, treat "." as thousands.
   const commaDecimal = /^[\d.]+,\d{2}$/.test(s);
@@ -77,7 +77,7 @@ function parsePLN(numStr) {
 // "18,21" / "18.21" → 18.21
 function parseArea(numStr) {
   if (numStr == null) return null;
-  const n = Number(String(numStr).replace(/\s/g, '').replace(',', '.'));
+  const n = Number(String(numStr).replace(/\s/g, '').replace(/,00,00$/, ',00').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
@@ -296,13 +296,13 @@ export function isResultNotice(text) {
 export function auctionDateFromResultText(text) {
   if (!text) return null;
   // "przeprowadzonego dnia 28 czerwca 2022 r."
-  const spM = /przeprowadzon\w*\s+dnia\s+(\d{1,2})\s+([a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)\s+(\d{4})/i.exec(text);
+  const spM = /przeprowadzon\w*\s+(?:w\s+)?(?:dnia|dniu)\s+(\d{1,2})\s+([a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)\s+(\d{4})/i.exec(text);
   if (spM) {
     const mo = PL_MONTHS[normPL(spM[2])];
     if (mo) return iso(spM[3], mo, spM[1]);
   }
   // Numeric fallback "DD.MM.YYYY r."
-  const numM = /przeprowadzon\w*\s+dnia\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
+  const numM = /przeprowadzon\w*\s+(?:w\s+)?(?:dnia|dniu)\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text);
   if (numM) return iso(numM[3], numM[2], numM[1]);
   return null;
 }
@@ -360,6 +360,18 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!address) notes.push('parse: address not found in result text');
 
   const kind = classifyKind(t);
+  if (kind === 'grunt') {
+    const parcelClauses = [...t.matchAll(/dzia[łl]k[a-ząćęłńóśźż]*\s+(?:ewid\.\s*)?nr\s*:\s*([\d/]+(?:\s*(?:,|i)\s*[\d/]+)*)/gi)];
+    const parcels = [...new Set(parcelClauses.flatMap((m) => m[1].split(/\s*(?:,|i)\s*/)))];
+    const areas = [...t.slice(0, t.indexOf('Do sprzedaży')).matchAll(/o\s+pow\.\s+(\d+[,.]\d+)\s*ha/gi)];
+    return [{ kind, address: null, dzialka_nr: parcels.join(', ') || null,
+      obreb: /\/obr\.\s*(\d+)/i.exec(t)?.[1] || null,
+      address_raw: /przy ulicy\s+([^/]+)\/obr/i.exec(t)?.[1].trim() || null,
+      area_m2: areas.length ? Math.round(areas.reduce((sum, m) => sum + Number(m[1].replace(',', '.')), 0) * 10000) : null,
+      auction_date: auctionDate, source_pdf: sourceUrl, round: null,
+      starting_price_pln, final_price_pln: negative ? null : final_price_pln,
+      outcome: negative ? 'unsold' : 'sold', notes }];
+  }
 
   // Area from "pow. N,NN m2" or "o pow. N,NNNN ha" (for flat results only the m² form matters)
   const areaM = /(?:lokalu|mieszkaln\w+)[^.]{0,60}?(\d+[,.]\d+)\s*m\s*[²2]/i.exec(t)

@@ -30,14 +30,13 @@
      <a href="mailto:kontakt@przetargimiejskie.pl">kontakt@przetargimiejskie.pl</a>.</p>
 
   <h2>Krótko</h2>
-  <p>Strona nie ma kont, formularzy, reklam ani plików cookie i nie śledzi osób
+  <p>Strona nie ma kont, reklam ani plików cookie do analityki i nie śledzi osób
      między witrynami. Samo kliknięcie adresu e-mail nie przesyła nam danych.
      Otrzymujemy je dopiero, gdy dobrowolnie wyślesz wiadomość.</p>
   <ul>
-    <li><b>Rozszerzenie:</b> nic nie opuszcza Twojego urządzenia — żadnej analityki.</li>
+    <li><b>Rozszerzenie:</b> lista obserwowanych pozostaje lokalna; publiczne dane pobiera z GitHub. Nie zawiera analityki.</li>
     <li><b>Strona przetargimiejskie.pl:</b> korzystamy z bezciasteczkowej,
-        anonimowej statystyki odwiedzin (Umami), która nie zbiera danych
-        osobowych i nie profiluje użytkowników — szczegóły niżej.</li>
+        zbiorczej statystyki odwiedzin Cloudflare Web Analytics — szczegóły niżej.</li>
     <li><b>Korespondencja:</b> wiadomość e-mail i podane w niej dane wykorzystujemy
         wyłącznie do odpowiedzi, uzgodnienia zakresu współpracy i zachowania
         niezbędnej historii ustaleń.</li>
@@ -45,7 +44,8 @@
 
   <h2>Korespondencja e-mail</h2>
   <p>Kliknięcie odnośnika e-mail otwiera Twój program pocztowy; strona sama nie
-     przesyła ani nie zapisuje treści wiadomości. Jeśli do nas napiszesz, otrzymamy
+     przesyła wiadomości. Opcjonalny szkic alertów jest przechowywany lokalnie
+     w bieżącej karcie na zasadach opisanych niżej. Jeśli do nas napiszesz, otrzymamy
      adres nadawcy, nazwę wyświetlaną, treść, metadane wiadomości i ewentualne
      załączniki. Używamy ich, aby odpowiedzieć, uzgodnić zakres współpracy oraz —
      na Twoje żądanie — podjąć działania przed zawarciem umowy. Podstawą jest
@@ -69,15 +69,29 @@
      przedawnienia.</p>
 
   <h2>Statystyka odwiedzin strony</h2>
-  <p>Na stronie przetargimiejskie.pl działa <a href="https://umami.is/privacy" target="_blank" rel="noopener">Umami Analytics</a>
-     — otwartoźródłowe narzędzie zaprojektowane pod kątem prywatności. Nie używa
-     plików cookie, nie tworzy trwałego identyfikatora użytkownika, nie śledzi Cię
-     między witrynami i nie przechowuje Twojego adresu IP. Zbierane są wyłącznie
-     zbiorcze, anonimowe dane: liczba odsłon, adres podstrony, kraj, rodzaj
-     urządzenia i źródło wejścia. Na tej podstawie nie da się zidentyfikować
-     osoby — nie przetwarzamy więc Twoich danych osobowych i nie jest wymagana
-     zgoda na pliki cookie. Rozszerzenie do przeglądarki <b>nie</b> zawiera
-     analityki ani żadnego kodu śledzącego.</p>
+  <p>Korzystamy z <a href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a>.
+     Widzimy zbiorcze odsłony i wizyty oraz m.in. adres podstrony, źródło wejścia,
+     kraj i typ urządzenia. Według dokumentacji dostawcy narzędzie nie używa
+     cookies ani localStorage do analityki i nie tworzy identyfikatorów do śledzenia
+     osób między wizytami. Odsłony i wizyty nie są liczbą unikalnych osób.</p>
+  <p>Przeglądarka łączy się z Cloudflare, aby pobrać skrypt i wysłać pomiary.
+     Cloudflare obsługuje dane techniczne tych połączeń zgodnie ze swoją
+     <a href="https://www.cloudflare.com/policies/privacy/">polityką prywatności</a>.
+     Dostawcy hostingu i sieci mogą przetwarzać adres IP oraz inne dane techniczne
+     niezbędne do obsługi i zabezpieczenia połączeń. Nie składamy obietnicy, że
+     żaden dostawca nigdy nie przetwarza adresu IP. Rozszerzenie nie zawiera tego skryptu.</p>
+
+  <h2>Dobrowolne zainteresowanie planowanymi alertami</h2>
+  <p>Formularz na <a href="/alerty/">stronie alertów</a> przygotowuje szkic e-maila.
+     Kryteria są przechowywane w sessionStorage tylko w bieżącej karcie do chwili
+     wyświetlenia szkicu. Nie są umieszczane w adresie strony ani przesyłane do nas
+     przez formularz. Po otwarciu szkicu usuwamy je z tej pamięci. Wyślesz je dopiero
+     samodzielnie w swoim programie pocztowym.</p>
+  <p>Jeśli wyślesz wiadomość, użyjemy jej do oceny zainteresowania planowaną funkcją
+     i odpowiedzi dotyczącej zgłoszenia, na zasadach korespondencji opisanych wyżej.
+     Nie jest to zapis do newslettera, zamówienie ani zgoda na inne wiadomości marketingowe.
+     Zbiorcza liczba odsłon strony przygotowania szkicu oznacza zainteresowanie krokiem,
+     a nie wysłane wiadomości, zapisane osoby lub przychód.</p>
 
   <h2>Twoje prawa</h2>
   <p>W zakresie przewidzianym przez RODO możesz żądać dostępu do danych, ich
@@ -88,15 +102,13 @@
 
   <h2>Co robi rozszerzenie</h2>
   <ul>
-    <li>Pobiera publiczne pliki danych (JSON) z naszego repozytorium / domeny
-        przetargimiejskie.pl. To są dane o przetargach — nie są wysyłane żadne
-        Twoje informacje.</li>
+    <li>Pobiera publiczne pliki danych (JSON) z naszego repozytorium na raw.githubusercontent.com. To dane o przetargach. GitHub otrzymuje standardowe dane połączenia sieciowego; nie przesyłamy mu listy obserwowanych ani treści odwiedzanych stron.</li>
     <li>Czyta treść stron BIP, które i tak otwierasz (np. ZGM Gliwice, BIP
-        Katowice, bytom.pl, BIP Zabrze/Sosnowiec, ZGM Rybnik), aby dokleić obok
+        Katowice, bytom.pl, ZGM Rybnik, BIP Mysłowice i Świętochłowice, Bielsko-Biała), aby dokleić obok
         ogłoszeń historię przetargów. Treść stron jest przetwarzana wyłącznie
         lokalnie, w Twojej przeglądarce.</li>
     <li>Zapisuje lokalnie (chrome.storage): pobrane dane w pamięci podręcznej
-        (6 godz.), Twoją listę obserwowanych nieruchomości oraz wybór języka i
+        (6 godz., maksymalnie osiem miast), wybrane miasto, Twoją listę obserwowanych nieruchomości oraz wybór języka i
         motywu. Te informacje nie są nigdzie wysyłane.</li>
     <li>Może wyświetlić powiadomienie, gdy obserwowana nieruchomość zostanie
         ponownie wystawiona (opcjonalne).</li>
@@ -106,7 +118,7 @@
   <ul>
     <li>Nie uruchamiamy zdalnego kodu — pobierane są wyłącznie statyczne dane JSON.</li>
     <li>Nie zbieramy historii przeglądania, danych logowania ani danych z formularzy.</li>
-    <li>Nie sprzedajemy ani nie udostępniamy danych komukolwiek.</li>
+    <li>Nie sprzedajemy danych ani nie przekazujemy list obserwowanych nieruchomości partnerom.</li>
     <li>Nie używamy plików cookie ani sieci reklamowych.</li>
   </ul>
 
@@ -119,7 +131,7 @@
   <p>Pytania, skargi, prośby o usunięcie danych oraz propozycje współpracy:
      <a href="mailto:kontakt@przetargimiejskie.pl">kontakt@przetargimiejskie.pl</a>
      lub <a href="https://github.com/110kc3/przetargimiejskie">repozytorium na GitHub</a>.</p>
-  <p class="muted">Ostatnia aktualizacja: 2026-08-11.</p>
+  <p class="muted">Ostatnia aktualizacja: 2026-10-19.</p>
 </div>
 </body>
 </html>

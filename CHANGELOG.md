@@ -4,6 +4,13 @@ All user-visible changes to the Chrome extension. The number shown in the
 popup footer matches the latest entry here. Versioning per CLAUDE.md (semver:
 MAJOR = breaking, MINOR = new feature/permission/host, PATCH = fixes/copy).
 
+## v1.33.0 — 2026-10-18
+
+- Search the official catalogue of 1,026 cities and open all 121 enabled city feeds, including land-only and low-volume datasets.
+- Load one selected city at a time; keep a bounded cache with last-good fallback and scan only watched cities for notifications.
+- Show source availability and freshness separately from in-page overlay support. Keep municipal host permissions unchanged.
+- Preserve legacy watchlist keys and repaired address aliases; recognise garage labels and joint unit/building ranges consistently with the pipeline.
+
 ## v1.32.1 — 2026-08-02
 
 Store-listing copy only — no behaviour, permission or host changes. Ships so the

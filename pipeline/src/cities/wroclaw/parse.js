@@ -34,7 +34,7 @@ export { htmlToText };
 // Real "lokal"-suffix variants seen live: "lokal 1", "lokal nr 4", and a
 // source typo "lokl 12" (missing the "a"). [al]{1,2} matches both "al" and
 // the typo'd "l".
-const APT_SUFFIX_RE = /\s+lok[al]{1,2}\.?\s*(?:nr\.?)?\s*([0-9]+[a-zA-Z]?)\s*$/i;
+const APT_SUFFIX_RE = /\s+lok[al]{1,2}\.?\s*(?:nr\.?)?\s*([0-9]+[a-zA-Z]?(?:-[0-9]+[a-zA-Z]?)?)\s*$/i;
 // Corner/multi-frontage buildings list BOTH street frontages plus a
 // "(lokal w budynku przy ul. X Y)" clause naming the TRUE building address —
 // e.g. "ulica gen. Józefa Haukego-Bosaka 1, Zygmunta Krasińskiego 40 (lokal w
@@ -50,7 +50,7 @@ const BUDYNEK_CLAUSE_RE = /budynku\s+przy\s+ul\.?\s+([^)]+)\)/i;
  */
 export function addressRawFromLabel(label) {
   if (!label) return null;
-  const s = label.trim().replace(/\s+/g, ' ');
+  const s = htmlToText(label).replace(/^UWAGA!\s*ZMIANA TERMINU PRZETARGU!\s*/i, '').trim().replace(/\s+/g, ' ');
 
   const budynekM = BUDYNEK_CLAUSE_RE.exec(s);
   if (budynekM) {

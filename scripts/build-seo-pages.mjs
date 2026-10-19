@@ -234,6 +234,7 @@ function writePage(relDir, html) {
 // ---------- Load data ----------
 
 const index = readJson(join(ROOT, 'data', 'index.json'));
+const catalog = readJson(join(ROOT, 'data', 'catalog.json'));
 const candidates = (index.cities || [])
   .filter((c) => !PUBLIC_VOIVODESHIPS || PUBLIC_VOIVODESHIPS.has(c.voivodeship))
   .sort((a, b) => a.label.localeCompare(b.label, 'pl'));
@@ -522,7 +523,7 @@ addUrl('/miasta/');
 // ---------- sitemap.xml ----------
 
 for (const p of [
-  '/', '/archiwum/', '/raporty/', '/dla-samorzadow/',
+  '/', '/archiwum/', '/alerty/', '/raporty/', '/dla-samorzadow/',
   '/dla-samorzadow/przyklad-gliwice/', '/privacy/',
 ]) addUrl(p);
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -737,35 +738,15 @@ const outIndex = {
   })),
 };
 writeFileSync(join(OUT, 'data', 'index.json'), JSON.stringify(outIndex, null, 2));
+const outCatalog = {...catalog,cities:catalog.cities.map(c=>({...c,seo_indexable:publicIds.has(c.pipeline_id)}))};
+writeFileSync(join(OUT,'data','catalog.json'),JSON.stringify(outCatalog)+'\n');
 console.error(`  seo: published data/index.json — ${publicIds.size} public of ${(index.cities || []).length} cities`);
 
-// ---------- analytics: inject the tracking snippet into every built page ----------
-// Whichever provider is configured must be cookieless and store no personal
-// data — that is the only kind compatible with the site's RODO stance
-// (RODO-DRAFT.md), the disclosure in site/privacy/, and the extension's
-// zero-tracking promise. It is also what lets the site run with no consent
-// banner. Do not swap in a provider that fails those tests without updating
-// site/privacy/index.html in the same commit.
-//
-// Default: Umami Cloud (Hobby tier, free) on its standard cloud.umami.is
-// endpoint. Umami runs both US and EU servers but does not document how to pick
-// the EU one, so the privacy page deliberately makes NO hosting-location claim —
-// its RODO argument rests on "no personal data is processed at all", which holds
-// either way. If EU residency is ever confirmed or self-hosting happens, point
-// ANALYTICS_HOST at that origin and update site/privacy/ in the same commit.
-//
-// Injected here, as the last build step, rather than pasted into each template:
-// it lands on the static site/ pages and every generated SEO page alike, and a
-// page added later cannot silently ship unmeasured.
-//
-//   ANALYTICS_PROVIDER  umami (default) | plausible
-//   ANALYTICS_ID        umami website id (UUID) | plausible domain
-//   ANALYTICS_HOST      self-hosted origin (umami only; default cloud.umami.is)
-//
-// With no ANALYTICS_ID the snippet is omitted entirely. That is deliberate: a
-// placeholder id would ship a script that beacons nowhere and give a false
-// impression that traffic is being recorded.
-
+// ---------- analytics ----------
+// Production uses Cloudflare Web Analytics. Keep the public disclosure in
+// site/privacy/ aligned with the configured provider. Network suppliers still
+// process connection metadata; do not promise that no IP is ever processed.
+// This beacon is website-only; it is never bundled into the extension.
 const ANALYTICS = {
   umami: (id, host) => `<script defer src="${esc((host || 'https://cloud.umami.is').replace(/\/$/, ''))}/script.js" data-website-id="${esc(id)}"></script>`,
   plausible: (id) => `<script defer data-domain="${esc(id)}" src="https://plausible.io/js/script.js"></script>`,
@@ -778,7 +759,7 @@ const ANALYTICS = {
   // identifies which site a hit belongs to and grants no access to anything.
   cloudflare: (token) => `<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${esc(token)}"}'></script>`,
 };
-const A_PROVIDER = process.env.ANALYTICS_PROVIDER || 'umami';
+const A_PROVIDER = process.env.ANALYTICS_PROVIDER || 'cloudflare';
 const A_ID = process.env.ANALYTICS_ID || '';
 if (!A_ID) {
   console.error('  seo: NOTE — no ANALYTICS_ID set, pages built without analytics.');

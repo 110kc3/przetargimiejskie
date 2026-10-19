@@ -79,6 +79,10 @@ Acceptance: a representative shard completes despite one injected city failure; 
 
 Implementation status (8 September 2026): B1/B2 is in review. The hosted-safe 119-city set currently forms 52 source-aware shards; Racibórz and Pszczyna remain excluded. One read-only worker handles each bounded shard, but every city has its own detached worktree, subprocess, timeout, log and hashed outcome manifest. A single municipal publisher rejects incomplete or conflicting artifact sets, applies only validated deltas, records failed attempts without replacing last-good files, rebuilds the index once and commits once. National validation is strict for 100 current cities and by default for every new city; 21 named legacy datasets are visibly quarantined with a 6 October repair/review deadline. Targeted tests cover shard continuation after injected failure, exact artifact-set enforcement, failed-outcome preservation, land-only/mixed/valid-empty health and strict-default policy. Hosted PR verification remains the release gate.
 
+B1/B2 follow-up (19 October 2026): source-backed remediation restores strict
+validation for all 121 enabled feeds. Hosted publication and recovery remain
+pending for the implementation commit; see `REPAIR-EVIDENCE-2026-10.md`.
+
 ### B3. Website and extension
 
 - Generate a compact coverage catalog for every city, separately from heavy auction data. Users can search by city and disambiguate by voivodeship/powiat. Show “monitored,” “temporarily unavailable,” “no current auctions” or “not yet researched” according to evidence.
@@ -89,6 +93,15 @@ Implementation status (8 September 2026): B1/B2 is in review. The hosted-safe 11
 - Browser-test a new city, duplicate names, land-only and empty cities, failed requests, cache migration and a large synthetic city catalog. Bump extension manifest/popup versions together and update the changelog/store drafts. Actual store submission remains the release/account step.
 
 Acceptance: a healthy city with one auction or only land is discoverable; an unknown source is never displayed as zero auctions; first load does not fetch the country's complete history; all 121 current cities are available through website and extension data views. Existing overlays and watchlists still work.
+
+B3 implementation (19 October 2026): the shared 1,026-city catalogue exposes all
+121 enabled feeds independently of the SEO threshold. Website/extension load a
+selected city's histories, retain bounded caches and show source states. Actual
+Chromium desktop/mobile and unpacked-extension checks pass, including duplicate
+names, low-volume/land-only sources, failures and interest-draft boundaries.
+Extension v1.33.0 package/privacy/store copy and real captures are prepared.
+Hosted release and owner store acceptance remain external gates. No new city
+expansion was selected in this batch.
 
 ## 5. Phase C — finish the known 50-city queue
 
@@ -163,4 +176,7 @@ After the pilot, forecast from **remaining research / measured research rate + q
 - Scheduled refresh, class-aware health, per-source failure detection, history retention and publication pass at full scale for 14 consecutive days without silent omissions. Document genuine upstream outages as coverage gaps; do not reset freshness to hide them.
 - Runtime, source request volume, storage and maintenance effort fit the measured operating budget. Quarterly source reviews and periodic GUS imports generate actionable changes.
 
-Phase A is complete and Phase B1/B2 is in review. Recommended next slice after its hosted gate: repair the 21 dated validation-quarantine datasets in small cohorts and perform the read-only source/asset audit of the existing 121 cities; then deliver Phase B3 so current datasets are exposed truthfully through both product surfaces. This makes each subsequent city addition measurable and usable.
+Phase A is complete. B1/B2 follow-up remediation and Phase B3 implementation
+are locally verified as of 19 October 2026, with hosted recovery/store acceptance
+recorded in TODO. The known expansion/research queues remain separate; the
+October selection did not authorize starting them.

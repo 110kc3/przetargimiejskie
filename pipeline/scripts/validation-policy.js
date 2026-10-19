@@ -3,36 +3,17 @@
 // report-only entries are a dated remediation cohort whose existing committed
 // data currently trips one or more legacy sanity rules.
 
-export const QUARANTINED = new Map([
-  ['bydgoszcz', 'legacy price parsing findings'],
-  ['chelmno', 'legacy address parsing findings'],
-  ['drawsko-pomorskie', 'legacy address parsing findings'],
-  ['glogow', 'legacy address/price findings'],
-  ['glubczyce', 'legacy address/price findings'],
-  ['gniezno', 'legacy address parsing findings'],
-  ['gorzow-wielkopolski', 'legacy area/price findings'],
-  ['grudziadz', 'legacy price parsing findings'],
-  ['jarocin', 'legacy address parsing findings'],
-  ['jelenia-gora', 'legacy address parsing findings'],
-  ['kielce', 'legacy land identity findings'],
-  ['krakow', 'legacy address parsing findings'],
-  ['kwidzyn', 'legacy area parsing findings'],
-  ['skarzysko-kamienna', 'legacy price parsing findings'],
-  ['slupsk', 'legacy address parsing findings'],
-  ['stargard', 'legacy land/address parsing findings'],
-  ['swinoujscie', 'legacy address parsing findings'],
-  ['torun', 'legacy address/price findings'],
-  ['trzebnica', 'legacy price parsing findings'],
-  ['warszawa', 'legacy area parsing findings'],
-  ['wroclaw', 'legacy entity/address parsing findings'],
-]);
-export const QUARANTINE_REVIEW_DUE = '2026-10-06';
+// The September remediation cohort was repaired from retained official source
+// evidence on 2026-10-19. Strict publication checks apply to every enabled feed.
+export const RESTORED = new Set(["bydgoszcz", "chelmno", "drawsko-pomorskie", "glogow", "glubczyce", "gniezno", "gorzow-wielkopolski", "grudziadz", "jarocin", "jelenia-gora", "kielce", "krakow", "kwidzyn", "skarzysko-kamienna", "slupsk", "stargard", "swinoujscie", "torun", "trzebnica", "warszawa", "wroclaw"]);
+export const QUARANTINED = new Map();
+export const QUARANTINE_REVIEW_DUE = null;
 
 export function validationPolicy(cityId) {
   const reason = QUARANTINED.get(cityId);
   return reason
     ? { status: 'quarantined', since: '2026-09-06', review_due: QUARANTINE_REVIEW_DUE, reason }
-    : { status: 'enforced', since: '2026-09-06', review_due: null, reason: null };
+    : { status: 'enforced', since: RESTORED.has(cityId) ? '2026-10-19' : '2026-09-06', review_due: null, reason: null };
 }
 
 export function validatePolicyRegistry(registry) {

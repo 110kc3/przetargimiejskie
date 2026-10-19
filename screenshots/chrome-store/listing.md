@@ -1,3 +1,5 @@
+> Historical Gliwice-only copy. For v1.33.0 use [WEB_STORE_LISTING.md](../../WEB_STORE_LISTING.md) and [the dated browser captures](RELEASE-1.33.0.md). The old SVG-rendered images are illustrations, not current release screenshots.
+
 # Chrome Web Store — listing copy
 
 Everything below is ready to paste into the Chrome Web Store developer

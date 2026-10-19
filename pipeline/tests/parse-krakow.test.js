@@ -60,3 +60,14 @@ test('parseNotice: announcement — 2 active items, round 2, shared date', () =>
   assert.equal(recs[1].round, 2);
   assert.equal(recs[1].starting_price_pln, 47700);
 });
+
+test('HTML ordered-list lots retain separate commercial, flat and land identities', async () => {
+  const { readFileSync } = await import('node:fs');
+  const html = readFileSync(new URL('./fixtures/remediation/krakow-257668.html', import.meta.url), 'utf8');
+  const rows = parseNotice(html);
+  assert.deepEqual(rows.map(r => [r.address?.key || r.dzialka_nr, r.kind, r.starting_price_pln]), [
+    ['grottgera|24|6', 'uzytkowy', 120000], ['sportowym|1|7', 'mieszkalny', 132000],
+    ['169/16', 'grunt', 45050],
+  ]);
+  assert.ok(rows.every(r => r.auction_date === '2026-09-02'));
+});

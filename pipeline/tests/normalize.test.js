@@ -49,3 +49,19 @@ test('nominativeStreetDisplay flips adjectival single-word genitives only', () =
   assert.equal(nominativeStreetDisplay('Królewskiej Tamy'), 'Królewskiej Tamy');
   assert.equal(nominativeStreetDisplay('Skłodowskiej-Curie'), 'Skłodowskiej-Curie');
 });
+
+// ZGM's September/October 2026 garage cards and detail titles.
+test('garage abbreviations retain the building and garage identity', () => {
+  for (const raw of ['Kozielska 13 g. 1', 'Kozielska 13 garaż 1', 'Kozielska 13 garaż nr 1']) {
+    assert.equal(parseAddress(raw).key, 'kozielska|13|garaz-1');
+  }
+  assert.equal(parseAddress('Księcia Ziemowita 6 garaż 2').key, 'ksiecia ziemowita|6|garaz-2');
+  assert.equal(parseAddress('Księcia Ziemowita 6 g nr 2').key, 'ksiecia ziemowita|6|garaz-2');
+  assert.equal(parseAddress('Kozielska 13/1').key, 'kozielska|13|1');
+});
+
+test('joint lots retain the stated unit and frontage identities', () => {
+  assert.equal(parseAddress('Miernicza 9/12-14').key, 'miernicza|9|12-14');
+  assert.equal(parseAddress('Tadeusza Kościuszki 142/3A, 3B').key, 'tadeusza kosciuszki|142|3A-3B');
+  assert.equal(parseAddress('Zdrowa 7, 9, 11, 13/5').key, 'zdrowa|7,9,11,13|5');
+});

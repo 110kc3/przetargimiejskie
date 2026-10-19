@@ -148,13 +148,13 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Kołłątaja 39, Kołłątaja 39A",
+      "address_raw": "Kołłątaja 39,39A/4A",
       "address": {
-        "street": "Kołłątaja 39, Kołłątaja",
-        "street_norm": "kollataja 39 kollataja",
-        "building": "39A",
+        "street": "Kołłątaja",
+        "street_norm": "kollataja",
+        "building": "39,39A",
         "apt": "4A",
-        "key": "kollataja 39 kollataja|39A|4A",
+        "key": "kollataja|39,39A|4A",
         "warning": null
       },
       "auction_date": "2026-10-29",
@@ -162,7 +162,8 @@
       "area_m2": 30.94,
       "starting_price_pln": 165000,
       "kw": "SL1S/00083583/4",
-      "detail_url": "https://bip.um.slupsk.pl/przetargi/3222.html"
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3222.html",
+      "source_address_raw": "ul. Kołłątaja 39, Kołłątaja 39A"
     },
     {
       "kind": "mieszkalny",

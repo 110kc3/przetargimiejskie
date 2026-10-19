@@ -1,200 +1,81 @@
-# Chrome Web Store — listing copy
+# Chrome Web Store copy — v1.33.0
 
-Paste-ready copy for the Chrome Web Store developer dashboard. **Polish is the
-primary listing**; English is a secondary locale.
+This is the release draft for the owner to submit. No store upload/submission was
+performed. Archive discovery and in-page overlays have different coverage.
 
-> **Coverage, stated honestly.** The **extension** covers the nine Śląskie cities
-> in `extension/background.js` → `CITIES`: Gliwice, Katowice, Bytom, Zabrze,
-> Sosnowiec, Rybnik, Bielsko-Biała, Mysłowice, Świętochłowice. The **website**
-> przetargimiejskie.pl covers far more. Do not let this copy claim national
-> coverage while `CITIES` holds nine — the store listing would be false. When the
-> CITIES rework lands, this file and `manifest.json`'s `description` change with
-> it, in the same commit.
+## Name
 
-> **Positioning (GTM §8.3).** Lead with **outcomes**, never with city counts.
-> ListaPrzetargow has 7 000+ live listings to our 255 and wins any coverage
-> comparison outright; what nobody else has is what *happened* — which auctions
-> failed, in which round, and how far the price fell. Every headline below is
-> built on that sentence: *"zanim zalicytujesz, sprawdź, czy ten lokal już się
-> nie sprzedał i o ile spadła cena."*
-
----
-
-## Store name (≤ 45 characters)
-
-```
 Przetargi miejskie
-```
 
-English locale:
-```
-Przetargi miejskie – municipal flat auctions
-```
+## Short description (under 132 characters)
 
----
+Polish:
 
-## Summary (≤ 132 characters — shown in search results)
+> Historia miejskich przetargów i cen. Katalog 1 026 miast, dane 121 kanałów. Nakładki na wybranych stronach BIP.
 
-**Polish (116):**
-```
-Zanim zalicytujesz, sprawdź czy ten lokal już dwa razy się nie sprzedał i o ile spadła cena. 9 miast woj. śląskiego.
-```
+English:
 
-**English (114):**
-```
-Check whether a municipal flat already failed to sell and how far its price has fallen. 9 cities in Silesia, free.
-```
+> Municipal auction history and prices. Search Poland's city catalogue and 121 data feeds. Overlays on selected BIP sites.
 
----
+## Full description — Polish
 
-## `manifest.json` → `description` (≤ 132 characters)
+Zanim zalicytujesz, sprawdź historię ogłoszenia: poprzednie rundy, opublikowane
+ceny wywoławcze i — jeśli urząd je udostępnia — wyniki sprzedaży.
 
-This is the string that actually renders under the extension name in the store,
-so it must match the summary's positioning. Keep the two in sync.
+- Katalog 1 026 oficjalnych miast, wyszukiwanie po nazwie, powiecie i województwie.
+- Dostęp do danych 121 włączonych kanałów miejskich, także o niewielkiej liczbie
+  aukcji lub obejmujących wyłącznie działki. Nie oznacza to pełnego monitoringu
+  wszystkich rodzajów nieruchomości ani wszystkich miast w Polsce.
+- Jasna informacja o stanie źródła i dacie sprawdzenia. Brak monitoringu nie
+  oznacza braku przetargów; nieaktualne dane pozostają oznaczone.
+- Archiwum i filtry dla mieszkań, domów, działek, lokali użytkowych oraz garaży.
+- Obserwowanie konkretnych nieruchomości i lokalne powiadomienia o nowych rundach
+  oraz terminach, jeśli daty są opublikowane. Nie jest to wysyłka alertów e-mail.
+- Język polski i angielski, jasny i ciemny motyw. Bez konta, reklam i analityki
+  w rozszerzeniu. Dane pobierane dopiero dla wybranego miasta i obserwowanych pozycji.
 
-**Current shipped value (123):**
-```
-Zanim zalicytujesz: sprawdź, czy ten lokal już się nie sprzedał i o ile spadła cena. Historia rund i zł/m², 9 miast Śląska.
-```
+Nakładki w treści stron urzędowych działają wyłącznie przez istniejące adaptery:
+Gliwice, Katowice, Bytom, Rybnik, Mysłowice, Świętochłowice i Bielsko-Biała.
+Pozostałe włączone kanały są dostępne w katalogu, popupie i archiwum.
 
----
+Ceny i mediany są opisem opublikowanych danych, nie wyceną ani rekomendacją
+zakupu. Sprzedaż udziału jest oznaczona i pomijana w porównaniu ceny całego lokalu.
+Wiążące warunki, dokumenty i terminy sprawdzaj na stronie urzędu. Narzędzie jest
+nieoficjalne i nie jest związane z żadnym urzędem.
 
-## Category
+## Full description — English
 
-`Shopping` (alt: `Productivity`). Language: Polish (primary).
+Review previous auction rounds, published starting prices and sale results when
+the municipality publishes them. Search the official catalogue of 1,026 cities
+and open 121 enabled municipal data feeds, including small and land-only datasets.
+Coverage, last source checks and unavailable sources are shown explicitly.
 
----
+Select a city before downloading its archive. Filter flats, buildings, land,
+commercial units and garages. Keep a local watchlist and receive browser
+notifications for published new rounds and deadlines. E-mail alerts are not part
+of this release. Polish/English and light/dark themes are available.
 
-## Detailed description
+In-page overlays work only on the existing adapters for Gliwice, Katowice, Bytom,
+Rybnik, Mysłowice, Świętochłowice and Bielsko-Biała. Other enabled feeds are available
+through the catalogue and archive. This is not exhaustive monitoring of every city,
+asset class or official website. Always verify binding terms with the source.
+No accounts, advertising or extension analytics. Public data is downloaded from
+GitHub; watchlists stay on the device.
 
-### Polish
+## Permissions and privacy
 
-```
-Przetargi miejskie porządkuje publiczne ogłoszenia i wyniki miejskich przetargów
-na mieszkania. Na stronach BIP pokazuje wcześniejsze zaobserwowane terminy,
-opublikowane ceny wywoławcze i wyniki — bez szacowania wartości nieruchomości.
+Permissions remain `storage`, `alarms`, `notifications` and the existing narrow
+host permissions. The catalogue adds no nationwide municipal-site permissions.
+Host access supports the existing overlays and downloads of public JSON from
+`raw.githubusercontent.com/110kc3/przetargimiejskie/`.
 
-Gdy przeglądasz ogłoszenie o przetargu, rozszerzenie dodaje obok niego:
-• runda przetargu (1., 2., 3. …) — od razu widzisz, czy to ponowne wystawienie,
-• czy ten lokal był już wystawiany i jak zakończyły się poprzednie licytacje,
-• o ile spadła cena wywoławcza od pierwszej rundy,
-• cena wywoławcza, powierzchnia i zł/m²,
-• data przetargu, termin wpłaty wadium i oględzin.
-
-DLACZEGO HISTORIA MA ZNACZENIE
-Numer rundy i wcześniejsze ogłoszenia pomagają odnaleźć dokumenty dotyczące tej
-samej nieruchomości. Rozszerzenie opisuje opublikowaną historię; nie jest wyceną,
-prognozą ceny ani rekomendacją udziału w aukcji. Wiążą informacje urzędu.
-
-OBSŁUGIWANE MIASTA (rozszerzenie)
-Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM),
-Bielsko-Biała, Mysłowice, Świętochłowice.
-Kolejne miasta są dodawane. Dane z ponad 50 miast w całej Polsce znajdziesz
-na przetargimiejskie.pl.
-
-ARCHIWUM
-Wbudowane archiwum to przeszukiwalna, sortowalna tabela wszystkich
-dotychczasowych przetargów — z filtrami województwa, miasta, typu i rocznika
-oraz wyszukiwarką po ulicy. Obejmuje także domy i działki, z linkami do
-geoportalu. Dla części miast dostępne są ceny osiągnięte w przetargach;
-dla pozostałych — ceny wywoławcze i pełna historia rund.
-
-OBSERWOWANE NIERUCHOMOŚCI
-Dodaj lokal do obserwowanych, a rozszerzenie powiadomi Cię, gdy zostanie
-wystawiony ponownie albo gdy zbliża się termin wadium.
-
-PRYWATNOŚĆ
-Nic nie opuszcza Twojego komputera. Rozszerzenie pobiera publiczne dane (pliki
-JSON) z naszego repozytorium i czyta tylko strony BIP, które i tak otwierasz.
-Bez kont, bez śledzenia, bez reklam, bez analityki.
-
-Dane pochodzą z publicznych Biuletynów Informacji Publicznej (BIP) urzędów miast
-i miejskich zakładów gospodarki mieszkaniowej. To narzędzie nieoficjalne,
-niezwiązane z żadnym urzędem.
-```
-
-### English
-
-```
-Przetargi miejskie organizes public notices and results for municipal flat
-auctions. On the BIP pages you already browse, it shows earlier observed dates,
-published starting prices and outcomes without estimating the property's value.
-
-When you view an auction announcement, the extension adds:
-• the auction round (1st, 2nd, 3rd …) — instantly see if it's a re-listing,
-• whether this flat was offered before, and how those auctions ended,
-• how far the starting price has fallen since round one,
-• starting price, area and PLN/m²,
-• auction date, deposit (wadium) deadline and viewing dates.
-
-WHY HISTORY MATTERS
-The reported round and earlier notices help locate documents concerning the same
-property. The extension describes published history; it is not a valuation,
-price forecast or recommendation to bid. The authority's documents are binding.
-
-CITIES (extension)
-Gliwice (ZGM), Katowice, Bytom, Zabrze, Sosnowiec, Rybnik (ZGM),
-Bielsko-Biała, Mysłowice, Świętochłowice. More are added. Data for 50+ cities
-across Poland is on przetargimiejskie.pl.
-
-ARCHIVE
-A built-in, searchable, sortable archive of every past auction — with
-voivodeship, city, type and year filters plus street search. Houses and land
-plots included, with geoportal links. Some cities also carry achieved sale
-prices; the rest show starting prices and full round history.
-
-WATCHLIST
-Star a property and the extension notifies you when it is listed again, or when
-a deposit deadline approaches.
-
-PRIVACY
-Nothing leaves your computer. The extension fetches public JSON data from our
-repository and only reads the BIP pages you already open. No accounts, no
-tracking, no ads, no analytics.
-
-Data comes from public municipal BIP bulletins and city housing authorities.
-This is an unofficial tool, not affiliated with any city office.
-```
-
----
-
-## Permission justifications (dashboard "Privacy practices" tab)
-
-| Item | Justification |
-|---|---|
-| **Host permissions** (`zgm-gliwice.pl`, `bip.katowice.eu`, `www.bytom.pl`, `i-biip.um.bytom.pl`) | The content script runs only on these municipal auction pages to add the history badge/chip next to each listing. |
-| **`raw.githubusercontent.com`** | Fetches the public auction data files (`properties.json`, `active.json`). No user data is sent. This is the only host the extension itself requests. |
-| **`storage`** | Caches the fetched data locally and stores the user's watch-list, language, theme and history-year preference. |
-| **`alarms`** | Re-checks the public data roughly every 4 hours so a watched property can be flagged promptly. |
-| **`notifications`** | Optional alert when a watched property is listed again or a deposit deadline nears. |
-| **Remote code** | None. No remote code is executed; only static JSON data is fetched. |
-| **Single purpose** | Show municipal property-auction history and outcomes on the relevant BIP pages and in a built-in archive. |
-
----
-
-## Privacy policy URL
-
-```
-https://przetargimiejskie.pl/privacy
-```
-
-## Homepage URL
-
-```
-https://przetargimiejskie.pl
-```
-
-## Support / contact email
-
-```
-kontakt@przetargimiejskie.pl
-```
+Privacy: https://przetargimiejskie.pl/privacy/ and [PRIVACY.md](PRIVACY.md).
+Homepage: https://przetargimiejskie.pl/.
+Support: kontakt@przetargimiejskie.pl.
 
 ## Screenshots
 
-See `screenshots/chrome-store/` — five 1280×800 PNGs, regenerated from SVG via `make.js`:
-`01-on-page-chip.png` (auction history + deal score injected on a BIP announcement),
-`02-popup-all-cities.png` (popup: 9 cities, flats/houses/land, deal score, map links),
-`03-web-archive.png` (searchable archive incl. houses & land),
-`04-houses-land.png` (the Rodzaj filter — domy & działki with geoportal links),
-`05-raporty.png` (Raporty: median zł/m² by city + price-drop deals board).
+Use the dated v1.33.0 browser captures recorded in [screenshots/chrome-store/](screenshots/chrome-store/).
+They show the actual local build with committed public source data. Earlier PNGs
+rendered from SVG are illustrative historical material, not proof of current UI
+or coverage. Do not upload those old nine-city illustrations as this release.

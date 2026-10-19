@@ -47,6 +47,31 @@ export async function ocrPdf(pdfUrl, opts = {}) {
   return text;
 }
 
+/** Word geometry for source tables whose column association plain OCR loses. */
+export async function ocrPdfWords(pdfUrl, opts = {}) {
+  await mkdir(CACHE_DIR, { recursive: true });
+  const psm = opts.psm || 3;
+  const hash = urlCacheKey(`${pdfUrl}#words-v1-psm${psm}-${JSON.stringify(opts.columns || [])}`).slice(-8);
+  const cachePath = join(CACHE_DIR, `table-words.${hash}.txt`);
+  if (existsSync(cachePath)) return JSON.parse(await readFile(cachePath, 'utf8'));
+  const pages = await ocrPdfFresh(pdfUrl, { ...opts, psm, words: true });
+  await writeFile(cachePath, JSON.stringify(pages) + '\n', 'utf8');
+  return pages;
+}
+
+export function parseTesseractTsv(tsv) {
+  const rows = tsv.trim().split(/\r?\n/).slice(1).map((line) => line.split('\t'));
+  const page = rows.find((row) => row[0] === '1');
+  if (!page) throw new Error('OCR word geometry is missing the page bounds');
+  return {
+    width: Number(page[8]), height: Number(page[9]),
+    words: rows.filter((row) => row[0] === '5' && row[11]?.trim()).map((row) => ({
+      left: Number(row[6]), top: Number(row[7]), width: Number(row[8]),
+      height: Number(row[9]), text: row.slice(11).join('\t').trim(),
+    })),
+  };
+}
+
 /** Fetch, rasterize, OCR; no cache. @param {string} pdfUrl */
 async function ocrPdfFresh(pdfUrl, opts = {}) {
   const bytes = await getBytes(pdfUrl, {
@@ -65,18 +90,46 @@ async function ocrPdfFresh(pdfUrl, opts = {}) {
     const { readdirSync } = await import('node:fs');
     const pngs = readdirSync(work)
       .filter((f) => f.startsWith('page-') && f.endsWith('.png'))
-      .sort();
+      .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
     const pages = [];
     for (const png of pngs) {
       const out = join(work, png.replace(/\.png$/, ''));
       execFileSync(
         'tesseract',
-        [join(work, png), out, '-l', 'pol', '--psm', String(opts.psm || 3)],
+        [join(work, png), out, '-l', 'pol', '--psm', String(opts.psm || 3),
+          ...(opts.words ? ['tsv'] : [])],
         { stdio: ['ignore', 'ignore', 'pipe'], env: TESS_ENV },
       );
-      pages.push(await readFile(out + '.txt', 'utf8'));
+      const extracted = await readFile(out + (opts.words ? '.tsv' : '.txt'), 'utf8');
+      if (!opts.words) {
+        pages.push(extracted);
+        continue;
+      }
+      const geometry = parseTesseractTsv(extracted);
+      if (opts.columns) {
+        geometry.columns = [];
+        const pageNumber = /page-(\d+)\.png$/.exec(png)[1];
+        for (const [columnIndex, [left, right]] of opts.columns.entries()) {
+          if (!(left >= 0 && right > left && right <= 1)) throw new Error('invalid OCR column bounds');
+          const x = Math.ceil(geometry.width * left);
+          const width = Math.floor(geometry.width * (right - left));
+          const columnOut = join(work, `column-${pageNumber}-${columnIndex}`);
+          // Render a source column directly from the PDF. Removing adjacent
+          // cells and grid borders improves OCR without changing source bytes.
+          execFileSync('pdftoppm', ['-r', '300', '-f', pageNumber, '-l', pageNumber,
+            '-singlefile', '-x', String(x), '-W', String(width), pdfPath, columnOut, '-png'],
+          { stdio: ['ignore', 'ignore', 'pipe'] });
+          execFileSync('tesseract', [columnOut + '.png', columnOut, '-l', 'pol', '--psm', '6', 'tsv'],
+            { stdio: ['ignore', 'ignore', 'pipe'], env: TESS_ENV });
+          const column = parseTesseractTsv(await readFile(columnOut + '.tsv', 'utf8'));
+          geometry.columns.push({ left, right, words: column.words.map((word) => ({
+            ...word, left: word.left + x,
+          })) });
+        }
+      }
+      pages.push(geometry);
     }
-    return pages.join('\n\n===PAGE BREAK===\n\n');
+    return opts.words ? pages : pages.join('\n\n===PAGE BREAK===\n\n');
   } finally {
     await rm(work, { recursive: true, force: true });
   }

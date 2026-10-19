@@ -97,9 +97,11 @@ const BIP_LISTING_HTML = `
   </div>
 </div>`;
 
-test('parseBipList: keeps only flat-sale entries, drops land / najem / automaty', () => {
+test('parseBipList: retains sale entries with separate land classification, drops rentals', () => {
   const items = parseBipList(BIP_LISTING_HTML);
-  assert.equal(items.length, 3, 'three flat-sale entries; land/najem/automaty dropped');
+  assert.equal(items.length, 4);
+  assert.equal(items.filter(item => item.kind === 'grunt').length, 1);
+  assert.equal(items.filter(item => item.kind === 'mieszkalny').length, 3);
 });
 
 test('parseBipList: extracts correct URLs and titles', () => {

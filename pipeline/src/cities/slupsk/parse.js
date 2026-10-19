@@ -118,6 +118,13 @@ export function hasNextPage(html) {
   return /<a[^>]*class="mx-next"/.test(html || '');
 }
 
+export function frontageAddress(raw) {
+  const parts = raw.split(',').map((part) => parseAddress(part.trim()));
+  if (parts.length < 2 || parts.some((part) => !part || part.apt
+      || part.street_norm !== parts[0].street_norm)) return raw;
+  return `${parts[0].street} ${parts.map((part) => part.building).join(',')}`;
+}
+
 // ---- notice (detail) page ---------------------------------------------------
 
 /**
@@ -160,7 +167,7 @@ export function parseNoticePage(html, detailUrl) {
   // Corner addresses appear as "ul. Street1 N - Street2 M" (two intersecting streets).
   // Normalise to the primary street only: drop everything from " - <word>" onward.
   // Example: "ul. Stefana Starzynskiego 1 - Wojska Polskiego 54" -> "ul. Stefana Starzynskiego 1"
-  const address_raw = addrRaw.replace(/\s+-\s+\S.*$/, '').trim();
+  const address_raw = frontageAddress(addrRaw.replace(/\s+-\s+\S.*$/, '').trim());
   const address = parseAddress(address_raw);
 
   // Flat apt number from body "lokal mieszkalny nr N"

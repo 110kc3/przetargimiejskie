@@ -88,17 +88,17 @@ function parseArea(s) {
 //   * udział fractions — "5.126/124.339" (slash-adjacent),
 //   * EZD ids — "351904.1032173.1205423" (digit/dot-adjacent),
 //   * dates — "12.02.2026" (needs exactly 3-digit groups).
-const MONEY_RE = /(?<![\d.,\/])(\d{1,3}(?:\.\d{3})+)(?![\d.\/])/g;
+const MONEY_RE = /(?<![\d.,\/])(\d{1,3}(?:\.\d{3})+)(?![\d.\/]|\s*m\s*[²2?*])/g;
 
 // "lokal mieszkalny o pow. 19,43m2" — the per-row unit area phrase.
-const AREA_RE = /lokal\w*\s+mieszkaln\w*\s+o\s+pow\.?\s*(\d+(?:[.,]\d+)?)\s*m/gi;
+const AREA_RE = /lokal\w*\s+mieszkaln\w*\s+o\s+pow\.?\s*(\d+(?:[.,]\d+)?)\s*m(?=[²2?*\s.,;]|$)/gi;
 
 // Street + building/apt address candidate: "Fabryczna 53/9", "Armii Polskiej 17/4",
 // "ul. Grobla 22/12". Requires a capitalised street word directly before the
 // slashed number, so parcel ids ("10-719/1"), KW numbers ("GW1G/00047313/2"),
 // udział fractions ("5.126/124.339") and SCHE ids never match.
 const ADDR_RE =
-  /(?:^|[\s(>])((?:ul\.\s*)?\p{Lu}[\p{Ll}'.]+(?:\s+\p{Lu}[\p{Ll}'.]+){0,3})\s+(\d{1,3}[A-Za-z]?\/\d{1,3}[A-Za-z]?)(?![\d\/])/gmu;
+  /(?:^|[\s(>])((?:ul\.\s*)?(?:\d{1,2}\s+(?=(?:Maja|Stycznia|Lutego|Marca|Kwietnia|Czerwca|Lipca|Sierpnia|Września|Października|Listopada|Grudnia)\b))?\p{Lu}[\p{Ll}'.]+(?:\s+\p{Lu}[\p{Ll}'.]+){0,3})\s+(\d{1,3}[A-Za-z]?\/\d{1,3}[A-Za-z]?)(?![\d\/])/gmu;
 
 // Reject pseudo-streets whose last word is a document keyword ("Ogłoszenie Nr
 // 61/2025" → street candidate "Ogłoszenie Nr").
@@ -121,7 +121,7 @@ export function extractFlatAddresses(text) {
     const words = fold(street).split(/\s+/);
     if (words.some((w) => STREET_STOPWORDS.has(w.replace(/\W/g, '')))) continue;
     if (street.length < 3) continue;
-    out.push({ raw: `ul. ${street} ${m[2]}`, street, num: m[2] });
+    out.push({ raw: `ul. ${street} ${m[2]}`, street, num: m[2], index: m.index + m[0].indexOf(m[1]), end: ADDR_RE.lastIndex });
   }
   return out;
 }
@@ -305,23 +305,29 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   const t = text.replace(/\r/g, '');
   const auction_date = resultDateFromText(t) || fallbackDate || null;
 
-  const lines = t.split('\n');
-  const anchors = [];
-  for (let i = 0; i < lines.length; i++) {
-    if (RESULT_ANCHOR_RE.test(lines[i])) anchors.push(i);
-  }
-
+  // Address positions delimit complete rows. The Lp marker is vertically
+  // centred in some tables and absent after OCR in others, so it is not a
+  // safe row boundary. Include a preceding subject line when it introduces
+  // this row's flat area before the address column starts.
+  const addresses = extractFlatAddresses(t);
+  const rows = addresses.map((candidate) => {
+    const lineStart = t.lastIndexOf('\n', candidate.index - 1) + 1;
+    const previousLineStart = t.lastIndexOf('\n', Math.max(0, lineStart - 2)) + 1;
+    const twoLinesStart = t.lastIndexOf('\n', Math.max(0, previousLineStart - 2)) + 1;
+    const ownLine = t.slice(lineStart, t.indexOf('\n', candidate.index) < 0 ? t.length : t.indexOf('\n', candidate.index));
+    const preceding = t.slice(previousLineStart, lineStart);
+    let start = lineStart;
+    if (!/lokal\w*\s+mieszkaln/i.test(ownLine)) {
+      if (/lokal\w*\s+mieszkaln/i.test(preceding)) start = previousLineStart;
+      else if (/lokal\w*\s*\n\s*mieszkaln/i.test(t.slice(twoLinesStart,lineStart))) start = twoLinesStart;
+    }
+    return { ...candidate, start };
+  });
   const out = [];
-  let prev = -1;
-  for (const a of anchors) {
-    const block = lines.slice(prev + 1, a + 1).join('\n');
-    prev = a;
-
-    // Flats only (walbrzych convention): need the phrase AND a street/apt address.
+  for (const [index, row] of rows.entries()) {
+    const block = t.slice(row.start, rows[index + 1]?.start ?? t.length);
     if (!/lokal\w*\s+mieszkaln/i.test(block)) continue;
-    const addrs = extractFlatAddresses(block);
-    if (!addrs.length) continue; // street glyphs dropped → cannot key the row
-    const address_raw = addrs[0].raw;
+    const address_raw = row.raw;
     const address = parseAddress(address_raw);
     if (!address) continue;
 
@@ -329,9 +335,22 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     if (address.warning) notes.push(address.warning);
 
     const areaM = new RegExp(AREA_RE.source, 'i').exec(block);
-    const area_m2 = areaM ? parseArea(areaM[1]) : null;
+    const areaFallback = /(?<![\d.,])(\d+[.,]\d{1,2})(?!\d)\s*m\s*[²2?*]/i.exec(block);
+    const area_m2 = areaM ? parseArea(areaM[1]) : areaFallback ? parseArea(areaFallback[1]) : null;
 
-    const moneys = [...block.matchAll(MONEY_RE)].map((m) => plnFromDotted(m[1]));
+    const moneyMatches = [...block.matchAll(MONEY_RE)]
+      .filter((match) => !/\/\s*$/.test(block.slice(0, match.index)));
+    // A vertically wrapped ownership share can put its denominator on the
+    // next source line, interleaved with the address/description columns.
+    const denominators = new Set();
+    for (const fraction of block.matchAll(/(\d{1,3}(?:\.\d{3})+)\/\s*/g)) {
+      const numerator = plnFromDotted(fraction[1]);
+      const denominator = moneyMatches.find((match) => match.index >= fraction.index + fraction[0].length
+        && match.index - fraction.index < 400 && plnFromDotted(match[1]) > numerator);
+      if (denominator) denominators.add(denominator.index);
+    }
+    const moneys = moneyMatches.filter((match) => !denominators.has(match.index))
+      .map((match) => plnFromDotted(match[1]));
     const starting_price_pln = moneys[0] ?? null;
     if (starting_price_pln == null) notes.push('parse: missing starting price');
     const achieved = moneys[1] ?? null;
@@ -347,7 +366,7 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     out.push({
       auction_date,
       source_pdf: sourceUrl,
-      kind: kind === 'unknown' ? 'mieszkalny' : kind,
+      kind: 'mieszkalny',
       address_raw,
       address,
       round: null, // result notices reference the announcement, not the round

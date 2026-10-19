@@ -1,3 +1,4 @@
+import { repairLandLedger } from './core/ledger-repairs.js';
 // Top-level orchestrator. Loops the city registry (src/cities/index.js) and
 // builds, per city:
 //
@@ -396,7 +397,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   if (existsSync(landFile)) {
     try { prevPlots = JSON.parse(await readFile(landFile, 'utf8'))?.plots || []; } catch { prevPlots = []; }
   }
-  let landPlots = landBuilt.plots;
+  prevPlots = repairLandLedger(prevPlots, city.id);
+  let landPlots = repairLandLedger(landBuilt.plots, city.id);
   let landPreserved = false;
   if (!landComplete && prevPlots.length > 0) {
     landPlots = mergePartialLand(prevPlots, landPlots);
@@ -434,6 +436,11 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     last_successful_source_check_at: attemptedAt,
     monitored_assets: observedAssetClasses(properties, landPlots.length),
     source_checks: {
+      ...(docRefs.complete === undefined ? {} : { results: {
+        status: docRefs.complete ? 'healthy' : 'degraded', complete: docRefs.complete,
+        last_attempt_at: attemptedAt,
+        last_success_at: docRefs.complete ? attemptedAt : prevMeta?.source_checks?.results?.last_success_at || null,
+      } }),
       property: propertyCrawlEmpty
         ? (verifiedEmpty
           ? { status: 'verified_empty', last_attempt_at: attemptedAt, last_success_at: attemptedAt }

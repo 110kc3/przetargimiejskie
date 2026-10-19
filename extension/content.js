@@ -100,7 +100,7 @@
 
   let payload;
   try {
-    const res = await chrome.runtime.sendMessage({ type: 'getData' });
+    const res = await chrome.runtime.sendMessage({ type: 'getData', cities: [site.city] });
     if (!res?.ok) throw new Error(res?.error || 'unknown');
     payload = res.payload;
   } catch (err) {
@@ -455,7 +455,8 @@
     if (rl) parts.push(rl);
     if (l.starting_price_pln != null) parts.push(fmtPLN(l.starting_price_pln));
     if (area != null) parts.push(fmtArea(area));
-    if (l.starting_price_pln != null && area)
+    if(l.share||prop.share)parts.push(`${window.ZGM_I18N.getLang()==='en'?'share':'udział'} ${l.share||prop.share}`);
+    if (!l.share && !prop.share && l.starting_price_pln != null && area)
       parts.push(fmtPerM2(l.starting_price_pln, area));
     if (l.date && !site.cardShowsDate)
       parts.push(`${t('popup.label.auction')} ${l.date}`);
@@ -469,7 +470,7 @@
     try {
       const ds = window.ZGM_DEALSCORE && window.ZGM_DEALSCORE.score(
         l.starting_price_pln, area, l.kind ?? prop.kind,
-        cityMedians.get(prop.city || site.city),
+        cityMedians.get(prop.city || site.city), l.share || prop.share,
       );
       if (ds) {
         chip.appendChild(document.createTextNode('  ·  '));
@@ -531,7 +532,7 @@
           <tr class="zgm-ext-row-${esc(l.outcome)}">
             <td>${esc(l.date ?? '?')}</td>
             <td>${fmtPLN(l.starting_price_pln)}</td>
-            <td>${fmtPerM2(l.starting_price_pln, l.area_m2 ?? prop.area_m2 ?? fallbackArea)}</td>
+            <td>${l.share||prop.share?'—':fmtPerM2(l.starting_price_pln, l.area_m2 ?? prop.area_m2 ?? fallbackArea)}</td>
             <td>${outcomeLabel(l)}</td>
             <td>${noteCell(l)}</td>
           </tr>`,

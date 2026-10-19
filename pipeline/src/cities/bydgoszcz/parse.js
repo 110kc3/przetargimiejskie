@@ -163,7 +163,7 @@ export function resultDateFromText(text) {
 
 // ---------------------------------------------------------------- prices
 
-const AMOUNT = '(\\d(?:[\\d\\s\\u00a0.]*\\d)?)'; // digits with space/NBSP/newline/dot separators
+const AMOUNT = '((?:[1-9]\\d{0,2}(?:[\\s\\u00a0.]+\\d{3})+|[1-9]\\d*))'; // digits with space/NBSP/newline/dot separators
 
 /**
  * Starting price.
@@ -254,7 +254,7 @@ export function addressRawFromText(text) {
   const prefixUnit = rawUnit && /^([A-Za-z])(\d+)$/.exec(rawUnit);
   const unit = prefixUnit ? `${prefixUnit[2]}${prefixUnit[1].toUpperCase()}` : rawUnit;
 
-  const m = /po[łl]o[żz]on\w+[\s\S]{0,40}?\bul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'\- ]+?)\s+(\d+[A-Za-z]?)\b/.exec(t);
+  const m = /po[łl]o[żz]on\w+[\s\S]{0,40}?\bul\.?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'\- ]+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\b/.exec(t);
   if (!m) return null;
   const street = m[1].replace(/\s+/g, ' ').trim();
   const bldg = m[2];

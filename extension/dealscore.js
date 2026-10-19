@@ -41,7 +41,7 @@
       for (const l of p.listings || []) {
         const area = l.area_m2 ?? p.area_m2;
         const price = l.starting_price_pln;
-        if (price == null || !area) continue;
+        if (price == null || !area || l.share || p.share) continue;
         if (!isResidential(l.kind ?? p.kind)) continue;
         if (!byCity.has(city)) byCity.set(city, []);
         byCity.get(city).push(price / area);
@@ -55,8 +55,8 @@
   }
 
   // cityMedian is the {median, n} for THIS listing's city (or undefined).
-  function score(price, area, kind, cityMedian) {
-    if (price == null || !area || !isResidential(kind)) return null;
+  function score(price, area, kind, cityMedian, share = null) {
+    if (share || price == null || !area || !isResidential(kind)) return null;
     if (!cityMedian || !cityMedian.median) return null;
     const zlM2 = price / area;
     const raw = ((zlM2 - cityMedian.median) / cityMedian.median) * 100;

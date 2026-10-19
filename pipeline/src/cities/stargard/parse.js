@@ -134,11 +134,12 @@ export function addressFromTitle(title, url) {
 
 export function parseTbsDetail(html, url) {
   const text = htmlToText(html);
-  if (!isFlatAnnouncement(text)) return null;
+  // Classify the notice title, not navigation cards for other properties.
   const titleM = /<title[^>]*>([^<]+)<\/title>/i.exec(html) ||
     /property="og:title"[^>]*content="([^"]+)"/i.exec(html) ||
     /content="([^"]+)"[^>]*property="og:title"/i.exec(html);
   const title = titleM ? htmlToText(titleM[1]) : '';
+  if (!isFlatAnnouncement(title)) return null;
   const addrResult = addressFromTitle(title, url);
   if (!addrResult) return null;
   const kind = classifyKind(text);
@@ -240,4 +241,30 @@ export function parseResultDoc(text, date, url) {
     source_pdf: url || null,
     notes: [],
   }];
+}
+
+/** Enumerated land lots in the current TBS notice. Prices belong to each row. */
+export function parseTbsLandDetail(html, url) {
+  const title = htmlToText(/<title[^>]*>([\s\S]*?)<\/title>/i.exec(html)?.[1] || '');
+  if (!/nieruchomości gruntowe niezabudowane/i.test(title)) return [];
+  const main = /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(html)?.[1] || '';
+  const text = htmlToText(main);
+  const parcelsText = /NR DZIAŁKI\s+([\s\S]*?)POW\. DZIAŁKI/i.exec(text)?.[1];
+  const areasText = /POW\. DZIAŁKI\s+([\s\S]*?)CENA WYWOŁAWCZA/i.exec(text)?.[1];
+  const pricesText = /CENA WYWOŁAWCZA\s+([\s\S]*?)(?=WADIUM|DATA PRZETARGU|LOKALIZACJA)/i.exec(text)?.[1];
+  const numbered = (t) => [...(t || '').matchAll(/(\d+)\)\s*([\s\S]*?)(?=\d+\)|$)/g)];
+  const parcels = numbered(parcelsText), areas = numbered(areasText), prices = numbered(pricesText);
+  if (!parcels.length || parcels.length !== areas.length || parcels.length !== prices.length) throw new Error('TBS land columns are ambiguous');
+  const dateMatch = /Przetargi?\s+odbędą?\s+się[\s\S]{0,300}?dnia\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
+  const auction_date = dateMatch ? isoDate(dateMatch[1],dateMatch[2],dateMatch[3]) : null;
+  return parcels.map((m, index) => {
+    if (areas[index][1] !== m[1] || prices[index][1] !== m[1]) throw new Error('TBS land lot indices differ');
+    const nr = m[2].match(/\d+\/\d+/g);
+    const area = /([\d.,]+)\s*ha/.exec(areas[index][2])?.[1];
+    const price = /([\d .]+,\d{2})\s*zł/.exec(prices[index][2])?.[1];
+    if (!nr?.length || !area || !price) throw new Error('TBS land lot fields missing');
+    return { kind:'grunt', dzialka_nr:nr.join(', '), obreb:/obr\.\s*(\d+)/i.exec(title)?.[1] || null,
+      area_m2:Math.round(parseArea(area)*10000),starting_price_pln:parsePLN(price),
+      auction_date,round:null,detail_url:url };
+  });
 }

@@ -183,7 +183,7 @@ export function roundFromText(text) {
 // postal code ("78-500 …"). Fall back to the headline tail ("… lokal mieszkalny
 // <ADDRESS>") for the rare row that doesn't match.
 function announcementAddressRaw(body, headline) {
-  const cell = /\b\d+\.\s+((?:ul\.|pl\.|al\.|os\.)?\s*[^\d][\s\S]*?)\s+\d{2}-\d{3}\s+Drawsko/i.exec(body);
+  const cell = /\b\d+\.\s+((?:ul\.|pl\.|al\.|os\.)\s*[\s\S]*?)\s+\d{2}-\d{3}\s+Drawsko/i.exec(body);
   if (cell) return cell[1].replace(/\s+/g, ' ').trim();
   const h = /lokal\w*\s+mieszkaln\w*\s+(.+?)\s*$/i.exec(headline || '');
   return h ? h[1].trim() : null;

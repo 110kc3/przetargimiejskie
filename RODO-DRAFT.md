@@ -1,3 +1,9 @@
+> Historical, unlaunched newsletter/partner draft. Current production flows and
+> disclosure are in `site/privacy/index.html` (Cloudflare analytics and an optional
+> e-mail-draft interest form, updated 19 October 2026). The older Umami and
+> “collects nothing” text below is not a description of production. No newsletter
+> sending, lead resale or partner flow was activated by the October batch.
+
 <!--
 ================================================================================
 EDITOR'S NOTE — READ BEFORE PUBLISHING  (English; delete this block on publish)

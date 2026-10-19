@@ -13,13 +13,12 @@
 // one-shot migration upgrades any legacy un-namespaced watchlist entries.
 
 // The watchlist module exposes globalThis.ZGM_WATCH when imported below.
-importScripts('watchlist.js');
+importScripts('watchlist.js', 'catalog.js');
 
 const REPO = '110kc3/przetargimiejskie';
 const BRANCH = 'main';
-// Wave 1 popup scope: hardcode the city list. A future Wave 2 will lazily
-// fetch only the city matching the active tab's hostname.
-const CITIES = ['gliwice', 'katowice', 'bytom', 'zabrze', 'sosnowiec', 'rybnik', 'bielsko', 'myslowice', 'swietochlowice'];
+const CATALOG_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/catalog.json`;
+let CITIES = [];
 const RAW = (city) =>
   `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/${city}`;
 // Notification-click fallback targets when a watchlist entry has no
@@ -40,18 +39,16 @@ const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
 const ALARM_NAME = 'zgm-watchlist-check';
 const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan
 
-// The merged-cache key embeds the schema version + the city set, so an old
-// cached merge from a previous build (e.g. before a city was added) is never
-// read back — adding/removing a city automatically invalidates the cache. Bump
-// `cacheSchema` only when the payload SHAPE changes.
-const CACHE_SCHEMA = 3;
-const KEYS = {
-  merged: `cache:v${CACHE_SCHEMA}:${[...CITIES].sort().join('+')}:merged`,
-};
+const CACHE_PREFIX = 'cache:v4:city:';
+const CATALOG_KEY = 'cache:v4:catalog';
+const MAX_CACHED_CITIES = 8;
+const MAX_CITY_CACHE_BYTES = 6 * 1024 * 1024;
+const inflight = new Map();
+let cacheQueue = Promise.resolve();
 const MIGRATION_FLAG = 'watchlist:migrated_v2';
 
 async function fetchJson(url) {
-  const res = await fetch(url, { cache: 'no-cache' });
+  const res = await fetch(url, { cache: 'no-cache', signal: AbortSignal.timeout(20000) });
   if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${url}`);
   return res.json();
 }
@@ -80,6 +77,7 @@ function namespaceProperties(properties, city) {
   for (const p of properties) {
     p.key = nsKey(city, p.key);
     p.city = city;
+    if (p.legacy_keys) p.legacy_keys = p.legacy_keys.map(key => nsKey(city, key));
   }
   return properties;
 }
@@ -173,67 +171,112 @@ function mergeCityPayloads(cityPayloads) {
       unique_properties: totalUnique,
       active_listings: totalActive,
       wykaz_entries: totalWykaz,
-      cities: CITIES,
+      cities: cityPayloads.map(p => p.city),
       per_city: perCityMeta,
     },
   };
 }
 
-async function fetchCity(city) {
-  const base = RAW(city);
+async function getCatalog(force = false) {
+  const cached = await loadFromCache(CATALOG_KEY);
+  if (!force && cached && Date.now() - cached.fetched_at < TTL_MS) return cached.data;
   try {
-    const [properties, active, meta] = await Promise.all([
-      fetchJson(`${base}/properties.json`),
-      fetchJson(`${base}/active.json`),
-      fetchJson(`${base}/meta.json`),
-    ]);
-    // land.json is newer; tolerate its absence on a not-yet-redeployed city.
-    const land = await fetchJson(`${base}/land.json`).catch(() => ({ plots: [] }));
-    return { city, properties, active, meta, land };
+    const data = await fetchJson(CATALOG_URL);
+    if (data.schema_version !== 1 || !Array.isArray(data.cities) || !data.cities.length
+        || data.cities.some(c => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.id)
+          || (c.pipeline_id && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.pipeline_id)))) throw new Error('invalid city catalogue');
+    await saveToCache(CATALOG_KEY,{data,fetched_at:Date.now()});
+    return data;
   } catch (err) {
-    // A city whose data isn't published yet (e.g. just added to CITIES, not yet
-    // pushed) must NOT blank the whole extension. Skip it; the others still load.
-    console.warn(`[ZGM ext] skipping city "${city}": ${err.message}`);
-    return null;
+    if (cached) return {...cached.data, cache_stale:true};
+    const old=Object.entries(await chrome.storage.local.get(null)).find(([key,value])=>key.startsWith('cache:v3:')&&value?.data?.meta?.cities?.length)?.[1];
+    if(old)return {schema_version:1,cache_stale:true,inventory_incomplete:true,cities:old.data.meta.cities.map(id=>({id,simc:id,label:id,voivodeship:'',powiat:'',pipeline_id:id,searchable:true,status:'unavailable',overlay:false,host:null}))};
+    throw err;
   }
 }
 
-async function getOrFetch(force = false) {
-  const now = Date.now();
-  const cached = await loadFromCache(KEYS.merged);
-  if (!force && cached && now - cached.fetched_at < TTL_MS) {
-    return {
-      properties: cached.data.properties,
-      active: cached.data.active,
-      meta: cached.data.meta,
-      land: cached.data.land,
-      fetched_at: cached.fetched_at,
-    };
-  }
-  const cityPayloads = (await Promise.all(CITIES.map((c) => fetchCity(c)))).filter(Boolean);
-  // Total outage: every city fetch failed (network down / GitHub unreachable).
-  // fetchCity swallows per-city errors, so without this guard we'd cache an
-  // EMPTY merge with a fresh `fetched_at` — the popup would show zeros for up
-  // to the TTL, the 4-hourly forced check would clobber a good cache, and the
-  // watchlist diff would see no active listings and wipe every fingerprint.
-  // Never cache an empty merge: serve the stale cache if we have one, else
-  // throw so callers (getData / runWatchlistCheck) bail cleanly.
-  if (cityPayloads.length === 0) {
-    if (cached) {
-      return {
-        properties: cached.data.properties,
-        active: cached.data.active,
-        meta: cached.data.meta,
-        land: cached.data.land,
-        fetched_at: cached.fetched_at,
-      };
+async function cacheCity(city, data) {
+  // Serialise eviction so concurrent fetches cannot resurrect evicted entries.
+  const task = cacheQueue.then(async () => {
+    const all = await chrome.storage.local.get(null);
+    const key=CACHE_PREFIX+city;
+    const value={data,fetched_at:Date.now(),used_at:Date.now()};
+    const candidates=Object.entries({...all,[key]:value}).filter(([k])=>k.startsWith(CACHE_PREFIX))
+      .sort((a,b)=>(b[1].used_at||b[1].fetched_at)-(a[1].used_at||a[1].fetched_at));
+    const keep=new Set();let size=0;
+    for(const [k,v]of candidates){
+      const bytes=new TextEncoder().encode(JSON.stringify(v)).byteLength+k.length;
+      if(keep.size<MAX_CACHED_CITIES && size+bytes<=MAX_CITY_CACHE_BYTES){keep.add(k);size+=bytes;}
     }
-    throw new Error('all city fetches failed (no cached data to fall back on)');
+    const remove=Object.keys(all).filter(k=>(k.startsWith(CACHE_PREFIX)&&!keep.has(k))
+      || (k.startsWith('cache:v')&&!k.startsWith('cache:v4:')));
+    // Evict before setting the new item so Chrome's storage quota is respected.
+    if(remove.length)await chrome.storage.local.remove(remove);
+    if(keep.has(key))await saveToCache(key,value);
+  });
+  cacheQueue=task.catch(()=>{});
+  return task;
+}
+
+async function fetchCity(city, force = false) {
+  let cached = await loadFromCache(CACHE_PREFIX + city);
+  if(!cached){
+    const old=Object.entries(await chrome.storage.local.get(null)).find(([key,value])=>key.startsWith('cache:v3:')&&value?.data?.meta?.cities?.includes(city))?.[1];
+    if(old){
+      const data=old.data;
+      cached={fetched_at:old.fetched_at,data:{city,
+        properties:{properties:(data.properties?.properties||[]).filter(p=>p.city===city)},
+        active:{listings:(data.active?.listings||[]).filter(l=>l.city===city),wykaz:(data.active?.wykaz||[]).filter(l=>l.city===city)},
+        land:{plots:(data.land?.plots||[]).filter(p=>p.city===city)},meta:data.meta.per_city?.[city]||null}};
+      await saveToCache(CACHE_PREFIX+city,cached);
+    }
   }
-  const merged = mergeCityPayloads(cityPayloads);
-  const fetched_at = Date.now();
-  await saveToCache(KEYS.merged, { data: merged, fetched_at });
-  return { ...merged, fetched_at };
+  if (!force && cached && Date.now()-cached.fetched_at<TTL_MS) {
+    const touch=cacheQueue.then(async()=>{const current=await loadFromCache(CACHE_PREFIX+city);if(current)await saveToCache(CACHE_PREFIX+city,{...current,used_at:Date.now()});});
+    cacheQueue=touch.catch(()=>{});await touch;
+    return structuredClone(cached.data);
+  }
+  if(inflight.has(city)) return structuredClone(await inflight.get(city));
+  const task=(async()=>{
+    const base=RAW(city);
+    try {
+      const [properties,active,meta,land] = await ZGM_CATALOG.mapLimit(
+        ['properties','active','meta','land'],2, name=>fetchJson(`${base}/${name}.json`));
+      if(!Array.isArray(properties.properties)||!Array.isArray(active.listings)||!Array.isArray(land.plots)) throw new Error('invalid city data');
+      const data={city,properties,active,meta,land};await cacheCity(city,data);return data;
+    }catch(err){
+      console.warn(`[ZGM ext] city ${city}: ${err.message}`);
+      return cached ? {...structuredClone(cached.data),cache_stale:true} : {city,error:String(err)};
+    }
+  })();
+  inflight.set(city,task);
+  try{return structuredClone(await task);}finally{inflight.delete(city);}
+}
+
+async function getOrFetch(force = false, requested = [], senderUrl = null, includeWatches = false) {
+  const catalog = await getCatalog(force);
+  CITIES = catalog.cities.filter(c=>c.pipeline_id).map(c=>c.pipeline_id);
+  const selection = await chrome.storage.local.get('catalog:selected');
+  let ids = requested.length ? requested : selection['catalog:selected'] ? [selection['catalog:selected']] : [];
+  if(senderUrl && !requested.length){
+    const host=new URL(senderUrl).hostname.replace(/^www\./,'');
+    const match=catalog.cities.find(c=>c.host?.replace(/^www\./,'')===host);
+    if(match?.pipeline_id) ids=[match.pipeline_id];
+  }
+  if(includeWatches){const watches=await ZGM_WATCH.getAll();ids=Object.keys(watches).map(k=>k.split('|')[0]);}
+  ids=[...new Set(ids)].filter(id=>CITIES.includes(id));
+  // UI selections are one city; alarm checks visit watched cities in bounded
+  // batches, with only the eight most recent city payloads retained on disk.
+  if(!includeWatches && ids.length>1) throw new Error('select one city');
+  const results=await ZGM_CATALOG.mapLimit(ids,2,id=>fetchCity(id,force));
+  const available=results.filter(r=>!r.error);
+  const merged=mergeCityPayloads(available);
+  merged.meta.requested_cities=ids;
+  merged.meta.unavailable_cities=results.filter(r=>r.error||r.cache_stale).map(r=>r.city);
+  merged.meta.catalog_stale=Boolean(catalog.cache_stale);
+  await ZGM_WATCH.migrateAliases(merged.properties.properties);
+  merged.catalog=catalog;
+  return {...merged,fetched_at:Date.now()};
 }
 
 // ---------------- watchlist migration ----------------
@@ -413,9 +456,10 @@ async function notifyReminder(key, entry, listing, reminder) {
 
 async function runWatchlistCheck() {
   await migrateWatchlistOnce();
+  if(!Object.keys(await ZGM_WATCH.getAll()).length)return;
   let payload;
   try {
-    payload = await getOrFetch(true);
+    payload = await getOrFetch(true, [], null, true);
   } catch (err) {
     console.warn('[ZGM bg] watchlist check skipped — fetch failed:', err);
     return;
@@ -424,7 +468,7 @@ async function runWatchlistCheck() {
   if (Object.keys(watchlist).length === 0) return;
 
   const propsByKey = new Map(
-    (payload.properties?.properties || []).map((p) => [p.key, p]),
+    (payload.properties?.properties || []).flatMap(p => [[p.key,p],...(p.legacy_keys||[]).map(k=>[k,p])]),
   );
   const today = todayWarsaw();
   // active.json listings carry the dates the reminders need (wadium_deadline
@@ -449,6 +493,7 @@ async function runWatchlistCheck() {
   }
 
   for (const [key, entry] of Object.entries(watchlist)) {
+    if (payload.meta.unavailable_cities.includes(key.split('|')[0])) continue;
     const prop = propsByKey.get(key);
     const active = prop?.listings?.find((l) => l.outcome === 'active');
     if (!active) {
@@ -524,11 +569,15 @@ chrome.notifications.onClicked.addListener(async (id) => {
 // ---------------- message handlers ----------------
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
+  if (msg?.type === 'getCatalog') {
+    getCatalog(Boolean(msg.force)).then(catalog=>sendResponse({ok:true,catalog})).catch(err=>sendResponse({ok:false,error:String(err)}));
+    return true;
+  }
   if (msg?.type === 'getData') {
     (async () => {
       try {
         await migrateWatchlistOnce();
-        const payload = await getOrFetch(Boolean(msg.force));
+        const payload = await getOrFetch(Boolean(msg.force), Array.isArray(msg.cities) ? msg.cities : [], _sender?.tab?.url);
         sendResponse({ ok: true, payload });
       } catch (err) {
         sendResponse({ ok: false, error: String(err) });

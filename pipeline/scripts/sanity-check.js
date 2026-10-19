@@ -28,6 +28,8 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateLandDocument } from './coverage-health.js';
 import { validationPolicy } from './validation-policy.js';
+import { hasValidStreetNumber } from '../src/core/street-shape.js';
+import { ownershipFraction } from '../src/core/ownership.js';
 
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
@@ -75,7 +77,7 @@ function checkCity(city) {
 
   for (const p of props) {
     // junk-street
-    const digitsOk = /^\d+\s/.test(p.street); // "3 Maja", "11 Listopada"
+    const digitsOk = hasValidStreetNumber(p.street);
     if (/[;:]/.test(p.street) || (!digitsOk && /\d/.test(p.street)) ||
         /\b(ustny|przetarg\w*|urz[ąa]d)\b|\bdzia[łl](?:ce|ka|ki)\b|na\s+dzia[łl]/i.test(p.street)) {
       err(city, p.key, 'junk-street', `street '${p.street}'`);
@@ -106,7 +108,7 @@ function checkCity(city) {
       }
       const area = l.area_m2 ?? p.area_m2;
       if (p.kind === 'mieszkalny' && area && l.starting_price_pln) {
-        const m2 = l.starting_price_pln / area;
+        const m2 = l.starting_price_pln / area / (ownershipFraction(l.share) ?? 1);
         if (m2 < M2_RANGE[0] || m2 > M2_RANGE[1]) {
           err(city, p.key, 'insane-m2', `${Math.round(m2)} zł/m² (${l.starting_price_pln} / ${area})`);
         }

@@ -24,7 +24,8 @@
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
-import { ocrPdf } from '../../core/ocr-pdf.js';
+import { ocrPdf, ocrPdfWords } from '../../core/ocr-pdf.js';
+import { isMunicipalFlatTable, parseMunicipalFlatTable, TABLE_COLUMNS } from './parse-table.js';
 import {
   buildRecordText,
   parseAnnouncement,
@@ -253,6 +254,14 @@ async function crawlMiasto(buckets, budget) {
       }
       if (!txt || txt.replace(/\s+/g, '').length < 40) continue;
       const blob = buildRecordText({ title: pdf.name.replace(/[-_]/g, ' ').replace(/\.pdf$/i, ''), body: txt });
+      if (isMunicipalFlatTable(txt)) {
+        const pages = await ocrPdfWords(pdf.url, { userAgent: UA, columns: TABLE_COLUMNS });
+        for (const row of parseMunicipalFlatTable(pages, blob)) {
+          buckets.listings.push({ ...row, detail_url: pdf.url, source_url: pdf.url });
+        }
+        miastoDocs++;
+        continue;
+      }
       routeDoc(blob, pdf.url, null, buckets);
       miastoDocs++;
     }

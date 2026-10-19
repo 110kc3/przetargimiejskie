@@ -30,15 +30,13 @@
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
-// bip.gniezno.eu serves an INCOMPLETE TLS chain (missing intermediate), which
-// Node's fetch rejects with UNABLE_TO_VERIFY_LEAF_SIGNATURE while browsers
-// quietly repair it via AIA. Same situation and same fix as zabrze/crawl.js —
-// relax chain verification for this host only (or provide the intermediate
-// via NODE_EXTRA_CA_CERTS and drop this flag).
+// The source omits its intermediate certificate. The legacy option selects
+// the reviewed host-specific chain in core/source-tls.js with full certificate,
+// expiry and hostname verification; it never disables TLS authentication.
 const FETCH_OPTS = { insecureTLS: true };
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
-import { parseBipList, pdfAttachmentUrlsFromDetail, parseAnnouncement } from './parse.js';
+import { parseBipList, pdfAttachmentUrlsFromDetail, parseAnnouncement, parseLandAnnouncement } from './parse.js';
 
 const BIP_BASE = 'https://bip.gniezno.eu/wiadomosci/11287/lista';
 const GNIEZNO_RESULT_FEED = 'https://www.gniezno.eu/wiadomosci/1/lista/przetarg_na_sprzedaz_lokalu_mieszkalnego';
@@ -104,12 +102,12 @@ async function enrichFromDetailPage(stub) {
   // Heuristic: take the LAST file whose name contains "ogloszen" or whose index
   // is even (0-based). If uncertain, use first.
   const ogloszenieUrl =
-    pdfUrls.find((u) => /ogloszen|oglosz/i.test(u)) || pdfUrls[0];
+    pdfUrls.filter((u) => /ogloszen|oglosz/i.test(u)).at(-1) || pdfUrls[0];
 
   let pdfInfo = {};
   try {
     const pdfTxt = await pdfText(ogloszenieUrl);
-    pdfInfo = parseAnnouncement(pdfTxt);
+    pdfInfo = stub.kind === 'grunt' ? parseLandAnnouncement(pdfTxt, stub.title) : parseAnnouncement(pdfTxt);
   } catch (err) {
     console.error(`  gniezno: PDF parse failed (${ogloszenieUrl}): ${err.message}`);
   }
@@ -119,6 +117,7 @@ async function enrichFromDetailPage(stub) {
     // The ogłoszenie PDF carries the clean "ul. Street N/M" — keep it so
     // crawlActive can build the join key (the BIP title alone is noisy).
     pdf_address_raw: pdfInfo.address_raw ?? null,
+    dzialka_nr: pdfInfo.dzialka_nr ?? null,
     area_m2: pdfInfo.area_m2 ?? null,
     starting_price_pln: pdfInfo.starting_price_pln ?? null,
     auction_date: pdfInfo.auction_date ?? null,
@@ -141,6 +140,7 @@ export async function crawlActive() {
   }
 
   const listings = [];
+  const land = [];
   for (const stub of allStubs) {
     const enriched = await enrichFromDetailPage(stub);
     // Skip stubs with no data at all (no area, no price, no date)
@@ -150,6 +150,14 @@ export async function crawlActive() {
       enriched.auction_date == null
     ) {
       console.error(`  gniezno: skipped empty stub (${enriched.title})`);
+      continue;
+    }
+    if (enriched.kind === 'grunt') {
+      if (!enriched.dzialka_nr) throw new Error('Gniezno land notice without a parcel');
+      land.push({ kind: 'grunt', dzialka_nr: enriched.dzialka_nr,
+        address_raw: enriched.pdf_address_raw, auction_date: enriched.auction_date,
+        area_m2: enriched.area_m2, starting_price_pln: enriched.starting_price_pln,
+        round: enriched.round, detail_url: enriched.detail_url });
       continue;
     }
     // Build the parsed `address` buildCityData keys on — WITHOUT it every
@@ -186,7 +194,7 @@ export async function crawlActive() {
   }
 
   console.error(`  gniezno active: ${listings.length} flat listing(s) from ${allStubs.length} BIP stub(s)`);
-  return { listings, wykaz: [], land: [] };
+  return { listings, wykaz: [], land };
 }
 
 // ---- gniezno.eu result-notice crawl -----------------------------------------

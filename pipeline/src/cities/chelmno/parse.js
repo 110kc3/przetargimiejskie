@@ -259,7 +259,7 @@ function flatNoFromText(text) {
 
 /** "<street> <bldg>[/<apt>]" raw address for a flat / built property, or null. */
 export function addressRawFromText(text) {
-  const cleaned = cleanAdres(field(text, 'ADRES'));
+  const cleaned = cleanAdres(field(text, 'ADRES')).replace(/^.*?\bprzy\s+ul\.\s*/i, '');
   if (!cleaned) return null;
   // Already carries an inline apartment ("Toruńska 8/7", "… 2 / 7").
   if (/\d+[A-Za-z]?\s*\/\s*\d+/.test(cleaned)) return cleaned;

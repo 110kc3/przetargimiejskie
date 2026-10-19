@@ -75,7 +75,7 @@ export function parseAddress(raw) {
   s = s.replace(/\s+m\.?\s*(\d+[A-Za-z]?)\s*$/i, '/$1');
 
   // Try the "garaż nr N" suffix first: "<street> <bldg> garaż nr <N>"
-  const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+  const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+(?:gara[żz](?:\s*nr\.?)?|g\.(?:\s*nr\.?)?|g\s+nr\.?)\s*(\d+)$/i.exec(s);
   if (garageMatch) {
     const [, street, building, garageNo] = garageMatch;
     return buildAddress(street, building.toUpperCase(), `garaz-${garageNo}`, null);
@@ -83,7 +83,7 @@ export function parseAddress(raw) {
   // Bare "<street> garaż nr <N>" (no building number — "rejon" garages in
   // older auction listings). Synthesize building="0" to match the
   // convention used by parse-result.js for the same input.
-  const rejonMatch = /^(.+?)\s+gara[żz]\s*nr\s*(\d+)$/i.exec(s);
+  const rejonMatch = /^(.+?)\s+(?:gara[żz](?:\s*nr\.?)?|g\.(?:\s*nr\.?)?|g\s+nr\.?)\s*(\d+)$/i.exec(s);
   if (rejonMatch) {
     const [, street, garageNo] = rejonMatch;
     return buildAddress(street, '0', `garaz-${garageNo}`, null);
@@ -93,8 +93,22 @@ export function parseAddress(raw) {
   // apt: arabic-with-optional-letter, OR roman numeral (I,II,III,IV,V,VI,VII,VIII,IX,X),
   // OR OCR slip "1I"/"1l" (slash eaten by OCR), OR "TII"/"TI"-style (T from "I"),
   // OR "9a" style with lowercase letter.
+
+  // A single published lot can name several units or building frontages.
+  // Preserve the stated joint identity instead of putting numbers in street.
+  const jointUnits = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)\s*,\s*(\d+[A-Za-z]?)$/i.exec(s);
+  if (jointUnits) {
+    return buildAddress(jointUnits[1], jointUnits[2].toUpperCase(),
+      `${jointUnits[3]}-${jointUnits[4]}`.toUpperCase(), null);
+  }
+  const jointBuildings = /^(.+?)\s+(\d+[A-Za-z]?(?:\s*,\s*\d+[A-Za-z]?)+)(?:\s*\/\s*([\d]+[A-Za-z]?))?$/i.exec(s);
+  if (jointBuildings) {
+    return buildAddress(jointBuildings[1], jointBuildings[2].replace(/\s/g, '').toUpperCase(),
+      jointBuildings[3]?.toUpperCase() || null, null);
+  }
+
   const re =
-    /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)(?:\s*[\/\\]\s*([0-9]+[A-Za-z]?|[IVX]+|T[IVX]+|[1-9][Il]))?$/i;
+    /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)(?:\s*[\/\\]\s*([0-9]+[A-Za-z]?(?:-[0-9]+[A-Za-z]?)?|[IVX]+|T[IVX]+|[1-9][Il]))?$/i;
   const m = re.exec(s);
   if (!m) return null;
   const street = m[1].trim();

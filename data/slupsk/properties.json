@@ -212,10 +212,10 @@
       "area_m2": 111.54
     },
     {
-      "key": "kollataja 39 kollataja|39A|4A",
-      "street": "Kołłątaja 39, Kołłątaja",
-      "street_norm": "kollataja 39 kollataja",
-      "building": "39A",
+      "key": "kollataja|39,39A|4A",
+      "street": "Kołłątaja",
+      "street_norm": "kollataja",
+      "building": "39,39A",
       "apt": "4A",
       "kind": "mieszkalny",
       "listings": [
@@ -231,7 +231,10 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 30.94
+      "area_m2": 30.94,
+      "legacy_keys": [
+        "kollataja 39 kollataja|39A|4A"
+      ]
     },
     {
       "key": "juliana falata|1|5",
@@ -465,10 +468,10 @@
       "area_m2": 30.16
     },
     {
-      "key": "kollataja 40 kollataja 40a kollataja|40B|10",
-      "street": "Kołłątaja 40, Kołłątaja 40A, Kołłątaja",
-      "street_norm": "kollataja 40 kollataja 40a kollataja",
-      "building": "40B",
+      "key": "kollataja|40,40A,40B|10",
+      "street": "Kołłątaja",
+      "street_norm": "kollataja",
+      "building": "40,40A,40B",
       "apt": "10",
       "kind": "mieszkalny",
       "listings": [
@@ -484,7 +487,10 @@
           "viewing_date": null
         }
       ],
-      "area_m2": 34.01
+      "area_m2": 34.01,
+      "legacy_keys": [
+        "kollataja 40 kollataja 40a kollataja|40B|10"
+      ]
     },
     {
       "key": "henryka poboznego|18|2",

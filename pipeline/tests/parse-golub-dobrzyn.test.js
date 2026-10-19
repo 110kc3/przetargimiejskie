@@ -170,3 +170,23 @@ test('parsePLN / parseNum units', () => {
   assert.equal(parse.parseNum('31,91'), 31.91);
   assert.equal(parse.parseNum('835'), 835);
 });
+
+// Official municipal PDF plik,10722, published 29 September 2026. Geometry
+// was extracted on Linux at 300 DPI; expected values checked against all four
+// scanned table rows. The 4.51 m² basement belongs to Zamkowa, never Chopina.
+test('municipal table preserves four independent flat rows and their columns', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { parseMunicipalFlatTable } = await import('../src/cities/golub-dobrzyn/parse-table.js');
+  const pages = JSON.parse(readFileSync(new URL('../ocr-cache/table-words.9785f05c.txt', import.meta.url), 'utf8'));
+  const context = 'Burmistrz Miasta Golubia-Dobrzynia ogłasza I przetarg ustny nieograniczony na sprzedaż wolnych lokali mieszkalnych. Przetarg odbędzie się w siedzibie Urzędu Miasta Golubia-Dobrzynia ul. Plac 1000-lecia 25 w sali nr 1-parter, rozpoczęcie przetargu od godz. 10 dnia 12 listopada 2026 r. Wadium najpóźniej do dnia 04 listopada 2026 r.';
+  const rows = parseMunicipalFlatTable(pages, context);
+  assert.deepEqual(rows.map(r => [r.address.key, r.area_m2, r.starting_price_pln, r.auction_date]), [
+    ['pilsudskiego|9|1', 24.52, 62000, '2026-11-12'],
+    ['chopina|16|6', 23.83, 62800, '2026-11-12'],
+    ['zamkowa|18|5', 22.28, 56300, '2026-11-12'],
+    ['pttk|23|5', 29.74, 74800, '2026-11-12'],
+  ]);
+  const broken = structuredClone(pages);
+  broken[0].columns[2].words = [];
+  assert.throws(() => parseMunicipalFlatTable(broken, context), /unresolved/);
+});

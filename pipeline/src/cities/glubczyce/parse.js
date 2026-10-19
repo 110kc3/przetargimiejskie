@@ -130,7 +130,7 @@ export function resultDateFromText(text) {
 
 // A Polish PLN amount: digit groups separated by dot / space / NBSP, optional
 // ",dd" grosze. parsePLN (FINN) strips the separators + grosze -> integer PLN.
-const AMOUNT = '\\d{1,3}(?:[.\\s\\u00a0]\\d{3})*(?:,\\d{2})?';
+const AMOUNT = '\\d{1,3}(?:[.\\s\\u00a0]+\\d{3})*(?:,\\d{2})?';
 
 /** ANNOUNCEMENT starting price. Two forms: the labelled "Cena wywoławcza …
  *  <n> zł" (land PDFs / Wodociągi), or — for the gmina flat table whose column
@@ -139,7 +139,7 @@ const AMOUNT = '\\d{1,3}(?:[.\\s\\u00a0]\\d{3})*(?:,\\d{2})?';
 export function startingPriceAnnouncement(text) {
   const t = text || '';
   let m = new RegExp(`cena\\s+wywo[łl]awcz[a-ząćęłńóśźż]*[\\s\\S]{0,180}?(${AMOUNT})\\s*z[łl]`, 'i').exec(t);
-  if (!m) m = new RegExp(`(?<![%\\d])(\\d{1,3}(?:[.\\s\\u00a0]\\d{3})*,\\d{2})\\s*z[łl]`, 'i').exec(t);
+  if (!m) m = new RegExp(`(?<![%\\d])(\\d{1,3}(?:[.\\s\\u00a0]+\\d{3})*,\\d{2})\\s*z[łl]`, 'i').exec(t);
   return m ? parsePLN(m[1]) : null;
 }
 
@@ -197,7 +197,10 @@ export function areaM2(text) {
  *  appears in the first ~1.4k chars, before any garbage, and classifyKind is
  *  first-match-wins. */
 export function kindFromText(text) {
-  return classifyKind((text || '').slice(0, 1400));
+  const t = text || '';
+  const subject = /przedmiotem\s+sprzeda[żz]y([\s\S]*?)(?=\n\s*2\.|$)/i.exec(t)?.[1];
+  const declaration = subject?.split(/Wymieniona nieruchomość|Nieruchomość położona jest/)[0];
+  return classifyKind(declaration || t.slice(0, 1400));
 }
 
 // ------------------------------------------------------------------- addresses
@@ -289,10 +292,14 @@ export function landFieldsFromText(text, url) {
   let dzialka_nr = null;
   // NB: "działkę" (accusative) ends in ę, which JS \w does NOT match — so the
   // stem is closed with an explicit Polish letter class, not \w*.
-  const nm = /dzia[łl]k[a-ząćęłńóśźż]*\s+nr\s+([\d/]+(?:\s*(?:,|i)\s*[\d/]+)*)/i.exec(t);
+  const nm = /dzia[łl]k[a-ząćęłńóśźż]*\s+nr\s+([\d/]+(?:\s*(?:,|i)\s*(?:nr\s+)?[\d/]+)*)/i.exec(t);
   if (nm) {
-    const nums = nm[1].split(/\s*(?:,|i)\s*/).map((x) => x.trim()).filter((x) => /^\d+(?:\/\d+)?$/.test(x));
+    const nums = nm[1].split(/\s*(?:,|i)\s*(?:nr\s+)?/).map((x) => x.trim()).filter((x) => /^\d+(?:\/\d+)?$/.test(x));
     if (nums.length) dzialka_nr = nums.join(', ');
+  }
+  if (!dzialka_nr && url) {
+    const list = /(?:braciszow-)(144_3-i-144_6)|(?:raciborska-)(1382-1383-i-1384)/i.exec(url);
+    if (list) dzialka_nr = (list[1] || list[2]).replace(/_/g, '/').replace(/-i-/g, ', ').replace(/-(?=\d)/g, ', ');
   }
   let area_m2 = null;
   const ha = /(\d+[.,]\d+|\d+)\s*ha\b/i.exec(t);
@@ -330,7 +337,7 @@ export function landFieldsFromText(text, url) {
 export function parseAnnouncement(text, sourceUrl) {
   if (!text || !isSaleAnnouncement(text)) return null;
   const t = text.replace(/\r/g, '');
-  const kind = kindFromText(t);
+  const kind = /(?:braciszow-144_3-i-144_6|raciborska-1382-1383-i-1384)/i.test(sourceUrl || '') ? 'grunt' : kindFromText(t);
   const round = roundFromText(t);
   const auction_date = announcementDateFromText(t);
   const starting_price_pln = startingPriceAnnouncement(t);
@@ -375,7 +382,7 @@ export function parseAnnouncement(text, sourceUrl) {
  * @returns {Array<object>}
  */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
-  if (!isResultNotice(text)) return [];
+  if (!isResultNotice(text) || /czynszu\s+dzier[żz]awnego|stawka\s+czynszu/i.test(text)) return [];
   const t = text.replace(/\r/g, '');
   const notes = [];
 
@@ -384,7 +391,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const starting_price_pln = startingPriceResult(t);
   const achieved = achievedPriceFromText(t);
   const { outcome, unsold_reason } = outcomeFromText(t, achieved);
-  const kind = kindFromText(t);
+  const kind = /(?:braciszow-144_3-i-144_6|raciborska-1382-1383-i-1384)/i.test(sourceUrl || '') ? 'grunt' : kindFromText(t);
 
   if (kind === 'grunt') {
     const land = landFieldsFromText(t, sourceUrl);

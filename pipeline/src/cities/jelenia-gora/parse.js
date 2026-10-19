@@ -303,7 +303,13 @@ function buildLotRecord(headerAddr, body, auction_date, round) {
   const unitM = UNIT_RE.exec(body);
   if (!unitM) return null;
   const unit = normalizeUnitToken(unitM[2].replace(/[.,]$/, ''));
-  const address_raw = `${headerAddr}/${unit}`.replace(/\s+of\b\.?(?=\/)/i, '');
+  // The joint ownership header can list several buildings, while this unit's
+  // description explicitly identifies its physical building.
+  const physical = /\(w\s+budynku\s+([^)]+)\)/i.exec(body);
+  const candidates = physical ? headerAddr.split(',').map((part) => part.trim())
+    .filter((part) => part.toLowerCase().endsWith(physical[1].trim().toLowerCase())) : [];
+  const base = candidates.length === 1 ? candidates[0] : headerAddr;
+  const address_raw = `${base}/${unit}`.replace(/\s+of\b\.?(?=\/)/i, '');
   const address = parseAddress(address_raw);
   if (!address) return null;
   const kind = classifyKind(unitM[0]);

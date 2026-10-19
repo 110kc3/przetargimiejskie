@@ -12,9 +12,10 @@
 //
 // Run with:  node src/build-index.js   (from pipeline/)
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildCatalogFromDisk } from './build-catalog.js';
 import { cities } from './cities/index.js';
 import { validationPolicy } from '../scripts/validation-policy.js';
 
@@ -54,7 +55,7 @@ export function operationalFields({ outcome = null, previous = null, meta = null
   };
 }
 
-export async function buildIndexFromDisk({ outcomes = [] } = {}) {
+export async function buildIndexFromDisk({ outcomes = [], preserveGeneratedAt = false } = {}) {
   const knownIds = new Set(cities.map((city) => city.id));
   const outcomesById = new Map();
   for (const outcome of outcomes) {
@@ -70,9 +71,12 @@ export async function buildIndexFromDisk({ outcomes = [] } = {}) {
     }
     outcomesById.set(outcome.id, outcome);
   }
+  if(preserveGeneratedAt && outcomes.length)throw new Error('offline index reconciliation cannot publish crawl outcomes');
+  let previousGeneratedAt = null;
   let previousById = new Map();
   try {
     const previous = JSON.parse(await readFile(join(DATA_DIR, 'index.json'), 'utf8'));
+    previousGeneratedAt = previous.generated_at;
     previousById = new Map((previous.cities || []).map((entry) => [entry.id, entry]));
   } catch { /* first publication */ }
 
@@ -113,14 +117,17 @@ export async function buildIndexFromDisk({ outcomes = [] } = {}) {
   }
   const index = {
     schema_version: SCHEMA_VERSION,
-    generated_at: new Date().toISOString(),
+    generated_at: preserveGeneratedAt ? previousGeneratedAt : new Date().toISOString(),
     cities: entries,
   };
   await mkdir(DATA_DIR, { recursive: true });
-  await writeFile(
-    join(DATA_DIR, 'index.json'),
-    JSON.stringify(index, null, 2) + '\n',
-  );
+  const target=join(DATA_DIR,'index.json');
+  const temp=target+`.${process.pid}.tmp`;
+  const bytes=JSON.stringify(index,null,2)+'\n';
+  await writeFile(temp,bytes);
+  if(await readFile(temp,'utf8')!==bytes)throw new Error('incomplete index write');
+  await rename(temp,target);
+  await buildCatalogFromDisk(index);
   return index;
 }
 

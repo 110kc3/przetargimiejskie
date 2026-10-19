@@ -72,18 +72,18 @@
       "area_m2": 53.8
     },
     {
-      "key": "ducha sw 19 m nr 12 i nr|13|",
-      "street": "Ducha Św. 19 m. nr 12 i nr",
-      "street_norm": "ducha sw 19 m nr 12 i nr",
-      "building": "13",
-      "apt": null,
+      "key": "ducha sw|19|12",
+      "street": "Ducha Św.",
+      "street_norm": "ducha sw",
+      "building": "19",
+      "apt": "12",
       "kind": "mieszkalny",
       "listings": [
         {
           "date": "2026-10-06",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": null,
+          "starting_price_pln": 180000,
           "outcome": "archived",
           "area_m2": 19.37,
           "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
@@ -92,30 +92,36 @@
           "round_source": "inferred"
         }
       ],
-      "area_m2": 19.37
+      "area_m2": 19.37,
+      "legacy_keys": [
+        "ducha sw 19 m nr 12 i nr|13|"
+      ]
     },
     {
-      "key": "mostowa 22 ul podmurna|21|",
-      "street": "Mostowa 22 / ul. Podmurna",
-      "street_norm": "mostowa 22 ul podmurna",
-      "building": "21",
-      "apt": null,
+      "key": "ducha sw|19|13",
+      "street": "Ducha Św.",
+      "street_norm": "ducha sw",
+      "building": "19",
+      "apt": "13",
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2026-09-08",
+          "date": "2026-10-06",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 250000,
+          "starting_price_pln": 170000,
           "outcome": "archived",
-          "area_m2": 27.47,
-          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-ul-podmurna-21",
+          "area_m2": 18.3,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
         }
       ],
-      "area_m2": 27.47
+      "area_m2": 18.3,
+      "legacy_keys": [
+        "ducha sw 19 m nr 12 i nr|13|"
+      ]
     },
     {
       "key": "mostowa|22|4A",
@@ -132,13 +138,16 @@
           "starting_price_pln": 250000,
           "outcome": "archived",
           "area_m2": 27.47,
-          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-m-4a",
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-ul-podmurna-21",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
         }
       ],
-      "area_m2": 27.47
+      "area_m2": 27.47,
+      "legacy_keys": [
+        "mostowa 22 ul podmurna|21|"
+      ]
     },
     {
       "key": "slusarska|5|5A",
@@ -303,7 +312,7 @@
           "date": "2025-11-25",
           "round": 1,
           "kind": "mieszkalny",
-          "starting_price_pln": 9000,
+          "starting_price_pln": 90000,
           "outcome": "archived",
           "area_m2": 34.3,
           "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/59591/ul-poznanska-81-m-7",

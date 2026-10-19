@@ -19,7 +19,7 @@
 // is added in a future pass.
 
 import { getText } from '../../core/fetch.js';
-import { parseTbsDetail, parseBipResultList } from './parse.js';
+import { parseTbsDetail, parseTbsLandDetail, parseBipResultList } from './parse.js';
 
 const TBS_ORIGIN = 'https://tbs.stargard.pl';
 const TBS_ARCHIVE = '/rodzaj-nieruchomosci/przetargi';
@@ -83,6 +83,7 @@ async function crawlTbsListings() {
   console.error(`  stargard: ${postUrls.size} TBS post(s) to inspect`);
 
   // Fetch each detail page and parse
+  const land = [];
   const byKey = new Map(); // address.key → record (keep highest round)
 
   for (const url of postUrls) {
@@ -93,6 +94,7 @@ async function crawlTbsListings() {
       console.error(`  stargard TBS post fetch failed (${url}): ${err.message}`);
       continue;
     }
+    land.push(...parseTbsLandDetail(html, url));
     const rec = parseTbsDetail(html, url);
     if (!rec || rec.kind === 'grunt') continue; // skip land + non-flats
 
@@ -112,7 +114,7 @@ async function crawlTbsListings() {
 
   const listings = [...byKey.values()];
   console.error(`  stargard: ${listings.length} flat listing(s) from TBS`);
-  return listings;
+  return { listings, land };
 }
 
 // -------------------------------------------------------------------
@@ -164,8 +166,8 @@ async function crawlBipResultPages() {
  * @returns {Promise<{ listings: object[], wykaz: [], land: [] }>}
  */
 export async function crawlActive() {
-  const listings = await crawlTbsListings();
-  return { listings, wykaz: [], land: [] };
+  const { listings, land } = await crawlTbsListings();
+  return { listings, wykaz: [], land };
 }
 
 /**

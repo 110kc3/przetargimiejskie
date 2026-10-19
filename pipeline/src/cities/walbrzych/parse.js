@@ -70,7 +70,7 @@ function tablePLNs(line) {
  * True when the PDF text is a Walbrzych result notice.
  */
 export function isResultNotice(text) {
-  return /Informacja\s+o\s+wynik(?:u|ach)\s+przetarg/i.test(text || '');
+  return /Informacja\s+o\s+wynik(?:u|ach)\s+(?:przetarg|rokowa)/i.test(text || '');
 }
 
 /**

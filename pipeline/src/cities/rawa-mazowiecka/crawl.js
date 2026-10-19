@@ -54,9 +54,8 @@ const HUB_URL = `${ORIGIN}/1311,przetargi`;
 // verified live 2026-07-10. Bounded forward-slice (not full-document regex)
 // so an unrelated bare-year board elsewhere in the menu (e.g. a quarterly-
 // report archive) can never be picked up.
-const ANNOUNCE_MENU_ANCHOR = 'href="1311,przetargi" role="menuitem">';
-const RESULT_MENU_ANCHOR = 'href="1312,wyniki-przetargow" role="menuitem">';
-const MENU_SLICE_CHARS = 3200; // comfortably covers the ~19 year entries (2008-2026) at ~90-160 chars each
+const ANNOUNCE_MENU_ANCHOR = '1311,przetargi';
+const RESULT_MENU_ANCHOR = '1312,wyniki-przetargow';
 
 const CURRENT_YEAR = new Date().getFullYear();
 const MIN_YEAR = CURRENT_YEAR - (Number(process.env.RAWA_CRAWL_YEARS) || 6);
@@ -92,10 +91,19 @@ async function fetchHtml(url) {
  * @param {RegExp} slugPattern  must have exactly 2 capture groups: (id, year)
  * @returns {Array<{id:string, year:number}>} sorted newest-year-first
  */
-function discoverBoards(hubHtml, anchor, slugPattern) {
-  const i = hubHtml.indexOf(anchor);
-  if (i < 0) return [];
-  const tail = hubHtml.slice(i, i + MENU_SLICE_CHARS);
+export function discoverBoards(hubHtml, anchor, slugPattern) {
+  // October's template removed role="menuitem" and expanded each menu item.
+  // Match the link's identity, then only its own year submenu. A fixed byte
+  // window both missed older years and could bleed into a neighbouring menu.
+  const escaped = anchor.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const link = new RegExp(`<a\\b[^>]*\\bhref=["']/?${escaped}["'][^>]*>`, 'i').exec(hubHtml);
+  if (!link) return [];
+  const afterLink = hubHtml.slice(link.index + link[0].length);
+  const close = afterLink.indexOf('</a>');
+  if (close < 0) return [];
+  const submenu = /^\s*<ul\b[^>]*>([\s\S]*?)<\/ul>/i.exec(afterLink.slice(close + 4));
+  if (!submenu) return [];
+  const tail = submenu[1];
   const out = [];
   const re = new RegExp(slugPattern.source, 'gi');
   let m;

@@ -39,9 +39,9 @@ export function landKey(r) {
   const parcel = (r.dzialka_nr ?? '').toString().trim();
   const obreb = (r.obreb ?? '').toString().trim().toLowerCase();
   if (parcel) return obreb ? `dz|${obreb}|${parcel}` : `dz|${parcel}`;
-  if (r.address && r.address.key) return r.address.key;
+  if (r.address && r.address.key) return `addr|${r.address.key}`;
   if (r.street && r.building != null) {
-    return `${(r.street_norm || String(r.street).toLowerCase())}|${r.building}|`;
+    return `addr|${(r.street_norm || String(r.street).toLowerCase())}|${r.building}|`;
   }
   const raw = (r.address_raw ?? r.street ?? '').toString().trim().toLowerCase();
   return raw ? `addr|${raw}` : null;
@@ -112,7 +112,10 @@ export function buildLand(records, cityId, cfg = {}) {
       ...(r.final_price_pln != null ? { final_price_pln: r.final_price_pln } : {}),
       ...(plotArea != null ? { area_m2: plotArea } : {}),
       ...(r.detail_url ? { detail_url: r.detail_url } : {}),
-      ...(r.source_url ? { source_url: r.source_url } : {}),
+      ...(r.source_url || r.source_pdf ? { source_url: r.source_url || r.source_pdf } : {}),
+      ...(r.notes?.length ? { notes: r.notes } : {}),
+      ...(r.notice_only ? { notice_only: true } : {}),
+      ...(r.source_unassigned_price_pln != null ? { source_unassigned_price_pln: r.source_unassigned_price_pln } : {}),
     });
   }
 

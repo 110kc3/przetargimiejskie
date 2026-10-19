@@ -6,12 +6,12 @@
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
-  "unique_properties": 10,
-  "active_listings": 10,
-  "active_auctions": 2,
-  "archived_auctions": 8,
+  "unique_properties": 7,
+  "active_listings": 7,
+  "active_auctions": 0,
+  "archived_auctions": 7,
   "wykaz_entries": 0,
-  "land_plots": 0,
+  "land_plots": 3,
   "land_listings": 0,
   "retained_properties": 0,
   "valid_empty": false,
@@ -19,6 +19,7 @@
   "last_source_attempt_at": "2026-09-28T10:25:43.984Z",
   "last_successful_source_check_at": "2026-09-28T10:25:43.984Z",
   "monitored_assets": [
+    "land",
     "residential"
   ],
   "source_checks": {

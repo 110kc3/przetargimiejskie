@@ -117,3 +117,7 @@ No authentication required. No JS SPA (standard server-rendered HTML). The BIP u
 - Result notice Wyszyńskiego land (HTML, gniezno.eu): https://www.gniezno.eu/wiadomosci/1/wiadomosc/235510/wyniki_przetargow_przy_ulicy_ks_prymasa_stefana_wyszynskiego
 - URBIS (rental manager, not sales): https://urbis.gniezno.pl/category/przetargi/lokale-mieszkalne/
 - gniezno.eu nieruchomości hub: https://www.gniezno.eu/cms/22885/nieruchomosci
+
+## Source repair recheck — 19 October 2026
+
+Authenticated current R36 chain, land/date routing and latest announcement; isolated live probe: 7 property / 7 land records. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.

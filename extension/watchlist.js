@@ -70,6 +70,21 @@
     });
   }
 
+  function migrateAliases(properties) {
+    return serialize(async()=>{
+      const all=await getAll();let changed=false;
+      const aliases=new Map();
+      for(const p of properties||[])for(const key of p.legacy_keys||[]){if(key===p.key)continue;if(!aliases.has(key))aliases.set(key,[]);aliases.get(key).push(p);}
+      for(const [oldKey,targets]of aliases){
+        const entry=all[oldKey];if(!entry)continue;
+        for(const p of targets)if(!all[p.key])all[p.key]={...entry,city:p.city||entry.city,
+          addr:`${p.street} ${p.building}${p.apt?'/'+p.apt:''}`,kind:p.kind||entry.kind};
+        delete all[oldKey];changed=true;
+      }
+      if(changed)await chrome.storage.local.set({[STORAGE_KEY]:all});
+    });
+  }
+
   function unwatch(key) {
     return serialize(async () => {
       const all = await getAll();
@@ -104,7 +119,7 @@
 
   // Expose both in browser/content-script context (window) and in the SW
   // (globalThis) so background.js can import without bundling.
-  const api = { getAll, isWatched, watch, unwatch, markSeenActive, onChange };
+  const api = { getAll, isWatched, watch, unwatch, markSeenActive, onChange, migrateAliases };
   if (typeof window !== 'undefined') window.ZGM_WATCH = api;
   if (typeof globalThis !== 'undefined') globalThis.ZGM_WATCH = api;
 })();

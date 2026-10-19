@@ -99,7 +99,7 @@ const TOWN = 'Trzebnica';
 // both); optional ",00" grosze tail.
 export function parsePLN(numStr) {
   if (!numStr) return null;
-  const cleaned = String(numStr).replace(/[\s. ]/g, '').replace(/,\d{2}$/, '');
+  const cleaned = String(numStr).replace(/[,.]\d{2}$/, '').replace(/[\s. ]/g, '');
   const n = Number(cleaned.replace(/,/g, ''));
   return Number.isFinite(n) && n > 0 ? n : null;
 }

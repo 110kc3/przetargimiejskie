@@ -58,3 +58,8 @@ test('score: returns null for non-residential, missing data, no median, near-med
   assert.equal(DS.score(150000, 50, 'mieszkalny', undefined), null, 'no city median');
   assert.equal(DS.score(50 * 3010, 50, 'mieszkalny', med), null, 'within ~1% of median → no badge');
 });
+
+test('fractional ownership is excluded from whole-flat reference scores', () => {
+  assert.equal(sandbox.window.ZGM_DEALSCORE.score(7000,42.87,'mieszkalny',{median:5000,n:10},'1/8'),null);
+  assert.equal(sandbox.window.ZGM_DEALSCORE.buildCityMedians([{city:'glogow',kind:'mieszkalny',listings:[{starting_price_pln:7000,area_m2:42.87,share:'1/8'}]}],1).size,0);
+});

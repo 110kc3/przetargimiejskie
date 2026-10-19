@@ -239,7 +239,7 @@ jobs:
             node pipeline/scripts/sanity-check.js "$city"
           done < ready-cities.txt
           CITY_OUTCOMES_PATH=city-outcomes.json node pipeline/src/build-index.js
-          printf '%s\n' data/index.json >> publish-paths.txt
+          printf '%s\n' data/index.json data/catalog.json >> publish-paths.txt
           echo "Municipal artifact bytes: $(du -sb incoming-city | cut -f1)"
           echo "Checkout bytes: $(du -sb . --exclude=.git | cut -f1)"
       - name: Commit and push validated city data

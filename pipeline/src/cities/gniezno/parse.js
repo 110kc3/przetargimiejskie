@@ -70,6 +70,8 @@ function toAsciiPL(s) {
 }
 
 function iso(y, m, d) {
+  const date = new Date(Date.UTC(Number(y), Number(m) - 1, Number(d)));
+  if (date.getUTCFullYear() !== Number(y) || date.getUTCMonth() + 1 !== Number(m) || date.getUTCDate() !== Number(d)) return null;
   return String(y) + '-' + String(m).padStart(2, '0') + '-' + String(d).padStart(2, '0');
 }
 
@@ -91,6 +93,7 @@ function dateFromNumeric(text) {
 
 export function isFlatSaleTitle(title) {
   const t = toAsciiPL(title || '');
+  if (/dzialk|niezabudowa|najem|dzierza/.test(t)) return false;
   if (/lokal\s+mieszkaln/.test(t)) return true;
   if (/^sprzedaz\s*[-]\s*ul\./.test(t)) return true;
   if (/najem|niezabudowa|dzialek|dzialki|bezprzetargow|lokal\s+uzytkow/.test(t)) return false;
@@ -105,8 +108,10 @@ export function parseBipList(html) {
   while ((m = RE.exec(html)) !== null) {
     const url = m[1].replace(/&amp;/gi, '&');
     const title = stripTags(m[2]);
-    if (!isFlatSaleTitle(title)) continue;
-    out.push({ title, detail_url: url, round: roundFromTitle(title) });
+    const kind = /dzia[łl]k|niezabudowan/i.test(title) ? 'grunt' : 'mieszkalny';
+    if (kind !== 'grunt' && !isFlatSaleTitle(title)) continue;
+    if (/najem|dzier[żz]aw|bezprzetargow/i.test(title)) continue;
+    out.push({ title, kind, detail_url: url, round: roundFromTitle(title) });
   }
   return out;
 }
@@ -256,7 +261,7 @@ export function parseAnnouncement(text) {
   // Auction date anchored on odbedzie sie w dniu in t.
   // toAsciiPL is 1:1 char replacement so t index == raw index.
   const auction_date = (() => {
-    const anchorIdx = t.search(/odbedzie\s+sie\s+w\s+dniu/i);
+    const anchorIdx = t.search(/odbedzie\s+sie\s+(?:w\s+dniu|dnia)/i);
     const scope = anchorIdx >= 0 ? t.slice(anchorIdx) : t.slice(0, 500);
     const num = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(scope);
     if (num) return iso(num[3], num[2], num[1]);
@@ -305,4 +310,15 @@ export function parseAnnouncement(text) {
 
 export function parseResultDoc(text, _date, sourceUrl) {
   return parseResultNotice(text, sourceUrl);
+}
+
+export function parseLandAnnouncement(text, title) {
+  const common = parseAnnouncement(text);
+  const t = (text || '').replace(/\s+/g, ' ');
+  const parcel = /dzia[łl]ka\s+nr\s+(\d+(?:\/\d+)?)/i.exec(t)?.[1]
+    || /dzia[łl]ka\s+nr\s+(\d+(?:\/\d+)?)/i.exec(title || '')?.[1];
+  const hectares = /o\s+powierzchni\s+(\d+[.,]\d+)\s*ha/i.exec(t)?.[1];
+  return { ...common, kind: 'grunt', dzialka_nr: parcel || null,
+    area_m2: hectares ? Math.round(Number(hectares.replace(',', '.')) * 10000) : null,
+    address_raw: (title || '').replace(/^sprzeda[żz]\s*[-–]\s*/i, '').replace(/\s*[-–]\s*dzia[łl]ka[\s\S]*$/i, '').trim() };
 }

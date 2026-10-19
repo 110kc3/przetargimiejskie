@@ -137,15 +137,16 @@ Lives in [`extension/`](./extension). MV3, no build step, no dependencies. Load 
 
 1. Open `chrome://extensions`, toggle **Developer mode** on (top right).
 2. Click **Load unpacked**, point it at this repo's `extension/` directory.
-3. Visit any of the 8 overlay-covered hosts, e.g. `zgm-gliwice.pl`, `bip.katowice.eu`, `bip.zgm.rybnik.pl` (full list: `manifest.json` `content_scripts`).
+   To build the deterministic upload ZIP, run `python3 scripts/package-extension.py`; this does not submit it to the store.
+3. Visit an overlay-supported host, e.g. `zgm-gliwice.pl`, `bip.katowice.eu`, `bip.zgm.rybnik.pl` (full list: `manifest.json` `content_scripts`).
 
 What it does:
 
-- **Background service worker** (`background.js`) fetches each city's `properties.json` / `active.json` / `meta.json` from `raw.githubusercontent.com/110kc3/przetargimiejskie/main/data/<city>/`, merges them into one payload (keys namespaced `<city>|<street>|<building>|<apt>`), and caches in `chrome.storage.local` with a 6-hour TTL. The popup has a **Refresh data** button to bypass the TTL. Note: the extension currently surfaces 9 Śląskie cities — the data-driven rework that reads the city list from `index.json` is the top [ROADMAP.md](./ROADMAP.md) T1 item. The public website archive shows the gated Śląskie set (see *Website* below); every crawled city is on `/archiwum-all`.
+- **Background service worker** (`background.js`) reads `data/catalog.json`: all 1,026 official cities and 121 enabled feeds, including honest unavailable/unknown states. It loads a selected city or the current overlay's city, and scans only watched cities for notifications. Per-city public JSON is fetched with bounded concurrency and a six-hour soft TTL; at most eight city payloads are stored, with last-good fallback. Keys remain namespaced and legacy watchlist/address aliases migrate without dropping history.
 - **Content script** (`content.js` + per-site adapters in `sites/`) runs on each covered host:
   - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², a **deal score** (`▼ N% below median` / `▲ N% above median` vs the city's median zł/m²), auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
   - On property-detail pages: injects a sidebar with a chronological history table and a price-delta summary versus the first historical attempt.
-- **Popup** (`popup.html` + `popup.js`) lists all currently-active properties across cities (city-tagged), sorted by most-relisted first; re-listings show their round (`2./3. przetarg`) rather than "nowa"; the zł/m² cell carries the same deal-score badge. Click a row → opens that property's detail page. The per-city median zł/m² is computed client-side in [`extension/dealscore.js`](./extension/dealscore.js) (residential flats only, ≥5 priced samples).
+- **Popup** (`popup.html` + `popup.js`) opens the selected city’s currently active properties (city-tagged), sorted by most-relisted first; re-listings show their round (`2./3. przetarg`) rather than "nowa"; the zł/m² cell carries the same deal-score badge. Click a row → opens that property's detail page. The per-city median zł/m² is computed client-side in [`extension/dealscore.js`](./extension/dealscore.js) (residential flats only, ≥5 priced samples).
 - **Archive** (`archive.html` + `archive.js`) — a full sortable/filterable table of all past listings (city, kind, round, area, prices, zł/m², outcome), with city/kind/outcome/year filters and free-text search.
 - **Language: PL / EN.** The popup has a small `PL` / `EN` button in the header. Default is PL (since the source data is Polish municipal records). Toggle is persisted in `chrome.storage.local` and broadcast across tabs — flipping it in the popup retranslates open zgm-gliwice.pl tabs in place, no reload required. All user-facing strings live in [`extension/i18n.js`](./extension/i18n.js).
 
@@ -179,10 +180,19 @@ not enter municipal medians, `data/index.json`, city health, or the extension.
 See [`spikes/providers/README.md`](./spikes/providers/README.md) for the public
 graduation gate and the documented Orange defer decision.
 
-**Public scope is gated twice.** [`scripts/build-seo-pages.mjs`](./scripts/build-seo-pages.mjs) is the single place that decides which cities the site advertises: `PUBLIC_VOIVODESHIPS` (`null` = all of Poland, since 2026-07-27) and then `MIN_PUBLIC_AUCTIONS` — a city needs at least 10 auctions (live + archived) or its page is mostly empty tables, which reads as broken rather than as honest coverage. **54 of 121 crawled cities currently publish, across 15 voivodeships.** The script writes a per-city `public` flag and a **date-aware `live_auctions`** count into the *published* `_site/data/index.json`; the landing, `/archiwum` and `/raporty` all filter and count off those fields, so the pages cannot disagree about how many cities or auctions there are. Two consequences worth knowing:
+**Discovery and SEO are separate.** The shared compact `data/catalog.json` makes every official city discoverable and every enabled municipal feed searchable in the website archive and extension, including one-auction and land-only datasets. Selecting a city loads its heavy files; first load does not fetch national histories. Unknown/unresearched sources do not become zero-auction claims.
 
-- Use `live_auctions`, not `active_auctions`, for anything user-facing. `active_auctions` is frozen at the last refresh, so auctions whose date has since passed still count there — that drift is what used to make the landing advertise auctions a city page then denied.
-- The gate is self-healing and applies only to the published copy. The repo's own `data/index.json` is untouched (the extension reads it from `raw.githubusercontent.com` and must keep seeing every city), gated-out cities keep being crawled, and they stay visible on the `/archiwum-all` test view. A city re-appears on its own once its board produces enough auctions.
+`scripts/build-seo-pages.mjs` retains the content threshold of ten auctions for
+indexable city/property pages and the sitemap. It writes `seo_indexable` into the
+published catalogue; the legacy `public` flag remains for SEO/report consumers.
+This threshold does not hide cities from the archive. Source freshness is shown
+from retained checks, not from a local build timestamp. The website cache holds
+four selected cities; the extension cache holds eight.
+
+The optional [/alerty/](https://przetargimiejskie.pl/alerty/) flow prepares a
+voluntary interest e-mail draft. It does not send mail or subscribe visitors.
+[ALERT-VALIDATION.md](ALERT-VALIDATION.md) separates page views, actual received
+confirmations, willingness to pay and the 30-day business gate.
 
 **The extension is not bundled into the site** — it lives in its own top-level `extension/` directory and is distributed via the Chrome Web Store; the site root is `site/`, not the extension.
 

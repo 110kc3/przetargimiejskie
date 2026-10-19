@@ -102,7 +102,7 @@ import {
   parseAnnouncement,
   parseResultDoc,
 } from '../src/cities/rawa-mazowiecka/parse.js';
-import { parseBoardRefs, extractDoc } from '../src/cities/rawa-mazowiecka/crawl.js';
+import { parseBoardRefs, extractDoc, discoverBoards } from '../src/cities/rawa-mazowiecka/crawl.js';
 
 // --------------------------------------------------------------- real fixtures
 
@@ -456,4 +456,24 @@ test('extractDoc: cuts BODY at the metryka footer and collects ATTACH names, REA
   assert.ok(!body.includes('Metryka'), 'metryka footer must not leak into BODY');
   assert.equal(attach, 'ogłoszenie testowe.pdf');
   assert.equal(publishDate, '2024-09-17');
+});
+
+// Reduced current live menu from /1311,przetargi (18 October 2026).
+test('year-board discovery survives the expanded menu without role attributes', () => {
+  const html = `<a class="item1 selected current external_self" href="1311,przetargi">
+    <span class="ikona icon icon-arrow-angle-triangle-right"></span><span class="menuLinkText">Przetargi</span>
+    </a><ul class="ul menu1 main__def">
+      <li><a class="item1" href="3699,przetargi-2026">2026</a></li>
+      <li><a class="item1" href="3648,przetargi-2025">2025</a></li>
+    </ul>
+    <a class="item1 external_self" href="1312,wyniki-przetargow">Wyniki przetargów</a>
+    <ul><li><a href="3700,2026">2026</a></li></ul>`;
+  assert.deepEqual(discoverBoards(html, '1311,przetargi', /href="(\d+),przetargi-(\d{4})"/),
+    [{ id: '3699', year: 2026 }, { id: '3648', year: 2025 }]);
+  assert.deepEqual(discoverBoards(html, '1312,wyniki-przetargow', /href="(\d+),(\d{4})"/),
+    [{ id: '3700', year: 2026 }]);
+  // No submenu must not pick a neighbouring family's bare year links.
+  const noChildren = `<a href="1312,wyniki-przetargow">Wyniki</a>
+    <a href="other">Other</a><ul><a href="9999,2026">2026</a></ul>`;
+  assert.deepEqual(discoverBoards(noChildren, '1312,wyniki-przetargow', /href="(\d+),(\d{4})"/), []);
 });

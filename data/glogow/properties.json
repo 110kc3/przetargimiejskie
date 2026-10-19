@@ -997,11 +997,11 @@
       "area_m2": 10.5
     },
     {
-      "key": "kozuchowskiej|27|",
+      "key": "kozuchowskiej|27|1",
       "street": "Kożuchowskiej",
       "street_norm": "kozuchowskiej",
       "building": "27",
-      "apt": null,
+      "apt": "1",
       "kind": "mieszkalny",
       "listings": [
         {
@@ -1014,10 +1014,14 @@
           "final_price_pln": 7070,
           "source_pdf": "https://glogow.bip.info.pl/api/fo/files/cfee02e138a3afebc99f85f06b8b2d/download",
           "notes": [],
-          "area_m2": 42.87
+          "area_m2": 42.87,
+          "share": "1/8"
         }
       ],
-      "area_m2": 42.87
+      "area_m2": 42.87,
+      "legacy_keys": [
+        "kozuchowskiej|27|"
+      ]
     },
     {
       "key": "osadnikow|8|11",
