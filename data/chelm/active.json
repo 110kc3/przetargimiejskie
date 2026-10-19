@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Reformackiej 31/38",
+      "address": {
+        "street": "Reformackiej",
+        "street_norm": "reformackiej",
+        "building": "31",
+        "apt": "38",
+        "key": "reformackiej|31|38",
+        "warning": null
+      },
+      "area_m2": 31.1,
+      "starting_price_pln": 126950,
+      "auction_date": "1997-08-21",
+      "round": 1,
+      "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2365869",
+      "source_url": "https://umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie_o_przetargu_spoldzielczak_-_reformacka31_38.pdf"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Wołyńskiej 65A/5",
       "address": {
         "street": "Wołyńskiej",

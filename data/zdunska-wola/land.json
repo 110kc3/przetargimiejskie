@@ -133,17 +133,17 @@
       "parcels": []
     },
     {
-      "key": "addr|ul. ks. płk. józefa balcerczyka 12",
+      "key": "dz|409/3",
       "kind": "grunt",
       "city": "zdunska-wola",
-      "dzialka_nr": null,
+      "dzialka_nr": "409/3",
       "obreb": null,
       "street": null,
       "building": null,
       "address_raw": "ul. ks. płk. Józefa Balcerczyka 12",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20ks.%20p%C5%82k.%20J%C3%B3zefa%20Balcerczyka%2012%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20409%2F3%20ul.%20ks.%20p%C5%82k.%20J%C3%B3zefa%20Balcerczyka%2012%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
+      "area_m2": 606,
       "zoning": null,
       "status": null,
       "listings": [
@@ -151,25 +151,30 @@
           "date": "2026-10-09",
           "round": 1,
           "starting_price_pln": 135000,
-          "outcome": "archived",
-          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13140/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-12",
+          "outcome": "sold",
+          "final_price_pln": 215000,
+          "area_m2": 606,
           "source_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13140/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-12"
         }
       ],
-      "parcels": []
+      "parcels": [
+        {
+          "nr": "409/3"
+        }
+      ]
     },
     {
-      "key": "addr|ul. ks. płk. józefa balcerczyka 11",
+      "key": "dz|409/1",
       "kind": "grunt",
       "city": "zdunska-wola",
-      "dzialka_nr": null,
+      "dzialka_nr": "409/1",
       "obreb": null,
       "street": null,
       "building": null,
       "address_raw": "ul. ks. płk. Józefa Balcerczyka 11",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20ks.%20p%C5%82k.%20J%C3%B3zefa%20Balcerczyka%2011%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20409%2F1%20ul.%20ks.%20p%C5%82k.%20J%C3%B3zefa%20Balcerczyka%2011%20Zdu%C5%84ska%20Wola%20geoportal%20dzia%C5%82ki",
+      "area_m2": 519,
       "zoning": null,
       "status": null,
       "listings": [
@@ -177,12 +182,17 @@
           "date": "2026-10-09",
           "round": 1,
           "starting_price_pln": 116850,
-          "outcome": "archived",
-          "detail_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13139/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-11",
+          "outcome": "sold",
+          "final_price_pln": 176850,
+          "area_m2": 519,
           "source_url": "https://bip.zdunskawola.pl/przetarg-nieruchomosci/13139/zdunska-wola-ul-ks-plk-jozefa-balcerczyka-nr-11"
         }
       ],
-      "parcels": []
+      "parcels": [
+        {
+          "nr": "409/1"
+        }
+      ]
     }
   ]
 }

@@ -559,6 +559,28 @@
         }
       ],
       "area_m2": 53.6
+    },
+    {
+      "key": "reformackiej|31|38",
+      "street": "Reformackiej",
+      "street_norm": "reformackiej",
+      "building": "31",
+      "apt": "38",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "1997-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 126950,
+          "outcome": "archived",
+          "area_m2": 31.1,
+          "detail_url": "https://umchelm.bip.lubelskie.pl/index.php?id=55&action=details&document_id=2365869",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.1
     }
   ]
 }

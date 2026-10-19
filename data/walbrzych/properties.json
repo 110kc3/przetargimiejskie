@@ -792,6 +792,61 @@
       ]
     },
     {
+      "key": "lotnikow|1|9",
+      "street": "Lotników",
+      "street_norm": "lotnikow",
+      "building": "1",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-08-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53575",
+          "notes": []
+        },
+        {
+          "date": "2025-11-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54614",
+          "notes": []
+        },
+        {
+          "date": "2026-01-12",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bidders",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55164",
+          "notes": []
+        },
+        {
+          "date": "2026-03-09",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55870",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "wroclawska|132|14",
       "street": "Wrocławska",
       "street_norm": "wroclawska",
@@ -1078,49 +1133,6 @@
           "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55197",
           "notes": [],
           "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "lotnikow|1|9",
-      "street": "Lotników",
-      "street_norm": "lotnikow",
-      "building": "1",
-      "apt": "9",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-08-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 180000,
-          "outcome": "unsold",
-          "unsold_reason": "no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53575",
-          "notes": []
-        },
-        {
-          "date": "2025-11-19",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "unsold_reason": "no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54614",
-          "notes": []
-        },
-        {
-          "date": "2026-01-12",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "unsold_reason": "no_bidders",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/55164",
-          "notes": []
         }
       ]
     },
