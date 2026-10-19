@@ -1,5 +1,75 @@
 {
   "schema_version": 1,
   "city": "lubin",
-  "plots": []
+  "plots": [
+    {
+      "key": "dz|9|1030/34",
+      "kind": "grunt",
+      "city": "lubin",
+      "dzialka_nr": "1030/34",
+      "obreb": "9",
+      "street": null,
+      "building": null,
+      "address_raw": "obręb 9",
+      "dzialka_id": "021101_1.0009.1030/34",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=021101_1.0009.1030%2F34",
+      "area_m2": 11107,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-06",
+          "round": 2,
+          "starting_price_pln": 1700000,
+          "outcome": "active",
+          "area_m2": 11107,
+          "detail_url": "https://bip.um.lubin.pl/artykul/prezydent-miasta-lubina-oglasza-ii-nieograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-stanowiacej-wlasnosc-gminy-miejskiej-lubin-21",
+          "source_url": "https://bip.um.lubin.pl/attachments/30173/download"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1030/34",
+          "dzialka_id": "021101_1.0009.1030/34",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=021101_1.0009.1030%2F34"
+        }
+      ]
+    },
+    {
+      "key": "dz|3|963",
+      "kind": "grunt",
+      "city": "lubin",
+      "dzialka_nr": "963",
+      "obreb": "3",
+      "street": null,
+      "building": null,
+      "address_raw": "Lubin, ul. Stary Lubin",
+      "dzialka_id": "021101_1.0003.963",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=021101_1.0003.963",
+      "area_m2": 739,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-23",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 739,
+          "detail_url": "https://bip.um.lubin.pl/artykul/prezydent-miasta-lubina-oglasza-ii-ograniczony-przetarg-ustny-na-sprzedaz-nieruchomosci-stanowiacej-wlasnosc-gminy-miejskiej-lubin-2",
+          "source_url": "https://bip.um.lubin.pl/attachments/30174/download",
+          "notes": [
+            "procedure: przetarg ustny ograniczony; participation restricted to eligible neighbouring owners"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "963",
+          "dzialka_id": "021101_1.0003.963",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=021101_1.0003.963"
+        }
+      ]
+    }
+  ]
 }

@@ -4,6 +4,63 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Piłsudskiego 19/5",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "19",
+        "apt": "5",
+        "key": "pilsudskiego|19|5",
+        "warning": null
+      },
+      "area_m2": 30.93,
+      "starting_price_pln": 130000,
+      "auction_date": "2026-12-03",
+      "round": 1,
+      "kw_nr": null,
+      "detail_url": "https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/10/Pilsudskiego-19.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Jana Pawła II 5A/2",
+      "address": {
+        "street": "Jana Pawła II",
+        "street_norm": "jana pawla ii",
+        "building": "5A",
+        "apt": "2",
+        "key": "jana pawla ii|5A|2",
+        "warning": null
+      },
+      "area_m2": 60.12,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-12-03",
+      "round": 5,
+      "kw_nr": "OP1U/00069839/1",
+      "detail_url": "https://zan-namyslow.pl/v-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5a-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/10/Jana-Pawla-II-5a.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Szkolna 1/2A",
+      "address": {
+        "street": "Szkolna",
+        "street_norm": "szkolna",
+        "building": "1",
+        "apt": "2A",
+        "key": "szkolna|1|2A",
+        "warning": null
+      },
+      "area_m2": 21.99,
+      "starting_price_pln": 94000,
+      "auction_date": "2026-12-03",
+      "round": 1,
+      "kw_nr": null,
+      "detail_url": "https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2a-przy-ul-szkolnej-1-w-namyslowie/",
+      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2026/10/Szkolna-1.pdf"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Jana Pawła II 5A/2",
       "address": {
         "street": "Jana Pawła II",
@@ -305,25 +362,6 @@
       "kw_nr": "OP1U/00070170/3",
       "detail_url": "https://zan-namyslow.pl/ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-adama-mickiewicza-11-w-namyslowie/",
       "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/09/II-przetarg-Mickiewicza-11.2.pdf"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "Bohaterów Warszawy 7/7",
-      "address": {
-        "street": "Bohaterów Warszawy",
-        "street_norm": "bohaterow warszawy",
-        "building": "7",
-        "apt": "7",
-        "key": "bohaterow warszawy|7|7",
-        "warning": null
-      },
-      "area_m2": 97.18,
-      "starting_price_pln": 194360,
-      "auction_date": "2025-10-10",
-      "round": 3,
-      "kw_nr": "OP1U/00086456/7",
-      "detail_url": "https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-7-przy-ul-boh-warszawy-7-w-namyslowie/",
-      "detail_pdf": "https://zan-namyslow.pl/pseeckoo/2025/08/III-przetarg-Boh.-Warszawy-7.7.pdf"
     }
   ],
   "wykaz": []

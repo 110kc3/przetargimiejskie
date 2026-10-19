@@ -3,6 +3,94 @@
   "city": "jelenia-gora",
   "properties": [
     {
+      "key": "1 maja|59|4",
+      "street": "1 Maja",
+      "street_norm": "1 maja",
+      "building": "59",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 510000,
+          "outcome": "active",
+          "area_m2": 153.18,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26139/111-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 153.18
+    },
+    {
+      "key": "1 maja|28|4A",
+      "street": "1 Maja",
+      "street_norm": "1 maja",
+      "building": "28",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 450000,
+          "outcome": "active",
+          "area_m2": 43.18,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26139/111-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.18
+    },
+    {
+      "key": "dwudziestolecia|10|8",
+      "street": "Dwudziestolecia",
+      "street_norm": "dwudziestolecia",
+      "building": "10",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 320000,
+          "outcome": "active",
+          "area_m2": 42.65,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26138/110-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 42.65
+    },
+    {
+      "key": "zjednoczenia narodowego|63A|1",
+      "street": "Zjednoczenia Narodowego",
+      "street_norm": "zjednoczenia narodowego",
+      "building": "63A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 51.81,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26138/110-2026",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 51.81
+    },
+    {
       "key": "wolnosci|261|2",
       "street": "Wolności",
       "street_norm": "wolnosci",

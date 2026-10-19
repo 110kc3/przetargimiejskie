@@ -4,6 +4,78 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. 1 Maja 59/4",
+      "address": {
+        "street": "1 Maja",
+        "street_norm": "1 maja",
+        "building": "59",
+        "apt": "4",
+        "key": "1 maja|59|4",
+        "warning": null
+      },
+      "area_m2": 153.18,
+      "starting_price_pln": 510000,
+      "auction_date": "2026-12-22",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26139/111-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52278"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. 1 Maja 28/4A",
+      "address": {
+        "street": "1 Maja",
+        "street_norm": "1 maja",
+        "building": "28",
+        "apt": "4A",
+        "key": "1 maja|28|4A",
+        "warning": null
+      },
+      "area_m2": 43.18,
+      "starting_price_pln": 450000,
+      "auction_date": "2026-12-22",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26139/111-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52278"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Dwudziestolecia 10/8",
+      "address": {
+        "street": "Dwudziestolecia",
+        "street_norm": "dwudziestolecia",
+        "building": "10",
+        "apt": "8",
+        "key": "dwudziestolecia|10|8",
+        "warning": null
+      },
+      "area_m2": 42.65,
+      "starting_price_pln": 320000,
+      "auction_date": "2026-11-25",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26138/110-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52277"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zjednoczenia Narodowego 63A/1",
+      "address": {
+        "street": "Zjednoczenia Narodowego",
+        "street_norm": "zjednoczenia narodowego",
+        "building": "63A",
+        "apt": "1",
+        "key": "zjednoczenia narodowego|63A|1",
+        "warning": null
+      },
+      "area_m2": 51.81,
+      "starting_price_pln": 250000,
+      "auction_date": "2026-11-25",
+      "round": 1,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26138/110-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52277"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Wodna 9/3",
       "address": {
         "street": "Wodna",
