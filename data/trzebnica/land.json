@@ -1427,6 +1427,70 @@
       "parcels": []
     },
     {
+      "key": "dz|trzebnica|31",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "31",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1216,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-22",
+          "round": 5,
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "area_m2": 1216,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1914/przetarg-ggnp-15-2024",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/3715"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "31",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica|32/7",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "32/7",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1200,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-03-22",
+          "round": 5,
+          "starting_price_pln": 99000,
+          "outcome": "archived",
+          "area_m2": 1200,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1913/przetarg-ggnp-14-2024",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/3713"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. b.chrobrego",
       "kind": "grunt",
       "city": "trzebnica",

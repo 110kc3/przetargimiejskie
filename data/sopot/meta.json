@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "sopot",
-  "generated_at": "2026-10-20T08:47:17.846Z",
+  "generated_at": "2026-10-20T09:20:38.001Z",
   "source_pdf_count": 12,
   "parsed_records": 11,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-20T08:46:47.802Z",
-  "last_successful_source_check_at": "2026-10-20T08:46:47.802Z",
+  "last_source_attempt_at": "2026-10-20T09:20:07.500Z",
+  "last_successful_source_check_at": "2026-10-20T09:20:07.500Z",
   "monitored_assets": [
     "commercial",
     "garage",
@@ -26,13 +26,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-20T08:46:47.802Z",
-      "last_success_at": "2026-10-20T08:46:47.802Z"
+      "last_attempt_at": "2026-10-20T09:20:07.500Z",
+      "last_success_at": "2026-10-20T09:20:07.500Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-20T08:46:47.802Z",
+      "last_attempt_at": "2026-10-20T09:20:07.500Z",
       "last_success_at": null
     }
   }

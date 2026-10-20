@@ -294,6 +294,28 @@
       ]
     },
     {
+      "key": "biedaszkow wielki|0|2",
+      "street": "Biedaszków Wielki",
+      "street_norm": "biedaszkow wielki",
+      "building": "0",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-06",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "archived",
+          "area_m2": 59.22,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1835/przetargggnp92024",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.22
+    },
+    {
       "key": "w witosa|12|",
       "street": "W. Witosa",
       "street_norm": "w witosa",
