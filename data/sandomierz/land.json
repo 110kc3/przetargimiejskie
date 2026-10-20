@@ -110,6 +110,44 @@
       ]
     },
     {
+      "key": "dz|1027/20",
+      "kind": "grunt",
+      "city": "sandomierz",
+      "dzialka_nr": "1027/20",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krukowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201027%2F20%20ul.%20Krukowskiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 602,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-11-18",
+          "round": 1,
+          "starting_price_pln": 72100,
+          "outcome": "unsold",
+          "area_m2": 602,
+          "source_url": "https://bip.um.sandomierz.pl/6761/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html"
+        },
+        {
+          "date": "2026-10-19",
+          "round": 1,
+          "starting_price_pln": 163200,
+          "outcome": "unsold",
+          "area_m2": 602,
+          "source_url": "https://bip.um.sandomierz.pl/21218/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1027/20"
+        }
+      ]
+    },
+    {
       "key": "dz|prawobrzeżny|816/5",
       "kind": "grunt",
       "city": "sandomierz",
@@ -588,36 +626,6 @@
       "parcels": [
         {
           "nr": "2133/17"
-        }
-      ]
-    },
-    {
-      "key": "dz|1027/20",
-      "kind": "grunt",
-      "city": "sandomierz",
-      "dzialka_nr": "1027/20",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Krukowskiej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201027%2F20%20ul.%20Krukowskiej%20Sandomierz%20geoportal%20dzia%C5%82ki",
-      "area_m2": 602,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2022-11-18",
-          "round": 1,
-          "starting_price_pln": 72100,
-          "outcome": "unsold",
-          "area_m2": 602,
-          "source_url": "https://bip.um.sandomierz.pl/6761/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1027/20"
         }
       ]
     },

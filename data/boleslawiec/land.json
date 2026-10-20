@@ -126,6 +126,70 @@
       ]
     },
     {
+      "key": "dz|0007|1216/8",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "1216/8",
+      "obreb": "0007",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żurawia",
+      "dzialka_id": "020101_1.0007.1216/8",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0007.1216%2F8",
+      "area_m2": 770,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 2,
+          "starting_price_pln": 980000,
+          "outcome": "unsold",
+          "area_m2": 770,
+          "source_url": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=253145"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1216/8",
+          "dzialka_id": "020101_1.0007.1216/8",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0007.1216%2F8"
+        }
+      ]
+    },
+    {
+      "key": "dz|0004|567",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "567",
+      "obreb": "0004",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ekonomiczna",
+      "dzialka_id": "020101_1.0004.567",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0004.567",
+      "area_m2": 25126,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 2,
+          "starting_price_pln": 3600000,
+          "outcome": "unsold",
+          "area_m2": 25126,
+          "source_url": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=253144"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "567",
+          "dzialka_id": "020101_1.0004.567",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0004.567"
+        }
+      ]
+    },
+    {
       "key": "dz|0014|400",
       "kind": "grunt",
       "city": "boleslawiec",
