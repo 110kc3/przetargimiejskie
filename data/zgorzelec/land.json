@@ -32,6 +32,70 @@
           "nr": "20/4"
         }
       ]
+    },
+    {
+      "key": "dz|i|15/57",
+      "kind": "grunt",
+      "city": "zgorzelec",
+      "dzialka_nr": "15/57",
+      "obreb": "I",
+      "street": null,
+      "building": null,
+      "address_raw": "Banacha",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F57%20Banacha%20I%20Zgorzelec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1006,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "starting_price_pln": 113100,
+          "outcome": "archived",
+          "area_m2": 1006,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=836&r=r",
+          "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=836&r=r"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/57",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F57%20I%20Zgorzelec%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|i|15/58",
+      "kind": "grunt",
+      "city": "zgorzelec",
+      "dzialka_nr": "15/58",
+      "obreb": "I",
+      "street": null,
+      "building": null,
+      "address_raw": "Banacha",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F58%20Banacha%20I%20Zgorzelec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 978,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "starting_price_pln": 112100,
+          "outcome": "archived",
+          "area_m2": 978,
+          "detail_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=836&r=r",
+          "source_url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=836&r=r"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "15/58",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2015%2F58%20I%20Zgorzelec%20geoportal%20dzia%C5%82ki"
+        }
+      ]
     }
   ]
 }

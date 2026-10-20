@@ -1,5 +1,140 @@
 {
   "schema_version": 1,
   "city": "busko-zdroj",
-  "plots": []
+  "plots": [
+    {
+      "key": "dz|360/2",
+      "kind": "grunt",
+      "city": "busko-zdroj",
+      "dzialka_nr": "360/2",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "Błoniec, dz. 360/2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20360%2F2%20B%C5%82oniec%2C%20dz.%20360%2F2%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki",
+      "area_m2": 549,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-06",
+          "round": 1,
+          "starting_price_pln": 22000,
+          "outcome": "active",
+          "area_m2": 549,
+          "detail_url": "https://www.umig.busko.pl/ogloszenia/26223-ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-komunalnej-polozonej-w-bloncu-znak-gnwr-6840-13-2026.html",
+          "source_url": "https://dl.umig.busko.pl/bip/ogloszenia/2026/09/25/Ogloszenie_o_przetargu_bloniec_sig.pdf",
+          "notes": [
+            "Cena nie obejmuje nakładów stanowiących własność dotychczasowego dzierżawcy.",
+            "Nieruchomość obciążona umową dzierżawy; warunki opisano w ogłoszeniu."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "360/2"
+        }
+      ]
+    },
+    {
+      "key": "dz|11|271",
+      "kind": "grunt",
+      "city": "busko-zdroj",
+      "dzialka_nr": "271",
+      "obreb": "11",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20271%2011%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1718,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-23",
+          "round": 1,
+          "starting_price_pln": 760000,
+          "outcome": "sold",
+          "area_m2": 1718,
+          "detail_url": "https://www.umig.busko.pl/ogloszenia/25302-burmistrz-miasta-i-gminy-busko-zdroj-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-komunalnych-znak-gnwr-6840-1-2026.html",
+          "source_url": "https://dl.umig.busko.pl/bip/ogloszenia/2026/05/04/Informacja_o_wynikach_przetargow_ustnych_nieograniczonych_gnwr_6840_1_2026.pdf",
+          "final_price_pln": 768000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "271",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20271%2011%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|11|273",
+      "kind": "grunt",
+      "city": "busko-zdroj",
+      "dzialka_nr": "273",
+      "obreb": "11",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20273%2011%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1935,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-23",
+          "round": 1,
+          "starting_price_pln": 860000,
+          "outcome": "sold",
+          "area_m2": 1935,
+          "detail_url": "https://www.umig.busko.pl/ogloszenia/25302-burmistrz-miasta-i-gminy-busko-zdroj-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-komunalnych-znak-gnwr-6840-1-2026.html",
+          "source_url": "https://dl.umig.busko.pl/bip/ogloszenia/2026/05/04/Informacja_o_wynikach_przetargow_ustnych_nieograniczonych_gnwr_6840_1_2026.pdf",
+          "final_price_pln": 869000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "273",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20273%2011%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|06|789/15",
+      "kind": "grunt",
+      "city": "busko-zdroj",
+      "dzialka_nr": "789/15",
+      "obreb": "06",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20789%2F15%2006%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki",
+      "area_m2": 175,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-23",
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "sold",
+          "area_m2": 175,
+          "detail_url": "https://www.umig.busko.pl/ogloszenia/25302-burmistrz-miasta-i-gminy-busko-zdroj-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-komunalnych-znak-gnwr-6840-1-2026.html",
+          "source_url": "https://dl.umig.busko.pl/bip/ogloszenia/2026/05/04/Informacja_o_wynikach_przetargow_ustnych_nieograniczonych_gnwr_6840_1_2026.pdf",
+          "final_price_pln": 45000
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "789/15",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20789%2F15%2006%20Busko-Zdr%C3%B3j%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
 }

@@ -3,6 +3,78 @@
   "city": "kedzierzyn-kozle",
   "plots": [
     {
+      "key": "addr|ul. błonie",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Błonie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20B%C5%82onie%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3934,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-08-20",
+          "round": 3,
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 3934,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78756"
+        },
+        {
+          "date": "2026-10-14",
+          "round": 4,
+          "starting_price_pln": 350000,
+          "outcome": "archived",
+          "area_m2": 3934,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30371/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79584"
+        },
+        {
+          "date": "2026-11-24",
+          "round": 5,
+          "starting_price_pln": 330000,
+          "outcome": "active",
+          "area_m2": 3934,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30566/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/80366"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|ul. tadeusza kościuszki",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kędzierzyn",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Tadeusza Kościuszki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Tadeusza%20Ko%C5%9Bciuszki%20K%C4%99dzierzyn%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": 367,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-24",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 367,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30566/ogloszenia-o-przetargach-ustnych-nieograniczonych",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/80363"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|ul. judyma",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -801,10 +873,10 @@
           "date": "2026-08-27",
           "round": 1,
           "starting_price_pln": 110000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 930,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78765"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79524"
         },
         {
           "date": "2026-10-21",
@@ -843,10 +915,10 @@
           "date": "2026-08-25",
           "round": 1,
           "starting_price_pln": 28000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 28,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78749"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79467"
         },
         {
           "date": "2026-10-20",
@@ -885,10 +957,10 @@
           "date": "2026-08-25",
           "round": 1,
           "starting_price_pln": 28000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 27,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78748"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79465"
         },
         {
           "date": "2026-10-20",
@@ -927,10 +999,10 @@
           "date": "2026-08-25",
           "round": 1,
           "starting_price_pln": 28000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 27,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78747"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79469"
         },
         {
           "date": "2026-10-20",
@@ -969,10 +1041,10 @@
           "date": "2026-08-25",
           "round": 1,
           "starting_price_pln": 28000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 27,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78746"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79472"
         },
         {
           "date": "2026-10-20",
@@ -1182,42 +1254,6 @@
       "parcels": []
     },
     {
-      "key": "addr|ul. błonie",
-      "kind": "grunt",
-      "city": "kedzierzyn-kozle",
-      "dzialka_nr": null,
-      "obreb": "Kłodnica",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Błonie",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20B%C5%82onie%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3934,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-08-20",
-          "round": 3,
-          "starting_price_pln": 350000,
-          "outcome": "archived",
-          "area_m2": 3934,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78756"
-        },
-        {
-          "date": "2026-10-14",
-          "round": 4,
-          "starting_price_pln": 350000,
-          "outcome": "archived",
-          "area_m2": 3934,
-          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30371/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79584"
-        }
-      ],
-      "parcels": []
-    },
-    {
       "key": "dz|kłodnica|1381/2",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
@@ -1252,10 +1288,10 @@
           "date": "2026-08-20",
           "round": 7,
           "starting_price_pln": 110000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1164,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78755"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79415"
         },
         {
           "date": "2026-10-14",
@@ -1326,10 +1362,10 @@
           "date": "2026-09-29",
           "round": 12,
           "starting_price_pln": 1500000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 41768,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30215/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78974"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/80112"
         }
       ],
       "parcels": [
@@ -1429,10 +1465,10 @@
           "date": "2026-09-29",
           "round": 12,
           "starting_price_pln": 2000000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 23753,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30215/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78977"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/80111"
         }
       ],
       "parcels": [
@@ -1898,28 +1934,28 @@
           "date": "2025-06-17",
           "round": 1,
           "starting_price_pln": 120000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1059,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70499"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71392"
         },
         {
           "date": "2025-08-20",
           "round": 2,
           "starting_price_pln": 110000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1059,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71486"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72362"
         },
         {
           "date": "2025-10-02",
           "round": 3,
           "starting_price_pln": 100000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1059,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72294"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73285"
         },
         {
           "date": "2026-03-19",
@@ -1934,10 +1970,10 @@
           "date": "2026-08-20",
           "round": 8,
           "starting_price_pln": 70000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1059,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78751"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79417"
         }
       ],
       "parcels": [
@@ -2199,11 +2235,11 @@
         {
           "date": "2026-08-19",
           "round": 15,
-          "starting_price_pln": 71000,
-          "outcome": "archived",
+          "starting_price_pln": 70000,
+          "outcome": "sold",
           "area_m2": 745,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30165/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/78754",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/79396",
           "final_price_pln": 74200
         }
       ],
@@ -2662,20 +2698,20 @@
           "date": "2025-10-09",
           "round": 1,
           "starting_price_pln": 100000,
-          "outcome": "archived",
+          "outcome": "sold",
           "area_m2": 1219,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72309",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73465",
           "final_price_pln": 147000
         },
         {
           "date": "2025-11-26",
           "round": 2,
           "starting_price_pln": 100000,
-          "outcome": "archived",
+          "outcome": "sold",
           "area_m2": 1219,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29035/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73545",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/74560",
           "final_price_pln": 117000
         }
       ],
@@ -2782,19 +2818,19 @@
           "date": "2025-10-09",
           "round": 1,
           "starting_price_pln": 100000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1182,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72307"
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73463"
         },
         {
           "date": "2025-11-25",
           "round": 2,
           "starting_price_pln": 100000,
-          "outcome": "archived",
+          "outcome": "sold",
           "area_m2": 1182,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28999/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73376",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/74551",
           "final_price_pln": 101000
         }
       ],
@@ -3322,9 +3358,9 @@
           "date": "2025-10-08",
           "round": 3,
           "starting_price_pln": 52800,
-          "outcome": "archived",
+          "outcome": "sold",
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72270",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/73434",
           "final_price_pln": 53330,
           "area_m2": 480
         }
@@ -3982,10 +4018,10 @@
           "date": "2025-08-27",
           "round": 1,
           "starting_price_pln": 12000,
-          "outcome": "archived",
+          "outcome": "sold",
           "area_m2": 118,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28544/ogloszenie-o-przetargu-ustnym-ograniczonym",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71563",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/72548",
           "final_price_pln": 12120
         }
       ],
@@ -4198,10 +4234,10 @@
           "date": "2025-06-24",
           "round": 6,
           "starting_price_pln": 180000,
-          "outcome": "archived",
+          "outcome": "sold",
           "area_m2": 3518,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28344/ogloszenie-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/70702",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/71548",
           "final_price_pln": 181800
         }
       ],
@@ -4918,10 +4954,10 @@
           "date": "2025-02-04",
           "round": 1,
           "starting_price_pln": 400000,
-          "outcome": "archived",
-          "area_m2": 40,
+          "outcome": "sold",
+          "area_m2": 6962,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27682/ogloszenia-o-przetargach-ustnych-ograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67868",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68786",
           "final_price_pln": 404000
         },
         {
@@ -5015,10 +5051,10 @@
           "date": "2025-01-22",
           "round": 5,
           "starting_price_pln": 120000,
-          "outcome": "archived",
+          "outcome": "sold",
           "area_m2": 1347,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27590/ogloszenia-o-przetargach-ustnych-nieograniczonych",
-          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/67485",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/68547",
           "final_price_pln": 121200
         }
       ],
