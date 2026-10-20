@@ -26,32 +26,9 @@
       ],
       "area_m2": 24.86,
       "legacy_keys": [
-        "lagiewnickiej ogloszenie o przetargach prezydent miasta krakowa oglasza przetargi ustne nieograniczone na sprzedaz nieruchomosci stanowiacych wlasnosc gminy miejskiej krakow pierwszy przetarg na sprzedaz lokalu o przeznaczeniu innym niz mieszkalne oznaczonego|6|7"
+        "lagiewnickiej ogloszenie o przetargach prezydent miasta krakowa oglasza przetargi ustne nieograniczone na sprzedaz nieruchomosci stanowiacych wlasnosc gminy miejskiej krakow pierwszy przetarg na sprzedaz lokalu o przeznaczeniu innym niz mieszkalne oznaczonego|6|7",
+        "grottgera|24|7"
       ]
-    },
-    {
-      "key": "grottgera|24|7",
-      "street": "Grottgera",
-      "street_norm": "grottgera",
-      "building": "24",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 120000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 190000,
-          "source_pdf": "https://www.bip.krakow.pl/?news_id=261755",
-          "notes": [],
-          "area_m2": 24.86,
-          "round_source": "inferred"
-        }
-      ],
-      "area_m2": 24.86
     },
     {
       "key": "sportowym|1|7",
@@ -87,10 +64,10 @@
           "date": "2025-11-04",
           "round": 1,
           "kind": "garaz",
-          "starting_price_pln": 145000,
-          "outcome": "sold",
-          "unsold_reason": null,
-          "final_price_pln": 221850,
+          "starting_price_pln": 114000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
           "source_pdf": "https://www.bip.krakow.pl/?news_id=236926",
           "notes": [],
           "area_m2": 17,
@@ -271,11 +248,11 @@
       "area_m2": 78.84
     },
     {
-      "key": "morawianskiego cena wywolawcza nieruchomosci wynosila|145|garaz-12",
-      "street": "Morawiańskiego. Cena wywoławcza nieruchomości wynosiła",
-      "street_norm": "morawianskiego cena wywolawcza nieruchomosci wynosila",
-      "building": "145",
-      "apt": "garaz-12",
+      "key": "morawianskiego|25|",
+      "street": "Morawiańskiego",
+      "street_norm": "morawianskiego",
+      "building": "25",
+      "apt": null,
       "kind": "zabudowana",
       "listings": [
         {
@@ -288,11 +265,14 @@
           "final_price_pln": 221850,
           "source_pdf": "https://www.bip.krakow.pl/?news_id=236926",
           "notes": [],
-          "area_m2": 17,
+          "area_m2": null,
           "round_source": "inferred"
         }
       ],
-      "area_m2": 17
+      "area_m2": null,
+      "legacy_keys": [
+        "morawianskiego cena wywolawcza nieruchomosci wynosila|145|garaz-12"
+      ]
     },
     {
       "key": "jozefa brodowicza|7|12",
@@ -343,27 +323,6 @@
         }
       ],
       "area_m2": 49.98
-    },
-    {
-      "key": "karola knausa i ul karola homolacsa cena wywolawcza dzialek|259|",
-      "street": "Karola Knausa i ul. Karola Homolacsa. - cena wywoławcza działek",
-      "street_norm": "karola knausa i ul karola homolacsa cena wywolawcza dzialek",
-      "building": "259",
-      "apt": null,
-      "kind": "garaz",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "kind": "garaz",
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": null,
-          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
     }
   ]
 }

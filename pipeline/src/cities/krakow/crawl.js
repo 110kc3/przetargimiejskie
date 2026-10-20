@@ -3,13 +3,11 @@
 // multi-property notice parsed by parse.js. Announcements → listings/land;
 // result notices → the achieved-price stream (source:'html' ⇒ refs carry .text).
 //
-// NOTE (confirm on first CI refresh): the &strona=N pagination + ?news_id harvest
-// were inferred from the live board structure; the body parser is groundtruthed.
-// Archive depth is capped here (active + recent); a deeper archive backfill can
-// raise MAX_PAGES once the first run confirms the harvest.
+// Pagination is one-based: strona=0 returns HTTP 400. Follow only pages exposed
+// by the official pager, with bounded archive depth reported as incomplete.
 
 import { getText } from '../../core/fetch.js';
-import { parseNotice, htmlToText } from './parse.js';
+import { parseNotice, splitItems } from './parse.js';
 
 const ORIGIN = 'https://www.bip.krakow.pl';
 const ANNOUNCEMENT_BOARDS = ['?dok_id=30626', '?dok_id=102895']; // active + archive
@@ -21,54 +19,83 @@ const FETCH_OPTS = { userAgent: BROWSER_UA };
 
 const newsUrl = (id) => `${ORIGIN}/?news_id=${id}`;
 
-async function harvestNewsIds(boards) {
+export async function harvestNewsIds(boards, { fetchText = getText, maxPages = MAX_PAGES } = {}) {
   const ids = new Set();
+  let complete = true;
   for (const board of boards) {
-    for (let p = 0; p < MAX_PAGES; p++) {
+    const boardId = /dok_id=(\d+)/.exec(board)?.[1];
+    const boardSeen = new Set();
+    for (let p = 1; p <= maxPages; p++) {
       const url = `${ORIGIN}/${board}&strona=${p}`;
       let html;
       try {
-        html = await getText(url, FETCH_OPTS);
+        html = await fetchText(url, FETCH_OPTS);
       } catch (err) {
+        complete = false;
         console.error(`  krakow board fetch failed (${url}): ${err.message}`);
+        break;
+      }
+      const recognized = [...html.matchAll(/<form\b[^>]*action="([^"<>]+)"/gi)].some(match => {
+        try {
+          const action = new URL(match[1].replace(/&amp;/g, '&'), ORIGIN);
+          return action.origin === ORIGIN && action.searchParams.get('dok_id') === boardId
+            && Number(action.searchParams.get('strona') || '1') === p;
+        } catch { return false; }
+      });
+      if (!boardId || !recognized) {
+        complete = false;
+        console.error(`  krakow board ${boardId} page ${p} has unrecognized markup`);
         break;
       }
       let added = 0;
       for (const m of html.matchAll(/[?&]news_id=(\d+)/g)) {
-        if (!ids.has(m[1])) { ids.add(m[1]); added++; }
+        ids.add(m[1]);
+        if (!boardSeen.has(m[1])) { boardSeen.add(m[1]); added++; }
       }
-      if (added === 0 && p > 0) break; // no new ids on this page → stop paging
+      const pages = [...html.matchAll(/href="[^"<>]*[?&]dok_id=(\d+)(?:&amp;|&)strona=(\d+)[^"<>]*"/g)]
+        .filter(m => m[1] === boardId).map(m => Number(m[2]));
+      const hasNext = pages.some(page => page > p);
+      if (!added) { complete = false; break; }
+      if (!hasNext) break;
+      if (p === maxPages) { complete = false; break; }
     }
   }
-  return [...ids];
+  const result = [...ids];
+  result.complete = complete;
+  return result;
 }
 
 let crawlPromise = null;
 
-async function crawlAll() {
+export async function crawlAll({ fetchText = getText, maxPages = MAX_PAGES } = {}) {
   const listings = [];
   const land = [];
   const resultRefs = [];
 
   // Result notices (the achieved-price stream).
-  for (const id of await harvestNewsIds(RESULT_BOARDS)) {
+  const resultIds = await harvestNewsIds(RESULT_BOARDS, { fetchText, maxPages });
+  let resultsComplete = resultIds.complete;
+  for (const id of resultIds) {
     const url = newsUrl(id);
     let html;
     try {
-      html = await getText(url, FETCH_OPTS);
+      html = await fetchText(url, FETCH_OPTS);
     } catch (err) {
+      resultsComplete = false;
       console.error(`  krakow result fetch failed (${url}): ${err.message}`);
       continue;
     }
+    const parsed = parseNotice(html, { isResult: true, url });
+    if (!parsed.length || parsed.length !== splitItems(html).length) resultsComplete = false;
     resultRefs.push({ text: html, pdf_url: url, detail_url: url, auction_date: null });
   }
 
   // Announcements (active listings + land).
-  for (const id of await harvestNewsIds(ANNOUNCEMENT_BOARDS)) {
+  for (const id of await harvestNewsIds(ANNOUNCEMENT_BOARDS, { fetchText, maxPages })) {
     const url = newsUrl(id);
     let html;
     try {
-      html = await getText(url, FETCH_OPTS);
+      html = await fetchText(url, FETCH_OPTS);
     } catch (err) {
       console.error(`  krakow announcement fetch failed (${url}): ${err.message}`);
       continue;
@@ -77,11 +104,12 @@ async function crawlAll() {
       (rec.kind === 'grunt' ? land : listings).push(rec);
     }
   }
+  resultRefs.complete = resultsComplete;
 
   console.error(
     `  krakow: ${listings.length} flat/commercial/garage listing(s), ${land.length} land plot(s), ${resultRefs.length} result notice(s)`,
   );
-  return { listings, land, resultRefs };
+  return { listings, land, resultRefs, land_complete: false };
 }
 
 export async function crawlResultDocs() {
@@ -92,5 +120,5 @@ export async function crawlResultDocs() {
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;
-  return { listings, wykaz: [], land };
+  return { listings, wykaz: [], land, land_complete: false };
 }

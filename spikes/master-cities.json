@@ -23409,7 +23409,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "WOKISS HTML + text PDF",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -23417,23 +23417,39 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-1-przetarg-witaszyce-ul.-stawna.pdf",
+          "evidence_path": "spikes/wielkopolskie/powiat-jarocinski/jarocin.md",
+          "verified_at": "2026-10-20",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Only the selected land-table repair is verified; other asset classes still require a source audit.",
+            "Discovery is capped at 120 documents across four recent years; missing/scanned documents and unparsed results remain incomplete.",
+            "Local validation only; hosted recovery of this change is pending."
+          ]
         }
       ],
       "review": {
@@ -31109,31 +31125,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "ACK Cyfronet HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
-          "garage": "unknown"
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/krakow/krakow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.bip.krakow.pl/?news_id=263185",
+          "evidence_path": "spikes/malopolskie/krakow/krakow.md",
+          "verified_at": "2026-10-20",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building",
+            "commercial",
+            "garage"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "One-based official board pagination and the current land-share notice were checked locally.",
+            "Archive discovery is bounded to six pages per board and is not exhaustive result coverage.",
+            "Source fixtures verify examples of all five asset classes; historical result parsing still requires full review and hosted recovery is pending."
+          ]
         }
       ],
       "review": {

@@ -2,7 +2,7 @@
 
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
 > (extension) and git history (pipeline/site/data). **City inventory refreshed
-> 6 September 2026; city-health/security follow-up refreshed 19 October 2026.** Structure/tiers/gates live in
+> 6 September 2026; city-health/security follow-up refreshed 20 October 2026.** Structure/tiers/gates live in
 > [ROADMAP.md](./ROADMAP.md); manual headless RPi5 work is specified in
 > [REMOTE.md](./REMOTE.md), residential-egress operating policy in
 > [PL-EGRESS-PLAN.md](./PL-EGRESS-PLAN.md); city coverage is the generated ledger
@@ -51,7 +51,7 @@
 
 ## 1 · Ops / health
 
-### Current continuation — 19 October 2026
+### Current continuation — 19–20 October 2026
 
 The current request is to finish the accepted tasks in this queue and its linked
 plans. Continue implementation, verification and documentation; historical ideas,
@@ -76,13 +76,15 @@ The older dated sections below preserve diagnosis and do not override this state
   authoritative active board. Fetch failures, changed markup, unparsed/unsupported
   sales and incomplete pagination cannot establish emptiness. Exact board fixtures
   and targeted negative tests pass. Full isolated refreshes pass strict integrity
-  and coverage health while retaining history; hosted recovery remains pending.
+  and coverage health while retaining history; hosted recovery is now observed in committed source
+  checks, with longer stability still unverified.
 - **Bolesławiec follow-up implemented:** the portal rotated from Certum to
   Let's Encrypt YR1 and omits intermediates. Its host now uses the already
   reviewed YR1 chain with full hostname/expiry/root verification. A verified
   live RSS read recovers two flats; uppercase `III PRZETARG` now retains round 3.
   The separate result-BIP certificate mapping is unchanged. Targeted parser
-  and security-policy checks pass; hosted source recovery remains pending.
+  and security-policy checks pass; hosted source recovery is now observed in
+  `8703ad158`.
 - **Trzebnica incremental-source repair implemented:** known historical URLs
   now include resolved outcomes from its separate land ledger. Unresolved
   archived announcements remain eligible for later result attachments.
@@ -110,12 +112,39 @@ The older dated sections below preserve diagnosis and do not override this state
   instead of dropping the sale or repeating its price per parcel. Discovery
   excludes unrelated BIP menu links, and rolling land output merges history.
   Targeted tests and an isolated actual Chromium crawl, strict sanity and
-  coverage-health checks pass. Hosted recovery remains pending.
+  coverage-health checks pass. Hosted recovery is now observed in `8703ad158`.
+- **Jarocin repair implemented:** hosted integrity rejected a spurious street
+  assembled from Stawna's land table. The source PDF describes undeveloped land
+  beside housing, not a house for sale. Parser/crawler now retain two jointly
+  priced lots: 236/2 + 237/3 + 237/4 (**2,671 m² / 372,740 zł**) and
+  238/2 + 239/1 + 239/2 (**1,051 m² / 146,765 zł**), 2 December 2026.
+  Explicit deposit groups validate parcel/price membership. Capped discovery,
+  missing/scanned attachments and unparsed results remain incomplete; historical
+  land windows merge. Exact-source, builder and source-state tests pass. Final isolated output has
+  **3 properties / 24 plots**, with prior history retained and strict integrity
+  clean; result coverage remains explicitly incomplete.
+- **Kraków repair implemented:** official pages start at `strona=1`; page zero
+  returns HTTP 400. Pagination now follows official links within the six-page
+  cap. Current share notice 263185 retains grouped parcels 17/1 + 17/2,
+  **546 m² / 436,000 zł for a 1/2 share**, plus 169/16,
+  **216 m² / 42,400 zł for a 2/6 share**, 5 November 2026. HTML result lots no
+  longer share addresses, kinds, prices or outcomes. Source 236926 explicitly
+  sells Morawiańskiego 25 for 221,850 zł and records the Królewska garage as
+  unsold at 114,000 zł; its later April sale survives the history merge. Reverse
+  building labels, formatting-split words and units have source fixtures.
+  The seven separately priced parcel groups in notice 227539 are now retained
+  individually. Guarded source/date migrations remove retained malformed keys
+  with aliases and repair the wrong garage outcome; the committed-history
+  repair has **11 properties / 13 plots**, with source clocks unchanged.
+  Missing achieved prices cannot establish unsold results. Final isolated output
+  has **80 properties / 36 plots**, strict integrity clean and incomplete results
+  still degraded. Hosted recovery remains pending.
 - **Existing-city asset audit is now recorded in the canonical manifest:**
-  **0 complete / 8 partial / 113 unchecked**, generated in
+  **0 complete / 10 partial / 111 unchecked**, generated in
   [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The partial checks cover
   Bolesławiec, Trzebnica, Chrzanów, Zgorzelec, Ząbkowice Śląskie, Lubin, Wschowa
-  and Żagań (the latter three fold in evidence committed in `046f3b07c`).
+  and Żagań, plus Kraków and Jarocin. Lubin/Wschowa/Żagań fold in evidence
+  committed in `046f3b07c`.
   They retain the full
   review deadlines and do not promote hosted runtime status. Zgorzelec's linked
   year archives are not crawled. Ząbkowice notice 11008 is a genuine 19.43 m²
@@ -137,12 +166,14 @@ The older dated sections below preserve diagnosis and do not override this state
   85 auction events**, retaining the newer records: Sandomierz **22 plots / 39
   events**, Ząbkowice **71 / 120**. Only land counts change in metadata/index;
   all source attempt/success timestamps remain unchanged. National integrity passes.
-- **Current production health: 15 findings** against scheduled `c02fab47c`:
-  eight degraded streams, four failed attempts, two expired egress exceptions
-  and one empty-source recheck. The local source fixes are not counted as hosted
-  recovery. Świętochłowice, Kraków, Olkusz and Jarocin retain failed-attempt status;
-  Lubin, Wschowa and Żagań now have healthy/verified-empty hosted source checks.
-- **Latest refresh workflow failure diagnosed:** municipal publication completed;
+- **Current production health: 12 findings** against scheduled `8703ad158`,
+  checked 20 October: six degraded streams, three failed attempts, two expired
+  egress exceptions and one empty-source recheck. Hosted data confirms recovery
+  for Bolesławiec/Chrzanów and Trzebnica's property/land streams; Trzebnica's
+  results remain degraded. Świętochłowice, Kraków and Jarocin still have failed
+  attempts. Olkusz recovered on the later hosted run; earlier logs show connection
+  timeouts. Kraków/Jarocin's new local repairs are not counted as hosted recovery.
+- **Earlier refresh workflow failure diagnosed:** municipal publication completed;
   the provider gate failed because PKP timed out connecting to `www.pkp.pl` on
   the primary and both fresh-runner retries. Last-good provider health alone
   does not prove the latest crawl worked. No additional retry budget, private
@@ -156,10 +187,20 @@ result stream and Busko-Zdrój's expired empty-board review. The Bytom property
 board returns HTTP 403 in the current local probe while its catalogue yields 13
 land plots and no units; that does not prove an empty property board. Continue
 the current 121-city source/asset audit before the separate new-adapter queue.
-Triage the new Kraków/Olkusz/Jarocin failed publications next.
+Verify Kraków/Jarocin naturally after this push; continue their explicitly
+remaining unparsed source work. Olkusz is currently recovered; retain the
+earlier timeout evidence rather than changing source/health policy.
 PKP/Świętochłowice reachability and Racibórz/Pszczyna's excluded egress remain
 visible gaps. Store submission, Search Console acceptance and received 30-day
 interest evidence remain external gates. See [repair evidence](REPAIR-EVIDENCE-2026-10.md).
+
+**Prior continuation check:** `4cfed9c48` was checked once on 19 October.
+[Refresh 39329213700](https://github.com/110kc3/przetargimiejskie/actions/runs/39329213700),
+[Security 39329213699](https://github.com/110kc3/przetargimiejskie/actions/runs/39329213699)
+and [deployment 39329213691](https://github.com/110kc3/przetargimiejskie/actions/runs/39329213691)
+were in progress at that check. The later committed source data above proves
+individual recoveries, not the final workflow conclusions. The new push remains
+pending verification.
 
 **Push verification pending:** [Actions on main](https://github.com/110kc3/przetargimiejskie/actions?query=branch%3Amain).
 The first continuation `046f3b07c` was checked once at the start of the next turn:

@@ -53,3 +53,35 @@ Secondary / cross-check: jarocinska.pl (local news, mirrors announcements with h
 - Low volume means infrequent runs are sufficient (weekly or bi-weekly polling adequate).
 - The gmina BIP appears stable and has been on wokiss.pl for 10+ years.
 - Risk: if the gmina exhausts its remaining flat stock and stops selling entirely, the adapter would idle — but the infrastructure cost is negligible.
+
+
+## Partial source/asset audit — 2026-10-20 (Codex)
+
+The hosted city worker in [refresh 39323322737](https://github.com/110kc3/przetargimiejskie/actions/runs/39323322737)
+rejected a new property with a table header in its street name. Its
+[original Stawna PDF](https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-1-przetarg-witaszyce-ul.-stawna.pdf)
+is a sale of undeveloped land in Witaszyce, beside existing housing. The body
+classifier had treated those neighbouring houses as the offered asset, and
+address extraction crossed into the following parcel table.
+
+The actual PDF page and its explicit deposit groups confirm two separate lots:
+236/2 + 237/3 + 237/4 (**2,671 m² / 372,740 zł**) and
+238/2 + 239/1 + 239/2 (**1,051 m² / 146,765 zł**), both first oral unrestricted
+auctions on **2 December 2026, 13:00**. The reader keeps each grouped lot's total
+price once and verifies parcel membership/areas against the matching 20% deposit.
+Duplicate, missing or contradictory groups are withheld. Street extraction no
+longer spans table lines; neighbouring-building context no longer changes the
+land classification. Exact pdftotext fixture and parser/builder regressions pass.
+
+This is a partial audit: four recent years / 120 extracted-document limits,
+missing or scanned PDFs and unparsed result bodies remain coverage gaps.
+Result refs now expose incomplete discovery instead of implying full coverage.
+Historical first-parcel-only handling outside this verified table family and
+other asset classes remain to be reviewed. No review deadline or runtime status
+was promoted, and locally crawled data is not production publication.
+
+
+Final isolated refresh: **3 properties / 24 plots** (21 plots before), prior
+property/plot identities and listing dates retained. Strict integrity passes;
+property/land source checks are healthy while results remain explicitly
+incomplete. No isolated crawl output is published locally.

@@ -876,5 +876,80 @@ export const SOURCE_CORRECTIONS = [
       "kind": "zabudowana",
       "locality": "Tarnów Opolski"
     }
+  },
+  {
+    "city": "krakow",
+    "key": "morawianskiego cena wywolawcza nieruchomosci wynosila|145|garaz-12",
+    "date": "2025-11-04",
+    "url": "https://www.bip.krakow.pl/?news_id=236926",
+    "source_cache": "tests/fixtures/remediation/krakow-236926.html",
+    "source_sha256": "a6fd44cff88edecc00755eda3082f7e4bc460ba19fa6c996c9e491e477063c06",
+    "changes": {
+      "kind": {
+        "from": "zabudowana",
+        "to": "zabudowana"
+      },
+      "area_m2": {
+        "from": 17,
+        "to": null
+      }
+    },
+    "identity": {
+      "street": "Morawiańskiego",
+      "street_norm": "morawianskiego",
+      "building": "25",
+      "apt": null,
+      "key": "morawianskiego|25|",
+      "kind": "zabudowana",
+      "area_m2": null
+    }
+  },
+  {
+    "city": "krakow",
+    "key": "grottgera|24|7",
+    "date": "2026-09-02",
+    "url": "https://www.bip.krakow.pl/?news_id=261755",
+    "source_cache": "tests/fixtures/remediation/krakow-261755.html",
+    "source_sha256": "dcb45363d91603ea95d16423af9dea9a134cf26427de12e571e003f901731483",
+    "changes": {
+      "kind": {
+        "from": "mieszkalny",
+        "to": "uzytkowy"
+      }
+    },
+    "identity": {
+      "street": "Grottgera",
+      "street_norm": "grottgera",
+      "building": "24",
+      "apt": "6",
+      "key": "grottgera|24|6",
+      "kind": "uzytkowy"
+    }
+  },
+  {
+    "city": "krakow",
+    "key": "krolewskiej|69|garaz-12",
+    "date": "2025-11-04",
+    "url": "https://www.bip.krakow.pl/?news_id=236926",
+    "source_cache": "tests/fixtures/remediation/krakow-236926.html",
+    "source_sha256": "a6fd44cff88edecc00755eda3082f7e4bc460ba19fa6c996c9e491e477063c06",
+    "changes": {
+      "starting_price_pln": {
+        "from": 145000,
+        "to": 114000
+      },
+      "final_price_pln": {
+        "from": 221850,
+        "to": null
+      },
+      "outcome": {
+        "from": "sold",
+        "to": "unsold"
+      },
+      "unsold_reason": {
+        "from": null,
+        "to": "unknown"
+      }
+    }
   }
 ];

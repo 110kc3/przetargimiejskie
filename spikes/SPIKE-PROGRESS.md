@@ -2,7 +2,7 @@
 
 > **GENERATED FILE — do not hand-edit.** Regenerate with `node spikes/build-progress.mjs` after updating [master-cities.json](./master-cities.json) (the source of truth).
 >
-> Updated 2026-10-19 from the official GUS TERYT snapshot effective 2026-01-01. Queue: [backlog.json](./backlog.json) (0 pending / 380 done of 380 powiat rows; 335 distinct seat cities). Inventory differences: [inventory/DISCREPANCIES.md](./inventory/DISCREPANCIES.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md).
+> Updated 2026-10-20 from the official GUS TERYT snapshot effective 2026-01-01. Queue: [backlog.json](./backlog.json) (0 pending / 380 done of 380 powiat rows; 335 distinct seat cities). Inventory differences: [inventory/DISCREPANCIES.md](./inventory/DISCREPANCIES.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md).
 
 ## Official inventory roll-up (1026 cities)
 
@@ -36,12 +36,14 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **8 partial**, **113 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+121 enabled cities: **0 complete**, **10 partial**, **111 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
 | Bolesławiec | 2026-10-19 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md) |
 | Chrzanów | 2026-10-19 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
+| Jarocin | 2026-10-20 | partial | land | [source notes](../spikes/wielkopolskie/powiat-jarocinski/jarocin.md) |
+| Kraków | 2026-10-20 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
 | Lubin | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-lubinski/lubin.md) |
 | Trzebnica | 2026-10-19 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md) |
 | Wschowa | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-wschowski/wschowa.md) |

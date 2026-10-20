@@ -3,38 +3,6 @@
   "city": "krakow",
   "plots": [
     {
-      "key": "dz|k-44|17/1",
-      "kind": "grunt",
-      "city": "krakow",
-      "dzialka_nr": "17/1",
-      "obreb": "K-44",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Prądnickiej w Krakowie",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20ul.%20Pr%C4%85dnickiej%20w%20Krakowie%20K-44%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
-      "area_m2": 112,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-11-05",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": 112,
-          "detail_url": "https://www.bip.krakow.pl/?news_id=263185",
-          "source_url": "https://www.bip.krakow.pl/?news_id=263185"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "17/1",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20K-44%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
       "key": "dz|p-30|169/16",
       "kind": "grunt",
       "city": "krakow",
@@ -79,17 +47,58 @@
         {
           "date": "2026-11-05",
           "round": 4,
-          "starting_price_pln": null,
+          "starting_price_pln": 42400,
           "outcome": "active",
           "area_m2": 216,
           "detail_url": "https://www.bip.krakow.pl/?news_id=263185",
-          "source_url": "https://www.bip.krakow.pl/?news_id=263185"
+          "source_url": "https://www.bip.krakow.pl/?news_id=263185",
+          "notes": [
+            "Cena dotyczy udziału 2/6 w nieruchomości."
+          ]
         }
       ],
       "parcels": [
         {
           "nr": "169/16",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%2F16%20P-30%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|k-44|17/1, 17/2",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "17/1, 17/2",
+      "obreb": "K-44",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Prądnickiej w Krakowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%2C%2017%2F2%20ul.%20Pr%C4%85dnickiej%20w%20Krakowie%20K-44%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 546,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 436000,
+          "outcome": "active",
+          "area_m2": 546,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=263185",
+          "source_url": "https://www.bip.krakow.pl/?news_id=263185",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek.",
+            "Cena dotyczy udziału 1/2 w nieruchomości."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "17/1"
+        },
+        {
+          "nr": "17/2"
         }
       ]
     },
@@ -101,9 +110,9 @@
       "obreb": "K-49",
       "street": null,
       "building": null,
-      "address_raw": null,
+      "address_raw": "ul. Piątkiewicza",
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20215%20K-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20215%20ul.%20Pi%C4%85tkiewicza%20K-49%20krakow%20geoportal%20dzia%C5%82ki",
       "area_m2": 326,
       "zoning": null,
       "status": null,
@@ -112,16 +121,15 @@
           "date": "2025-11-04",
           "round": 1,
           "starting_price_pln": 120000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "final_price_pln": 385000,
           "area_m2": 326,
-          "detail_url": "https://www.bip.krakow.pl/?news_id=232849",
-          "source_url": "https://www.bip.krakow.pl/?news_id=232849"
+          "source_url": "https://www.bip.krakow.pl/?news_id=236926"
         }
       ],
       "parcels": [
         {
-          "nr": "215",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20215%20K-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+          "nr": "215"
         }
       ]
     },
@@ -155,6 +163,247 @@
         {
           "nr": "101/11",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20101%2F11%20P-38%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/152, 259/369",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/152, 259/369",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F152%2C%20259%2F369%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 369,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 238000,
+          "outcome": "archived",
+          "area_m2": 369,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/152"
+        },
+        {
+          "nr": "259/369"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/184, 259/370",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/184, 259/370",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F184%2C%20259%2F370%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 365,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 235000,
+          "outcome": "archived",
+          "area_m2": 365,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/184"
+        },
+        {
+          "nr": "259/370"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/198, 259/367",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/198, 259/367",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F198%2C%20259%2F367%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 330,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 215000,
+          "outcome": "archived",
+          "area_m2": 330,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/198"
+        },
+        {
+          "nr": "259/367"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/209",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/209",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F209%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 341,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 220000,
+          "outcome": "archived",
+          "area_m2": 341,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/209"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/213, 259/371",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/213, 259/371",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F213%2C%20259%2F371%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 420,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 280000,
+          "outcome": "archived",
+          "area_m2": 420,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/213"
+        },
+        {
+          "nr": "259/371"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/219",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/219",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F219%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 408,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 270000,
+          "outcome": "archived",
+          "area_m2": 408,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/219"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-86|259/242",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "259/242",
+      "obreb": "P-86",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20259%2F242%20P-86%20krakow%20geoportal%20dzia%C5%82ki",
+      "area_m2": 324,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-09",
+          "round": 1,
+          "starting_price_pln": 210000,
+          "outcome": "archived",
+          "area_m2": 324,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=227539",
+          "source_url": "https://www.bip.krakow.pl/?news_id=227539"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "259/242"
         }
       ]
     },

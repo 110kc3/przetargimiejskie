@@ -23,22 +23,26 @@ The 19 October continuation repairs the shared decoder behind CodeQL
 #130/#131, Lubin's two missed land-table layouts, and positive empty-stream
 checks for Wschowa/Żagań. Further source work restores Bolesławiec's verified
 TLS chain/auction rounds, repairs Trzebnica history handling and fixes
-Chrzanów's combined-lot table. The canonical manifest records eight partial
-source/asset audits (none yet complete), with 113 enabled cities unchecked.
+Chrzanów's combined-lot table. Jarocin's grouped land-table repair and Kraków's
+pagination/HTML-lot repair follow, with exact source fixtures and guarded repairs
+to previously committed identities, prices and outcomes. The canonical manifest records ten partial
+source/asset audits (none yet complete), with 111 enabled cities unchecked.
 The shared refresh also retains land history from complete current boards;
 43 missing plot identities / 85 events were restored from prior published data,
 with newer records and source timestamps retained. Targeted tests and isolated
 source validation are recorded in the queue. Hosted acceptance for this
 continuation is pending.
 
-Current production health against `c02fab47c` has 15 findings: eight degraded
-streams, four failed attempts, two expired egress exceptions and one expired
-empty-source review. Lubin/Wschowa/Żagań have fresh healthy/verified-empty hosted
-checks; the latest local fixes still await hosted verification. Continue
+Current production health against `8703ad158`, checked 20 October, has 12
+findings: six degraded streams, three failed attempts, two expired egress
+exceptions and one expired empty-source review. Bolesławiec/Chrzanów and
+Trzebnica's property/land streams now have healthy hosted checks; its results
+remain degraded. Kraków/Jarocin's latest local fixes still await hosted
+verification. Continue
 source-specific repair and the existing-city source/asset audit before expanding
 adapters. A successful land board must not hide a failed property/result board.
 
-The latest scheduled refresh's municipal publisher completed, but its provider
+An earlier scheduled refresh's municipal publisher completed, but its provider
 gate failed after PKP connection timeouts on three hosted runners. Fresh retained
 provider data and deployment success do not establish a successful latest crawl.
 

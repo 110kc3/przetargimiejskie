@@ -163,12 +163,12 @@ const PL_LOW = 'a-ząćęłńóśźż';
 // it tolerates an embedded number ("3 Maja"). The "Os."/"ul." lead is dropped
 // by core/normalize.js parseAddress (STRIP_LEAD).
 const FLAT_SLASH_RE = new RegExp(
-  `(?:Os\\.|Osiedle|ul\\.|ulicy|przy\\s+ul\\.?)\\s+([${PL_UP}][${PL_UP}${PL_LOW}0-9.\\s]*?)\\s+(\\d+[A-Za-z]?)\\s*/\\s*(\\d+[A-Za-z]?)\\b`,
+  `(?:Os\\.|Osiedle|ul\\.|ulicy|przy\\s+ul\\.?)\\s+([${PL_UP}][${PL_UP}${PL_LOW}0-9. \\t]*?)[ \\t]+(\\d+[A-Za-z]?)\\s*/\\s*(\\d+[A-Za-z]?)\\b`,
 );
 // Fallback: street+building with the apartment stated separately as
 // "lokal mieszkalny nr N".
 const FLAT_NOSLASH_RE = new RegExp(
-  `(?:Os\\.|Osiedle|ul\\.|ulicy|przy\\s+ul\\.?)\\s+([${PL_UP}][${PL_UP}${PL_LOW}0-9.\\s]*?)\\s+(\\d+[A-Za-z]?)\\b`,
+  `(?:Os\\.|Osiedle|ul\\.|ulicy|przy\\s+ul\\.?)\\s+([${PL_UP}][${PL_UP}${PL_LOW}0-9. \\t]*?)[ \\t]+(\\d+[A-Za-z]?)\\b`,
 );
 const LOKAL_NR_RE = /lokal\w*\s+(?:mieszkaln\w+\s+)?nr\.?\s*(\d+[A-Za-z]?)/i;
 
@@ -335,7 +335,10 @@ const UNSOLD_RE = /wynik\w*\s+negatywn|niewstawieni|nie\s+przyst[ąa]pi[łl]|bra
  */
 export function parseAnnouncement(text, title, sourceUrl) {
   const body = String(text || '');
-  const kind = classifyKind(body || title || '');
+  // Neighbouring houses describe the surroundings, not the offered asset.
+  // Keep the shared classifier unchanged; this PDF template marks that context.
+  const subject = body.split(/\bw\s+s[ąa]siedztwie\b/i)[0];
+  const kind = classifyKind(subject || title || '');
   const round = roundFromText(title) ?? roundFromText(body);
   const area_m2 = extractArea(body, kind);
   const starting_price_pln = extractStartingPrice(body);
@@ -365,6 +368,45 @@ export function parseAnnouncement(text, title, sourceUrl) {
     detail_url: sourceUrl,
     notes: [],
   };
+}
+
+/** Parse separately priced parcel groups from the layout table when present. */
+export function parseAnnouncementLots(text, title, sourceUrl) {
+  const body = String(text || '');
+  const header = /Lp\.\s+Numer\s+Pow\.\s+Klasy/.exec(body);
+  if (!header) return [parseAnnouncement(body, title, sourceUrl)];
+  const base = parseAnnouncement(body, title, sourceUrl);
+  if (base.kind !== 'grunt') return [base];
+  const end = body.indexOf('Księga wieczysta', header.index);
+  if (end < 0 || !base.auction_date || !base.obreb) return [];
+  const table = body.slice(header.index, end);
+  const areas = new Map();
+  for (const row of table.matchAll(/^\s*(?:\d+\.\s+)?(\d+\/\d+)\s+(\d+[.,]\d{4})\s+\S+/gm)) {
+    const area = parseArea(row[2]);
+    if (!area || areas.has(row[1])) return [];
+    areas.set(row[1], Math.round(area * 10000));
+  }
+  const prices = [...table.matchAll(/(\d{1,3}(?:\.\d{3})*,\d{2})\s*zł/g)].map(m => parsePLN(m[1]));
+  const groups = [...body.matchAll(/DLA\s+DZIAŁEK\s+NR\s+([\d/, \t]+)\s*\r?\n([\s\S]*?)(?=DLA\s+DZIAŁEK\s+NR|POZOSTAŁE INFORMACJE|$)/g)];
+  if (!areas.size || !groups.length || groups.length !== prices.length) return [];
+  const covered = new Set();
+  const lots = [];
+  for (const [index, group] of groups.entries()) {
+    const parcels = group[1].split(',').map(s => s.trim());
+    if (!parcels.length || new Set(parcels).size !== parcels.length
+      || parcels.some(p => !/^\d+\/\d+$/.test(p) || !areas.has(p) || covered.has(p))) return [];
+    // The explicit deposit groups disambiguate vertically centred table cells.
+    // Validate each stated 20% deposit against its corresponding table price.
+    const deposit = /wadium\s+w\s+wysokości\s+20%\s+ceny\s+wywoławczej,\s*tj\.\s*([\d.,]+)\s*zł/.exec(group[2]);
+    if (!deposit || !prices[index] || parsePLN(deposit[1]) * 5 !== prices[index]) return [];
+    for (const parcel of parcels) covered.add(parcel);
+    lots.push({ ...base, address: null, address_raw: `${base.obreb}, dz. nr ${parcels.join(', ')}`,
+      dzialka_nr: parcels.join(', '), area_m2: parcels.reduce((sum, p) => sum + areas.get(p), 0),
+      starting_price_pln: prices[index],
+      notes: ['Łączna cena i powierzchnia dotyczą całego pakietu działek.'],
+    });
+  }
+  return covered.size === areas.size ? lots : [];
 }
 
 /**

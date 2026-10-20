@@ -323,3 +323,92 @@ hosted run. Pending Security/refresh runs were checked once at turn start only.
 
 The Chrzanów exact rendered-body fixture normalizes trailing blank whitespace;
 RSS line endings are normalized by Git. No source table/text values are edited.
+
+
+## Jarocin and Kraków continuation — 20 October 2026
+
+Prior turn classification: progress (source repairs and history recovery were
+committed/pushed). The exact `4cfed9c48` refresh/Security/deploy runs were checked
+once on 19 October; all were in progress then. No CI wait or dispatch was added.
+The later scheduled publication `8703ad158` proves healthy hosted Bolesławiec /
+Chrzanów output and Trzebnica property/land recovery, with incomplete Trzebnica
+results still degraded. Production health checked 20 October has **12 findings**:
+6 source degradations, 3 failed attempts, 2 expired egress exceptions and one
+empty-board recheck. This supersedes the earlier 15-finding snapshot.
+
+### Hosted failure diagnosis
+
+The municipal workers in [39323322737](https://github.com/110kc3/przetargimiejskie/actions/runs/39323322737)
+record different failure mechanisms. Kraków receives HTTP 400 for `strona=0`;
+Olkusz suffers connection timeouts, then recovers in the later publication.
+Jarocin's strict integrity gate correctly rejects a street containing a land-table
+header and parcel number. None is a reason to suppress health or weaken integrity.
+
+### Jarocin source repair
+
+The original [Witaszyce Stawna PDF](https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-1-przetarg-witaszyce-ul.-stawna.pdf)
+is undeveloped land beside existing housing. The classifier now excludes that
+neighbouring context; address parsing cannot consume the following table.
+The six-parcel table and explicit deposit groups establish two separately priced
+lots, on 2 December 2026: **236/2 + 237/3 + 237/4, 2,671 m² / 372,740 zł** and
+**238/2 + 239/1 + 239/2, 1,051 m² / 146,765 zł**. The reader validates membership,
+positive areas and each group's 20% deposit against its single price. Contradictory
+or duplicate groups are withheld. Exact pdftotext fixture retains the source.
+Discovery remains capped at four recent years / 120 extracted documents; missing,
+scanned and unparsed results now expose incomplete coverage. Land remains a
+partial historical window. Those limits were not raised to manufacture success.
+
+### Kraków source and retained-history repair
+
+Direct verified reads of the [board](https://www.bip.krakow.pl/?dok_id=30626)
+and [archive](https://www.bip.krakow.pl/?dok_id=102895) confirm one-based pages.
+The crawler now follows official page links, validates the board/page form action
+and retains its six-page bound. Failures, loops, changed markup or a capped archive
+cannot establish complete results. Current notice
+[263185](https://www.bip.krakow.pl/?news_id=263185) retains **17/1 + 17/2, 546 m² /
+436,000 zł for a 1/2 share**, and **169/16, 216 m² / 42,400 zł for a 2/6 share**,
+5 November 2026. Notes preserve the shares; one lot's price is never repeated per
+parcel. Its explicit combined area is validated.
+
+Broader source replay exposed legacy HTML segmentation faults. Separate result
+`li` elements, numeric paragraphs, formatting-split words and building numbers
+preceding a street now preserve their subjects. Sources 236926, 165659, 221941,
+261755 and 172574 have exact fixtures and named address/price/outcome regressions.
+In particular, 236926 sells Morawiańskiego 25 for 221,850 zł and records the
+Królewska 69/G12 auction as unsold at 114,000 zł; the old parser assigned the
+house's price to the garage. Builder/history-merge regression preserves the later
+April garage sale. Missing achieved prices alone no longer establish unsold.
+
+Notice 227539 explicitly prices seven parcel groups in prose. The parser now
+matches all eleven parcel areas to those groups and retains seven prices once
+each, dated 9 September 2025. The previously committed dateless garage is retained
+as an original row in the reviewed migration ledger. Three exact source/date
+corrections repair the retained Morawiańskiego/Grottgera identities and garage
+outcome, with watch aliases. Offline durable healing of committed history changes
+**13→11 properties / 6→13 plots**, active count 1→0, archived count 16→15.
+Only derived metadata/index/catalogue counts change; all source timestamps,
+source-check states and the original index generation timestamp are retained.
+This is a correction of committed history; broad isolated crawl outputs remain
+unpublished. Source hashes and repeated-heal/idempotence checks pass.
+
+The canonical source/asset ledger now records **0 complete / 10 partial /
+111 unchecked** enabled cities. No lifecycle/runtime state, official identity,
+review date or deadline is renewed. The progress generator now verifies its
+large temporary output before atomic replacement.
+
+
+Final isolated validation: Jarocin retains all prior identities/dates and has
+**3 properties / 24 plots** (21 plots before). Kraków's corrected source pass,
+with the reviewed durable ledger reconciliation, has **80 properties / 36 plots**.
+Both pass strict integrity and have healthy property/land streams; coverage health
+reports only their explicitly incomplete result streams. The full city outputs
+remain isolated. National integrity, targeted parser/source-state/builder tests,
+source hashes, migration idempotence and inventory invariants pass.
+
+Additional exact land-event migrations remove the duplicate single-parcel key
+for the current 17/1 + 17/2 lot, restore both current share prices, and restore
+parcel 215's explicit 385,000 zł sale from 236926. Current committed history
+remains **11 properties / 13 plots**, with four ledger migrations / three
+source corrections for Kraków and original rows preserved. No source timestamp
+or hosted operational status is refreshed by these corrections. Verification
+for the impending push is pending; check its exact commit once next session.

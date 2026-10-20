@@ -33,6 +33,9 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { buildLand } from '../src/core/build-land.js';
+import { crawlActive, crawlResultDocs } from '../src/cities/jarocin/crawl.js';
 
 import {
   parsePLN,
@@ -41,8 +44,71 @@ import {
   roundFromText,
   isCancellation,
   parseAnnouncement,
+  parseAnnouncementLots,
   parseResultDoc,
 } from '../src/cities/jarocin/parse.js';
+
+const STAWNA = readFileSync(new URL('./fixtures/remediation/jarocin-witaszyce-stawna.txt', import.meta.url), 'utf8');
+const STAWNA_URL = 'https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-1-przetarg-witaszyce-ul.-stawna.pdf';
+
+test('the bounded live crawler publishes both current land lots and signals partial history', async () => {
+  const loadRecords = async () => [{ type: 'announce', text: STAWNA, title: '', pdfUrl: STAWNA_URL }];
+  const result = await crawlActive({ loadRecords, todayIso: '2026-10-20' });
+  assert.equal(result.listings.length, 2);
+  assert.ok(result.listings.every(r => r.kind === 'grunt' && r.address === null));
+  assert.equal(result.land_complete, false);
+  assert.equal((await crawlActive({ loadRecords, todayIso: '2026-12-03' })).listings.length, 0);
+});
+
+test('bounded/failed discovery and unparsed result documents remain incomplete', async () => {
+  for (const complete of [false, true]) {
+    const records = [{ type: 'result', text: RESULT_SOLD_TEXT, title: '', pdfUrl: 'https://example.com/result.pdf' }];
+    records.complete = complete;
+    const refs = await crawlResultDocs({ loadRecords: async () => records });
+    assert.equal(refs.complete, complete);
+    assert.equal(refs.length, 1);
+    assert.equal(refs[0].pdf_url, records[0].pdfUrl);
+  }
+  const records = [{ type: 'result', text: 'Nieobsługiwany dokument', title: '', pdfUrl: 'https://example.com/unsupported.pdf' }];
+  records.complete = true;
+  assert.equal((await crawlResultDocs({ loadRecords: async () => records })).complete, false);
+  assert.equal((await crawlResultDocs({ loadRecords: async () => [] })).complete, false);
+});
+
+test('Witaszyce Stawna land groups keep their own parcels, area and total price', () => {
+  const records = parseAnnouncementLots(STAWNA, 'Ogłoszenie pierwszego przetargu', STAWNA_URL);
+  assert.equal(records.length, 2);
+  assert.deepEqual(records.map(r => [r.dzialka_nr, r.area_m2, r.starting_price_pln]), [
+    ['236/2, 237/3, 237/4', 2671, 372740], ['238/2, 239/1, 239/2', 1051, 146765],
+  ]);
+  for (const r of records) {
+    assert.equal(r.kind, 'grunt');
+    assert.equal(r.address, null);
+    assert.equal(r.obreb, 'Witaszyce');
+    assert.equal(r.auction_date, '2026-12-02');
+    assert.equal(r.round, 1);
+    assert.equal(r.detail_url, STAWNA_URL);
+  }
+  const { plots } = buildLand(records, 'jarocin');
+  assert.equal(plots.length, 2);
+  assert.deepEqual(plots.map(p => p.parcels.length), [3, 3]);
+});
+
+test('inconsistent parcel membership, deposits or prices cannot create a partial table sale', () => {
+  for (const changed of [
+    STAWNA.replace('74.548,00 zł', '74.549,00 zł'),
+    STAWNA.replace('238/2, 239/1, 239/2', '238/2, 239/1, 999/2'),
+    STAWNA.replace('238/2, 239/1, 239/2', '236/2, 239/1, 239/2'),
+    STAWNA.replace('236/2, 237/3, 237/4', '236/2, 237/3, 237/4, 236/2'),
+    STAWNA.replace('0,0256', '0,0000'),
+    STAWNA.replace('372.740,00 zł', ''),
+  ]) assert.deepEqual(parseAnnouncementLots(changed, '', STAWNA_URL), []);
+});
+
+test('a street name before a table must not consume its parcel as a flat address', () => {
+  const record = parseAnnouncement('lokal mieszkalny przy ul. Stawnej\nLp. Numer Pow. Klasy Cena\n236/2 0,0256 Dr', '', STAWNA_URL);
+  assert.equal(record.address, null);
+});
 
 // --------------------------------------------------------------- fixtures
 

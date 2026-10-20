@@ -28,7 +28,7 @@ import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
-import { parseAnnouncement, parseResultDoc, isCancellation, parseDateText } from './parse.js';
+import { parseAnnouncementLots, parseResultDoc, isCancellation, parseDateText } from './parse.js';
 
 const ORIGIN = 'https://bip2.wokiss.pl';
 // The CMS sets <base href="/jarocin/"> — every relative href resolves here.
@@ -138,11 +138,13 @@ async function discoverAll() {
 
   // Collect candidate notices (announce + result) across the bounded years.
   const candidates = [];
+  let complete = years.length > 0;
   for (const y of years) {
     let yhtml;
     try {
       yhtml = await getText(y.url, FETCH_OPTS);
     } catch (err) {
+      complete = false;
       console.error(`  jarocin: year ${y.year} fetch failed: ${err.message}`);
       continue;
     }
@@ -162,16 +164,18 @@ async function discoverAll() {
   const records = [];
   let fetched = 0;
   for (const c of candidates) {
-    if (fetched >= MAX_NOTICES) break;
+    if (fetched >= MAX_NOTICES) { complete = false; break; }
     let pageHtml;
     try {
       pageHtml = await getText(c.url, FETCH_OPTS);
     } catch (err) {
+      complete = false;
       console.error(`  jarocin: notice ${c.pid} page fetch failed: ${err.message}`);
       continue;
     }
     const pdfUrl = extractNoticePdfUrl(pageHtml);
     if (!pdfUrl) {
+      complete = false;
       console.error(`  jarocin: notice ${c.pid} has no PDF attachment — skipping`);
       continue;
     }
@@ -181,12 +185,14 @@ async function discoverAll() {
     try {
       text = await pdfText(pdfUrl, FETCH_OPTS);
     } catch (err) {
+      complete = false;
       console.error(`  jarocin: PDF text failed (${pdfUrl}): ${err.message}`);
       continue;
     }
     // Born-digital text PDFs only (spike): an empty extract means a scanned
     // page slipped in — log and skip (OCR is not wired; none seen live).
     if (!text || !text.trim()) {
+      complete = false;
       console.error(`  jarocin: EMPTY pdftotext for ${pdfUrl} (scanned?) — skipping, not OCR'd`);
       continue;
     }
@@ -196,6 +202,7 @@ async function discoverAll() {
     `  jarocin: ${years.length} year(s), ${candidates.length} candidate notice(s), ` +
     `${records.length} PDF(s) extracted (cap ${MAX_NOTICES})`,
   );
+  records.complete = complete;
   _cache = records;
   return records;
 }
@@ -204,34 +211,38 @@ async function discoverAll() {
 // crawlActive()
 // ---------------------------------------------------------------------------
 
-export async function crawlActive() {
-  const todayIso = new Date().toISOString().slice(0, 10);
-  const records = await discoverAll();
+export async function crawlActive({ loadRecords = discoverAll, todayIso = new Date().toISOString().slice(0, 10) } = {}) {
+  const records = await loadRecords();
   const listings = [];
   for (const r of records) {
     if (r.type !== 'announce') continue;
     if (isCancellation(r.title)) continue;
-    const a = parseAnnouncement(r.text, r.title, r.pdfUrl);
-    if (!a.address && !a.dzialka_nr) {
-      console.error(`  jarocin: announce ${r.pid} no subject (kind=${a.kind}) — skipping`);
-      continue;
+    const lots = parseAnnouncementLots(r.text, r.title, r.pdfUrl);
+    if (!lots.length) console.error(`  jarocin: announce ${r.pid} unsupported or inconsistent parcel table — skipping`);
+    for (const a of lots) {
+      if (!a.address && !a.dzialka_nr) {
+        console.error(`  jarocin: announce ${r.pid} no subject (kind=${a.kind}) — skipping`);
+        continue;
+      }
+      if (!a.auction_date || a.auction_date < todayIso) continue; // only upcoming
+      listings.push(a);
     }
-    if (!a.auction_date || a.auction_date < todayIso) continue; // only upcoming
-    listings.push(a);
   }
   console.error(`  jarocin active: ${listings.length} upcoming listing(s)`);
-  return { listings, wykaz: [], land: [] };
+  return { listings, wykaz: [], land: [], land_complete: false };
 }
 
 // ---------------------------------------------------------------------------
 // crawlResultDocs()  → refs for refresh.js: { text, pdf_url, auction_date }
 // ---------------------------------------------------------------------------
 
-export async function crawlResultDocs() {
-  const records = await discoverAll();
+export async function crawlResultDocs({ loadRecords = discoverAll } = {}) {
+  const records = await loadRecords();
   const refs = [];
+  refs.complete = records.complete === true;
   for (const r of records) {
     if (r.type !== 'result') continue;
+    if (!parseResultDoc(r.text, null, r.pdfUrl).length) refs.complete = false;
     // Fallback auction date (parseResultDoc re-extracts; this backs it up):
     // body "w dniu <date>" → else title "z dnia <date>". A window is sliced so
     // a dotted numeric date ("20.03.2025") is captured whole.

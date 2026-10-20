@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "city": "krakow",
+  "plots": [
+    {
+      "key": "dz|k-44|17/1",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "17/1",
+      "obreb": "K-44",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Prądnickiej w Krakowie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20ul.%20Pr%C4%85dnickiej%20w%20Krakowie%20K-44%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 112,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 112,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=263185",
+          "source_url": "https://www.bip.krakow.pl/?news_id=263185"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "17/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F1%20K-44%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-30|169/16",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "169/16",
+      "obreb": "P-30",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Łagiewnickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%2F16%20ul.%20%C5%81agiewnickiej%20P-30%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 216,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-04",
+          "round": 1,
+          "starting_price_pln": 53000,
+          "outcome": "archived",
+          "area_m2": 216,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=232849",
+          "source_url": "https://www.bip.krakow.pl/?news_id=232849"
+        },
+        {
+          "date": "2026-04-15",
+          "round": 2,
+          "starting_price_pln": 47700,
+          "outcome": "archived",
+          "area_m2": 216,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=245809",
+          "source_url": "https://www.bip.krakow.pl/?news_id=245809"
+        },
+        {
+          "date": "2026-09-02",
+          "round": 3,
+          "starting_price_pln": 45050,
+          "outcome": "archived",
+          "area_m2": 216,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=257668",
+          "source_url": "https://www.bip.krakow.pl/?news_id=257668"
+        },
+        {
+          "date": "2026-11-05",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 216,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=263185",
+          "source_url": "https://www.bip.krakow.pl/?news_id=263185"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "169/16",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20169%2F16%20P-30%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|k-49|215",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "215",
+      "obreb": "K-49",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20215%20K-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 326,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-04",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 326,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=232849",
+          "source_url": "https://www.bip.krakow.pl/?news_id=232849"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "215",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20215%20K-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-38|101/11",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "101/11",
+      "obreb": "P-38",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Podole",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20101%2F11%20ul.%20Podole%20P-38%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 833,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-10-21",
+          "round": 2,
+          "starting_price_pln": 890000,
+          "outcome": "archived",
+          "area_m2": 833,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=230116",
+          "source_url": "https://www.bip.krakow.pl/?news_id=230116",
+          "final_price_pln": 898900
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "101/11",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20101%2F11%20P-38%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|s-23|716",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "716",
+      "obreb": "S-23",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Partyzantów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20716%20ul.%20Partyzant%C3%B3w%20S-23%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 498,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 692000,
+          "outcome": "active",
+          "area_m2": 498,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=248116",
+          "source_url": "https://www.bip.krakow.pl/?news_id=248116"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "716",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20716%20S-23%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|p-49|85/1",
+      "kind": "grunt",
+      "city": "krakow",
+      "dzialka_nr": "85/1",
+      "obreb": "P-49",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szczęśliwej- Biuletyn Informacji Publicznej Miasta Krakowa - BIP MK Używamy plików cookie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2085%2F1%20ul.%20Szcz%C4%99%C5%9Bliwej-%20Biuletyn%20Informacji%20Publicznej%20Miasta%20Krakowa%20-%20BIP%20MK%20U%C5%BCywamy%20plik%C3%B3w%20cookie%20P-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3349,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-27",
+          "round": 1,
+          "starting_price_pln": 510000,
+          "outcome": "sold",
+          "final_price_pln": 515100,
+          "area_m2": 3349,
+          "source_url": "https://www.bip.krakow.pl/?news_id=243427"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 3349,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=237301",
+          "source_url": "https://www.bip.krakow.pl/?news_id=237301"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "85/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2085%2F1%20P-49%20Krak%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}
