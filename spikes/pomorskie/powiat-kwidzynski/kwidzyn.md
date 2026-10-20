@@ -74,3 +74,46 @@ Bezprzetargowe sprzedaże to najemców also occur (Grudziądzka ogłoszenie bezp
 **Effort:** Low — HTML scraper + PDF text extractor. No auth, no SPA, no OCR.
 
 **VERDICT: BUILD (Low effort)**
+
+
+## Partial source/asset audit — 2026-10-20 (Codex)
+
+This live check supersedes the desk-only HTML/text-PDF assertions above. The
+anonymous [property menu API](https://bip.kwidzyn.pl/api/menu/13536) links year
+16626 (2026, 30 entries) and 16265 (2025, zero entries), plus earlier archives.
+The current/prior-year crawler deliberately does not establish full historical
+coverage. Result PDFs are additional attachments on announcement articles.
+
+Two current flat notices are already OCR-cached but were skipped merely because
+their announcement URLs existed in published history. Article
+[44282](https://bip.kwidzyn.pl/api/articles/44282), attachment 131119, sells
+**Hallera 15/15, 22.10 m², 41,108 zł**, second round; article
+[44281](https://bip.kwidzyn.pl/api/articles/44281), attachment 131118, sells
+**Chopina 34/8, 116.70 m², 350,000 zł**, fourth round. Both auctions are
+**23 October 2026**. The existing exact OCR caches retain the source texts;
+previous-round, viewing and deposit dates are not the current auction dates.
+
+The crawler now always classifies cached bodies before applying a known-result
+shortcut; current announcements remain eligible. Known resolved URLs include
+both property and land history. Both meaningful PDF-text and OCR caches bypass
+the 24-uncached extraction cap; tiny form-feed artifacts do not. Cached OCR is
+read directly without redownloading its source PDF. Changed/failed/repeated or
+capped article pages, bad article identity, missing attachments, extraction
+failures, skipped older years and unparsed result bodies keep result discovery
+explicitly incomplete. The rolling land stream also declares incompleteness.
+
+An actual isolated refresh retains **6 property keys / 3 plot keys**, all prior
+listing dates, and both current flats. Strict integrity passes. The property
+check recovers; land and results remain degraded. Thirteen result documents still have unsupported scanned land tables. For example,
+[attachment 131434](https://bip.kwidzyn.pl/e,pobierz,get.html?id=131434), visually
+checked against its scan, describes four separate Sosnowa lots with a 9 October
+auction and explicit unsold outcome. Parcel 45/3 is a fractional road interest
+in two lots, not the primary sale. The retained first-parcel-only land rows and
+the historical Hallera row missing its flat number need source-backed identity
+repair; this slice does not relabel or delete them. Full land-table extraction,
+archive traversal and retained-ledger migrations remain accepted follow-up work.
+
+Official municipal TERC is **220701_1**, as recorded in the canonical official
+ledger; the adapter's old `220501_1` was incorrect. No full-review deadline,
+source timestamp or hosted runtime status is promoted by this local check.
+No local crawl output is published; hosted verification remains pending.

@@ -7,7 +7,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { buildLand } from '../src/core/build-land.js';
-import { harvestArticles } from '../src/cities/chrzanow/crawl.js';
+import { config } from '../src/cities/chrzanow/config.js';
+import { articleBody, crawlAll, harvestArticles } from '../src/cities/chrzanow/crawl.js';
 import { isSaleAnnouncement, obrebFromText, streetFromText, parseRows, parseAnnouncement } from '../src/cities/chrzanow/parse.js';
 
 const BODY = `Ogłoszenie Burmistrza Miasta Chrzanowa z dnia 9 października 2025 r.
@@ -20,6 +21,45 @@ Działy II ksiąg wieczystych – własność: Gmina Chrzanów.
 24. Przetargi przeprowadzone 30.09.2025 r. zakończyły się wynikiem negatywnym.`;
 
 const currentNotice = () => readFileSync(new URL('./fixtures/remediation/chrzanow-2950984.html', import.meta.url), 'utf8');
+const apiNotice = () => readFileSync(new URL('./fixtures/remediation/chrzanow-2950984.json', import.meta.url), 'utf8');
+const articleUrl = 'https://bip.malopolska.pl/umchrzanow,a,2950984,przetarg-na-sprzedaz-nieruchomosci-polozoenj-przy-ul-dzialkowej-w-chrzanowie.html';
+
+test('parcel lookup uses the canonical official city-area identity', () => {
+  const { cities } = JSON.parse(readFileSync(new URL('../../spikes/master-cities.json', import.meta.url), 'utf8'));
+  assert.equal(config.teryt.replace('_', ''), cities.find((city) => city.id === config.id).official.terc_gmina);
+});
+
+test('public article JSON recovers the sale without rendering the SPA', async () => {
+  const requested = [];
+  const { land } = await crawlAll({ fetchText: async (url) => {
+    requested.push(url);
+    if (url.endsWith('/api/articles/2950984')) return apiNotice();
+    if (url.endsWith(',123')) return `<a href="${articleUrl}">BIP</a>`;
+    return '<a href="/zbycie-nieruchomosci/ogloszenia-o-przetargach/nieruchomosci-niezabudowane/notice,123">Notice</a>';
+  } });
+  assert.equal(land.length, 1);
+  assert.equal(land[0].area_m2, 43439);
+  assert.equal(land[0].starting_price_pln, 8005000);
+  assert.equal(land[0].auction_date, '2026-12-17');
+  assert.equal(land[0].source_url, articleUrl, 'retain the human-readable source');
+  assert.equal(requested.filter((url) => url.includes('/api/')).length, 1, 'deduplicate articles across both boards');
+  assert.ok(!requested.includes(articleUrl), 'the SPA shell is not fetched');
+});
+
+test('wrong article, municipality, missing body and invalid JSON fail explicitly', () => {
+  const article = JSON.parse(apiNotice());
+  for (const changes of [{ id: '1' }, { articleId: '1' }, { link: 'anothercity,a,2950984,sale.html' }, { content: '' }, { content: null }]) {
+    assert.throws(() => articleBody(JSON.stringify({ ...article, ...changes }), articleUrl));
+  }
+  assert.throws(() => articleBody('<html>SPA shell</html>', articleUrl));
+  assert.throws(() => articleBody(apiNotice(), articleUrl.replace('umchrzanow', 'anothercity')));
+  assert.throws(() => articleBody(apiNotice(), articleUrl.replace('bip.malopolska.pl', 'example.com')));
+});
+
+test('empty boards and API failures do not masquerade as a successful empty crawl', async () => {
+  await assert.rejects(crawlAll({ fetchText: async () => '<html>SPA shell</html>' }), /no BIP articles/);
+  await assert.rejects(crawlAll({ fetchText: async () => { throw new Error('offline'); } }), /offline/);
+});
 
 test('October source table preserves one combined price and area for all three parcels', () => {
   // Rendered official article 2950984, fetched 2026-10-19. The whole lot has

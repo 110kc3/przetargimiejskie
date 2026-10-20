@@ -18522,31 +18522,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Madkom JSON API + scanned PDF OCR",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.kwidzyn.pl/api/menu/13536",
+          "evidence_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md",
+          "verified_at": "2026-10-20",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Cached current announcements must remain eligible: Hallera 15/15 and Chopina 34/8 both auction on 2026-10-23. Isolated property recovery verified; hosted follow-up pending.",
+            "Only current/prior-year menus traversed; older linked archives and thirteen unsupported scanned land result tables keep coverage incomplete.",
+            "Retained first-parcel land identities and the historical Hallera row missing its flat number still require source-backed repair. No full-review deadline or runtime promotion."
+          ]
         }
       ],
       "review": {
@@ -25034,7 +25051,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "City HTML + Madkom BIP SPA",
+        "cms_family": "City HTML + Madkom public article JSON",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -25063,7 +25080,7 @@
         {
           "url": "https://bip.malopolska.pl/umchrzanow,a,2950984,przetarg-na-sprzedaz-nieruchomosci-polozoenj-przy-ul-dzialkowej-w-chrzanowie.html",
           "evidence_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md",
-          "verified_at": "2026-10-19",
+          "verified_at": "2026-10-20",
           "scope": "source-asset-audit",
           "audit_status": "partial",
           "observed_assets": [
@@ -25071,9 +25088,9 @@
           ],
           "access_environment": "local",
           "limitations": [
-            "The current Działkowa notice is one jointly priced three-parcel lot: 43439 m², 8005000 PLN, 2026-12-17. A new HTML table parser retains that grouping.",
-            "One current local land-board stub was observed; article navigation now excludes unrelated BIP menu pages.",
-            "Result ingestion and complete source/asset coverage remain unverified."
+            "Public article JSON replaces the SPA renderer after a hosted zero-row regression; both article IDs and the umchrzanow context link are checked.",
+            "Current Działkowa notice remains one combined lot: 43439 m², 8005000 PLN, 2026-12-17. Isolated refresh retains four plots and passes strict integrity/coverage health.",
+            "Result ingestion, building/flat parsing and full source/asset coverage remain unverified; hosted follow-up is pending."
           ]
         }
       ],
@@ -27958,7 +27975,7 @@
           "limitations": [
             "All 42 currently linked feed pages inspected; older category archives and other asset classes remain outside this partial audit.",
             "One current PDF-only sale excludes tenant-owned improvements; three April land sales have explicit achieved prices.",
-            "Hosted publication is pending; no empty-source exemption date was renewed."
+            "Hosted scheduled 9f9d754d4 confirms four plots and a healthy land check; no empty-source exemption date was renewed. Older archives and full asset coverage remain unreviewed."
           ]
         }
       ],

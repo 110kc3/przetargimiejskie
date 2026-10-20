@@ -98,3 +98,10 @@ keys and listing dates retained, strict integrity passes. Property/land checks
 are healthy while coverage health reports only result incompleteness. No local
 crawl data is published, no runtime/review deadline is promoted, and other asset
 classes/full result discovery remain open.
+
+
+## Hosted follow-up — 2026-10-20
+
+Scheduled municipal publication `9f9d754d4` confirms **4 properties / 3 plots**,
+healthy property/land checks and explicitly incomplete results. This confirms
+one successful publication, without establishing full source coverage.

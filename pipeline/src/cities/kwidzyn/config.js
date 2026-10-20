@@ -47,15 +47,15 @@
 // from `jarocin` (the nearest OCR-tolerant Polish-notice extractor) and re-tuned
 // to Kwidzyn's OCR reality — see parse.js.
 //
-// TERYT: gmina miejska Kwidzyn — woj 22 (pomorskie), powiat 05 (kwidzyński),
-// gmina 01, rodzaj 1 (gmina miejska) → 220501_1. Best-effort (TERC table);
-// confirm on first geoportal run. Corroborating live evidence: land KW numbers
+// TERYT: gmina miejska Kwidzyn — woj 22 (pomorskie), powiat 07 (kwidzyński),
+// gmina 01, rodzaj 1 (gmina miejska) → 220701_1. Official 2026 TERC identity
+// in spikes/master-cities.json. Corroborating live evidence: land KW numbers
 // are `GD11/…` (Sąd Rejonowy w Kwidzynie) and parcels sit in `obręb 0005 Miasta
 // Kwidzyna`.
 
 export const config = {
   id: 'kwidzyn',
-  teryt: '220501_1', // gmina miejska Kwidzyn — best-effort TERC; confirm on first geoportal run
+  teryt: '220701_1', // official 2026 TERC: gmina miejska Kwidzyn
   label: 'Kwidzyn',
   voivodeship: 'pomorskie',
   authority: 'Urząd Miejski w Kwidzynie (Burmistrz Miasta Kwidzyna)',

@@ -36,15 +36,16 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **11 partial**, **110 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+121 enabled cities: **0 complete**, **12 partial**, **109 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
 | Bolesławiec | 2026-10-19 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md) |
 | Busko-Zdrój | 2026-10-20 | partial | land | [source notes](../spikes/swietokrzyskie/powiat-buski/busko-zdroj.md) |
-| Chrzanów | 2026-10-19 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
+| Chrzanów | 2026-10-20 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
 | Jarocin | 2026-10-20 | partial | land | [source notes](../spikes/wielkopolskie/powiat-jarocinski/jarocin.md) |
 | Kraków | 2026-10-20 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
+| Kwidzyn | 2026-10-20 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-kwidzynski/kwidzyn.md) |
 | Lubin | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-lubinski/lubin.md) |
 | Trzebnica | 2026-10-19 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md) |
 | Wschowa | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-wschowski/wschowa.md) |

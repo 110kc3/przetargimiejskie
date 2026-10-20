@@ -115,3 +115,10 @@ empty-source exemption is removed rather than renewed. The committed zero-data
 snapshot stays an explicit failing gap until hosted publication; no local crawl
 output is published. Older category archives and other asset families remain
 unreviewed; this is a partial audit, not a full source-coverage claim.
+
+
+## Hosted follow-up — 2026-10-20
+
+Scheduled municipal publication `9f9d754d4` now confirms **four plots** and a
+healthy land check, removing the empty-data finding. Older categories and full
+asset coverage remain outside the partial audit.

@@ -1,7 +1,7 @@
 // Kwidzyn adapter — entry point. Exports the adapter object consumed by
 // pipeline/src/cities/index.js.
 //
-// DO NOT add this to pipeline/src/cities/index.js yet — that is a separate step.
+// Registered in pipeline/src/cities/index.js; source/asset audit is partial.
 
 import { config } from './config.js';
 import { crawlActive, crawlResultDocs } from './crawl.js';

@@ -36,3 +36,25 @@ land output merges with retained history. Stub discovery now ignores an unrelate
 `m,441366` menu link that previously caused an unnecessary render. Land and oral
 sale procedures are observed; full source/asset and result completeness remain
 unverified, and the full-review deadline is not renewed.
+
+
+## API follow-up — 2026-10-20 (Codex)
+
+Hosted `f4a80d80c` returned zero raw land rows after a nominally successful
+Chromium render, retaining four plots. The official SPA's network traffic
+identifies the anonymous [article API](https://bip.malopolska.pl/api/articles/2950984),
+which also returns the complete sale table via a plain HTTPS request. The exact
+response is retained in `pipeline/tests/fixtures/remediation/chrzanow-2950984.json`.
+
+The crawler now fetches article JSON, validates both article IDs and the
+`umchrzanow` context link, and keeps the public article URL as provenance.
+Missing/malformed bodies, wrong municipality/ID, fetch failures and a board with
+no discovered articles cannot masquerade as a successful empty crawl. Chromium
+is no longer needed for this adapter. Full isolated refresh recovers the same
+December lot and retains all four plot keys and dates; strict integrity and
+coverage health pass. Official TERC identity from the canonical ledger is
+`120303_4` (city area), correcting the old adapter's `120301_4`.
+
+This only repairs the observed land-body path. Building/flat parsing, results,
+older boards and full source/asset completeness remain unverified. Hosted
+publication of this follow-up is pending; no local refresh output is published.

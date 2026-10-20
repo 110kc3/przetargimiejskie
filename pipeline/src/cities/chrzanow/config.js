@@ -9,30 +9,25 @@
 // .../ogloszenia-o-przetargach/nieruchomosci-niezabudowane (land),
 // .../nieruchomosci-niezabudowane-i-lokale (buildings+flats), .../wyniki-przetargow
 // (results) — each item linking a BIP article. The BIP itself
-// (bip.malopolska.pl/umchrzanow) is a JS SPA whose article bodies + text PDFs are
-// NOT fetchable by a plain getText. Land announcements are MULTI-PROPERTY TABLES
+// (bip.malopolska.pl/umchrzanow) is a JS SPA with article bodies available through
+// the anonymous /api/articles/{id} JSON endpoint. Land announcements are TABLES
 // (one row per działka: nr – ha – KW – cena – termin – wadium).
 //
-// NEEDS-LIVE-VERIFY (the spike's gate): the body-source path. The body parser is
-// groundtruthed against the real announcement text; the CRAWLER must resolve each
-// announcement's body via the BIP render (render.js / BIP article JSON) or its
-// text-PDF attachment — confirm on the first run (the chrzanow.pl portal stubs +
-// the otoprzetargi/przetargi-komunikaty mirrors carry the same full text).
+// Live-verified 20 October 2026: the portal stub leads to BIP article 2950984;
+// /api/articles/2950984 returns its complete HTML table without a browser. The
+// crawler validates both article IDs and the umchrzanow link before parsing.
+// One price can cover several parcels; preserve the combined lot and area.
+// Result discovery and building/flat parsing remain outside this partial audit.
 //
 // `source: 'html'`. Out of scope: dzierżawa/najem (separate branch); the powiat /
 // Skarb Państwa streams.
 
 export const config = {
   id: 'chrzanow',
-  teryt: '120301_4', // gmina miejsko-wiejska Chrzanów (powiat chrzanowski) — confirm on first geoportal run
+  teryt: '120303_4', // city area, official 2026 TERC identity in spikes/master-cities.json
   label: 'Chrzanów',
   voivodeship: "malopolskie",
   authority: 'Urząd Miejski w Chrzanowie',
   host: 'chrzanow.pl',
   source: 'html',
-  // This adapter resolves SPA BIP article bodies via core/render.js (headless
-  // Chromium). The CI refresh matrix reads this flag to install Playwright ONLY
-  // for cities that need it — set it on any future render.js-using adapter, or
-  // its refresh job will fail on a missing browser.
-  needsRender: true,
 };

@@ -34,6 +34,12 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { discoverAll, crawlActive, crawlResultDocs, textCached } from '../src/cities/kwidzyn/crawl.js';
+import { urlCacheKey } from '../src/core/hash.js';
+import { config } from '../src/cities/kwidzyn/config.js';
 
 import {
   parsePLN,
@@ -44,6 +50,90 @@ import {
   parseAnnouncement,
   parseResultDoc,
 } from '../src/cities/kwidzyn/parse.js';
+
+const pdfUrl = (id) => `https://bip.kwidzyn.pl/e,pobierz,get.html?id=${id}`;
+const currentFlat = (id) => readFileSync(new URL(`../ocr-cache/${urlCacheKey(pdfUrl(id))}.txt`, import.meta.url), 'utf8');
+const entry = (id) => ({ id, aliasFields: [{ alias: 'title', value: 'Ogłoszenie o przetargu na sprzedaż lokalu' }] });
+
+test('parcel lookup uses the canonical official municipal identity', () => {
+  const { cities } = JSON.parse(readFileSync(new URL('../../spikes/master-cities.json', import.meta.url), 'utf8'));
+  assert.equal(config.teryt.replace('_', ''), cities.find((city) => city.id === config.id).official.terc_gmina);
+});
+
+function sourceOptions(overrides = {}) {
+  return {
+    thisYear: 2026, knownUrls: new Set(), isCached: () => true,
+    extractText: async (url) => currentFlat(new URL(url).searchParams.get('id')),
+    fetchJson: async (url) => {
+      if (url.endsWith('/menu/13536')) return [{ id: 13536, children: [{ id: 16626, name: '2026' }] }];
+      if (url.includes('/menu/13536/articles')) return { total: 0, articles: [] };
+      if (url.includes('/menu/16626/articles')) return { total: 2, articles: [entry(44282), entry(44281)] };
+      const id = Number(url.split('/').at(-1));
+      return { id, attachments: [{ id: id === 44282 ? 131119 : 131118, extension: 'pdf', name: 'Ogłoszenie' }] };
+    },
+    ...overrides,
+  };
+}
+
+test('cached current announcements remain eligible even when their URLs are already known', async () => {
+  const state = await discoverAll(sourceOptions({ knownUrls: new Set([pdfUrl(131119), pdfUrl(131118)]) }));
+  const active = await crawlActive({ discover: async () => state, today: '2026-10-20' });
+  assert.equal(active.land_complete, false, 'a rolling board cannot replace land history');
+  assert.deepEqual(active.listings.map((row) => [row.address.key, row.area_m2, row.starting_price_pln, row.auction_date, row.round]), [
+    ['hallera|15|15', 22.1, 41108, '2026-10-23', 2],
+    ['chopina|34|8', 116.7, 350000, '2026-10-23', 4],
+  ]);
+});
+
+test('an uncached cap does not starve cached current announcements and cannot prove complete results', async () => {
+  const extracted = [];
+  const state = await discoverAll(sourceOptions({ maxUncached: 0, isCached: (url) => url === pdfUrl(131118),
+    extractText: async (url) => { extracted.push(url); return currentFlat(131118); },
+  }));
+  assert.deepEqual(extracted, [pdfUrl(131118)]);
+  assert.equal(state.records.length, 1);
+  assert.equal((await crawlResultDocs({ discover: async () => state })).complete, false);
+});
+
+test('both text caches save extraction work; tiny scanned-PDF artifacts do not', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'kwidzyn-cache-test-'));
+  try {
+    const path = join(directory, urlCacheKey(pdfUrl(131119)) + '.txt');
+    writeFileSync(path, '\f');
+    assert.equal(textCached(pdfUrl(131119), [directory]), false);
+    writeFileSync(path, currentFlat(131119));
+    assert.equal(textCached(pdfUrl(131119), [directory]), true);
+  } finally { rmSync(directory, { recursive: true, force: true }); }
+});
+
+test('API failures, missing attachments, wrong identity and changed list shapes are incomplete', async () => {
+  for (const broken of [
+    async () => { throw new Error('offline'); },
+    async () => ({ total: 0 }),
+    async () => ({ total: 1, articles: [] }),
+    async () => ({ total: 2, articles: [entry(44282), entry(44282)] }),
+    async () => ({ total: 2, articles: [entry(44282), entry(44281)] }),
+  ]) {
+    const base = sourceOptions();
+    const state = await discoverAll({ ...base, fetchJson: (url) => url.endsWith('/menu/13536') ? base.fetchJson(url) : broken(url) });
+    assert.equal(state.complete, false);
+  }
+  const base = sourceOptions();
+  for (const article of [{ id: 44282, attachments: [] }, { id: 1, attachments: [{ id: 131119, extension: 'pdf' }] }]) {
+    const state = await discoverAll({ ...base, fetchJson: (url) => url.includes('/api/articles/') ? article : base.fetchJson(url) });
+    assert.equal(state.complete, false);
+  }
+});
+
+test('older linked years and unparsed result PDFs keep achieved-price coverage incomplete', async () => {
+  const base = sourceOptions();
+  const older = await discoverAll({ ...base, fetchJson: (url) => url.endsWith('/menu/13536')
+    ? [{ id: 13536, children: [{ id: 16626, name: '2026' }, { id: 15878, name: '2024' }] }]
+    : base.fetchJson(url) });
+  assert.equal(older.complete, false);
+  const unsupported = await discoverAll({ ...base, extractText: async () => 'Informacja o wyniku przetargu — nieczytelna tabela' });
+  assert.equal(unsupported.complete, false);
+});
 
 // --------------------------------------------------------------- fixtures
 

@@ -513,3 +513,87 @@ the initial 12-finding snapshot. Chrzanów's land check regressed to zero raw ro
 while preserving four plots; its last successful land check is 19 October
 21:40 UTC. That new gap is recorded for diagnosis, not suppressed. The committed
 data provides per-source evidence; no additional CI status poll was made.
+
+
+## Chrzanów API and Kwidzyn incremental follow-up — 20 October 2026
+
+The exact previous push `8b2ba8e6b` was checked once at this continuation's
+start: [refresh 39398605739](https://github.com/110kc3/przetargimiejskie/actions/runs/39398605739)
+pending, [Security 39398605742](https://github.com/110kc3/przetargimiejskie/actions/runs/39398605742)
+in progress. No later status poll or workflow dispatch was made.
+
+### Chrzanów
+
+The historical worker log from refresh 39393552992 / job 118530793034 confirms
+one stub, one BIP render and zero parsed rows at 08:28 UTC, without a reported
+render error. Its scheduled `f4a80d80c` publication preserves four plots while
+degrading the current land stream. Browser network observation identifies the
+anonymous [official article API](https://bip.malopolska.pl/api/articles/2950984).
+A subsequent plain HTTPS read returns both matching article IDs, the
+`umchrzanow` link and the full 16,239-character HTML content. Exact JSON is
+retained in the remediation fixtures alongside the prior rendered HTML.
+
+The crawler now reads public JSON, validates article identity/context/content,
+retains the public article URL, and propagates discovery/fetch failure instead
+of treating it as successful emptiness. Its adapter no longer requests Chromium.
+The existing parser still emits one combined **43,439 m² / 8,005,000 zł** lot,
+parcels **6297, 1535, 1559/1**, auction **17 December 2026**. Actual isolated
+refresh retains every prior plot key/date (**four plots**); strict sanity and
+coverage health pass. Result ingestion and building/flat coverage remain partial.
+
+### Kwidzyn
+
+Current official property-menu JSON lists 30 entries for 2026 and zero for
+2025. Earlier year menus remain published. Article 44282 / attachment 131119
+and article 44281 / attachment 131118 contain two **23 October 2026** flat
+auctions: **Hallera 15/15, 22.10 m² / 41,108 zł, round 2** and
+**Chopina 34/8, 116.70 m² / 350,000 zł, round 4**. Their exact public OCR texts
+were already committed. Both URLs were also known from current history, which
+caused the old crawler to skip the cached announcements on every later run.
+
+Cached bodies are now classified before the result shortcut; announcements
+always remain eligible, and known resolved results include both ledgers. Both
+meaningful OCR and PDF-text caches save uncached extraction budget; form-feed
+artifacts do not. Cached OCR is read without downloading its PDF again. API
+list totals/identities and article IDs/attachments are checked. Changed,
+repeated, failed, incomplete or capped pages, extraction failures, unparsed
+result bodies and skipped older years retain explicit result incompleteness.
+Rolling land discovery also declares `land_complete:false`.
+
+Actual isolated refresh retains **6 property keys / 3 plot keys**, every prior
+listing date, and both current flats. Strict integrity passes; the property
+source is healthy. Coverage health reports precisely the still-incomplete land
+and results streams. Thirteen scanned land result PDFs remain unparsed. A
+visual check of official attachment 131434 confirms four separately priced
+Sosnowa lots and the **9 October** unsold result; its **45/3** parcel is a
+fractional road interest in two lots, not an independent primary sale.
+Retained first-parcel-only identities and the historical Hallera row lacking
+its flat number still require source-backed repair. No retained rows are
+relabelled or deleted on incomplete evidence in this slice.
+
+The two adapters' old TERYT guesses also disagreed with the canonical official
+2026 ledger. Parcel lookup now uses **Chrzanów 120303_4** and
+**Kwidzyn 220701_1**; targeted parity checks use the official manifest. No
+geocoding job was run and no existing enriched parcel IDs were rewritten.
+
+Targeted parser/source-state checks cover current announcement retention,
+wrong/missing article identity/body, failed/empty discovery, both cache types,
+extraction caps and incomplete result history. The canonical audit ledger is
+now **0 complete / 12 partial / 109 unchecked** enabled feeds. Official
+identities, lifecycle/runtime declarations and review deadlines are unchanged.
+Local crawl output is not published; production health remains the last
+recorded 13-finding snapshot until natural hosted publication. This push's
+CI/source verification is pending.
+
+
+During closeout `main` advanced through scheduled publications `e35c33842` /
+`7956b9bee` / `9f9d754d4`; this implementation rebased cleanly. The latter
+municipal snapshot confirms **Busko 0 properties / 4 plots**, healthy land and
+no empty-data finding, plus **Zgorzelec 4 / 3**, healthy property/land and
+incomplete results. Chrzanów/Kwidzyn still show the old source gaps, so their
+new follow-up remains pending. Re-evaluated production health has **13 findings**:
+nine source degradations, two failed attempts, two expired egress exceptions.
+Proszowice is the newly failed attempt, retaining 9 properties / 13 plots; its
+last successful check is 09:13 UTC and latest failed attempt 09:38 UTC.
+Świętochłowice remains failed. Source clocks are preserved; this is committed
+data evidence, not another CI status poll or a full workflow-success claim.
