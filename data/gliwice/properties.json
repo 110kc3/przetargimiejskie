@@ -204,7 +204,7 @@
           "round_source": "explicit",
           "kind": "garaz",
           "starting_price_pln": 34860,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 16.92,
           "detail_url": "https://zgm-gliwice.pl/kozielska-13-g-1-19-10-2026-r/",
           "wadium_deadline": "2026-10-13",
@@ -266,7 +266,7 @@
           "round_source": "explicit",
           "kind": "mieszkalny",
           "starting_price_pln": 358890,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 86.79,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1",
           "wadium_deadline": null,
@@ -302,7 +302,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 358890,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 86.79,
           "detail_url": "https://zgm-gliwice.pl/z-starego-29-4-19-10-2026-r/",
           "wadium_deadline": "2026-10-13",
@@ -325,7 +325,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 348100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 56.61,
           "detail_url": "https://zgm-gliwice.pl/ks-marcina-strzody-3-8-19-10-2026-r/",
           "wadium_deadline": "2026-10-13",
@@ -348,7 +348,7 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 56500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 15.65,
           "detail_url": "https://zgm-gliwice.pl/krolowej-jadwigi-8-9-19-10-2026-r/",
           "wadium_deadline": "2026-10-13",
@@ -371,7 +371,7 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 154620,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 41.14,
           "detail_url": "https://zgm-gliwice.pl/al-w-korfantego-17-i-19-10-2026-r/",
           "wadium_deadline": "2026-10-13",
@@ -380,6 +380,52 @@
         }
       ],
       "area_m2": 41.14
+    },
+    {
+      "key": "jozefa uszczyka|10|11",
+      "street": "Józefa Uszczyka",
+      "street_norm": "jozefa uszczyka",
+      "building": "10",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 201900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/10/12.10.2026-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 43.54,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 43.54
+    },
+    {
+      "key": "wincentego styczynskiego|14|13",
+      "street": "Wincentego Styczyńskiego",
+      "street_norm": "wincentego styczynskiego",
+      "building": "14",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 213030,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/10/12.10.2026-wyniki-przetargow.pdf",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
     },
     {
       "key": "lompy|7|7",
@@ -5990,6 +6036,19 @@
           "round_source": "inferred"
         },
         {
+          "date": "2026-10-12",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 89900,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/10/12.10.2026-wyniki-przetargow.pdf",
+          "notes": [],
+          "area_m2": 18.06,
+          "round_source": "inferred"
+        },
+        {
           "date": null,
           "round": null,
           "kind": "unknown",
@@ -6101,8 +6160,20 @@
       "street_norm": "ziemowita",
       "building": "8",
       "apt": "9",
-      "kind": "unknown",
+      "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2026-10-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 317400,
+          "outcome": "unsold",
+          "unsold_reason": "no_deposits",
+          "final_price_pln": null,
+          "source_pdf": "https://zgm-gliwice.pl/wp-content/uploads/2026/10/12.10.2026-wyniki-przetargow.pdf",
+          "notes": [],
+          "round_source": "inferred"
+        },
         {
           "date": null,
           "round": null,
@@ -6126,7 +6197,7 @@
           "round_source": "explicit",
           "kind": "mieszkalny",
           "starting_price_pln": 204700,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 28,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1",
           "wadium_deadline": null,
@@ -6159,7 +6230,7 @@
           "round_source": "explicit",
           "kind": "uzytkowy",
           "starting_price_pln": 57800,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 15.62,
           "detail_url": "https://zgm-gliwice.pl/paulinska-5-1-19-10-2026-r/",
           "wadium_deadline": "2026-10-13",
@@ -6191,7 +6262,7 @@
           "round_source": "explicit",
           "kind": "uzytkowy",
           "starting_price_pln": 56500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 15.65,
           "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1",
           "wadium_deadline": null,

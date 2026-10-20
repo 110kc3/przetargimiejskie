@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "chrzanow",
-  "generated_at": "2026-10-19T21:41:01.367Z",
+  "generated_at": "2026-10-20T08:28:54.209Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -12,25 +12,25 @@
   "archived_auctions": 0,
   "wykaz_entries": 0,
   "land_plots": 4,
-  "land_listings": 1,
+  "land_listings": 0,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-19T21:40:52.776Z",
-  "last_successful_source_check_at": "2026-10-19T21:40:52.776Z",
+  "last_source_attempt_at": "2026-10-20T08:28:46.437Z",
+  "last_successful_source_check_at": "2026-10-20T08:28:46.437Z",
   "monitored_assets": [
     "land"
   ],
   "source_checks": {
     "property": {
       "status": "not_monitored",
-      "last_attempt_at": "2026-10-19T21:40:52.776Z",
+      "last_attempt_at": "2026-10-20T08:28:46.437Z",
       "last_success_at": null
     },
     "land": {
-      "status": "healthy",
+      "status": "degraded",
       "complete": false,
-      "last_attempt_at": "2026-10-19T21:40:52.776Z",
+      "last_attempt_at": "2026-10-20T08:28:46.437Z",
       "last_success_at": "2026-10-19T21:40:52.776Z"
     }
   },

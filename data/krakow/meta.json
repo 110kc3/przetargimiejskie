@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "krakow",
-  "generated_at": "2026-10-19T09:42:22.746Z",
-  "source_pdf_count": 11,
-  "parsed_records": 9,
-  "parser_note_count": 0,
-  "unique_properties": 11,
-  "active_listings": 14,
-  "active_auctions": 0,
-  "archived_auctions": 15,
+  "generated_at": "2026-10-20T08:44:36.272Z",
+  "source_pdf_count": 61,
+  "parsed_records": 75,
+  "parser_note_count": 18,
+  "unique_properties": 80,
+  "active_listings": 86,
+  "active_auctions": 1,
+  "archived_auctions": 115,
   "wykaz_entries": 0,
-  "land_plots": 13,
-  "land_listings": 11,
-  "retained_properties": 2,
+  "land_plots": 36,
+  "land_listings": 79,
+  "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-19T09:41:43.483Z",
-  "last_successful_source_check_at": "2026-10-19T09:41:43.483Z",
+  "last_source_attempt_at": "2026-10-20T08:42:20.450Z",
+  "last_successful_source_check_at": "2026-10-20T08:42:20.450Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -26,16 +26,23 @@
     "residential"
   ],
   "source_checks": {
+    "results": {
+      "status": "degraded",
+      "complete": false,
+      "last_attempt_at": "2026-10-20T08:42:20.450Z",
+      "last_success_at": null
+    },
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-19T09:41:43.483Z",
-      "last_success_at": "2026-10-19T09:41:43.483Z"
+      "last_attempt_at": "2026-10-20T08:42:20.450Z",
+      "last_success_at": "2026-10-20T08:42:20.450Z"
     },
     "land": {
       "status": "healthy",
-      "complete": true,
-      "last_attempt_at": "2026-10-19T09:41:43.483Z",
-      "last_success_at": "2026-10-19T09:41:43.483Z"
+      "complete": false,
+      "last_attempt_at": "2026-10-20T08:42:20.450Z",
+      "last_success_at": "2026-10-20T08:42:20.450Z"
     }
-  }
+  },
+  "land_complete": false
 }

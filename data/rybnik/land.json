@@ -51,6 +51,15 @@
       "status": null,
       "listings": [
         {
+          "date": "2026-11-24",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 389,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105813",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567972"
+        },
+        {
           "date": "2026-11-25",
           "round": 1,
           "starting_price_pln": 77500,
@@ -61,6 +70,98 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|niewiadom|190/33/180/34",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": "190/33/180/34",
+      "obreb": "Niewiadom",
+      "street": "Sportowej",
+      "building": null,
+      "address_raw": "ul. Sportowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20190%2F33%2F180%2F34%20Sportowej%20Niewiadom%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3967,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-25",
+          "round": 1,
+          "starting_price_pln": 368000,
+          "outcome": "active",
+          "area_m2": 3967,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105817",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567987"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "190/33/180/34",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20190%2F33%2F180%2F34%20Niewiadom%20Rybnik%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. giedroycia",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": null,
+      "obreb": "Rybnik",
+      "street": "Giedroycia",
+      "building": null,
+      "address_raw": "ul. Giedroycia",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Giedroycia%20Rybnik%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1456,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-25",
+          "round": 3,
+          "starting_price_pln": 117500,
+          "outcome": "active",
+          "area_m2": 1456,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105816",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567982"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|boguszowice|4673",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": "4673",
+      "obreb": "Boguszowice",
+      "street": "Nowomiejskiej",
+      "building": null,
+      "address_raw": "ul. Nowomiejskiej",
+      "dzialka_id": "247301_1.0007.4673",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.4673",
+      "area_m2": 1121,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-25",
+          "round": 1,
+          "starting_price_pln": 96000,
+          "outcome": "active",
+          "area_m2": 1121,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105814",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567976"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4673",
+          "dzialka_id": "247301_1.0007.4673",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247301_1.0007.4673"
+        }
+      ]
     },
     {
       "key": "addr|ul. szczygłów",

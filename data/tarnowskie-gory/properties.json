@@ -37,12 +37,15 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 239000,
-          "outcome": "archived",
-          "area_m2": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124636",
+          "notes": [
+            "parse: missing starting price"
+          ],
           "land_area_m2": 1231,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,103053,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.tarnowskiegory.pl/a,103053,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html"
         }
       ]
     },
@@ -81,11 +84,16 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 220000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124637",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "land_area_m2": 2351,
           "area_m2": 41.24,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,103051,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.tarnowskiegory.pl/a,103051,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-wyodrebn.html"
         }
       ],
       "area_m2": 41.24

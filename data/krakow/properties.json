@@ -43,11 +43,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 132000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 174000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=261755",
+          "notes": [],
           "area_m2": 14.75,
-          "detail_url": "https://www.bip.krakow.pl/?news_id=257668",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.krakow.pl/?news_id=257668"
         }
       ],
       "area_m2": 14.75
@@ -71,6 +73,7 @@
           "source_pdf": "https://www.bip.krakow.pl/?news_id=236926",
           "notes": [],
           "area_m2": 17,
+          "round_source": "inferred",
           "detail_url": "https://www.bip.krakow.pl/?news_id=232849"
         },
         {
@@ -98,8 +101,20 @@
       "kind": "mieszkalny",
       "listings": [
         {
-          "date": "2025-10-14",
+          "date": "2024-06-25",
           "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 593000,
+          "outcome": "archived",
+          "area_m2": 53.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=192478",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-10-14",
+          "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 747000,
           "outcome": "unsold",
@@ -135,6 +150,20 @@
       "apt": "15",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2023-12-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 978000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=184071",
+          "notes": [],
+          "area_m2": 91.79,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=179034",
+          "round_source": "inferred"
+        },
         {
           "date": "2025-10-21",
           "round": 1,
@@ -208,6 +237,18 @@
       "kind": "mieszkalny",
       "listings": [
         {
+          "date": "2024-06-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 882000,
+          "outcome": "archived",
+          "area_m2": 71.2,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=190225",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
           "date": "2025-11-18",
           "round": 1,
           "kind": "mieszkalny",
@@ -232,6 +273,20 @@
       "kind": "mieszkalny",
       "listings": [
         {
+          "date": "2023-12-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1044000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=184071",
+          "notes": [],
+          "area_m2": 78.84,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=179034",
+          "round_source": "inferred"
+        },
+        {
           "date": "2025-11-18",
           "round": 1,
           "kind": "mieszkalny",
@@ -246,6 +301,30 @@
         }
       ],
       "area_m2": 78.84
+    },
+    {
+      "key": "krakowiakow|44|19",
+      "street": "Krakowiaków",
+      "street_norm": "krakowiakow",
+      "building": "44",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 529000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 571320,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=237961",
+          "notes": [],
+          "area_m2": 65.06,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=232321"
+        }
+      ],
+      "area_m2": 65.06
     },
     {
       "key": "morawianskiego|25|",
@@ -265,7 +344,6 @@
           "final_price_pln": 221850,
           "source_pdf": "https://www.bip.krakow.pl/?news_id=236926",
           "notes": [],
-          "area_m2": null,
           "round_source": "inferred"
         }
       ],
@@ -323,6 +401,1989 @@
         }
       ],
       "area_m2": 49.98
+    },
+    {
+      "key": "stefana batorego|5|25",
+      "street": "Stefana Batorego",
+      "street_norm": "stefana batorego",
+      "building": "5",
+      "apt": "25",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1442000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170329",
+          "notes": [],
+          "area_m2": 114.33,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166284",
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-09-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1297800,
+          "outcome": "archived",
+          "area_m2": 114.33,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=172638",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-02-15",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1225700,
+          "outcome": "archived",
+          "area_m2": 114.33,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=182862",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-06-11",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1153600,
+          "outcome": "archived",
+          "area_m2": 114.33,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=190225",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-09-24",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1153600,
+          "outcome": "archived",
+          "area_m2": 114.33,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=198931",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2025-06-05",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1767000,
+          "outcome": "archived",
+          "area_m2": 114.33,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=223330",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 114.33
+    },
+    {
+      "key": "centrum a|1|54",
+      "street": "Centrum A",
+      "street_norm": "centrum a",
+      "building": "1",
+      "apt": "54",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 455000,
+          "outcome": "archived",
+          "area_m2": 67.04,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189688",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-06-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 505000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 686050,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=225838",
+          "notes": [],
+          "area_m2": 67.04,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=219263",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 67.04
+    },
+    {
+      "key": "centrum a|3|49",
+      "street": "Centrum A",
+      "street_norm": "centrum a",
+      "building": "3",
+      "apt": "49",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 70.5,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189688",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-06-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 552000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 722080,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=225838",
+          "notes": [],
+          "area_m2": 70.5,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=219263",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 70.5
+    },
+    {
+      "key": "krakowiakow|44|11",
+      "street": "Krakowiaków",
+      "street_norm": "krakowiakow",
+      "building": "44",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 498000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 629960,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=225838",
+          "notes": [],
+          "area_m2": 64.74,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=219263",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 64.74
+    },
+    {
+      "key": "wandy|4|17",
+      "street": "Wandy",
+      "street_norm": "wandy",
+      "building": "4",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 487000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 644610,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=225838",
+          "notes": [],
+          "area_m2": 62.2,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=219263",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 62.2
+    },
+    {
+      "key": "wandy|32|33",
+      "street": "Wandy",
+      "street_norm": "wandy",
+      "building": "32",
+      "apt": "33",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 447000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 518520,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=225838",
+          "notes": [],
+          "area_m2": 55.52,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=219263",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 55.52
+    },
+    {
+      "key": "felicjanek|15|5",
+      "street": "Felicjanek",
+      "street_norm": "felicjanek",
+      "building": "15",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-04-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 308000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 413160,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=221941",
+          "notes": [],
+          "area_m2": 16.82,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=217154",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 16.82
+    },
+    {
+      "key": "ogrodowym|6|35",
+      "street": "Ogrodowym",
+      "street_norm": "ogrodowym",
+      "building": "6",
+      "apt": "35",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 520000,
+          "outcome": "archived",
+          "area_m2": 70.01,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189688",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-01-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 520000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 733200,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=213343",
+          "notes": [],
+          "area_m2": 70.01,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=208495",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 70.01
+    },
+    {
+      "key": "uroczym|4|20",
+      "street": "Uroczym",
+      "street_norm": "uroczym",
+      "building": "4",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 525000,
+          "outcome": "archived",
+          "area_m2": 67.51,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189688",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-01-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 525000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 724500,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=213343",
+          "notes": [],
+          "area_m2": 67.51,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=208495",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 67.51
+    },
+    {
+      "key": "centrum c|8|49",
+      "street": "Centrum C",
+      "street_norm": "centrum c",
+      "building": "8",
+      "apt": "49",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-05-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 462000,
+          "outcome": "archived",
+          "area_m2": 58.16,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189577",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-01-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 462000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 577500,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=213343",
+          "notes": [],
+          "area_m2": 58.16,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=208495",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 58.16
+    },
+    {
+      "key": "mikolaja zyblikiewicza|5|95",
+      "street": "Mikołaja Zyblikiewicza",
+      "street_norm": "mikolaja zyblikiewicza",
+      "building": "5",
+      "apt": "95",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-09-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1680000,
+          "outcome": "archived",
+          "area_m2": 155.08,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=172706",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2024-05-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1680000,
+          "outcome": "archived",
+          "area_m2": 155.08,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189577",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2024-09-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1680000,
+          "outcome": "archived",
+          "area_m2": 155.08,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=198931",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 155.08
+    },
+    {
+      "key": "gorali|21|5",
+      "street": "Górali",
+      "street_norm": "gorali",
+      "building": "21",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 459000,
+          "outcome": "archived",
+          "area_m2": 61.78,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=192478",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 61.78
+    },
+    {
+      "key": "stefana grota roweckiego|57|15",
+      "street": "Stefana Grota-Roweckiego",
+      "street_norm": "stefana grota roweckiego",
+      "building": "57",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 610000,
+          "outcome": "archived",
+          "area_m2": 62.11,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=190225",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 62.11
+    },
+    {
+      "key": "juliusza kossaka|3|10",
+      "street": "Juliusza Kossaka",
+      "street_norm": "juliusza kossaka",
+      "building": "3",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1856000,
+          "outcome": "archived",
+          "area_m2": 136.27,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=190225",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 136.27
+    },
+    {
+      "key": "strzeleckiej|17|6",
+      "street": "Strzelecka",
+      "street_norm": "strzeleckiej",
+      "building": "17",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 908000,
+          "outcome": "archived",
+          "area_m2": 75.58,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=190225",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 75.58
+    },
+    {
+      "key": "boleslawa limanowskiego|13|7",
+      "street": "Bolesława Limanowskiego",
+      "street_norm": "boleslawa limanowskiego",
+      "building": "13",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 664000,
+          "outcome": "archived",
+          "area_m2": 61.39,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176928",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2024-05-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 664000,
+          "outcome": "archived",
+          "area_m2": 61.39,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189688",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 61.39
+    },
+    {
+      "key": "sw gertrudy|20|",
+      "street": "Św. Gertrudy",
+      "street_norm": "sw gertrudy",
+      "building": "20",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-05-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 5639000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189577",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred",
+          "land_area_m2": 314.58
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 314.58
+    },
+    {
+      "key": "centrum d|1|65",
+      "street": "Centrum D",
+      "street_norm": "centrum d",
+      "building": "1",
+      "apt": "65",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 426000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 604920,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=194281",
+          "notes": [],
+          "area_m2": 64.21,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189193",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 64.21
+    },
+    {
+      "key": "willowym|14|2",
+      "street": "Willowym",
+      "street_norm": "willowym",
+      "building": "14",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 420000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 571200,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=194281",
+          "notes": [],
+          "area_m2": 56.89,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189193",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 56.89
+    },
+    {
+      "key": "blich|7|3",
+      "street": "Blich",
+      "street_norm": "blich",
+      "building": "7",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-10-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 399000,
+          "outcome": "archived",
+          "area_m2": 32.4,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176739",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2024-04-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 399000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 462840,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=194281",
+          "notes": [],
+          "area_m2": 32.4,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189193",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 32.4
+    },
+    {
+      "key": "lobzowskiej|9|3A",
+      "street": "Łobzowskiej",
+      "street_norm": "lobzowskiej",
+      "building": "9",
+      "apt": "3A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-11-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 277000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161220",
+          "notes": [],
+          "area_m2": 19.54,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-09-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 249300,
+          "outcome": "archived",
+          "area_m2": 19.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=174642",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-04-23",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 372000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=194281",
+          "notes": [],
+          "area_m2": 19.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=189193",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 19.54
+    },
+    {
+      "key": "krakowiakow|39|26",
+      "street": "Krakowiaków",
+      "street_norm": "krakowiakow",
+      "building": "39",
+      "apt": "26",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-04-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 413800,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=193129",
+          "notes": [],
+          "area_m2": 34.44,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 34.44
+    },
+    {
+      "key": "radziwillowskiej|16|",
+      "street": "Radziwiłłowskiej",
+      "street_norm": "radziwillowskiej",
+      "building": "16",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2024-04-18",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 164000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 165640,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=193129",
+          "notes": [],
+          "area_m2": 19.51,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 19.51
+    },
+    {
+      "key": "schweitzera|1|",
+      "street": "Schweitzera",
+      "street_norm": "schweitzera",
+      "building": "1",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-12-12",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 13000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=183903",
+          "notes": [],
+          "detail_url": "https://www.bip.krakow.pl/?news_id=181275"
+        },
+        {
+          "date": "2024-04-18",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 13000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 15080,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=193129",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "jozefa|18|21",
+      "street": "Józefa",
+      "street_norm": "jozefa",
+      "building": "18",
+      "apt": "21",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-02-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1495000,
+          "outcome": "archived",
+          "area_m2": 108.83,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=182862",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 108.83
+    },
+    {
+      "key": "wezyka|11A|51",
+      "street": "Wężyka",
+      "street_norm": "wezyka",
+      "building": "11A",
+      "apt": "51",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 586000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 662180,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=184071",
+          "notes": [],
+          "area_m2": 74.77,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=179034",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 74.77
+    },
+    {
+      "key": "na skarpie|56|3",
+      "street": "Na Skarpie",
+      "street_norm": "na skarpie",
+      "building": "56",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 482000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 617300,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=184071",
+          "notes": [],
+          "area_m2": 63.8,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=179034",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 63.8
+    },
+    {
+      "key": "gorka narodowa|118A|7",
+      "street": "Górka Narodowa",
+      "street_norm": "gorka narodowa",
+      "building": "118A",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 393000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 396930,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=183903",
+          "notes": [],
+          "area_m2": 45.61,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=181275"
+        }
+      ],
+      "area_m2": 45.61
+    },
+    {
+      "key": "krolewskiej|80|2",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "80",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1084000,
+          "outcome": "archived",
+          "area_m2": 97.95,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176928",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 97.95
+    },
+    {
+      "key": "teligi|18|48",
+      "street": "Teligi",
+      "street_norm": "teligi",
+      "building": "18",
+      "apt": "48",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 491000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 549550,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=182199",
+          "notes": [],
+          "area_m2": 57.45,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=174693",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 57.45
+    },
+    {
+      "key": "stefana grota roweckiego|35|10",
+      "street": "Stefana Grota-Roweckiego",
+      "street_norm": "stefana grota roweckiego",
+      "building": "35",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-11-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 475000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 541500,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=182199",
+          "notes": [],
+          "area_m2": 59.77,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 59.77
+    },
+    {
+      "key": "schweitzera|1|15",
+      "street": "Schweitzera",
+      "street_norm": "schweitzera",
+      "building": "1",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 486000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172547",
+          "notes": [],
+          "area_m2": 60.68,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-11-07",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 413100,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 566240,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=182199",
+          "notes": [],
+          "area_m2": 60.68,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 60.68
+    },
+    {
+      "key": "wegierskiej|10|22",
+      "street": "Węgierskiej",
+      "street_norm": "wegierskiej",
+      "building": "10",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 305150,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172574",
+          "notes": [],
+          "area_m2": 30.17,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=170207"
+        },
+        {
+          "date": "2023-10-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 269250,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 295400,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=180510",
+          "notes": [],
+          "area_m2": 30.17,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176739"
+        }
+      ],
+      "area_m2": 30.17
+    },
+    {
+      "key": "wegierskiej|10|14",
+      "street": "Węgierskiej",
+      "street_norm": "wegierskiej",
+      "building": "10",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260950,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172574",
+          "notes": [],
+          "area_m2": 24.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=170207"
+        },
+        {
+          "date": "2023-10-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 260950,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 328810,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=180510",
+          "notes": [],
+          "area_m2": 24.54,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176739"
+        }
+      ],
+      "area_m2": 24.54
+    },
+    {
+      "key": "bosackiej|8|1",
+      "street": "Bosackiej",
+      "street_norm": "bosackiej",
+      "building": "8",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 397000,
+          "outcome": "archived",
+          "area_m2": 35.2,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166590",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-10-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 337450,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 340830,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=180510",
+          "notes": [],
+          "area_m2": 35.2,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176739",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 35.2
+    },
+    {
+      "key": "bosackiej|8|4",
+      "street": "Bosackiej",
+      "street_norm": "bosackiej",
+      "building": "8",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 409000,
+          "outcome": "archived",
+          "area_m2": 36.3,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166590",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-10-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 347650,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 351130,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=180510",
+          "notes": [],
+          "area_m2": 36.3,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=176739",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 36.3
+    },
+    {
+      "key": "przemyskiej|2|1A",
+      "street": "Przemyskiej",
+      "street_norm": "przemyskiej",
+      "building": "2",
+      "apt": "1A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=169336",
+          "notes": [],
+          "area_m2": 18.38,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-10-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 181800,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=179631",
+          "notes": [],
+          "area_m2": 18.38,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 18.38
+    },
+    {
+      "key": "przemyskiej|2|2",
+      "street": "Przemyskiej",
+      "street_norm": "przemyskiej",
+      "building": "2",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-10-05",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 182000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=179631",
+          "notes": [],
+          "area_m2": 12.16,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 12.16
+    },
+    {
+      "key": "szkolnym|33|56",
+      "street": "Szkolnym",
+      "street_norm": "szkolnym",
+      "building": "33",
+      "apt": "56",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 400000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=169336",
+          "notes": [],
+          "area_m2": 53.96,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-10-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 457200,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=179631",
+          "notes": [],
+          "area_m2": 53.96,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 53.96
+    },
+    {
+      "key": "chopina|19|38",
+      "street": "Chopina",
+      "street_norm": "chopina",
+      "building": "19",
+      "apt": "38",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-11-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 553000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161045",
+          "notes": [],
+          "area_m2": 50.58,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 553000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 613830,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=178329",
+          "notes": [],
+          "area_m2": 50.58,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=172706"
+        }
+      ],
+      "area_m2": 50.58
+    },
+    {
+      "key": "centrum b|10|11",
+      "street": "Centrum B",
+      "street_norm": "centrum b",
+      "building": "10",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 439200,
+          "outcome": "archived",
+          "area_m2": 64.05,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166590",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 414800,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 560000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=178329",
+          "notes": [],
+          "area_m2": 64.05,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=172706"
+        }
+      ],
+      "area_m2": 64.05
+    },
+    {
+      "key": "gorali|10|19",
+      "street": "Górali",
+      "street_norm": "gorali",
+      "building": "10",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 447300,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 570000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=178329",
+          "notes": [],
+          "area_m2": 66.17,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=172706"
+        }
+      ],
+      "area_m2": 66.17
+    },
+    {
+      "key": "piastow|15|64",
+      "street": "Piastów",
+      "street_norm": "piastow",
+      "building": "15",
+      "apt": "64",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 386000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 473860,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172574",
+          "notes": [],
+          "area_m2": 56.45,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=170207",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 56.45
+    },
+    {
+      "key": "lipowskiego|29|",
+      "street": "Lipowskiego",
+      "street_norm": "lipowskiego",
+      "building": "29",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-06-29",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 430000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1005100,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172574",
+          "notes": [],
+          "area_m2": 174.92,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=170207"
+        }
+      ],
+      "area_m2": 174.92
+    },
+    {
+      "key": "stefana grota roweckiego|41|26",
+      "street": "Stefana Grota-Roweckiego",
+      "street_norm": "stefana grota roweckiego",
+      "building": "41",
+      "apt": "26",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 493000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 596530,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172547",
+          "notes": [],
+          "area_m2": 59.82,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 59.82
+    },
+    {
+      "key": "spasowskiego|2|10",
+      "street": "Spasowskiego",
+      "street_norm": "spasowskiego",
+      "building": "2",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 577600,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 583380,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172547",
+          "notes": [],
+          "area_m2": 47.13,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 47.13
+    },
+    {
+      "key": "blachnickiego|2|",
+      "street": "Blachnickiego",
+      "street_norm": "blachnickiego",
+      "building": "2",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-06-21",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 1298220,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1311210,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=172547",
+          "notes": [],
+          "area_m2": 208.65,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 208.65
+    },
+    {
+      "key": "bosackiej|8|10",
+      "street": "Bosackiej",
+      "street_norm": "bosackiej",
+      "building": "8",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 471000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 475710,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170329",
+          "notes": [],
+          "area_m2": 37.66,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166284",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.66
+    },
+    {
+      "key": "mikolaja zyblikiewicza|5|16A",
+      "street": "Mikołaja Zyblikiewicza",
+      "street_norm": "mikolaja zyblikiewicza",
+      "building": "5",
+      "apt": "16A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 610000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 616100,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170329",
+          "notes": [],
+          "area_m2": 58.28,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166284",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 58.28
+    },
+    {
+      "key": "na skarpie|63|33",
+      "street": "Na Skarpie",
+      "street_norm": "na skarpie",
+      "building": "63",
+      "apt": "33",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 601000,
+          "outcome": "archived",
+          "area_m2": 87,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166284",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 87
+    },
+    {
+      "key": "ogrodowym|15|50",
+      "street": "Ogrodowym",
+      "street_norm": "ogrodowym",
+      "building": "15",
+      "apt": "50",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 532000,
+          "outcome": "archived",
+          "area_m2": 68.05,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166284",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 68.05
+    },
+    {
+      "key": "ogrodowym|14|59",
+      "street": "Ogrodowym",
+      "street_norm": "ogrodowym",
+      "building": "14",
+      "apt": "59",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 421000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 425210,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170325",
+          "notes": [],
+          "area_m2": 55.17,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=167521",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 55.17
+    },
+    {
+      "key": "doktora jozefa babinskiego|23D|19",
+      "street": "Doktora Józefa Babińskiego",
+      "street_norm": "doktora jozefa babinskiego",
+      "building": "23D",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 409000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 413090,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170325",
+          "notes": [],
+          "area_m2": 55.4,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=167521",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 55.4
+    },
+    {
+      "key": "willowym|5|1",
+      "street": "Willowym",
+      "street_norm": "willowym",
+      "building": "5",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 431100,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 435420,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170143",
+          "notes": [],
+          "area_m2": 62.57,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166590",
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 62.57
+    },
+    {
+      "key": "na skarpie|30|35",
+      "street": "Na Skarpie",
+      "street_norm": "na skarpie",
+      "building": "30",
+      "apt": "35",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-05-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 356400,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 381390,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=170143",
+          "notes": [],
+          "area_m2": 51.92,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=166590"
+        }
+      ],
+      "area_m2": 51.92
+    },
+    {
+      "key": "stalowym|11A|garaz-008",
+      "street": "Stalowym",
+      "street_norm": "stalowym",
+      "building": "11A",
+      "apt": "garaz-008",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 60000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 100000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=169336",
+          "notes": [],
+          "area_m2": 18.94,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 18.94
+    },
+    {
+      "key": "miodowej|22|12",
+      "street": "Miodowa",
+      "street_norm": "miodowej",
+      "building": "22",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-02-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 850000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1053500,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=165659",
+          "notes": [],
+          "area_m2": 68.31,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 68.31
+    },
+    {
+      "key": "soltyka|9|",
+      "street": "Sołtyka",
+      "street_norm": "soltyka",
+      "building": "9",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-02-16",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1200000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 3000000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=165659",
+          "notes": [],
+          "area_m2": 139.36,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 139.36
+    },
+    {
+      "key": "sw gertrudy|18|",
+      "street": "św. Gertrudy",
+      "street_norm": "sw gertrudy",
+      "building": "18",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-01-24",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 132904,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 315590,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=164228",
+          "notes": [],
+          "area_m2": 34.44,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 34.44
+    },
+    {
+      "key": "mikolaja zyblikiewicza|5|62A",
+      "street": "Mikołaja Zyblikiewicza",
+      "street_norm": "mikolaja zyblikiewicza",
+      "building": "5",
+      "apt": "62A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-01-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 206000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 279180,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=164228",
+          "notes": [],
+          "area_m2": 16.99,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 16.99
+    },
+    {
+      "key": "krolewskiej|80|garaz-3",
+      "street": "Królewskiej",
+      "street_norm": "krolewskiej",
+      "building": "80",
+      "apt": "garaz-3",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2023-01-10",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 72000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 135360,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=163757",
+          "notes": [],
+          "area_m2": 17.22,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 17.22
+    },
+    {
+      "key": "handlowym|14A|",
+      "street": "Handlowym",
+      "street_norm": "handlowym",
+      "building": "14A",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2023-01-10",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 44000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 140000,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=163757",
+          "notes": [],
+          "area_m2": 15.82,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 15.82
+    },
+    {
+      "key": "juliusza lea|15|19",
+      "street": "Juliusza Lea",
+      "street_norm": "juliusza lea",
+      "building": "15",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-11-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 421000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 425210,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161220",
+          "notes": [],
+          "area_m2": 51.77,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 51.77
+    },
+    {
+      "key": "kosciuszki|45|",
+      "street": "Kościuszki",
+      "street_norm": "kosciuszki",
+      "building": "45",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2022-11-22",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 176000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 177760,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161220",
+          "notes": [],
+          "area_m2": 38.28,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 38.28
+    },
+    {
+      "key": "urzedniczej|45|4",
+      "street": "Urzędnicza",
+      "street_norm": "urzedniczej",
+      "building": "45",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-11-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 718000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 1005200,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161045",
+          "notes": [],
+          "area_m2": 95.1,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 95.1
+    },
+    {
+      "key": "chopina|34|10",
+      "street": "Chopina",
+      "street_norm": "chopina",
+      "building": "34",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-11-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 564000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 575280,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161045",
+          "notes": [],
+          "area_m2": 52.64,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 52.64
+    },
+    {
+      "key": "juliusza lea|15|5",
+      "street": "Juliusza Lea",
+      "street_norm": "juliusza lea",
+      "building": "15",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2022-11-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 754000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 761540,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=161045",
+          "notes": [],
+          "area_m2": 103.06,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 103.06
+    },
+    {
+      "key": "centrum a|5|7",
+      "street": "Centrum A",
+      "street_norm": "centrum a",
+      "building": "5",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 501000,
+          "outcome": "archived",
+          "area_m2": 70.67,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=192478",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2025-02-11",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 564000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 778320,
+          "source_pdf": "https://www.bip.krakow.pl/?news_id=215018",
+          "notes": [],
+          "area_m2": 70.67,
+          "round_source": "inferred"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 564000,
+          "outcome": "active",
+          "area_m2": 70.67,
+          "detail_url": "https://www.bip.krakow.pl/?news_id=209854",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 70.67
     }
   ]
 }

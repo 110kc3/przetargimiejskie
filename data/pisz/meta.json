@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "pisz",
-  "generated_at": "2026-10-19T21:52:13.224Z",
+  "generated_at": "2026-10-20T08:40:37.375Z",
   "source_pdf_count": 44,
   "parsed_records": 4,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-19T21:47:51.870Z",
-  "last_successful_source_check_at": "2026-10-19T21:47:51.870Z",
+  "last_source_attempt_at": "2026-10-20T08:36:14.978Z",
+  "last_successful_source_check_at": "2026-10-20T08:36:14.978Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-19T21:47:51.870Z",
-      "last_success_at": "2026-10-19T21:47:51.870Z"
+      "last_attempt_at": "2026-10-20T08:36:14.978Z",
+      "last_success_at": "2026-10-20T08:36:14.978Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-19T21:47:51.870Z",
-      "last_success_at": "2026-10-19T21:47:51.870Z"
+      "last_attempt_at": "2026-10-20T08:36:14.978Z",
+      "last_success_at": "2026-10-20T08:36:14.978Z"
     }
   }
 }

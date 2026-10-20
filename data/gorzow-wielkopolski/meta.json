@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "gorzow-wielkopolski",
-  "generated_at": "2026-10-19T21:44:11.865Z",
+  "generated_at": "2026-10-20T08:32:19.433Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 35,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-19T21:44:01.433Z",
-  "last_successful_source_check_at": "2026-10-19T21:44:01.433Z",
+  "last_source_attempt_at": "2026-10-20T08:32:07.501Z",
+  "last_successful_source_check_at": "2026-10-20T08:32:07.501Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-19T21:44:01.433Z",
-      "last_success_at": "2026-10-19T21:44:01.433Z"
+      "last_attempt_at": "2026-10-20T08:32:07.501Z",
+      "last_success_at": "2026-10-20T08:32:07.501Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-19T21:44:01.433Z",
+      "last_attempt_at": "2026-10-20T08:32:07.501Z",
       "last_success_at": null
     }
   }
