@@ -4,6 +4,20 @@ import { buildLand, landKey, mergePartialLand, reconcileLandHistory, splitParcel
 
 const historyPlot = (key, date, outcome = 'active') => ({ key, listings: [{ date, outcome }] });
 
+test('past announcements and terminal results fold identically in either source order', () => {
+  const announcement = { dzialka_nr: '271', auction_date: '2020-04-23', starting_price_pln: 760000, source_url: 'announcement.html' };
+  for (const outcome of ['sold', 'unsold', 'no_winner']) {
+    const result = { ...announcement, outcome, final_price_pln: outcome === 'sold' ? 768000 : null, source_pdf: 'result.pdf', source_url: undefined };
+    for (const rows of [[announcement, result], [result, announcement]]) {
+      const [plot] = buildLand(rows, 'busko-zdroj').plots;
+      assert.equal(plot.listings.length, 1);
+      assert.equal(plot.listings[0].outcome, outcome);
+      assert.equal(plot.listings[0].source_url, 'result.pdf');
+      assert.equal(plot.listings[0].final_price_pln ?? null, result.final_price_pln);
+    }
+  }
+});
+
 test('a complete current board retains older plots and auction attempts by default', () => {
   const previous = [historyPlot('old', '2026-01-01', 'sold'), historyPlot('same', '2026-02-01', 'unsold')];
   const current = [historyPlot('same', '2026-11-01'), historyPlot('new', '2026-12-01')];

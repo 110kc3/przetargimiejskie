@@ -78,3 +78,40 @@ No SPA, no bot challenge, no session requirement observed. CMS pages fully rende
 - Volume is low (≈1 flat/year) — worthwhile only if combined with other Świętokrzyskie adapters in same pipeline.
 
 **Effort: Low** — single hostname, open HTML + text PDF, stable URL pattern, no auth, well-documented result lifecycle (same page updated in-place).
+
+
+## Live land/source review — 2026-10-20 (Codex, partial audit)
+
+All 42 currently linked feed pages (visible 2026 category) were read. The source
+is not empty: article [26223](https://www.umig.busko.pl/ogloszenia/26223-ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-komunalnej-polozonej-w-bloncu-znak-gnwr-6840-13-2026.html)
+links a PDF-only sale of **Błoniec parcel 360/2, 549 m² / 22,000 zł**, auction
+6 November 2026. The PDF explicitly excludes tenant-owned building improvements
+from the price and states an existing lease. The land record preserves these
+restrictions; no building ownership or cadastral district number is invented.
+
+Article [25302](https://www.umig.busko.pl/ogloszenia/25302-burmistrz-miasta-i-gminy-busko-zdroj-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-komunalnych-znak-gnwr-6840-1-2026.html)
+is on feed page 32, beyond the former 30-page cutoff. Its three 23 April 2026
+land lots are parcel **271 / district 11, 1,718 m², 760,000→768,000 zł**;
+**273 / district 11, 1,935 m², 860,000→869,000 zł**; and
+**789/15 / district 06, 175 m², 30,000→45,000 zł**. The linked result PDF gives
+explicit positive outcomes; its 4 May publication date is not the auction date.
+Zero non-attendance counts do not mean an unsold auction.
+
+The crawler now shares one pass between streams, follows/validates the actual
+pager up to 60 pages, and inspects each selected article once. That reads all
+42 current pages while using fewer page requests than the old two 30-page passes.
+Announcement-PDF fallback is used when inline sale fields are absent. Result
+filenames are not reused as announcement PDFs. Parcel prices are matched from
+the price enumeration, not the later deposit list. Born-digital PDF text and
+source HTML/pager fragments are committed as fixtures.
+
+A shared land-builder defect also surfaced: an archived announcement could retain
+its outcome over a later source-backed sold result. Terminal results now win in
+either input order, with achieved price and result provenance retained.
+
+Full isolated refresh: **0 properties / 4 plots**, three sold events plus one
+current sale, strict integrity and coverage health pass. The flat-only
+empty-source exemption is removed rather than renewed. The committed zero-data
+snapshot stays an explicit failing gap until hosted publication; no local crawl
+output is published. Older category archives and other asset families remain
+unreviewed; this is a partial audit, not a full source-coverage claim.

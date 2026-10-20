@@ -25,22 +25,29 @@ checks for Wschowa/Żagań. Further source work restores Bolesławiec's verified
 TLS chain/auction rounds, repairs Trzebnica history handling and fixes
 Chrzanów's combined-lot table. Jarocin's grouped land-table repair and Kraków's
 pagination/HTML-lot repair follow, with exact source fixtures and guarded repairs
-to previously committed identities, prices and outcomes. The canonical manifest records ten partial
-source/asset audits (none yet complete), with 111 enabled cities unchecked.
+to previously committed identities, prices and outcomes. The canonical manifest
+records eleven partial source/asset audits (none yet complete), with 110 enabled cities unchecked.
+Zgorzelec now walks its linked announcement archives and separates parcel
+prices/floor areas; its result discovery remains incomplete. Busko-Zdrój now
+reads PDF-only land announcements and the full visible feed, retaining three
+source-confirmed land sales. Its obsolete empty-source exemption is removed
+without a deadline renewal. The land builder preserves terminal results over
+archived announcements in either input order.
 The shared refresh also retains land history from complete current boards;
 43 missing plot identities / 85 events were restored from prior published data,
 with newer records and source timestamps retained. Targeted tests and isolated
 source validation are recorded in the queue. Hosted acceptance for this
 continuation is pending.
 
-Current production health against `8703ad158`, checked 20 October, has 12
-findings: six degraded streams, three failed attempts, two expired egress
-exceptions and one expired empty-source review. Bolesławiec/Chrzanów and
-Trzebnica's property/land streams now have healthy hosted checks; its results
-remain degraded. Kraków/Jarocin's latest local fixes still await hosted
-verification. Continue
-source-specific repair and the existing-city source/asset audit before expanding
-adapters. A successful land board must not hide a failed property/result board.
+Current production health against `f4a80d80c`, checked 20 October, has 13
+findings: nine degraded streams, one failed attempt, two expired egress exceptions
+and one Busko empty-data gap pending hosted publication. Kraków/Jarocin now have
+healthy hosted property/land checks at the validated counts, with incomplete
+results still degraded. Chrzanów's latest land stream regressed and retains its
+four last-good plots. Zgorzelec/Busko changes still await hosted verification.
+Continue source-specific repair and the existing-city source/asset audit before
+expanding adapters. A successful land board must not hide a failed property/result
+board.
 
 An earlier scheduled refresh's municipal publisher completed, but its provider
 gate failed after PKP connection timeouts on three hosted runners. Fresh retained

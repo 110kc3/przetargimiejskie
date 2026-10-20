@@ -128,10 +128,12 @@ export function buildLand(records, cityId, cfg = {}) {
       if (!l.date) { out.push(l); continue; }
       const prev = byDate.get(l.date);
       if (!prev) { byDate.set(l.date, l); out.push(l); continue; }
+      const terminal = outcome => ['sold', 'unsold', 'no_winner'].includes(outcome);
+      const preferResult = terminal(l.outcome) && !terminal(prev.outcome);
       for (const k of ['round', 'starting_price_pln', 'final_price_pln', 'area_m2', 'detail_url', 'source_url']) {
-        if (prev[k] == null && l[k] != null) prev[k] = l[k];
+        if ((preferResult || prev[k] == null) && l[k] != null) prev[k] = l[k];
       }
-      if (prev.outcome === 'active' && l.outcome && l.outcome !== 'active') prev.outcome = l.outcome;
+      if (preferResult || (prev.outcome === 'active' && l.outcome && l.outcome !== 'active')) prev.outcome = l.outcome;
     }
     out.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
     p.listings = out;

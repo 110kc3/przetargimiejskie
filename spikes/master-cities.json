@@ -23209,7 +23209,7 @@
         "assets": {
           "residential": "unknown",
           "land": "observed",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
@@ -23239,6 +23239,23 @@
           "limitations": [
             "Current board has one land sale and an unrelated procurement notice; no current flat was observed.",
             "Adapter does not walk the linked announcement/result archives. Result root asks users to choose a subcategory; linked public year views were empty. Do not claim exhaustive results or verified-empty property coverage."
+          ]
+        },
+        {
+          "url": "https://zgorzelec.bip.info.pl/dokument.php?iddok=10598&idmp=394&r=r",
+          "evidence_path": "spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md",
+          "verified_at": "2026-10-20",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land",
+            "building"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "Linked announcement years 2026–2020 now walked; Banacha prices and house floor areas verified against real source bodies.",
+            "Result root remains a category placeholder; administrative archive links are only probed as public board URLs and cannot prove full results.",
+            "Current local output passes integrity; hosted recovery and other asset classes remain unverified."
           ]
         }
       ],
@@ -27902,7 +27919,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Joomla HTML + text PDF",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -27910,23 +27927,39 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.umig.busko.pl/ogloszenia.html",
+          "evidence_path": "spikes/swietokrzyskie/powiat-buski/busko-zdroj.md",
+          "verified_at": "2026-10-20",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "local",
+          "limitations": [
+            "All 42 currently linked feed pages inspected; older category archives and other asset classes remain outside this partial audit.",
+            "One current PDF-only sale excludes tenant-owned improvements; three April land sales have explicit achieved prices.",
+            "Hosted publication is pending; no empty-source exemption date was renewed."
+          ]
         }
       ],
       "review": {

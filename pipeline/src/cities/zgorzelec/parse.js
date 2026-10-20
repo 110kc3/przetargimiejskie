@@ -152,7 +152,7 @@ export function isResultDoc(text) {
 /** True when the resolution explicitly states a negative (unsold) outcome. */
 export function isNegativeOutcome(text) {
   const t = whole(text);
-  return /wynikiem\s+negatywnym|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem\s+negatywnym|nikt\s+nie\s+przyst[ąa]pi|nie\s+przyst[ąa]pi|brak\s+ofert|uniewa[żz]ni|nie\s+odnotowano|nie\s+wp[łl]acono\s+wadium/i.test(t);
+  return /wynikiem\s+negatywnym|nikt\s+nie\s+przyst[ąa]pi|brak\s+ofert|nie\s+wp[łl]acono\s+wadium/i.test(t);
 }
 
 // ----------------------------------------------------------------- round
@@ -310,6 +310,11 @@ export function unitAreaFromText(text) {
   return m ? parseNum(m[1]) : null;
 }
 
+function buildingAreaFromText(text) {
+  const m = /powierzchnia\s+u[żz]ytkowa\s+(?:mieszkalna|budynku\s+mieszkalnego)\s+wynosi\s+(\d+[.,]\d+)\s*m\s*[²2]/i.exec(whole(text));
+  return m ? parseNum(m[1]) : null;
+}
+
 // Parcel(s) + area for LAND records. Parcels from "Działka Nr <N>[/<M>]"
 // (case-insensitive; also matches the lowercase "za działkę nr 11/3" echo, which
 // dedupes). Area from the first "o pow. <N> m²" (m² — integer) or "<N> ha".
@@ -370,11 +375,28 @@ export function parseAnnouncement(text) {
     kind: kind === 'unknown' ? 'mieszkalny' : kind,
     address_raw,
     address,
-    area_m2: unitAreaFromText(text),
+    area_m2: kind === 'zabudowana' ? buildingAreaFromText(text) : unitAreaFromText(text),
+    ...(kind === 'zabudowana' ? { land_area_m2: landPlotFromText(text).area_m2 } : {}),
     starting_price_pln,
     auction_date,
     round,
   };
+}
+
+/** Repeated parcel/area/price rows are separate lots, not one jointly priced group. */
+export function parseAnnouncements(text) {
+  const base = parseAnnouncement(text);
+  if (!base) return [];
+  if (base.kind !== 'grunt') return [base];
+  const t = whole(text);
+  const prices = [...t.matchAll(/cena\s+wywo[łl]awcza\s*:/gi)];
+  if (prices.length <= 1) return [base];
+  const rows = [...t.matchAll(/dzia[łl]ka\s+nr\s+(\d+(?:\/\d+)?),?\s+obr[ęe]b\s+([IVXL]+),?\s+AM-?\s*\d+\s+o\s+pow\.\s+(\d+(?:[.,]\d+)?)\s*m\s*[²2]\s+cena\s+wywo[łl]awcza\s*:\s*(\d[\d. ]*(?:,\d{2})?)\s*z[łl]/gi)];
+  if (rows.length !== prices.length || new Set(rows.map(row => `${row[2]}|${row[1]}`)).size !== rows.length) return [];
+  const parsed = rows.map(row => ({ ...base, dzialka_nr: row[1], obreb: row[2].toUpperCase(),
+    area_m2: parseNum(row[3]), starting_price_pln: parsePLN(row[4]),
+  }));
+  return parsed.every(row => row.area_m2 && row.starting_price_pln) ? parsed : [];
 }
 
 // ------------------------------------------------------------------ result parse
@@ -398,6 +420,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const achieved = achievedPriceFromText(text);
   const sold = achieved != null;
   const negativeStated = isNegativeOutcome(text);
+  if (!sold && !negativeStated) return [];
   const kind = kindFromText(text);
 
   if (kind === 'grunt') {
@@ -409,7 +432,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     return [
       {
         auction_date,
-        source_url: sourceUrl,
+        source_url: sourceUrl, source_pdf: sourceUrl,
         kind: 'grunt',
         dzialka_nr: plot.dzialka_nr,
         area_m2: plot.area_m2,
@@ -436,7 +459,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   return [
     {
       auction_date,
-      source_url: sourceUrl,
+      source_url: sourceUrl, source_pdf: sourceUrl,
       kind: kind === 'unknown' ? 'mieszkalny' : kind,
       address_raw,
       address,

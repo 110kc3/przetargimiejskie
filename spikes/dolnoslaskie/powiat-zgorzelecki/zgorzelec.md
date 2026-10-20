@@ -66,3 +66,35 @@ that placeholder nor a zero parser count proves complete result discovery.
 Keep degraded property coverage visible until an explicit complete-source check
 and archive policy are implemented. Full review remains open and its deadline
 is not renewed by this partial check.
+
+
+## Archive and parcel repair — 2026-10-20 (Codex, partial audit)
+
+The announcement archive explicitly links 2026–2020; discovery now follows those
+year boards, including 2026 board 836. Board/form page identities, known document
+routes and printable article IDs are validated. Only actual source page links
+are followed; absent, ignored, failed or capped pages cannot prove completeness.
+The crawl remains bounded by 12 pages, eight year boards and 120 documents per
+stream. Later refreshes merge retained land history.
+
+[Banacha notice 18437](https://zgorzelec.bip.info.pl/dokument.php?iddok=18437&idmp=836&r=r)
+contains two individually priced rows: **15/57, district I, 1,006 m² / 113,100 zł**
+and **15/58, district I, 978 m² / 112,100 zł**, auction 13 October 2026. They are
+separate lots, not one combined plot carrying only the first price/area.
+[Armii Krajowej 48 / 18282](https://zgorzelec.bip.info.pl/dokument.php?iddok=18282&idmp=836&r=r)
+explicitly gives usable residential floor area **99.30 m²** (parcel **792 m²**),
+while [Reja 4 / 18281](https://zgorzelec.bip.info.pl/dokument.php?iddok=18281&idmp=836&r=r)
+gives **90.70 m²** (parcel **636 m²**). Cellars and outbuildings do not supply
+the floor area. Exact source-region fixtures cover all three.
+
+The current result root still says to select a subcategory. Its archive links
+administrative URLs; the adapter never requests those administrative paths, only
+corresponding public board probes. Their availability is not assumed, and the
+result stream remains incomplete. Missing achieved prices or cancellation alone
+cannot create an unsold result. Parsed results retain canonical source provenance.
+
+Full isolated refresh: **4 properties / 3 plots** (previously one plot), all prior
+keys and listing dates retained, strict integrity passes. Property/land checks
+are healthy while coverage health reports only result incompleteness. No local
+crawl data is published, no runtime/review deadline is promoted, and other asset
+classes/full result discovery remain open.

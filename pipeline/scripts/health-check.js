@@ -71,7 +71,6 @@ const LEGIT_EMPTY_RECHECK_DAYS = Number(process.env.LEGIT_EMPTY_RECHECK_DAYS || 
 // bump `since` (the "renew on a schedule" option from TODO). Keep SHORT and
 // reason-tagged; only add sources verified empty-by-design.
 const LEGIT_EMPTY = new Map([
-  ['busko-zdroj', { since: '2026-08-23', reason: 'live-rechecked: current feed has no residential-flat auction (land/non-flat only)' }],
   ['chrzanow', { since: '2026-08-23', reason: 'live-rechecked: renderer and harvest work; current articles are land/lease/non-residential' }],
   ['strzelce-krajenskie', { since: '2026-08-23', reason: 'live-rechecked: current board has one land item and only non-flat result refs' }],
   ['zdunska-wola', { since: '2026-08-23', reason: 'live-rechecked: current auction XML is empty; source and adapter are reachable' }],

@@ -412,3 +412,104 @@ remains **11 properties / 13 plots**, with four ledger migrations / three
 source corrections for Kraków and original rows preserved. No source timestamp
 or hosted operational status is refreshed by these corrections. Verification
 for the impending push is pending; check its exact commit once next session.
+
+
+## Zgorzelec and Busko-Zdrój continuation — 20 October 2026
+
+The prior goal turn was progress: `feb5ad3b2` committed/pushed source and retained-
+history repairs. Its exact runs were checked once at this continuation's start:
+[refresh 39393552992](https://github.com/110kc3/przetargimiejskie/actions/runs/39393552992)
+queued, [Security 39393553040](https://github.com/110kc3/przetargimiejskie/actions/runs/39393553040)
+and [deployment 39393552988](https://github.com/110kc3/przetargimiejskie/actions/runs/39393552988)
+in progress. No wait, repeated poll or workflow dispatch was introduced.
+
+### Zgorzelec
+
+Direct reads confirm seven announcement year boards, 2026–2020, linked from
+[archive 10598](https://zgorzelec.bip.info.pl/dokument.php?iddok=10598&idmp=394&r=r).
+The crawler follows those links, validates board/page form fields and printable
+article identity, and bounds pages/year boards/documents. Both quote styles and
+the CMS's public comma document route are handled. Failed, ignored, changed or
+capped pages cannot establish complete discovery. Administrative result links
+are never requested as administrative paths; only public board probes are made.
+The [result root](https://zgorzelec.bip.info.pl/index.php?idmp=34&r=r) remains a
+subcategory placeholder, so results remain explicitly incomplete.
+
+Exact article fixtures verify two separately priced Banacha lots in 18437:
+**15/57 / district I, 1,006 m² / 113,100 zł** and
+**15/58 / district I, 978 m² / 112,100 zł**, 13 October 2026. Their individual
+prices/areas must not be combined into one plot with only the first values.
+Built properties 18282/18281 retain **Armii Krajowej 48, 99.30 m²** and
+**Reja 4, 90.70 m²**, with parcel areas **792 / 636 m²** kept separate.
+Cellars, room breakdowns and outbuildings do not supply the floor areas.
+Missing achieved prices and cancellation alone cannot establish unsold results;
+canonical result provenance is retained.
+
+Full isolated refresh produces **4 properties / 3 plots** (one plot before),
+all prior keys/dates retained, strict integrity clean. Property/land checks are
+healthy; coverage health reports only result incompleteness. No local crawl
+output is published and no source review/runtime declaration is promoted.
+
+### Busko-Zdrój
+
+All 42 pages linked by the current [feed](https://www.umig.busko.pl/ogloszenia.html)
+were read, including page 32 beyond the former 30-page bound. The visible category
+covers published 2026 notices; older category archives remain unreviewed. Its two
+municipal sale articles are not empty-flat evidence: the earlier reader silently
+ignored their land and the current PDF-only announcement.
+
+[Article 26223](https://www.umig.busko.pl/ogloszenia/26223-ogloszenie-o-pierwszym-przetargu-ustnym-nieograniczonym-na-sprzedaz-nieruchomosci-komunalnej-polozonej-w-bloncu-znak-gnwr-6840-13-2026.html)
+links the Błoniec announcement PDF: **parcel 360/2, 549 m² / 22,000 zł**, auction
+6 November 2026. It explicitly excludes tenant-owned building improvements from
+the price and states a lease. The record preserves those restrictions; no building
+ownership or cadastral district number is inferred.
+
+[Article 25302](https://www.umig.busko.pl/ogloszenia/25302-burmistrz-miasta-i-gminy-busko-zdroj-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-komunalnych-znak-gnwr-6840-1-2026.html)
+contains three 23 April 2026 lots, with explicit achieved prices in its linked
+PDF: **271 / district 11, 1,718 m², 760,000→768,000 zł**;
+**273 / district 11, 1,935 m², 860,000→869,000 zł**;
+**789/15 / district 06, 175 m², 30,000→45,000 zł**. The PDF's 4 May publication
+date is not the auction date, and zero non-attendance counts do not establish
+unsold outcomes. Parcel prices are matched in the price enumeration, excluding
+the later deposit list. The result PDF is no longer reused as an announcement
+because its directory happens to contain the announcement keyword.
+
+One memoized crawl now follows/validates the source pager, with a 60-page cap,
+and reads each sale article once. The current 42-page feed therefore takes fewer
+page requests than the previous two 30-page passes. PDF-only announcement fallback
+uses the normal text extractor. Failed/ignored feed pages, unsupported bodies,
+PDF failures and unparsed result clauses keep coverage incomplete. Exact source
+article/pager fragments and born-digital PDF text support the regression tests.
+
+A shared land-builder defect was exposed by the actual pipeline order: a past
+announcement is already archived when its terminal result arrives. Previously its
+archived outcome survived despite an achieved price. Sold/unsold/no-winner results
+now win over unresolved announcements in either input order, retaining price and
+result provenance; later announcements cannot downgrade those results.
+
+Full isolated refresh: **0 properties / 4 plots**, three sold events and one
+current sale, strict integrity and coverage health clean. The obsolete Busko
+empty-source exemption is removed without renewal. Committed production data is
+still empty, so the initial operational check recorded **12 findings**: six
+source degradations, three failed attempts, two expired egress exceptions and one
+Busko empty-data finding awaiting hosted publication. Local output is not counted
+as hosted recovery or published locally.
+
+Canonical audit ledger: **0 complete / 11 partial / 110 unchecked** enabled feeds.
+Zgorzelec's newer evidence remains partial, and Busko's first dated partial review
+is recorded. Official identities, lifecycle/runtime statuses and review deadlines
+remain unchanged. Targeted parser/source-state/land/health checks and both actual
+isolated refreshes pass; the next push's hosted verification remains pending.
+
+
+During closeout, `main` advanced to scheduled municipal publication `f4a80d80c`
+(and provider publication `e7fc7d423`). The implementation rebased cleanly over
+those data-only commits. The newer committed snapshot confirms Kraków **80 / 36**
+and Jarocin **3 / 24** properties/plots, with healthy property/land checks and
+incomplete results explicitly degraded. National integrity passes. Current
+operational health is **13 findings** (9 source degradations, 1 failed attempt,
+2 expired egress exceptions, 1 pending Busko empty-data finding), superseding
+the initial 12-finding snapshot. Chrzanów's land check regressed to zero raw rows
+while preserving four plots; its last successful land check is 19 October
+21:40 UTC. That new gap is recorded for diagnosis, not suppressed. The committed
+data provides per-source evidence; no additional CI status poll was made.

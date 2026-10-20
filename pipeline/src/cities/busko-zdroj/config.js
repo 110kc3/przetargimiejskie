@@ -7,25 +7,22 @@
 //     no JS. Auction announcements are published as individual HTML articles
 //     at /ogloszenia/{numeric-id}-{slug}.html. The full auction text (address,
 //     powierzchnia użytkowa, cena wywoławcza, termin przetargu, wadium) is
-//     inline in the article body as <p>/<strong>/<li> tags — clean diacritics.
+//     inline in the article body or in an attached text PDF.
 //   dl.umig.busko.pl/bip/ogloszenia/… — text PDFs (source ogłoszenie + result
 //     "Informacja o wynikach przetargu"). Both linked FROM the article page:
 //       "Dokument źródłowy do pobrania [pdf]"    → announcement PDF
 //       "Informacja o wynikach przetargu [pdf]"  → result PDF (achieved price)
 //     The result link is added in-place once the auction concludes.
 //
-// The /ogloszenia feed is a large mixed stream (~5300 items: obwieszczenia o
-// warunkach zabudowy / środowisku, przetargi, etc.), 10 items/page paginated
-// at /ogloszenia.html?start=N. Property-sale auctions are a tiny fraction, so
-// the crawler paginates a BOUNDED window of the most-recent pages and filters
-// by the standard auction title ("przetarg ustny nieograniczony na sprzedaż
-// nieruchomości komunalnych"). Active auctions and just-concluded ones (result
-// PDF added ~2 weeks after the auction date) both sit near the top of the feed,
-// so a modest page cap catches them; known-urls incremental skip + committed
-// caches accumulate history across CI runs.
+// The visible mixed feed has 10 items/page at /ogloszenia.html?start=N.
+// On 20 October 2026 its 42 pages cover the published 2026 category. One shared
+// bounded pass follows the actual pager, validates page identity and inspects
+// each matching sale article, including PDF-only announcements. Older category
+// archives remain a separate coverage review; land history is retained.
 //
 // A single announcement can list SEVERAL properties (flat + commercial + land);
-// the parser keeps only lokal-mieszkalny records (classifyKind === 'mieszkalny').
+// supported flat and land families are returned in separate streams. Tenant-
+// owned building improvements explicitly excluded from a land price stay in notes.
 //
 // `source: 'html'` — announcement is HTML, results are born-digital text PDFs
 // (pdftotext, no OCR). NOTE: pdftotext drops Polish diacritics on this host's

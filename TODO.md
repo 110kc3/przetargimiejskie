@@ -112,7 +112,8 @@ The older dated sections below preserve diagnosis and do not override this state
   instead of dropping the sale or repeating its price per parcel. Discovery
   excludes unrelated BIP menu links, and rolling land output merges history.
   Targeted tests and an isolated actual Chromium crawl, strict sanity and
-  coverage-health checks pass. Hosted recovery is now observed in `8703ad158`.
+  coverage-health checks pass. Hosted recovery was observed in `8703ad158`;
+  the later `f4a80d80c` land check is degraded and requires renewed diagnosis.
 - **Jarocin repair implemented:** hosted integrity rejected a spurious street
   assembled from Stawna's land table. The source PDF describes undeveloped land
   beside housing, not a house for sale. Parser/crawler now retain two jointly
@@ -122,7 +123,8 @@ The older dated sections below preserve diagnosis and do not override this state
   missing/scanned attachments and unparsed results remain incomplete; historical
   land windows merge. Exact-source, builder and source-state tests pass. Final isolated output has
   **3 properties / 24 plots**, with prior history retained and strict integrity
-  clean; result coverage remains explicitly incomplete.
+  clean; result coverage remains explicitly incomplete. Hosted `f4a80d80c`
+  confirms the same counts and healthy property/land checks.
 - **Kraków repair implemented:** official pages start at `strona=1`; page zero
   returns HTTP 400. Pagination now follows official links within the six-page
   cap. Current share notice 263185 retains grouped parcels 17/1 + 17/2,
@@ -135,19 +137,48 @@ The older dated sections below preserve diagnosis and do not override this state
   The seven separately priced parcel groups in notice 227539 are now retained
   individually. Guarded source/date migrations remove retained malformed keys
   with aliases and repair the wrong garage outcome; the committed-history
-  repair has **11 properties / 13 plots**, with source clocks unchanged.
+  initial correction retained **11 properties / 13 plots**, with source clocks
+  unchanged before the broader hosted publication.
   Missing achieved prices cannot establish unsold results. Final isolated output
   has **80 properties / 36 plots**, strict integrity clean and incomplete results
-  still degraded. Hosted recovery remains pending.
+  still degraded. The later `f4a80d80c` hosted publication confirms these counts
+  and healthy property/land streams; results remain explicitly incomplete.
+- **Zgorzelec archive/asset repair implemented:** discovery now walks the
+  explicitly linked 2026–2020 announcement boards, validates board/page and
+  article identity, and retains history. Banacha notice 18437 yields two
+  independent sales: **15/57, 1,006 m² / 113,100 zł** and
+  **15/58, 978 m² / 112,100 zł**, 13 October. Houses at Armii Krajowej 48 and
+  Reja 4 retain their actual **99.30 / 90.70 m²** floor areas, distinct from
+  parcels/cellars/outbuildings. Full isolated output is **4 properties / 3
+  plots**, prior keys/dates retained, strict integrity clean. The result root
+  still asks for a subcategory; admin archive links are only probed through
+  public views, so result coverage stays explicitly incomplete.
+- **Busko-Zdrój is not empty:** its former flat-only reader missed a current
+  PDF-only land sale and an older sale/result article beyond page 30. One shared
+  crawl now reads the published pager (42 current pages, cap 60), each selected
+  article once, and announcement PDFs when needed. Current Błoniec parcel
+  **360/2, 549 m² / 22,000 zł**, auction **6 November**, explicitly excludes
+  tenant-owned building improvements; those restrictions remain in notes.
+  Three April land sales retain **768,000 / 869,000 / 45,000 zł** achieved prices.
+  Result/announcement PDFs remain distinct, and publication dates cannot become
+  auction dates. Full isolated output has **4 plots**, strict integrity and
+  coverage health clean. The obsolete empty-source exemption is removed without
+  renewing its date; hosted publication is pending. Older category archives and
+  unsupported asset families remain outside this partial audit.
+- **Shared land folding repaired:** a source-backed sold/unsold result now wins
+  over a past announcement already classified as archived, in either input order.
+  Price and result provenance survive; a later announcement cannot downgrade it.
+  Actual Busko fixtures plus source-order regressions pass.
 - **Existing-city asset audit is now recorded in the canonical manifest:**
-  **0 complete / 10 partial / 111 unchecked**, generated in
+  **0 complete / 11 partial / 110 unchecked**, generated in
   [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The partial checks cover
   Bolesławiec, Trzebnica, Chrzanów, Zgorzelec, Ząbkowice Śląskie, Lubin, Wschowa
-  and Żagań, plus Kraków and Jarocin. Lubin/Wschowa/Żagań fold in evidence
+  and Żagań, plus Kraków, Jarocin and Busko-Zdrój. Lubin/Wschowa/Żagań fold in evidence
   committed in `046f3b07c`.
   They retain the full
   review deadlines and do not promote hosted runtime status. Zgorzelec's linked
-  year archives are not crawled. Ząbkowice notice 11008 is a genuine 19.43 m²
+  announcement archives are now crawled; its result discovery remains incomplete.
+  Ząbkowice notice 11008 is a genuine 19.43 m²
   garage / 44,000 zł sale missed because no street number is published; its
   parcel/share must not be relabelled as a street address or bare-land sale.
 - **Hosted feed recovery observed:** current committed data from scheduled
@@ -166,13 +197,15 @@ The older dated sections below preserve diagnosis and do not override this state
   85 auction events**, retaining the newer records: Sandomierz **22 plots / 39
   events**, Ząbkowice **71 / 120**. Only land counts change in metadata/index;
   all source attempt/success timestamps remain unchanged. National integrity passes.
-- **Current production health: 12 findings** against scheduled `8703ad158`,
-  checked 20 October: six degraded streams, three failed attempts, two expired
-  egress exceptions and one empty-source recheck. Hosted data confirms recovery
-  for Bolesławiec/Chrzanów and Trzebnica's property/land streams; Trzebnica's
-  results remain degraded. Świętochłowice, Kraków and Jarocin still have failed
-  attempts. Olkusz recovered on the later hosted run; earlier logs show connection
-  timeouts. Kraków/Jarocin's new local repairs are not counted as hosted recovery.
+- **Current production health: 13 findings** against scheduled `f4a80d80c`,
+  checked 20 October: nine degraded streams, one failed attempt, two expired
+  egress exceptions and one Busko empty-data finding pending hosted publication
+  of its repair. The obsolete empty-source exemption was removed after positive
+  sale evidence. New committed data confirms Kraków **80 properties / 36 plots**
+  and Jarocin **3 / 24**, with healthy property/land and explicitly incomplete
+  result streams. Świętochłowice remains the failed attempt. Chrzanów's latest
+  land stream regressed to zero current rows while preserving four plots; this
+  new degradation remains visible and needs source-specific diagnosis.
 - **Earlier refresh workflow failure diagnosed:** municipal publication completed;
   the provider gate failed because PKP timed out connecting to `www.pkp.pl` on
   the primary and both fresh-runner retries. Last-good provider health alone
@@ -180,19 +213,27 @@ The older dated sections below preserve diagnosis and do not override this state
   transport or workflow dispatch was introduced.
 
 **Next accepted work:** inspect the natural hosted Security/source outcomes once
-for the next push; continue source-specific repairs for Bytom, Zgorzelec,
+for the next push; continue source-specific repairs for Bytom,
 Ząbkowice Śląskie and Kwidzyn, Trzebnica's remaining unparsed history/completeness,
 and Wałbrzych's incomplete
-result stream and Busko-Zdrój's expired empty-board review. The Bytom property
+result stream. Verify Zgorzelec/Busko naturally after this push and continue
+Zgorzelec's incomplete result discovery and older Busko category archives. The Bytom property
 board returns HTTP 403 in the current local probe while its catalogue yields 13
 land plots and no units; that does not prove an empty property board. Continue
 the current 121-city source/asset audit before the separate new-adapter queue.
-Verify Kraków/Jarocin naturally after this push; continue their explicitly
-remaining unparsed source work. Olkusz is currently recovered; retain the
+Continue Kraków/Jarocin's explicitly incomplete results and diagnose the new
+Chrzanów land-source regression in `f4a80d80c`. Olkusz is currently recovered; retain the
 earlier timeout evidence rather than changing source/health policy.
 PKP/Świętochłowice reachability and Racibórz/Pszczyna's excluded egress remain
 visible gaps. Store submission, Search Console acceptance and received 30-day
 interest evidence remain external gates. See [repair evidence](REPAIR-EVIDENCE-2026-10.md).
+
+**Latest continuation check:** `feb5ad3b2` was checked once on 20 October.
+[Refresh 39393552992](https://github.com/110kc3/przetargimiejskie/actions/runs/39393552992)
+was queued; [Security 39393553040](https://github.com/110kc3/przetargimiejskie/actions/runs/39393553040)
+and [deployment 39393552988](https://github.com/110kc3/przetargimiejskie/actions/runs/39393552988)
+were in progress. No additional poll or workflow dispatch was made. This new
+push remains pending hosted verification.
 
 **Prior continuation check:** `4cfed9c48` was checked once on 19 October.
 [Refresh 39329213700](https://github.com/110kc3/przetargimiejskie/actions/runs/39329213700),

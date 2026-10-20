@@ -9,6 +9,8 @@
 // parseAnnouncementListings(html, url) — from ONE auction-announcement article
 //   page, extract every lokal-mieszkalny record. A single announcement can list
 //   a flat + a commercial building + land plots; only flats are returned.
+// parseLandAnnouncementListings(htmlOrText, url) handles the source's separate
+//   parcel descriptions/price list and the verified PDF-only land-sale family.
 //   The flat's address + starting price come from the "Ceny wywoławcze …"
 //   enumeration line ("190 000,00 zł lokal mieszkalny Busko-Zdrój os. Kościuszki
 //   7/6"); its area from the descriptive paragraph ("Lokal mieszkalny nr 6 o
@@ -21,8 +23,8 @@
 //
 // parseResultDoc(text, fallbackDate, sourceUrl) — registry contract. Parses a
 //   born-digital "Informacja o wynikach przetargu" PDF (pdftotext -layout).
-//   The PDF is multi-item (one numbered clause per property); only flat clauses
-//   are returned. NOTE: pdftotext strips Polish diacritics on this host, so the
+//   The PDF is multi-item (one numbered clause per property); supported flat
+//   and land clauses are returned. NOTE: some PDFs lose Polish diacritics, so the
 //   regexes are diacritic-tolerant (u\w+ for "użytkowej", osi\w+ for
 //   "osiągnięta", etc.).
 //
@@ -244,6 +246,56 @@ export function parseAnnouncementListings(html, pageUrl) {
   return out;
 }
 
+function announcementDate(text) {
+  const m = /przetarg\s+odb[ęe]dzie\s+si[ęe]\s+w\s+dniu\s+([^\n]{1,40})/i.exec(text);
+  const iso = m ? parseDateText(m[1]) : null;
+  const date = iso ? new Date(`${iso}T00:00:00Z`) : null;
+  return date && Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === iso ? iso : null;
+}
+
+/** Land rows have their own descriptive parcel/area and enumerated price. */
+export function parseLandAnnouncementListings(htmlOrText, pageUrl, sourceUrl = pageUrl) {
+  const text = stripTags(articleBody(htmlOrText));
+  const auction_date = announcementDate(text);
+  if (!auction_date) return [];
+  const common = { kind: 'grunt', auction_date, round: roundFromTitle(pageTitle(htmlOrText) || text),
+    detail_url: pageUrl, source_url: sourceUrl };
+
+  // This sale excludes the tenant-owned building improvements from its price.
+  // Preserve that explicit restriction; do not offer the building as an asset.
+  if (/nak[łl]ady\s+te\s+stanowi[ąa]\s+w[łl]asno[śs][ćc]\s+dotychczasowego\s+dzier[żz]awcy\s+i\s+nie\s+s[ąa]\s+uwzgl[ęe]dnione\s+w\s+cenie\s+sprzeda[żz]y/i.test(text)) {
+    const parcel = /w\s+ewidencji\s+grunt[óo]w\s+nr\s+(\d+(?:\/\d+)?)\s+o\s+powierzchni\s+(\d+[.,]\d+)\s*ha/i.exec(text);
+    const price = /cena\s+wywo[łl]awcza\s+nieruchomo[śs]ci\s+wynosi\s+([\d][\d\s]*,\d{2})\s*z[łl]/i.exec(text);
+    const place = /w\s+miejscowo[śs]ci\s+([\p{L} -]+),\s*gm\./iu.exec(text);
+    if (!parcel || !price || !place || !parseArea(parcel[2]) || !parsePLN(price[1])) return [];
+    return [{ ...common, dzialka_nr: parcel[1], area_m2: Math.round(parseArea(parcel[2]) * 10000),
+      starting_price_pln: parsePLN(price[1]), address_raw: `${place[1].trim()}, dz. ${parcel[1]}`,
+      notes: ['Cena nie obejmuje nakładów stanowiących własność dotychczasowego dzierżawcy.',
+        'Nieruchomość obciążona umową dzierżawy; warunki opisano w ogłoszeniu.'],
+    }];
+  }
+
+  const subjects = [...text.matchAll(/niezabudowana\s+nieruchomo[śs][ćc]\s+po[łl]o[żz]ona[\s\S]{0,250}?oznaczona\s+w\s+ewidencji\s+grunt[óo]w\s+(?:nr|numerem)\s+(\d+(?:\/\d+)?)\s+o\s+powierzchni\s+(\d+[.,]\d+)\s*ha/gi)];
+  if (!subjects.length) return [];
+  const priceRegion = /ceny\s+wywo[łl]awcze\s+nieruchomo[śs]ci\s+wynosz[ąa]\s*:\s*([\s\S]*?)(?=Ceny\s+nieruchomo[śs]ci|Warunkiem|$)/i.exec(text)?.[1];
+  if (!priceRegion) return [];
+  const prices = [...priceRegion.matchAll(/([\d][\d\s]*,\d{2})\s*z[łl]\s+dz\.(?:\s*nr)?\s*(\d+(?:\/\d+)?)\s+obr\.\s*(\d+)/gi)];
+  const records = [];
+  const seen = new Set();
+  for (const subject of subjects) {
+    const district = /obr(?:[ęe]b|\.)\s*(\d+)/i.exec(subject[0])?.[1];
+    if (!district) return [];
+    const matching = prices.filter(p => p[2] === subject[1] && Number(p[3]) === Number(district));
+    const key = `${district}|${subject[1]}`;
+    if (matching.length !== 1 || seen.has(key)) return [];
+    seen.add(key);
+    records.push({ ...common, dzialka_nr: subject[1], obreb: district,
+      area_m2: Math.round(parseArea(subject[2]) * 10000), starting_price_pln: parsePLN(matching[0][1]),
+    });
+  }
+  return records.length === prices.length && records.every(r => r.area_m2 > 0 && r.starting_price_pln > 0) ? records : [];
+}
+
 // ---------------------------------------------------------------------------
 // Result-link extractor (points crawlResultDocs at the result PDF)
 // ---------------------------------------------------------------------------
@@ -281,8 +333,9 @@ export function parseResultLink(html) {
     let lm;
     while ((lm = linkRe.exec(html)) !== null) {
       const u = lm[1];
-      if (!resultPdf && /informacj\w*_o_wy\w*|o_wynik|wynikach/i.test(u)) resultPdf = u;
-      else if (!announcementPdf && /ogloszenie|og[łl]oszeni/i.test(u)) announcementPdf = u;
+      const filename = u.split('/').at(-1);
+      if (/informacj\w*_o_wy\w*|o_wynik|wynikach/i.test(filename)) { if (!resultPdf) resultPdf = u; }
+      else if (!announcementPdf && /ogloszenie|og[łl]oszeni|obwieszczenie/i.test(filename)) announcementPdf = u;
     }
   }
 
@@ -330,11 +383,11 @@ function addressFromClause(clause) {
  */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text || !String(text).trim()) return [];
-  const t = String(text);
+  const t = String(text).replace(/[–—]/g, '-');
 
   const isResultNotice =
-    /informacj\w*[\s\S]{0,40}?o\s+wynik/i.test(t) ||
-    /cena\s+osi\w+\s+w\s+przetargu/i.test(t) ||
+    /informacj[\p{L}]*[\s\S]{0,40}?o\s+wynik/iu.test(t) ||
+    /cena\s+osi[\p{L}]+\s+w\s+przetargu/iu.test(t) ||
     /wynik\w*\s+negatywn/i.test(t);
   if (!isResultNotice) return [];
 
@@ -348,7 +401,24 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
 
   const out = [];
   for (const clause of splitResultClauses(t)) {
-    if (classifyKind(clause) !== 'mieszkalny') continue;
+    const kind = classifyKind(clause);
+    if (!['mieszkalny', 'grunt'].includes(kind)) continue;
+
+    if (kind === 'grunt') {
+      const parcel = /w\s+ewidencji\s+grunt[óo]w\s+(?:nr|numerem)\s+(\d+(?:\/\d+)?)\s+o\s+powierzchni\s+(\d+[.,]\d+)\s*ha/i.exec(clause);
+      const district = /obr\.\s*(\d+)/i.exec(clause)?.[1];
+      const start = /cena\s+wywo[łl]awcza\s+nieruchomo[śs]ci\s*-\s*([\d][\d\s]*,\d{2})/i.exec(clause);
+      const achieved = /cena\s+osi[\p{L}]+\s+w\s+przetargu\s*-\s*([\d][\d\s]*,\d{2})/iu.exec(clause);
+      const negative = /wynik[\p{L}]*\s+negatywn/iu.test(clause);
+      const final = achieved ? parsePLN(achieved[1]) : null;
+      if (!parcel || !district || (!final && !negative)) continue;
+      out.push({ kind: 'grunt', dzialka_nr: parcel[1], obreb: district,
+        area_m2: Math.round(parseArea(parcel[2]) * 10000), starting_price_pln: start ? parsePLN(start[1]) : null,
+        final_price_pln: negative ? null : final, outcome: negative ? 'unsold' : 'sold',
+        auction_date: headerDate, round: roundFromTitle(clause), source_pdf: sourceUrl,
+      });
+      continue;
+    }
 
     const address = addressFromClause(clause);
     if (!address) continue;
@@ -362,7 +432,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     const achM = /cena\s+osi\w+\s+w\s+przetargu\s*[-:]?\s*([\d][\d\s ]*)/i.exec(clause);
     const final_price_pln = achM ? parsePLN(achM[1]) : null;
 
-    const unsold = /wynik\w*\s+negatywn|brak\s+os[oó]b\s+ucze|nie\s+zg[łl]osi/i.test(clause);
+    const unsold = /wynik\w*\s+negatywn|brak\s+os[oó]b\s+ucze|nikt\s+nie\s+zg[łl]osi/i.test(clause);
     const outcome = unsold ? 'unsold' : (final_price_pln != null ? 'sold' : 'open');
     const unsold_reason = unsold ? 'wynik negatywny' : null;
 

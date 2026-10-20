@@ -36,11 +36,12 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **10 partial**, **111 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+121 enabled cities: **0 complete**, **11 partial**, **110 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
 | Bolesławiec | 2026-10-19 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md) |
+| Busko-Zdrój | 2026-10-20 | partial | land | [source notes](../spikes/swietokrzyskie/powiat-buski/busko-zdroj.md) |
 | Chrzanów | 2026-10-19 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
 | Jarocin | 2026-10-20 | partial | land | [source notes](../spikes/wielkopolskie/powiat-jarocinski/jarocin.md) |
 | Kraków | 2026-10-20 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
@@ -48,7 +49,7 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Trzebnica | 2026-10-19 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md) |
 | Wschowa | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-wschowski/wschowa.md) |
 | Ząbkowice Śląskie | 2026-10-19 | partial | land, garage | [source notes](../spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md) |
-| Zgorzelec | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md) |
+| Zgorzelec | 2026-10-20 | partial | land, building | [source notes](../spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md) |
 | Żagań | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-zaganski/zagan.md) |
 
 ## Built adapters (121)

@@ -4,8 +4,8 @@
 // /ogloszenia feed; result "Informacja o wynikach przetargu" notices are text
 // PDFs on dl.umig.busko.pl linked from the same article. See config.js.
 //
-//   crawlActive()      → { listings, wykaz: [] }     from announcement articles
-//   crawlResultDocs()  → Array<{text, date, url}>    from result PDFs
+//   crawlActive()      → { listings, land, wykaz: [] } from HTML/text PDF announcements
+//   crawlResultDocs()  → Array<{text, pdf_url, auction_date}> from result PDFs
 //   parseResultDoc()   → Array<ResultRecord>         from result PDF text
 
 import { config } from './config.js';
