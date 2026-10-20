@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "pkp",
-  "generated_at": "2026-10-19T21:41:20.088Z",
+  "generated_at": "2026-10-20T08:29:15.974Z",
   "listings": [
     {
       "event_key": "pkp:31764",
@@ -34,6 +34,38 @@
       "outcome": "active",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31764",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31274"
+    },
+    {
+      "event_key": "pkp:31757",
+      "external_id": "31757",
+      "seller_id": "pkp",
+      "seller_name": "PKP S.A.",
+      "seller_type": "state_company",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "title": "Kędzierzyn Koźle Aleja Jana Pawła II 4b/19 - lokal mieszkalny",
+      "city": "Kędzierzyn-Koźle",
+      "city_norm": "kedzierzyn-kozle",
+      "voivodeship": "opolskie",
+      "address_raw": "Aleja Jana Pawła II 4b/19",
+      "street": "Aleja Jana Pawła II",
+      "building": "4B",
+      "apt": "19",
+      "area_m2": 52.49,
+      "land_area_m2": null,
+      "publication_date": "2026-10-20",
+      "auction_date": "2026-11-24",
+      "bid_deadline": "2026-11-19",
+      "wadium_deadline": "2026-11-19",
+      "round": null,
+      "starting_price_pln": 225000,
+      "final_price_pln": null,
+      "bidders": null,
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31757",
+      "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=30623"
     },
     {
       "event_key": "pkp:31722",
@@ -1439,7 +1471,7 @@
       "final_price_pln": null,
       "bidders": null,
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31661",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=28760"
     },
