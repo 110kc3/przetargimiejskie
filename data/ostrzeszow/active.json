@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "city": "ostrzeszow",
+  "listings": [],
+  "wykaz": [
+    {
+      "kind": "grunt",
+      "dzialka_nr": null,
+      "obreb": null,
+      "area_m2": null,
+      "address_raw": null,
+      "address": null,
+      "detail_url": "https://bip.zgm-ostrzeszow.pl/art,69,zaklad-gospodarki-mieszkaniowej-sp-z-oo-podaje-do-publicznej-wiadomosci-wykaz-nieruchomosci-gruntowej-niezabudowanej-przeznaczonej-do-sprzedazy-w-trybie-przetargu-ustnego-nieograniczonego"
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "21 Stycznia 1A/2",
+      "address": {
+        "street": "21 Stycznia",
+        "street_norm": "21 stycznia",
+        "building": "1A",
+        "apt": "2",
+        "key": "21 stycznia|1A|2",
+        "warning": null
+      },
+      "detail_url": "https://bip.zgm-ostrzeszow.pl/art,54,zaklad-gospodarki-mieszkaniowej-sp-z-oo-podaje-do-publicznej-wiadomosci-wykaz-nieruchomosci-mieszkalnej-zabudowanej-przeznaczonej-do-sprzedazy-w-trybie-przetargu-ustnego-nieograniczonego-ul-21-stycznia-1a2"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Kolejowa 29/3",
+      "address": {
+        "street": "Kolejowa",
+        "street_norm": "kolejowa",
+        "building": "29",
+        "apt": "3",
+        "key": "kolejowa|29|3",
+        "warning": null
+      },
+      "detail_url": "https://bip.zgm-ostrzeszow.pl/art,33,wykaz-nieruchomosci-lokalowej-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-przeznaczonej-do-sprzedazy-ul-kolejowa-293"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Wolności 3B/5",
+      "address": {
+        "street": "Wolności",
+        "street_norm": "wolnosci",
+        "building": "3B",
+        "apt": "5",
+        "key": "wolnosci|3B|5",
+        "warning": null
+      },
+      "detail_url": "https://bip.zgm-ostrzeszow.pl/art,34,wykaz-nieruchomosci-lokalowej-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-przeznaczonej-do-sprzedazy-ul-al-wolnosci-3b5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Chmielna 1",
+      "address": {
+        "street": "Chmielna",
+        "street_norm": "chmielna",
+        "building": "1",
+        "apt": null,
+        "key": "chmielna|1|",
+        "warning": null
+      },
+      "detail_url": "https://bip.zgm-ostrzeszow.pl/art,28,wykaz-nieruchomosci-lokalowej-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-przeznaczonej-do-sprzedazy"
+    }
+  ]
+}

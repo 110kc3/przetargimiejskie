@@ -3,40 +3,6 @@
   "city": "dzierzoniow",
   "properties": [
     {
-      "key": "krasickiego|47|17",
-      "street": "Krasickiego",
-      "street_norm": "krasickiego",
-      "building": "47",
-      "apt": "17",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-11-26",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 125000,
-          "outcome": "unsold",
-          "unsold_reason": "brak_oferentow",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/50300",
-          "notes": [],
-          "area_m2": 31.74
-        },
-        {
-          "date": "2026-09-09",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 115000,
-          "outcome": "active",
-          "area_m2": 31.74,
-          "detail_url": "https://bip.um.dzierzoniow.pl/a,29322,lokal-mieszkalny-nr-17-w-budynku-przy-ul-ignacego-krasickiego-47-w-dzierzoniowie.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 31.74
-    },
-    {
       "key": "spacerowej|15|2",
       "street": "Spacerowa",
       "street_norm": "spacerowej",
@@ -79,9 +45,150 @@
           "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51370",
           "notes": [],
           "area_m2": 37.86
+        },
+        {
+          "date": "2026-09-16",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 99000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51998",
+          "notes": [],
+          "area_m2": 37.86,
+          "round_source": "inferred"
         }
       ],
       "area_m2": 37.86
+    },
+    {
+      "key": "swidnickiej|44|2",
+      "street": "Świdnicka",
+      "street_norm": "swidnickiej",
+      "building": "44",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "unsold_reason": "brak_oferentow",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51370",
+          "notes": [],
+          "area_m2": 70.92
+        },
+        {
+          "date": "2026-09-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 275000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51998",
+          "notes": [],
+          "area_m2": 70.92,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 70.92
+    },
+    {
+      "key": "podwalnej|2|7",
+      "street": "Podwalna",
+      "street_norm": "podwalnej",
+      "building": "2",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-03-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 55000,
+          "outcome": "unsold",
+          "unsold_reason": "brak_oferentow",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/45547",
+          "notes": [],
+          "area_m2": 23.65
+        },
+        {
+          "date": "2026-09-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 56000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51998",
+          "notes": [],
+          "round_source": "inferred",
+          "area_m2": 23.65
+        }
+      ],
+      "area_m2": 23.65
+    },
+    {
+      "key": "brzegowej|27|2",
+      "street": "Brzegowa",
+      "street_norm": "brzegowej",
+      "building": "27",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51998",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "krasickiego|47|17",
+      "street": "Krasickiego",
+      "street_norm": "krasickiego",
+      "building": "47",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "unsold_reason": "brak_oferentow",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/50300",
+          "notes": [],
+          "area_m2": 31.74
+        },
+        {
+          "date": "2026-09-09",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "archived",
+          "area_m2": 31.74,
+          "detail_url": "https://bip.um.dzierzoniow.pl/a,29322,lokal-mieszkalny-nr-17-w-budynku-przy-ul-ignacego-krasickiego-47-w-dzierzoniowie.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 31.74
     },
     {
       "key": "nowowiejskiej|54|2",
@@ -142,29 +249,6 @@
       "area_m2": 22.17
     },
     {
-      "key": "swidnickiej|44|2",
-      "street": "Świdnickiej",
-      "street_norm": "swidnickiej",
-      "building": "44",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 300000,
-          "outcome": "unsold",
-          "unsold_reason": "brak_oferentow",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/51370",
-          "notes": [],
-          "area_m2": 70.92
-        }
-      ],
-      "area_m2": 70.92
-    },
-    {
       "key": "mostowej|8|5",
       "street": "Mostowa",
       "street_norm": "mostowej",
@@ -172,6 +256,19 @@
       "apt": "5",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48961",
+          "notes": [],
+          "area_m2": 30.83,
+          "round_source": "inferred"
+        },
         {
           "date": "2025-05-14",
           "round": 1,
@@ -266,6 +363,19 @@
           "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/44792",
           "notes": [],
           "area_m2": 31.09
+        },
+        {
+          "date": "2024-09-04",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48099",
+          "notes": [],
+          "area_m2": 31.09,
+          "round_source": "inferred"
         },
         {
           "date": "2024-11-20",
@@ -539,6 +649,19 @@
       "apt": "2",
       "kind": "mieszkalny",
       "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48961",
+          "notes": [],
+          "area_m2": 55.73,
+          "round_source": "inferred"
+        },
         {
           "date": "2025-05-14",
           "round": 1,
@@ -910,6 +1033,126 @@
       "area_m2": 24.72
     },
     {
+      "key": "zabkowickiej|30|3",
+      "street": "Ząbkowickiej",
+      "street_norm": "zabkowickiej",
+      "building": "30",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 75000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 75750,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48961",
+          "notes": [],
+          "area_m2": 35.65,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 35.65
+    },
+    {
+      "key": "pieknej|7|4",
+      "street": "Piękna",
+      "street_norm": "pieknej",
+      "building": "7",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-02-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 61000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 61610,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48961",
+          "notes": [],
+          "area_m2": 14.93,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 14.93
+    },
+    {
+      "key": "rynek|31|9",
+      "street": "Rynek",
+      "street_norm": "rynek",
+      "building": "31",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 55000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48099",
+          "notes": [],
+          "area_m2": 11.04,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 11.04
+    },
+    {
+      "key": "blekitnym|13B|12",
+      "street": "Błękitnym",
+      "street_norm": "blekitnym",
+      "building": "13B",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 187500,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48099",
+          "notes": [],
+          "area_m2": 39.63,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 39.63
+    },
+    {
+      "key": "kolorowym|17C|6",
+      "street": "Kolorowym",
+      "street_norm": "kolorowym",
+      "building": "17C",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-09-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 320000,
+          "outcome": "unsold",
+          "unsold_reason": "no_participants",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/48099",
+          "notes": [],
+          "area_m2": 65.54,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 65.54
+    },
+    {
       "key": "szkolnej|17|8",
       "street": "Szkolna",
       "street_norm": "szkolnej",
@@ -1004,7 +1247,7 @@
     },
     {
       "key": "swidnickiej|51C|13",
-      "street": "Świdnickiej",
+      "street": "Świdnicka",
       "street_norm": "swidnickiej",
       "building": "51C",
       "apt": "13",
@@ -1145,7 +1388,7 @@
     },
     {
       "key": "swidnickiej|19|12",
-      "street": "Świdnickiej",
+      "street": "Świdnicka",
       "street_norm": "swidnickiej",
       "building": "19",
       "apt": "12",
@@ -1180,7 +1423,7 @@
     },
     {
       "key": "swidnickiej|52|1",
-      "street": "Świdnickiej",
+      "street": "Świdnicka",
       "street_norm": "swidnickiej",
       "building": "52",
       "apt": "1",
@@ -1444,29 +1687,6 @@
         }
       ],
       "area_m2": 27.48
-    },
-    {
-      "key": "podwalnej|2|7",
-      "street": "Podwalna",
-      "street_norm": "podwalnej",
-      "building": "2",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2023-03-15",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 55000,
-          "outcome": "unsold",
-          "unsold_reason": "brak_oferentow",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.dzierzoniow.pl/api/files/45547",
-          "notes": [],
-          "area_m2": 23.65
-        }
-      ],
-      "area_m2": 23.65
     },
     {
       "key": "szkolnej|13|5",

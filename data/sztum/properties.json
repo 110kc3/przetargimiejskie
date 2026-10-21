@@ -1,0 +1,1054 @@
+{
+  "schema_version": 1,
+  "city": "sztum",
+  "properties": [
+    {
+      "key": "nowowiejskiego|18|1A",
+      "street": "Nowowiejskiego",
+      "street_norm": "nowowiejskiego",
+      "building": "18",
+      "apt": "1A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 271000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19249",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 67.39
+        },
+        {
+          "date": "2026-05-29",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 271000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19550",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 67.39
+        },
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19747",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 67.39
+        },
+        {
+          "date": "2026-08-31",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19861",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 67.39
+        },
+        {
+          "date": "2026-10-13",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19970",
+          "notes": [
+            "procedure: rokowania"
+          ],
+          "area_m2": 67.39
+        },
+        {
+          "date": "2026-11-24",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 199000,
+          "outcome": "active",
+          "area_m2": 67.39,
+          "detail_url": "https://bip.sztum.pl/1186.html?file=19975",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 67.39
+    },
+    {
+      "key": "sklodowskiej|17D|7",
+      "street": "Skłodowskiej",
+      "street_norm": "sklodowskiej",
+      "building": "17D",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-24",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "active",
+          "area_m2": 43.56,
+          "detail_url": "https://bip.sztum.pl/1186.html?file=19971",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 43.56
+    },
+    {
+      "key": "sklodowskiej|17|7",
+      "street": "Skłodowskiej",
+      "street_norm": "sklodowskiej",
+      "building": "17",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18857",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-01-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18942",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-02-23",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19237",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-05-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19548",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19742",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-08-31",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19862",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 208000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19969",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "zeromskiego|24A|3",
+      "street": "Żeromskiego",
+      "street_norm": "zeromskiego",
+      "building": "24A",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 153603,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18676",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-11-12",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18793",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-01-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18921",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-02-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19080",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-04-07",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19238",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-05-22",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19511",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-07-15",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 76800,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19732",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-09-02",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 61500,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 70700,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19868",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "zeromskiego|14A|",
+      "street": "Żeromskiego",
+      "street_norm": "zeromskiego",
+      "building": "14A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-08-23",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 350000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17489",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-08-11",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18592",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-09-22",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18677",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-11-13",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 230000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18796",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-12-22",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18897",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-03-23",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 180000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19188",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-05-05",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19439",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-06-15",
+          "round": 5,
+          "kind": "zabudowana",
+          "starting_price_pln": 170000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 170000,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19637",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "jagielly|6|6",
+      "street": "Jagiełły",
+      "street_norm": "jagielly",
+      "building": "6",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 144500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18898",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-03-24",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 134500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19090",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-04-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 150500,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19240",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|52A|",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "52A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-11-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 200000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 200000,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18792",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "zeromskiego|11|",
+      "street": "Żeromskiego",
+      "street_norm": "zeromskiego",
+      "building": "11",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-08-22",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 300000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17488",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-10-01",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 283000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17632",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-11-13",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17765",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-12-23",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17867",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-02-11",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18022",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-03-26",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18164",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2025-05-16",
+          "round": 5,
+          "kind": "zabudowana",
+          "starting_price_pln": 230000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 230000,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=18396",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|25|6",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "25",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16030",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-07-24",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16292",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-10-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16579",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-01-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16767",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-02-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16870",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-06-19",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17314",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-07-30",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 325000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17434",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-09-10",
+          "round": 6,
+          "kind": "mieszkalny",
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17522",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-10-22",
+          "round": 7,
+          "kind": "mieszkalny",
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17706",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-12-05",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 310000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17847",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "galla anonima|7|3",
+      "street": "Galla Anonima",
+      "street_norm": "galla anonima",
+      "building": "7",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 80800,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=17481",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "czarnieckiego|2|10",
+      "street": "Czarnieckiego",
+      "street_norm": "czarnieckiego",
+      "building": "2",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16029",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-07-24",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16291",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-09-05",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16420",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-10-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16581",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2024-01-03",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 121000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 132100,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16766",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "plac wolnosci|25|3",
+      "street": "Plac Wolności",
+      "street_norm": "plac wolnosci",
+      "building": "25",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-04-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 314500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16031",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-07-24",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 314500,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16293",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-09-05",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16421",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-10-23",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 280000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 280000,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16580",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "zeromskiego|11|1",
+      "street": "Żeromskiego",
+      "street_norm": "zeromskiego",
+      "building": "11",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-01-24",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=15817",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-03-09",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=15942",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-05-08",
+          "round": 5,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16125",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-07-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16259",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-08-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=16397",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "kwidzynska|4|",
+      "street": "Kwidzyńska",
+      "street_norm": "kwidzynska",
+      "building": "4",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-01-05",
+          "round": 4,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=15760",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2023-03-02",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 250000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 250000,
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=15935",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "mickiewicza|39|",
+      "street": "Mickiewicza",
+      "street_norm": "mickiewicza",
+      "building": "39",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.sztum.pl/1186.html?file=19549",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    }
+  ]
+}

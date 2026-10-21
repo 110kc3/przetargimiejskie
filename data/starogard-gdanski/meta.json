@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "parser_version": "0.2.0",
+  "city": "starogard-gdanski",
+  "generated_at": "2026-10-21T22:35:49.159Z",
+  "source_pdf_count": 3,
+  "parsed_records": 0,
+  "parser_note_count": 0,
+  "unique_properties": 12,
+  "active_listings": 3,
+  "active_auctions": 0,
+  "archived_auctions": 1,
+  "wykaz_entries": 12,
+  "land_plots": 8,
+  "land_listings": 20,
+  "retained_properties": 0,
+  "valid_empty": false,
+  "valid_empty_land": false,
+  "last_source_attempt_at": "2026-10-21T22:35:18.307Z",
+  "last_successful_source_check_at": "2026-10-21T22:35:18.307Z",
+  "monitored_assets": [
+    "land",
+    "residential",
+    "unknown"
+  ],
+  "source_checks": {
+    "property": {
+      "status": "healthy",
+      "last_attempt_at": "2026-10-21T22:35:18.307Z",
+      "last_success_at": "2026-10-21T22:35:18.307Z"
+    },
+    "land": {
+      "status": "healthy",
+      "complete": true,
+      "last_attempt_at": "2026-10-21T22:35:18.307Z",
+      "last_success_at": "2026-10-21T22:35:18.307Z"
+    }
+  }
+}

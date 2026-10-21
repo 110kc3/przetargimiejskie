@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "city": "otwock",
+  "properties": [
+    {
+      "key": "stanislawa wyspianskiego|6|27",
+      "street": "Stanisława Wyspiańskiego",
+      "street_norm": "stanislawa wyspianskiego",
+      "building": "6",
+      "apt": "27",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 49.42,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29801",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 470000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bids",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_08/BIPF6593E06A80FF9Z/wynik_przetargu_-_Wyspianskiego_6.pdf",
+          "notes": [],
+          "area_m2": 49.42,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30373"
+        },
+        {
+          "date": "2026-12-08",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 440000,
+          "outcome": "active",
+          "area_m2": 49.42,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30906",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 49.42
+    },
+    {
+      "key": "gen wladyslawa sikorskiego|1|13",
+      "street": "gen. Władysława Sikorskiego",
+      "street_norm": "gen wladyslawa sikorskiego",
+      "building": "1",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-04-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 530000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bids",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_04/BIPF650849B8BD887Z/informacja_po_przetargu.pdf",
+          "notes": [],
+          "area_m2": 56,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29802"
+        },
+        {
+          "date": "2026-07-30",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 500000,
+          "outcome": "archived",
+          "area_m2": 56,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30371",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-03",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 470000,
+          "outcome": "active",
+          "area_m2": 56,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30905",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 56
+    },
+    {
+      "key": "marii sklodowskiej curie|11|10",
+      "street": "Marii Skłodowskiej-Curie",
+      "street_norm": "marii sklodowskiej curie",
+      "building": "11",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "no_bids",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_05/BIPF652654D6495B2Z/wynik_przetargu.pdf",
+          "notes": []
+        },
+        {
+          "date": "2026-03-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "no_bids",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_03/BIPF64D5E3DCB9510Z/Wynik_-_Sklodowskiej.pdf",
+          "notes": []
+        },
+        {
+          "date": "2026-05-14",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30117",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "jozefa ignacego kraszewskiego|76|17",
+      "street": "Józefa Ignacego Kraszewskiego",
+      "street_norm": "jozefa ignacego kraszewskiego",
+      "building": "76",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-26",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "deposit_late",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_07/BIPF638F031714B4CZ/Informacja_o_przetargu.pdf",
+          "notes": [],
+          "area_m2": 15.7,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=28637"
+        },
+        {
+          "date": "2025-08-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "no_bids",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_08/BIPF63CDF9E3A3412Z/wynik_przetargu.pdf",
+          "notes": [],
+          "area_m2": 15.7,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=28883"
+        },
+        {
+          "date": "2025-11-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "no_bids",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_11/BIPF6438BBF391B98Z/Informacja_po_przetargu.pdf",
+          "notes": [],
+          "area_m2": 15.7
+        },
+        {
+          "date": "2026-03-05",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 89000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 97010,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_03/BIPF64D4C9E99CCCZ/Wynik_-_Kraszewskiego.pdf",
+          "notes": [],
+          "area_m2": 15.7,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29762"
+        }
+      ],
+      "area_m2": 15.7
+    },
+    {
+      "key": "marii curie sklodowskiej|11|10",
+      "street": "Marii Curie Skłodowskiej",
+      "street_norm": "marii curie sklodowskiej",
+      "building": "11",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-12-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 365000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29382",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-03-05",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 320000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29803",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "kraszewskiego|76|17",
+      "street": "Kraszewskiego",
+      "street_norm": "kraszewskiego",
+      "building": "76",
+      "apt": "17",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-11-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 95000,
+          "outcome": "archived",
+          "area_m2": 15.7,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29228",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 15.7
+    },
+    {
+      "key": "majowej|18|6",
+      "street": "Majowa",
+      "street_norm": "majowej",
+      "building": "18",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-05-29",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 13.03,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=28439",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 13.03
+    },
+    {
+      "key": "marii dabrowskiej|17|9",
+      "street": "Marii Dąbrowskiej",
+      "street_norm": "marii dabrowskiej",
+      "building": "17",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-12-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 540000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 550800,
+          "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2023_12/BIPF60D00C730258FZ/wynik_postepowania.pdf",
+          "notes": [],
+          "area_m2": 56.8,
+          "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=25962"
+        }
+      ],
+      "area_m2": 56.8
+    }
+  ]
+}

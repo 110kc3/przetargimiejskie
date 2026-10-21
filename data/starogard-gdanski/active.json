@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "city": "starogard-gdanski",
+  "listings": [
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Romualda Traugutta",
+      "address": null,
+      "area_m2": 15.65,
+      "starting_price_pln": 50000,
+      "auction_date": "2026-10-28",
+      "round": 1,
+      "kw": "GD1A/00024974/9",
+      "dzialka_nr": "4/163",
+      "obreb": "12",
+      "wadium_deadline": "2026-10-22",
+      "viewing_date": null,
+      "detail_url": "https://bip.starogard.pl/a,27606,i-przetarg-ustny-nieograniczony-na-sprzedaz-garazu-murowanego-polozonego-w-starogardzie-gdanskim-prz.html",
+      "source_url": "https://bip.starogard.pl/api/files/66873"
+    },
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Romualda Traugutta",
+      "address": null,
+      "area_m2": 15.63,
+      "starting_price_pln": 50000,
+      "auction_date": "2026-10-21",
+      "round": 1,
+      "kw": "GD1A/00024974/9",
+      "dzialka_nr": "4/164",
+      "obreb": "12",
+      "wadium_deadline": "2026-10-15",
+      "viewing_date": null,
+      "detail_url": "https://bip.starogard.pl/a,27607,i-przetarg-ustny-nieograniczony-na-sprzedaz-garazu-murowanego-polozonego-w-starogardzie-gdanskim-prz.html",
+      "source_url": "https://bip.starogard.pl/api/files/66875"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mikołaja Kopernika 32C/2",
+      "address": {
+        "street": "Mikołaja Kopernika",
+        "street_norm": "mikolaja kopernika",
+        "building": "32C",
+        "apt": "2",
+        "key": "mikolaja kopernika|32C|2",
+        "warning": null
+      },
+      "area_m2": 29.05,
+      "starting_price_pln": 120000,
+      "auction_date": "2026-07-22",
+      "round": 1,
+      "kw": "GD1A/00034382/5",
+      "dzialka_nr": "154/331",
+      "obreb": "23",
+      "wadium_deadline": "2026-07-16",
+      "viewing_date": "2026-07-03",
+      "detail_url": "https://bip.starogard.pl/a,27442,i-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-starogardzie-gdanskim-p.html",
+      "source_url": "https://bip.starogard.pl/api/files/66179"
+    }
+  ],
+  "wykaz": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wybickiego 6/5",
+      "address": {
+        "street": "Wybickiego",
+        "street_norm": "wybickiego",
+        "building": "6",
+        "apt": "5",
+        "key": "wybickiego|6|5",
+        "warning": null
+      },
+      "area_m2": 58.06,
+      "kw": "33369/1",
+      "dzialka_nr": "404/1, 406/1",
+      "obreb": "13",
+      "share": null,
+      "wykaz_no": "494/11/2024",
+      "published_date": "2024-11-26",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kanałowa 19A",
+      "address": {
+        "street": "Kanałowa",
+        "street_norm": "kanalowa",
+        "building": "19A",
+        "apt": null,
+        "key": "kanalowa|19A|",
+        "warning": null
+      },
+      "area_m2": 84.56,
+      "kw": "GD1A/00036880/0",
+      "dzialka_nr": "125/11",
+      "obreb": "14",
+      "share": null,
+      "wykaz_no": "398/08/2023",
+      "published_date": "2023-08-30",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kopernika 32F",
+      "address": {
+        "street": "Kopernika",
+        "street_norm": "kopernika",
+        "building": "32F",
+        "apt": null,
+        "key": "kopernika|32F|",
+        "warning": null
+      },
+      "area_m2": 18.64,
+      "kw": "GD1A/00035824/3",
+      "dzialka_nr": "65/1",
+      "obreb": "23",
+      "share": null,
+      "wykaz_no": "398/08/2023",
+      "published_date": "2023-08-30",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piłsudskiego 16",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "16",
+        "apt": null,
+        "key": "pilsudskiego|16|",
+        "warning": null
+      },
+      "area_m2": 30.17,
+      "kw": "GD1A/00031641/8",
+      "dzialka_nr": "17/2",
+      "obreb": "17",
+      "share": null,
+      "wykaz_no": "398/08/2023",
+      "published_date": "2023-08-30",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarszewska 2C",
+      "address": {
+        "street": "Skarszewska",
+        "street_norm": "skarszewska",
+        "building": "2C",
+        "apt": null,
+        "key": "skarszewska|2C|",
+        "warning": null
+      },
+      "area_m2": 25.98,
+      "kw": "GD1A/00033526/0",
+      "dzialka_nr": "390/8",
+      "obreb": "13",
+      "share": null,
+      "wykaz_no": "398/08/2023",
+      "published_date": "2023-08-30",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skośna 5",
+      "address": {
+        "street": "Skośna",
+        "street_norm": "skosna",
+        "building": "5",
+        "apt": null,
+        "key": "skosna|5|",
+        "warning": null
+      },
+      "area_m2": 31.83,
+      "kw": "GD1A/00031698/2",
+      "dzialka_nr": "13/52",
+      "obreb": "32",
+      "share": null,
+      "wykaz_no": "398/08/2023",
+      "published_date": "2023-08-30",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Ściegiennego 5",
+      "address": {
+        "street": "Ściegiennego",
+        "street_norm": "sciegiennego",
+        "building": "5",
+        "apt": null,
+        "key": "sciegiennego|5|",
+        "warning": null
+      },
+      "area_m2": 48.2,
+      "kw": "GD1A/00011758/5",
+      "dzialka_nr": "40/1, 39/4",
+      "obreb": "18",
+      "share": null,
+      "wykaz_no": "398/08/2023",
+      "published_date": "2023-08-30",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skarszewska 2C/14",
+      "address": {
+        "street": "Skarszewska",
+        "street_norm": "skarszewska",
+        "building": "2C",
+        "apt": "14",
+        "key": "skarszewska|2C|14",
+        "warning": null
+      },
+      "area_m2": 49.02,
+      "kw": "33526",
+      "dzialka_nr": "390/8",
+      "obreb": "13",
+      "share": null,
+      "wykaz_no": "74/03/2021",
+      "published_date": "2021-03-02",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Piłsudskiego 10/8",
+      "address": {
+        "street": "Piłsudskiego",
+        "street_norm": "pilsudskiego",
+        "building": "10",
+        "apt": "8",
+        "key": "pilsudskiego|10|8",
+        "warning": null
+      },
+      "area_m2": 49.08,
+      "kw": "31643",
+      "dzialka_nr": "19/1, 20/9",
+      "obreb": "17",
+      "share": null,
+      "wykaz_no": "74/03/2021",
+      "published_date": "2021-03-02",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Chojnicka 45",
+      "address": {
+        "street": "Chojnicka",
+        "street_norm": "chojnicka",
+        "building": "45",
+        "apt": null,
+        "key": "chojnicka|45|",
+        "warning": null
+      },
+      "area_m2": 94.98,
+      "kw": "12385",
+      "dzialka_nr": "379",
+      "obreb": "17",
+      "share": "77/128",
+      "wykaz_no": "450/11/2020",
+      "published_date": "2020-11-16",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Chojnicka 45",
+      "address": {
+        "street": "Chojnicka",
+        "street_norm": "chojnicka",
+        "building": "45",
+        "apt": null,
+        "key": "chojnicka|45|",
+        "warning": null
+      },
+      "area_m2": 94.98,
+      "kw": "12385",
+      "dzialka_nr": "379",
+      "obreb": "17",
+      "share": "77/128",
+      "wykaz_no": "450/11/2020",
+      "published_date": "2020-11-16",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Osiedlowa 5B/3",
+      "address": {
+        "street": "Osiedlowa",
+        "street_norm": "osiedlowa",
+        "building": "5B",
+        "apt": "3",
+        "key": "osiedlowa|5B|3",
+        "warning": null
+      },
+      "area_m2": 33.45,
+      "kw": "48478",
+      "dzialka_nr": "364/1",
+      "obreb": "13",
+      "share": "3/4",
+      "wykaz_no": "375/09/2020",
+      "published_date": "2020-09-16",
+      "source_url": "https://starogard.pl/informacje-o-nieruchomosciach.html",
+      "detail_url": "https://starogard.pl/informacje-o-nieruchomosciach.html"
+    }
+  ]
+}

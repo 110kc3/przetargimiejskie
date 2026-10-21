@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "city": "ostrzeszow",
+  "plots": [
+    {
+      "key": "dz|przetargu|157/1",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "157/1",
+      "obreb": "przetargu",
+      "street": null,
+      "building": null,
+      "address_raw": "Zajączki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20157%2F1%20Zaj%C4%85czki%20przetargu%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4260,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2029-10-24",
+          "round": "II",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 4260,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17650",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17650"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "157/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20157%2F1%20przetargu%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|sprzedaż|996/51",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/51",
+      "obreb": "Sprzedaż",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F51%20Roj%C3%B3w%20Sprzeda%C5%BC%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-07",
+          "round": "II",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=18272",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=18272"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/51",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F51%20Sprzeda%C5%BC%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|wyceniana|996/51",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/51",
+      "obreb": "wyceniana",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F51%20Roj%C3%B3w%20wyceniana%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-09-26",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=18057",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=18057"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/51",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F51%20wyceniana%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|grunty|996/54",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/54",
+      "obreb": "Grunty",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F54%20Roj%C3%B3w%20Grunty%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-05-02",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17708",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17708"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/54",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F54%20Grunty%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|zgodnie|996/51",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/51",
+      "obreb": "zgodnie",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F51%20Roj%C3%B3w%20zgodnie%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-25",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16696",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16696"
+        },
+        {
+          "date": "2024-10-16",
+          "round": "II",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17173",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17173"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/51",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F51%20zgodnie%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|przedmiotowa|217/14",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "217/14",
+      "obreb": "Przedmiotowa",
+      "street": null,
+      "building": null,
+      "address_raw": "Niedźwiedź",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20217%2F14%20Nied%C5%BAwied%C5%BA%20Przedmiotowa%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-09-11",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17096",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=17096"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "217/14",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20217%2F14%20Przedmiotowa%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|dość|468/12",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "468/12",
+      "obreb": "dość",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20468%2F12%20Roj%C3%B3w%20do%C5%9B%C4%87%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4011,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-07-03",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 4011,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16808",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16808"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "468/12",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20468%2F12%20do%C5%9B%C4%87%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|na|217/14",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "217/14",
+      "obreb": "na",
+      "street": null,
+      "building": null,
+      "address_raw": "Niedźwiedź",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20217%2F14%20Nied%C5%BAwied%C5%BA%20na%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-01-10",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16378",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16378"
+        },
+        {
+          "date": "2024-05-08",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16726",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16726"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "217/14",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20217%2F14%20na%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|zgodnie|996/46",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/46",
+      "obreb": "zgodnie",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F46%20Roj%C3%B3w%20zgodnie%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-24",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16695",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16695"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/46",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F46%20zgodnie%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|rojów|996/47",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/47",
+      "obreb": "Rojów",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F47%20Roj%C3%B3w%20Roj%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-10",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16685",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16685"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/47",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F47%20Roj%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nieruchomości|996/50",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/50",
+      "obreb": "nieruchomości",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F50%20Roj%C3%B3w%20nieruchomo%C5%9Bci%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 750,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-06",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 750,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16092",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16092"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/50",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F50%20nieruchomo%C5%9Bci%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nieruchomości|996/48",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/48",
+      "obreb": "nieruchomości",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F48%20Roj%C3%B3w%20nieruchomo%C5%9Bci%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-09-06",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16088",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=16088"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/48",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F48%20nieruchomo%C5%9Bci%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrzeszów|2231/3",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "2231/3",
+      "obreb": "Ostrzeszów",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202231%2F3%20Ostrzesz%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-03-31",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=15703",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=15703"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2231/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202231%2F3%20Ostrzesz%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|przedmiotowa|996/56",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/56",
+      "obreb": "Przedmiotowa",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F56%20Roj%C3%B3w%20Przedmiotowa%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-28",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=15112",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=15112"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/56",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F56%20Przedmiotowa%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|nieruchomości|996/57",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/57",
+      "obreb": "nieruchomości",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F57%20Roj%C3%B3w%20nieruchomo%C5%9Bci%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-09-21",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=15111",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=15111"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/57",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F57%20nieruchomo%C5%9Bci%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|rojów|994",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "994",
+      "obreb": "Rojów",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów\n                                               jako",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20994%20Roj%C3%B3w%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20jako%20Roj%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 41,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2021-10-01",
+          "round": "II",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 41,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=13878",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=13878"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "994",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20994%20Roj%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|siedlików|518/19",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "518/19",
+      "obreb": "Siedlików",
+      "street": null,
+      "building": null,
+      "address_raw": "Siedlików",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20518%2F19%20Siedlik%C3%B3w%20Siedlik%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 362,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-10-09",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 362,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=12683",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=12683"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "518/19",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20518%2F19%20Siedlik%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrzeszów|996/13",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/13",
+      "obreb": "Ostrzeszów",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F13%20Roj%C3%B3w%20Ostrzesz%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 777,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-09-24",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 777,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=12682",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=12682"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/13",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F13%20Ostrzesz%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ostrzeszów|996/10",
+      "kind": "grunt",
+      "city": "ostrzeszow",
+      "dzialka_nr": "996/10",
+      "obreb": "Ostrzeszów",
+      "street": null,
+      "building": null,
+      "address_raw": "Rojów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F10%20Roj%C3%B3w%20Ostrzesz%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 30,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2020-09-24",
+          "round": "I",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": 30,
+          "detail_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=12681",
+          "source_url": "https://ostrzeszow.nowoczesnagmina.pl/?a=12681"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "996/10",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20996%2F10%20Ostrzesz%C3%B3w%20Ostrzesz%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}

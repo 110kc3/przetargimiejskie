@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "city": "chojnice",
+  "properties": [
+    {
+      "key": "nr|49|11",
+      "street": "nr",
+      "street_norm": "nr",
+      "building": "49",
+      "apt": "11",
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-06-01",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/01-06-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-zeromskiego-dz-nr-49-11-i-51-12/?aid=100285&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "plac jagiellonski|6|5",
+      "street": "Plac Jagielloński",
+      "street_norm": "plac jagiellonski",
+      "building": "6",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-10-21",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "unsold",
+          "unsold_reason": "brak wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/21-10-2025-wynik-przetargu-na-lokal-mieszkalny/?aid=97549&sa=0",
+          "notes": [],
+          "area_m2": 39.6,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-03-31",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 153600,
+          "source_pdf": "https://miastochojnice.pl/wyniki-przetargu-na-zbycie-lokalu-mieszkalnego-pl-jagiellonski-6-5/?aid=99600&sa=0",
+          "notes": [],
+          "area_m2": 39.6,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 39.6
+    },
+    {
+      "key": "dn|31G|",
+      "street": "dn.",
+      "street_norm": "dn",
+      "building": "31G",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 1900200,
+          "outcome": "unsold",
+          "unsold_reason": "brak wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/21-10-2025-wynik-przetargu-obiektu-po-pko-ul-koscierska-3d/?aid=98354&sa=0",
+          "notes": [],
+          "area_m2": null,
+          "round_source": "inferred",
+          "land_area_m2": 3279
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 3279
+    },
+    {
+      "key": "dn|7P|",
+      "street": "dn.",
+      "street_norm": "dn",
+      "building": "7P",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-10-02",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 1900200,
+          "outcome": "unsold",
+          "unsold_reason": "brak wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/07-10-2025-wyniki-przetargu-obiektu-po-pko-ul-koscierska-3d/?aid=97351&sa=0",
+          "notes": [],
+          "area_m2": null,
+          "land_area_m2": 3279
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 3279
+    },
+    {
+      "key": "koscierska|3D|",
+      "street": "Kościerska",
+      "street_norm": "koscierska",
+      "building": "3D",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-07-15",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "brak ofert",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/15-07-2025-wyniki-przetargu-obiektu-po-pko-ul-koscierska-3d/?aid=96743&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "lipca|2025R|",
+      "street": "lipca",
+      "street_norm": "lipca",
+      "building": "2025R",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2025-07-08",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 50000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 54500,
+          "source_pdf": "https://miastochojnice.pl/08-07-2025-wyniki-przetargu-na-sprzedaz-nieruchomosci/?aid=96710&sa=0",
+          "notes": [],
+          "area_m2": 16.4,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 16.4
+    },
+    {
+      "key": "mlodziezowa|7|",
+      "street": "Młodzieżowa",
+      "street_norm": "mlodziezowa",
+      "building": "7",
+      "apt": null,
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2023-07-13",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 1672000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/13-07-2023-godz-1000-wyniki-przetargu/?aid=89608&sa=0",
+          "notes": [],
+          "area_m2": 504.68,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2023-12-05",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 1285000,
+          "outcome": "unsold",
+          "unsold_reason": "brak wadium",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/05-12-2023-godz-1000-wyniki-przetargu/?aid=90971&sa=0",
+          "notes": [],
+          "area_m2": 504.68,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2024-11-21",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 1050000,
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/21-11-2024-wyniki-przetargu-ul-mlodziezowa-7/?aid=94221&sa=0",
+          "notes": [],
+          "area_m2": 504.68
+        },
+        {
+          "date": "2025-01-28",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 860000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 868600,
+          "source_pdf": "https://miastochojnice.pl/28-01-2025-r-godz-1000-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-lokal-u2-ul-mlodziezowa/?aid=94971&sa=0",
+          "notes": [],
+          "area_m2": 504.68
+        }
+      ],
+      "area_m2": 504.68
+    },
+    {
+      "key": "grudnia|2024R|",
+      "street": "grudnia",
+      "street_norm": "grudnia",
+      "building": "2024R",
+      "apt": null,
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2024-12-13",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 48000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 48480,
+          "source_pdf": "https://miastochojnice.pl/13-12-2024-godz-1100-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=94509&sa=0",
+          "notes": [],
+          "area_m2": 215,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 215
+    },
+    {
+      "key": "drzymaly|1C|7",
+      "street": "Drzymały",
+      "street_norm": "drzymaly",
+      "building": "1C",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2024-08-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 126000,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 127300,
+          "source_pdf": "https://miastochojnice.pl/20-08-2024-wyniki-przetargu-ustnego-nieograniczonego-przeprowadzonego-w-dniu-20-08-2024r-spoldzielcze-wlasnosciowe-prawo-do-lokalu-drzymaly-1c-7/?aid=93422&sa=0",
+          "notes": [],
+          "area_m2": 27.98,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 27.98
+    },
+    {
+      "key": "stalowa|5A|",
+      "street": "Stalowa",
+      "street_norm": "stalowa",
+      "building": "5A",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 51769,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 52000,
+          "source_pdf": "https://miastochojnice.pl/10-10-2023-godz-1000-wyniki-przetargu/?aid=90397&sa=0",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "dnia|4L|",
+      "street": "dnia",
+      "street_norm": "dnia",
+      "building": "4L",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2023-06-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "unsold_reason": "brak ofert",
+          "final_price_pln": null,
+          "source_pdf": "https://miastochojnice.pl/04-07-2023-wyniki-przetargu/?aid=89483&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ],
+          "round_source": "inferred"
+        }
+      ]
+    }
+  ]
+}

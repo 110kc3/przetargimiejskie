@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "city": "ostrzeszow",
+  "properties": [
+    {
+      "key": "21 stycznia|1A|2",
+      "street": "21 Stycznia",
+      "street_norm": "21 stycznia",
+      "building": "1A",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced"
+        }
+      ]
+    },
+    {
+      "key": "kolejowa|29|3",
+      "street": "Kolejowa",
+      "street_norm": "kolejowa",
+      "building": "29",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced"
+        }
+      ]
+    },
+    {
+      "key": "wolnosci|3B|5",
+      "street": "Wolności",
+      "street_norm": "wolnosci",
+      "building": "3B",
+      "apt": "5",
+      "kind": "unknown",
+      "listings": [
+        {
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced"
+        }
+      ]
+    },
+    {
+      "key": "chmielna|1|",
+      "street": "Chmielna",
+      "street_norm": "chmielna",
+      "building": "1",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced"
+        }
+      ]
+    }
+  ]
+}

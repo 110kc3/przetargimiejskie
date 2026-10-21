@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "city": "luban",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 3/2",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "3",
+        "apt": "2",
+        "key": "warszawska|3|2",
+        "warning": null
+      },
+      "area_m2": 35.71,
+      "starting_price_pln": 104000,
+      "auction_date": "2026-11-30",
+      "published_date": "2026-10-14",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/127000/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stanisława Worcella 2/12",
+      "address": {
+        "street": "Stanisława Worcella",
+        "street_norm": "stanislawa worcella",
+        "building": "2",
+        "apt": "12",
+        "key": "stanislawa worcella|2|12",
+        "warning": null
+      },
+      "area_m2": 46.19,
+      "starting_price_pln": 90000,
+      "auction_date": "2026-11-09",
+      "published_date": "2026-10-09",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/126961/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Plac 3 Maja 6/4",
+      "address": {
+        "street": "Plac 3 Maja",
+        "street_norm": "plac 3 maja",
+        "building": "6",
+        "apt": "4",
+        "key": "plac 3 maja|6|4",
+        "warning": null
+      },
+      "area_m2": 53.3,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-11-20",
+      "published_date": "2026-10-06",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126943/do-sprzedania-mieszkanie-przy-placu-3-maja"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 15B/3",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "15B",
+        "apt": "3",
+        "key": "warszawska|15B|3",
+        "warning": null
+      },
+      "area_m2": 78.95,
+      "starting_price_pln": 206000,
+      "auction_date": "2026-11-24",
+      "published_date": "2026-09-23",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126867/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bankowa 3/3",
+      "address": {
+        "street": "Bankowa",
+        "street_norm": "bankowa",
+        "building": "3",
+        "apt": "3",
+        "key": "bankowa|3|3",
+        "warning": null
+      },
+      "area_m2": 63.74,
+      "starting_price_pln": 181000,
+      "auction_date": "2026-11-18",
+      "published_date": "2026-09-21",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126838/mieszkanie-do-sprzedania-ul-bankowa"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Tkacka 1/7",
+      "address": {
+        "street": "Tkacka",
+        "street_norm": "tkacka",
+        "building": "1",
+        "apt": "7",
+        "key": "tkacka|1|7",
+        "warning": null
+      },
+      "area_m2": 28.6,
+      "starting_price_pln": 95000,
+      "auction_date": "2026-10-19",
+      "published_date": "2026-09-15",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126814/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Grunwaldzka 2/11",
+      "address": {
+        "street": "Grunwaldzka",
+        "street_norm": "grunwaldzka",
+        "building": "2",
+        "apt": "11",
+        "key": "grunwaldzka|2|11",
+        "warning": null
+      },
+      "area_m2": 30.38,
+      "starting_price_pln": 90000,
+      "auction_date": "2026-10-15",
+      "published_date": "2026-09-14",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126811/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Graniczna 5/4",
+      "address": {
+        "street": "Graniczna",
+        "street_norm": "graniczna",
+        "building": "5",
+        "apt": "4",
+        "key": "graniczna|5|4",
+        "warning": null
+      },
+      "area_m2": 76.46,
+      "starting_price_pln": 250000,
+      "auction_date": "2026-10-08",
+      "published_date": "2026-09-07",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/126784/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Włókienniczej 5A/2",
+      "address": {
+        "street": "Włókienniczej",
+        "street_norm": "wlokienniczej",
+        "building": "5A",
+        "apt": "2",
+        "key": "wlokienniczej|5A|2",
+        "warning": null
+      },
+      "area_m2": 29.3,
+      "starting_price_pln": 79000,
+      "auction_date": "2026-09-17",
+      "published_date": "2026-07-21",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126599/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mikołaja 1/6",
+      "address": {
+        "street": "Mikołaja",
+        "street_norm": "mikolaja",
+        "building": "1",
+        "apt": "6",
+        "key": "mikolaja|1|6",
+        "warning": null
+      },
+      "area_m2": 58.28,
+      "starting_price_pln": 140000,
+      "auction_date": "2026-09-14",
+      "published_date": "2026-07-16",
+      "round": 3,
+      "detail_url": "https://luban.pl/artykul/126585/sprzedaz-mieszkania-ul-mikolaja-16"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leśnej 43/1",
+      "address": {
+        "street": "Leśnej",
+        "street_norm": "lesnej",
+        "building": "43",
+        "apt": "1",
+        "key": "lesnej|43|1",
+        "warning": null
+      },
+      "area_m2": 42.6,
+      "starting_price_pln": 120000,
+      "auction_date": "2026-09-10",
+      "published_date": "2026-07-14",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126574/sprzedaz-budynku-przy-ul-lesnej-43"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zawidowskiej 32/6",
+      "address": {
+        "street": "Zawidowskiej",
+        "street_norm": "zawidowskiej",
+        "building": "32",
+        "apt": "6",
+        "key": "zawidowskiej|32|6",
+        "warning": null
+      },
+      "area_m2": 33.34,
+      "starting_price_pln": 88000,
+      "auction_date": "2026-07-28",
+      "published_date": "2026-06-23",
+      "round": 3,
+      "detail_url": "https://luban.pl/artykul/126475/do-sprzedania-mieszkanie-ul-zawidowska-326"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Żołnierskiej 1/3",
+      "address": {
+        "street": "Żołnierskiej",
+        "street_norm": "zolnierskiej",
+        "building": "1",
+        "apt": "3",
+        "key": "zolnierskiej|1|3",
+        "warning": null
+      },
+      "area_m2": 40.1,
+      "starting_price_pln": 120000,
+      "auction_date": "2026-07-20",
+      "published_date": "2026-06-11",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126410/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leśna 44D/5",
+      "address": {
+        "street": "Leśna",
+        "street_norm": "lesna",
+        "building": "44D",
+        "apt": "5",
+        "key": "lesna|44D|5",
+        "warning": null
+      },
+      "area_m2": 35,
+      "starting_price_pln": 88000,
+      "auction_date": "2026-07-15",
+      "published_date": "2026-06-10",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/126396/przetarg-lokal-lesna-44d5"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mikołaja 1/6",
+      "address": {
+        "street": "Mikołaja",
+        "street_norm": "mikolaja",
+        "building": "1",
+        "apt": "6",
+        "key": "mikolaja|1|6",
+        "warning": null
+      },
+      "area_m2": 58.28,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-06-16",
+      "published_date": "2026-05-12",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/126202/przetarg-na-mieszkanie-przy-ul-mikolaja-1"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zawidowska 32/6",
+      "address": {
+        "street": "Zawidowska",
+        "street_norm": "zawidowska",
+        "building": "32",
+        "apt": "6",
+        "key": "zawidowska|32|6",
+        "warning": null
+      },
+      "area_m2": 33.34,
+      "starting_price_pln": 88000,
+      "auction_date": "2026-06-09",
+      "published_date": "2026-05-07",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/126171/przetarg-na-mieszkanie-przy-ul-zawidowskiej"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jarosława Dąbrowskiego 30/8",
+      "address": {
+        "street": "Jarosława Dąbrowskiego",
+        "street_norm": "jaroslawa dabrowskiego",
+        "building": "30",
+        "apt": "8",
+        "key": "jaroslawa dabrowskiego|30|8",
+        "warning": null
+      },
+      "area_m2": 85.4,
+      "starting_price_pln": 312000,
+      "auction_date": "2026-06-08",
+      "published_date": "2026-05-05",
+      "round": 3,
+      "detail_url": "https://luban.pl/artykul/126160/mieszkanie-przy-ul-dabrowskiego"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 4/8",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "4",
+        "apt": "8",
+        "key": "warszawska|4|8",
+        "warning": null
+      },
+      "area_m2": 59.44,
+      "starting_price_pln": 130000,
+      "auction_date": "2026-05-26",
+      "published_date": "2026-04-24",
+      "round": 3,
+      "detail_url": "https://luban.pl/artykul/126039/burmistrz-miasta-luban-oglasza-trzeci-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Graniczna 5/4",
+      "address": {
+        "street": "Graniczna",
+        "street_norm": "graniczna",
+        "building": "5",
+        "apt": "4",
+        "key": "graniczna|5|4",
+        "warning": null
+      },
+      "area_m2": 76.46,
+      "starting_price_pln": 269000,
+      "auction_date": "2026-05-27",
+      "published_date": "2026-04-23",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/126034/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leśna 11/4",
+      "address": {
+        "street": "Leśna",
+        "street_norm": "lesna",
+        "building": "11",
+        "apt": "4",
+        "key": "lesna|11|4",
+        "warning": null
+      },
+      "area_m2": 28.9,
+      "starting_price_pln": 75000,
+      "auction_date": "2026-04-27",
+      "published_date": "2026-03-26",
+      "round": 3,
+      "detail_url": "https://luban.pl/artykul/125910/sprzedaz-mieszkania-ul-lesna-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Stanisława Worcella 2/12",
+      "address": {
+        "street": "Stanisława Worcella",
+        "street_norm": "stanislawa worcella",
+        "building": "2",
+        "apt": "12",
+        "key": "stanislawa worcella|2|12",
+        "warning": null
+      },
+      "area_m2": 46.19,
+      "starting_price_pln": 106000,
+      "auction_date": "2026-04-29",
+      "published_date": "2026-03-23",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/125881/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mikołaja 1/6",
+      "address": {
+        "street": "Mikołaja",
+        "street_norm": "mikolaja",
+        "building": "1",
+        "apt": "6",
+        "key": "mikolaja|1|6",
+        "warning": null
+      },
+      "area_m2": 58.28,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-04-14",
+      "published_date": "2026-03-12",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/125824/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zawidowskiej 32/6",
+      "address": {
+        "street": "Zawidowskiej",
+        "street_norm": "zawidowskiej",
+        "building": "32",
+        "apt": "6",
+        "key": "zawidowskiej|32|6",
+        "warning": null
+      },
+      "area_m2": 33.34,
+      "starting_price_pln": 88000,
+      "auction_date": "2026-03-27",
+      "published_date": "2026-02-24",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/125758/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leśna 44D/5",
+      "address": {
+        "street": "Leśna",
+        "street_norm": "lesna",
+        "building": "44D",
+        "apt": "5",
+        "key": "lesna|44D|5",
+        "warning": null
+      },
+      "area_m2": 35,
+      "starting_price_pln": 88000,
+      "auction_date": "2026-03-18",
+      "published_date": "2026-02-05",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/125664/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jarosława Dąbrowskiego 30/8",
+      "address": {
+        "street": "Jarosława Dąbrowskiego",
+        "street_norm": "jaroslawa dabrowskiego",
+        "building": "30",
+        "apt": "8",
+        "key": "jaroslawa dabrowskiego|30|8",
+        "warning": null
+      },
+      "area_m2": 85.4,
+      "starting_price_pln": 312000,
+      "auction_date": "2026-03-03",
+      "published_date": "2026-01-27",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/125615/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leśnej 11/4",
+      "address": {
+        "street": "Leśnej",
+        "street_norm": "lesnej",
+        "building": "11",
+        "apt": "4",
+        "key": "lesnej|11|4",
+        "warning": null
+      },
+      "area_m2": 28.9,
+      "starting_price_pln": 82000,
+      "auction_date": "2026-02-25",
+      "published_date": "2026-01-19",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/125564/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawskiej 4/8",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "4",
+        "apt": "8",
+        "key": "warszawskiej|4|8",
+        "warning": null
+      },
+      "area_m2": 59.44,
+      "starting_price_pln": 154000,
+      "auction_date": "2026-02-19",
+      "published_date": "2026-01-12",
+      "round": 2,
+      "detail_url": "https://luban.pl/artykul/125523/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jarosława Dąbrowskiego 30/8",
+      "address": {
+        "street": "Jarosława Dąbrowskiego",
+        "street_norm": "jaroslawa dabrowskiego",
+        "building": "30",
+        "apt": "8",
+        "key": "jaroslawa dabrowskiego|30|8",
+        "warning": null
+      },
+      "area_m2": 85.4,
+      "starting_price_pln": 312000,
+      "auction_date": "2025-11-18",
+      "published_date": "2025-10-02",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/124960/mieszkanie-na-sprzedaz-przy-ul-dabrowskiego-30"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Leśna 11/4",
+      "address": {
+        "street": "Leśna",
+        "street_norm": "lesna",
+        "building": "11",
+        "apt": "4",
+        "key": "lesna|11|4",
+        "warning": null
+      },
+      "area_m2": 28.9,
+      "starting_price_pln": 82000,
+      "auction_date": "2025-10-24",
+      "published_date": "2025-09-22",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/124912/do-sprzedania-mieszkanie-przy-ul-lesnej-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Juliusza Słowackiego 19/10",
+      "address": {
+        "street": "Juliusza Słowackiego",
+        "street_norm": "juliusza slowackiego",
+        "building": "19",
+        "apt": "10",
+        "key": "juliusza slowackiego|19|10",
+        "warning": null
+      },
+      "area_m2": 61.55,
+      "starting_price_pln": 167000,
+      "auction_date": "2025-10-22",
+      "published_date": "2025-09-17",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/124889/mieszkanie-na-sprzedaz-przy-ul-slowackiego-19"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Warszawska 4/8",
+      "address": {
+        "street": "Warszawska",
+        "street_norm": "warszawska",
+        "building": "4",
+        "apt": "8",
+        "key": "warszawska|4|8",
+        "warning": null
+      },
+      "area_m2": 59.44,
+      "starting_price_pln": 154000,
+      "auction_date": "2025-10-20",
+      "published_date": "2025-09-15",
+      "round": 1,
+      "detail_url": "https://luban.pl/artykul/124878/do-sprzedania-mieszkanie-przy-ul-warszawskiej"
+    }
+  ],
+  "wykaz": []
+}

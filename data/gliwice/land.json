@@ -226,7 +226,7 @@
           "date": "2026-10-21",
           "round": 4,
           "starting_price_pln": 336000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1097,
           "source_url": "https://msip.gliwice.eu/oferta-nieruchomosci-nieruchomosci-niezabudowane",
           "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-13122-obreb-bojkow-ul-chmielna-3"
@@ -6716,6 +6716,13 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 760000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-12011-obreb-zerniki-ul-omankowskiej-12"
+        },
         {
           "date": null,
           "round": 1,

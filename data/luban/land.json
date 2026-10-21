@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "city": "luban",
+  "plots": [
+    {
+      "key": "dz|i|17/5, 17/3",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": "17/5, 17/3",
+      "obreb": "I",
+      "street": "Rzemieślniczej",
+      "building": null,
+      "address_raw": "ul. Rzemieślniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F5%2C%2017%2F3%20Rzemie%C5%9Blniczej%20I%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2544,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 1,
+          "starting_price_pln": 35000,
+          "outcome": "active",
+          "area_m2": 2544,
+          "detail_url": "https://luban.pl/artykul/126880/do-sprzedazy-dzialka-przy-ul-rzemieslniczej",
+          "source_url": "https://luban.pl/artykul/126880/do-sprzedazy-dzialka-przy-ul-rzemieslniczej"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "17/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F5%20I%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "17/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2017%2F3%20I%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ii|41, 40/2",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": "41, 40/2",
+      "obreb": "II",
+      "street": "Na Skarpie",
+      "building": null,
+      "address_raw": "ul. Na Skarpie",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2041%2C%2040%2F2%20Na%20Skarpie%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 718,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-23",
+          "round": 1,
+          "starting_price_pln": 120000,
+          "outcome": "active",
+          "area_m2": 718,
+          "detail_url": "https://luban.pl/artykul/126953/do-sprzedania-dzialki-pod-budowe",
+          "source_url": "https://luban.pl/artykul/126953/do-sprzedania-dzialki-pod-budowe"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "41",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2041%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "40/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F2%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ii|11, 10/304, 10/282",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": "11, 10/304, 10/282",
+      "obreb": "II",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%2C%2010%2F304%2C%2010%2F282%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 30,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-28",
+          "round": 2,
+          "starting_price_pln": 25000,
+          "outcome": "archived",
+          "area_m2": 30,
+          "detail_url": "https://luban.pl/artykul/125883/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony",
+          "source_url": "https://luban.pl/artykul/125883/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "11",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "10/304",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2010%2F304%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "10/282",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2010%2F282%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ii|40/2, 40/1",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": "40/2, 40/1",
+      "obreb": "II",
+      "street": "Esperantystów",
+      "building": null,
+      "address_raw": "ul. Esperantystów",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F2%2C%2040%2F1%20Esperantyst%C3%B3w%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2976,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-03-25",
+          "round": 2,
+          "starting_price_pln": 950000,
+          "outcome": "archived",
+          "area_m2": 2976,
+          "detail_url": "https://luban.pl/artykul/125330/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony",
+          "source_url": "https://luban.pl/artykul/125330/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "40/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F2%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "40/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2040%2F1%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|ii|1/31",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": "1/31",
+      "obreb": "II",
+      "street": "Zawidowskiej",
+      "building": null,
+      "address_raw": "ul. Zawidowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F31%20Zawidowskiej%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1115,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-20",
+          "round": 2,
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 1115,
+          "detail_url": "https://luban.pl/artykul/125257/ogloszenie-burmistrza-miasta-luban-ii-przetarg-dzialka-niezabudowana-ul-zawidowska",
+          "source_url": "https://luban.pl/artykul/125257/ogloszenie-burmistrza-miasta-luban-ii-przetarg-dzialka-niezabudowana-ul-zawidowska"
+        },
+        {
+          "date": "2026-03-05",
+          "round": 3,
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 1115,
+          "detail_url": "https://luban.pl/artykul/125638/burmistrz-miasta-luban-oglasza-trzeci-przetarg-ustny-nieograniczony",
+          "source_url": "https://luban.pl/artykul/125638/burmistrz-miasta-luban-oglasza-trzeci-przetarg-ustny-nieograniczony"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1/31",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F31%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. poziomkowej",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": null,
+      "obreb": "II",
+      "street": "Poziomkowej",
+      "building": null,
+      "address_raw": "ul. Poziomkowej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Poziomkowej%20II%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1129,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-22",
+          "round": 2,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 1129,
+          "detail_url": "https://luban.pl/artykul/125412/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony",
+          "source_url": "https://luban.pl/artykul/125412/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|v|120/34",
+      "kind": "grunt",
+      "city": "luban",
+      "dzialka_nr": "120/34",
+      "obreb": "V",
+      "street": "Polnej",
+      "building": null,
+      "address_raw": "ul. Polnej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20120%2F34%20Polnej%20V%20Luba%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1002,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-09",
+          "round": 3,
+          "starting_price_pln": 82000,
+          "outcome": "archived",
+          "area_m2": 1002,
+          "detail_url": "https://luban.pl/artykul/125129/ogloszenie-o-trzecim-przetargu-ustnym-nieograniczonym-na-sprzedaz-dzialki-przy-ul-polnej-w-lubaniu",
+          "source_url": "https://luban.pl/artykul/125129/ogloszenie-o-trzecim-przetargu-ustnym-nieograniczonym-na-sprzedaz-dzialki-przy-ul-polnej-w-lubaniu"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "120/34",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20120%2F34%20V%20Luba%C5%84%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}

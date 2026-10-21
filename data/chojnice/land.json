@@ -1,0 +1,4596 @@
+{
+  "schema_version": 1,
+  "city": "chojnice",
+  "plots": [
+    {
+      "key": "dz|4608/105",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/105",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F105%20ul.%20Bytowska%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 30699,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-04-21",
+          "round": 1,
+          "starting_price_pln": 5000000,
+          "outcome": "unsold",
+          "area_m2": 30699,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-bytowska/?aid=99984&sa=0"
+        },
+        {
+          "date": "2026-07-22",
+          "round": 2,
+          "starting_price_pln": 4000000,
+          "outcome": "sold",
+          "final_price_pln": 4040000,
+          "area_m2": 30699,
+          "source_url": "https://miastochojnice.pl/03-08-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-bytowska/?aid=101085&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/105"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/39",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/39",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F39%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 830,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 142000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 142000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        },
+        {
+          "date": "2025-05-27",
+          "round": 9,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-ktory-odbyl-sie-w-dniu-27-05-2025r/?aid=96207&sa=0"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/4-09-2025r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=97260&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-10-21",
+          "round": 11,
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/21-10-2025-wyniki-przetargu/?aid=97547&sa=0"
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "starting_price_pln": 125000,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/03-07-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-osiedle-bajkowe/?aid=100676&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/39"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/38",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/38",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F38%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 715,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 122000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 122000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        },
+        {
+          "date": "2025-05-27",
+          "round": 9,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-ktory-odbyl-sie-w-dniu-27-05-2025r/?aid=96207&sa=0"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/4-09-2025r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=97260&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-10-21",
+          "round": 11,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/21-10-2025-wyniki-przetargu/?aid=97547&sa=0"
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "starting_price_pln": 115000,
+          "outcome": "sold",
+          "final_price_pln": 116500,
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/03-07-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-osiedle-bajkowe/?aid=100676&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/38"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/16",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/16",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F16%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 961,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 164000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 164000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 157000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 157000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 157000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 168000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 168000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        },
+        {
+          "date": "2025-05-27",
+          "round": 9,
+          "starting_price_pln": 168000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-ktory-odbyl-sie-w-dniu-27-05-2025r/?aid=96207&sa=0"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/4-09-2025r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=97260&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-10-21",
+          "round": 11,
+          "starting_price_pln": 168000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/21-10-2025-wyniki-przetargu/?aid=97547&sa=0"
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/03-07-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-osiedle-bajkowe/?aid=100676&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/14",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/14",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F14%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1115,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 182000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 182000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 182000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        },
+        {
+          "date": "2025-05-27",
+          "round": 9,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-ktory-odbyl-sie-w-dniu-27-05-2025r/?aid=96207&sa=0"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/4-09-2025r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=97260&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-10-21",
+          "round": 11,
+          "starting_price_pln": 195000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/21-10-2025-wyniki-przetargu/?aid=97547&sa=0"
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "starting_price_pln": 190000,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/03-07-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-osiedle-bajkowe/?aid=100676&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/14"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/46",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/46",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/Pana Kleksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F46%20ul.%20Bytowska%2FPana%20Kleksa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 764,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 130000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 132000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 132000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        },
+        {
+          "date": "2025-05-27",
+          "round": 9,
+          "starting_price_pln": 132000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-ktory-odbyl-sie-w-dniu-27-05-2025r/?aid=96207&sa=0"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/4-09-2025r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=97260&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-10-21",
+          "round": 11,
+          "starting_price_pln": 132000,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/21-10-2025-wyniki-przetargu/?aid=97547&sa=0"
+        },
+        {
+          "date": "2026-07-16",
+          "round": 2,
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "final_price_pln": 158000,
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/03-07-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-osiedle-bajkowe/?aid=100676&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/46"
+        }
+      ]
+    },
+    {
+      "key": "dz|135",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "135",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ślusarska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20135%20ul.%20%C5%9Alusarska%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 535,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 1,
+          "starting_price_pln": 135703,
+          "outcome": "sold",
+          "final_price_pln": 136000,
+          "area_m2": 535,
+          "source_url": "https://miastochojnice.pl/03-07-2026-wyniki-przetargu-pisemnego-ograniczonego-na-sprzedaz-dzialki-rod-metalowiec/?aid=100654&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "135"
+        }
+      ]
+    },
+    {
+      "key": "dz|684/87",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "684/87",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zakładowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20684%2F87%20ul.%20Zak%C5%82adowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3321,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-09",
+          "round": 1,
+          "starting_price_pln": 376000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/09-04-2024-wyniki-przetargu/?aid=92097&sa=0"
+        },
+        {
+          "date": "2024-05-14",
+          "round": 2,
+          "starting_price_pln": 305000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/14-05-2024-wyniki-przetargu/?aid=92386&sa=0"
+        },
+        {
+          "date": "2024-08-20",
+          "round": 3,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/20-08-2024-wyniki-przetargu-ustnego-nieograniczonego-przeprowadzonego-w-dniu-20-08-2024r-dzialka-nr-68487/?aid=93416&sa=0"
+        },
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 398000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/01-07-2026-r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-zakladowa-dz-nr-684-87/?aid=100510&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "684/87"
+        }
+      ]
+    },
+    {
+      "key": "dz|49/11, 51/12",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "49/11, 51/12",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żeromskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2049%2F11%2C%2051%2F12%20ul.%20%C5%BBeromskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 658,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-06-01",
+          "round": 1,
+          "starting_price_pln": 94000,
+          "outcome": "unsold",
+          "area_m2": 658,
+          "source_url": "https://miastochojnice.pl/01-06-2026-wyniki-przetargu-na-sprzedaz-nieruchomosci-niezabudowanej-ul-zeromskiego-dz-nr-49-11-i-51-12/?aid=100285&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "49/11"
+        },
+        {
+          "nr": "51/12"
+        }
+      ]
+    },
+    {
+      "key": "dz|684/77",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "684/77",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zakładowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20684%2F77%20ul.%20Zak%C5%82adowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 638,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "starting_price_pln": 108000,
+          "outcome": "sold",
+          "final_price_pln": 260000,
+          "area_m2": 638,
+          "source_url": "https://miastochojnice.pl/19-05-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-ul-zakladowa-dz-nr-684-77-i-5421-5/?aid=100104&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "684/77"
+        }
+      ]
+    },
+    {
+      "key": "dz|5421/5",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5421/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zakładowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205421%2F5%20ul.%20Zak%C5%82adowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 765,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-12",
+          "round": 1,
+          "starting_price_pln": 129000,
+          "outcome": "sold",
+          "final_price_pln": 233000,
+          "area_m2": 765,
+          "source_url": "https://miastochojnice.pl/19-05-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-ul-zakladowa-dz-nr-684-77-i-5421-5/?aid=100104&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5421/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|5287/4",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5287/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jaworowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205287%2F4%20ul.%20Jaworowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 798,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 798,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-ul-jaworowa/?aid=98502&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2026-03-31",
+          "round": 2,
+          "starting_price_pln": 170000,
+          "outcome": "sold",
+          "final_price_pln": 171700,
+          "area_m2": 798,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-jaworowa/?aid=99599&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5287/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|5287/3",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5287/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jaworowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205287%2F3%20ul.%20Jaworowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 600,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 163000,
+          "area_m2": 600,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-ul-jaworowa/?aid=98502&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5287/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|5287/5",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5287/5",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Jaworowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205287%2F5%20ul.%20Jaworowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 642,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-01-14",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 214500,
+          "area_m2": 642,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-ul-jaworowa/?aid=98502&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5287/5"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/56",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/56",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F56%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1064,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 181000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 181000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 173000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 173000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 173000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 179000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 179000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        },
+        {
+          "date": "2025-05-27",
+          "round": 9,
+          "starting_price_pln": 179000,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/wyniki-przetargu-ktory-odbyl-sie-w-dniu-27-05-2025r/?aid=96207&sa=0"
+        },
+        {
+          "date": "2025-09-04",
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/4-09-2025r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=97260&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/56"
+        }
+      ]
+    },
+    {
+      "key": "dz|784/15",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "784/15",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wyspiańskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20784%2F15%20ul.%20Wyspia%C5%84skiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 123,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-15",
+          "round": 1,
+          "starting_price_pln": 21000,
+          "outcome": "unsold",
+          "area_m2": 123,
+          "source_url": "https://miastochojnice.pl/15-07-2025-wyniki-przetargu/?aid=96855&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "784/15"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. krasińskiego",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Krasińskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Krasi%C5%84skiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 64,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-07-15",
+          "round": 1,
+          "starting_price_pln": 19000,
+          "outcome": "unsold",
+          "area_m2": 64,
+          "source_url": "https://miastochojnice.pl/15-07-2025-wyniki-przetargu/?aid=96855&sa=0"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|4608/47",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/47",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Pana Kleksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F47%20ul.%20Bytowska%2F%20Pana%20Kleksa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 754,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 118000,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 118000,
+          "outcome": "sold",
+          "final_price_pln": 119200,
+          "area_m2": 754,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/47"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/42",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/42",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F42%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 857,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 146000,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 146000,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 150000,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 8,
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "final_price_pln": 161600,
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/42"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/92",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/92",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F92%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 628,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 107000,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 107000,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 106000,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 106000,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 106000,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-02-25",
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-04-15",
+          "round": 7,
+          "starting_price_pln": 110000,
+          "outcome": "sold",
+          "final_price_pln": 115900,
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/15-04-2025-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=95769&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/92"
+        }
+      ]
+    },
+    {
+      "key": "dz|1464/1",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "1464/1",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201464%2F1%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 158,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-03-26",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 158,
+          "source_url": "https://miastochojnice.pl/26-03-2025-wyniku-przetargu-ustnego-ograniczonego-na-najem-trzech-miejsc-przeznaczonych-na-ogrodki-gastronomiczne-na-starym-rynku-w-chojnicach/?aid=95616&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1464/1"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/41",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/41",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F41%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 690,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 118000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 118000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 124000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 125500,
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/41"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/40",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/40",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F40%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 750,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 128000,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 128000,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 135000,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 105500,
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/40"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/13",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/13",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F13%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1039,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 177000,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 177000,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-02-25",
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 177000,
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/13"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/12",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/12",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F12%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1061,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 181000,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 181000,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 172000,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 172000,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 172000,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2025-02-25",
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 180000,
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/12"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/27",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/27",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/Misia Uszatka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F27%20ul.%20Bytowska%2FMisia%20Uszatka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 827,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-19",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/19-07-2022-wyniki-przetargu/?aid=86740&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-11-29",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/29-11-2022-godz-10-00-wyniki-przetargu/?aid=87765&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-02-21",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/21-02-2023-wyniki-przetargow/?aid=88300&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-04-25",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/25-04-2023-wyniki-przetargu/?aid=88630&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 158000,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 158000,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 158000,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 144000,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        },
+        {
+          "date": "2025-02-25",
+          "round": 7,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 145500,
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/25-02-2025-wyniki-przetargow-na-zbycie-nieruchomosci-miejskich/?aid=95338&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/27"
+        }
+      ]
+    },
+    {
+      "key": "dz|283/3",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "283/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Goedtke",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20283%2F3%20ul.%20Goedtke%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 578,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-11-05",
+          "round": 1,
+          "starting_price_pln": 92000,
+          "outcome": "unsold",
+          "area_m2": 578,
+          "source_url": "https://miastochojnice.pl/05-11-2024-wynik-przetarg-na-sprzedaz-nieruchomosci-niezabudowanej-przy-ul-goedtke/?aid=94060&sa=0"
+        },
+        {
+          "date": "2024-12-17",
+          "round": 2,
+          "starting_price_pln": 92000,
+          "outcome": "unsold",
+          "area_m2": 578,
+          "source_url": "https://miastochojnice.pl/17-12-2024-godz-1000-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=94511&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "283/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|239/79",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "239/79",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Dambka/ Wrycza",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F79%20ul.%20Dambka%2F%20Wrycza%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 225,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-12-13",
+          "round": 1,
+          "starting_price_pln": 42000,
+          "outcome": "unsold",
+          "area_m2": 225,
+          "source_url": "https://miastochojnice.pl/13-12-2024-godz-1000-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej/?aid=94507&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "239/79"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/54",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/54",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F54%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 593,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 101000,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 101000,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2024-11-26",
+          "round": 6,
+          "starting_price_pln": 96000,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/26-11-2024-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich-osiedle-bajkowe/?aid=94286&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/54"
+        }
+      ]
+    },
+    {
+      "key": "dz|696/113",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "696/113",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Przemysłowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20696%2F113%20ul.%20Przemys%C5%82owa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 985,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-08-20",
+          "round": 1,
+          "starting_price_pln": 115000,
+          "outcome": "sold",
+          "final_price_pln": 190000,
+          "area_m2": 985,
+          "source_url": "https://miastochojnice.pl/20-08-2024-wyniki-przetargu-ustnego-nieograniczonego-przeprowadzonego-w-dniu-20-08-2024r-dzialka-696-113/?aid=93425&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "696/113"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/103",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/103",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/Bajkowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F103%20ul.%20Bytowska%2FBajkowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 11677,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-05",
+          "round": 1,
+          "starting_price_pln": 1520000,
+          "outcome": "unsold",
+          "area_m2": 11677,
+          "source_url": "https://miastochojnice.pl/05-12-2023-godz-1100-wyniki-przetargu/?aid=90973&sa=0"
+        },
+        {
+          "date": "2024-04-10",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 1384000,
+          "area_m2": 11677,
+          "source_url": "https://miastochojnice.pl/10-04-2024-wyniki-przetargu/?aid=92111&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/103"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/107",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/107",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/Bajkowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F107%20ul.%20Bytowska%2FBajkowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 6215,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-05",
+          "round": 1,
+          "starting_price_pln": 770000,
+          "outcome": "unsold",
+          "area_m2": 6215,
+          "source_url": "https://miastochojnice.pl/05-12-2023-godz-1100-wyniki-przetargu/?aid=90973&sa=0"
+        },
+        {
+          "date": "2024-04-10",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 6215,
+          "source_url": "https://miastochojnice.pl/10-04-2024-wyniki-przetargu/?aid=92111&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/107"
+        }
+      ]
+    },
+    {
+      "key": "dz|2968/8",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "2968/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Armii Krajowej/ Mastalerza",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202968%2F8%20ul.%20Armii%20Krajowej%2F%20Mastalerza%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 411,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-12-07",
+          "round": 1,
+          "starting_price_pln": 103000,
+          "outcome": "unsold",
+          "area_m2": 411,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 2,
+          "starting_price_pln": 103000,
+          "outcome": "unsold",
+          "area_m2": 411,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 104100,
+          "area_m2": 411,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2968/8"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/55",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/55",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F55%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 744,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 122300,
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/55"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/89",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/89",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F89%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 655,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 112000,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 112000,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 115000,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        },
+        {
+          "date": "2024-03-07",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 116200,
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/07-03-2024-wyniki-przetargow/?aid=91848&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/89"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/44",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/44",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Pana Kleksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F44%20ul.%20Bytowska%2F%20Pana%20Kleksa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 690,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 118000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 118000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 119000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        },
+        {
+          "date": "2023-12-07",
+          "round": 3,
+          "starting_price_pln": 119000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/07-12-2023-wyniki-przetargu/?aid=90972&sa=0"
+        },
+        {
+          "date": "2024-01-23",
+          "round": 4,
+          "starting_price_pln": 119000,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/23-01-2024-wyniki-przetargu/?aid=91347&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/44"
+        }
+      ]
+    },
+    {
+      "key": "dz|2351/10",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "2351/10",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Mickiewicza",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202351%2F10%20ul.%20Mickiewicza%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 146,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-10-10",
+          "round": 1,
+          "starting_price_pln": 13800,
+          "outcome": "sold",
+          "final_price_pln": 56200,
+          "area_m2": 146,
+          "source_url": "https://miastochojnice.pl/10-10-2023-godz-1100-wyniki-przetargu/?aid=90395&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2351/10"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/43",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/43",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Pana Kleksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F43%20ul.%20Bytowska%2F%20Pana%20Kleksa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 777,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 777,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 133000,
+          "outcome": "unsold",
+          "area_m2": 777,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 777,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 133000,
+          "outcome": "unsold",
+          "area_m2": 777,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 134000,
+          "outcome": "unsold",
+          "area_m2": 777,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/43"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/50",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/50",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Pana Kleksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F50%20ul.%20Bytowska%2F%20Pana%20Kleksa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 684,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 684,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 684,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 684,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 117000,
+          "outcome": "unsold",
+          "area_m2": 684,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 118000,
+          "outcome": "sold",
+          "final_price_pln": 125500,
+          "area_m2": 684,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/50"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/86",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/86",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F86%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 865,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 865,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 148000,
+          "outcome": "unsold",
+          "area_m2": 865,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 865,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 148000,
+          "outcome": "unsold",
+          "area_m2": 865,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 146000,
+          "outcome": "sold",
+          "final_price_pln": 147500,
+          "area_m2": 865,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/86"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/70",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/70",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Smoka Wawelskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F70%20ul.%20Bytowska%2F%20Smoka%20Wawelskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 721,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-19",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/19-07-2022-wyniki-przetargu/?aid=86740&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-11-29",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/29-11-2022-godz-10-00-wyniki-przetargu/?aid=87765&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-02-21",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/21-02-2023-wyniki-przetargow/?aid=88300&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-04-25",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/25-04-2023-wyniki-przetargu/?aid=88630&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 119000,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/70"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/71",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/71",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Smoka Wawelskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F71%20ul.%20Bytowska%2F%20Smoka%20Wawelskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 721,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-19",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/19-07-2022-wyniki-przetargu/?aid=86740&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-11-29",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/29-11-2022-godz-10-00-wyniki-przetargu/?aid=87765&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-02-21",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/21-02-2023-wyniki-przetargow/?aid=88300&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-04-25",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/25-04-2023-wyniki-przetargu/?aid=88630&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-09-19",
+          "round": 2,
+          "starting_price_pln": 119000,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/19-09-2023-wyniki-przetargu-osiedle-bajkowe/?aid=90210&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/71"
+        }
+      ]
+    },
+    {
+      "key": "dz|5371",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5371",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ustronna",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205371%20ul.%20Ustronna%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 972,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-06-30",
+          "round": 1,
+          "starting_price_pln": 126000,
+          "outcome": "unsold",
+          "area_m2": 972,
+          "source_url": "https://miastochojnice.pl/30-06-2023-wyniki-przetargu/?aid=89496&sa=0"
+        },
+        {
+          "date": "2023-08-29",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 96000,
+          "area_m2": 972,
+          "source_url": "https://miastochojnice.pl/29-08-2023-wyniki-przetargu/?aid=90025&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5371"
+        }
+      ]
+    },
+    {
+      "key": "dz|590/4, 589/3",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "590/4, 589/3",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Ustronna",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20590%2F4%2C%20589%2F3%20ul.%20Ustronna%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2751,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-06-30",
+          "round": 1,
+          "starting_price_pln": 323000,
+          "outcome": "unsold",
+          "area_m2": 2751,
+          "source_url": "https://miastochojnice.pl/30-06-2023-wyniki-przetargu/?aid=89496&sa=0"
+        },
+        {
+          "date": "2023-08-29",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 245500,
+          "area_m2": 2751,
+          "source_url": "https://miastochojnice.pl/29-08-2023-wyniki-przetargu/?aid=90025&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "590/4"
+        },
+        {
+          "nr": "589/3"
+        }
+      ]
+    },
+    {
+      "key": "dz|574/8",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "574/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kolejowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20574%2F8%20ul.%20Kolejowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2214,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-06-30",
+          "round": 1,
+          "starting_price_pln": 282000,
+          "outcome": "unsold",
+          "area_m2": 2214,
+          "source_url": "https://miastochojnice.pl/30-06-2023-wyniki-przetargu/?aid=89496&sa=0"
+        },
+        {
+          "date": "2023-08-29",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 200000,
+          "area_m2": 2214,
+          "source_url": "https://miastochojnice.pl/29-08-2023-wyniki-przetargu/?aid=90025&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "574/8"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/61",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/61",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Smoka Wawelskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F61%20ul.%20Bytowska%2F%20Smoka%20Wawelskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 595,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 595,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-19",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 595,
+          "source_url": "https://miastochojnice.pl/19-07-2022-wyniki-przetargu/?aid=86740&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-11-29",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 595,
+          "source_url": "https://miastochojnice.pl/29-11-2022-godz-10-00-wyniki-przetargu/?aid=87765&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-02-21",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 595,
+          "source_url": "https://miastochojnice.pl/21-02-2023-wyniki-przetargow/?aid=88300&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-04-25",
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 595,
+          "source_url": "https://miastochojnice.pl/25-04-2023-wyniki-przetargu/?aid=88630&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/61"
+        }
+      ]
+    },
+    {
+      "key": "dz|355/207, 355/208, 355/224, 355/225, 355/226, 355/191, 4618/3, 4618/4",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "355/207, 355/208, 355/224, 355/225, 355/226, 355/191, 4618/3, 4618/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Igielska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20355%2F207%2C%20355%2F208%2C%20355%2F224%2C%20355%2F225%2C%20355%2F226%2C%20355%2F191%2C%204618%2F3%2C%204618%2F4%20ul.%20Igielska%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-12-08",
+          "round": 1,
+          "starting_price_pln": 19700000,
+          "outcome": "unsold",
+          "source_url": "https://miastochojnice.pl/08-12-2022-wyniki-przetargu/?aid=87811&sa=0"
+        },
+        {
+          "date": "2023-03-15",
+          "round": 2,
+          "starting_price_pln": 13887,
+          "outcome": "sold",
+          "final_price_pln": 13887500,
+          "source_url": "https://miastochojnice.pl/15-03-2023-wyniki-przetargu/?aid=88409&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "355/207"
+        },
+        {
+          "nr": "355/208"
+        },
+        {
+          "nr": "355/224"
+        },
+        {
+          "nr": "355/225"
+        },
+        {
+          "nr": "355/226"
+        },
+        {
+          "nr": "355/191"
+        },
+        {
+          "nr": "4618/3"
+        },
+        {
+          "nr": "4618/4"
+        }
+      ]
+    },
+    {
+      "key": "dz|5414",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5414",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Lenartowicza/ Norwida",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205414%20ul.%20Lenartowicza%2F%20Norwida%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1032,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-11-30",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1032,
+          "source_url": "https://miastochojnice.pl/30-11-2022-wyniki-przetargu/?aid=87766&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-01-10",
+          "round": 2,
+          "starting_price_pln": 154000,
+          "outcome": "unsold",
+          "area_m2": 1032,
+          "source_url": "https://miastochojnice.pl/10-01-2023-godz-1300-wyniki-przetargu/?aid=88059&sa=0"
+        },
+        {
+          "date": "2023-02-21",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 155600,
+          "area_m2": 1032,
+          "source_url": "https://miastochojnice.pl/21-02-2023-godz-1300-wyniki-przetargu/?aid=88299&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5414"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/73",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/73",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Smoka Wawelskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F73%20ul.%20Bytowska%2F%20Smoka%20Wawelskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 788,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 788,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-19",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 788,
+          "source_url": "https://miastochojnice.pl/19-07-2022-wyniki-przetargu/?aid=86740&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-11-29",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 788,
+          "source_url": "https://miastochojnice.pl/29-11-2022-godz-10-00-wyniki-przetargu/?aid=87765&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2023-02-21",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 151500,
+          "area_m2": 788,
+          "source_url": "https://miastochojnice.pl/21-02-2023-wyniki-przetargow/?aid=88300&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/73"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/51",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/51",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F51%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 615,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 615,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "area_m2": 615,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 615,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 105000,
+          "outcome": "unsold",
+          "area_m2": 615,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/51"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/45",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/45",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Pana Kleksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F45%20ul.%20Bytowska%2F%20Pana%20Kleksa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 625,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 625,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 107000,
+          "outcome": "unsold",
+          "area_m2": 625,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 625,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 107000,
+          "outcome": "unsold",
+          "area_m2": 625,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/45"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/88",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/88",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F88%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 710,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 710,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 710,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 710,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-12-15",
+          "round": 4,
+          "starting_price_pln": 121000,
+          "outcome": "unsold",
+          "area_m2": 710,
+          "source_url": "https://miastochojnice.pl/15-12-2022-wyniki-przetargu/?aid=87816&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/88"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. zielona",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zielona",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Zielona%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 389,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-11-15",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 78800,
+          "area_m2": 389,
+          "source_url": "https://miastochojnice.pl/15-11-2022-wyniki-przetargu/?aid=87645&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|4608/37",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/37",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F37%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 742,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 742,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 127000,
+          "outcome": "unsold",
+          "area_m2": 742,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 128300,
+          "area_m2": 742,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/37"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/35",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/35",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F35%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 510,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 510,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 87000,
+          "outcome": "unsold",
+          "area_m2": 510,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        },
+        {
+          "date": "2022-10-25",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 87900,
+          "area_m2": 510,
+          "source_url": "https://miastochojnice.pl/25-10-2022-wyniki-przetargow/?aid=87598&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/35"
+        }
+      ]
+    },
+    {
+      "key": "dz|569/25",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "569/25",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kolejowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20569%2F25%20ul.%20Kolejowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 22233,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-13",
+          "round": 1,
+          "starting_price_pln": 3693000,
+          "outcome": "unsold",
+          "area_m2": 22233,
+          "source_url": "https://miastochojnice.pl/13-10-2022-wyniki-przetargow/?aid=87447&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "569/25"
+        }
+      ]
+    },
+    {
+      "key": "dz|569/23",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "569/23",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kolejowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20569%2F23%20ul.%20Kolejowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 4981,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-10-13",
+          "round": 1,
+          "starting_price_pln": 827000,
+          "outcome": "sold",
+          "final_price_pln": 836000,
+          "area_m2": 4981,
+          "source_url": "https://miastochojnice.pl/13-10-2022-wyniki-przetargow/?aid=87447&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "569/23"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/53",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/53",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F53%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 700,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 700,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 120000,
+          "outcome": "sold",
+          "final_price_pln": 121200,
+          "area_m2": 700,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/53"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/11",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/11",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F11%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 663,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 663,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-09-13",
+          "round": 2,
+          "starting_price_pln": 113000,
+          "outcome": "sold",
+          "final_price_pln": 114200,
+          "area_m2": 663,
+          "source_url": "https://miastochojnice.pl/13-09-2022-wyniki-przetargow/?aid=87082&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/11"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/26",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/26",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Misia Uszatka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F26%20ul.%20Bytowska%2F%20Misia%20Uszatka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 651,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 651,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-07-19",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 115500,
+          "area_m2": 651,
+          "source_url": "https://miastochojnice.pl/19-07-2022-wyniki-przetargu/?aid=86740&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/26"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/59",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/59",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F59%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 550,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 95000,
+          "area_m2": 550,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/59"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/60",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/60",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F60%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 662,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 662,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/60"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/36",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/36",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Jacka i Agatki",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F36%20ul.%20Bytowska%2F%20Jacka%20i%20Agatki%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 609,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 609,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/36"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/8",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/8",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F8%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 670,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 670,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/8"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/7",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F7%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 687,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 687,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/82",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/82",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Bolka i Lolka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F82%20ul.%20Bytowska%2F%20Bolka%20i%20Lolka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 576,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-11",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 576,
+          "source_url": "https://miastochojnice.pl/11-05-2022-wyniki-przetargu/?aid=86140&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/82"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/76",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/76",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Słoneczne Wzgórze",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F76%20ul.%20Bytowska%2F%20S%C5%82oneczne%20Wzg%C3%B3rze%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 720,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 140400,
+          "area_m2": 720,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/76"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/64",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/64",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Smoka Wawelskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F64%20ul.%20Bytowska%2F%20Smoka%20Wawelskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 550,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 550,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/64"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/24",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/24",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Misia Uszatka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F24%20ul.%20Bytowska%2F%20Misia%20Uszatka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 600,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 600,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/24"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/77",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/77",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Słoneczne Wzgórze",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F77%20ul.%20Bytowska%2F%20S%C5%82oneczne%20Wzg%C3%B3rze%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 737,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 737,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/77"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/78",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/78",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Słoneczne Wzgórze",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F78%20ul.%20Bytowska%2F%20S%C5%82oneczne%20Wzg%C3%B3rze%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 770,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-04-21",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 154600,
+          "area_m2": 770,
+          "source_url": "https://miastochojnice.pl/21-04-2022-wyniki-przetargow/?aid=85908&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/78"
+        }
+      ]
+    },
+    {
+      "key": "dz|5365",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5365",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kolejowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205365%20ul.%20Kolejowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2405,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-03-24",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 2405,
+          "source_url": "https://miastochojnice.pl/24-03-2022-wyniki-przetargu-na-zbycie-nieruchomosci-miejskich/?aid=85621&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5365"
+        }
+      ]
+    }
+  ]
+}

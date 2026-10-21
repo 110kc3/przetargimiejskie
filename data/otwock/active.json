@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "city": "otwock",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Stanisława Wyspiańskiego",
+        "street_norm": "stanislawa wyspianskiego",
+        "building": "6",
+        "apt": "27",
+        "key": "stanislawa wyspianskiego|6|27",
+        "warning": null
+      },
+      "address_raw": "Stanisława Wyspiańskiego 6/27",
+      "auction_date": "2026-12-08",
+      "published_date": "2026-10-02",
+      "round": 3,
+      "area_m2": 49.42,
+      "starting_price_pln": 440000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30906",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_10/BIPF65D26385801FZ/Przetarg_III_Wyspianskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "gen. Władysława Sikorskiego",
+        "street_norm": "gen wladyslawa sikorskiego",
+        "building": "1",
+        "apt": "13",
+        "key": "gen wladyslawa sikorskiego|1|13",
+        "warning": null
+      },
+      "address_raw": "gen. Władysława Sikorskiego 1/13",
+      "auction_date": "2026-12-03",
+      "published_date": "2026-10-02",
+      "round": 3,
+      "area_m2": 56,
+      "starting_price_pln": 470000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30905",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_10/BIPF65CDACDD1C6EAZ/Przetarg_III_Sikorskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Stanisława Wyspiańskiego",
+        "street_norm": "stanislawa wyspianskiego",
+        "building": "6",
+        "apt": "27",
+        "key": "stanislawa wyspianskiego|6|27",
+        "warning": null
+      },
+      "address_raw": "Stanisława Wyspiańskiego 6/27",
+      "auction_date": "2026-07-30",
+      "published_date": "2026-05-22",
+      "round": 2,
+      "area_m2": 49.42,
+      "starting_price_pln": 470000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30373",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_05/BIPF6526686E885E2Z/przetarg_-_Wyspianskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "gen. Władysława Sikorskiego",
+        "street_norm": "gen wladyslawa sikorskiego",
+        "building": "1",
+        "apt": "13",
+        "key": "gen wladyslawa sikorskiego|1|13",
+        "warning": null
+      },
+      "address_raw": "gen. Władysława Sikorskiego 1/13",
+      "auction_date": "2026-07-30",
+      "published_date": "2026-05-22",
+      "round": 2,
+      "area_m2": 56,
+      "starting_price_pln": 500000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30371",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_05/BIPF652654BDEFEFAZ/przetarg_-_Sikorskiego22.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Marii Skłodowskiej Curie",
+        "street_norm": "marii sklodowskiej curie",
+        "building": "11",
+        "apt": "10",
+        "key": "marii sklodowskiej curie|11|10",
+        "warning": null
+      },
+      "address_raw": "Marii Skłodowskiej Curie 11/10",
+      "auction_date": "2026-05-14",
+      "published_date": "2026-04-13",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 300000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=30117",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_04/BIPF64F567685C0ADZ/III_przetarg_-_Sklodowskiej.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Marii Curie Skłodowskiej",
+        "street_norm": "marii curie sklodowskiej",
+        "building": "11",
+        "apt": "10",
+        "key": "marii curie sklodowskiej|11|10",
+        "warning": null
+      },
+      "address_raw": "Marii Curie Skłodowskiej 11/10",
+      "auction_date": "2026-03-05",
+      "published_date": "2026-02-05",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 320000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29803",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_02/BIPF64A131538CECAZ/przetarg_-_Sklodowskiej.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "gen. Władysława Sikorskiego",
+        "street_norm": "gen wladyslawa sikorskiego",
+        "building": "1",
+        "apt": "13",
+        "key": "gen wladyslawa sikorskiego|1|13",
+        "warning": null
+      },
+      "address_raw": "gen. Władysława Sikorskiego 1/13",
+      "auction_date": "2026-04-16",
+      "published_date": "2026-02-05",
+      "round": 1,
+      "area_m2": 56,
+      "starting_price_pln": 530000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29802",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_02/BIPF64A13148624D7Z/przetarg_-_Sikorskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Stanisława Wyspiańskiego",
+        "street_norm": "stanislawa wyspianskiego",
+        "building": "6",
+        "apt": "27",
+        "key": "stanislawa wyspianskiego|6|27",
+        "warning": null
+      },
+      "address_raw": "Stanisława Wyspiańskiego 6/27",
+      "auction_date": "2026-04-09",
+      "published_date": "2026-02-05",
+      "round": 1,
+      "area_m2": 49.42,
+      "starting_price_pln": 500000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29801",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_02/BIPF64A11488F06A4Z/przetarg_-_Wyspianskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "76",
+        "apt": "17",
+        "key": "jozefa ignacego kraszewskiego|76|17",
+        "warning": null
+      },
+      "address_raw": "Józefa Ignacego Kraszewskiego 76/17",
+      "auction_date": "2026-03-05",
+      "published_date": "2026-01-26",
+      "round": 4,
+      "area_m2": 15.7,
+      "starting_price_pln": 89000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29762",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2026_01/BIPF64948B531AD60Z/przetarg_kraszewskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Marii Curie Skłodowskiej",
+        "street_norm": "marii curie sklodowskiej",
+        "building": "11",
+        "apt": "10",
+        "key": "marii curie sklodowskiej|11|10",
+        "warning": null
+      },
+      "address_raw": "Marii Curie Skłodowskiej 11/10",
+      "auction_date": "2025-12-04",
+      "published_date": "2025-11-03",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": 365000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29382",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_11/BIPF642AF5F592EA4Z/przetarg.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Kraszewskiego",
+        "street_norm": "kraszewskiego",
+        "building": "76",
+        "apt": "17",
+        "key": "kraszewskiego|76|17",
+        "warning": null
+      },
+      "address_raw": "Kraszewskiego 76/17",
+      "auction_date": "2025-11-06",
+      "published_date": "2025-10-01",
+      "round": 3,
+      "area_m2": 15.7,
+      "starting_price_pln": 95000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=29228",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_10/BIPF640187932ACF4Z/przetarg_-_lokal_Kraszewskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "76",
+        "apt": "17",
+        "key": "jozefa ignacego kraszewskiego|76|17",
+        "warning": null
+      },
+      "address_raw": "Józefa Ignacego Kraszewskiego 76/17",
+      "auction_date": "2025-08-14",
+      "published_date": "2025-07-09",
+      "round": 2,
+      "area_m2": 15.7,
+      "starting_price_pln": 100000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=28883",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_07/BIPF6397B3CDDF97DZ/II_przetarg_lokal_nr_17_Kraszewskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Józefa Ignacego Kraszewskiego",
+        "street_norm": "jozefa ignacego kraszewskiego",
+        "building": "76",
+        "apt": "17",
+        "key": "jozefa ignacego kraszewskiego|76|17",
+        "warning": null
+      },
+      "address_raw": "Józefa Ignacego Kraszewskiego 76/17",
+      "auction_date": "2025-06-26",
+      "published_date": "2025-05-23",
+      "round": 1,
+      "area_m2": 15.7,
+      "starting_price_pln": 100000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=28637",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_05/BIPF635CBEC1A2131Z/Przetarg_Kraszewskiego.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Majowej",
+        "street_norm": "majowej",
+        "building": "18",
+        "apt": "6",
+        "key": "majowej|18|6",
+        "warning": null
+      },
+      "address_raw": "Majowej 18/6",
+      "auction_date": "2025-05-29",
+      "published_date": "2025-04-18",
+      "round": 1,
+      "area_m2": 13.03,
+      "starting_price_pln": 25000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=28439",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2025_04/BIPF6330ABD5BD364Z/Przetarg_lokal_Majowa.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Marii Dąbrowskiej",
+        "street_norm": "marii dabrowskiej",
+        "building": "17",
+        "apt": "9",
+        "key": "marii dabrowskiej|17|9",
+        "warning": null
+      },
+      "address_raw": "Marii Dąbrowskiej 17/9",
+      "auction_date": "2023-12-07",
+      "published_date": "2023-10-03",
+      "round": 1,
+      "area_m2": 56.8,
+      "starting_price_pln": 540000,
+      "detail_url": "https://bip.otwock.pl/?bip=2&cid=1018&id=25962",
+      "source_pdf": "https://bip.otwock.pl/fls/bip_pliki/2023_10/BIPF606CF7AEFE131Z/Przetarg_-_lokal_ul._M._Dabrowskiej.pdf"
+    }
+  ],
+  "wykaz": []
+}

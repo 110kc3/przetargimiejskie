@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "city": "sztum",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Nowowiejskiego 18/1A",
+      "address": {
+        "street": "Nowowiejskiego",
+        "street_norm": "nowowiejskiego",
+        "building": "18",
+        "apt": "1A",
+        "key": "nowowiejskiego|18|1A",
+        "warning": null
+      },
+      "area_m2": 67.39,
+      "starting_price_pln": 199000,
+      "auction_date": "2026-11-24",
+      "round": 4,
+      "kw": "GD2I/00005223/6",
+      "notes": [
+        "procedure: rokowania"
+      ],
+      "detail_url": "https://bip.sztum.pl/1186.html?file=19975",
+      "source_url": "https://bip.sztum.pl/1186.html?file=19975"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Skłodowskiej 17D/7",
+      "address": {
+        "street": "Skłodowskiej",
+        "street_norm": "sklodowskiej",
+        "building": "17D",
+        "apt": "7",
+        "key": "sklodowskiej|17D|7",
+        "warning": null
+      },
+      "area_m2": 43.56,
+      "starting_price_pln": 208000,
+      "auction_date": "2026-11-24",
+      "round": 5,
+      "kw": "GD1E/00024582/8",
+      "notes": [
+        "procedure: rokowania"
+      ],
+      "detail_url": "https://bip.sztum.pl/1186.html?file=19971",
+      "source_url": "https://bip.sztum.pl/1186.html?file=19971"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Mickiewicza 39",
+      "address": {
+        "street": "Mickiewicza",
+        "street_norm": "mickiewicza",
+        "building": "39",
+        "apt": null,
+        "key": "mickiewicza|39|",
+        "warning": null
+      },
+      "area_m2": null,
+      "starting_price_pln": null,
+      "auction_date": null,
+      "round": 1,
+      "kw": "GD2I/00001556/1",
+      "notes": [
+        "procedure: rokowania"
+      ],
+      "detail_url": "https://bip.sztum.pl/1186.html?file=19549",
+      "source_url": "https://bip.sztum.pl/1186.html?file=19549"
+    }
+  ],
+  "wykaz": []
+}

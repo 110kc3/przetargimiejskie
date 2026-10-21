@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "city": "starogard-gdanski",
+  "properties": [
+    {
+      "key": "mikolaja kopernika|32C|2",
+      "street": "Mikołaja Kopernika",
+      "street_norm": "mikolaja kopernika",
+      "building": "32C",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 120000,
+          "outcome": "archived",
+          "area_m2": 29.05,
+          "detail_url": "https://bip.starogard.pl/a,27442,i-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-starogardzie-gdanskim-p.html",
+          "wadium_deadline": "2026-07-16",
+          "viewing_date": "2026-07-03"
+        }
+      ],
+      "area_m2": 29.05
+    },
+    {
+      "key": "wybickiego|6|5",
+      "street": "Wybickiego",
+      "street_norm": "wybickiego",
+      "building": "6",
+      "apt": "5",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2024-11-26",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "494/11/2024"
+        }
+      ]
+    },
+    {
+      "key": "kanalowa|19A|",
+      "street": "Kanałowa",
+      "street_norm": "kanalowa",
+      "building": "19A",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-08-30",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "398/08/2023"
+        }
+      ]
+    },
+    {
+      "key": "kopernika|32F|",
+      "street": "Kopernika",
+      "street_norm": "kopernika",
+      "building": "32F",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-08-30",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "398/08/2023"
+        }
+      ]
+    },
+    {
+      "key": "pilsudskiego|16|",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "16",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-08-30",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "398/08/2023"
+        }
+      ]
+    },
+    {
+      "key": "skarszewska|2C|",
+      "street": "Skarszewska",
+      "street_norm": "skarszewska",
+      "building": "2C",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-08-30",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "398/08/2023"
+        }
+      ]
+    },
+    {
+      "key": "skosna|5|",
+      "street": "Skośna",
+      "street_norm": "skosna",
+      "building": "5",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-08-30",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "398/08/2023"
+        }
+      ]
+    },
+    {
+      "key": "sciegiennego|5|",
+      "street": "Ściegiennego",
+      "street_norm": "sciegiennego",
+      "building": "5",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2023-08-30",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "398/08/2023"
+        }
+      ]
+    },
+    {
+      "key": "skarszewska|2C|14",
+      "street": "Skarszewska",
+      "street_norm": "skarszewska",
+      "building": "2C",
+      "apt": "14",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2021-03-02",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "74/03/2021"
+        }
+      ]
+    },
+    {
+      "key": "pilsudskiego|10|8",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "10",
+      "apt": "8",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2021-03-02",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "74/03/2021"
+        }
+      ]
+    },
+    {
+      "key": "chojnicka|45|",
+      "street": "Chojnicka",
+      "street_norm": "chojnicka",
+      "building": "45",
+      "apt": null,
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2020-11-16",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "450/11/2020"
+        },
+        {
+          "date": "2020-11-16",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "450/11/2020"
+        }
+      ]
+    },
+    {
+      "key": "osiedlowa|5B|3",
+      "street": "Osiedlowa",
+      "street_norm": "osiedlowa",
+      "building": "5B",
+      "apt": "3",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2020-09-16",
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced",
+          "wykaz_no": "375/09/2020"
+        }
+      ]
+    }
+  ]
+}

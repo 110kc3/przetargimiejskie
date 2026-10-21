@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wabrzezno",
-  "generated_at": "2026-10-21T19:08:29.780Z",
+  "generated_at": "2026-10-21T22:30:27.100Z",
   "source_pdf_count": 3,
   "parsed_records": 1,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T19:07:49.550Z",
-  "last_successful_source_check_at": "2026-10-21T19:07:49.550Z",
+  "last_source_attempt_at": "2026-10-21T22:29:46.867Z",
+  "last_successful_source_check_at": "2026-10-21T22:29:46.867Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T19:07:49.550Z",
-      "last_success_at": "2026-10-21T19:07:49.550Z"
+      "last_attempt_at": "2026-10-21T22:29:46.867Z",
+      "last_success_at": "2026-10-21T22:29:46.867Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-21T19:07:49.550Z",
-      "last_success_at": "2026-10-21T19:07:49.550Z"
+      "last_attempt_at": "2026-10-21T22:29:46.867Z",
+      "last_success_at": "2026-10-21T22:29:46.867Z"
     }
   }
 }

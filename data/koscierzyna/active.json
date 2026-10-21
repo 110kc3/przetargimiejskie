@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "city": "koscierzyna",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "6",
+        "apt": "7",
+        "key": "sikorskiego|6|7",
+        "warning": null
+      },
+      "address_raw": "Sikorskiego 6/7",
+      "auction_date": "2026-07-31",
+      "published_date": "2026-06-24",
+      "round": 2,
+      "area_m2": 52.13,
+      "starting_price_pln": 170000,
+      "detail_url": "https://bip.koscierzyna.gda.pl/?bip=2&cid=557&id=1912",
+      "source_pdf": "https://bip.koscierzyna.gda.pl/fls/bip_pliki/2026_06/BIPF654FB27A6110CZ/Ogloszenie_przetarg_-_lokal_Sikorskiego_6.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "6",
+        "apt": "7",
+        "key": "sikorskiego|6|7",
+        "warning": null
+      },
+      "address_raw": "Sikorskiego 6/7",
+      "auction_date": "2026-05-22",
+      "published_date": "2026-04-13",
+      "round": 1,
+      "area_m2": 52.13,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.koscierzyna.gda.pl/?bip=2&cid=557&id=1873",
+      "source_pdf": "https://bip.koscierzyna.gda.pl/fls/bip_pliki/2026_04/BIPF64F1AF4808BBBZ/Ogloszenie_przetarg_-_lokal_Sikorskiego_6.pdf"
+    }
+  ],
+  "wykaz": []
+}

@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "city": "starogard-gdanski",
+  "plots": [
+    {
+      "key": "addr|ul. chrztu polski",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": null,
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Chrztu Polski",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Chrztu%20Polski%201%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27383,iv-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie.html",
+          "source_url": "https://bip.starogard.pl/api/files/66022"
+        },
+        {
+          "date": "2026-12-09",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.starogard.pl/a,27741,v-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie-.html",
+          "source_url": "https://bip.starogard.pl/api/files/67286"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|30|221/1",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": "221/1",
+      "obreb": "30",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Feliksa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20221%2F1%20ul.%20Feliksa%2030%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-15",
+          "round": 1,
+          "starting_price_pln": 1580000,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27382,iv-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-starogardzie-g.html",
+          "source_url": "https://bip.starogard.pl/api/files/66020"
+        },
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "starting_price_pln": 1580000,
+          "outcome": "active",
+          "detail_url": "https://bip.starogard.pl/a,27742,v-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-starogardzie-gd.html",
+          "source_url": "https://bip.starogard.pl/api/files/67288"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "221/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20221%2F1%2030%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. żurawia",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": null,
+      "obreb": "37",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Żurawia",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20%C5%BBurawia%2037%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-22",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27457,i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-starogardzie-gd.html",
+          "source_url": "https://bip.starogard.pl/api/files/66310"
+        },
+        {
+          "date": "2026-10-28",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.starogard.pl/a,27744,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-starogardzie-g.html",
+          "source_url": "https://bip.starogard.pl/api/files/67292"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|7|22/29",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": "22/29",
+      "obreb": "7",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2022%2F29%207%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-27",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27227,i-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-niezabudowanych-polozonych-w-starogardzie-gdansk.html",
+          "source_url": "https://bip.starogard.pl/api/files/65416"
+        },
+        {
+          "date": "2026-10-14",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27591,ii-przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-niezabudowanej-polozonej-w-starogardzie-gdanski.html",
+          "source_url": "https://bip.starogard.pl/api/files/66723"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "22/29",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2022%2F29%207%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "addr|ul. skarszewska",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": null,
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Skarszewska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Skarszewska%201%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27558,i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie-.html",
+          "source_url": "https://bip.starogard.pl/api/files/66453"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "dz|28|70/98",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": "70/98",
+      "obreb": "28",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Chabrowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2070%2F98%20ul.%20Chabrowa%2028%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-06",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27272,viii-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-niezabudowanych-polozonych-w-starogardzie-gda.html",
+          "source_url": "https://bip.starogard.pl/api/files/65581"
+        },
+        {
+          "date": "2026-09-16",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27592,i-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-niezabudowanych-polozonych-w-starogardzie-gdansk.html",
+          "source_url": "https://bip.starogard.pl/api/files/66725"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "70/98",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2070%2F98%2028%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|28|72/7",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": "72/7",
+      "obreb": "28",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2072%2F7%2028%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27456,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie.html",
+          "source_url": "https://bip.starogard.pl/api/files/66308"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "72/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2072%2F7%2028%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|17|353/1",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": "353/1",
+      "obreb": "17",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20353%2F1%2017%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-02",
+          "round": 1,
+          "starting_price_pln": 700000,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27455,i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-starogardzie-gd.html",
+          "source_url": "https://bip.starogard.pl/api/files/66306"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "353/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20353%2F1%2017%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    }
+  ]
+}

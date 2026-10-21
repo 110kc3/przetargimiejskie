@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "city": "koscierzyna",
+  "properties": [
+    {
+      "key": "sikorskiego|6|7",
+      "street": "Sikorskiego",
+      "street_norm": "sikorskiego",
+      "building": "6",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-22",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 52.13,
+          "detail_url": "https://bip.koscierzyna.gda.pl/?bip=2&cid=557&id=1873",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-31",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "archived",
+          "area_m2": 52.13,
+          "detail_url": "https://bip.koscierzyna.gda.pl/?bip=2&cid=557&id=1912",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 52.13
+    }
+  ]
+}
