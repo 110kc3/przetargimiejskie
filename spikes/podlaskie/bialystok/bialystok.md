@@ -82,3 +82,23 @@ Scraping plan:
 - Volume is moderate (~10–20 flats/year) — worthwhile for a city of 300 000+ people but not as dense as Kraków.
 
 **VERDICT: BUILD.** Single clean HTML source, achieved price in-page, no auth/bot wall, low-effort adapter following the Kraków pattern.
+
+## Partial source/asset audit — 2026-10-21
+
+The city BIP at `https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci`
+(CMS: SmartSite by BIT Sp. z o.o.) publishes real-estate proceedings across all categories.
+The adapter specifically targets communal residential flats (`lokale mieszkalne`) sold via
+oral open auction (`przetarg ustny nieograniczony`).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions with multi-round history.
+- **Other assets:** Land parcels (`działki`), commercial units, and kiosk stands are published
+  on the same board but are filtered out to keep the focus on residential stock.
+
+Detail HTML pages contain structured key-value pairs (`Cena wywoławcza`, `Termin przetargu`,
+`Przeznaczenie`). For concluded sales (`Rozstrzygnięty`), the achieved price (`Cena nabycia`)
+is published directly in HTML, removing the need for PDF OCR. Due to the archive depth
+(2000+ entries), the crawler employs bounded backfill to incrementally capture new notices.
+
+Committed dataset maintains **233 unique properties**, 17 active listings / 12 active auctions,
+and 351 archived auctions. The residential stream is verified healthy in production.

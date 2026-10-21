@@ -108,3 +108,24 @@ Scraping approach needed: **headless browser** (Playwright/Puppeteer) or Chrome 
 **BUILD** — Sopot does run genuine open flat auctions (ustny nieograniczony, not bezprzetargowy), publishes them on a stable BIP URL, and the format is parseable with a headless-browser adapter. The low volume (1–3/year) means Sopot is a tier-2 city for this project (worth including, not a priority). Achieved-price extraction requires DOCX parsing which adds one extra step vs. pure-HTML cities. No auth/bot blocks.
 
 **Confidence: Medium** — flat auction existence confirmed LIVE (2026-06-24 active listing + 2023 archived listing with full details). Volume estimate (1–3/year) is based on BIP archive scan and adradar page count; a full archive crawl would refine this.
+
+## Partial source/asset audit — 2026-10-21
+
+Municipal property auctions in Sopot are administered directly by the Prezydent Miasta
+(Wydział Gospodarki Nieruchomościami). While the public-facing site presents a React SPA shell,
+the adapter connects directly to the underlying REST API at `https://bip.sopot.pl/api/menu/107/articles`,
+avoiding browser rendering overhead entirely.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions.
+- **Commercial (lokale użytkowe / niemieszkalne):** commercial premises sales.
+- **Garages (garaże):** individual garage units.
+- **Land:** Although land sales occur on the board, they are excluded from the crawl budget
+  to prevent rate limiting and keep requests polite.
+
+Announcements and concluded result notices (`Informacja o wyniku przetargu`) are attached
+as `.doc` files (or inline text on older notices) to the respective article. Price and area data
+are extracted using `docText`. Concluded items are marked with a `(ZAKOŃCZONY)` title prefix.
+
+Committed dataset maintains **16 unique properties**, with 21 active listings and 31 archived
+auctions. The property stream is verified healthy in production.

@@ -1,6 +1,26 @@
 {
   "schema_version": 1,
   "city": "zabkowice-slaskie",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "garaz",
+      "address_raw": "ul. Bartosza Głowackiego 0/10-21",
+      "address": {
+        "street": "Bartosza Głowackiego",
+        "street_norm": "bartosza glowackiego",
+        "building": "0",
+        "apt": "10-21",
+        "key": "bartosza glowackiego|0|10-21",
+        "warning": null
+      },
+      "area_m2": 19.43,
+      "starting_price_pln": 44000,
+      "auction_date": "2026-11-18",
+      "round": 1,
+      "detail_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/11008/zabkowice-slaskie-przy-ul-bartosza-glowackiego",
+      "source_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/11008/zabkowice-slaskie-przy-ul-bartosza-glowackiego",
+      "round_source": "inferred"
+    }
+  ],
   "wykaz": []
 }

@@ -131,7 +131,10 @@ function normBuilding(b) {
 // stops at the building number, and the optional space+letter only fires for an
 // UPPERCASE letter so a following preposition ("6 w Ząbkowicach") is never eaten.
 const STREET_RE =
-  /(?:przy\s+)?(?:ul(?:\.|icy|ica)?|pl(?:\.|acu|ac)?|al(?:\.|ei|eja)?|os(?:\.|iedla|iedle)?)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’-]*(?:\s+[A-ZŻŹĆŁŚĄĘÓŃIVX][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’-]*)*?)\s+(\d+(?:\s[A-Z]|[A-Za-z])?(?:-\d+)?)(?=[\s.,/]|$)/;
+  /(?:przy,?\s+)?(?:ul(?:\.|icy|ica)?|pl(?:\.|acu|ac)?|al(?:\.|ei|eja)?|os(?:\.|iedla|iedle)?)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’-]*(?:\s+[A-ZŻŹĆŁŚĄĘÓŃIVX][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’-]*)*?)\s+(\d+(?:\s[A-Z]|[A-Za-z])?(?:-\d+)?)(?=[\s.,/]|$)/;
+
+const STREET_BARE_RE =
+  /(?:przy,?\s+)?(?:ul(?:\.|icy|ica)?|pl(?:\.|acu|ac)?|al(?:\.|ei|eja)?|os(?:\.|iedla|iedle)?)\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’-]*(?:\s+[A-ZŻŹĆŁŚĄĘÓŃIVX][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'’-]*)*)/;
 
 // Village form (no "ul."): "… położonego w miejscowości Sulisławice 52B …" /
 // "… Sulisławice 52 B …". Single-word village + building.
@@ -151,12 +154,27 @@ export function streetOrVillageFromProse(text) {
 
 /** "ul. <street> <bldg>[/<unit>]" raw address for an address-keyed asset, or null.
  *  (parseAddress strips the "ul." lead, so a village name passes through as the
- *  street.) A unit number appends "/N". */
-export function addressRawFromProse(text) {
+ *  street.) A unit number appends "/N".
+ *  For garages standing on a parcel without a municipal building number, synthesizes
+ *  building "0" (optionally with unit/parcel) following the rejon-garage convention. */
+export function addressRawFromProse(text, kind = null) {
   const sv = streetOrVillageFromProse(text);
-  if (!sv || !sv.building) return null;
-  const unit = unitNoFromProse(text);
-  return unit ? `ul. ${sv.street} ${sv.building}/${unit}` : `ul. ${sv.street} ${sv.building}`;
+  if (sv && sv.building) {
+    const unit = unitNoFromProse(text);
+    return unit ? `ul. ${sv.street} ${sv.building}/${unit}` : `ul. ${sv.street} ${sv.building}`;
+  }
+  if (kind === 'garaz') {
+    const bm = STREET_BARE_RE.exec(text || '');
+    if (bm) {
+      const street = bm[1].replace(/\s+/g, ' ').trim();
+      const unit = unitNoFromProse(text);
+      const parcel = parcelFromProse(text);
+      if (unit) return `ul. ${street} 0/${unit}`;
+      if (parcel) return `ul. ${street} 0/${parcel.replace('/', '-')}`;
+      return `ul. ${street} 0`;
+    }
+  }
+  return null;
 }
 
 // Parcel number(s): "działkę nr 399/6", "działka nr 5/134", "działka nr 49",
@@ -302,7 +320,7 @@ export function parseAnnouncement(fields, detailUrl) {
   }
 
   // Address-keyed (flat / commercial unit / garage / building).
-  const address_raw = addressRawFromProse(fields.przetargNa || prose) || addressRawFromProse(fields.adres || '');
+  const address_raw = addressRawFromProse(fields.przetargNa || prose, kind) || addressRawFromProse(fields.adres || '', kind);
   if (!address_raw) return null;
   const address = parseAddress(address_raw);
   if (!address) return null;
@@ -421,7 +439,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }
 
   // Address-keyed (flat / commercial / garage / building).
-  const address_raw = addressRawFromProse(t);
+  const address_raw = addressRawFromProse(t, kind);
   if (!address_raw) return [];
   const address = parseAddress(address_raw);
   if (!address) return [];

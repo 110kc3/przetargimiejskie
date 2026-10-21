@@ -36,15 +36,21 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **20 partial**, **101 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+121 enabled cities: **0 complete**, **28 partial**, **93 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
+| Białystok | 2026-10-21 | partial | residential | [source notes](../spikes/podlaskie/bialystok/bialystok.md) |
+| Bielsko-Biała | 2026-10-21 | partial | building, commercial, land, residential | [source notes](../spikes/slaskie/bielsko-biala/bielsko-biala.md) |
 | Bochnia | 2026-10-21 | partial | land, residential | [source notes](../spikes/malopolskie/powiat-bochenski/bochnia.md) |
 | Bolesławiec | 2026-10-19 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md) |
 | Busko-Zdrój | 2026-10-20 | partial | land | [source notes](../spikes/swietokrzyskie/powiat-buski/busko-zdroj.md) |
+| Bydgoszcz | 2026-10-21 | partial | building, commercial, residential | [source notes](../spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md) |
 | Bytom | 2026-10-21 | partial | commercial, garage, land, residential | [source notes](../spikes/slaskie/bytom/bytom.md) |
 | Chrzanów | 2026-10-21 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
+| Cieszyn | 2026-10-21 | partial | building, residential | [source notes](../spikes/slaskie/powiat-cieszynski/cieszyn.md) |
+| Elbląg | 2026-10-21 | partial | building, land, residential | [source notes](../spikes/warminsko-mazurskie/elblag/elblag.md) |
+| Gdańsk | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/gdansk/gdansk.md) |
 | Gliwice | 2026-10-21 | partial | commercial, garage, land, residential | [source notes](../spikes/slaskie/gliwice/gliwice.md) |
 | Gniezno | 2026-10-21 | partial | land, residential | [source notes](../spikes/wielkopolskie/powiat-gnieznienski/gniezno.md) |
 | Golub-Dobrzyń | 2026-10-21 | partial | land, residential | [source notes](../spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md) |
@@ -54,8 +60,10 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Lubin | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-lubinski/lubin.md) |
 | Poddębice | 2026-10-21 | partial | land, residential | [source notes](../spikes/lodzkie/powiat-poddebicki/poddebice.md) |
 | Rawa Mazowiecka | 2026-10-21 | partial | building, land, residential | [source notes](../spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md) |
+| Sopot | 2026-10-21 | partial | commercial, garage, residential | [source notes](../spikes/pomorskie/sopot/sopot.md) |
 | Trzebnica | 2026-10-19 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md) |
 | Wałbrzych | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/walbrzych/walbrzych.md) |
+| Warszawa | 2026-10-21 | partial | residential | [source notes](../spikes/mazowieckie/warszawa/warszawa.md) |
 | Wschowa | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-wschowski/wschowa.md) |
 | Ząbkowice Śląskie | 2026-10-19 | partial | land, garage | [source notes](../spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md) |
 | Zgorzelec | 2026-10-20 | partial | land, building | [source notes](../spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md) |

@@ -105,3 +105,22 @@ None critical. The only open question is whether the achieved price is in the HT
 ### Verdict
 
 **BUILD — Medium effort.** Single BIP host, server-rendered HTML, born-digital PDFs, no auth, Logonet CMS (likely reusable from other adapters). Flat auction volume is low but the stream is real, clearly labelled, and well-structured. Tenant-sale notices must be excluded. Confirm achieved-price field format before shipping.
+
+## Partial source/asset audit — 2026-10-21
+
+The city BIP at `https://bip.elblag.eu/przetargi-nieruchomosci/190` (Logonet eUrząd 2.9.0)
+publishes municipal property sales administered by Prezydent Miasta Elbląg.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal flat auctions with multi-round history.
+- **Land (działki):** municipal land parcels (5 plots).
+- **Whole buildings (nieruchomości zabudowane):** built properties.
+
+Per-item HTML detail pages carry structured fields (price, dates, round), with editable
+attachments (`Ogłoszenie - wersja edytowalna`) supplying building/apartment numbers, floor areas,
+and cadastral boundaries. Result notices are published as batch tables reporting multiple
+outcomes decided on the same date. Off-auction tenant sales (`bezprzetargowo`) on category 191
+are strictly excluded.
+
+Committed dataset maintains **4 properties / 5 land plots**, with 3 active property listings
+and 6 land listings. Both property and land streams are verified healthy in production.

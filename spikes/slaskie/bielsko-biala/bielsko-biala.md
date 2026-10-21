@@ -12,3 +12,24 @@ Adapter is live: `pipeline/src/cities/bielsko/` → data in `data/bielsko/` (reg
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Partial source/asset audit — 2026-10-21
+
+Municipal property auctions are administered directly by the City Hall (Urząd Miejski w
+Bielsku-Białej, Wydział Mienia Gminnego) through a dedicated municipal marketplace,
+the **Giełda Nieruchomości** at `https://nieruchomosci.bielsko-biala.pl` (Drupal), rather
+than standard BIP publication. ZGM Bielsko-Biała handles only rentals and procurement.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal flat auctions.
+- **Commercial (lokale użytkowe):** commercial premises disposals.
+- **Whole buildings (budynki):** built residential and service properties.
+- **Land (działki):** undeveloped land parcels (11 plots).
+
+The marketplace operates in active/upcoming mode: listings carry starting prices, dates,
+and full terms. Post-auction achieved prices are not published on the Giełda; once an auction
+date passes, the listing is archived. The adapter crawls server-rendered HTML directly.
+
+Committed dataset maintains **8 unique properties / 11 land plots**, with 3 active property
+listings / 8 active auctions, and 11 land auctions. Both property and land streams are
+verified healthy in production.

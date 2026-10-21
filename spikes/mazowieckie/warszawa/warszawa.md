@@ -303,3 +303,23 @@ scrape target for *lokal mieszkalny* auctions city-wide.
 The "TODO for first CI run" note in the District topology section above is now
 resolved — all 18 dzielnice are confirmed ETO-complete for flat auctions as of
 2026-06-29.
+
+## Partial source/asset audit — 2026-10-21
+
+The central Elektroniczna Tablica Ogłoszeń (ETO) at `https://eto.um.warszawa.pl/category/165`
+serves as the sole authoritative aggregation hub for residential flat auctions across
+all 18 Warsaw districts (dzielnice) and Agencja Mienia Wojskowego (AMW) military housing.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions (`przetarg ustny nieograniczony`)
+  linking out to individual district portals or carrying AMW announcement PDFs directly.
+- **Land & non-residential:** Disposals of municipal land parcels and larger commercial
+  properties are managed separately by Biuro Mienia Miasta i Skarbu Państwa through
+  specialized tenders, and remain out of scope for this residential adapter.
+
+Announcements published on district sub-portals are parsed from HTML; AMW notices carry
+PDF attachments parsed via text extraction and OCR fallback. Result notices have short
+publication windows (~8 days) on ETO, resulting in a narrow historical result capture window.
+
+Committed dataset maintains **7 unique properties**, with 2 active listings and 6 active
+auctions. The residential stream is verified healthy in production.

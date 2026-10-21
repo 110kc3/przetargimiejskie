@@ -287,3 +287,25 @@ test('isResultNotice: matches the OCR header, rejects an announcement', () => {
   assert.equal(isResultNotice(STOLEC_RESULT), true);
   assert.equal(isResultNotice('sprzedaż lokalu mieszkalnego nr 2 położonego'), false);
 });
+
+test('parseAnnouncement: notice 11008 garage without house number on parcel 10/21 — parses kind garaz and synthesizes rejon address key', () => {
+  const fields = {
+    adres: 'Ząbkowice Śląskie, przy ul. Bartosza Głowackiego',
+    przetargNa: 'sprzedaż nieruchomości zabudowanej budynkiem garażowym o pow. 19,43 m2 położonym w Ząbkowicach Śląskich przy, ul. Bartosza Głowackiego z jednoczesnym oddaniem w użytkowanie wieczyste udziału wynoszącego 1/6 w działce nr 10/21, ob. Osiedle Wschód-04 o pow. 0,0129 ha',
+    typ: 'Przetarg ustny nieograniczony',
+    rodzaj: 'nieruchomość zabudowana',
+    cenaText: '44 000,00',
+    auctionDate: '2026-11-18',
+    publishedDate: '2026-10-10',
+  };
+  const r = parseAnnouncement(fields, 'https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/11008/x');
+  assert.ok(r);
+  assert.equal(r.kind, 'garaz');
+  assert.equal(r.address.street, 'Bartosza Głowackiego');
+  assert.equal(r.address.building, '0');
+  assert.equal(r.address.apt, '10-21');
+  assert.equal(r.address.key, 'bartosza glowackiego|0|10-21');
+  assert.equal(r.area_m2, 19.43);
+  assert.equal(r.starting_price_pln, 44000);
+  assert.equal(r.auction_date, '2026-11-18');
+});

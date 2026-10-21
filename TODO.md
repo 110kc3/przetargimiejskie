@@ -193,19 +193,21 @@ The older dated sections below preserve diagnosis and do not override this state
 - **Parcel lookup identities corrected:** Chrzanów now uses official city-area
   TERC `120303_4` and Kwidzyn municipal TERC `220701_1`, matching the canonical
   national ledger. No official ledger identity or full-review date was changed.
-- **Existing-city asset audit is now recorded in the canonical manifest:**
-  **0 complete / 20 partial / 101 unchecked**, generated in
+- **Existing-city asset audit advanced in the canonical manifest:**
+  **0 complete / 28 partial / 93 unchecked**, generated in
   [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The audit expands with eight newly
-  audited enabled feeds: Bytom, Gliwice, Gniezno, Golub-Dobrzyń, Rawa Mazowiecka,
-  Poddębice, Wałbrzych, and Bochnia. Hosted verification in `1bd92093e` confirms
-  Chrzanów land recovery (4 plots, healthy) and Kwidzyn current flats (6 properties /
-  3 plots, 2 active auctions). Kraków's CodeQL #132 formatting unwrapping is resolved.
-  The partial checks cover 20 cities; all retain their full review deadlines and
-  do not promote runtime status. Zgorzelec's linked
-  announcement archives are now crawled; its result discovery remains incomplete.
-  Ząbkowice notice 11008 is a genuine 19.43 m²
-  garage / 44,000 zł sale missed because no street number is published; its
-  parcel/share must not be relabelled as a street address or bare-land sale.
+  audited enabled feeds: Warszawa, Białystok, Bielsko-Biała, Bydgoszcz, Cieszyn,
+  Elbląg, Gdańsk, and Sopot (joining Bytom, Gliwice, Gniezno, Golub-Dobrzyń, Rawa Mazowiecka,
+  Poddębice, Wałbrzych, Bochnia, and prior Wave 1/2 cohorts). All retain their full review deadlines and
+  canonical capabilities in master-cities.json.
+- **Triage & feed repairs resolved:**
+  Ząbkowice Śląskie garage notice 11008 (19.43 m², 44 000 zł on parcel 10/21 at ul. Bartosza Głowackiego)
+  parsed cleanly using the rejon garage convention (key `bartosza glowackiego|0|10-21`), and its
+  crawler was upgraded with explicit `valid_empty` and `valid_empty_land` completeness handling,
+  restoring the property stream to healthy. Strzelce Krajeńskie crawler was similarly patched with
+  `valid_empty` / `valid_empty_land` completeness guards; active land parcel 306/17 in Długie (415 m²)
+  parsed cleanly into 2 retained plots, restoring land stream to healthy. Bochnia confirmed recovered in
+  hosted refresh `fbe60141c`.
 - **Hosted feed recovery observed:** current committed data from scheduled
   [refresh 39230259387](https://github.com/110kc3/przetargimiejskie/actions/runs/39230259387)
   has ready, healthy streams for Gliwice, Gniezno, Rawa Mazowiecka,

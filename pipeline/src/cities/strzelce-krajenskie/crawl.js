@@ -222,15 +222,26 @@ export async function crawlActive() {
   const land = [];
   const seenDetails = new Set();
   const seenPdfs = new Set();
+  let complete = false;
+  let allParsed = true;
 
   for (let page = 1; page <= MAX_ACTIVE_PAGES; page++) {
     const html = await fetchPage(boardUrl(0, page));
-    if (!html) break;
+    if (!html) {
+      allParsed = false;
+      break;
+    }
     const rows = parseBoardPage(html);
-    if (rows.length === 0) break;
+    if (rows.length === 0) {
+      if (page === 1) complete = true;
+      break;
+    }
 
     const fresh = rows.filter((r) => r.detailUrl && !seenDetails.has(r.detailUrl));
-    if (fresh.length === 0) break;
+    if (fresh.length === 0) {
+      complete = true;
+      break;
+    }
     for (const r of fresh) seenDetails.add(r.detailUrl);
 
     for (const row of fresh) {
@@ -249,16 +260,28 @@ export async function crawlActive() {
       }
 
       const rec = parseAnnouncement(row, pdfBodyText, pdfUrl);
-      if (!rec) continue;
+      if (!rec) {
+        allParsed = false;
+        continue;
+      }
       if (rec.kind === 'grunt') land.push(rec);
       else listings.push(rec);
     }
 
-    if (rows.length < ROWS_PER_PAGE) break; // short page = last page
+    if (rows.length < ROWS_PER_PAGE) {
+      complete = true;
+      break; // short page = last page
+    }
   }
 
   console.error(`  strzelce-krajenskie crawlActive: ${listings.length} flat listing(s), ${land.length} land parcel(s)`);
-  return { listings, wykaz: [], land };
+  return {
+    listings,
+    wykaz: [],
+    land,
+    valid_empty: complete && allParsed && listings.length === 0,
+    valid_empty_land: complete && allParsed && land.length === 0,
+  };
 }
 
 // ── crawlResultDocs ──────────────────────────────────────────────────────────

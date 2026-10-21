@@ -100,3 +100,22 @@ Individual article URL pattern: `https://bip.um.bydgoszcz.pl/artykul/1208/{artic
 **VERDICT: BUILD — Medium effort.**
 
 Single reliable source (bip.um.bydgoszcz.pl/artykuly/1208), server-rendered HTML, no auth, confirmed flat-auction stream with recurring cadence, result notices on same board. Only non-trivial step is DOCX price extraction. Closest analogy: Gliwice adapter + python-docx attachment step.
+
+## Partial source/asset audit — 2026-10-21
+
+The city BIP at `https://bip.um.bydgoszcz.pl/artykuly/1208/` (CMS: Logonet 2.9.0) publishes
+real estate disposals managed by Wydział Mienia i Geodezji (WMG).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions with persistent relisting rounds
+  (subborn stock frequently reaching rounds IV-VII).
+- **Commercial (lokale użytkowe):** commercial premises disposals.
+- **Whole buildings (nieruchomości zabudowane):** mixed and residential properties.
+
+Announcements attach scanned PDFs alongside born-digital Word (.doc) attachments; text
+is extracted from .doc via `catdoc` to bypass OCR. Concluded result notices attach small
+OOXML (.docx) files (15-20 KB), from which achieved prices are parsed directly via unzip/XML
+extraction. Land auctions are published on a distinct board not monitored by this adapter.
+
+Committed dataset maintains **17 unique properties**, with 4 active listings / auctions and
+16 archived auctions. The property stream is verified healthy in production.

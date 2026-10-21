@@ -3,6 +3,29 @@
   "city": "zabkowice-slaskie",
   "properties": [
     {
+      "key": "bartosza glowackiego|0|10-21",
+      "street": "Bartosza Głowackiego",
+      "street_norm": "bartosza glowackiego",
+      "building": "0",
+      "apt": "10-21",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-11-18",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 44000,
+          "outcome": "active",
+          "area_m2": 19.43,
+          "detail_url": "https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/11008/zabkowice-slaskie-przy-ul-bartosza-glowackiego",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 19.43
+    },
+    {
       "key": "sulislawice|52B|2",
       "street": "Sulisławice",
       "street_norm": "sulislawice",

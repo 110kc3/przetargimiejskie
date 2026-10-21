@@ -128,3 +128,21 @@ CMS: Logonet Sp. z o.o. (Bydgoszcz), version 2.9.0. (confirmed from page footer)
 - Example detail — ul. Wyższa Brama 11/6: https://bip.um.cieszyn.pl/przetarg-nieruchomosci/40241/ustny-przetarg-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-6-polozonego-w-budynku-nr-11-przy-ul-wyzsza-brama
 - Wynik article example (expired): https://bip.um.cieszyn.pl/artykul/21/38587/informacja-o-wyniku-iii-ustnego-przetargu-nieograniczonego-ktory-odbyl-sie-w-dniu-21-stycznia-2025-r-o-godz-11-00-w-siedzibie-urzedu-miejskiego-w-cieszynie
 - ZBM Cieszyn (housing manager, not auction source): https://zbm.cieszyn.pl/
+
+## Partial source/asset audit — 2026-10-21
+
+The city BIP at `https://bip.um.cieszyn.pl/przetargi-nieruchomosci/1/15` (Logonet 2.9.0)
+publishes municipal property disposals organized by Wydział Gospodarki Nieruchomościami.
+Housing manager ZBM Cieszyn oversees rental tenancies only.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions with multi-round history (I/II/III rounds).
+- **Whole buildings (nieruchomości zabudowane):** mixed and residential properties.
+
+Index tables carry key metadata, with detailed conditions, usable floor area, and wadium
+specified in the detail HTML articles. Result notices are published under `/artykul/21/` with
+inline achieved prices, but expire from public view ~30 days post-auction. The adapter
+proactively polls and accumulates history into `properties.json` so price data is permanently retained.
+
+Committed dataset maintains **17 unique properties** and 37 archived auctions, with the
+property stream verified healthy in production.

@@ -10480,31 +10480,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Custom municipal portal (Elektroniczna Tablica Ogłoszeń - ETO) + Dzielnica sub-sites",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/warszawa/warszawa.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://eto.um.warszawa.pl/category/165",
+          "evidence_path": "spikes/mazowieckie/warszawa/warszawa.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Central ETO (category 165) aggregates residential flat auctions across all 18 Warsaw districts (dzielnice) and Agencja Mienia Wojskowego (AMW) military housing.",
+            "City announcements link out to district sub-portals; AMW notices carry PDF attachments directly on ETO (OCR-parsed).",
+            "Result notices have short publication windows (~8 days) on ETO, resulting in narrow historical result capture.",
+            "Production refresh maintains 7 unique properties with 2 active listings / 6 active auctions; property stream is healthy."
+          ]
         }
       ],
       "review": {
@@ -12497,31 +12514,47 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SmartSite by BIT Sp. z o.o.",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/podlaskie/bialystok/bialystok.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci",
+          "evidence_path": "spikes/podlaskie/bialystok/bialystok.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Archive exceeds 2000 total real-estate proceedings; crawler uses bounded backfill to incrementally capture new notices.",
+            "Achieved prices (Cena nabycia) are published inline in HTML detail pages for resolved auctions, avoiding PDF OCR.",
+            "Production corpus maintains 233 unique properties, 17 active listings / 12 active auctions, and 351 archived auctions; stream is healthy."
+          ]
         }
       ],
       "review": {
@@ -13524,31 +13557,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Drupal (Giełda Nieruchomości - custom municipal marketplace)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "absent"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://nieruchomosci.bielsko-biala.pl",
+          "evidence_path": "spikes/slaskie/bielsko-biala/bielsko-biala.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "building",
+            "commercial",
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Urząd Miejski publishes offers through a purpose-built Giełda Nieruchomości portal rather than standard BIP.",
+            "The marketplace lists active and upcoming auctions only; post-auction achieved prices are not published on the Giełda.",
+            "Production corpus maintains 8 unique properties and 11 land plots, with 3 active property listings and 11 land auctions; both streams are healthy."
+          ]
         }
       ],
       "review": {
@@ -13705,31 +13757,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/powiat-cieszynski/cieszyn.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.cieszyn.pl/przetargi-nieruchomosci/1/15",
+          "evidence_path": "spikes/slaskie/powiat-cieszynski/cieszyn.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "building",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Index table displays property metadata, with full terms and usable area in detail HTML articles.",
+            "Result notices are published as separate HTML articles under /artykul/21/ which expire from live display ~30 days post-auction.",
+            "History accumulation retains all concluded auctions and prices; production corpus maintains 17 unique properties and 37 archived auctions with a healthy property stream."
+          ]
         }
       ],
       "review": {
@@ -14605,31 +14674,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.bydgoszcz.pl/artykuly/1208/",
+          "evidence_path": "spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "building",
+            "commercial",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Announcements provide scanned PDFs alongside born-digital DOC attachments; text is extracted from DOC via catdoc to bypass OCR.",
+            "Result notices attach DOCX documents (15-20 KB OOXML); achieved prices are extracted directly from DOCX without OCR.",
+            "Land sales are published on a distinct board not currently crawled by this adapter.",
+            "Production corpus maintains 17 unique properties with 4 active listings / auctions and 16 archived auctions; property stream is healthy."
+          ]
         }
       ],
       "review": {
@@ -18160,31 +18248,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet 2.9.0 (Logonet eUrząd)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/elblag/elblag.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.elblag.eu/przetargi-nieruchomosci/190",
+          "evidence_path": "spikes/warminsko-mazurskie/elblag/elblag.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "building",
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Structured HTML table carries core announcement metadata, with born-digital editable attachments providing building/apt/parcel details.",
+            "Result documents are published as batch tables reporting multiple properties decided on the same date.",
+            "Explicitly excludes off-auction tenant sales (bezprzetargowo) published on category 191.",
+            "Production corpus maintains 4 properties and 5 land plots, with 3 active property listings and 6 land listings; both streams healthy."
+          ]
         }
       ],
       "review": {
@@ -19263,31 +19370,47 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Custom municipal BIP (Gdańsk.pl engine)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/gdansk/gdansk.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.gdansk.pl/urzad-miejski/Ogloszenia-o-przetargach,a,1439",
+          "evidence_path": "spikes/pomorskie/gdansk/gdansk.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Announcements link to born-digital batch PDFs hosted on the download.cloudgdansk.pl CDN bundling multiple properties.",
+            "Result notices with achieved prices are not published on the announcement board; crawlResultDocs returns empty.",
+            "Production corpus maintains 8 unique properties with 5 active listings / auctions and 3 archived; property stream is healthy."
+          ]
         }
       ],
       "review": {
@@ -20125,31 +20248,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Custom NV CMS (React SPA backed by public JSON REST API)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
-          "commercial": "unknown",
-          "garage": "unknown"
+          "commercial": "observed",
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/sopot/sopot.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.sopot.pl/api/menu/107/articles",
+          "evidence_path": "spikes/pomorskie/sopot/sopot.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "commercial",
+            "garage",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Frontend is a React SPA, but the adapter communicates directly with the underlying REST API (/api/menu/107/articles), avoiding browser rendering overhead.",
+            "Announcements and result notices use downloadable .doc attachments parsed via doc-text.js.",
+            "Land auctions are excluded to keep request volumes polite within rate limits; residential flats, commercial units, and garages are fully covered.",
+            "Production corpus maintains 16 unique properties with 21 active listings and 31 archived auctions; property stream is healthy."
+          ]
         }
       ],
       "review": {

@@ -154,30 +154,44 @@ let activePromise = null;
 async function crawlActiveInner() {
   const listings = [];
   const land = [];
+  let complete = true;
+  let allParsed = true;
   const refs = await enumerateNotices(STATUS_ACTIVE);
   console.error(`  zabkowice-slaskie: ${refs.length} active notice(s)`);
   for (const ref of refs) {
     const html = await fetchHtml(ref.detailUrl);
-    if (!html) continue;
+    if (!html) {
+      allParsed = false;
+      continue;
+    }
     const fields = extractFields(html);
-    if (!fields) continue;
+    if (!fields) {
+      allParsed = false;
+      continue;
+    }
     if (fields.przetargNa && !isSaleText(fields.przetargNa)) continue; // lease/rental
     const rec = parseAnnouncement(fields, ref.detailUrl);
     if (!rec) {
       console.error(`  zabkowice-slaskie WARN: active notice not parsed (${ref.detailUrl})`);
+      allParsed = false;
       continue;
     }
     (rec.kind === 'grunt' ? land : listings).push(rec);
   }
   console.error(`  zabkowice-slaskie: ${listings.length} active listing(s), ${land.length} active land plot(s)`);
-  return { listings, land };
+  return {
+    listings,
+    land,
+    valid_empty: complete && allParsed && listings.length === 0,
+    valid_empty_land: complete && allParsed && land.length === 0,
+  };
 }
 
 /** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   activePromise ??= crawlActiveInner();
-  const { listings, land } = await activePromise;
-  return { listings, wykaz: [], land };
+  const { listings, land, valid_empty, valid_empty_land } = await activePromise;
+  return { listings, wykaz: [], land, valid_empty, valid_empty_land };
 }
 
 // ---------------------------------------------------------------------------

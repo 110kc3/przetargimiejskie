@@ -2,13 +2,13 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "zabkowice-slaskie",
-  "generated_at": "2026-10-21T14:49:10.586Z",
+  "generated_at": "2026-10-21T16:08:21.600Z",
   "source_pdf_count": 119,
   "parsed_records": 0,
   "parser_note_count": 4,
-  "unique_properties": 8,
-  "active_listings": 0,
-  "active_auctions": 0,
+  "unique_properties": 9,
+  "active_listings": 1,
+  "active_auctions": 1,
   "archived_auctions": 15,
   "wykaz_entries": 0,
   "land_plots": 71,
@@ -16,24 +16,25 @@
   "retained_properties": 8,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T14:46:18.091Z",
-  "last_successful_source_check_at": "2026-10-21T14:46:18.091Z",
+  "last_source_attempt_at": "2026-10-21T16:05:03.662Z",
+  "last_successful_source_check_at": "2026-10-21T16:05:03.662Z",
   "monitored_assets": [
     "commercial",
+    "garage",
     "land",
     "residential"
   ],
   "source_checks": {
     "property": {
-      "status": "degraded",
-      "last_attempt_at": "2026-10-21T14:46:18.091Z",
-      "last_success_at": "2026-09-08T08:51:54.388Z"
+      "status": "healthy",
+      "last_attempt_at": "2026-10-21T16:05:03.662Z",
+      "last_success_at": "2026-10-21T16:05:03.662Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-21T14:46:18.091Z",
-      "last_success_at": "2026-10-21T14:46:18.091Z"
+      "last_attempt_at": "2026-10-21T16:05:03.662Z",
+      "last_success_at": "2026-10-21T16:05:03.662Z"
     }
   }
 }

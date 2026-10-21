@@ -139,3 +139,22 @@ Announcement PDFs are hosted at `download.cloudgdansk.pl/gdansk-pl/d/<id>/filena
 - [`bip.nieruchomoscigda.pl/ogloszenia`](https://bip.nieruchomoscigda.pl/ogloszenia) — GN SZB announcements (container sales, tree permits — NOT flat auctions) (fetched 2026-06-27)
 - [`bip.nieruchomoscigda.pl/wiadomosci/przetargi-na-zbycie-nieruchomosci-stanowiacych-wlasnosc-gminy-miasta-gdanska,697.html`](https://bip.nieruchomoscigda.pl/wiadomosci/przetargi-na-zbycie-nieruchomosci-stanowiacych-wlasnosc-gminy-miasta-gdanska,697.html) — archived 2012 GN SZB announcement cross-referencing Wydział Skarbu as the auction organizer (fetched 2026-06-27)
 - [`bip.gdansk.pl/urzad-miejski/Inne,a,1587`](https://bip.gdansk.pl/urzad-miejski/Inne,a,1587) — BIP "Inne" subsection (bezprzetargowa info only) (fetched 2026-06-27)
+
+## Partial source/asset audit — 2026-10-21
+
+Municipal property auctions in Gdańsk are organized exclusively by Wydział Skarbu Urzędu
+Miejskiego (Referat Obrotu Nieruchomościami), published on the city BIP at
+`https://bip.gdansk.pl/urzad-miejski/Ogloszenia-o-przetargach,a,1439`. Housing manager
+Gdańskie Nieruchomości (GN SZB) handles leases and rental stock only.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal flat auctions bundled into periodic session notices.
+- **Land & commercial:** bundled on same session dates; adapter focuses on residential flat sales.
+
+Announcements are published as server-rendered HTML articles linking to born-digital batch PDFs
+hosted on `download.cloudgdansk.pl`. A single PDF notice bundles all properties scheduled for that
+auction session. Result notices with achieved prices are not published on the announcement board
+(`crawlResultDocs` returns `[]`).
+
+Committed dataset maintains **8 unique properties**, with 5 active listings / auctions and
+3 archived auctions. The residential stream is verified healthy in production.
